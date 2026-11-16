@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_tree.assets/balanced_binary_tree",
+  "schema_version": 2,
   "title": "平衡二叉树：任意节点的左右子树高度差不超过 1",
   "summary": "八个节点旁分别标出左右子树高度差 d，所有节点的 d 均在 −1、0、1 之间，满足 |d| ≤ 1。",
   "context": [
@@ -20,58 +17,7 @@
       "book_path": "chapter_tree/binary_tree.assets/balanced_binary_tree.png",
       "title": "平衡二叉树：任意节点的左右子树高度差不超过 1",
       "explanation": "图中根节点标 d = −1，根的左、右子节点均标 d = 1，第三层中间内部节点与全部四个叶节点（共五个节点）均标 d = 0，直观呈现每个节点都满足 |d| ≤ 1。",
-      "state": "四层无数值标签的二叉树共 8 个节点：根（d = −1）有左子节点（d = 1）和右子节点（d = 1）；根的左子节点仅有左叶节点（d = 0）；根的右子节点有左子节点（d = 0，下挂两个 d = 0 的叶节点）和右叶节点（d = 0）。全部 8 个节点均满足 |d| ≤ 1。",
-      "key_state": "共 8 个节点：根节点 d = −1，第二层两个节点 d = 1，其余五个节点 d = 0，均满足 |d| ≤ 1。",
-      "announcement": "展示所有节点的左右子树高度差绝对值都不超过 1 的八节点平衡二叉树。"
+      "state": "四层无数值标签的二叉树共 8 个节点：根（d = −1）有左子节点（d = 1）和右子节点（d = 1）；根的左子节点仅有左叶节点（d = 0）；根的右子节点有左子节点（d = 0，下挂两个 d = 0 的叶节点）和右叶节点（d = 0）。全部 8 个节点均满足 |d| ≤ 1。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-06",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "65cf4e71c22c85e49724359d7f4d8a23a4012d7b52e51fff34789bd0e4b0c644",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a7d27ac86970762b98a3afc622b5a802549e6b6254c666e3efdf60f34ede65b5",
-        "output_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d8e4af23c9f523c1adc3f49fd55c71ad13cdbcdd41c3780e99e33a5125fdbbb4",
-        "output_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6f5030ea177bb3f209811c4c4f4186d1cb74614102bdd9880c657ec534f41900",
-        "output_sha256": "30bb25c69fe95554ab48370f707653e1ddeb4b287f83cb44cf33dc013e44b87b"
-      }
-    ],
-    "evidence_sha256": "bbb898a17ec7d0f8023ba3e028e19e1cebb4eba7c5059fe86305e5491e6f3b3b"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_tree.assets/balanced_binary_tree.png": "89a0793e55884673bcd122b71ef137a3d01f9d4cec925d8c7aabea483b791d9c"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-dependency-verification",
-      "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-      "factual_review_preserved": true
-    }
-  }
+  ]
 }

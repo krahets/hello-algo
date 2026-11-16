@@ -6,11 +6,6 @@
 2. 任意節點的左、右子樹也是二元搜尋樹，即同樣滿足條件 `1.` 。
 
 ![二元搜尋樹](binary_search_tree.assets/binary_search_tree.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/binary_search_tree -->
-
-[包含 1 至 15 的二元搜尋樹：完整圖解](binary_search_tree.assets/binary_search_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 二元搜尋樹的操作
 
@@ -35,11 +30,6 @@
 
 === "<4>"
     ![在二元搜尋樹中查詢節點 7，第 4 步，共 4 步：找到節點 7](binary_search_tree.assets/bst_search_step4.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/bst_search -->
-
-[在二元搜尋樹中查詢節點 7：完整圖解](binary_search_tree.assets/bst_search.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 二元搜尋樹的查詢操作與二分搜尋演算法的工作原理一致，都是每輪排除一半情況。迴圈次數最多為二元樹的高度，當二元樹平衡時，使用 $O(\log n)$ 時間。示例程式碼如下：
 
@@ -55,11 +45,6 @@
 2. **在該位置插入節點**：初始化節點 `num` ，將該節點置於 `None` 的位置。
 
 ![在二元搜尋樹中插入節點](binary_search_tree.assets/bst_insert.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/bst_insert -->
-
-[二元搜尋樹插入節點：完整圖解](binary_search_tree.assets/bst_insert.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在程式碼實現中，需要注意以下兩點。
 
@@ -79,20 +64,10 @@
 如下圖所示，當待刪除節點的度為 $0$ 時，表示該節點是葉節點，可以直接刪除。
 
 ![在二元搜尋樹中刪除節點（度為 0 ）](binary_search_tree.assets/bst_remove_case1.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/bst_remove_case1 -->
-
-[二元搜尋樹刪除葉節點：完整圖解](binary_search_tree.assets/bst_remove_case1.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 如下圖所示，當待刪除節點的度為 $1$ 時，將待刪除節點替換為其子節點即可。
 
 ![在二元搜尋樹中刪除節點（度為 1 ）](binary_search_tree.assets/bst_remove_case2.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/bst_remove_case2 -->
-
-[二元搜尋樹刪除單子節點：完整圖解](binary_search_tree.assets/bst_remove_case2.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 當待刪除節點的度為 $2$ 時，我們無法直接刪除它，而需要使用一個節點替換該節點。由於要保持二元搜尋樹“左子樹 $<$ 根節點 $<$ 右子樹”的性質，**因此這個節點可以是右子樹的最小節點或左子樹的最大節點**。
 
@@ -112,11 +87,6 @@
 
 === "<4>"
     ![二元搜尋樹刪除雙子節點，第 4 步，共 4 步：把後繼值寫入 cur](binary_search_tree.assets/bst_remove_case3_step4.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/bst_remove_case3 -->
-
-[二元搜尋樹刪除雙子節點：完整圖解](binary_search_tree.assets/bst_remove_case3.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 刪除節點操作同樣使用 $O(\log n)$ 時間，其中查詢待刪除節點需要 $O(\log n)$ 時間，獲取中序走訪後繼節點需要 $O(\log n)$ 時間。示例程式碼如下：
 
@@ -133,11 +103,6 @@
 利用中序走訪升序的性質，我們在二元搜尋樹中獲取有序資料僅需 $O(n)$ 時間，無須進行額外的排序操作，非常高效。
 
 ![二元搜尋樹的中序走訪序列](binary_search_tree.assets/bst_inorder_traversal.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/bst_inorder_traversal -->
-
-[二元搜尋樹的中序走訪：完整圖解](binary_search_tree.assets/bst_inorder_traversal.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 二元搜尋樹的效率
 
@@ -156,11 +121,6 @@
 然而，如果我們在二元搜尋樹中不斷地插入和刪除節點，可能導致二元樹退化為下圖所示的鏈結串列，這時各種操作的時間複雜度也會退化為 $O(n)$ 。
 
 ![二元搜尋樹退化](binary_search_tree.assets/bst_degradation.svg)
-<!-- figure-reading:start group:chapter_tree/binary_search_tree.assets/bst_degradation -->
-
-[平衡的二元搜尋樹與退化的二元搜尋樹：完整圖解](binary_search_tree.assets/bst_degradation.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 二元搜尋樹常見應用
 

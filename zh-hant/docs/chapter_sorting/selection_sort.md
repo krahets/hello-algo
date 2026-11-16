@@ -42,11 +42,6 @@
 
 === "<11>"
     ![選擇排序，第 11 步，共 11 步：排序完成](selection_sort.assets/selection_sort_step11.svg)
-<!-- figure-reading:start group:chapter_sorting/selection_sort.assets/selection_sort -->
-
-[選擇排序：完整圖解](selection_sort.assets/selection_sort.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在程式碼中，我們用 $k$ 來記錄未排序區間內的最小元素：
 
@@ -61,8 +56,3 @@
 - **非穩定排序**：如下圖所示，元素 `nums[i]` 有可能被交換至與其相等的元素的右邊，導致兩者的相對順序發生改變。
 
 ![選擇排序非穩定示例](selection_sort.assets/selection_sort_instability.svg)
-<!-- figure-reading:start group:chapter_sorting/selection_sort.assets/selection_sort_instability -->
-
-[選擇排序中的跨位置交換：完整圖解](selection_sort.assets/selection_sort_instability.a11y.markdown)
-
-<!-- figure-reading:end -->

@@ -6,11 +6,6 @@
 - <u>大顶堆（max heap）</u>：任意节点的值 $\geq$ 其子节点的值。
 
 ![小顶堆与大顶堆](heap.assets/min_heap_and_max_heap.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/min_heap_and_max_heap -->
-
-[小顶堆与大顶堆的结构与大小关系：完整图解](heap.assets/min_heap_and_max_heap.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 堆作为完全二叉树的一个特例，具有以下特性。
 
@@ -61,11 +56,6 @@ heap_operations
 如下图所示，给定索引 $i$ ，其左子节点的索引为 $2i + 1$ ，右子节点的索引为 $2i + 2$ ，父节点的索引为 $(i - 1) / 2$（向下整除）。当索引越界时，表示空节点或节点不存在。
 
 ![堆的表示与存储](heap.assets/representation_of_heap.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/representation_of_heap -->
-
-[堆的数组表示：完整图解](heap.assets/representation_of_heap.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 我们可以将索引映射公式封装成函数，方便后续使用：
 
@@ -113,11 +103,6 @@ heap_operations
 
 === "<9>"
     ![大顶堆插入元素，第 9 步，共 9 步：插入完成](heap.assets/heap_push_step9.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/heap_push -->
-
-[大顶堆插入元素：完整图解](heap.assets/heap_push.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 设节点总数为 $n$ ，则树的高度为 $O(\log n)$ 。由此可知，堆化操作的循环轮数最多为 $O(\log n)$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。代码如下所示：
 
@@ -164,11 +149,6 @@ heap_operations
 
 === "<10>"
     ![大顶堆弹出堆顶，第 10 步，共 10 步：出堆完成](heap.assets/heap_pop_step10.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/heap_pop -->
-
-[大顶堆弹出堆顶：完整图解](heap.assets/heap_pop.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 $O(\log n)$ 。代码如下所示：
 

@@ -11,11 +11,6 @@
 如下图所示，将 `kitten` 转换为 `sitting` 需要编辑 3 步，包括 2 次替换操作与 1 次添加操作；将 `hello` 转换为 `algo` 需要 3 步，包括 2 次替换操作和 1 次删除操作。
 
 ![编辑距离的示例数据](edit_distance_problem.assets/edit_distance_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_example -->
-
-[编辑距离：两个三步转换示例：完整图解](edit_distance_problem.assets/edit_distance_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 **编辑距离问题可以很自然地用决策树模型来解释**。字符串对应树节点，一轮决策（一次编辑操作）对应树的一条边。
 
@@ -24,11 +19,6 @@
 从决策树的角度看，本题的目标是求解节点 `hello` 和节点 `algo` 之间的最短路径。
 
 ![基于决策树模型表示编辑距离问题](edit_distance_problem.assets/edit_distance_decision_tree.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree -->
-
-[编辑距离的决策树：完整图解](edit_distance_problem.assets/edit_distance_decision_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 动态规划思路
 
@@ -56,11 +46,6 @@
 3. 将 $s[i-1]$ 替换为 $t[j-1]$ ，则剩余子问题 $dp[i-1, j-1]$ 。
 
 ![编辑距离的状态转移](edit_distance_problem.assets/edit_distance_state_transfer.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer -->
-
-[编辑距离的状态转移：完整图解](edit_distance_problem.assets/edit_distance_state_transfer.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 根据以上分析，可得最优子结构：$dp[i, j]$ 的最少编辑步数等于 $dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ 三者中的最少编辑步数，再加上本次的编辑步数 $1$ 。对应的状态转移方程为：
 
@@ -132,11 +117,6 @@ $$
 
 === "<15>"
     ![编辑距离的动态规划，第 15 步，共 15 步：读取右下角 dp\[3, 4\]，返回最少编辑步数 3](edit_distance_problem.assets/edit_distance_dp_step15.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp -->
-
-[编辑距离的动态规划：完整图解](edit_distance_problem.assets/edit_distance_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 空间优化
 

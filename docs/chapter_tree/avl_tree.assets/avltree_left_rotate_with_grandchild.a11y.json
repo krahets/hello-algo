@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/avl_tree.assets/avltree_left_rotate_with_grandchild",
   "title": "带孙节点的 AVL 左旋",
   "summary": "左旋提升失衡节点的右子节点，并将该右子节点原有的左子节点转接到下移节点的右侧，恢复平衡且保持二叉搜索树有序。",
   "context": [
@@ -19,30 +16,13 @@
       "book_path": "chapter_tree/avl_tree.assets/avltree_left_rotate_with_grandchild.png",
       "title": "带孙节点的 AVL 左旋",
       "explanation": "按叶节点高度为 0 计算，旋转前根节点 1 的左子树高度为 0、右子树高度为 2，平衡因子为 −2，右侧过高。一次左旋同时完成节点 4 上升为根、节点 1 下降为 4 的左子节点，以及孙节点 3 转接到 1 的右侧；整理布局后新根 4 两侧子树高度同为 1。",
-      "state": "旋转前以 1 为根：节点 1 左接 0、右接 4；节点 4 左接 3、右接 5；节点 5 左空、右接 6；0、3、6 为叶节点（node=1，child=4，grand_child=3）。左旋后以 4 为根：节点 4 左接 1、右接 5；节点 1 左接 0、右接 3；节点 5 左空、右接 6；0、3、6 仍为叶节点。",
-      "key_state": "根节点由 1 变为 4；节点 1 由左 0 右 4 变为左 0 右 3；节点 4 由左 3 右 5 变为左 1 右 5。",
-      "announcement": "对节点 1 执行左旋，提升节点 4 为根并将孙节点 3 转接到节点 1 右侧。"
+      "state": "旋转前以 1 为根：节点 1 左接 0、右接 4；节点 4 左接 3、右接 5；节点 5 左空、右接 6；0、3、6 为叶节点（node=1，child=4，grand_child=3）。左旋后以 4 为根：节点 4 左接 1、右接 5；节点 1 左接 0、右接 3；节点 5 左空、右接 6；0、3、6 仍为叶节点。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/avl_tree.assets/avltree_left_rotate_with_grandchild.png": "165a983bc1e357f20ee28cb334926b40ae05eeaa295582e4cdfd6e230f44ae1e"
-    }
-  },
   "animations": {
     "avl-left-with-grandchild": {
       "kind": "prose",
-      "model_sha256": "0289f67b260465a676913282f8bd7a122fb8b7926418aff7441c8ecde9137d17",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "avl-left-with-grandchild",
-        "group_id": "group:chapter_tree/avl_tree.assets/avltree_left_rotate_with_grandchild",
         "title": "带孙节点的 AVL 左旋",
         "summary": "左旋提升失衡节点的右子节点，并将该右子节点原有的左子节点转接到下移节点的右侧，恢复平衡且保持二叉搜索树有序。",
         "context": [
@@ -78,39 +58,7 @@
             "key_state": "虚线移除后拓扑不变：根 4 左接 1（带 0、3）、右接 5（右接 6），左右高度均为 1。",
             "announcement": "移除原位置虚线并整理布局，展示恢复平衡后的 AVL 树。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-01",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-              "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-              "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-              "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-            }
-          ],
-          "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-          "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "354d8fa3ee14f8d5d9c179712768c42b5ce70fd435a5d50d8a4d20ca1dd281ff"
-        }
+        ]
       }
     }
   },
@@ -170,47 +118,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-01",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-      }
-    ],
-    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "6d6e2a84868a712ccdf066f435e9be11166716afe8d83ba8304149f4eab8d939"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-final-verification",
-      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
-      "factual_review_preserved": true
-    }
-  }
+  ]
 }

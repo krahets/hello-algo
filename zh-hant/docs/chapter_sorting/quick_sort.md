@@ -34,11 +34,6 @@
 
 === "<9>"
     ![以 2 為基準的一次哨兵劃分，第 9 步，共 9 步：完成一次劃分，保留左右子陣列子問題](quick_sort.assets/pivot_division_step9.svg)
-<!-- figure-reading:start group:chapter_sorting/quick_sort.assets/pivot_division -->
-
-[以 2 為基準的一次哨兵劃分：完整圖解](quick_sort.assets/pivot_division.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 哨兵劃分完成後，原陣列被劃分成三部分：左子陣列、基準數、右子陣列，且滿足“左子陣列任意元素 $\leq$ 基準數 $\leq$ 右子陣列任意元素”。因此，我們接下來只需對這兩個子陣列進行排序。
 
@@ -59,11 +54,6 @@
 3. 持續遞迴，直至子陣列長度為 1 時終止，從而完成整個陣列的排序。
 
 ![快速排序流程](quick_sort.assets/quick_sort_overview.svg)
-<!-- figure-reading:start group:chapter_sorting/quick_sort.assets/quick_sort_overview -->
-
-[快速排序遞迴概覽：完整圖解](quick_sort.assets/quick_sort_overview.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

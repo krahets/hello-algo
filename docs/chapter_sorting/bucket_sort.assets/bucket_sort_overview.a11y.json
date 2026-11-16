@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/bucket_sort.assets/bucket_sort_overview",
   "title": "分成五个桶，桶内排序后依次合并",
   "summary": "十个小数按数值范围分入五个桶，桶内分别升序排序，再按桶序连接成有序数组。",
   "context": [
@@ -104,25 +101,10 @@
       "row_header": 0
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/bucket_sort.md": "ca9a62e971bc3b66c937e69bcfcee27297369acc4b5bce7c0f88af2de94f4e6e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/bucket_sort.assets/bucket_sort_overview.png": "b5b00580a9c39db4dcb286f3bf99bb7778005a4301bff8d5bb3e754e5920e319"
-    }
-  },
   "animations": {
     "bucket-sort-overview": {
       "kind": "prose",
-      "model_sha256": "3d8f4feb070dfe4461db5817e8a9ccda48256fb24244c0298dec1a238ea99978",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "bucket-sort-overview",
-        "group_id": "group:chapter_sorting/bucket_sort.assets/bucket_sort_overview",
         "title": "分成五个桶，桶内排序后依次合并",
         "summary": "十个小数按数值范围分入五个桶，桶内分别升序排序，再按桶序连接成有序数组。",
         "context": [
@@ -294,72 +276,8 @@
               }
             ]
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-09",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
-              "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
-              "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
-              "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
-            }
-          ],
-          "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
-          "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "f9183368bc5a5a94a0c8b576ba8c8e11153ad6062ba8c164a7a83c8fbb76e73b"
-        }
+        ]
       }
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-09",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
-        "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
-        "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
-        "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
-      }
-    ],
-    "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
-    "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "6600a252742ac1d51b56950aa0a8597a5243eb20054d0e112dec7a74ddb75397"
   }
 }

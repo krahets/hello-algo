@@ -5,11 +5,6 @@
 如下圖所示，給定 $n$ 個學生，每個學生都有“姓名”和“學號”兩項資料。假如我們希望實現“輸入一個學號，返回對應的姓名”的查詢功能，則可以採用下圖所示的雜湊表來實現。
 
 ![雜湊表的抽象表示](hash_map.assets/hash_table_lookup.svg)
-<!-- figure-reading:start group:chapter_hashing/hash_map.assets/hash_table_lookup -->
-
-[雜湊表的鍵值對映與查詢：完整圖解](hash_map.assets/hash_table_lookup.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 除雜湊表外，陣列和鏈結串列也可以實現查詢功能，它們的效率對比如下表所示。
 
@@ -69,11 +64,6 @@ index = hash(key) % capacity
 設陣列長度 `capacity = 100`、雜湊演算法 `hash(key) = key` ，易得雜湊函式為 `key % 100` 。下圖以 `key` 學號和 `value` 姓名為例，展示了雜湊函式的工作原理。
 
 ![雜湊函式工作原理](hash_map.assets/hash_function.svg)
-<!-- figure-reading:start group:chapter_hashing/hash_map.assets/hash_function -->
-
-[雜湊函式將輸入 key 對映為桶陣列索引：完整圖解](hash_map.assets/hash_function.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 以下程式碼實現了一個簡單雜湊表。其中，我們將 `key` 和 `value` 封裝成一個類別 `Pair` ，以表示鍵值對。
 
@@ -95,22 +85,12 @@ index = hash(key) % capacity
 如下圖所示，兩個學號指向了同一個姓名，這顯然是不對的。我們將這種多個輸入對應同一輸出的情況稱為<u>雜湊衝突（hash collision）</u>。
 
 ![雜湊衝突示例](hash_map.assets/hash_collision.svg)
-<!-- figure-reading:start group:chapter_hashing/hash_map.assets/hash_collision -->
-
-[雜湊衝突：兩個不同學號對映到同一個桶索引：完整圖解](hash_map.assets/hash_collision.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 容易想到，雜湊表容量 $n$ 越大，多個 `key` 被分配到同一個桶中的機率就越低，衝突就越少。因此，**我們可以透過擴容雜湊表來減少雜湊衝突**。
 
 如下圖所示，擴容前鍵值對 `(136, A)` 和 `(236, D)` 發生衝突，擴容後衝突消失。
 
 ![雜湊表擴容](hash_map.assets/hash_table_reshash.svg)
-<!-- figure-reading:start group:chapter_hashing/hash_map.assets/hash_table_reshash -->
-
-[雜湊表擴容與重新雜湊：完整圖解](hash_map.assets/hash_table_reshash.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 類似於陣列擴容，雜湊表擴容需將所有鍵值對從原雜湊表遷移至新雜湊表，非常耗時；並且由於雜湊表容量 `capacity` 改變，我們需要透過雜湊函式來重新計算所有鍵值對的儲存位置，這進一步增加了擴容過程的計算開銷。為此，程式語言通常會預留足夠大的雜湊表容量，防止頻繁擴容。
 

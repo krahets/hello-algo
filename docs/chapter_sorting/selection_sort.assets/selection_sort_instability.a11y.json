@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/selection_sort.assets/selection_sort_instability",
   "title": "选择排序中的跨位置交换",
   "summary": "观察首轮跨位置交换如何打乱两个相等元素 4 的相对次序，并区分单轮中间状态与完整排序的最终稳定性。",
   "context": [
@@ -17,30 +14,13 @@
       "book_path": "chapter_sorting/selection_sort.assets/selection_sort_instability.png",
       "title": "选择排序中的跨位置交换",
       "explanation": "首轮在未排序区间 [0, 5] 内定位最小元素 1（索引 3），与索引 0 的 4A 交换。交换后 1 在索引 0 归位，未排序区间缩为 [1, 5]；而原本在索引 0 的 4A 直接跨过索引 1 的 4B 落到索引 3，使两个 4 在首轮后出现中间逆序。图中仅展示这第一轮，未画出后续轮次。",
-      "state": "以 4A、4B 分别标记初始索引 0 的蓝色 4 与索引 1 的紫色 4。交换前输入为 [4A, 4B, 3, 1, 5, 2]；第一轮交换索引 0 与索引 3 后，数组变为 [1, 4B, 3, 4A, 5, 2]，其中 4B 仍在索引 1，4A 移至索引 3，仅索引 0 已进入已排序区，索引 1 至 5 尚未完成排序。",
-      "key_state": "首轮交换后为 [1, 4B, 3, 4A, 5, 2]：4A 由索引 0 移至 3，4B 仍在索引 1，仅索引 0 已排序。",
-      "announcement": "首轮将索引 0 的 4A 与索引 3 的 1 交换，两个 4 出现中间逆序。"
+      "state": "以 4A、4B 分别标记初始索引 0 的蓝色 4 与索引 1 的紫色 4。交换前输入为 [4A, 4B, 3, 1, 5, 2]；第一轮交换索引 0 与索引 3 后，数组变为 [1, 4B, 3, 4A, 5, 2]，其中 4B 仍在索引 1，4A 移至索引 3，仅索引 0 已进入已排序区，索引 1 至 5 尚未完成排序。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/selection_sort.md": "f23ec73cdb7d702c0461b948120175ddccb20c69574a84e24cca02844ac24ee8"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/selection_sort.assets/selection_sort_instability.png": "ffebee153b0205ae22130067e0809381104d67bb3d68b61adf9c5e6941d16b92"
-    }
-  },
   "animations": {
     "selection-sort-instability": {
       "kind": "prose",
-      "model_sha256": "561f4caf5b655cdc2bfd8166651fd8e342f158b801d28ce7bc461b07cd658d53",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "selection-sort-instability",
-        "group_id": "group:chapter_sorting/selection_sort.assets/selection_sort_instability",
         "title": "选择排序中的跨位置交换",
         "summary": "观察首轮跨位置交换如何打乱两个相等元素 4 的相对次序，并区分单轮中间状态与完整排序的最终稳定性。",
         "context": [
@@ -66,39 +46,7 @@
             "key_state": "首轮后数组为 [1, 4B, 3, 4A, 5, 2]，4B 在索引 1、4A 在索引 3，仅索引 0 已归位。",
             "announcement": "1 与 4A 完成首轮交换，4A 移至索引 3，4B 暂时排在 4A 之前。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-01",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-              "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-              "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-              "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-            }
-          ],
-          "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-          "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "425430522007dff0e5d977682fc7b4d5837f3c30cf6196be4eb58ac11c9e7861"
-        }
+        ]
       }
     }
   },
@@ -136,37 +84,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-01",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-      }
-    ],
-    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "207d7fc99a48249c738053444a14d79ef7aa45ed299b486e47a745ae5f4c5265"
-  }
+  ]
 }

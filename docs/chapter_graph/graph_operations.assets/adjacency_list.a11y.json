@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_graph/graph_operations.assets/adjacency_list",
   "title": "邻接表的增删操作",
   "summary": "增删无向边需同步更新两个端点的邻接链表；删除顶点则需移除该顶点的整条链表，并从其余链表中清理所有指向它的节点。",
   "context": [
@@ -225,24 +222,9 @@
     }
   ],
   "tables": [],
-  "dependencies": {
-    "markdown": {
-      "chapter_graph/graph_operations.md": "3826d79237c549e5a2bbab381323a32ac4225ef7e01980f8097bacde685a0ebb"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_graph/graph_operations.assets/adjacency_list_step1_initialization.png": "c6243c2c8568a816fae220dbb0d4b7330d10add41363882336eda625454c01d7",
-      "chapter_graph/graph_operations.assets/adjacency_list_step2_add_edge.png": "06293477fe800555ef64de6e37c8f3ea9777e4a53c14f2534cf7cf20f1acca3e",
-      "chapter_graph/graph_operations.assets/adjacency_list_step3_remove_edge.png": "ca2ff11672d961143e146ff5d9a67f328b3ff915936e966e25079dc99010c4c5",
-      "chapter_graph/graph_operations.assets/adjacency_list_step4_add_vertex.png": "23022a739b766072f8499c324726bdc88fd503b3c9b2309b984b09de214c4133",
-      "chapter_graph/graph_operations.assets/adjacency_list_step5_remove_vertex.png": "d7ce2f96cbbe00cf7cc9f853f9a84948406eb583878e3e755b8dc14a9d14c496"
-    }
-  },
   "animations": {
     "adjacency-list": {
       "kind": "source-frames",
-      "model_sha256": "4744678c652fce425cb575581f4ab69b0e782a78b679d305ab4841d78905e6a9",
-      "source_content_sha256": "af2877bba31ee63a2ed0183b2e18f9c20e6870ce8c0a5b8d96cc6c239b6427c3",
       "states": [
         {
           "id": "step-1",
@@ -264,48 +246,8 @@
           "id": "step-5",
           "frame_id": "source-188"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-09/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "4fcb5c7a7757647309f21db3208b64a27d7b1ca10255b2424d33b0b2453a3765",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b"
-      }
+      ]
     }
   },
-  "standalone_tables": [],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-09",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
-        "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
-        "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
-        "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
-      }
-    ],
-    "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
-    "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "af2877bba31ee63a2ed0183b2e18f9c20e6870ce8c0a5b8d96cc6c239b6427c3"
-  }
+  "standalone_tables": []
 }

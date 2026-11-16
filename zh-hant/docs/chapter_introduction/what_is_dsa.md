@@ -30,11 +30,6 @@
 - 演算法通常可以基於不同的資料結構實現，但執行效率可能相差很大，選擇合適的資料結構是關鍵。
 
 ![資料結構與演算法的關係](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg)
-<!-- figure-reading:start group:chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm -->
-
-[資料結構與演算法的關係：完整圖解](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 資料結構與演算法猶如下圖所示的拼裝積木。一套積木，除了包含許多零件之外，還附有詳細的組裝說明書。我們按照說明書一步步操作，就能組裝出精美的積木模型。
 

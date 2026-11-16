@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_tree_traversal.assets/preorder",
   "title": "前序遍历的递归过程",
   "summary": "展示普通二叉树前序遍历的 7 次节点访问与 4 个递归返回状态，区分输出集齐与调用结束。",
   "context": [
@@ -114,30 +111,9 @@
       "announcement": "沿 7、3、1 完成收尾返回，递归调用结束，输出仍为 [1, 2, 4, 5, 3, 6, 7]。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_tree_traversal.md": "d19ef208720dc46eac8a9110693de9baa8d57d477be75b8914359fd766dacadb"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_tree_traversal.assets/preorder_step1.png": "f86c76299246ffaeaa4136ad57386d64a7d84c1dd0d726476f5b62dc431243c5",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step2.png": "5d74e653f20c303be3a02d6ea3e152223d4e0cb39721bfced5133b5e5e867087",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step3.png": "9e11a94967c48b4bd3a560dc614f6c5c4cb93abc4188faa9a627b4f35263649e",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step4.png": "506a27445bc12e71a3c61524da01a8061747da9ef573fd850b35b4e8901963ad",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step5.png": "c71ce51dfcae51a6cec7d778d2a334689b6225f8d6cf9f723c9ff171b5502665",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step6.png": "0052fb19daf94809dcf31cdc9ad25e52aa24fb9a3a338cd7dd19303611216a92",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step7.png": "5a7a04cb450661948dfb82fee8f48dde8811f362730b831a4f08d1e3ddf8d493",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step8.png": "40ff2474ef7e1348e0cd78930c0c8e191702a65e9e19e2c4c41db71eabe8e793",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step9.png": "14143e88098dd996308d634e4dc7bc6f3c7d3e7982fb7594b78d405b85aea5d3",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step10.png": "4f2e6a1f9fe01729a90311dd068ed2ba888ebc9807e1723445ad19a4ec080b86",
-      "chapter_tree/binary_tree_traversal.assets/preorder_step11.png": "c35091a5da85a18589ba8f48603904f04e1d383d1fe17877897d431683bae6a5"
-    }
-  },
   "animations": {
     "preorder-traversal": {
       "kind": "source-frames",
-      "model_sha256": "371c2df8693cf5449e0abf85c9f8a30139f0aea628b5380c10e194ad0ccced05",
-      "source_content_sha256": "db5a75648ca845c90720e43e3321f331562bd287f49cf35a13365019a4f81cb7",
       "states": [
         {
           "id": "step-1",
@@ -183,49 +159,9 @@
           "id": "step-11",
           "frame_id": "source-109"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-06/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "735d1bd9082a4e8db8ad2ca934bbe815af648e6bcaf1f4bc807bf8bde937af0b",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78"
-      }
+      ]
     }
   },
   "tables": [],
-  "standalone_tables": [],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-06",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
-        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
-        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
-        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
-      }
-    ],
-    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
-    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "db5a75648ca845c90720e43e3321f331562bd287f49cf35a13365019a4f81cb7"
-  }
+  "standalone_tables": []
 }

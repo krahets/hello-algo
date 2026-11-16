@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_overall",
+  "schema_version": 2,
   "title": "逐个子问题查看前序与中序的划分",
   "summary": "根 3 拆出左叶 9 与以 2 为根的右子树，节点 2 再拆出左右叶 1、7；各节点旁标出对应的遍历有效区间。",
   "context": [
@@ -21,9 +18,7 @@
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_overall.png",
       "title": "逐个子问题查看前序与中序的划分",
       "explanation": "同一个节点值在不同递归子问题的数组中承担不同的颜色角色：例如元素 2 在根 3 的顶层数组中属于紫色右子树区间，而在以 2 自身为根的子问题数组中则变为青色根元素。图中树的五个圆形节点本身均为绿色。",
-      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。树结构为根 3、左子节点 9、右子节点 2，2 的左右子节点分别为 1 和 7，9、1、7 为叶节点。五个非空子问题的有效区间分别为：根 3 对应完整两条序列；根 9 对应前序 [9]、中序 [9]；根 2 对应前序 [2, 1, 7]、中序 [1, 2, 7]；根 1 对应 [1] / [1]；根 7 对应 [7] / [7]，其余灰色格不属于当前子问题。",
-      "key_state": "五个子问题的根依次为 3、9、2、1、7，各自高亮对应的前序与中序有效区间。",
-      "announcement": "展示五个构树递归子问题各自对应的前序与中序划分结果。"
+      "state": "前序 preorder = [3, 9, 2, 1, 7]，中序 inorder = [9, 3, 1, 2, 7]，节点值互不重复。树结构为根 3、左子节点 9、右子节点 2，2 的左右子节点分别为 1 和 7，9、1、7 为叶节点。五个非空子问题的有效区间分别为：根 3 对应完整两条序列；根 9 对应前序 [9]、中序 [9]；根 2 对应前序 [2, 1, 7]、中序 [1, 2, 7]；根 1 对应 [1] / [1]；根 7 对应 [7] / [7]，其余灰色格不属于当前子问题。"
     }
   ],
   "tables": [
@@ -68,44 +63,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-16",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "6109cb26891fbdce751c1c3b487d292301fd7e0a7c48b4a93c8a7b2603bbbc7a",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
-        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
-        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
-        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
-      }
-    ],
-    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/build_binary_tree_problem.md": "15c1f80907cb390b2dece48fa770f0441b86b7b89fb20b34edba6aca89263817"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_overall.png": "a62963fed1303f39d16a7152534655c249f5d86c0cb66577026f76953a9511c5"
-    }
-  }
+  ]
 }

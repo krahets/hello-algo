@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure",
   "title": "数据结构的逻辑关系",
   "summary": "比较顺序、父子层级、网络连接和键值映射四种逻辑关系。",
   "context": [],
@@ -14,20 +11,9 @@
       "book_path": "chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png",
       "title": "数据结构的逻辑关系",
       "explanation": "数组、链表、栈、队列都按1、3、2、5、4排成线性先后次序。其中栈在同一开口端入栈push和出栈pop；队列在一端入队push、另一端出队pop。树与堆按父子层级组织节点，图则允许一个顶点连接多个邻居。哈希表表达键到值的映射，跨越线性与非线性两栏单列，不简单归入单一类别。",
-      "state": "图中线性结构包括数组array、链表linked list、栈stack、队列queue；非线性结构包括树tree、图graph、堆heap；哈希表hash table单独展示键值映射a→1、b→2、c→3。",
-      "key_state": "先区分元素间的连接关系，再区分栈同端进出与队列两端进出的操作规则。",
-      "announcement": "比较顺序、父子层级、网络连接和键值映射四种逻辑关系。"
+      "state": "图中线性结构包括数组array、链表linked list、栈stack、队列queue；非线性结构包括树tree、图graph、堆heap；哈希表hash table单独展示键值映射a→1、b→2、c→3。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_data_structure/classification_of_data_structure.md": "a61ec86982bb7395e7f0257668a661739cc098c5d2aac268a23df1036243f7aa"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png": "941c683489ff5b7813905e0f2eca610ee389f33eb879686edc079393c67bf0f7"
-    }
-  },
   "tables": [
     {
       "caption": "各结构的示例与连接",
@@ -71,37 +57,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-04",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
-        "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
-        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
-        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-      }
-    ],
-    "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
-    "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "a1d6db0c5fdca95e57fe8d2fd9c39fd7cc49a39a7c3b567cacdf8a8276760eb4"
-  }
+  ]
 }

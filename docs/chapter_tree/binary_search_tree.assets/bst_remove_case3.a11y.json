@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_search_tree.assets/bst_remove_case3",
   "title": "二叉搜索树删除双子节点",
   "summary": "删除度为 2 的节点时，先在右子树中定位并摘除中序后继节点，再将后继值写入目标节点 cur。",
   "context": [
@@ -351,23 +348,9 @@
       ]
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png": "c9adf925c0cfcfd53d2863f56b209cfed92f91ce4f84aeddb8884aee94723cd3",
-      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png": "73923dde3d8c6e210a758d235b6e0f689487ce8605564be2518fb7e9bb99d1c3",
-      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png": "3ee2d2827c15d9297063abe5b47acf095f6eeaf7eb50fc2199efcdff038659b3",
-      "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png": "a5d6856eadf037e226bffb28b6800116df6d198f3e45e822a6ba06aa32208950"
-    }
-  },
   "animations": {
     "bst-delete-two-children": {
       "kind": "source-frames",
-      "model_sha256": "9f70aad2aaa955fff5af9729de4da933666e91f28ddea6d19a56d0816f982608",
-      "source_content_sha256": "fc593dc0364891121c398e43fcfa119204c25d90a3a11141263109e1272f93aa",
       "states": [
         {
           "id": "step-1",
@@ -385,49 +368,9 @@
           "id": "step-4",
           "frame_id": "source-127"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-07/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "d0f0a562ba57bb422c7ce84d35da2b9dfa8c87e291dc4bf0d62880658abb20c3",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198"
-      }
+      ]
     }
   },
   "tables": [],
-  "standalone_tables": [],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-07",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      }
-    ],
-    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "fc593dc0364891121c398e43fcfa119204c25d90a3a11141263109e1272f93aa"
-  }
+  "standalone_tables": []
 }

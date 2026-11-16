@@ -37,11 +37,6 @@
 下图展示了在数组中二分查找元素 $6$ 的分治过程。
 
 ![二分查找的分治过程](binary_search_recur.assets/binary_search_recur.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur -->
-
-[递归二分查找：完整图解](binary_search_recur.assets/binary_search_recur.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在实现代码中，我们声明一个递归函数 `dfs()` 来求解问题 $f(i, j)$ ：
 

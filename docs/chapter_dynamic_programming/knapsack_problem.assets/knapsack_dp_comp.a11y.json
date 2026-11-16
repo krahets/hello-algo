@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp",
   "title": "背包动态规划的单行压缩",
   "summary": "使用单行一维数组保存状态，按容量从大到小倒序更新，确保状态转移读取的是上一轮物品的旧值，避免同一件物品被重复选入。",
   "context": [
@@ -571,25 +568,9 @@
       "row_header": 0
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/knapsack_problem.md": "737c2956ff98e7b0f2127ba26566ece3d167e7022d593ba82e273a2f5e98e493"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step1.png": "c46f71a8d9292ca5f4d8fc86c3070a441a126bc1ca5b9d17aaa3701b8873d26b",
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step2.png": "d6a99884e241c03f50bf23bdb4c1f065607061f49cb1b42652ce6b8d35080f31",
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step3.png": "bfa979f8a466984f34a56e09030914cbe8e512f3ddc4254623fc7aa0435692e1",
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step4.png": "972a8c31e2fc77a98d2721507af158fe6ac4e179804b1f69b8eb754e0b0c6352",
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step5.png": "7a4602d06a749f13d3a4a50b49cb6810cf5c0a07e85f9880c0380d4197abe8cb",
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step6.png": "b7955af7572dd38a2fb9f4a36f3c7f1470e14b8a104430f1fc56fd36ec8a14ba"
-    }
-  },
   "animations": {
     "knapsack-compressed-row": {
       "kind": "source-frames",
-      "model_sha256": "5225a788a35f1def3cf760904cac5f333ea15f0710a5e05dfea9895a3806525a",
-      "source_content_sha256": "0e7f88b1484d5d4510a12d097f53caa6f8b315cc1524c1840ce43215129a2ec8",
       "states": [
         {
           "id": "step-1",
@@ -615,50 +596,10 @@
           "id": "step-6",
           "frame_id": "source-416"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-01/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "226acf026f69fa0b612ee93771dd886fdcd0af9f295e25667735cdef671c533b",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8"
-      }
+      ]
     }
   },
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-01",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-      }
-    ],
-    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "0e7f88b1484d5d4510a12d097f53caa6f8b315cc1524c1840ce43215129a2ec8"
-  }
+  ]
 }

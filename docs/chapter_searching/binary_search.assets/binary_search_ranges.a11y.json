@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_searching/binary_search.assets/binary_search_ranges",
+  "schema_version": 2,
   "title": "二分查找的区间约定",
   "summary": "右边界指针 j 是否包含在搜索区间内，直接决定 j 的初始值、循环终止条件以及向左收缩时的赋值方式。",
   "context": [
@@ -20,9 +17,7 @@
       "book_path": "chapter_searching/binary_search.assets/binary_search_ranges.png",
       "title": "双闭区间与左闭右开区间",
       "explanation": "左右两图的蓝色虚线框都恰好框住索引 0 至 9 的十个元素，但左图双闭区间的右指针 j 指向索引 9（包含该位置），右图左闭右开区间的右指针 j 指向越界的索引 10（排除该位置），下方四行文字逐项列出由此决定的算法规则差异。",
-      "state": "数组有十个位置，索引 0 至 9。左图 [i, j]：i = 0，j = 9；终止 i > j，收缩时 i = m + 1 或 j = m − 1。右图 [i, j)：i = 0，j = 10；终止 i ≥ j，收缩时 i = m + 1 或 j = m。",
-      "key_state": "双闭区间 [0, 9]（终止 i > j，左收 j = m − 1）对比左闭右开 [0, 10)（终止 i ≥ j，左收 j = m）。",
-      "announcement": "对比双闭区间与左闭右开区间在初始化、终止条件和缩小区间上的区别。"
+      "state": "数组有十个位置，索引 0 至 9。左图 [i, j]：i = 0，j = 9；终止 i > j，收缩时 i = m + 1 或 j = m − 1。右图 [i, j)：i = 0，j = 10；终止 i ≥ j，收缩时 i = m + 1 或 j = m。"
     }
   ],
   "tables": [
@@ -56,46 +51,5 @@
         ]
       ]
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_searching/binary_search.md": "a734fc597b716931cf132436b8c4deaa76801f67a7dc4c2f8fdac5bb6cedb01d"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_searching/binary_search.assets/binary_search_ranges.png": "ded5d542e5257d2aa487232fbc701cae4020e180a0cf41c05e0d9978d563b2a3"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "c85a07cda9e514080ef5cf4a270db0cb8db1f46a8d0225d367fb43038002acec"
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary",
+  "schema_version": 2,
   "title": "查字典的二分查找过程",
   "summary": "以在拼音字典中查找首字母为 r 的字为例，分 5 步演示二分查找：每次翻到当前剩余范围的大约一半页码处，依次查看 m、t、p 并排除一半无关区间，最终在第 5 步翻到 r 完成查找。",
   "context": [
@@ -59,55 +56,9 @@
       "announcement": "翻开剩余区间 q、r、s 的一半页码处，直接命中目标首字母 r，查字典任务完成。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-01",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "a3210f1519de5c013bf219bc9220ccd6c20b07c567712ce82521d68ca9b1d0f8",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
-        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
-        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
-        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
-      }
-    ],
-    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
-    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_introduction/algorithms_are_everywhere.md": "51fecdd34af1e8a2382350d0b0fba14d37bc05b3326fa9f78e50668f7d533c9c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png": "207f2eacd8eaab22fa270ebe035f56c134f214c54b99fc8f190d0ae25ccfb5b2",
-      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png": "2742d355636c5296ec95b556be6c3690a4d7997528d62e047bd52764aca12792",
-      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png": "a3fd89446965f2bc28642694c2ec5d4400b497db0122499e16b1a2033c520c86",
-      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png": "70db191972ec25494edada7c5fc7e5c685d477a6b3bc0c9a0d3624a9c045920e",
-      "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png": "521fd97d67a33de744783997f0e554831bc537972c98119ecb66502d5a670afb"
-    }
-  },
   "animations": {
     "dictionary-search": {
       "kind": "source-frames",
-      "model_sha256": "6f28775380607d360eecd124133bda8299a36a30679854a6b8040e088dfe0a5f",
-      "source_content_sha256": "a3210f1519de5c013bf219bc9220ccd6c20b07c567712ce82521d68ca9b1d0f8",
       "states": [
         {
           "id": "step-1",
@@ -129,14 +80,7 @@
           "id": "step-5",
           "frame_id": "source-14"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "d66bce061bae886851aa044348786a1d905a2385270ec70f647d96e34b70fa4a",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
-      }
+      ]
     }
   }
 }

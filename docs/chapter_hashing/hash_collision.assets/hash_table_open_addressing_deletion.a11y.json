@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion",
   "title": "开放寻址的删除问题",
   "summary": "在开放寻址哈希表中直接把被删桶置为 None，会截断线性探测链，使后方的冲突元素被误判为不存在。",
   "context": [],
@@ -58,50 +55,7 @@
       "book_path": "chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png",
       "title": "开放寻址的删除问题",
       "explanation": "本例按键末两位确定起始桶，冲突时向后逐桶探测，遇 None 停止。键 076、876、276、676、776 都从桶 76 起探。将索引 77 的 (876, I) 直接删为 None 后，查找 276 会在比对 76 后于 77 遇 None 提前停止，到不了 78 的 (276, E)；查 676、776 同样在此中断。",
-      "state": "索引 00、01、02 依次存放 (200, A)、(500, D)、(300, Y)；起始桶 76 存放 (076, H)；索引 77 原为 (876, I)，删除后变为 None；索引 78 的 (276, E) 以及更后方未标确切索引的 (676, T)、(776, X) 仍留在表中，但灰显表示从 76 出发的查找已无法到达。",
-      "key_state": "索引 77 的 None 截断了从桶 76 出发的探测链，后方的 (276, E)、(676, T)、(776, X) 仍在表中却无法查到。",
-      "announcement": "删除索引 77 并置为 None 后，从桶 76 出发的查找在 77 处提前中断。"
+      "state": "索引 00、01、02 依次存放 (200, A)、(500, D)、(300, Y)；起始桶 76 存放 (076, H)；索引 77 原为 (876, I)，删除后变为 None；索引 78 的 (276, E) 以及更后方未标确切索引的 (676, T)、(776, X) 仍留在表中，但灰显表示从 76 出发的查找已无法到达。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_hashing/hash_collision.md": "dc5b268b8f8f34a19580b61c3406d958921f07914428b455cc91bd449d76868f"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png": "d74693a3602c5742b4465b27952feb8089c3851c32449b9552b417260da90304"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-06",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
-        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
-        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
-        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
-      }
-    ],
-    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
-    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "ca4c8c1901c9695b2577ed3ed22eb4f8d6dbc9badccc5439fa95e8c9f1d904bc"
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur",
   "title": "递归二分查找",
   "summary": "在十个递增元素中递归查找 6，搜索区间依次由 [0, 9] 缩至 [0, 3]、[2, 3]，最终返回索引 2。",
   "context": [
@@ -22,25 +19,10 @@
       "state": "查找目标为 6，十个递增输入元素始终不变；三次调用的区间、中点与完整输入见下表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/binary_search_recur.md": "5a76ba9c36f02061089a928ca43e5fc9942711eaab609f98ae040d39c440169e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png": "e8157abda752f992ea424abad4d419e7e55a642518570b9a190192d77d23696f"
-    }
-  },
   "animations": {
     "flow-recursive-search": {
       "kind": "prose",
-      "model_sha256": "9617ec4fc91b366259b67282ec5a5eed12da6354a07444c5db309a287fbed575",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "flow-recursive-search",
-        "group_id": "group:chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur",
         "title": "递归二分查找",
         "summary": "在十个递增元素中递归查找 6，搜索区间依次由 [0, 9] 缩至 [0, 3]、[2, 3]，最终返回索引 2。",
         "context": [
@@ -194,39 +176,7 @@
             ],
             "row_header": 0
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-10",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-              "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-              "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-              "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-            }
-          ],
-          "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-          "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "2143be0515c5a7876e225e9bdc931890567dfe5dde63162a254191acfffa9510"
-        }
+        ]
       }
     }
   },
@@ -315,37 +265,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-10",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-      }
-    ],
-    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "b6e5fab7466215944d61b585cb27a60614a0f2ff1b1a69a3537211d2ff9ce1d6"
-  }
+  ]
 }

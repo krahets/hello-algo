@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_ii",
   "title": "子集和 II 的四种剪枝",
   "summary": "对有序数组 [4, 4̂, 5] 搜索和为 9 的子集，综合四种剪枝条件后只保留唯一解 [4, 5]。",
   "context": [
@@ -128,46 +125,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii.png": "1542632366b5252c1a612a70005c116feee9ddc5ddfa7913e7b645acf2b8c652"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-12",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
-        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
-        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
-        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
-      }
-    ],
-    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
-    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "bd2fa2a3edc57a1924299e45a1ed95cb43b43f67c8389501212d0276385e3770"
-  }
+  ]
 }

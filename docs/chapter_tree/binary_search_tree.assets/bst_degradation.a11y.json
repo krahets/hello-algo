@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_search_tree.assets/bst_degradation",
+  "schema_version": 2,
   "title": "平衡的二叉搜索树与退化的二叉搜索树",
   "summary": "同样存储节点 1 至 7：左侧平衡二叉搜索树仅三层，右侧退化为 7→6→5→4→3→2→1 的七层单侧长链。",
   "context": [
@@ -19,48 +16,7 @@
       "book_path": "chapter_tree/binary_search_tree.assets/bst_degradation.png",
       "title": "对比平衡二叉搜索树与链状退化的二叉搜索树",
       "explanation": "左图将 1 至 7 组织成高度为 2 的三层平衡二叉搜索树，右图将 1 至 7 组织成高度为 6 的七层全左链，展示树高对查找路径长度的决定性影响。",
-      "state": "左图“平衡的二叉搜索树”：根为 4，4→2、6，2→1、3，6→5、7，共三层、高度为 2。右图“退化的二叉搜索树”：从根 7 沿左子节点依次连接为 7→6→5→4→3→2→1，共七层、高度为 6。",
-      "key_state": "同为节点 1 至 7：左侧平衡二叉搜索树三层（高 2），右侧退化链七层（高 6）。",
-      "announcement": "对比由节点 1 至 7 构成的三层平衡二叉搜索树与七层全左退化链。"
+      "state": "左图“平衡的二叉搜索树”：根为 4，4→2、6，2→1、3，6→5、7，共三层、高度为 2。右图“退化的二叉搜索树”：从根 7 沿左子节点依次连接为 7→6→5→4→3→2→1，共七层、高度为 6。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-07",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "da7e47f4eab9013a241743acc180898642582a05c91261300a9f96312fb2adcd",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
-        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
-        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
-        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
-      }
-    ],
-    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_search_tree.assets/bst_degradation.png": "adbddc2d090a43695537c5adb147f3d855bfb6ed4d1f1e623332af3280a9ee91"
-    }
-  }
+  ]
 }

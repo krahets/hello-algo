@@ -13,11 +13,6 @@
 此方法只适用于 $k \ll n$ 的情况，因为当 $k$ 与 $n$ 比较接近时，其时间复杂度趋向于 $O(n^2)$ ，非常耗时。
 
 ![遍历寻找最大的 k 个元素](top_k.assets/top_k_traversal.svg)
-<!-- figure-reading:start group:chapter_heap/top_k.assets/top_k_traversal -->
-
-[遍历选择 Top-k：完整图解](top_k.assets/top_k_traversal.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! tip
 
@@ -30,11 +25,6 @@
 显然，该方法“超额”完成任务了，因为我们只需找出最大的 $k$ 个元素即可，而不需要排序其他元素。
 
 ![排序寻找最大的 k 个元素](top_k.assets/top_k_sorting.svg)
-<!-- figure-reading:start group:chapter_heap/top_k.assets/top_k_sorting -->
-
-[方法二（排序）：先升序排序，再返回最右 k 个元素：完整图解](top_k.assets/top_k_sorting.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 方法三：堆
 
@@ -71,11 +61,6 @@
 
 === "<9>"
     ![用小顶堆寻找 Top-k，第 9 步，共 9 步：返回三个候选](top_k.assets/top_k_heap_step9.svg)
-<!-- figure-reading:start group:chapter_heap/top_k.assets/top_k_heap -->
-
-[用小顶堆寻找 Top-k：完整图解](top_k.assets/top_k_heap.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 示例代码如下：
 

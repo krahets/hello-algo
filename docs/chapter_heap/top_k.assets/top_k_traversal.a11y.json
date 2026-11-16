@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_heap/top_k.assets/top_k_traversal",
+  "schema_version": 2,
   "title": "遍历选择 Top-k",
   "summary": "对 nums = [1, 7, 6, 3, 2] 与 k = 3，每轮从未选元素中找出最大值，三轮依次提取 7、6、3。",
   "context": [
@@ -20,30 +17,13 @@
       "book_path": "chapter_heap/top_k.assets/top_k_traversal.png",
       "title": "遍历选择 Top-k",
       "explanation": "图自上而下分四行展示 k = 3 轮遍历选择：每轮都在尚未选出的剩余元素中找出最大值并移入右侧蓝框结果区，从而在第一轮找到第 1 大元素 7、第二轮找到第 2 大元素 6、第三轮找到第 3 大元素 3。",
-      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。自上而下四行状态依次为：初始数组 [1, 7, 6, 3, 2]；第一轮后待选 [1, 6, 3, 2]、已选 [7]；第二轮后待选 [1, 3, 2]、已选 [6, 7]；第三轮后待选 [1, 2]、已选 [3, 6, 7]。",
-      "key_state": "三轮遍历依次提取第 1、2、3 大元素 7、6、3，最终结果区为 [3, 6, 7]。",
-      "announcement": "展示三轮遍历搜索，从 [1, 7, 6, 3, 2] 中依次提取最大的三个元素 7、6、3。"
+      "state": "输入 nums = [1, 7, 6, 3, 2]，k = 3，任务是找出其中最大的三个元素。自上而下四行状态依次为：初始数组 [1, 7, 6, 3, 2]；第一轮后待选 [1, 6, 3, 2]、已选 [7]；第二轮后待选 [1, 3, 2]、已选 [6, 7]；第三轮后待选 [1, 2]、已选 [3, 6, 7]。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_heap/top_k.md": "a8005aca6e86e06249e0855a2d7a6f0cea0bf63ec49ab4b4192d1bbd26ee80df"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_heap/top_k.assets/top_k_traversal.png": "2c91174ded4b7b44c141cb3fa6659d0ca23f50ce78dee533395e94177a65b41f"
-    }
-  },
   "animations": {
     "top-k-traversal": {
       "kind": "prose",
-      "model_sha256": "90beb7a025d755ca4cb268bbd57c1aa62f96bcfb66e01ed1e1415a7ed7eb68f9",
       "prose": {
-        "schema_version": 1,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "top-k-traversal",
-        "group_id": "group:chapter_heap/top_k.assets/top_k_traversal",
         "title": "遍历选择 Top-k",
         "summary": "在数组 [1, 7, 6, 3, 2] 中设定 k = 3，通过三轮遍历依次从剩余候选中选出最大值 7、6、3。",
         "context": [
@@ -87,72 +67,8 @@
             "key_state": "第三轮选出第 3 大元素 3，前三大元素 7、6、3 已找齐（右侧显示 [3, 6, 7]）。",
             "announcement": "第三轮遍历选出 3，完成 Top-3 元素 7、6、3 的提取。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/names",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-              "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-              "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-              "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-            }
-          ],
-          "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-          "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "7a613d8aa0944914086b994025b65836b6d15c89b630fabcc4c0d691a1ad367b"
-        }
+        ]
       }
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "470507984749a91d99493f078791ea41e131fe6e02382f4bbef93ade230732f9"
   }
 }

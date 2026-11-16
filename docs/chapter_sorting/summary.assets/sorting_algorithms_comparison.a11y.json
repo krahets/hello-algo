@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/summary.assets/sorting_algorithms_comparison",
   "title": "排序算法对比",
   "summary": "对比九种主流排序算法的时间复杂度、空间复杂度与四项特性，结合实现条件与数据特征选择算法。",
   "context": [
@@ -22,9 +19,7 @@
       "book_path": "chapter_sorting/summary.assets/sorting_algorithms_comparison.png",
       "title": "排序算法对比",
       "explanation": "表中时间复杂度按最佳、平均、最差分为三列，空间复杂度仅列最差情况；稳定性、就地性、自适应性与是否基于比较分别成列。原图图例以浅绿表示“优”、浅蓝表示“中”、紫灰表示“差”，下方数据表已将单元格底色转化为括号内的文字评级（注意基数排序的最佳、平均、最差时间公式均为 O(nk)，但原图将最佳与平均涂为浅绿“优”、最差涂为紫灰“差”，表中忠实保留原图评级）。",
-      "state": "九种排序的指标按最佳时间、平均时间、最差时间、最差空间、稳定性、就地性、自适应性、比较方式排列；括号为原图评级。选择排序：O(n²)（差）、O(n²)（差）、O(n²)（差）、O(1)（优）、非稳定（差）、原地（优）、非自适应（中）、比较（中）；冒泡排序：O(n)（优）、O(n²)（差）、O(n²)（差）、O(1)（优）、稳定（优）、原地（优）、自适应（优）、比较（中）；插入排序：O(n)（优）、O(n²)（差）、O(n²)（差）、O(1)（优）、稳定（优）、原地（优）、自适应（优）、比较（中）；快速排序：O(n log n)（优）、O(n log n)（优）、O(n²)（差）、O(log n)（优）、非稳定（差）、原地（优）、非自适应（中）、比较（中）；归并排序：O(n log n)（优）、O(n log n)（优）、O(n log n)（优）、O(n)（差）、稳定（优）、非原地（差）、非自适应（中）、比较（中）；堆排序：O(n log n)（优）、O(n log n)（优）、O(n log n)（优）、O(1)（优）、非稳定（差）、原地（优）、非自适应（中）、比较（中）；桶排序：O(n+k)（优）、O(n+k)（优）、O(n²)（差）、O(n+k)（差）、稳定（优）、非原地（差）、非自适应（中）、非比较（中）；计数排序：O(n+m)（优）、O(n+m)（优）、O(n+m)（优）、O(n+m)（差）、稳定（优）、非原地（差）、非自适应（中）、非比较（中）；基数排序：O(nk)（优）、O(nk)（优）、O(nk)（差）、O(n+b)（差）、稳定（优）、非原地（差）、非自适应（中）、非比较（中）。n 为数据量；桶排序 k 为桶数；计数排序 m 为数据范围；基数排序 k 为位数、b 为进制。快速排序空间使用短区间递归优化，桶排序稳定性要求桶内稳定排序；最佳平均复杂度要求桶内总开销线性。",
-      "key_state": "九种算法的复杂度、稳定性、就地性、自适应性及比较方式对照；快速排序空间与桶排序指标须结合实现条件。",
-      "announcement": "展示九种排序算法的指标、分类和原图评级。"
+      "state": "九种排序的指标按最佳时间、平均时间、最差时间、最差空间、稳定性、就地性、自适应性、比较方式排列；括号为原图评级。选择排序：O(n²)（差）、O(n²)（差）、O(n²)（差）、O(1)（优）、非稳定（差）、原地（优）、非自适应（中）、比较（中）；冒泡排序：O(n)（优）、O(n²)（差）、O(n²)（差）、O(1)（优）、稳定（优）、原地（优）、自适应（优）、比较（中）；插入排序：O(n)（优）、O(n²)（差）、O(n²)（差）、O(1)（优）、稳定（优）、原地（优）、自适应（优）、比较（中）；快速排序：O(n log n)（优）、O(n log n)（优）、O(n²)（差）、O(log n)（优）、非稳定（差）、原地（优）、非自适应（中）、比较（中）；归并排序：O(n log n)（优）、O(n log n)（优）、O(n log n)（优）、O(n)（差）、稳定（优）、非原地（差）、非自适应（中）、比较（中）；堆排序：O(n log n)（优）、O(n log n)（优）、O(n log n)（优）、O(1)（优）、非稳定（差）、原地（优）、非自适应（中）、比较（中）；桶排序：O(n+k)（优）、O(n+k)（优）、O(n²)（差）、O(n+k)（差）、稳定（优）、非原地（差）、非自适应（中）、非比较（中）；计数排序：O(n+m)（优）、O(n+m)（优）、O(n+m)（优）、O(n+m)（差）、稳定（优）、非原地（差）、非自适应（中）、非比较（中）；基数排序：O(nk)（优）、O(nk)（优）、O(nk)（差）、O(n+b)（差）、稳定（优）、非原地（差）、非自适应（中）、非比较（中）。n 为数据量；桶排序 k 为桶数；计数排序 m 为数据范围；基数排序 k 为位数、b 为进制。快速排序空间使用短区间递归优化，桶排序稳定性要求桶内稳定排序；最佳平均复杂度要求桶内总开销线性。"
     }
   ],
   "tables": [
@@ -170,66 +165,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/summary.md": "a5684a2ea0f40553f011d8d33e2f0379b3a5ae6cf907329ba930cfc36c1a9762"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/summary.assets/sorting_algorithms_comparison.png": "81e788cb77d0bf90dfd765ea7003cfaa8a8eee7fb48ca9eebaa24898a59bba0e"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/pilot",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
-        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
-      }
-    ],
-    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
-    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "assembly": {
-      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
-      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-      "supplemental_stages": [
-        {
-          "requested_model": "gpt-6-astra",
-          "actual_model": "gpt-6-astra",
-          "model_confirmation": "native_runtime",
-          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
-        },
-        {
-          "requested_model": "gemini-4-argon",
-          "actual_model": null,
-          "model_confirmation": "provider_not_reported",
-          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
-          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
-        }
-      ]
-    },
-    "content_sha256": "fc018cb59c1ff6056c6163b01f93606d03bb9609cb09e7ef3183d84cad4a24e4"
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1",
+  "schema_version": 2,
   "title": "切分可使乘积不减",
   "summary": "当整数因子 n ≥ 4 时，将其切分为 2 和 n - 2 后的乘积满足 2(n - 2) ≥ n（n = 4 时相等，n > 4 时严格变大），说明所有大于等于 4 的因子都可继续切分。",
   "context": [
@@ -19,48 +16,7 @@
       "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png",
       "title": "切分可使乘积不减",
       "explanation": "把长度为 n 的整数条切分为长度 2 和长度 n - 2 两段后，比较切分前后的数值：由不等式 2(n - 2) ≥ n 解得 n ≥ 4。注意在边界 n = 4 时，2 × (4 - 2) = 4，切分前后乘积相等；当 n > 4 时，2(n - 2) > n，切分后乘积严格变大。因此任何大于等于 4 的因子都可以继续向下切分而不损失乘积，直至所有因子均属于 {1, 2, 3}。",
-      "state": "符号对比图：上方灰条为 n，下方等长条切分为绿色段 2 与蓝色段 n - 2；下方标注当 n ≥ 4 时恒有 2(n - 2) ≥ n（n = 4 时取等号，n > 4 时严格大于），最终切分方案只需保留 1、2、3 因子。",
-      "key_state": "当 n ≥ 4 时 2(n - 2) ≥ n（n = 4 时相等，n > 4 时严格变大），可递归切分至只剩 1、2、3。",
-      "announcement": "展示贪心推论一：对 n ≥ 4 切出因子 2 满足 2(n - 2) ≥ n，大于等于 4 的段均可继续切分。"
+      "state": "符号对比图：上方灰条为 n，下方等长条切分为绿色段 2 与蓝色段 n - 2；下方标注当 n ≥ 4 时恒有 2(n - 2) ≥ n（n = 4 时取等号，n > 4 时严格大于），最终切分方案只需保留 1、2、3 因子。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-24",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "799e9f3b186357fa7554df5cb29156a553695e6fbb70cd4f1624878b94cc2d1b",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
-        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
-        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
-        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
-      }
-    ],
-    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/max_product_cutting_problem.md": "e9a2d217025e8c5060ee3100522e8cb0d93d089a1417055fafc47046f313d6a3"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png": "2a44cdfc8be0d4ae1380ef408cca6a352ed39022cef1f89ee39c6a175aeecd20"
-    }
-  }
+  ]
 }

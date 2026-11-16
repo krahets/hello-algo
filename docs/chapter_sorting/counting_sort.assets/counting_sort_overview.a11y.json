@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/counting_sort.assets/counting_sort_overview",
   "title": "统计每个整数的次数，再按次数写回",
   "summary": "统计输入中 0 至 4 的出现次数为 3、2、3、0、2，再按数值递增顺序写回十个元素。",
   "context": [
@@ -154,25 +151,10 @@
       "row_header": 0
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/counting_sort.md": "5045502aeb899ea678f18936e1015870ff7c53b0b3652b206f5a69352f0dfbfe"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/counting_sort.assets/counting_sort_overview.png": "e8362cd63d73d864dda7788657f5c8117f0f410f1624270bc432dc01752ccb24"
-    }
-  },
   "animations": {
     "counting-sort-overview": {
       "kind": "prose",
-      "model_sha256": "da5d8c00903f475ba698a3f69c24174417c130a5ccbe419b223c452f428bd711",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "counting-sort-overview",
-        "group_id": "group:chapter_sorting/counting_sort.assets/counting_sort_overview",
         "title": "统计每个整数的次数，再按次数写回",
         "summary": "统计输入中 0 至 4 的出现次数为 3、2、3、0、2，再按数值递增顺序写回十个元素。",
         "context": [
@@ -474,72 +456,8 @@
               }
             ]
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-10",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-              "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-              "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-              "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-            }
-          ],
-          "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-          "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "0014486b660056d397e6fdd5e5cdcd737174a54dbfa6f332118339ec8c6c9b2f"
-        }
+        ]
       }
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-10",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-      }
-    ],
-    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "9d53f07f8b7dca7f906e630082f62c4dc3d4e326e9f6a8c8d0eeb340869baa6c"
   }
 }

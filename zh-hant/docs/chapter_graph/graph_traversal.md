@@ -9,11 +9,6 @@
 **廣度優先走訪是一種由近及遠的走訪方式，從某個節點出發，始終優先訪問距離最近的頂點，並一層層向外擴張**。如下圖所示，從左上角頂點出發，首先走訪該頂點的所有鄰接頂點，然後走訪下一個頂點的所有鄰接頂點，以此類推，直至所有頂點訪問完畢。
 
 ![圖的廣度優先走訪](graph_traversal.assets/graph_bfs.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
-
-[圖的廣度優先走訪：完整圖解](graph_traversal.assets/graph_bfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 演算法實現
 
@@ -67,11 +62,6 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 
 === "<11>"
     ![圖的廣度優先走訪，第 11 步，共 11 步：返回走訪結果](graph_traversal.assets/graph_bfs_step11.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
-
-[圖的廣度優先走訪：完整圖解](graph_traversal.assets/graph_bfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! question "廣度優先走訪的序列是否唯一？"
 
@@ -88,11 +78,6 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 **深度優先走訪是一種優先走到底、無路可走再回頭的走訪方式**。如下圖所示，從左上角頂點出發，訪問當前頂點的某個鄰接頂點，直到走到盡頭時返回，再繼續走到盡頭並返回，以此類推，直至所有頂點走訪完成。
 
 ![圖的深度優先走訪](graph_traversal.assets/graph_dfs.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
-
-[圖的深度優先走訪：完整圖解](graph_traversal.assets/graph_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 演算法實現
 
@@ -141,11 +126,6 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
 
 === "<11>"
     ![圖的深度優先走訪，第 11 步，共 11 步：結束全部遞迴呼叫](graph_traversal.assets/graph_dfs_step11.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
-
-[圖的深度優先走訪：完整圖解](graph_traversal.assets/graph_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! question "深度優先走訪的序列是否唯一？"
 

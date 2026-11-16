@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types",
+  "schema_version": 2,
   "title": "三种常见链表类型",
   "summary": "以同一组节点 1、3、2、5、4 对比单向链表、环形链表和双向链表的连接方式。",
   "context": [
@@ -20,63 +17,7 @@
       "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png",
       "title": "三种常见链表类型",
       "explanation": "图从上到下用节点 1、3、2、5、4 对比三种链表：上方单向链表为 1 → 3 → 2 → 5 → 4 → None，仅含向后的单向箭头，尾节点指向 None；中间环形链表为 1 → 3 → 2 → 5 → 4，并由尾节点 4 的折线箭头连回节点 1，实现首尾相接；下方双向链表为 None ← 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4 → None，相邻节点间同时具有向前和向后的双向箭头，头节点 1 的前驱与尾节点 4 的后继均指向 None。",
-      "state": "图由上到下并列展示三种链表，节点值均为 1、3、2、5、4：单向链表单向连至末尾 None；环形链表由尾节点 4 连回首节点 1；双向链表在每对相邻节点间画有双向箭头，且首尾外侧分别指向左右两个 None。",
-      "key_state": "节点均为 1、3、2、5、4：单向链表末尾指向 None，环形链表由 4 连回 1，双向链表双向互连且两端指向 None。",
-      "announcement": "对比单向、环形和双向三种链表：均包含节点 1、3、2、5、4，区别在于尾节点是否连回头部以及节点间是否双向连接。"
+      "state": "图由上到下并列展示三种链表，节点值均为 1、3、2、5、4：单向链表单向连至末尾 None；环形链表由尾节点 4 连回首节点 1；双向链表在每对相邻节点间画有双向箭头，且首尾外侧分别指向左右两个 None。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-04",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "7d83758afd873d1ab8b2a15fa63623f5898aa70137f1349af1376ab3f62973c4",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "010659120695514881c0d1ee814ac67faa1e50957300a7e781f1c3edf7858059",
-        "output_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ce3bd79f6a534eeccf4dc2fe964c776c459c5e264c557afd4bd003cfcece44de",
-        "output_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "32264499e09e1f1937e6bb7f5be907c597fbb3ee382807532e8625b015d5f2e8",
-        "output_sha256": "d48eb4dd56235f9a9b2f2d5c8f67899492c9f6b15567237d35161c31596306cb"
-      }
-    ],
-    "evidence_sha256": "178794e8fd357c692f91d245ae613b37aa02834865c6124afd4cd91ea892de0d"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_array_and_linkedlist/linked_list.md": "c09208986d1b112db04fb106820ea2db47e77eef905379a8a2c78af964ea3b14"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png": "f823c8563bff753285fe6ff1c9b143a7938944f47d1a0313b2a3d8902dd1afe6"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-final-verification",
-      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
-      "factual_review_preserved": true,
-      "previous": {
-        "run_id": "figure-reading-20261116/upstream-dependency-verification",
-        "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-        "factual_review_preserved": true
-      }
-    }
-  }
+  ]
 }

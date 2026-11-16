@@ -6,11 +6,6 @@
 2. **合并阶段**：当子数组长度为 1 时终止划分，开始合并，持续地将左右两个较短的有序数组合并为一个较长的有序数组，直至结束。
 
 ![归并排序的划分与合并阶段](merge_sort.assets/merge_sort_overview.svg)
-<!-- figure-reading:start group:chapter_sorting/merge_sort.assets/merge_sort_overview -->
-
-[归并排序的划分与合并：完整图解](merge_sort.assets/merge_sort_overview.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 算法流程
 
@@ -50,11 +45,6 @@
 
 === "<10>"
     ![四元素归并排序的递归执行顺序，第 10 步，共 10 步：合并左右两半](merge_sort.assets/merge_sort_step10.svg)
-<!-- figure-reading:start group:chapter_sorting/merge_sort.assets/merge_sort -->
-
-[四元素归并排序的递归执行顺序：完整图解](merge_sort.assets/merge_sort.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 观察发现，归并排序与二叉树后序遍历的递归顺序是一致的。
 

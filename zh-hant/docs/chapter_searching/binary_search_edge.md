@@ -32,11 +32,6 @@
 如下圖所示，查詢完成後，指標 $i$ 指向最左一個 `target + 1`（如果存在），而 $j$ 指向最右一個 `target` ，**因此返回 $j$ 即可**。
 
 ![將查詢右邊界轉化為查詢左邊界](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge -->
-
-[用插入點查詢右邊界：完整圖解](binary_search_edge.assets/binary_search_right_edge_by_left_edge.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 請注意，返回的插入點是 $i$ ，因此需要將其減 $1$ ，從而獲得 $j$ ：
 
@@ -54,11 +49,6 @@
 - 查詢最右一個 `target` ：可以轉化為查詢 `target + 0.5` ，並返回指標 $j$ 。
 
 ![將查詢邊界轉化為查詢元素](binary_search_edge.assets/binary_search_edge_by_element.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search_edge.assets/binary_search_edge_by_element -->
-
-[用半整數查詢左右邊界：完整圖解](binary_search_edge.assets/binary_search_edge_by_element.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 程式碼在此省略，以下兩點值得注意。
 

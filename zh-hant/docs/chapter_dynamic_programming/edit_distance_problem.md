@@ -11,11 +11,6 @@
 如下圖所示，將 `kitten` 轉換為 `sitting` 需要編輯 3 步，包括 2 次替換操作與 1 次新增操作；將 `hello` 轉換為 `algo` 需要 3 步，包括 2 次替換操作和 1 次刪除操作。
 
 ![編輯距離的示例資料](edit_distance_problem.assets/edit_distance_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_example -->
-
-[編輯距離：兩個三步轉換示例：完整圖解](edit_distance_problem.assets/edit_distance_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 **編輯距離問題可以很自然地用決策樹模型來解釋**。字串對應樹節點，一輪決策（一次編輯操作）對應樹的一條邊。
 
@@ -24,11 +19,6 @@
 從決策樹的角度看，本題的目標是求解節點 `hello` 和節點 `algo` 之間的最短路徑。
 
 ![基於決策樹模型表示編輯距離問題](edit_distance_problem.assets/edit_distance_decision_tree.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree -->
-
-[編輯距離的決策樹：完整圖解](edit_distance_problem.assets/edit_distance_decision_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 動態規劃思路
 
@@ -56,11 +46,6 @@
 3. 將 $s[i-1]$ 替換為 $t[j-1]$ ，則剩餘子問題 $dp[i-1, j-1]$ 。
 
 ![編輯距離的狀態轉移](edit_distance_problem.assets/edit_distance_state_transfer.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer -->
-
-[編輯距離的狀態轉移：完整圖解](edit_distance_problem.assets/edit_distance_state_transfer.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 根據以上分析，可得最優子結構：$dp[i, j]$ 的最少編輯步數等於 $dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ 三者中的最少編輯步數，再加上本次的編輯步數 $1$ 。對應的狀態轉移方程為：
 
@@ -132,11 +117,6 @@ $$
 
 === "<15>"
     ![編輯距離的動態規劃，第 15 步，共 15 步：讀取右下角 dp\[3, 4\]，返回最少編輯步數 3](edit_distance_problem.assets/edit_distance_dp_step15.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp -->
-
-[編輯距離的動態規劃：完整圖解](edit_distance_problem.assets/edit_distance_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 空間最佳化
 

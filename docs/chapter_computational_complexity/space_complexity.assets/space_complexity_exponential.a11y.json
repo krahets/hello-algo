@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/space_complexity.assets/space_complexity_exponential",
+  "schema_version": 2,
   "title": "存储 n 层满二叉树所需的空间",
   "summary": "构建并保存一棵 n 层满二叉树时，各层节点数从 2⁰ 翻倍至 2ⁿ⁻¹，内存中同时保留全部 2ⁿ - 1 个节点，对应指数阶空间复杂度 O(2ⁿ)。",
   "context": [
@@ -19,53 +16,7 @@
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_exponential.png",
       "title": "存储 n 层满二叉树所需的空间",
       "explanation": "注意区分“递归调用栈深度”与“持久化的树节点总数”：构建这棵 n 层满二叉树时，单条从根到叶路径上的递归调用栈深度虽然只有 O(n)，但每次调用创建的树节点都会通过左右指针挂载到树上并长期保留。因此峰值内存必须统计整棵树同时存在的所有节点：将第 1 层至第 n 层的节点数相加得到 1 + 2 + 4 + … + 2ⁿ⁻¹ = 2ⁿ - 1，每个节点占用常数空间，总空间复杂度即为指数阶 O(2ⁿ)。",
-      "state": "满二叉树共 n 层，父节点通过箭头指向左、右子节点。第 1 至 3 层分别画出 1、2、4 个绿色圆形节点，右列“各层的节点总数”依次标注 2⁰、2¹、2²；其下用箭头与省略号表示中间层，最底层标注 2ⁿ⁻¹，右侧大括号标注“共 n 层”。底部标注所有节点数量 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1，空间复杂度为指数阶 O(2ⁿ)。",
-      "key_state": "n 层满二叉树各层节点数依次为 2⁰（1）、2¹（2）、2²（4）、…、2ⁿ⁻¹，共保留 2ⁿ - 1 个节点，属指数阶空间复杂度 O(2ⁿ)。",
-      "announcement": "展示 n 层满二叉树的节点展开结构，汇总全部 2ⁿ - 1 个持久化节点得到指数阶空间复杂度 O(2ⁿ)。"
+      "state": "满二叉树共 n 层，父节点通过箭头指向左、右子节点。第 1 至 3 层分别画出 1、2、4 个绿色圆形节点，右列“各层的节点总数”依次标注 2⁰、2¹、2²；其下用箭头与省略号表示中间层，最底层标注 2ⁿ⁻¹，右侧大括号标注“共 n 层”。底部标注所有节点数量 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1，空间复杂度为指数阶 O(2ⁿ)。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-02",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "2cd99ed757c493fff50e5529bd4e4c237857a3781456d281a665ef8e24d51f03",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
-        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
-        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
-        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
-      }
-    ],
-    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/space_complexity.md": "a65e225f2208745807377b9c6941f0ad3ee68b976521cd3be5b69b482cfb3ec6"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/space_complexity.assets/space_complexity_exponential.png": "6db9e1a339ab27a5a1eb7ab4e397ad5aa5d468c369797779a78f5fc82481c117"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
-  }
+  ]
 }

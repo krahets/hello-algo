@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree",
   "title": "递归构树：向下创建节点，返回时连接子树",
   "summary": "向下递进时依次创建节点 3、9、2、1、7，向上回溯返回时才将子树连接到父节点，最终建成五节点树。",
   "context": [
@@ -369,28 +366,9 @@
       ]
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/build_binary_tree_problem.md": "15c1f80907cb390b2dece48fa770f0441b86b7b89fb20b34edba6aca89263817"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step1.png": "4b494ace841a1694257f2a7a3b1a820eace944655237cd60b59174d704499369",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step2.png": "02798d53aa8b155b1b3aad63499fc0b5fbf72954940193afb5e6c3e2d439cc8a",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step3.png": "4b86b3bd5cadc4832af4baccd2fc913c7115bc00d96df11b79609dc26a87a6f3",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step4.png": "daae10aae229cd5d8303776e483de328f0d51617f6e553d81df6a3d5ef88801a",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step5.png": "0bcf582c14c73ee4d6bba487b79a926944f17567a8220dd1e9887f7d62f5d3b4",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step6.png": "d32ffb8a0fcde21f6bf4d599296cf88a852ad46f7d81a4ba0753355d36ff1f37",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step7.png": "5abdb0c15375de57dc2e7d03384aa9178bb15224eba88231c30928b74ef5dca1",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step8.png": "8d6d6d8900322557d40392f4853c8caa6e2086d7b652ff563516c92a2267a8cc",
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step9.png": "dd26f15c2abb7e2fda604309fcc6d61d3f29464afcb2a87b2fa79e2b74b443ab"
-    }
-  },
   "animations": {
     "build-binary-tree": {
       "kind": "source-frames",
-      "model_sha256": "dd216c3e5cadc0da3fd8ff4fdfbedcdccc0b6d043c7e5a814f545aab8ac90df6",
-      "source_content_sha256": "c5843c1efa9b100ae3715faa4c125577c409e7f90ce7757b74cd9c893b381b5e",
       "states": [
         {
           "id": "step-1",
@@ -428,15 +406,7 @@
           "id": "step-9",
           "frame_id": "source-325"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-10/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "c1481643838e189f8d69044cdca157567b5c0c0330258ff9382ad8681ec15131",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e"
-      }
+      ]
     }
   },
   "tables": [
@@ -479,37 +449,5 @@
   ],
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-10",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-      }
-    ],
-    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "c5843c1efa9b100ae3715faa4c125577c409e7f90ce7757b74cd9c893b381b5e"
-  }
+  ]
 }

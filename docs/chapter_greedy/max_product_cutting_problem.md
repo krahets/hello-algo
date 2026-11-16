@@ -5,11 +5,6 @@
     给定一个正整数 $n$ ，将其切分为至少两个正整数的和，求切分后所有整数的乘积最大是多少，如下图所示。
 
 ![最大切分乘积的问题定义](max_product_cutting_problem.assets/max_product_cutting_definition.svg)
-<!-- figure-reading:start group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition -->
-
-[最大切分乘积的问题定义：完整图解](max_product_cutting_problem.assets/max_product_cutting_definition.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 假设我们将 $n$ 切分为 $m$ 个整数因子，其中第 $i$ 个因子记为 $n_i$ ，即
 
@@ -42,11 +37,6 @@ $$
 **贪心策略一**：如果切分方案中包含 $\geq 4$ 的因子，那么它就应该被继续切分。最终的切分方案只应出现 $1$、$2$、$3$ 这三种因子。
 
 ![切分导致乘积变大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg)
-<!-- figure-reading:start group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1 -->
-
-[切分可使乘积不减：完整图解](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 接下来思考哪个因子是最优的。在 $1$、$2$、$3$ 这三个因子中，显然 $1$ 是最差的，因为 $1 \times (n-1) < n$ 恒成立，即切分出 $1$ 反而会导致乘积减小。
 
@@ -55,11 +45,6 @@ $$
 **贪心策略二**：在切分方案中，最多只应存在两个 $2$ 。因为三个 $2$ 总是可以替换为两个 $3$ ，从而获得更大的乘积。
 
 ![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg)
-<!-- figure-reading:start group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2 -->
-
-[将三个 2 换成两个 3：完整图解](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 综上所述，可推理出以下贪心策略。
 
@@ -83,11 +68,6 @@ $$
 ```
 
 ![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg)
-<!-- figure-reading:start group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation -->
-
-[最大切分乘积的计算方法：完整图解](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 **时间复杂度取决于编程语言的幂运算的实现方法**。以 Python 为例，常用的幂计算函数有三种。
 

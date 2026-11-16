@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_stack_and_queue/deque.assets/linkedlist_deque",
   "title": "双向链表实现双向队列",
   "summary": "维护头尾节点及双向引用，在两端增删时保持中间节点不动。",
   "context": [
@@ -60,24 +57,9 @@
       "announcement": "沿 1.next 找到 3 并更新头引用，断开节点 1 并返回 1。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_stack_and_queue/deque.md": "fee908eaea444525f8a1fe3f8f541cc0de02efc01305d5c051dae665ba10887e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step1.png": "42a58cbe0c617cdeeba7955dcc7cdfb416eab77b764f64606023b743bfbce367",
-      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step2_push_last.png": "b37666b17bf43b64d645a8487a3fca698d2571db86d22abdebc23abf07f379ea",
-      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step3_push_first.png": "aba7636d53fea714131c77e1432b9343e2d8b51b34d9f1ba96b08f4ad94fb983",
-      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step4_pop_last.png": "a871a4457452e16a8192fd2e62f959a8ee6ed7e92fadbf09cd1270a6449bdd47",
-      "chapter_stack_and_queue/deque.assets/linkedlist_deque_step5_pop_first.png": "9f41e48c2cae06d1c832fa5dd082fc9be4b7dfe697798b45c5f01908a44da591"
-    }
-  },
   "animations": {
     "linkedlist-deque": {
       "kind": "source-frames",
-      "model_sha256": "0db3df69974502580d80613a7643e3aac691f4179d4e50bad3a82eaf608c302c",
-      "source_content_sha256": "c4652da3d9024b254601645620d4814797af5994b440779e68c9e92e248cf575",
       "states": [
         {
           "id": "step-1",
@@ -99,52 +81,7 @@
           "id": "step-5",
           "frame_id": "source-75"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-05/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "e9b1712753ac3c49ac1a5905075d409daa3d2265938eae085c0b749ec4e40f21",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-05",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
-        "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
-        "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
-        "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
-      }
-    ],
-    "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
-    "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "c4652da3d9024b254601645620d4814797af5994b440779e68c9e92e248cf575"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
   }
 }

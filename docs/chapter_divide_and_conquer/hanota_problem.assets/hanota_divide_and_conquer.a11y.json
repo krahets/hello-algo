@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer",
   "title": "汉诺塔的三阶段分解",
   "summary": "将 n 盘从 A 移至 C，按序拆为 n−1 盘 A→B、最大盘 A→C、n−1 盘 B→C 三个子问题。",
   "context": [
@@ -23,15 +20,6 @@
       "state": "本图为五盘分治示例；三个阶段的移动任务、缓冲柱角色及阶段完成后 A、B、C 三柱的圆盘分布见下表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer.png": "897267e9dcefeac20b71b36705fdbee5bb897854e161d71321b0d21dccb93324"
-    }
-  },
   "tables": [
     {
       "caption": "五盘示例的三个阶段",
@@ -71,37 +59,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-10",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-      }
-    ],
-    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "042d97a826fed3fafe517bab00c0892975e844b57711b30a17201801767cbf7d"
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear",
   "title": "递归调用的栈空间",
   "summary": "空间取决于同时未返回的调用数，逐层递归会积累栈帧。",
   "context": [],
@@ -16,50 +13,7 @@
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
       "title": "递归调用的栈空间",
       "explanation": "递入阶段，linear_recur(n)调用linear_recur(n−1)，一路深入到基本情况linear_recur(1)。由于外层调用必须等待内层返回才能结束，到达最深处时，调用栈中会同时保留linear_recur(n)至linear_recur(1)共n个未返回的栈帧。回传阶段从最深处逐层返回，每返回一层才释放该层栈帧。",
-      "state": "n为正整数；调用链从linear_recur(n)逐层深入到linear_recur(1)后再逐层返回释放，在未消去调用帧的常规执行下，最深处同时驻留linear_recur(n)至linear_recur(1)共n个栈帧。",
-      "key_state": "递归深度n，峰值栈帧空间O(n)。",
-      "announcement": "空间取决于同时未返回的调用数，逐层递归会积累栈帧。"
+      "state": "n为正整数；调用链从linear_recur(n)逐层深入到linear_recur(1)后再逐层返回释放，在未消去调用帧的常规执行下，最深处同时驻留linear_recur(n)至linear_recur(1)共n个栈帧。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/space_complexity.md": "a65e225f2208745807377b9c6941f0ad3ee68b976521cd3be5b69b482cfb3ec6"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png": "31f3fdae9adc8885f905ac51320702ae41e6c06029e4fc4b55e117f8513b17a6"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "ad8d42610fab69ca01bffe5e452e638813ac85f28595170f00781226c4d069ae"
-  }
+  ]
 }

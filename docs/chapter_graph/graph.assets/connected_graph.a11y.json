@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_graph/graph.assets/connected_graph",
+  "schema_version": 2,
   "title": "连通图与非连通图：所有顶点皆可达与存在孤立顶点",
   "summary": "左图五个顶点通过七条边彼此全部可达；右图去掉与顶点 4 相连的两条边后，顶点 4 孤立，形成非连通图。",
   "context": [
@@ -19,48 +16,7 @@
       "book_path": "chapter_graph/graph.assets/connected_graph.png",
       "title": "连通图与非连通图：所有顶点皆可达与存在孤立顶点",
       "explanation": "图左右对比“连通图（所有顶点皆可达）”与“非连通图（存在顶点不可达）”：两图的唯一结构差异在于顶点 4——左图中顶点 4 通过边 2—4 和 4—5 接入网络，五点全连通；右图去掉这两条边后，顶点 4 成为没有任何边的孤立顶点，其余四个顶点无法到达 4。",
-      "state": "两图顶点均为 1 至 5。左图（连通图）含七条边：1—2、1—3、1—5、2—3、2—4、2—5、4—5，五个顶点全部互达。右图（非连通图）含五条边：1—2、1—3、1—5、2—3、2—5，分为连通子集 {1, 2, 3, 5} 与孤立顶点 {4}。",
-      "key_state": "左图七条边使 1 至 5 全部可达；右图删去 2—4 与 4—5 后，顶点 4 孤立不可达。",
-      "announcement": "对比所有顶点皆可达的连通图，与因顶点 4 孤立而存在顶点不可达的非连通图。"
+      "state": "两图顶点均为 1 至 5。左图（连通图）含七条边：1—2、1—3、1—5、2—3、2—4、2—5、4—5，五个顶点全部互达。右图（非连通图）含五条边：1—2、1—3、1—5、2—3、2—5，分为连通子集 {1, 2, 3, 5} 与孤立顶点 {4}。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-09",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "9d30ffb8cf596b42c4508fa641bdd405431e5cc2670ba46a66ea0158826af224",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6a40f26ee895ee83a07f70253df5c42ddcc5439ccb9b1aa5b4bf84b03d787459",
-        "output_sha256": "597bc506488fb474d3ce449c9ac8398eafa43a8ff6f5224787848d0c38571845"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "597bc506488fb474d3ce449c9ac8398eafa43a8ff6f5224787848d0c38571845",
-        "output_sha256": "813eae9284eec030711eafb5a54bfb61222ecf3949e7ce2525b4ee18c7cca9b8"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "813eae9284eec030711eafb5a54bfb61222ecf3949e7ce2525b4ee18c7cca9b8",
-        "output_sha256": "e350bdba6fc3bc2aac820c06fd5d96268d4c7714cba12295fee0dff1f61e67b5"
-      }
-    ],
-    "evidence_sha256": "716c2185fb25821fe2cbff260b776e4910309785e7fc22f3fd23194b2e50701e"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_graph/graph.md": "98f39b2bdde041f34560d72f6c75810cdb2adbd3dadd03861faff1fd500fabc4"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_graph/graph.assets/connected_graph.png": "265fc7d95681ef0ba35566fc011e4ad167665d21512391108c036e331fd41cb3"
-    }
-  }
+  ]
 }

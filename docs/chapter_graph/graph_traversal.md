@@ -9,11 +9,6 @@
 **广度优先遍历是一种由近及远的遍历方式，从某个节点出发，始终优先访问距离最近的顶点，并一层层向外扩张**。如下图所示，从左上角顶点出发，首先遍历该顶点的所有邻接顶点，然后遍历下一个顶点的所有邻接顶点，以此类推，直至所有顶点访问完毕。
 
 ![图的广度优先遍历](graph_traversal.assets/graph_bfs.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
-
-[图的广度优先遍历：完整图解](graph_traversal.assets/graph_bfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 算法实现
 
@@ -67,11 +62,6 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 
 === "<11>"
     ![图的广度优先遍历，第 11 步，共 11 步：返回遍历结果](graph_traversal.assets/graph_bfs_step11.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_bfs -->
-
-[图的广度优先遍历：完整图解](graph_traversal.assets/graph_bfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! question "广度优先遍历的序列是否唯一？"
 
@@ -88,11 +78,6 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 **深度优先遍历是一种优先走到底、无路可走再回头的遍历方式**。如下图所示，从左上角顶点出发，访问当前顶点的某个邻接顶点，直到走到尽头时返回，再继续走到尽头并返回，以此类推，直至所有顶点遍历完成。
 
 ![图的深度优先遍历](graph_traversal.assets/graph_dfs.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
-
-[图的深度优先遍历：完整图解](graph_traversal.assets/graph_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 算法实现
 
@@ -141,11 +126,6 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
 
 === "<11>"
     ![图的深度优先遍历，第 11 步，共 11 步：结束全部递归调用](graph_traversal.assets/graph_dfs_step11.svg)
-<!-- figure-reading:start group:chapter_graph/graph_traversal.assets/graph_dfs -->
-
-[图的深度优先遍历：完整图解](graph_traversal.assets/graph_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! question "深度优先遍历的序列是否唯一？"
 

@@ -9,11 +9,6 @@
     请在数组中选择两个隔板，使得组成的容器的容量最大，返回最大容量。示例如下图所示。
 
 ![最大容量问题的示例数据](max_capacity_problem.assets/max_capacity_example.svg)
-<!-- figure-reading:start group:chapter_greedy/max_capacity_problem.assets/max_capacity_example -->
-
-[两根隔板的最大容量：完整图解](max_capacity_problem.assets/max_capacity_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 容器由任意两个隔板围成，**因此本题的状态为两个隔板的索引，记为 $[i, j]$** 。
 
@@ -30,31 +25,16 @@ $$
 这道题还有更高效率的解法。如下图所示，现选取一个状态 $[i, j]$ ，其满足索引 $i < j$ 且高度 $ht[i] < ht[j]$ ，即 $i$ 为短板、$j$ 为长板。
 
 ![初始状态](max_capacity_problem.assets/max_capacity_initial_state.svg)
-<!-- figure-reading:start group:chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state -->
-
-[容器双指针的初始状态：完整图解](max_capacity_problem.assets/max_capacity_initial_state.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 如下图所示，**若此时将长板 $j$ 向短板 $i$ 靠近，则容量一定变小**。
 
 这是因为在移动长板 $j$ 后，宽度 $j-i$ 肯定变小；而高度由短板决定，因此高度只可能不变（ $i$ 仍为短板）或变小（移动后的 $j$ 成为短板）。
 
 ![向内移动长板后的状态](max_capacity_problem.assets/max_capacity_moving_long_board.svg)
-<!-- figure-reading:start group:chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board -->
-
-[容器向内移动长板：完整图解](max_capacity_problem.assets/max_capacity_moving_long_board.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 反向思考，**我们只有向内收缩短板 $i$ ，才有可能使容量变大**。因为虽然宽度一定变小，**但高度可能会变大**（移动后的短板 $i$ 可能会变长）。例如在下图中，移动短板后面积变大。
 
 ![向内移动短板后的状态](max_capacity_problem.assets/max_capacity_moving_short_board.svg)
-<!-- figure-reading:start group:chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board -->
-
-[容器向内移动短板：完整图解](max_capacity_problem.assets/max_capacity_moving_short_board.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 由此便可推出本题的贪心策略：初始化两指针，使其分列容器两端，每轮向内收缩短板对应的指针，直至两指针相遇。
 
@@ -91,11 +71,6 @@ $$
 
 === "<9>"
     ![最大容量：双指针贪心，第 9 步，共 9 步：两指针相遇，返回最大容量](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
-<!-- figure-reading:start group:chapter_greedy/max_capacity_problem.assets/max_capacity_greedy -->
-
-[最大容量：双指针贪心：完整图解](max_capacity_problem.assets/max_capacity_greedy.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 代码实现
 
@@ -118,11 +93,6 @@ cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
 ![移动短板导致被跳过的状态](max_capacity_problem.assets/max_capacity_skipped_states.svg)
-<!-- figure-reading:start group:chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states -->
-
-[移动短板导致被跳过的状态：完整图解](max_capacity_problem.assets/max_capacity_skipped_states.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 观察发现，**这些被跳过的状态实际上就是将长板 $j$ 向内移动的所有状态**。前面我们已经证明内移长板一定会导致容量变小。也就是说，被跳过的状态都不可能是最优解，**跳过它们不会导致错过最优解**。
 

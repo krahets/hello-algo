@@ -1,29 +1,4 @@
 (() => {
-  const validStateTables = tables => tables === undefined || (Array.isArray(tables) && tables.every(table =>
-    typeof table.caption === "string" && Array.isArray(table.headers) && table.headers.length > 0 &&
-    table.headers.every(value => typeof value === "string") && Array.isArray(table.rows) &&
-    table.rows.every(row => Array.isArray(row) && row.length === table.headers.length && row.every(value => typeof value === "string")) &&
-    (table.row_header === undefined || (Number.isInteger(table.row_header) && table.row_header >= 0 && table.row_header < table.headers.length))));
-  const appendStateTables = (parent, tables = []) => {
-    for (const data of tables) {
-      const table = document.createElement("table"), caption = document.createElement("caption");
-      caption.textContent = data.caption; table.append(caption);
-      const head = document.createElement("thead"), header = document.createElement("tr");
-      for (const title of data.headers) {const cell = document.createElement("th");cell.scope = "col";cell.textContent = title;header.append(cell);}
-      head.append(header);table.append(head);
-      const body = document.createElement("tbody");
-      for (const values of data.rows) {
-        const row = document.createElement("tr");
-        values.forEach((value, index) => {const cell = document.createElement(index === data.row_header ? "th" : "td");
-          if (index === data.row_header) cell.scope = "row";cell.textContent = value;row.append(cell);});
-        body.append(row);
-      }
-      table.append(body);
-      const scroll = document.createElement("div");scroll.className = "figure-table-scroll";scroll.tabIndex = 0;
-      scroll.setAttribute("role", "group");scroll.setAttribute("aria-label", data.caption);
-      scroll.append(table);parent.append(scroll);
-    }
-  };
   const ANIMATION_LABEL_PATTERN = /^<\d+>$/;
   const AUTO_SLIDE_INITIAL_DELAY_MS = 1000;
   const AUTO_SLIDE_INTERVAL_MS = 1500;
@@ -224,24 +199,9 @@
     controls.append(playButton, nav, announcement);
     tabbedContent.insertAdjacentElement("afterend", controls);
 
-    let annotation = null, currentState = null, announcementTimer = null, announcementOrigin = null;
+    let announcementTimer = null, announcementOrigin = null;
     let announcementCount = 0, announcementJump = false;
-    if (tabbedSet.hasAttribute("data-figure-a11y-version")) {
-      try {
-        if (!["1", "2"].includes(tabbedSet.dataset.figureA11yVersion)) throw Error("Unsupported version");
-        annotation = JSON.parse(document.getElementById(tabbedSet.dataset.figureA11yRef).textContent);
-        currentState = document.getElementById(annotation.state_id);
-        if (![1, 2].includes(annotation.version) || annotation.steps.length !== inputs.length || !currentState ||
-            !annotation.steps.every(step => [step.id, step.state, step.key_state, step.announcement]
-              .every(value => typeof value === "string" && value.trim()) && validStateTables(step.state_tables))) throw Error("Invalid annotation data");
-        currentState.hidden = false;
-      } catch (error) {
-        if (currentState) currentState.hidden = true;
-        annotation = null;
-        tabbedSet.dataset.figureA11yError = "invalid-data";
-        console.error("Could not initialize figure annotation", error);
-      }
-    }
+    const frames = [...tabbedContent.querySelectorAll('ha-svg-figure[data-book-key]')];
 
     const state = {
       inputs,
@@ -250,22 +210,6 @@
       timeoutId: null,
       isPlaying: false,
     };
-
-    // The slideshow theme hides the original tab labels. Keep random access
-    // available through a native control with the authored step names.
-    let stepSelect = null;
-    if (annotation) {
-      stepSelect = document.createElement("select");
-      stepSelect.className = "animation-controls__step";
-      stepSelect.setAttribute("aria-label", annotation.locale === "zh-hant" ? "跳到步驟" : "跳到步骤");
-      inputs.forEach((input, index) => {
-        const option = document.createElement("option");
-        option.value = String(index);
-        option.textContent = input.getAttribute("aria-label") || `第 ${index + 1} 步`;
-        stepSelect.append(option);
-      });
-      controls.insertBefore(stepSelect, nav);
-    }
 
     const updatePlayButton = () => {
       const label = state.isPlaying ? labels.pause : labels.play;
@@ -280,26 +224,11 @@
     const setText = (node, value) => {
       if (node.textContent !== value) node.textContent = value;
     };
-    let snapshotKey = null;
     const updatePageIndicator = () => {
-      // Visual progress can move; the reader's snapshot stays still until pause.
       pageIndicator.setAttribute("aria-hidden", state.isPlaying ? "true" : "false");
       setText(pageIndicator, `${state.currentIndex + 1} / ${inputs.length}`);
-      if (stepSelect && !state.isPlaying) stepSelect.value = String(state.currentIndex);
       prevButton.setAttribute("aria-disabled", String(state.currentIndex === 0));
       nextButton.setAttribute("aria-disabled", String(state.currentIndex === inputs.length - 1));
-      if (annotation) {
-        const key = state.isPlaying ? "playing" : annotation.steps[state.currentIndex].id;
-        if (snapshotKey !== key) {
-          snapshotKey = key;
-          const paragraph = document.createElement("p");
-          paragraph.textContent = state.isPlaying
-            ? (annotation.locale === "zh-hant" ? "正在播放；暫停後顯示當前步驟狀態。" : "正在播放；暂停后显示当前步骤状态。")
-            : `第 ${state.currentIndex + 1} 步，共 ${inputs.length} 步。` + annotation.steps[state.currentIndex].state;
-          currentState.replaceChildren(paragraph);
-          if (!state.isPlaying) appendStateTables(currentState, annotation.steps[state.currentIndex].state_tables);
-        }
-      }
     };
 
     const cancelAnnouncement = () => {
@@ -320,9 +249,9 @@
         if (!moved) return;
         const prefix = /^zh/i.test(document.documentElement.lang)
           ? `第 ${index + 1} 步，共 ${inputs.length} 步。` : `${index + 1} / ${inputs.length}. `;
-        const step = annotation?.steps[index];
-        announcement.textContent = prefix + (step ?
-          (forward ? step.announcement : step.key_state) : "");
+        const frame = frames[index];
+        announcement.textContent = prefix + (frame?.dataset[forward ? "a11yForward" : "a11yState"] ||
+          inputs[index].getAttribute("aria-label") || "");
       }, 250);
     };
 
@@ -406,15 +335,6 @@
           }
         }
       });
-    });
-
-    stepSelect?.addEventListener("change", () => {
-      const requested = Number(stepSelect.value);
-      stop();
-      interactionSet = tabbedSet;
-      // Use the existing input click path: the figure runtime can postpone or
-      // reject it until all visual resources are ready, without false feedback.
-      inputs[requested].click();
     });
 
     controllers.add(stop);

@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary",
   "title": "两种排列剪枝分别限制索引与数值",
   "summary": "并列对照路径索引不重复（selected）与同轮数值不重复（duplicated）两类剪枝条件。",
   "context": [
@@ -22,15 +19,6 @@
       "state": "三层搜索树同时标出路径索引跳过与同轮相等值跳过，保留 [1, 1̂, 2]、[1, 2, 1̂]、[2, 1, 1̂] 三个唯一排列；六个非终止前缀在两类约束下的具体取舍见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/permutations_problem.md": "3a98624cb60210ec070f3e3a5e1a72593e80be9ded7190c57aa89ceda20034df"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png": "2175338fec950581a94296382d9a751e64fd745f5cc967822221747f9593a043"
-    }
-  },
   "tables": [
     {
       "caption": "各前缀的一轮选择",
@@ -106,37 +94,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-11",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
-        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
-        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
-        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
-      }
-    ],
-    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
-    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "5ab2453d9c7f27b7d3102282bb153c2cbac60b2cfe6387738e186ce0d4d7976e"
-  }
+  ]
 }

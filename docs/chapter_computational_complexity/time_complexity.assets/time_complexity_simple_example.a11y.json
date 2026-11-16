@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_simple_example",
+  "schema_version": 2,
   "title": "算法 A、B 和 C：时间长短与增长趋势",
   "summary": "算法 A 与 C 的打印次数固定不变，同属常数阶 O(1)；算法 B 的打印次数随输入规模 n 线性增长，属线性阶 O(n)。",
   "context": [
@@ -20,53 +17,7 @@
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_simple_example.png",
       "title": "算法 A、B 和 C：时间长短与增长趋势",
       "explanation": "算法 A（1 次打印）与算法 C（1000000 次打印）耗时相差极大，但两者的操作数量都与输入规模 n 无关，增长趋势相同，因此时间复杂度均为常数阶 O(1)。算法 B 的打印次数与 n 成正比，时间复杂度为线性阶 O(n)：在图中 n = 0 至 9 的小规模区间内，B 的耗时远低于 C；但当 n 超过 1000000 时，B 的操作数量就会反超 C。",
-      "state": "坐标图横轴为输入数据大小 n（刻度 0 至 9），纵轴为算法运行时间（可见刻度 0、5、10、省略号及 1000000）。绿色水平线“算法 A — 常数阶”保持在 1 次打印对应的时间，橙色水平线“算法 C — 常数阶”保持在刻度 1000000，蓝色斜线“算法 B — 线性阶”从 0 出发随 n 线性上升。纵轴中部含省略跨度，线条垂直距离不代表统一比例尺。",
-      "key_state": "A（打印 1 次）与 C（打印 1000000 次）为水平线，均属常数阶 O(1)；B（打印 n 次）为斜上升直线，属线性阶 O(n)。",
-      "announcement": "展示算法 A、B、C 的运行时间曲线，对比固定操作次数与随 n 线性增长的趋势。"
+      "state": "坐标图横轴为输入数据大小 n（刻度 0 至 9），纵轴为算法运行时间（可见刻度 0、5、10、省略号及 1000000）。绿色水平线“算法 A — 常数阶”保持在 1 次打印对应的时间，橙色水平线“算法 C — 常数阶”保持在刻度 1000000，蓝色斜线“算法 B — 线性阶”从 0 出发随 n 线性上升。纵轴中部含省略跨度，线条垂直距离不代表统一比例尺。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-02",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "1e31581960b072a9782b8bb47aa0dcebfba8e1f40c3365f98670c405e0203d68",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
-        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
-        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
-        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
-      }
-    ],
-    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/time_complexity.md": "18f2e5296b2d0cd97c34cca8ff29e9e4e96ca43345ee572bf4df899f68b16964"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/time_complexity.assets/time_complexity_simple_example.png": "84712ae6a345ebdd80e9d6cdab51f86a2421599a2dda96f88c2b8910e1738460"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
-  }
+  ]
 }

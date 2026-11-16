@@ -9,11 +9,6 @@
     给定 $n$ 个物品，第 $i$ 个物品的重量为 $wgt[i-1]$、价值为 $val[i-1]$ ，和一个容量为 $cap$ 的背包。**每个物品可以重复选取**，问在限定背包容量下能放入物品的最大价值。示例如下图所示。
 
 ![完全背包问题的示例数据](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_example -->
-
-[完全背包示例：物品可以重复选择：完整图解](unbounded_knapsack_problem.assets/unbounded_knapsack_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 动态规划思路
 
@@ -64,11 +59,6 @@ $$
 
 === "<6>"
     ![完全背包的单行更新，第 6 步，共 6 步：完成 i = 2 轮遍历：单行保存前两种物品的解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp -->
-
-[完全背包的单行更新：完整图解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 代码实现比较简单，仅需将数组 `dp` 的第一维删除：
 
@@ -85,11 +75,6 @@ $$
     给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，**每种硬币可以重复选取**，问能够凑出目标金额的最少硬币数量。如果无法凑出目标金额，则返回 $-1$ 。示例如下图所示。
 
 ![零钱兑换问题的示例数据](unbounded_knapsack_problem.assets/coin_change_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example -->
-
-[零钱兑换的最少硬币数：完整图解](unbounded_knapsack_problem.assets/coin_change_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 动态规划思路
 
@@ -178,11 +163,6 @@ $$
 
 === "<15>"
     ![零钱兑换的动态规划，第 15 步，共 15 步：读取右下角 dp\[3, 4\]，返回最少硬币数 2](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp -->
-
-[零钱兑换的动态规划：完整图解](unbounded_knapsack_problem.assets/coin_change_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 空间优化
 
@@ -199,11 +179,6 @@ $$
     给定 $n$ 种硬币，第 $i$ 种硬币的面值为 $coins[i - 1]$ ，目标金额为 $amt$ ，每种硬币可以重复选取，**问凑出目标金额的硬币组合数量**。示例如下图所示。
 
 ![零钱兑换问题 II 的示例数据](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_ii_example -->
-
-[零钱兑换 II：金额 5 共有 4 种硬币组合：完整图解](unbounded_knapsack_problem.assets/coin_change_ii_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 动态规划思路
 

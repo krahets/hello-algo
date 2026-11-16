@@ -21,11 +21,6 @@
 在分析一段程式的空間複雜度時，**我們通常統計暫存資料、堆疊幀空間和輸出資料三部分**，如下圖所示。
 
 ![演算法使用的相關空間](space_complexity.assets/space_types.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_types -->
-
-[空間複雜度通常統計哪些空間：完整圖解](space_complexity.assets/space_types.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 相關程式碼如下：
 
@@ -71,11 +66,6 @@ $$
 $$
 
 ![常見的空間複雜度型別](space_complexity.assets/space_complexity_common_types.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_common_types -->
-
-[常見空間複雜度的增長趨勢：完整圖解](space_complexity.assets/space_complexity_common_types.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 常數階 $O(1)$
 
@@ -102,11 +92,6 @@ $$
 ```
 
 ![遞迴函式產生的線性階空間複雜度](space_complexity.assets/space_complexity_recursive_linear.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear -->
-
-[遞迴呼叫的堆疊空間：完整圖解](space_complexity.assets/space_complexity_recursive_linear.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 平方階 $O(n^2)$
 
@@ -123,11 +108,6 @@ $$
 ```
 
 ![遞迴函式產生的平方階空間複雜度](space_complexity.assets/space_complexity_recursive_quadratic.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic -->
-
-[遞迴各層保留陣列形成平方空間：完整圖解](space_complexity.assets/space_complexity_recursive_quadratic.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 指數階 $O(2^n)$
 
@@ -138,11 +118,6 @@ $$
 ```
 
 ![滿二元樹產生的指數階空間複雜度](space_complexity.assets/space_complexity_exponential.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/space_complexity.assets/space_complexity_exponential -->
-
-[儲存 n 層滿二元樹所需的空間：完整圖解](space_complexity.assets/space_complexity_exponential.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 對數階 $O(\log n)$
 

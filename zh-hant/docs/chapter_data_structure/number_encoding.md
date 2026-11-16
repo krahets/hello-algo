@@ -17,11 +17,6 @@
 下圖展示了原碼、一補數和二補數之間的轉換方法。
 
 ![原碼、一補數與二補數之間的相互轉換](number_encoding.assets/1s_2s_complement.svg)
-<!-- figure-reading:start group:chapter_data_structure/number_encoding.assets/1s_2s_complement -->
-
-[八位原碼、一補數與二補數：完整圖解](number_encoding.assets/1s_2s_complement.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 <u>原碼（sign-magnitude）</u>雖然最直觀，但存在一些侷限性。一方面，**負數的原碼不能直接用於運算**。例如在原碼下計算 $1 + (-2)$ ，得到的結果是 $-3$ ，這顯然是不對的。
 
@@ -129,11 +124,6 @@ $$
 $$
 
 ![IEEE 754 標準下的 float 的計算示例](number_encoding.assets/ieee_754_float.svg)
-<!-- figure-reading:start group:chapter_data_structure/number_encoding.assets/ieee_754_float -->
-
-[單精度浮點數的位欄位：完整圖解](number_encoding.assets/ieee_754_float.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 觀察上圖，給定一個示例資料 $\mathrm{S} = 0$ ， $\mathrm{E} = 124$ ，$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ ，則有：
 

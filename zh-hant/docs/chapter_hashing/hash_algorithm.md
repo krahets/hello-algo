@@ -5,11 +5,6 @@
 如果雜湊衝突過於頻繁，雜湊表的效能則會急劇劣化。如下圖所示，對於鏈式位址雜湊表，理想情況下鍵值對均勻分佈在各個桶中，達到最佳查詢效率；最差情況下所有鍵值對都儲存到同一個桶中，時間複雜度退化至 $O(n)$ 。
 
 ![雜湊衝突的最佳情況與最差情況](hash_algorithm.assets/hash_collision_best_worst_condition.svg)
-<!-- figure-reading:start group:chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition -->
-
-[鏈式位址雜湊表的最佳分佈與最差退化對比：完整圖解](hash_algorithm.assets/hash_collision_best_worst_condition.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 **鍵值對的分佈情況由雜湊函式決定**。回憶雜湊函式的計算步驟，先計算雜湊值，再對陣列長度取模：
 

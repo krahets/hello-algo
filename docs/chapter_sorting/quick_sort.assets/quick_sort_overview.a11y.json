@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/quick_sort.assets/quick_sort_overview",
   "title": "快速排序递归概览",
   "summary": "每轮哨兵划分先将基准数固定到最终位置，再对左右子数组递归划分，直至子区间长度不超过 1。",
   "context": [
@@ -20,30 +17,13 @@
       "book_path": "chapter_sorting/quick_sort.assets/quick_sort_overview.png",
       "title": "快速排序递归概览",
       "explanation": "全过程共包含三次非平凡划分：首层以 2 划分全数组 [0, 5]，第二层对左子区间 [0, 1] 以 1 划分、对右子区间 [3, 5] 以 4 划分。图中蓝色格标出各层已归位的基准数，向下箭头指示拆分出的子区间，到达单元素区间 [0, 0]、[3, 3]、[5, 5] 时直接终止。",
-      "state": "初始数组为 [2, 4, 1, 0, 3, 5]。首层基准 2 在索引 2 归位后变为 [1, 0, 2, 4, 3, 5]；第二层左子区间 [0, 1] 以 1 划分、右子区间 [3, 5] 以 4 划分，基准 1、4 分别在索引 1、4 归位，数组变为 [0, 1, 2, 3, 4, 5]；剩余索引 0、3、5 的单元素区间终止递归，全部 6 个位置归位。",
-      "key_state": "首层固定基准 2（索引 2），次层分别固定基准 1（索引 1）与 4（索引 4），单元素区间终止后得 [0, 1, 2, 3, 4, 5]。",
-      "announcement": "展示快速排序按递归层级划分数组并固定基准数的全过程概览。"
+      "state": "初始数组为 [2, 4, 1, 0, 3, 5]。首层基准 2 在索引 2 归位后变为 [1, 0, 2, 4, 3, 5]；第二层左子区间 [0, 1] 以 1 划分、右子区间 [3, 5] 以 4 划分，基准 1、4 分别在索引 1、4 归位，数组变为 [0, 1, 2, 3, 4, 5]；剩余索引 0、3、5 的单元素区间终止递归，全部 6 个位置归位。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/quick_sort.md": "5accb5e0147fb5021fd83311196e6cddab2dd893c2e1db5425e4f010aa09fb8b"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/quick_sort.assets/quick_sort_overview.png": "d087ad362abb14f91919c27378a436100b1d113651f3eaffeb783bae732d95d0"
-    }
-  },
   "animations": {
     "quick-sort-overview": {
       "kind": "prose",
-      "model_sha256": "c5b781431b3acf48ccb53cc37e70aad96a6eab40573ef3643fa526e6959e86db",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "quick-sort-overview",
-        "group_id": "group:chapter_sorting/quick_sort.assets/quick_sort_overview",
         "title": "快速排序递归概览",
         "summary": "每轮哨兵划分先将基准数固定到最终位置，再对左右子数组递归划分，直至子区间长度不超过 1。",
         "context": [
@@ -102,39 +82,7 @@
             "key_state": "单元素区间终止，全部索引 0 至 5 均已归位，最终有序数组为 [0, 1, 2, 3, 4, 5]。",
             "announcement": "单元素子区间终止递归，全部六个位置归位，排序完成。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-01",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-              "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-              "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-              "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-            }
-          ],
-          "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-          "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "96e5640d17319ae58d300ed839bd75afc8e22d492d054f578e9a9ab49c5a81ea"
-        }
+        ]
       }
     }
   },
@@ -173,37 +121,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-01",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-      }
-    ],
-    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "2f04b34cf37934c6007740143d945f7ee50e7785defd235895a2839c94e4b72d"
-  }
+  ]
 }

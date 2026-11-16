@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_search_tree.assets/bst_search",
+  "schema_version": 2,
   "title": "在二叉搜索树中查找节点 7",
   "summary": "从根节点 8 出发，将 cur 的节点值依次与目标值 7 比较，沿 8→4→6→7 逐步缩小查找范围，最终在第四步找到节点 7。",
   "context": [
@@ -50,23 +47,9 @@
       "announcement": "因 7 大于 6，cur 从 6 移至右子节点 7，命中目标并查找成功。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_search_tree.assets/bst_search_step1.png": "6e4a0c4388ffd9a9363051e7d467484ecd216e7c61b360ad7d747f7dead7b9ad",
-      "chapter_tree/binary_search_tree.assets/bst_search_step2.png": "dbf44a68e62559fd35d08b2acf2e2d0d1750c1bda80a87cd27c4682bbb30e998",
-      "chapter_tree/binary_search_tree.assets/bst_search_step3.png": "2ec8d086b047eed331adf5dbdffa0a986acbca0a0aca8346fbd8cffbdbc9c026",
-      "chapter_tree/binary_search_tree.assets/bst_search_step4.png": "b0cfff7c38beacc154f39e9a51313ac09edbe101072fccc87d6db08140cb3e16"
-    }
-  },
   "animations": {
     "bst-search": {
       "kind": "source-frames",
-      "model_sha256": "324555b82b8c22fac17219824a809076cdbe91074560e081788c6253289d2a02",
-      "source_content_sha256": "ee4c2a30ee13886211ba6f11fe8e007a3bab3ec759c3d395b9e7167754531127",
       "states": [
         {
           "id": "step-1",
@@ -84,47 +67,7 @@
           "id": "step-4",
           "frame_id": "source-121"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/names/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "dee57bb67dc5061a123a7c3c427d5f07f9f52c4a1bda677b5995c8fa44f3357f",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "ee4c2a30ee13886211ba6f11fe8e007a3bab3ec759c3d395b9e7167754531127"
   }
 }

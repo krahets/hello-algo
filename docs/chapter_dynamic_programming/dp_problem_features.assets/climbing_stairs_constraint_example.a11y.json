@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_example",
+  "schema_version": 2,
   "title": "禁止连续两次上 1 阶后的第三阶走法",
   "summary": "加上不能连续两轮跳 1 阶的限制后，0→1→2→3 被舍弃，到达第 3 阶只剩 2 种方案。",
   "context": [
@@ -18,48 +15,7 @@
       "book_path": "chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_example.png",
       "title": "禁止连续两次上 1 阶后的第三阶走法",
       "explanation": "方案 0→1→2→3 需要连续三次各跳 1 阶，在前两步就已经违反了“不能连续两轮跳 1 阶”的限制，因此被置灰舍弃。蓝色方案 0→2→3 先跳 2 阶再跳 1 阶，橙色方案 0→1→3 先跳 1 阶再跳 2 阶，两者都没有出现相邻两次 1 阶跳跃，因此均合法保留。",
-      "state": "楼梯阶数标 0 至 6，第 3 阶绿色高亮；上方灰色点线 0→1→2→3 注明因连续两轮跳 1 阶而被舍弃，蓝色 0→2→3 与橙色 0→1→3 保留，底部注明“爬上第 3 阶楼梯共有 2 种方案：0→2→3, 0→1→3”。",
-      "key_state": "舍弃连续跳 1 阶的 0→1→2→3，仅保留 0→2→3 和 0→1→3 两种方案。",
-      "announcement": "排除连续两轮跳 1 阶的违规路径后，到达第 3 阶只剩下先 2 后 1 与先 1 后 2 两种方案。"
+      "state": "楼梯阶数标 0 至 6，第 3 阶绿色高亮；上方灰色点线 0→1→2→3 注明因连续两轮跳 1 阶而被舍弃，蓝色 0→2→3 与橙色 0→1→3 保留，底部注明“爬上第 3 阶楼梯共有 2 种方案：0→2→3, 0→1→3”。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-19",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "49f5a599499bc463f2b0fbc1d5bb4a933a41b14431cdf58db6e55f318a67d0d9",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
-        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
-        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
-        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
-      }
-    ],
-    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/dp_problem_features.md": "eecbb71388b87f9cc9593b41c54ad0b3ccbdea2949f298a3a43632cd93e2436a"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_example.png": "8f131abc0ea026fe4c831237d423fc1cabb72e50eb7033b66249e55ae4441aad"
-    }
-  }
+  ]
 }

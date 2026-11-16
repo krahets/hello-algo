@@ -11,11 +11,6 @@
 觀察下圖，由於物品編號 $i$ 從 $1$ 開始計數，陣列索引從 $0$ 開始計數，因此物品 $i$ 對應重量 $wgt[i-1]$ 和價值 $val[i-1]$ 。
 
 ![0-1 背包的示例資料](knapsack_problem.assets/knapsack_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_example -->
-
-[0-1 背包：容量 50 的最優選擇：完整圖解](knapsack_problem.assets/knapsack_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 我們可以將 0-1 背包問題看作一個由 $n$ 輪決策組成的過程，對於每個物體都有不放入和放入兩種決策，因此該問題滿足決策樹模型。
 
@@ -70,11 +65,6 @@ $$
 觀察遞迴樹，容易發現其中存在重疊子問題，例如 $dp[1, 10]$ 等。而當物品較多、背包容量較大，尤其是相同重量的物品較多時，重疊子問題的數量將會大幅增多。
 
 ![0-1 背包問題的暴力搜尋遞迴樹](knapsack_problem.assets/knapsack_dfs.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs -->
-
-[0-1 背包的重複遞迴：完整圖解](knapsack_problem.assets/knapsack_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 方法二：記憶化搜尋
 
@@ -89,11 +79,6 @@ $$
 下圖展示了在記憶化搜尋中被剪掉的搜尋分支。
 
 ![0-1 背包問題的記憶化搜尋遞迴樹](knapsack_problem.assets/knapsack_dfs_mem.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs_mem -->
-
-[0-1 背包的記憶化搜尋：完整圖解](knapsack_problem.assets/knapsack_dfs_mem.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 方法三：動態規劃
 
@@ -146,11 +131,6 @@ $$
 
 === "<14>"
     ![0-1 背包動態規劃，第 14 步，共 14 步：返回容量 4 的最大價值 20](knapsack_problem.assets/knapsack_dp_step14.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp -->
-
-[0-1 背包動態規劃：完整圖解](knapsack_problem.assets/knapsack_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 空間最佳化
 
@@ -180,11 +160,6 @@ $$
 
 === "<6>"
     ![背包動態規劃的單行壓縮，第 6 步，共 6 步：本輪結束，準備下一輪](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp -->
-
-[背包動態規劃的單行壓縮：完整圖解](knapsack_problem.assets/knapsack_dp_comp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在程式碼實現中，我們僅需將陣列 `dp` 的第一維 $i$ 直接刪除，並且把內迴圈更改為倒序走訪即可：
 

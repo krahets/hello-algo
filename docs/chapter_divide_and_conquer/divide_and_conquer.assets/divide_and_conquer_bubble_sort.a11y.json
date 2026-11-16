@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort",
+  "schema_version": 2,
   "title": "把一次冒泡排序拆成两个较小排序任务",
   "summary": "对比直接冒泡排序八个元素与先二分再分别冒泡排序后合并，二者结果相同，且单次划分后仍为平方阶。",
   "context": [
@@ -20,48 +17,7 @@
       "book_path": "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png",
       "title": "把一次冒泡排序拆成两个较小排序任务",
       "explanation": "右侧路线用额外的线性划分 O(n) 与合并 O(n) 换取两次半规模的冒泡排序 O((n/2)²)，直观解释了将大问题拆分为小问题为何可能减少操作数量。",
-      "state": "左侧路线：[7, 3, 2, 6, 0, 1, 5, 4] 直接经冒泡排序得 [0, 1, 2, 3, 4, 5, 6, 7]，标注总体 O(n²)。右侧路线：先划分 O(n) 为 [7, 3, 2, 6] 与 [0, 1, 5, 4]，分别经冒泡排序 O((n/2)²) 得 [2, 3, 6, 7] 与 [0, 1, 4, 5]，再合并 O(n) 得 [0, 1, 2, 3, 4, 5, 6, 7]，标注总体 O(n²/2 + 2n)。",
-      "key_state": "左右路线结果相同；单次二分后总体复杂度 O(n²/2 + 2n) 仍属 O(n²)。",
-      "announcement": "对比整数组直接冒泡排序与先二分再分别冒泡排序后合并的操作量构成。"
+      "state": "左侧路线：[7, 3, 2, 6, 0, 1, 5, 4] 直接经冒泡排序得 [0, 1, 2, 3, 4, 5, 6, 7]，标注总体 O(n²)。右侧路线：先划分 O(n) 为 [7, 3, 2, 6] 与 [0, 1, 5, 4]，分别经冒泡排序 O((n/2)²) 得 [2, 3, 6, 7] 与 [0, 1, 4, 5]，再合并 O(n) 得 [0, 1, 2, 3, 4, 5, 6, 7]，标注总体 O(n²/2 + 2n)。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-16",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "95947aa6898ef00d2f39d855c88a6d6427392c17594e7ccfafc61a7f2f182fcd",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
-        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
-        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
-        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
-      }
-    ],
-    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/divide_and_conquer.md": "433813a12d09fb5bfb85695af5b249a0ad58dc0fb87a5a4ab7786f39c49853cf"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png": "497f369af3963fbc458105c9bfa1d0fd506e3755a7b88ef65cdc9dfb07cb5e2b"
-    }
-  }
+  ]
 }

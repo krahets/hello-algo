@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic",
   "title": "循环结构与操作次数",
   "summary": "比较单次操作、单层循环和双层循环的工作量增长。",
   "context": [],
@@ -14,20 +11,9 @@
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
       "title": "循环结构与操作次数",
       "explanation": "图中每个小方块代表1次基础操作，外围循环框表示重复执行的范围。无循环结构只执行1次操作；单层循环将基础操作重复n次；双层嵌套循环并非两个循环先后相加，而是外层每执行1轮，内层都要完整运行n次，因此总操作次数按乘法计为n×n=n²。",
-      "state": "三种结构依次为：无循环执行1次（O(1)）、单层循环执行n次（O(n)）、外层与内层各n次的双层嵌套循环执行n²次（O(n²)）。",
-      "key_state": "次数分别为1、n、n²，对应O(1)、O(n)、O(n²)。",
-      "announcement": "比较单次操作、单层循环和双层循环的工作量增长。"
+      "state": "三种结构依次为：无循环执行1次（O(1)）、单层循环执行n次（O(n)）、外层与内层各n次的双层嵌套循环执行n²次（O(n²)）。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/time_complexity.md": "18f2e5296b2d0cd97c34cca8ff29e9e4e96ca43345ee572bf4df899f68b16964"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png": "0a2bb434ba76d12ad69c3094a72f9284e8bdc0e890bd4c101632204d277bc0a8"
-    }
-  },
   "tables": [
     {
       "caption": "循环结构的工作量",
@@ -55,37 +41,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "9432fef4b5d3aa640b372bd0cfb1ba0358b7c705618a303e48543ffff3e7d52c"
-  }
+  ]
 }

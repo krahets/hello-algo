@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_constrained_paths",
+  "schema_version": 2,
   "title": "根据路径不含 3 的约束条件剪枝",
   "summary": "搜索根节点到 7 且不含 3 的路径时，在节点 3 处提前返回并剪去其子树，跳过节点 6 和右侧 7。",
   "context": [
@@ -20,53 +17,7 @@
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_constrained_paths.png",
       "title": "在节点 3 处提前返回以剪除无效搜索分支",
       "explanation": "遇到节点 3 时即可判定其整棵子树不可能产生合法解，因为后续任何延伸路径都会包含 3。在此处直接返回可省去对节点 6 和右侧 7 的无意义访问。",
-      "state": "二叉树结构：根 1 的左、右子节点为 7 和 3，左侧 7 的左、右子节点为 4 和 5，3 的左、右子节点为 6 和右侧 7。附加约束禁止路径包含 3；左分支命中左侧 7 得到结果 [[1, 7]]，右分支在节点 3 处剪枝返回，子节点 6 和右侧 7 不再访问。",
-      "key_state": "在节点 3 处剪枝返回，仅保留合法路径 [1, 7]。",
-      "announcement": "遇到节点 3 提前返回，剪掉其子树并排除不合法路径。"
+      "state": "二叉树结构：根 1 的左、右子节点为 7 和 3，左侧 7 的左、右子节点为 4 和 5，3 的左、右子节点为 6 和右侧 7。附加约束禁止路径包含 3；左分支命中左侧 7 得到结果 [[1, 7]]，右分支在节点 3 处剪枝返回，子节点 6 和右侧 7 不再访问。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-17",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "213aa768f116c738dcb0ec85096227c7cf7a42b1e1d8d284db44ec427eae9950",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
-        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
-        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
-        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
-      }
-    ],
-    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/backtracking_algorithm.md": "b37c6f710f20e16b42e8e9e91bfd79ecb00bdd0a502f6a4f2320cd1a9f944176"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_constrained_paths.png": "f5645e042691588cb90ba20f8f122ccd55a42249e7a21e6758f7929d362c5edc"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
-  }
+  ]
 }

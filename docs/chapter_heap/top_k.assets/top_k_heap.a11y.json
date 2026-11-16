@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_heap/top_k.assets/top_k_heap",
   "title": "用小顶堆寻找 Top-k",
   "summary": "保留至多k个候选，用其中最小值与后续元素比较，淘汰较小候选，得到最大的k个值。",
   "context": [
@@ -328,28 +325,9 @@
       ]
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_heap/top_k.md": "a8005aca6e86e06249e0855a2d7a6f0cea0bf63ec49ab4b4192d1bbd26ee80df"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_heap/top_k.assets/top_k_heap_step1.png": "a8b28591474660d822f66c35f0f8b52d730f79b142a8aca548af571be9c4fe9f",
-      "chapter_heap/top_k.assets/top_k_heap_step2.png": "dfb7e7b4492cc34b263a4b2ee9197e9f971e6673083b7e89a1288d0c52c26347",
-      "chapter_heap/top_k.assets/top_k_heap_step3.png": "b29fd7c3c1f973d22084d5a1c40c142987fa6c101df3a561104457183d0da8ad",
-      "chapter_heap/top_k.assets/top_k_heap_step4.png": "712a09bd6e751e00465d369b0b33ca4422d8c54dc79d1d309f3b9708c2374da7",
-      "chapter_heap/top_k.assets/top_k_heap_step5.png": "d5ce96947f05132c83256d4dbb5795964c86b7fb0c4a0f03ab725c113099a631",
-      "chapter_heap/top_k.assets/top_k_heap_step6.png": "a1128efa46eab89ddf88c1ab848f45691e5f657585f2df501513327f33eac0ed",
-      "chapter_heap/top_k.assets/top_k_heap_step7.png": "67233c9823426cf7ed35ab3aaad5e1cec6f2141e64ffb751f27f2b911e09702d",
-      "chapter_heap/top_k.assets/top_k_heap_step8.png": "671dfee032d1b0dfdae5de06d6074d3b40b397279d7fb973948fda5aad853c6a",
-      "chapter_heap/top_k.assets/top_k_heap_step9.png": "61d3d263f778fdc8282d7f8f264558b500e09d8cb6065236ec8fe3ec53c642db"
-    }
-  },
   "animations": {
     "top-k-heap": {
       "kind": "source-frames",
-      "model_sha256": "d74febeb179442502ca2903ff1072ef2e61d5e83d3d59b86de3d77e775305cab",
-      "source_content_sha256": "af3fc927196647b2d9a5c6b5adae1825520d8f32cacd76150719cd0d604b03cc",
       "states": [
         {
           "id": "step-1",
@@ -387,15 +365,7 @@
           "id": "step-9",
           "frame_id": "source-172"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-08/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "9cd449074a85965552345f3af38f207387beed01325f1cbb769f9bbca0813bb4",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "a899040e8d921a43e237492b4e14aa3b72038ae544b184765d384f50b596af5d"
-      }
+      ]
     }
   },
   "tables": [
@@ -432,37 +402,5 @@
   ],
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-08",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "c56c4b9b2d49d3f123ab974e835e5798344a14f73ac0147240c076fd5ffe2fdc",
-        "output_sha256": "b5f025edfd33ca0a3a95d301bb1b25e23c00ebdfe81522c9c61ae0f2cf9674b6"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b5f025edfd33ca0a3a95d301bb1b25e23c00ebdfe81522c9c61ae0f2cf9674b6",
-        "output_sha256": "a654cb877257e68a388101ad8e47582555faabdea8afb5e8ba4b248d9c989cd4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a654cb877257e68a388101ad8e47582555faabdea8afb5e8ba4b248d9c989cd4",
-        "output_sha256": "19d1763b69fdeec371b296877c06136e96ec986cb9981f9395cd8079adec9af1"
-      }
-    ],
-    "evidence_sha256": "a899040e8d921a43e237492b4e14aa3b72038ae544b184765d384f50b596af5d",
-    "verification_manifest_sha256": "12758dfc53d5615738ec788937b320b70c0ac3d0d3b4ff3dfcbc0cf08da7669a",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "af3fc927196647b2d9a5c6b5adae1825520d8f32cacd76150719cd0d604b03cc"
-  }
+  ]
 }

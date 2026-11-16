@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_nodes",
+  "schema_version": 2,
   "title": "在前序遍历中搜索并记录所有值为 7 的节点",
   "summary": "按根、左、右的前序顺序遍历七个节点，依次命中并记录根的左子节点 7 与节点 3 的右子节点 7。",
   "context": [
@@ -20,53 +17,7 @@
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_nodes.png",
       "title": "在前序访问时机检查并记录目标节点",
       "explanation": "橙色圆点标出首次进入每个节点时的前序检查点，青色填充标出两个值为 7 的命中节点。搜索轨迹穿过左侧命中节点继续深入其子树，确保整棵树的所有节点都被逐一检查。",
-      "state": "二叉树结构：根 1 的左、右子节点为 7 和 3，左侧 7 的左、右子节点为 4 和 5，3 的左、右子节点为 6 和右侧 7。前序访问顺序为 [1, 7, 4, 5, 3, 6, 7]，命中根的左子节点 7 与节点 3 的右子节点 7。",
-      "key_state": "前序遍历七个节点，记录两个不同位置的节点 7。",
-      "announcement": "前序遍历整棵二叉树，记录两个值为 7 的节点。"
+      "state": "二叉树结构：根 1 的左、右子节点为 7 和 3，左侧 7 的左、右子节点为 4 和 5，3 的左、右子节点为 6 和右侧 7。前序访问顺序为 [1, 7, 4, 5, 3, 6, 7]，命中根的左子节点 7 与节点 3 的右子节点 7。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-17",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "a915ae4f325a6e684c9e80ed7b05dbcfe93046790085420fdbe4df908251dfae",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
-        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
-        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
-        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
-      }
-    ],
-    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/backtracking_algorithm.md": "b37c6f710f20e16b42e8e9e91bfd79ecb00bdd0a502f6a4f2320cd1a9f944176"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_nodes.png": "95145078033be9508e30dab2c808c31dd9a82328f1db6576c24cc603a7fda2be"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/counting_sort.assets/counting_sort",
   "title": "前缀和计数排序的稳定写入",
   "summary": "将频数累加为前缀和以定位写入下标，倒序遍历原数组填入 res 并递减计数，最后覆盖 nums。",
   "context": [
@@ -899,27 +896,9 @@
       ]
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/counting_sort.md": "5045502aeb899ea678f18936e1015870ff7c53b0b3652b206f5a69352f0dfbfe"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/counting_sort.assets/counting_sort_step1.png": "129de2718eb3546c6164bb18c92ee4d0972030a7a8b169e6001225569ac020db",
-      "chapter_sorting/counting_sort.assets/counting_sort_step2.png": "c95a89f6f41fd139989d5e458e8a14730f16638d4a701ec40a598f143a556303",
-      "chapter_sorting/counting_sort.assets/counting_sort_step3.png": "af08c956959ec51e3c95813b43cd9abdd26c52bcbb6bc6fe6133159c4d4121fc",
-      "chapter_sorting/counting_sort.assets/counting_sort_step4.png": "e5d70c7802a2de7068a3950c99b15431379d4f88db126c0858972a15bc57ba2f",
-      "chapter_sorting/counting_sort.assets/counting_sort_step5.png": "ae24a4020a3b9181a9d4f80424c8d613de059c0e347bed134e625cd5ea3b12f5",
-      "chapter_sorting/counting_sort.assets/counting_sort_step6.png": "483f0fae265fac3238bb310a713cbd23011b05f859900691436d88fdfa889aad",
-      "chapter_sorting/counting_sort.assets/counting_sort_step7.png": "ecbaaa3979b668134b6df6e6439b01b3489b48095ed102814fc9f4db3781b737",
-      "chapter_sorting/counting_sort.assets/counting_sort_step8.png": "30e303b8e3c8f75584445948d272bf9c84db6d2b0435fd5c431b7d4511650044"
-    }
-  },
   "animations": {
     "counting-sort": {
       "kind": "source-frames",
-      "model_sha256": "3bb00140ad827f9755ce10c882e8a41a48e33123c2636295c2344b7d6518708b",
-      "source_content_sha256": "a11ac2e134f06024b2a8a66cb3325836e6232a2edf183c0eec803cf370e945c1",
       "states": [
         {
           "id": "step-1",
@@ -953,15 +932,7 @@
           "id": "step-8",
           "frame_id": "source-307"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-10/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "e72bc2df68e21fd9dfb3a989f0691442578560a2ec69ec8ae6acaaf513eb224d",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e"
-      }
+      ]
     }
   },
   "tables": [
@@ -1016,37 +987,5 @@
       "row_header": 0
     }
   ],
-  "standalone_tables": [],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-10",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-      }
-    ],
-    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "a11ac2e134f06024b2a8a66cb3325836e6232a2edf183c0eec803cf370e945c1"
-  }
+  "standalone_tables": []
 }

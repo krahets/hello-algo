@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f3",
+  "schema_version": 2,
   "title": "三盘汉诺塔的分治",
   "summary": "先将顶部两盘迁到 B，再把最大盘移到 C，最后把两盘从 B 迁到 C；三个阶段共含七次单盘移动。",
   "context": [
@@ -52,23 +49,9 @@
       "announcement": "借助柱 A 将柱 B 上的两只圆盘迁到柱 C，完成三盘迁移。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step1.png": "fdaa3470ade30bee341b56ec9bd6a106ff8fe89a1069c1196b381d74a516b583",
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step2.png": "a7338923971cf4d4826820dfbd283ab2ab0e774deb5b0c49b789df1001d140e4",
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step3.png": "fbbbdb34ec1e56ccc13a114fabee3dba4fc69fbb234ef35385e4826d56f015e8",
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step4.png": "16be5aeaf268d6ce5fe11cfb9b1e43e66fc1a3204b27e59ab6ad0583ce951744"
-    }
-  },
   "animations": {
     "hanota-f3": {
       "kind": "source-frames",
-      "model_sha256": "e129e1663a381499055a35bab977e097017a0c0c581234656bf39a0b405debd9",
-      "source_content_sha256": "0c3f1ff2face58afad48127272542d9476dff6b0c0b6e13857fe4f88ba672879",
       "states": [
         {
           "id": "step-1",
@@ -86,47 +69,7 @@
           "id": "step-4",
           "frame_id": "source-338"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/names/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "dd1560270bc5933efb12c9416b3ddb841f5e4f6fd8aad4bae311ad3a886ee64f",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "0c3f1ff2face58afad48127272542d9476dff6b0c0b6e13857fe4f88ba672879"
   }
 }

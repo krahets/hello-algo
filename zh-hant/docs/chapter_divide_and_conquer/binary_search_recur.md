@@ -37,11 +37,6 @@
 下圖展示了在陣列中二分搜尋元素 $6$ 的分治過程。
 
 ![二分搜尋的分治過程](binary_search_recur.assets/binary_search_recur.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur -->
-
-[遞迴二分搜尋：完整圖解](binary_search_recur.assets/binary_search_recur.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在實現程式碼中，我們宣告一個遞迴函式 `dfs()` 來求解問題 $f(i, j)$ ：
 

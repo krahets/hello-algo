@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices",
+  "schema_version": 2,
   "title": "硬盘、内存和缓存之间的数据流通",
   "summary": "硬盘、内存与缓存分层协作以兼顾存储容量和访问速度：运行所需数据从硬盘读入内存，再由缓存为处理器提供更快的访问。",
   "context": [
@@ -19,50 +16,7 @@
       "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png",
       "title": "硬盘、内存和缓存之间的数据流通",
       "explanation": "图从左到右展示 CPU（绿色框内包含“处理器”和“缓存”）、“内存”和“硬盘”。处理器与缓存之间、缓存与内存之间、内存与硬盘之间均有双向箭头连接；同时图上方还有一对折线双向箭头直接连接处理器与内存。程序运行时数据从硬盘加载到内存，缓存作为 CPU 的一部分保存高频访问的数据，减少处理器直接访问较慢内存的开销。",
-      "state": "从左到右依次为 CPU（内含处理器和缓存）、内存、硬盘。处理器与缓存、缓存与内存、内存与硬盘之间各有双向水平箭头，上方另有一对双向折线箭头直接连接处理器与内存。",
-      "key_state": "CPU（处理器 + 缓存）、内存、硬盘依次双向连接，上方另有处理器与内存的直接双向通路。",
-      "announcement": "处理器、缓存、内存和硬盘通过双向通路协作传输数据，CPU 内的缓存夹在处理器与内存之间以加速访问。"
+      "state": "从左到右依次为 CPU（内含处理器和缓存）、内存、硬盘。处理器与缓存、缓存与内存、内存与硬盘之间各有双向水平箭头，上方另有一对双向折线箭头直接连接处理器与内存。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_array_and_linkedlist/ram_and_cache.md": "015f4c1e7157dcdf021d6530e3d7f249995acaa07acf7a31ca8a099ff5bdfa1f"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png": "ea3b99d561dd19aa1522ca8206bb56e881103eff1b6222a09efa171ed790155c"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "c93fa88d51d377d50a04e8120b6f53bcfebe698759371521d6eb4a094459685a"
-  }
+  ]
 }

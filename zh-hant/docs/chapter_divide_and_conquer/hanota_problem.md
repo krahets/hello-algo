@@ -11,11 +11,6 @@
     3. 小圓盤必須時刻位於大圓盤之上。
 
 ![河內塔問題示例](hanota_problem.assets/hanota_example.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_example -->
-
-[河內塔問題示例：將六張圓盤從 A 移至 C：完整圖解](hanota_problem.assets/hanota_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 **我們將規模為 $i$ 的河內塔問題記作 $f(i)$** 。例如 $f(3)$ 代表將 $3$ 個圓盤從 `A` 移動至 `C` 的河內塔問題。
 
@@ -28,11 +23,6 @@
 
 === "<2>"
     ![一個圓盤的河內塔（f(1)），第 2 步，共 2 步：把圓盤從柱 A 直接移到柱 C](hanota_problem.assets/hanota_f1_step2.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f1 -->
-
-[一個圓盤的河內塔（f(1)）：完整圖解](hanota_problem.assets/hanota_f1.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 如下圖所示，對於問題 $f(2)$ ，即當有兩個圓盤時，**由於要時刻滿足小圓盤在大圓盤之上，因此需要藉助 `B` 來完成移動**。
 
@@ -51,11 +41,6 @@
 
 === "<4>"
     ![兩個圓盤藉助緩衝柱 B 完成移動，第 4 步，共 4 步：最後把小盤從柱 B 移到柱 C](hanota_problem.assets/hanota_f2_step4.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f2 -->
-
-[兩個圓盤藉助緩衝柱 B 完成移動：完整圖解](hanota_problem.assets/hanota_f2.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 解決問題 $f(2)$ 的過程可總結為：**將兩個圓盤藉助 `B` 從 `A` 移至 `C`** 。其中，`C` 稱為目標柱、`B` 稱為緩衝柱。
 
@@ -80,11 +65,6 @@
 
 === "<4>"
     ![三盤河內塔的分治，第 4 步，共 4 步：完成兩盤子問題：B 到 C](hanota_problem.assets/hanota_f3_step4.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f3 -->
-
-[三盤河內塔的分治：完整圖解](hanota_problem.assets/hanota_f3.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 從本質上看，**我們將問題 $f(3)$ 劃分為兩個子問題 $f(2)$ 和一個子問題 $f(1)$** 。按順序解決這三個子問題之後，原問題隨之得到解決。這說明子問題是獨立的，而且解可以合併。
 
@@ -97,11 +77,6 @@
 對於這兩個子問題 $f(n-1)$ ，**可以透過相同的方式進行遞迴劃分**，直至達到最小子問題 $f(1)$ 。而 $f(1)$ 的解是已知的，只需一次移動操作即可。
 
 ![解決河內塔問題的分治策略](hanota_problem.assets/hanota_divide_and_conquer.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer -->
-
-[河內塔的三階段分解：完整圖解](hanota_problem.assets/hanota_divide_and_conquer.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 程式碼實現
 
@@ -114,11 +89,6 @@
 如下圖所示，河內塔問題形成一棵高度為 $n$ 的遞迴樹，每個節點代表一個子問題，對應一個開啟的 `dfs()` 函式，**因此時間複雜度為 $O(2^n)$ ，空間複雜度為 $O(n)$** 。
 
 ![河內塔問題的遞迴樹](hanota_problem.assets/hanota_recursive_tree.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_recursive_tree -->
-
-[河內塔遞迴樹：兩個較小任務加一次單盤移動：完整圖解](hanota_problem.assets/hanota_recursive_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! quote
 

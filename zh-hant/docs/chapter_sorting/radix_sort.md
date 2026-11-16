@@ -13,11 +13,6 @@
 3. 將 $k$ 增加 $1$ ，然後返回步驟 `2.` 繼續迭代，直到所有位都排序完成後結束。
 
 ![基數排序演算法流程](radix_sort.assets/radix_sort_overview.svg)
-<!-- figure-reading:start group:chapter_sorting/radix_sort.assets/radix_sort_overview -->
-
-[從個位到最高位進行穩定的基數排序：完整圖解](radix_sort.assets/radix_sort_overview.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 下面剖析程式碼實現。對於一個 $d$ 進位制的數字 $x$ ，要獲取其第 $k$ 位 $x_k$ ，可以使用以下計算公式：
 

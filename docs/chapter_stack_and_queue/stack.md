@@ -7,11 +7,6 @@
 如下图所示，我们把堆叠元素的顶部称为“栈顶”，底部称为“栈底”。将把元素添加到栈顶的操作叫作“入栈”，删除栈顶元素的操作叫作“出栈”。
 
 ![栈的先入后出规则](stack.assets/stack_operations.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/stack.assets/stack_operations -->
-
-[栈的入出操作：完整图解](stack.assets/stack_operations.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 栈的常用操作
 
@@ -55,11 +50,6 @@ stack_operations
 
 === "<3>"
     ![基于链表实现栈的入栈与出栈，第 3 步，共 3 步：在链表头部出栈 4](stack.assets/linkedlist_stack_step3_pop.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/stack.assets/linkedlist_stack -->
-
-[基于链表实现栈的入栈与出栈：完整图解](stack.assets/linkedlist_stack.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 以下是基于链表实现栈的示例代码：
 
@@ -79,11 +69,6 @@ stack_operations
 
 === "<3>"
     ![基于数组实现栈的入栈与出栈，第 3 步，共 3 步：在数组尾部出栈 4](stack.assets/array_stack_step3_pop.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/stack.assets/array_stack -->
-
-[基于数组实现栈的入栈与出栈：完整图解](stack.assets/array_stack.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 由于入栈的元素可能会源源不断地增加，因此我们可以使用动态数组，这样就无须自行处理数组扩容问题。以下为示例代码：
 

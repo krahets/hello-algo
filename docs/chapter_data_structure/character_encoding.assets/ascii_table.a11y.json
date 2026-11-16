@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_data_structure/character_encoding.assets/ascii_table",
   "title": "ASCII 字符与编码对照",
   "summary": "按十进制编码或字符查阅对应的二进制表示，区分控制字符与可打印字符。",
   "context": [
@@ -19,9 +16,7 @@
       "book_path": "chapter_data_structure/character_encoding.assets/ascii_table.png",
       "title": "ASCII 字符与编码对照",
       "explanation": "表中同一行的十进制码、8 位二进制与字符一一对应。数字字符 0 至 9 位于十进制 48 至 57，二进制高四位恒为 0011，低四位恰为对应数值 0000 至 1001。同一字母的大小写编码相差 32，8 位二进制仅右起第 6 位（权重 32 的位）不同：例如大写 A 为 65（0100 0001），小写 a 为 97（0110 0001）；换行 LF 为 10（0000 1010）。",
-      "state": "ASCII 对照表完整覆盖十进制编码 0 至 127，对应 8 位二进制 0000 0000 至 0111 1111（最高位恒为 0）。其中 0 至 31 及 127 为控制字符，32 为空格 SP，48 至 57 为数字 0 至 9，65 至 90 为大写字母 A 至 Z，97 至 122 为小写字母 a 至 z，其余为可打印符号。逐码明细见数据表。",
-      "key_state": "编码 0 至 127 对应 128 个 ASCII 字符：编码 0 为 NUL，字符 0 编码为 48，空格 SP 为 32，A 为 65，a 为 97，DEL 为 127。",
-      "announcement": "展示十进制 0 至 127 的完整 ASCII 字符与编码对照。"
+      "state": "ASCII 对照表完整覆盖十进制编码 0 至 127，对应 8 位二进制 0000 0000 至 0111 1111（最高位恒为 0）。其中 0 至 31 及 127 为控制字符，32 为空格 SP，48 至 57 为数字 0 至 9，65 至 90 为大写字母 A 至 Z，97 至 122 为小写字母 a 至 z，其余为可打印符号。逐码明细见数据表。"
     }
   ],
   "tables": [
@@ -805,46 +800,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_data_structure/character_encoding.md": "507b61114c28a3b956809aa4135816175d839e2e9dbd24e92a39f26464d6ae9c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_data_structure/character_encoding.assets/ascii_table.png": "a97dd0bb803c953d3c3db0b7fc8f6898cac9745754125dc7d69dba792730097c"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-01",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-      }
-    ],
-    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "384a26bd291765ee2d0d0524f892a604117bb7f13da99e4667d0ee2e39bfe2ea"
-  }
+  ]
 }

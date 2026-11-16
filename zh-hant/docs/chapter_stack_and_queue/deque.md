@@ -3,11 +3,6 @@
 在佇列中，我們僅能刪除頭部元素或在尾部新增元素。如下圖所示，<u>雙向佇列（double-ended queue）</u>提供了更高的靈活性，允許在頭部和尾部執行元素的新增或刪除操作。
 
 ![雙向佇列的操作](deque.assets/deque_operations.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/deque_operations -->
-
-[雙向佇列的首尾操作：完整圖解](deque.assets/deque_operations.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 雙向佇列常用操作
 
@@ -60,11 +55,6 @@ deque_operations
 
 === "<5>"
     ![雙向鏈結串列實現雙向佇列，第 5 步，共 5 步：佇列首取出1](deque.assets/linkedlist_deque_step5_pop_first.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/linkedlist_deque -->
-
-[雙向鏈結串列實現雙向佇列：完整圖解](deque.assets/linkedlist_deque.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 實現程式碼如下所示：
 
@@ -90,11 +80,6 @@ deque_operations
 
 === "<5>"
     ![迴圈陣列實現雙向佇列，第 5 步，共 5 步：佇列首取出1](deque.assets/array_deque_step5_pop_first.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/array_deque -->
-
-[迴圈陣列實現雙向佇列：完整圖解](deque.assets/array_deque.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在佇列的實現基礎上，僅需增加“佇列首入列”和“佇列尾出列”的方法：
 

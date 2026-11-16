@@ -11,11 +11,6 @@
 层序遍历本质上属于<u>广度优先遍历（breadth-first traversal）</u>，也称<u>广度优先搜索（breadth-first search, BFS）</u>，它体现了一种“一圈一圈向外扩展”的逐层遍历方式。
 
 ![二叉树的层序遍历](binary_tree_traversal.assets/binary_tree_bfs.svg)
-<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/binary_tree_bfs -->
-
-[二叉树的层序遍历：完整图解](binary_tree_traversal.assets/binary_tree_bfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 代码实现
 
@@ -37,11 +32,6 @@
 下图展示了对二叉树进行深度优先遍历的工作原理。**深度优先遍历就像是绕着整棵二叉树的外围“走”一圈**，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历。
 
 ![二叉搜索树的前序、中序、后序遍历](binary_tree_traversal.assets/binary_tree_dfs.svg)
-<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/binary_tree_dfs -->
-
-[二叉树的三种深度优先遍历：完整图解](binary_tree_traversal.assets/binary_tree_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 代码实现
 
@@ -92,11 +82,6 @@
 
 === "<11>"
     ![前序遍历的递归过程，第 11 步，共 11 步：完成向上返回](binary_tree_traversal.assets/preorder_step11.svg)
-<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/preorder -->
-
-[前序遍历的递归过程：完整图解](binary_tree_traversal.assets/preorder.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 复杂度分析
 

@@ -3,11 +3,6 @@
 在队列中，我们仅能删除头部元素或在尾部添加元素。如下图所示，<u>双向队列（double-ended queue）</u>提供了更高的灵活性，允许在头部和尾部执行元素的添加或删除操作。
 
 ![双向队列的操作](deque.assets/deque_operations.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/deque_operations -->
-
-[双向队列的首尾操作：完整图解](deque.assets/deque_operations.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 双向队列常用操作
 
@@ -60,11 +55,6 @@ deque_operations
 
 === "<5>"
     ![双向链表实现双向队列，第 5 步，共 5 步：队首取出1](deque.assets/linkedlist_deque_step5_pop_first.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/linkedlist_deque -->
-
-[双向链表实现双向队列：完整图解](deque.assets/linkedlist_deque.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 实现代码如下所示：
 
@@ -90,11 +80,6 @@ deque_operations
 
 === "<5>"
     ![循环数组实现双向队列，第 5 步，共 5 步：队首取出1](deque.assets/array_deque_step5_pop_first.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/deque.assets/array_deque -->
-
-[循环数组实现双向队列：完整图解](deque.assets/array_deque.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法：
 

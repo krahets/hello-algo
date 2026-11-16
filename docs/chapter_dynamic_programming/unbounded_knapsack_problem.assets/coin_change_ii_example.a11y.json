@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_ii_example",
+  "schema_version": 2,
   "title": "零钱兑换 II：金额 5 共有 4 种硬币组合",
   "summary": "使用可重复选取的面值 1、2、5 硬币恰好凑出目标金额 5，不计取币顺序时共有 4 种不同组合。",
   "context": [
@@ -19,9 +16,7 @@
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_ii_example.png",
       "title": "列出凑出目标金额 5 的 4 种硬币组合",
       "explanation": "按所含较大面值硬币的数量分类枚举：若使用面值 5，只能单取 1 枚 5；若不使用面值 5，则面值 2 可取 2 枚（配 1 枚 1）、1 枚（配 3 枚 1）或 0 枚（配 5 枚 1）。四种方案的硬币面值总和均为 5，合计组合数量为 4。",
-      "state": "可选硬币面值为 [1, 2, 5] 且数量不限，目标金额 amt = 5。图中列出全部 4 种硬币组合方案：1+1+1+1+1、1+1+1+2、1+2+2、5，硬币组合数量为 4。",
-      "key_state": "目标金额 5：共有 4 种无序硬币组合（1+1+1+1+1、1+1+1+2、1+2+2、5）。",
-      "announcement": "零钱兑换 II 示例：用面值 1、2、5 凑出目标金额 5，共有 4 种不同组合。"
+      "state": "可选硬币面值为 [1, 2, 5] 且数量不限，目标金额 amt = 5。图中列出全部 4 种硬币组合方案：1+1+1+1+1、1+1+1+2、1+2+2、5，硬币组合数量为 4。"
     }
   ],
   "tables": [
@@ -81,44 +76,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-22",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "26c7cd868acf926712a663491a61d4d986d9737f4b1ff9c96e9c90ee661f4e44",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "355bb0a076e0c4a50506f944ec79d9a6370d2b0116db530af832856399b3485f",
-        "output_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa",
-        "output_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149",
-        "output_sha256": "6db2e4eff0a7643db4ac5f1c8ad3c9522a1a422b7048c605b10c5f576f7d028d"
-      }
-    ],
-    "evidence_sha256": "cb891d8e2b5e544988c1d1367b6de97883710871a6a6ba0cf5a7e132cd7345cd"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.md": "9ed61e4005390a061618b042d029fa0a2782621b0b3df7e4049331a5bb80eef5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_ii_example.png": "b65b36f35c14ad4d4f76a143246abacd387df60eff3c246585bc740a6999e921"
-    }
-  }
+  ]
 }

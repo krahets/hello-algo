@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum",
   "title": "尾递归求和",
   "summary": "用累加器在递归调用前完成加法，返回时直接传回结果。",
   "context": [],
@@ -16,20 +13,9 @@
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum.png",
       "title": "尾递归求和",
       "explanation": "从recur(n,0)出发，每层在递归调用前先将当前参数k并入累加器res，再调用recur(k−1,res+k)向下传递。当k=1时，res还差最后一项1；再调用一次进入基本情况k=0时，res已累加成完整总和n+…+1并直接返回。回传阶段每层只原样转发下层返回值，不再做额外加法。",
-      "state": "初始n为非负整数，累加器res=0；每次将当前k加入res并把k减1，k=0时直接返回res。",
-      "key_state": "加法在“递”时进行，“归”时不再累加。",
-      "announcement": "用累加器在递归调用前完成加法，返回时直接传回结果。"
+      "state": "初始n为非负整数，累加器res=0；每次将当前k加入res并把k减1，k=0时直接返回res。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum.png": "5f2b9fb4dea576ec90ea4c780fbd105869bf256e21a459e30f25497fcb5f5502"
-    }
-  },
   "tables": [
     {
       "caption": "图中向下调用时的累加器",
@@ -69,37 +55,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "f6d9198102e225b8f0dd15a76a360c639788695cc1be310cb5ceed2578e3e12f"
-  }
+  ]
 }

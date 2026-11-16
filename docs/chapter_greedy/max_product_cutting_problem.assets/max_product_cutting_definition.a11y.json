@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition",
+  "schema_version": 2,
   "title": "最大切分乘积的问题定义",
   "summary": "将正整数 n 切分为至少两个正整数因子之和（n₁ + n₂ + … + nₘ = n），在总和固定为 n 的条件下求所有因子乘积的最大值。",
   "context": [
@@ -18,48 +15,7 @@
       "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png",
       "title": "最大切分乘积的问题定义",
       "explanation": "上方完整灰条代表待切分的正整数 n，下方等长条被切分为 m 个正整数因子 n₁、n₂、n₃、…、nₘ₋₂、nₘ₋₁、nₘ（中间省略号代表任意切分段数）。因为各段首尾相连后的总长度与上方 n 完全对齐，即加和恒为 n，在此约束下求解乘积 n₁ × n₂ × … × nₘ 的最大值。",
-      "state": "符号条形图：上排为总长 n 的灰条，下排等长切分为 n₁、n₂、n₃、…、nₘ₋₂、nₘ₋₁、nₘ；下方目标公式为求 max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ)。",
-      "key_state": "将正整数 n 切分为 m 个正整数因子之和，求连乘积 max(n₁ × … × nₘ)。",
-      "announcement": "展示最大切分乘积问题定义：将整数 n 切分为多段正整数之和，最大化各段乘积。"
+      "state": "符号条形图：上排为总长 n 的灰条，下排等长切分为 n₁、n₂、n₃、…、nₘ₋₂、nₘ₋₁、nₘ；下方目标公式为求 max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ)。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-24",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "1610527dd1867b34d1414fc1403a20f4aae1ccb559454393ecd663dbb596fd7f",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d40a34ce09d07aa5f2a8281d168d7daa9ee113c09b575f1200eb0409b245f89e",
-        "output_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8a1430b08cfa12d5586c31c993b51fdeb8d3c6412ce6de6939643e8766084ea6",
-        "output_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f7f806b44c8d2d3a360bd07d285786f4c9b9881b94cb30acb729899f1a072fce",
-        "output_sha256": "5eee136dd6bac5250047fed5bcee9c46c066cf9325b373b0a35bafc641e9f011"
-      }
-    ],
-    "evidence_sha256": "76b6078358083e454d25f857a790e71339d6048171500ff10b161508d80ce246"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/max_product_cutting_problem.md": "e9a2d217025e8c5060ee3100522e8cb0d93d089a1417055fafc47046f313d6a3"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png": "bdb2b3eb2a0b974b7caf2701594cfc0b4e40c6069eff3ad9db716f8af883fbde"
-    }
-  }
+  ]
 }

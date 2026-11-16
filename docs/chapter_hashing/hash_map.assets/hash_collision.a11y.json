@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_hashing/hash_map.assets/hash_collision",
+  "schema_version": 2,
   "title": "哈希冲突：两个不同学号映射到同一个桶索引",
   "summary": "当哈希函数为 key % 100 时，后两位相同的不同学号 20336 与 12836 都会映射到 36 号桶，引发哈希冲突并导致未作冲突处理时误读结果。",
   "context": [
@@ -77,58 +74,7 @@
       "book_path": "chapter_hashing/hash_map.assets/hash_collision.png",
       "title": "20336 与 12836 在 36 号桶发生哈希冲突",
       "explanation": "输入学号 20336 和 12836 对 100 取余的结果均为 36，两条路径同时指向 36 号桶并触发“哈希冲突”标注。因为 36 号桶内实际保存的是 (12836, “小哈”)，若不核对完整学号也不做冲突处理，对 20336 的查询就会错误地读到属于 12836 的“小哈”；对 12836 返回“小哈”则与桶内学号匹配。",
-      "state": "左侧“输入 key”为上方橙色 20336 与下方蓝色 12836；两条曲线穿过“哈希函数 key % 100”后共同指向加粗的索引 36，汇合处上方标注粉红色“哈希冲突”；36 号桶内存放 (12836, “小哈”)，其余可见桶为 37:(15937, “小啰”)、50:(16750, “小算”)、76:(13276, “小法”)、83:(10583, “小鸭”)；右侧“输出 value”列上方橙色框和下方蓝色框均显示“小哈”。",
-      "key_state": "20336 % 100 = 36 且 12836 % 100 = 36，两键在 36 号桶发生哈希冲突。",
-      "announcement": "展示不同学号 20336 与 12836 经取余后同时落入 36 号桶并引发哈希冲突的情形。"
+      "state": "左侧“输入 key”为上方橙色 20336 与下方蓝色 12836；两条曲线穿过“哈希函数 key % 100”后共同指向加粗的索引 36，汇合处上方标注粉红色“哈希冲突”；36 号桶内存放 (12836, “小哈”)，其余可见桶为 37:(15937, “小啰”)、50:(16750, “小算”)、76:(13276, “小法”)、83:(10583, “小鸭”)；右侧“输出 value”列上方橙色框和下方蓝色框均显示“小哈”。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-05",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "5e0c4cfec8702394f154a43f3dd8bc78d718e0390abb537e4ada8eeb0b746bb2",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
-        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
-        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
-        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
-      }
-    ],
-    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_hashing/hash_map.md": "811c668682eed15b11f5c0c9a4f62574d741212e7bdf7078b8826c4d13933d12"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_hashing/hash_map.assets/hash_collision.png": "62ab38c2706d35415cbed51e74f2ffa9e21d39e4b4697e802d5603a4f2123da1"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-dependency-verification",
-      "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-      "factual_review_preserved": true
-    }
-  }
+  ]
 }

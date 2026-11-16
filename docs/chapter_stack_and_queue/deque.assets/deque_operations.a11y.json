@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_stack_and_queue/deque.assets/deque_operations",
   "title": "双向队列的首尾操作",
   "summary": "分别演示队尾与队首的入队和出队，展示双向队列的四种基本操作。",
   "context": [],
@@ -16,30 +13,13 @@
       "book_path": "chapter_stack_and_queue/deque.assets/deque_operations.png",
       "title": "双向队列的首尾操作",
       "explanation": "图中包含两组独立示例：队尾示例从 [3, 2, 5] 开始，执行 push_last(4) 得到 [3, 2, 5, 4]，再执行 pop_last() 返回 4 并恢复 [3, 2, 5]；队首示例则以含 4 的 [3, 2, 5, 4] 为独立起点，执行 push_first(1) 得到 [1, 3, 2, 5, 4]，再执行 pop_first() 返回 1 并恢复 [3, 2, 5, 4]。",
-      "state": "所有序列按队首到队尾书写。静态图五个面板分为独立的队尾示例（初态 [3, 2, 5]）与队首示例（独立初态 [3, 2, 5, 4]）；队首示例起点仍含元素 4，并非接续在队尾弹出 4 之后。",
-      "key_state": "push_first/pop_first 操作队首，push_last/pop_last 操作队尾；两组示例范围独立。",
-      "announcement": "分别演示队尾与队首的入队和出队，展示双向队列的四种基本操作。"
+      "state": "所有序列按队首到队尾书写。静态图五个面板分为独立的队尾示例（初态 [3, 2, 5]）与队首示例（独立初态 [3, 2, 5, 4]）；队首示例起点仍含元素 4，并非接续在队尾弹出 4 之后。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_stack_and_queue/deque.md": "fee908eaea444525f8a1fe3f8f541cc0de02efc01305d5c051dae665ba10887e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_stack_and_queue/deque.assets/deque_operations.png": "eb034d1ad09e383b573f718f1d3c594e1629b42a01b6cb5f139a2f4a7d3008c1"
-    }
-  },
   "animations": {
     "deque-tail-operations": {
       "kind": "prose",
-      "model_sha256": "4a556a842f030924a88a4eeb9040d9100200ff64e755f54ed3959069f0dd10f9",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "deque-tail-operations",
-        "group_id": "group:chapter_stack_and_queue/deque.assets/deque_operations",
         "title": "双向队列的队尾操作",
         "summary": "在队尾添加再取出同一元素，其余元素次序不变。",
         "context": [
@@ -74,50 +54,12 @@
             "key_state": "当前 [3, 2, 5]，队首 3、队尾 5，返回 4。",
             "announcement": "从队尾移除并返回 4，队列恢复为 [3, 2, 5]。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-05",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
-              "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
-              "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
-              "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
-            }
-          ],
-          "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
-          "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "e93c4018254c46c276f50cdc9d65784b0dd146936cf5a8b27860d22b615726af"
-        }
+        ]
       }
     },
     "deque-head-operations": {
       "kind": "prose",
-      "model_sha256": "320c484b27d2ddd64708f15e6fcbf5dce6eb0ea250ebf825195cc17da5250bb9",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "deque-head-operations",
-        "group_id": "group:chapter_stack_and_queue/deque.assets/deque_operations",
         "title": "双向队列的队首操作",
         "summary": "在队首添加再取出同一元素，其余元素次序不变。",
         "context": [
@@ -152,39 +94,7 @@
             "key_state": "当前 [3, 2, 5, 4]，队首 3、队尾 4，返回 1。",
             "announcement": "从队首移除并返回 1，队列恢复为 [3, 2, 5, 4]。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-05",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
-              "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
-              "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
-              "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
-            }
-          ],
-          "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
-          "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "ddb40a12d2bbd7e4472e2c7037c4398fb5d461c930fb3a1996a3789bc358aa41"
-        }
+        ]
       }
     }
   },
@@ -230,42 +140,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-05",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
-        "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
-        "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
-        "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
-      }
-    ],
-    "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
-    "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "58ad1270e71d5a731c3fc95e4dd53939fe469e987fb99b81f410bf45514b98c5"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
-  }
+  ]
 }

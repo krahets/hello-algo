@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth",
+  "schema_version": 2,
   "title": "递归求和的递归深度",
   "summary": "在普通递归求和图的基础上将右侧返回过程淡化，用左侧大括号框出从 recur(n) 到 recur(1) 的整列向下调用链，标明其“递归深度 n”。",
   "context": [
@@ -18,49 +15,7 @@
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth.png",
       "title": "递归求和的递归深度",
       "explanation": "画面通过淡化右侧“向上‘归’”部分，突显左侧“向下‘递’”阶段在触底前累积的调用链：从顶层 recur(n) 依次向下调用 recur(n-1)、…、recur(4)、recur(3)、recur(2) 直至底层 recur(1)，左侧纵向大括号将这串连续嵌套的调用整体括起并标注“递归深度 n”，直观展示到达 recur(1) 时，包括顶层在内共有 n 层调用尚未返回。在 recur(1) 处触发终止条件后返回 1，再沿被淡化的右列逐层加上当前层参数，最终返回 1 到 n 的总和。",
-      "state": "左侧高亮显示“向下‘递’”调用链 recur(n) → recur(n-1) → … → recur(4) → recur(3) → recur(2) → recur(1)，最左侧纵向大括号跨满整列并标注“递归深度 n”；底部“触发递归终止条件”文字和向右箭头仍清晰，右侧的返回表达式、大括号和箭头则呈淡化状态。",
-      "key_state": "递归深度示意：从 recur(n) 向下递推至 recur(1) 共经历 n 层嵌套调用，左侧大括号标注“递归深度 n”。",
-      "announcement": "高亮从 recur(n) 到 recur(1) 的向下递推调用链，并用左侧大括号标明同时挂起的调用层数即递归深度为 n。"
+      "state": "左侧高亮显示“向下‘递’”调用链 recur(n) → recur(n-1) → … → recur(4) → recur(3) → recur(2) → recur(1)，最左侧纵向大括号跨满整列并标注“递归深度 n”；底部“触发递归终止条件”文字和向右箭头仍清晰，右侧的返回表达式、大括号和箭头则呈淡化状态。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-01",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "d4aa11fd43182803684cab4695c75669c60f9a0cb061bd150e9136e56d7b5ee0",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "431741d9738e417e17d2b6e1ded2465a8b4b113efdfecac9156ffc919692f129",
-        "output_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "788c6c12542fbdbebab1ddf27c9a01785c2b0382634b45728fe753dfc50161b4",
-        "output_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "7ba480f813eff332da9209075440c51fc0192feeb92dc2f870cfae69454a1af0",
-        "output_sha256": "10e9faf80624dffe5daec10997eafa110b0fa676bf753184a205a3604fd651d9"
-      }
-    ],
-    "evidence_sha256": "ef94661da660ccf8ffe36e7213507ecb5fe1fad850478d55981ecebce88583b7",
-    "schema_normalization": "Wrap context/description strings in paragraph arrays; prose unchanged."
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth.png": "66807690dcabddfdee152ad180a4eef94f8d4f3e47a3c53419615d2bcee2bf5f"
-    }
-  }
+  ]
 }

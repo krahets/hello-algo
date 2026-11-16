@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum",
   "title": "普通递归求和",
   "summary": "先把求和问题缩小到基本情况，再在返回时逐层相加。",
   "context": [],
@@ -14,20 +11,9 @@
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum.png",
       "title": "普通递归求和",
       "explanation": "递入阶段，从recur(n)起逐层调用recur(n−1)，将参数一路缩小到终止条件recur(1)。回传阶段，recur(1)直接返回1；recur(2)收到下层结果1后计算2+1=3，recur(3)收到3后计算3+3=6，依次向上累加直到最初调用。因为每层必须先拿到子调用的返回值，才能把本层参数加进去，所以求和加法都在返回阶段完成。",
-      "state": "n为正整数；基本情况recur(1)返回1，其余recur(k)先等待子调用recur(k−1)返回，再计算并返回k+recur(k−1)。",
-      "key_state": "“递”时缩小参数，“归”时完成求和加法。",
-      "announcement": "先把求和问题缩小到基本情况，再在返回时逐层相加。"
+      "state": "n为正整数；基本情况recur(1)返回1，其余recur(k)先等待子调用recur(k−1)返回，再计算并返回k+recur(k−1)。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum.png": "d46692304cdcdba6cda6a4a5b2d10dcda45e51d94536561622db3e13f3dc85cf"
-    }
-  },
   "tables": [
     {
       "caption": "图中调用与返回表达式",
@@ -67,37 +53,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "60dbf906ab1c567fb4a0e0c492628796100bfc6768fa1b553049819ab26a12d7"
-  }
+  ]
 }

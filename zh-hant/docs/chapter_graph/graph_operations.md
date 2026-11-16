@@ -25,11 +25,6 @@
 
 === "<5>"
     ![鄰接矩陣的增刪操作，第 5 步，共 5 步：刪除頂點 3](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
-<!-- figure-reading:start group:chapter_graph/graph_operations.assets/adjacency_matrix -->
-
-[鄰接矩陣的增刪操作：完整圖解](graph_operations.assets/adjacency_matrix.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 以下是基於鄰接矩陣表示圖的實現程式碼：
 
@@ -61,11 +56,6 @@
 
 === "<5>"
     ![鄰接表的增刪操作，第 5 步，共 5 步：刪除頂點 3](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
-<!-- figure-reading:start group:chapter_graph/graph_operations.assets/adjacency_list -->
-
-[鄰接表的增刪操作：完整圖解](graph_operations.assets/adjacency_list.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 以下是鄰接表的程式碼實現。對比上圖，實際程式碼有以下不同。
 

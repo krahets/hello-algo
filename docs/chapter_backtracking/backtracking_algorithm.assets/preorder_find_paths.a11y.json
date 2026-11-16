@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths",
   "title": "尝试与回退：保存到达 7 的路径",
   "summary": "进入节点时追加进 path，退出时弹出；两次命中 7 复制保存路径副本，搜索结束时 path 清空。",
   "context": [
@@ -116,30 +113,9 @@
       "announcement": "依次退出右侧 7、节点 3 和根 1，path 清空，搜索完成。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/backtracking_algorithm.md": "b37c6f710f20e16b42e8e9e91bfd79ecb00bdd0a502f6a4f2320cd1a9f944176"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png": "c0729d10d52454896b03c242d2e2fd4c4aaa577d430a631ab1a7de3015d92557",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png": "41a364f0914ca99c3b52c8168b2adfc00f289d08e48e2a3ea647d3e68a27aa65",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png": "08067997438106ec671b1550df766579dd2e58c1143d87a5709267e2d63359ec",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png": "29566f17de5e9f442062353337ebe00b7f994749c62535ff53a84862b6057d2e",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png": "b955bba6d6726f1a8c5870f28533afff41f4c9d7941e3d4c03ada3d6733d2e32",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png": "81c186485566535641ce1e97579da02cd092ebe210d092ae741093bc4442d93d",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png": "b57380d2cf777cd62394da6d599d4230b1b85a589acc0e64708b415e30b63fc7",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png": "c3eaccb8c290a9c55e2368ce18ea65c009dd128b05648a9743afe0dc160808dc",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png": "334c4be8880d82caa8b54a4ef1f4aa606f14f79171f6834e94b89e3add937c47",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png": "9ad2089faa93afa08f2a4c2394e2a0a580f2181bc6ab574030332ded809d5a49",
-      "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png": "6741992ee2447202be898dde1ceddeb93d9f466499f0a950817433f35330f2e3"
-    }
-  },
   "animations": {
     "preorder-find-paths": {
       "kind": "source-frames",
-      "model_sha256": "415725b457d904cf332b57cbfbf25e0dcb8dab71e6e475abbfc86956e09ac6ff",
-      "source_content_sha256": "b40b0e2fe7754ff1e6b7e0a07f1bd92f51ae1e264e7bff7eeb7da69008092027",
       "states": [
         {
           "id": "step-1",
@@ -185,15 +161,7 @@
           "id": "step-11",
           "frame_id": "source-352"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-11/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "b4761eebb79ef90c9b5f76a565221ff5f73b2f3dc6af9eebda27267f38173491",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83"
-      }
+      ]
     }
   },
   "tables": [
@@ -246,37 +214,5 @@
   ],
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-11",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
-        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
-        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
-        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
-      }
-    ],
-    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
-    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "b40b0e2fe7754ff1e6b7e0a07f1bd92f51ae1e264e7bff7eeb7da69008092027"
-  }
+  ]
 }

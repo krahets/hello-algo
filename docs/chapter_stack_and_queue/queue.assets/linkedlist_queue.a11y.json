@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_stack_and_queue/queue.assets/linkedlist_queue",
+  "schema_version": 2,
   "title": "基于链表实现队列的入队与出队",
   "summary": "将链表头节点作为队首、尾节点作为队尾：在链表尾部追加 4 完成入队，删除链表头节点 1 完成出队。",
   "context": [
@@ -41,22 +38,9 @@
       "announcement": "步骤 3：执行 pop() 删除链表头节点 1，头节点和队首变为 3，队列剩下 [3, 2, 5, 4]。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_stack_and_queue/queue.md": "896475dcba151b44c34df568e54b1283f5e81225c0c665c1a49b58a058ec3d60"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_stack_and_queue/queue.assets/linkedlist_queue_step1.png": "53fa503b53989ff2790baa6ccde438d99728aafddccf6dd921f9eda9a41f6e96",
-      "chapter_stack_and_queue/queue.assets/linkedlist_queue_step2_push.png": "1a419a0ec02ce072dba01c2a576b90a2c8e00705ee28e38d831614dd70b26e3f",
-      "chapter_stack_and_queue/queue.assets/linkedlist_queue_step3_pop.png": "a726f4f847fa2480624d69c59340b21a14ac0bffa2f42b064fd0e3368c5c3e98"
-    }
-  },
   "animations": {
     "linkedlist-queue": {
       "kind": "source-frames",
-      "model_sha256": "405b0cf945777641b760519be6a71493768894340eaaef69357cd4d431faff10",
-      "source_content_sha256": "b1dc157e2d57490feadf1c7a70aa4560f752ebc02bae322ee89f96ec14b5faf9",
       "states": [
         {
           "id": "step-1",
@@ -70,52 +54,7 @@
           "id": "step-3",
           "frame_id": "source-66"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/names/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "a9600b33a5a3ad85034208da09438052f198284f627215c4b2a56ee66f0cc514",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "b1dc157e2d57490feadf1c7a70aa4560f752ebc02bae322ee89f96ec14b5faf9"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
   }
 }

@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic",
+  "schema_version": 2,
   "title": "每次保留一半的对数增长",
   "summary": "长度为 n 的数组每层删减一半，最终缩减至长度 1；图中包含长度为 1 的末层在内共 log₂n + 1 层，每层 1 个计算操作，对应对数阶时间复杂度 O(log n)。",
   "context": [
@@ -19,53 +16,7 @@
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic.png",
       "title": "每次保留一半的对数增长",
       "explanation": "设 n 为 2 的整数次幂，需要区分“减半动作的次数”与“图中画出的数组层数”：从长度 n 连续除以 2 直到变为 1，共执行 log₂n 次减半（对应代码 while n > 1 循环体执行的次数）；而图示把起始状态和末尾长度为 1 的状态都作为独立的一层画出，因此总层数为 log₂n + 1。以图中具体画出的后四行 8、4、2、1 为例，共经历了 3 次减半，但包含首尾共有 4 层。",
-      "state": "三列顶部均为竖向省略号，其下具体展示剩余长度为 8、4、2、1 的四层 8 格数组：绿色保留区间依次为全部 8 格、最右 4 格、最右 2 格、最右 1 格，其余格子呈灰色。右侧每层对应 1 个绿色操作方块，大括号标注“共 log₂n + 1 层”；底部标注计算操作总数 log₂n + 1，时间复杂度为对数阶 O(log n)。",
-      "key_state": "剩余长度从 n 持续减半（末四层为 8、4、2、1）；含首尾共 log₂n + 1 层、每层 1 次操作，属对数阶 O(log n)。",
-      "announcement": "展示数组长度每层删减一半的过程，从 8 依次缩减为 4、2、1，导出对数阶 O(log n)。"
+      "state": "三列顶部均为竖向省略号，其下具体展示剩余长度为 8、4、2、1 的四层 8 格数组：绿色保留区间依次为全部 8 格、最右 4 格、最右 2 格、最右 1 格，其余格子呈灰色。右侧每层对应 1 个绿色操作方块，大括号标注“共 log₂n + 1 层”；底部标注计算操作总数 log₂n + 1，时间复杂度为对数阶 O(log n)。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-02",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "098aff1dc916f34e9123484cc9eed2246cf70bbb70a03cf928468b8e205bc87b",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
-        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
-        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
-        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
-      }
-    ],
-    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/time_complexity.md": "18f2e5296b2d0cd97c34cca8ff29e9e4e96ca43345ee572bf4df899f68b16964"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic.png": "5e798b0a87e7807d08efd00b84da2b3b286da9ddca1f55afac130eb58ac310cd"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
-  }
+  ]
 }

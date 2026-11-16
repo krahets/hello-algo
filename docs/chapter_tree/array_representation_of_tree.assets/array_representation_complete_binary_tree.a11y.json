@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/array_representation_of_tree.assets/array_representation_complete_binary_tree",
+  "schema_version": 2,
   "title": "完全二叉树的数组表示可省略末尾空位",
   "summary": "完全二叉树的空位全部集中在最底层右侧即层序序列末尾，因此数组只需存储节点 1 至 10，无需存储末尾五个空位。",
   "context": [
@@ -19,48 +16,7 @@
       "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_complete_binary_tree.png",
       "title": "省略完全二叉树层序数组末尾的五个空位",
       "explanation": "左侧树的最底层右侧有五个虚线空圆，对应右上方数组末尾的五个虚线空格；右下方数组直接省去这五个末尾空格，仅紧凑保存 1 至 10。",
-      "state": "左侧完全二叉树的父子连接为 1→2、3，2→4、5，3→6、7，4→8、9，5 的左子节点为 10，第四层 10 右侧有五个虚线空圆。右上方数组为 1 至 10 后接五个虚线空格，经“若为完全二叉树，则可不存储空位”转换后，右下方数组仅含 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]。",
-      "key_state": "完全二叉树含 10 个节点，末尾五个空位直接省略，数组紧凑存储 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]。",
-      "announcement": "省略完全二叉树层序数组末尾的五个空位，仅存储 1 至 10 十个节点值。"
+      "state": "左侧完全二叉树的父子连接为 1→2、3，2→4、5，3→6、7，4→8、9，5 的左子节点为 10，第四层 10 右侧有五个虚线空圆。右上方数组为 1 至 10 后接五个虚线空格，经“若为完全二叉树，则可不存储空位”转换后，右下方数组仅含 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-07",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "64e3c48328d19f31a3bb236015238427e5c91dbf3d398101d56929d3a9fc7135",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "f429a2d9034d7690b6bd4a3f0822b11a77350c2330baf8a66141d1f7a9ef4841",
-        "output_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "153c30612461807bd0ab5a65d58bab7d90d7c9e73a32347d68002b853a7c7c91",
-        "output_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e1abb3ceebb081d78b82ea65df7dc5bad211480dd4330a41e15521a604f350f6",
-        "output_sha256": "449ce85fb338c455e6cedde1bf55ab20b1b0f532a5408dfa0443a6fbe9815c6b"
-      }
-    ],
-    "evidence_sha256": "459b7ad9cb6322b1bab7e28efa1badcfd4813182718f9028c5dbe5d4d10dbb4c"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/array_representation_of_tree.md": "cd4a08a4c01fdd9039b2c9cafa2632b965147084ddf3ff241600c2c803acc30e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/array_representation_of_tree.assets/array_representation_complete_binary_tree.png": "726b3b6d3c17db19e554e5cab9cd6ccada5ad26bfbe81597064d413e5d8220c6"
-    }
-  }
+  ]
 }

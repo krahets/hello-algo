@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/iteration",
   "title": "单层循环",
   "summary": "通过初始化、条件判断和更新，控制任务重复执行。",
   "context": [
@@ -16,50 +13,7 @@
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
       "title": "单层循环",
       "explanation": "进入流程先初始化i=1，再判断i≤n：条件为真则执行任务，随后令i增加1，直接回到条件判断；条件为假则退出循环。初始化只在进入循环前执行一次，每轮更新后回到判断，不会重新把i置为1。",
-      "state": "n为正整数，i初值为1；当i≤n时执行任务并令i+=1，再回到i≤n判断，直到i=n+1时判断为假退出。",
-      "key_state": "初始化一次；每轮先判断，执行任务后更新i，再回到判断。",
-      "announcement": "通过初始化、条件判断和更新，控制任务重复执行。"
+      "state": "n为正整数，i初值为1；当i≤n时执行任务并令i+=1，再回到i≤n判断，直到i=n+1时判断为假退出。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png": "010042875a5389814aef8e50a77aaf405e0b9ddbd2de957d23d8175cda051940"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "00f234691d4d39b1b0c8c606bceb92df869cc0e686bf4bd6070a6692011d36fd"
-  }
+  ]
 }

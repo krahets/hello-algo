@@ -11,11 +11,6 @@
 如下图所示，对于一个 $3$ 阶楼梯，共有 $3$ 种方案可以爬到楼顶。
 
 ![爬到第 3 阶的方案数量](intro_to_dynamic_programming.assets/climbing_stairs_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_example -->
-
-[爬到第三阶的三种方案：完整图解](intro_to_dynamic_programming.assets/climbing_stairs_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 本题的目标是求解方案数量，**我们可以考虑通过回溯来穷举所有可能性**。具体来说，将爬楼梯想象为一个多轮选择的过程：从地面出发，每轮选择上 $1$ 阶或 $2$ 阶，每当到达楼梯顶部时就将方案数量加 $1$ ，当越过楼梯顶部时就将其剪枝。代码如下所示：
 
@@ -44,11 +39,6 @@ $$
 这意味着在爬楼梯问题中，各个子问题之间存在递推关系，**原问题的解可以由子问题的解构建得来**。下图展示了该递推关系。
 
 ![方案数量递推关系](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_state_transfer -->
-
-[第五阶的方案由第三、四阶相加：完整图解](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 我们可以根据递推公式得到暴力搜索解法。以 $dp[n]$ 为起始点，**递归地将一个较大问题拆解为两个较小问题的和**，直至到达最小子问题 $dp[1]$ 和 $dp[2]$ 时返回。其中，最小子问题的解是已知的，即 $dp[1] = 1$、$dp[2] = 2$ ，表示爬到第 $1$、$2$ 阶分别有 $1$、$2$ 种方案。
 
@@ -61,11 +51,6 @@ $$
 下图展示了暴力搜索形成的递归树。对于问题 $dp[n]$ ，其递归树的深度为 $n$ ，时间复杂度为 $O(2^n)$ 。指数阶属于爆炸式增长，如果我们输入一个比较大的 $n$ ，则会陷入漫长的等待之中。
 
 ![爬楼梯对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree -->
-
-[暴力爬楼梯搜索的重叠子问题：完整图解](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 观察上图，**指数阶的时间复杂度是“重叠子问题”导致的**。例如 $dp[9]$ 被分解为 $dp[8]$ 和 $dp[7]$ ，$dp[8]$ 被分解为 $dp[7]$ 和 $dp[6]$ ，两者都包含子问题 $dp[7]$ 。
 
@@ -87,11 +72,6 @@ $$
 观察下图，**经过记忆化处理后，所有重叠子问题都只需计算一次，时间复杂度优化至 $O(n)$** ，这是一个巨大的飞跃。
 
 ![记忆化搜索对应递归树](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree -->
-
-[记忆化搜索复用已算出的状态：完整图解](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 方法三：动态规划
 
@@ -108,11 +88,6 @@ $$
 下图模拟了以上代码的执行过程。
 
 ![爬楼梯的动态规划过程](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dp -->
-
-[从初始状态迭代计算爬楼梯方案数：完整图解](intro_to_dynamic_programming.assets/climbing_stairs_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 与回溯算法一样，动态规划也使用“状态”概念来表示问题求解的特定阶段，每个状态都对应一个子问题以及相应的局部最优解。例如，爬楼梯问题的状态定义为当前所在楼梯阶数 $i$ 。
 

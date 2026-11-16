@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_searching/binary_search.assets/binary_search",
   "title": "二分查找",
   "summary": "在升序数组中查找目标值 6，每轮比较中点元素后排除不可能包含目标的一半区间。",
   "context": [
@@ -76,26 +73,9 @@
       "announcement": "中点值等于目标值 6，查找成功，返回索引 2。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_searching/binary_search.md": "a734fc597b716931cf132436b8c4deaa76801f67a7dc4c2f8fdac5bb6cedb01d"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_searching/binary_search.assets/binary_search_step1.png": "ceac8423d9ec89c3725b9110e54d2b2f6acd54c0cb5f1d09d5f32d009893c9b6",
-      "chapter_searching/binary_search.assets/binary_search_step2.png": "839c836322fca6581dd3f326d8d16c53fa6788014ce1ec7f533c5e6f6c3626c2",
-      "chapter_searching/binary_search.assets/binary_search_step3.png": "e0aedb6d00aacbf8af077cff42a790490f60020bbab784afd95ac8feb17a4213",
-      "chapter_searching/binary_search.assets/binary_search_step4.png": "bfd173bc877a3f412041a631665c232054a2425e24f754ad7a661159bf719bc2",
-      "chapter_searching/binary_search.assets/binary_search_step5.png": "52b1544c96d125bd1cb4dcbf18e025c1cb8533af7d358710718ecb503775d1dc",
-      "chapter_searching/binary_search.assets/binary_search_step6.png": "a0ed5c2fa9e3881eb8b3f294de333c94f9fc28baaaf204bf74750533c313d133",
-      "chapter_searching/binary_search.assets/binary_search_step7.png": "9440024a03d786e3f6a92b95fbe13d810bb26d7da5ccb026534eb8be036323fa"
-    }
-  },
   "animations": {
     "binary-search": {
       "kind": "source-frames",
-      "model_sha256": "ac874435aa61cd01d2d1a781b44a47391a858a001547a20adf52fc457873c46b",
-      "source_content_sha256": "a6eb5d9899fb21e29d502e0013a7dcc184c937a93a5f1f5987008db6efa477ec",
       "states": [
         {
           "id": "step-1",
@@ -125,15 +105,7 @@
           "id": "step-7",
           "frame_id": "source-220"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/pilot/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "55a42f48b37525b70e8f19d88b8195295e14eec0ba2db18f4cd7288ad506dac1",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb"
-      }
+      ]
     }
   },
   "tables": [
@@ -190,57 +162,5 @@
   ],
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/pilot",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
-        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
-      }
-    ],
-    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
-    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "assembly": {
-      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
-      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-      "supplemental_stages": [
-        {
-          "requested_model": "gpt-6-astra",
-          "actual_model": "gpt-6-astra",
-          "model_confirmation": "native_runtime",
-          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
-        },
-        {
-          "requested_model": "gemini-4-argon",
-          "actual_model": null,
-          "model_confirmation": "provider_not_reported",
-          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
-          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
-        }
-      ]
-    },
-    "content_sha256": "a6eb5d9899fb21e29d502e0013a7dcc184c937a93a5f1f5987008db6efa477ec"
-  }
+  ]
 }

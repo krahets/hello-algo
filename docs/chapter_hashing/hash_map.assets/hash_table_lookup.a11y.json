@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_hashing/hash_map.assets/hash_table_lookup",
+  "schema_version": 2,
   "title": "哈希表的键值映射与查询",
   "summary": "哈希表将五个学号（key）与五个姓名（value）建立一一映射，输入学号在理想情况下可在 O(1) 时间内查出对应姓名。",
   "context": [
@@ -51,55 +48,7 @@
       "book_path": "chapter_hashing/hash_map.assets/hash_table_lookup.png",
       "title": "五组学号到姓名的键值映射",
       "explanation": "上排五个绿色方块依次存放学号 12836、15937、16750、13276、10583，各自通过向下的箭头指向下排蓝绿色方块中的姓名“小哈”、“小啰”、“小算”、“小法”、“小鸭”。当输入图中任意一个学号 key 时，哈希表直接按映射关系返回对应的姓名 value，理想情况下时间复杂度为 O(1)。",
-      "state": "标题为“哈希表 hash table”。框内上排“学号 key”依次为 12836、15937、16750、13276、10583，分别用向下箭头指向下排“姓名 value”中的“小哈”、“小啰”、“小算”、“小法”、“小鸭”。底部文字标注：“输入一个学号 key，查询对应姓名 value；哈希表中查询操作的时间复杂度为 O(1)”。",
-      "key_state": "五组映射：12836→小哈、15937→小啰、16750→小算、13276→小法、10583→小鸭；理想查询复杂度 O(1)。",
-      "announcement": "展示哈希表中五个学号 key 到姓名 value 的映射查询，图示理想复杂度为 O(1)。"
+      "state": "标题为“哈希表 hash table”。框内上排“学号 key”依次为 12836、15937、16750、13276、10583，分别用向下箭头指向下排“姓名 value”中的“小哈”、“小啰”、“小算”、“小法”、“小鸭”。底部文字标注：“输入一个学号 key，查询对应姓名 value；哈希表中查询操作的时间复杂度为 O(1)”。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_hashing/hash_map.md": "811c668682eed15b11f5c0c9a4f62574d741212e7bdf7078b8826c4d13933d12"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_hashing/hash_map.assets/hash_table_lookup.png": "22fe860436d9595dbc0ff324ac93e36a3eb4c1b4579a624f3ad8f807b8836eb9"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "cad867e9c36cef3978c5abbb636efd2752ac1c5843856911c1f17ed07f270e13"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
-  }
+  ]
 }

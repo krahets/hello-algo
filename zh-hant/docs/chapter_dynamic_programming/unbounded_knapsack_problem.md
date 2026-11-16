@@ -9,11 +9,6 @@
     給定 $n$ 個物品，第 $i$ 個物品的重量為 $wgt[i-1]$、價值為 $val[i-1]$ ，和一個容量為 $cap$ 的背包。**每個物品可以重複選取**，問在限定背包容量下能放入物品的最大價值。示例如下圖所示。
 
 ![完全背包問題的示例資料](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_example -->
-
-[完全背包示例：物品可以重複選擇：完整圖解](unbounded_knapsack_problem.assets/unbounded_knapsack_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 動態規劃思路
 
@@ -64,11 +59,6 @@ $$
 
 === "<6>"
     ![完全背包的單行更新，第 6 步，共 6 步：完成 i = 2 輪走訪：單行儲存前兩種物品的解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp -->
-
-[完全背包的單行更新：完整圖解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 程式碼實現比較簡單，僅需將陣列 `dp` 的第一維刪除：
 
@@ -85,11 +75,6 @@ $$
     給定 $n$ 種硬幣，第 $i$ 種硬幣的面值為 $coins[i - 1]$ ，目標金額為 $amt$ ，**每種硬幣可以重複選取**，問能夠湊出目標金額的最少硬幣數量。如果無法湊出目標金額，則返回 $-1$ 。示例如下圖所示。
 
 ![零錢兌換問題的示例資料](unbounded_knapsack_problem.assets/coin_change_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example -->
-
-[零錢兌換的最少硬幣數：完整圖解](unbounded_knapsack_problem.assets/coin_change_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 動態規劃思路
 
@@ -178,11 +163,6 @@ $$
 
 === "<15>"
     ![零錢兌換的動態規劃，第 15 步，共 15 步：讀取右下角 dp\[3, 4\]，返回最少硬幣數 2](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp -->
-
-[零錢兌換的動態規劃：完整圖解](unbounded_knapsack_problem.assets/coin_change_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 空間最佳化
 
@@ -199,11 +179,6 @@ $$
     給定 $n$ 種硬幣，第 $i$ 種硬幣的面值為 $coins[i - 1]$ ，目標金額為 $amt$ ，每種硬幣可以重複選取，**問湊出目標金額的硬幣組合數量**。示例如下圖所示。
 
 ![零錢兌換問題 II 的示例資料](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_ii_example -->
-
-[零錢兌換 II：金額 5 共有 4 種硬幣組合：完整圖解](unbounded_knapsack_problem.assets/coin_change_ii_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 動態規劃思路
 

@@ -38,11 +38,6 @@
 下图展示了一个例子，给定网格的最小路径和为 $13$ 。
 
 ![最小路径和示例数据](dp_solution_pipeline.assets/min_path_sum_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_example -->
-
-[四乘四网格的最小路径和：完整图解](dp_solution_pipeline.assets/min_path_sum_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 **第一步：思考每轮的决策，定义状态，从而得到 $dp$ 表**
 
@@ -53,11 +48,6 @@
 至此，我们就得到了下图所示的二维 $dp$ 矩阵，其尺寸与输入网格 $grid$ 相同。
 
 ![状态定义与 dp 表](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_definition -->
-
-[把网格位置定义为二维 dp 状态：完整图解](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! note
 
@@ -76,11 +66,6 @@ dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
 ![最优子结构与状态转移方程](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_transition -->
-
-[最小路径和的状态转移：完整图解](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! note
 
@@ -95,11 +80,6 @@ $$
 如下图所示，由于每个格子是由其左方格子和上方格子转移而来，因此我们使用循环来遍历矩阵，外循环遍历各行，内循环遍历各列。
 
 ![边界条件与状态转移顺序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_initial_state -->
-
-[最小路径和的边界与填表顺序：完整图解](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! note
 
@@ -129,11 +109,6 @@ $$
 从本质上看，造成重叠子问题的原因为：**存在多条路径可以从左上角到达某一单元格**。
 
 ![暴力搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs -->
-
-[最小路径和的重复递归：完整图解](dp_solution_pipeline.assets/min_path_sum_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 每个状态都有向下和向右两种选择，从左上角走到右下角总共需要 $m + n - 2$ 步，所以最差时间复杂度为 $O(2^{m + n})$ ，其中 $n$ 和 $m$ 分别为网格的行数和列数。请注意，这种计算方式未考虑临近网格边界的情况，当到达网格边界时只剩下一种选择，因此实际的路径数量会少一些。
 
@@ -148,11 +123,6 @@ $$
 如下图所示，在引入记忆化后，所有子问题的解只需计算一次，因此时间复杂度取决于状态总数，即网格尺寸 $O(nm)$ 。
 
 ![记忆化搜索递归树](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs_mem -->
-
-[最小路径和的记忆化递归：完整图解](dp_solution_pipeline.assets/min_path_sum_dfs_mem.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 方法三：动态规划
 
@@ -201,11 +171,6 @@ $$
 
 === "<12>"
     ![最小路径和动态规划，第 12 步，共 12 步：返回最小路径和](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp -->
-
-[最小路径和动态规划：完整图解](dp_solution_pipeline.assets/min_path_sum_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 空间优化
 

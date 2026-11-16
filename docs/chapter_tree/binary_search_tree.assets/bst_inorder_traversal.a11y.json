@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_search_tree.assets/bst_inorder_traversal",
   "title": "二叉搜索树的中序遍历",
   "summary": "按左子树、当前节点、右子树的中序顺序遍历二叉搜索树，可直接按升序输出全部节点值。",
   "context": [
@@ -16,30 +13,13 @@
       "book_path": "chapter_tree/binary_search_tree.assets/bst_inorder_traversal.png",
       "title": "二叉搜索树的中序遍历",
       "explanation": "每个节点都先递归遍历比它小的左子树，再记录自身，最后遍历比它大的右子树。根 8 的左子树先输出 2、4、6，随后记录根 8，右子树再输出 10、12、14，由此得到严格递增序列；图中蓝点标记记录各节点的时机。",
-      "state": "输入树根为 8，左右子节点为 4、12；4 的左右子节点为 2、6，12 的左右子节点为 10、14；2、6、10、14 为叶节点。完整中序遍历输出序列为 [2, 4, 6, 8, 10, 12, 14]。",
-      "key_state": "左子树先输出 2、4、6，根输出 8，右子树再输出 10、12、14。",
-      "announcement": "根为 8 的二叉搜索树完成中序遍历，输出升序序列 [2, 4, 6, 8, 10, 12, 14]。"
+      "state": "输入树根为 8，左右子节点为 4、12；4 的左右子节点为 2、6，12 的左右子节点为 10、14；2、6、10、14 为叶节点。完整中序遍历输出序列为 [2, 4, 6, 8, 10, 12, 14]。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_search_tree.assets/bst_inorder_traversal.png": "778cddc2429bb004b4864de06c4f64e28748ddf318df0aa48ed614b01e9ce404"
-    }
-  },
   "animations": {
     "bst-inorder": {
       "kind": "prose",
-      "model_sha256": "036685823929a378f4cd411e65d7750b1426857341d3285c23fcb93129108c60",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "bst-inorder",
-        "group_id": "group:chapter_tree/binary_search_tree.assets/bst_inorder_traversal",
         "title": "二叉搜索树的中序遍历",
         "summary": "按左子树、当前节点、右子树的中序顺序遍历二叉搜索树，可直接按升序输出全部节点值。",
         "context": [
@@ -105,72 +85,8 @@
             "key_state": "记录最右叶节点 14，完整输出 [2, 4, 6, 8, 10, 12, 14]。",
             "announcement": "记录最右叶节点 14，完成升序输出 [2, 4, 6, 8, 10, 12, 14]。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-07",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-              "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-            }
-          ],
-          "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-          "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "bf606139a575bfb3a5ad74b19ea834ce9cca700a35146a7ad131a85cad8c13d1"
-        }
+        ]
       }
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-07",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      }
-    ],
-    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "289bbc03a582066cd903b3e6acff381a0ccae03873f9298db010dcd47260b869"
   }
 }

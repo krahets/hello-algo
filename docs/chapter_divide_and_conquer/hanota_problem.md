@@ -11,11 +11,6 @@
     3. 小圆盘必须时刻位于大圆盘之上。
 
 ![汉诺塔问题示例](hanota_problem.assets/hanota_example.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_example -->
-
-[汉诺塔问题示例：将六张圆盘从 A 移至 C：完整图解](hanota_problem.assets/hanota_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 **我们将规模为 $i$ 的汉诺塔问题记作 $f(i)$** 。例如 $f(3)$ 代表将 $3$ 个圆盘从 `A` 移动至 `C` 的汉诺塔问题。
 
@@ -28,11 +23,6 @@
 
 === "<2>"
     ![一个圆盘的汉诺塔（f(1)），第 2 步，共 2 步：把圆盘从柱 A 直接移到柱 C](hanota_problem.assets/hanota_f1_step2.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f1 -->
-
-[一个圆盘的汉诺塔（f(1)）：完整图解](hanota_problem.assets/hanota_f1.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 如下图所示，对于问题 $f(2)$ ，即当有两个圆盘时，**由于要时刻满足小圆盘在大圆盘之上，因此需要借助 `B` 来完成移动**。
 
@@ -51,11 +41,6 @@
 
 === "<4>"
     ![两个圆盘借助缓冲柱 B 完成移动，第 4 步，共 4 步：最后把小盘从柱 B 移到柱 C](hanota_problem.assets/hanota_f2_step4.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f2 -->
-
-[两个圆盘借助缓冲柱 B 完成移动：完整图解](hanota_problem.assets/hanota_f2.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 解决问题 $f(2)$ 的过程可总结为：**将两个圆盘借助 `B` 从 `A` 移至 `C`** 。其中，`C` 称为目标柱、`B` 称为缓冲柱。
 
@@ -80,11 +65,6 @@
 
 === "<4>"
     ![三盘汉诺塔的分治，第 4 步，共 4 步：完成两盘子问题：B 到 C](hanota_problem.assets/hanota_f3_step4.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f3 -->
-
-[三盘汉诺塔的分治：完整图解](hanota_problem.assets/hanota_f3.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 从本质上看，**我们将问题 $f(3)$ 划分为两个子问题 $f(2)$ 和一个子问题 $f(1)$** 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解可以合并。
 
@@ -97,11 +77,6 @@
 对于这两个子问题 $f(n-1)$ ，**可以通过相同的方式进行递归划分**，直至达到最小子问题 $f(1)$ 。而 $f(1)$ 的解是已知的，只需一次移动操作即可。
 
 ![解决汉诺塔问题的分治策略](hanota_problem.assets/hanota_divide_and_conquer.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer -->
-
-[汉诺塔的三阶段分解：完整图解](hanota_problem.assets/hanota_divide_and_conquer.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 代码实现
 
@@ -114,11 +89,6 @@
 如下图所示，汉诺塔问题形成一棵高度为 $n$ 的递归树，每个节点代表一个子问题，对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。
 
 ![汉诺塔问题的递归树](hanota_problem.assets/hanota_recursive_tree.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/hanota_problem.assets/hanota_recursive_tree -->
-
-[汉诺塔递归树：两个较小任务加一次单盘移动：完整图解](hanota_problem.assets/hanota_recursive_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! quote
 

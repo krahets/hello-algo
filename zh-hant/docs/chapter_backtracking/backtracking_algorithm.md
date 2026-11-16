@@ -15,11 +15,6 @@
 ```
 
 ![在前序走訪中搜索節點](backtracking_algorithm.assets/preorder_find_nodes.svg)
-<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_nodes -->
-
-[在前序走訪中搜索並記錄所有值為 7 的節點：完整圖解](backtracking_algorithm.assets/preorder_find_nodes.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 嘗試與回退
 
@@ -75,11 +70,6 @@
 
 === "<11>"
     ![嘗試與回退：儲存到達 7 的路徑，第 11 步，共 11 步：退出右側 7、3 和根 1](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
-<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths -->
-
-[嘗試與回退：儲存到達 7 的路徑：完整圖解](backtracking_algorithm.assets/preorder_find_paths.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 剪枝
 
@@ -98,11 +88,6 @@
 “剪枝”是一個非常形象的名詞。如下圖所示，在搜尋過程中，**我們“剪掉”了不滿足約束條件的搜尋分支**，避免許多無意義的嘗試，從而提高了搜尋效率。
 
 ![根據約束條件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
-<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/preorder_find_constrained_paths -->
-
-[根據路徑不含 3 的約束條件剪枝：完整圖解](backtracking_algorithm.assets/preorder_find_constrained_paths.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 框架程式碼
 
@@ -123,11 +108,6 @@ backtrack_framework
 根據題意，我們在找到值為 $7$ 的節點後應該繼續搜尋，**因此需要將記錄解之後的 `return` 語句刪除**。下圖對比了保留或刪除 `return` 語句的搜尋過程。
 
 ![保留與刪除 return 的搜尋過程對比](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
-<!-- figure-reading:start group:chapter_backtracking/backtracking_algorithm.assets/backtrack_remove_return_or_not -->
-
-[記錄解後是否繼續搜尋：完整圖解](backtracking_algorithm.assets/backtrack_remove_return_or_not.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 相比基於前序走訪的程式碼實現，基於回溯演算法框架的程式碼實現雖然顯得囉唆，但通用性更好。實際上，**許多回溯問題可以在該框架下解決**。我們只需根據具體問題來定義 `state` 和 `choices` ，並實現框架中的各個方法即可。
 

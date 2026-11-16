@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/bubble_sort.assets/bubble_operation",
+  "schema_version": 2,
   "title": "一轮冒泡操作",
   "summary": "对 [4, 1, 3, 1, 5, 2] 从左向右依次比较五对相邻“泡泡”，执行四次交换、一次保持不变，将最大元素 5 浮到最右端索引 5。",
   "context": [
@@ -78,26 +75,9 @@
       "announcement": "第一轮冒泡结束，最大元素 5 在最右端就位，剩余前五个元素待排序。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/bubble_sort.md": "82b7c98b09e79c9c21fe3a69f95521bb0cbeea5938db344d6154f6c32de24733"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/bubble_sort.assets/bubble_operation_step1.png": "a0c66c771405920e2250f62f096079ddacb21ea331936cfff4342a73b1c0097f",
-      "chapter_sorting/bubble_sort.assets/bubble_operation_step2.png": "b8040c9e48a151b612f54b19d4364beed19b35bb5d4b6432692b755ed58a54d3",
-      "chapter_sorting/bubble_sort.assets/bubble_operation_step3.png": "ebb7614b25d44e176bfcbd1a7ad63365788a66c3178aab87200c7e6033ca1dab",
-      "chapter_sorting/bubble_sort.assets/bubble_operation_step4.png": "618e43d4dba947ee235451da0687d1128401b0929cfa9f562d6f90f87f0ea4be",
-      "chapter_sorting/bubble_sort.assets/bubble_operation_step5.png": "1246cf62bb851d9eade9fa4bceaf4eeca9a2bcd1623b6a8f49c8bde7053203db",
-      "chapter_sorting/bubble_sort.assets/bubble_operation_step6.png": "9ae190985f3ac973ab58649ceab65a7d969d02d0d5d9e585172e791e909df293",
-      "chapter_sorting/bubble_sort.assets/bubble_operation_step7.png": "dad194605f2a65413850f0203e114bd36185ad31de77265af19292498877b7de"
-    }
-  },
   "animations": {
     "bubble-pass": {
       "kind": "source-frames",
-      "model_sha256": "c59f4204f8a84f37c2042fb692e3a77aff249bcbf35a80eb3b5a867835cf19b2",
-      "source_content_sha256": "14469d2495c2c64f583f113a9a31169d153ca901286f635dcfaca05237c17230",
       "states": [
         {
           "id": "step-1",
@@ -127,47 +107,7 @@
           "id": "step-7",
           "frame_id": "source-259"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/names/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "be28e66f3b2c3536dfe687313bc0c5bf6852a20616bb831238404daf2d2b6b39",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "14469d2495c2c64f583f113a9a31169d153ca901286f635dcfaca05237c17230"
   }
 }

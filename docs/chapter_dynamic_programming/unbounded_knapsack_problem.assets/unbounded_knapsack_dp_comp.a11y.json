@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp",
   "title": "完全背包的单行更新",
   "summary": "按容量从小到大正序更新单行数组，复用本轮较小容量的新解，使同种物品可以重复选取。",
   "context": [
@@ -570,25 +567,9 @@
       "row_header": 0
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.md": "9ed61e4005390a061618b042d029fa0a2782621b0b3df7e4049331a5bb80eef5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png": "30707a3bdbc17cc63ece6e6d3aa198143b84b60a79c76cab48cb335b1476c7dc",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png": "d6a996eaffd023d3443b2c6f6b3e5fa9b7c2ab8ec9c0e810ad30647d912db478",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png": "8689aa28a5808a956a4f8e3a7444dfafd9ac6ef04df88b0d38caf96bc611b8eb",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png": "fcc121c831a06b624cf8661a7e94764f2536293716eded296edcfcf35d711f27",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png": "94060059f1931596a65eaaf4222c98eb56f1112f1514a67c1b3cafc4c5e80629",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png": "420b4cb81bd00428c440e84875fbc5a38618f7d837f07be44536028806c2350e"
-    }
-  },
   "animations": {
     "unbounded-knapsack-compressed-row": {
       "kind": "source-frames",
-      "model_sha256": "aaf77cc91c44dd6295945b42f508110ed314b570cad824a8355427325c2cc188",
-      "source_content_sha256": "ebbbd59dc7e27e4d6a5c8175f0ed38dbcf9bae79f38abcdcd3aa09f940a643fb",
       "states": [
         {
           "id": "step-1",
@@ -614,50 +595,10 @@
           "id": "step-6",
           "frame_id": "source-423"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-02/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "a156828a615436702011c721e63633ae12c95254417460ed57ecad43bf589453",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0"
-      }
+      ]
     }
   },
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-02",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9310dbd60334224a900b7d5f067c91df3ed19242d000b2618debdc8754e63a02",
-        "output_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f",
-        "output_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23",
-        "output_sha256": "f71cddda28f6b7117562ace7e9c811ec21f0b7d39e8ea7ff597666eca41e37e8"
-      }
-    ],
-    "evidence_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0",
-    "verification_manifest_sha256": "15c1e96af1a1a1c313f44ea49ac790ae74a5da58f11188cc5a6deac3c2ed863e",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "ebbbd59dc7e27e4d6a5c8175f0ed38dbcf9bae79f38abcdcd3aa09f940a643fb"
-  }
+  ]
 }

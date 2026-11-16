@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/avl_tree.assets/avltree_right_left_rotate",
+  "schema_version": 2,
   "title": "AVL 树先右旋后左旋",
   "summary": "针对先向右再向左弯折的路径 3 → 5 → 4，先对 child（5）执行右旋，再对 node（3）执行左旋，使 4 成为局部新根。",
   "context": [
@@ -20,30 +17,13 @@
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_left_rotate.png",
       "title": "AVL 树先右旋后左旋",
       "explanation": "图分三阶段展示“先右旋后左旋”：第一步先对右子节点 child（节点 5）执行右旋，把弯折路径 3 → 5 → 4 拉直为 3 → 4 → 5；第二步再对失衡节点 node（节点 3）执行左旋，使节点 4 升为局部新根、左右分别接 3 和 5。",
-      "state": "初始状态：外层根 2 左接 1、右接 3；3 右接 5；5 左接 4（node=3，child=5）。中间状态（对 5 右旋后）：2 左接 1、右接 3；3 右接 4；4 右接 5。最终状态（对 3 左旋后）：2 左接 1、右接 4；4 左接 3、右接 5。",
-      "key_state": "先对节点 5 右旋，再对节点 3 左旋；外层根 2 的右子树新根变为 4，左、右接 3 和 5。",
-      "announcement": "展示先右旋后左旋：将弯折路径 3、5、4 调整为以 4 为根的平衡子树。"
+      "state": "初始状态：外层根 2 左接 1、右接 3；3 右接 5；5 左接 4（node=3，child=5）。中间状态（对 5 右旋后）：2 左接 1、右接 3；3 右接 4；4 右接 5。最终状态（对 3 左旋后）：2 左接 1、右接 4；4 左接 3、右接 5。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/avl_tree.assets/avltree_right_left_rotate.png": "c2de1cf5dd6ffc6be5c5effd10aaec4db30757f40c018c84df1fde4fd6cec0e0"
-    }
-  },
   "animations": {
     "avl-right-left": {
       "kind": "prose",
-      "model_sha256": "11573367563e7307cff45f66381a9dcbcbb8923f039567d1a28662df569fffa2",
       "prose": {
-        "schema_version": 1,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "avl-right-left",
-        "group_id": "group:chapter_tree/avl_tree.assets/avltree_right_left_rotate",
         "title": "AVL 树先右旋后左旋",
         "summary": "针对节点 3 的“右—左”折线形失衡，先对右子节点 5 执行右旋拉直路径，再对失衡节点 3 执行左旋，使节点 4 成为新子树根。",
         "context": [
@@ -80,82 +60,8 @@
             "key_state": "节点 3 左旋完成，节点 4 成为 2 的右子树根，左、右子节点分别为 3 和 5。",
             "announcement": "对节点 3 执行左旋，节点 4 接替子树根，整树恢复平衡。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/names",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-              "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-              "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-              "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-            }
-          ],
-          "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-          "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "1095cd65b4a0a61d9720072749630f50c621704ed3889d7cf4c80a2f3add29c1"
-        }
+        ]
       }
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "0231c7459ca88a9b6cabdb8bd8fb233a98bd175eff359508d753f36b36cdbae1"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-final-verification",
-      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
-      "factual_review_preserved": true
     }
   }
 }

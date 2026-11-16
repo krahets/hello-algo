@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_example",
+  "schema_version": 2,
   "title": "0-1 背包：容量 50 的最优选择",
   "summary": "从五件物品中选择重量 20 的香蕉和重量 30 的葡萄，恰好装满容量 50，获得最大价值 270。",
   "context": [
@@ -19,9 +16,7 @@
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_example.png",
       "title": "0-1 背包：容量 50 的最优选择",
       "explanation": "五件物品的（重量, 价值）依次为：1 号苹果 (10, 50)、2 号香蕉 (20, 120)、3 号葡萄 (30, 150)、4 号菠萝 (40, 210)、5 号西瓜 (50, 240)。若选入 2 号香蕉和 3 号葡萄，重量之和为 20+30=50，恰好用满容量 50；价值之和为 120+150=270，高于选 1 号加 4 号的 50+210=260 以及单选 5 号的 240，因此最大价值为 270。",
-      "state": "背包容量 cap=50；五件物品按编号 1 至 5 的（重量, 价值）依次为 (10, 50)、(20, 120)、(30, 150)、(40, 210)、(50, 240)。第 2 行香蕉为浅橙色、第 3 行葡萄为浅紫色，两行各以箭头指向紫色背包，下方标注最大价值 270、共占用 50 背包容量。",
-      "key_state": "选物品 2（香蕉）和物品 3（葡萄），重量 20+30=50，最大价值 120+150=270。",
-      "announcement": "选择重量 20、价值 120 的香蕉与重量 30、价值 150 的葡萄装满容量 50，获得最大价值 270。"
+      "state": "背包容量 cap=50；五件物品按编号 1 至 5 的（重量, 价值）依次为 (10, 50)、(20, 120)、(30, 150)、(40, 210)、(50, 240)。第 2 行香蕉为浅橙色、第 3 行葡萄为浅紫色，两行各以箭头指向紫色背包，下方标注最大价值 270、共占用 50 背包容量。"
     }
   ],
   "tables": [
@@ -72,44 +67,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-20",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "369e3a8cb6088026a1f815ec80a9436bdc1e8829146dcc879df7a69abfdb2cd2",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "41d0fd45a22945a5a7184d107047c8717cca6d0cb964ceb1ffcffefcf35d71c0",
-        "output_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101",
-        "output_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc",
-        "output_sha256": "b529f2a5259e393cbd6adce01e5f42a44a8d6813ef624f4cd36fcf49308a3adf"
-      }
-    ],
-    "evidence_sha256": "54a5deb01ddc36c133e5452c5496383065ebdb84ec70c16f4d6436a9bcb17a67"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/knapsack_problem.md": "737c2956ff98e7b0f2127ba26566ece3d167e7022d593ba82e273a2f5e98e493"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_example.png": "75669199691f7ed8df76c08ef8209db53c7ec862cb5fec4012f858607d71e7fc"
-    }
-  }
+  ]
 }

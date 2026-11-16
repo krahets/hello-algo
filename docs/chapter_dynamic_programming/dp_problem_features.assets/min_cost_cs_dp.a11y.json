@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_dp",
   "title": "最小代价的状态转移",
   "summary": "每个状态取前两个状态累计最小代价的较小值，再加上当前台阶自身的代价 cost[i]。",
   "context": [
@@ -22,15 +19,6 @@
       "state": "图中只有 dp[1] 至 dp[9]、cost[1] 至 cost[9] 的符号关系，没有具体代价值。完整依赖见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/dp_problem_features.md": "eecbb71388b87f9cc9593b41c54ad0b3ccbdea2949f298a3a43632cd93e2436a"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_dp.png": "96d39d028e2b4b4f20ad29f84cfc1b3eea9bdf802da13111afe4203b259e1edb"
-    }
-  },
   "tables": [
     {
       "caption": "初值与两个前驱的比较",
@@ -98,37 +86,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-12",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
-        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
-        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
-        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
-      }
-    ],
-    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
-    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "797e204e4d2e161bc61cbbc38a239b4fd365369e2afb5fad3df979168b601a2e"
-  }
+  ]
 }

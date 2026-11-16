@@ -9,11 +9,6 @@
     给定一个长度为 $n$ 的有序数组 `nums` 和一个元素 `target` ，数组不存在重复元素。现将 `target` 插入数组 `nums` 中，并保持其有序性。若数组中已存在元素 `target` ，则插入到其左方。请返回插入后 `target` 在数组中的索引。示例如下图所示。
 
 ![二分查找插入点示例数据](binary_search_insertion.assets/binary_search_insertion_example.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search_insertion.assets/binary_search_insertion_example -->
-
-[有序数组的插入位置：完整图解](binary_search_insertion.assets/binary_search_insertion_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 如果想复用上一节的二分查找代码，则需要回答以下两个问题。
 
@@ -45,11 +40,6 @@
 2. 从索引 $k$ 开始，向左进行线性遍历，当找到最左边的 `target` 时返回。
 
 ![线性查找重复元素的插入点](binary_search_insertion.assets/binary_search_insertion_naive.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search_insertion.assets/binary_search_insertion_naive -->
-
-[二分命中后向左回退：完整图解](binary_search_insertion.assets/binary_search_insertion_naive.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 此方法虽然可用，但其包含线性查找，因此时间复杂度为 $O(n)$ 。当数组中存在很多重复的 `target` 时，该方法效率很低。
 
@@ -83,11 +73,6 @@
 
 === "<8>"
     ![二分查找最左插入点，第 8 步，共 8 步：返回最左插入索引 2](binary_search_insertion.assets/binary_search_insertion_step8.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search_insertion.assets/binary_search_insertion -->
-
-[二分查找最左插入点：完整图解](binary_search_insertion.assets/binary_search_insertion.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 观察以下代码，判断分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此两者可以合并。
 

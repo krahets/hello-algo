@@ -13,11 +13,6 @@ $$
 如果将顶点看作节点，将边看作连接各个节点的引用（指针），我们就可以将图看作一种从链表拓展而来的数据结构。如下图所示，**相较于线性关系（链表）和分治关系（树），网络关系（图）的自由度更高**，因而更为复杂。
 
 ![链表、树、图之间的关系](graph.assets/linkedlist_tree_graph.svg)
-<!-- figure-reading:start group:chapter_graph/graph.assets/linkedlist_tree_graph -->
-
-[链表、树与图的连接关系：完整图解](graph.assets/linkedlist_tree_graph.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 图的常见类型与术语
 
@@ -27,11 +22,6 @@ $$
 - 在有向图中，边具有方向性，即 $A \rightarrow B$ 和 $A \leftarrow B$ 两个方向的边是相互独立的，例如微博或抖音上的“关注”与“被关注”关系。
 
 ![有向图与无向图](graph.assets/directed_graph.svg)
-<!-- figure-reading:start group:chapter_graph/graph.assets/directed_graph -->
-
-[无向图与有向图：无向双向边与独立有向边的对比：完整图解](graph.assets/directed_graph.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 根据所有顶点是否连通，可分为<u>连通图（connected graph）</u>和<u>非连通图（disconnected graph）</u>，如下图所示。
 
@@ -39,20 +29,10 @@ $$
 - 对于非连通图，从某个顶点出发，至少有一个顶点无法到达。
 
 ![连通图与非连通图](graph.assets/connected_graph.svg)
-<!-- figure-reading:start group:chapter_graph/graph.assets/connected_graph -->
-
-[连通图与非连通图：所有顶点皆可达与存在孤立顶点：完整图解](graph.assets/connected_graph.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 我们还可以为边添加“权重”变量，从而得到如下图所示的<u>有权图（weighted graph）</u>。例如在《王者荣耀》等手游中，系统会根据共同游戏时间来计算玩家之间的“亲密度”，这种亲密度网络就可以用有权图来表示。
 
 ![有权图与无权图](graph.assets/weighted_graph.svg)
-<!-- figure-reading:start group:chapter_graph/graph.assets/weighted_graph -->
-
-[无权图与有权图：为边附加权重数值属性：完整图解](graph.assets/weighted_graph.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 图数据结构包含以下常用术语。
 
@@ -71,11 +51,6 @@ $$
 如下图所示，设邻接矩阵为 $M$、顶点列表为 $V$ ，那么矩阵元素 $M[i, j] = 1$ 表示顶点 $V[i]$ 到顶点 $V[j]$ 之间存在边，反之 $M[i, j] = 0$ 表示两顶点之间无边。
 
 ![图的邻接矩阵表示](graph.assets/adjacency_matrix.svg)
-<!-- figure-reading:start group:chapter_graph/graph.assets/adjacency_matrix -->
-
-[无向图的邻接矩阵：完整图解](graph.assets/adjacency_matrix.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 邻接矩阵具有以下特性。
 
@@ -90,11 +65,6 @@ $$
 <u>邻接表（adjacency list）</u>使用 $n$ 个链表来表示图，链表节点表示顶点。第 $i$ 个链表对应顶点 $i$ ，其中存储了该顶点的所有邻接顶点（与该顶点相连的顶点）。下图展示了一个使用邻接表存储的图的示例。
 
 ![图的邻接表表示](graph.assets/adjacency_list.svg)
-<!-- figure-reading:start group:chapter_graph/graph.assets/adjacency_list -->
-
-[图的邻接表表示：按顶点串联各自的邻接链表：完整图解](graph.assets/adjacency_list.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 邻接表仅存储实际存在的边，而边的总数通常远小于 $n^2$ ，因此它更加节省空间。然而，在邻接表中需要通过遍历链表来查找边，因此其时间效率不如邻接矩阵。
 

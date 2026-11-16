@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_i",
   "title": "子集和 I：余额归零与顺序剪枝",
   "summary": "从目标 9 起逐层扣减候选，结合 start=i 与越界 break，输出 [3, 3, 3] 和 [4, 5]。",
   "context": [
@@ -22,15 +19,6 @@
       "state": "图中 10 个非负余额圆节点里，两条归零路径为 9 → 6 → 3 → 0（[3, 3, 3]）与 9 → 5 → 0（[4, 5]）；前缀 [4, 4] 的余额 1 在图中未继续展开下层分支。全部 10 个前缀的余额、图示限制与代码实际 break 后续见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/subset_sum_problem.assets/subset_sum_i.png": "90f1eeb1bbe5258a5bcbcf4c86df224dd36dfae3ef18827941bda85a644192b8"
-    }
-  },
   "tables": [
     {
       "caption": "按前缀查询余额与选择限制",
@@ -115,37 +103,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-11",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
-        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
-        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
-        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
-      }
-    ],
-    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
-    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "33edb279b517f0c84c4f455b97946ea98f89e2ba26431ee4222632d7a413f28f"
-  }
+  ]
 }

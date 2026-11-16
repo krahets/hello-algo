@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node",
   "title": "插入导致搜索树失衡",
   "summary": "向同一侧连续插入节点会逐层拉长分支高度，使原本平衡的二叉树超出平衡条件。",
   "context": [],
@@ -14,30 +11,13 @@
       "book_path": "chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node.png",
       "title": "插入导致搜索树失衡",
       "explanation": "初始根 4 的左右子节点为 3、5。插入 2 时，2 小于 4 和 3，接到 3 的左侧；虽然最底层不再填满，4 与 3 的平衡因子都只是 1，仍保持平衡。再插入 1 时，沿 4 → 3 → 2 接到 2 的左侧，此时 3 与 4 的平衡因子都变为 2 而失衡。",
-      "state": "三个状态依次有 3、4、5 个节点，分别标为完美二叉树、仍平衡的二叉树、左偏失衡的普通二叉树。全过程根 4 的右子节点始终是叶节点 5，没有执行旋转。",
-      "key_state": "插入 2 后不再完美但仍平衡（4 与 3 平衡因子均为 1）；再插入 1 后 3 与 4 失衡（均为 2）。",
-      "announcement": "向 3 节点完美二叉树依次插入 2 和 1，第二次插入后节点 3 与 4 失衡。"
+      "state": "三个状态依次有 3、4、5 个节点，分别标为完美二叉树、仍平衡的二叉树、左偏失衡的普通二叉树。全过程根 4 的右子节点始终是叶节点 5，没有执行旋转。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node.png": "e98c9ac2adf3127c54838c22135bf2e31d34b85a52879f4ec9984960f31676ae"
-    }
-  },
   "animations": {
     "bst-degrade-insertion": {
       "kind": "prose",
-      "model_sha256": "7cdbf8b6d49edbab83ae752aa841b70a2a028c148b5304a26125d12039968e4d",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "bst-degrade-insertion",
-        "group_id": "group:chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node",
         "title": "插入导致搜索树失衡",
         "summary": "向同一侧连续插入节点会逐层拉长分支高度，使原本平衡的二叉树超出平衡条件。",
         "context": [
@@ -70,82 +50,8 @@
             "key_state": "1 是 2 的左子节点，4 的右子节点仍为叶节点 5；3 和 4 平衡因子均变为 2。",
             "announcement": "插入 1 到 2 的左侧，节点 3 与根 4 的平衡因子都变为 2。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-07",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-              "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-            }
-          ],
-          "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-          "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "fbace049d995125ebc7bd97978a3f6e06a2b8e914aef20421e40a3484e07c7f9"
-        }
+        ]
       }
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-07",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      }
-    ],
-    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "d1b13476ab0613bff5317603435240d107c73bba095ca10d31fd6f128ac88565"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-final-verification",
-      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
-      "factual_review_preserved": true
     }
   }
 }

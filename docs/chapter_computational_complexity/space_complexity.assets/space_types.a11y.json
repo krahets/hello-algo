@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/space_complexity.assets/space_types",
+  "schema_version": 2,
   "title": "空间复杂度通常统计哪些空间",
   "summary": "算法运行涉及的内存分为输入空间、暂存空间和输出空间三类；空间复杂度通常统计暂存空间与输出空间，且实际分析中一般忽略指令空间。",
   "context": [
@@ -19,53 +16,7 @@
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_types.png",
       "title": "空间复杂度通常统计哪些空间",
       "explanation": "暂存空间中的三个子项各有职责：暂存数据用于保存运行过程中的常量、变量和对象；栈帧空间用于保存函数调用的上下文数据（每次调用入栈、返回后释放）；指令空间用于保存编译后的程序指令。图中的向右箭头表示算法的数据处理流程，并不表示这三类内存会依次自动释放。",
-      "state": "从左到右为三个由向右箭头连接的方框：绿色“输入空间”（下标“输入数据”）、蓝色“暂存空间”（下标“暂存数据”、“栈帧空间”、“指令空间”）、青色“输出空间”（下标“输出数据”）。上方大括号覆盖“暂存空间”和“输出空间”，标注“通常情况下空间复杂度的统计范围”。",
-      "key_state": "空间分为输入、暂存（含暂存数据、栈帧空间、指令空间）和输出三类；通常只统计暂存空间与输出空间。",
-      "announcement": "展示算法使用的输入、暂存与输出三类内存空间，以及大括号标出的空间复杂度统计范围。"
+      "state": "从左到右为三个由向右箭头连接的方框：绿色“输入空间”（下标“输入数据”）、蓝色“暂存空间”（下标“暂存数据”、“栈帧空间”、“指令空间”）、青色“输出空间”（下标“输出数据”）。上方大括号覆盖“暂存空间”和“输出空间”，标注“通常情况下空间复杂度的统计范围”。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-02",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "154ebac255fbe1aba0ecbd913c50d7c9a7965a4ce740a5a32045cabddea892ca",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
-        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
-        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
-        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
-      }
-    ],
-    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/space_complexity.md": "a65e225f2208745807377b9c6941f0ad3ee68b976521cd3be5b69b482cfb3ec6"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/space_complexity.assets/space_types.png": "cb00a4c3df4de49aade2640843e9c6ee40cb74a8847388527b51cdba32151515"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
-  }
+  ]
 }

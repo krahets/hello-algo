@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_stack_and_queue/queue.assets/array_queue",
+  "schema_version": 2,
   "title": "基于数组实现队列的入队与出队",
   "summary": "在未跨越数组末端的前提下，用 front 标记队首、size 记录队列长度，通过 rear = front + size 定位入队写入位置，并在出队时仅移动 front、减小 size。",
   "context": [
@@ -41,22 +38,9 @@
       "announcement": "步骤 3：执行 pop()，front 下移指向 3，size 减为 4，元素 1 出队，其余元素 [3, 2, 5, 4] 原地保留。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_stack_and_queue/queue.md": "896475dcba151b44c34df568e54b1283f5e81225c0c665c1a49b58a058ec3d60"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_stack_and_queue/queue.assets/array_queue_step1.png": "f08f4e4edac5378910e4098b64fb2b372af7b99336534f0f1625087befd7c55a",
-      "chapter_stack_and_queue/queue.assets/array_queue_step2_push.png": "f105a4fb6ea453f0b175f35275622785e3ee20d30731fcf64b511828af317380",
-      "chapter_stack_and_queue/queue.assets/array_queue_step3_pop.png": "21c210d2fc040f1d367823647ebbc2cc7f49a3d59da9f1ab90a3a6f6b0d0108a"
-    }
-  },
   "animations": {
     "array-queue": {
       "kind": "source-frames",
-      "model_sha256": "d7d546f3d26d4bc3a5562fa43d0b92bae93a9338a8e783796096c0c1606f8d92",
-      "source_content_sha256": "fd0e73784d9c71dcb85e2ee3eeb828f15bbc5e1755869dac16695feb74007011",
       "states": [
         {
           "id": "step-1",
@@ -70,52 +54,7 @@
           "id": "step-3",
           "frame_id": "source-69"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/names/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "f2a1fd34d57891d1a0a8c0e1755a791a9c28be9b46870140b45e8c70d2b1c6de",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "fd0e73784d9c71dcb85e2ee3eeb828f15bbc5e1755869dac16695feb74007011"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
   }
 }

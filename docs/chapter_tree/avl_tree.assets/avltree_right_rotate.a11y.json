@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/avl_tree.assets/avltree_right_rotate",
   "title": "AVL 树右旋",
   "summary": "对首个失衡节点执行右旋，先重连局部子树的父子指针，再将新子树根接回上层父节点。",
   "context": [
@@ -51,23 +48,9 @@
       "announcement": "令父节点 4 的左指针指向新根 1，完成右旋并恢复整树平衡。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png": "2046d601b21f6b036982266c3ac1423cb56ee2a315c8f8b8cb0649371803487e",
-      "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png": "0a3791d321c81d11257ec8c514eee60cccf59511130fc98e2af14842a4bce3ee",
-      "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png": "ec8bf0e50886bd4cf72ef3b2551c3cc979fc6d33b718c1c682d69cbaf5308f80",
-      "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png": "f06c3598531823c8f0b3793742bf9f46e2b557fd1e298626ca5706080f5ab1f2"
-    }
-  },
   "animations": {
     "avl-right-rotation": {
       "kind": "source-frames",
-      "model_sha256": "7b31b3259582e264b0347fd19a48483c7e8af0f3cdd5e23c8c565206aca4cc1a",
-      "source_content_sha256": "5aa220ffec247f6edf13a9e3e1003fc6a8450bf214acabd481d8e805b6a07ac7",
       "states": [
         {
           "id": "step-1",
@@ -85,59 +68,9 @@
           "id": "step-4",
           "frame_id": "source-133"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-07/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "262d935a2aaced0efcd229083134eb757023fa9d6650725fdcd3d845b5d8eee7",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198"
-      }
+      ]
     }
   },
   "tables": [],
-  "standalone_tables": [],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-07",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      }
-    ],
-    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "5aa220ffec247f6edf13a9e3e1003fc6a8450bf214acabd481d8e805b6a07ac7"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-final-verification",
-      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
-      "factual_review_preserved": true
-    }
-  }
+  "standalone_tables": []
 }

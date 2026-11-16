@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force",
+  "schema_version": 2,
   "title": "线性查找求解两数之和：两层循环枚举不同索引组合",
   "summary": "对数组 nums = [2, 7, 11, 15] 与 target = 13，枚举不同位置的配对，由 2 + 11 = 13 找到索引组合 [0, 2]。",
   "context": [
@@ -20,9 +17,7 @@
       "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png",
       "title": "遍历两数配对的上三角表，定位 2 + 11 = 13",
       "explanation": "上三角矩阵展示六个不重复位置配对的求和结果，其中元素 2（索引 0）与元素 11（索引 2）交叉处的和为 13（紫蓝色文字），满足 target = 13。",
-      "state": "数组 nums=[2,7,11,15]，索引从 0 到 3，目标和 target=13。上三角候选和为：2+7=9，2+11=13，2+15=17，7+11=18，7+15=22，11+15=26；命中配对 2、11，返回 [0,2]。",
-      "key_state": "命中 2 + 11 = 13，对应返回索引对 [0, 2]。",
-      "announcement": "展示两数之和的上三角枚举表，由 2 + 11 = 13 确定索引 [0, 2]。"
+      "state": "数组 nums=[2,7,11,15]，索引从 0 到 3，目标和 target=13。上三角候选和为：2+7=9，2+11=13，2+15=17，7+11=18，7+15=22，11+15=26；命中配对 2、11，返回 [0,2]。"
     }
   ],
   "tables": [
@@ -66,44 +61,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-12",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "245756b5ff6a7aea597892224de731530b05596868819e2ae2dcfb5f3b191647",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "278c7ca0de3699a8282cf733e66a37f776fcb7767e2b72a0c4e17a626b20368a",
-        "output_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825",
-        "output_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3",
-        "output_sha256": "549b9b8f6b53209dc060d3de11ddb4c66cd900a1c8ee112c21eecc35d1b5cd78"
-      }
-    ],
-    "evidence_sha256": "df3186defaada9ff328bd9bc4426561c6e8088c64ef665f5bd45cf638c5621eb"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_searching/replace_linear_by_hashing.md": "e7a672e98770714bf70709ce782bd32b01cc94eba65d25ebf664c72c0162923b"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png": "81eeafe36def4a34bfdbe45fb1103739fe7c47d67ecf429a3a228b295e7fbf42"
-    }
-  }
+  ]
 }

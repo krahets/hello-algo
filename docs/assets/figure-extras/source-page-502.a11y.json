@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:source-page-502",
   "title": "线性查找",
   "summary": "从索引 0 起自左向右逐个比较元素，在索引 2 处命中目标值 3 并返回索引 2。",
   "context": [
@@ -16,29 +13,13 @@
       "book_path": "",
       "title": "线性查找",
       "explanation": "图中自上而下并列三排相同的数组，展示同一次查找依次经历的三个时刻：第一排从 i = 0 开始，nums[0] = 1 不等于目标 3，指针 i 右移继续遍历；第二排检查 i = 1，nums[1] = 5 仍不等于 3，指针继续右移；第三排检查 i = 2，nums[2] = 3 等于目标 3，立即返回当前索引 2 并结束查找，后面 7 个元素不再检查。",
-      "state": "查找目标 target = 3，数组为 nums = [1, 5, 3, 2, 4, 7, 6, 9, 10, 8]，索引为 0 至 9。依次检查索引 0（值 1）和索引 1（值 5）均不等于 3；检查索引 2（值 3）时与目标相等，返回索引 2，索引 3 至 9 不再检查。",
-      "key_state": "依次检查索引 0（1）、索引 1（5）、索引 2（3），第三次命中目标 3，返回索引 2。",
-      "announcement": "从索引 0 起依次比较 1、5、3，在索引 2 命中目标并返回索引 2。"
+      "state": "查找目标 target = 3，数组为 nums = [1, 5, 3, 2, 4, 7, 6, 9, 10, 8]，索引为 0 至 9。依次检查索引 0（值 1）和索引 1（值 5）均不等于 3；检查索引 2（值 3）时与目标相等，返回索引 2，索引 3 至 9 不再检查。"
     }
   ],
-  "dependencies": {
-    "markdown": {},
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "source-502": "ce13fddb9732241bcb4bf43896d029790e09a752a79e41e975973b30a459bdba"
-    },
-    "collection": "a2aaf8fe3e8cad10e90752fc887a23a6d9e076a094fd2b8af7f71cccfdea565f"
-  },
   "animations": {
     "linear-search-source": {
       "kind": "prose",
-      "model_sha256": "77fa4f48184708f9c94067418e22569560848e8136434183d39257a4d6bbbf1c",
       "prose": {
-        "schema_version": 1,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "linear-search-source",
-        "group_id": "group:source-page-502",
         "title": "线性查找",
         "summary": "从索引 0 起自左向右逐个比较元素，在索引 2 处命中目标值 3 并返回索引 2。",
         "context": [
@@ -73,59 +54,7 @@
             "key_state": "当前检查索引 2，值为 3；等于目标 3，命中并返回索引 2。",
             "announcement": "指针移至索引 2，元素 3 命中目标，返回索引 2 并结束查找。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/pilot",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
-              "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-              "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-              "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
-            }
-          ],
-          "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
-          "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "assembly": {
-            "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
-            "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-            "supplemental_stages": [
-              {
-                "requested_model": "gpt-6-astra",
-                "actual_model": "gpt-6-astra",
-                "model_confirmation": "native_runtime",
-                "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-                "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
-              },
-              {
-                "requested_model": "gemini-4-argon",
-                "actual_model": null,
-                "model_confirmation": "provider_not_reported",
-                "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
-                "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
-              }
-            ]
-          },
-          "content_sha256": "9793ebd2c8b6117c8784ffe0a6960e949805901821b512801edd4b17807ecec2"
-        }
+        ]
       }
     }
   },
@@ -210,57 +139,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/pilot",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
-        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
-      }
-    ],
-    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
-    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "assembly": {
-      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
-      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-      "supplemental_stages": [
-        {
-          "requested_model": "gpt-6-astra",
-          "actual_model": "gpt-6-astra",
-          "model_confirmation": "native_runtime",
-          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
-        },
-        {
-          "requested_model": "gemini-4-argon",
-          "actual_model": null,
-          "model_confirmation": "provider_not_reported",
-          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
-          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
-        }
-      ]
-    },
-    "content_sha256": "343cbda3aa4597df0aea12b8fb3575751fc1bb609179709a497d26026b6b1689"
-  }
+  ]
 }

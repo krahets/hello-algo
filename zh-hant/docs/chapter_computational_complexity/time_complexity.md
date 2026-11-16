@@ -37,11 +37,6 @@ growth_trend
 - 演算法 `C` 中的列印操作需要迴圈 $1000000$ 次，雖然執行時間很長，但它與輸入資料大小 $n$ 無關。因此 `C` 的時間複雜度和 `A` 相同，仍為“常數階”。
 
 ![演算法 A、B 和 C 的時間增長趨勢](time_complexity.assets/time_complexity_simple_example.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/time_complexity_simple_example -->
-
-[演算法 A、B 和 C：時間長短與增長趨勢：完整圖解](time_complexity.assets/time_complexity_simple_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 相較於直接統計演算法的執行時間，時間複雜度分析有哪些特點呢？
 
@@ -76,11 +71,6 @@ $T(n)$ 是一次函式，說明其執行時間的增長趨勢是線性的，因�
 如下圖所示，計算漸近上界就是尋找一個函式 $f(n)$ ，使得當 $n$ 趨向於無窮大時，$T(n)$ 和 $f(n)$ 處於相同的增長級別，僅相差一個常數係數 $c$。
 
 ![函式的漸近上界](time_complexity.assets/asymptotic_upper_bound.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/asymptotic_upper_bound -->
-
-[漸近上界：越過閾值後的大小關係：完整圖解](time_complexity.assets/asymptotic_upper_bound.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 推算方法
 
@@ -140,11 +130,6 @@ $$
 $$
 
 ![常見的時間複雜度型別](time_complexity.assets/time_complexity_common_types.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/time_complexity_common_types -->
-
-[五種常見時間複雜度的增長趨勢：完整圖解](time_complexity.assets/time_complexity_common_types.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 常數階 $O(1)$
 
@@ -183,11 +168,6 @@ $$
 下圖對比了常數階、線性階和平方階三種時間複雜度。
 
 ![常數階、線性階和平方階的時間複雜度](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic -->
-
-[迴圈結構與操作次數：完整圖解](time_complexity.assets/time_complexity_constant_linear_quadratic.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 以泡沫排序為例，外層迴圈執行 $n - 1$ 次，內層迴圈執行 $n-1$、$n-2$、$\dots$、$2$、$1$ 次，平均為 $n / 2$ 次，因此時間複雜度為 $O((n - 1) n / 2) = O(n^2)$ ：
 
@@ -206,11 +186,6 @@ $$
 ```
 
 ![指數階的時間複雜度](time_complexity.assets/time_complexity_exponential.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/time_complexity_exponential -->
-
-[每層一分為二的遞迴樹：完整圖解](time_complexity.assets/time_complexity_exponential.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在實際演算法中，指數階常出現於遞迴函式中。例如在以下程式碼中，其遞迴地一分為二，經過 $n$ 次分裂後停止：
 
@@ -231,11 +206,6 @@ $$
 ```
 
 ![對數階的時間複雜度](time_complexity.assets/time_complexity_logarithmic.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic -->
-
-[每次保留一半的對數增長：完整圖解](time_complexity.assets/time_complexity_logarithmic.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 與指數階類似，對數階也常出現於遞迴函式中。以下程式碼形成了一棵高度為 $\log_2 n$ 的遞迴樹：
 
@@ -266,11 +236,6 @@ $$
 下圖展示了線性對數階的生成方式。二元樹的每一層的操作總數都為 $n$ ，樹共有 $\log_2 n + 1$ 層，因此時間複雜度為 $O(n \log n)$ 。
 
 ![線性對數階的時間複雜度](time_complexity.assets/time_complexity_logarithmic_linear.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear -->
-
-[分治樹的分層工作量：完整圖解](time_complexity.assets/time_complexity_logarithmic_linear.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 主流排序演算法的時間複雜度通常為 $O(n \log n)$ ，例如快速排序、合併排序、堆積排序等。
 
@@ -289,11 +254,6 @@ $$
 ```
 
 ![階乘階的時間複雜度](time_complexity.assets/time_complexity_factorial.svg)
-<!-- figure-reading:start group:chapter_computational_complexity/time_complexity.assets/time_complexity_factorial -->
-
-[全排列的逐層選擇與階乘增長：完整圖解](time_complexity.assets/time_complexity_factorial.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 請注意，因為當 $n \geq 4$ 時恆有 $n! > 2^n$ ，所以階乘階比指數階增長得更快，在 $n$ 較大時也是不可接受的。
 

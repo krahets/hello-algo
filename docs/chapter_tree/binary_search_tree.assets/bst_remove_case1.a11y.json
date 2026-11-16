@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_search_tree.assets/bst_remove_case1",
   "title": "二叉搜索树删除叶节点",
   "summary": "删除度为 0 的叶节点时，没有需要接回的子树，直接清空父节点指向它的引用。",
   "context": [],
@@ -14,30 +11,13 @@
       "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case1.png",
       "title": "二叉搜索树删除叶节点",
       "explanation": "删除值 1 时，从根沿 8 → 4 → 2 → 1 查找到目标，cur 指向 1，pre 指向父节点 2。因目标 1 没有子节点，度为 0，没有需要接回的子树，直接执行 pre.left = None 清空父节点 2 的左引用即可。",
-      "state": "初始树根为 8，含值 1 至 15，完整连接见数据表。删除后节点 1 已从树中移除，父节点 2 的左子节点为 None（空）、右子节点仍为 3，其余连接不变。",
-      "key_state": "目标 cur = 1 为度 0 的叶节点；将父节点 pre = 2 的左引用置为 None。",
-      "announcement": "定位叶节点 1 与父节点 2，将 2 的左引用置为 None 完成删除。"
+      "state": "初始树根为 8，含值 1 至 15，完整连接见数据表。删除后节点 1 已从树中移除，父节点 2 的左子节点为 None（空）、右子节点仍为 3，其余连接不变。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_search_tree.assets/bst_remove_case1.png": "47331f9c97a8575248cbbf5405fc0f7d33ad7f9f0d2431031209feb1975e4f07"
-    }
-  },
   "animations": {
     "bst-remove-leaf": {
       "kind": "prose",
-      "model_sha256": "e88a82eeaa4626530ecd05a5399b3165f2b74b8117c2f8ecdf93d982bcf76cdd",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "bst-remove-leaf",
-        "group_id": "group:chapter_tree/binary_search_tree.assets/bst_remove_case1",
         "title": "二叉搜索树删除叶节点",
         "summary": "删除度为 0 的叶节点时，没有需要接回的子树，直接清空父节点指向它的引用。",
         "context": [
@@ -329,39 +309,7 @@
               }
             ]
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-07",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-              "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-              "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-            }
-          ],
-          "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-          "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "44dea6ad1af442ad39c49832502f02fc785e6b12c2e7e8e450a5cb55efbe83dd"
-        }
+        ]
       }
     }
   },
@@ -452,37 +400,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-07",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "64feb83b4b5a24ec87dc3ad4c035411b8cfda29777f845490023530d7eb2b7e3",
-        "output_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3397797713eace7a1a652571e15a03f42f9c26d224cb0647f14f99a7b7093907",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520",
-        "output_sha256": "40f730782e64592353c0292000829bc5c8152c560d95b3429cadb0a49ca04520"
-      }
-    ],
-    "evidence_sha256": "86978ef3034fa4272de21b890af9c9da42df49a8a69bd64311ab6ff9126e4198",
-    "verification_manifest_sha256": "0d1fe15b9202118b7054d0f66377264f92073e4f519f55934a9bddd71d23d42a",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "38f3e2e21d30972c2321f7671695a2cac6562d7d5e87bf062042309eba93f75b"
-  }
+  ]
 }

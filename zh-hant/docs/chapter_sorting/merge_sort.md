@@ -6,11 +6,6 @@
 2. **合併階段**：當子陣列長度為 1 時終止劃分，開始合併，持續地將左右兩個較短的有序陣列合併為一個較長的有序陣列，直至結束。
 
 ![合併排序的劃分與合併階段](merge_sort.assets/merge_sort_overview.svg)
-<!-- figure-reading:start group:chapter_sorting/merge_sort.assets/merge_sort_overview -->
-
-[合併排序的劃分與合併：完整圖解](merge_sort.assets/merge_sort_overview.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 演算法流程
 
@@ -50,11 +45,6 @@
 
 === "<10>"
     ![四元素合併排序的遞迴執行順序，第 10 步，共 10 步：合併左右兩半](merge_sort.assets/merge_sort_step10.svg)
-<!-- figure-reading:start group:chapter_sorting/merge_sort.assets/merge_sort -->
-
-[四元素合併排序的遞迴執行順序：完整圖解](merge_sort.assets/merge_sort.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 觀察發現，合併排序與二元樹後序走訪的遞迴順序是一致的。
 

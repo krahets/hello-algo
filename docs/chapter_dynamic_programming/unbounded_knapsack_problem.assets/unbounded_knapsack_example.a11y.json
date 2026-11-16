@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_example",
+  "schema_version": 2,
   "title": "完全背包示例：物品可以重复选择",
   "summary": "背包容量为 50 时，允许重复选取同类物品，最优方案为选择 1 个苹果与 2 个香蕉，总重量 50、最大价值 290。",
   "context": [
@@ -19,9 +16,7 @@
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_example.png",
       "title": "完全背包示例：物品可以重复选择",
       "explanation": "从左侧 5 种物品中选取第 1 种苹果 1 个（重量 10、价值 50）和第 2 种香蕉 2 个（单个重量 20、价值 120，两个共重 40、价值 240）一并放入容量为 50 的背包，其余三种物品（葡萄、菠萝、西瓜）均选 0 个。通过重复选择高性价比的香蕉，刚好占满 50 的背包容量，获得最大价值 290。",
-      "state": "背包容量 cap = 50；5 种物品的（重量, 价值）依次为：1 号苹果（10, 50）、2 号香蕉（20, 120）、3 号葡萄（30, 150）、4 号菠萝（40, 210）、5 号西瓜（50, 240）。图中高亮选中苹果 × 1 与香蕉 × 2（各物品选取数量依次为 [1, 2, 0, 0, 0]），共占用 50 背包容量，最大价值为 290。",
-      "key_state": "容量 50 完全背包：选苹果 × 1、香蕉 × 2，总重量 50，最大价值 290。",
-      "announcement": "完全背包示例：在容量 50 下重复选取 1 个苹果和 2 个香蕉，总重 50，获得最大价值 290。"
+      "state": "背包容量 cap = 50；5 种物品的（重量, 价值）依次为：1 号苹果（10, 50）、2 号香蕉（20, 120）、3 号葡萄（30, 150）、4 号菠萝（40, 210）、5 号西瓜（50, 240）。图中高亮选中苹果 × 1 与香蕉 × 2（各物品选取数量依次为 [1, 2, 0, 0, 0]），共占用 50 背包容量，最大价值为 290。"
     }
   ],
   "tables": [
@@ -72,44 +67,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-21",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "4ab75c1f2fb073e6f50370a7fc2bae82f746cf11d4b61f6834944e7bec2781ef",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "fca1b10d82b2bf3a473b3ca804ec8f07a85284dd0c633433f6b0ef5ee3e35f3d",
-        "output_sha256": "b25a7f68f67e62c2673e5c6ac9cbd299af58c2b8d46a771d4046ce486a40bbe1"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b25a7f68f67e62c2673e5c6ac9cbd299af58c2b8d46a771d4046ce486a40bbe1",
-        "output_sha256": "cac992d752f1e0aab38d9a5eac953cdc7d02275c75e9e15abfae29d475d4f13f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cac992d752f1e0aab38d9a5eac953cdc7d02275c75e9e15abfae29d475d4f13f",
-        "output_sha256": "f0bae88e06ac0b63e0949b87ce2887105c4993f5a552cba6ba5aa6e6a19f2de0"
-      }
-    ],
-    "evidence_sha256": "ec0f840f1c8093d0ed00ce99ceff4472db2872db3ce1fde8525e9cac2392153f"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.md": "9ed61e4005390a061618b042d029fa0a2782621b0b3df7e4049331a5bb80eef5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_example.png": "f0163aecb10b156883ed89606bd8ded4e15495f6ab8f66826c2329d1cfaf622a"
-    }
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/permutations_problem.assets/permutations_ii",
+  "schema_version": 2,
   "title": "相等元素使全排列重复",
   "summary": "把两个值为 1 的元素当作不同候选展开，会产生六条路径但只有三种不同的数值排列。",
   "context": [
@@ -18,9 +15,7 @@
       "book_path": "chapter_backtracking/permutations_problem.assets/permutations_ii.png",
       "title": "相等元素使全排列重复",
       "explanation": "第一轮分别尝试选 1、1̂、2，得到 [1]、[1̂]、[2] 三个分支；第二轮在每个分支下分别选取剩余两个索引之一，第三轮填入最后一个未用索引，共形成表中所列的六个叶节点。其中橙框标出的 [1̂, 1, 2]、[1̂, 2, 1] 和 [2, 1̂, 1]，分别只是将 [1, 1̂, 2]、[1, 2, 1̂] 和 [2, 1, 1̂] 中两个值为 1 的元素互换了位置，并未产生新的数值排列。",
-      "state": "顶部 choices=[1, 1̂, 2]，三层递归树的六个叶节点从左到右依次为 [1, 1̂, 2]、[1, 2, 1̂]、[1̂, 1, 2]、[1̂, 2, 1]、[2, 1, 1̂]、[2, 1̂, 1]。其中第 3、第 4、第 6 个叶节点带橙色外框，底部标注“应当去除的重复排列”。",
-      "key_state": "六个叶节点对应三种数值排列，第 3、4、6 个叶节点为重复排列。",
-      "announcement": "互换两个值为 1 的元素不会改变排列数值，六条搜索路径中有三条产生重复结果。"
+      "state": "顶部 choices=[1, 1̂, 2]，三层递归树的六个叶节点从左到右依次为 [1, 1̂, 2]、[1, 2, 1̂]、[1̂, 1, 2]、[1̂, 2, 1]、[2, 1, 1̂]、[2, 1̂, 1]。其中第 3、第 4、第 6 个叶节点带橙色外框，底部标注“应当去除的重复排列”。"
     }
   ],
   "tables": [
@@ -64,44 +59,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-18",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "83bdc017701ace5e99269558e8a71e7a6a48636def1ae859897761ebe0254c55",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4d905ea19e7b4a83ea36041a9c7f9d8d8c1f3b06c72a654e2a9e539750effd5d",
-        "output_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "211f8dcf056cf49442a8e4d76efbca082d033d2b8b26387dd8b8a26e3748bc90",
-        "output_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6810b9e55064c82285c369a6d4c74b185840cdc208da6f35b0ba2e33130689ad",
-        "output_sha256": "5ee2b110fd9b935a096ccaacf3e3b27d88bb1cb4918d9a5b6bd2b5a75c56edf0"
-      }
-    ],
-    "evidence_sha256": "5559c3ad6bd5d378f79de2a5c7f96ac680c007486f684e00a24a2512ab4de485"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/permutations_problem.md": "3a98624cb60210ec070f3e3a5e1a72593e80be9ded7190c57aa89ceda20034df"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/permutations_problem.assets/permutations_ii.png": "13ead04bcc4cbbcc0c1df32545b8c402850234fd7492d0e2f380fa060fb7fba3"
-    }
-  }
+  ]
 }

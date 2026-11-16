@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting",
+  "schema_version": 2,
   "title": "用插入排序整理扑克牌",
   "summary": "每次从未排序区取出一张牌，插入已排序区的恰当位置，直到所有牌按点数从小到大排列。",
   "context": [
@@ -18,30 +15,13 @@
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting.png",
       "title": "用插入排序整理扑克牌",
       "explanation": "顺着图中的顺时针 U 形箭头方向，左上角第 1 组为标注“未排序”的五张初始手牌 [4, 2, A, 5, 3]。中上第 2 组先将最左侧的 [4] 划为“已排序”，其余四张 [2, A, 5, 3] 划为“未排序”；随后每次从未排序牌扇的最右端取出一张牌，按点数插入左侧已排序牌扇的合适位置：右上第 3 组将 3 插入 4 前面，形成已排序 [3, 4] 与未排序 [2, A, 5]；右下第 4 组将 5 插入 4 后面，形成已排序 [3, 4, 5] 与未排序 [2, A]；中下第 5 组将 A 插入最前面，形成已排序 [A, 3, 4, 5] 与未排序 [2]；左下第 6 组将最后一张 2 插入 A 与 3 之间，得到全部已排序的 [A, 2, 3, 4, 5]。",
-      "state": "画面沿两排三列的顺时针 U 形箭头展示 6 个理牌状态：从左上角“未排序”[4, 2, A, 5, 3] 出发，经中上“已排序”[4] 与“未排序”[2, A, 5, 3]、右上 [3, 4] 与 [2, A, 5]、右下 [3, 4, 5] 与 [2, A]、中下 [A, 3, 4, 5] 与 [2]，最终到达左下角“已排序”[A, 2, 3, 4, 5]；中间每组的左侧均为已排序区，右侧均为未排序区。",
-      "key_state": "扑克牌理牌：初始 [4, 2, A, 5, 3]，先分出有序的 4，再依次插入 3、5、A、2，最终排成 [A, 2, 3, 4, 5]。",
-      "announcement": "从初始乱序手牌 4、2、A、5、3 出发，先将 4 划为已排序，再从未排序区依次取出 3、5、A、2 插入有序区的对应位置，最终排成 A、2、3、4、5。"
+      "state": "画面沿两排三列的顺时针 U 形箭头展示 6 个理牌状态：从左上角“未排序”[4, 2, A, 5, 3] 出发，经中上“已排序”[4] 与“未排序”[2, A, 5, 3]、右上 [3, 4] 与 [2, A, 5]、右下 [3, 4, 5] 与 [2, A]、中下 [A, 3, 4, 5] 与 [2]，最终到达左下角“已排序”[A, 2, 3, 4, 5]；中间每组的左侧均为已排序区，右侧均为未排序区。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_introduction/algorithms_are_everywhere.md": "51fecdd34af1e8a2382350d0b0fba14d37bc05b3326fa9f78e50668f7d533c9c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting.png": "7629fa4e292a063ed3768a73bfc555f750ccaef27d293746461bc793c706a94a"
-    }
-  },
   "animations": {
     "playing-cards-sorting": {
       "kind": "prose",
-      "model_sha256": "b0d3d55682601fb46bcc17a56278cd99147b39dc28e9b7a51dbfcf3cb0dd380a",
       "prose": {
-        "schema_version": 1,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "playing-cards-sorting",
-        "group_id": "group:chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting",
         "title": "用插入排序整理扑克牌",
         "summary": "先将 4 划入已排序区，再依次取出 3、5、A、2 插入已排序区的对应位置，直到五张牌全部排好。",
         "context": [
@@ -103,72 +83,8 @@
             "key_state": "全部 5 张牌整理完成，已排序区为 [A, 2, 3, 4, 5]，未排序 0 张。",
             "announcement": "将最后一张 2 插入 A 与 3 之间，五张牌全部排好为 [A, 2, 3, 4, 5]。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/names",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-              "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-              "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-              "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-            }
-          ],
-          "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-          "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "8345ce7f8b0dff13db4a896f826880066899fd6bc5e2085be2d8a4a42962d177"
-        }
+        ]
       }
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "ef4caad1ddd15e29d70028c4938fafbb8c8813ca5ce4cbd2eab9fdf7b7c428b0"
   }
 }

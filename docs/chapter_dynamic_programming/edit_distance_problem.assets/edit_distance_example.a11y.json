@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_example",
+  "schema_version": 2,
   "title": "编辑距离：两个三步转换示例",
   "summary": "展示将 kitten 转为 sitting（2 次替换、1 次添加）以及将 hello 转为 algo（1 次删除、2 次替换）的字符对应关系，两组示例的最少编辑步数均为 3。",
   "context": [
@@ -20,9 +17,7 @@
       "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_example.png",
       "title": "字符逐位对齐展示两组三步编辑过程",
       "explanation": "左侧对 s = kitten 执行 k → s、e → i 两次替换并在末尾添加 g，长度由 6 变为 7 得到 t = sitting；右侧对 s = hello 删除开头 h（中间行淡色 h 标示删除），并将 e → a、后一个 l → g，长度由 5 变为 4 得到 t = algo。两例均通过 3 次基本编辑操作完成转换。",
-      "state": "左图：起点 s = kitten（长度 6），终点 t = sitting（长度 7），编辑操作为 k 替换为 s、e 替换为 i、末尾添加 g，其余 i、t、t、n 保持不变，共 3 步。右图：起点 s = hello（长度 5），终点 t = algo（长度 4），编辑操作为删除首字母 h（中间行淡色 h）、e 替换为 a、后一个 l 替换为 g，前一个 l 与末尾 o 保持不变，共 3 步。",
-      "key_state": "kitten → sitting（2 替换 + 1 添加）与 hello → algo（1 删除 + 2 替换）编辑距离均为 3。",
-      "announcement": "编辑距离示例：kitten 转 sitting 与 hello 转 algo 各需 3 步编辑操作。"
+      "state": "左图：起点 s = kitten（长度 6），终点 t = sitting（长度 7），编辑操作为 k 替换为 s、e 替换为 i、末尾添加 g，其余 i、t、t、n 保持不变，共 3 步。右图：起点 s = hello（长度 5），终点 t = algo（长度 4），编辑操作为删除首字母 h（中间行淡色 h）、e 替换为 a、后一个 l 替换为 g，前一个 l 与末尾 o 保持不变，共 3 步。"
     }
   ],
   "tables": [
@@ -52,44 +47,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-22",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "000aa3bdac2b8bb7523597b9f0ec4cbd4b54144196567dca21af8bf13dc14a3e",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "355bb0a076e0c4a50506f944ec79d9a6370d2b0116db530af832856399b3485f",
-        "output_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "599916a14e949b12438a8611b3d61d624eb76ebbe8824f46cd645944bc7bd6aa",
-        "output_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3afc9f8a0fdc112cc4ef5c720bc3adf71e9218da3eb7b26361dcf108ad5ae149",
-        "output_sha256": "6db2e4eff0a7643db4ac5f1c8ad3c9522a1a422b7048c605b10c5f576f7d028d"
-      }
-    ],
-    "evidence_sha256": "cb891d8e2b5e544988c1d1367b6de97883710871a6a6ba0cf5a7e132cd7345cd"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/edit_distance_problem.md": "643a62f62b2090294e2b8f8889bb1e9975cdbb62e41dd1c7cb3c25a11343c11f"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_example.png": "74e8641a064a285719896e53e17e35355fffdee8a8406f14486bb4c5f3c7ce9a"
-    }
-  }
+  ]
 }

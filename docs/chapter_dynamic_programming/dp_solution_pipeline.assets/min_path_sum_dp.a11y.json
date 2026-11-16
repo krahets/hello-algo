@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp",
   "title": "最小路径和动态规划",
   "summary": "从左上角起点出发，先累计首行与首列的唯一边界路径，再按行逐格取上方与左方较小值加当前格代价，递推至右下角终点。",
   "context": [
@@ -683,31 +680,9 @@
       ]
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/dp_solution_pipeline.md": "537de6dd1fe553954f17ebd407172e073f79aac62888596d7c8e67a6a8e12517"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step1.png": "d5fafa4c8818b88a49ce9f354e7f21048e79bca45b6b0e3f0fa53f97811a1a93",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step2.png": "f8344fda4349a1759d30228b85f9d3e319b6a5b59b88726df5546e5bce49c96c",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step3.png": "fc8dcfd3fca16cd66a507a37d0f11af79b40ab1ec679d2e912c4df7dccdadbd2",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step4.png": "53fbf5872dc2144d5632ec33fade085e4518c124a1423979e3b5ee8d5f59fb8a",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step5.png": "1f0a8e867d2e3d0cc2d49435f675618c7b2f572d3959d0b100235d6a0004487c",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step6.png": "0fe45601ebf3b1fb2f3868b7fc6915d4b7cc58301937e7a79761a3461afc5442",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step7.png": "06bacfaec2eea821f0879bece25b03c50b348e4d0021b4f13ca88003320f00a2",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step8.png": "a438f4514c8f97354e22cc86211af050db025272b51cc8fa682b39652a93cdc4",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step9.png": "a6be023e4e8a7e3493d7923d9d4889cf25533429ed4d2c0ab48258fa16ae799b",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step10.png": "fd960d97eee1bd669989d54a7edf137528037c7f75de14ebaf7892c68e055c27",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step11.png": "943f4b71bc4290d5e5b95066d39762b371bfa07f8fbf5aea08e1e167f03aff7c",
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step12.png": "39ed3de527a3ce98c09b2e69e7419e4e62c53ea7136f398e4a805fe1e3fb99a8"
-    }
-  },
   "animations": {
     "min-path-sum-dp": {
       "kind": "source-frames",
-      "model_sha256": "ef28810fcd375dfc71c35e4701942d1b0cd370e6383366c88398c4baa09996ff",
-      "source_content_sha256": "f0f7e48575a7fbc27897b3a1ed5e72e913d21e7d34153f1dfb5522a152a239c6",
       "states": [
         {
           "id": "step-1",
@@ -757,50 +732,10 @@
           "id": "step-12",
           "frame_id": "source-393"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-01/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "f695aed17adc1d838b2df3944c3edc3e70658171a6604a52656c671f5261531a",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8"
-      }
+      ]
     }
   },
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-01",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-      }
-    ],
-    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "f0f7e48575a7fbc27897b3a1ed5e72e913d21e7d34153f1dfb5522a152a239c6"
-  }
+  ]
 }

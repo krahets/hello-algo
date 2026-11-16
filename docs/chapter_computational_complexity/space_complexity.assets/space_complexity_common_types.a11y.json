@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/space_complexity.assets/space_complexity_common_types",
+  "schema_version": 2,
   "title": "常见空间复杂度的增长趋势",
   "summary": "对比常数阶 O(1)、对数阶 O(log n)、线性阶 O(n)、平方阶 O(n²) 和指数阶 O(2ⁿ) 五条曲线，展示内存需求随输入规模 n 增大的增长快慢排序。",
   "context": [
@@ -19,53 +16,7 @@
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_common_types.png",
       "title": "常见空间复杂度的增长趋势",
       "explanation": "右侧向上箭头“从低至高、从优至差”反映的是当 n 足够大时的渐近增长阶排序（注意图中只包含这五种常见空间复杂度，未绘制时间复杂度图中的线性对数阶或阶乘阶）。在小规模区间内，示意曲线之间存在交叉（例如青色对数曲线在刻度 2 至 6 之间略高于蓝色线性直线，红色指数曲线在前段低于其他曲线），这些交点仅作趋势示意，不能当作具体内存大小或复杂度优劣切换的精确阈值。",
-      "state": "坐标图横轴为输入数据大小 n（刻度 1 至 14），纵轴为内存空间大小（无可见数值刻度）。图中包含五条曲线，右侧末端由下到上依次为绿色常数阶 O(1)、青色对数阶 O(log n)、蓝色线性阶 O(n)、橙色平方阶 O(n²) 和红色指数阶 O(2ⁿ)，最右侧向上箭头标注“从低至高、从优至差”。",
-      "key_state": "五种空间复杂度由低到高依次为：常数阶 O(1)、对数阶 O(log n)、线性阶 O(n)、平方阶 O(n²)、指数阶 O(2ⁿ)。",
-      "announcement": "展示五种常见空间复杂度随输入规模 n 增大的内存增长趋势对比图。"
+      "state": "坐标图横轴为输入数据大小 n（刻度 1 至 14），纵轴为内存空间大小（无可见数值刻度）。图中包含五条曲线，右侧末端由下到上依次为绿色常数阶 O(1)、青色对数阶 O(log n)、蓝色线性阶 O(n)、橙色平方阶 O(n²) 和红色指数阶 O(2ⁿ)，最右侧向上箭头标注“从低至高、从优至差”。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-02",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "54d83b064e3847882a7eec580068a29693e80a790a935ec70a0dd0b7053a3e17",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2418f4f89bf15820de1b9f866e20459174d1357741c9215565d8a6fadd9ef34c",
-        "output_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "88203c789a82d3f9c9876ddbf58c38edb37da856cac5ae9befbaa908b5e85aae",
-        "output_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "62f4beaf061b147e038c3cf1962da13941a2573acbc33ce495511164b748dea4",
-        "output_sha256": "62b51949e795658a5a6779b7e616f31ed019742d5859071a77cc3801abe0d6d7"
-      }
-    ],
-    "evidence_sha256": "45d0d7027b523659e72b602edeb9f0d969e31b4ab937e3e24decd1d342fb1eff"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/space_complexity.md": "a65e225f2208745807377b9c6941f0ad3ee68b976521cd3be5b69b482cfb3ec6"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/space_complexity.assets/space_complexity_common_types.png": "56b95995c380c7f2e8b916d73fbce99eff5ceb249250cff321eca56bb43d08e0"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-dependency-verification",
-    "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-    "factual_review_preserved": true
-  }
+  ]
 }

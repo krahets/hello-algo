@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/array_representation_of_tree.assets/array_representation_without_empty",
   "title": "省略中间空位的层序数组",
   "summary": "省略非完美二叉树中间的空位后，压紧的层序数组会使索引错位，同一序列可对应不同树形。",
   "context": [],
@@ -14,20 +11,9 @@
       "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_without_empty.png",
       "title": "省略中间空位的层序数组",
       "explanation": "原树缺少位置 4、9、10、12、13 的节点；若跳过空位直接压紧为 [1, 2, 3, 4, 6, 7, 8, 9, 12, 15]，节点 6 会从原位置 5 前移到压紧索引 4。此时套用 2i+2 会把索引 4 的 6 误判为索引 1 的节点 2 的右子节点，但原树中 2 无右子节点、6 是 3 的左子节点。",
-      "state": "原树共 10 个节点：根为 1（位置 0），左右子节点为 2（位置 1）、3（位置 2）；2 只有左子节点 4（位置 3）；3 的左右子节点为 6（位置 5）、7（位置 6）；4 的左右子节点为 8（位置 7）、9（位置 8）；6 只有左子节点 12（位置 11）；7 只有右子节点 15（位置 14）；8、9、12、15 为叶节点。压紧数组索引 0 至 9 与原树位置编号的对应见表。",
-      "key_state": "从节点 6（原位置 5、压紧索引 4）起发生前移错位，2i+1 与 2i+2 不再对应原树连接。",
-      "announcement": "跳过中间空位将 10 个节点压紧为索引 0 至 9 后，父子索引关系发生错位。"
+      "state": "原树共 10 个节点：根为 1（位置 0），左右子节点为 2（位置 1）、3（位置 2）；2 只有左子节点 4（位置 3）；3 的左右子节点为 6（位置 5）、7（位置 6）；4 的左右子节点为 8（位置 7）、9（位置 8）；6 只有左子节点 12（位置 11）；7 只有右子节点 15（位置 14）；8、9、12、15 为叶节点。压紧数组索引 0 至 9 与原树位置编号的对应见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/array_representation_of_tree.md": "cd4a08a4c01fdd9039b2c9cafa2632b965147084ddf3ff241600c2c803acc30e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/array_representation_of_tree.assets/array_representation_without_empty.png": "f361dc6f2571fc85e20f3a967bbc2ed32be2a615edd496b25654070ad8b8b61b"
-    }
-  },
   "tables": [
     {
       "caption": "压紧数组与原树位置的对应",
@@ -90,37 +76,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-06",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
-        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
-        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
-        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
-      }
-    ],
-    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
-    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "e8f94a6cc7dfbba35d24dfdca464819e3d6037438e57e254f6f88aa3d787e91a"
-  }
+  ]
 }

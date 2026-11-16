@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board",
+  "schema_version": 2,
   "title": "容器向内移动短板",
   "summary": "向内移动短板可能提高容器高度，从而增大容量；本例容量从 21 增至 24。",
   "context": [
@@ -19,50 +16,7 @@
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.png",
       "title": "容器向内移动短板",
       "explanation": "将左端原短板指针 i 从索引 0（高度 3）右移至索引 1（高度 8），右指针仍为 j = 7（高度 4）。此时容器宽度由 7 - 0 = 7 缩窄为 7 - 1 = 6，但决定水位的短板高度由 min(3, 4) = 3 上升为 min(8, 4) = 4，高度增益超过了宽度损失，算得当前容量 cap = min(8, 4) × (7 - 1) = 24，高于初始状态的 21。",
-      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；左指针右移至 i = 1（高度 8），右指针保持 j = 7（高度 4），浅蓝盛水区宽 6、水高 4，当前容量 cap = min(8, 4) × (7 - 1) = 24。",
-      "key_state": "向内移动短板至 i = 1（高 8）、j = 7（高 4），水高升至 4，当前容量增至 24。",
-      "announcement": "向内移动左端短板：指针 i 从 0 移至 1，有效水高由 3 升至 4，容器容量由 21 增至 24。"
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；左指针右移至 i = 1（高度 8），右指针保持 j = 7（高度 4），浅蓝盛水区宽 6、水高 4，当前容量 cap = min(8, 4) × (7 - 1) = 24。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/max_capacity_problem.md": "57cba2a20a6c77854063b78633f7c318045e5b7347079f4c9930dad1abc93367"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.png": "e7e2a4cb3da27fb57ced9d7627b22437436d57b6edb2a0ba93c703c69d008a44"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "7feb168af5699f321ef62fec994399f4c49cc66c25ee1835e370a7952e972e08"
-  }
+  ]
 }

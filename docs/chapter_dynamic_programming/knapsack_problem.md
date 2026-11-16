@@ -11,11 +11,6 @@
 观察下图，由于物品编号 $i$ 从 $1$ 开始计数，数组索引从 $0$ 开始计数，因此物品 $i$ 对应重量 $wgt[i-1]$ 和价值 $val[i-1]$ 。
 
 ![0-1 背包的示例数据](knapsack_problem.assets/knapsack_example.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_example -->
-
-[0-1 背包：容量 50 的最优选择：完整图解](knapsack_problem.assets/knapsack_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 我们可以将 0-1 背包问题看作一个由 $n$ 轮决策组成的过程，对于每个物体都有不放入和放入两种决策，因此该问题满足决策树模型。
 
@@ -70,11 +65,6 @@ $$
 观察递归树，容易发现其中存在重叠子问题，例如 $dp[1, 10]$ 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。
 
 ![0-1 背包问题的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs -->
-
-[0-1 背包的重复递归：完整图解](knapsack_problem.assets/knapsack_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 方法二：记忆化搜索
 
@@ -89,11 +79,6 @@ $$
 下图展示了在记忆化搜索中被剪掉的搜索分支。
 
 ![0-1 背包问题的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs_mem -->
-
-[0-1 背包的记忆化搜索：完整图解](knapsack_problem.assets/knapsack_dfs_mem.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 方法三：动态规划
 
@@ -146,11 +131,6 @@ $$
 
 === "<14>"
     ![0-1 背包动态规划，第 14 步，共 14 步：返回容量 4 的最大价值 20](knapsack_problem.assets/knapsack_dp_step14.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp -->
-
-[0-1 背包动态规划：完整图解](knapsack_problem.assets/knapsack_dp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 空间优化
 
@@ -180,11 +160,6 @@ $$
 
 === "<6>"
     ![背包动态规划的单行压缩，第 6 步，共 6 步：本轮结束，准备下一轮](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
-<!-- figure-reading:start group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp -->
-
-[背包动态规划的单行压缩：完整图解](knapsack_problem.assets/knapsack_dp_comp.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可：
 

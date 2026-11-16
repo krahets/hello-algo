@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/permutations_problem.assets/permutations_i",
   "title": "无相等元素全排列的递归选择树",
   "summary": "从空前缀出发，每轮从 [1, 2, 3] 中选一个未用元素追加到 state，三轮生成 6 个全排列。",
   "context": [
@@ -21,15 +18,6 @@
       "state": "选择树共 4 层：第 0 层为空前缀 []；第 1 层为 [1]、[2]、[3]；第 2 层为 [1, 2]、[1, 3]、[2, 1]、[2, 3]、[3, 1]、[3, 2]；第 3 层叶节点为 6 个完整全排列。全部 10 个非终止前缀的后续选择与 6 个结果见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/permutations_problem.md": "3a98624cb60210ec070f3e3a5e1a72593e80be9ded7190c57aa89ceda20034df"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/permutations_problem.assets/permutations_i.png": "f7a6e684839e089f3d5805351a22ec572205fb1984a5d0e285e73e3b4536d959"
-    }
-  },
   "tables": [
     {
       "caption": "按前缀查找后续选择",
@@ -126,37 +114,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-11",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
-        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
-        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
-        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
-      }
-    ],
-    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
-    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "16ef151392363f103f951825e776839c4c89f91afa275a3adc0e2576de13280f"
-  }
+  ]
 }

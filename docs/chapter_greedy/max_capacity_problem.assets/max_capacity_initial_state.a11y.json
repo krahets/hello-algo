@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state",
+  "schema_version": 2,
   "title": "容器双指针的初始状态",
   "summary": "双指针初始分列数组两端 i = 0（短板高 3）和 j = 7（长板高 4），围成的初始容器宽度为 7、水位高为 3，当前容量为 21。",
   "context": [
@@ -18,50 +15,7 @@
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.png",
       "title": "容器双指针的初始状态",
       "explanation": "左指针 i = 0 指向高度 3 的隔板，右指针 j = 7 指向高度 4 的隔板；由于 ht[0] = 3 < ht[7] = 4，左板 i 为决定水位上限的短板，右板 j 为长板。此时容器宽度为 7 - 0 = 7，有效水高为 min(3, 4) = 3，算得当前容量 cap = min(3, 4) × (7 - 0) = 21。",
-      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；左指针 i = 0（高度 3，短板），右指针 j = 7（高度 4，长板），浅蓝盛水区宽 7、高 3，当前容量 cap = min(3, 4) × (7 - 0) = 21。",
-      "key_state": "初始双指针 i = 0（短板高 3）、j = 7（长板高 4），当前容量 cap = 21。",
-      "announcement": "展示双指针初始状态：i = 0 为短板（高 3），j = 7 为长板（高 4），当前容量为 21。"
+      "state": "数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]；左指针 i = 0（高度 3，短板），右指针 j = 7（高度 4，长板），浅蓝盛水区宽 7、高 3，当前容量 cap = min(3, 4) × (7 - 0) = 21。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/max_capacity_problem.md": "57cba2a20a6c77854063b78633f7c318045e5b7347079f4c9930dad1abc93367"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.png": "03cfa9d342128890350de8cff1572b57f9c9dd7e65c9a6afa5a118b1cc307ba2"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "7ac63719b0cedb549bfbe62c678e280807753993bec41446ae482630f3577432"
-  }
+  ]
 }

@@ -24,11 +24,6 @@
 
 === "<7>"
     ![一轮冒泡操作，第 7 步，共 7 步：最大值 5 就位](bubble_sort.assets/bubble_operation_step7.svg)
-<!-- figure-reading:start group:chapter_sorting/bubble_sort.assets/bubble_operation -->
-
-[一轮冒泡操作：完整图解](bubble_sort.assets/bubble_operation.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 算法流程
 
@@ -40,11 +35,6 @@
 4. 仅剩的一个元素必定是最小元素，无须排序，因此数组排序完成。
 
 ![冒泡排序流程](bubble_sort.assets/bubble_sort_overview.svg)
-<!-- figure-reading:start group:chapter_sorting/bubble_sort.assets/bubble_sort_overview -->
-
-[冒泡排序逐轮过程：完整图解](bubble_sort.assets/bubble_sort_overview.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 示例代码如下：
 

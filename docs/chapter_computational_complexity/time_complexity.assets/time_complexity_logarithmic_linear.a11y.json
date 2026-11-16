@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear",
   "title": "分治树的分层工作量",
   "summary": "子问题数量加倍、单个工作量减半，使每层总工作量保持相同。",
   "context": [
@@ -16,20 +13,9 @@
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear.png",
       "title": "分治树的分层工作量",
       "explanation": "总操作数由“每层工作量n”与“总层数log₂n+1”相乘得到，共n(log₂n+1)次。自顶向下每分一层，子问题数量加倍，但单个子问题的操作数同时减半：第d层（根为第0层）有2^d个子问题、每个操作数为n/2^d，两者相乘恒为n。如此二分直到规模为1的叶层（n个叶子、每个计1次），共经历log₂n+1层。",
-      "state": "设n为2的整数次幂以精确计数；每个节点的操作数等于其当前规模（根为n，叶节点为1），每层合计均为n，共log₂n+1层。",
-      "key_state": "每层n，共log₂n+1层，累计n(log₂n+1)。",
-      "announcement": "子问题数量加倍、单个工作量减半，使每层总工作量保持相同。"
+      "state": "设n为2的整数次幂以精确计数；每个节点的操作数等于其当前规模（根为n，叶节点为1），每层合计均为n，共log₂n+1层。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/time_complexity.md": "18f2e5296b2d0cd97c34cca8ff29e9e4e96ca43345ee572bf4df899f68b16964"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear.png": "9ca67e962eddeadc38603cdf3c812c53fefa738a09997c25e7503214211d7b02"
-    }
-  },
   "tables": [
     {
       "caption": "图中各层操作总数",
@@ -73,37 +59,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "5c25d16e153ddbb6504c6123081f966e6d7e82c7810a87615c813cc45543d075"
-  }
+  ]
 }

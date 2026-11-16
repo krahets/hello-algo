@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy",
   "title": "硬币找零：逐次贪心选择",
   "summary": "针对目标金额 131 与六种可重复硬币面额，每轮贪心选择不超过当前余额的最大面额，依次取 100、20、10、1 共 4 枚归零。",
   "context": [
@@ -23,25 +20,10 @@
       "state": "五行当前余额依次为 131、31、11、1、0：前四行对应此前已用硬币数依次为 0、1、2、3 枚，本轮即将选择的下一枚硬币依次为 100、20、10、1；第五行此前已用 4 枚（100、20、10、1），余额为 0 并停止选择。各行余额、此前已用硬币与下一枚的对应关系见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/greedy_algorithm.md": "3b0c784fb49ba0b799a32f85e77c830ed20aefd84af3f9d5c5076e6fef3796a1"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.png": "34b8114e5d0893f168ee8f57539c0f7fcab895f6fec7b2b391321dd4670e3d68"
-    }
-  },
   "animations": {
     "greedy-coin-strategy": {
       "kind": "prose",
-      "model_sha256": "d1a09d8e7057315a99075850b14cbc707780ea314177e951f743274544c3e55b",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "greedy-coin-strategy",
-        "group_id": "group:chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy",
         "title": "硬币找零：凑出 131",
         "summary": "从余额 131 开始，在六种可重复硬币面额中逐轮选定不超过当前余额的最大面额，经 100、20、10、1 四次选择使余额归零。",
         "context": [
@@ -95,39 +77,7 @@
             "key_state": "当前余额 0，已用 4 枚硬币（100、20、10、1）凑齐 131，找零完成。",
             "announcement": "扣除 1 后余额归零，累计使用 4 枚硬币完成 131 找零。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-13",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "e4a700b8071fbe365ae27803f9f283bca4a7818bf2f6d7aa7f328937e2f07656",
-              "output_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9",
-              "output_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c",
-              "output_sha256": "2e3821b925cd47ee962c2d6dbab295f1e98ef3b7532066ab3daafdf5b12f2a65"
-            }
-          ],
-          "evidence_sha256": "1fab6509d04a1de07d81050fa1afd22836320773ef6e9ab5f3cf423ebcc44f82",
-          "verification_manifest_sha256": "3eb49e53036fc9695566e2b308e028a29de81205734c9a782c345b0dd884f865",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "3aa6f67ef9d2be7961c439954bd0add640b8afe84703ed44c115be9920fc033d"
-        }
+        ]
       }
     }
   },
@@ -174,37 +124,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-13",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e4a700b8071fbe365ae27803f9f283bca4a7818bf2f6d7aa7f328937e2f07656",
-        "output_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9",
-        "output_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c",
-        "output_sha256": "2e3821b925cd47ee962c2d6dbab295f1e98ef3b7532066ab3daafdf5b12f2a65"
-      }
-    ],
-    "evidence_sha256": "1fab6509d04a1de07d81050fa1afd22836320773ef6e9ab5f3cf423ebcc44f82",
-    "verification_manifest_sha256": "3eb49e53036fc9695566e2b308e028a29de81205734c9a782c345b0dd884f865",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "b8d509c9e831db8e091ea1787e8a3c14dd03bd32f6083010ef43f4c2c27ca088"
-  }
+  ]
 }

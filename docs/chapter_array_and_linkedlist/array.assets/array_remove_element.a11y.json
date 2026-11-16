@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_array_and_linkedlist/array.assets/array_remove_element",
   "title": "数组删除与前移",
   "summary": "覆盖待删除位置后保持其余元素顺序，并区分有效长度与存储槽位数。",
   "context": [],
@@ -14,30 +11,13 @@
       "book_path": "chapter_array_and_linkedlist/array.assets/array_remove_element.png",
       "title": "数组删除与前移",
       "explanation": "要删除索引1的元素3，须按源索引从小到大依次执行nums[1]=nums[2]、nums[2]=nums[3]、nums[3]=nums[4]，确保后续元素在被读取前不会被提前覆盖。由于复制只改写目标槽位、不清除源槽位，过程中出现相邻重复值是正常的；三次复制完成后，只把前4项视为有效序列，第5个槽位的残留值4不再计入有效范围。",
-      "state": "初始存储为[1,3,2,5,4]，共5个存储槽位、有效长度为5，待删除索引1的3；三次向左覆盖后5个槽位存储变为[1,2,5,4,4]，有效长度缩减为4（有效范围索引0至3，有效序列[1,2,5,4]），索引4的残留4已无效。",
-      "key_state": "有效长度从5减为4，有效序列为[1,2,5,4]；5个存储槽位仍在，末槽残留4已无效。",
-      "announcement": "覆盖待删除位置后保持其余元素顺序，并区分有效长度与存储槽位数。"
+      "state": "初始存储为[1,3,2,5,4]，共5个存储槽位、有效长度为5，待删除索引1的3；三次向左覆盖后5个槽位存储变为[1,2,5,4,4]，有效长度缩减为4（有效范围索引0至3，有效序列[1,2,5,4]），索引4的残留4已无效。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_array_and_linkedlist/array.md": "b552efb1674ec7ace53cef69704ced587bc0f66bf9c861380e4105d944147d3e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_array_and_linkedlist/array.assets/array_remove_element.png": "57f12b5599dbd134dcd9d48c3eda40e283e8f12c86815deb54dd86f28e2a1ae7"
-    }
-  },
   "animations": {
     "flow-array-remove": {
       "kind": "prose",
-      "model_sha256": "cb778c9a6d26a303ca6108f263b705721a1050f13e263964ca1a6482ca36503e",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "flow-array-remove",
-        "group_id": "group:chapter_array_and_linkedlist/array.assets/array_remove_element",
         "title": "数组删除与前移",
         "summary": "覆盖待删除位置后保持其余元素顺序，并区分有效长度与存储槽位数。",
         "context": [
@@ -80,39 +60,7 @@
             "key_state": "执行 nums[3] = nums[4]，有效长度减为 4，有效序列为 [1, 2, 5, 4]。",
             "announcement": "将索引 4 的 4 复制到索引 3，有效长度减为 4，完成删除。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-04",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
-              "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
-              "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
-              "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-            }
-          ],
-          "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
-          "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "b8e94314d44fcef37268ed46440eb82982022bce776ebba435a74158a08762a5"
-        }
+        ]
       }
     }
   },
@@ -148,42 +96,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-04",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
-        "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
-        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
-        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-      }
-    ],
-    "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
-    "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "bd348fe44b3040a1b5c1ea23c2ad8ff3c9197c169883af6b7778a64bced1074d"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
-  }
+  ]
 }

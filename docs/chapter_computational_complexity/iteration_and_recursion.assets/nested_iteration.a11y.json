@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration",
   "title": "双层嵌套循环",
   "summary": "每轮外循环都重新运行完整的内循环，决定任务总次数。",
   "context": [
@@ -16,50 +13,7 @@
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png",
       "title": "双层嵌套循环",
       "explanation": "外循环先令i=1并判断i≤n。若外层条件为真，则进入内循环并重置j=1，再判断j≤n：为真时执行任务、令j+=1，并回到内层判断j≤n；当j≤n为假时，内循环结束，流程令i+=1并回到外层判断i≤n。只要外层条件仍为真，就会再次重置j=1开启新一轮内循环；直到i≤n为假，整个流程才结束。",
-      "state": "n为正整数。外层i从1取至n；每固定一个i，内层j都从1重新遍历至n并依次执行任务，内层结束后才令i+=1进入下一轮外循环。",
-      "key_state": "内循环退出只结束当前i的一轮，不等于整个程序结束。",
-      "announcement": "每轮外循环都重新运行完整的内循环，决定任务总次数。"
+      "state": "n为正整数。外层i从1取至n；每固定一个i，内层j都从1重新遍历至n并依次执行任务，内层结束后才令i+=1进入下一轮外循环。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png": "8dfbe74d7801568054f899f4341c2ccab3c61815e0e2191e5e2f955c426b9e19"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "259eb07bd64efc338588c9350a2972958249687a72699fb3ad10a2f9995e0540"
-  }
+  ]
 }

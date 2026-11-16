@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value",
+  "schema_version": 2,
   "title": "物品在单位重量下的价值",
   "summary": "单位价值等于物品价值除以重量；选取其中重量为 w 的一部分时，背包增加的价值为 w 乘以该物品的单位价值。",
   "context": [
@@ -18,9 +15,7 @@
       "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png",
       "title": "物品在单位重量下的价值",
       "explanation": "左侧表格逐行用价值除以重量算出 5 件物品的单位价值：1 号苹果 50 / 10 = 5，2 号香蕉 120 / 20 = 6，3 号葡萄 150 / 30 = 5，4 号菠萝 210 / 40 = 5.25，5 号西瓜 240 / 50 = 4.8。右侧公式表明：若从第 i 件物品中切取重量 w 放入背包，则“背包内的增加价值 = 当前物品选取重量 w × 当前物品单位价值 (val[i-1] / wgt[i-1])”。",
-      "state": "5 件物品的（重量, 价值, 单位价值）依次为：1 号苹果（10, 50, 5）、2 号香蕉（20, 120, 6）、3 号葡萄（30, 150, 5）、4 号菠萝（40, 210, 5.25）、5 号西瓜（50, 240, 4.8）；右侧列出公式：选取重量 w × 单位价值 val[i-1]/wgt[i-1] = 背包内的增加价值。",
-      "key_state": "五件物品单位价值依次为 [5, 6, 5, 5.25, 4.8]；增加价值 = 选取重量 w × 单位价值。",
-      "announcement": "展示各物品单位价值计算表及部分选取时的价值公式 w × (val[i-1] / wgt[i-1])。"
+      "state": "5 件物品的（重量, 价值, 单位价值）依次为：1 号苹果（10, 50, 5）、2 号香蕉（20, 120, 6）、3 号葡萄（30, 150, 5）、4 号菠萝（40, 210, 5.25）、5 号西瓜（50, 240, 4.8）；右侧列出公式：选取重量 w × 单位价值 val[i-1]/wgt[i-1] = 背包内的增加价值。"
     }
   ],
   "tables": [
@@ -65,46 +60,5 @@
         ]
       ]
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/fractional_knapsack_problem.md": "513596ffc307774414133d24fc1f1e5029dc1fe23165b6d769f634b98423c990"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png": "f3b6eeeb3a471d954ee6e8092d3547f9af8f340bbd888e4f97c458fde4232a21"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "6b25696aa74c6620cafa8f83aed5b5e69d55ee73e74ce0088b37c59e4f418505"
-  }
+  ]
 }

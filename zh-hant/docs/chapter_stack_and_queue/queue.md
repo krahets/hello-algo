@@ -5,11 +5,6 @@
 如下圖所示，我們將佇列頭部稱為“佇列首”，尾部稱為“佇列尾”，將把元素加入列尾的操作稱為“入列”，刪除佇列首元素的操作稱為“出列”。
 
 ![佇列的先入先出規則](queue.assets/queue_operations.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/queue.assets/queue_operations -->
-
-[佇列的入出操作：完整圖解](queue.assets/queue_operations.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 佇列常用操作
 
@@ -49,11 +44,6 @@ queue_operations
 
 === "<3>"
     ![基於鏈結串列實現佇列的入列與出列，第 3 步，共 3 步：在鏈結串列頭部出列 1](queue.assets/linkedlist_queue_step3_pop.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/queue.assets/linkedlist_queue -->
-
-[基於鏈結串列實現佇列的入列與出列：完整圖解](queue.assets/linkedlist_queue.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 以下是用鏈結串列實現佇列的程式碼：
 
@@ -82,11 +72,6 @@ queue_operations
 
 === "<3>"
     ![基於陣列實現佇列的入列與出列，第 3 步，共 3 步：移動 front，佇列首 1 出列](queue.assets/array_queue_step3_pop.svg)
-<!-- figure-reading:start group:chapter_stack_and_queue/queue.assets/array_queue -->
-
-[基於陣列實現佇列的入列與出列：完整圖解](queue.assets/array_queue.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 你可能會發現一個問題：在不斷進行入列和出列的過程中，`front` 和 `rear` 都在向右移動，**當它們到達陣列尾部時就無法繼續移動了**。為了解決此問題，我們可以將陣列視為首尾相接的“環形陣列”。
 

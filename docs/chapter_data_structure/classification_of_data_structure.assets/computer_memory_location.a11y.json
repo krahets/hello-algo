@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_data_structure/classification_of_data_structure.assets/computer_memory_location",
   "title": "用地址访问内存",
   "summary": "由行起始地址加列偏移定位内存单元，读取其中的数据。",
   "context": [],
@@ -16,20 +13,9 @@
       "book_path": "chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png",
       "title": "用地址访问内存",
       "explanation": "本图以二维网格类比内存寻址：行起始地址0x0010加列偏移02得到地址0x0012，从中读出数据1；行起始地址0x0020加列偏移04得到地址0x0024，从中读出数据2。地址用来标识单元位置，数据则是该单元存放的内容，二者不可混同。",
-      "state": "示意网格展示5行8列，行起始地址依次为0x0000、0x0010、0x0020、0x0030、0x0040，列偏移为00至07，右侧与底部省略号表示还有更多未画出的单元；已用单元0x0012存有1，0x0024存有2。",
-      "key_state": "地址0x0012存数据1；地址0x0024存数据2。",
-      "announcement": "由行起始地址加列偏移定位内存单元，读取其中的数据。"
+      "state": "示意网格展示5行8列，行起始地址依次为0x0000、0x0010、0x0020、0x0030、0x0040，列偏移为00至07，右侧与底部省略号表示还有更多未画出的单元；已用单元0x0012存有1，0x0024存有2。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_data_structure/classification_of_data_structure.md": "a61ec86982bb7395e7f0257668a661739cc098c5d2aac268a23df1036243f7aa"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png": "a63e6c62bb842a6ed5a9b77f6c0158a01cb66d1a422e01604448038b6e660be9"
-    }
-  },
   "tables": [
     {
       "caption": "图中两个已用内存单元",
@@ -55,37 +41,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-04",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "c385c148a9c87885ad3055fe531ffaace5195ab54db807e336c77cecfb2fe72d",
-        "output_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "67e949ed7bbdb732b3f1c3ba626e257456b862ba2f1a1acabf2d74a9db1a3261",
-        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf",
-        "output_sha256": "12811878086a2d86c675a45210146a1e7b7ca29816024f3dea3ae332a6c13eaf"
-      }
-    ],
-    "evidence_sha256": "212e919970bc973e942f94689e035a209af63a724b3924065c0b2a89303d3070",
-    "verification_manifest_sha256": "e599534ecd2e93955445689d4327ace02a7ae7841b59245afcbd61129c11708b",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "92bb86304fbac325153abf5c623c7a8492779be7ecebd4d5b2c6f8e0204e5805"
-  }
+  ]
 }

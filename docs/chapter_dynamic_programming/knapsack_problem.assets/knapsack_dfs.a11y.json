@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs",
   "title": "0-1 背包的重复递归",
   "summary": "在容量 30 的专用三物品示例中，两条不同选择路线都会进入状态 dp[1, 10] 并重复展开其子树。",
   "context": [
@@ -145,46 +142,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/knapsack_problem.md": "737c2956ff98e7b0f2127ba26566ece3d167e7022d593ba82e273a2f5e98e493"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs.png": "c9053568957b1c29e34be15445ead10215b43ad3cad33fd3c2cb1063d4709963"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-13",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e4a700b8071fbe365ae27803f9f283bca4a7818bf2f6d7aa7f328937e2f07656",
-        "output_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9",
-        "output_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c",
-        "output_sha256": "2e3821b925cd47ee962c2d6dbab295f1e98ef3b7532066ab3daafdf5b12f2a65"
-      }
-    ],
-    "evidence_sha256": "1fab6509d04a1de07d81050fa1afd22836320773ef6e9ab5f3cf423ebcc44f82",
-    "verification_manifest_sha256": "3eb49e53036fc9695566e2b308e028a29de81205734c9a782c345b0dd884f865",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "4a2bf7a304f7a09f852bee9cb105611c2e66f4d2a30e14e1785f1cb807362aa5"
-  }
+  ]
 }

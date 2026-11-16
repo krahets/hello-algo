@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_stack_and_queue/stack.assets/array_stack",
+  "schema_version": 2,
   "title": "基于数组实现栈的入栈与出栈",
   "summary": "将数组尾部作为栈顶、首部作为栈底：在数组尾部追加 4 完成入栈，删除数组尾元素 4 完成出栈。",
   "context": [
@@ -41,22 +38,9 @@
       "announcement": "步骤 3：执行 pop() 删除数组尾元素 4，尾元素和栈顶恢复为 5。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_stack_and_queue/stack.md": "3ba63b881e29fee2cfff650e7dd695f0936e1a6ff078ebdb369583c9bc022859"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_stack_and_queue/stack.assets/array_stack_step1.png": "ed46765585490ed507dc4f344fd5e479750047ed4540b4781864c4f10c3980f7",
-      "chapter_stack_and_queue/stack.assets/array_stack_step2_push.png": "2e69e135e9d50a1a0b33af44e5201e931471cca3f61411d78e92c5834d3a68b0",
-      "chapter_stack_and_queue/stack.assets/array_stack_step3_pop.png": "d5124f52663967ea31ff484e385824b7ec47e48487cbb132bbec7120de278eee"
-    }
-  },
   "animations": {
     "array-stack": {
       "kind": "source-frames",
-      "model_sha256": "93c7c16531e96dc9a6e4b5aaf33655b2a77426d007fdc433a334474e3536955a",
-      "source_content_sha256": "c78b7ed0ca890a08a669bef30f0dd96a5e9785e76d9f6f39d4b95edbb254a41a",
       "states": [
         {
           "id": "step-1",
@@ -70,52 +54,7 @@
           "id": "step-3",
           "frame_id": "source-62"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/names/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "f63bf9ff2f0dab8ecf971144b6b285747025c30fa0f31bada057e7dd6a3e0cef",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "c78b7ed0ca890a08a669bef30f0dd96a5e9785e76d9f6f39d4b95edbb254a41a"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
   }
 }

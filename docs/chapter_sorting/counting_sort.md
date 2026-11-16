@@ -11,11 +11,6 @@
 3. **由于 `counter` 的各个索引天然有序，因此相当于所有数字已经排序好了**。接下来，我们遍历 `counter` ，根据各数字出现次数从小到大的顺序填入 `nums` 即可。
 
 ![计数排序流程](counting_sort.assets/counting_sort_overview.svg)
-<!-- figure-reading:start group:chapter_sorting/counting_sort.assets/counting_sort_overview -->
-
-[统计每个整数的次数，再按次数写回：完整图解](counting_sort.assets/counting_sort_overview.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 代码如下所示：
 
@@ -67,11 +62,6 @@ $$
 
 === "<8>"
     ![前缀和计数排序的稳定写入，第 8 步，共 8 步：把结果复制回 nums](counting_sort.assets/counting_sort_step8.svg)
-<!-- figure-reading:start group:chapter_sorting/counting_sort.assets/counting_sort -->
-
-[前缀和计数排序的稳定写入：完整图解](counting_sort.assets/counting_sort.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 计数排序的实现代码如下所示：
 

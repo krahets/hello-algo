@@ -6,11 +6,6 @@
 - <u>大頂堆積（max heap）</u>：任意節點的值 $\geq$ 其子節點的值。
 
 ![小頂堆積與大頂堆積](heap.assets/min_heap_and_max_heap.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/min_heap_and_max_heap -->
-
-[小頂堆積與大頂堆積的結構與大小關係：完整圖解](heap.assets/min_heap_and_max_heap.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 堆積作為完全二元樹的一個特例，具有以下特性。
 
@@ -61,11 +56,6 @@ heap_operations
 如下圖所示，給定索引 $i$ ，其左子節點的索引為 $2i + 1$ ，右子節點的索引為 $2i + 2$ ，父節點的索引為 $(i - 1) / 2$（向下整除）。當索引越界時，表示空節點或節點不存在。
 
 ![堆積的表示與儲存](heap.assets/representation_of_heap.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/representation_of_heap -->
-
-[堆積的陣列表示：完整圖解](heap.assets/representation_of_heap.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 我們可以將索引對映公式封裝成函式，方便後續使用：
 
@@ -113,11 +103,6 @@ heap_operations
 
 === "<9>"
     ![大頂堆積插入元素，第 9 步，共 9 步：插入完成](heap.assets/heap_push_step9.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/heap_push -->
-
-[大頂堆積插入元素：完整圖解](heap.assets/heap_push.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 設節點總數為 $n$ ，則樹的高度為 $O(\log n)$ 。由此可知，堆積化操作的迴圈輪數最多為 $O(\log n)$ ，**元素入堆積操作的時間複雜度為 $O(\log n)$** 。程式碼如下所示：
 
@@ -164,11 +149,6 @@ heap_operations
 
 === "<10>"
     ![大頂堆積彈出堆積頂，第 10 步，共 10 步：出堆積完成](heap.assets/heap_pop_step10.svg)
-<!-- figure-reading:start group:chapter_heap/heap.assets/heap_pop -->
-
-[大頂堆積彈出堆積頂：完整圖解](heap.assets/heap_pop.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 與元素入堆積操作相似，堆積頂元素出堆積操作的時間複雜度也為 $O(\log n)$ 。程式碼如下所示：
 

@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_hashing/hash_map.assets/hash_function",
+  "schema_version": 2,
   "title": "哈希函数将输入 key 映射为桶数组索引",
   "summary": "以哈希函数 key % 100 将学号转换为容量 100 的数组桶索引，演示 13276、12836、16750 三条查询路径如何分别定位到 76、36、50 号桶并取出姓名。",
   "context": [
@@ -82,58 +79,7 @@
       "book_path": "chapter_hashing/hash_map.assets/hash_function.png",
       "title": "通过 key % 100 定位桶索引的三条查询路径",
       "explanation": "三条同色有向曲线完整展示了哈希查找的两步过程：橙色路径输入 13276，计算 13276 % 100 = 76，定位到 76 号桶 (13276, “小法”) 并输出“小法”；蓝色路径输入 12836，计算 12836 % 100 = 36，定位到 36 号桶 (12836, “小哈”) 并输出“小哈”；绿色路径输入 16750，计算 16750 % 100 = 50，定位到 50 号桶 (16750, “小算”) 并输出“小算”。数组中一并画出的 37 号桶 (15937, “小啰”) 和 83 号桶 (10583, “小鸭”) 未参与本次三条查询。",
-      "state": "左侧“输入 key”从上到下为橙色 13276、蓝色 12836、绿色 16750；中间蓝色框标注“哈希函数 key % 100”；“数组”列按索引从上到下展示 36:(12836, “小哈”)、37:(15937, “小啰”)、50:(16750, “小算”)、76:(13276, “小法”)、83:(10583, “小鸭”)，底部注明“（每个桶内保存一个键值对）”；右侧“输出 value”从上到下依次为蓝色“小哈”、绿色“小算”、橙色“小法”。",
-      "key_state": "13276 % 100 = 76 → 小法；12836 % 100 = 36 → 小哈；16750 % 100 = 50 → 小算。",
-      "announcement": "展示哈希函数 key % 100 将三个输入学号分别映射到 76、36、50 号桶并输出姓名的过程。"
+      "state": "左侧“输入 key”从上到下为橙色 13276、蓝色 12836、绿色 16750；中间蓝色框标注“哈希函数 key % 100”；“数组”列按索引从上到下展示 36:(12836, “小哈”)、37:(15937, “小啰”)、50:(16750, “小算”)、76:(13276, “小法”)、83:(10583, “小鸭”)，底部注明“（每个桶内保存一个键值对）”；右侧“输出 value”从上到下依次为蓝色“小哈”、绿色“小算”、橙色“小法”。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-05",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "48f908164234e030b08c087c52876f6e6c683857d7d3800a93e68a290bbdecb5",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
-        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
-        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
-        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
-      }
-    ],
-    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_hashing/hash_map.md": "811c668682eed15b11f5c0c9a4f62574d741212e7bdf7078b8826c4d13933d12"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_hashing/hash_map.assets/hash_function.png": "61a55edc36bebfada46941fdd9c39002ad244cea91774b3be4d0ae0d76211f82"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-dependency-verification",
-      "evidence_sha256": "0fb37887103563609182e91c1cb5ab444f415831aa615673d6e73fcff4a48d91",
-      "factual_review_preserved": true
-    }
-  }
+  ]
 }

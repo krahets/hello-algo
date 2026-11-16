@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_hashing/hash_map.assets/hash_table_reshash",
   "title": "哈希表扩容与重新散列",
   "summary": "改变容量后重新计算桶索引，保留键值配对并缓解冲突。",
   "context": [],
@@ -54,30 +51,13 @@
       "book_path": "chapter_hashing/hash_map.assets/hash_table_reshash.png",
       "title": "哈希表扩容与重新散列",
       "explanation": "扩容前容量为 100，哈希函数为 key % 100；键 136 和 236 对 100 取余均得 36，同时落入桶 36 发生冲突（550 落桶 50，783 落桶 83）。将容量翻倍至 200 后，所有键均须按 key % 200 重新计算桶索引：236 仍落在桶 36，而 136 迁至桶 136，550 迁至桶 150，783 迁至桶 183。重新散列后各键值对的配对关系不变，原有的桶 36 冲突得以解除。",
-      "state": "四个键值对为 136:A、236:D、550:B、783:C，哈希函数为 key % capacity。容量 100 时桶分布为 36（136:A、236:D 冲突）、50（550:B）、83（783:C）；容量扩至 200 后桶分布为 36（236:D）、136（136:A）、150（550:B）、183（783:C）。",
-      "key_state": "容量由 100 扩至 200，四项全部按新容量重新取余，原桶 36 的两项分离到桶 36 与桶 136。",
-      "announcement": "改变容量后重新计算桶索引，保留键值配对并缓解冲突。"
+      "state": "四个键值对为 136:A、236:D、550:B、783:C，哈希函数为 key % capacity。容量 100 时桶分布为 36（136:A、236:D 冲突）、50（550:B）、83（783:C）；容量扩至 200 后桶分布为 36（236:D）、136（136:A）、150（550:B）、183（783:C）。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_hashing/hash_map.md": "811c668682eed15b11f5c0c9a4f62574d741212e7bdf7078b8826c4d13933d12"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_hashing/hash_map.assets/hash_table_reshash.png": "8e471b13129dddbf7b7a94b47664e058d970c51b79c7776c9430f6da837c1646"
-    }
-  },
   "animations": {
     "hash-table-rehash": {
       "kind": "prose",
-      "model_sha256": "148124bab0b2e0eb1fa7204bba3c6b4fdc7f98ca7250696860117f39a3317162",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "hash-table-rehash",
-        "group_id": "group:chapter_hashing/hash_map.assets/hash_table_reshash",
         "title": "哈希表扩容与重新散列",
         "summary": "改变容量后重新计算桶索引，保留键值配对并缓解冲突。",
         "context": [
@@ -104,77 +84,8 @@
             "key_state": "容量 200；桶 36、136、150、183 分别存放 236:D、136:A、550:B、783:C。",
             "announcement": "扩容至 200 并重新计算所有键的余数，本例中的桶 36 冲突消除。"
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-05",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
-              "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
-              "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
-              "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
-            }
-          ],
-          "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
-          "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "9758b69639a4c117edec90c0ca3bebbf3afc26c40934ec4fbb8bd4bee268c79d"
-        }
+        ]
       }
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-05",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
-        "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
-        "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
-        "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
-      }
-    ],
-    "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
-    "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "44b06214336b4f0435e26b143fb7bba00c74bc4a903e2d790c0c3529d6aa154d"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
   }
 }

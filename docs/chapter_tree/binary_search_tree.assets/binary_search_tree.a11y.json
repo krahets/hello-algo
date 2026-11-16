@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_search_tree.assets/binary_search_tree",
+  "schema_version": 2,
   "title": "包含 1 至 15 的二叉搜索树",
   "summary": "一棵以 8 为根节点、包含 1 至 15 的四层二叉搜索树：任意节点的左子树节点值均更小，右子树节点值均更大。",
   "context": [],
@@ -17,48 +14,7 @@
       "book_path": "chapter_tree/binary_search_tree.assets/binary_search_tree.png",
       "title": "包含 1 至 15 的二叉搜索树",
       "explanation": "整棵树呈现二叉搜索树的递归有序结构：以根节点 8 为界，左子树包含 1 至 7，全部小于 8；右子树包含 9 至 15，全部大于 8。往下任意子树同样遵循该规律，例如节点 4 的左子树包含 1 至 3（均小于 4），右子树包含 5 至 7（均大于 4 且小于根节点 8）。",
-      "state": "四层二叉搜索树，共 15 个节点（值为 1 至 15），有向边均由父节点指向左、右子节点。第一层根节点为 8，指向左子节点 4 和右子节点 12；第二层中，节点 4 指向 2 和 6，节点 12 指向 10 和 14；第三层中，节点 2 指向 1 和 3，节点 6 指向 5 和 7，节点 10 指向 9 和 11，节点 14 指向 13 和 15；第四层的 1、3、5、7、9、11、13、15 均为叶节点。",
-      "key_state": "根为 8 的四层二叉搜索树；左子树含 1 至 7，右子树含 9 至 15。",
-      "announcement": "展示以 8 为根节点、包含值 1 至 15 的四层二叉搜索树。"
+      "state": "四层二叉搜索树，共 15 个节点（值为 1 至 15），有向边均由父节点指向左、右子节点。第一层根节点为 8，指向左子节点 4 和右子节点 12；第二层中，节点 4 指向 2 和 6，节点 12 指向 10 和 14；第三层中，节点 2 指向 1 和 3，节点 6 指向 5 和 7，节点 10 指向 9 和 11，节点 14 指向 13 和 15；第四层的 1、3、5、7、9、11、13、15 均为叶节点。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_search_tree.md": "bf4428ef944ea3dc4040d389ab63b4f52575e5b0990caac71413a4f04cf9d1e4"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_search_tree.assets/binary_search_tree.png": "98d883a5e4a3b0ea40af8c0149255cc026596734dc6f3a7483fd38c5373186a5"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "bd0ec0cc3a2ef7f789af4ac4aa615feff2bd8cc6acc2de4fd61cc211550f502a",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d6744bd33ebe996945232b607e69fead7f79db477d4e9be3e721bb590f977cf7",
-        "output_sha256": "3a54872682cd76f5129277b6ce598e18e54b343f00a5717b25341459e06c1679"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3a54872682cd76f5129277b6ce598e18e54b343f00a5717b25341459e06c1679",
-        "output_sha256": "4c004dd46aa6d213c1300b923415022961ab9b7d8ea12038c75578bb37c6d71b"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4c004dd46aa6d213c1300b923415022961ab9b7d8ea12038c75578bb37c6d71b",
-        "output_sha256": "0b88c8eaf9a50ce51fd7f5a87df7a7f1a69bf1b2e9ccc8719e8375f1b3ed7f54"
-      }
-    ],
-    "evidence_sha256": "6dfc8d5a29c1f922045ad2da9cf53b29889c55bf6b52f40ba50b608da9ecea2c"
-  }
+  ]
 }

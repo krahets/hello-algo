@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_transition",
+  "schema_version": 2,
   "title": "最小路径和的状态转移",
   "summary": "到达内部格子的最后一步只能来自上方或左方，取两处累计最小路径和的较小值再加当前格代价。",
   "context": [
@@ -19,9 +16,7 @@
       "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png",
       "title": "最小路径和的状态转移",
       "explanation": "以图中绿色高亮的内部格 i=2、j=2 为例，只能从上方 [1, 2] 向下走一格、或从左方 [2, 1] 向右走一格到达该格，因此状态转移写为 dp[2, 2] = min(dp[1, 2], dp[2, 1]) + grid[2, 2]，其中 grid[2, 2]=2。右侧 dp 表在此仅展示符号依赖关系，尚未填入具体累计数值。",
-      "state": "左侧 grid 四行依次为 [1, 3, 1, 5]、[2, 2, 4, 2]、[5, 3, 2, 1]、[4, 3, 5, 2]，其中绿色 [2, 2]=2、紫色 [1, 2]=4、蓝色 [2, 1]=3；右侧 4×4 符号 dp 表中，紫色 dp[1, 2] 向下、蓝色 dp[2, 1] 向右以箭头汇入绿色 dp[2, 2]，底部标注状态转移方程 dp[i, j] = min(dp[i-1, j], dp[i, j-1]) + grid[i, j]。",
-      "key_state": "当前状态 dp[2, 2] 依赖上方前驱 dp[1, 2] 与左方前驱 dp[2, 1]，再加上当前格代价 2。",
-      "announcement": "比较上方 dp[1, 2] 与左方 dp[2, 1] 的累计最小路径和，取较小值再加上当前格代价 2。"
+      "state": "左侧 grid 四行依次为 [1, 3, 1, 5]、[2, 2, 4, 2]、[5, 3, 2, 1]、[4, 3, 5, 2]，其中绿色 [2, 2]=2、紫色 [1, 2]=4、蓝色 [2, 1]=3；右侧 4×4 符号 dp 表中，紫色 dp[1, 2] 向下、蓝色 dp[2, 1] 向右以箭头汇入绿色 dp[2, 2]，底部标注状态转移方程 dp[i, j] = min(dp[i-1, j], dp[i, j-1]) + grid[i, j]。"
     }
   ],
   "tables": [
@@ -65,44 +60,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-20",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "ba162bddc6d7118e75dd5e3a182a2c3fa5ab040ed82cb2c28367019718c2d75d",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "41d0fd45a22945a5a7184d107047c8717cca6d0cb964ceb1ffcffefcf35d71c0",
-        "output_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "6f28ad46a843e550964bfad54893774457a3ec29abb9f8165dd6262f050b2101",
-        "output_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8f0f618cc8d84fe521a7436cfd71d04bdc65b259bdf6282d1f693e3bfbd5cadc",
-        "output_sha256": "b529f2a5259e393cbd6adce01e5f42a44a8d6813ef624f4cd36fcf49308a3adf"
-      }
-    ],
-    "evidence_sha256": "54a5deb01ddc36c133e5452c5496383065ebdb84ec70c16f4d6436a9bcb17a67"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/dp_solution_pipeline.md": "537de6dd1fe553954f17ebd407172e073f79aac62888596d7c8e67a6a8e12517"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png": "3769c358f06df09edf191673b08fc65f089db27ba4c9087f88fa3f26c31e1a80"
-    }
-  }
+  ]
 }

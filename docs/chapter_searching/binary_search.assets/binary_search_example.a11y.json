@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_searching/binary_search.assets/binary_search_example",
+  "schema_version": 2,
   "title": "二分查找示例数据：在十个升序元素中定位 target = 6",
   "summary": "有序数组 nums 从 1 严格递增到 35，目标值 target = 6 位于索引 2。",
   "context": [
@@ -19,48 +16,7 @@
       "book_path": "chapter_searching/binary_search.assets/binary_search_example.png",
       "title": "用柱状图与数组方格对照展示二分查找输入",
       "explanation": "上方柱状图通过柱高直观反映数组单调递增，柱状图下方给出 0 至 9 的索引，下半部分用数组方格显示对应元素；两处同步用青色突出索引 2 的目标元素 target = 6。",
-      "state": "nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引 0 至 9，target = 6；索引 2 的值 6 在两种表示中均突出显示。",
-      "key_state": "输入十个升序元素，目标 target = 6 位于索引 2。",
-      "announcement": "展示十元素升序数组的柱状图与数组表示，标出索引 2 处的目标值 6。"
+      "state": "nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]，索引 0 至 9，target = 6；索引 2 的值 6 在两种表示中均突出显示。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-11",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "c81abec76c51539189fe5b7e4a1748f97ef7c131a0d25480ac1dd092223b2993",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3206c254e0370086a13ff2dc3fac20039392415745b2219372e157eeb538a33f",
-        "output_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "dd9bf68b62344daf8bc8e96623047978d0e19cc619fd66d876e9de1554000277",
-        "output_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "4f0d4fbb2186a7affd40a35e337bce4a948aba21bd793bbcbf59d1b9b8ac75df",
-        "output_sha256": "a5f19149a68ddebc468f9458a1b65a7a416af49f2324c4cc2f70f730d44ac163"
-      }
-    ],
-    "evidence_sha256": "36e78ab514241f595a2ea03d76dbb5a6499bcabe3070142fed1c2b7ad3fe7c96"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_searching/binary_search.md": "a734fc597b716931cf132436b8c4deaa76801f67a7dc4c2f8fdac5bb6cedb01d"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_searching/binary_search.assets/binary_search_example.png": "20dccc06e2c51a7f6ae86d6905542767f0646ea588b9637bfb91a6bbbe5b24b4"
-    }
-  }
+  ]
 }

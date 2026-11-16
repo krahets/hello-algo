@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_tree.assets/binary_tree_definition",
   "title": "二叉树的节点与子树",
   "summary": "以根节点与左右分支为例，区分直接相连的单个子节点与包含其全部后代的子树。",
   "context": [],
@@ -62,55 +59,7 @@
       "book_path": "chapter_tree/binary_tree.assets/binary_tree_definition.png",
       "title": "二叉树的节点与子树",
       "explanation": "以根节点 1 为参照，直接相连的左子节点是单个节点 2，右子节点是单个节点 3；而左子树是以 2 为根的整棵树，包含 2、4、5、8、9、10、11 共 7 个节点，右子树以 3 为根，包含 3、6、7、12、13、14、15 共 7 个节点。子树包含其根及全部后代，范围大于单个子节点。",
-      "state": "这棵 4 层完美二叉树共有 15 个节点，根为 1，按层从左到右依次编号为 1 至 15。底层节点 8 至 15 均为没有子节点的叶节点；节点 1 至 7 共 7 个非叶节点的左右子节点连接见表。",
-      "key_state": "相对于根 1，左、右子节点分别是单个节点 2、3，而左、右子树各包含 7 个节点。",
-      "announcement": "展示根节点 1 的左、右子节点与左、右子树各自覆盖的节点范围。"
+      "state": "这棵 4 层完美二叉树共有 15 个节点，根为 1，按层从左到右依次编号为 1 至 15。底层节点 8 至 15 均为没有子节点的叶节点；节点 1 至 7 共 7 个非叶节点的左右子节点连接见表。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_tree.md": "ae2eaab951aa4bdfeba7d1cf6b47892b44351703c62da823977b45cbceb86c49"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_tree.assets/binary_tree_definition.png": "15cb9e725d4fba051d569153c5711b7c553d2ad080ded0293f60b45a96d595d8"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-06",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
-        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
-        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
-        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
-      }
-    ],
-    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
-    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "64049fa4404ace8e3ebf8a48fe44a87c6ffaf223e40c4c6c3bbd9b1f332c801c"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
-  }
+  ]
 }

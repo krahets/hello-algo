@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation",
   "title": "最大切分乘积的计算方法",
   "summary": "通过整除与取模将 n 写成 3×a+b 并按余数分类调整切分；边界 n=2、3 须单独满足至少切分为两段的要求。",
   "context": [
@@ -24,15 +21,6 @@
       "state": "上排整条标总长 n，下排标示一段“余数 b”与“a 个 3”（含省略号），底部等式为 n = 3 × a + b（a = n // 3，b = n % 3）。图中未给具体数值；由正文与代码总结的 n = 2、n = 3 及 n ≥ 4 下 b = 0、1、2 五种情况的计算公式见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/max_product_cutting_problem.md": "e9a2d217025e8c5060ee3100522e8cb0d93d089a1417055fafc47046f313d6a3"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png": "0e6c13497145d26ac4cb52198645aac1734812de029df8e4e0fbe8b408b1f5f3"
-    }
-  },
   "tables": [
     {
       "caption": "由正文与代码给出的分类计算规则",
@@ -70,37 +58,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-14",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a778822d768d21181657ea1d4b0d8f7d7b999d2a54703a94d3288df6e00237d1",
-        "output_sha256": "46a827f70609f33e4ecce24ae2c533ad316813b91887165da0cc1c8a7d5fc020"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "46a827f70609f33e4ecce24ae2c533ad316813b91887165da0cc1c8a7d5fc020",
-        "output_sha256": "2ab5a9cf201301bd9b08384299ca4825616370420e2e31cfdcb51936f207da4b"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2ab5a9cf201301bd9b08384299ca4825616370420e2e31cfdcb51936f207da4b",
-        "output_sha256": "e5a7916afd67e7d551f7551aefe09c8aa0cd4301ec67e6990737d2634f544604"
-      }
-    ],
-    "evidence_sha256": "b88074bcd47068cf7923c80bbeffb598205d5d08e96b8943618c6b926fa8a8b7",
-    "verification_manifest_sha256": "ea5c1b89e66d7e082c6e8953781c4abe1252d4e071325ec0fd015978249f00cf",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "acebe590d0fce77db1b9472de15770aecc44844ae1605058fddf95c26c4bcacb"
-  }
+  ]
 }

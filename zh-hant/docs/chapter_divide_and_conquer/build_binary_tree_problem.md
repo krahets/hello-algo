@@ -5,11 +5,6 @@
     給定一棵二元樹的前序走訪 `preorder` 和中序走訪 `inorder` ，請從中構建二元樹，返回二元樹的根節點。假設二元樹中沒有值重複的節點（如下圖所示）。
 
 ![構建二元樹的示例資料](build_binary_tree_problem.assets/build_tree_example.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_example -->
-
-[由前序與中序序列重建五節點二元樹：完整圖解](build_binary_tree_problem.assets/build_tree_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 判斷是否為分治問題
 
@@ -35,11 +30,6 @@
 3. 根據 `inorder` 的劃分結果，易得左子樹和右子樹的節點數量分別為 1 和 3 ，從而可將 `preorder` 劃分為 `[ 3 | 9 | 2 1 7 ]` 。
 
 ![在前序走訪和中序走訪中劃分子樹](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division -->
-
-[用中序位置切分左右子樹，再切分前序：完整圖解](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 基於變數描述子樹區間
 
@@ -62,11 +52,6 @@
 請注意，右子樹根節點索引中的 $(m-l)$ 的含義是“左子樹的節點數量”，建議結合下圖理解。
 
 ![根節點和左右子樹的索引區間表示](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_division_pointers -->
-
-[用 i、l、m、r 表示構樹遞迴的索引區間：完整圖解](build_binary_tree_problem.assets/build_tree_division_pointers.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 程式碼實現
 
@@ -104,20 +89,10 @@
 
 === "<9>"
     ![遞迴構樹：向下建立節點，返回時連線子樹，第 9 步，共 9 步：連線完整右子樹](build_binary_tree_problem.assets/built_tree_step9.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree -->
-
-[遞迴構樹：向下建立節點，返回時連線子樹：完整圖解](build_binary_tree_problem.assets/built_tree.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 每個遞迴函式內的前序走訪 `preorder` 和中序走訪 `inorder` 的劃分結果如下圖所示。
 
 ![每個遞迴函式中的劃分結果](build_binary_tree_problem.assets/built_tree_overall.svg)
-<!-- figure-reading:start group:chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_overall -->
-
-[逐個子問題檢視前序與中序的劃分：完整圖解](build_binary_tree_problem.assets/built_tree_overall.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 設樹的節點數量為 $n$ ，初始化每一個節點（執行一個遞迴函式 `dfs()` ）使用 $O(1)$ 時間。**因此總體時間複雜度為 $O(n)$** 。
 

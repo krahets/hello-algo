@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2",
+  "schema_version": 2,
   "title": "将三个 2 换成两个 3",
   "summary": "在总长度不变的前提下，将三个因子 2（和为 6，乘积为 8）替换为两个因子 3（和为 6，乘积为 9），可使整体乘积严格增大。",
   "context": [
@@ -19,50 +16,7 @@
       "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png",
       "title": "将三个 2 换成两个 3",
       "explanation": "考察总长 n 中长度为 6 的局部前缀：若切分为三个 2，局部乘积为 2 × 2 × 2 = 8；若将其合并重切为两个 3，局部长度仍为 3 + 3 = 6，但局部乘积提升为 3 × 3 = 9。由于右侧未改动的灰色余段乘积为正数，将三个 2 转化为两个 3 会使整体切分乘积从 8 倍余段乘积增大到 9 倍余段乘积。",
-      "state": "三层对比图：顶层为总长 n；中层左侧为三个蓝色段 2（2, 2, 2）加右侧灰色余段；底层将左侧同长度 6 的三段 2 转化为两个紫色段 3（3, 3），右侧余段只在中层绘出，变换不涉及该余段；局部乘积由 8 升至 9。",
-      "key_state": "同为长度 6：两个 3 的乘积 9 大于三个 2 的乘积 8，因此最多保留两个 2。",
-      "announcement": "展示贪心推论二：将三个因子 2 转化为两个因子 3，在总和不变时将局部乘积从 8 提升至 9。"
+      "state": "三层对比图：顶层为总长 n；中层左侧为三个蓝色段 2（2, 2, 2）加右侧灰色余段；底层将左侧同长度 6 的三段 2 转化为两个紫色段 3（3, 3），右侧余段只在中层绘出，变换不涉及该余段；局部乘积由 8 升至 9。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_greedy/max_product_cutting_problem.md": "e9a2d217025e8c5060ee3100522e8cb0d93d089a1417055fafc47046f313d6a3"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png": "7a69846a79a31277ffdb9bd701739e4cea22f6455cdc5382927d5dbdaf1c5d88"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "9728450cfe1804df168312ef798cd46e10277553811f2748ed914cb18b2051db"
-  }
+  ]
 }

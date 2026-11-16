@@ -46,18 +46,6 @@
   padding-left: 0.36rem;
 }
 
-.animation-controls__step {
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 100%;
-  padding: 0.2rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 0.2rem;
-  background: var(--md-default-bg-color);
-  color: var(--md-default-fg-color);
-  font: inherit;
-}
-
 .animation-controls__button {
   display: inline-flex;
   align-items: center;

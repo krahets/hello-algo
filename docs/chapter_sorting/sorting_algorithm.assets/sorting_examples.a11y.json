@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/sorting_algorithm.assets/sorting_examples",
+  "schema_version": 2,
   "title": "排序算法的数据类型与判断规则示例：数值大小、字典序与自定义等级",
   "summary": "分三行展示整数按数值升序、英文姓名按字典序、等级字符串按自定义优先级 D 至 A+ 排序的前后对比。",
   "context": [
@@ -20,48 +17,7 @@
       "book_path": "chapter_sorting/sorting_algorithm.assets/sorting_examples.png",
       "title": "三组数据分别按数值大小、字典序与自定义规则排序",
       "explanation": "三行依次对比整数 [7, 3, 2, 6, 0, 1, 5, 4] 排为 [0, 1, 2, 3, 4, 5, 6, 7]、姓名 [Kobe, Durant, Curry, Lebron, Harden] 排为 [Curry, Durant, Harden, Kobe, Lebron]，以及等级 [B-, A+, B, B+, A, D, C] 按自定义高低次序排为 [D, C, B-, B, B+, A, A+]。",
-      "state": "整数：[7,3,2,6,0,1,5,4] → [0,1,2,3,4,5,6,7]。姓名：[Kobe,Durant,Curry,Lebron,Harden] → [Curry,Durant,Harden,Kobe,Lebron]。等级：[B-,A+,B,B+,A,D,C] → [D,C,B-,B,B+,A,A+]；等级规则为 D<C<B-<B<B+<A<A+。",
-      "key_state": "三类排序示例：整数升序 0 至 7、姓名字典序 Curry 至 Lebron、自定义等级 D 至 A+。",
-      "announcement": "展示整数按数值、字符串按字典序、等级按自定义规则排序的三组示例。"
+      "state": "整数：[7,3,2,6,0,1,5,4] → [0,1,2,3,4,5,6,7]。姓名：[Kobe,Durant,Curry,Lebron,Harden] → [Curry,Durant,Harden,Kobe,Lebron]。等级：[B-,A+,B,B+,A,D,C] → [D,C,B-,B,B+,A,A+]；等级规则为 D<C<B-<B<B+<A<A+。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-12",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "3741223cde3df5ab5d71210ab73963843a4572a8d2720d6c2b116e2de9b7f466",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "278c7ca0de3699a8282cf733e66a37f776fcb7767e2b72a0c4e17a626b20368a",
-        "output_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "8b942a49ae0132da2ef7bd2cc4974d6e9c21872a530fe97c2a2107a934188825",
-        "output_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "72ded3c108bbc7c458462041ccdbfcaae7e45858b987f9ed1bf31ede788076b3",
-        "output_sha256": "549b9b8f6b53209dc060d3de11ddb4c66cd900a1c8ee112c21eecc35d1b5cd78"
-      }
-    ],
-    "evidence_sha256": "df3186defaada9ff328bd9bc4426561c6e8088c64ef665f5bd45cf638c5621eb"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/sorting_algorithm.md": "40c7d347981c11031fd0a39d6e2ed9d3580c2afb812d7f79f292abf27c81cff3"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/sorting_algorithm.assets/sorting_examples.png": "c8063725e4b3550b8b1514359ad36f3936e977fea749f25691aa47d9edcb4045"
-    }
-  }
+  ]
 }

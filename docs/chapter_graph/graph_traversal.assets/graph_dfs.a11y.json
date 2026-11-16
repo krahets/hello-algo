@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_graph/graph_traversal.assets/graph_dfs",
   "title": "图的深度优先遍历",
   "summary": "从起点出发沿未访问邻居递归深入，无路可走时回溯到上一层顶点，继续探索剩余分支。",
   "context": [
@@ -124,31 +121,9 @@
       "kind": "overview"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_graph/graph_traversal.md": "fa3ab9940f042b1fd040d6ac6f4ac9eae5d277afb166e19c27770dddc3ece286"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_graph/graph_traversal.assets/graph_dfs_step1.png": "c930a3f09961949f2f782b6316f126f6bf2d89aaa13afd72b842d4ab37687023",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step2.png": "856c6c989a8957efb555adfc8538c799eb2e211a7086dc5304666ec533cb7804",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step3.png": "b0b2c76f8269d5469421a8a8c6eb456221af893f969fe12fc39ed42251057452",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step4.png": "beb5182fd0107559d62cacc31bd7af48b0253453f2a9bd979e357b05c02aa079",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step5.png": "ebad85305f7cf4055f3ba56a258c97639c17a7a615a1bb90f7916eaf21d4d4d0",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step6.png": "28325165f3210ede3bda068b0c916d69a5bcd4d0fd96838e4f145bfdcc5a19da",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step7.png": "5fd72a6193c7097a1ced27ae779ae55a0dbde29d86b3914a423f9f2e70acc2a6",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step8.png": "5343765990408eb6f81be9d8fe8a28e23680538fbb76aaba4c9c1d5e45cdf296",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step9.png": "606cdf9f85dcc33974d20b431d95e7881ac287ae736d26bff3bc9b818144f07a",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step10.png": "aae3bad87aaa09595d7b476974b670e5a26ea1f82039db403e5a47f3e8c4bfb8",
-      "chapter_graph/graph_traversal.assets/graph_dfs_step11.png": "eb6f67984b21703e1bfc0e948795ba43322c84e4f76cb04e1bcf2d21fb555487",
-      "chapter_graph/graph_traversal.assets/graph_dfs.png": "80e3f4d45160925ab9e6b5864f184da6ef01c5b95f89cb49a848bf1e44d3ac6a"
-    }
-  },
   "animations": {
     "graph-dfs": {
       "kind": "source-frames",
-      "model_sha256": "a010192135e7510e91af8f93d14633ee017216f3411968f8c60f0490387cea67",
-      "source_content_sha256": "8f57bffee42563fbecdc404274ae553a3e02b1f602949211cd4b29429dae46a2",
       "states": [
         {
           "id": "step-1",
@@ -194,15 +169,7 @@
           "id": "step-11",
           "frame_id": "source-212"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-01/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "0d574efe1f13a3654f153e5df5806220a2cc27c2f490979a3ccd82134900a53e",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8"
-      }
+      ]
     }
   },
   "tables": [
@@ -328,37 +295,5 @@
   ],
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-01",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bee8ef3e466c2fa5309322f74f5898255f7a9756899611b2cd87ce6e3854ee7b",
-        "output_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "398487ef4b99e2991d917c4aad3aa297aff7a5ee1e923feb4b6f3049d17fba69",
-        "output_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3257f649f4f5739f5c4da49dd7ebbf29192b153f499907e42acbbcd268738891",
-        "output_sha256": "16c8b112b53ded438d4441cc173d93989fdd3fde82db826e2a6112fab308c3d4"
-      }
-    ],
-    "evidence_sha256": "744ffd0467db06d32b8f66d9d86433ff0b9bf0949849bb0b0a4787fce7a270f8",
-    "verification_manifest_sha256": "6195843dd3024e4a7a3a4caf12fa0ab2f3c27e21a93175d9900c87fef51760fb",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "8f57bffee42563fbecdc404274ae553a3e02b1f602949211cd4b29429dae46a2"
-  }
+  ]
 }

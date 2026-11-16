@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer",
   "title": "编辑距离的状态转移",
   "summary": "以将 book 转换为 code 为例，展示尾字符 k 与 e 不同时，通过添加、删除、替换分解出的三条剩余前缀子问题。",
   "context": [
@@ -23,15 +20,6 @@
       "state": "左侧当前状态 dp[i, j] 为源前缀 s = book、目标前缀 t = code（i = j = 4，尾字符 k ≠ e）；右侧上、中、下三条分支的操作后源串、除去已匹配或已删尾字符后的剩余源/目标前缀及对应子状态 dp[i, j-1]、dp[i-1, j]、dp[i-1, j-1] 见对照表；图中未计算最终编辑距离。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/edit_distance_problem.md": "643a62f62b2090294e2b8f8889bb1e9975cdbb62e41dd1c7cb3c25a11343c11f"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer.png": "53a5ce12205106b465f947fb03a83b0080fbab4edc1039b9421f17ad0a36e4f1"
-    }
-  },
   "tables": [
     {
       "caption": "尾字符不同时的三种操作与剩余前缀",
@@ -67,37 +55,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-13",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "e4a700b8071fbe365ae27803f9f283bca4a7818bf2f6d7aa7f328937e2f07656",
-        "output_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ff4a9b30d2750bf0cb8a38569a0042521dd1e7bd570ee2598deb59c3518cdb9",
-        "output_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "10c029c530bf3e78e221b49555e4dde5ea76c612b137d03102058aae730a104c",
-        "output_sha256": "2e3821b925cd47ee962c2d6dbab295f1e98ef3b7532066ab3daafdf5b12f2a65"
-      }
-    ],
-    "evidence_sha256": "1fab6509d04a1de07d81050fa1afd22836320773ef6e9ab5f3cf423ebcc44f82",
-    "verification_manifest_sha256": "3eb49e53036fc9695566e2b308e028a29de81205734c9a782c345b0dd884f865",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "df51667c01c3476bd5994c7b7d3f422e71a2ab65f176803474fea12711774dea"
-  }
+  ]
 }

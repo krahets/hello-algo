@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort",
   "title": "用归并排序理解“分”与“治”",
   "summary": "将八元素排序问题逐层分解至单元素最小子问题，再自底向上合并有序结果，得到 0 至 7 的升序数组。",
   "context": [
@@ -22,15 +19,6 @@
       "state": "输入含八个元素；经过三层递归划分到达八个单元素子问题，再经过三层自底向上的合并得到升序结果。七层的全部子数组见当前层级表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/divide_and_conquer.md": "433813a12d09fb5bfb85695af5b249a0ad58dc0fb87a5a4ab7786f39c49853cf"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png": "40ec07d737229612e02f0a95f5bd9f2cfdae15f179e466dad0c4a39eb4b298ae"
-    }
-  },
   "tables": [
     {
       "caption": "划分与合并的层级",
@@ -78,37 +66,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-10",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "587fb17853deb18aea81c8aaf923dad9d8944f711dd123357454014ee90673ed",
-        "output_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d88e5b83ca1fd9639809f4ff238f2e21a7327cdac4e4169da8f6c6c51f948ee0",
-        "output_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dc9729090c2fa7262d7fb5227f7b94419d64228b9d52735f60dadbceb4413989",
-        "output_sha256": "4409226acfc61414b5ce59f1e3c8cabdf42be0ad2939e4274348c347ae325320"
-      }
-    ],
-    "evidence_sha256": "4ae1efcc2389124b94b8ea9fc5f7e240b63806c8a1ccca85bc92f9b8e2b1a10e",
-    "verification_manifest_sha256": "2023927acd22f572c739405dfbb6d4338b32deadbe8db27f2438c77108cc13b9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "be156e79b2c71accf559137cee5790d60c3479eb4b9bebc59ba23001a16ed2f2"
-  }
+  ]
 }

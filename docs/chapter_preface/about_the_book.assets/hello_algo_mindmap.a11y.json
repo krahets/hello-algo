@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_preface/about_the_book.assets/hello_algo_mindmap",
   "title": "全书知识地图",
   "summary": "按数据结构、复杂度分析与算法三个板块，折返查找全书 16 个主题与典型问题。",
   "context": [
@@ -33,50 +30,7 @@
       "book_path": "chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
       "title": "全书知识地图",
       "explanation": "先确定所属板块，再按“板块／主题”短名定位具体概念、实现或例题；例如 Top-k 问题位于“数据结构／堆”，编辑距离位于“算法／动态规划”，堆排序在原图“算法／排序”中列于分治组。",
-      "state": "全书共三个板块 16 个主题分支：数据结构 7 支（数据结构、数组与链表、栈与队列、哈希表、树、堆、图），复杂度分析 3 支（迭代与递归、时间复杂度、空间复杂度），算法 6 支（搜索、排序、分治、回溯、动态规划、贪心）。分支代表主题归属，不限定唯一阅读顺序。",
-      "key_state": "数据结构 7 支、复杂度分析 3 支、算法 6 支，按板块／主题检索主题。",
-      "announcement": "展示全书数据结构、复杂度分析与算法三个板块的 16 个主题索引。"
+      "state": "全书共三个板块 16 个主题分支：数据结构 7 支（数据结构、数组与链表、栈与队列、哈希表、树、堆、图），复杂度分析 3 支（迭代与递归、时间复杂度、空间复杂度），算法 6 支（搜索、排序、分治、回溯、动态规划、贪心）。分支代表主题归属，不限定唯一阅读顺序。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_preface/about_the_book.md": "7e4800504fa593f66d556393142da2c71ccd86e898e171a7f40b2f68e2894575"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_preface/about_the_book.assets/hello_algo_mindmap.png": "1ea586253cf99fdb577dcec4dc04087e770ce41771a2c6765d4503087252ece5"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-02",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9310dbd60334224a900b7d5f067c91df3ed19242d000b2618debdc8754e63a02",
-        "output_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f",
-        "output_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23",
-        "output_sha256": "f71cddda28f6b7117562ace7e9c811ec21f0b7d39e8ea7ff597666eca41e37e8"
-      }
-    ],
-    "evidence_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0",
-    "verification_manifest_sha256": "15c1e96af1a1a1c313f44ea49ac790ae74a5da58f11188cc5a6deac3c2ed863e",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "07231e1fcbbf98d2be95f56ad71358331fcac08c72a736facf88f7d4c3e7e0df"
-  }
+  ]
 }

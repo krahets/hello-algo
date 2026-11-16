@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_example",
+  "schema_version": 2,
   "title": "三阶楼梯的最小代价",
   "summary": "当各阶代价为 0、1、10、1 时，跨过代价高昂的第 2 阶，走 0→1→3 可得最小总代价 2。",
   "context": [
@@ -18,9 +15,7 @@
       "book_path": "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_example.png",
       "title": "三阶楼梯的最小代价",
       "explanation": "三条到达第 3 阶的方案费用如下：青色实线 0→1→2→3 依次踏上第 1、第 2、第 3 阶，支付 1+10+1=12；蓝色点线 0→2→3 踏上第 2、第 3 阶，支付 10+1=11；橙色虚线 0→1→3 踏上第 1、第 3 阶，直接跨过了代价为 10 的红色第 2 阶，只需支付 1+1=2。比较可知 0→1→3 的总代价最小。",
-      "state": "楼梯阶数 n=0、1、2、3 对应代价 cost[n]=0、1、10、1，第 2 阶红色、第 3 阶绿色；上方画出青色 0→1→2→3、蓝色 0→2→3、橙色 0→1→3 三条轨迹，底部注明“爬上第 3 阶楼梯共有 3 种方案：0→1→2→3, 0→2→3, 0→1→3，其中 0→1→3 的代价最小，最小代价为 2”。",
-      "key_state": "跳过代价 10 的第 2 阶，走 0→1→3 支付 1+1=2 最优。",
-      "announcement": "对比三条路径的累计费用，选择跳过第 2 阶的 0→1→3 方案，以最小代价 2 到达第 3 阶。"
+      "state": "楼梯阶数 n=0、1、2、3 对应代价 cost[n]=0、1、10、1，第 2 阶红色、第 3 阶绿色；上方画出青色 0→1→2→3、蓝色 0→2→3、橙色 0→1→3 三条轨迹，底部注明“爬上第 3 阶楼梯共有 3 种方案：0→1→2→3, 0→2→3, 0→1→3，其中 0→1→3 的代价最小，最小代价为 2”。"
     }
   ],
   "tables": [
@@ -49,44 +44,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-19",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "099ebc0c1d4bc5bbabe76017d4777184783c8fdba282a66e9bcc23c700db4eb3",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dcea2ce4eb56814df492beb0353b69ca48748a38ea8c5b34963d8ce99d7a20df",
-        "output_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "257ae613a9ee5f825bccf8a7cb7b29b89cd046b5a16bbfe1189b031acc77907c",
-        "output_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "784f2b1f2df1cf95c50147b60e5d0bf4fded8c91982acf75b238066e2634b96f",
-        "output_sha256": "1603107bf51a94e045d71a5f3540a9b6e58f184da52d98978a06e9e10e5ca484"
-      }
-    ],
-    "evidence_sha256": "830dfd6d376fed2c39b7c0da47ad3af42913a4655f9fdeea3b18ab9df35addbc"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/dp_problem_features.md": "eecbb71388b87f9cc9593b41c54ad0b3ccbdea2949f298a3a43632cd93e2436a"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_example.png": "65ac1a72d5041d85bbf25e6e392d7774c8386f249125b1d12b24c9a5244f31c7"
-    }
-  }
+  ]
 }

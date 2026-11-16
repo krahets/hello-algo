@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree",
   "title": "暴力爬楼梯搜索的重叠子问题",
   "summary": "从 dp[9] 自顶向下暴力递归拆分时，相同的子问题不共享结果，会在不同分支中被反复展开求解。",
   "context": [
@@ -22,15 +19,6 @@
       "state": "图示四层共显示 15 个状态节点，其下有 16 个省略分支。各层状态与前四层出现次数见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/intro_to_dynamic_programming.md": "0995a3cd45b316e145efd517bc64d6d48a880cc2e2ad626a0bc24d063262a59f"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png": "0e268e2e4c891e991b2393556b32bffe01b551d391a59ff69e6599ce2853f5b0"
-    }
-  },
   "tables": [
     {
       "caption": "已展示的四层递归状态",
@@ -112,37 +100,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-12",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "2db7b8b0ecd549998fdef4f0b1f30abddd5f422b11a7d32336c10c15ba4135ad",
-        "output_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "2c9c8bbef62d495610441001475851c93659a0b4a44bed6cd9e8183150e44092",
-        "output_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a2ace14bd5018750c19e80363cbad3331032bfa946914771946e57e407668e7a",
-        "output_sha256": "c7a7bb6d6515cebec7bbacf4a6095365cb25f8f5dbdc25b8a75d801c27d3cfa7"
-      }
-    ],
-    "evidence_sha256": "5d2e4ec7f377fdb6c214c393e67369ccbad6377559d1dd71998f5b7ecbbcc1d5",
-    "verification_manifest_sha256": "bbc351cd7b91cef62b4c7a18bd298e76111e9a508bd7137d745c92ce2d82153d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "05c90913562c41ef92c125aff1dacd885019c14deffbee7906b2871deff847eb"
-  }
+  ]
 }

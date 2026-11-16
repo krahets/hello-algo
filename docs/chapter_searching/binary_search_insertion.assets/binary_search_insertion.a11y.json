@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_searching/binary_search_insertion.assets/binary_search_insertion",
   "title": "二分查找最左插入点",
   "summary": "在含重复值的有序数组中，遇到 6 仍向左缩小区间，最终返回最左插入索引 2。",
   "context": [
@@ -297,27 +294,9 @@
       ]
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_searching/binary_search_insertion.md": "9d86ebcc2847400e0104b773fcde0809d4665e4156fe42281b74b7535571b496"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step1.png": "7071ab827b525ce239fff2231db26d841176ee841e739866f42c78e9ae0e09af",
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step2.png": "ab76350a47857b8dd5aa063df5c41c70cca7349610097305aac2bf6c45214d62",
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step3.png": "88e6ddf7d5e1c972458ab2220db64943cdf9e95cc1a06a08378d9a7f4291c3a1",
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step4.png": "756a7e5cf5d3c6087fc43793a429f2b19d69e3e6ad8fa5a3a69c7d329bf21245",
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step5.png": "9a8e275575c2073e7c1ee117f0476c8147cce1808e9e5f07dc9ca5b04fda986d",
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step6.png": "4026f5c6282aa5c2bf8473f17dcb6f53d80113271973e045a870187d3251142d",
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step7.png": "71b31a2150bcde0557d90deb68834e7804db18f59916aaaf844411e21a636848",
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step8.png": "1505d38e36a314a266e659d0a290c1eef9c3142a95ff9b99575005d3fcef28ee"
-    }
-  },
   "animations": {
     "binary-search-insertion": {
       "kind": "source-frames",
-      "model_sha256": "0c5c0327e7c01149067e3e28eecb4f0a3b10608d90d920aaa26d8d13e3d50ead",
-      "source_content_sha256": "99cc329e0f6522821e7ae8a93f128b0b8ba57f534e548dac3af3b1152128d94e",
       "states": [
         {
           "id": "step-1",
@@ -351,15 +330,7 @@
           "id": "step-8",
           "frame_id": "source-233"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-09/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "262ff470c29344794a986d7eb13f8b0a9b632983accb5a8fc3e9e6217785d389",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b"
-      }
+      ]
     }
   },
   "tables": [
@@ -416,37 +387,5 @@
   ],
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-09",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
-        "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
-        "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
-        "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
-      }
-    ],
-    "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
-    "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "99cc329e0f6522821e7ae8a93f128b0b8ba57f534e548dac3af3b1152128d94e"
-  }
+  ]
 }

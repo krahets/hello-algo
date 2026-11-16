@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example",
+  "schema_version": 2,
   "title": "零钱兑换的最少硬币数",
   "summary": "面值为 1、2、5 的硬币均可重复选取，求恰好凑出金额 11 所需的最少硬币枚数。",
   "context": [
@@ -19,9 +16,7 @@
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example.png",
       "title": "金额 11 的最优硬币组合",
       "explanation": "从面值 1、2、5 的三种硬币中，选取 1 枚面值 1 的硬币和 2 枚面值 5 的硬币汇入右侧代表目标金额的钱袋，面值总和为 1 + 5 + 5 = 11，恰好达到目标金额 amt = 11，所用硬币总数最少，共 3 枚。",
-      "state": "可选硬币面值为 [1, 2, 5] 且数量不限，目标金额 amt = 11。图中高亮选用面值 1 硬币 1 枚、面值 2 硬币 0 枚、面值 5 硬币 2 枚，最优硬币组合为 1 + 5 + 5 = 11，最少硬币数量为 3。",
-      "key_state": "目标金额 11：最优组合为 1 + 5 + 5，最少需要 3 枚硬币。",
-      "announcement": "零钱兑换示例：用 1 枚面值 1 和 2 枚面值 5 凑出目标金额 11，最少需要 3 枚硬币。"
+      "state": "可选硬币面值为 [1, 2, 5] 且数量不限，目标金额 amt = 11。图中高亮选用面值 1 硬币 1 枚、面值 2 硬币 0 枚、面值 5 硬币 2 枚，最优硬币组合为 1 + 5 + 5 = 11，最少硬币数量为 3。"
     }
   ],
   "tables": [
@@ -46,46 +41,5 @@
         ]
       ]
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.md": "9ed61e4005390a061618b042d029fa0a2782621b0b3df7e4049331a5bb80eef5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example.png": "8aeb6d9056c5d14f5b846c92f5c0e98f477a2a3833a72abaed84d4e067f309d3"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "10b2f47e6470680108b477637c108b0860bb979fe7161aeacb3f1b8137b00ffb"
-  }
+  ]
 }

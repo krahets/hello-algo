@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_searching/searching_algorithm_revisited.assets/searching_algorithms",
+  "schema_version": 2,
   "title": "四种搜索策略",
   "summary": "线性搜索逐项扫描，二分查找利用数组有序性，哈希查找与树查找则借助辅助结构；其中哈希查找的 O(1) 为平均复杂度，二叉搜索树在保持平衡时查找复杂度为 O(log n)。",
   "context": [
@@ -21,50 +18,7 @@
       "book_path": "chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png",
       "title": "四种搜索策略查找目标 6",
       "explanation": "四象限并列对比四种策略：左上在无序数组中从左到右逐格扫描至 6；左下在有序数组中折半缩小区间至 6；右上在哈希表中按键 6 直接映射值 6；右下在二叉搜索树中沿 4 → 7 → 5 → 6 分支检索。",
-      "state": "线性数组 [1,5,3,2,4,7,6,9,0,8]，目标 6 在索引 6；二分数组 [0,1,2,3,4,5,6,7,8,9]，目标索引 6；哈希表键和值均依次为 1、5、3、2、4、7、6、9、0、8，选中键 6→值 6。二叉搜索树的根为 4；4 的左、右孩子为 1、7；1 的左、右孩子为 0、2，2 只有右孩子 3；7 的左、右孩子为 5、8，5 只有右孩子 6，8 只有右孩子 9。选中树路径 4→7→5→6。图中标注依次为线性 O(n)、二分 O(log n)、哈希 O(1)、树 O(log n)。",
-      "key_state": "定位目标 6：线性扫描 O(n)、有序二分 O(log n)、哈希查找平均 O(1)；二叉搜索树本例路径为 4→7→5→6，保持平衡时查找复杂度为 O(log n)。",
-      "announcement": "对比线性搜索、二分查找、哈希查找与树查找定位目标值 6 的工作方式。"
+      "state": "线性数组 [1,5,3,2,4,7,6,9,0,8]，目标 6 在索引 6；二分数组 [0,1,2,3,4,5,6,7,8,9]，目标索引 6；哈希表键和值均依次为 1、5、3、2、4、7、6、9、0、8，选中键 6→值 6。二叉搜索树的根为 4；4 的左、右孩子为 1、7；1 的左、右孩子为 0、2，2 只有右孩子 3；7 的左、右孩子为 5、8，5 只有右孩子 6，8 只有右孩子 9。选中树路径 4→7→5→6。图中标注依次为线性 O(n)、二分 O(log n)、哈希 O(1)、树 O(log n)。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_searching/searching_algorithm_revisited.md": "540780397d1c474a0fd43bd8a720c0a8d03b5cac89f4545a361557ff34fd4a99"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png": "2cc668ba0aa7cee7309bc13b6eccbf7c8a19e93423534e2fbe75ec4e5ee9405b"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "3fe29e7f28ae287e5454628cc5f5eb9f446fdc9a2d0fae659db7808ce701e4ca"
-  }
+  ]
 }

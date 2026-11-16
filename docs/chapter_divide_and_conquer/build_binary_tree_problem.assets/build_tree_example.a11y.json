@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_example",
+  "schema_version": 2,
   "title": "由前序与中序序列重建五节点二叉树",
   "summary": "由前序 [3,9,2,1,7] 与中序 [9,3,1,2,7]，唯一重建以 3 为根的五节点二叉树。",
   "context": [
@@ -21,48 +18,7 @@
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_example.png",
       "title": "由前序与中序序列重建五节点二叉树",
       "explanation": "右侧的前序遍历序列负责定位各子树的根节点，中序遍历序列负责划分左右子树的成员范围，二者结合即可重建左侧的五节点二叉树。",
-      "state": "右侧给出前序遍历 preorder = [3, 9, 2, 1, 7] 与中序遍历 inorder = [9, 3, 1, 2, 7]，节点值互不重复；左侧对应重建出的二叉树：根节点为 3，左子节点为 9，右子节点为 2，节点 2 的左右子节点分别为 1 和 7，其中 9、1、7 为叶节点。",
-      "key_state": "前序 [3, 9, 2, 1, 7] 与中序 [9, 3, 1, 2, 7] 重建出根为 3、左 9、右 2（含子节点 1、7）的二叉树。",
-      "announcement": "展示构建二叉树问题的前序、中序输入序列及对应重建出的五节点二叉树。"
+      "state": "右侧给出前序遍历 preorder = [3, 9, 2, 1, 7] 与中序遍历 inorder = [9, 3, 1, 2, 7]，节点值互不重复；左侧对应重建出的二叉树：根节点为 3，左子节点为 9，右子节点为 2，节点 2 的左右子节点分别为 1 和 7，其中 9、1、7 为叶节点。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-16",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "b2c1572ccbf263a411d3a7ffd70386d27f4c8156b5b0a3b4b638f629f6ce6822",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5e763dfd4e2b736b9a5010f6bdd3e33ef9402bdbd494a2a8c3346a1893135dc9",
-        "output_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ccb2afcc123789e0ada60b582250d0cce83e8515404516287ca7fee1102814eb",
-        "output_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "244d8d58cb18ea05076744539b7c084c02c3a029e800ccad8db64c3c805783d0",
-        "output_sha256": "b8fa9f331b33db33433309a29e9fe3834178d140c262ec7bc27dee6b669a5cd5"
-      }
-    ],
-    "evidence_sha256": "a355fc71eefa70eb8f989661b8a016ead02f198bb0747865902f358b13b089ae"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/build_binary_tree_problem.md": "15c1f80907cb390b2dece48fa770f0441b86b7b89fb20b34edba6aca89263817"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_example.png": "433db8baa7cc0e1d826a3cc1f246a9ffe75a3b24927f31c01abc392cdee4499b"
-    }
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/binary_tree_traversal.assets/binary_tree_dfs",
   "title": "二叉树的三种深度优先遍历",
   "summary": "沿同一深度优先递归轨迹，按记录当前节点值的时机区分前序、中序与后序遍历。",
   "context": [],
@@ -16,9 +13,7 @@
       "book_path": "chapter_tree/binary_tree_traversal.assets/binary_tree_dfs.png",
       "title": "二叉树的三种深度优先遍历",
       "explanation": "递归都先处理左子树再处理右子树，遇到空节点即返回。记录当前节点发生在左递归之前为前序，在左、右两个递归之间为中序，在右递归之后为后序。",
-      "state": "普通二叉树共 7 个节点：根为 1，1 的左右子节点是 2、3，2 的左右子节点是 4、5，3 的左右子节点是 6、7；4、5、6、7 为叶节点。三种遍历的记录时机、优先级与输出序列见表。",
-      "key_state": "前序先记根（1 起），中序在左右子树之间记根（4 起），后序最后记根（1 终）。",
-      "announcement": "对比同一棵普通二叉树在前序、中序和后序下的记录时机与输出序列。"
+      "state": "普通二叉树共 7 个节点：根为 1，1 的左右子节点是 2、3，2 的左右子节点是 4、5，3 的左右子节点是 6、7；4、5、6、7 为叶节点。三种遍历的记录时机、优先级与输出序列见表。"
     }
   ],
   "tables": [
@@ -52,46 +47,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/binary_tree_traversal.md": "d19ef208720dc46eac8a9110693de9baa8d57d477be75b8914359fd766dacadb"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/binary_tree_traversal.assets/binary_tree_dfs.png": "0369e38c101e710dda0a52549033630c0cd98f32cc314f7d1c2709840131829d"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-06",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
-        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
-        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
-        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
-      }
-    ],
-    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
-    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "b7cb25a9418832c137543fc782535c90cbc6338e99189046cd205372174db433"
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_hashing/hash_collision.assets/hash_table_linear_probing",
+  "schema_version": 2,
   "title": "开放寻址哈希表：步长为 1 的线性探测",
   "summary": "不引入额外链表，所有键值对均直接存放在桶数组内；发生哈希冲突时，从起始桶按步长 1 向下线性探测，放入第一个遇到的空桶。",
   "context": [
@@ -81,48 +78,7 @@
       "book_path": "chapter_hashing/hash_collision.assets/hash_table_linear_probing.png",
       "title": "起始桶 00 与 76 处的两组线性探测簇",
       "explanation": "图中两个花括号清晰标出了线性探测的聚集效应：哈希值为 00 的三个键 200、500、300 依次占据连续槽位 00、01、02；哈希值为 76 的五个键 076、876、276、676、776 依次占据从 76 开始的五个连续槽位。例如查找键 276 时，先由 276 % 100 = 76 访问桶 76（存有 076，不匹配），再按步长 1 探测桶 77（存有 876，不匹配），接着探测桶 78 才找到匹配的 (276, E)。",
-      "state": "左侧标注“开放寻址：线性探测，步长为 1”与“哈希函数 key % 100，后两位相同的 key 会发生哈希冲突”。右侧数组中，上方花括号指向加粗索引 00，涵盖连续三格 00:(200, A)、01:(500, D)、02:(300, Y)；下方花括号指向加粗索引 76，涵盖连续五格 76:(076, H)、77:(876, I)、78:(276, E) 以及 78 下方省略号处的 (676, T) 和 (776, X)。",
-      "key_state": "哈希值 00 的三项存于 00~02；哈希值 76 的五项从 76 起按步长 1 连续向后存放。",
-      "announcement": "展示开放寻址哈希表通过步长为 1 的线性探测，将哈希值为 00 和 76 的两组冲突元素顺延存入后续连续桶位。"
+      "state": "左侧标注“开放寻址：线性探测，步长为 1”与“哈希函数 key % 100，后两位相同的 key 会发生哈希冲突”。右侧数组中，上方花括号指向加粗索引 00，涵盖连续三格 00:(200, A)、01:(500, D)、02:(300, Y)；下方花括号指向加粗索引 76，涵盖连续五格 76:(076, H)、77:(876, I)、78:(276, E) 以及 78 下方省略号处的 (676, T) 和 (776, X)。"
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-05",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "ea69a0b1080b3078249039242e66dab390a47285ad64bd5808eb9c714af97e4c",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "bbf6fc89ced3325538a22d1eecebd98ac2a54cd576eb8bfe0b2aad472b2340bc",
-        "output_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "e71dfe751c7d27597590b7d36be9daed4a79771422f6d49baacbabb8acd88108",
-        "output_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "6697a726a25ee04e51ad142a722761ec279ae40e0c36a70d2d543f6432b90281",
-        "output_sha256": "ffb27a99b86ace98bde8e54084f42f6a1c59f19a353deb9a55c4ee96d96e99be"
-      }
-    ],
-    "evidence_sha256": "954be79d16a2deb5e3a0108cd78415c4c9fef13373e1a16fbca5a1e1d388bf98"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_hashing/hash_collision.md": "dc5b268b8f8f34a19580b61c3406d958921f07914428b455cc91bd449d76868f"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_hashing/hash_collision.assets/hash_table_linear_probing.png": "c71bbae07d7916359b3df3e53b28e8abe2bf5318d4156a7e92f3865ca0c2e728"
-    }
-  }
+  ]
 }

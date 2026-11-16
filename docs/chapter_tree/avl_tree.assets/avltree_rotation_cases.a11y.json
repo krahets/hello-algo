@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/avl_tree.assets/avltree_rotation_cases",
+  "schema_version": 2,
   "title": "AVL 树的四种失衡形状与旋转选择",
   "summary": "左左偏斜用右旋，左右弯折用先左旋后右旋，右左弯折用先右旋后左旋，右右偏斜用左旋。",
   "context": [
@@ -19,9 +16,7 @@
       "book_path": "chapter_tree/avl_tree.assets/avltree_rotation_cases.png",
       "title": "AVL 树的四种失衡形状与旋转选择",
       "explanation": "图中并列画出四种旋转前的失衡形态，并在各自下方标出对应的修复操作：同向倾斜的“左左”（3 → 1 → 0）和“右右”（3 → 5 → 6）分别只需一次右旋或左旋；反向弯折的“左右”（3 → 1 → 2）和“右左”（3 → 5 → 4）则分别需要“先左旋后右旋”和“先右旋后左旋”。",
-      "state": "四个旋转前案例从左到右依次为：① 外层 4 左接 3、右接 5，3 左接 1，1 左接 0，下方标注“右旋”；② 外层 4 左接 3、右接 5，3 左接 1，1 右接 2，下方标注“先左旋后右旋”；③ 外层 2 左接 1、右接 3，3 右接 5，5 左接 4，下方标注“先右旋后左旋”；④ 外层 2 左接 1、右接 3，3 右接 5，5 右接 6，下方标注“左旋”。",
-      "key_state": "左左（3→1→0）用右旋；左右（3→1→2）用先左旋后右旋；右左（3→5→4）用先右旋后左旋；右右（3→5→6）用左旋。",
-      "announcement": "并列展示 AVL 树的四种失衡路径及各自对应的旋转方法。"
+      "state": "四个旋转前案例从左到右依次为：① 外层 4 左接 3、右接 5，3 左接 1，1 左接 0，下方标注“右旋”；② 外层 4 左接 3、右接 5，3 左接 1，1 右接 2，下方标注“先左旋后右旋”；③ 外层 2 左接 1、右接 3，3 右接 5，5 左接 4，下方标注“先右旋后左旋”；④ 外层 2 左接 1、右接 3，3 右接 5，5 右接 6，下方标注“左旋”。"
     }
   ],
   "tables": [
@@ -55,54 +50,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-08",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "abe3960838c0a64dcca47f6e765eb8d68a621a5efe3d4efc5b6fddabf69eb206",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a506b3ecafaef6d8fc62ef26dae68447d18629fc5e16ddd8ae926171452d6745",
-        "output_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "3b7c6ff1130bc21e048d188b45ad9606a405dc4fb754fe56a05ba14b3f7aae0d",
-        "output_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1c56ee9411e0a20ae9aa9f393222fd270313a16cf8d2a73f1aefac25735b4896",
-        "output_sha256": "8aa1f4dfa1fd2a8bc10a20ded596eaae033faa43bbf57cbc5c462af6f3455359"
-      }
-    ],
-    "evidence_sha256": "14a36adc867aa49a98d8a9d37d2a3aade7c41c8d611abaa2b4d84cd7b471e986"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/avl_tree.md": "f4a27fbca67b22b8b3a041218f1088ab85a9f2a32e374060046152e6e01440a5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/avl_tree.assets/avltree_rotation_cases.png": "8b6b281921af03a3bebd2e15cbea454bd546669f49b34bb878061cd3a4a5a2f3"
-    }
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true,
-    "previous": {
-      "run_id": "figure-reading-20261116/upstream-final-verification",
-      "evidence_sha256": "5066997c87052863d107b696247ff6f5b15d8cf6dbf1e000a7d7a2e1f3696cd4",
-      "factual_review_preserved": true
-    }
-  }
+  ]
 }

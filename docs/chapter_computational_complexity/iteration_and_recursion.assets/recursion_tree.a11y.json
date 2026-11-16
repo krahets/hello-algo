@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree",
   "title": "斐波那契递归树",
   "summary": "递归分支重复求解同名子问题，说明朴素递归为何产生大量计算。",
   "context": [],
@@ -16,20 +13,9 @@
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree.png",
       "title": "斐波那契递归树",
       "explanation": "每个未达基本情况的节点f(k)，都会分出左子调用f(k−1)和右子调用f(k−2)。例如根f(n)在第2层的右子问题f(n−2)，与左子问题f(n−1)在第3层分出的左子问题f(n−2)，分属两条不同调用路径，会各自独立展开计算，不会自动合并或复用结果。",
-      "state": "基本情况为f(1)=0、f(2)=1，到达后即停止展开；当k>2时按f(k)=f(k−1)+f(k−2)继续分支。图中前4层节点数依次为1、2、4、8，第5层用16个省略号示意后续分支。",
-      "key_state": "重复节点代表重复调用；遇到f(1)或f(2)就停止展开。",
-      "announcement": "递归分支重复求解同名子问题，说明朴素递归为何产生大量计算。"
+      "state": "基本情况为f(1)=0、f(2)=1，到达后即停止展开；当k>2时按f(k)=f(k−1)+f(k−2)继续分支。图中前4层节点数依次为1、2、4、8，第5层用16个省略号示意后续分支。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_computational_complexity/iteration_and_recursion.md": "636363df79954464f16ea4774d97dc8304c0e190c8dc0b9ba1ce617a2372df5c"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree.png": "b40a66e3c05ce8b9c804025ac270acbac0b4bc9589daf9ff8d1c112bf724db41"
-    }
-  },
   "tables": [
     {
       "caption": "图中各层调用；同名项表示不同调用",
@@ -67,37 +53,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-03",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1879b0f57d7ffda76b53f43da76110077a688ba62b9fcfe6267e4d75505ecf9b",
-        "output_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "919df762b373c164167329f7dc857cc101fd4c76b45c04cae635754c7f31e289",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f",
-        "output_sha256": "33c8a03bf5576fed46590af2eba5eb49ce4b743469ce3d15b042604a19575d1f"
-      }
-    ],
-    "evidence_sha256": "10c4c939ac2682477668043aca9fe0ac33b44fd6afe78c0e8ec4e782ec049d51",
-    "verification_manifest_sha256": "3be84ae43a9616bb1a45e012922629e4100e1e2d1e89dad18df24aaf5005e2f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "18616e03043fd27bf5c77d048debea3112f711b084a89810e69505d0177bc358"
-  }
+  ]
 }

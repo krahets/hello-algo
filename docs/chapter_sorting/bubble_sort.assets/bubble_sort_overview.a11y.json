@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/bubble_sort.assets/bubble_sort_overview",
   "title": "冒泡排序逐轮过程",
   "summary": "对 [4, 1, 3, 1, 5, 2] 连续执行五轮冒泡，依次将 5、4、3、2、1 送到未排序区间最右端，使未排序区间从 [0, 5] 缩减至 [0, 0]。",
   "context": [
@@ -72,25 +69,10 @@
       "row_header": 0
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/bubble_sort.md": "82b7c98b09e79c9c21fe3a69f95521bb0cbeea5938db344d6154f6c32de24733"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/bubble_sort.assets/bubble_sort_overview.png": "d2998fbca276b8f9251a3c6704824979abee2e854f491321287cbdec0892e8e0"
-    }
-  },
   "animations": {
     "bubble-sort-overview": {
       "kind": "prose",
-      "model_sha256": "76369c242c22044e9ad49ca91fe3f49db2f02b96c40ed473fd4bcf2e7844d02c",
       "prose": {
-        "schema_version": 2,
-        "status": "confirmed",
-        "locale": "zh-hans",
-        "story_id": "bubble-sort-overview",
-        "group_id": "group:chapter_sorting/bubble_sort.assets/bubble_sort_overview",
         "title": "冒泡排序逐轮过程",
         "summary": "对 [4, 1, 3, 1, 5, 2] 连续执行五轮冒泡，依次将 5、4、3、2、1 送到未排序区间最右端，使未排序区间从 [0, 5] 缩减至 [0, 0]。",
         "context": [
@@ -408,72 +390,8 @@
               }
             ]
           }
-        ],
-        "review": {
-          "status": "confirmed",
-          "run_id": "figure-reading-20261116/content/body-09",
-          "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-          "stages": [
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
-              "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
-            },
-            {
-              "requested_model": "gemini-4-argon",
-              "actual_model": null,
-              "model_confirmation": "provider_not_reported",
-              "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
-              "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
-            },
-            {
-              "requested_model": "gpt-6-astra",
-              "actual_model": "gpt-6-astra",
-              "model_confirmation": "native_runtime",
-              "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
-              "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
-            }
-          ],
-          "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
-          "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
-          "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-          "content_sha256": "068811a4750edc64de816d6234226342b8fee28a4a5a4df469c543e1e3df5995"
-        }
+        ]
       }
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-09",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
-        "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
-        "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
-        "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
-      }
-    ],
-    "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
-    "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "ceac51edd1954d27012d4fbfb25b0acd5fd3982a2168a3a29da029fc6eb83554"
   }
 }

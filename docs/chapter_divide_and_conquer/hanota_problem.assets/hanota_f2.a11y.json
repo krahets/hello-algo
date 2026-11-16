@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_divide_and_conquer/hanota_problem.assets/hanota_f2",
+  "schema_version": 2,
   "title": "两个圆盘借助缓冲柱 B 完成移动",
   "summary": "先把小盘暂存到柱 B，再把大盘移到柱 C，最后把小盘叠到大盘上，共三次移动。",
   "context": [
@@ -51,53 +48,9 @@
       "announcement": "将小盘从柱 B 移到柱 C 的大盘上，完成迁移。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-17",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "f667f21235ea05c7bd524f4040c5fc1f60c193757cb1d353c9f3d1a223c623a1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9481355a76d6c2868fbc0dd1da3fce835e92627213718a59a80d559350e023af",
-        "output_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "0938e9fcf2f18629d999af565eea4bac2ca58da5909cc1f9ded6ab324103e03f",
-        "output_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "96b0dc77e4ab21871b904f40838abbb8d40a3238cc70321d324b91369cf33bfc",
-        "output_sha256": "1ba5b92e7d3bb734d4bc41b061ddb3c528638a049805a4bbcfc38825c0c76c88"
-      }
-    ],
-    "evidence_sha256": "6ad10597e7712f6ddf95ae500fcc50f0289bc7d0786a40fa5117c27866048681"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_divide_and_conquer/hanota_problem.md": "fe9fd8bc5e3971914c01d472b05d0c15d4d3b57218bae244613f3acb4a02e17e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step1.png": "ad32ea88ad1a9b51b58c663293b547c6ef4f3637eb3674daa7a1da136bef4dc8",
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step2.png": "f3ecccd7c45c0e319de49cd951ee8c4a01f022880ffb6f9d1519b28f97900456",
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step3.png": "221aca592f47c5a47e991c9885830b59f412c42ebfd4c9c3d4e153876b0751d7",
-      "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step4.png": "600027952e0375b479a6813e5845419b9e7f303e429b4d69c9778b1196eea300"
-    }
-  },
   "animations": {
     "hanota-f2": {
       "kind": "source-frames",
-      "model_sha256": "b48a9428d3354fb680dd378d1570b3ae44efac32b7c459dfc32c2f65ce0e2a67",
-      "source_content_sha256": "f667f21235ea05c7bd524f4040c5fc1f60c193757cb1d353c9f3d1a223c623a1",
       "states": [
         {
           "id": "step-1",
@@ -115,14 +68,7 @@
           "id": "step-4",
           "frame_id": "source-334"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "b967c8c49ea34b7f2deefcab0a1e27ec8d92659cc054a163ac2e92850b154b48",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
-      }
+      ]
     }
   }
 }

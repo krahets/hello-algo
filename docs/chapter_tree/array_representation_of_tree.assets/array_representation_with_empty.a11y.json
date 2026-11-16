@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_tree/array_representation_of_tree.assets/array_representation_with_empty",
   "title": "保留空位的二叉树数组",
   "summary": "在层序数组中显式保留中间缺失节点的空位，使 2i+1 与 2i+2 映射能唯一还原树形。",
   "context": [],
@@ -14,9 +11,7 @@
       "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_with_empty.png",
       "title": "保留空位的二叉树数组",
       "explanation": "在数组中保留索引 4、9、10、12、13 共 5 个空位后，后续节点不再向前错位。连空位置 4 在下一层的两个子位置 9、10 也必须留空占位，才能保证更后面的节点落在正确索引上；如索引 5 的节点 6，左子位置 11 存 12，右子位置 12 为空。",
-      "state": "10 个实心节点连接为：根 1 连左 2、右 3；2 仅连左 4；3 连左 6、右 7；4 连左 8、右 9；6 仅连左 12；7 仅连右 15；8、9、12、15 为叶节点。数组索引 0 至 14 共 15 格，存放 10 个节点值和索引 4、9、10、12、13 五个空位；逐格内容见表。",
-      "key_state": "数组索引 4、9、10、12、13 留空占位；索引 5（节点 6）映射左子 11（节点 12）、右子 12（空）。",
-      "announcement": "显式保留索引 4、9、10、12、13 五个空位，使 15 格数组唯一对应原二叉树。"
+      "state": "10 个实心节点连接为：根 1 连左 2、右 3；2 仅连左 4；3 连左 6、右 7；4 连左 8、右 9；6 仅连左 12；7 仅连右 15；8、9、12、15 为叶节点。数组索引 0 至 14 共 15 格，存放 10 个节点值和索引 4、9、10、12、13 五个空位；逐格内容见表。"
     }
   ],
   "tables": [
@@ -90,46 +85,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_tree/array_representation_of_tree.md": "cd4a08a4c01fdd9039b2c9cafa2632b965147084ddf3ff241600c2c803acc30e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_tree/array_representation_of_tree.assets/array_representation_with_empty.png": "76071cfb767ce9c54c22bfe2712d583ad79874ae783e1795d0b72ac8a319c7a1"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-06",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "0e605f50a53ec6e3f03d8d322e023b976d2db4808bf108c78d39e01978f007df",
-        "output_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7ee2029fe8a86b1151a99b9393358f2d643eed60338e609801d2b95e3aa1f1f4",
-        "output_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "20a3ae8f6b0b987b88da44269b7592ad975b4f0f9d0ad59689d898270f3ef566",
-        "output_sha256": "44416cbb28c97324cacaea4c3e09ba6447fb8d634f9669e0ab1055e4248cc4df"
-      }
-    ],
-    "evidence_sha256": "e12abd969b6243a09b219e54f4a5057f6e2f8de2c83b7c02566b8d9406402b78",
-    "verification_manifest_sha256": "0b7adebd41a0487a5327cd972cfda8603502aa45f7655844680e218e6e933867",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "b70f5529ff295186ef237792a53d22e35910900f7868e02074dfecc270faf566"
-  }
+  ]
 }

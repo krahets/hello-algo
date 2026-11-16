@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/n_queens_problem.assets/solution_4_queens",
   "title": "四皇后的两个解",
   "summary": "在 4×4 棋盘上放置 4 枚皇后，使其满足不同行、不同列且不同对角线的约束。",
   "context": [
@@ -16,9 +13,7 @@
       "book_path": "chapter_backtracking/n_queens_problem.assets/solution_4_queens.png",
       "title": "四皇后的两个解",
       "explanation": "左棋盘第 1 至 4 行皇后的列号依次为 2、4、1、3，右棋盘依次为 3、1、4、2；具体坐标可按附表逐行查询。两个方案均满足每行仅一枚、每列仅一枚，且任意两枚皇后的行号之差绝对值不等于列号之差绝对值，因此也不在同一条主对角线或副对角线上。",
-      "state": "按行从上到下、列从左到右均从 1 编号：左棋盘 4 枚皇后分别位于 (1, 2)、(2, 4)、(3, 1)、(4, 3)；右棋盘 4 枚皇后分别位于 (1, 3)、(2, 1)、(3, 4)、(4, 2)。其余方格为空，两组摆放均满足皇后互不攻击约束。",
-      "key_state": "两个合法解的逐行列号分别为 [2, 4, 1, 3] 和 [3, 1, 4, 2]。",
-      "announcement": "按逐行列号 2、4、1、3 或 3、1、4、2 摆放四枚皇后，得到四皇后问题的两个合法解。"
+      "state": "按行从上到下、列从左到右均从 1 编号：左棋盘 4 枚皇后分别位于 (1, 2)、(2, 4)、(3, 1)、(4, 3)；右棋盘 4 枚皇后分别位于 (1, 3)、(2, 1)、(3, 4)、(4, 2)。其余方格为空，两组摆放均满足皇后互不攻击约束。"
     }
   ],
   "tables": [
@@ -53,66 +48,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/n_queens_problem.md": "0703bbfa9c27095e7d378f2dcdd026d8c6e15ca0e068ae50aefaf9d94cbc07aa"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/n_queens_problem.assets/solution_4_queens.png": "5bd79a0d0f6c5330ec52638f1157bfad933451141ad63937746ac497cb51d9dc"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/pilot",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "76221e551e823df12694a8c35d8cfb4cb1af67dd09a1a07874bc23cd9b5576a8",
-        "output_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-        "output_sha256": "fd53774fcd5dd948fdcf548f8c1dd5a487be6b67d2fe5a344182d771eff53088"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-        "output_sha256": "20547b71f26baaac7d942e983c90a3e7f85efeba17283328cf860267d56b5f19"
-      }
-    ],
-    "evidence_sha256": "93dfeae91f5b2894480e8953a70cc85c3875bf4e67a4a9451a5cc5b523302adb",
-    "verification_manifest_sha256": "b2b43bec082e03350f53df92e282dd7d0c9b5e048bf60625572f6fb0895c13b6",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "assembly": {
-      "method": "schema-2; row-header indexes from reviewed table identity; DP state-table patch; independent final review of merged bytes",
-      "merged_sha256": "b95f488d5c8cfc92512dab0d7634d31bfa548b2f340747431bd3cd0f8d5a4786",
-      "supplemental_stages": [
-        {
-          "requested_model": "gpt-6-astra",
-          "actual_model": "gpt-6-astra",
-          "model_confirmation": "native_runtime",
-          "input_sha256": "ec4ca78397393924868e43fa9156bc44a33c57f350e08f2b989b7d0489870c37",
-          "output_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c"
-        },
-        {
-          "requested_model": "gemini-4-argon",
-          "actual_model": null,
-          "model_confirmation": "provider_not_reported",
-          "input_sha256": "d6e744c31b03844d246e4bb732fcd7c293f367914120e1e5082095a0db12476c",
-          "output_sha256": "fa2da0296dfbfd49814e3dc3d47e8638096b2bbf8d1524c646d37bede603c095"
-        }
-      ]
-    },
-    "content_sha256": "d9641b92b92da33808af9271fecb1ab9b513f499bbbda84abcc0db4b0d620b24"
-  }
+  ]
 }

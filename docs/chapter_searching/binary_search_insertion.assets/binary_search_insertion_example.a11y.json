@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_searching/binary_search_insertion.assets/binary_search_insertion_example",
+  "schema_version": 2,
   "title": "有序数组的插入位置",
   "summary": "在有序数组中定位索引 2 作为插入点，把新值 6 插在原有 6 的前面，使数组保持非递减有序。",
   "context": [
@@ -19,50 +16,7 @@
       "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_example.png",
       "title": "在已有 6 的左侧插入新 6",
       "explanation": "上行标出位于 3 与原有 6 之间的插入点，下行展示新元素 6（青色）插入后占据索引 2、原有 6 及后续元素整体右移一位的结果。",
-      "state": "插入前 nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]；插入 target = 6 后为 [1, 3, 6, 6, 8, 12, 15, 23, 26, 31, 35]。新 6 的索引为 2，原有 6 的索引为 3。",
-      "key_state": "target = 6 的插入点索引为 2；插入后新 6 在索引 2，原有 6 右移至索引 3。",
-      "announcement": "展示在有序数组中将新元素 6 插入到原有 6 的左侧（索引 2）。"
+      "state": "插入前 nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]；插入 target = 6 后为 [1, 3, 6, 6, 8, 12, 15, 23, 26, 31, 35]。新 6 的索引为 2，原有 6 的索引为 3。"
     }
-  ],
-  "dependencies": {
-    "markdown": {
-      "chapter_searching/binary_search_insertion.md": "9d86ebcc2847400e0104b773fcde0809d4665e4156fe42281b74b7535571b496"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_searching/binary_search_insertion.assets/binary_search_insertion_example.png": "5fde5107a4a7d7673616ea69447674d5f66702229e87d4bdcc51b44cd1fa9d35"
-    }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/names",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "58dafc95e386ffbff3e56d4fdd87cb091c598f8026fa4cf9e5a2ae340afa0b92",
-        "output_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b658221ff8c046dbc74728f2a3473fcc4aff9f851909de1a74416509040da058",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1",
-        "output_sha256": "a413b79584de93ef5af90628d7971ba6efd2d1547eae4c628582aae187010ce1"
-      }
-    ],
-    "evidence_sha256": "f1b896d1b0bfede57d532fb04fbf0e38302c5de84ebf5140c701e00dfdef74da",
-    "verification_manifest_sha256": "453a63d119156cabec0f3244f8f72aeef7e96cb82c3ebe65fce8caed839de50d",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "da1575d8ba8d14011ec0b18d46279effe1e3bea24a098b287c008ced1590c511"
-  }
+  ]
 }

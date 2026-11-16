@@ -11,11 +11,6 @@
 層序走訪本質上屬於<u>廣度優先走訪（breadth-first traversal）</u>，也稱<u>廣度優先搜尋（breadth-first search, BFS）</u>，它體現了一種“一圈一圈向外擴展”的逐層走訪方式。
 
 ![二元樹的層序走訪](binary_tree_traversal.assets/binary_tree_bfs.svg)
-<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/binary_tree_bfs -->
-
-[二元樹的層序走訪：完整圖解](binary_tree_traversal.assets/binary_tree_bfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 程式碼實現
 
@@ -37,11 +32,6 @@
 下圖展示了對二元樹進行深度優先走訪的工作原理。**深度優先走訪就像是繞著整棵二元樹的外圍“走”一圈**，在每個節點都會遇到三個位置，分別對應前序走訪、中序走訪和後序走訪。
 
 ![二元搜尋樹的前序、中序、後序走訪](binary_tree_traversal.assets/binary_tree_dfs.svg)
-<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/binary_tree_dfs -->
-
-[二元樹的三種深度優先走訪：完整圖解](binary_tree_traversal.assets/binary_tree_dfs.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 程式碼實現
 
@@ -92,11 +82,6 @@
 
 === "<11>"
     ![前序走訪的遞迴過程，第 11 步，共 11 步：完成向上返回](binary_tree_traversal.assets/preorder_step11.svg)
-<!-- figure-reading:start group:chapter_tree/binary_tree_traversal.assets/preorder -->
-
-[前序走訪的遞迴過程：完整圖解](binary_tree_traversal.assets/preorder.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ### 複雜度分析
 

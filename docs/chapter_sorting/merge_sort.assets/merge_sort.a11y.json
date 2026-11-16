@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/merge_sort.assets/merge_sort",
   "title": "四元素归并排序的递归执行顺序",
   "summary": "先将左半 [7,3] 排成 [3,7]，再处理右半 [2,6]，最后合并为 [2,3,6,7]。",
   "context": [
@@ -510,29 +507,9 @@
       ]
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/merge_sort.md": "05f97e41952513869bd782db9bfc190e44286d9cb30a530c83827d32ee9e4d1a"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/merge_sort.assets/merge_sort_step1.png": "9931804e7d09d933b9d13113bb079b24f721bb4672fe24ad58f0fc4b99326068",
-      "chapter_sorting/merge_sort.assets/merge_sort_step2.png": "9a7384f0f9b3fbff03b4509c51bdc8b98510d22444b2927b0b467fa87d8e39dc",
-      "chapter_sorting/merge_sort.assets/merge_sort_step3.png": "d855048e08d1dd100e4ffc2165c62cbf8ba5272998ab4ac9fe3a230e77840f04",
-      "chapter_sorting/merge_sort.assets/merge_sort_step4.png": "e31b1217fd573f35e07277cc6fa4125be6813ce8ba95de39da7855744eba91ef",
-      "chapter_sorting/merge_sort.assets/merge_sort_step5.png": "18f265ea33b6ee22b6592934daf0df62e244dfa65faad6f1a60951f04cb1d4ec",
-      "chapter_sorting/merge_sort.assets/merge_sort_step6.png": "8c19277f6e062974cc44690ab4d27fc552af81e156a05a3fedc426afea804b47",
-      "chapter_sorting/merge_sort.assets/merge_sort_step7.png": "304e2761634bf6cdd0850510bd040d3fbcbbe51442ae203010deab8c22675b13",
-      "chapter_sorting/merge_sort.assets/merge_sort_step8.png": "8539a372bcc8015532205fd12b083a2d7ca8161a89b817d3e0695b13d99a1f08",
-      "chapter_sorting/merge_sort.assets/merge_sort_step9.png": "057068c732ba18f68feb7da578eaecd4d4f145aa946b4690e635ffad0088fd31",
-      "chapter_sorting/merge_sort.assets/merge_sort_step10.png": "7076c79da181500137a55327054e1fd3b41c248def35f8b27921ea17fa6f9fe1"
-    }
-  },
   "animations": {
     "merge-sort": {
       "kind": "source-frames",
-      "model_sha256": "77a7acaf7665944496b3c609ca2f76c5695773c1a255bc9f946f1d5ed409f738",
-      "source_content_sha256": "7f6b2bfcae16e88f5ba33d13482d01496fa366e388ecdb073f514c02c2c43388",
       "states": [
         {
           "id": "step-1",
@@ -574,15 +551,7 @@
           "id": "step-10",
           "frame_id": "source-283"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-09/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "51c3250523e9db208d0a132b5bd4b17ffbf2f41bed5b7776579c1194f099c9f2",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b"
-      }
+      ]
     }
   },
   "tables": [
@@ -615,37 +584,5 @@
   ],
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-09",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "dae6154576b1c499a439c03e31e926671c584b7dce0f16d209fae77bbe009b12",
-        "output_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "038e3600358c1d958c3878c66abe1c5c0740720eb4944880bc5b32a438a55b3a",
-        "output_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "69f0a1cdef5a0d050af53c06f2fa02a000fbe8714f8176f8af0ff2dbe62f393a",
-        "output_sha256": "7bbaf8390a691c973087501bb3fe8442d08ae58a265fa273820dffc7f6fc1879"
-      }
-    ],
-    "evidence_sha256": "1e3a7dc1ae2930abbf540cf1077d79d7160988b0335d56df4d7ba1027cf2c71b",
-    "verification_manifest_sha256": "7edf2d614a976c373dbf24c98d92c9f3ccb0c9d1d78185bba275676c1507c6f9",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "7f6b2bfcae16e88f5ba33d13482d01496fa366e388ecdb073f514c02c2c43388"
-  }
+  ]
 }

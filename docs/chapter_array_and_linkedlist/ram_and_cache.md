@@ -24,11 +24,6 @@
 - **缓存的大容量和高速度难以兼得**。随着 L1、L2、L3 缓存的容量逐步增大，其物理尺寸会变大，与 CPU 核心之间的物理距离会变远，从而导致数据传输时间增加，元素访问延迟变高。在当前技术下，多层级的缓存结构是容量、速度和成本之间的最佳平衡点。
 
 ![计算机存储系统](ram_and_cache.assets/storage_pyramid.svg)
-<!-- figure-reading:start group:chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid -->
-
-[计算机存储系统的金字塔层级：完整图解](ram_and_cache.assets/storage_pyramid.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! tip
 
@@ -39,11 +34,6 @@
 如下图所示，在程序运行时，数据会从硬盘中被读取到内存中，供 CPU 计算使用。缓存可以看作 CPU 的一部分，**它通过智能地从内存加载数据**，给 CPU 提供高速的数据读取，从而显著提升程序的执行效率，减少对较慢的内存的依赖。
 
 ![硬盘、内存和缓存之间的数据流通](ram_and_cache.assets/computer_storage_devices.svg)
-<!-- figure-reading:start group:chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices -->
-
-[硬盘、内存和缓存之间的数据流通：完整图解](ram_and_cache.assets/computer_storage_devices.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 数据结构的内存效率
 

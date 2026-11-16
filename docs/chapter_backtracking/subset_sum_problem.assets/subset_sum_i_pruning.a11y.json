@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_backtracking/subset_sum_problem.assets/subset_sum_i_pruning",
   "title": "用不递减的选择索引避免重复组合",
   "summary": "限制下一轮只从当前索引 i 及之后选取（start = i），剪去回头选更早索引的反序重复分支。",
   "context": [
@@ -22,15 +19,6 @@
       "state": "前两轮共 9 个两元素前缀：剪除 [4, 3, …]、[5, 3, …]、[5, 4, …] 三个反序前缀，保留其余 6 个索引不递减的前缀；三对重复配对关系见表。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_backtracking/subset_sum_problem.md": "071de898ede315a542cb99a3734fdd4bc42f447fe76e35d4251abc7c6ad4bfa1"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_backtracking/subset_sum_problem.assets/subset_sum_i_pruning.png": "adecc5c328e8ea68e3ff7374699160dab30531a026a333040368ee4e6971f13a"
-    }
-  },
   "tables": [
     {
       "caption": "九个两元素前缀及三对重复",
@@ -98,37 +86,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-11",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "d2adaf8c87d65cbe0b438e864320dfc08404c9d0b39487d5faa113e15aa8fb32",
-        "output_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "d35014a62c0968cd9b2a7f0186f65947037eb19fb8a4f9782aa88666a7338258",
-        "output_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "3085ca38d6cb6449bd6b264a8f7210aac47c65c7d91d355c08cdfcefde4ddae6",
-        "output_sha256": "2f40f2a380e3e00da919d3c1b1684ad05b04d0a4ecc6a066ab61f95d1cbc87c3"
-      }
-    ],
-    "evidence_sha256": "29d4da7d4b0938d995b0aa712d110c1bd15ddd7ea5ac487ef6709e67b925ca83",
-    "verification_manifest_sha256": "097ababf496d022ca02085289b6035a137b25d25d8dccd8891a8640b522a5158",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "6a59f8cba503103dee0c62441466919401683f8715d64ac81eb8636014650dc3"
-  }
+  ]
 }

@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp",
   "title": "零钱兑换的动态规划",
   "summary": "按硬币种类与目标金额逐格填表，求恰好凑出 4 元所需的最少硬币枚数。",
   "context": [
@@ -941,34 +938,9 @@
       "row_header": 0
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.md": "9ed61e4005390a061618b042d029fa0a2782621b0b3df7e4049331a5bb80eef5"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step1.png": "56394d11f296300caa65c07f51385d26e3ba6cd6a7f67df3b7d8908e988423b8",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step2.png": "1c940e281d70183c152d76c487cda6b2d6462cce807e8aa927e84825fab92db3",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step3.png": "939e49b88659c88051bc423b477ea6e31fb69b438717c3a7ca292dbf3d713458",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step4.png": "6383b1d572f5ad97e3620691e647c51c5db5b3baf42654724166e5d64746fcaf",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step5.png": "983bfc31e6a9011b434bc510204698f9d8bbf610f116411b215d875b77cc6b68",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step6.png": "369de0958918a0f1ba5272191d0708b1cf400692a9ee02d75e0fa0a0f27a6e12",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step7.png": "99d844a579b66d3e1d55609edf9141a892ccc42735c0c2c6aa1a6d171756ed76",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step8.png": "c633c9d547f926893ad8487b59877da9e4668b2bf30126b61d442e05ab64fab3",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step9.png": "0fce3ee5e27100b6a9588714433497db8b8cf35d1366906f0bf49edd4cc8dbf7",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step10.png": "3fdfc27bcdb656098712cea464a3a9ae7d2550c134186d3854c3b2bb411de11e",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step11.png": "66c8a5f41e47b4a29d930ca79e4c7d0472e94448e206596fa29f532f2c815339",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step12.png": "4cd6098bf08788a799a6f21d21bbda059c5e0e672fcdfd5bf05a75b9481bb295",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step13.png": "8e9bbeaf5dc65e5b0a9841af3bab1c3d48cedc9d4a621af878c9cf0298aa05d9",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step14.png": "2c1e0e6c35476893f45da732f43079ed02bd0fbf8ef834590cc2ddd9917f75de",
-      "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step15.png": "46d4de64ede9f6c905d3a9d2a7362fd57f1e6b862abe314bfb26acb0b10eaed8"
-    }
-  },
   "animations": {
     "coin-change-dp": {
       "kind": "source-frames",
-      "model_sha256": "55f4cb35caeba4e8125d619fcf3028e8864d552bce9248ef78ff88a6544a7ffe",
-      "source_content_sha256": "9eb1db25623e3ed5726ac57c63a1fc7880c6cb5c24a604252900d83fe0283a67",
       "states": [
         {
           "id": "step-1",
@@ -1030,50 +1002,10 @@
           "id": "step-15",
           "frame_id": "source-440"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-02/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "bdf210eb63f587783a3d316dce671fb5f246177c318aee5674b5e9c36b197c1a",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0"
-      }
+      ]
     }
   },
   "standalone_tables": [
     0
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-02",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9310dbd60334224a900b7d5f067c91df3ed19242d000b2618debdc8754e63a02",
-        "output_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f",
-        "output_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23",
-        "output_sha256": "f71cddda28f6b7117562ace7e9c811ec21f0b7d39e8ea7ff597666eca41e37e8"
-      }
-    ],
-    "evidence_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0",
-    "verification_manifest_sha256": "15c1e96af1a1a1c313f44ea49ac790ae74a5da58f11188cc5a6deac3c2ed863e",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "9eb1db25623e3ed5726ac57c63a1fc7880c6cb5c24a604252900d83fe0283a67"
-  }
+  ]
 }

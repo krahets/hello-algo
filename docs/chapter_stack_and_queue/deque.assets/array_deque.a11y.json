@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_stack_and_queue/deque.assets/array_deque",
   "title": "循环数组实现双向队列",
   "summary": "移动队首索引并维护有效长度，实现不搬移中间元素的双端操作。",
   "context": [
@@ -60,24 +57,9 @@
       "announcement": "读取并返回队首 1，front 右移重新指向 3，size 减为 3。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_stack_and_queue/deque.md": "fee908eaea444525f8a1fe3f8f541cc0de02efc01305d5c051dae665ba10887e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_stack_and_queue/deque.assets/array_deque_step1.png": "8951d4f312d3a8abc62ad9b65e0715062398f2c8eef1abedb222a312f1959434",
-      "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png": "6be4127452442a742d85056ba443cdfbaddda3e9dafbdbc353609e6faf4b2c88",
-      "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png": "15db37e73d05de983249efccf8eb6b02a20da03fcc763ba76b3323f56a8c2076",
-      "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png": "5a88efb5d51264213bfd9248db1b483f0ca182d609678969e499d84c23cead72",
-      "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png": "bdea9c183ab8f5bd1a0ac8644cd7265790c40838e9bb7b03ad26bb3b2da7710c"
-    }
-  },
   "animations": {
     "array-deque": {
       "kind": "source-frames",
-      "model_sha256": "2fb7052b5ded3b397f74875f934d1dc810876a31d6a06be09b21638752250dcd",
-      "source_content_sha256": "14afae526f40968ebc9535af75b845a5381035078cacbe1354e3be8be4bfd181",
       "states": [
         {
           "id": "step-1",
@@ -99,52 +81,7 @@
           "id": "step-5",
           "frame_id": "source-80"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-05/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "55d0bb2122cec5745e9ecf42816ff8bad8b9249be3c4d1dd7a9711ea0192112c",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c"
-      }
+      ]
     }
-  },
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-05",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "234a418cc6b3bf836f8a4f22e3e0303a14a7f32d98a0e14f929b7fb95fb92621",
-        "output_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "205c4c4a8397a29c78099dff22c9e87b989c44c7e62e3b6649b75aa6017f9950",
-        "output_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "cec0eabbf5c405cd21700ea53b5a914934e7bed8361729f141cdbed0dbc3296c",
-        "output_sha256": "91bc65f47e08937ca3298efba2a445071a1e1a44f73d8c57772d1973886936d1"
-      }
-    ],
-    "evidence_sha256": "5866cf40b0335b4c2cc406559c9e71d261a3d948f430401a1f3949cc4ea5ea1c",
-    "verification_manifest_sha256": "4f1336dab5a55decb8eb34d4152a8a0006c4cd2d7ca264d5af16346db2f27e51",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "14afae526f40968ebc9535af75b845a5381035078cacbe1354e3be8be4bfd181"
-  },
-  "dependency_compatibility": {
-    "run_id": "figure-reading-20261116/upstream-revert-verification",
-    "evidence_sha256": "24e4979af775748cea8455e46994e532d44015859636b93877043753048b4264",
-    "factual_review_preserved": true
   }
 }

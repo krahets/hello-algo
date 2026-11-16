@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp",
   "title": "编辑距离的动态规划",
   "summary": "按源前缀与目标前缀逐格递推，求将字符串 bag 转换为 pack 的最少编辑步数。",
   "context": [
@@ -919,34 +916,9 @@
       "row_header": 0
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_dynamic_programming/edit_distance_problem.md": "643a62f62b2090294e2b8f8889bb1e9975cdbb62e41dd1c7cb3c25a11343c11f"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step1.png": "72e56e0bc6bfc51e630d0dca4a5ded6322302ea498cfbebdf3b34025c562f849",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step2.png": "240ee940544c57f242c6a83e6de264901a34baae1ce6c57ca5255f62cccc9a72",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step3.png": "331c8c7da133a7e3614b113527c6dbbd203f8597f0284dc69ef960e2515b3f05",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step4.png": "860be185334dee247e7ee5efb6fa9b99bda4b221b979a9e614f070607db72a4f",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step5.png": "d64cc2fae3b2fb792846596ef4b70fc37c22e467206b0772b79bedb9298759e2",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step6.png": "6b5e2515a82fb7e4cdceb9201ce55d9c5df8e830cdaa9a694293dc2e78c3f40d",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step7.png": "71a407238810568fcb1073be90b36ce8548da549ab3d8c05e96ad58251c6171f",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step8.png": "4a23bada01f938731f63b4c1175cea5388142fd1b8dfdde5169d754fa0e7c79f",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step9.png": "90373cb0a0d99429925381bcd26e9f1064056dcb86de0195264bbad00b8c9ada",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step10.png": "e35149511dafb4ac2e8d7e1d69843dbe6f2eeb911be3cd60c758e55ab41acb65",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step11.png": "bce4c7666fb9592e1ca2b9cd6f96de63171368918fced35d4bf9cfe408b9f4dd",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step12.png": "5eb5ab11b6c4277c2641b7c36c23db75c28591e5e97aaa3810fc57ca7bc6bf1b",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step13.png": "00a17beceeae4035a69ae96bba1f6e9ae49185da8fd5130c1f4184473001ee28",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step14.png": "6001f35b93a09cf89bda50680be4d5e0d76e863dd9ca0932a11787e980713190",
-      "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step15.png": "ea71e0607196fc20a7d157fca37abc6b41a430e8f9773189c8f4e338b8447ee0"
-    }
-  },
   "animations": {
     "edit-distance-dp": {
       "kind": "source-frames",
-      "model_sha256": "51ac66f64c42f13815eb066220258be023644e0caf8fb434409345aef556a008",
-      "source_content_sha256": "c8bce217d724028825dc0ced0d2fc31788af393cca8070574f1f4ae7e6ea9535",
       "states": [
         {
           "id": "step-1",
@@ -1008,48 +980,8 @@
           "id": "step-15",
           "frame_id": "source-458"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-reading-20261116/content/body-02/source-binding",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "3071463bec78820b68d383280dad69a8120f03ba9ad530fe18498a26bd537fc3",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d",
-        "current_text_verification_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0"
-      }
+      ]
     }
   },
-  "standalone_tables": [],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-02",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9310dbd60334224a900b7d5f067c91df3ed19242d000b2618debdc8754e63a02",
-        "output_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f",
-        "output_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23",
-        "output_sha256": "f71cddda28f6b7117562ace7e9c811ec21f0b7d39e8ea7ff597666eca41e37e8"
-      }
-    ],
-    "evidence_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0",
-    "verification_manifest_sha256": "15c1e96af1a1a1c313f44ea49ac790ae74a5da58f11188cc5a6deac3c2ed863e",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "c8bce217d724028825dc0ced0d2fc31788af393cca8070574f1f4ae7e6ea9535"
-  }
+  "standalone_tables": []
 }

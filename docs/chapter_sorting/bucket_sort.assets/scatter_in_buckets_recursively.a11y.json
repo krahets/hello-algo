@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/bucket_sort.assets/scatter_in_buckets_recursively",
+  "schema_version": 2,
   "title": "递归拆分数据过多的价格桶",
   "summary": "先将商品粗分为三个价格桶，再递归拆分占比 65% 与 35% 的密集桶，得到七个较均衡的叶桶。",
   "context": [
@@ -20,9 +17,7 @@
       "book_path": "chapter_sorting/bucket_sort.assets/scatter_in_buckets_recursively.png",
       "title": "针对高占比桶按需递归细分",
       "explanation": "从顶部“商品数据”出发的分支箭头表示对高密度价格桶的递归拆解：先拆开占 65% 的 <100 桶，再拆开其中占 35% 的 10–50 桶，其余占比适中的桶则直接作为叶节点保留。",
-      "state": "第一层分为 <100（65%）、100–500（20%）、>500（15%）；<100（65%）再分为 <10（18%）、10–50（35%）、50–100（12%）；10–50（35%）再分为 10–20（13%）、20–35（12%）、35–50（10%）。最终七个叶桶占比合计 100%。",
-      "key_state": "依次细分 65% 桶与 35% 桶；最终七个叶桶占比介于 10% 至 20%。",
-      "announcement": "递归拆分数据密集的价格桶，获得数据量更均衡的七个叶桶。"
+      "state": "第一层分为 <100（65%）、100–500（20%）、>500（15%）；<100（65%）再分为 <10（18%）、10–50（35%）、50–100（12%）；10–50（35%）再分为 10–20（13%）、20–35（12%）、35–50（10%）。最终七个叶桶占比合计 100%。"
     }
   ],
   "tables": [
@@ -63,44 +58,5 @@
         ]
       ]
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-15",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "87c3c56c8af7a59872266b195f121e6780a334dee19be018f123e43da8535a07",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "527f3607822b7dd874e1221e38d84957024c5ee16b1cac9a646b720d5ceeeb20",
-        "output_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "b332692818930e5bb93b7396fb13f2e0aeeea9f0a957557c917737dc68650cd5",
-        "output_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "1d3f82b8556de39e8ce2bdf446f95d064e294579d7c86285dfbc362e947edcd4",
-        "output_sha256": "1e0a6d5b3ecf54326d4542c1be61a35d6a86fcc0d8795f2600aee901e62baf54"
-      }
-    ],
-    "evidence_sha256": "eae7ac31efc1870978e21f8d8ff6ae8fec853715ad81b0e511b818ea537501e4"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/bucket_sort.md": "ca9a62e971bc3b66c937e69bcfcee27297369acc4b5bce7c0f88af2de94f4e6e"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/bucket_sort.assets/scatter_in_buckets_recursively.png": "a9b35e4be5698f0295b0b57327ce0b05cb807e456c6d92e662c43dbd54bd498c"
-    }
-  }
+  ]
 }

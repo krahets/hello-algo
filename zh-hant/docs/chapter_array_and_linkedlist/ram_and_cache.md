@@ -24,11 +24,6 @@
 - **快取的大容量和高速度難以兼得**。隨著 L1、L2、L3 快取的容量逐步增大，其物理尺寸會變大，與 CPU 核心之間的物理距離會變遠，從而導致資料傳輸時間增加，元素訪問延遲變高。在當前技術下，多層級的快取結構是容量、速度和成本之間的最佳平衡點。
 
 ![計算機儲存系統](ram_and_cache.assets/storage_pyramid.svg)
-<!-- figure-reading:start group:chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid -->
-
-[計算機儲存系統的金字塔層級：完整圖解](ram_and_cache.assets/storage_pyramid.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 !!! tip
 
@@ -39,11 +34,6 @@
 如下圖所示，在程式執行時，資料會從硬碟中被讀取到記憶體中，供 CPU 計算使用。快取可以看作 CPU 的一部分，**它透過智慧地從記憶體載入資料**，給 CPU 提供高速的資料讀取，從而顯著提升程式的執行效率，減少對較慢的記憶體的依賴。
 
 ![硬碟、記憶體和快取之間的資料流通](ram_and_cache.assets/computer_storage_devices.svg)
-<!-- figure-reading:start group:chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices -->
-
-[硬碟、記憶體和快取之間的資料流通：完整圖解](ram_and_cache.assets/computer_storage_devices.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 資料結構的記憶體效率
 

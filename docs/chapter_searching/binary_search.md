@@ -7,11 +7,6 @@
     给定一个长度为 $n$ 的数组 `nums` ，元素按从小到大的顺序排列且不重复。请查找并返回元素 `target` 在该数组中的索引。若数组不包含该元素，则返回 $-1$ 。示例如下图所示。
 
 ![二分查找示例数据](binary_search.assets/binary_search_example.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search.assets/binary_search_example -->
-
-[二分查找示例数据：在十个升序元素中定位 target = 6：完整图解](binary_search.assets/binary_search_example.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 如下图所示，我们先初始化指针 $i = 0$ 和 $j = n - 1$ ，分别指向数组首元素和尾元素，代表搜索区间 $[0, n - 1]$ 。请注意，中括号表示闭区间，其包含边界值本身。
 
@@ -45,11 +40,6 @@
 
 === "<7>"
     ![二分查找，第 7 步，共 7 步：找到目标并返回索引](binary_search.assets/binary_search_step7.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search.assets/binary_search -->
-
-[二分查找：完整图解](binary_search.assets/binary_search.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 值得注意的是，由于 $i$ 和 $j$ 都是 `int` 类型，**因此 $i + j$ 可能会超出 `int` 类型的取值范围**。为了避免大数越界，我们通常采用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 来计算中点。
 
@@ -78,11 +68,6 @@
 由于“双闭区间”表示中的左右边界都被定义为闭区间，因此通过指针 $i$ 和指针 $j$ 缩小区间的操作也是对称的。这样更不容易出错，**因此一般建议采用“双闭区间”的写法**。
 
 ![两种区间定义](binary_search.assets/binary_search_ranges.svg)
-<!-- figure-reading:start group:chapter_searching/binary_search.assets/binary_search_ranges -->
-
-[二分查找的区间约定：完整图解](binary_search.assets/binary_search_ranges.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 优点与局限性
 

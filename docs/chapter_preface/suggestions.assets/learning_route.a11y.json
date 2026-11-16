@@ -1,8 +1,5 @@
 {
   "schema_version": 2,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_preface/suggestions.assets/learning_route",
   "title": "算法学习路线",
   "summary": "从基础入门走向刷题练习与知识体系搭建，借助周期性回顾与主动总结加深理解。",
   "context": [],
@@ -14,20 +11,9 @@
       "book_path": "chapter_preface/suggestions.assets/learning_route.png",
       "title": "算法学习路线",
       "explanation": "学习路线分为三个阶段：阶段一通过算法入门书完成基础入门，随后单向进入阶段二；阶段二通过刷算法题提升熟练度，并配以“周期性回顾”（隔段时间多次刷同一道题，形成长期记忆并加深理解）；阶段三阅读算法专栏、解题框架与算法教材以搭建知识体系，并配以“主动总结”（梳理内容、发现规律、搭建完整知识体系）。图中阶段二与阶段三之间为双向箭头，表明进入专题学习后仍需返回刷题练习，让解题实践与知识整理相互促进。",
-      "state": "三个阶段依次为：阶段一完成基础入门（算法入门书），单向进入阶段二提升熟练度（刷算法题，配套方法为周期性回顾），阶段二与阶段三搭建知识体系（算法专栏、解题框架、算法教材，配套方法为主动总结）双向往返、相互促进。",
-      "key_state": "阶段一入门后，阶段二刷题（配周期性回顾）与阶段三建体系（配主动总结）双向促进。",
-      "announcement": "从算法入门进入刷题与知识体系搭建，后两阶段双向配合并分别辅以周期性回顾和主动总结。"
+      "state": "三个阶段依次为：阶段一完成基础入门（算法入门书），单向进入阶段二提升熟练度（刷算法题，配套方法为周期性回顾），阶段二与阶段三搭建知识体系（算法专栏、解题框架、算法教材，配套方法为主动总结）双向往返、相互促进。"
     }
   ],
-  "dependencies": {
-    "markdown": {
-      "chapter_preface/suggestions.md": "ba4608360c6f3667bb1da377c006abf5e276d991977e76225a44bb4af1029832"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_preface/suggestions.assets/learning_route.png": "ff17094717647e0a3b7926143de04d50e0dda00230f073324f64c810d9b42921"
-    }
-  },
   "tables": [
     {
       "caption": "三个学习阶段及配套方法",
@@ -59,37 +45,5 @@
       ],
       "row_header": 0
     }
-  ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-reading-20261116/content/body-02",
-    "source_commit": "0dce33d1417ecf37cd5da4e334b5330afacee3d1",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "9310dbd60334224a900b7d5f067c91df3ed19242d000b2618debdc8754e63a02",
-        "output_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "7dd986f6b346de2760ad9fdd52161f618c1ed2e1928e133983229692144f369f",
-        "output_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "8a698220e3ffb80a6cec0f3b06bef5255720f231255ad26bc6b79c24da424b23",
-        "output_sha256": "f71cddda28f6b7117562ace7e9c811ec21f0b7d39e8ea7ff597666eca41e37e8"
-      }
-    ],
-    "evidence_sha256": "42a5c19d17174a21ac325c141ae1781cc6c6a7885793af374ee0ffea99b0a4b0",
-    "verification_manifest_sha256": "15c1e96af1a1a1c313f44ea49ac790ae74a5da58f11188cc5a6deac3c2ed863e",
-    "acceptance_scope": "source_facts_and_expression; reader_usability_not_tested",
-    "content_sha256": "20e5d3b5ec7de776ddafa8428d02b5f2edab7e2a7996248de8cf93e37b0f36dc"
-  }
+  ]
 }

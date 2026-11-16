@@ -1,8 +1,5 @@
 {
-  "schema_version": 1,
-  "status": "confirmed",
-  "locale": "zh-hans",
-  "group_id": "group:chapter_sorting/quick_sort.assets/pivot_division",
+  "schema_version": 2,
   "title": "以 2 为基准的一次哨兵划分",
   "summary": "双指针将 [2,4,1,0,3,5] 划分为 [1,0]、基准 2 与 [4,3,5]，两侧仍待递归排序。",
   "context": [
@@ -96,58 +93,9 @@
       "announcement": "一次哨兵划分完成并返回索引 2；左右两侧子数组仍需递归排序。"
     }
   ],
-  "review": {
-    "status": "confirmed",
-    "run_id": "figure-accessibility-20261114/batch-14",
-    "source_commit": "3079d1094c8dfe0a31a5a0b5e037ffe0ac6137e4",
-    "content_sha256": "fd95ccd241a100eb3160d5c4d8468c8dbbbf076ec19789530e242cf908aaaecf",
-    "stages": [
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "5a295e0014841cec0889d2840ee040ebc8853eb18a5f4d3f163be63d370bcf0c",
-        "output_sha256": "38d311270875eda0fd1344de8bbf9953970b36165a561e801c6ad84ddd22e151"
-      },
-      {
-        "requested_model": "gemini-4-argon",
-        "actual_model": null,
-        "model_confirmation": "provider_not_reported",
-        "input_sha256": "38d311270875eda0fd1344de8bbf9953970b36165a561e801c6ad84ddd22e151",
-        "output_sha256": "15591434bbe06f1db87189a430baf4e7f2ad07c9089bd936b1e261343fd43bcd"
-      },
-      {
-        "requested_model": "gpt-6-astra",
-        "actual_model": "gpt-6-astra",
-        "model_confirmation": "native_runtime",
-        "input_sha256": "15591434bbe06f1db87189a430baf4e7f2ad07c9089bd936b1e261343fd43bcd",
-        "output_sha256": "196da5f0ad7e42156abcebaa84871e13248a54fc58c94d5ca483e8a24d062fcf"
-      }
-    ],
-    "evidence_sha256": "b9e6dc66cedeb987a0eb47092436d4b3d4cae71ad872be82504a7df2fe3288a3"
-  },
-  "dependencies": {
-    "markdown": {
-      "chapter_sorting/quick_sort.md": "5accb5e0147fb5021fd83311196e6cddab2dd893c2e1db5425e4f010aa09fb8b"
-    },
-    "terminology": "591a092532a22d87600f8df67c8db0b1c2d47517a6b9058597ea168aa84643c7",
-    "scenes": {
-      "chapter_sorting/quick_sort.assets/pivot_division_step1.png": "3af571cfa18c6cad6b64b4370c690ed65b6facf30c6b46714b1110734d5e794e",
-      "chapter_sorting/quick_sort.assets/pivot_division_step2.png": "d4e784c1eff59ec30789abb22e3203309d2d0e6e3797571426053b9d0ca622b3",
-      "chapter_sorting/quick_sort.assets/pivot_division_step3.png": "0e5e7636e6d48063ac10b7c267127b7c3215d42f80cabf020757edc93497acab",
-      "chapter_sorting/quick_sort.assets/pivot_division_step4.png": "36a795dd4f4386a55539cb393dfb56dc1385051a4421ca98da385812f0cfb6bc",
-      "chapter_sorting/quick_sort.assets/pivot_division_step5.png": "a2b695c0068c9542afd846765714bc499be44697b11ee0b14b9be392aa5514e2",
-      "chapter_sorting/quick_sort.assets/pivot_division_step6.png": "970aea2ee2ed9e0c6ea22975c4e3a82e1f0bbf773f183ca2435b7c56f64ee654",
-      "chapter_sorting/quick_sort.assets/pivot_division_step7.png": "0af2c00ba9a06e780527a6efdbbadcb0875db875b237de1566cac90435929e98",
-      "chapter_sorting/quick_sort.assets/pivot_division_step8.png": "1418e7e3ebf353b01501279576e8697a5685214cfa6189f2ccdf6730400d23de",
-      "chapter_sorting/quick_sort.assets/pivot_division_step9.png": "cf6820196c0dda6ca29da01dd3fd3e88c90a1dffcf3ef61ea223bde39276565f"
-    }
-  },
   "animations": {
     "pivot-division": {
       "kind": "source-frames",
-      "model_sha256": "29d5ae0bb4f73d5ea382aa312135bd469a98ba4cfcb845a9a9d3150849f64e72",
-      "source_content_sha256": "fd95ccd241a100eb3160d5c4d8468c8dbbbf076ec19789530e242cf908aaaecf",
       "states": [
         {
           "id": "step-1",
@@ -185,14 +133,7 @@
           "id": "step-9",
           "frame_id": "source-271"
         }
-      ],
-      "review": {
-        "status": "confirmed",
-        "run_id": "figure-accessibility-20261114/source-binding-verification",
-        "method": "exact-source-scene-and-bindings",
-        "binding_sha256": "ffcf41c24577472b2c7751122ff8d1700fcdd7474d70ed76f6d6d7fe21f6f0af",
-        "evidence_sha256": "f1ec4b7c04f353c4c16c77555467099874d2acc6ba2f113fe8a2800f15be4f3d"
-      }
+      ]
     }
   }
 }

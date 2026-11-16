@@ -27,11 +27,6 @@
 - **演算法**：搜尋、排序、分治、回溯、動態規劃、貪婪等演算法的定義、優缺點、效率、應用場景、解題步驟和示例問題等。
 
 ![本書主要內容](about_the_book.assets/hello_algo_mindmap.svg)
-<!-- figure-reading:start group:chapter_preface/about_the_book.assets/hello_algo_mindmap -->
-
-[全書知識地圖：完整圖解](about_the_book.assets/hello_algo_mindmap.a11y.markdown)
-
-<!-- figure-reading:end -->
 
 ## 致謝
 
