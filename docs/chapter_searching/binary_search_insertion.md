@@ -54,25 +54,25 @@
     ![二分查找重复元素的插入点的步骤](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![二分查找最左插入点，第 2 步，共 8 步：计算中点 4](binary_search_insertion.assets/binary_search_insertion_step2.svg)
+    ![binary_search_insertion_step2](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![二分查找最左插入点，第 3 步，共 8 步：遇到 6，右边界左移](binary_search_insertion.assets/binary_search_insertion_step3.svg)
+    ![binary_search_insertion_step3](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![二分查找最左插入点，第 4 步，共 8 步：计算中点 1](binary_search_insertion.assets/binary_search_insertion_step4.svg)
+    ![binary_search_insertion_step4](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![二分查找最左插入点，第 5 步，共 8 步：遇到 3，左边界右移](binary_search_insertion.assets/binary_search_insertion_step5.svg)
+    ![binary_search_insertion_step5](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![二分查找最左插入点，第 6 步，共 8 步：计算中点 2](binary_search_insertion.assets/binary_search_insertion_step6.svg)
+    ![binary_search_insertion_step6](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![二分查找最左插入点，第 7 步，共 8 步：再次遇到 6，区间变空](binary_search_insertion.assets/binary_search_insertion_step7.svg)
+    ![binary_search_insertion_step7](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![二分查找最左插入点，第 8 步，共 8 步：返回最左插入索引 2](binary_search_insertion.assets/binary_search_insertion_step8.svg)
+    ![binary_search_insertion_step8](binary_search_insertion.assets/binary_search_insertion_step8.svg)
 
 观察以下代码，判断分支 `nums[m] > target` 和 `nums[m] == target` 的操作相同，因此两者可以合并。
 

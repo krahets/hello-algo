@@ -54,34 +54,34 @@
     ![前序遍历的递归过程](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![前序遍历的递归过程，第 2 步，共 11 步：访问左子节点 2](binary_tree_traversal.assets/preorder_step2.svg)
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![前序遍历的递归过程，第 3 步，共 11 步：访问叶节点 4](binary_tree_traversal.assets/preorder_step3.svg)
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![前序遍历的递归过程，第 4 步，共 11 步：从 4 返回 2](binary_tree_traversal.assets/preorder_step4.svg)
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![前序遍历的递归过程，第 5 步，共 11 步：访问叶节点 5](binary_tree_traversal.assets/preorder_step5.svg)
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![前序遍历的递归过程，第 6 步，共 11 步：从 5 经 2 返回 1](binary_tree_traversal.assets/preorder_step6.svg)
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![前序遍历的递归过程，第 7 步，共 11 步：访问右子节点 3](binary_tree_traversal.assets/preorder_step7.svg)
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![前序遍历的递归过程，第 8 步，共 11 步：访问叶节点 6](binary_tree_traversal.assets/preorder_step8.svg)
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![前序遍历的递归过程，第 9 步，共 11 步：从 6 返回 3](binary_tree_traversal.assets/preorder_step9.svg)
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![前序遍历的递归过程，第 10 步，共 11 步：访问叶节点 7](binary_tree_traversal.assets/preorder_step10.svg)
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![前序遍历的递归过程，第 11 步，共 11 步：完成向上返回](binary_tree_traversal.assets/preorder_step11.svg)
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg)
 
 ### 复杂度分析
 

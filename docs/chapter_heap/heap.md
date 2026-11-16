@@ -81,28 +81,28 @@ heap_operations
     ![元素入堆步骤](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![大顶堆插入元素，第 2 步，共 9 步：将7追加到末尾](heap.assets/heap_push_step2.svg)
+    ![heap_push_step2](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![大顶堆插入元素，第 3 步，共 9 步：比较索引12与5](heap.assets/heap_push_step3.svg)
+    ![heap_push_step3](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![大顶堆插入元素，第 4 步，共 9 步：交换索引12与5](heap.assets/heap_push_step4.svg)
+    ![heap_push_step4](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![大顶堆插入元素，第 5 步，共 9 步：比较索引5与2](heap.assets/heap_push_step5.svg)
+    ![heap_push_step5](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![大顶堆插入元素，第 6 步，共 9 步：交换索引5与2](heap.assets/heap_push_step6.svg)
+    ![heap_push_step6](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![大顶堆插入元素，第 7 步，共 9 步：比较索引2与根](heap.assets/heap_push_step7.svg)
+    ![heap_push_step7](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![大顶堆插入元素，第 8 步，共 9 步：停止上浮](heap.assets/heap_push_step8.svg)
+    ![heap_push_step8](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![大顶堆插入元素，第 9 步，共 9 步：插入完成](heap.assets/heap_push_step9.svg)
+    ![heap_push_step9](heap.assets/heap_push_step9.svg)
 
 设节点总数为 $n$ ，则树的高度为 $O(\log n)$ 。由此可知，堆化操作的循环轮数最多为 $O(\log n)$ ，**元素入堆操作的时间复杂度为 $O(\log n)$** 。代码如下所示：
 
@@ -124,31 +124,31 @@ heap_operations
     ![堆顶元素出堆步骤](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![大顶堆弹出堆顶，第 2 步，共 10 步：交换首尾元素](heap.assets/heap_pop_step2.svg)
+    ![heap_pop_step2](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![大顶堆弹出堆顶，第 3 步，共 10 步：从末尾删除9](heap.assets/heap_pop_step3.svg)
+    ![heap_pop_step3](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![大顶堆弹出堆顶，第 4 步，共 10 步：比较根5与子节点](heap.assets/heap_pop_step4.svg)
+    ![heap_pop_step4](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![大顶堆弹出堆顶，第 5 步，共 10 步：交换索引0与1](heap.assets/heap_pop_step5.svg)
+    ![heap_pop_step5](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![大顶堆弹出堆顶，第 6 步，共 10 步：比较索引1的子节点](heap.assets/heap_pop_step6.svg)
+    ![heap_pop_step6](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![大顶堆弹出堆顶，第 7 步，共 10 步：交换索引1与4](heap.assets/heap_pop_step7.svg)
+    ![heap_pop_step7](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![大顶堆弹出堆顶，第 8 步，共 10 步：比较索引4的子节点](heap.assets/heap_pop_step8.svg)
+    ![heap_pop_step8](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![大顶堆弹出堆顶，第 9 步，共 10 步：交换索引4与10](heap.assets/heap_pop_step9.svg)
+    ![heap_pop_step9](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![大顶堆弹出堆顶，第 10 步，共 10 步：出堆完成](heap.assets/heap_pop_step10.svg)
+    ![heap_pop_step10](heap.assets/heap_pop_step10.svg)
 
 与元素入堆操作相似，堆顶元素出堆操作的时间复杂度也为 $O(\log n)$ 。代码如下所示：
 

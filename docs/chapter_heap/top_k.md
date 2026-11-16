@@ -39,28 +39,28 @@
     ![基于堆寻找最大的 k 个元素](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![用小顶堆寻找 Top-k，第 2 步，共 9 步：将7入堆](top_k.assets/top_k_heap_step2.svg)
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![用小顶堆寻找 Top-k，第 3 步，共 9 步：将6入堆，初始候选齐备](top_k.assets/top_k_heap_step3.svg)
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![用小顶堆寻找 Top-k，第 4 步，共 9 步：比较当前3与堆顶1](top_k.assets/top_k_heap_step4.svg)
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![用小顶堆寻找 Top-k，第 5 步，共 9 步：弹出旧堆顶1](top_k.assets/top_k_heap_step5.svg)
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![用小顶堆寻找 Top-k，第 6 步，共 9 步：将3入堆](top_k.assets/top_k_heap_step6.svg)
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![用小顶堆寻找 Top-k，第 7 步，共 9 步：比较当前2与堆顶3](top_k.assets/top_k_heap_step7.svg)
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![用小顶堆寻找 Top-k，第 8 步，共 9 步：跳过2](top_k.assets/top_k_heap_step8.svg)
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![用小顶堆寻找 Top-k，第 9 步，共 9 步：返回三个候选](top_k.assets/top_k_heap_step9.svg)
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg)
 
 示例代码如下：
 

@@ -34,34 +34,34 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     ![图的广度优先遍历步骤](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![图的广度优先遍历，第 2 步，共 11 步：处理顶点 0](graph_traversal.assets/graph_bfs_step2.svg)
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![图的广度优先遍历，第 3 步，共 11 步：处理顶点 1](graph_traversal.assets/graph_bfs_step3.svg)
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![图的广度优先遍历，第 4 步，共 11 步：处理顶点 3](graph_traversal.assets/graph_bfs_step4.svg)
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![图的广度优先遍历，第 5 步，共 11 步：处理顶点 2](graph_traversal.assets/graph_bfs_step5.svg)
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![图的广度优先遍历，第 6 步，共 11 步：处理顶点 4](graph_traversal.assets/graph_bfs_step6.svg)
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![图的广度优先遍历，第 7 步，共 11 步：处理顶点 6](graph_traversal.assets/graph_bfs_step7.svg)
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![图的广度优先遍历，第 8 步，共 11 步：处理顶点 5](graph_traversal.assets/graph_bfs_step8.svg)
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![图的广度优先遍历，第 9 步，共 11 步：处理顶点 7](graph_traversal.assets/graph_bfs_step9.svg)
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![图的广度优先遍历，第 10 步，共 11 步：处理顶点 8](graph_traversal.assets/graph_bfs_step10.svg)
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![图的广度优先遍历，第 11 步，共 11 步：返回遍历结果](graph_traversal.assets/graph_bfs_step11.svg)
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg)
 
 !!! question "广度优先遍历的序列是否唯一？"
 
@@ -98,34 +98,34 @@ BFS 通常借助队列来实现，代码如下所示。队列具有“先入先�
     ![图的深度优先遍历步骤](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![图的深度优先遍历，第 2 步，共 11 步：从 0 深入 1](graph_traversal.assets/graph_dfs_step2.svg)
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![图的深度优先遍历，第 3 步，共 11 步：从 1 深入 2](graph_traversal.assets/graph_dfs_step3.svg)
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![图的深度优先遍历，第 4 步，共 11 步：从 2 深入 5](graph_traversal.assets/graph_dfs_step4.svg)
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![图的深度优先遍历，第 5 步，共 11 步：从 5 深入 4](graph_traversal.assets/graph_dfs_step5.svg)
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![图的深度优先遍历，第 6 步，共 11 步：从 4 返回 5](graph_traversal.assets/graph_dfs_step6.svg)
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![图的深度优先遍历，第 7 步，共 11 步：从 5 深入 6](graph_traversal.assets/graph_dfs_step7.svg)
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![图的深度优先遍历，第 8 步，共 11 步：从 6 返回 5](graph_traversal.assets/graph_dfs_step8.svg)
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![图的深度优先遍历，第 9 步，共 11 步：连续返回起点 0](graph_traversal.assets/graph_dfs_step9.svg)
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![图的深度优先遍历，第 10 步，共 11 步：从 0 深入 3](graph_traversal.assets/graph_dfs_step10.svg)
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![图的深度优先遍历，第 11 步，共 11 步：结束全部递归调用](graph_traversal.assets/graph_dfs_step11.svg)
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg)
 
 !!! question "深度优先遍历的序列是否唯一？"
 

@@ -140,37 +140,37 @@ $$
     ![最小路径和的动态规划过程](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![最小路径和动态规划，第 2 步，共 12 步：计算首行与首列边界](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![最小路径和动态规划，第 3 步，共 12 步：计算dp\[1,1\]](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![最小路径和动态规划，第 4 步，共 12 步：计算dp\[1,2\]](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![最小路径和动态规划，第 5 步，共 12 步：计算dp\[1,3\]](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![最小路径和动态规划，第 6 步，共 12 步：计算dp\[2,1\]](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![最小路径和动态规划，第 7 步，共 12 步：计算dp\[2,2\]](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![最小路径和动态规划，第 8 步，共 12 步：计算dp\[2,3\]](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![最小路径和动态规划，第 9 步，共 12 步：计算dp\[3,1\]](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![最小路径和动态规划，第 10 步，共 12 步：计算dp\[3,2\]](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![最小路径和动态规划，第 11 步，共 12 步：计算dp\[3,3\]](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![最小路径和动态规划，第 12 步，共 12 步：返回最小路径和](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
 
 ### 空间优化
 

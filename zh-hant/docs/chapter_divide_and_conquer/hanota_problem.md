@@ -22,7 +22,7 @@
     ![規模為 1 的問題的解](hanota_problem.assets/hanota_f1_step1.svg)
 
 === "<2>"
-    ![一個圓盤的河內塔（f(1)），第 2 步，共 2 步：把圓盤從柱 A 直接移到柱 C](hanota_problem.assets/hanota_f1_step2.svg)
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.svg)
 
 如下圖所示，對於問題 $f(2)$ ，即當有兩個圓盤時，**由於要時刻滿足小圓盤在大圓盤之上，因此需要藉助 `B` 來完成移動**。
 
@@ -34,13 +34,13 @@
     ![規模為 2 的問題的解](hanota_problem.assets/hanota_f2_step1.svg)
 
 === "<2>"
-    ![兩個圓盤藉助緩衝柱 B 完成移動，第 2 步，共 4 步：先把小盤從柱 A 移到柱 B](hanota_problem.assets/hanota_f2_step2.svg)
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.svg)
 
 === "<3>"
-    ![兩個圓盤藉助緩衝柱 B 完成移動，第 3 步，共 4 步：再把大盤從柱 A 移到柱 C](hanota_problem.assets/hanota_f2_step3.svg)
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.svg)
 
 === "<4>"
-    ![兩個圓盤藉助緩衝柱 B 完成移動，第 4 步，共 4 步：最後把小盤從柱 B 移到柱 C](hanota_problem.assets/hanota_f2_step4.svg)
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.svg)
 
 解決問題 $f(2)$ 的過程可總結為：**將兩個圓盤藉助 `B` 從 `A` 移至 `C`** 。其中，`C` 稱為目標柱、`B` 稱為緩衝柱。
 
@@ -58,13 +58,13 @@
     ![規模為 3 的問題的解](hanota_problem.assets/hanota_f3_step1.svg)
 
 === "<2>"
-    ![三盤河內塔的分治，第 2 步，共 4 步：完成兩盤子問題：A 到 B](hanota_problem.assets/hanota_f3_step2.svg)
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.svg)
 
 === "<3>"
-    ![三盤河內塔的分治，第 3 步，共 4 步：將最大盤從 A 移至 C](hanota_problem.assets/hanota_f3_step3.svg)
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.svg)
 
 === "<4>"
-    ![三盤河內塔的分治，第 4 步，共 4 步：完成兩盤子問題：B 到 C](hanota_problem.assets/hanota_f3_step4.svg)
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.svg)
 
 從本質上看，**我們將問題 $f(3)$ 劃分為兩個子問題 $f(2)$ 和一個子問題 $f(1)$** 。按順序解決這三個子問題之後，原問題隨之得到解決。這說明子問題是獨立的，而且解可以合併。
 

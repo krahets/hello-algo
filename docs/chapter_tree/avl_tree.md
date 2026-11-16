@@ -56,13 +56,13 @@ AVL 树的特点在于“旋转”操作，它能够在不影响二叉树的中�
     ![右旋操作步骤](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
-    ![AVL 树右旋，第 2 步，共 4 步：标记旋转的两个节点](avl_tree.assets/avltree_right_rotate_step2.svg)
+    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg)
 
 === "<3>"
-    ![AVL 树右旋，第 3 步，共 4 步：形成以 1 为根的局部子树](avl_tree.assets/avltree_right_rotate_step3.svg)
+    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.svg)
 
 === "<4>"
-    ![AVL 树右旋，第 4 步，共 4 步：将新子树根接回父节点](avl_tree.assets/avltree_right_rotate_step4.svg)
+    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg)
 
 如下图所示，当节点 `child` 有右子节点（记为 `grand_child` ）时，需要在右旋中添加一步：将 `grand_child` 作为 `node` 的左子节点。
 

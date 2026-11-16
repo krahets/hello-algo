@@ -45,16 +45,16 @@ deque_operations
     ![基于链表实现双向队列的入队出队操作](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![双向链表实现双向队列，第 2 步，共 5 步：队尾加入4](deque.assets/linkedlist_deque_step2_push_last.svg)
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![双向链表实现双向队列，第 3 步，共 5 步：队首加入1](deque.assets/linkedlist_deque_step3_push_first.svg)
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![双向链表实现双向队列，第 4 步，共 5 步：队尾取出4](deque.assets/linkedlist_deque_step4_pop_last.svg)
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![双向链表实现双向队列，第 5 步，共 5 步：队首取出1](deque.assets/linkedlist_deque_step5_pop_first.svg)
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg)
 
 实现代码如下所示：
 
@@ -70,16 +70,16 @@ deque_operations
     ![基于数组实现双向队列的入队出队操作](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![循环数组实现双向队列，第 2 步，共 5 步：队尾加入4](deque.assets/array_deque_step2_push_last.svg)
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![循环数组实现双向队列，第 3 步，共 5 步：队首加入1](deque.assets/array_deque_step3_push_first.svg)
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![循环数组实现双向队列，第 4 步，共 5 步：队尾取出4](deque.assets/array_deque_step4_pop_last.svg)
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![循环数组实现双向队列，第 5 步，共 5 步：队首取出1](deque.assets/array_deque_step5_pop_first.svg)
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg)
 
 在队列的实现基础上，仅需增加“队首入队”和“队尾出队”的方法：
 

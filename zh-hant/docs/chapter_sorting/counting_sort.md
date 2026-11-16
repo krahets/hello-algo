@@ -43,25 +43,25 @@ $$
     ![計數排序步驟](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
-    ![前綴和計數排序的穩定寫入，第 2 步，共 8 步：累加頻數，準備結果陣列](counting_sort.assets/counting_sort_step2.svg)
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg)
 
 === "<3>"
-    ![前綴和計數排序的穩定寫入，第 3 步，共 8 步：將末尾的 4 寫入索引 9](counting_sort.assets/counting_sort_step3.svg)
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.svg)
 
 === "<4>"
-    ![前綴和計數排序的穩定寫入，第 4 步，共 8 步：將原索引 8 的 2 寫入索引 7](counting_sort.assets/counting_sort_step4.svg)
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.svg)
 
 === "<5>"
-    ![前綴和計數排序的穩定寫入，第 5 步，共 8 步：將原索引 7 的 2 寫入索引 6](counting_sort.assets/counting_sort_step5.svg)
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.svg)
 
 === "<6>"
-    ![前綴和計數排序的穩定寫入，第 6 步，共 8 步：將原索引 6 的 0 寫入索引 2](counting_sort.assets/counting_sort_step6.svg)
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.svg)
 
 === "<7>"
-    ![前綴和計數排序的穩定寫入，第 7 步，共 8 步：完成其餘六次寫入](counting_sort.assets/counting_sort_step7.svg)
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.svg)
 
 === "<8>"
-    ![前綴和計數排序的穩定寫入，第 8 步，共 8 步：把結果複製回 nums](counting_sort.assets/counting_sort_step8.svg)
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg)
 
 計數排序的實現程式碼如下所示：
 

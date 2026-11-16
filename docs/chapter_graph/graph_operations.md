@@ -15,16 +15,16 @@
     ![邻接矩阵的初始化、增删边、增删顶点](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
 === "<2>"
-    ![邻接矩阵的增删操作，第 2 步，共 5 步：添加边 1—2](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
+    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
 === "<3>"
-    ![邻接矩阵的增删操作，第 3 步，共 5 步：删除边 1—3](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
+    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
 === "<4>"
-    ![邻接矩阵的增删操作，第 4 步，共 5 步：添加孤立顶点 6](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
+    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
 === "<5>"
-    ![邻接矩阵的增删操作，第 5 步，共 5 步：删除顶点 3](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
+    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
 
 以下是基于邻接矩阵表示图的实现代码：
 
@@ -46,16 +46,16 @@
     ![邻接表的初始化、增删边、增删顶点](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
 === "<2>"
-    ![邻接表的增删操作，第 2 步，共 5 步：添加边 1—2](graph_operations.assets/adjacency_list_step2_add_edge.svg)
+    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
 === "<3>"
-    ![邻接表的增删操作，第 3 步，共 5 步：删除边 1—3](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
+    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
 === "<4>"
-    ![邻接表的增删操作，第 4 步，共 5 步：添加孤立顶点 6](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
+    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
 === "<5>"
-    ![邻接表的增删操作，第 5 步，共 5 步：删除顶点 3](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
+    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
 
 以下是邻接表的代码实现。对比上图，实际代码有以下不同。
 

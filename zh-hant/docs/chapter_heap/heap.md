@@ -81,28 +81,28 @@ heap_operations
     ![元素入堆積步驟](heap.assets/heap_push_step1.svg)
 
 === "<2>"
-    ![大頂堆積插入元素，第 2 步，共 9 步：將7追加到末尾](heap.assets/heap_push_step2.svg)
+    ![heap_push_step2](heap.assets/heap_push_step2.svg)
 
 === "<3>"
-    ![大頂堆積插入元素，第 3 步，共 9 步：比較索引12與5](heap.assets/heap_push_step3.svg)
+    ![heap_push_step3](heap.assets/heap_push_step3.svg)
 
 === "<4>"
-    ![大頂堆積插入元素，第 4 步，共 9 步：交換索引12與5](heap.assets/heap_push_step4.svg)
+    ![heap_push_step4](heap.assets/heap_push_step4.svg)
 
 === "<5>"
-    ![大頂堆積插入元素，第 5 步，共 9 步：比較索引5與2](heap.assets/heap_push_step5.svg)
+    ![heap_push_step5](heap.assets/heap_push_step5.svg)
 
 === "<6>"
-    ![大頂堆積插入元素，第 6 步，共 9 步：交換索引5與2](heap.assets/heap_push_step6.svg)
+    ![heap_push_step6](heap.assets/heap_push_step6.svg)
 
 === "<7>"
-    ![大頂堆積插入元素，第 7 步，共 9 步：比較索引2與根](heap.assets/heap_push_step7.svg)
+    ![heap_push_step7](heap.assets/heap_push_step7.svg)
 
 === "<8>"
-    ![大頂堆積插入元素，第 8 步，共 9 步：停止上浮](heap.assets/heap_push_step8.svg)
+    ![heap_push_step8](heap.assets/heap_push_step8.svg)
 
 === "<9>"
-    ![大頂堆積插入元素，第 9 步，共 9 步：插入完成](heap.assets/heap_push_step9.svg)
+    ![heap_push_step9](heap.assets/heap_push_step9.svg)
 
 設節點總數為 $n$ ，則樹的高度為 $O(\log n)$ 。由此可知，堆積化操作的迴圈輪數最多為 $O(\log n)$ ，**元素入堆積操作的時間複雜度為 $O(\log n)$** 。程式碼如下所示：
 
@@ -124,31 +124,31 @@ heap_operations
     ![堆積頂元素出堆積步驟](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
-    ![大頂堆積彈出堆積頂，第 2 步，共 10 步：交換首尾元素](heap.assets/heap_pop_step2.svg)
+    ![heap_pop_step2](heap.assets/heap_pop_step2.svg)
 
 === "<3>"
-    ![大頂堆積彈出堆積頂，第 3 步，共 10 步：從末尾刪除9](heap.assets/heap_pop_step3.svg)
+    ![heap_pop_step3](heap.assets/heap_pop_step3.svg)
 
 === "<4>"
-    ![大頂堆積彈出堆積頂，第 4 步，共 10 步：比較根5與子節點](heap.assets/heap_pop_step4.svg)
+    ![heap_pop_step4](heap.assets/heap_pop_step4.svg)
 
 === "<5>"
-    ![大頂堆積彈出堆積頂，第 5 步，共 10 步：交換索引0與1](heap.assets/heap_pop_step5.svg)
+    ![heap_pop_step5](heap.assets/heap_pop_step5.svg)
 
 === "<6>"
-    ![大頂堆積彈出堆積頂，第 6 步，共 10 步：比較索引1的子節點](heap.assets/heap_pop_step6.svg)
+    ![heap_pop_step6](heap.assets/heap_pop_step6.svg)
 
 === "<7>"
-    ![大頂堆積彈出堆積頂，第 7 步，共 10 步：交換索引1與4](heap.assets/heap_pop_step7.svg)
+    ![heap_pop_step7](heap.assets/heap_pop_step7.svg)
 
 === "<8>"
-    ![大頂堆積彈出堆積頂，第 8 步，共 10 步：比較索引4的子節點](heap.assets/heap_pop_step8.svg)
+    ![heap_pop_step8](heap.assets/heap_pop_step8.svg)
 
 === "<9>"
-    ![大頂堆積彈出堆積頂，第 9 步，共 10 步：交換索引4與10](heap.assets/heap_pop_step9.svg)
+    ![heap_pop_step9](heap.assets/heap_pop_step9.svg)
 
 === "<10>"
-    ![大頂堆積彈出堆積頂，第 10 步，共 10 步：出堆積完成](heap.assets/heap_pop_step10.svg)
+    ![heap_pop_step10](heap.assets/heap_pop_step10.svg)
 
 與元素入堆積操作相似，堆積頂元素出堆積操作的時間複雜度也為 $O(\log n)$ 。程式碼如下所示：
 

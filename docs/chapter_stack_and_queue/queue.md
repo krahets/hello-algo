@@ -40,10 +40,10 @@ queue_operations
     ![基于链表实现队列的入队出队操作](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
-    ![基于链表实现队列的入队与出队，第 2 步，共 3 步：在链表尾部入队 4](queue.assets/linkedlist_queue_step2_push.svg)
+    ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg)
 
 === "<3>"
-    ![基于链表实现队列的入队与出队，第 3 步，共 3 步：在链表头部出队 1](queue.assets/linkedlist_queue_step3_pop.svg)
+    ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg)
 
 以下是用链表实现队列的代码：
 
@@ -68,10 +68,10 @@ queue_operations
     ![基于数组实现队列的入队出队操作](queue.assets/array_queue_step1.svg)
 
 === "<2>"
-    ![基于数组实现队列的入队与出队，第 2 步，共 3 步：在 rear 位置入队 4](queue.assets/array_queue_step2_push.svg)
+    ![array_queue_push](queue.assets/array_queue_step2_push.svg)
 
 === "<3>"
-    ![基于数组实现队列的入队与出队，第 3 步，共 3 步：移动 front，队首 1 出队](queue.assets/array_queue_step3_pop.svg)
+    ![array_queue_pop](queue.assets/array_queue_step3_pop.svg)
 
 你可能会发现一个问题：在不断进行入队和出队的过程中，`front` 和 `rear` 都在向右移动，**当它们到达数组尾部时就无法继续移动了**。为了解决此问题，我们可以将数组视为首尾相接的“环形数组”。
 

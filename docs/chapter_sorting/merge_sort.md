@@ -20,31 +20,31 @@
     ![归并排序步骤](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![四元素归并排序的递归执行顺序，第 2 步，共 10 步：递归处理左半](merge_sort.assets/merge_sort_step2.svg)
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![四元素归并排序的递归执行顺序，第 3 步，共 10 步：左半分出单元素 7](merge_sort.assets/merge_sort_step3.svg)
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![四元素归并排序的递归执行顺序，第 4 步，共 10 步：左半分出单元素 3](merge_sort.assets/merge_sort_step4.svg)
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![四元素归并排序的递归执行顺序，第 5 步，共 10 步：左半合并为 \[3,7\]](merge_sort.assets/merge_sort_step5.svg)
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![四元素归并排序的递归执行顺序，第 6 步，共 10 步：递归处理右半](merge_sort.assets/merge_sort_step6.svg)
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![四元素归并排序的递归执行顺序，第 7 步，共 10 步：右半分出单元素 2](merge_sort.assets/merge_sort_step7.svg)
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![四元素归并排序的递归执行顺序，第 8 步，共 10 步：右半分出单元素 6](merge_sort.assets/merge_sort_step8.svg)
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![四元素归并排序的递归执行顺序，第 9 步，共 10 步：右半合并为 \[2,6\]](merge_sort.assets/merge_sort_step9.svg)
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![四元素归并排序的递归执行顺序，第 10 步，共 10 步：合并左右两半](merge_sort.assets/merge_sort_step10.svg)
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg)
 
 观察发现，归并排序与二叉树后序遍历的递归顺序是一致的。
 

@@ -67,28 +67,28 @@
     ![构建二叉树的递归过程](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![递归构树：向下创建节点，返回时连接子树，第 2 步，共 9 步：创建叶节点 9](build_binary_tree_problem.assets/built_tree_step2.svg)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![递归构树：向下创建节点，返回时连接子树，第 3 步，共 9 步：连接左子树 9](build_binary_tree_problem.assets/built_tree_step3.svg)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![递归构树：向下创建节点，返回时连接子树，第 4 步，共 9 步：创建右子树根 2](build_binary_tree_problem.assets/built_tree_step4.svg)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![递归构树：向下创建节点，返回时连接子树，第 5 步，共 9 步：创建叶节点 1](build_binary_tree_problem.assets/built_tree_step5.svg)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![递归构树：向下创建节点，返回时连接子树，第 6 步，共 9 步：连接节点 2 的左子树](build_binary_tree_problem.assets/built_tree_step6.svg)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![递归构树：向下创建节点，返回时连接子树，第 7 步，共 9 步：创建叶节点 7](build_binary_tree_problem.assets/built_tree_step7.svg)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![递归构树：向下创建节点，返回时连接子树，第 8 步，共 9 步：连接节点 2 的右子树](build_binary_tree_problem.assets/built_tree_step8.svg)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![递归构树：向下创建节点，返回时连接子树，第 9 步，共 9 步：连接完整右子树](build_binary_tree_problem.assets/built_tree_step9.svg)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg)
 
 每个递归函数内的前序遍历 `preorder` 和中序遍历 `inorder` 的划分结果如下图所示。
 

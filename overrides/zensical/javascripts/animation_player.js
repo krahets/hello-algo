@@ -6,36 +6,42 @@
     "zh": {
       "play": "播放步骤",
       "pause": "暂停播放",
+      "paused": "已暂停",
       "previous": "上一步",
       "next": "下一步"
     },
     "zh-hant": {
       "play": "播放步驟",
       "pause": "暫停播放",
+      "paused": "已暫停",
       "previous": "上一步",
       "next": "下一步"
     },
     "en": {
       "play": "Play slideshow",
       "pause": "Pause slideshow",
+      "paused": "Paused",
       "previous": "Previous slide",
       "next": "Next slide"
     },
     "ru": {
       "play": "Запустить показ слайдов",
       "pause": "Приостановить показ слайдов",
+      "paused": "Показ приостановлен",
       "previous": "Предыдущий слайд",
       "next": "Следующий слайд"
     },
     "ja": {
       "play": "スライドショーを再生",
       "pause": "スライドショーを一時停止",
+      "paused": "一時停止しました",
       "previous": "前のスライド",
       "next": "次のスライド"
     },
     "ko": {
       "play": "슬라이드 재생",
       "pause": "슬라이드 일시 정지",
+      "paused": "일시 정지됨",
       "previous": "이전 슬라이드",
       "next": "다음 슬라이드"
     }
@@ -304,6 +310,14 @@
     playButton.addEventListener("click", () => {
       if (state.isPlaying) {
         stop();
+        cancelAnnouncement();
+        announcementTimer = setTimeout(() => {
+          announcementTimer = null;
+          const index = state.currentIndex;
+          const prefix = /^zh/i.test(document.documentElement.lang)
+            ? `第 ${index + 1} 步，共 ${inputs.length} 步。` : `${index + 1} / ${inputs.length}. `;
+          announcement.textContent = labels.paused + "。" + prefix + (frames[index]?.dataset.a11yState || "");
+        }, 250);
         return;
       }
       syncCurrentIndex();

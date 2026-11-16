@@ -14,34 +14,34 @@
     ![選擇排序步驟](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![選擇排序，第 2 步，共 11 步：交換索引 0 與 1](selection_sort.assets/selection_sort_step2.svg)
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![選擇排序，第 3 步，共 11 步：選出索引 3 的最小值 1](selection_sort.assets/selection_sort_step3.svg)
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![選擇排序，第 4 步，共 11 步：交換索引 1 與 3](selection_sort.assets/selection_sort_step4.svg)
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![選擇排序，第 5 步，共 11 步：選出索引 5 的最小值 2](selection_sort.assets/selection_sort_step5.svg)
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![選擇排序，第 6 步，共 11 步：交換索引 2 與 5](selection_sort.assets/selection_sort_step6.svg)
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![選擇排序，第 7 步，共 11 步：選出索引 5 的最小值 3](selection_sort.assets/selection_sort_step7.svg)
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![選擇排序，第 8 步，共 11 步：交換索引 3 與 5](selection_sort.assets/selection_sort_step8.svg)
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![選擇排序，第 9 步，共 11 步：選出索引 5 的最小值 4](selection_sort.assets/selection_sort_step9.svg)
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![選擇排序，第 10 步，共 11 步：交換索引 4 與 5](selection_sort.assets/selection_sort_step10.svg)
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![選擇排序，第 11 步，共 11 步：排序完成](selection_sort.assets/selection_sort_step11.svg)
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg)
 
 在程式碼中，我們用 $k$ 來記錄未排序區間內的最小元素：
 

@@ -23,13 +23,13 @@
     ![二叉搜索树查找节点示例](binary_search_tree.assets/bst_search_step1.svg)
 
 === "<2>"
-    ![在二叉搜索树中查找节点 7，第 2 步，共 4 步：向左进入节点 4](binary_search_tree.assets/bst_search_step2.svg)
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.svg)
 
 === "<3>"
-    ![在二叉搜索树中查找节点 7，第 3 步，共 4 步：向右进入节点 6](binary_search_tree.assets/bst_search_step3.svg)
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.svg)
 
 === "<4>"
-    ![在二叉搜索树中查找节点 7，第 4 步，共 4 步：找到节点 7](binary_search_tree.assets/bst_search_step4.svg)
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.svg)
 
 二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。示例代码如下：
 
@@ -80,13 +80,13 @@
     ![在二叉搜索树中删除节点（度为 2 ）](binary_search_tree.assets/bst_remove_case3_step1.svg)
 
 === "<2>"
-    ![二叉搜索树删除双子节点，第 2 步，共 4 步：找到中序后继 5](binary_search_tree.assets/bst_remove_case3_step2.svg)
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.svg)
 
 === "<3>"
-    ![二叉搜索树删除双子节点，第 3 步，共 4 步：摘除原后继节点](binary_search_tree.assets/bst_remove_case3_step3.svg)
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.svg)
 
 === "<4>"
-    ![二叉搜索树删除双子节点，第 4 步，共 4 步：把后继值写入 cur](binary_search_tree.assets/bst_remove_case3_step4.svg)
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.svg)
 
 删除节点操作同样使用 $O(\log n)$ 时间，其中查找待删除节点需要 $O(\log n)$ 时间，获取中序遍历后继节点需要 $O(\log n)$ 时间。示例代码如下：
 

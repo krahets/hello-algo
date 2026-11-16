@@ -34,34 +34,34 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
     ![圖的廣度優先走訪步驟](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![圖的廣度優先走訪，第 2 步，共 11 步：處理頂點 0](graph_traversal.assets/graph_bfs_step2.svg)
+    ![graph_bfs_step2](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![圖的廣度優先走訪，第 3 步，共 11 步：處理頂點 1](graph_traversal.assets/graph_bfs_step3.svg)
+    ![graph_bfs_step3](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![圖的廣度優先走訪，第 4 步，共 11 步：處理頂點 3](graph_traversal.assets/graph_bfs_step4.svg)
+    ![graph_bfs_step4](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![圖的廣度優先走訪，第 5 步，共 11 步：處理頂點 2](graph_traversal.assets/graph_bfs_step5.svg)
+    ![graph_bfs_step5](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![圖的廣度優先走訪，第 6 步，共 11 步：處理頂點 4](graph_traversal.assets/graph_bfs_step6.svg)
+    ![graph_bfs_step6](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![圖的廣度優先走訪，第 7 步，共 11 步：處理頂點 6](graph_traversal.assets/graph_bfs_step7.svg)
+    ![graph_bfs_step7](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![圖的廣度優先走訪，第 8 步，共 11 步：處理頂點 5](graph_traversal.assets/graph_bfs_step8.svg)
+    ![graph_bfs_step8](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![圖的廣度優先走訪，第 9 步，共 11 步：處理頂點 7](graph_traversal.assets/graph_bfs_step9.svg)
+    ![graph_bfs_step9](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![圖的廣度優先走訪，第 10 步，共 11 步：處理頂點 8](graph_traversal.assets/graph_bfs_step10.svg)
+    ![graph_bfs_step10](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![圖的廣度優先走訪，第 11 步，共 11 步：返回走訪結果](graph_traversal.assets/graph_bfs_step11.svg)
+    ![graph_bfs_step11](graph_traversal.assets/graph_bfs_step11.svg)
 
 !!! question "廣度優先走訪的序列是否唯一？"
 
@@ -98,34 +98,34 @@ BFS 通常藉助佇列來實現，程式碼如下所示。佇列具有“先入�
     ![圖的深度優先走訪步驟](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![圖的深度優先走訪，第 2 步，共 11 步：從 0 深入 1](graph_traversal.assets/graph_dfs_step2.svg)
+    ![graph_dfs_step2](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![圖的深度優先走訪，第 3 步，共 11 步：從 1 深入 2](graph_traversal.assets/graph_dfs_step3.svg)
+    ![graph_dfs_step3](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![圖的深度優先走訪，第 4 步，共 11 步：從 2 深入 5](graph_traversal.assets/graph_dfs_step4.svg)
+    ![graph_dfs_step4](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![圖的深度優先走訪，第 5 步，共 11 步：從 5 深入 4](graph_traversal.assets/graph_dfs_step5.svg)
+    ![graph_dfs_step5](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![圖的深度優先走訪，第 6 步，共 11 步：從 4 返回 5](graph_traversal.assets/graph_dfs_step6.svg)
+    ![graph_dfs_step6](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![圖的深度優先走訪，第 7 步，共 11 步：從 5 深入 6](graph_traversal.assets/graph_dfs_step7.svg)
+    ![graph_dfs_step7](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![圖的深度優先走訪，第 8 步，共 11 步：從 6 返回 5](graph_traversal.assets/graph_dfs_step8.svg)
+    ![graph_dfs_step8](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![圖的深度優先走訪，第 9 步，共 11 步：連續返回起點 0](graph_traversal.assets/graph_dfs_step9.svg)
+    ![graph_dfs_step9](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![圖的深度優先走訪，第 10 步，共 11 步：從 0 深入 3](graph_traversal.assets/graph_dfs_step10.svg)
+    ![graph_dfs_step10](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![圖的深度優先走訪，第 11 步，共 11 步：結束全部遞迴呼叫](graph_traversal.assets/graph_dfs_step11.svg)
+    ![graph_dfs_step11](graph_traversal.assets/graph_dfs_step11.svg)
 
 !!! question "深度優先走訪的序列是否唯一？"
 

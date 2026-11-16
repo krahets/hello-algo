@@ -12,28 +12,28 @@
     ![哨兵划分步骤](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![以 2 为基准的一次哨兵划分，第 2 步，共 9 步：指针 j 从右向左找到小于基准数的 0](quick_sort.assets/pivot_division_step2.svg)
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![以 2 为基准的一次哨兵划分，第 3 步，共 9 步：指针 i 从左向右找到大于基准数的 4](quick_sort.assets/pivot_division_step3.svg)
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![以 2 为基准的一次哨兵划分，第 4 步，共 9 步：交换元素 4 与 0](quick_sort.assets/pivot_division_step4.svg)
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![以 2 为基准的一次哨兵划分，第 5 步，共 9 步：指针 j 继续向左找到小于基准数的 1](quick_sort.assets/pivot_division_step5.svg)
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![以 2 为基准的一次哨兵划分，第 6 步，共 9 步：指针 i 右移并与指针 j 相遇](quick_sort.assets/pivot_division_step6.svg)
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![以 2 为基准的一次哨兵划分，第 7 步，共 9 步：相遇位置的自交换不改变数组](quick_sort.assets/pivot_division_step7.svg)
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![以 2 为基准的一次哨兵划分，第 8 步，共 9 步：将基准数 2 交换到分界索引 2](quick_sort.assets/pivot_division_step8.svg)
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![以 2 为基准的一次哨兵划分，第 9 步，共 9 步：完成一次划分，保留左右子数组子问题](quick_sort.assets/pivot_division_step9.svg)
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg)
 
 哨兵划分完成后，原数组被划分成三部分：左子数组、基准数、右子数组，且满足“左子数组任意元素 $\leq$ 基准数 $\leq$ 右子数组任意元素”。因此，我们接下来只需对这两个子数组进行排序。
 

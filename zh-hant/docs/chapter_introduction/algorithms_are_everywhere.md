@@ -14,16 +14,16 @@
     ![查字典步驟](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![查字典的二分搜尋過程，第 2 步，共 5 步：翻到中間字母 m，排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![查字典的二分搜尋過程，第 3 步，共 5 步：翻到剩餘部分中間字母 t，排除後半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![查字典的二分搜尋過程，第 4 步，共 5 步：翻到剩餘部分中間字母 p，再排除前半部分](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![查字典的二分搜尋過程，第 5 步，共 5 步：翻到中間字母 r，完成查詢](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 查字典這個小學生必備技能，實際上就是著名的“二分搜尋”演算法。從資料結構的角度，我們可以把字典視為一個已排序的“陣列”；從演算法的角度，我們可以將上述查字典的一系列操作看作“二分搜尋”。
 

@@ -31,10 +31,10 @@
     ![輔助雜湊表求解兩數之和](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![雜湊表求兩數之和，第 2 步，共 3 步：未找到補數 6，記錄 7](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![雜湊表求兩數之和，第 3 步，共 3 步：找到補數 2，返回索引](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 實現程式碼如下所示，僅需單層迴圈即可：
 

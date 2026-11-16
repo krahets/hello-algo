@@ -8,22 +8,22 @@
     ![利用元素交换操作模拟冒泡](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![一轮冒泡操作，第 2 步，共 7 步：比较并交换索引 0、1](bubble_sort.assets/bubble_operation_step2.svg)
+    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![一轮冒泡操作，第 3 步，共 7 步：比较并交换索引 1、2](bubble_sort.assets/bubble_operation_step3.svg)
+    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![一轮冒泡操作，第 4 步，共 7 步：比较并交换索引 2、3](bubble_sort.assets/bubble_operation_step4.svg)
+    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![一轮冒泡操作，第 5 步，共 7 步：比较索引 3、4，保持不变](bubble_sort.assets/bubble_operation_step5.svg)
+    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![一轮冒泡操作，第 6 步，共 7 步：比较并交换索引 4、5](bubble_sort.assets/bubble_operation_step6.svg)
+    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![一轮冒泡操作，第 7 步，共 7 步：最大值 5 就位](bubble_sort.assets/bubble_operation_step7.svg)
+    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.svg)
 
 ## 算法流程
 

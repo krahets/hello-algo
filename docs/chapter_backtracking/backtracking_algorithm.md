@@ -42,34 +42,34 @@
     ![尝试与回退](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![尝试与回退：保存到达 7 的路径，第 2 步，共 11 步：命中左侧 7，保存路径](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![尝试与回退：保存到达 7 的路径，第 3 步，共 11 步：进入节点 4](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![尝试与回退：保存到达 7 的路径，第 4 步，共 11 步：退出 4，回到左侧 7](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![尝试与回退：保存到达 7 的路径，第 5 步，共 11 步：进入节点 5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![尝试与回退：保存到达 7 的路径，第 6 步，共 11 步：退出 5 和左侧 7](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![尝试与回退：保存到达 7 的路径，第 7 步，共 11 步：进入节点 3](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![尝试与回退：保存到达 7 的路径，第 8 步，共 11 步：进入节点 6](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![尝试与回退：保存到达 7 的路径，第 9 步，共 11 步：退出 6，回到 3](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![尝试与回退：保存到达 7 的路径，第 10 步，共 11 步：命中右侧 7，保存路径](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![尝试与回退：保存到达 7 的路径，第 11 步，共 11 步：退出右侧 7、3 和根 1](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## 剪枝
 

@@ -46,19 +46,19 @@ $$
     ![完全背包问题在空间优化后的动态规划过程](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![完全背包的单行更新，第 2 步，共 6 步：正序处理容量 c = 1：装不下菠萝，保持 5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
+    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![完全背包的单行更新，第 3 步，共 6 步：正序更新容量 c = 2：选入 1 个菠萝，更新为 11](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
+    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![完全背包的单行更新，第 4 步，共 6 步：正序更新容量 c = 3：苹果加菠萝，更新为 16](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
+    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![完全背包的单行更新，第 5 步，共 6 步：正序更新容量 c = 4：复用本轮新值，重复选菠萝得 22](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
+    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![完全背包的单行更新，第 6 步，共 6 步：完成 i = 2 轮遍历：单行保存前两种物品的解](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
+    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
 
 代码实现比较简单，仅需将数组 `dp` 的第一维删除：
 
@@ -123,46 +123,46 @@ $$
     ![零钱兑换问题的动态规划过程](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
-    ![零钱兑换的动态规划，第 2 步，共 15 步：设置首行正金额为不可达边界 MAX = 5](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
+    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
 
 === "<3>"
-    ![零钱兑换的动态规划，第 3 步，共 15 步：计算 dp\[1, 1\]（面值 1、金额 1）：最少 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
+    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
 
 === "<4>"
-    ![零钱兑换的动态规划，第 4 步，共 15 步：计算 dp\[1, 2\]（面值 1、金额 2）：最少 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
+    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
 
 === "<5>"
-    ![零钱兑换的动态规划，第 5 步，共 15 步：计算 dp\[1, 3\]（面值 1、金额 3）：最少 3 枚](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
+    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
 
 === "<6>"
-    ![零钱兑换的动态规划，第 6 步，共 15 步：计算 dp\[1, 4\]（面值 1、金额 4）：最少 4 枚](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
+    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
 
 === "<7>"
-    ![零钱兑换的动态规划，第 7 步，共 15 步：计算 dp\[2, 1\]（面值 2、金额 1）：面值过大，继承 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
+    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
 
 === "<8>"
-    ![零钱兑换的动态规划，第 8 步，共 15 步：计算 dp\[2, 2\]（面值 2、金额 2）：选 1 枚 2 元，更新为 1](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
+    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
 
 === "<9>"
-    ![零钱兑换的动态规划，第 9 步，共 15 步：计算 dp\[2, 3\]（面值 2、金额 3）：1 元加 2 元，更新为 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
+    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
 
 === "<10>"
-    ![零钱兑换的动态规划，第 10 步，共 15 步：计算 dp\[2, 4\]（面值 2、金额 4）：重复选 2 元，更新为 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
+    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
 
 === "<11>"
-    ![零钱兑换的动态规划，第 11 步，共 15 步：计算 dp\[3, 1\]（面值 5、金额 1）：面值过大，继承 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
+    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
 
 === "<12>"
-    ![零钱兑换的动态规划，第 12 步，共 15 步：计算 dp\[3, 2\]（面值 5、金额 2）：面值过大，继承 1 枚](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
+    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
 
 === "<13>"
-    ![零钱兑换的动态规划，第 13 步，共 15 步：计算 dp\[3, 3\]（面值 5、金额 3）：面值过大，继承 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
+    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
 
 === "<14>"
-    ![零钱兑换的动态规划，第 14 步，共 15 步：计算 dp\[3, 4\]（面值 5、金额 4）：面值过大，继承 2 枚](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
+    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
 
 === "<15>"
-    ![零钱兑换的动态规划，第 15 步，共 15 步：读取右下角 dp\[3, 4\]，返回最少硬币数 2](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
+    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
 
 ### 空间优化
 

@@ -39,28 +39,28 @@
     ![基於堆積尋找最大的 k 個元素](top_k.assets/top_k_heap_step1.svg)
 
 === "<2>"
-    ![用小頂堆積尋找 Top-k，第 2 步，共 9 步：將7入堆積](top_k.assets/top_k_heap_step2.svg)
+    ![top_k_heap_step2](top_k.assets/top_k_heap_step2.svg)
 
 === "<3>"
-    ![用小頂堆積尋找 Top-k，第 3 步，共 9 步：將6入堆積，初始候選齊備](top_k.assets/top_k_heap_step3.svg)
+    ![top_k_heap_step3](top_k.assets/top_k_heap_step3.svg)
 
 === "<4>"
-    ![用小頂堆積尋找 Top-k，第 4 步，共 9 步：比較當前3與堆積頂1](top_k.assets/top_k_heap_step4.svg)
+    ![top_k_heap_step4](top_k.assets/top_k_heap_step4.svg)
 
 === "<5>"
-    ![用小頂堆積尋找 Top-k，第 5 步，共 9 步：彈出舊堆積頂1](top_k.assets/top_k_heap_step5.svg)
+    ![top_k_heap_step5](top_k.assets/top_k_heap_step5.svg)
 
 === "<6>"
-    ![用小頂堆積尋找 Top-k，第 6 步，共 9 步：將3入堆積](top_k.assets/top_k_heap_step6.svg)
+    ![top_k_heap_step6](top_k.assets/top_k_heap_step6.svg)
 
 === "<7>"
-    ![用小頂堆積尋找 Top-k，第 7 步，共 9 步：比較當前2與堆積頂3](top_k.assets/top_k_heap_step7.svg)
+    ![top_k_heap_step7](top_k.assets/top_k_heap_step7.svg)
 
 === "<8>"
-    ![用小頂堆積尋找 Top-k，第 8 步，共 9 步：跳過2](top_k.assets/top_k_heap_step8.svg)
+    ![top_k_heap_step8](top_k.assets/top_k_heap_step8.svg)
 
 === "<9>"
-    ![用小頂堆積尋找 Top-k，第 9 步，共 9 步：返回三個候選](top_k.assets/top_k_heap_step9.svg)
+    ![top_k_heap_step9](top_k.assets/top_k_heap_step9.svg)
 
 示例程式碼如下：
 

@@ -49,28 +49,28 @@ $$
     ![最大容量问题的贪心过程](max_capacity_problem.assets/max_capacity_greedy_step1.svg)
 
 === "<2>"
-    ![最大容量：双指针贪心，第 2 步，共 9 步：计算容器 \[0, 7\] 的容量](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
 
 === "<3>"
-    ![最大容量：双指针贪心，第 3 步，共 9 步：右移短板至 i = 1](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
 
 === "<4>"
-    ![最大容量：双指针贪心，第 4 步，共 9 步：左移短板至 j = 6](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
 
 === "<5>"
-    ![最大容量：双指针贪心，第 5 步，共 9 步：左移短板至 j = 5](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
 
 === "<6>"
-    ![最大容量：双指针贪心，第 6 步，共 9 步：左移短板至 j = 4](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
 
 === "<7>"
-    ![最大容量：双指针贪心，第 7 步，共 9 步：左移短板至 j = 3](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
 
 === "<8>"
-    ![最大容量：双指针贪心，第 8 步，共 9 步：左移短板至 j = 2](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
 
 === "<9>"
-    ![最大容量：双指针贪心，第 9 步，共 9 步：两指针相遇，返回最大容量](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
 
 ### 代码实现
 

@@ -735,7 +735,7 @@
       ]
     }
   },
-  "standalone_tables": [
+  "input_tables": [
     0
   ]
 }

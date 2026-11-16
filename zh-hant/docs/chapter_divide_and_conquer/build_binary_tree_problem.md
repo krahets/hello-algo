@@ -67,28 +67,28 @@
     ![構建二元樹的遞迴過程](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 2 步，共 9 步：建立葉節點 9](build_binary_tree_problem.assets/built_tree_step2.svg)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 3 步，共 9 步：連線左子樹 9](build_binary_tree_problem.assets/built_tree_step3.svg)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 4 步，共 9 步：建立右子樹根 2](build_binary_tree_problem.assets/built_tree_step4.svg)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 5 步，共 9 步：建立葉節點 1](build_binary_tree_problem.assets/built_tree_step5.svg)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 6 步，共 9 步：連線節點 2 的左子樹](build_binary_tree_problem.assets/built_tree_step6.svg)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 7 步，共 9 步：建立葉節點 7](build_binary_tree_problem.assets/built_tree_step7.svg)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 8 步，共 9 步：連線節點 2 的右子樹](build_binary_tree_problem.assets/built_tree_step8.svg)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![遞迴構樹：向下建立節點，返回時連線子樹，第 9 步，共 9 步：連線完整右子樹](build_binary_tree_problem.assets/built_tree_step9.svg)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg)
 
 每個遞迴函式內的前序走訪 `preorder` 和中序走訪 `inorder` 的劃分結果如下圖所示。
 
