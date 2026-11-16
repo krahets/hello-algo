@@ -30,7 +30,7 @@ if __FILE__ == $0
 
   # [region]{pop}
   # 元素出列
-  # 請注意，由於是陣列，Array#shift 方法時間複雜度為 O(n)
+  # 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
   pop = queue.shift
   # [endregion]{pop}
   puts "出列元素 pop = #{pop}"

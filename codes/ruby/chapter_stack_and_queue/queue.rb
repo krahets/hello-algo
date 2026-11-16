@@ -30,7 +30,7 @@ if __FILE__ == $0
 
   # [region]{pop}
   # 元素出队
-  # 请注意，由于是数组，Array#shift 方法时间复杂度为 O(n)
+  # 请注意，由于是数组，Array#shift 方法的时间复杂度为 O(n)
   pop = queue.shift
   # [endregion]{pop}
   puts "出队元素 pop = #{pop}"

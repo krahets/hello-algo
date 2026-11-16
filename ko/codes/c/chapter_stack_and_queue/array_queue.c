@@ -123,7 +123,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         push(queue, i);
         pop(queue);
-        printf("%d번째 삽입 + 꺼내기 후 queue = ", i);
+        printf("반복 %d 회차에서 삽입 + 꺼내기를 수행한 후 queue = ", i);
         printArray(toArray(queue, &queSize), queSize);
     }
 

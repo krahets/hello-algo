@@ -103,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 队首出队 ###
+  ### 队尾出队 ###
   def pop_last
     pop(false)
   end
@@ -147,7 +147,7 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "队首元素 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "队首元素 peek_last = #{peek_last}"
+  puts "队尾元素 peek_last = #{peek_last}"
 
   # 元素入队
   deque.push_last(4)

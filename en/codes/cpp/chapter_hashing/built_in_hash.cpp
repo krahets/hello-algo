@@ -29,7 +29,7 @@ int main() {
     cout << "String '" << str << "' has hash value " << hashStr << "\n";
     // String 'Hello 算法' has hash value 15466937326284535026
 
-    // C++ std::hash provides hashing for fundamental types and selected standard-library types
-    // For arrays and unsupported object types, supply your own hash implementation
+    // In C++, the built-in std::hash() only computes hash values for basic data types
+    // Hashing arrays and objects requires a custom implementation
     // [endregion]{builtin_hash}
 }

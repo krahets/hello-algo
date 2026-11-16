@@ -29,11 +29,11 @@ pub fn main() {
     // Access an element
     let peek_first = deque.front().unwrap(); // Front element
     // [endregion]{peek_first}
-    print!("\nFront element peek_first = {peek_first}");
+    print!("\nFront element peekFirst = {peek_first}");
     // [region]{peek_last}
     let peek_last = deque.back().unwrap(); // Rear element
     // [endregion]{peek_last}
-    print!("\nRear element peek_last = {peek_last}");
+    print!("\nRear element peekLast = {peek_last}");
 
     // [region]{pop_first}
     // Dequeue an element

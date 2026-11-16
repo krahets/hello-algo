@@ -102,5 +102,5 @@ console.log('큐가 비어 있는가 = ' + isEmpty);
 for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    console.log('반복 ' + i + ' 회에서 삽입 + 꺼내기를 수행한 후 queue =', queue.toArray());
+    console.log('반복 ' + i + ' 회차에서 삽입 + 꺼내기를 수행한 후 queue =', queue.toArray());
 }

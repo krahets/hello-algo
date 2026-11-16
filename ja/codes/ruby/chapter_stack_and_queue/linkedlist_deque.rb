@@ -103,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 先頭からデキューする ###
+  ### 末尾からデキューする ###
   def pop_last
     pop(false)
   end
@@ -147,7 +147,7 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "キューの先頭要素 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "キューの先頭要素 peek_last = #{peek_last}"
+  puts "キューの末尾要素 peek_last = #{peek_last}"
 
   # 要素をエンキューする
   deque.push_last(4)

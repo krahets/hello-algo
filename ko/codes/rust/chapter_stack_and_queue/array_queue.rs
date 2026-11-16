@@ -120,6 +120,6 @@ fn main() {
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("{:?}번째 삽입 + 꺼내기 후 queue = {:?}", i, queue.to_vector());
+        println!("반복 {:?} 회차에서 삽입 + 꺼내기를 수행한 후 queue = {:?}", i, queue.to_vector());
     }
 }

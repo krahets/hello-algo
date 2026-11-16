@@ -83,8 +83,6 @@ func TestMyHeap(t *testing.T) {
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* 初始化堆積 */
-	// 初始化大頂堆積
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)

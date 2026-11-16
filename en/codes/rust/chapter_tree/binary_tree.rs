@@ -28,17 +28,17 @@ fn main() {
     // [region]{insert_node}
     /* Insert and remove nodes */
     let p = TreeNode::new(0);
-    // Insert node p between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2 in n1 -> n2
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
     // [endregion]{insert_node}
-    println!("\nAfter inserting node p:\n");
+    println!("\nAfter inserting node P:\n");
     print_util::print_tree(&n1);
     // [region]{remove_node}
-    // Remove node p
+    // Remove node P
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
     // [endregion]{remove_node}
-    println!("\nAfter removing node p:\n");
+    println!("\nAfter removing node P:\n");
     print_util::print_tree(&n1);
 }

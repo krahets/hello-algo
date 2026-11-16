@@ -32,12 +32,12 @@ void main() {
   n1.left = p;
   p.left = n2;
   // [endregion]{insert_node}
-  print("\nAfter inserting node p:\n");
+  print("\nAfter inserting node P:\n");
   printTree(n1);
   // [region]{remove_node}
-  // Remove node p
+  // Remove node P
   n1.left = n2;
   // [endregion]{remove_node}
-  print("\nAfter removing node p:\n");
+  print("\nAfter removing node P:\n");
   printTree(n1);
 }

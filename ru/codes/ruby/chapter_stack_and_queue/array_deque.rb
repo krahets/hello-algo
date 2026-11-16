@@ -127,7 +127,7 @@ if __FILE__ == $0
   deque.push_last(4)
   puts "После добавления элемента 4 в хвост deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "После добавления элемента 1 в хвост deque = #{deque.to_array}"
+  puts "После добавления элемента 1 в голову deque = #{deque.to_array}"
 
   # Извлечение элемента из очереди
   pop_last = deque.pop_last

@@ -118,7 +118,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "반복 " << i << " 회에서 삽입 + 꺼내기를 수행한 후 queue = ";
+        cout << "반복 " << i << " 회차에서 삽입 + 꺼내기를 수행한 후 queue = ";
         printVector(queue->toVector());
     }
 

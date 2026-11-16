@@ -108,7 +108,7 @@ public class array_queue {
         for (int i = 0; i < 10; i++) {
             queue.Push(i);
             queue.Pop();
-            Console.WriteLine("반복 " + i + " 회에서 삽입 + 꺼내기를 수행한 후 queue = " + string.Join(",", queue.ToArray()));
+            Console.WriteLine("반복 " + i + " 회차에서 삽입 + 꺼내기를 수행한 후 queue = " + string.Join(",", queue.ToArray()));
         }
     }
 }

@@ -184,7 +184,7 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("맨 앞 원소 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("맨 앞 원소 peekLast = %d\r\n", peekLastNum);
+    printf("맨 뒤 원소 peekLast = %d\r\n", peekLastNum);
 
     /* 원소 삽입 */
     pushLast(deque, 4);

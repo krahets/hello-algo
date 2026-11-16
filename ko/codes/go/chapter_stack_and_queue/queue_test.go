@@ -96,7 +96,7 @@ func TestArrayQueue(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("반복", i, "회에서 삽입 + 꺼내기를 수행한 후 queue =")
+		fmt.Print("반복 ", i, " 회차에서 삽입 + 꺼내기를 수행한 후 queue =")
 		PrintSlice(queue.toSlice())
 	}
 }

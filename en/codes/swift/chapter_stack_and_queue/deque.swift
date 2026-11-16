@@ -36,7 +36,7 @@ enum Deque {
 
         // [region]{pop_first}
         /* Dequeue an element */
-        // When using Array as a deque, removing the first element takes O(n) time
+        // When using Array to simulate a deque, popFirst has O(n) complexity
         let popFirst = deque.removeFirst() // Dequeue the front element
         // [endregion]{pop_first}
         print("Element dequeued from the front, popFirst = \(popFirst); after dequeueing, deque = \(deque)")

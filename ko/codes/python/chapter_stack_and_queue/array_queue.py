@@ -95,4 +95,4 @@ if __name__ == "__main__":
     for i in range(10):
         queue.push(i)
         queue.pop()
-        print("반복", i, "회에서 삽입 + 꺼내기를 수행한 후 queue = ", queue.to_list())
+        print("반복", i, "회차에서 삽입 + 꺼내기를 수행한 후 queue = ", queue.to_list())

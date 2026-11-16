@@ -184,7 +184,7 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("队首元素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("队首元素 peekLast = %d\r\n", peekLastNum);
+    printf("队尾元素 peekLast = %d\r\n", peekLastNum);
 
     /* 元素入队 */
     pushLast(deque, 4);

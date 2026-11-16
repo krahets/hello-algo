@@ -102,6 +102,6 @@ if __FILE__ == $0
   for i in 0...10
     queue.push(i)
     queue.pop
-    puts "반복 #{i}회에서 삽입 + 꺼내기를 수행한 후 queue = #{queue.to_array}"
+    puts "반복 #{i} 회차에서 삽입 + 꺼내기를 수행한 후 queue = #{queue.to_array}"
   end
 end

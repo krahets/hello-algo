@@ -105,6 +105,6 @@ fun main() {
     for (i in 0..9) {
         queue.push(i)
         queue.pop()
-        println("반복 $i : 삽입 + 꺼내기 후 queue = ${queue.toArray().contentToString()}")
+        println("반복 $i 회차에서 삽입 + 꺼내기를 수행한 후 queue = ${queue.toArray().contentToString()}")
     }
 }

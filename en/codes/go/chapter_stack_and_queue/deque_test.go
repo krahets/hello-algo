@@ -67,7 +67,6 @@ func TestDeque(t *testing.T) {
 
 func TestArrayDeque(t *testing.T) {
 	/* Initialize the deque */
-	// Use the custom circular-array deque implementation
 	deque := newArrayDeque(16)
 
 	/* Enqueue elements */

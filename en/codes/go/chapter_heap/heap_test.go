@@ -20,7 +20,7 @@ func TestHeap(t *testing.T) {
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* Push an element onto the heap */
-	// Call heap.Push, which uses heap.Interface to add an element
+	// Call a heap.Interface function to add an element
 	heap.Push(maxHeap, 1)
 	heap.Push(maxHeap, 3)
 	heap.Push(maxHeap, 2)
@@ -33,7 +33,7 @@ func TestHeap(t *testing.T) {
 	fmt.Printf("Top element of the heap: %d\n", top)
 
 	/* Pop the top element from the heap */
-	// Call heap.Pop, which uses heap.Interface to remove the top element
+	// Call a heap.Interface function to remove an element
 	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 5
 	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 4
 	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 3
@@ -83,8 +83,6 @@ func TestMyHeap(t *testing.T) {
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* Initialize the heap */
-	// Prepare the input for heap-based top-k selection
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)

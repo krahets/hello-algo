@@ -103,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### Извлечение из головы очереди ###
+  ### Извлечение из хвоста очереди ###
   def pop_last
     pop(false)
   end

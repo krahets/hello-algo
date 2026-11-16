@@ -32,8 +32,8 @@ fn main() {
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("Bit representation of floating-point number {} has hash value {}", dec, hash_dec);
-    // Bit representation of floating-point number 3.14159 has hash value 2566941990314602357
+    println!("Floating-point number {} has hash value {}", dec, hash_dec);
+    // Floating-point number 3.14159 has hash value 2566941990314602357
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
@@ -53,7 +53,7 @@ fn main() {
     let mut node_hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut node_hasher);
     let hash_node = node_hasher.finish();
-    println!("Value in node {:?} has hash value {}", node, hash_node);
-    // Value in node RefCell { value: ListNode { val: 42, next: None } } has hash value 15387811073369036852
+    println!("Node object {:?} has hash value {}", node, hash_node);
+    // Node object RefCell { value: ListNode { val: 42, next: None } } has hash value 15387811073369036852
     // [endregion]{builtin_hash}
 }

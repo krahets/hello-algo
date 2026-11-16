@@ -67,7 +67,6 @@ func TestDeque(t *testing.T) {
 
 func TestArrayDeque(t *testing.T) {
 	/* 덱 초기화 */
-	// Go에서는 list를 덱으로 사용한다
 	deque := newArrayDeque(16)
 
 	/* 원소 삽입 */
@@ -118,7 +117,7 @@ func TestLinkedListDeque(t *testing.T) {
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("큐 deque = ")
+	fmt.Print("덱 deque = ")
 	PrintList(deque.toList())
 
 	// 맨 앞 원소 접근

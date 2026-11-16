@@ -17,7 +17,7 @@ if __FILE__ == $0
   deque << 2
   deque << 5
   deque << 4
-  # Front insertion in a simple array takes O(n); Ruby implementations can optimize Array#unshift
+  # Note that Array#unshift has O(n) time complexity because the underlying structure is an array
   deque.unshift(3)
   deque.unshift(1)
   # [endregion]{push}

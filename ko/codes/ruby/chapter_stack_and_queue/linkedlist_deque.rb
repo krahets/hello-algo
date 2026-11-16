@@ -103,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 맨 앞에서 꺼내기 ###
+  ### 맨 뒤에서 꺼내기 ###
   def pop_last
     pop(false)
   end
@@ -147,7 +147,7 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "맨 앞 원소 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "맨 앞 원소 peek_last = #{peek_last}"
+  puts "맨 뒤 원소 peek_last = #{peek_last}"
 
   # 원소 삽입
   deque.push_last(4)

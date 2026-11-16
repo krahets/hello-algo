@@ -59,7 +59,7 @@ func TestQueue(t *testing.T) {
 
 func TestArrayQueue(t *testing.T) {
 
-	// Initialize the queue and use its standard queue operations
+	// Initialize the queue and use the common queue interface
 	capacity := 10
 	queue := newArrayQueue(capacity)
 	if queue.pop() != nil {
@@ -96,7 +96,7 @@ func TestArrayQueue(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("Round #", i, ": after enqueue + dequeue, queue =")
+		fmt.Print("After round ", i, " of enqueue + dequeue, queue =")
 		PrintSlice(queue.toSlice())
 	}
 }

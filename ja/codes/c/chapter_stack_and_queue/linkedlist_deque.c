@@ -184,7 +184,7 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("キューの先頭要素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("キューの先頭要素 peekLast = %d\r\n", peekLastNum);
+    printf("キューの末尾要素 peekLast = %d\r\n", peekLastNum);
 
     /* 要素をエンキューする */
     pushLast(deque, 4);

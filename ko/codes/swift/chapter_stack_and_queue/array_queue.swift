@@ -107,7 +107,7 @@ enum _ArrayQueue {
         for i in 0 ..< 10 {
             queue.push(num: i)
             queue.pop()
-            print("반복 \(i): 삽입 + 꺼내기 후 queue = \(queue.toArray())")
+            print("반복 \(i) 회차에서 삽입 + 꺼내기를 수행한 후 queue = \(queue.toArray())")
         }
     }
 }
