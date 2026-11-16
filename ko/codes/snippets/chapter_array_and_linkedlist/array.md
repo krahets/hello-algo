@@ -4,13 +4,7 @@
 ```
 
 ```cpp title="array.cpp"
-/* 배열 초기화 */
-// 스택에 저장
-int arr[5] = {};
-int nums[5] = { 1, 3, 2, 5, 4 };
-// 힙에 저장(공간을 직접 해제해야 함)
-int* arr1 = new int[5] {};
-int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
+[file]{array}-[region]{init_array}
 ```
 
 ```java title="array.java"

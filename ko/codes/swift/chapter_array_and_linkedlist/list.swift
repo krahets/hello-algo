@@ -8,9 +8,15 @@
 enum List {
     /* 실행 코드 */
     static func main() {
+        // [region]{init_list}
         /* 리스트 초기화 */
+        // 초깃값 없음
+        let emptyNums: [Int] = []
+        // 초깃값 있음
         var nums = [1, 3, 2, 5, 4]
+        // [endregion]{init_list}
         print("리스트 nums = \(nums)")
+        print("리스트 emptyNums = \(emptyNums)")
 
         // [region]{access_element}
         /* 원소 접근 */

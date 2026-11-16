@@ -126,28 +126,17 @@
 ```
 
 ```rust title="stack.rs"
-/* スタックを初期化 */
-// Vec をスタックとして使う
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"

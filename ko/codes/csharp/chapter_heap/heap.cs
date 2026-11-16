@@ -39,23 +39,23 @@ public class heap {
         // 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
         peek = maxHeap.Dequeue(); // 5
         // [endregion]{pop_1}
-        Console.WriteLine(peek);
+        Console.WriteLine($"힙에서 꺼낸 원소: {peek}");
         // [region]{pop_2}
         peek = maxHeap.Dequeue(); // 4
         // [endregion]{pop_2}
-        Console.WriteLine(peek);
+        Console.WriteLine($"힙에서 꺼낸 원소: {peek}");
         // [region]{pop_3}
         peek = maxHeap.Dequeue(); // 3
         // [endregion]{pop_3}
-        Console.WriteLine(peek);
+        Console.WriteLine($"힙에서 꺼낸 원소: {peek}");
         // [region]{pop_4}
         peek = maxHeap.Dequeue(); // 2
         // [endregion]{pop_4}
-        Console.WriteLine(peek);
+        Console.WriteLine($"힙에서 꺼낸 원소: {peek}");
         // [region]{pop_5}
         peek = maxHeap.Dequeue(); // 1
         // [endregion]{pop_5}
-        Console.WriteLine(peek);
+        Console.WriteLine($"힙에서 꺼낸 원소: {peek}");
 
         // [region]{size}
         /* 힙 크기 반환 */
@@ -71,6 +71,7 @@ public class heap {
 
         // [region]{heapify}
         /* 리스트를 입력하여 힙 구성 */
+        // 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
         minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
         // [endregion]{heapify}
         Console.WriteLine("리스트를 입력하여 최소 힙을 구성한 후");

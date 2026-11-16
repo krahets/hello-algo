@@ -35,7 +35,7 @@ class LinkedListDeque:
         return self._size == 0
 
     def push(self, num: int, is_front: bool):
-        """큐 삽입 연산"""
+        """원소 삽입 연산"""
         node = ListNode(num)
         # 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
         if self.is_empty():
@@ -63,7 +63,7 @@ class LinkedListDeque:
         self.push(num, False)
 
     def pop(self, is_front: bool) -> int:
-        """큐에서 꺼내는 연산"""
+        """원소를 꺼내는 연산"""
         if self.is_empty():
             raise IndexError("덱이 비어 있다")
         # 큐의 길이가 1이면 머리와 꼬리가 같은 노드를 가리킨다
@@ -135,13 +135,13 @@ if __name__ == "__main__":
     peek_last: int = deque.peek_last()
     print("맨 뒤 원소 peek_last =", peek_last)
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     deque.push_last(4)
     print("원소 4를 맨 뒤에 삽입한 후 deque =", deque.to_array())
     deque.push_first(1)
     print("원소 1을 맨 앞에 삽입한 후 deque =", deque.to_array())
 
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop_last: int = deque.pop_last()
     print("맨 뒤에서 꺼낸 원소 =", pop_last, ", 맨 뒤에서 꺼낸 후 deque =", deque.to_array())
     pop_first: int = deque.pop_first()

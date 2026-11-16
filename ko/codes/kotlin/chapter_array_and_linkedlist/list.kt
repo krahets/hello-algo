@@ -8,10 +8,15 @@ package chapter_array_and_linkedlist
 
 /* 실행 코드 */
 fun main() {
+    // [region]{init_list}
     /* 리스트 초기화 */
-    // 가변 컬렉션
+    // 초깃값 없음
+    val emptyNums = mutableListOf<Int>()
+    // 초깃값 있음
     val nums = mutableListOf(1, 3, 2, 5, 4)
+    // [endregion]{init_list}
     println("리스트 nums = $nums")
+    println("리스트 emptyNums = $emptyNums")
 
     // [region]{access_element}
     /* 원소 접근 */
@@ -67,7 +72,7 @@ fun main() {
     // [endregion]{iterate_list}
 
     // [region]{concat_list}
-    /* 두 리스트 연결*/
+    /* 두 리스트 연결 */
     val nums1 = mutableListOf(6, 8, 7, 10, 9)
     nums.addAll(nums1) // 리스트 nums1을 nums 뒤에 연결한다
     // [endregion]{concat_list}

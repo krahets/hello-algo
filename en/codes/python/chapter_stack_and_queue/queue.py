@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # [region]{init_queue}
     # Initialize the queue
     # In Python, we generally use the deque class as a queue
-    # Although queue.Queue() is a dedicated queue class, deque is more convenient for this example
+    # Although queue.Queue() is a dedicated queue class, it is less convenient to use and is therefore not recommended
     que: deque[int] = deque()
     # [endregion]{init_queue}
 

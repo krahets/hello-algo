@@ -128,30 +128,17 @@
 ```
 
 ```rust title="queue.rs"
-/* Initialize a deque */
-// In Rust, use a deque as an ordinary queue
-let mut deque: VecDeque<u32> = VecDeque::new();
+[file]{queue}-[region]{init_queue}
 
-/* Enqueue elements */
-deque.push_back(1);
-deque.push_back(3);
-deque.push_back(2);
-deque.push_back(5);
-deque.push_back(4);
+[file]{queue}-[region]{push}
 
-/* Access the front element */
-if let Some(front) = deque.front() {
-}
+[file]{queue}-[region]{peek}
 
-/* Dequeue an element */
-if let Some(pop) = deque.pop_front() {
-}
+[file]{queue}-[region]{pop}
 
-/* Get the queue size */
-let size = deque.len();
+[file]{queue}-[region]{size}
 
-/* Check whether the queue is empty */
-let is_empty = deque.is_empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```c title="queue.c"

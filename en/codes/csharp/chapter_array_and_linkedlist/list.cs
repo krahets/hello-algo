@@ -10,10 +10,16 @@ public class list {
     [Test]
     public void Test() {
 
+        // [region]{init_list}
         /* Initialize the list */
+        // Without initial values
+        List<int> emptyNums = [];
+        // With initial values
         int[] numbers = [1, 3, 2, 5, 4];
         List<int> nums = [.. numbers];
+        // [endregion]{init_list}
         Console.WriteLine("List nums = " + string.Join(",", nums));
+        Console.WriteLine("List emptyNums = " + string.Join(",", emptyNums));
 
         // [region]{access_element}
         /* Access an element */

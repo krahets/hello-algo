@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* 擴展陣列長度 */
 int *extend(int *nums, int size, int enlarge) {
     // 初始化一個擴展長度後的陣列
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // 將原陣列中的所有元素複製到新陣列
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -67,15 +67,24 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    // [region]{init_array}
     /* 初始化陣列 */
+    // 儲存在堆疊上
+    int arr[5] = {};
+    int nums[5] = {1, 3, 2, 5, 4};
+    // 儲存在堆積上（需要手動釋放空間）
+    int *arr1 = new int[5]{};
+    int *nums1 = new int[5]{1, 3, 2, 5, 4};
+    // [endregion]{init_array}
     int size = 5;
-    int *arr = new int[size];
     cout << "陣列 arr = ";
     printArray(arr, size);
-
-    int *nums = new int[size]{1, 3, 2, 5, 4};
     cout << "陣列 nums = ";
     printArray(nums, size);
+    cout << "陣列 arr1 = ";
+    printArray(arr1, size);
+    cout << "陣列 nums1 = ";
+    printArray(nums1, size);
 
     /* 隨機訪問 */
     int randomNum = randomAccess(nums, size);
@@ -83,31 +92,31 @@ int main() {
 
     /* 長度擴展 */
     int enlarge = 3;
-    nums = extend(nums, size, enlarge);
+    nums1 = extend(nums1, size, enlarge);
     size += enlarge;
     cout << "將陣列長度擴展至 8 ，得到 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 插入元素 */
-    insert(nums, size, 6, 3);
+    insert(nums1, size, 6, 3);
     cout << "在索引 3 處插入數字 6 ，得到 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 刪除元素 */
-    remove(nums, size, 2);
+    remove(nums1, size, 2);
     cout << "刪除索引 2 處的元素，得到 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 走訪陣列 */
-    traverse(nums, size);
+    traverse(nums1, size);
 
     /* 查詢元素 */
-    int index = find(nums, size, 3);
+    int index = find(nums1, size, 3);
     cout << "在 nums 中查詢元素 3 ，得到索引 = " << index << endl;
 
     // 釋放記憶體
-    delete[] arr;
-    delete[] nums;
+    delete[] arr1;
+    delete[] nums1;
 
     return 0;
 }

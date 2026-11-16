@@ -10,8 +10,8 @@
 /* 雙向鏈結串列節點 */
 typedef struct DoublyListNode {
     int val;                     // 節點值
-    struct DoublyListNode *next; // 後繼節點
-    struct DoublyListNode *prev; // 前驅節點
+    struct DoublyListNode *next; // 後繼節點指標
+    struct DoublyListNode *prev; // 前驅節點指標
 } DoublyListNode;
 
 /* 建構子 */

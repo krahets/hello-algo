@@ -15,7 +15,7 @@ enum Queue {
         // [endregion]{init_queue}
 
         // [region]{push}
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.append(1)
         queue.append(3)
         queue.append(2)
@@ -31,8 +31,8 @@ enum Queue {
         print("맨 앞 원소 peek = \(peek)")
 
         // [region]{pop}
-        /* 큐에서 원소 꺼내기 */
-        // Array로 구현할 때 pop의 시간 복잡도는 O(n)이다
+        /* 원소 꺼내기 */
+        // Array로 구현할 때 removeFirst의 복잡도는 O(n)이다
         let pop = queue.removeFirst()
         // [endregion]{pop}
         print("큐에서 꺼낸 원소 pop = \(pop), 꺼낸 후 queue = \(queue)")

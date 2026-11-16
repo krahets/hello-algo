@@ -4,9 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{init_list}
 /* 初始化串列 */
+// 無初始值
+const emptyNums = [];
+// 有初始值
 const nums = [1, 3, 2, 5, 4];
+// [endregion]{init_list}
 console.log(`串列 nums = ${nums}`);
+console.log(`串列 emptyNums = ${emptyNums}`);
 
 // [region]{access_element}
 /* 訪問元素 */

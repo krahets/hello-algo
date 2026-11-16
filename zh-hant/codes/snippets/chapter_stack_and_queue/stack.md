@@ -126,28 +126,17 @@
 ```
 
 ```rust title="stack.rs"
-/* 初始化堆疊 */
-// 把 Vec 當作堆疊來使用
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* 元素入堆疊 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 訪問堆疊頂元素 */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* 元素出堆疊 */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* 獲取堆疊的長度 */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* 判斷是否為空 */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"

@@ -15,7 +15,7 @@ extern "C" {
 /* 연결 리스트 노드 구조체 */
 typedef struct ListNode {
     int val;               // 노드 값
-    struct ListNode *next; // 다음 노드를 가리키는 참조
+    struct ListNode *next; // 다음 노드를 가리키는 포인터
 } ListNode;
 
 /* 생성자: 새 노드를 초기화한다 */

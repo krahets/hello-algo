@@ -36,7 +36,7 @@ void main() {
   print("デキューした要素 pop = $pop 、デキュー後 queue = $queue");
 
   // [region]{size}
-  /* キューの長さを取得する */
+  /* キューの長さを取得 */
   final int size = queue.length;
   // [endregion]{size}
   print("キューの長さ size = $size");

@@ -14,7 +14,7 @@ void main() {
   // [endregion]{init_queue}
 
   // [region]{push}
-  /* 큐에 원소 삽입 */
+  /* 원소 삽입 */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -30,7 +30,7 @@ void main() {
   print("맨 앞 원소 peek = $peek");
 
   // [region]{pop}
-  /* 큐에서 원소 꺼내기 */
+  /* 원소 꺼내기 */
   final int pop = queue.removeFirst();
   // [endregion]{pop}
   print("큐에서 꺼낸 원소 pop = $pop , 꺼낸 후 queue = $queue");

@@ -8,10 +8,15 @@ package chapter_array_and_linkedlist
 
 /* 実行用コード */
 fun main() {
+    // [region]{init_list}
     /* リストを初期化する */
-    // 変更可能なコレクション
+    // 初期値なし
+    val emptyNums = mutableListOf<Int>()
+    // 初期値あり
     val nums = mutableListOf(1, 3, 2, 5, 4)
+    // [endregion]{init_list}
     println("リスト nums = $nums")
+    println("リスト emptyNums = $emptyNums")
 
     // [region]{access_element}
     /* 要素にアクセスする */
@@ -67,7 +72,7 @@ fun main() {
     // [endregion]{iterate_list}
 
     // [region]{concat_list}
-    /* 2 つのリストを連結する*/
+    /* 2 つのリストを連結する */
     val nums1 = mutableListOf(6, 8, 7, 10, 9)
     nums.addAll(nums1) // リスト nums の後ろに nums1 を連結する
     // [endregion]{concat_list}

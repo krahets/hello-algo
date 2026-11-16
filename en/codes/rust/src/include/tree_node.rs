@@ -15,7 +15,7 @@ use std::rc::Rc;
 pub struct TreeNode {
     pub val: i32,                               // Node value
     pub height: i32,                            // Node height
-    pub parent: Option<Rc<RefCell<TreeNode>>>,
+    pub parent: Option<Rc<RefCell<TreeNode>>>,  // Pointer to the parent node
     pub left: Option<Rc<RefCell<TreeNode>>>,    // Pointer to the left child
     pub right: Option<Rc<RefCell<TreeNode>>>,   // Pointer to the right child
 }

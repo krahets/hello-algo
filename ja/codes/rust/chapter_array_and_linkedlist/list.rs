@@ -7,10 +7,17 @@ use hello_algo_rust::include::print_util;
 
 /* 実行用コード */
 fn main() {
+    // [region]{init_list}
     // リストを初期化する
+    // 初期値なし
+    let empty_nums: Vec<i32> = Vec::new();
+    // 初期値あり
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_list}
     print!("リスト nums = ");
     print_util::print_array(&nums);
+    print!("\nリスト empty_nums = ");
+    print_util::print_array(&empty_nums);
 
     // [region]{access_element}
     // 要素にアクセスする
@@ -74,10 +81,10 @@ fn main() {
     // [region]{concat_list}
     // 2 つのリストを連結する
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append（ムーブ）後、nums1 は空になる！
+    nums.append(&mut nums1); // append は nums1 の要素をムーブするため、その後 nums1 は空になる
     // [endregion]{concat_list}
 
-    // nums.extend(&nums1);   // extend（借用）なら nums1 を引き続き使える
+    // nums.extend(&nums1);   // extend は nums1 を借用するだけなので、その後も nums1 を引き続き使える
     print!("\nリスト nums の後ろに nums1 を連結した結果 nums = ");
     print_util::print_array(&nums);
 

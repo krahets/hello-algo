@@ -15,9 +15,9 @@ fn main() {
     // [region]{init}
     /* ヒープを初期化する */
     // 最小ヒープを初期化する
+    // Rust の BinaryHeap は最大ヒープであり、最小ヒープにするには要素を Reverse で包む必要がある
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // Rust の BinaryHeap は最大ヒープであり、最小ヒープには通常 Reverse を「かぶせる」
     // 最大ヒープを初期化する
     let mut max_heap = BinaryHeap::new();
     // [endregion]{init}
@@ -45,23 +45,23 @@ fn main() {
     // 取り出した要素は降順の列を形成する
     let peek = max_heap.pop().unwrap(); // 5
     // [endregion]{pop_1}
-    println!("{}", peek);
+    println!("ヒープから取り出した要素は {}", peek);
     // [region]{pop_2}
     let peek = max_heap.pop().unwrap(); // 4
     // [endregion]{pop_2}
-    println!("{}", peek);
+    println!("ヒープから取り出した要素は {}", peek);
     // [region]{pop_3}
     let peek = max_heap.pop().unwrap(); // 3
     // [endregion]{pop_3}
-    println!("{}", peek);
+    println!("ヒープから取り出した要素は {}", peek);
     // [region]{pop_4}
     let peek = max_heap.pop().unwrap(); // 2
     // [endregion]{pop_4}
-    println!("{}", peek);
+    println!("ヒープから取り出した要素は {}", peek);
     // [region]{pop_5}
     let peek = max_heap.pop().unwrap(); // 1
     // [endregion]{pop_5}
-    println!("{}", peek);
+    println!("ヒープから取り出した要素は {}", peek);
 
     // [region]{size}
     /* ヒープのサイズを取得する */

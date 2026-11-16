@@ -126,28 +126,17 @@
 ```
 
 ```rust title="stack.rs"
-/* Initialize a stack */
-// Use a Vec as a stack
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* Push elements */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* Access the top element */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* Pop an element */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* Get the stack size */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* Check whether the stack is empty */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"

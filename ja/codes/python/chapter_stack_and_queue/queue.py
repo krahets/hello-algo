@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # [region]{init_queue}
     # キューを初期化する
     # Python では一般に、両端キューのクラス deque をキューとして使う
-    # queue.Queue() は専用のキュークラスだが、やや使いづらい
+    # queue.Queue() は専用のキュークラスだが、やや使いづらいため推奨しない
     que: deque[int] = deque()
     # [endregion]{init_queue}
 

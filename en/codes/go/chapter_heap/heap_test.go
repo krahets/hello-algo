@@ -34,11 +34,11 @@ func TestHeap(t *testing.T) {
 
 	/* Pop the top element from the heap */
 	// Call heap.Pop, which uses heap.Interface to remove the top element
-	fmt.Println(heap.Pop(maxHeap)) // 5
-	fmt.Println(heap.Pop(maxHeap)) // 4
-	fmt.Println(heap.Pop(maxHeap)) // 3
-	fmt.Println(heap.Pop(maxHeap)) // 2
-	fmt.Println(heap.Pop(maxHeap)) // 1
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 1
 
 	/* Get the heap size */
 	size := len(*maxHeap)

@@ -15,7 +15,7 @@ public class queue {
         // [endregion]{init_queue}
 
         // [region]{push}
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.Enqueue(1);
         queue.Enqueue(3);
         queue.Enqueue(2);
@@ -31,7 +31,7 @@ public class queue {
         Console.WriteLine("맨 앞 원소 peek = " + peek);
 
         // [region]{pop}
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int pop = queue.Dequeue();
         // [endregion]{pop}
         Console.WriteLine("큐에서 꺼낸 원소 pop = " + pop + ", 큐에서 꺼낸 후 queue = " + string.Join(",", queue));

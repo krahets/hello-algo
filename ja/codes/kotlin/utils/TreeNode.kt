@@ -8,7 +8,6 @@ package utils
 
 // [region]{tree_node}
 /* 二分木のノードクラス */
-/* コンストラクタ */
 class TreeNode(
     var _val: Int // ノードの値
 ) {

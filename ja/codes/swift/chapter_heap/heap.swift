@@ -15,7 +15,7 @@ enum _Heap {
     static func main() {
         // [region]{init}
         /* ヒープを初期化する */
-        // Swift の Heap 型は最大ヒープと最小ヒープの両方に対応する
+        // Swift の Heap 型は最大ヒープと最小ヒープの両方に対応し、swift-collections パッケージを導入する必要がある
         var heap = Heap<Int>()
         // [endregion]{init}
 
@@ -39,23 +39,23 @@ enum _Heap {
         /* ヒープの先頭要素を取り出す */
         peek = heap.removeMax() // 5
         // [endregion]{pop_1}
-        print(peek!)
+        print("ヒープから取り出した要素は \(peek!)")
         // [region]{pop_2}
         peek = heap.removeMax() // 4
         // [endregion]{pop_2}
-        print(peek!)
+        print("ヒープから取り出した要素は \(peek!)")
         // [region]{pop_3}
         peek = heap.removeMax() // 3
         // [endregion]{pop_3}
-        print(peek!)
+        print("ヒープから取り出した要素は \(peek!)")
         // [region]{pop_4}
         peek = heap.removeMax() // 2
         // [endregion]{pop_4}
-        print(peek!)
+        print("ヒープから取り出した要素は \(peek!)")
         // [region]{pop_5}
         peek = heap.removeMax() // 1
         // [endregion]{pop_5}
-        print(peek!)
+        print("ヒープから取り出した要素は \(peek!)")
 
         // [region]{size}
         /* ヒープのサイズを取得する */

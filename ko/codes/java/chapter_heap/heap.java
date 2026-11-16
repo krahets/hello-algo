@@ -42,23 +42,23 @@ public class heap {
         // 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
         peek = maxHeap.poll(); // 5
         // [endregion]{pop_1}
-        System.out.println(peek);
+        System.out.format("힙에서 꺼낸 원소: %d\n", peek);
         // [region]{pop_2}
         peek = maxHeap.poll(); // 4
         // [endregion]{pop_2}
-        System.out.println(peek);
+        System.out.format("힙에서 꺼낸 원소: %d\n", peek);
         // [region]{pop_3}
         peek = maxHeap.poll(); // 3
         // [endregion]{pop_3}
-        System.out.println(peek);
+        System.out.format("힙에서 꺼낸 원소: %d\n", peek);
         // [region]{pop_4}
         peek = maxHeap.poll(); // 2
         // [endregion]{pop_4}
-        System.out.println(peek);
+        System.out.format("힙에서 꺼낸 원소: %d\n", peek);
         // [region]{pop_5}
         peek = maxHeap.poll(); // 1
         // [endregion]{pop_5}
-        System.out.println(peek);
+        System.out.format("힙에서 꺼낸 원소: %d\n", peek);
 
         // [region]{size}
         /* 힙 크기 반환 */

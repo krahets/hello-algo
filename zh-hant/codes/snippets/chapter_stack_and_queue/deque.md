@@ -130,30 +130,19 @@
 ```
 
 ```dart title="deque.dart"
-/* 初始化雙向佇列 */
-// 在 Dart 中，Queue 被定義為雙向佇列
-Queue<int> deque = Queue<int>();
+[file]{deque}-[region]{init_deque}
 
-/* 元素入列 */
-deque.addLast(2);  // 新增至佇列尾
-deque.addLast(5);
-deque.addLast(4);
-deque.addFirst(3); // 新增至佇列首
-deque.addFirst(1);
+[file]{deque}-[region]{push}
 
-/* 訪問元素 */
-int peekFirst = deque.first; // 佇列首元素
-int peekLast = deque.last;   // 佇列尾元素
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* 元素出列 */
-int popFirst = deque.removeFirst(); // 佇列首元素出列
-int popLast = deque.removeLast();   // 佇列尾元素出列
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* 獲取雙向佇列的長度 */
-int size = deque.length;
+[file]{deque}-[region]{size}
 
-/* 判斷雙向佇列是否為空 */
-bool isEmpty = deque.isEmpty;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```rust title="deque.rs"

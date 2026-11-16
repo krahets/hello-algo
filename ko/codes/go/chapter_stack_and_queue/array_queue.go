@@ -32,7 +32,7 @@ func (q *arrayQueue) isEmpty() bool {
 	return q.queSize == 0
 }
 
-/* 큐에 삽입 */
+/* 원소 삽입 */
 func (q *arrayQueue) push(num int) {
 	// rear == queCapacity이면 큐가 가득 찼음을 나타낸다
 	if q.queSize == q.queCapacity {
@@ -46,7 +46,7 @@ func (q *arrayQueue) push(num int) {
 	q.queSize++
 }
 
-/* 큐에서 꺼내기 */
+/* 원소 꺼내기 */
 func (q *arrayQueue) pop() any {
 	num := q.peek()
 	if num == nil {

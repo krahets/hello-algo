@@ -34,11 +34,11 @@ func TestHeap(t *testing.T) {
 
 	/* ヒープの先頭要素を取り出す */
 	// heap.Interface の関数を呼び出し、要素を取り除く
-	fmt.Println(heap.Pop(maxHeap)) // 5
-	fmt.Println(heap.Pop(maxHeap)) // 4
-	fmt.Println(heap.Pop(maxHeap)) // 3
-	fmt.Println(heap.Pop(maxHeap)) // 2
-	fmt.Println(heap.Pop(maxHeap)) // 1
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 1
 
 	/* ヒープのサイズを取得する */
 	size := len(*maxHeap)

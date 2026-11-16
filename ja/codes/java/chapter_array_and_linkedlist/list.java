@@ -10,11 +10,16 @@ import java.util.*;
 
 public class list {
     public static void main(String[] args) {
+        // [region]{init_list}
         /* リストを初期化する */
-        // 配列の要素型には int[] のラッパークラス Integer[] を使うことに注意
+        // 初期値なし
+        List<Integer> emptyNums = new ArrayList<>();
+        // 初期値あり（リストの要素には int のラッパークラス Integer しか使えないため、配列の型は int[] ではなく Integer[] にする必要があることに注意）
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+        // [endregion]{init_list}
         System.out.println("リスト nums = " + nums);
+        System.out.println("リスト emptyNums = " + emptyNums);
 
         // [region]{access_element}
         /* 要素にアクセスする */

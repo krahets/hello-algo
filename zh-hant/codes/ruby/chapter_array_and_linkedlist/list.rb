@@ -6,9 +6,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Driver Code ###
 if __FILE__ == $0
+  # [region]{init_list}
   # 初始化串列
+  # 無初始值
+  empty_nums = []
+  # 有初始值
   nums = [1, 3, 2, 5, 4]
+  # [endregion]{init_list}
   puts "串列 nums = #{nums}"
+  puts "串列 empty_nums = #{empty_nums}"
 
   # [region]{access_element}
   # 訪問元素

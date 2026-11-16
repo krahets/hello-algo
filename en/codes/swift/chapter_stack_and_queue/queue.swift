@@ -32,7 +32,7 @@ enum Queue {
 
         // [region]{pop}
         /* Dequeue an element */
-        // When using Array as a queue, dequeueing takes O(n) time
+        // When using Array as a queue, removeFirst has O(n) time complexity
         let pop = queue.removeFirst()
         // [endregion]{pop}
         print("Dequeued element pop = \(pop); after dequeueing, queue = \(queue)")

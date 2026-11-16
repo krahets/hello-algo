@@ -57,7 +57,7 @@ impl<T: Copy> LinkedListDeque<T> {
         return self.que_size == 0;
     }
 
-    /* 큐 삽입 연산 */
+    /* 원소 삽입 연산 */
     fn push(&mut self, num: T, is_front: bool) {
         let node = ListNode::new(num);
         // 맨 앞에 삽입하는 연산
@@ -105,7 +105,7 @@ impl<T: Copy> LinkedListDeque<T> {
         self.push(num, false);
     }
 
-    /* 큐에서 꺼내는 연산 */
+    /* 원소를 꺼내는 연산 */
     fn pop(&mut self, is_front: bool) -> Option<T> {
         // 큐가 비어 있으면 바로 None을 반환한다
         if self.is_empty() {
@@ -196,7 +196,7 @@ fn main() {
     let peek_last = deque.peek_last().unwrap().borrow().val;
     print!("\n맨 뒤 원소 peek_last = {}", peek_last);
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque.push_last(4);
     print!("\n원소 4를 뒤에 삽입한 뒤 deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
@@ -204,7 +204,7 @@ fn main() {
     print!("\n원소 1을 앞에 삽입한 뒤 deque = ");
     print_util::print_array(&deque.to_array(deque.peek_first()));
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     let pop_last = deque.pop_last().unwrap();
     print!("\n뒤에서 꺼낸 원소 = {}, 꺼낸 뒤 deque = ", pop_last);
     print_util::print_array(&deque.to_array(deque.peek_first()));

@@ -34,24 +34,29 @@ int main() {
     // [endregion]{peek}
     cout << "\nTop element of the heap: " << peek << endl;
 
+    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
     // [region]{pop_1}
     /* Pop the top element from the heap */
     // The elements are popped in descending order
     maxHeap.pop(); // 5
     // [endregion]{pop_1}
     printHeap(maxHeap);
+    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
     // [region]{pop_2}
     maxHeap.pop(); // 4
     // [endregion]{pop_2}
     printHeap(maxHeap);
+    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
     // [region]{pop_3}
     maxHeap.pop(); // 3
     // [endregion]{pop_3}
     printHeap(maxHeap);
+    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
     // [region]{pop_4}
     maxHeap.pop(); // 2
     // [endregion]{pop_4}
     printHeap(maxHeap);
+    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
     // [region]{pop_5}
     maxHeap.pop(); // 1
     // [endregion]{pop_5}

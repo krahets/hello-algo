@@ -15,9 +15,9 @@ fn main() {
     // [region]{init}
     /* 初始化堆積 */
     // 初始化小頂堆積
+    // Rust 的 BinaryHeap 是大頂堆積，小頂堆積需用 Reverse 包裝元素
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // Rust 的 BinaryHeap 是大頂堆積，小頂堆積一般會“套上”Reverse
     // 初始化大頂堆積
     let mut max_heap = BinaryHeap::new();
     // [endregion]{init}
@@ -45,23 +45,23 @@ fn main() {
     // 出堆積元素會形成一個從大到小的序列
     let peek = max_heap.pop().unwrap(); // 5
     // [endregion]{pop_1}
-    println!("{}", peek);
+    println!("出堆積元素為 {}", peek);
     // [region]{pop_2}
     let peek = max_heap.pop().unwrap(); // 4
     // [endregion]{pop_2}
-    println!("{}", peek);
+    println!("出堆積元素為 {}", peek);
     // [region]{pop_3}
     let peek = max_heap.pop().unwrap(); // 3
     // [endregion]{pop_3}
-    println!("{}", peek);
+    println!("出堆積元素為 {}", peek);
     // [region]{pop_4}
     let peek = max_heap.pop().unwrap(); // 2
     // [endregion]{pop_4}
-    println!("{}", peek);
+    println!("出堆積元素為 {}", peek);
     // [region]{pop_5}
     let peek = max_heap.pop().unwrap(); // 1
     // [endregion]{pop_5}
-    println!("{}", peek);
+    println!("出堆積元素為 {}", peek);
 
     // [region]{size}
     /* 獲取堆積大小 */

@@ -4,9 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{init_list}
 /* リストを初期化する */
+// 初期値なし
+const emptyNums = [];
+// 初期値あり
 const nums = [1, 3, 2, 5, 4];
+// [endregion]{init_list}
 console.log(`リスト nums = ${nums}`);
+console.log(`リスト emptyNums = ${emptyNums}`);
 
 // [region]{access_element}
 /* 要素にアクセスする */

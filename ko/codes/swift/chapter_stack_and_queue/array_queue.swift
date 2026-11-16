@@ -32,7 +32,7 @@ class ArrayQueue {
         size() == 0
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     func push(num: Int) {
         if size() == capacity() {
             print("큐가 가득 찼다")
@@ -46,7 +46,7 @@ class ArrayQueue {
         _size += 1
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     @discardableResult
     func pop() -> Int {
         let num = peek()
@@ -79,7 +79,7 @@ enum _ArrayQueue {
         let capacity = 10
         let queue = ArrayQueue(capacity: capacity)
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -91,7 +91,7 @@ enum _ArrayQueue {
         let peek = queue.peek()
         print("맨 앞 원소 peek = \(peek)")
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         let pop = queue.pop()
         print("큐에서 꺼낸 원소 pop = \(pop), 꺼낸 후 queue = \(queue.toArray())")
 

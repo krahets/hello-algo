@@ -34,24 +34,29 @@ int main() {
     // [endregion]{peek}
     cout << "\nヒープの先頭要素は " << peek << endl;
 
+    cout << "\nヒープから取り出した要素は " << maxHeap.top() << endl;
     // [region]{pop_1}
     /* ヒープの先頭要素を取り出す */
     // 取り出した要素は降順の列を形成する
     maxHeap.pop(); // 5
     // [endregion]{pop_1}
     printHeap(maxHeap);
+    cout << "\nヒープから取り出した要素は " << maxHeap.top() << endl;
     // [region]{pop_2}
     maxHeap.pop(); // 4
     // [endregion]{pop_2}
     printHeap(maxHeap);
+    cout << "\nヒープから取り出した要素は " << maxHeap.top() << endl;
     // [region]{pop_3}
     maxHeap.pop(); // 3
     // [endregion]{pop_3}
     printHeap(maxHeap);
+    cout << "\nヒープから取り出した要素は " << maxHeap.top() << endl;
     // [region]{pop_4}
     maxHeap.pop(); // 2
     // [endregion]{pop_4}
     printHeap(maxHeap);
+    cout << "\nヒープから取り出した要素は " << maxHeap.top() << endl;
     // [region]{pop_5}
     maxHeap.pop(); // 1
     // [endregion]{pop_5}

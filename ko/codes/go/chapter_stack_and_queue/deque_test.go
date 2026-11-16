@@ -20,7 +20,7 @@ func TestDeque(t *testing.T) {
 	// [endregion]{init_deque}
 
 	// [region]{push}
-	/* 큐에 원소 삽입 */
+	/* 원소 삽입 */
 	deque.PushBack(2) // 맨 뒤에 추가한다
 	deque.PushBack(5)
 	deque.PushBack(4)
@@ -41,7 +41,7 @@ func TestDeque(t *testing.T) {
 	fmt.Println("맨 뒤 원소 rear =", rear.Value)
 
 	// [region]{pop_first}
-	/* 큐에서 원소 꺼내기 */
+	/* 원소 꺼내기 */
 	deque.Remove(front) // 맨 앞 원소를 꺼낸다
 	// [endregion]{pop_first}
 	fmt.Print("맨 앞에서 꺼낸 원소 front = ", front.Value, ", 맨 앞에서 꺼낸 후 deque = ")
@@ -70,7 +70,7 @@ func TestArrayDeque(t *testing.T) {
 	// Go에서는 list를 덱으로 사용한다
 	deque := newArrayDeque(16)
 
-	/* 큐에 원소 삽입 */
+	/* 원소 삽입 */
 	deque.pushLast(3)
 	deque.pushLast(2)
 	deque.pushLast(5)
@@ -83,7 +83,7 @@ func TestArrayDeque(t *testing.T) {
 	peekLast := deque.peekLast()
 	fmt.Println("맨 뒤 원소 peekLast =", peekLast)
 
-	/* 큐에 원소 삽입 */
+	/* 원소 삽입 */
 	deque.pushLast(4)
 	fmt.Print("원소 4를 맨 뒤에 삽입한 후 deque = ")
 	PrintSlice(deque.toSlice())
@@ -91,7 +91,7 @@ func TestArrayDeque(t *testing.T) {
 	fmt.Print("원소 1을 맨 앞에 삽입한 후 deque = ")
 	PrintSlice(deque.toSlice())
 
-	/* 큐에서 원소 꺼내기 */
+	/* 원소 꺼내기 */
 	popFirst := deque.popFirst()
 	fmt.Print("맨 앞에서 꺼낸 원소 popFirst = ", popFirst, ", 맨 앞에서 꺼낸 후 deque = ")
 	PrintSlice(deque.toSlice())
@@ -112,7 +112,7 @@ func TestLinkedListDeque(t *testing.T) {
 	// 큐 초기화
 	deque := newLinkedListDeque()
 
-	// 큐에 원소 삽입
+	// 원소 삽입
 	deque.pushLast(2)
 	deque.pushLast(5)
 	deque.pushLast(4)
@@ -127,7 +127,7 @@ func TestLinkedListDeque(t *testing.T) {
 	rear := deque.peekLast()
 	fmt.Println("맨 뒤 원소 rear =", rear)
 
-	// 큐에서 원소 꺼내기
+	// 원소 꺼내기
 	popFirst := deque.popFirst()
 	fmt.Print("맨 앞에서 꺼낸 원소 popFirst = ", popFirst, ", 맨 앞에서 꺼낸 후 deque = ")
 	PrintList(deque.toList())

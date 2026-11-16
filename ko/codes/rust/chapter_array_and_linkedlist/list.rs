@@ -7,10 +7,17 @@ use hello_algo_rust::include::print_util;
 
 /* 실행 코드 */
 fn main() {
+    // [region]{init_list}
     // 리스트 초기화
+    // 초깃값 없음
+    let empty_nums: Vec<i32> = Vec::new();
+    // 초깃값 있음
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_list}
     print!("리스트 nums = ");
     print_util::print_array(&nums);
+    print!("\n리스트 empty_nums = ");
+    print_util::print_array(&empty_nums);
 
     // [region]{access_element}
     // 원소 접근
@@ -74,10 +81,10 @@ fn main() {
     // [region]{concat_list}
     // 두 리스트 연결
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append(이동) 후에는 nums1이 비게 된다!
+    nums.append(&mut nums1); // append는 nums1의 원소를 이동시키므로 이후 nums1은 비게 된다
     // [endregion]{concat_list}
 
-    // nums.extend(&nums1);   // extend(대여) 후에도 nums1을 계속 사용할 수 있다
+    // nums.extend(&nums1);   // extend는 nums1을 빌리기만 하므로 이후에도 nums1을 계속 사용할 수 있다
     print!("\n리스트 nums1을 nums 뒤에 연결한 후 nums = ");
     print_util::print_array(&nums);
 

@@ -1,85 +1,42 @@
 <!-- [snippet]{init_list} -->
 ```python title="list.py"
-# 初始化串列
-# 無初始值
-nums1: list[int] = []
-# 有初始值
-nums: list[int] = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```cpp title="list.cpp"
-/* 初始化串列 */
-// 需注意，C++ 中 vector 即是本文描述的 nums
-// 無初始值
-vector<int> nums1;
-// 有初始值
-vector<int> nums = { 1, 3, 2, 5, 4 };
+[file]{list}-[region]{init_list}
 ```
 
 ```java title="list.java"
-/* 初始化串列 */
-// 無初始值
-List<Integer> nums1 = new ArrayList<>();
-// 有初始值（注意陣列的元素型別需為 int[] 的包裝類別 Integer[]）
-Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
-List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+[file]{list}-[region]{init_list}
 ```
 
 ```csharp title="list.cs"
-/* 初始化串列 */
-// 無初始值
-List<int> nums1 = [];
-// 有初始值
-int[] numbers = [1, 3, 2, 5, 4];
-List<int> nums = [.. numbers];
+[file]{list}-[region]{init_list}
 ```
 
 ```go title="list_test.go"
-/* 初始化串列 */
-// 無初始值
-nums1 := []int{}
-// 有初始值
-nums := []int{1, 3, 2, 5, 4}
+[file]{list_test}-[region]{init_list}
 ```
 
 ```swift title="list.swift"
-/* 初始化串列 */
-// 無初始值
-let nums1: [Int] = []
-// 有初始值
-var nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```javascript title="list.js"
-/* 初始化串列 */
-// 無初始值
-const nums1 = [];
-// 有初始值
-const nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```typescript title="list.ts"
-/* 初始化串列 */
-// 無初始值
-const nums1: number[] = [];
-// 有初始值
-const nums: number[] = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```dart title="list.dart"
-/* 初始化串列 */
-// 無初始值
-List<int> nums1 = [];
-// 有初始值
-List<int> nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```rust title="list.rs"
-/* 初始化串列 */
-// 無初始值
-let nums1: Vec<i32> = Vec::new();
-// 有初始值
-let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```c title="list.c"
@@ -87,24 +44,15 @@ let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```kotlin title="list.kt"
-/* 初始化串列 */
-// 無初始值
-var nums1 = listOf<Int>()
-// 有初始值
-var numbers = arrayOf(1, 3, 2, 5, 4)
-var nums = numbers.toMutableList()
+[file]{list}-[region]{init_list}
 ```
 
 ```ruby title="list.rb"
-# 初始化串列
-# 無初始值
-nums1 = []
-# 有初始值
-nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 <!-- [tutor]{init_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
@@ -184,7 +132,7 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 <!-- [tutor]{access_element_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%A8%AA%E5%95%8F%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%87%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E7%82%BA%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E8%A8%AA%E5%95%8F%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%87%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E7%82%BA%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"

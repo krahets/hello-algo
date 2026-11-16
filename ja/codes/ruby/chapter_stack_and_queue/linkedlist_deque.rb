@@ -5,7 +5,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 # [region]{doubly_list_node}
-### 双方向連結リストのノード
+### 双方向連結リストのノード ###
 class ListNode
   attr_accessor :val  # ノードの値
   attr_accessor :next # 後続ノードへの参照
@@ -157,7 +157,7 @@ if __FILE__ == $0
 
   # 要素をデキューする
   pop_last = deque.pop_last
-  puts "末尾からデキューした要素 = #{pop_last}, 末尾からデキューした後 deque = #{deque.to_array}"
+  puts "末尾からデキューした要素 = #{pop_last}、末尾からデキューした後 deque = #{deque.to_array}"
   pop_first = deque.pop_first
   puts "先頭からデキューした要素 = #{pop_first}、先頭からデキューした後 deque = #{deque.to_array}"
 

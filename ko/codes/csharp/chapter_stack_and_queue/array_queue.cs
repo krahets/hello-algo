@@ -32,7 +32,7 @@ class ArrayQueue {
         return queSize == 0;
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     public void Push(int num) {
         if (queSize == Capacity()) {
             Console.WriteLine("큐가 가득 찼다");
@@ -46,7 +46,7 @@ class ArrayQueue {
         queSize++;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     public int Pop() {
         int num = Peek();
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -80,7 +80,7 @@ public class array_queue {
         int capacity = 10;
         ArrayQueue queue = new(capacity);
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -92,7 +92,7 @@ public class array_queue {
         int peek = queue.Peek();
         Console.WriteLine("맨 앞 원소 peek = " + peek);
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int pop = queue.Pop();
         Console.WriteLine("큐에서 꺼낸 원소 pop = " + pop + ", 큐에서 꺼낸 후 queue = " + string.Join(",", queue.ToArray()));
 

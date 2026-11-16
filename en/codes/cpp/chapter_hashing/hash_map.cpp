@@ -40,15 +40,22 @@ int main() {
     cout << "\nHash table after removing 10583:\nKey -> Value" << endl;
     printHashMap(map);
 
-    /* Traverse the hash table */
     cout << "\nTraverse key-value pairs: Key->Value" << endl;
+    // [region]{iterate_pairs}
+    /* Traverse the hash table */
+    // Traverse key-value pairs: key->value
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
+    // [endregion]{iterate_pairs}
+
     cout << "\nTraverse Key->Value pairs using an iterator" << endl;
+    // [region]{iterate_pairs_iterator}
+    // Traverse key->value using an iterator
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << "->" << iter->second << endl;
+        cout << iter->first << " -> " << iter->second << endl;
     }
+    // [endregion]{iterate_pairs_iterator}
 
     return 0;
 }

@@ -1,85 +1,42 @@
 <!-- [snippet]{init_list} -->
 ```python title="list.py"
-# 리스트 초기화
-# 초깃값 없음
-nums1: list[int] = []
-# 초깃값 지정
-nums: list[int] = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```cpp title="list.cpp"
-/* 리스트 초기화 */
-// C++의 vector가 이 글에서 설명하는 nums에 해당한다
-// 초깃값 없음
-vector<int> nums1;
-// 초깃값 지정
-vector<int> nums = { 1, 3, 2, 5, 4 };
+[file]{list}-[region]{init_list}
 ```
 
 ```java title="list.java"
-/* 리스트 초기화 */
-// 초깃값 없음
-List<Integer> nums1 = new ArrayList<>();
-// 초깃값 지정(배열은 int[]의 래퍼형인 Integer[]여야 함)
-Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
-List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+[file]{list}-[region]{init_list}
 ```
 
 ```csharp title="list.cs"
-/* 리스트 초기화 */
-// 초깃값 없음
-List<int> nums1 = [];
-// 초깃값 지정
-int[] numbers = [1, 3, 2, 5, 4];
-List<int> nums = [.. numbers];
+[file]{list}-[region]{init_list}
 ```
 
 ```go title="list_test.go"
-/* 리스트 초기화 */
-// 초깃값 없음
-nums1 := []int{}
-// 초깃값 지정
-nums := []int{1, 3, 2, 5, 4}
+[file]{list_test}-[region]{init_list}
 ```
 
 ```swift title="list.swift"
-/* 리스트 초기화 */
-// 초깃값 없음
-let nums1: [Int] = []
-// 초깃값 지정
-var nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```javascript title="list.js"
-/* 리스트 초기화 */
-// 초깃값 없음
-const nums1 = [];
-// 초깃값 지정
-const nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```typescript title="list.ts"
-/* 리스트 초기화 */
-// 초깃값 없음
-const nums1: number[] = [];
-// 초깃값 지정
-const nums: number[] = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```dart title="list.dart"
-/* 리스트 초기화 */
-// 초깃값 없음
-List<int> nums1 = [];
-// 초깃값 지정
-List<int> nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```rust title="list.rs"
-/* 리스트 초기화 */
-// 초깃값 없음
-let nums1: Vec<i32> = Vec::new();
-// 초깃값 지정
-let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```c title="list.c"
@@ -87,24 +44,15 @@ let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```kotlin title="list.kt"
-/* 리스트 초기화 */
-// 초깃값 없음
-var nums1 = listOf<Int>()
-// 초깃값 지정
-var numbers = arrayOf(1, 3, 2, 5, 4)
-var nums = numbers.toMutableList()
+[file]{list}-[region]{init_list}
 ```
 
 ```ruby title="list.rb"
-# 리스트 초기화
-# 초깃값 없음
-nums1 = []
-# 초깃값 지정
-nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 <!-- [tutor]{init_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
@@ -184,7 +132,7 @@ https://pythontutor.com/render.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94
 ```
 
 <!-- [tutor]{access_element_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"

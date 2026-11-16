@@ -27,7 +27,7 @@ class ArrayQueue(capacity: Int) {
         return queSize == 0
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     fun push(num: Int) {
         if (queSize == capacity()) {
             println("큐가 가득 찼다")
@@ -41,7 +41,7 @@ class ArrayQueue(capacity: Int) {
         queSize++
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     fun pop(): Int {
         val num = peek()
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -77,7 +77,7 @@ fun main() {
     val capacity = 10
     val queue = ArrayQueue(capacity)
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -89,7 +89,7 @@ fun main() {
     val peek = queue.peek()
     println("맨 앞 원소 peek = $peek")
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     val pop = queue.pop()
     println("큐에서 꺼낸 원소 pop = ${pop}, 꺼낸 후 queue =  ${queue.toArray().contentToString()}")
 

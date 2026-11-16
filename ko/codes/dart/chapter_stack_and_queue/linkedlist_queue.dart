@@ -27,7 +27,7 @@ class LinkedListQueue {
     return _queSize == 0;
   }
 
-  /* 큐에 삽입 */
+  /* 원소 삽입 */
   void push(int _num) {
     // 꼬리 노드 뒤에 _num을 추가한다
     final node = ListNode(_num);
@@ -43,7 +43,7 @@ class LinkedListQueue {
     _queSize++;
   }
 
-  /* 큐에서 꺼내기 */
+  /* 원소 꺼내기 */
   int pop() {
     final int _num = peek();
     // 머리 노드를 삭제한다
@@ -77,7 +77,7 @@ void main() {
   /* 큐 초기화 */
   final queue = LinkedListQueue();
 
-  /* 큐에 원소 삽입 */
+  /* 원소 삽입 */
   queue.push(1);
   queue.push(3);
   queue.push(2);
@@ -89,7 +89,7 @@ void main() {
   final int peek = queue.peek();
   print("맨 앞 원소 peek = $peek");
 
-  /* 큐에서 원소 꺼내기 */
+  /* 원소 꺼내기 */
   final int pop = queue.pop();
   print("큐에서 꺼낸 원소 pop = $pop , 꺼낸 후 queue = ${queue.toArray()}");
 

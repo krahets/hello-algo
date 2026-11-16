@@ -11,7 +11,7 @@ public class deque {
     public void Test() {
         // [region]{init_deque}
         /* 初始化雙向佇列 */
-        // 在 C# 中，將鏈結串列 LinkedList 看作雙向佇列來使用
+        // 在 C# 中，將鏈結串列 LinkedList 當作雙向佇列來使用
         LinkedList<int> deque = new();
         // [endregion]{init_deque}
 

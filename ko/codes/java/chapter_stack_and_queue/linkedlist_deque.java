@@ -41,7 +41,7 @@ class LinkedListDeque {
         return size() == 0;
     }
 
-    /* 큐 삽입 연산 */
+    /* 원소 삽입 연산 */
     private void push(int num, boolean isFront) {
         ListNode node = new ListNode(num);
         // 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
@@ -73,7 +73,7 @@ class LinkedListDeque {
         push(num, false);
     }
 
-    /* 큐에서 꺼내는 연산 */
+    /* 원소를 꺼내는 연산 */
     private int pop(boolean isFront) {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
@@ -156,13 +156,13 @@ public class linkedlist_deque {
         int peekLast = deque.peekLast();
         System.out.println("맨 뒤 원소 peekLast = " + peekLast);
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.pushLast(4);
         System.out.println("원소 4를 맨 뒤에 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
         System.out.println("원소 1을 맨 앞에 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int popLast = deque.popLast();
         System.out.println("맨 뒤에서 꺼낸 원소 = " + popLast + ", 맨 뒤에서 꺼낸 후 deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();

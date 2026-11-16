@@ -14,7 +14,7 @@ int main() {
     // [endregion]{init_deque}
 
     // [region]{push}
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque.push_back(2); // 맨 뒤에 추가한다
     deque.push_back(5);
     deque.push_back(4);
@@ -35,7 +35,7 @@ int main() {
     cout << "큐의 맨 뒤 원소 back = " << back << endl;
 
     // [region]{pop_first}
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     deque.pop_front(); // 맨 앞 원소를 꺼낸다
     // [endregion]{pop_first}
     cout << "맨 앞에서 꺼낸 원소 popFront = " << front << ", 맨 앞에서 꺼낸 후 deque = ";

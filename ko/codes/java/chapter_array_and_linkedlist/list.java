@@ -10,11 +10,16 @@ import java.util.*;
 
 public class list {
     public static void main(String[] args) {
+        // [region]{init_list}
         /* 리스트 초기화 */
-        // 배열의 원소 형식에는 int[]의 래퍼 형식인 Integer[]를 사용한다는 점에 주의한다
+        // 초깃값 없음
+        List<Integer> emptyNums = new ArrayList<>();
+        // 초깃값 있음(리스트 원소는 int의 래퍼 클래스인 Integer만 사용할 수 있으므로 배열 타입은 int[]가 아닌 Integer[]여야 한다는 점에 유의한다)
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+        // [endregion]{init_list}
         System.out.println("리스트 nums = " + nums);
+        System.out.println("리스트 emptyNums = " + emptyNums);
 
         // [region]{access_element}
         /* 원소 접근 */

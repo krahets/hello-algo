@@ -34,11 +34,11 @@ func TestHeap(t *testing.T) {
 
 	/* 힙의 루트 원소 꺼내기 */
 	// heap.Interface의 함수를 호출하여 원소를 제거한다
-	fmt.Println(heap.Pop(maxHeap)) // 5
-	fmt.Println(heap.Pop(maxHeap)) // 4
-	fmt.Println(heap.Pop(maxHeap)) // 3
-	fmt.Println(heap.Pop(maxHeap)) // 2
-	fmt.Println(heap.Pop(maxHeap)) // 1
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 1
 
 	/* 힙 크기 반환 */
 	size := len(*maxHeap)

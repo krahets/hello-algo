@@ -8,9 +8,15 @@
 
 /* 実行用コード */
 void main() {
+  // [region]{init_list}
   /* リストを初期化する */
+  // 初期値なし
+  List<int> emptyNums = [];
+  // 初期値あり
   List<int> nums = [1, 3, 2, 5, 4];
+  // [endregion]{init_list}
   print('リスト nums = $nums');
+  print('リスト emptyNums = $emptyNums');
 
   // [region]{access_element}
   /* 要素にアクセスする */

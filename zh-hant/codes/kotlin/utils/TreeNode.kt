@@ -8,7 +8,6 @@ package utils
 
 // [region]{tree_node}
 /* 二元樹節點類別 */
-/* 建構子 */
 class TreeNode(
     var _val: Int // 節點值
 ) {

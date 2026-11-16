@@ -40,15 +40,22 @@ int main() {
     cout << "\n10583을 삭제한 후의 해시 테이블\n키 -> 값" << endl;
     printHashMap(map);
 
-    /* 해시 테이블 순회 */
     cout << "\n키-값 쌍(키->값) 순회" << endl;
+    // [region]{iterate_pairs}
+    /* 해시 테이블 순회 */
+    // 키-값 쌍 key->value를 순회한다
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
+    // [endregion]{iterate_pairs}
+
     cout << "\n반복자로 키->값 순회" << endl;
+    // [region]{iterate_pairs_iterator}
+    // 반복자로 key->value를 순회한다
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << "->" << iter->second << endl;
+        cout << iter->first << " -> " << iter->second << endl;
     }
+    // [endregion]{iterate_pairs_iterator}
 
     return 0;
 }

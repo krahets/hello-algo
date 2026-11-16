@@ -6,9 +6,15 @@ Author: krahets (krahets@163.com)
 
 """Driver Code"""
 if __name__ == "__main__":
+    # [region]{init_list}
     # 初始化串列
+    # 無初始值
+    empty_nums: list[int] = []
+    # 有初始值
     nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_list}
     print("\n串列 nums =", nums)
+    print("\n串列 empty_nums =", empty_nums)
 
     # [region]{access_element}
     # 訪問元素

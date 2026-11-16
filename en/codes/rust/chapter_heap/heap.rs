@@ -15,9 +15,9 @@ fn main() {
     // [region]{init}
     /* Initialize the heap */
     // Initialize a min heap
+    // Rust's BinaryHeap is a max heap; wrap elements in Reverse to create a min heap
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // Rust's BinaryHeap is a max heap; wrapping elements in Reverse gives min heap ordering
     // Initialize a max heap
     let mut max_heap = BinaryHeap::new();
     // [endregion]{init}
@@ -45,23 +45,23 @@ fn main() {
     // The elements are popped in descending order
     let peek = max_heap.pop().unwrap(); // 5
     // [endregion]{pop_1}
-    println!("{}", peek);
+    println!("Element popped from the heap: {}", peek);
     // [region]{pop_2}
     let peek = max_heap.pop().unwrap(); // 4
     // [endregion]{pop_2}
-    println!("{}", peek);
+    println!("Element popped from the heap: {}", peek);
     // [region]{pop_3}
     let peek = max_heap.pop().unwrap(); // 3
     // [endregion]{pop_3}
-    println!("{}", peek);
+    println!("Element popped from the heap: {}", peek);
     // [region]{pop_4}
     let peek = max_heap.pop().unwrap(); // 2
     // [endregion]{pop_4}
-    println!("{}", peek);
+    println!("Element popped from the heap: {}", peek);
     // [region]{pop_5}
     let peek = max_heap.pop().unwrap(); // 1
     // [endregion]{pop_5}
-    println!("{}", peek);
+    println!("Element popped from the heap: {}", peek);
 
     // [region]{size}
     /* Get the heap size */

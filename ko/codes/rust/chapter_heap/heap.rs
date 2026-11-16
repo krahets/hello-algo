@@ -15,9 +15,9 @@ fn main() {
     // [region]{init}
     /* 힙 초기화 */
     // 최소 힙 초기화
+    // Rust의 BinaryHeap은 최대 힙이며, 최소 힙을 만들려면 원소를 Reverse로 감싸야 한다
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // Rust의 BinaryHeap은 최대 힙이며, 최소 힙을 만들 때는 보통 Reverse로 감싼다
     // 최대 힙 초기화
     let mut max_heap = BinaryHeap::new();
     // [endregion]{init}
@@ -45,23 +45,23 @@ fn main() {
     // 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
     let peek = max_heap.pop().unwrap(); // 5
     // [endregion]{pop_1}
-    println!("{}", peek);
+    println!("힙에서 꺼낸 원소: {}", peek);
     // [region]{pop_2}
     let peek = max_heap.pop().unwrap(); // 4
     // [endregion]{pop_2}
-    println!("{}", peek);
+    println!("힙에서 꺼낸 원소: {}", peek);
     // [region]{pop_3}
     let peek = max_heap.pop().unwrap(); // 3
     // [endregion]{pop_3}
-    println!("{}", peek);
+    println!("힙에서 꺼낸 원소: {}", peek);
     // [region]{pop_4}
     let peek = max_heap.pop().unwrap(); // 2
     // [endregion]{pop_4}
-    println!("{}", peek);
+    println!("힙에서 꺼낸 원소: {}", peek);
     // [region]{pop_5}
     let peek = max_heap.pop().unwrap(); // 1
     // [endregion]{pop_5}
-    println!("{}", peek);
+    println!("힙에서 꺼낸 원소: {}", peek);
 
     // [region]{size}
     /* 힙 크기 반환 */

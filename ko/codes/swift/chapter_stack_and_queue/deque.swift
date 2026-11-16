@@ -15,7 +15,7 @@ enum Deque {
         // [endregion]{init_deque}
 
         // [region]{push}
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.append(2) // 맨 뒤에 추가한다
         deque.append(5)
         deque.append(4)
@@ -35,7 +35,7 @@ enum Deque {
         print("맨 뒤 원소 peekLast = \(peekLast)")
 
         // [region]{pop_first}
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         // Array로 구현할 때 popFirst의 시간 복잡도는 O(n)이다
         let popFirst = deque.removeFirst() // 맨 앞 원소를 꺼낸다
         // [endregion]{pop_first}

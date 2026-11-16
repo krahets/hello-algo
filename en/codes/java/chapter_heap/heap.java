@@ -42,23 +42,23 @@ public class heap {
         // The elements are popped in descending order
         peek = maxHeap.poll(); // 5
         // [endregion]{pop_1}
-        System.out.println(peek);
+        System.out.format("Element popped from the heap: %d\n", peek);
         // [region]{pop_2}
         peek = maxHeap.poll(); // 4
         // [endregion]{pop_2}
-        System.out.println(peek);
+        System.out.format("Element popped from the heap: %d\n", peek);
         // [region]{pop_3}
         peek = maxHeap.poll(); // 3
         // [endregion]{pop_3}
-        System.out.println(peek);
+        System.out.format("Element popped from the heap: %d\n", peek);
         // [region]{pop_4}
         peek = maxHeap.poll(); // 2
         // [endregion]{pop_4}
-        System.out.println(peek);
+        System.out.format("Element popped from the heap: %d\n", peek);
         // [region]{pop_5}
         peek = maxHeap.poll(); // 1
         // [endregion]{pop_5}
-        System.out.println(peek);
+        System.out.format("Element popped from the heap: %d\n", peek);
 
         // [region]{size}
         /* Get the heap size */

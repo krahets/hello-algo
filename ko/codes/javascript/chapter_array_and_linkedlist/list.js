@@ -4,9 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{init_list}
 /* 리스트 초기화 */
+// 초깃값 없음
+const emptyNums = [];
+// 초깃값 있음
 const nums = [1, 3, 2, 5, 4];
+// [endregion]{init_list}
 console.log(`리스트 nums = ${nums}`);
+console.log(`리스트 emptyNums = ${emptyNums}`);
 
 // [region]{access_element}
 /* 원소 접근 */

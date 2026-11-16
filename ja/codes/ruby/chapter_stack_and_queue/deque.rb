@@ -42,7 +42,7 @@ if __FILE__ == $0
   # [region]{pop_last}
   pop_back = deque.pop
   # [endregion]{pop_last}
-  puts "末尾からデキューした要素 pop_back = #{pop_back}, 末尾からデキューした後 deque = #{deque}"
+  puts "末尾からデキューした要素 pop_back = #{pop_back}、末尾からデキューした後 deque = #{deque}"
 
   # [region]{size}
   # 両端キューの長さを取得する

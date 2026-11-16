@@ -27,7 +27,7 @@ class LinkedListQueue {
         return this.size === 0;
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     push(num: number): void {
         // 꼬리 노드 뒤에 num을 추가한다
         const node = new ListNode(num);
@@ -43,7 +43,7 @@ class LinkedListQueue {
         this.queSize++;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     pop(): number {
         const num = this.peek();
         if (!this.front) throw new Error('큐가 비어 있다');
@@ -75,7 +75,7 @@ class LinkedListQueue {
 /* 큐 초기화 */
 const queue = new LinkedListQueue();
 
-/* 큐에 원소 삽입 */
+/* 원소 삽입 */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -87,7 +87,7 @@ console.log('큐 queue = ' + queue.toArray());
 const peek = queue.peek();
 console.log('맨 앞 원소 peek = ' + peek);
 
-/* 큐에서 원소 꺼내기 */
+/* 원소 꺼내기 */
 const pop = queue.pop();
 console.log('큐에서 꺼낸 원소 pop = ' + pop + ', 큐에서 꺼낸 후 queue = ' + queue.toArray());
 

@@ -39,23 +39,23 @@ public class heap {
         // 取り出した要素は降順の列を形成する
         peek = maxHeap.Dequeue(); // 5
         // [endregion]{pop_1}
-        Console.WriteLine(peek);
+        Console.WriteLine($"ヒープから取り出した要素は {peek}");
         // [region]{pop_2}
         peek = maxHeap.Dequeue(); // 4
         // [endregion]{pop_2}
-        Console.WriteLine(peek);
+        Console.WriteLine($"ヒープから取り出した要素は {peek}");
         // [region]{pop_3}
         peek = maxHeap.Dequeue(); // 3
         // [endregion]{pop_3}
-        Console.WriteLine(peek);
+        Console.WriteLine($"ヒープから取り出した要素は {peek}");
         // [region]{pop_4}
         peek = maxHeap.Dequeue(); // 2
         // [endregion]{pop_4}
-        Console.WriteLine(peek);
+        Console.WriteLine($"ヒープから取り出した要素は {peek}");
         // [region]{pop_5}
         peek = maxHeap.Dequeue(); // 1
         // [endregion]{pop_5}
-        Console.WriteLine(peek);
+        Console.WriteLine($"ヒープから取り出した要素は {peek}");
 
         // [region]{size}
         /* ヒープのサイズを取得する */
@@ -71,6 +71,7 @@ public class heap {
 
         // [region]{heapify}
         /* リストを入力してヒープを構築する */
+        // 時間計算量は O(n) であり、O(nlogn) ではない
         minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
         // [endregion]{heapify}
         Console.WriteLine("リストを入力して最小ヒープを構築した後");

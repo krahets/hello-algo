@@ -130,30 +130,19 @@
 ```
 
 ```dart title="deque.dart"
-/* 両端キューを初期化 */
-// Dart では Queue は両端キューとして定義されている
-Queue<int> deque = Queue<int>();
+[file]{deque}-[region]{init_deque}
 
-/* 要素をエンキュー */
-deque.addLast(2);  // 末尾に追加
-deque.addLast(5);
-deque.addLast(4);
-deque.addFirst(3); // 先頭に追加
-deque.addFirst(1);
+[file]{deque}-[region]{push}
 
-/* 要素にアクセス */
-int peekFirst = deque.first; // 先頭要素
-int peekLast = deque.last;   // 末尾要素
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* 要素をデキュー */
-int popFirst = deque.removeFirst(); // 先頭要素を取り出す
-int popLast = deque.removeLast();   // 末尾要素を取り出す
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* 両端キューの長さを取得 */
-int size = deque.length;
+[file]{deque}-[region]{size}
 
-/* 両端キューが空かどうかを判定 */
-bool isEmpty = deque.isEmpty;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```rust title="deque.rs"

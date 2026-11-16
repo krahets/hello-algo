@@ -6,9 +6,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### 実行用コード ###
 if __FILE__ == $0
+  # [region]{init_list}
   # リストを初期化する
+  # 初期値なし
+  empty_nums = []
+  # 初期値あり
   nums = [1, 3, 2, 5, 4]
+  # [endregion]{init_list}
   puts "リスト nums = #{nums}"
+  puts "リスト empty_nums = #{empty_nums}"
 
   # [region]{access_element}
   # 要素にアクセスする

@@ -6,9 +6,15 @@ Author: krahets (krahets@163.com)
 
 """실행 코드"""
 if __name__ == "__main__":
+    # [region]{init_list}
     # 리스트 초기화
+    # 초깃값 없음
+    empty_nums: list[int] = []
+    # 초깃값 있음
     nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_list}
     print("\n리스트 nums =", nums)
+    print("\n리스트 empty_nums =", empty_nums)
 
     # [region]{access_element}
     # 원소 접근

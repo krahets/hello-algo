@@ -14,11 +14,11 @@ using namespace std;
 // [region]{tree_node}
 /* Binary tree node structure */
 struct TreeNode {
-    int val{};         // Node value
-    int height = 0;    // Node height
-    TreeNode *parent{};
-    TreeNode *left{};  // Pointer to the left child
-    TreeNode *right{}; // Pointer to the right child
+    int val{};          // Node value
+    int height = 0;     // Node height
+    TreeNode *parent{}; // Pointer to the parent node
+    TreeNode *left{};   // Pointer to the left child
+    TreeNode *right{};  // Pointer to the right child
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }

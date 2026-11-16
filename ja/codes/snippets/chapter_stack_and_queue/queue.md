@@ -128,30 +128,17 @@
 ```
 
 ```rust title="queue.rs"
-/* 両端キューを初期化 */
-// Rust では両端キューを通常のキューとして使う
-let mut deque: VecDeque<u32> = VecDeque::new();
+[file]{queue}-[region]{init_queue}
 
-/* 要素をエンキュー */
-deque.push_back(1);
-deque.push_back(3);
-deque.push_back(2);
-deque.push_back(5);
-deque.push_back(4);
+[file]{queue}-[region]{push}
 
-/* 先頭要素にアクセス */
-if let Some(front) = deque.front() {
-}
+[file]{queue}-[region]{peek}
 
-/* 要素をデキュー */
-if let Some(pop) = deque.pop_front() {
-}
+[file]{queue}-[region]{pop}
 
-/* キューの長さを取得 */
-let size = deque.len();
+[file]{queue}-[region]{size}
 
-/* キューが空かどうかを判定 */
-let is_empty = deque.is_empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```c title="queue.c"

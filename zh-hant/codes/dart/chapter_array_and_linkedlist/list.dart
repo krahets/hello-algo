@@ -8,9 +8,15 @@
 
 /* Driver Code */
 void main() {
+  // [region]{init_list}
   /* 初始化串列 */
+  // 無初始值
+  List<int> emptyNums = [];
+  // 有初始值
   List<int> nums = [1, 3, 2, 5, 4];
+  // [endregion]{init_list}
   print('串列 nums = $nums');
+  print('串列 emptyNums = $emptyNums');
 
   // [region]{access_element}
   /* 訪問元素 */

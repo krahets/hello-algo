@@ -21,8 +21,8 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // 請注意，stack.ToArray() 得到的是倒序序列，即索引 0 為堆疊頂
         // [endregion]{push}
+        // 請注意，stack.ToArray() 得到的是倒序序列，即索引 0 為堆疊頂
         Console.WriteLine("堆疊 stack = " + string.Join(",", stack));
 
         // [region]{peek}

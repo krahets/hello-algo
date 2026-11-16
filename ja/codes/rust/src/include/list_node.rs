@@ -13,6 +13,7 @@ use std::rc::Rc;
 // [endregion]{import_rc}
 
 // [region]{list_node}
+/* 連結リストのノード */
 #[derive(Debug)]
 pub struct ListNode<T> {
     pub val: T, // ノードの値

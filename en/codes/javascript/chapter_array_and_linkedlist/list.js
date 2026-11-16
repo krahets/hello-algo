@@ -4,9 +4,15 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
+// [region]{init_list}
 /* Initialize the list */
+// Without initial values
+const emptyNums = [];
+// With initial values
 const nums = [1, 3, 2, 5, 4];
+// [endregion]{init_list}
 console.log(`List nums = ${nums}`);
+console.log(`List emptyNums = ${emptyNums}`);
 
 // [region]{access_element}
 /* Access an element */

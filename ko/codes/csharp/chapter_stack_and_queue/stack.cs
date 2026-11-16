@@ -21,8 +21,8 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // stack.ToArray()는 역순 수열을 반환하며, 인덱스 0이 스택의 맨 위이다
         // [endregion]{push}
+        // stack.ToArray()는 역순 수열을 반환하며, 인덱스 0이 스택의 맨 위이다
         Console.WriteLine("스택 stack = " + string.Join(",", stack));
 
         // [region]{peek}

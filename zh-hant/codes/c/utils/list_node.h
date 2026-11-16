@@ -15,7 +15,7 @@ extern "C" {
 /* 鏈結串列節點結構體 */
 typedef struct ListNode {
     int val;               // 節點值
-    struct ListNode *next; // 指向下一節點的引用
+    struct ListNode *next; // 指向下一節點的指標
 } ListNode;
 
 /* 建構子，初始化一個新節點 */

@@ -10,8 +10,8 @@
 /* 双方向連結リストのノード */
 typedef struct DoublyListNode {
     int val;                     // ノードの値
-    struct DoublyListNode *next; // 後続ノード
-    struct DoublyListNode *prev; // 前のノード
+    struct DoublyListNode *next; // 後続ノードへのポインタ
+    struct DoublyListNode *prev; // 前のノードへのポインタ
 } DoublyListNode;
 
 /* コンストラクタ */

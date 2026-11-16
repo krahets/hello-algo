@@ -40,15 +40,22 @@ int main() {
     cout << "\n刪除 10583 後，雜湊表為\nKey -> Value" << endl;
     printHashMap(map);
 
-    /* 走訪雜湊表 */
     cout << "\n走訪鍵值對 Key->Value" << endl;
+    // [region]{iterate_pairs}
+    /* 走訪雜湊表 */
+    // 走訪鍵值對 key->value
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
+    // [endregion]{iterate_pairs}
+
     cout << "\n使用迭代器走訪 Key->Value" << endl;
+    // [region]{iterate_pairs_iterator}
+    // 使用迭代器走訪 key->value
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << "->" << iter->second << endl;
+        cout << iter->first << " -> " << iter->second << endl;
     }
+    // [endregion]{iterate_pairs_iterator}
 
     return 0;
 }

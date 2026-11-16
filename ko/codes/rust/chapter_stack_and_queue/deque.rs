@@ -15,7 +15,7 @@ pub fn main() {
     // [endregion]{init_deque}
 
     // [region]{push}
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque.push_back(2); // 맨 뒤에 추가한다
     deque.push_back(5);
     deque.push_back(4);
@@ -36,7 +36,7 @@ pub fn main() {
     print!("\n맨 뒤 원소 peekLast = {peek_last}");
 
     // [region]{pop_first}
-    // 큐에서 원소 꺼내기
+    // 원소 꺼내기
     let pop_first = deque.pop_front().unwrap(); // 맨 앞 원소를 꺼낸다
     // [endregion]{pop_first}
     print!("\n앞에서 꺼낸 원소 = {pop_first}, 꺼낸 뒤 deque = ");

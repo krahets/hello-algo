@@ -38,7 +38,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.que_size == 0
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("큐가 가득 찼다");
@@ -52,7 +52,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.que_size += 1;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     fn pop(&mut self) -> T {
         let num = self.peek();
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -88,7 +88,7 @@ fn main() {
     let capacity = 10;
     let mut queue = ArrayQueue::new(capacity);
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -100,7 +100,7 @@ fn main() {
     let peek = queue.peek();
     println!("맨 앞 원소 peek = {}", peek);
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     let pop = queue.pop();
     println!(
         "꺼낸 원소 pop = {:?}, 꺼낸 뒤 queue = {:?}",

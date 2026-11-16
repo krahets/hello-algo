@@ -10,11 +10,16 @@ import java.util.*;
 
 public class list {
     public static void main(String[] args) {
+        // [region]{init_list}
         /* Initialize the list */
-        // Use Integer[]: Integer is the wrapper type for int
+        // Without initial values
+        List<Integer> emptyNums = new ArrayList<>();
+        // With initial values (note that the array type must be Integer[] rather than int[], because list elements must use Integer, the wrapper class for int)
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+        // [endregion]{init_list}
         System.out.println("List nums = " + nums);
+        System.out.println("List emptyNums = " + emptyNums);
 
         // [region]{access_element}
         /* Access an element */

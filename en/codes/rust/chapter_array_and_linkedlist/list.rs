@@ -7,10 +7,17 @@ use hello_algo_rust::include::print_util;
 
 /* Driver code */
 fn main() {
+    // [region]{init_list}
     // Initialize the list
+    // Without initial values
+    let empty_nums: Vec<i32> = Vec::new();
+    // With initial values
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_list}
     print!("List nums = ");
     print_util::print_array(&nums);
+    print!("\nList empty_nums = ");
+    print_util::print_array(&empty_nums);
 
     // [region]{access_element}
     // Access an element
@@ -74,10 +81,10 @@ fn main() {
     // [region]{concat_list}
     // Concatenate two lists
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append moves the elements, leaving nums1 empty!
+    nums.append(&mut nums1); // append moves the elements out of nums1, leaving nums1 empty
     // [endregion]{concat_list}
 
-    // nums.extend(&nums1);   // extend borrows nums1, leaving its elements available
+    // nums.extend(&nums1);   // extend only borrows nums1, so nums1 can still be used afterward
     print!("\nAppend list nums1 to nums, giving nums = ");
     print_util::print_array(&nums);
 

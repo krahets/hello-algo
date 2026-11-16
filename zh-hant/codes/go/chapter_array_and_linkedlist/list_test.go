@@ -12,9 +12,15 @@ import (
 
 /* Driver Code */
 func TestList(t *testing.T) {
+	// [region]{init_list}
 	/* 初始化串列 */
+	// 無初始值
+	emptyNums := []int{}
+	// 有初始值
 	nums := []int{1, 3, 2, 5, 4}
+	// [endregion]{init_list}
 	fmt.Println("串列 nums =", nums)
+	fmt.Println("串列 emptyNums =", emptyNums)
 
 	// [region]{access_element}
 	/* 訪問元素 */

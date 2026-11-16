@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* Extend the array length */
 int *extend(int *nums, int size, int enlarge) {
     // Initialize an array with the extended length
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // Copy all elements from the original array to the new array
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -67,15 +67,24 @@ int find(int *nums, int size, int target) {
 
 /* Driver code */
 int main() {
+    // [region]{init_array}
     /* Initialize the array */
+    // Stored on the stack
+    int arr[5] = {};
+    int nums[5] = {1, 3, 2, 5, 4};
+    // Stored on the heap (memory must be freed manually)
+    int *arr1 = new int[5]{};
+    int *nums1 = new int[5]{1, 3, 2, 5, 4};
+    // [endregion]{init_array}
     int size = 5;
-    int *arr = new int[size];
     cout << "Array arr = ";
     printArray(arr, size);
-
-    int *nums = new int[size]{1, 3, 2, 5, 4};
     cout << "Array nums = ";
     printArray(nums, size);
+    cout << "Array arr1 = ";
+    printArray(arr1, size);
+    cout << "Array nums1 = ";
+    printArray(nums1, size);
 
     /* Random access */
     int randomNum = randomAccess(nums, size);
@@ -83,31 +92,31 @@ int main() {
 
     /* Extend the length */
     int enlarge = 3;
-    nums = extend(nums, size, enlarge);
+    nums1 = extend(nums1, size, enlarge);
     size += enlarge;
     cout << "Extend the array length to 8, giving nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* Insert an element */
-    insert(nums, size, 6, 3);
+    insert(nums1, size, 6, 3);
     cout << "Insert the number 6 at index 3, giving nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* Remove an element */
-    remove(nums, size, 2);
+    remove(nums1, size, 2);
     cout << "Remove the element at index 2, giving nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* Traverse the array */
-    traverse(nums, size);
+    traverse(nums1, size);
 
     /* Find an element */
-    int index = find(nums, size, 3);
+    int index = find(nums1, size, 3);
     cout << "Find element 3 in nums, giving index = " << index << endl;
 
     // Free memory
-    delete[] arr;
-    delete[] nums;
+    delete[] arr1;
+    delete[] nums1;
 
     return 0;
 }

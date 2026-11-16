@@ -6,9 +6,15 @@ Author: krahets (krahets@163.com)
 
 """Driver code"""
 if __name__ == "__main__":
+    # [region]{init_list}
     # Initialize the list
+    # Without initial values
+    empty_nums: list[int] = []
+    # With initial values
     nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_list}
     print("\nList nums =", nums)
+    print("\nList empty_nums =", empty_nums)
 
     # [region]{access_element}
     # Access an element

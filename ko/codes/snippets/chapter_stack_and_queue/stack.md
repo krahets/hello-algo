@@ -126,28 +126,17 @@
 ```
 
 ```rust title="stack.rs"
-/* 스택 초기화 */
-// Vec를 스택으로 사용
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"

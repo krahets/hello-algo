@@ -35,7 +35,7 @@ if __FILE__ == $0
 
   # [region]{pop_first}
   # Dequeue an element
-  # Front removal in a simple array takes O(n); Ruby implementations can optimize Array#shift
+  # Note that Array#shift has O(n) time complexity because the underlying structure is an array
   pop_front = deque.shift
   # [endregion]{pop_first}
   puts "Element dequeued from the front: pop_front = #{pop_front}; deque = #{deque}"

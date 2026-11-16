@@ -21,8 +21,8 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // stack.ToArray() が返す列は逆順であり、インデックス 0 がスタックの先頭になることに注意
         // [endregion]{push}
+        // stack.ToArray() が返す列は逆順であり、インデックス 0 がスタックの先頭になることに注意
         Console.WriteLine("スタック stack = " + string.Join(",", stack));
 
         // [region]{peek}

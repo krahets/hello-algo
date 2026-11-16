@@ -12,9 +12,15 @@ import (
 
 /* 実行用コード */
 func TestList(t *testing.T) {
+	// [region]{init_list}
 	/* リストを初期化する */
+	// 初期値なし
+	emptyNums := []int{}
+	// 初期値あり
 	nums := []int{1, 3, 2, 5, 4}
+	// [endregion]{init_list}
 	fmt.Println("リスト nums =", nums)
+	fmt.Println("リスト emptyNums =", emptyNums)
 
 	// [region]{access_element}
 	/* 要素にアクセスする */

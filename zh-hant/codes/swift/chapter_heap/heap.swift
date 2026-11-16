@@ -15,7 +15,7 @@ enum _Heap {
     static func main() {
         // [region]{init}
         /* 初始化堆積 */
-        // Swift 的 Heap 型別同時支持最大堆積和最小堆積
+        // Swift 的 Heap 型別同時支持大頂堆積和小頂堆積，需要引入 swift-collections 包
         var heap = Heap<Int>()
         // [endregion]{init}
 
@@ -39,23 +39,23 @@ enum _Heap {
         /* 堆積頂元素出堆積 */
         peek = heap.removeMax() // 5
         // [endregion]{pop_1}
-        print(peek!)
+        print("出堆積元素為 \(peek!)")
         // [region]{pop_2}
         peek = heap.removeMax() // 4
         // [endregion]{pop_2}
-        print(peek!)
+        print("出堆積元素為 \(peek!)")
         // [region]{pop_3}
         peek = heap.removeMax() // 3
         // [endregion]{pop_3}
-        print(peek!)
+        print("出堆積元素為 \(peek!)")
         // [region]{pop_4}
         peek = heap.removeMax() // 2
         // [endregion]{pop_4}
-        print(peek!)
+        print("出堆積元素為 \(peek!)")
         // [region]{pop_5}
         peek = heap.removeMax() // 1
         // [endregion]{pop_5}
-        print(peek!)
+        print("出堆積元素為 \(peek!)")
 
         // [region]{size}
         /* 獲取堆積大小 */

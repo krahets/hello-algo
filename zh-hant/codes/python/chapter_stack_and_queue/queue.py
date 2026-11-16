@@ -12,8 +12,8 @@ from collections import deque
 if __name__ == "__main__":
     # [region]{init_queue}
     # 初始化佇列
-    # 在 Python 中，我們一般將雙向佇列類別 deque 看作佇列使用
-    # 雖然 queue.Queue() 是純正的佇列類別，但不太好用
+    # 在 Python 中，我們一般將雙向佇列類別 deque 當作佇列使用
+    # 雖然 queue.Queue() 是純正的佇列類別，但不太好用，因此不推薦
     que: deque[int] = deque()
     # [endregion]{init_queue}
 

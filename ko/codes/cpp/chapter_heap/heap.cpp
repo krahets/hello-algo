@@ -34,24 +34,29 @@ int main() {
     // [endregion]{peek}
     cout << "\n힙의 루트 원소: " << peek << endl;
 
+    cout << "\n힙에서 꺼낸 원소: " << maxHeap.top() << endl;
     // [region]{pop_1}
     /* 힙의 루트 원소 꺼내기 */
     // 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
     maxHeap.pop(); // 5
     // [endregion]{pop_1}
     printHeap(maxHeap);
+    cout << "\n힙에서 꺼낸 원소: " << maxHeap.top() << endl;
     // [region]{pop_2}
     maxHeap.pop(); // 4
     // [endregion]{pop_2}
     printHeap(maxHeap);
+    cout << "\n힙에서 꺼낸 원소: " << maxHeap.top() << endl;
     // [region]{pop_3}
     maxHeap.pop(); // 3
     // [endregion]{pop_3}
     printHeap(maxHeap);
+    cout << "\n힙에서 꺼낸 원소: " << maxHeap.top() << endl;
     // [region]{pop_4}
     maxHeap.pop(); // 2
     // [endregion]{pop_4}
     printHeap(maxHeap);
+    cout << "\n힙에서 꺼낸 원소: " << maxHeap.top() << endl;
     // [region]{pop_5}
     maxHeap.pop(); // 1
     // [endregion]{pop_5}

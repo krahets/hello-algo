@@ -128,30 +128,17 @@
 ```
 
 ```rust title="queue.rs"
-/* 덱 초기화 */
-// Rust에서는 덱을 일반 큐로 사용한다
-let mut deque: VecDeque<u32> = VecDeque::new();
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-deque.push_back(1);
-deque.push_back(3);
-deque.push_back(2);
-deque.push_back(5);
-deque.push_back(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-if let Some(front) = deque.front() {
-}
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-if let Some(pop) = deque.pop_front() {
-}
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-let size = deque.len();
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-let is_empty = deque.is_empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```c title="queue.c"

@@ -8,12 +8,12 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 if __FILE__ == $0
   # [region]{init_deque}
   # 덱 초기화
-  # Ruby에는 내장 덱이 없으므로 Array를 덱으로 사용한다
+  # Ruby에는 내장 덱이 없으므로 Array를 덱으로 사용해야 한다
   deque = []
   # [endregion]{init_deque}
 
   # [region]{push}
-  # 큐에 원소 삽입
+  # 원소 삽입
   deque << 2
   deque << 5
   deque << 4
@@ -34,7 +34,7 @@ if __FILE__ == $0
   puts "맨 뒤 원소 peek_last = #{peek_last}"
 
   # [region]{pop_first}
-  # 큐에서 원소 꺼내기
+  # 원소 꺼내기
   # 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 유의한다
   pop_front = deque.shift
   # [endregion]{pop_first}

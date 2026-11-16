@@ -15,7 +15,7 @@ enum _Heap {
     static func main() {
         // [region]{init}
         /* 힙 초기화 */
-        // Swift의 Heap 타입은 최대 힙과 최소 힙을 모두 지원한다
+        // Swift의 Heap 타입은 최대 힙과 최소 힙을 모두 지원하며, swift-collections 패키지를 도입해야 한다
         var heap = Heap<Int>()
         // [endregion]{init}
 
@@ -39,23 +39,23 @@ enum _Heap {
         /* 힙의 루트 원소 꺼내기 */
         peek = heap.removeMax() // 5
         // [endregion]{pop_1}
-        print(peek!)
+        print("힙에서 꺼낸 원소: \(peek!)")
         // [region]{pop_2}
         peek = heap.removeMax() // 4
         // [endregion]{pop_2}
-        print(peek!)
+        print("힙에서 꺼낸 원소: \(peek!)")
         // [region]{pop_3}
         peek = heap.removeMax() // 3
         // [endregion]{pop_3}
-        print(peek!)
+        print("힙에서 꺼낸 원소: \(peek!)")
         // [region]{pop_4}
         peek = heap.removeMax() // 2
         // [endregion]{pop_4}
-        print(peek!)
+        print("힙에서 꺼낸 원소: \(peek!)")
         // [region]{pop_5}
         peek = heap.removeMax() // 1
         // [endregion]{pop_5}
-        print(peek!)
+        print("힙에서 꺼낸 원소: \(peek!)")
 
         // [region]{size}
         /* 힙 크기 반환 */

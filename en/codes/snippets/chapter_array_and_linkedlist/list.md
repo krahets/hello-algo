@@ -1,85 +1,42 @@
 <!-- [snippet]{init_list} -->
 ```python title="list.py"
-# Initialize lists
-# Without initial values
-nums1: list[int] = []
-# With initial values
-nums: list[int] = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```cpp title="list.cpp"
-/* Initialize lists */
-// In C++, vector is the list type used for nums here
-// Without initial values
-vector<int> nums1;
-// With initial values
-vector<int> nums = { 1, 3, 2, 5, 4 };
+[file]{list}-[region]{init_list}
 ```
 
 ```java title="list.java"
-/* Initialize lists */
-// Without initial values
-List<Integer> nums1 = new ArrayList<>();
-// With initial values (use Integer[], the boxed counterpart of int[])
-Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
-List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
+[file]{list}-[region]{init_list}
 ```
 
 ```csharp title="list.cs"
-/* Initialize lists */
-// Without initial values
-List<int> nums1 = [];
-// With initial values
-int[] numbers = [1, 3, 2, 5, 4];
-List<int> nums = [.. numbers];
+[file]{list}-[region]{init_list}
 ```
 
 ```go title="list_test.go"
-/* Initialize lists */
-// Without initial values
-nums1 := []int{}
-// With initial values
-nums := []int{1, 3, 2, 5, 4}
+[file]{list_test}-[region]{init_list}
 ```
 
 ```swift title="list.swift"
-/* Initialize lists */
-// Without initial values
-let nums1: [Int] = []
-// With initial values
-var nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 ```javascript title="list.js"
-/* Initialize lists */
-// Without initial values
-const nums1 = [];
-// With initial values
-const nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```typescript title="list.ts"
-/* Initialize lists */
-// Without initial values
-const nums1: number[] = [];
-// With initial values
-const nums: number[] = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```dart title="list.dart"
-/* Initialize lists */
-// Without initial values
-List<int> nums1 = [];
-// With initial values
-List<int> nums = [1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```rust title="list.rs"
-/* Initialize lists */
-// Without initial values
-let nums1: Vec<i32> = Vec::new();
-// With initial values
-let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+[file]{list}-[region]{init_list}
 ```
 
 ```c title="list.c"
@@ -87,24 +44,15 @@ let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```kotlin title="list.kt"
-/* Initialize lists */
-// Without initial values
-var nums1 = listOf<Int>()
-// With initial values
-var numbers = arrayOf(1, 3, 2, 5, 4)
-var nums = numbers.toMutableList()
+[file]{list}-[region]{init_list}
 ```
 
 ```ruby title="list.rb"
-# Initialize lists
-# Without initial values
-nums1 = []
-# With initial values
-nums = [1, 3, 2, 5, 4]
+[file]{list}-[region]{init_list}
 ```
 
 <!-- [tutor]{init_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
@@ -184,7 +132,7 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 <!-- [tutor]{access_element_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"

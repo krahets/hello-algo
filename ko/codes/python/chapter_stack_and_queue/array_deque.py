@@ -108,13 +108,13 @@ if __name__ == "__main__":
     peek_last: int = deque.peek_last()
     print("맨 뒤 원소 peek_last =", peek_last)
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     deque.push_last(4)
     print("원소 4를 맨 뒤에 삽입한 후 deque =", deque.to_array())
     deque.push_first(1)
     print("원소 1을 맨 앞에 삽입한 후 deque =", deque.to_array())
 
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop_last: int = deque.pop_last()
     print("맨 뒤에서 꺼낸 원소 =", pop_last, ", 맨 뒤에서 꺼낸 후 deque =", deque.to_array())
     pop_first: int = deque.pop_first()

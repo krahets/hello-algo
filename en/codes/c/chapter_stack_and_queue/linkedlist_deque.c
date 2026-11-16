@@ -10,8 +10,8 @@
 /* Doubly linked list node */
 typedef struct DoublyListNode {
     int val;                     // Node value
-    struct DoublyListNode *next; // Next node
-    struct DoublyListNode *prev; // Previous node
+    struct DoublyListNode *next; // Pointer to the next node
+    struct DoublyListNode *prev; // Pointer to the previous node
 } DoublyListNode;
 
 /* Constructor */

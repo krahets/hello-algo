@@ -10,32 +10,45 @@ use std::collections::VecDeque;
 
 /* Driver Code */
 pub fn main() {
+    // [region]{init_queue}
     // 初始化佇列
+    // 在 Rust 中，一般將雙向佇列 VecDeque 看作佇列使用
     let mut queue: VecDeque<i32> = VecDeque::new();
+    // [endregion]{init_queue}
 
+    // [region]{push}
     // 元素入列
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
     queue.push_back(5);
     queue.push_back(4);
+    // [endregion]{push}
     print!("佇列 queue = ");
     print_util::print_queue(&queue);
 
+    // [region]{peek}
     // 訪問佇列首元素
     let peek = queue.front().unwrap();
+    // [endregion]{peek}
     println!("\n佇列首元素 peek = {peek}");
 
+    // [region]{pop}
     // 元素出列
     let pop = queue.pop_front().unwrap();
+    // [endregion]{pop}
     print!("出列元素 pop = {pop}，出列後 queue = ");
     print_util::print_queue(&queue);
 
+    // [region]{size}
     // 獲取佇列的長度
     let size = queue.len();
+    // [endregion]{size}
     print!("\n佇列長度 size = {size}");
 
+    // [region]{is_empty}
     // 判斷佇列是否為空
     let is_empty = queue.is_empty();
+    // [endregion]{is_empty}
     print!("\n佇列是否為空 = {is_empty}");
 }

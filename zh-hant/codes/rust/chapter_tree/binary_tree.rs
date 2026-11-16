@@ -26,7 +26,7 @@ fn main() {
     print_util::print_tree(&n1);
 
     // [region]{insert_node}
-    // 插入節點與刪除節點
+    /* 插入與刪除節點 */
     let p = TreeNode::new(0);
     // 在 n1 -> n2 中間插入節點 P
     p.borrow_mut().left = Some(Rc::clone(&n2));

@@ -16,7 +16,7 @@ public class queue {
         // [endregion]{init_queue}
 
         // [region]{push}
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.offer(1);
         queue.offer(3);
         queue.offer(2);
@@ -32,7 +32,7 @@ public class queue {
         System.out.println("맨 앞 원소 peek = " + peek);
 
         // [region]{pop}
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int pop = queue.poll();
         // [endregion]{pop}
         System.out.println("큐에서 꺼낸 원소 pop = " + pop + ", 큐에서 꺼낸 후 queue = " + queue);

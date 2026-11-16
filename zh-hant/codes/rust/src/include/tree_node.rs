@@ -15,7 +15,7 @@ use std::rc::Rc;
 pub struct TreeNode {
     pub val: i32,                               // 節點值
     pub height: i32,                            // 節點高度
-    pub parent: Option<Rc<RefCell<TreeNode>>>,
+    pub parent: Option<Rc<RefCell<TreeNode>>>,  // 父節點指標
     pub left: Option<Rc<RefCell<TreeNode>>>,    // 左子節點指標
     pub right: Option<Rc<RefCell<TreeNode>>>,   // 右子節點指標
 }

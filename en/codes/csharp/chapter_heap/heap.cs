@@ -39,23 +39,23 @@ public class heap {
         // The elements are popped in descending order
         peek = maxHeap.Dequeue(); // 5
         // [endregion]{pop_1}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Element popped from the heap: {peek}");
         // [region]{pop_2}
         peek = maxHeap.Dequeue(); // 4
         // [endregion]{pop_2}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Element popped from the heap: {peek}");
         // [region]{pop_3}
         peek = maxHeap.Dequeue(); // 3
         // [endregion]{pop_3}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Element popped from the heap: {peek}");
         // [region]{pop_4}
         peek = maxHeap.Dequeue(); // 2
         // [endregion]{pop_4}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Element popped from the heap: {peek}");
         // [region]{pop_5}
         peek = maxHeap.Dequeue(); // 1
         // [endregion]{pop_5}
-        Console.WriteLine(peek);
+        Console.WriteLine($"Element popped from the heap: {peek}");
 
         // [region]{size}
         /* Get the heap size */
@@ -71,6 +71,7 @@ public class heap {
 
         // [region]{heapify}
         /* Build a heap from an input list */
+        // The time complexity is O(n), not O(nlogn)
         minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
         // [endregion]{heapify}
         Console.WriteLine("After building a min heap from the input list:");

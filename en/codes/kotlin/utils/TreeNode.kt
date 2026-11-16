@@ -8,7 +8,6 @@ package utils
 
 // [region]{tree_node}
 /* Binary tree node class */
-/* Constructor */
 class TreeNode(
     var _val: Int // Node value
 ) {

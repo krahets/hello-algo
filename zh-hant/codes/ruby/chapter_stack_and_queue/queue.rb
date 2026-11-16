@@ -8,7 +8,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 if __FILE__ == $0
   # [region]{init_queue}
   # 初始化佇列
-  # Ruby 內建的佇列（Thread::Queue) 沒有 peek 和走訪方法，可以把 Array 當作佇列來使用
+  # Ruby 內建的佇列（Thread::Queue）沒有 peek 和走訪方法，可以把 Array 當作佇列來使用
   queue = []
   # [endregion]{init_queue}
 
@@ -30,7 +30,7 @@ if __FILE__ == $0
 
   # [region]{pop}
   # 元素出列
-  # 清注意，由於是陣列，Array#shift 方法時間複雜度為 O(n)
+  # 請注意，由於是陣列，Array#shift 方法時間複雜度為 O(n)
   pop = queue.shift
   # [endregion]{pop}
   puts "出列元素 pop = #{pop}"

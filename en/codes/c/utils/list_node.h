@@ -15,7 +15,7 @@ extern "C" {
 /* Linked list node structure */
 typedef struct ListNode {
     int val;               // Node value
-    struct ListNode *next; // Reference to the next node
+    struct ListNode *next; // Pointer to the next node
 } ListNode;
 
 /* Constructor: initialize a new node */

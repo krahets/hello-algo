@@ -21,8 +21,8 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // Note that stack.ToArray() returns elements in reverse insertion order, with the stack top at index 0
         // [endregion]{push}
+        // Note that stack.ToArray() returns elements in reverse insertion order, with the stack top at index 0
         Console.WriteLine("Stack stack = " + string.Join(",", stack));
 
         // [region]{peek}

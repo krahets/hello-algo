@@ -8,9 +8,15 @@
 enum List {
     /* Driver Code */
     static func main() {
+        // [region]{init_list}
         /* 初始化串列 */
+        // 無初始值
+        let emptyNums: [Int] = []
+        // 有初始值
         var nums = [1, 3, 2, 5, 4]
+        // [endregion]{init_list}
         print("串列 nums = \(nums)")
+        print("串列 emptyNums = \(emptyNums)")
 
         // [region]{access_element}
         /* 訪問元素 */

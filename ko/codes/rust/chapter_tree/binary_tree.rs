@@ -26,7 +26,7 @@ fn main() {
     print_util::print_tree(&n1);
 
     // [region]{insert_node}
-    // 노드 삽입과 삭제
+    /* 노드 삽입과 삭제 */
     let p = TreeNode::new(0);
     // n1 -> n2 사이에 노드 P를 삽입한다
     p.borrow_mut().left = Some(Rc::clone(&n2));

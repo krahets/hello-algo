@@ -4,13 +4,7 @@
 ```
 
 ```cpp title="array.cpp"
-/* Initialize arrays */
-// Stored on the stack
-int arr[5] = {};
-int nums[5] = { 1, 3, 2, 5, 4 };
-// Stored on the heap (memory must be freed manually)
-int* arr1 = new int[5] {};
-int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
+[file]{array}-[region]{init_array}
 ```
 
 ```java title="array.java"

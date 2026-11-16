@@ -7,10 +7,17 @@ use hello_algo_rust::include::print_util;
 
 /* Driver Code */
 fn main() {
+    // [region]{init_list}
     // 初始化串列
+    // 無初始值
+    let empty_nums: Vec<i32> = Vec::new();
+    // 有初始值
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
+    // [endregion]{init_list}
     print!("串列 nums = ");
     print_util::print_array(&nums);
+    print!("\n串列 empty_nums = ");
+    print_util::print_array(&empty_nums);
 
     // [region]{access_element}
     // 訪問元素
@@ -74,10 +81,10 @@ fn main() {
     // [region]{concat_list}
     // 拼接兩個串列
     let mut nums1 = vec![6, 8, 7, 10, 9];
-    nums.append(&mut nums1); // append（移動） 之後 nums1 為空！
+    nums.append(&mut nums1); // append 會移走 nums1 的元素，之後 nums1 為空
     // [endregion]{concat_list}
 
-    // nums.extend(&nums1);   // extend（借用） nums1 能繼續使用
+    // nums.extend(&nums1);   // extend 只借用 nums1，之後 nums1 仍可繼續使用
     print!("\n將串列 nums1 拼接到 nums 之後，得到 nums = ");
     print_util::print_array(&nums);
 

@@ -8,10 +8,17 @@
 
 /* 実行用コード */
 int main() {
+    // [region]{init_list}
     /* リストを初期化する */
+    // 初期値なし
+    vector<int> emptyNums;
+    // 初期値あり
     vector<int> nums = {1, 3, 2, 5, 4};
+    // [endregion]{init_list}
     cout << "リスト nums = ";
     printVector(nums);
+    cout << "リスト emptyNums = ";
+    printVector(emptyNums);
 
     // [region]{access_element}
     /* 要素にアクセスする */

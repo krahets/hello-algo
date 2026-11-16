@@ -8,8 +8,9 @@ package chapter_stack_and_queue
 
 // [region]{doubly_list_node}
 /* 双方向連結リストのノード */
-class ListNode(var _val: Int) {
-    // ノードの値
+class ListNode(
+    var _val: Int // ノードの値
+) {
     var next: ListNode? = null // 後続ノードへの参照
     var prev: ListNode? = null // 前のノードへの参照
 }

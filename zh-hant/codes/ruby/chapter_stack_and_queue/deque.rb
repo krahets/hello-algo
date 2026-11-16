@@ -8,7 +8,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 if __FILE__ == $0
   # [region]{init_deque}
   # 初始化雙向佇列
-  # Ruby 沒有內直的雙端佇列，只能把 Array 當作雙端佇列來使用
+  # Ruby 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
   deque = []
   # [endregion]{init_deque}
 
@@ -35,7 +35,7 @@ if __FILE__ == $0
 
   # [region]{pop_first}
   # 元素出列
-  # 請注意，由於是陣列， Array#shift 方法的時間複雜度為 O(n)
+  # 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
   pop_front = deque.shift
   # [endregion]{pop_first}
   puts "佇列首出列元素 pop_front = #{pop_front}，佇列首出列後 deque = #{deque}"

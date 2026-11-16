@@ -8,7 +8,6 @@ package utils
 
 // [region]{tree_node}
 /* 이진 트리 노드 클래스 */
-/* 생성자 */
 class TreeNode(
     var _val: Int // 노드 값
 ) {

@@ -8,10 +8,17 @@
 
 /* 실행 코드 */
 int main() {
+    // [region]{init_list}
     /* 리스트 초기화 */
+    // 초깃값 없음
+    vector<int> emptyNums;
+    // 초깃값 있음
     vector<int> nums = {1, 3, 2, 5, 4};
+    // [endregion]{init_list}
     cout << "리스트 nums = ";
     printVector(nums);
+    cout << "리스트 emptyNums = ";
+    printVector(emptyNums);
 
     // [region]{access_element}
     /* 원소 접근 */

@@ -15,7 +15,7 @@ use std::rc::Rc;
 pub struct TreeNode {
     pub val: i32,                               // 노드 값
     pub height: i32,                            // 노드 높이
-    pub parent: Option<Rc<RefCell<TreeNode>>>,
+    pub parent: Option<Rc<RefCell<TreeNode>>>,  // 부모 노드 포인터
     pub left: Option<Rc<RefCell<TreeNode>>>,    // 왼쪽 자식 노드 포인터
     pub right: Option<Rc<RefCell<TreeNode>>>,   // 오른쪽 자식 노드 포인터
 }

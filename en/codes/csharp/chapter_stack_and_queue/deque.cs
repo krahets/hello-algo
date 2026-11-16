@@ -11,7 +11,7 @@ public class deque {
     public void Test() {
         // [region]{init_deque}
         /* Initialize the deque */
-        // In C#, use LinkedList as a deque
+        // In C#, use the linked list LinkedList as a deque
         LinkedList<int> deque = new();
         // [endregion]{init_deque}
 

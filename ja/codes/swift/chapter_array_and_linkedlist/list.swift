@@ -8,9 +8,15 @@
 enum List {
     /* 実行用コード */
     static func main() {
+        // [region]{init_list}
         /* リストを初期化する */
+        // 初期値なし
+        let emptyNums: [Int] = []
+        // 初期値あり
         var nums = [1, 3, 2, 5, 4]
+        // [endregion]{init_list}
         print("リスト nums = \(nums)")
+        print("リスト emptyNums = \(emptyNums)")
 
         // [region]{access_element}
         /* 要素にアクセスする */

@@ -9,7 +9,7 @@ import 'dart:collection';
 void main() {
   // [region]{init_queue}
   /* 初始化佇列 */
-  // 在 Dart 中，一般將雙向佇列類別 Queue 看作佇列使用
+  // 在 Dart 中，一般將雙向佇列類別 Queue 當作佇列使用
   final Queue<int> queue = Queue();
   // [endregion]{init_queue}
 
@@ -36,7 +36,7 @@ void main() {
   print("出列元素 pop = $pop ，出列後 queue = $queue");
 
   // [region]{size}
-  /* 獲取佇列長度 */
+  /* 獲取佇列的長度 */
   final int size = queue.length;
   // [endregion]{size}
   print("佇列長度 size = $size");

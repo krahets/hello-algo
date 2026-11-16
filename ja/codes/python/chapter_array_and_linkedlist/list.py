@@ -6,9 +6,15 @@ Author: krahets (krahets@163.com)
 
 """実行用コード"""
 if __name__ == "__main__":
+    # [region]{init_list}
     # リストを初期化する
+    # 初期値なし
+    empty_nums: list[int] = []
+    # 初期値あり
     nums: list[int] = [1, 3, 2, 5, 4]
+    # [endregion]{init_list}
     print("\nリスト nums =", nums)
+    print("\nリスト empty_nums =", empty_nums)
 
     # [region]{access_element}
     # 要素にアクセスする

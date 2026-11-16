@@ -8,10 +8,17 @@
 
 /* Driver Code */
 int main() {
+    // [region]{init_list}
     /* 初始化串列 */
+    // 無初始值
+    vector<int> emptyNums;
+    // 有初始值
     vector<int> nums = {1, 3, 2, 5, 4};
+    // [endregion]{init_list}
     cout << "串列 nums = ";
     printVector(nums);
+    cout << "串列 emptyNums = ";
+    printVector(emptyNums);
 
     // [region]{access_element}
     /* 訪問元素 */

@@ -8,10 +8,17 @@
 
 /* Driver code */
 int main() {
+    // [region]{init_list}
     /* Initialize the list */
+    // Without initial values
+    vector<int> emptyNums;
+    // With initial values
     vector<int> nums = {1, 3, 2, 5, 4};
+    // [endregion]{init_list}
     cout << "List nums = ";
     printVector(nums);
+    cout << "List emptyNums = ";
+    printVector(emptyNums);
 
     // [region]{access_element}
     /* Access an element */

@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* 배열 길이 확장 */
 int *extend(int *nums, int size, int enlarge) {
     // 길이를 확장한 배열을 초기화한다
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // 원래 배열의 모든 원소를 새 배열에 복사한다
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -67,15 +67,24 @@ int find(int *nums, int size, int target) {
 
 /* 실행 코드 */
 int main() {
+    // [region]{init_array}
     /* 배열 초기화 */
+    // 스택에 저장한다
+    int arr[5] = {};
+    int nums[5] = {1, 3, 2, 5, 4};
+    // 힙에 저장한다(메모리 공간을 직접 해제해야 한다)
+    int *arr1 = new int[5]{};
+    int *nums1 = new int[5]{1, 3, 2, 5, 4};
+    // [endregion]{init_array}
     int size = 5;
-    int *arr = new int[size];
     cout << "배열 arr = ";
     printArray(arr, size);
-
-    int *nums = new int[size]{1, 3, 2, 5, 4};
     cout << "배열 nums = ";
     printArray(nums, size);
+    cout << "배열 arr1 = ";
+    printArray(arr1, size);
+    cout << "배열 nums1 = ";
+    printArray(nums1, size);
 
     /* 임의 접근 */
     int randomNum = randomAccess(nums, size);
@@ -83,31 +92,31 @@ int main() {
 
     /* 길이 확장 */
     int enlarge = 3;
-    nums = extend(nums, size, enlarge);
+    nums1 = extend(nums1, size, enlarge);
     size += enlarge;
     cout << "배열 길이를 8로 확장한 후 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 원소 삽입 */
-    insert(nums, size, 6, 3);
+    insert(nums1, size, 6, 3);
     cout << "인덱스 3에 숫자 6을 삽입한 후 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 원소 삭제 */
-    remove(nums, size, 2);
+    remove(nums1, size, 2);
     cout << "인덱스 2의 원소를 삭제한 후 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 배열 순회 */
-    traverse(nums, size);
+    traverse(nums1, size);
 
     /* 원소 탐색 */
-    int index = find(nums, size, 3);
+    int index = find(nums1, size, 3);
     cout << "nums에서 원소 3을 탐색하여 얻은 인덱스 = " << index << endl;
 
     // 메모리 해제
-    delete[] arr;
-    delete[] nums;
+    delete[] arr1;
+    delete[] nums1;
 
     return 0;
 }

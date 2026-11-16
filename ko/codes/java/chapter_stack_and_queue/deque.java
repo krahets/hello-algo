@@ -16,7 +16,7 @@ public class deque {
         // [endregion]{init_deque}
 
         // [region]{push}
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.offerLast(2); // 맨 뒤에 추가한다
         deque.offerLast(5);
         deque.offerLast(4);
@@ -36,7 +36,7 @@ public class deque {
         System.out.println("맨 뒤 원소 peekLast = " + peekLast);
 
         // [region]{pop_first}
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int popFirst = deque.pollFirst(); // 맨 앞 원소를 꺼낸다
         // [endregion]{pop_first}
         System.out.println("맨 앞에서 꺼낸 원소 = " + popFirst + ", 맨 앞에서 꺼낸 후 deque = " + deque);

@@ -10,10 +10,16 @@ public class list {
     [Test]
     public void Test() {
 
+        // [region]{init_list}
         /* 初始化串列 */
+        // 無初始值
+        List<int> emptyNums = [];
+        // 有初始值
         int[] numbers = [1, 3, 2, 5, 4];
         List<int> nums = [.. numbers];
+        // [endregion]{init_list}
         Console.WriteLine("串列 nums = " + string.Join(",", nums));
+        Console.WriteLine("串列 emptyNums = " + string.Join(",", emptyNums));
 
         // [region]{access_element}
         /* 訪問元素 */

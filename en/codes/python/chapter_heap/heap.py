@@ -48,23 +48,23 @@ if __name__ == "__main__":
     # The elements are popped in descending order
     val = flag * heapq.heappop(max_heap)  # 5
     # [endregion]{pop_1}
-    print(val)
+    print(f"Element popped from the heap: {val}")
     # [region]{pop_2}
     val = flag * heapq.heappop(max_heap)  # 4
     # [endregion]{pop_2}
-    print(val)
+    print(f"Element popped from the heap: {val}")
     # [region]{pop_3}
     val = flag * heapq.heappop(max_heap)  # 3
     # [endregion]{pop_3}
-    print(val)
+    print(f"Element popped from the heap: {val}")
     # [region]{pop_4}
     val = flag * heapq.heappop(max_heap)  # 2
     # [endregion]{pop_4}
-    print(val)
+    print(f"Element popped from the heap: {val}")
     # [region]{pop_5}
     val = flag * heapq.heappop(max_heap)  # 1
     # [endregion]{pop_5}
-    print(val)
+    print(f"Element popped from the heap: {val}")
 
     # [region]{size}
     # Get the heap size

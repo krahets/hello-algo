@@ -15,7 +15,7 @@ enum _Heap {
     static func main() {
         // [region]{init}
         /* Initialize the heap */
-        // The Heap type in Swift Collections supports both max heap and min heap operations
+        // Swift's Heap type supports both max heap and min heap operations and requires the swift-collections package
         var heap = Heap<Int>()
         // [endregion]{init}
 
@@ -39,23 +39,23 @@ enum _Heap {
         /* Remove the maximum element from the heap */
         peek = heap.removeMax() // 5
         // [endregion]{pop_1}
-        print(peek!)
+        print("Element popped from the heap: \(peek!)")
         // [region]{pop_2}
         peek = heap.removeMax() // 4
         // [endregion]{pop_2}
-        print(peek!)
+        print("Element popped from the heap: \(peek!)")
         // [region]{pop_3}
         peek = heap.removeMax() // 3
         // [endregion]{pop_3}
-        print(peek!)
+        print("Element popped from the heap: \(peek!)")
         // [region]{pop_4}
         peek = heap.removeMax() // 2
         // [endregion]{pop_4}
-        print(peek!)
+        print("Element popped from the heap: \(peek!)")
         // [region]{pop_5}
         peek = heap.removeMax() // 1
         // [endregion]{pop_5}
-        print(peek!)
+        print("Element popped from the heap: \(peek!)")
 
         // [region]{size}
         /* Get the heap size */

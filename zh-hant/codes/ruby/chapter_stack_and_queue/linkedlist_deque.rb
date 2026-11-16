@@ -5,7 +5,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
 # [region]{doubly_list_node}
-### 雙向鏈結串列節點
+### 雙向鏈結串列節點 ###
 class ListNode
   attr_accessor :val  # 節點值
   attr_accessor :next # 後繼節點引用

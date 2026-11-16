@@ -30,7 +30,7 @@ class ArrayQueue {
         return this.queSize === 0;
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     push(num: number): void {
         if (this.size === this.capacity) {
             console.log('큐가 가득 찼다');
@@ -44,7 +44,7 @@ class ArrayQueue {
         this.queSize++;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     pop(): number {
         const num = this.peek();
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -75,7 +75,7 @@ class ArrayQueue {
 const capacity = 10;
 const queue = new ArrayQueue(capacity);
 
-/* 큐에 원소 삽입 */
+/* 원소 삽입 */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -87,7 +87,7 @@ console.log('큐 queue =', queue.toArray());
 const peek = queue.peek();
 console.log('맨 앞 원소 peek = ' + peek);
 
-/* 큐에서 원소 꺼내기 */
+/* 원소 꺼내기 */
 const pop = queue.pop();
 console.log('큐에서 꺼낸 원소 pop = ' + pop + ', 큐에서 꺼낸 후 queue =', queue.toArray());
 

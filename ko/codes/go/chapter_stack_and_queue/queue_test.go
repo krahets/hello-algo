@@ -20,7 +20,7 @@ func TestQueue(t *testing.T) {
 	// [endregion]{init_queue}
 
 	// [region]{push}
-	/* 큐에 원소 삽입 */
+	/* 원소 삽입 */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
@@ -37,7 +37,7 @@ func TestQueue(t *testing.T) {
 	fmt.Println("맨 앞 원소 peek =", peek.Value)
 
 	// [region]{pop}
-	/* 큐에서 원소 꺼내기 */
+	/* 원소 꺼내기 */
 	pop := queue.Front()
 	queue.Remove(pop)
 	// [endregion]{pop}
@@ -66,7 +66,7 @@ func TestArrayQueue(t *testing.T) {
 		t.Errorf("기대값:%v,실제값:%v", nil, queue.pop())
 	}
 
-	// 큐에 원소 삽입
+	// 원소 삽입
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -79,7 +79,7 @@ func TestArrayQueue(t *testing.T) {
 	peek := queue.peek()
 	fmt.Println("맨 앞 원소 peek =", peek)
 
-	// 큐에서 원소 꺼내기
+	// 원소 꺼내기
 	pop := queue.pop()
 	fmt.Print("큐에서 꺼낸 원소 pop = ", pop, ", 꺼낸 뒤 queue = ")
 	PrintSlice(queue.toSlice())
@@ -105,7 +105,7 @@ func TestLinkedListQueue(t *testing.T) {
 	// 큐 초기화
 	queue := newLinkedListQueue()
 
-	// 큐에 원소 삽입
+	// 원소 삽입
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -118,7 +118,7 @@ func TestLinkedListQueue(t *testing.T) {
 	peek := queue.peek()
 	fmt.Println("맨 앞 원소 peek =", peek)
 
-	// 큐에서 원소 꺼내기
+	// 원소 꺼내기
 	pop := queue.pop()
 	fmt.Print("큐에서 꺼낸 원소 pop = ", pop, ", 꺼낸 뒤 queue = ")
 	PrintList(queue.toList())

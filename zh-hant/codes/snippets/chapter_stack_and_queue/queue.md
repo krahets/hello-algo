@@ -128,30 +128,17 @@
 ```
 
 ```rust title="queue.rs"
-/* 初始化雙向佇列 */
-// 在 Rust 中使用雙向佇列作為普通佇列來使用
-let mut deque: VecDeque<u32> = VecDeque::new();
+[file]{queue}-[region]{init_queue}
 
-/* 元素入列 */
-deque.push_back(1);
-deque.push_back(3);
-deque.push_back(2);
-deque.push_back(5);
-deque.push_back(4);
+[file]{queue}-[region]{push}
 
-/* 訪問佇列首元素 */
-if let Some(front) = deque.front() {
-}
+[file]{queue}-[region]{peek}
 
-/* 元素出列 */
-if let Some(pop) = deque.pop_front() {
-}
+[file]{queue}-[region]{pop}
 
-/* 獲取佇列的長度 */
-let size = deque.len();
+[file]{queue}-[region]{size}
 
-/* 判斷佇列是否為空 */
-let is_empty = deque.is_empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```c title="queue.c"

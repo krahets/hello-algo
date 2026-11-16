@@ -40,15 +40,22 @@ int main() {
     cout << "\n10583 を削除した後のハッシュテーブル\nKey -> Value" << endl;
     printHashMap(map);
 
-    /* ハッシュテーブルを走査する */
     cout << "\nキーと値のペア Key->Value を走査する" << endl;
+    // [region]{iterate_pairs}
+    /* ハッシュテーブルを走査する */
+    // キーと値のペア key->value を走査する
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
+    // [endregion]{iterate_pairs}
+
     cout << "\nイテレータで Key->Value を走査する" << endl;
+    // [region]{iterate_pairs_iterator}
+    // イテレータで key->value を走査する
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << "->" << iter->second << endl;
+        cout << iter->first << " -> " << iter->second << endl;
     }
+    // [endregion]{iterate_pairs_iterator}
 
     return 0;
 }

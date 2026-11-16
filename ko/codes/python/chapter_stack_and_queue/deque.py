@@ -16,7 +16,7 @@ if __name__ == "__main__":
     # [endregion]{init_deque}
 
     # [region]{push}
-    # 큐에 원소 삽입
+    # 원소 삽입
     deq.append(2)  # 맨 뒤에 추가한다
     deq.append(5)
     deq.append(4)
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     print("맨 뒤 원소 rear =", rear)
 
     # [region]{pop_first}
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop_front: int = deq.popleft()  # 맨 앞 원소를 꺼낸다
     # [endregion]{pop_first}
     print("맨 앞에서 꺼낸 원소  pop_front =", pop_front)

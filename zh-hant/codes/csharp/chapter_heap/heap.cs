@@ -39,23 +39,23 @@ public class heap {
         // 出堆積元素會形成一個從大到小的序列
         peek = maxHeap.Dequeue(); // 5
         // [endregion]{pop_1}
-        Console.WriteLine(peek);
+        Console.WriteLine($"出堆積元素為 {peek}");
         // [region]{pop_2}
         peek = maxHeap.Dequeue(); // 4
         // [endregion]{pop_2}
-        Console.WriteLine(peek);
+        Console.WriteLine($"出堆積元素為 {peek}");
         // [region]{pop_3}
         peek = maxHeap.Dequeue(); // 3
         // [endregion]{pop_3}
-        Console.WriteLine(peek);
+        Console.WriteLine($"出堆積元素為 {peek}");
         // [region]{pop_4}
         peek = maxHeap.Dequeue(); // 2
         // [endregion]{pop_4}
-        Console.WriteLine(peek);
+        Console.WriteLine($"出堆積元素為 {peek}");
         // [region]{pop_5}
         peek = maxHeap.Dequeue(); // 1
         // [endregion]{pop_5}
-        Console.WriteLine(peek);
+        Console.WriteLine($"出堆積元素為 {peek}");
 
         // [region]{size}
         /* 獲取堆積大小 */
@@ -71,6 +71,7 @@ public class heap {
 
         // [region]{heapify}
         /* 輸入串列並建堆積 */
+        // 時間複雜度為 O(n) ，而非 O(nlogn)
         minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
         // [endregion]{heapify}
         Console.WriteLine("輸入串列並建立小頂堆積後");

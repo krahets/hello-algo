@@ -4,13 +4,7 @@
 ```
 
 ```cpp title="array.cpp"
-/* 配列を初期化 */
-// スタック上に格納
-int arr[5] = {};
-int nums[5] = { 1, 3, 2, 5, 4 };
-// ヒープ上に格納（領域を手動で解放する必要がある）
-int* arr1 = new int[5] {};
-int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
+[file]{array}-[region]{init_array}
 ```
 
 ```java title="array.java"

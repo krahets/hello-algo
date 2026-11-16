@@ -130,30 +130,19 @@
 ```
 
 ```dart title="deque.dart"
-/* 덱 초기화 */
-// Dart의 Queue는 덱으로 정의되어 있다
-Queue<int> deque = Queue<int>();
+[file]{deque}-[region]{init_deque}
 
-/* 덱에 원소 삽입 */
-deque.addLast(2);  // 맨 뒤에 추가
-deque.addLast(5);
-deque.addLast(4);
-deque.addFirst(3); // 맨 앞에 추가
-deque.addFirst(1);
+[file]{deque}-[region]{push}
 
-/* 원소 접근 */
-int peekFirst = deque.first; // 맨 앞 원소
-int peekLast = deque.last;   // 맨 뒤 원소
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* 덱에서 원소 꺼내기 */
-int popFirst = deque.removeFirst(); // 맨 앞 원소 꺼내기
-int popLast = deque.removeLast();   // 맨 뒤 원소 꺼내기
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* 덱 길이 구하기 */
-int size = deque.length;
+[file]{deque}-[region]{size}
 
-/* 덱이 비어 있는지 확인 */
-bool isEmpty = deque.isEmpty;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```rust title="deque.rs"

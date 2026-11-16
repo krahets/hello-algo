@@ -130,30 +130,19 @@
 ```
 
 ```dart title="deque.dart"
-/* Initialize a deque */
-// In Dart, Queue is defined as a deque
-Queue<int> deque = Queue<int>();
+[file]{deque}-[region]{init_deque}
 
-/* Enqueue elements */
-deque.addLast(2);  // Add at the rear
-deque.addLast(5);
-deque.addLast(4);
-deque.addFirst(3); // Add at the front
-deque.addFirst(1);
+[file]{deque}-[region]{push}
 
-/* Access elements */
-int peekFirst = deque.first; // Front element
-int peekLast = deque.last;   // Rear element
+[file]{deque}-[region]{peek_first}
+[file]{deque}-[region]{peek_last}
 
-/* Dequeue elements */
-int popFirst = deque.removeFirst(); // Remove the front element
-int popLast = deque.removeLast();   // Remove the rear element
+[file]{deque}-[region]{pop_first}
+[file]{deque}-[region]{pop_last}
 
-/* Get the deque size */
-int size = deque.length;
+[file]{deque}-[region]{size}
 
-/* Check whether the deque is empty */
-bool isEmpty = deque.isEmpty;
+[file]{deque}-[region]{is_empty}
 ```
 
 ```rust title="deque.rs"

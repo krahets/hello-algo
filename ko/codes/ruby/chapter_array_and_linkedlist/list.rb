@@ -6,9 +6,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### 실행 코드 ###
 if __FILE__ == $0
+  # [region]{init_list}
   # 리스트 초기화
+  # 초깃값 없음
+  empty_nums = []
+  # 초깃값 있음
   nums = [1, 3, 2, 5, 4]
+  # [endregion]{init_list}
   puts "리스트 nums = #{nums}"
+  puts "리스트 empty_nums = #{empty_nums}"
 
   # [region]{access_element}
   # 원소 접근

@@ -34,11 +34,11 @@ func TestHeap(t *testing.T) {
 
 	/* 堆積頂元素出堆積 */
 	// 呼叫 heap.Interface 的函式，來移除元素
-	fmt.Println(heap.Pop(maxHeap)) // 5
-	fmt.Println(heap.Pop(maxHeap)) // 4
-	fmt.Println(heap.Pop(maxHeap)) // 3
-	fmt.Println(heap.Pop(maxHeap)) // 2
-	fmt.Println(heap.Pop(maxHeap)) // 1
+	fmt.Printf("出堆積元素為 %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("出堆積元素為 %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("出堆積元素為 %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("出堆積元素為 %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("出堆積元素為 %d\n", heap.Pop(maxHeap)) // 1
 
 	/* 獲取堆積大小 */
 	size := len(*maxHeap)

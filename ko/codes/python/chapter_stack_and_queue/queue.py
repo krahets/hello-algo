@@ -13,12 +13,12 @@ if __name__ == "__main__":
     # [region]{init_queue}
     # 큐 초기화
     # Python에서는 일반적으로 덱 클래스 deque를 큐로 사용한다
-    # queue.Queue()는 전용 큐 클래스이지만 사용하기가 그다지 편리하지 않다
+    # queue.Queue()는 전용 큐 클래스이지만 사용하기가 그다지 편리하지 않아 권장하지 않는다
     que: deque[int] = deque()
     # [endregion]{init_queue}
 
     # [region]{push}
-    # 큐에 원소 삽입
+    # 원소 삽입
     que.append(1)
     que.append(3)
     que.append(2)
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     print("맨 앞 원소 front =", front)
 
     # [region]{pop}
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop: int = que.popleft()
     # [endregion]{pop}
     print("큐에서 꺼낸 원소 pop =", pop)

@@ -14,11 +14,11 @@ using namespace std;
 // [region]{tree_node}
 /* 이진 트리 노드 구조체 */
 struct TreeNode {
-    int val{};         // 노드 값
-    int height = 0;    // 노드 높이
-    TreeNode *parent{};
-    TreeNode *left{};  // 왼쪽 자식 노드 포인터
-    TreeNode *right{}; // 오른쪽 자식 노드 포인터
+    int val{};          // 노드 값
+    int height = 0;     // 노드 높이
+    TreeNode *parent{}; // 부모 노드 포인터
+    TreeNode *left{};   // 왼쪽 자식 노드 포인터
+    TreeNode *right{};  // 오른쪽 자식 노드 포인터
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }
