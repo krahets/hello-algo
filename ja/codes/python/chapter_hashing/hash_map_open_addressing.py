@@ -36,7 +36,9 @@ class HashMapOpenAddressing:
         index = self.hash_func(key)
         first_tombstone = -1
         # 線形探索法で探索し、空のバケットに到達したら終了する
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            if self.buckets[index] is None:
+                break
             # key が見つかった場合、対応するバケットのインデックスを返す
             if self.buckets[index].key == key:
                 # それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
