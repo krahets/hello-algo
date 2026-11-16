@@ -6,15 +6,14 @@
 
 package utils
 
-// [region]{tree_node}
 /* Binary tree node class */
+/* Constructor */
 class TreeNode(
     var _val: Int // Node value
 ) {
-    var height: Int = 0         // Node height
-    var left: TreeNode? = null  // Reference to the left child
+    var height: Int = 0 // Node height
+    var left: TreeNode? = null // Reference to the left child
     var right: TreeNode? = null // Reference to the right child
-// [endregion]{tree_node}
 
     // For the serialization rules, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
@@ -67,6 +66,4 @@ class TreeNode(
             return res
         }
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

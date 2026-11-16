@@ -4,12 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// [region]{tree_node}
 /* Класс узла двоичного дерева */
 public class TreeNode {
-    public var val: Int         // Значение узла
-    public var height: Int      // Высота узла
-    public var left: TreeNode?  // Ссылка на левый дочерний узел
+    public var val: Int // Значение узла
+    public var height: Int // Высота узла
+    public var left: TreeNode? // Ссылка на левый дочерний узел
     public var right: TreeNode? // Ссылка на правый дочерний узел
 
     /* Конструктор */
@@ -17,7 +16,6 @@ public class TreeNode {
         val = x
         height = 0
     }
-// [endregion]{tree_node}
 
     // Правила кодирования сериализации см.:
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
@@ -70,6 +68,4 @@ public class TreeNode {
         treeToListDFS(root: root, i: 0, res: &res)
         return res
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

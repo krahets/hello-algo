@@ -4,12 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// [region]{tree_node}
 /* Binary tree node class */
 public class TreeNode {
-    public var val: Int         // Node value
-    public var height: Int      // Node height
-    public var left: TreeNode?  // Reference to the left child
+    public var val: Int // Node value
+    public var height: Int // Node height
+    public var left: TreeNode? // Reference to the left child
     public var right: TreeNode? // Reference to the right child
 
     /* Constructor */
@@ -17,7 +16,6 @@ public class TreeNode {
         val = x
         height = 0
     }
-// [endregion]{tree_node}
 
     // For the serialization rules, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
@@ -70,6 +68,4 @@ public class TreeNode {
         treeToListDFS(root: root, i: 0, res: &res)
         return res
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

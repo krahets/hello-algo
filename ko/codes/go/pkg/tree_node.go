@@ -4,7 +4,6 @@
 
 package pkg
 
-// [region]{tree_node}
 // TreeNode: 이진 트리 노드
 type TreeNode struct {
 	Val    any       // 노드 값
@@ -22,8 +21,6 @@ func NewTreeNode(v any) *TreeNode {
 		Right:  nil,
 	}
 }
-
-// [endregion]{tree_node}
 
 // 직렬화 인코딩 규칙은 다음을 참고한다:
 // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/

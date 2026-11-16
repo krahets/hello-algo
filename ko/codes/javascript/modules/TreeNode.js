@@ -4,13 +4,12 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-// [region]{tree_node}
 /* 이진 트리 노드 */
 class TreeNode {
     val; // 노드 값
     left; // 왼쪽 자식 노드 포인터
     right; // 오른쪽 자식 노드 포인터
-    height; // 노드 높이
+    height; //노드 높이
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -18,7 +17,6 @@ class TreeNode {
         this.height = height === undefined ? 0 : height;
     }
 }
-// [endregion]{tree_node}
 
 /* 배열을 역직렬화하여 이진 트리로 변환한다 */
 function arrToTree(arr, i = 0) {

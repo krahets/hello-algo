@@ -11,19 +11,17 @@
 
 using namespace std;
 
-// [region]{tree_node}
 /* 二分木のノードの構造体 */
 struct TreeNode {
-    int val{};          // ノードの値
-    int height = 0;     // ノードの高さ
-    TreeNode *parent{}; // 親ノードへのポインタ
-    TreeNode *left{};   // 左の子ノードへのポインタ
-    TreeNode *right{};  // 右の子ノードへのポインタ
+    int val{};
+    int height = 0;
+    TreeNode *parent{};
+    TreeNode *left{};
+    TreeNode *right{};
     TreeNode() = default;
     explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
     }
 };
-// [endregion]{tree_node}
 
 // シリアライズの符号化規則は次を参照：
 // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/

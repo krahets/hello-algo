@@ -6,15 +6,14 @@
 
 package utils
 
-// [region]{tree_node}
 /* Класс узла двоичного дерева */
+/* Конструктор */
 class TreeNode(
     var _val: Int // Значение узла
 ) {
-    var height: Int = 0         // Высота узла
-    var left: TreeNode? = null  // Ссылка на левый дочерний узел
+    var height: Int = 0 // Высота узла
+    var left: TreeNode? = null // Ссылка на левый дочерний узел
     var right: TreeNode? = null // Ссылка на правый дочерний узел
-// [endregion]{tree_node}
 
     // Правила кодирования сериализации см.:
     // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
@@ -67,6 +66,4 @@ class TreeNode(
             return res
         }
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

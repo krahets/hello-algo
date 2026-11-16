@@ -4,20 +4,17 @@
  * Author: xBLACKICEx (xBLACKICE@outlook.com), night-cruise (2586447362@qq.com)
  */
 
-// [region]{import}
 use std::cell::RefCell;
 use std::rc::Rc;
-// [endregion]{import}
 
-// [region]{tree_node}
 /* Binary tree node type */
 #[derive(Debug)]
 pub struct TreeNode {
-    pub val: i32,                               // Node value
-    pub height: i32,                            // Node height
-    pub parent: Option<Rc<RefCell<TreeNode>>>,  // Pointer to the parent node
-    pub left: Option<Rc<RefCell<TreeNode>>>,    // Pointer to the left child
-    pub right: Option<Rc<RefCell<TreeNode>>>,   // Pointer to the right child
+    pub val: i32,
+    pub height: i32,
+    pub parent: Option<Rc<RefCell<TreeNode>>>,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
 impl TreeNode {
@@ -32,7 +29,6 @@ impl TreeNode {
         }))
     }
 }
-// [endregion]{tree_node}
 
 #[macro_export]
 macro_rules! op_vec {

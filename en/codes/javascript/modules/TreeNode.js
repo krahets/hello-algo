@@ -4,13 +4,12 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-// [region]{tree_node}
 /* Binary tree node */
 class TreeNode {
     val; // Node value
     left; // Pointer to the left child
     right; // Pointer to the right child
-    height; // Node height
+    height; //Node height
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -18,7 +17,6 @@ class TreeNode {
         this.height = height === undefined ? 0 : height;
     }
 }
-// [endregion]{tree_node}
 
 /* Deserialize an array into a binary tree */
 function arrToTree(arr, i = 0) {

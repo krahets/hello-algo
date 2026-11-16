@@ -8,19 +8,17 @@ package utils;
 
 import java.util.*;
 
-// [region]{tree_node}
 /* 이진 트리 노드 클래스 */
 public class TreeNode {
-    public int val;        // 노드 값
-    public int height;     // 노드 높이
-    public TreeNode left;  // 왼쪽 자식 노드 참조
+    public int val; // 노드 값
+    public int height; // 노드 높이
+    public TreeNode left; // 왼쪽 자식 노드 참조
     public TreeNode right; // 오른쪽 자식 노드 참조
 
     /* 생성자 */
     public TreeNode(int x) {
         val = x;
     }
-// [endregion]{tree_node}
 
     // 직렬화 인코딩 규칙은 다음을 참고한다:
     // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
@@ -72,6 +70,4 @@ public class TreeNode {
         treeToListDFS(root, 0, res);
         return res;
     }
-// [region]{tree_node_end}
 }
-// [endregion]{tree_node_end}

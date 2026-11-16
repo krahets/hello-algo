@@ -4,7 +4,6 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-// [region]{tree_node}
 /* 二叉树节点类 */
 class TreeNode {
   int val; // 节点值
@@ -15,7 +14,6 @@ class TreeNode {
   /* 构造方法 */
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
-// [endregion]{tree_node}
 
 /* 将列表反序列化为二叉树：递归 */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {
