@@ -1,0 +1,451 @@
+{
+  "schema_version": 2,
+  "title": "Count each integer and write it back as many times as it occurs",
+  "summary": "Use each value as an index to count its occurrences, then write the values back in increasing order.",
+  "context": [
+    "The input is nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]. Its values are nonnegative integers and its maximum is 4, so create a five-slot array counter with indices 0 through 4, where counter[num] counts occurrences of num. Its index represents the value itself, rather than a position in the input."
+  ],
+  "description": [
+    "Here counter[3] = 0 means the input contains no 3. Read indices 0 through 4 and output three 0s, two 1s, three 2s, and two 4s, in that order. The three tables below give the input, frequencies, and array written back."
+  ],
+  "frames": [
+    {
+      "id": "source-299",
+      "book_path": "chapter_sorting/counting_sort.assets/counting_sort_overview.png",
+      "title": "Count each integer and write it back as many times as it occurs",
+      "explanation": "This simple implementation reconstructs the integer sequence from frequencies and discards the individual identities of equal values. A stable sort for objects with additional properties must retain those objects’ identities and place them in appropriate result positions."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Original input",
+      "headers": [
+        "Index",
+        "Value"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "2"
+        ],
+        [
+          "4",
+          "0"
+        ],
+        [
+          "5",
+          "4"
+        ],
+        [
+          "6",
+          "0"
+        ],
+        [
+          "7",
+          "2"
+        ],
+        [
+          "8",
+          "2"
+        ],
+        [
+          "9",
+          "4"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Integer frequencies",
+      "headers": [
+        "Number",
+        "Occurrences"
+      ],
+      "rows": [
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "0"
+        ],
+        [
+          "4",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Array written back",
+      "headers": [
+        "Index",
+        "Value"
+      ],
+      "rows": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "0"
+        ],
+        [
+          "3",
+          "1"
+        ],
+        [
+          "4",
+          "1"
+        ],
+        [
+          "5",
+          "2"
+        ],
+        [
+          "6",
+          "2"
+        ],
+        [
+          "7",
+          "2"
+        ],
+        [
+          "8",
+          "4"
+        ],
+        [
+          "9",
+          "4"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "counting-sort-overview": {
+      "kind": "prose",
+      "prose": {
+        "title": "Count each integer and write it back as many times as it occurs",
+        "summary": "Three states show the input, the completed counts, and the final array.",
+        "context": [],
+        "description": [],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Read ten nonnegative integers",
+            "explanation": "Read the length-10 input nums. Its maximum is 4, so prepare counter with indices 0 through 4. No frequencies have been counted yet.",
+            "key_state": "Read 10 input integers with maximum 4 and prepare counter for indices 0 through 4.",
+            "announcement": "Read ten nonnegative integers. The maximum is 4, so prepare count indices 0 through 4.",
+            "state_tables": [
+              {
+                "caption": "Counting overview, step 1: original input",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "4",
+                    "0"
+                  ],
+                  [
+                    "5",
+                    "4"
+                  ],
+                  [
+                    "6",
+                    "0"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "2"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-2",
+            "title": "Count the occurrences",
+            "explanation": "Scan the input, counting each value at its corresponding index. The frequencies for 0 through 4 are 3, 2, 3, 0, 2. There is no 3 in the input. No result has been written back yet.",
+            "key_state": "Counts counter[0..4] = [3, 2, 3, 0, 2]; value 3 has frequency 0.",
+            "announcement": "The counts for 0 through 4 are 3, 2, 3, 0, 2 respectively.",
+            "state_tables": [
+              {
+                "caption": "Counting overview, step 2: original input",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "4",
+                    "0"
+                  ],
+                  [
+                    "5",
+                    "4"
+                  ],
+                  [
+                    "6",
+                    "0"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "2"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              },
+              {
+                "caption": "Counting overview, step 2: integer frequencies",
+                "headers": [
+                  "Number",
+                  "Occurrences"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "3"
+                  ],
+                  [
+                    "1",
+                    "2"
+                  ],
+                  [
+                    "2",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "0"
+                  ],
+                  [
+                    "4",
+                    "2"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-3",
+            "title": "Write each value back according to its count",
+            "explanation": "Read counter at indices 0 through 4. Write three 0s, two 1s, three 2s, and two 4s. Skip 3, whose count is 0. Sorting is complete. The original-input table retained at this step is an earlier snapshot; the current nums is in “Counting overview, step 3: array written back.”",
+            "key_state": "Write-back complete: nums = [0, 0, 0, 1, 1, 2, 2, 2, 4, 4]. No 3 occurs.",
+            "announcement": "Write the values back in ascending order according to their counts to obtain the full sorted array.",
+            "state_tables": [
+              {
+                "caption": "Counting overview, step 3: original input",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "1"
+                  ],
+                  [
+                    "3",
+                    "2"
+                  ],
+                  [
+                    "4",
+                    "0"
+                  ],
+                  [
+                    "5",
+                    "4"
+                  ],
+                  [
+                    "6",
+                    "0"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "2"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              },
+              {
+                "caption": "Counting overview, step 3: integer frequencies",
+                "headers": [
+                  "Number",
+                  "Occurrences"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "3"
+                  ],
+                  [
+                    "1",
+                    "2"
+                  ],
+                  [
+                    "2",
+                    "3"
+                  ],
+                  [
+                    "3",
+                    "0"
+                  ],
+                  [
+                    "4",
+                    "2"
+                  ]
+                ],
+                "row_header": 0
+              },
+              {
+                "caption": "Counting overview, step 3: array written back",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "0"
+                  ],
+                  [
+                    "1",
+                    "0"
+                  ],
+                  [
+                    "2",
+                    "0"
+                  ],
+                  [
+                    "3",
+                    "1"
+                  ],
+                  [
+                    "4",
+                    "1"
+                  ],
+                  [
+                    "5",
+                    "2"
+                  ],
+                  [
+                    "6",
+                    "2"
+                  ],
+                  [
+                    "7",
+                    "2"
+                  ],
+                  [
+                    "8",
+                    "4"
+                  ],
+                  [
+                    "9",
+                    "4"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

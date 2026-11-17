@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "title": "Growth trends of common space complexity classes",
+  "summary": "Compare how five space complexity classes grow as input size increases.",
+  "context": [
+    "The horizontal axis shows input size n with ticks from 1 to 14; the vertical axis shows memory usage with no numeric capacity ticks. This schematic compares asymptotic growth trends rather than exact byte counts or unscaled function values."
+  ],
+  "description": [
+    "The table below orders the five curves from lowest to highest at the right edge of the plot, matching the upward arrow on the right labeled \"Lower → higher; better → worse\"."
+  ],
+  "frames": [
+    {
+      "id": "source-34",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_common_types.png",
+      "title": "Growth trends of common space complexity classes",
+      "explanation": "At small sizes some schematic curves cross—for instance, between ticks 2 and 6 the logarithmic curve sits slightly above the linear line. What the plot conveys is the growth trend for sufficiently large n: constant stays flat, logarithmic grows slowly, and exponential eventually grows fastest; early crossings cannot be used to read off exact memory usage for specific inputs."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Five space complexity classes and curve shapes",
+      "headers": [
+        "Complexity (low to high at right edge)",
+        "Shape in figure"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "Constant O(1)",
+          "Green horizontal line just above the horizontal axis, unchanged as n grows"
+        ],
+        [
+          "Logarithmic O(log n)",
+          "Cyan curve rising slowly with gradually flattening slope"
+        ],
+        [
+          "Linear O(n)",
+          "Blue straight line rising at a constant slope"
+        ],
+        [
+          "Quadratic O(n²)",
+          "Orange curve bending upward with increasingly steep slope"
+        ],
+        [
+          "Exponential O(2ⁿ)",
+          "Red curve staying near the bottom around ticks 1 to 8 before shooting upward steeply"
+        ]
+      ]
+    }
+  ]
+}

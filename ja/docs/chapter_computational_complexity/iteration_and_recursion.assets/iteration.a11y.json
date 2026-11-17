@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "一重ループ",
+  "summary": "初期化、条件判定、更新によって、処理の繰り返し実行を制御します。",
+  "context": [
+    "図の流れで 1 から n までの和を求めます（n は正の整数）。累積和の初期値は 0 で、各回の「処理」で現在の i を累積和に加えます。"
+  ],
+  "description": [],
+  "result": "処理を実行するとき、i は順に 1 から n までの値をとり、計 n 回実行されます。i = n + 1 に更新されると条件が偽になり、ループが終了します。",
+  "frames": [
+    {
+      "id": "source-19",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
+      "title": "一重ループ",
+      "explanation": "まず i = 1 に初期化し、次に i ≤ n を判定します。真のときは処理を実行して i に 1 を加え、そのまま条件判定へ戻ります。偽のときは抜けます。初期化はループに入る前に一度だけ実行され、毎回 i を 1 に戻すことはありません。"
+    }
+  ]
+}

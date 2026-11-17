@@ -1,0 +1,95 @@
+{
+  "schema_version": 2,
+  "title": "Removing an array element by shifting left",
+  "summary": "Overwrite the removed position to preserve the order of the remaining elements while distinguishing valid length from total slot count.",
+  "context": [
+    "Array nums has 5 slots, initialized to [1, 3, 2, 5, 4] with valid length 5 and 0-based indices. The goal is to remove 3 at index 1 while preserving the order of the remaining elements."
+  ],
+  "description": [],
+  "result": "After three copies, the caller updates the valid length from 5 to 4, leaving only [1, 2, 5, 4] at indices 0 through 3 valid; the 4 in the final slot is an unused leftover and need not be zeroed out. The sample remove function only overwrites slots without automatically shortening a Python list; removing an element from the middle takes O(n) time on average.",
+  "frames": [
+    {
+      "id": "source-49",
+      "book_path": "chapter_array_and_linkedlist/array.assets/array_remove_element.png",
+      "title": "Removing an array element by shifting left",
+      "explanation": "Reading adjacent elements sequentially to the right of the removed position and overwriting one slot to the left ensures that every source value is read before it is overwritten. Copying modifies only the destination slot without clearing the source slot, so adjacent duplicate values appear along the way."
+    }
+  ],
+  "animations": {
+    "flow-array-remove": {
+      "kind": "prose",
+      "prose": {
+        "title": "Removing an array element by shifting left",
+        "summary": "Overwrite the removed position to preserve the order of the remaining elements while distinguishing valid length from total slot count.",
+        "context": [
+          "Array nums has 5 slots, initialized to [1, 3, 2, 5, 4] with valid length 5 and 0-based indices. The goal is to remove 3 at index 1 while preserving the order of the remaining elements."
+        ],
+        "description": [],
+        "result": "After three copies, the caller updates the valid length from 5 to 4, leaving only [1, 2, 5, 4] at indices 0 through 3 valid; the 4 in the final slot is an unused leftover and need not be zeroed out. The sample remove function only overwrites slots without automatically shortening a Python list; removing an element from the middle takes O(n) time on average.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Mark element 3 at index 1 for deletion",
+            "explanation": "Current storage is [1, 3, 2, 5, 4] with valid length 5. Element 3 at index 1 is marked as the element to delete; 2, 5, and 4 to its right will be copied left one by one, after which the caller updates the valid length.",
+            "key_state": "Initial valid sequence [1, 3, 2, 5, 4], ready to delete 3 at index 1.",
+            "announcement": "Show initial array [1, 3, 2, 5, 4] and mark element 3 at index 1 for deletion."
+          },
+          {
+            "id": "step-2",
+            "title": "Copy 2 from index 2 to index 1",
+            "explanation": "The 1st copy executes nums[1] = nums[2], overwriting the old value 3 with 2 so current storage is [1, 2, 2, 5, 4]. Index 2 still holds 2; next, nums[2] = nums[3] and nums[3] = nums[4] must run before updating the valid length, which is still recorded as 5.",
+            "key_state": "Executed nums[1] = nums[2]; storage becomes [1, 2, 2, 5, 4].",
+            "announcement": "Copy 2 from index 2 to index 1, overwriting the original value 3."
+          },
+          {
+            "id": "step-3",
+            "title": "Copy 5 from index 3 to index 2",
+            "explanation": "The 2nd copy executes nums[2] = nums[3], overwriting the old value 2 at index 2 with 5 so current storage is [1, 2, 5, 5, 4]. Index 3 still holds 5; next, nums[3] = nums[4] must run before changing the valid length to 4, which is still recorded as 5.",
+            "key_state": "Executed nums[2] = nums[3]; storage becomes [1, 2, 5, 5, 4].",
+            "announcement": "Copy 5 from index 3 to index 2."
+          },
+          {
+            "id": "step-4",
+            "title": "Copy the final 4; caller updates valid length",
+            "explanation": "The 3rd copy executes nums[3] = nums[4], overwriting the old value 5 at index 3 with 4 so the five slots hold [1, 2, 5, 4, 4]. The caller updates the valid length to 4, leaving only the first four entries [1, 2, 5, 4] valid; the leftover 4 at index 4 is unused and need not be zeroed out.",
+            "key_state": "Executed nums[3] = nums[4], leaving the five slots as [1, 2, 5, 4, 4]; the caller updates the valid length to 4 so only the first four entries are valid and the trailing 4 is an unused leftover.",
+            "announcement": "Copy 4 from index 4 to index 3; the caller updates the valid length to 4, giving valid sequence [1, 2, 5, 4] while leaving 4 in the last slot as an unused leftover."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Complete slot storage during leftward shifting",
+      "headers": [
+        "State or assignment",
+        "Stored contents",
+        "Valid length or meaning"
+      ],
+      "rows": [
+        [
+          "Initial",
+          "[1,3,2,5,4]",
+          "5; 3 at index 1 is to be deleted"
+        ],
+        [
+          "1st copy: nums[1]=nums[2]",
+          "[1,2,2,5,4]",
+          "In progress, recorded length 5"
+        ],
+        [
+          "2nd copy: nums[2]=nums[3]",
+          "[1,2,5,5,4]",
+          "In progress, recorded length 5"
+        ],
+        [
+          "3rd copy: nums[3]=nums[4]; caller updates valid length to 4",
+          "[1,2,5,4,4]",
+          "4; only the first 4 entries are valid, with trailing 4 left over"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

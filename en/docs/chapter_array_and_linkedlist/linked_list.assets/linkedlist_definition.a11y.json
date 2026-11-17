@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "title": "Linked list nodes and links",
+  "summary": "The figure consists of a logical view and a memory grid showing the same linked list. In the grid, each node occupies two adjacent cells storing its value and its successor reference next (pointer); the remaining light-colored cells represent free memory, with cell sizes shown schematically.",
+  "context": [],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-50",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_definition.png",
+      "title": "Linked list nodes and links",
+      "explanation": "The linked list has 5 nodes connected along next references as 1 → 3 → 2 → 5 → 4 → None. The head node is 1, the tail node is 4, and None indicates that there is no next node. In the memory grid, nodes 2 and 5 sit lower down while the tail node 4 sits near the top: node 5's next still points to 4, showing that logical order is determined by references rather than physical location."
+    }
+  ]
+}

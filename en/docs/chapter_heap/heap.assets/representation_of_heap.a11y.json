@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "title": "Array representation of a heap",
+  "summary": "The same heap can be drawn as a complete binary tree or stored in level order inside an array; index-mapping formulas connect the two representations.",
+  "context": [
+    "At the top of the figure, the left side is labeled “Logical structure of a heap” (“A heap is a complete binary tree”) and the right side is labeled “Physical structure of a heap (underlying storage)” (“Represent the complete binary tree with an array”). The array on the right is drawn horizontally with indices increasing from left to right, storing 12 elements [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2] in level order at indices 0 through 11."
+  ],
+  "description": [
+    "In the complete binary tree on the left, each node circle has its array index printed underneath: root value 9 (index 0) has left and right children with values 8 (index 1) and 6 (index 2); index 1 has left and right children at index 3 (value 6) and index 4 (value 7); index 2 has left and right children at index 5 (value 5) and index 6 (value 2); index 3 has left and right children at index 7 (value 1) and index 8 (value 4); index 4 has left and right children at index 9 (value 3) and index 10 (value 6); and index 5 has only a left child at index 11 (value 2).",
+    "On the right, the array illustrates the formulas labeled “Use index mappings to represent node pointers”: for any node at index i, the child indices are 2i + 1 (left) and 2i + 2 (right). If the node is not the root, its parent index is ⌊(i − 1) / 2⌋ (integer division rounded down). The figure highlights the node at index i = 4 (value 7) in cyan: a gray arrow pointing to its orange-highlighted parent corresponds to parent index ⌊(4 − 1) / 2⌋ = 1 (value 8), while two arrows leading rightward from index 4 to indices 9 and 10 correspond to the blue left child at index 2 × 4 + 1 = 9 (value 3) and the violet-blue right child at index 2 × 4 + 2 = 10 (value 6). Matching highlight colors pair each node in the tree with its cell in the array."
+  ],
+  "result": "Because a complete binary tree packs compactly into an array without extra parent or child pointer fields, the positions of a node's parent, left child, and right child—and whether they exist—can all be computed in O(1) time.",
+  "frames": [
+    {
+      "id": "source-141",
+      "book_path": "chapter_heap/heap.assets/representation_of_heap.png",
+      "title": "Array representation of a heap",
+      "explanation": "When a computed child index falls outside the array bounds, that child does not exist; the root node (index 0) has no parent. Thanks to the compact level-order layout of a complete binary tree, distinct nodes carrying equal values (such as multiple 6s and 2s) are unambiguously distinguished by their unique indices."
+    }
+  ]
+}

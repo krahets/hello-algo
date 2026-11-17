@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "Insertions making a search tree unbalanced",
+  "summary": "Repeatedly inserting nodes on the same side lengthens one branch level by level until an initially balanced binary tree violates the balance condition.",
+  "context": [
+    "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown.",
+    "This example is an ordinary binary search tree without rotational rebalancing. The three subfigures have 3, 4, and 5 nodes in order and are labeled \"Perfect binary tree\", \"Balanced binary tree\", and \"Ordinary binary tree\"; the right child of root 4 remains leaf node 5 throughout."
+  ],
+  "description": [],
+  "result": "A tree can lose its perfect shape and still be balanced. An AVL tree restores balance through rotations after insertions.",
+  "frames": [
+    {
+      "id": "source-129",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_degradation_from_inserting_node.png",
+      "title": "Insertions making a search tree unbalanced",
+      "explanation": "Initially, root 4 has left and right children 3 and 5. When 2 is inserted, 2 is less than both 4 and 3 and attaches to the left of 3; although the bottom level is no longer full, both 4 and 3 have balance factor 1, so the tree stays balanced. When 1 is inserted next along 4 → 3 → 2 to the left of 2, the balance factors of 3 and 4 both become 2, making the tree unbalanced."
+    }
+  ],
+  "animations": {
+    "bst-degrade-insertion": {
+      "kind": "prose",
+      "prose": {
+        "title": "Insertions making a search tree unbalanced",
+        "summary": "Repeatedly inserting nodes on the same side lengthens one branch level by level until an initially balanced binary tree violates the balance condition.",
+        "context": [
+          "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown.",
+          "This example is an ordinary binary search tree without rotational rebalancing. The three subfigures have 3, 4, and 5 nodes in order and are labeled \"Perfect binary tree\", \"Balanced binary tree\", and \"Ordinary binary tree\"; the right child of root 4 remains leaf node 5 throughout."
+        ],
+        "description": [],
+        "result": "A tree can lose its perfect shape and still be balanced. An AVL tree restores balance through rotations after insertions.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Initial perfect binary tree",
+            "explanation": "Initially, root 4 has leaf children 3 on the left and 5 on the right, with 3 nodes filling two levels; every node has balance factor 0, so the tree is both perfect and balanced.",
+            "key_state": "Initial root 4 connects to left 3 and right 5; all 3 nodes have balance factor 0.",
+            "announcement": "Show the initial perfect binary tree with root 4 and left and right children 3 and 5."
+          },
+          {
+            "id": "step-2",
+            "title": "Still balanced after inserting 2",
+            "explanation": "Insert 2: being less than 4 and 3, it becomes the left child of 3. Root 4 now connects to left 3 and right 5, 3 connects only to left 2, and 2 and 5 are leaf nodes, for 4 nodes in total. Both 4 and 3 have balance factor 1, so the tree is no longer perfect but remains balanced.",
+            "key_state": "After inserting 2, root 4 connects to left 3 and right 5, and 3 connects to left 2; 4 and 3 both have balance factor 1, still balanced.",
+            "announcement": "Insert 2 to the left of 3; the tree is no longer perfect, but 4 and 3 both have balance factor 1 and remain balanced."
+          },
+          {
+            "id": "step-3",
+            "title": "Unbalanced after inserting 1",
+            "explanation": "Insert 1: search leftward along 4→3→2 and attach 1 to the left of 2. The left chain is now 4→3→2→1, and root 4 also has right leaf node 5, for 5 nodes in total. Node 3 has left height 1 and right height −1, while root 4 has left height 2 and right height 0, giving both a balance factor of 2 and making the tree unbalanced.",
+            "key_state": "After inserting 1, the left chain is 4→3→2→1 and root 4 connects to right leaf 5; both 3 and 4 have balance factor 2.",
+            "announcement": "Insert 1 to the left of 2; the balance factors of node 3 and root 4 both become 2."
+          }
+        ]
+      }
+    }
+  }
+}

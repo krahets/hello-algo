@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "Solving two sum with a hash table",
+  "summary": "Store visited elements and their indices in a hash table, checking for the complement before deciding whether to insert the current element.",
+  "context": [
+    "The input consists of the integer array nums = [2, 7, 11, 15] (indexed from 0 to 3) and the target sum target = 13.",
+    "Use an auxiliary hash table map to record visited elements: each key (labeled “Element”) stores an array element value, and each value (labeled “Index”) stores that element's array index. In a single loop, each round first checks whether the complement target - nums[i] is already in map: if so, it immediately returns [map[target - nums[i]], i]; otherwise, it writes the current key-value pair nums[i]: i into map."
+  ],
+  "description": [
+    "Querying the complement before inserting the current element in each round guarantees that any matched partner comes from a distinct index earlier than i. Three step-by-step frames show the check and hash-table state at i = 0, 1, and 2 in turn (note that the Step 1 frame shows the state after completing the first insertion 2: 0, rather than an empty table)."
+  ],
+  "result": "Assuming O(1) average-case hash lookup, the overall average time complexity is O(n) with O(n) auxiliary space, trading space for time.",
+  "frames": [
+    {
+      "id": "source-235",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png",
+      "title": "Complement 11 not found, record 2",
+      "explanation": "i = 0 points to element 2. As noted on the right of the figure, because 13 - 2 = 11 is not in the initially empty table, write 2: 0; now map = {2: 0}. No answer is returned yet, and the next item is 7 at index 1.",
+      "key_state": "i = 0 (value 2): complement 11 misses; after insertion, map = {2: 0}.",
+      "announcement": "Visit element 2 at index 0; complement 11 is not in the hash table, so store key-value pair 2: 0 in map."
+    },
+    {
+      "id": "source-236",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png",
+      "title": "Complement 6 not found, record 7",
+      "explanation": "i = 1 points to element 7. As noted on the right of the figure, because 13 - 7 = 6 is not in map, write 7: 1. Previously the table held only key 2, and after insertion map = {2: 0, 7: 1}; no answer is returned yet, and the next item is 11 at index 2.",
+      "key_state": "i = 1 (value 7): complement 6 misses; after insertion, map = {2: 0, 7: 1}.",
+      "announcement": "Visit element 7 at index 1; complement 6 is not in the hash table, so store key-value pair 7: 1 in map."
+    },
+    {
+      "id": "source-237",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png",
+      "title": "Complement 2 found, return indices",
+      "explanation": "i = 2 points to element 11. As noted on the right of the figure, because 13 - 11 = 2 is already in map with map[2] = 0, return indices [0, 2]. map remains {2: 0, 7: 1}; 11 is not inserted, and 15 at index 3 is never processed.",
+      "key_state": "i = 2 (value 11): complement 2 hits index 0 in map, immediately returning [0, 2]. map remains {2: 0, 7: 1}, 11 is not inserted, and 15 is not processed.",
+      "announcement": "Visit element 11 at index 2, find complement 2 (index 0) in the hash table, and return [0, 2]."
+    }
+  ],
+  "animations": {
+    "two-sum-hash": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-235"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-236"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-237"
+        }
+      ]
+    }
+  }
+}
