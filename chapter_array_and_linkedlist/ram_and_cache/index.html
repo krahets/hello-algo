@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/9f909651eeceaf5c7dda140d.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2012,16 +2012,16 @@
 <li><strong>硬盘难以被内存取代</strong>。首先，内存中的数据在断电后会丢失，因此它不适合长期存储数据；其次，内存的成本是硬盘的几十倍，这使得它难以在消费者市场普及。</li>
 <li><strong>缓存的大容量和高速度难以兼得</strong>。随着 L1、L2、L3 缓存的容量逐步增大，其物理尺寸会变大，与 CPU 核心之间的物理距离会变远，从而导致数据传输时间增加，元素访问延迟变高。在当前技术下，多层级的缓存结构是容量、速度和成本之间的最佳平衡点。</li>
 </ul>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png" data-dark-src="/assets/figure-svg/figures/e46ce5d9d4566ae4e3c82344.json" data-src="/assets/figure-svg/figures/f0ca303ebe6f7aba597eeab4.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.svg" data-theme="light" tabindex="-1" type="image/svg+xml">计算机存储系统</object><object data="/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">计算机存储系统</object></ha-svg-figure></p>
-<p align="center"> 图 4-9   计算机存储系统 </p>
+<p><ha-svg-figure aria-label="计算机存储系统的金字塔层级" class="animation-figure" data-book-key="chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png" data-dark-src="/assets/figure-svg/figures/e46ce5d9d4566ae4e3c82344.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/f0ca303ebe6f7aba597eeab4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">计算机存储系统</object><object aria-hidden="true" data="/chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">计算机存储系统</object></ha-svg-figure></p>
+<p align="center"> 图 4-9   计算机存储系统 </p><div class="ha-sr-only figure-description"><h3>图解 4-9：计算机存储系统的金字塔层级</h3><p>存储金字塔比较不同层级的速度、容量、单位容量成本和持久性。</p><p>金字塔从上到下由窄变宽，共五层。前三层位于标为 CPU 的绿色框内，左侧统称“缓存”；第四层标为“内存”，第五层标为“硬盘”。</p><table><caption>从顶到底的五层存储</caption><thead><tr><th scope="col">层次</th><th scope="col">图中标签</th><th scope="col">所属类别</th></tr></thead><tbody><tr><th scope="row">1，顶层</th><td>L1 Cache</td><td>CPU 内的缓存</td></tr><tr><th scope="row">2</th><td>L2 Cache</td><td>CPU 内的缓存</td></tr><tr><th scope="row">3</th><td>L3 Cache</td><td>CPU 内的缓存</td></tr><tr><th scope="row">4</th><td>RAM</td><td>内存</td></tr><tr><th scope="row">5，底层</th><td>HDD/SSD</td><td>硬盘</td></tr></tbody></table><p>右侧向上的箭头标“速度、价格”：越往上访问越快、单位容量价格越高；向下的箭头标“容量、持久性”：越往下容量越大，底层 HDD/SSD 可以在断电后长期保存数据。缓存与内存属于易失性存储，断电后数据会丢失。</p></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>计算机的存储层次结构体现了速度、容量和成本三者之间的精妙平衡。实际上，这种权衡普遍存在于所有工业领域，它要求我们在不同的优势和限制之间找到最佳平衡点。</p>
 </div>
 <p>总的来说，<strong>硬盘用于长期存储大量数据，内存用于临时存储程序运行中正在处理的数据，而缓存则用于存储经常访问的数据和指令</strong>，以提高程序运行效率。三者共同协作，确保计算机系统高效运行。</p>
 <p>如图 4-10 所示，在程序运行时，数据会从硬盘中被读取到内存中，供 CPU 计算使用。缓存可以看作 CPU 的一部分，<strong>它通过智能地从内存加载数据</strong>，给 CPU 提供高速的数据读取，从而显著提升程序的执行效率，减少对较慢的内存的依赖。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png" data-dark-src="/assets/figure-svg/figures/87c58b9e3fb8d1673ff0767c.json" data-src="/assets/figure-svg/figures/4af5d8dba9a357f0ab2f4568.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.svg" data-theme="light" tabindex="-1" type="image/svg+xml">硬盘、内存和缓存之间的数据流通</object><object data="/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">硬盘、内存和缓存之间的数据流通</object></ha-svg-figure></p>
-<p align="center"> 图 4-10   硬盘、内存和缓存之间的数据流通 </p>
+<p><ha-svg-figure aria-label="硬盘、内存和缓存之间的数据流通" class="animation-figure" data-book-key="chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png" data-dark-src="/assets/figure-svg/figures/87c58b9e3fb8d1673ff0767c.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/4af5d8dba9a357f0ab2f4568.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">硬盘、内存和缓存之间的数据流通</object><object aria-hidden="true" data="/chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">硬盘、内存和缓存之间的数据流通</object></ha-svg-figure></p>
+<p align="center"> 图 4-10   硬盘、内存和缓存之间的数据流通 </p><div class="ha-sr-only figure-description"><h3>图解 4-10：硬盘、内存和缓存之间的数据流通</h3><p>处理器、缓存、内存和硬盘通过双向数据流协作。</p><p>从左到右是 CPU、内存、硬盘。CPU 的绿色框内，左侧为处理器，右侧为缓存。处理器与缓存、缓存与内存、内存与硬盘这三对相邻部件之间，都有上下并排的两条水平箭头：上箭头向右，下箭头向左。</p><p>框上方还有两条折线箭头，跨过缓存，分别从处理器指向内存、从内存指向处理器。图用这些连接表示双向读写关系。</p><p>结合正文，硬盘长期保存数据，运行所需数据读入内存；CPU 内的缓存保存常访问的数据和指令，减少处理器访问较慢内存的次数。</p></div>
 <h2 id="442">4.4.2   数据结构的内存效率<a class="headerlink" href="#442" title="Permanent link">¶</a></h2>
 <p>在内存空间利用方面，数组和链表各自具有优势和局限性。</p>
 <p>一方面，<strong>内存是有限的，且同一块内存不能被多个程序共享</strong>，因此我们希望数据结构能够尽可能高效地利用空间。数组的元素紧密排列，不需要额外的空间来存储链表节点间的引用（指针），因此空间效率更高。然而，数组需要一次性分配足够的连续内存空间，这可能导致内存浪费，数组扩容也需要额外的时间和空间成本。相比之下，链表以“节点”为单位进行动态内存分配和回收，提供了更大的灵活性。</p>
@@ -2170,5 +2170,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/b789dc8b01e43e756fc89964.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/bff17b8259339758cb1c4a06.js"></script></body>
 </html>

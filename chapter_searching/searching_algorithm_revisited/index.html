@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/9f909651eeceaf5c7dda140d.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1988,8 +1988,8 @@
 </div>
 <h2 id="1053">10.5.3   搜索方法选取<a class="headerlink" href="#1053" title="Permanent link">¶</a></h2>
 <p>给定大小为 <span class="arithmatex">\(n\)</span> 的一组数据，我们可以使用线性搜索、二分查找、树查找、哈希查找等多种方法从中搜索目标元素。各个方法的工作原理如图 10-11 所示。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png" data-dark-src="/assets/figure-svg/figures/6fd3bff8c2a179afed1eb9ff.json" data-src="/assets/figure-svg/figures/81b996eeb3c0f144a8489773.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.svg" data-theme="light" tabindex="-1" type="image/svg+xml">多种搜索策略</object><object data="/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">多种搜索策略</object></ha-svg-figure></p>
-<p align="center"> 图 10-11   多种搜索策略 </p>
+<p><ha-svg-figure aria-label="四种搜索策略" class="animation-figure" data-book-key="chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png" data-dark-src="/assets/figure-svg/figures/6fd3bff8c2a179afed1eb9ff.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/81b996eeb3c0f144a8489773.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">多种搜索策略</object><object aria-hidden="true" data="/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">多种搜索策略</object></ha-svg-figure></p>
+<p align="center"> 图 10-11   多种搜索策略 </p><div class="ha-sr-only figure-description"><h3>图解 10-11：四种搜索策略</h3><p>四幅子图比较逐项扫描、按序折半、按键查询和沿树分支查找。</p><p>四幅子图均以定位目标数值 6（蓝色高亮）为例，展示不同数据组织方式下的搜索工作原理。图中 n 表示数据量，各子图标题旁标注的复杂度针对单次查找阶段（二分查找所需的预排序、哈希查找的建表以及树查找的建树与平衡维护另有预处理开销）。</p><p>左上角“线性搜索 O(n)”（线性遍历数组）：在无序数组 [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] 中从索引 0 开始向右逐一检查，依次经过 1、5、3、2、4、7 后在索引 6 处找到目标 6。</p><p>左下角“二分查找 O(log n)”（根据数据有序性缩小搜索区间）：在升序数组 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 中利用大小关系折半排除不可能包含目标的子区间，定位索引 6 处的目标 6（图中两段蓝色弧线仅示意逐步收窄搜索范围，并未展开完整的折半指针序列）。</p><p>右上角“哈希查找 O(1)”（输入 key 查询 value）：哈希表按 [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] 列出十组键值对（每列的 key 与下方的 value 数值相同），通过键 6 直接定位对应的值 6，平均查找时间复杂度为 O(1)。</p><p>右下角“树查找 O(log n)”（在二叉搜索树中查询目标节点）：二叉搜索树根节点为 4；4 的左、右子节点为 1、7；1 的左、右子节点为 0、2，2 只有右子节点 3；7 的左、右子节点为 5、8，5 只有右子节点 6，8 只有右子节点 9；0、3、6、9 为叶节点。查找从根 4 出发，因 6 &gt; 4 走右子节点 7，因 6 &lt; 7 走左子节点 5，再因 6 &gt; 5 走右子节点 6，沿蓝色高亮路径 4 → 7 → 5 → 6 命中目标。</p><p>二分需要有序数组，哈希和树查找需要相应结构。哈希图中的 O(1) 是平均效率，树查找的 O(log n) 以保持平衡为前提；普通二叉搜索树退化成链时最坏仍为 O(n)。</p></div>
 <p>上述几种方法的操作效率与特性如表 10-1 所示。</p>
 <p align="center"> 表 10-1   查找算法效率对比 </p>
 <div class="center-table">
@@ -2197,5 +2197,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/b789dc8b01e43e756fc89964.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/bff17b8259339758cb1c4a06.js"></script></body>
 </html>

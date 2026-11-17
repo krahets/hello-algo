@@ -5,6 +5,14 @@ body[data-md-color-scheme="slate"] ha-svg-figure > object[data-theme="light"]:ha
 body[data-md-color-scheme="slate"] ha-svg-figure > object[data-theme="dark"]{display:block}
 @media print{ha-svg-figure{break-inside:avoid}}
 [data-figure-sequence][aria-busy="true"] .animation-controls{opacity:.55}
+.ha-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important;border:0!important}
+/* Keep clipped text on whole lines; compact text extents also avoid Orca
+   combining the last hidden paragraph with the following visible line. */
+.figure-description,.figure-description *{white-space:nowrap!important;font-size:1px!important;line-height:1px!important}
+.figure-description *{margin:0!important;padding:0!important;border:0!important;min-width:0!important}
+/* Site table styles must not turn clipped tables into keyboard-focusable scrollers. */
+.figure-description table{display:table!important;max-width:none!important;overflow:visible!important;border-collapse:collapse!important;border-spacing:0!important}
+ha-svg-figure:focus-visible{outline:2px solid var(--md-accent-fg-color,currentColor);outline-offset:2px}
 
 body[data-md-color-scheme="slate"]{--ha-figure-background:#171717}
 body[data-md-color-scheme="slate"] ha-svg-figure{background:#171717;color-scheme:dark}

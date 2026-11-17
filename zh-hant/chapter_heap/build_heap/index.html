@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/cbbb3d16433c60b7bed6cf0b.css" rel="stylesheet"/><link href="/assets/figure-svg/css/9f909651eeceaf5c7dda140d.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/cbbb3d16433c60b7bed6cf0b.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2230,8 +2230,8 @@
 </ul>
 <p>將上述兩者相乘，可得到建堆積過程的時間複雜度為 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>但這個估算結果並不準確，因為我們沒有考慮到二元樹底層節點數量遠多於頂層節點的性質</strong>。</p>
 <p>接下來我們來進行更為準確的計算。為了降低計算難度，假設給定一個節點數量為 <span class="arithmatex">\(n\)</span> 、高度為 <span class="arithmatex">\(h\)</span> 的“完美二元樹”，該假設不會影響計算結果的正確性。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/8760faedb63f9d224a6df0e1.json" data-src="/assets/figure-svg/figures/0a9c926693bef406f328567d.json" style=";--figure-ratio:960.0/540.0"><object data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object><object data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object></ha-svg-figure></p>
-<p align="center"> 圖 8-5   完美二元樹的各層節點數量 </p>
+<p><ha-svg-figure aria-label="建堆積的分層工作量" class="animation-figure" data-book-key="zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/8760faedb63f9d224a6df0e1.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0a9c926693bef406f328567d.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object><object aria-hidden="true" data="/zh-hant/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">完美二元樹的各層節點數量</object></ha-svg-figure></p>
+<p align="center"> 圖 8-5   完美二元樹的各層節點數量 </p><div class="ha-sr-only figure-description"><h3>圖解 8-5：建堆積的分層工作量</h3><p>建堆積時，靠下的節點數量多，但每個節點能下沉的層數少；按層統計可得到線性時間上界。</p><p>圖中用高度為 h 的完美二元樹分析建堆積：從下往上逐個節點做從頂至底堆積化（下沉）。這裡從下往上指選擇節點的順序，每次修復仍向子節點方向進行。</p><p>左側畫樹，右側兩列分別是“節點高度（即堆積化最大迭代次數）”和“單層節點數量”，水平虛線對齊各層。葉節點高度為 0，根節點高度為 h；高度按到最深葉節點的邊數計算。圖中的次數指最多向下交換的層數，不含程式碼最後判斷並停止的檢查。</p><p>設根層深度為 0，葉層深度為 h。第 d 層有 2 的 d 次方個節點，每個最多下沉 h−d 層，將兩者相乘就得到這一層的上界。給每個節點都乘根的高度 h 會高估工作量，因為約一半節點是無須下沉的葉節點。</p><p>圖中列出前四層和最後兩層，中間用縱向省略號表示；下表補充深度、通式與乘積列。h 較小時只取實際存在的層，首尾行可能重合，不重複計數。</p><p>下表的節點數量與每節點最多下沉層數來自圖中兩列，深度與該層次數上界是整理和計算補充。實際堆積化若提前滿足堆積序，可以在達到上界前停止。</p><table><caption>各層節點數量與最多下沉次數</caption><thead><tr><th scope="col">深度或位置</th><th scope="col">節點數量</th><th scope="col">每節點最多下沉層數</th><th scope="col">該層下沉次數上界</th></tr></thead><tbody><tr><th scope="row">0（根層）</th><td>2^0</td><td>h</td><td>2^0×h</td></tr><tr><th scope="row">1</th><td>2^1</td><td>h−1</td><td>2^1×(h−1)</td></tr><tr><th scope="row">2</th><td>2^2</td><td>h−2</td><td>2^2×(h−2)</td></tr><tr><th scope="row">3</th><td>2^3</td><td>h−3</td><td>2^3×(h−3)</td></tr><tr><th scope="row">d（通式，0≤d≤h）</th><td>2^d</td><td>h−d</td><td>2^d×(h−d)</td></tr><tr><th scope="row">h−1（倒數第二層）</th><td>2^(h−1)</td><td>1</td><td>2^(h−1)</td></tr><tr><th scope="row">h（葉層）</th><td>2^h</td><td>0</td><td>0</td></tr></tbody></table><p>按層求和：T(h) = 2^0×h + 2^1×(h−1) + … + 2^(h−1)×1 + 2^h×0。後文用錯位相減化簡得 T(h) = 2^(h+1) − h − 2。由節點總數 n = 2^(h+1) − 1，可得 T(h) = n − h − 1；加上各節點檢查等線性開銷，建堆積時間為 O(n)。</p></div>
 <p>如圖 8-5 所示，節點“從頂至底堆積化”的最大迭代次數等於該節點到葉節點的距離，而該距離正是“節點高度”。因此，我們可以對各層的“節點數量 <span class="arithmatex">\(\times\)</span> 節點高度”求和，<strong>得到所有節點的堆積化迭代次數的總和</strong>。</p>
 <div class="arithmatex">\[
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
@@ -2377,5 +2377,5 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/b789dc8b01e43e756fc89964.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/bff17b8259339758cb1c4a06.js"></script></body>
 </html>

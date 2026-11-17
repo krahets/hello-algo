@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/9f909651eeceaf5c7dda140d.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1978,8 +1978,8 @@
 <h1 id="63">6.3   哈希算法<a class="headerlink" href="#63" title="Permanent link">¶</a></h1>
 <p>前两节介绍了哈希表的工作原理和哈希冲突的处理方法。然而无论是开放寻址还是链式地址，<strong>它们只能保证哈希表可以在发生冲突时正常工作，而无法减少哈希冲突的发生</strong>。</p>
 <p>如果哈希冲突过于频繁，哈希表的性能则会急剧劣化。如图 6-8 所示，对于链式地址哈希表，理想情况下键值对均匀分布在各个桶中，达到最佳查询效率；最差情况下所有键值对都存储到同一个桶中，时间复杂度退化至 <span class="arithmatex">\(O(n)\)</span> 。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/6067a2b437262df207e5722d.json" data-src="/assets/figure-svg/figures/1ba1be792294646312019e0b.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" tabindex="-1" type="image/svg+xml">哈希冲突的最佳情况与最差情况</object><object data="/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">哈希冲突的最佳情况与最差情况</object></ha-svg-figure></p>
-<p align="center"> 图 6-8   哈希冲突的最佳情况与最差情况 </p>
+<p><ha-svg-figure aria-label="链式地址哈希表的最佳分布与最差退化对比：六个键值对的均匀分布 O(1) 与单桶退化 O(n)" class="animation-figure" data-book-key="chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png" data-dark-src="/assets/figure-svg/figures/6067a2b437262df207e5722d.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/1ba1be792294646312019e0b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">哈希冲突的最佳情况与最差情况</object><object aria-hidden="true" data="/chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">哈希冲突的最佳情况与最差情况</object></ha-svg-figure></p>
+<p align="center"> 图 6-8   哈希冲突的最佳情况与最差情况 </p><div class="ha-sr-only figure-description"><h2>图解 6-8：链式地址哈希表的最佳分布与最差退化对比</h2><p>同一批六个键值对，均匀分散与集中到单桶时，查找所需的比较次数不同。</p><p>画面左上方总标题为“链式地址哈希表”，上下并列两个浅绿色面板，分别展示同一批六个键值对 (k₁, s₁) 至 (k₆, s₆) 的最佳情况与最差情况。</p><p>每个面板左侧的浅蓝色竖栏表示桶数组（包含每个非空桶链表的头节点及代表其余桶的省略号“…”），右侧通过水平箭头表示桶内连接的单向链表节点。</p><p>上方面板展示“最佳情况：键值对平均分布在各个桶中，时间复杂度 O(1)”。六个键值对均匀分散在三个已画出的桶中：第一个桶连接 (k₁, s₁) → (k₂, s₂)，第二个桶连接 (k₃, s₃) → (k₄, s₄)，第三个桶连接 (k₅, s₅) → (k₆, s₆)。每个桶的链表长度都很短（仅 2 个节点），定位到桶后只需常数次比较即可完成查找。当数据规模增长时，O(1) 查询还需要维持适当的负载因子，使平均链长保持常数量级；仅有分布均匀并不足以无条件保证这一复杂度。</p><p>下方面板展示“最差情况：键值对全部分布在单个桶中，时间复杂度 O(n)”。六个键值对全部映射到第一个桶并串成一条长达 6 个节点的单向链表：(k₁, s₁) → (k₂, s₂) → (k₃, s₃) → (k₄, s₄) → (k₅, s₅) → (k₆, s₆)，而下方其余桶全空（以省略号表示）。此时哈希表彻底退化为单向链表，查找末尾元素需要遍历全部 n 个节点。</p><p>按图推演查找 k₆：上图定位到第三个桶后，只需检查 k₅、k₆ 两项；下图则须从 k₁ 遍历到链尾，共检查 6 项。</p><p>哈希算法应使键值尽量均匀分散，并配合适当的负载因子控制链长，避免所有键集中在一个桶中。</p></div>
 <p><strong>键值对的分布情况由哈希函数决定</strong>。回忆哈希函数的计算步骤，先计算哈希值，再对数组长度取模：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>hash<span class="o">(</span>key<span class="o">)</span><span class="w"> </span>%<span class="w"> </span>capacity
 </code></pre></div>
@@ -3070,5 +3070,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/b789dc8b01e43e756fc89964.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/bff17b8259339758cb1c4a06.js"></script></body>
 </html>

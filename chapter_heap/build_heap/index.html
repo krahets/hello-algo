@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/9f909651eeceaf5c7dda140d.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2258,8 +2258,8 @@
 </ul>
 <p>将上述两者相乘，可得到建堆过程的时间复杂度为 <span class="arithmatex">\(O(n \log n)\)</span> 。<strong>但这个估算结果并不准确，因为我们没有考虑到二叉树底层节点数量远多于顶层节点的性质</strong>。</p>
 <p>接下来我们来进行更为准确的计算。为了降低计算难度，假设给定一个节点数量为 <span class="arithmatex">\(n\)</span> 、高度为 <span class="arithmatex">\(h\)</span> 的“完美二叉树”，该假设不会影响计算结果的正确性。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/e8a3c9f3d94228db50f9ed7c.json" data-src="/assets/figure-svg/figures/283a2368c8ab4a6d09517ce4.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" tabindex="-1" type="image/svg+xml">完美二叉树的各层节点数量</object><object data="/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">完美二叉树的各层节点数量</object></ha-svg-figure></p>
-<p align="center"> 图 8-5   完美二叉树的各层节点数量 </p>
+<p><ha-svg-figure aria-label="建堆的分层工作量" class="animation-figure" data-book-key="chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/e8a3c9f3d94228db50f9ed7c.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/283a2368c8ab4a6d09517ce4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">完美二叉树的各层节点数量</object><object aria-hidden="true" data="/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">完美二叉树的各层节点数量</object></ha-svg-figure></p>
+<p align="center"> 图 8-5   完美二叉树的各层节点数量 </p><div class="ha-sr-only figure-description"><h3>图解 8-5：建堆的分层工作量</h3><p>建堆时，靠下的节点数量多，但每个节点能下沉的层数少；按层统计可得到线性时间上界。</p><p>图中用高度为 h 的完美二叉树分析建堆：从下往上逐个节点做从顶至底堆化（下沉）。这里从下往上指选择节点的顺序，每次修复仍向子节点方向进行。</p><p>左侧画树，右侧两列分别是“节点高度（即堆化最大迭代次数）”和“单层节点数量”，水平虚线对齐各层。叶节点高度为 0，根节点高度为 h；高度按到最深叶节点的边数计算。图中的次数指最多向下交换的层数，不含代码最后判断并停止的检查。</p><p>设根层深度为 0，叶层深度为 h。第 d 层有 2 的 d 次方个节点，每个最多下沉 h−d 层，将两者相乘就得到这一层的上界。给每个节点都乘根的高度 h 会高估工作量，因为约一半节点是无须下沉的叶节点。</p><p>图中列出前四层和最后两层，中间用纵向省略号表示；下表补充深度、通式与乘积列。h 较小时只取实际存在的层，首尾行可能重合，不重复计数。</p><p>下表的节点数量与每节点最多下沉层数来自图中两列，深度与该层次数上界是整理和计算补充。实际堆化若提前满足堆序，可以在达到上界前停止。</p><table><caption>各层节点数量与最多下沉次数</caption><thead><tr><th scope="col">深度或位置</th><th scope="col">节点数量</th><th scope="col">每节点最多下沉层数</th><th scope="col">该层下沉次数上界</th></tr></thead><tbody><tr><th scope="row">0（根层）</th><td>2^0</td><td>h</td><td>2^0×h</td></tr><tr><th scope="row">1</th><td>2^1</td><td>h−1</td><td>2^1×(h−1)</td></tr><tr><th scope="row">2</th><td>2^2</td><td>h−2</td><td>2^2×(h−2)</td></tr><tr><th scope="row">3</th><td>2^3</td><td>h−3</td><td>2^3×(h−3)</td></tr><tr><th scope="row">d（通式，0≤d≤h）</th><td>2^d</td><td>h−d</td><td>2^d×(h−d)</td></tr><tr><th scope="row">h−1（倒数第二层）</th><td>2^(h−1)</td><td>1</td><td>2^(h−1)</td></tr><tr><th scope="row">h（叶层）</th><td>2^h</td><td>0</td><td>0</td></tr></tbody></table><p>按层求和：T(h) = 2^0×h + 2^1×(h−1) + … + 2^(h−1)×1 + 2^h×0。后文用错位相减化简得 T(h) = 2^(h+1) − h − 2。由节点总数 n = 2^(h+1) − 1，可得 T(h) = n − h − 1；加上各节点检查等线性开销，建堆时间为 O(n)。</p></div>
 <p>如图 8-5 所示，节点“从顶至底堆化”的最大迭代次数等于该节点到叶节点的距离，而该距离正是“节点高度”。因此，我们可以对各层的“节点数量 <span class="arithmatex">\(\times\)</span> 节点高度”求和，<strong>得到所有节点的堆化迭代次数的总和</strong>。</p>
 <div class="arithmatex">\[
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
@@ -2405,5 +2405,5 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/b789dc8b01e43e756fc89964.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/bff17b8259339758cb1c4a06.js"></script></body>
 </html>

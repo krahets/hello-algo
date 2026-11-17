@@ -4,6 +4,7 @@
   if (customElements.get('ha-svg-figure')) return;
   const {resource, decode, fonts, theme} = FigureWeb;
   const sequences = new WeakMap();
+  const motionStates = new WeakMap();
   function sequence(group) {
     if (sequences.has(group)) return sequences.get(group);
     let pending = null, pendingTheme, intent = null;
@@ -25,9 +26,10 @@
       return pending;
     };
     group.addEventListener('click', event => {
-      const target = event.target.closest('.animation-controls button, .tabbed-labels label');
+      const target = event.target.closest('.animation-controls button, .tabbed-labels label, input[type="radio"]');
       if (!target || target.closest('.tabbed-set') !== group) return;
       if (group.dataset.figureState === 'ready') return;
+      group.dispatchEvent(new Event('figureinteractionpending'));
       event.preventDefault(); event.stopImmediatePropagation();
       intent = target; prepare();
     }, true);
@@ -79,7 +81,14 @@
     const staging = stage.attachShadow({mode:'open'});
     staging.append(style, svg); document.body.append(stage);
     try {
-      if (model) HelloAlgoReading.mount(svg, model);
+      const accessible = host.hasAttribute('data-figure-accessible');
+      if (model) HelloAlgoReading.mount(svg, model, {focusable: !accessible});
+      if (accessible) {
+        svg.setAttribute('aria-hidden', 'true');
+        svg.removeAttribute('tabindex');
+        for (const node of svg.querySelectorAll('[tabindex],a')) node.setAttribute('tabindex', '-1');
+        if (model?.arrows?.length) host.motionControl(svg);
+      }
       if (svg.reading?.state().issues.length) throw Error(svg.reading.state().issues.join('; '));
       const shadow = host.shadowRoot || host.attachShadow({mode:'open'});
       shadow.replaceChildren(style, svg);
@@ -94,7 +103,10 @@
       const group = this.closest('[data-figure-sequence]');
       this.unsubscribe = FigureWeb.subscribe(() => {
         if (!this.active) return;
-        if (group) sequence(group)();
+        if (group) {
+          group.dispatchEvent(new Event('figureinteractionpending'));
+          sequence(group)();
+        }
         else this.prepare();
       });
       if (group) {
@@ -113,6 +125,29 @@
       this.showStatic();
       this.observer?.disconnect();
       this.unsubscribe?.();
+      this.motionState?.hosts.delete(this);
+    }
+    motionControl(svg) {
+      const owner = this.closest('[data-figure-sequence]') || this;
+      if (!motionStates.has(owner)) motionStates.set(owner, {paused:false, hosts:new Set()});
+      const state = this.motionState = motionStates.get(owner); state.hosts.add(this);
+      this.tabIndex = 0;
+      this.setAttribute('aria-keyshortcuts', 'Space');
+      this.setAttribute('aria-description', document.documentElement.lang.toLowerCase() === 'zh-hant'
+        ? '空白鍵暫停或繼續箭頭動效。' : '空格键暂停或继续箭头动效。');
+      if (!this.motionKeyHandler) {
+        this.motionKeyHandler = event => {
+          if (event.target !== this || event.code !== 'Space' || event.ctrlKey || event.metaKey || event.altKey) return;
+          event.preventDefault();
+          const shared = this.motionState;
+          shared.paused = !shared.paused;
+          for (const host of shared.hosts) {
+            host.shadowRoot?.querySelector('svg')?.reading?.configure({motion: !shared.paused});
+          }
+        };
+        this.addEventListener('keydown', this.motionKeyHandler);
+      }
+      svg.reading.configure({motion: !state.paused});
     }
     prepare() {
       this.active = true;

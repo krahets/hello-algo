@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const NS = 'http://www.w3.org/2000/svg';
-  function mount(svg, model) {
+  function mount(svg, model, options = {}) {
     if (svg.reading) return svg.reading;
     const doc = svg.ownerDocument, win = doc.defaultView, config = model.config.motion;
     const sources = new Map([...svg.querySelectorAll('[data-source]')].map(n => [n.dataset.source, n]));
@@ -11,7 +11,7 @@
     const originalAttrs = new Map(['tabindex', 'data-reading-root'].map(k => [k, svg.getAttribute(k)]));
     const scope = 'ha-flow-' + Array.from(win.crypto.getRandomValues(new Uint32Array(4)), n => n.toString(16)).join('');
     svg.setAttribute('data-reading-root', scope);
-    if (model.arrows.length) svg.setAttribute('tabindex', '0');
+    if (model.arrows.length && options.focusable !== false) svg.setAttribute('tabindex', '0');
     function node(tag, attrs, parent) {
       const n = doc.createElementNS(NS, tag);
       for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/9f909651eeceaf5c7dda140d.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/ca08fd1c3a121ac517cf0998.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1942,8 +1942,8 @@
 <h1 id="111">11.1   排序算法<a class="headerlink" href="#111" title="Permanent link">¶</a></h1>
 <p><u>排序算法（sorting algorithm）</u>用于对一组数据按照特定顺序进行排列。排序算法有着广泛的应用，因为有序数据通常能够被更高效地查找、分析和处理。</p>
 <p>如图 11-1 所示，排序算法中的数据类型可以是整数、浮点数、字符或字符串等。排序的判断规则可根据需求设定，如数字大小、字符 ASCII 码顺序或自定义规则。</p>
-<p><ha-svg-figure class="animation-figure" data-book-key="chapter_sorting/sorting_algorithm.assets/sorting_examples.png" data-dark-src="/assets/figure-svg/figures/6948bce2b42fd245cbdcbdb8.json" data-src="/assets/figure-svg/figures/b2bd5af255c6b64897b2a9fb.json" style=";--figure-ratio:960.0/540.0"><object data="/chapter_sorting/sorting_algorithm.assets/sorting_examples.svg" data-theme="light" tabindex="-1" type="image/svg+xml">数据类型和判断规则示例</object><object data="/chapter_sorting/sorting_algorithm.assets/sorting_examples.dark.svg" data-theme="dark" tabindex="-1" type="image/svg+xml">数据类型和判断规则示例</object></ha-svg-figure></p>
-<p align="center"> 图 11-1   数据类型和判断规则示例 </p>
+<p><ha-svg-figure aria-label="不同数据的排序规则" class="animation-figure" data-book-key="chapter_sorting/sorting_algorithm.assets/sorting_examples.png" data-dark-src="/assets/figure-svg/figures/6948bce2b42fd245cbdcbdb8.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b2bd5af255c6b64897b2a9fb.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/chapter_sorting/sorting_algorithm.assets/sorting_examples.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">数据类型和判断规则示例</object><object aria-hidden="true" data="/chapter_sorting/sorting_algorithm.assets/sorting_examples.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">数据类型和判断规则示例</object></ha-svg-figure></p>
+<p align="center"> 图 11-1   数据类型和判断规则示例 </p><div class="ha-sr-only figure-description"><h2>图解 11-1：不同数据的排序规则</h2><p>分三行展示整数按数值升序、英文姓名按字典序、等级字符串按自定义优先级 D 至 A+ 排序的前后对比。</p><p>图分三行，每行左侧为无序输入，经标注排序规则的向右箭头，右侧给出排序结果。它展示输入与输出的对照，不展开算法内部操作。</p><p>姓名按字典序逐字符比较；本例五个姓名的首字母互不相同，比较首字母即可定序。等级按从低到高的自定义规则 D &lt; C &lt; B- &lt; B &lt; B+ &lt; A &lt; A+ 排列，并非普通 ASCII 字典序；B-、B、B+ 是三个不同等级。下表按图中从上到下的行序列出完整数据。</p><table><caption>三行示例的规则与排序前后数据</caption><thead><tr><th scope="col">图中行与数据类型</th><th scope="col">箭头标注的规则</th><th scope="col">无序输入</th><th scope="col">排序结果</th></tr></thead><tbody><tr><th scope="row">第一行：8 个整数</th><td>按照数字大小排序整数</td><td>[7, 3, 2, 6, 0, 1, 5, 4]</td><td>[0, 1, 2, 3, 4, 5, 6, 7]</td></tr><tr><th scope="row">第二行：5 个英文姓名</th><td>按照字典序排序字符串</td><td>[Kobe, Durant, Curry, Lebron, Harden]</td><td>[Curry, Durant, Harden, Kobe, Lebron]</td></tr><tr><th scope="row">第三行：7 个等级</th><td>按照自定义规则排序字符串</td><td>[B-, A+, B, B+, A, D, C]</td><td>[D, C, B-, B, B+, A, A+]</td></tr></tbody></table><p>排序只改变元素的先后次序，输出由选定的比较规则决定。</p></div>
 <h2 id="1111">11.1.1   评价维度<a class="headerlink" href="#1111" title="Permanent link">¶</a></h2>
 <p><strong>运行效率</strong>：我们期望排序算法的时间复杂度尽量低，且总体操作数量较少（时间复杂度中的常数项变小）。对于大数据量的情况，运行效率显得尤为重要。</p>
 <p><strong>就地性</strong>：顾名思义，<u>原地排序</u>通过在原数组上直接操作实现排序，无须借助额外的辅助数组，从而节省内存。通常情况下，原地排序的数据搬运操作较少，运行速度也更快。</p>
@@ -2092,5 +2092,5 @@
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/99a707e9f0a14d8280f16808.js"></script><script defer="" src="/assets/figure-svg/js/b789dc8b01e43e756fc89964.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/bcdea376f01bc2bc0cac7c6c.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/bff17b8259339758cb1c4a06.js"></script></body>
 </html>
