@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "title": "AVL 树右旋",
+  "summary": "对首个失衡节点执行右旋，先重连局部子树的父子指针，再将新子树根接回上层父节点。",
+  "context": [
+    "初始树根为 4，左右子节点为 3、5；3 只有左子节点 1，1 只有左子节点 0；0、5 为叶节点。",
+    "平衡因子定义为左子树高度减右子树高度；高度按边数计，叶节点高度为 0，空子树高度为 −1。自底向上检查时，首个失衡节点是 3，记为 node；其左子节点 1 记为 child。"
+  ],
+  "description": [
+    "本例 child（1）的右子树为空。代码先保存 grand_child = child.right，再改写 child.right = node，最后将 node.left = grand_child；保存旧引用必须在覆盖之前。"
+  ],
+  "result": "局部子树高度下降 1，整棵树恢复 AVL 平衡，二叉搜索树的大小顺序保持不变。",
+  "frames": [
+    {
+      "id": "source-130",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
+      "title": "找到首个失衡节点 3",
+      "explanation": "初始根 4 左接 3、右接 5；3 仅左接 1，1 仅左接 0，0、5 为叶节点。节点下方标出的平衡因子为：0、5 是 0，1 是 1，3 和 4 是 2。沿左分支自底向上，首个失衡节点为 3，因此先修复以 3 为根的子树。",
+      "key_state": "初始根 4 左接 3、右接 5，3 左接 1，1 左接 0；3 和 4 平衡因子均为 2，自底向上先处理 3。",
+      "announcement": "自底向上检查平衡因子，定位首个失衡节点 3。"
+    },
+    {
+      "id": "source-131",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
+      "title": "标记旋转的两个节点",
+      "explanation": "标记 node=3、child=1，尚未旋转：根 4 仍左接 3、右接 5，3 仅左接 1，1 仅左接 0。child.right 为空，因此保存的 grand_child 为空，旋转后 node.left 也应为空。",
+      "key_state": "尚未旋转：根 4 左接 3、右接 5，3 左接 1，1 左接 0；node=3、child=1，child.right 为空。",
+      "announcement": "标记失衡子树根 node = 3 与左子节点 child = 1。"
+    },
+    {
+      "id": "source-132",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
+      "title": "形成以 1 为根的局部子树",
+      "explanation": "保存 child 原有的右引用（为空），再令 child.right = node、node.left = grand_child，形成局部子树：根 1 左接 0、右接 3，0、3 为叶节点。图中父节点 4 此时仅右接 5，尚未接到新根 1。旧位置 3 的虚线圆框及其指向 1 的虚线边只作旋转前对照，不是当前连接，整次旋转尚未完成。",
+      "key_state": "局部根 1 左接 0、右接 3；父节点 4 仅右接 5，还未接到新根 1。",
+      "announcement": "节点 3 成为 1 的右子节点，局部子树已形成，尚未接回父节点 4。"
+    },
+    {
+      "id": "source-133",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
+      "title": "将新子树根接回父节点",
+      "explanation": "令 4.left 指向新子树根 1，完成接回：根 4 左接 1、右接 5；1 左接 0、右接 3，0、3、5 为叶节点。局部子树高度下降 1，根 4 的平衡因子从 2 变为 1；全树中序序列仍为 [0, 1, 3, 4, 5]。",
+      "key_state": "接回后根 4 左接 1、右接 5，1 左接 0、右接 3；中序 [0, 1, 3, 4, 5]，全树平衡。",
+      "announcement": "令父节点 4 的左指针指向新根 1，完成右旋并恢复整树平衡。"
+    }
+  ],
+  "animations": {
+    "avl-right-rotation": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-130"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-131"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-132"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-133"
+        }
+      ]
+    }
+  },
+  "tables": [],
+  "input_tables": []
+}

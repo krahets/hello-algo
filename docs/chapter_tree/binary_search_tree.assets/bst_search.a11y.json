@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "在二叉搜索树中查找节点 7",
+  "summary": "在含值 1 至 15 的二叉搜索树中查找 7，逐步比较并选择左、右分支。",
+  "context": [
+    "二叉搜索树中，任意节点的左子树所有节点值小于该节点值，右子树所有节点值大于该节点值。连线箭头从父节点指向子节点。",
+    "四层完美二叉搜索树含节点 1 至 15：根为 8，左、右子节点为 4、12；4 的左、右子节点为 2、6；12 的左、右子节点为 10、14；2 的子节点为 1、3，6 的子节点为 5、7，10 的子节点为 9、11，14 的子节点为 13、15。",
+    "指针 cur 指向当前正被检查的节点（以实心蓝色高亮），已经走过的查找路径用蓝色箭头与蓝色节点外环标出。"
+  ],
+  "description": [],
+  "result": "指针 cur 沿路径 8 → 4 → 6 → 7 依次比较四个节点，在第四步命中目标值 7 并返回该节点；查找过程不修改树的任何连接。",
+  "frames": [
+    {
+      "id": "source-118",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
+      "title": "从根节点 8 开始查找",
+      "explanation": "将指针 cur 初始化在根节点 8（实心蓝色高亮）。将目标值 7 与当前节点值 8 比较：因为 7 < 8，目标必在左子树中，下一步应移向左下方的左子节点 4。当前已走路径为 8。",
+      "key_state": "cur 指向根节点 8；因目标 7 < 8，准备转向左子节点 4。",
+      "announcement": "开始查找 7，初始化 cur 指向根节点 8。"
+    },
+    {
+      "id": "source-119",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step2.png",
+      "title": "向左进入节点 4",
+      "explanation": "因 7 < 8，执行 cur = cur.left，指针沿蓝色箭头从 8 移至左子节点 4。再将目标值 7 与当前节点值 4 比较：因为 7 > 4，下一步应转向 4 的右子树。当前已走路径为 8→4。",
+      "key_state": "cur 指向节点 4（路径 8→4）；因目标 7 > 4，准备转向右子节点 6。",
+      "announcement": "因 7 小于 8，cur 从 8 移至左子节点 4。"
+    },
+    {
+      "id": "source-120",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step3.png",
+      "title": "向右进入节点 6",
+      "explanation": "因 7 > 4，执行 cur = cur.right，指针沿蓝色箭头从 4 移至右子节点 6。再将目标值 7 与当前节点值 6 比较：因为 7 > 6，下一步继续转向 6 的右子节点。当前已走路径为 8→4→6。",
+      "key_state": "cur 指向节点 6（路径 8→4→6）；因目标 7 > 6，准备转向右子节点 7。",
+      "announcement": "因 7 大于 4，cur 从 4 移至右子节点 6。"
+    },
+    {
+      "id": "source-121",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
+      "title": "找到节点 7",
+      "explanation": "因 7 > 6，执行 cur = cur.right，指针沿蓝色箭头从 6 移至右子节点 7。此时 cur 的节点值等于目标值 7，查找命中，跳出循环并返回节点 7。当前已走路径为 8→4→6→7。",
+      "key_state": "cur 指向目标节点 7（路径 8→4→6→7），查找成功。",
+      "announcement": "因 7 大于 6，cur 从 6 移至右子节点 7，命中目标并查找成功。"
+    }
+  ],
+  "animations": {
+    "bst-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-118"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-119"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-120"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-121"
+        }
+      ]
+    }
+  }
+}

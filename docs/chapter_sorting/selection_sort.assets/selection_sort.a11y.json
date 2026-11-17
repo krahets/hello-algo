@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "title": "选择排序",
+  "summary": "每轮选择未排序区间的最小元素，再与区间首元素交换，使已排序前缀扩大一项。",
+  "context": [
+    "待排序数组为 nums = [4, 1, 3, 1, 5, 2]，共 6 个元素，索引从 0 到 5，目标是按非递减顺序完成排序。",
+    "每轮由指针 i 指向当前“未排序区间”的首个元素，由指针 k 记录从该未排序区间中选出的最小元素索引。绿色表示未排序部分，左侧灰色方格表示已排好序的前缀，上方花括号标出当前“未排序区间”；选定 k 后，将最小元素 nums[k] 与区间首元素 nums[i] 交换，使已排序前缀向右扩展一位。"
+  ],
+  "description": [
+    "十一幅画面中，前十幅按五轮排列，每轮有选择画面和交换画面：选择画面直接给出扫描完成后的 i、k，不逐格展开内循环比较；交换画面显示完成后的数组，用上下交换弧线标出刚交换的位置，并隐藏 i、k 指针文字。第十一幅显示末尾只剩一个元素，无须第六轮。"
+  ],
+  "frames": [
+    {
+      "id": "source-241",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step1.png",
+      "title": "选出索引 1 的最小值 1",
+      "explanation": "第 1 轮选择：当前 nums = [4, 1, 3, 1, 5, 2]。在未排序索引区间 [0, 5] 扫描后，i = 0 指向首元素 4，k = 1 指向最小值 1。两个 1 位于索引 1、3，严格小于的比较规则保留靠左的 k = 1。尚无已排序前缀。尚未交换。",
+      "key_state": "第 1 轮选择，尚未交换；nums = [4, 1, 3, 1, 5, 2]，未排序索引区间 [0, 5]，i = 0，k = 1，最小值为 1。",
+      "announcement": "第 1 轮在未排序区间 [0, 5] 中选中索引 k = 1 的最小元素 1。"
+    },
+    {
+      "id": "source-242",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step2.png",
+      "title": "交换索引 0 与 1",
+      "explanation": "第 1 轮交换：将未排序索引区间 [0, 5] 的最小值 1（索引 1）与首元素 4（索引 0）交换。当前 nums = [1, 4, 3, 1, 5, 2]；灰色已排序前缀为索引 0，值为 [1]；未排序索引区间为 [1, 5]，值为 [4, 3, 1, 5, 2]。",
+      "key_state": "第 1 轮交换完成；nums = [1, 4, 3, 1, 5, 2]，已确定索引 0，未排序索引区间 [1, 5]。",
+      "announcement": "交换索引 0 的 4 与索引 1 的 1，将最小元素 1 固定在索引 0。"
+    },
+    {
+      "id": "source-243",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step3.png",
+      "title": "选出索引 3 的最小值 1",
+      "explanation": "第 2 轮选择：当前 nums = [1, 4, 3, 1, 5, 2]。在未排序索引区间 [1, 5] 扫描后，i = 1 指向首元素 4，k = 3 指向最小值 1。已排序前缀为索引 0，值为 [1]。尚未交换。",
+      "key_state": "第 2 轮选择，尚未交换；nums = [1, 4, 3, 1, 5, 2]，未排序索引区间 [1, 5]，i = 1，k = 3，最小值为 1。",
+      "announcement": "第 2 轮在未排序区间 [1, 5] 中选中索引 k = 3 的最小元素 1。"
+    },
+    {
+      "id": "source-244",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step4.png",
+      "title": "交换索引 1 与 3",
+      "explanation": "第 2 轮交换：将未排序索引区间 [1, 5] 的最小值 1（索引 3）与首元素 4（索引 1）交换。当前 nums = [1, 1, 3, 4, 5, 2]；灰色已排序前缀为索引 0 至 1，值为 [1, 1]；未排序索引区间为 [2, 5]，值为 [3, 4, 5, 2]。",
+      "key_state": "第 2 轮交换完成；nums = [1, 1, 3, 4, 5, 2]，已确定索引 0 至 1，未排序索引区间 [2, 5]。",
+      "announcement": "交换索引 1 的 4 与索引 3 的 1，将第二个 1 固定在索引 1。"
+    },
+    {
+      "id": "source-245",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step5.png",
+      "title": "选出索引 5 的最小值 2",
+      "explanation": "第 3 轮选择：当前 nums = [1, 1, 3, 4, 5, 2]。在未排序索引区间 [2, 5] 扫描后，i = 2 指向首元素 3，k = 5 指向最小值 2。已排序前缀为索引 0 至 1，值为 [1, 1]。尚未交换。",
+      "key_state": "第 3 轮选择，尚未交换；nums = [1, 1, 3, 4, 5, 2]，未排序索引区间 [2, 5]，i = 2，k = 5，最小值为 2。",
+      "announcement": "第 3 轮在未排序区间 [2, 5] 中选中索引 k = 5 的最小元素 2。"
+    },
+    {
+      "id": "source-246",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step6.png",
+      "title": "交换索引 2 与 5",
+      "explanation": "第 3 轮交换：将未排序索引区间 [2, 5] 的最小值 2（索引 5）与首元素 3（索引 2）交换。当前 nums = [1, 1, 2, 4, 5, 3]；灰色已排序前缀为索引 0 至 2，值为 [1, 1, 2]；未排序索引区间为 [3, 5]，值为 [4, 5, 3]。",
+      "key_state": "第 3 轮交换完成；nums = [1, 1, 2, 4, 5, 3]，已确定索引 0 至 2，未排序索引区间 [3, 5]。",
+      "announcement": "交换索引 2 的 3 与索引 5 的 2，将元素 2 固定在索引 2。"
+    },
+    {
+      "id": "source-247",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step7.png",
+      "title": "选出索引 5 的最小值 3",
+      "explanation": "第 4 轮选择：当前 nums = [1, 1, 2, 4, 5, 3]。在未排序索引区间 [3, 5] 扫描后，i = 3 指向首元素 4，k = 5 指向最小值 3。已排序前缀为索引 0 至 2，值为 [1, 1, 2]。尚未交换。",
+      "key_state": "第 4 轮选择，尚未交换；nums = [1, 1, 2, 4, 5, 3]，未排序索引区间 [3, 5]，i = 3，k = 5，最小值为 3。",
+      "announcement": "第 4 轮在未排序区间 [3, 5] 中选中索引 k = 5 的最小元素 3。"
+    },
+    {
+      "id": "source-248",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step8.png",
+      "title": "交换索引 3 与 5",
+      "explanation": "第 4 轮交换：将未排序索引区间 [3, 5] 的最小值 3（索引 5）与首元素 4（索引 3）交换。当前 nums = [1, 1, 2, 3, 5, 4]；灰色已排序前缀为索引 0 至 3，值为 [1, 1, 2, 3]；未排序索引区间为 [4, 5]，值为 [5, 4]。",
+      "key_state": "第 4 轮交换完成；nums = [1, 1, 2, 3, 5, 4]，已确定索引 0 至 3，未排序索引区间 [4, 5]。",
+      "announcement": "交换索引 3 的 4 与索引 5 的 3，将元素 3 固定在索引 3。"
+    },
+    {
+      "id": "source-249",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step9.png",
+      "title": "选出索引 5 的最小值 4",
+      "explanation": "第 5 轮选择：当前 nums = [1, 1, 2, 3, 5, 4]。在未排序索引区间 [4, 5] 扫描后，i = 4 指向首元素 5，k = 5 指向最小值 4。已排序前缀为索引 0 至 3，值为 [1, 1, 2, 3]。尚未交换。",
+      "key_state": "第 5 轮选择，尚未交换；nums = [1, 1, 2, 3, 5, 4]，未排序索引区间 [4, 5]，i = 4，k = 5，最小值为 4。",
+      "announcement": "第 5 轮在未排序区间 [4, 5] 中选中索引 k = 5 的最小元素 4。"
+    },
+    {
+      "id": "source-250",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step10.png",
+      "title": "交换索引 4 与 5",
+      "explanation": "第 5 轮交换：将未排序索引区间 [4, 5] 的最小值 4（索引 5）与首元素 5（索引 4）交换。当前 nums = [1, 1, 2, 3, 4, 5]；灰色已排序前缀为索引 0 至 4，值为 [1, 1, 2, 3, 4]；未排序索引区间为 [5, 5]，值为 [5]。",
+      "key_state": "第 5 轮交换完成；nums = [1, 1, 2, 3, 4, 5]，已确定索引 0 至 4，未排序索引区间 [5, 5]。",
+      "announcement": "交换索引 4 的 5 与索引 5 的 4，将元素 4 固定在索引 4。"
+    },
+    {
+      "id": "source-251",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step11.png",
+      "title": "排序完成",
+      "explanation": "五轮后 nums = [1, 1, 2, 3, 4, 5]。索引 0 至 4 为灰色已排序前缀；索引 5 的绿色元素 5 仍标在单元素未排序区间 [5, 5]，但它必为最大值且已处于正确位置。图中文字说明“完成排序（剩余一个元素无须排序）”，i、k 均已隐藏。",
+      "key_state": "五轮完成，剩余末尾元素 5 自然就位，最终有序数组为 [1, 1, 2, 3, 4, 5]。",
+      "announcement": "未排序区间仅剩最后一个元素 5，无须再选，选择排序完成。"
+    }
+  ],
+  "animations": {
+    "selection-sort": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-241"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-242"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-243"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-244"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-245"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-246"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-247"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-248"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-249"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-250"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-251"
+        }
+      ]
+    }
+  }
+}
