@@ -7,44 +7,40 @@
     "平衡因子定义为左子树高度减右子树高度；高度按边数计，叶节点高度为 0，空子树高度为 −1。自底向上检查时，首个失衡节点是 3，记为 node；其左子节点 1 记为 child。"
   ],
   "description": [
-    "本例中 child（1）的右子树为空，右旋时 node（3）的左指针因而改为空。若一般情形下 child 带有非空右子树 grand_child，实现中会将它改接到 node 的左侧；本组不包含这一非空中间子树。"
+    "本例 child（1）的右子树为空。代码先保存 grand_child = child.right，再改写 child.right = node，最后将 node.left = grand_child；保存旧引用必须在覆盖之前。"
   ],
-  "result": "旋转完成后，根为 4；4 左为 1、右为 5，1 左为 0、右为 3，0、3、5 均为叶节点。局部子树与整棵树均恢复平衡，中序序列仍为 [0, 1, 3, 4, 5]。",
+  "result": "局部子树高度下降 1，整棵树恢复 AVL 平衡，二叉搜索树的大小顺序保持不变。",
   "frames": [
     {
       "id": "source-130",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
       "title": "找到首个失衡节点 3",
-      "explanation": "各节点下方标注平衡因子：叶节点 0、5 为 0，节点 1 为 1，节点 3 与根 4 均为 2。沿左分支自底向上检查，首先超出平衡范围的是节点 3，因此优先修复以 3 为根的子树。",
-      "state": "右旋第 1 步（定位失衡节点）：根 4 的左右子节点为 3、5；3 只有左子节点 1，1 只有左子节点 0。各节点平衡因子依次为：0 为 0，1 为 1，3 为 2，4 为 2，5 为 0。",
-      "key_state": "节点 3 与根 4 均失衡（平衡因子为 2）；自底向上首先处理 3。",
+      "explanation": "初始根 4 左接 3、右接 5；3 仅左接 1，1 仅左接 0，0、5 为叶节点。节点下方标出的平衡因子为：0、5 是 0，1 是 1，3 和 4 是 2。沿左分支自底向上，首个失衡节点为 3，因此先修复以 3 为根的子树。",
+      "key_state": "初始根 4 左接 3、右接 5，3 左接 1，1 左接 0；3 和 4 平衡因子均为 2，自底向上先处理 3。",
       "announcement": "自底向上检查平衡因子，定位首个失衡节点 3。"
     },
     {
       "id": "source-131",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
       "title": "标记旋转的两个节点",
-      "explanation": "将失衡子树根 3 记为 node，其左子节点 1 记为 child。本例 child 的右子树为空，因此旋转后 node 的左子树也为空。",
-      "state": "右旋第 2 步（标记旋转节点）：根 4 的左右子节点仍为 3、5；node 指向 3，child 指向 1，3.left 为 1，1.left 为 0，1.right 为空，树连接尚未改变。",
-      "key_state": "标记 node = 3，child = 1，child.right 为空。",
+      "explanation": "标记 node=3、child=1，尚未旋转：根 4 仍左接 3、右接 5，3 仅左接 1，1 仅左接 0。child.right 为空，因此保存的 grand_child 为空，旋转后 node.left 也应为空。",
+      "key_state": "尚未旋转：根 4 左接 3、右接 5，3 左接 1，1 左接 0；node=3、child=1，child.right 为空。",
       "announcement": "标记失衡子树根 node = 3 与左子节点 child = 1。"
     },
     {
       "id": "source-132",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
       "title": "形成以 1 为根的局部子树",
-      "explanation": "以 child（1）为原点将 node（3）向右旋转：令 child.right 指向 node（3），并把 node.left 改为原 child.right（本例为空），使 1 的左右子节点分别为 0、3。此时局部子树虽已形成，但图中父节点 4 还未接到新根 1，整次旋转尚未完成。",
-      "state": "右旋第 3 步（局部子树已形成、未接回父节点）：局部子树根已是 child（1），1 的左子节点为 0、右子节点为 node（3），0 和 3 为叶节点；但图中父节点 4 仅连着右子节点 5，还未接到新根 1。原 3 位置处的虚线轮廓仅示意旋转前的旧位置。",
-      "key_state": "局部子树已形成（根 1 左 0 右 3），但图中父节点 4 还未接到新根 1。",
+      "explanation": "保存 child 原有的右引用（为空），再令 child.right = node、node.left = grand_child，形成局部子树：根 1 左接 0、右接 3，0、3 为叶节点。图中父节点 4 此时仅右接 5，尚未接到新根 1。旧位置 3 的虚线圆框及其指向 1 的虚线边只作旋转前对照，不是当前连接，整次旋转尚未完成。",
+      "key_state": "局部根 1 左接 0、右接 3；父节点 4 仅右接 5，还未接到新根 1。",
       "announcement": "节点 3 成为 1 的右子节点，局部子树已形成，尚未接回父节点 4。"
     },
     {
       "id": "source-133",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
       "title": "将新子树根接回父节点",
-      "explanation": "最后用新子树根 child（1）替换原 node（3）在父节点 4 下的位置，最后使 4.left 指向 1，完成整次右旋。该子树高度下降 1，根 4 的左右子树高度差也恢复到 1 以内。",
-      "state": "右旋第 4 步（接回父节点、旋转完成）：根为 4；4 左为 1、右为 5，1 左为 0、右为 3，0、3、5 均为叶节点。全树满足二叉搜索树顺序与 AVL 平衡条件，中序序列为 [0, 1, 3, 4, 5]。",
-      "key_state": "4.left 指向 1（4 左为 1、右为 5，1 左为 0、右为 3），中序 [0, 1, 3, 4, 5]。",
+      "explanation": "令 4.left 指向新子树根 1，完成接回：根 4 左接 1、右接 5；1 左接 0、右接 3，0、3、5 为叶节点。局部子树高度下降 1，根 4 的平衡因子从 2 变为 1；全树中序序列仍为 [0, 1, 3, 4, 5]。",
+      "key_state": "接回后根 4 左接 1、右接 5，1 左接 0、右接 3；中序 [0, 1, 3, 4, 5]，全树平衡。",
       "announcement": "令父节点 4 的左指针指向新根 1，完成右旋并恢复整树平衡。"
     }
   ],

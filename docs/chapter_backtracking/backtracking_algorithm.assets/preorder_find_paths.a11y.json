@@ -3,22 +3,20 @@
   "title": "尝试与回退：保存到达 7 的路径",
   "summary": "进入节点时追加进 path，退出时弹出；两次命中 7 复制保存路径副本，搜索结束时 path 清空。",
   "context": [
-    "二叉树共 7 个节点：根节点为 1，左、右子节点分别为左侧 7 和节点 3；左侧 7 的左、右子节点为 4、5；节点 3 的左、右子节点为 6 和右侧 7；4、5、6 与右侧 7 为叶节点。",
-    "本例对应不带节点 3 剪枝约束的全量搜索：按“根 → 左 → 右”的前序顺序遍历整棵树，找出从根节点 1 到所有值为 7 节点的路径。",
+    "固定树的父子关系见下表。左侧 7 是根 1 的左子节点，右侧 7 是节点 3 的右子节点。",
+    "按“根 → 左 → 右”的前序顺序遍历整棵树，找出从根节点 1 到所有值为 7 节点的路径。",
     "状态列表 path 实时维护从根到当前节点的活跃路径，结果列表 res 保存每次命中 7 时的路径副本。图中以节点值简写 path 与 res，配套代码实际保存节点对象及列表拷贝 list(path)，左、右两个值为 7 的节点是不同对象。"
   ],
   "description": [
-    "每次向前“尝试”进入节点时将其追加到 path 末尾；若当前节点值为 7，则复制当前 path 的副本加入 res；离开节点“回退”前将其从 path 末尾弹出，恢复进入该节点前的路径。",
-    "本组没有禁止经过节点 3 的约束：命中左侧 7 后仍继续访问其子节点 4、5，后续也会经过节点 3 找到右侧 7。由于命中时向 res 保存的是 path 的独立副本，后续回退弹出只修改当前 path，不会改变 res 中已保存的两条路径。"
+    "每次向前“尝试”进入节点时将其追加到 path 末尾；若当前节点值为 7，则复制当前 path 的副本加入 res；离开节点“回退”前将其从 path 末尾弹出，恢复进入该节点前的路径。"
   ],
-  "result": "遍历结束时 res = [[1, 7], [1, 3, 7]]，path = []。由于向 res 添加的是命中时刻 path 的拷贝副本，后续回退弹出 path 中的节点不会影响已保存的解。",
+  "result": "res 保存的是命中时 path 的独立列表副本，回退弹出只修改当前 path，不会改变已保存的解。",
   "frames": [
     {
       "id": "source-342",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png",
       "title": "进入根 1",
-      "explanation": "从根节点 1 开始搜索，执行尝试操作将 1 追加进 path。因节点值 1 不是目标 7，结果列表 res 保持为空，接下来准备递归进入左子节点（左侧 7）。",
-      "state": "当前首次进入根节点 1，已将 1 追加进活跃路径：path = [1]，res = []；根 1 的左子树（左侧 7、4、5）与右子树（3、6、右侧 7）均待探索。",
+      "explanation": "从根节点 1 开始，将 1 追加进 path。节点值 1 不是目标 7，当前 path = [1]，res = []；左右子树均待探索，接下来进入左侧 7。",
       "key_state": "进入根 1，path = [1]，res = []。",
       "announcement": "进入根节点 1，将 1 追加进 path。"
     },
@@ -26,8 +24,7 @@
       "id": "source-343",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png",
       "title": "命中左侧 7，保存路径",
-      "explanation": "从根 1 递归进入左子节点 7（左侧 7），将 7 追加进 path 得到 [1, 7]。当前节点值命中目标 7，复制 path 的副本 [1, 7] 存入 res；随后仍继续向下搜索它的左、右子节点 4、5。",
-      "state": "当前位于根 1 的左子节点 7（左侧 7），已追加 7 并复制当前路径存入结果：path = [1, 7]，res = [[1, 7]]；左侧 7 的左右叶节点 4、5 尚待探索。",
+      "explanation": "从根 1 进入左侧 7，追加 7 并命中目标，把当前路径的副本存入 res。当前 path = [1, 7]，res = [[1, 7]]；继续探索左侧 7 的子节点 4、5。",
       "key_state": "命中左侧 7，path = [1, 7]，复制保存后 res = [[1, 7]]。",
       "announcement": "访问左侧节点 7，将路径副本 [1, 7] 存入 res。"
     },
@@ -35,8 +32,7 @@
       "id": "source-344",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png",
       "title": "进入节点 4",
-      "explanation": "从左侧 7 继续递归进入其左子节点 4，将 4 追加进 path 得到 [1, 7, 4]。节点 4 不是目标 7，res 保持 [[1, 7]] 不变。",
-      "state": "当前位于左侧 7 的左叶节点 4，已将 4 追加进活跃路径：path = [1, 7, 4]，res = [[1, 7]]；节点 4 为叶节点，左侧 7 的右叶节点 5 与根的右子树待探索。",
+      "explanation": "进入左侧 7 的左叶节点 4，将 4 追加进 path；它不是目标 7。当前 path = [1, 7, 4]，res = [[1, 7]]；节点 5 与根的右子树待探索。",
       "key_state": "进入叶节点 4，path = [1, 7, 4]，res = [[1, 7]]。",
       "announcement": "进入左叶节点 4，path 更新为 [1, 7, 4]。"
     },
@@ -44,17 +40,15 @@
       "id": "source-345",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png",
       "title": "退出 4，回到左侧 7",
-      "explanation": "叶节点 4 的左右空子树均已返回，访问结束后执行回退：从 path 末尾弹出 4 并返回父节点左侧 7，使当前路径恢复为 [1, 7]，准备转向右子节点 5。",
-      "state": "已从 path 末尾弹出叶节点 4 并回退到父节点左侧 7：path 恢复为 [1, 7]，res 保持 [[1, 7]]；左侧 7 的左子节点 4 已完成，右子节点 5 待探索。",
-      "key_state": "弹出 4 回退到左侧 7，path 恢复为 [1, 7]。",
+      "explanation": "叶节点 4 的左右空子树均已返回，从 path 弹出 4，回到父节点左侧 7。当前 path = [1, 7]，res = [[1, 7]]；节点 4 已完成，接下来探索右子节点 5。",
+      "key_state": "弹出 4 回退到左侧 7，path 恢复为 [1, 7]，res = [[1, 7]]。",
       "announcement": "从叶节点 4 回退并弹出 4，path 恢复为 [1, 7]。"
     },
     {
       "id": "source-346",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png",
       "title": "进入节点 5",
-      "explanation": "从左侧 7 递归进入其右子节点 5，将 5 追加进 path 得到 [1, 7, 5]。因上一步回退时已弹出 4，兄弟节点 4 不会残留在通往 5 的路径中。",
-      "state": "当前位于左侧 7 的右叶节点 5，已将 5 追加进活跃路径：path = [1, 7, 5]，res = [[1, 7]]；根 1 的左子树已全部访问，右子树（3、6、右侧 7）待探索。",
+      "explanation": "进入左侧 7 的右叶节点 5，将 5 追加进 path；先前已弹出的兄弟节点 4 不会残留。当前 path = [1, 7, 5]，res = [[1, 7]]；左子树所有节点已访问，根的右子树待探索。",
       "key_state": "进入叶节点 5，path = [1, 7, 5]，res = [[1, 7]]。",
       "announcement": "进入右叶节点 5，path 更新为 [1, 7, 5]。"
     },
@@ -62,8 +56,7 @@
       "id": "source-347",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png",
       "title": "退出 5 和左侧 7",
-      "explanation": "叶节点 5 访问完毕后先弹出 5 回到左侧 7；此时左侧 7 的左右子树均已遍历完毕，继续回退并弹出左侧 7 回到根节点 1。本帧合并展示这两次连续弹出回退，path 恢复为 [1]，而 res 中的副本 [1, 7] 不受影响。",
-      "state": "已合并执行两次回退，依次从 path 弹出叶节点 5 与左侧 7 并回到根节点 1：path 恢复为 [1]，res 仍保存副本 [[1, 7]]；根 1 的左子树已完成，右子节点 3 的子树待探索。",
+      "explanation": "节点 5 访问完毕后先弹出 5，回到左侧 7；其左右子树均已完成，再弹出左侧 7，回到根 1。本画面合并这两次回退。当前 path = [1]，res = [[1, 7]]；下一步探索根的右子节点 3。",
       "key_state": "连续弹出 5 和左侧 7 回到根 1，path 恢复为 [1]，res 保持 [[1, 7]]。",
       "announcement": "连续退出节点 5 与左侧 7，path 恢复为 [1]。"
     },
@@ -71,8 +64,7 @@
       "id": "source-348",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png",
       "title": "进入节点 3",
-      "explanation": "从根节点 1 递归进入右子节点 3，将 3 追加进 path 得到 [1, 3]。本例不剪除节点 3，因此继续深入 3 的左、右子树。",
-      "state": "当前首次进入根 1 的右子节点 3，已将 3 追加进活跃路径：path = [1, 3]，res = [[1, 7]]；节点 3 的左叶节点 6 与右叶节点 7（右侧 7）均待探索。",
+      "explanation": "进入根 1 的右子节点 3，将 3 追加进 path；它不是目标 7。当前 path = [1, 3]，res = [[1, 7]]；继续探索节点 3 的左叶节点 6 与右叶节点 7。",
       "key_state": "进入右子节点 3，path = [1, 3]，res = [[1, 7]]。",
       "announcement": "进入根的右子节点 3，path 更新为 [1, 3]。"
     },
@@ -80,8 +72,7 @@
       "id": "source-349",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png",
       "title": "进入节点 6",
-      "explanation": "从节点 3 递归进入其左子节点 6，将 6 追加进 path 得到 [1, 3, 6]。节点 6 不是目标 7，res 保持 [[1, 7]] 不变。",
-      "state": "当前位于节点 3 的左叶节点 6，已将 6 追加进活跃路径：path = [1, 3, 6]，res = [[1, 7]]；全树仅剩节点 3 的右子节点 7（右侧 7）尚未探索。",
+      "explanation": "进入节点 3 的左叶节点 6，将 6 追加进 path；它不是目标 7。当前 path = [1, 3, 6]，res = [[1, 7]]；全树仅剩节点 3 的右子节点 7 尚未访问。",
       "key_state": "进入叶节点 6，path = [1, 3, 6]，res = [[1, 7]]。",
       "announcement": "进入左叶节点 6，path 更新为 [1, 3, 6]。"
     },
@@ -89,17 +80,15 @@
       "id": "source-350",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png",
       "title": "退出 6，回到 3",
-      "explanation": "叶节点 6 访问完毕，执行回退从 path 末尾弹出 6 并返回父节点 3，使 path 恢复为 [1, 3]，接下来转向节点 3 的右子节点（右侧 7）。",
-      "state": "已从 path 末尾弹出叶节点 6 并回退到父节点 3：path 恢复为 [1, 3]，res 保持 [[1, 7]]；节点 3 的左子节点 6 已完成，右子节点 7（右侧 7）待探索。",
-      "key_state": "弹出 6 回退到节点 3，path 恢复为 [1, 3]。",
+      "explanation": "叶节点 6 访问完毕，从 path 弹出 6，回到父节点 3。当前 path = [1, 3]，res = [[1, 7]]；节点 6 已完成，接下来探索右侧 7。",
+      "key_state": "弹出 6 回退到节点 3，path 恢复为 [1, 3]，res = [[1, 7]]。",
       "announcement": "从叶节点 6 回退并弹出 6，path 恢复为 [1, 3]。"
     },
     {
       "id": "source-351",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png",
       "title": "命中右侧 7，保存路径",
-      "explanation": "从节点 3 递归进入其右子节点 7（右侧 7），将 7 追加进 path 得到 [1, 3, 7]。命中第二个值为 7 的节点，复制当前 path 的副本存入 res，使 res 更新为 [[1, 7], [1, 3, 7]]。",
-      "state": "当前位于节点 3 的右叶节点 7（右侧 7），已追加 7 并将第二条路径副本存入结果：path = [1, 3, 7]，res = [[1, 7], [1, 3, 7]]；全部节点均已访问，尚待执行收尾回退。",
+      "explanation": "进入节点 3 的右叶节点 7，追加 7 并命中第二个目标节点，将路径副本存入 res。当前 path = [1, 3, 7]，res = [[1, 7], [1, 3, 7]]；全部节点已访问，尚待收尾回退。",
       "key_state": "命中右侧 7，path = [1, 3, 7]，复制保存后 res = [[1, 7], [1, 3, 7]]。",
       "announcement": "访问右侧节点 7，将第二条路径副本 [1, 3, 7] 存入 res。"
     },
@@ -107,9 +96,8 @@
       "id": "source-352",
       "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png",
       "title": "退出右侧 7、3 和根 1",
-      "explanation": "右侧叶节点 7 访问结束后，依次向上回退并从 path 弹出右侧 7、父节点 3 和根节点 1。本帧合并展示这三次收尾回退，path 最终清空为 []，而 res 中保存的两份路径副本 [[1, 7], [1, 3, 7]] 完好保留。",
-      "state": "已合并执行三次收尾回退，依次从 path 弹出右侧 7、节点 3 和根节点 1，整棵树搜索结束：path = []，res = [[1, 7], [1, 3, 7]]，两条路径副本完好保留。",
-      "key_state": "完成三次收尾回退，path = []，res = [[1, 7], [1, 3, 7]]。",
+      "explanation": "右侧 7 访问结束，依次从 path 弹出右侧 7、父节点 3 和根 1。本画面合并三次收尾回退，搜索结束：path = []，res = [[1, 7], [1, 3, 7]]；已保存的副本完好保留。",
+      "key_state": "已依次弹出右侧 7、3 和根 1，完成三次收尾回退，path = []，res = [[1, 7], [1, 3, 7]]。",
       "announcement": "依次退出右侧 7、节点 3 和根 1，path 清空，搜索完成。"
     }
   ],

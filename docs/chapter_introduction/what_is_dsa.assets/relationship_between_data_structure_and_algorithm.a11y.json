@@ -1,17 +1,15 @@
 {
   "schema_version": 2,
   "title": "数据结构与算法的关系",
-  "summary": "算法通过操作指令将输入转换为输出，数据结构为输入、算法处理和输出全程提供存储与操作支撑。",
+  "summary": "图用两层结构表示算法的处理流程，以及数据结构对整个流程的支撑。",
   "context": [],
   "description": [],
-  "result": "数据结构与算法紧密配合：数据结构组织数据并提供读写操作方法，算法调用这些操作将输入转换为输出。",
   "frames": [
     {
       "id": "source-17",
       "book_path": "chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png",
       "title": "数据结构与算法的关系",
-      "explanation": "图中上方处理流按“输入（input）→ 算法（algorithm，一系列操作指令）→ 输出（output）”从左到右推进。下方“数据结构（data structure，提供结构化存储的数据及对应操作方法）”并非只在算法开始前存储输入，而是同时指向并支撑输入、算法、输出三个环节：组织输入数据、在算法执行期间提供读写操作，并承载最终输出结果。",
-      "state": "横向处理流顺序为“输入 input → 算法 algorithm（一系列操作指令）→ 输出 output”；底部“数据结构 data structure（结构化存储的数据与对应操作方法）”同时支撑输入、算法、输出全部三个对象。"
+      "explanation": "上方从左到右是输入（input）→ 算法（algorithm）→ 输出（output）；算法上方注明，它包含一系列操作指令，将输入转化为输出。下方是数据结构（data structure），注明它提供结构化存储的数据与对应的数据操作方法。三支向上的箭头分别从数据结构指向输入、算法和输出，表示支撑全部三个环节，并非只在开始前存储输入。"
     }
   ]
 }

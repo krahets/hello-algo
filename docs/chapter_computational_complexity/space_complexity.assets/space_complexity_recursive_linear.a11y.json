@@ -2,18 +2,17 @@
   "schema_version": 2,
   "title": "递归调用的栈空间",
   "summary": "空间取决于同时未返回的调用数，逐层递归会积累栈帧。",
-  "context": [],
-  "description": [
-    "图中用return 0示意逐层返回；现版Python代码使用裸return（实际返回None，而非数值0）。此处分析的是调用栈帧占用，返回值写法的差异不影响空间复杂度结论。"
+  "context": [
+    "n 为正整数，以下按未做尾调用优化的执行过程计数。"
   ],
-  "result": "空间复杂度按运行过程中的峰值内存计算：每层占固定局部空间，最深处n个同时驻留的栈帧使栈空间达到O(n)，后续逐层释放不改变这一峰值。",
+  "description": [],
+  "result": "每层占常数局部空间，最深时同时存在 n 层，峰值栈空间为 O(n)；之后逐层释放不改变已经达到的峰值。",
   "frames": [
     {
       "id": "source-35",
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
       "title": "递归调用的栈空间",
-      "explanation": "递入阶段，linear_recur(n)调用linear_recur(n−1)，一路深入到基本情况linear_recur(1)。由于外层调用必须等待内层返回才能结束，到达最深处时，调用栈中会同时保留linear_recur(n)至linear_recur(1)共n个未返回的栈帧。回传阶段从最深处逐层返回，每返回一层才释放该层栈帧。",
-      "state": "n为正整数；调用链从linear_recur(n)逐层深入到linear_recur(1)后再逐层返回释放，在未消去调用帧的常规执行下，最深处同时驻留linear_recur(n)至linear_recur(1)共n个栈帧。"
+      "explanation": "左列“向下‘递’”从 linear_recur(n) 逐层减 1，直到基本情况 linear_recur(1)，大括号标注“递归深度 n”。外层等待内层返回，因此最深处有 n 个栈帧同时存在；随后沿右列“向上‘归’”逐层返回，每返回一层才释放该层栈帧。图右列写作 return 0；现版 Python 用裸 return，实际返回 None，这一差异不影响栈空间计数。"
     }
   ]
 }

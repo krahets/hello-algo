@@ -4,16 +4,14 @@
   "summary": "根据正文代码块标注的文件名，沿语言和章节目录在仓库中定位完整可运行源码。",
   "context": [],
   "description": [
-    "代码块左上角标有对应源码文件名。截图用双向箭头将正文文件名与 GitHub 仓库目录中的同名文件对应起来；界面中显示的 main 为截图所示分支。"
+    "左侧是正文 Python 层序遍历函数 level_order 的代码片段，代码块左上角以绿色框突出文件名 binary_tree_bfs.py；右侧是仓库目录截图，同名文件也有绿色框。绿色双向点线连接“代码文件名称”与“对应代码文件”两处标注；两条灰色箭头分别从标注指向左侧代码块的文件名和右侧目录中的同名文件。"
   ],
-  "result": "相同文件名连接正文的核心算法片段与仓库中的完整源码；仓库源码附有测试样例，可直接阅读和运行。",
   "frames": [
     {
       "id": "source-7",
       "book_path": "chapter_preface/suggestions.assets/code_md_to_repo.png",
       "title": "正文代码与源码文件",
-      "explanation": "图中左侧正文展示 Python 二叉树层序遍历函数 level_order 的代码片段，左上角文件名为 binary_tree_bfs.py；右侧按“codes → 语言目录 python → 章节目录 chapter_tree → 同名文件 binary_tree_bfs.py”定位到完整源码路径 codes/python/chapter_tree/binary_tree_bfs.py。相同文件名将正文算法片段与附带测试样例的完整可运行脚本双向关联起来。",
-      "state": "示例语言为 Python，正文函数名为 level_order，代码块文件名为 binary_tree_bfs.py，对应仓库完整源码路径为 codes/python/chapter_tree/binary_tree_bfs.py（含测试样例，可运行）。"
+      "explanation": "在仓库中依次进入 codes、python、chapter_tree，找到该文件；完整路径为 codes/python/chapter_tree/binary_tree_bfs.py。一般按 codes/<语言>/<章节目录>/<文件名> 定位对应源码。正文展示核心算法片段，仓库文件附有测试样例，可阅读并运行；相同文件名建立两者的对应关系。"
     }
   ]
 }

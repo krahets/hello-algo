@@ -2,18 +2,19 @@
   "schema_version": 2,
   "title": "尾递归求和",
   "summary": "用累加器在递归调用前完成加法，返回时直接传回结果。",
-  "context": [],
-  "description": [
-    "图中函数写作recur(n,res)，正文代码名为tail_recur；两者表示相同的累加器过程。图上展示7行返回，不表示任意n都恰好调用7层。"
+  "context": [
+    "初始 n 为非负整数，累加器 res = 0；图中的 recur(n, res) 对应代码 tail_recur。"
   ],
-  "result": "只有执行环境实际支持并启用尾递归优化时，才能复用栈帧使空间复杂度降为O(1)；若未优化，栈空间仍为O(n)。Python默认不支持尾递归优化。",
+  "description": [
+    "左列“向下‘递’”列出参数与累加器，右列“向上‘归’”各行都原样返回最终总和。下表按图列出较大 n 的首尾调用，中间层以省略号表示；较小 n 只经过实际需要的参数，不是固定调用 7 层。n = 0 时直接返回初始值 0。"
+  ],
+  "result": "只有执行环境支持并启用尾递归优化时，才可复用栈帧，将栈空间降为 O(1)；未优化时仍为 O(n)。Python 默认不支持尾递归优化。",
   "frames": [
     {
       "id": "source-23",
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum.png",
       "title": "尾递归求和",
-      "explanation": "从recur(n,0)出发，每层在递归调用前先将当前参数k并入累加器res，再调用recur(k−1,res+k)向下传递。当k=1时，res还差最后一项1；再调用一次进入基本情况k=0时，res已累加成完整总和n+…+1并直接返回。回传阶段每层只原样转发下层返回值，不再做额外加法。",
-      "state": "初始n为非负整数，累加器res=0；每次将当前k加入res并把k减1，k=0时直接返回res。"
+      "explanation": "从 recur(n, 0) 出发，每次先计算 res + k，再用参数 k−1 和更新后的累加器调用下一层。当 k = 1 时还差最后一项 1；下一层 k = 0 时触发终止条件，直接返回完整总和。返回阶段各层只转发同一个结果，不再做加法。"
     }
   ],
   "tables": [
