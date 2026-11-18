@@ -12,6 +12,22 @@
 run_time_estimate
 ```
 
+=== "PHP"
+
+    ```php title=""
+    // 在某运行平台下
+    function algorithm(int $n): void
+    {
+        $a = 2;        // 1 ns
+        $a = $a + 1;   // 1 ns
+        $a = $a * 2;   // 10 ns
+        // 循环 n 次
+        for ($i = 0; $i < $n; $i++) {    // 1 ns
+            echo 0;                      // 5 ns
+        }
+    }
+    ```
+
 根据以上方法，可以得到算法的运行时间为 $(6n + 12)$ ns ：
 
 $$
@@ -29,6 +45,32 @@ $$
 ```snippet
 growth_trend
 ```
+
+=== "PHP"
+
+    ```php title=""
+    // 算法 A 的时间复杂度：常数阶
+    function algorithm_A(int $n): void
+    {
+        echo 0;
+    }
+
+    // 算法 B 的时间复杂度：线性阶
+    function algorithm_B(int $n): void
+    {
+        for ($i = 0; $i < $n; $i++) {
+            echo 0;
+        }
+    }
+
+    // 算法 C 的时间复杂度：常数阶
+    function algorithm_C(int $n): void
+    {
+        for ($i = 0; $i < 1000000; $i++) {
+            echo 0;
+        }
+    }
+    ```
 
 下图展示了以上三个算法函数的时间复杂度。
 
@@ -51,6 +93,21 @@ growth_trend
 ```snippet
 asymptotic_upper_bound
 ```
+
+=== "PHP"
+
+    ```php title=""
+   function algorithm(int $n): void
+    {
+        $a = 1;       // +1
+        $a = $a + 1;  // +1
+        $a = $a * 2;  // +1
+        // 循环 n 次
+        for ($i = 0; $i < $n; $i++) { // +1（每轮都执行 i ++）
+            echo 0;                   // +1
+        }
+    }
+    ```
 
 设算法的操作数量是一个关于输入数据大小 $n$ 的函数，记为 $T(n)$ ，则以上函数的操作数量为：
 
@@ -91,6 +148,26 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 ```snippet
 count_operations
 ```
+
+=== "PHP"
+
+    ```php title=""
+    function algorithm(int $n): void
+    {
+        $a = 1;        // +0（技巧 1）
+        $a = $a + $n;  // +0（技巧 1）
+        // +n（技巧 2）
+        for ($i = 0; $i < 5 * $n + 1; $i++) {
+            echo 0;
+        }
+        // +n*n（技巧 3）
+        for ($i = 0; $i < 2 * $n; $i++) {
+            for ($j = 0; $j < $n + 1; $j++) {
+                echo 0;
+            }
+        }
+    }
+    ```
 
 以下公式展示了使用上述技巧前后的统计结果，两者推算出的时间复杂度都为 $O(n^2)$ 。
 
