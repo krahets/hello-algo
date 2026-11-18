@@ -112,10 +112,15 @@ void removeItem(BinarySearchTree *bst, int num) {
         // With 0 or 1 child, child is NULL or that child, respectively
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // Remove node cur
-        if (pre->left == cur) {
-            pre->left = child;
+        if (cur != bst->root) {
+            if (pre->left == cur) {
+                pre->left = child;
+            } else {
+                pre->right = child;
+            }
         } else {
-            pre->right = child;
+            // If the removed node is the root, assign the new root
+            bst->root = child;
         }
         // Free memory
         free(cur);
