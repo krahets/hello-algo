@@ -1,0 +1,382 @@
+{
+  "schema_version": 2,
+  "title": "Bubble sort pass by pass",
+  "summary": "Each pass settles the largest element in the remaining range and extends the sorted suffix on the right.",
+  "context": [
+    "Initially nums = [4, 1, 3, 1, 5, 2], indexed from 0 to 5. On each pass, compare adjacent elements left to right within the unsorted range (the “remaining range” in the table). Swap when the left value is larger. The maximum moves to the range’s rightmost position. The settled suffix is excluded from later comparisons."
+  ],
+  "description": [
+    "The array is ascending after pass 3. This basic version has no early-stop flag, so passes 4 and 5 still run, with no swaps. The table gives the full array initially and at the end of each pass."
+  ],
+  "frames": [
+    {
+      "id": "source-260",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_sort_overview.png",
+      "title": "Bubble sort pass by pass",
+      "explanation": "After five passes only the smallest element, 1 at index 0, remains. No further comparison is needed."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "State after each bubble sort pass",
+      "headers": [
+        "Point in time",
+        "Array",
+        "Maximum settled this pass",
+        "Remaining range"
+      ],
+      "rows": [
+        [
+          "Initial",
+          "[4, 1, 3, 1, 5, 2]",
+          "None",
+          "[0, 5]"
+        ],
+        [
+          "After pass 1",
+          "[1, 3, 1, 4, 2, 5]",
+          "5",
+          "[0, 4]"
+        ],
+        [
+          "After pass 2",
+          "[1, 1, 3, 2, 4, 5]",
+          "4",
+          "[0, 3]"
+        ],
+        [
+          "After pass 3",
+          "[1, 1, 2, 3, 4, 5]",
+          "3",
+          "[0, 2]"
+        ],
+        [
+          "After pass 4",
+          "[1, 1, 2, 3, 4, 5]",
+          "2",
+          "[0, 1]"
+        ],
+        [
+          "After pass 5",
+          "[1, 1, 2, 3, 4, 5]",
+          "1",
+          "[0, 0]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "bubble-sort-overview": {
+      "kind": "prose",
+      "prose": {
+        "title": "Bubble sort pass by pass",
+        "summary": "The six animation steps show the initial state and the states after passes 1 through 5. Step numbers differ from pass numbers.",
+        "context": [],
+        "description": [],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Before the first pass",
+            "explanation": "No comparisons yet. All six elements [4, 1, 3, 1, 5, 2], at indices 0 through 5, are in the first unsorted range [0, 5].",
+            "key_state": "Initial array [4, 1, 3, 1, 5, 2], pending range [0, 5]. No settled suffix yet.",
+            "announcement": "Start basic bubble sort on six elements.",
+            "state_tables": [
+              {
+                "caption": "Initial bubble sort array",
+                "headers": [
+                  "Index",
+                  "Value",
+                  "Current role"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "4",
+                    "Not yet processed"
+                  ],
+                  [
+                    "1",
+                    "1",
+                    "Not yet processed"
+                  ],
+                  [
+                    "2",
+                    "3",
+                    "Not yet processed"
+                  ],
+                  [
+                    "3",
+                    "1",
+                    "Not yet processed"
+                  ],
+                  [
+                    "4",
+                    "5",
+                    "Not yet processed"
+                  ],
+                  [
+                    "5",
+                    "2",
+                    "Not yet processed"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-2",
+            "title": "Maximum 5 in place",
+            "explanation": "Pass 1 compares and swaps within [0, 5] from left to right. The maximum 5 settles at the rightmost index 5. The next pass handles only [0, 4].",
+            "key_state": "After pass 1: [1, 3, 1, 4, 2, 5]. Index 5 is settled. Remaining range [0, 4].",
+            "announcement": "Pass 1 complete. Value 5 is settled at index 5; remaining range [0, 4].",
+            "state_tables": [
+              {
+                "caption": "Array after bubble sort pass 1",
+                "headers": [
+                  "Index",
+                  "Value",
+                  "Current role"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "1",
+                    "3",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "2",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "3",
+                    "4",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "4",
+                    "2",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "5",
+                    "5",
+                    "Settled"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-3",
+            "title": "Maximum 4 in place",
+            "explanation": "Pass 2 compares and swaps in [0, 4], settling its maximum 4 at index 4. The settled suffix grows to [4, 5]; the remaining range is [0, 3].",
+            "key_state": "After pass 2: [1, 1, 3, 2, 4, 5]. Indices 4 through 5 are settled. Remaining range [0, 3].",
+            "announcement": "Pass 2 complete. Value 4 is settled at index 4; remaining range [0, 3].",
+            "state_tables": [
+              {
+                "caption": "Array after bubble sort pass 2",
+                "headers": [
+                  "Index",
+                  "Value",
+                  "Current role"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "1",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "2",
+                    "3",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "3",
+                    "2",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "4",
+                    "4",
+                    "Settled"
+                  ],
+                  [
+                    "5",
+                    "5",
+                    "Settled"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-4",
+            "title": "Maximum 3 in place",
+            "explanation": "Pass 3 swaps 3 into its final index 3 within [0, 3]. The entire array [1, 1, 2, 3, 4, 5] is now ascending. With no early-stop flag, the basic version continues checking [0, 2].",
+            "key_state": "After pass 3: [1, 1, 2, 3, 4, 5]. Indices 3 through 5 are settled. Remaining range [0, 2]. The array is ascending, but the basic version continues.",
+            "announcement": "Pass 3 complete. Value 3 is settled at index 3. The array is ascending, but [0, 2] will still be processed.",
+            "state_tables": [
+              {
+                "caption": "Array after bubble sort pass 3",
+                "headers": [
+                  "Index",
+                  "Value",
+                  "Current role"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "1",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "2",
+                    "2",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "3",
+                    "3",
+                    "Settled"
+                  ],
+                  [
+                    "4",
+                    "4",
+                    "Settled"
+                  ],
+                  [
+                    "5",
+                    "5",
+                    "Settled"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-5",
+            "title": "No swaps; confirm 2 is settled",
+            "explanation": "Pass 4 scans [0, 2]. All adjacent pairs are already in ascending order, so there are no swaps and 2 is confirmed at index 2. The remaining range shrinks to [0, 1].",
+            "key_state": "After pass 4: [1, 1, 2, 3, 4, 5]. Indices 2 through 5 are settled. Remaining range [0, 1].",
+            "announcement": "Pass 4 makes no swaps. Value 2 is settled at index 2; remaining range [0, 1].",
+            "state_tables": [
+              {
+                "caption": "Array after bubble sort pass 4",
+                "headers": [
+                  "Index",
+                  "Value",
+                  "Current role"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "1",
+                    "1",
+                    "Still in the remaining range after this pass"
+                  ],
+                  [
+                    "2",
+                    "2",
+                    "Settled"
+                  ],
+                  [
+                    "3",
+                    "3",
+                    "Settled"
+                  ],
+                  [
+                    "4",
+                    "4",
+                    "Settled"
+                  ],
+                  [
+                    "5",
+                    "5",
+                    "Settled"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-6",
+            "title": "No swaps; sorting complete",
+            "explanation": "Pass 5 checks the two 1s in [0, 1]. No swap is needed. The 1 at index 1 is settled, leaving one minimum element 1 in [0, 0]. No further comparisons are needed. All five passes are complete.",
+            "key_state": "After pass 5: [1, 1, 2, 3, 4, 5]. Indices 1 through 5 are settled. Remaining range [0, 0]. Only one element remains, so sorting is complete.",
+            "announcement": "Pass 5 makes no swaps. Only one element remains in [0, 0]; sorting is complete.",
+            "state_tables": [
+              {
+                "caption": "Array after bubble sort pass 5",
+                "headers": [
+                  "Index",
+                  "Value",
+                  "Current role"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1",
+                    "One element left; no further sorting needed"
+                  ],
+                  [
+                    "1",
+                    "1",
+                    "Settled"
+                  ],
+                  [
+                    "2",
+                    "2",
+                    "Settled"
+                  ],
+                  [
+                    "3",
+                    "3",
+                    "Settled"
+                  ],
+                  [
+                    "4",
+                    "4",
+                    "Settled"
+                  ],
+                  [
+                    "5",
+                    "5",
+                    "Settled"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

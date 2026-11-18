@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "title": "UTF-8 encoding of Hello算法",
+  "summary": "Compare single-byte and three-byte encodings across seven characters, identifying leading bytes and continuation bytes.",
+  "context": [
+    "The input string is Hello算法 without spaces. The figure writes the code points of these 7 characters in 16 bits because all of them fall within U+FFFF; the full Unicode code point range extends up to U+10FFFF and requires 21 bits, so this example should not be generalized to mean that every code point fits in 16 bits."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-45",
+      "book_path": "chapter_data_structure/character_encoding.assets/utf-8_hello_algo.png",
+      "title": "UTF-8 encoding of Hello算法",
+      "explanation": "Each English character uses the single-byte template 0xxxxxxx, placing its code point in the lower 7 bits. Both \"算\" and \"法\" use the three-byte template 1110xxxx 10xxxxxx 10xxxxxx: the leading byte starts with prefix 1110, where the 0 after the three 1s is also part of the prefix, and each of the two continuation bytes starts with 10. The remaining 4 + 6 + 6 payload bits hold the code point in order: \"算\" splits into 0111, 101110, and 010111, while \"法\" splits into 0110, 110011, and 010101."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Per-character code points and UTF-8 bytes",
+      "headers": [
+        "Position and character",
+        "Unicode code point (from binary)",
+        "16-bit code point in figure",
+        "UTF-8 binary bytes",
+        "Byte count"
+      ],
+      "rows": [
+        [
+          "1: H",
+          "U+0048",
+          "00000000 01001000",
+          "01001000",
+          "1"
+        ],
+        [
+          "2: e",
+          "U+0065",
+          "00000000 01100101",
+          "01100101",
+          "1"
+        ],
+        [
+          "3: l",
+          "U+006C",
+          "00000000 01101100",
+          "01101100",
+          "1"
+        ],
+        [
+          "4: l",
+          "U+006C",
+          "00000000 01101100",
+          "01101100",
+          "1"
+        ],
+        [
+          "5: o",
+          "U+006F",
+          "00000000 01101111",
+          "01101111",
+          "1"
+        ],
+        [
+          "6: 算",
+          "U+7B97",
+          "01111011 10010111",
+          "11100111 10101110 10010111",
+          "3"
+        ],
+        [
+          "7: 法",
+          "U+6CD5",
+          "01101100 11010101",
+          "11100110 10110011 10010101",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "These bit prefixes distinguish single-byte characters, multi-byte leading bytes, and continuation bytes. In this example, the five English characters take 1 byte each and the two Chinese characters take 3 bytes each, for a total of 5 × 1 + 2 × 3 = 11 bytes."
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "Enqueue and dequeue in a linked-list queue",
+  "summary": "In a singly linked list, the head serves as the front and the tail as the rear. New elements enter at the tail and leave at the head.",
+  "context": [
+    "The queue on the left and the vertical singly linked list on the right are linked by the label “Implemented with a linked list. Exposes queue operations”. Both run from front to rear, top to bottom, with next arrows pointing down. The head is the front and the tail is the rear."
+  ],
+  "description": [
+    "Nodes are added only at the tail and removed only from the head. In the initial frame, the arrow at the front points up and out of the queue. The arrow at the rear points up into it from below."
+  ],
+  "result": "Keeping references to the head and tail means that adding at the tail and removing from the head update only nearby links. Both operations take O(1) time.",
+  "frames": [
+    {
+      "id": "source-64",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step1.png",
+      "title": "Initial queue: remove at the head, add at the tail",
+      "explanation": "The initial list is 1 → 3 → 2 → 5, corresponding to the 4-element queue [1, 3, 2, 5]. Node 1 is the head and front. Node 5 is the tail and rear.",
+      "key_state": "Initial queue from front to rear: [1, 3, 2, 5]. List from head to tail: 1 → 3 → 2 → 5. Head 1 is the front and tail 5 is the rear.",
+      "announcement": "The initial queue has 4 elements, [1, 3, 2, 5]. The head, 1, is at the front and the tail, 5, is at the rear."
+    },
+    {
+      "id": "source-65",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step2_push.png",
+      "title": "Enqueue 4 at the tail of the list",
+      "explanation": "Call push(4). The note on the right reads “Add node 4 to the tail of the linked list”. Attach the new cyan node 4 below the former tail 5 and move the tail marker down to 4. The list now has 5 elements, 1 → 3 → 2 → 5 → 4, in queue order from front to rear. The head and front are still 1. The tail and rear are now 4.",
+      "key_state": "After push(4), the queue is [1, 3, 2, 5, 4] and the list is 1 → 3 → 2 → 5 → 4. The front remains 1 and the new tail, 4, is the rear.",
+      "announcement": "Call push(4) to attach node 4 at the tail. Both the tail and the rear now refer to 4."
+    },
+    {
+      "id": "source-66",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step3_pop.png",
+      "title": "Dequeue 1 from the head of the list",
+      "explanation": "Call pop(). The note on the right reads “Delete the head node”. Remove and return 1, then move the head marker down to its successor, 3. The 4-element list is now 3 → 2 → 5 → 4, in queue order from front to rear. The head and front are 3. The cyan 4 is still the tail and rear.",
+      "key_state": "After pop() removes head 1, the queue is [3, 2, 5, 4] and the list is 3 → 2 → 5 → 4. The new front is head 3, and the tail remains 4.",
+      "announcement": "Call pop() to remove head 1. Node 3 becomes the new head and front, leaving queue [3, 2, 5, 4]."
+    }
+  ],
+  "animations": {
+    "linkedlist-queue": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-64"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-65"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-66"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 2,
+  "title": "Sixteen-bit view of the code points in Hello算法",
+  "summary": "Align English and Chinese characters in the same string to 16 bits to compare the convenience and storage cost of fixed-width encoding.",
+  "context": [
+    "The two columns are headed \"Character\" and \"Unicode\", listing the 7-character string Hello算法 (without spaces) from top to bottom. The table below preserves the 16-bit binary values shown in the figure and adds the corresponding hexadecimal code points converted from binary."
+  ],
+  "description": [
+    "In the first five rows, the upper 8 bits of each English character are padded with 00000000 in gray, while the lower 8 bits retain the original code point. The brace on the right reads \"One-byte English characters (high bits padded with 0)\", and the brace beside the last two rows, \"算\" and \"法\", reads \"Two-byte Chinese characters\"."
+  ],
+  "frames": [
+    {
+      "id": "source-44",
+      "book_path": "chapter_data_structure/character_encoding.assets/unicode_hello_algo.png",
+      "title": "Sixteen-bit view of the code points in Hello算法",
+      "explanation": "If 1-byte English code points and 2-byte Chinese code points were mixed directly without padding, two consecutive bytes could be misparsed either as a single Chinese character or as two English letters. Zero-padding in the figure makes every character in this example occupy 2 bytes so the stream can be sliced at fixed intervals, at the cost of using twice as much space as ASCII for the five English letters."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Per-character code points of Hello算法",
+      "headers": [
+        "Position and character",
+        "16-bit binary in figure",
+        "Hexadecimal code point (added)"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1: H",
+          "00000000 01001000",
+          "U+0048"
+        ],
+        [
+          "2: e",
+          "00000000 01100101",
+          "U+0065"
+        ],
+        [
+          "3: l",
+          "00000000 01101100",
+          "U+006C"
+        ],
+        [
+          "4: l",
+          "00000000 01101100",
+          "U+006C"
+        ],
+        [
+          "5: o",
+          "00000000 01101111",
+          "U+006F"
+        ],
+        [
+          "6: 算",
+          "01111011 10010111",
+          "U+7B97"
+        ],
+        [
+          "7: 法",
+          "01101100 11010101",
+          "U+6CD5"
+        ]
+      ]
+    }
+  ],
+  "result": "This diagram only illustrates 16-bit values for characters within the Basic Multilingual Plane (BMP). Unicode itself defines code points up to U+10FFFF, which require 21 bits; the actual byte length depends on the encoding scheme such as UTF-8 or UTF-16, and not all Unicode characters occupy a fixed 2 bytes."
+}

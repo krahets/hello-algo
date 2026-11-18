@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Moving the taller wall inward",
+  "summary": "Keeping the shorter wall fixed while moving the other wall inward shrinks width without raising the water-level cap, so capacity cannot increase.",
+  "context": [
+    "On ht = [3, 8, 5, 2, 7, 7, 3, 4], starting from i = 0 (shorter wall 3) and j = 7 (taller wall 4) with capacity 21, move the right taller wall one step inward while keeping the left shorter wall fixed to see why capacity cannot improve."
+  ],
+  "description": [
+    "Left pointer i stays at 0 (height 3), while right pointer j moves left from 7 to 6 (height ht[6] = 3, returning wall 7 to unselected gray). The light-blue water region narrows to span indices 0 to 6 at height 3, captioned below \"Moving the taller wall inward always reduces capacity\" and \"Current capacity: cap = min(3, 3) × (6 - 0) = 18\"."
+  ],
+  "frames": [
+    {
+      "id": "source-467",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board.png",
+      "title": "Moving the taller wall inward",
+      "explanation": "Changing the right wall from height 4 to height 3 keeps water height at min(3, 3) = 3 while shrinking width from 7 to 6, dropping capacity from 21 to 18 as a local comparison."
+    }
+  ],
+  "result": "Extending this reasoning: with shorter wall i = 0 fixed, replacing j with any index from 1 to 6 keeps water height at most 3 across a strictly smaller width, so none can beat 21. Although the figure draws only j = 6, all pairs keeping i = 0 are ruled out on the same grounds, justifying moving shorter wall i instead."
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Initial state of the container two-pointer search",
+  "summary": "Show the initial outer container at both ends as the baseline for comparing moving the taller wall versus moving the shorter wall.",
+  "context": [
+    "To examine which pointer to move on ht = [3, 8, 5, 2, 7, 7, 3, 4], start with [i, j] = [0, 7] at the two ends as the baseline for comparing moving the taller wall inward versus moving the shorter wall inward."
+  ],
+  "description": [
+    "Above index 0 sits left pointer i at height ht[0] = 3, and above index 7 sits right pointer j at height ht[7] = 4. With both end walls highlighted, a light-blue rectangle spanning indices 0 to 7 at height 3 (flush with left shorter wall 3) marks the current water region; below reads \"i is the shorter wall; j is the taller wall\" and \"Current capacity: cap = min(3, 4) × (7 - 0) = 21\"."
+  ],
+  "frames": [
+    {
+      "id": "source-466",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.png",
+      "title": "Initial state of the container two-pointer search",
+      "explanation": "Because left wall 3 is shorter than right wall 4, water height is capped at 3 across width 7 for capacity 21—the starting capacity rather than the array-wide maximum."
+    }
+  ]
+}

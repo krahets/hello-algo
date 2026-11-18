@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "title": "Per-level workload of a divide-and-conquer tree",
+  "summary": "Doubling the number of subproblems while halving each subproblem's work keeps the total work per level constant.",
+  "context": [
+    "Let n be a nonnegative integer power of 2. Each box in the figure represents a subproblem whose operation count equals its current size; starting from the root, every subproblem splits into two equal halves from one level to the next."
+  ],
+  "description": [
+    "The right side totals the operations at each level. The bottom row draws only 4 boxes separated by ellipses to represent all n leaves. The table below describes the levels for general n; for small n, intermediate levels may be absent and the leaf level may coincide with an earlier row rather than there always being 5 fixed levels."
+  ],
+  "frames": [
+    {
+      "id": "source-31",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear.png",
+      "title": "Per-level workload of a divide-and-conquer tree",
+      "explanation": "Numbering the root as level 0, level d has 2^d (2 to the power d) subproblems performing n / 2^d operations each, whose product is always n. At the leaf level each subproblem has size 1, so 2^d = n and d = log₂ n (log base 2 of n); from level 0 through level log₂ n there are log₂ n + 1 levels in total. At the bottom of the diagram, multiplying n operations per level by the total number of levels gives n(log₂ n + 1) = n log₂ n + n, which is O(n log n)."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Total operations at each level in the figure",
+      "headers": [
+        "Level",
+        "Number of subproblems",
+        "Operations per subproblem",
+        "Level total"
+      ],
+      "rows": [
+        [
+          "Root level",
+          "1",
+          "n",
+          "n"
+        ],
+        [
+          "Next level",
+          "2",
+          "n/2",
+          "n"
+        ],
+        [
+          "Second level down",
+          "4",
+          "n/4",
+          "n"
+        ],
+        [
+          "Intermediate levels (if any)",
+          "Continues doubling",
+          "Continues halving",
+          "n"
+        ],
+        [
+          "Leaf level",
+          "n",
+          "1",
+          "n"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

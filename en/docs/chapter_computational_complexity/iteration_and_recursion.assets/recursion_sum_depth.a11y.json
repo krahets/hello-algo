@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Recursion depth of recursive summation",
+  "summary": "Highlight the number of active call levels accumulated before recursive summation hits the base case.",
+  "context": [
+    "Here n is a positive integer; recursion depth is the maximum number of simultaneously unreturned call levels."
+  ],
+  "description": [
+    "Under the left heading \"Recurse downward\", the call chain runs recur(n) → recur(n - 1) → … → recur(4) → recur(3) → recur(2) → recur(1), spanned on the left by a brace labeled \"Recursion depth n\". At the bottom, the arrow \"Reach the base case\" leads to the right column \"Return upward\", where the returning additions are dimmed to highlight call accumulation on the left."
+  ],
+  "frames": [
+    {
+      "id": "source-22",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth.png",
+      "title": "Recursion depth of recursive summation",
+      "explanation": "Upon reaching recur(1), every outer call is waiting for its child's result, so n stack frames—including the top-level call—coexist at once. Only afterward do calls return starting from 1, adding each level's parameter and releasing its stack frame one by one. That peak count of active calls sets the recursion depth to n and the stack space to O(n)."
+    }
+  ]
+}

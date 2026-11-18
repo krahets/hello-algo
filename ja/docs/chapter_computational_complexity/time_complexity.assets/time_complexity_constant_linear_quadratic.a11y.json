@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "title": "ループ構造と演算回数",
+  "summary": "1 回の演算、一重ループ、二重ループにおける処理量の増え方を比較します。",
+  "context": [],
+  "description": [
+    "各小さい四角は 1 回の基本演算を表し、外側のループ枠は繰り返し実行する範囲を表します。"
+  ],
+  "frames": [
+    {
+      "id": "source-28",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
+      "title": "ループ構造と演算回数",
+      "explanation": "二重の枠は入れ子を表します。外側が 1 回実行されるたびに内側が毎回 n 回すべて実行されるため、回数は二つのループを前後に実行するときの足し算ではなく、掛け算の n × n になります。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "ループ構造の処理量",
+      "headers": [
+        "構造",
+        "基本演算の回数",
+        "時間計算量"
+      ],
+      "rows": [
+        [
+          "ループなし",
+          "1",
+          "定数オーダー O(1)"
+        ],
+        [
+          "n 回の一重ループ",
+          "n",
+          "線形オーダー O(n)"
+        ],
+        [
+          "各 n 回の二重入れ子ループ",
+          "n×n=n²",
+          "二乗オーダー O(n²)"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

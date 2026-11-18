@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "title": "Counterexamples to the greedy coin-change strategy",
+  "summary": "Always picking the largest available denomination does not always minimize coin count; two counterexamples contrast the greedy result against the globally optimal solution.",
+  "context": [
+    "In both counterexamples, picking the largest denomination 50 first forces the remainder to be filled with many coins of denomination 1, whereas an alternative combination uses far fewer coins."
+  ],
+  "description": [
+    "Two rows run from top to bottom, each arranged left to right into \"Coin combination\", \"Target amount\", \"Best choice under the greedy strategy (Local optimum)\", and \"Optimal solution from dynamic programming (Global optimum)\", using coin icons, plus signs, and multipliers.",
+    "The table below transcribes the denominations, targets, and illustrated combinations; the two coin-count columns are tallied from those expressions and are not printed as totals in the figure. Calling the greedy column \"Best choice under the greedy strategy\" does not mean it achieves the global minimum."
+  ],
+  "frames": [
+    {
+      "id": "source-460",
+      "book_path": "chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.png",
+      "title": "Counterexamples to the greedy coin-change strategy",
+      "explanation": "Picking 50 first leaves remainders 10 and 48 in the two examples—both smaller than the respective middle denominations 20 and 49—so the rest must be paid with coins of denomination 1. Avoiding 50 on the right uses far fewer coins, showing this greedy rule cannot be relied upon for arbitrary denomination sets."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Comparison of coin-change solutions",
+      "headers": [
+        "Denominations",
+        "Target amount",
+        "Greedy combination",
+        "Greedy coin count",
+        "Optimal combination",
+        "Optimal coin count"
+      ],
+      "rows": [
+        [
+          "1, 20, 50",
+          "60",
+          "50+1×10",
+          "11",
+          "20×3",
+          "3"
+        ],
+        [
+          "1, 49, 50",
+          "98",
+          "50+1×48",
+          "49",
+          "49×2",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}
