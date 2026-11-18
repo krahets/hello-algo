@@ -18,6 +18,10 @@ func move(src, tar *list.List) {
 
 /* 求解汉诺塔问题 f(i) */
 func dfsHanota(i int, src, buf, tar *list.List) {
+	// 若没有圆盘需要移动，则直接返回
+	if i <= 0 {
+		return
+	}
 	// 若 src 只剩下一个圆盘，则直接将其移到 tar
 	if i == 1 {
 		move(src, tar)

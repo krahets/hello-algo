@@ -14,6 +14,10 @@ end
 
 ### 求解汉诺塔问题 f(i) ###
 def dfs(i, src, buf, tar)
+  # 若没有圆盘需要移动，则直接返回
+  if i <= 0
+    return
+  end
   # 若 src 只剩下一个圆盘，则直接将其移到 tar
   if i == 1
     move(src, tar)
