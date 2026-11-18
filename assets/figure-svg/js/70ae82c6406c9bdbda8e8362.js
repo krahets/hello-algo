@@ -96,6 +96,17 @@
       svg.reading?.destroy(); throw error;
     } finally { stage.remove(); }
   }
+  function motionInstructions(language) {
+    const instructions = {
+      zh: '空格键暂停或继续箭头动效。',
+      'zh-hant': '空白鍵暫停或繼續箭頭動效。',
+      en: 'Press Space to pause or resume the animated arrows.',
+      ja: 'スペースキーで矢印のアニメーションを一時停止または再開できます。',
+      ko: '스페이스바를 누르면 화살표 애니메이션을 일시 정지하거나 다시 시작합니다.',
+      ru: 'Нажмите пробел, чтобы приостановить или продолжить анимацию стрелок.'
+    };
+    return instructions[FigureWeb.locale(language)] || instructions.zh;
+  }
   class BookFigure extends HTMLElement {
     connectedCallback() {
       this.loads = new Map();
@@ -133,8 +144,7 @@
       const state = this.motionState = motionStates.get(owner); state.hosts.add(this);
       this.tabIndex = 0;
       this.setAttribute('aria-keyshortcuts', 'Space');
-      this.setAttribute('aria-description', document.documentElement.lang.toLowerCase() === 'zh-hant'
-        ? '空白鍵暫停或繼續箭頭動效。' : '空格键暂停或继续箭头动效。');
+      this.setAttribute('aria-description', motionInstructions(document.documentElement.lang));
       if (!this.motionKeyHandler) {
         this.motionKeyHandler = event => {
           if (event.target !== this || event.code !== 'Space' || event.ctrlKey || event.metaKey || event.altKey) return;

@@ -70,6 +70,16 @@
     await Promise.all([fonts([...faces.values()]), ...[...media].map(decode)]);
     return doc;
   }
-  window.FigureWeb = {theme, setTheme, resource, decode, fonts, variants, choose, available, animation,
+  // Match the locale lookup in the book's standalone slideshow. Prefer an
+  // explicit Chinese script, then a region alias; regional editions of the
+  // other languages share their language's labels.
+  function locale(language = '') {
+    const [base, scriptOrRegion] = language.trim().toLowerCase().replaceAll('_', '-').split('-');
+    if (base === 'zh') {
+      return ['hant', 'tw', 'hk', 'mo'].includes(scriptOrRegion) ? 'zh-hant' : 'zh';
+    }
+    return base;
+  }
+  window.FigureWeb = {locale, theme, setTheme, resource, decode, fonts, variants, choose, available, animation,
     subscribe(fn) {listeners.add(fn); return () => listeners.delete(fn);}};
 })();

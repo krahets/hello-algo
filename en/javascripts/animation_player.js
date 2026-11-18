@@ -6,44 +6,50 @@
     "zh": {
       "play": "播放步骤",
       "pause": "暂停播放",
-      "paused": "已暂停",
+      "paused": "已暂停。",
+      "position": (n, total) => `第 ${n} 步，共 ${total} 步。`,
       "previous": "上一步",
       "next": "下一步"
     },
     "zh-hant": {
       "play": "播放步驟",
       "pause": "暫停播放",
-      "paused": "已暫停",
+      "paused": "已暫停。",
+      "position": (n, total) => `第 ${n} 步，共 ${total} 步。`,
       "previous": "上一步",
       "next": "下一步"
     },
     "en": {
-      "play": "Play slideshow",
-      "pause": "Pause slideshow",
-      "paused": "Paused",
-      "previous": "Previous slide",
-      "next": "Next slide"
+      "play": "Play steps",
+      "pause": "Pause playback",
+      "paused": "Paused. ",
+      "position": (n, total) => `Step ${n} of ${total}. `,
+      "previous": "Previous step",
+      "next": "Next step"
     },
     "ru": {
-      "play": "Запустить показ слайдов",
-      "pause": "Приостановить показ слайдов",
-      "paused": "Показ приостановлен",
-      "previous": "Предыдущий слайд",
-      "next": "Следующий слайд"
+      "play": "Воспроизвести шаги",
+      "pause": "Приостановить воспроизведение",
+      "paused": "Приостановлено. ",
+      "position": (n, total) => `Шаг ${n} из ${total}. `,
+      "previous": "Предыдущий шаг",
+      "next": "Следующий шаг"
     },
     "ja": {
-      "play": "スライドショーを再生",
-      "pause": "スライドショーを一時停止",
-      "paused": "一時停止しました",
-      "previous": "前のスライド",
-      "next": "次のスライド"
+      "play": "ステップを再生",
+      "pause": "再生を一時停止",
+      "paused": "一時停止しました。",
+      "position": (n, total) => `全${total}ステップ中のステップ${n}。`,
+      "previous": "前のステップ",
+      "next": "次のステップ"
     },
     "ko": {
-      "play": "슬라이드 재생",
-      "pause": "슬라이드 일시 정지",
-      "paused": "일시 정지됨",
-      "previous": "이전 슬라이드",
-      "next": "다음 슬라이드"
+      "play": "단계 재생",
+      "pause": "재생 일시 정지",
+      "paused": "일시 정지했습니다. ",
+      "position": (n, total) => `전체 ${total}단계 중 ${n}단계. `,
+      "previous": "이전 단계",
+      "next": "다음 단계"
     }
   };
   // Prefer the full locale, then its parents, and finally English.
@@ -253,8 +259,7 @@
         const moved = index !== announcementOrigin;
         announcementTimer = null; announcementOrigin = null; announcementCount = 0; announcementJump = false;
         if (!moved) return;
-        const prefix = /^zh/i.test(document.documentElement.lang)
-          ? `第 ${index + 1} 步，共 ${inputs.length} 步。` : `${index + 1} / ${inputs.length}. `;
+        const prefix = labels.position(index + 1, inputs.length);
         const frame = frames[index];
         announcement.textContent = prefix + (frame?.dataset[forward ? "a11yForward" : "a11yState"] ||
           inputs[index].getAttribute("aria-label") || "");
@@ -314,9 +319,8 @@
         announcementTimer = setTimeout(() => {
           announcementTimer = null;
           const index = state.currentIndex;
-          const prefix = /^zh/i.test(document.documentElement.lang)
-            ? `第 ${index + 1} 步，共 ${inputs.length} 步。` : `${index + 1} / ${inputs.length}. `;
-          announcement.textContent = labels.paused + "。" + prefix + (frames[index]?.dataset.a11yState || "");
+          const prefix = labels.position(index + 1, inputs.length);
+          announcement.textContent = labels.paused + prefix + (frames[index]?.dataset.a11yState || "");
         }, 250);
         return;
       }
@@ -377,4 +381,4 @@
     initAutoSlide();
   }
 })();
-/*! update cache: 20261117194953 */
+/*! update cache: 20261118081349 */
