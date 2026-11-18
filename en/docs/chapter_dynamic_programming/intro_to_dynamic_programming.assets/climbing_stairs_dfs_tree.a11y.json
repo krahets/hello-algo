@@ -15,7 +15,7 @@
       "id": "source-369",
       "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png",
       "title": "Overlapping subproblems in brute-force climbing stairs search",
-      "explanation": "The caption at the bottom of the figure connects overlapping subproblems to exponential runtime: brute-force recursion repeatedly solves the same states, resulting in O(2^n) time complexity."
+      "explanation": "The caption at the bottom of the figure connects overlapping subproblems to exponential runtime: brute-force recursion repeatedly solves the same states, resulting in an O(2ⁿ) time bound, where 2ⁿ means 2 to the power n."
     }
   ],
   "tables": [

@@ -3,7 +3,7 @@
   "title": "Breadth-first traversal of a graph",
   "summary": "Starting from top-left vertex 0, visit vertices layer by layer from near to far by the minimum number of edges from the start.",
   "context": [
-    "The undirected graph to be traversed has 9 vertices numbered 0 through 8 arranged in a three-row, three-column grid: the three rows are 0, 1, 2; 3, 4, 5; and 6, 7, 8. Undirected edges connect only horizontally or vertically adjacent vertices—12 edges in total with no diagonal edges; each vertex's neighbors are listed in the adjacency table below."
+    "The graph has 9 vertices numbered 0 through 8 in a three-by-three grid. The top row contains 0, 1, and 2, the middle row 3, 4, and 5, and the bottom row 6, 7, and 8. Its 12 undirected edges connect horizontal and vertical neighbors. There are no diagonal edges. The table below lists each vertex's neighbors."
   ],
   "description": [],
   "result": "Within the same distance layer, visit order depends on the order in which neighbors are inspected, so the breadth-first traversal sequence is not unique.",

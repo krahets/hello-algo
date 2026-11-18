@@ -12,7 +12,7 @@
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
       "title": "1단계: 사전 검색 목표와 초기 범위 확인",
       "explanation": "초기 탐색 범위는 a부터 z까지 알파벳 26개 전체를 포함하며 아직 페이지를 펼치기 전이다. 목표 r은 청록색이고 나머지 25개 알파벳은 초록색이다.",
-      "key_state": "1단계 초기 상태: 탐색 범위는 a부터 z까지 전체 알파벳이며 목표는 병음의 첫 글자가 r인 한자를 찾는 것이다.",
+      "key_state": "초기 상태: 탐색 범위는 a부터 z까지 전체 알파벳이며 목표는 병음의 첫 글자가 r인 한자를 찾는 것이다.",
       "announcement": "병음의 첫 글자가 r인 한자를 찾는 사전 검색 목표를 확인하며, 초기 탐색 범위는 순서대로 배열된 a부터 z까지 26개 알파벳 전체다."
     },
     {
@@ -44,7 +44,7 @@
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
       "title": "5단계: 중간 글자 r을 펼쳐 검색 완료",
       "explanation": "남은 구간 q, r, s 안에서 중간 위치를 펼치니 포인터가 목표 r을 가리켜 병음의 첫 글자가 r인 한자를 찾았으므로 검색을 마친다. 이는 5단계이자 네 번째로 페이지를 펼친 결과다. 화면에는 이번 페이지를 펼치기 전의 범위를 나타내도록 초록색 q, s와 청록색 r이 그대로 남아 있고 a부터 p까지와 t부터 z까지는 여전히 연회색이다.",
-      "key_state": "5단계 검색 완료: 남은 구간 q, r, s의 중간 지점에서 목표 글자 r을 펼쳤다.",
+      "key_state": "검색 완료: 남은 구간 q, r, s의 중간 지점에서 목표 글자 r을 펼쳤다.",
       "announcement": "남은 구간 q, r, s의 중간을 펼쳐 목표 첫 글자 r을 바로 찾았으므로 사전 검색을 마친다."
     }
   ],

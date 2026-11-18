@@ -14,7 +14,7 @@
       "id": "source-118",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
       "title": "루트 노드 8에서 탐색 시작",
-      "explanation": "cur를 파란색으로 채워진 루트 8에 둔다. 목표값 7을 현재 값 8과 비교한다. 7 < 8이므로 찾을 곳은 왼쪽 서브트리다. 다음에는 왼쪽 아래의 자식 4로 간다. 현재까지 방문한 노드는 8이다.",
+      "explanation": "cur를 파란색으로 채워진 루트 8에 둔다. 목표 값 7을 현재 값 8과 비교한다. 7 < 8이므로 찾을 곳은 왼쪽 서브트리다. 다음에는 왼쪽 아래의 자식 4로 간다. 현재까지 방문한 노드는 8이다.",
       "key_state": "cur는 루트 8을 가리킨다. 7 < 8이므로 다음은 왼쪽 자식 4다.",
       "announcement": "7을 찾기 시작한다. cur를 루트 8에 놓았다."
     },
@@ -38,9 +38,9 @@
       "id": "source-121",
       "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
       "title": "노드 7 발견",
-      "explanation": "7 > 6이므로 cur = cur.right를 실행해 파란 화살표를 따라 6에서 오른쪽 자식 7로 간다. cur의 값이 목표값 7과 일치한다. 반복을 끝내고 노드 7을 반환한다. 방문 경로는 8 → 4 → 6 → 7이다.",
+      "explanation": "7 > 6이므로 cur = cur.right를 실행해 파란 화살표를 따라 6에서 오른쪽 자식 7로 간다. cur의 값이 목표 값 7과 일치한다. 반복을 끝내고 노드 7을 반환한다. 방문 경로는 8 → 4 → 6 → 7이다.",
       "key_state": "cur가 목표 노드 7을 가리킨다. 경로는 8 → 4 → 6 → 7이며 탐색에 성공했다.",
-      "announcement": "7이 6보다 커서 cur가 6에서 오른쪽 자식 7로 이동했고 목표값을 찾았다."
+      "announcement": "7이 6보다 커서 cur가 6에서 오른쪽 자식 7로 이동했고 목표 값을 찾았다."
     }
   ],
   "animations": {

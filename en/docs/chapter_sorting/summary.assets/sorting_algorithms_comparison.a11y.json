@@ -96,7 +96,7 @@
           "Comparison-based (Fair)"
         ],
         [
-          "Quicksort",
+          "Quick sort",
           "O(n log n) (Good)",
           "O(n log n) (Good)",
           "O(n²) (Poor)",

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "title": "AVL right rotation followed by a left rotation",
+  "title": "Right-then-left rotation in an AVL tree",
   "summary": "The path 3 → 5 → 4 bends right and then left. Rotate child (5) right, then node (3) left to make 4 the new root of this subtree.",
   "context": [
     "Root 2 has left child 1 and right child 3; 3 has only a right child, 5, and 5 only a left child, 4. Here node denotes the unbalanced node 3 and child its right child 5.",
@@ -17,7 +17,7 @@
     {
       "id": "source-138",
       "book_path": "chapter_tree/avl_tree.assets/avltree_right_left_rotate.png",
-      "title": "AVL right rotation followed by a left rotation",
+      "title": "Right-then-left rotation in an AVL tree",
       "explanation": "This mirrors a left rotation followed by a right rotation. First rotate the child to align the bent path with the direction of the imbalance. Then rotate the unbalanced node. Balance returns while key order is preserved."
     }
   ],
@@ -25,7 +25,7 @@
     "avl-right-left": {
       "kind": "prose",
       "prose": {
-        "title": "AVL right rotation followed by a left rotation",
+        "title": "Right-then-left rotation in an AVL tree",
         "summary": "The path 3 → 5 → 4 bends right and then left. Rotate child (5) right, then node (3) left to make 4 the new root of this subtree.",
         "context": [
           "Root 2 has left child 1 and right child 3; 3 has only a right child, 5, and 5 only a left child, 4. Here node denotes the unbalanced node 3 and child its right child 5.",

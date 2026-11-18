@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "title": "Asymptotic upper bound: inequality beyond a threshold",
-  "summary": "Use two curves to show that an asymptotic upper bound cares only about their order relationship past a threshold.",
+  "summary": "The two curves show how to read an asymptotic upper bound. Once the input size n exceeds the threshold, T(n) stays at or below c times f(n).",
   "context": [
     "The horizontal axis shows input size n with ticks from 0 to 14; the vertical axis shows function value with no numeric ticks. The blue curve is the operation count T(n), and the orange curve is a candidate function f(n) scaled by a positive constant c, written c·f(n); no explicit formulas are given."
   ],

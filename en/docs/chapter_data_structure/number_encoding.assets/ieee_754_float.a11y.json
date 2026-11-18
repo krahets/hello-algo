@@ -52,5 +52,5 @@
       "row_header": 0
     }
   ],
-  "result": "The normal-number formula is (−1)^S × 2^(E−127) × (1+N). When E is 0 or 255, dedicated rules govern zero, subnormal numbers, infinity, and NaN, so this formula cannot be applied directly. The exponent widens the representable range without increasing significand precision: a normal float has 23 fraction bits plus the implicit 1, giving 24 bits of binary precision, so adjacent representable numbers generally grow farther apart as magnitude increases."
+  "result": "The normal-number formula is (−1)^S × 2^(E−127) × (1+N), that is, negative one to the power S, times 2 to the power (E minus 127), times (1 plus N). When E is 0 or 255, dedicated rules govern zero, subnormal numbers, infinity, and NaN, so this formula cannot be applied directly. The exponent widens the representable range without increasing significand precision: a normal float has 23 fraction bits plus the implicit 1, giving 24 bits of binary precision, so adjacent representable numbers generally grow farther apart as magnitude increases."
 }

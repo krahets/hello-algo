@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "title": "Edit distance: two three-step transformation examples",
-  "summary": "Shows side-by-side character alignments transforming kitten into sitting and hello into algo, each taking a minimum of 3 edits.",
+  "summary": "The alignments show how kitten becomes sitting and how hello becomes algo. Each transformation takes at least 3 edits, and the examples achieve that minimum.",
   "context": [
     "Each edit may insert, delete, or replace one character."
   ],

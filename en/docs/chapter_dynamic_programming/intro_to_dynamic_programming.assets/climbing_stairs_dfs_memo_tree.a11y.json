@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "title": "Memoized search reuses previously computed states",
-  "summary": "Computes and caches each subproblem on first visit along the main left chain; when the same state appears again on a right branch, returns the cached value directly so it still contributes to its parent's sum.",
+  "summary": "On the first visit, memoized search computes and caches each non-base state along the left branch. When a right branch reaches the same state, its cached value still contributes to the parent’s sum.",
   "context": [
     "Again counting ways to climb stairs by taking 1 or 2 steps at a time, with base cases dp[1] = 1 and dp[2] = 2, memoized search introduces an array mem to record computed non-base state values: base cases return immediately, while non-base states check mem first and expand further only if not yet recorded."
   ],

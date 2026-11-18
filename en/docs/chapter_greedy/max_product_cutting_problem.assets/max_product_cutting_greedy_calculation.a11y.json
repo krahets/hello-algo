@@ -9,7 +9,7 @@
   "description": [
     "The diagram decomposes a bar of length n into \"a copies of 3\" and a \"Remainder b\" segment above the identity n = 3 × a + b (with a = n // 3 and b = n % 3 in {0, 1, 2}). Drawing \"Remainder b\" on the left is purely symbolic—neither fixing concrete values of n or b nor implying left-to-right cutting—while ellipses between blue 3-blocks stand for additional copies of 3.",
     "The table below supplies all five cases from the chapter text and code (not drawn separately in the figure). Boundary inputs n = 2 and n = 3 must be cut into at least two parts rather than left uncut as n.",
-    "When n ≥ 4 and b = 1, we have a ≥ 1, so at least one 3 can be recombined with remainder 1 into 2 + 2—keeping sum 4 while raising their local product from 3 to 4—leaving a - 1 copies of 3 and product 3^(a - 1) × 2 × 2."
+    "When n ≥ 4 and b = 1, we have a ≥ 1, so at least one 3 can be recombined with remainder 1 into 2 + 2—keeping sum 4 while raising their local product from 3 to 4—leaving a - 1 copies of 3 and product 3^(a - 1) × 2 × 2 (3 raised to the exponent (a minus 1), times 2 times 2)."
   ],
   "frames": [
     {

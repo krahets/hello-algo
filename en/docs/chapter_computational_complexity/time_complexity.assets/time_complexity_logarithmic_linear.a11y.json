@@ -13,7 +13,7 @@
       "id": "source-31",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear.png",
       "title": "Per-level workload of a divide-and-conquer tree",
-      "explanation": "Numbering the root as level 0, level d has 2^d subproblems performing n/2^d operations each, whose product is always n. At the leaf level each subproblem has size 1, so 2^d = n and d = log₂n; from level 0 through level log₂n there are log₂n + 1 levels in total. At the bottom of the diagram, multiplying n operations per level by the total number of levels gives n(log₂n + 1) = n log₂n + n, which is O(n log n)."
+      "explanation": "Numbering the root as level 0, level d has 2^d (2 to the power d) subproblems performing n / 2^d operations each, whose product is always n. At the leaf level each subproblem has size 1, so 2^d = n and d = log₂ n (log base 2 of n); from level 0 through level log₂ n there are log₂ n + 1 levels in total. At the bottom of the diagram, multiplying n operations per level by the total number of levels gives n(log₂ n + 1) = n log₂ n + n, which is O(n log n)."
     }
   ],
   "tables": [

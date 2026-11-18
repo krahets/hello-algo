@@ -13,7 +13,7 @@
       "id": "source-30",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic.png",
       "title": "Logarithmic growth from halving at each step",
-      "explanation": "Halving n down to 1 takes log₂n halving steps, which is the exact count returned by while n > 1 in the code; the figure also counts the final length-1 level as 1 operation, giving 1 more than count in the code. For instance, 8 → 4 → 2 → 1 has 3 halvings across 4 state levels. That constant difference does not change the logarithmic complexity O(log n). The ellipses and four rows illustrate general n; small inputs pass only through the levels that actually exist."
+      "explanation": "Halving n down to 1 takes log₂ n (log base 2 of n) halving steps, which is the exact count returned by while n > 1 in the code; the figure also counts the final length-1 level as 1 operation, giving one more level than the count returned by the code. For instance, 8 → 4 → 2 → 1 has 3 halvings across 4 state levels. That constant difference does not change the logarithmic complexity O(log n). The ellipses and four rows illustrate general n; small inputs pass only through the levels that actually exist."
     }
   ],
   "tables": [
