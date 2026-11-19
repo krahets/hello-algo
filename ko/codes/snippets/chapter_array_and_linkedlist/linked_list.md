@@ -1,52 +1,24 @@
 <!-- [snippet]{list_node_class} -->
 ```python title=""
-class ListNode:
-    """연결 리스트 노드 클래스"""
-    def __init__(self, val: int):
-        self.val: int = val               # 노드 값
-        self.next: ListNode | None = None # 다음 노드를 가리키는 참조
+[file]{modules/list_node}-[region]{list_node}
 ```
 
 ```cpp title=""
-/* 연결 리스트 노드 구조체 */
-struct ListNode {
-    int val;         // 노드 값
-    ListNode *next;  // 다음 노드를 가리키는 포인터
-    ListNode(int x) : val(x), next(nullptr) {}  // 생성자
-};
+[file]{utils/list_node.hpp}-[region]{list_node}
 ```
 
 ```java title=""
-/* 연결 리스트 노드 클래스 */
-class ListNode {
-    int val;        // 노드 값
-    ListNode next;  // 다음 노드를 가리키는 참조
-    ListNode(int x) { val = x; }  // 생성자
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```csharp title=""
-/* 연결 리스트 노드 클래스 */
-class ListNode(int x) {  //생성자
-    public int val = x;     // 노드 값
-    public ListNode? next;  // 다음 노드를 가리키는 참조
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```go title=""
-/* 연결 리스트 노드 구조체 */
-type ListNode struct {
-    Val  int       // 노드 값
-    Next *ListNode // 다음 노드를 가리키는 포인터
-}
-
-// NewListNode 생성자: 새 연결 리스트 생성
-func NewListNode(val int) *ListNode {
-    return &ListNode{
-        Val:  val,
-        Next: nil,
-    }
-}
+[file]{pkg/list_node}-[region]{list_node}
 ```
 
 ```swift title=""
@@ -62,281 +34,89 @@ class ListNode {
 ```
 
 ```javascript title=""
-/* 연결 리스트 노드 클래스 */
-class ListNode {
-    constructor(val, next) {
-        this.val = (val === undefined ? 0 : val);       // 노드 값
-        this.next = (next === undefined ? null : next); // 다음 노드를 가리키는 참조
-    }
-}
+[file]{modules/ListNode}-[region]{list_node}
 ```
 
 ```typescript title=""
-/* 연결 리스트 노드 클래스 */
-class ListNode {
-    val: number;
-    next: ListNode | null;
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = val === undefined ? 0 : val;        // 노드 값
-        this.next = next === undefined ? null : next;  // 다음 노드를 가리키는 참조
-    }
-}
+[file]{modules/ListNode}-[region]{list_node}
 ```
 
 ```dart title=""
-/* 연결 리스트 노드 클래스 */
-class ListNode {
-  int val; // 노드 값
-  ListNode? next; // 다음 노드를 가리키는 참조
-  ListNode(this.val, [this.next]); // 생성자
-}
+[file]{utils/list_node}-[region]{list_node}
 ```
 
 ```rust title=""
-use std::rc::Rc;
-use std::cell::RefCell;
-/* 연결 리스트 노드 클래스 */
-#[derive(Debug)]
-struct ListNode {
-    val: i32, // 노드 값
-    next: Option<Rc<RefCell<ListNode>>>, // 다음 노드를 가리키는 포인터
-}
+[file]{src/include/list_node}-[region]{import_cell}
+[file]{src/include/list_node}-[region]{import_rc}
+
+[file]{src/include/list_node}-[region]{list_node}
+[file]{src/include/list_node}-[region]{list_node_end}
 ```
 
 ```c title=""
-/* 연결 리스트 노드 구조체 */
-typedef struct ListNode {
-    int val;               // 노드 값
-    struct ListNode *next; // 다음 노드를 가리키는 포인터
-} ListNode;
-
-/* 생성자 */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
-    node->val = val;
-    node->next = NULL;
-    return node;
-}
+[file]{utils/list_node.h}-[region]{list_node}
 ```
 
 ```kotlin title=""
-/* 연결 리스트 노드 클래스 */
-// 생성자
-class ListNode(x: Int) {
-    val _val: Int = x          // 노드 값
-    var next: ListNode? = null // 다음 노드를 가리키는 참조
-}
+[file]{utils/ListNode}-[region]{list_node}
+[file]{utils/ListNode}-[region]{list_node_end}
 ```
 
 ```ruby title=""
-# 연결 리스트 노드 클래스
-class ListNode
-  attr_accessor :val  # 노드 값
-  attr_accessor :next # 다음 노드를 가리키는 참조
-
-  def initialize(val=0, next_node=nil)
-    @val = val
-    @next = next_node
-  end
-end
+[file]{utils/list_node}-[region]{list_node}
 ```
 
 <!-- [snippet]{init_linked_list} -->
 ```python title="linked_list.py"
-# 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-# 각 노드 초기화
-n0 = ListNode(1)
-n1 = ListNode(3)
-n2 = ListNode(2)
-n3 = ListNode(5)
-n4 = ListNode(4)
-# 노드 사이의 참조 설정
-n0.next = n1
-n1.next = n2
-n2.next = n3
-n3.next = n4
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```cpp title="linked_list.cpp"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-ListNode* n0 = new ListNode(1);
-ListNode* n1 = new ListNode(3);
-ListNode* n2 = new ListNode(2);
-ListNode* n3 = new ListNode(5);
-ListNode* n4 = new ListNode(4);
-// 노드 사이의 참조 설정
-n0->next = n1;
-n1->next = n2;
-n2->next = n3;
-n3->next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```java title="linked_list.java"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-ListNode n0 = new ListNode(1);
-ListNode n1 = new ListNode(3);
-ListNode n2 = new ListNode(2);
-ListNode n3 = new ListNode(5);
-ListNode n4 = new ListNode(4);
-// 노드 사이의 참조 설정
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```csharp title="linked_list.cs"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-ListNode n0 = new(1);
-ListNode n1 = new(3);
-ListNode n2 = new(2);
-ListNode n3 = new(5);
-ListNode n4 = new(4);
-// 노드 사이의 참조 설정
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```go title="linked_list.go"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-n0 := NewListNode(1)
-n1 := NewListNode(3)
-n2 := NewListNode(2)
-n3 := NewListNode(5)
-n4 := NewListNode(4)
-// 노드 사이의 참조 설정
-n0.Next = n1
-n1.Next = n2
-n2.Next = n3
-n3.Next = n4
+[file]{linked_list_test}-[region]{init_linked_list}
 ```
 
 ```swift title="linked_list.swift"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-let n0 = ListNode(x: 1)
-let n1 = ListNode(x: 3)
-let n2 = ListNode(x: 2)
-let n3 = ListNode(x: 5)
-let n4 = ListNode(x: 4)
-// 노드 사이의 참조 설정
-n0.next = n1
-n1.next = n2
-n2.next = n3
-n3.next = n4
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```javascript title="linked_list.js"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-const n0 = new ListNode(1);
-const n1 = new ListNode(3);
-const n2 = new ListNode(2);
-const n3 = new ListNode(5);
-const n4 = new ListNode(4);
-// 노드 사이의 참조 설정
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```typescript title="linked_list.ts"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-const n0 = new ListNode(1);
-const n1 = new ListNode(3);
-const n2 = new ListNode(2);
-const n3 = new ListNode(5);
-const n4 = new ListNode(4);
-// 노드 사이의 참조 설정
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```dart title="linked_list.dart"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-ListNode n0 = ListNode(1);
-ListNode n1 = ListNode(3);
-ListNode n2 = ListNode(2);
-ListNode n3 = ListNode(5);
-ListNode n4 = ListNode(4);
-// 노드 사이의 참조 설정
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```rust title="linked_list.rs"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
-let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
-let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
-let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
-let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
-
-// 노드 사이의 참조 설정
-n0.borrow_mut().next = Some(n1.clone());
-n1.borrow_mut().next = Some(n2.clone());
-n2.borrow_mut().next = Some(n3.clone());
-n3.borrow_mut().next = Some(n4.clone());
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```c title="linked_list.c"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-ListNode* n0 = newListNode(1);
-ListNode* n1 = newListNode(3);
-ListNode* n2 = newListNode(2);
-ListNode* n3 = newListNode(5);
-ListNode* n4 = newListNode(4);
-// 노드 사이의 참조 설정
-n0->next = n1;
-n1->next = n2;
-n2->next = n3;
-n3->next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```kotlin title="linked_list.kt"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-val n0 = ListNode(1)
-val n1 = ListNode(3)
-val n2 = ListNode(2)
-val n3 = ListNode(5)
-val n4 = ListNode(4)
-// 노드 사이의 참조 설정
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 ```ruby title="linked_list.rb"
-# 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-# 각 노드 초기화
-n0 = ListNode.new(1)
-n1 = ListNode.new(3)
-n2 = ListNode.new(2)
-n3 = ListNode.new(5)
-n4 = ListNode.new(4)
-# 노드 사이의 참조 설정
-n0.next = n1
-n1.next = n2
-n2.next = n3
-n3.next = n4
+[file]{linked_list}-[region]{init_linked_list}
 ```
 
 <!-- [tutor]{init_linked_list_tutor} -->
@@ -344,41 +124,19 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
-class ListNode:
-    """이중 연결 리스트 노드 클래스"""
-    def __init__(self, val: int):
-        self.val: int = val                # 노드 값
-        self.next: ListNode | None = None  # 후속 노드를 가리키는 참조
-        self.prev: ListNode | None = None  # 선행 노드를 가리키는 참조
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```cpp title=""
-/* 이중 연결 리스트 노드 구조체 */
-struct ListNode {
-    int val;         // 노드 값
-    ListNode *next;  // 후속 노드를 가리키는 포인터
-    ListNode *prev;  // 선행 노드를 가리키는 포인터
-    ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 생성자
-};
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```java title=""
-/* 이중 연결 리스트 노드 클래스 */
-class ListNode {
-    int val;        // 노드 값
-    ListNode next;  // 후속 노드를 가리키는 참조
-    ListNode prev;  // 선행 노드를 가리키는 참조
-    ListNode(int x) { val = x; }  // 생성자
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```csharp title=""
-/* 이중 연결 리스트 노드 클래스 */
-class ListNode(int x) {  // 생성자
-    public int val = x;     // 노드 값
-    public ListNode? next;  // 후속 노드를 가리키는 참조
-    public ListNode? prev;  // 선행 노드를 가리키는 참조
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```go title=""
@@ -400,117 +158,35 @@ func NewDoublyListNode(val int) *DoublyListNode {
 ```
 
 ```swift title=""
-/* 이중 연결 리스트 노드 클래스 */
-class ListNode {
-    var val: Int // 노드 값
-    var next: ListNode? // 후속 노드를 가리키는 참조
-    var prev: ListNode? // 선행 노드를 가리키는 참조
-
-    init(x: Int) { // 생성자
-        val = x
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```javascript title=""
-/* 이중 연결 리스트 노드 클래스 */
-class ListNode {
-    constructor(val, next, prev) {
-        this.val = val  ===  undefined ? 0 : val;        // 노드 값
-        this.next = next  ===  undefined ? null : next;  // 후속 노드를 가리키는 참조
-        this.prev = prev  ===  undefined ? null : prev;  // 선행 노드를 가리키는 참조
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```typescript title=""
-/* 이중 연결 리스트 노드 클래스 */
-class ListNode {
-    val: number;
-    next: ListNode | null;
-    prev: ListNode | null;
-    constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-        this.val = val  ===  undefined ? 0 : val;        // 노드 값
-        this.next = next  ===  undefined ? null : next;  // 후속 노드를 가리키는 참조
-        this.prev = prev  ===  undefined ? null : prev;  // 선행 노드를 가리키는 참조
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```dart title=""
-/* 이중 연결 리스트 노드 클래스 */
-class ListNode {
-    int val;        // 노드 값
-    ListNode? next;  // 후속 노드를 가리키는 참조
-    ListNode? prev;  // 선행 노드를 가리키는 참조
-    ListNode(this.val, [this.next, this.prev]);  // 생성자
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```rust title=""
-use std::rc::Rc;
-use std::cell::RefCell;
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{import}
 
-/* 이중 연결 리스트 노드 자료형 */
-#[derive(Debug)]
-struct ListNode {
-    val: i32, // 노드 값
-    next: Option<Rc<RefCell<ListNode>>>, // 후속 노드를 가리키는 포인터
-    prev: Option<Rc<RefCell<ListNode>>>, // 선행 노드를 가리키는 포인터
-}
-
-/* 생성자 */
-impl ListNode {
-    fn new(val: i32) -> Self {
-        ListNode {
-            val,
-            next: None,
-            prev: None,
-        }
-    }
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```c title=""
-/* 이중 연결 리스트 노드 구조체 */
-typedef struct ListNode {
-    int val;               // 노드 값
-    struct ListNode *next; // 후속 노드를 가리키는 포인터
-    struct ListNode *prev; // 선행 노드를 가리키는 포인터
-} ListNode;
-
-/* 생성자 */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
-    node->val = val;
-    node->next = NULL;
-    node->prev = NULL;
-    return node;
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```kotlin title=""
-/* 이중 연결 리스트 노드 클래스 */
-// 생성자
-class ListNode(x: Int) {
-    val _val: Int = x           // 노드 값
-    var next: ListNode? = null  // 후속 노드를 가리키는 참조
-    var prev: ListNode? = null  // 선행 노드를 가리키는 참조
-}
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```
 
 ```ruby title=""
-# 이중 연결 리스트 노드 클래스
-class ListNode
-  attr_accessor :val    # 노드 값
-  attr_accessor :next   # 후속 노드를 가리키는 참조
-  attr_accessor :prev   # 선행 노드를 가리키는 참조
-
-  def initialize(val=0, next_node=nil, prev_node=nil)
-    @val = val
-    @next = next_node
-    @prev = prev_node
-  end
-end
+[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
 ```

@@ -9,6 +9,7 @@ require_relative '../utils/print_util'
 
 ### Driver Code ###
 if __FILE__ == $0
+  # [region]{init_binary_tree}
   # Инициализация двоичного дерева
   # Инициализация узлов
   n1 = TreeNode.new(1)
@@ -21,18 +22,23 @@ if __FILE__ == $0
   n1.right = n3
   n2.left = n4
   n2.right = n5
+  # [endregion]{init_binary_tree}
   puts "\nИнициализация двоичного дерева\n\n"
   print_tree(n1)
 
+  # [region]{insert_node}
   # Вставка и удаление узлов
   _p = TreeNode.new(0)
   # Вставить узел _p между n1 -> n2
   n1.left = _p
   _p.left = n2
+  # [endregion]{insert_node}
   puts "\nПосле вставки узла _p\n\n"
   print_tree(n1)
+  # [region]{remove_node}
   # Удаление узла
   n1.left = n2
+  # [endregion]{remove_node}
   puts "\nПосле удаления узла _p\n\n"
   print_tree(n1)
 end

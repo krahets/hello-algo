@@ -13,6 +13,7 @@ from modules import TreeNode, print_tree
 
 """Driver code"""
 if __name__ == "__main__":
+    # [region]{init_binary_tree}
     # Initialize the binary tree
     # Initialize the nodes
     n1 = TreeNode(val=1)
@@ -25,17 +26,22 @@ if __name__ == "__main__":
     n1.right = n3
     n2.left = n4
     n2.right = n5
+    # [endregion]{init_binary_tree}
     print("\nInitialize the binary tree\n")
     print_tree(n1)
 
+    # [region]{insert_node}
     # Insert and remove nodes
     P = TreeNode(0)
     # Insert node P between n1 and n2 in n1 -> n2
     n1.left = P
     P.left = n2
+    # [endregion]{insert_node}
     print("\nAfter inserting node P:\n")
     print_tree(n1)
-    # Remove a node
+    # [region]{remove_node}
+    # Remove node P
     n1.left = n2
+    # [endregion]{remove_node}
     print("\nAfter removing node P:\n")
     print_tree(n1)

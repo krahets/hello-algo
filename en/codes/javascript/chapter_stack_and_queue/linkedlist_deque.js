@@ -4,6 +4,7 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
+// [region]{doubly_list_node}
 /* Doubly linked list node */
 class ListNode {
     prev; // Reference (pointer) to the previous node
@@ -16,6 +17,7 @@ class ListNode {
         this.prev = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 class LinkedListDeque {

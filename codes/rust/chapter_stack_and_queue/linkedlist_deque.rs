@@ -6,9 +6,12 @@
 
 use hello_algo_rust::include::print_util;
 
+// [region]{import}
 use std::cell::RefCell;
 use std::rc::Rc;
+// [endregion]{import}
 
+// [region]{doubly_list_node}
 /* 双向链表节点 */
 pub struct ListNode<T> {
     pub val: T,                                 // 节点值
@@ -25,6 +28,7 @@ impl<T> ListNode<T> {
         }))
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 基于双向链表实现的双向队列 */
 #[allow(dead_code)]

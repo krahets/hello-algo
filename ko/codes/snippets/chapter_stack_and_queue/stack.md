@@ -1,250 +1,142 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-# 스택 초기화
-# Python에는 내장 스택 클래스가 없으므로 list를 스택으로 사용할 수 있다
-stack: list[int] = []
+[file]{stack}-[region]{init_stack}
 
-# 스택에 원소 삽입
-stack.append(1)
-stack.append(3)
-stack.append(2)
-stack.append(5)
-stack.append(4)
+[file]{stack}-[region]{push}
 
-# 스택 맨 위 원소에 접근
-peek: int = stack[-1]
+[file]{stack}-[region]{peek}
 
-# 스택에서 원소 꺼내기
-pop: int = stack.pop()
+[file]{stack}-[region]{pop}
 
-# 스택 길이 구하기
-size: int = len(stack)
+[file]{stack}-[region]{size}
 
-# 비어 있는지 확인
-is_empty: bool = len(stack) == 0
+[file]{stack}-[region]{is_empty}
 ```
 
 ```cpp title="stack.cpp"
-/* 스택 초기화 */
-stack<int> stack;
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-int top = stack.top();
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-stack.pop(); // 반환값 없음
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-int size = stack.size();
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-bool empty = stack.empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```java title="stack.java"
-/* 스택 초기화 */
-Stack<Integer> stack = new Stack<>();
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-int peek = stack.peek();
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-int pop = stack.pop();
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-int size = stack.size();
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-boolean isEmpty = stack.isEmpty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```csharp title="stack.cs"
-/* 스택 초기화 */
-Stack<int> stack = new();
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.Push(1);
-stack.Push(3);
-stack.Push(2);
-stack.Push(5);
-stack.Push(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-int peek = stack.Peek();
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-int pop = stack.Pop();
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-int size = stack.Count;
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-bool isEmpty = stack.Count == 0;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```go title="stack_test.go"
-/* 스택 초기화 */
-// Go에서는 Slice를 스택으로 사용하는 것을 권한다
-var stack []int
+[file]{stack_test}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack = append(stack, 1)
-stack = append(stack, 3)
-stack = append(stack, 2)
-stack = append(stack, 5)
-stack = append(stack, 4)
+[file]{stack_test}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-peek := stack[len(stack)-1]
+[file]{stack_test}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-pop := stack[len(stack)-1]
-stack = stack[:len(stack)-1]
+[file]{stack_test}-[region]{pop}
 
-/* 스택 길이 구하기 */
-size := len(stack)
+[file]{stack_test}-[region]{size}
 
-/* 비어 있는지 확인 */
-isEmpty := len(stack) == 0
+[file]{stack_test}-[region]{is_empty}
 ```
 
 ```swift title="stack.swift"
-/* 스택 초기화 */
-// Swift에는 내장 스택 클래스가 없으므로 Array를 스택으로 사용할 수 있다
-var stack: [Int] = []
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.append(1)
-stack.append(3)
-stack.append(2)
-stack.append(5)
-stack.append(4)
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-let peek = stack.last!
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-let pop = stack.removeLast()
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-let size = stack.count
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-let isEmpty = stack.isEmpty
+[file]{stack}-[region]{is_empty}
 ```
 
 ```javascript title="stack.js"
-/* 스택 초기화 */
-// JavaScript에는 내장 스택 클래스가 없으므로 Array를 스택으로 사용할 수 있다
-const stack = [];
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-const peek = stack[stack.length-1];
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-const pop = stack.pop();
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-const size = stack.length;
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-const is_empty = stack.length === 0;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```typescript title="stack.ts"
-/* 스택 초기화 */
-// TypeScript에는 내장 스택 클래스가 없으므로 Array를 스택으로 사용할 수 있다
-const stack: number[] = [];
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-const peek = stack[stack.length - 1];
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-const pop = stack.pop();
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-const size = stack.length;
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-const is_empty = stack.length === 0;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```dart title="stack.dart"
-/* 스택 초기화 */
-// Dart에는 내장 스택 클래스가 없으므로 List를 스택으로 사용할 수 있다
-List<int> stack = [];
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.add(1);
-stack.add(3);
-stack.add(2);
-stack.add(5);
-stack.add(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-int peek = stack.last;
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-int pop = stack.removeLast();
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-int size = stack.length;
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-bool isEmpty = stack.isEmpty;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```rust title="stack.rs"
-/* 스택 초기화 */
-// Vec를 스택으로 사용
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"
@@ -252,52 +144,31 @@ let is_empty = stack.is_empty();
 ```
 
 ```kotlin title="stack.kt"
-/* 스택 초기화 */
-val stack = Stack<Int>()
+[file]{stack}-[region]{init_stack}
 
-/* 스택에 원소 삽입 */
-stack.push(1)
-stack.push(3)
-stack.push(2)
-stack.push(5)
-stack.push(4)
+[file]{stack}-[region]{push}
 
-/* 스택 맨 위 원소에 접근 */
-val peek = stack.peek()
+[file]{stack}-[region]{peek}
 
-/* 스택에서 원소 꺼내기 */
-val pop = stack.pop()
+[file]{stack}-[region]{pop}
 
-/* 스택 길이 구하기 */
-val size = stack.size
+[file]{stack}-[region]{size}
 
-/* 비어 있는지 확인 */
-val isEmpty = stack.isEmpty()
+[file]{stack}-[region]{is_empty}
 ```
 
 ```ruby title="stack.rb"
-# 스택 초기화
-# Ruby에는 내장 스택 클래스가 없으므로 Array를 스택으로 사용할 수 있다
-stack = []
+[file]{stack}-[region]{init_stack}
 
-# 스택에 원소 삽입
-stack << 1
-stack << 3
-stack << 2
-stack << 5
-stack << 4
+[file]{stack}-[region]{push}
 
-# 스택 맨 위 원소에 접근
-peek = stack.last
+[file]{stack}-[region]{peek}
 
-# 스택에서 원소 꺼내기
-pop = stack.pop
+[file]{stack}-[region]{pop}
 
-# 스택 길이 구하기
-size = stack.length
+[file]{stack}-[region]{size}
 
-# 비어 있는지 확인
-is_empty = stack.empty?
+[file]{stack}-[region]{is_empty}
 ```
 
 <!-- [tutor]{stack_operations_tutor} -->

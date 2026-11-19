@@ -12,40 +12,52 @@ import (
 )
 
 func TestStack(t *testing.T) {
+	// [region]{init_stack}
 	/* Initialize the stack */
 	// In Go, a slice is the recommended way to implement a stack
 	var stack []int
+	// [endregion]{init_stack}
 
+	// [region]{push}
 	/* Push elements onto the stack */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
+	// [endregion]{push}
 	fmt.Print("Stack stack = ")
 	PrintSlice(stack)
 
+	// [region]{peek}
 	/* Access the top element */
 	peek := stack[len(stack)-1]
+	// [endregion]{peek}
 	fmt.Println("Top element peek =", peek)
 
+	// [region]{pop}
 	/* Pop an element from the stack */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
+	// [endregion]{pop}
 	fmt.Print("Popped element pop = ", pop, ", after popping, stack = ")
 	PrintSlice(stack)
 
+	// [region]{size}
 	/* Get the stack size */
 	size := len(stack)
+	// [endregion]{size}
 	fmt.Println("Stack size =", size)
 
+	// [region]{is_empty}
 	/* Check whether it is empty */
 	isEmpty := len(stack) == 0
+	// [endregion]{is_empty}
 	fmt.Println("Is the stack empty =", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
-	// Initialize the stack for use through its stack operations
+	// Initialize the stack and assign it to an interface
 	stack := newArrayStack()
 
 	// Push elements onto the stack

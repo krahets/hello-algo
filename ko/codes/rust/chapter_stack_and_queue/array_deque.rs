@@ -134,7 +134,7 @@ fn main() {
     let peek_last = deque.peek_last();
     print!("\n맨 뒤 원소 peek_last = {}", peek_last);
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque.push_last(4);
     print!("\n원소 4를 뒤에 삽입한 뒤 deque = ");
     print_util::print_array(&deque.to_array());
@@ -142,7 +142,7 @@ fn main() {
     print!("\n원소 1을 앞에 삽입한 뒤 deque = ");
     print_util::print_array(&deque.to_array());
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     let pop_last = deque.pop_last();
     print!("\n뒤에서 꺼낸 원소 = {}, 꺼낸 뒤 deque = ", pop_last);
     print_util::print_array(&deque.to_array());

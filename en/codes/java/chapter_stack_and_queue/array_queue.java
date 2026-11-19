@@ -109,7 +109,7 @@ public class array_queue {
         for (int i = 0; i < 10; i++) {
             queue.push(i);
             queue.pop();
-            System.out.println("Round " + i + " : after enqueue + dequeue, queue = " + Arrays.toString(queue.toArray()));
+            System.out.println("After round " + i + " of enqueue + dequeue, queue = " + Arrays.toString(queue.toArray()));
         }
     }
 }

@@ -49,7 +49,8 @@ end
 
 ### Driver Code ###
 if __FILE__ == $0
-  # Инициализация связного списка
+  # [region]{init_linked_list}
+  # Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
   # Инициализация всех узлов
   n0 = ListNode.new(1)
   n1 = ListNode.new(3)
@@ -61,6 +62,7 @@ if __FILE__ == $0
   n1.next = n2
   n2.next = n3
   n3.next = n4
+  # [endregion]{init_linked_list}
   puts "Исходный связный список"
   print_linked_list(n0)
 

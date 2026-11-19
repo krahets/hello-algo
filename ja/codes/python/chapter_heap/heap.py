@@ -13,59 +13,76 @@ from modules import print_heap
 import heapq
 
 
-def test_push(heap: list, val: int, flag: int = 1):
-    heapq.heappush(heap, flag * val)  # ヒープに要素を挿入する
-    print(f"\n要素 {val} をヒープに挿入した後")
-    print_heap([flag * val for val in heap])
-
-
-def test_pop(heap: list, flag: int = 1):
-    val = flag * heapq.heappop(heap)  # ヒープの先頭要素を取り出す
-    print(f"\nヒープの先頭要素 {val} を取り出した後")
-    print_heap([flag * val for val in heap])
-
-
 """実行用コード"""
 if __name__ == "__main__":
+    # [region]{init}
     # 最小ヒープを初期化する
     min_heap, flag = [], 1
     # 最大ヒープを初期化する
     max_heap, flag = [], -1
 
-    print("\n以下のテストケースは最大ヒープを対象とする")
     # Python の heapq モジュールは既定で最小ヒープを実装する
     # 「要素の符号を反転」してからヒープに挿入すれば、大小関係が逆転し、最大ヒープを実装できる
     # この例では flag = 1 が最小ヒープ、flag = -1 が最大ヒープに対応する
+    # [endregion]{init}
+    print("\n以下のテストケースは最大ヒープを対象とする")
 
+    # [region]{push}
     # ヒープに要素を挿入する
-    test_push(max_heap, 1, flag)
-    test_push(max_heap, 3, flag)
-    test_push(max_heap, 2, flag)
-    test_push(max_heap, 5, flag)
-    test_push(max_heap, 4, flag)
+    heapq.heappush(max_heap, flag * 1)
+    heapq.heappush(max_heap, flag * 3)
+    heapq.heappush(max_heap, flag * 2)
+    heapq.heappush(max_heap, flag * 5)
+    heapq.heappush(max_heap, flag * 4)
+    # [endregion]{push}
+    print_heap([flag * val for val in max_heap])
 
+    # [region]{peek}
     # ヒープの先頭要素を取得する
-    peek: int = flag * max_heap[0]
+    peek: int = flag * max_heap[0]  # 5
+    # [endregion]{peek}
     print(f"\nヒープの先頭要素は {peek}")
 
+    # [region]{pop_1}
     # ヒープの先頭要素を取り出す
-    test_pop(max_heap, flag)
-    test_pop(max_heap, flag)
-    test_pop(max_heap, flag)
-    test_pop(max_heap, flag)
-    test_pop(max_heap, flag)
+    # 取り出した要素は降順の列を形成する
+    val = flag * heapq.heappop(max_heap)  # 5
+    # [endregion]{pop_1}
+    print(f"ヒープから取り出した要素は {val}")
+    # [region]{pop_2}
+    val = flag * heapq.heappop(max_heap)  # 4
+    # [endregion]{pop_2}
+    print(f"ヒープから取り出した要素は {val}")
+    # [region]{pop_3}
+    val = flag * heapq.heappop(max_heap)  # 3
+    # [endregion]{pop_3}
+    print(f"ヒープから取り出した要素は {val}")
+    # [region]{pop_4}
+    val = flag * heapq.heappop(max_heap)  # 2
+    # [endregion]{pop_4}
+    print(f"ヒープから取り出した要素は {val}")
+    # [region]{pop_5}
+    val = flag * heapq.heappop(max_heap)  # 1
+    # [endregion]{pop_5}
+    print(f"ヒープから取り出した要素は {val}")
 
+    # [region]{size}
     # ヒープのサイズを取得する
     size: int = len(max_heap)
+    # [endregion]{size}
     print(f"\nヒープの要素数は {size}")
 
+    # [region]{is_empty}
     # ヒープが空か判定
     is_empty: bool = not max_heap
+    # [endregion]{is_empty}
     print(f"\nヒープは空か {is_empty}")
 
+    # [region]{heapify}
     # リストを入力してヒープを構築する
     # 時間計算量は O(n) であり、O(nlogn) ではない
-    min_heap = [1, 3, 2, 5, 4]
+    min_heap: list[int] = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
+    # [endregion]{heapify}
     print("\nリストを入力して最小ヒープを構築した後")
     print_heap(min_heap)

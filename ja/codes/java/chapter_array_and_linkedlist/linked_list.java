@@ -50,7 +50,8 @@ public class linked_list {
 
     /* 実行用コード */
     public static void main(String[] args) {
-        /* 連結リストを初期化する */
+        // [region]{init_linked_list}
+        /* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
         // 各ノードを初期化する
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
@@ -62,6 +63,7 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
+        // [endregion]{init_linked_list}
         System.out.println("初期化した連結リスト");
         PrintUtil.printLinkedList(n0);
 

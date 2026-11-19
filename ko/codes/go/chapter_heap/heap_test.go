@@ -13,42 +13,32 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-func testPush(h *intHeap, val int) {
-	// heap.Interface의 함수를 호출하여 원소를 추가한다
-	heap.Push(h, val)
-	fmt.Printf("\n원소 %d 삽입 후의 힙\n", val)
-	PrintHeap(*h)
-}
-
-func testPop(h *intHeap) {
-	// heap.Interface의 함수를 호출하여 원소를 제거한다
-	val := heap.Pop(h)
-	fmt.Printf("\n루트 원소 %d 삭제 후의 힙\n", val)
-	PrintHeap(*h)
-}
-
+// [region]{test_heap}
 func TestHeap(t *testing.T) {
 	/* 힙 초기화 */
 	// 최대 힙 초기화
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* 힙에 원소 삽입 */
-	testPush(maxHeap, 1)
-	testPush(maxHeap, 3)
-	testPush(maxHeap, 2)
-	testPush(maxHeap, 5)
-	testPush(maxHeap, 4)
+	// heap.Interface의 함수를 호출하여 원소를 추가한다
+	heap.Push(maxHeap, 1)
+	heap.Push(maxHeap, 3)
+	heap.Push(maxHeap, 2)
+	heap.Push(maxHeap, 5)
+	heap.Push(maxHeap, 4)
+	PrintHeap(*maxHeap)
 
 	/* 힙의 루트 원소 반환 */
 	top := maxHeap.Top()
 	fmt.Printf("힙의 루트 원소: %d\n", top)
 
 	/* 힙의 루트 원소 꺼내기 */
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
+	// heap.Interface의 함수를 호출하여 원소를 제거한다
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 1
 
 	/* 힙 크기 반환 */
 	size := len(*maxHeap)
@@ -58,6 +48,8 @@ func TestHeap(t *testing.T) {
 	isEmpty := len(*maxHeap) == 0
 	fmt.Printf("힙이 비어 있는가: %t\n", isEmpty)
 }
+
+// [endregion]{test_heap}
 
 func TestMyHeap(t *testing.T) {
 	/* 힙 초기화 */
@@ -91,8 +83,6 @@ func TestMyHeap(t *testing.T) {
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* 힙 초기화 */
-	// 최대 힙 초기화
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)

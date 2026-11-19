@@ -9,7 +9,7 @@ package chapter_array_and_linkedlist
 import utils.ListNode
 import utils.printLinkedList
 
-/* Insert node p after node n0 in the linked list */
+/* Insert node P after node n0 in the linked list */
 fun insert(n0: ListNode?, p: ListNode?) {
     val n1 = n0?.next
     p?.next = n1
@@ -52,7 +52,8 @@ fun find(head: ListNode?, target: Int): Int {
 
 /* Driver code */
 fun main() {
-    /* Initialize the linked list */
+    // [region]{init_linked_list}
+    /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize the individual nodes
     val n0 = ListNode(1)
     val n1 = ListNode(3)
@@ -65,6 +66,7 @@ fun main() {
     n1.next = n2
     n2.next = n3
     n3.next = n4
+    // [endregion]{init_linked_list}
     println("The initialized linked list is")
     printLinkedList(n0)
 

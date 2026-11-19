@@ -8,6 +8,7 @@ import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
 void main() {
+  // [region]{init_binary_tree}
   /* 二分木を初期化する */
   // ノードを初期化する
   TreeNode n1 = TreeNode(1);
@@ -20,18 +21,23 @@ void main() {
   n1.right = n3;
   n2.left = n4;
   n2.right = n5;
+  // [endregion]{init_binary_tree}
   print("\n二分木を初期化する\n");
   printTree(n1);
 
+  // [region]{insert_node}
   /* ノードの挿入と削除 */
   TreeNode p = TreeNode(0);
-  // n1 -> n2 の間にノード p を挿入する
+  // n1 -> n2 の間にノード P を挿入する
   n1.left = p;
   p.left = n2;
+  // [endregion]{insert_node}
   print("\nノード P の挿入後\n");
   printTree(n1);
+  // [region]{remove_node}
   // ノード P を削除する
   n1.left = n2;
+  // [endregion]{remove_node}
   print("\nノード P の削除後\n");
   printTree(n1);
 }

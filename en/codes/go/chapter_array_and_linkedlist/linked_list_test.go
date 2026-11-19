@@ -12,6 +12,7 @@ import (
 )
 
 func TestLinkedList(t *testing.T) {
+	// [region]{init_linked_list}
 	/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
 	// Initialize the individual nodes
 	n0 := NewListNode(1)
@@ -25,6 +26,7 @@ func TestLinkedList(t *testing.T) {
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
+	// [endregion]{init_linked_list}
 	fmt.Println("The initialized linked list is")
 	PrintLinkedList(n0)
 
@@ -40,7 +42,7 @@ func TestLinkedList(t *testing.T) {
 
 	/* Access a node */
 	node := access(n0, 3)
-	fmt.Println("Node at index 3 in the linked list =", node)
+	fmt.Println("Value of the node at index 3 in the linked list =", node)
 
 	/* Find a node */
 	index := findNode(n0, 2)

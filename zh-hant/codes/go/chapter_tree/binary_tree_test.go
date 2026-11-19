@@ -12,6 +12,7 @@ import (
 )
 
 func TestBinaryTree(t *testing.T) {
+	// [region]{init_binary_tree}
 	/* 初始化二元樹 */
 	// 初始化節點
 	n1 := NewTreeNode(1)
@@ -24,18 +25,23 @@ func TestBinaryTree(t *testing.T) {
 	n1.Right = n3
 	n2.Left = n4
 	n2.Right = n5
+	// [endregion]{init_binary_tree}
 	fmt.Println("初始化二元樹")
 	PrintTree(n1)
 
+	// [region]{insert_node}
 	/* 插入與刪除節點 */
-	// 插入節點
+	// 在 n1 -> n2 中間插入節點 P
 	p := NewTreeNode(0)
 	n1.Left = p
 	p.Left = n2
+	// [endregion]{insert_node}
 	fmt.Println("插入節點 P 後")
 	PrintTree(n1)
-	// 刪除節點
+	// [region]{remove_node}
+	// 刪除節點 P
 	n1.Left = n2
+	// [endregion]{remove_node}
 	fmt.Println("刪除節點 P 後")
 	PrintTree(n1)
 }

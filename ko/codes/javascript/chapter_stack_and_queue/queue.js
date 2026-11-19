@@ -5,31 +5,43 @@
  */
 
 /* 실행 코드 */
+// [region]{init_queue}
 /* 큐 초기화 */
 // JavaScript에는 내장 큐가 없으므로 Array를 큐로 사용할 수 있다
 const queue = [];
+// [endregion]{init_queue}
 
-/* 큐에 원소 삽입 */
+// [region]{push}
+/* 원소 삽입 */
 queue.push(1);
 queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
+// [endregion]{push}
 console.log('큐 queue =', queue);
 
+// [region]{peek}
 /* 맨 앞 원소 접근 */
 const peek = queue[0];
+// [endregion]{peek}
 console.log('맨 앞 원소 peek =', peek);
 
-/* 큐에서 원소 꺼내기 */
+// [region]{pop}
+/* 원소 꺼내기 */
 // 내부 자료 구조가 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
 const pop = queue.shift();
+// [endregion]{pop}
 console.log('큐에서 꺼낸 원소 pop =', pop, ', 큐에서 꺼낸 후 queue = ', queue);
 
+// [region]{size}
 /* 큐의 길이 반환 */
 const size = queue.length;
+// [endregion]{size}
 console.log('큐 길이 size =', size);
 
+// [region]{is_empty}
 /* 큐가 비어 있는지 판단 */
 const isEmpty = queue.length === 0;
+// [endregion]{is_empty}
 console.log('큐가 비어 있는가 = ', isEmpty);

@@ -6,11 +6,12 @@
 
 #include "../utils/common.h"
 
+// [region]{doubly_list_node}
 /* 雙向鏈結串列節點 */
 typedef struct DoublyListNode {
     int val;                     // 節點值
-    struct DoublyListNode *next; // 後繼節點
-    struct DoublyListNode *prev; // 前驅節點
+    struct DoublyListNode *next; // 後繼節點指標
+    struct DoublyListNode *prev; // 前驅節點指標
 } DoublyListNode;
 
 /* 建構子 */
@@ -21,6 +22,7 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
+// [endregion]{doubly_list_node}
 
 /* 析構函式 */
 void delDoublyListNode(DoublyListNode *node) {
@@ -182,7 +184,7 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("佇列首元素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("佇列首元素 peekLast = %d\r\n", peekLastNum);
+    printf("佇列尾元素 peekLast = %d\r\n", peekLastNum);
 
     /* 元素入列 */
     pushLast(deque, 4);

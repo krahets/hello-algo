@@ -4,9 +4,10 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 이중 연결 리스트 노드
+# [region]{doubly_list_node}
+### 이중 연결 리스트 노드 ###
 class ListNode
-  attr_accessor :val
+  attr_accessor :val  # 노드 값
   attr_accessor :next # 다음 노드 참조
   attr_accessor :prev # 이전 노드 참조
 
@@ -15,6 +16,7 @@ class ListNode
     @val = val
   end
 end
+# [endregion]{doubly_list_node}
 
 ### 이중 연결 리스트로 구현한 덱 ###
 class LinkedListDeque
@@ -33,7 +35,7 @@ class LinkedListDeque
     size.zero?
   end
 
-  ### 큐 삽입 연산 ###
+  ### 원소 삽입 연산 ###
   def push(num, is_front)
     node = ListNode.new(num)
     # 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
@@ -65,7 +67,7 @@ class LinkedListDeque
     push(num, false)
   end
 
-  ### 큐에서 꺼내는 연산 ###
+  ### 원소를 꺼내는 연산 ###
   def pop(is_front)
     raise IndexError, '덱이 비어 있다' if is_empty?
 
@@ -101,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 맨 앞에서 꺼내기 ###
+  ### 맨 뒤에서 꺼내기 ###
   def pop_last
     pop(false)
   end
@@ -145,15 +147,15 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "맨 앞 원소 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "맨 앞 원소 peek_last = #{peek_last}"
+  puts "맨 뒤 원소 peek_last = #{peek_last}"
 
-  # 큐에 원소 삽입
+  # 원소 삽입
   deque.push_last(4)
   puts "뒤쪽에 원소 4를 삽입한 후 deque = #{deque.to_array}"
   deque.push_first(1)
   puts "앞쪽에 원소 1을 삽입한 후 deque = #{deque.to_array}"
 
-  # 큐에서 원소 꺼내기
+  # 원소 꺼내기
   pop_last = deque.pop_last
   puts "맨 뒤에서 꺼낸 원소 = #{pop_last}, 맨 뒤에서 꺼낸 후 deque = #{deque.to_array}"
   pop_first = deque.pop_first

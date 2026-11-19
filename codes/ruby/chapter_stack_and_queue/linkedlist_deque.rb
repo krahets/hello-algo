@@ -4,17 +4,19 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 双向链表节点
+# [region]{doubly_list_node}
+### 双向链表节点 ###
 class ListNode
-  attr_accessor :val
+  attr_accessor :val  # 节点值
   attr_accessor :next # 后继节点引用
-  attr_accessor :prev # 前躯节点引用
+  attr_accessor :prev # 前驱节点引用
 
   ### 构造方法 ###
   def initialize(val)
     @val = val
   end
 end
+# [endregion]{doubly_list_node}
 
 ### 基于双向链表实现的双向队列 ###
 class LinkedListDeque
@@ -101,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 队首出队 ###
+  ### 队尾出队 ###
   def pop_last
     pop(false)
   end
@@ -145,7 +147,7 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "队首元素 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "队首元素 peek_last = #{peek_last}"
+  puts "队尾元素 peek_last = #{peek_last}"
 
   # 元素入队
   deque.push_last(4)

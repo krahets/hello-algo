@@ -11,10 +11,11 @@
 extern "C" {
 #endif
 
+// [region]{list_node}
 /* 連結リストのノードの構造体 */
 typedef struct ListNode {
     int val;               // ノードの値
-    struct ListNode *next; // 次のノードへの参照
+    struct ListNode *next; // 次のノードへのポインタ
 } ListNode;
 
 /* コンストラクタ：新しいノードを初期化する */
@@ -25,6 +26,7 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
+// [endregion]{list_node}
 
 /* 配列をデシリアライズして連結リストにする */
 ListNode *arrToLinkedList(const int *arr, size_t size) {

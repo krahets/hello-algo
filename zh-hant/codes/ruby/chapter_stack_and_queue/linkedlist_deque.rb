@@ -4,17 +4,19 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 雙向鏈結串列節點
+# [region]{doubly_list_node}
+### 雙向鏈結串列節點 ###
 class ListNode
-  attr_accessor :val
+  attr_accessor :val  # 節點值
   attr_accessor :next # 後繼節點引用
-  attr_accessor :prev # 前軀節點引用
+  attr_accessor :prev # 前驅節點引用
 
   ### 建構子 ###
   def initialize(val)
     @val = val
   end
 end
+# [endregion]{doubly_list_node}
 
 ### 基於雙向鏈結串列實現的雙向佇列 ###
 class LinkedListDeque
@@ -101,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 佇列首出列 ###
+  ### 佇列尾出列 ###
   def pop_last
     pop(false)
   end
@@ -145,7 +147,7 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "佇列首元素 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "佇列首元素 peek_last = #{peek_last}"
+  puts "佇列尾元素 peek_last = #{peek_last}"
 
   # 元素入列
   deque.push_last(4)

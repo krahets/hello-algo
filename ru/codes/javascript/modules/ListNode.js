@@ -4,6 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{list_node}
 /* Узел связного списка */
 class ListNode {
     val; // Значение узла
@@ -13,6 +14,7 @@ class ListNode {
         this.next = next === undefined ? null : next;
     }
 }
+// [endregion]{list_node}
 
 /* Десериализовать список в связный список */
 function arrToLinkedList(arr) {

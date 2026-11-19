@@ -13,42 +13,32 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-func testPush(h *intHeap, val int) {
-	// Вызвать функции heap.Interface для добавления элемента
-	heap.Push(h, val)
-	fmt.Printf("\nПосле добавления элемента %d в кучу\n", val)
-	PrintHeap(*h)
-}
-
-func testPop(h *intHeap) {
-	// Вызвать функции heap.Interface для удаления элемента
-	val := heap.Pop(h)
-	fmt.Printf("\nПосле извлечения элемента вершины кучи %d\n", val)
-	PrintHeap(*h)
-}
-
+// [region]{test_heap}
 func TestHeap(t *testing.T) {
 	/* Инициализация кучи */
 	// Инициализация максимальной кучи
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* Добавление элемента в кучу */
-	testPush(maxHeap, 1)
-	testPush(maxHeap, 3)
-	testPush(maxHeap, 2)
-	testPush(maxHeap, 5)
-	testPush(maxHeap, 4)
+	// Вызвать функции heap.Interface для добавления элемента
+	heap.Push(maxHeap, 1)
+	heap.Push(maxHeap, 3)
+	heap.Push(maxHeap, 2)
+	heap.Push(maxHeap, 5)
+	heap.Push(maxHeap, 4)
+	PrintHeap(*maxHeap)
 
 	/* Получение элемента с вершины кучи */
 	top := maxHeap.Top()
 	fmt.Printf("Элемент на вершине кучи = %d\n", top)
 
 	/* Извлечение элемента с вершины кучи */
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
+	// Вызвать функции heap.Interface для удаления элемента
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("Извлеченный элемент = %d\n", heap.Pop(maxHeap)) // 1
 
 	/* Получение размера кучи */
 	size := len(*maxHeap)
@@ -58,6 +48,8 @@ func TestHeap(t *testing.T) {
 	isEmpty := len(*maxHeap) == 0
 	fmt.Printf("Пуста ли куча: %t\n", isEmpty)
 }
+
+// [endregion]{test_heap}
 
 func TestMyHeap(t *testing.T) {
 	/* Инициализация кучи */
@@ -91,8 +83,6 @@ func TestMyHeap(t *testing.T) {
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* Инициализация кучи */
-	// Инициализация максимальной кучи
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)

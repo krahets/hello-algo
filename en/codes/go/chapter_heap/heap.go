@@ -4,18 +4,19 @@
 
 package chapter_heap
 
+// [region]{int_heap}
 // In Go, implement heap.Interface to build an integer max heap
 // Implementing heap.Interface also requires implementing sort.Interface
 type intHeap []any
 
-// Push implements heap.Interface by appending an element for the heap package
+// Push is a heap.Interface function that pushes an element onto the heap
 func (h *intHeap) Push(x any) {
 	// Push and Pop use pointer receivers
 	// because they modify the slice length as well as its contents.
 	*h = append(*h, x.(int))
 }
 
-// Pop implements heap.Interface by removing the last element, where heap.Pop has moved the top element
+// Pop is a heap.Interface function that pops the top element from the heap
 func (h *intHeap) Pop() any {
 	// The element to remove is stored at the end
 	last := (*h)[len(*h)-1]
@@ -43,3 +44,5 @@ func (h *intHeap) Swap(i, j int) {
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }
+
+// [endregion]{int_heap}

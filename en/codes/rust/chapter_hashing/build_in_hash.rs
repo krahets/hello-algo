@@ -6,44 +6,54 @@
 
 use hello_algo_rust::include::ListNode;
 
+// [region]{import_hasher}
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
+// [endregion]{import_hasher}
 
 /* Driver code */
 fn main() {
+    // [region]{builtin_hash}
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
     let hash_num = num_hasher.finish();
-    println!("Hash of integer {}: {}", num, hash_num);
+    println!("Integer {} has hash value {}", num, hash_num);
+    // Integer 3 has hash value 568126464209439262
 
     let bol = true;
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    println!("Hash of boolean {}: {}", bol, hash_bol);
+    println!("Boolean {} has hash value {}", bol, hash_bol);
+    // Boolean true has hash value 4952851536318644461
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("Hash of the bit representation of floating-point value {}: {}", dec, hash_dec);
+    println!("Floating-point number {} has hash value {}", dec, hash_dec);
+    // Floating-point number 3.14159 has hash value 2566941990314602357
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
-    println!("Hash of string {}: {}", str, hash_str);
+    println!("String '{}' has hash value {}", str, hash_str);
+    // String 'Hello 算法' has hash value 16092673739211250988
 
-    let arr = (&12836, &"小哈");
+    let tup = (&12836, &"小哈");
     let mut tup_hasher = DefaultHasher::new();
-    arr.hash(&mut tup_hasher);
+    tup.hash(&mut tup_hasher);
     let hash_tup = tup_hasher.finish();
-    println!("Hash of tuple {:?}: {}", arr, hash_tup);
+    println!("Tuple {:?} has hash value {}", tup, hash_tup);
+    // Tuple (12836, "小哈") has hash value 1885128010422702749
 
     let node = ListNode::new(42);
-    let mut hasher = DefaultHasher::new();
-    node.borrow().val.hash(&mut hasher);
-    let hash = hasher.finish();
-    println!("Hash of the value in node {:?}: {}", node, hash);
+    let mut node_hasher = DefaultHasher::new();
+    node.borrow().val.hash(&mut node_hasher);
+    let hash_node = node_hasher.finish();
+    println!("Node object {:?} has hash value {}", node, hash_node);
+    // Node object RefCell { value: ListNode { val: 42, next: None } } has hash value 15387811073369036852
+    // [endregion]{builtin_hash}
 }

@@ -13,42 +13,32 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-func testPush(h *intHeap, val int) {
-	// heap.Interface の関数を呼び出し、要素を追加する
-	heap.Push(h, val)
-	fmt.Printf("\n要素 %d をヒープに挿入した後 \n", val)
-	PrintHeap(*h)
-}
-
-func testPop(h *intHeap) {
-	// heap.Interface の関数を呼び出し、要素を取り除く
-	val := heap.Pop(h)
-	fmt.Printf("\nヒープの先頭要素 %d を取り出した後 \n", val)
-	PrintHeap(*h)
-}
-
+// [region]{test_heap}
 func TestHeap(t *testing.T) {
 	/* ヒープを初期化する */
 	// 最大ヒープを初期化する
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* ヒープに要素を挿入する */
-	testPush(maxHeap, 1)
-	testPush(maxHeap, 3)
-	testPush(maxHeap, 2)
-	testPush(maxHeap, 5)
-	testPush(maxHeap, 4)
+	// heap.Interface の関数を呼び出し、要素を追加する
+	heap.Push(maxHeap, 1)
+	heap.Push(maxHeap, 3)
+	heap.Push(maxHeap, 2)
+	heap.Push(maxHeap, 5)
+	heap.Push(maxHeap, 4)
+	PrintHeap(*maxHeap)
 
 	/* ヒープの先頭要素を取得する */
 	top := maxHeap.Top()
 	fmt.Printf("ヒープの先頭要素は %d\n", top)
 
 	/* ヒープの先頭要素を取り出す */
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
+	// heap.Interface の関数を呼び出し、要素を取り除く
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 1
 
 	/* ヒープのサイズを取得する */
 	size := len(*maxHeap)
@@ -58,6 +48,8 @@ func TestHeap(t *testing.T) {
 	isEmpty := len(*maxHeap) == 0
 	fmt.Printf("ヒープは空か %t\n", isEmpty)
 }
+
+// [endregion]{test_heap}
 
 func TestMyHeap(t *testing.T) {
 	/* ヒープを初期化する */
@@ -91,8 +83,6 @@ func TestMyHeap(t *testing.T) {
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* ヒープを初期化する */
-	// 最大ヒープを初期化する
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)

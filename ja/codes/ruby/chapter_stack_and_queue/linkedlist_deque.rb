@@ -4,9 +4,10 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 双方向連結リストのノード
+# [region]{doubly_list_node}
+### 双方向連結リストのノード ###
 class ListNode
-  attr_accessor :val
+  attr_accessor :val  # ノードの値
   attr_accessor :next # 後続ノードへの参照
   attr_accessor :prev # 前のノードへの参照
 
@@ -15,6 +16,7 @@ class ListNode
     @val = val
   end
 end
+# [endregion]{doubly_list_node}
 
 ### 双方向連結リストで実装した両端キュー ###
 class LinkedListDeque
@@ -101,7 +103,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 先頭からデキューする ###
+  ### 末尾からデキューする ###
   def pop_last
     pop(false)
   end
@@ -145,7 +147,7 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "キューの先頭要素 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "キューの先頭要素 peek_last = #{peek_last}"
+  puts "キューの末尾要素 peek_last = #{peek_last}"
 
   # 要素をエンキューする
   deque.push_last(4)
@@ -155,7 +157,7 @@ if __FILE__ == $0
 
   # 要素をデキューする
   pop_last = deque.pop_last
-  puts "末尾からデキューした要素 = #{pop_last}, 末尾からデキューした後 deque = #{deque.to_array}"
+  puts "末尾からデキューした要素 = #{pop_last}、末尾からデキューした後 deque = #{deque.to_array}"
   pop_first = deque.pop_first
   puts "先頭からデキューした要素 = #{pop_first}、先頭からデキューした後 deque = #{deque.to_array}"
 

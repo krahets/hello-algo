@@ -6,11 +6,12 @@
 
 #include "../utils/common.h"
 
+// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 typedef struct DoublyListNode {
     int val;                     // ノードの値
-    struct DoublyListNode *next; // 後続ノード
-    struct DoublyListNode *prev; // 前のノード
+    struct DoublyListNode *next; // 後続ノードへのポインタ
+    struct DoublyListNode *prev; // 前のノードへのポインタ
 } DoublyListNode;
 
 /* コンストラクタ */
@@ -21,6 +22,7 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
+// [endregion]{doubly_list_node}
 
 /* デストラクタ */
 void delDoublyListNode(DoublyListNode *node) {
@@ -182,7 +184,7 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("キューの先頭要素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("キューの先頭要素 peekLast = %d\r\n", peekLastNum);
+    printf("キューの末尾要素 peekLast = %d\r\n", peekLastNum);
 
     /* 要素をエンキューする */
     pushLast(deque, 4);

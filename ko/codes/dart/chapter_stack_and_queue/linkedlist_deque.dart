@@ -4,6 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 class ListNode {
   int val; // 노드 값
@@ -12,6 +13,7 @@ class ListNode {
 
   ListNode(this.val, {this.next, this.prev});
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {
@@ -34,7 +36,7 @@ class LinkedListDeque {
     return size() == 0;
   }
 
-  /* 큐 삽입 연산 */
+  /* 원소 삽입 연산 */
   void push(int _num, bool isFront) {
     final ListNode node = ListNode(_num);
     if (isEmpty()) {
@@ -66,7 +68,7 @@ class LinkedListDeque {
     push(_num, false);
   }
 
-  /* 큐에서 꺼내는 연산 */
+  /* 원소를 꺼내는 연산 */
   int? pop(bool isFront) {
     // 큐가 비어 있으면 바로 null을 반환한다
     if (isEmpty()) {
@@ -147,13 +149,13 @@ void main() {
   int? peekLast = deque.peekLast();
   print("맨 뒤 원소 peekLast = $peekLast");
 
-  /* 큐에 원소 삽입 */
+  /* 원소 삽입 */
   deque.pushLast(4);
   print("맨 뒤에 원소 4를 삽입한 후 deque = ${deque.toArray()}");
   deque.pushFirst(1);
   print("맨 앞에 원소 1을 삽입한 후 deque = ${deque.toArray()}");
 
-  /* 큐에서 원소 꺼내기 */
+  /* 원소 꺼내기 */
   int? popLast = deque.popLast();
   print("맨 뒤에서 꺼낸 원소 = $popLast , 꺼낸 후 deque = ${deque.toArray()}");
   int? popFirst = deque.popFirst();

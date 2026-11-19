@@ -13,42 +13,32 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-func testPush(h *intHeap, val int) {
-	// Call heap.Push, which uses heap.Interface to add an element
-	heap.Push(h, val)
-	fmt.Printf("\nAfter pushing %d onto the heap: \n", val)
-	PrintHeap(*h)
-}
-
-func testPop(h *intHeap) {
-	// Call heap.Pop, which uses heap.Interface to remove the top element
-	val := heap.Pop(h)
-	fmt.Printf("\nAfter popping the top element %d from the heap: \n", val)
-	PrintHeap(*h)
-}
-
+// [region]{test_heap}
 func TestHeap(t *testing.T) {
 	/* Initialize the heap */
 	// Initialize a max heap
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* Push an element onto the heap */
-	testPush(maxHeap, 1)
-	testPush(maxHeap, 3)
-	testPush(maxHeap, 2)
-	testPush(maxHeap, 5)
-	testPush(maxHeap, 4)
+	// Call a heap.Interface function to add an element
+	heap.Push(maxHeap, 1)
+	heap.Push(maxHeap, 3)
+	heap.Push(maxHeap, 2)
+	heap.Push(maxHeap, 5)
+	heap.Push(maxHeap, 4)
+	PrintHeap(*maxHeap)
 
 	/* Get the top element of the heap */
 	top := maxHeap.Top()
 	fmt.Printf("Top element of the heap: %d\n", top)
 
 	/* Pop the top element from the heap */
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
-	testPop(maxHeap)
+	// Call a heap.Interface function to remove an element
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 5
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 4
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 3
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 2
+	fmt.Printf("Element popped from the heap: %d\n", heap.Pop(maxHeap)) // 1
 
 	/* Get the heap size */
 	size := len(*maxHeap)
@@ -58,6 +48,8 @@ func TestHeap(t *testing.T) {
 	isEmpty := len(*maxHeap) == 0
 	fmt.Printf("Is the heap empty? %t\n", isEmpty)
 }
+
+// [endregion]{test_heap}
 
 func TestMyHeap(t *testing.T) {
 	/* Initialize the heap */
@@ -91,8 +83,6 @@ func TestMyHeap(t *testing.T) {
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* Initialize the heap */
-	// Prepare the input for heap-based top-k selection
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)

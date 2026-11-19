@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* 扩展数组长度 */
 int *extend(int *nums, int size, int enlarge) {
     // 初始化一个扩展长度后的数组
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // 将原数组中的所有元素复制到新数组
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -67,15 +67,24 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
+    // [region]{init_array}
     /* 初始化数组 */
+    // 存储在栈上
+    int arr[5] = {};
+    int nums[5] = {1, 3, 2, 5, 4};
+    // 存储在堆上（需要手动释放空间）
+    int *arr1 = new int[5]{};
+    int *nums1 = new int[5]{1, 3, 2, 5, 4};
+    // [endregion]{init_array}
     int size = 5;
-    int *arr = new int[size];
     cout << "数组 arr = ";
     printArray(arr, size);
-
-    int *nums = new int[size]{1, 3, 2, 5, 4};
     cout << "数组 nums = ";
     printArray(nums, size);
+    cout << "数组 arr1 = ";
+    printArray(arr1, size);
+    cout << "数组 nums1 = ";
+    printArray(nums1, size);
 
     /* 随机访问 */
     int randomNum = randomAccess(nums, size);
@@ -83,31 +92,31 @@ int main() {
 
     /* 长度扩展 */
     int enlarge = 3;
-    nums = extend(nums, size, enlarge);
+    nums1 = extend(nums1, size, enlarge);
     size += enlarge;
     cout << "将数组长度扩展至 8 ，得到 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 插入元素 */
-    insert(nums, size, 6, 3);
+    insert(nums1, size, 6, 3);
     cout << "在索引 3 处插入数字 6 ，得到 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 删除元素 */
-    remove(nums, size, 2);
+    remove(nums1, size, 2);
     cout << "删除索引 2 处的元素，得到 nums = ";
-    printArray(nums, size);
+    printArray(nums1, size);
 
     /* 遍历数组 */
-    traverse(nums, size);
+    traverse(nums1, size);
 
     /* 查找元素 */
-    int index = find(nums, size, 3);
+    int index = find(nums1, size, 3);
     cout << "在 nums 中查找元素 3 ，得到索引 = " << index << endl;
 
     // 释放内存
-    delete[] arr;
-    delete[] nums;
+    delete[] arr1;
+    delete[] nums1;
 
     return 0;
 }

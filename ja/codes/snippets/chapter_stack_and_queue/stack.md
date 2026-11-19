@@ -1,250 +1,142 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-# スタックを初期化
-# Python には組み込みのスタッククラスがないため、list をスタックとして使える
-stack: list[int] = []
+[file]{stack}-[region]{init_stack}
 
-# 要素をプッシュ
-stack.append(1)
-stack.append(3)
-stack.append(2)
-stack.append(5)
-stack.append(4)
+[file]{stack}-[region]{push}
 
-# スタックの先頭要素にアクセス
-peek: int = stack[-1]
+[file]{stack}-[region]{peek}
 
-# 要素をポップ
-pop: int = stack.pop()
+[file]{stack}-[region]{pop}
 
-# スタックの長さを取得
-size: int = len(stack)
+[file]{stack}-[region]{size}
 
-# 空かどうかを判定
-is_empty: bool = len(stack) == 0
+[file]{stack}-[region]{is_empty}
 ```
 
 ```cpp title="stack.cpp"
-/* スタックを初期化 */
-stack<int> stack;
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-int top = stack.top();
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-stack.pop(); // 戻り値なし
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-int size = stack.size();
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-bool empty = stack.empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```java title="stack.java"
-/* スタックを初期化 */
-Stack<Integer> stack = new Stack<>();
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-int peek = stack.peek();
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-int pop = stack.pop();
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-int size = stack.size();
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-boolean isEmpty = stack.isEmpty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```csharp title="stack.cs"
-/* スタックを初期化 */
-Stack<int> stack = new();
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.Push(1);
-stack.Push(3);
-stack.Push(2);
-stack.Push(5);
-stack.Push(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-int peek = stack.Peek();
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-int pop = stack.Pop();
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-int size = stack.Count;
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-bool isEmpty = stack.Count == 0;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```go title="stack_test.go"
-/* スタックを初期化 */
-// Go では Slice をスタックとして使うことを推奨
-var stack []int
+[file]{stack_test}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack = append(stack, 1)
-stack = append(stack, 3)
-stack = append(stack, 2)
-stack = append(stack, 5)
-stack = append(stack, 4)
+[file]{stack_test}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-peek := stack[len(stack)-1]
+[file]{stack_test}-[region]{peek}
 
-/* 要素をポップ */
-pop := stack[len(stack)-1]
-stack = stack[:len(stack)-1]
+[file]{stack_test}-[region]{pop}
 
-/* スタックの長さを取得 */
-size := len(stack)
+[file]{stack_test}-[region]{size}
 
-/* 空かどうかを判定 */
-isEmpty := len(stack) == 0
+[file]{stack_test}-[region]{is_empty}
 ```
 
 ```swift title="stack.swift"
-/* スタックを初期化 */
-// Swift には組み込みのスタッククラスがないため、Array をスタックとして使える
-var stack: [Int] = []
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.append(1)
-stack.append(3)
-stack.append(2)
-stack.append(5)
-stack.append(4)
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-let peek = stack.last!
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-let pop = stack.removeLast()
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-let size = stack.count
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-let isEmpty = stack.isEmpty
+[file]{stack}-[region]{is_empty}
 ```
 
 ```javascript title="stack.js"
-/* スタックを初期化 */
-// JavaScript には組み込みのスタッククラスがないため、Array をスタックとして使える
-const stack = [];
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-const peek = stack[stack.length-1];
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-const pop = stack.pop();
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-const size = stack.length;
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-const is_empty = stack.length === 0;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```typescript title="stack.ts"
-/* スタックを初期化 */
-// TypeScript には組み込みのスタッククラスがないため、Array をスタックとして使える
-const stack: number[] = [];
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-const peek = stack[stack.length - 1];
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-const pop = stack.pop();
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-const size = stack.length;
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-const is_empty = stack.length === 0;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```dart title="stack.dart"
-/* スタックを初期化 */
-// Dart には組み込みのスタッククラスがないため、List をスタックとして使える
-List<int> stack = [];
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.add(1);
-stack.add(3);
-stack.add(2);
-stack.add(5);
-stack.add(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-int peek = stack.last;
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-int pop = stack.removeLast();
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-int size = stack.length;
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-bool isEmpty = stack.isEmpty;
+[file]{stack}-[region]{is_empty}
 ```
 
 ```rust title="stack.rs"
-/* スタックを初期化 */
-// Vec をスタックとして使う
-let mut stack: Vec<i32> = Vec::new();
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.push(1);
-stack.push(3);
-stack.push(2);
-stack.push(5);
-stack.push(4);
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-let top = stack.last().unwrap();
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-let pop = stack.pop().unwrap();
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-let size = stack.len();
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-let is_empty = stack.is_empty();
+[file]{stack}-[region]{is_empty}
 ```
 
 ```c title="stack.c"
@@ -252,52 +144,31 @@ let is_empty = stack.is_empty();
 ```
 
 ```kotlin title="stack.kt"
-/* スタックを初期化 */
-val stack = Stack<Int>()
+[file]{stack}-[region]{init_stack}
 
-/* 要素をプッシュ */
-stack.push(1)
-stack.push(3)
-stack.push(2)
-stack.push(5)
-stack.push(4)
+[file]{stack}-[region]{push}
 
-/* スタックの先頭要素にアクセス */
-val peek = stack.peek()
+[file]{stack}-[region]{peek}
 
-/* 要素をポップ */
-val pop = stack.pop()
+[file]{stack}-[region]{pop}
 
-/* スタックの長さを取得 */
-val size = stack.size
+[file]{stack}-[region]{size}
 
-/* 空かどうかを判定 */
-val isEmpty = stack.isEmpty()
+[file]{stack}-[region]{is_empty}
 ```
 
 ```ruby title="stack.rb"
-# スタックを初期化
-# Ruby には組み込みのスタッククラスがないため、Array をスタックとして使える
-stack = []
+[file]{stack}-[region]{init_stack}
 
-# 要素をプッシュ
-stack << 1
-stack << 3
-stack << 2
-stack << 5
-stack << 4
+[file]{stack}-[region]{push}
 
-# スタックの先頭要素にアクセス
-peek = stack.last
+[file]{stack}-[region]{peek}
 
-# 要素をポップ
-pop = stack.pop
+[file]{stack}-[region]{pop}
 
-# スタックの長さを取得
-size = stack.length
+[file]{stack}-[region]{size}
 
-# 空かどうかを判定
-is_empty = stack.empty?
+[file]{stack}-[region]{is_empty}
 ```
 
 <!-- [tutor]{stack_operations_tutor} -->

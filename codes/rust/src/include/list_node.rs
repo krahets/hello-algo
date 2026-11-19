@@ -4,20 +4,27 @@
  * Author: codingonion (coderonion@gmail.com), rongyi (hiarongyi@gmail.com)
  */
 
+// [region]{import_cell}
 use std::cell::RefCell;
+// [endregion]{import_cell}
 use std::collections::HashMap;
+// [region]{import_rc}
 use std::rc::Rc;
+// [endregion]{import_rc}
 
+// [region]{list_node}
+/* 链表节点 */
 #[derive(Debug)]
 pub struct ListNode<T> {
-    pub val: T,
-    pub next: Option<Rc<RefCell<ListNode<T>>>>,
+    pub val: T, // 节点值
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 后继节点指针
 }
 
 impl<T> ListNode<T> {
     pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
+// [endregion]{list_node}
 
     /* 将数组反序列化为链表 */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
@@ -54,4 +61,6 @@ impl<T> ListNode<T> {
 
         hashmap
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

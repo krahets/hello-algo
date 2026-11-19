@@ -13,45 +13,60 @@ import (
 )
 
 func TestDeque(t *testing.T) {
+	// [region]{init_deque}
 	/* Инициализация двусторонней очереди */
 	// В Go list используется как двусторонняя очередь
 	deque := list.New()
+	// [endregion]{init_deque}
 
+	// [region]{push}
 	/* Добавление элемента в очередь */
-	deque.PushBack(2)
+	deque.PushBack(2) // Добавить в хвост
 	deque.PushBack(5)
 	deque.PushBack(4)
-	deque.PushFront(3)
+	deque.PushFront(3) // Добавить в голову
 	deque.PushFront(1)
+	// [endregion]{push}
 	fmt.Print("Двусторонняя очередь deque = ")
 	PrintList(deque)
 
+	// [region]{peek_first}
 	/* Доступ к элементу */
-	front := deque.Front()
+	front := deque.Front() // Элемент в голове
+	// [endregion]{peek_first}
 	fmt.Println("Первый элемент front =", front.Value)
-	rear := deque.Back()
+	// [region]{peek_last}
+	rear := deque.Back() // Элемент в хвосте
+	// [endregion]{peek_last}
 	fmt.Println("Последний элемент rear =", rear.Value)
 
+	// [region]{pop_first}
 	/* Извлечение элемента из очереди */
-	deque.Remove(front)
+	deque.Remove(front) // Извлечь элемент из головы
+	// [endregion]{pop_first}
 	fmt.Print("Извлеченный из головы элемент front = ", front.Value, ", deque после извлечения из головы = ")
 	PrintList(deque)
-	deque.Remove(rear)
+	// [region]{pop_last}
+	deque.Remove(rear) // Извлечь элемент из хвоста
+	// [endregion]{pop_last}
 	fmt.Print("Извлеченный из хвоста элемент rear = ", rear.Value, ", deque после извлечения из хвоста = ")
 	PrintList(deque)
 
+	// [region]{size}
 	/* Получение длины двусторонней очереди */
 	size := deque.Len()
+	// [endregion]{size}
 	fmt.Println("Длина двусторонней очереди size =", size)
 
+	// [region]{is_empty}
 	/* Проверка, пуста ли двусторонняя очередь */
 	isEmpty := deque.Len() == 0
+	// [endregion]{is_empty}
 	fmt.Println("Пуста ли двусторонняя очередь =", isEmpty)
 }
 
 func TestArrayDeque(t *testing.T) {
 	/* Инициализация двусторонней очереди */
-	// В Go list используется как двусторонняя очередь
 	deque := newArrayDeque(16)
 
 	/* Добавление элемента в очередь */
@@ -102,7 +117,7 @@ func TestLinkedListDeque(t *testing.T) {
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("Очередь deque = ")
+	fmt.Print("Двусторонняя очередь deque = ")
 	PrintList(deque.toList())
 
 	// Доступ к элементу в начале очереди

@@ -30,7 +30,7 @@ class ArrayQueue {
     return _queSize == 0;
   }
 
-  /* 큐에 삽입 */
+  /* 원소 삽입 */
   void push(int _num) {
     if (_queSize == capaCity()) {
       throw Exception("큐가 가득 찼다");
@@ -43,7 +43,7 @@ class ArrayQueue {
     _queSize++;
   }
 
-  /* 큐에서 꺼내기 */
+  /* 원소 꺼내기 */
   int pop() {
     int _num = peek();
     // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -77,7 +77,7 @@ void main() {
   final int capacity = 10;
   final ArrayQueue queue = ArrayQueue(capacity);
 
-  /* 큐에 원소 삽입 */
+  /* 원소 삽입 */
   queue.push(1);
   queue.push(3);
   queue.push(2);
@@ -89,7 +89,7 @@ void main() {
   final int peek = queue.peek();
   print("맨 앞 원소 peek = $peek");
 
-  /* 큐에서 원소 꺼내기 */
+  /* 원소 꺼내기 */
   final int pop = queue.pop();
   print("큐에서 꺼낸 원소 pop = $pop , 꺼낸 후 queue = ${queue.toArray()}");
 
@@ -105,6 +105,6 @@ void main() {
   for (int i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    print("반복 $i : 삽입 + 꺼내기 후 queue = ${queue.toArray()}");
+    print("반복 $i 회차에서 삽입 + 꺼내기를 수행한 후 queue = ${queue.toArray()}");
   }
 }

@@ -6,12 +6,15 @@
 
 package chapter_stack_and_queue
 
+// [region]{doubly_list_node}
 /* Doubly linked list node */
-class ListNode(var _val: Int) {
-    // The node value is stored in _val
+class ListNode(
+    var _val: Int // The node value is stored in _val
+) {
     var next: ListNode? = null // Reference to the next node
     var prev: ListNode? = null // Reference to the previous node
 }
+// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 class LinkedListDeque {

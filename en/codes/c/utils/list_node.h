@@ -11,10 +11,11 @@
 extern "C" {
 #endif
 
+// [region]{list_node}
 /* Linked list node structure */
 typedef struct ListNode {
     int val;               // Node value
-    struct ListNode *next; // Reference to the next node
+    struct ListNode *next; // Pointer to the next node
 } ListNode;
 
 /* Constructor: initialize a new node */
@@ -25,6 +26,7 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
+// [endregion]{list_node}
 
 /* Deserialize an array into a linked list */
 ListNode *arrToLinkedList(const int *arr, size_t size) {

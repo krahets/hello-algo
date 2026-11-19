@@ -65,18 +65,21 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
 
 /* Driver code */
 fn main() {
-    /* Initialize the linked list */
+    // [region]{init_linked_list}
+    /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
     // Initialize the individual nodes
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
+
     // Set up references between the nodes
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
+    // [endregion]{init_linked_list}
     print!("The initialized linked list is ");
     print_util::print_linked_list(&n0);
 

@@ -6,12 +6,15 @@
 
 package chapter_stack_and_queue
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
-class ListNode(var _val: Int) {
-    // 노드 값
+class ListNode(
+    var _val: Int // 노드 값
+) {
     var next: ListNode? = null // 다음 노드 참조
     var prev: ListNode? = null // 이전 노드 참조
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {
@@ -29,7 +32,7 @@ class LinkedListDeque {
         return size() == 0
     }
 
-    /* 큐 삽입 연산 */
+    /* 원소 삽입 연산 */
     fun push(num: Int, isFront: Boolean) {
         val node = ListNode(num)
         // 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
@@ -62,7 +65,7 @@ class LinkedListDeque {
         push(num, false)
     }
 
-    /* 큐에서 꺼내는 연산 */
+    /* 원소를 꺼내는 연산 */
     fun pop(isFront: Boolean): Int {
         if (isEmpty()) 
             throw IndexOutOfBoundsException()
@@ -143,13 +146,13 @@ fun main() {
     val peekLast = deque.peekLast()
     println("맨 뒤 원소 peekLast = $peekLast")
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque.pushLast(4)
     println("맨 뒤에 원소 4를 삽입한 후 deque = ${deque.toArray().contentToString()}")
     deque.pushFirst(1)
     println("맨 앞에 원소 1을 삽입한 후 deque = ${deque.toArray().contentToString()}")
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     val popLast = deque.popLast()
     println("맨 뒤에서 꺼낸 원소 = ${popLast}, 꺼낸 후 deque = ${deque.toArray().contentToString()}")
     val popFirst = deque.popFirst()

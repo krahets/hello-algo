@@ -4,6 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{list_node}
 /* Linked list node */
 class ListNode {
     val; // Node value
@@ -13,6 +14,7 @@ class ListNode {
         this.next = next === undefined ? null : next;
     }
 }
+// [endregion]{list_node}
 
 /* Deserialize a list into a linked list */
 function arrToLinkedList(arr) {

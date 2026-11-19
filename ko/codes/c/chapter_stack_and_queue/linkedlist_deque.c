@@ -6,11 +6,12 @@
 
 #include "../utils/common.h"
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 typedef struct DoublyListNode {
     int val;                     // 노드 값
-    struct DoublyListNode *next; // 다음 노드
-    struct DoublyListNode *prev; // 이전 노드
+    struct DoublyListNode *next; // 다음 노드 포인터
+    struct DoublyListNode *prev; // 이전 노드 포인터
 } DoublyListNode;
 
 /* 생성자 */
@@ -21,6 +22,7 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
+// [endregion]{doubly_list_node}
 
 /* 소멸자 */
 void delDoublyListNode(DoublyListNode *node) {
@@ -64,7 +66,7 @@ bool empty(LinkedListDeque *deque) {
     return (size(deque) == 0);
 }
 
-/* 큐에 삽입 */
+/* 원소 삽입 */
 void push(LinkedListDeque *deque, int num, bool isFront) {
     DoublyListNode *node = newDoublyListNode(num);
     // 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
@@ -110,7 +112,7 @@ int peekLast(LinkedListDeque *deque) {
     return deque->rear->val;
 }
 
-/* 큐에서 꺼내기 */
+/* 원소 꺼내기 */
 int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
@@ -182,9 +184,9 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("맨 앞 원소 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("맨 앞 원소 peekLast = %d\r\n", peekLastNum);
+    printf("맨 뒤 원소 peekLast = %d\r\n", peekLastNum);
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     pushLast(deque, 4);
     printf("원소 4를 맨 뒤에 삽입한 후 deque =");
     printLinkedListDeque(deque);
@@ -192,7 +194,7 @@ int main() {
     printf("원소 1을 맨 앞에 삽입한 후 deque =");
     printLinkedListDeque(deque);
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     int popLastNum = popLast(deque);
     printf("맨 뒤에서 꺼낸 원소 popLast = %d, 꺼낸 후 deque = ", popLastNum);
     printLinkedListDeque(deque);

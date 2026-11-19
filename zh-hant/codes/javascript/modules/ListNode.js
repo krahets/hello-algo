@@ -4,6 +4,7 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
+// [region]{list_node}
 /* 鏈結串列節點 */
 class ListNode {
     val; // 節點值
@@ -13,6 +14,7 @@ class ListNode {
         this.next = next === undefined ? null : next;
     }
 }
+// [endregion]{list_node}
 
 /* 將串列反序列化為鏈結串列 */
 function arrToLinkedList(arr) {

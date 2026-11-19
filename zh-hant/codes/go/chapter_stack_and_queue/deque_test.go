@@ -13,45 +13,60 @@ import (
 )
 
 func TestDeque(t *testing.T) {
+	// [region]{init_deque}
 	/* 初始化雙向佇列 */
 	// 在 Go 中，將 list 作為雙向佇列使用
 	deque := list.New()
+	// [endregion]{init_deque}
 
+	// [region]{push}
 	/* 元素入列 */
-	deque.PushBack(2)
+	deque.PushBack(2) // 新增至佇列尾
 	deque.PushBack(5)
 	deque.PushBack(4)
-	deque.PushFront(3)
+	deque.PushFront(3) // 新增至佇列首
 	deque.PushFront(1)
+	// [endregion]{push}
 	fmt.Print("雙向佇列 deque = ")
 	PrintList(deque)
 
+	// [region]{peek_first}
 	/* 訪問元素 */
-	front := deque.Front()
+	front := deque.Front() // 佇列首元素
+	// [endregion]{peek_first}
 	fmt.Println("佇列首元素 front =", front.Value)
-	rear := deque.Back()
+	// [region]{peek_last}
+	rear := deque.Back() // 佇列尾元素
+	// [endregion]{peek_last}
 	fmt.Println("佇列尾元素 rear =", rear.Value)
 
+	// [region]{pop_first}
 	/* 元素出列 */
-	deque.Remove(front)
+	deque.Remove(front) // 佇列首元素出列
+	// [endregion]{pop_first}
 	fmt.Print("佇列首出列元素 front = ", front.Value, "，佇列首出列後 deque = ")
 	PrintList(deque)
-	deque.Remove(rear)
+	// [region]{pop_last}
+	deque.Remove(rear) // 佇列尾元素出列
+	// [endregion]{pop_last}
 	fmt.Print("佇列尾出列元素 rear = ", rear.Value, "，佇列尾出列後 deque = ")
 	PrintList(deque)
 
+	// [region]{size}
 	/* 獲取雙向佇列的長度 */
 	size := deque.Len()
+	// [endregion]{size}
 	fmt.Println("雙向佇列長度 size =", size)
 
+	// [region]{is_empty}
 	/* 判斷雙向佇列是否為空 */
 	isEmpty := deque.Len() == 0
+	// [endregion]{is_empty}
 	fmt.Println("雙向佇列是否為空 =", isEmpty)
 }
 
 func TestArrayDeque(t *testing.T) {
 	/* 初始化雙向佇列 */
-	// 在 Go 中，將 list 作為雙向佇列使用
 	deque := newArrayDeque(16)
 
 	/* 元素入列 */
@@ -102,7 +117,7 @@ func TestLinkedListDeque(t *testing.T) {
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("佇列 deque = ")
+	fmt.Print("雙向佇列 deque = ")
 	PrintList(deque.toList())
 
 	// 訪問佇列首元素

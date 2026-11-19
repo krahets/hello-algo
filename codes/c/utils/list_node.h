@@ -11,10 +11,11 @@
 extern "C" {
 #endif
 
+// [region]{list_node}
 /* 链表节点结构体 */
 typedef struct ListNode {
     int val;               // 节点值
-    struct ListNode *next; // 指向下一节点的引用
+    struct ListNode *next; // 指向下一节点的指针
 } ListNode;
 
 /* 构造函数，初始化一个新节点 */
@@ -25,6 +26,7 @@ ListNode *newListNode(int val) {
     node->next = NULL;
     return node;
 }
+// [endregion]{list_node}
 
 /* 将数组反序列化为链表 */
 ListNode *arrToLinkedList(const int *arr, size_t size) {

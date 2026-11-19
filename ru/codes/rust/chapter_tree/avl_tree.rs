@@ -289,7 +289,9 @@ fn main() {
     let node = avl_tree.search(7);
     if let Some(node) = node {
         println!(
-            "\nНайденный объект узла = {:?}, значение узла = {}",\n&*node.borrow(),\nnode.borrow().val
+            "\nНайденный объект узла = {:?}, значение узла = {}",
+            &*node.borrow(),
+            node.borrow().val
         );
     }
 }

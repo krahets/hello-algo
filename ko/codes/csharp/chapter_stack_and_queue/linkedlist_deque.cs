@@ -6,12 +6,14 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
+// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 public class ListNode(int val) {
-    public int val = val;       // 노드 값
+    public int val = val;         // 노드 값
     public ListNode? next = null; // 다음 노드 참조
     public ListNode? prev = null; // 이전 노드 참조
 }
+// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 public class LinkedListDeque {
@@ -33,7 +35,7 @@ public class LinkedListDeque {
         return Size() == 0;
     }
 
-    /* 큐 삽입 연산 */
+    /* 원소 삽입 연산 */
     void Push(int num, bool isFront) {
         ListNode node = new(num);
         // 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
@@ -69,7 +71,7 @@ public class LinkedListDeque {
         Push(num, false);
     }
 
-    /* 큐에서 꺼내는 연산 */
+    /* 원소를 꺼내는 연산 */
     int? Pop(bool isFront) {
         if (IsEmpty())
             throw new Exception();
@@ -156,13 +158,13 @@ public class linkedlist_deque {
         int? peekLast = deque.PeekLast();
         Console.WriteLine("맨 뒤 원소 peekLast = " + peekLast);
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.PushLast(4);
         Console.WriteLine("원소 4를 맨 뒤에 삽입한 후 deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
         Console.WriteLine("원소 1을 맨 앞에 삽입한 후 deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int? popLast = deque.PopLast();
         Console.WriteLine("맨 뒤에서 꺼낸 원소 = " + popLast + ", 맨 뒤에서 꺼낸 후 deque = " + string.Join(" ", deque.ToArray()));
         int? popFirst = deque.PopFirst();

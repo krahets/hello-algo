@@ -47,7 +47,8 @@ public class linked_list {
 
     [Test]
     public void Test() {
-        // Инициализация связного списка
+        // [region]{init_linked_list}
+        // Инициализация связного списка 1 -> 3 -> 2 -> 5 -> 4
         // Инициализация всех узлов
         ListNode n0 = new(1);
         ListNode n1 = new(3);
@@ -59,6 +60,7 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
+        // [endregion]{init_linked_list}
         Console.WriteLine($"Исходный связный список: {n0}");
 
         // Вставка узла

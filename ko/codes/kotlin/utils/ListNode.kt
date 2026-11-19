@@ -6,9 +6,11 @@
 
 package utils
 
+// [region]{list_node}
 /* 연결 리스트 노드 */
 class ListNode(var _val: Int) {
-    var next: ListNode? = null
+    var next: ListNode? = null // 다음 노드를 가리키는 참조
+// [endregion]{list_node}
 
     companion object {
         /* 리스트를 연결 리스트로 역직렬화 */
@@ -22,4 +24,6 @@ class ListNode(var _val: Int) {
             return dum.next
         }
     }
+// [region]{list_node_end}
 }
+// [endregion]{list_node_end}

@@ -1,258 +1,144 @@
 <!-- [snippet]{queue_operations} -->
 ```python title="queue.py"
-from collections import deque
+[file]{queue}-[region]{import_deque}
 
-# 큐 초기화
-# Python에서는 보통 덱 클래스 deque를 큐로 사용한다
-# queue.Queue()는 전용 큐 클래스이지만 사용이 불편하므로 권하지 않는다
-que: deque[int] = deque()
+[file]{queue}-[region]{init_queue}
 
-# 큐에 원소 삽입
-que.append(1)
-que.append(3)
-que.append(2)
-que.append(5)
-que.append(4)
+[file]{queue}-[region]{push}
 
-# 큐의 맨 앞 원소에 접근
-front: int = que[0]
+[file]{queue}-[region]{peek}
 
-# 큐에서 원소 꺼내기
-pop: int = que.popleft()
+[file]{queue}-[region]{pop}
 
-# 큐 길이 구하기
-size: int = len(que)
+[file]{queue}-[region]{size}
 
-# 큐가 비어 있는지 확인
-is_empty: bool = len(que) == 0
+[file]{queue}-[region]{is_empty}
 ```
 
 ```cpp title="queue.cpp"
-/* 큐 초기화 */
-queue<int> queue;
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.push(1);
-queue.push(3);
-queue.push(2);
-queue.push(5);
-queue.push(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-int front = queue.front();
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-queue.pop();
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-int size = queue.size();
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-bool empty = queue.empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```java title="queue.java"
-/* 큐 초기화 */
-Queue<Integer> queue = new LinkedList<>();
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.offer(1);
-queue.offer(3);
-queue.offer(2);
-queue.offer(5);
-queue.offer(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-int peek = queue.peek();
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-int pop = queue.poll();
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-int size = queue.size();
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-boolean isEmpty = queue.isEmpty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```csharp title="queue.cs"
-/* 큐 초기화 */
-Queue<int> queue = new();
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.Enqueue(1);
-queue.Enqueue(3);
-queue.Enqueue(2);
-queue.Enqueue(5);
-queue.Enqueue(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-int peek = queue.Peek();
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-int pop = queue.Dequeue();
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-int size = queue.Count;
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-bool isEmpty = queue.Count == 0;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```go title="queue_test.go"
-/* 큐 초기화 */
-// Go에서는 list를 큐로 사용한다
-queue := list.New()
+[file]{queue_test}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.PushBack(1)
-queue.PushBack(3)
-queue.PushBack(2)
-queue.PushBack(5)
-queue.PushBack(4)
+[file]{queue_test}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-peek := queue.Front()
+[file]{queue_test}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-pop := queue.Front()
-queue.Remove(pop)
+[file]{queue_test}-[region]{pop}
 
-/* 큐 길이 구하기 */
-size := queue.Len()
+[file]{queue_test}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-isEmpty := queue.Len() == 0
+[file]{queue_test}-[region]{is_empty}
 ```
 
 ```swift title="queue.swift"
-/* 큐 초기화 */
-// Swift에는 내장 큐 클래스가 없으므로 Array를 큐로 사용할 수 있다
-var queue: [Int] = []
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.append(1)
-queue.append(3)
-queue.append(2)
-queue.append(5)
-queue.append(4)
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-let peek = queue.first!
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-// 배열이므로 removeFirst의 복잡도는 O(n)이다
-let pop = queue.removeFirst()
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-let size = queue.count
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-let isEmpty = queue.isEmpty
+[file]{queue}-[region]{is_empty}
 ```
 
 ```javascript title="queue.js"
-/* 큐 초기화 */
-// JavaScript에는 내장 큐가 없으므로 Array를 큐로 사용할 수 있다
-const queue = [];
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.push(1);
-queue.push(3);
-queue.push(2);
-queue.push(5);
-queue.push(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-const peek = queue[0];
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-// 기반이 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
-const pop = queue.shift();
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-const size = queue.length;
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-const empty = queue.length === 0;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```typescript title="queue.ts"
-/* 큐 초기화 */
-// TypeScript에는 내장 큐가 없으므로 Array를 큐로 사용할 수 있다
-const queue: number[] = [];
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.push(1);
-queue.push(3);
-queue.push(2);
-queue.push(5);
-queue.push(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-const peek = queue[0];
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-// 기반이 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
-const pop = queue.shift();
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-const size = queue.length;
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-const empty = queue.length === 0;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```dart title="queue.dart"
-/* 큐 초기화 */
-// Dart의 Queue 클래스는 덱이며 일반 큐로도 사용할 수 있다
-Queue<int> queue = Queue();
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.add(1);
-queue.add(3);
-queue.add(2);
-queue.add(5);
-queue.add(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-int peek = queue.first;
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-int pop = queue.removeFirst();
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-int size = queue.length;
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-bool isEmpty = queue.isEmpty;
+[file]{queue}-[region]{is_empty}
 ```
 
 ```rust title="queue.rs"
-/* 덱 초기화 */
-// Rust에서는 덱을 일반 큐로 사용한다
-let mut deque: VecDeque<u32> = VecDeque::new();
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-deque.push_back(1);
-deque.push_back(3);
-deque.push_back(2);
-deque.push_back(5);
-deque.push_back(4);
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-if let Some(front) = deque.front() {
-}
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-if let Some(pop) = deque.pop_front() {
-}
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-let size = deque.len();
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-let is_empty = deque.is_empty();
+[file]{queue}-[region]{is_empty}
 ```
 
 ```c title="queue.c"
@@ -260,53 +146,31 @@ let is_empty = deque.is_empty();
 ```
 
 ```kotlin title="queue.kt"
-/* 큐 초기화 */
-val queue = LinkedList<Int>()
+[file]{queue}-[region]{init_queue}
 
-/* 큐에 원소 삽입 */
-queue.offer(1)
-queue.offer(3)
-queue.offer(2)
-queue.offer(5)
-queue.offer(4)
+[file]{queue}-[region]{push}
 
-/* 큐의 맨 앞 원소에 접근 */
-val peek = queue.peek()
+[file]{queue}-[region]{peek}
 
-/* 큐에서 원소 꺼내기 */
-val pop = queue.poll()
+[file]{queue}-[region]{pop}
 
-/* 큐 길이 구하기 */
-val size = queue.size
+[file]{queue}-[region]{size}
 
-/* 큐가 비어 있는지 확인 */
-val isEmpty = queue.isEmpty()
+[file]{queue}-[region]{is_empty}
 ```
 
 ```ruby title="queue.rb"
-# 큐 초기화
-# Ruby의 내장 큐(Thread::Queue)에는 peek와 순회 메서드가 없으므로 Array를 큐로 사용할 수 있다
-queue = []
+[file]{queue}-[region]{init_queue}
 
-# 큐에 원소 삽입
-queue.push(1)
-queue.push(3)
-queue.push(2)
-queue.push(5)
-queue.push(4)
+[file]{queue}-[region]{push}
 
-# 큐 원소에 접근
-peek = queue.first
+[file]{queue}-[region]{peek}
 
-# 큐에서 원소 꺼내기
-# 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 주의
-pop = queue.shift
+[file]{queue}-[region]{pop}
 
-# 큐 길이 구하기
-size = queue.length
+[file]{queue}-[region]{size}
 
-# 큐가 비어 있는지 확인
-is_empty = queue.empty?
+[file]{queue}-[region]{is_empty}
 ```
 
 <!-- [tutor]{queue_operations_tutor} -->

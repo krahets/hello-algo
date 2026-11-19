@@ -84,11 +84,11 @@ if __FILE__ == $0
 
   # Access the front element
   peek = queue.peek
-  puts "Front element peek = #{peek}"
+  puts "Front element front = #{peek}"
 
   # Dequeue an element
   pop_front = queue.pop
-  puts "Dequeued element pop_front = #{pop_front}"
+  puts "Dequeued element pop = #{pop_front}"
   puts "After dequeueing, queue = #{queue.to_array}"
 
   # Get the queue size

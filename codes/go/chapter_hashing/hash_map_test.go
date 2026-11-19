@@ -13,9 +13,12 @@ import (
 )
 
 func TestHashMap(t *testing.T) {
+	// [region]{init_hash_map}
 	/* 初始化哈希表 */
 	hmap := make(map[int]string)
+	// [endregion]{init_hash_map}
 
+	// [region]{add_pairs}
 	/* 添加操作 */
 	// 在哈希表中添加键值对 (key, value)
 	hmap[12836] = "小哈"
@@ -23,36 +26,49 @@ func TestHashMap(t *testing.T) {
 	hmap[16750] = "小算"
 	hmap[13276] = "小法"
 	hmap[10583] = "小鸭"
+	// [endregion]{add_pairs}
 	fmt.Println("\n添加完成后，哈希表为\nKey -> Value")
 	PrintMap(hmap)
 
+	// [region]{get_value}
 	/* 查询操作 */
 	// 向哈希表中输入键 key ，得到值 value
 	name := hmap[15937]
+	// [endregion]{get_value}
 	fmt.Println("\n输入学号 15937 ，查询到姓名 ", name)
 
+	// [region]{remove_pair}
 	/* 删除操作 */
 	// 在哈希表中删除键值对 (key, value)
 	delete(hmap, 10583)
+	// [endregion]{remove_pair}
 	fmt.Println("\n删除 10583 后，哈希表为\nKey -> Value")
 	PrintMap(hmap)
 
+	fmt.Println("\n遍历键值对 Key->Value")
+	// [region]{iterate_pairs}
 	/* 遍历哈希表 */
 	// 遍历键值对 key->value
-	fmt.Println("\n遍历键值对 Key->Value")
 	for key, value := range hmap {
 		fmt.Println(key, "->", value)
 	}
-	// 单独遍历键 key
+	// [endregion]{iterate_pairs}
+
 	fmt.Println("\n单独遍历键 Key")
+	// [region]{iterate_keys}
+	// 单独遍历键 key
 	for key := range hmap {
 		fmt.Println(key)
 	}
-	// 单独遍历值 value
+	// [endregion]{iterate_keys}
+
 	fmt.Println("\n单独遍历值 Value")
+	// [region]{iterate_values}
+	// 单独遍历值 value
 	for _, value := range hmap {
 		fmt.Println(value)
 	}
+	// [endregion]{iterate_values}
 }
 
 func TestSimpleHash(t *testing.T) {

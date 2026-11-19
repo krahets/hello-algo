@@ -4,10 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
+// [region]{doubly_list_node}
 /* 双向链表节点 */
 class ListNode {
-    prev; // 前驱节点引用 (指针)
-    next; // 后继节点引用 (指针)
+    prev; // 前驱节点引用（指针）
+    next; // 后继节点引用（指针）
     val; // 节点值
 
     constructor(val) {
@@ -16,6 +17,7 @@ class ListNode {
         this.prev = null;
     }
 }
+// [endregion]{doubly_list_node}
 
 /* 基于双向链表实现的双向队列 */
 class LinkedListDeque {

@@ -123,7 +123,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         push(queue, i);
         pop(queue);
-        printf("After enqueueing and dequeueing in round %d, queue = ", i);
+        printf("After round %d of enqueue + dequeue, queue = ", i);
         printArray(toArray(queue, &queSize), queSize);
     }
 

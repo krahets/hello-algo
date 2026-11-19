@@ -6,6 +6,7 @@
 
 #include "../utils/common.hpp"
 
+// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 struct DoublyListNode {
     int val;              // ノードの値
@@ -14,6 +15,7 @@ struct DoublyListNode {
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
+// [endregion]{doubly_list_node}
 
 /* 双方向連結リストで実装した両端キュー */
 class LinkedListDeque {
