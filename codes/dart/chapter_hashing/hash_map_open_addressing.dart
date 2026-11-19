@@ -36,7 +36,8 @@ class HashMapOpenAddressing {
     int index = hashFunc(key);
     int firstTombstone = -1;
     // 线性探测，当遇到空桶时跳出
-    while (_buckets[index] != null) {
+    for (int i = 0; i < _capacity; i++) {
+      if (_buckets[index] == null) break;
       // 若遇到 key ，返回对应的桶索引
       if (_buckets[index]!.key == key) {
         // 若之前遇到了删除标记，则将键值对移动至该索引处

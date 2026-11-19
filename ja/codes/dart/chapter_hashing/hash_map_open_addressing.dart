@@ -36,7 +36,8 @@ class HashMapOpenAddressing {
     int index = hashFunc(key);
     int firstTombstone = -1;
     // 線形探索法で探索し、空のバケットに到達したら終了する
-    while (_buckets[index] != null) {
+    for (int i = 0; i < _capacity; i++) {
+      if (_buckets[index] == null) break;
       // key が見つかった場合、対応するバケットのインデックスを返す
       if (_buckets[index]!.key == key) {
         // それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
