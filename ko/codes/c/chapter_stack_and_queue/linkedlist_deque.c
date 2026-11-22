@@ -6,12 +6,11 @@
 
 #include "../utils/common.h"
 
-// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 typedef struct DoublyListNode {
     int val;                     // 노드 값
-    struct DoublyListNode *next; // 다음 노드 포인터
-    struct DoublyListNode *prev; // 이전 노드 포인터
+    struct DoublyListNode *next; // 다음 노드
+    struct DoublyListNode *prev; // 이전 노드
 } DoublyListNode;
 
 /* 생성자 */
@@ -22,7 +21,6 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
-// [endregion]{doubly_list_node}
 
 /* 소멸자 */
 void delDoublyListNode(DoublyListNode *node) {

@@ -16,15 +16,13 @@ import (
 
 /* 実行用コード */
 func TestArray(t *testing.T) {
-	// [region]{init_array}
 	/* 配列を初期化する */
 	var arr [5]int
+	fmt.Println("配列 arr =", arr)
 	// Go では長さを指定したもの（[5]int）は配列、指定しないもの（[]int）はスライスになる
 	// Go の配列の長さはコンパイル時に決まるため、長さの指定には定数しか使えない
 	// 拡張用の extend() 関数を実装しやすくするため、以下ではスライス（Slice）を配列（Array）として扱う
 	nums := []int{1, 3, 2, 5, 4}
-	// [endregion]{init_array}
-	fmt.Println("配列 arr =", arr)
 	fmt.Println("配列 nums =", nums)
 
 	/* ランダムアクセス */

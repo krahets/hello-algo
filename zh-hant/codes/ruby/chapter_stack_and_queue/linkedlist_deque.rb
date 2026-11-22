@@ -4,10 +4,9 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{doubly_list_node}
 ### 雙向鏈結串列節點 ###
 class ListNode
-  attr_accessor :val  # 節點值
+  attr_accessor :val
   attr_accessor :next # 後繼節點引用
   attr_accessor :prev # 前驅節點引用
 
@@ -16,7 +15,6 @@ class ListNode
     @val = val
   end
 end
-# [endregion]{doubly_list_node}
 
 ### 基於雙向鏈結串列實現的雙向佇列 ###
 class LinkedListDeque

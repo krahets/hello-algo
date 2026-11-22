@@ -49,8 +49,7 @@ int find(ListNode *head, int target) {
 
 /* Driver code */
 int main() {
-    // [region]{init_linked_list}
-    /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+    /* Initialize the linked list */
     // Initialize the individual nodes
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
@@ -62,7 +61,6 @@ int main() {
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    // [endregion]{init_linked_list}
     cout << "The initialized linked list is" << endl;
     printLinkedList(n0);
 

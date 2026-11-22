@@ -5,16 +5,14 @@ Author: krahets (krahets@163.com)
 """
 
 
-# [region]{doubly_list_node}
 class ListNode:
     """Узел двусвязного списка"""
 
     def __init__(self, val: int):
         """Конструктор"""
-        self.val: int = val  # Значение узла
+        self.val: int = val
         self.next: ListNode | None = None  # Ссылка на узел-преемник
         self.prev: ListNode | None = None  # Ссылка на узел-предшественник
-# [endregion]{doubly_list_node}
 
 
 class LinkedListDeque:

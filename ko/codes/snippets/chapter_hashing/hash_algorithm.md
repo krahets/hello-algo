@@ -1,18 +1,123 @@
 <!-- [snippet]{builtin_hash} -->
 ```python title="built_in_hash.py"
-[file]{built_in_hash}-[region]{builtin_hash}
+num = 3
+hash_num = hash(num)
+print(f"정수 {num} → 해시값: {hash_num}")
+# 정수 3 → 해시값: 3
+
+bol = True
+hash_bol = hash(bol)
+print(f"불리언 값 {bol} → 해시값: {hash_bol}")
+# 불리언 값 True → 해시값: 1
+
+dec = 3.14159
+hash_dec = hash(dec)
+print(f"소수 {dec} → 해시값: {hash_dec}")
+# 소수 3.14159 → 해시값: 326484311674566659
+
+str = "Hello 算法"
+hash_str = hash(str)
+print(f"문자열 ‘{str}’ → 해시값: {hash_str}")
+# 문자열 ‘Hello 算法’ → 해시값: 4617003410720528961
+
+tup = (12836, "小哈")
+hash_tup = hash(tup)
+print(f"튜플 {tup} → 해시값: {hash_tup}")
+# 튜플 (12836, '小哈') → 해시값: 1029005403108185979
+
+obj = ListNode(0)
+hash_obj = hash(obj)
+print(f"노드 객체 {obj} → 해시값: {hash_obj}")
+# 노드 객체 <modules.list_node.ListNode object at 0x1058fd810> → 해시값: 274267521
 ```
 
 ```cpp title="built_in_hash.cpp"
-[file]{built_in_hash}-[region]{builtin_hash}
+int num = 3;
+size_t hashNum = hash<int>()(num);
+cout << "정수 " << num << " → 해시값: " << hashNum << "\n";
+// 정수 3 → 해시값: 3
+
+bool bol = true;
+size_t hashBol = hash<bool>()(bol);
+cout << "불리언 값 " << bol << " → 해시값: " << hashBol << "\n";
+// 불리언 값 1 → 해시값: 1
+
+double dec = 3.14159;
+size_t hashDec = hash<double>()(dec);
+cout << "소수 " << dec << " → 해시값: " << hashDec << "\n";
+// 소수 3.14159 → 해시값: 4614256650576692846
+
+string str = "Hello 算法";
+size_t hashStr = hash<string>()(str);
+cout << "문자열 ‘" << str << "’ → 해시값: " << hashStr << "\n";
+// 문자열 ‘Hello 算法’ → 해시값: 15466937326284535026
+
+// C++의 내장 std::hash()는 기본 데이터 타입에 대한 해시값 계산만 제공한다
+// 배열과 객체의 해시값 계산은 직접 구현해야 한다
 ```
 
 ```java title="built_in_hash.java"
-[file]{built_in_hash}-[region]{builtin_hash}
+int num = 3;
+int hashNum = Integer.hashCode(num);
+System.out.println("정수 " + num + " → 해시값: " + hashNum);
+// 정수 3 → 해시값: 3
+
+boolean bol = true;
+int hashBol = Boolean.hashCode(bol);
+System.out.println("불리언 값 " + bol + " → 해시값: " + hashBol);
+// 불리언 값 true → 해시값: 1231
+
+double dec = 3.14159;
+int hashDec = Double.hashCode(dec);
+System.out.println("소수 " + dec + " → 해시값: " + hashDec);
+// 소수 3.14159 → 해시값: -1340954729
+
+String str = "Hello 算法";
+int hashStr = str.hashCode();
+System.out.println("문자열 ‘" + str + "’ → 해시값: " + hashStr);
+// 문자열 ‘Hello 算法’ → 해시값: -727081396
+
+Object[] arr = { 12836, "小哈" };
+int hashArr = Arrays.hashCode(arr);
+System.out.println("배열 " + Arrays.toString(arr) + " → 해시값: " + hashArr);
+// 배열 [12836, 小哈] → 해시값: 1151158
+
+ListNode obj = new ListNode(0);
+int hashObj = obj.hashCode();
+System.out.println("노드 객체 " + obj + " → 해시값: " + hashObj);
+// 노드 객체 utils.ListNode@7dc5e7b4 → 해시값: 2110121908
 ```
 
 ```csharp title="built_in_hash.cs"
-[file]{built_in_hash}-[region]{builtin_hash}
+int num = 3;
+int hashNum = num.GetHashCode();
+Console.WriteLine("정수 " + num + " → 해시값: " + hashNum);
+// 정수 3 → 해시값: 3
+
+bool bol = true;
+int hashBol = bol.GetHashCode();
+Console.WriteLine("불리언 값 " + bol + " → 해시값: " + hashBol);
+// 불리언 값 True → 해시값: 1
+
+double dec = 3.14159;
+int hashDec = dec.GetHashCode();
+Console.WriteLine("소수 " + dec + " → 해시값: " + hashDec);
+// 소수 3.14159 → 해시값: -1340954729
+
+string str = "Hello 算法";
+int hashStr = str.GetHashCode();
+Console.WriteLine("문자열 ‘" + str + "’ → 해시값: " + hashStr);
+// 문자열 ‘Hello 算法’ → 해시값: -586107568
+
+object[] arr = [12836, "小哈"];
+int hashArr = arr.GetHashCode();
+Console.WriteLine("배열 [" + string.Join(", ", arr) + "] → 해시값: " + hashArr);
+// 배열 [12836, 小哈] → 해시값: 42931033
+
+ListNode obj = new(0);
+int hashObj = obj.GetHashCode();
+Console.WriteLine("노드 객체 " + obj + " → 해시값: " + hashObj);
+// 노드 객체 0 → 해시값: 39053774
 ```
 
 ```go title="built_in_hash.go"
@@ -20,7 +125,35 @@
 ```
 
 ```swift title="built_in_hash.swift"
-[file]{built_in_hash}-[region]{builtin_hash}
+let num = 3
+let hashNum = num.hashValue
+print("정수 \(num) → 해시값: \(hashNum)")
+// 정수 3 → 해시값: 9047044699613009734
+
+let bol = true
+let hashBol = bol.hashValue
+print("불리언 값 \(bol) → 해시값: \(hashBol)")
+// 불리언 값 true → 해시값: -4431640247352757451
+
+let dec = 3.14159
+let hashDec = dec.hashValue
+print("소수 \(dec) → 해시값: \(hashDec)")
+// 소수 3.14159 → 해시값: -2465384235396674631
+
+let str = "Hello 算法"
+let hashStr = str.hashValue
+print("문자열 ‘\(str)’ → 해시값: \(hashStr)")
+// 문자열 ‘Hello 算法’ → 해시값: -7850626797806988787
+
+let arr = [AnyHashable(12836), AnyHashable("小哈")]
+let hashArr = arr.hashValue
+print("배열 \(arr) → 해시값: \(hashArr)")
+// 배열 [AnyHashable(12836), AnyHashable("小哈")] → 해시값: -2308633508154532996
+
+let obj = ListNode(x: 0)
+let hashObj = obj.hashValue
+print("노드 객체 \(obj) → 해시값: \(hashObj)")
+// 노드 객체 utils.ListNode → 해시값: -2434780518035996159
 ```
 
 ```javascript title="built_in_hash.js"
@@ -32,13 +165,82 @@
 ```
 
 ```dart title="built_in_hash.dart"
-[file]{built_in_hash}-[region]{builtin_hash}
+int num = 3;
+int hashNum = num.hashCode;
+print("정수 $num → 해시값: $hashNum");
+// 정수 3 → 해시값: 34803
+
+bool bol = true;
+int hashBol = bol.hashCode;
+print("불리언 값 $bol → 해시값: $hashBol");
+// 불리언 값 true → 해시값: 1231
+
+double dec = 3.14159;
+int hashDec = dec.hashCode;
+print("소수 $dec → 해시값: $hashDec");
+// 소수 3.14159 → 해시값: 2570631074981783
+
+String str = "Hello 算法";
+int hashStr = str.hashCode;
+print("문자열 ‘$str’ → 해시값: $hashStr");
+// 문자열 ‘Hello 算法’ → 해시값: 468167534
+
+List arr = [12836, "小哈"];
+int hashArr = arr.hashCode;
+print("배열 $arr → 해시값: $hashArr");
+// 배열 [12836, 小哈] → 해시값: 976512528
+
+ListNode obj = ListNode(0);
+int hashObj = obj.hashCode;
+print("노드 객체 $obj → 해시값: $hashObj");
+// 노드 객체 Instance of 'ListNode' → 해시값: 1033450432
 ```
 
 ```rust title="built_in_hash.rs"
-[file]{build_in_hash}-[region]{import_hasher}
+use std::collections::hash_map::DefaultHasher;
+use std::hash::{Hash, Hasher};
 
-[file]{build_in_hash}-[region]{builtin_hash}
+let num = 3;
+let mut num_hasher = DefaultHasher::new();
+num.hash(&mut num_hasher);
+let hash_num = num_hasher.finish();
+println!("정수 {} → 해시값: {}", num, hash_num);
+// 정수 3 → 해시값: 568126464209439262
+
+let bol = true;
+let mut bol_hasher = DefaultHasher::new();
+bol.hash(&mut bol_hasher);
+let hash_bol = bol_hasher.finish();
+println!("불리언 값 {} → 해시값: {}", bol, hash_bol);
+// 불리언 값 true → 해시값: 4952851536318644461
+
+let dec: f32 = 3.14159;
+let mut dec_hasher = DefaultHasher::new();
+dec.to_bits().hash(&mut dec_hasher);
+let hash_dec = dec_hasher.finish();
+println!("소수 {} → 해시값: {}", dec, hash_dec);
+// 소수 3.14159 → 해시값: 2566941990314602357
+
+let str = "Hello 算法";
+let mut str_hasher = DefaultHasher::new();
+str.hash(&mut str_hasher);
+let hash_str = str_hasher.finish();
+println!("문자열 ‘{}’ → 해시값: {}", str, hash_str);
+// 문자열 ‘Hello 算法’ → 해시값: 16092673739211250988
+
+let tup = (&12836, &"小哈");
+let mut tup_hasher = DefaultHasher::new();
+tup.hash(&mut tup_hasher);
+let hash_tup = tup_hasher.finish();
+println!("튜플 {:?} → 해시값: {}", tup, hash_tup);
+// 튜플 (12836, "小哈") → 해시값: 1885128010422702749
+
+let node = ListNode::new(42);
+let mut node_hasher = DefaultHasher::new();
+node.borrow().val.hash(&mut node_hasher);
+let hash_node = node_hasher.finish();
+println!("노드 객체 {:?} → 해시값: {}", node, hash_node);
+// 노드 객체 RefCell { value: ListNode { val: 42, next: None } } → 해시값: 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"
@@ -46,11 +248,67 @@
 ```
 
 ```kotlin title="built_in_hash.kt"
-[file]{built_in_hash}-[region]{builtin_hash}
+val num = 3
+val hashNum = num.hashCode()
+println("정수 $num → 해시값: $hashNum")
+// 정수 3 → 해시값: 3
+
+val bol = true
+val hashBol = bol.hashCode()
+println("불리언 값 $bol → 해시값: $hashBol")
+// 불리언 값 true → 해시값: 1231
+
+val dec = 3.14159
+val hashDec = dec.hashCode()
+println("소수 $dec → 해시값: $hashDec")
+// 소수 3.14159 → 해시값: -1340954729
+
+val str = "Hello 算法"
+val hashStr = str.hashCode()
+println("문자열 ‘$str’ → 해시값: $hashStr")
+// 문자열 ‘Hello 算法’ → 해시값: -727081396
+
+val arr = arrayOf<Any>(12836, "小哈")
+val hashArr = arr.contentHashCode()
+println("배열 ${arr.contentToString()} → 해시값: $hashArr")
+// 배열 [12836, 小哈] → 해시값: 1151158
+
+val obj = ListNode(0)
+val hashObj = obj.hashCode()
+println("노드 객체 $obj → 해시값: $hashObj")
+// 노드 객체 utils.ListNode@1d81eb93 → 해시값: 495053715
 ```
 
 ```ruby title="built_in_hash.rb"
-[file]{built_in_hash}-[region]{builtin_hash}
+num = 3
+hash_num = num.hash
+puts "정수 #{num} → 해시값: #{hash_num}"
+# 정수 3 → 해시값: -4385856518450339636
+
+bol = true
+hash_bol = bol.hash
+puts "불리언 값 #{bol} → 해시값: #{hash_bol}"
+# 불리언 값 true → 해시값: -1617938112149317027
+
+dec = 3.14159
+hash_dec = dec.hash
+puts "소수 #{dec} → 해시값: #{hash_dec}"
+# 소수 3.14159 → 해시값: -1479186995943067893
+
+str = "Hello 算法"
+hash_str = str.hash
+puts "문자열 ‘#{str}’ → 해시값: #{hash_str}"
+# 문자열 ‘Hello 算法’ → 해시값: -4075943250025831763
+
+arr = [12836, '小哈']
+hash_arr = arr.hash
+puts "배열 #{arr} → 해시값: #{hash_arr}"
+# 배열 [12836, "小哈"] → 해시값: 1999544809202288822
+
+obj = ListNode.new(0)
+hash_obj = obj.hash
+puts "노드 객체 #{obj} → 해시값: #{hash_obj}"
+# 노드 객체 #<ListNode:0x000078133140ab70> → 해시값: 4302940560806366381
 ```
 
 <!-- [tutor]{builtin_hash_tutor} -->

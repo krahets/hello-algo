@@ -4,7 +4,6 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-// [region]{doubly_list_node}
 /* Узел двусвязного списка */
 class ListNode {
   int val; // Значение узла
@@ -13,7 +12,6 @@ class ListNode {
 
   ListNode(this.val, {this.next, this.prev});
 }
-// [endregion]{doubly_list_node}
 
 /* Двусторонняя очередь на основе двусвязного списка */
 class LinkedListDeque {

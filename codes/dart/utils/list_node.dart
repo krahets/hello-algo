@@ -4,15 +4,13 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-// [region]{list_node}
 /* 链表节点 */
 class ListNode {
-  int val; // 节点值
-  ListNode? next; // 指向下一节点的引用
+  int val;
+  ListNode? next;
 
-  ListNode(this.val, [this.next]); // 构造函数
+  ListNode(this.val, [this.next]);
 }
-// [endregion]{list_node}
 
 /* 将列表反序列化为链表 */
 ListNode? listToLinkedList(List<int> list) {

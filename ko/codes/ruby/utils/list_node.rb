@@ -4,7 +4,6 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{list_node}
 ### 연결 리스트 노드 클래스 ###
 class ListNode
   attr_accessor :val  # 노드 값
@@ -15,7 +14,6 @@ class ListNode
     @next = next_node
   end
 end
-# [endregion]{list_node}
 
 ### 리스트를 연결 리스트로 역직렬화 ###
 def arr_to_linked_list(arr)

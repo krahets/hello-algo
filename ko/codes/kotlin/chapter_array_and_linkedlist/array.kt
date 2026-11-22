@@ -71,12 +71,10 @@ fun find(nums: IntArray, target: Int): Int {
 
 /* 실행 코드 */
 fun main() {
-    // [region]{init_array}
     /* 배열 초기화 */
-    val arr = IntArray(5) // { 0, 0, 0, 0, 0 }
-    var nums = intArrayOf(1, 3, 2, 5, 4)
-    // [endregion]{init_array}
+    val arr = IntArray(5)
     println("배열 arr = ${arr.contentToString()}")
+    var nums = intArrayOf(1, 3, 2, 5, 4)
     println("배열 nums = ${nums.contentToString()}")
 
     /* 임의 접근 */

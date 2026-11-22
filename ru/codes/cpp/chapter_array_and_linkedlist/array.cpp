@@ -67,24 +67,15 @@ int find(int *nums, int size, int target) {
 
 /* Driver Code */
 int main() {
-    // [region]{init_array}
     /* Инициализация массива */
-    // Хранится в стеке
-    int arr[5] = {};
-    int nums[5] = {1, 3, 2, 5, 4};
-    // Хранится в куче (требуется ручное освобождение памяти)
-    int *arr1 = new int[5]{};
-    int *nums1 = new int[5]{1, 3, 2, 5, 4};
-    // [endregion]{init_array}
     int size = 5;
+    int *arr = new int[size]{};
     cout << "Массив arr = ";
     printArray(arr, size);
+
+    int *nums = new int[size]{1, 3, 2, 5, 4};
     cout << "Массив nums = ";
     printArray(nums, size);
-    cout << "Массив arr1 = ";
-    printArray(arr1, size);
-    cout << "Массив nums1 = ";
-    printArray(nums1, size);
 
     /* Случайный доступ */
     int randomNum = randomAccess(nums, size);
@@ -92,31 +83,31 @@ int main() {
 
     /* Расширение длины */
     int enlarge = 3;
-    nums1 = extend(nums1, size, enlarge);
+    nums = extend(nums, size, enlarge);
     size += enlarge;
     cout << "После увеличения длины массива до 8 nums = ";
-    printArray(nums1, size);
+    printArray(nums, size);
 
     /* Вставка элемента */
-    insert(nums1, size, 6, 3);
+    insert(nums, size, 6, 3);
     cout << "После вставки числа 6 по индексу 3 nums = ";
-    printArray(nums1, size);
+    printArray(nums, size);
 
     /* Удаление элемента */
-    remove(nums1, size, 2);
+    remove(nums, size, 2);
     cout << "После удаления элемента по индексу 2 nums = ";
-    printArray(nums1, size);
+    printArray(nums, size);
 
     /* Обход массива */
-    traverse(nums1, size);
+    traverse(nums, size);
 
     /* Поиск элемента */
-    int index = find(nums1, size, 3);
+    int index = find(nums, size, 3);
     cout << "Индекс элемента 3 в nums = " << index << endl;
 
     // Освободить память
-    delete[] arr1;
-    delete[] nums1;
+    delete[] arr;
+    delete[] nums;
 
     return 0;
 }

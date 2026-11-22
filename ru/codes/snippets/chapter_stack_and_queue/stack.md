@@ -1,142 +1,250 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-[file]{stack}-[region]{init_stack}
+# Инициализировать стек
+# В Python нет встроенного класса стека, поэтому list можно использовать как стек
+stack: list[int] = []
 
-[file]{stack}-[region]{push}
+# Помещение элемента в стек
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+# Доступ к верхнему элементу стека
+peek: int = stack[-1]
 
-[file]{stack}-[region]{pop}
+# Извлечение элемента из стека
+pop: int = stack.pop()
 
-[file]{stack}-[region]{size}
+# Получение длины стека
+size: int = len(stack)
 
-[file]{stack}-[region]{is_empty}
+# Проверка на пустоту
+is_empty: bool = len(stack) == 0
 ```
 
 ```cpp title="stack.cpp"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+stack<int> stack;
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+int top = stack.top();
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+stack.pop(); // Без возвращаемого значения
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+bool empty = stack.empty();
 ```
 
 ```java title="stack.java"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+Stack<Integer> stack = new Stack<>();
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+int peek = stack.peek();
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+int pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+boolean isEmpty = stack.isEmpty();
 ```
 
 ```csharp title="stack.cs"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+Stack<int> stack = new();
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.Push(1);
+stack.Push(3);
+stack.Push(2);
+stack.Push(5);
+stack.Push(4);
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+int peek = stack.Peek();
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+int pop = stack.Pop();
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+int size = stack.Count;
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+bool isEmpty = stack.Count == 0;
 ```
 
 ```go title="stack_test.go"
-[file]{stack_test}-[region]{init_stack}
+/* Инициализация стека */
+// В Go рекомендуется использовать Slice как стек
+var stack []int
 
-[file]{stack_test}-[region]{push}
+/* Помещение элемента в стек */
+stack = append(stack, 1)
+stack = append(stack, 3)
+stack = append(stack, 2)
+stack = append(stack, 5)
+stack = append(stack, 4)
 
-[file]{stack_test}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+peek := stack[len(stack)-1]
 
-[file]{stack_test}-[region]{pop}
+/* Извлечение элемента из стека */
+pop := stack[len(stack)-1]
+stack = stack[:len(stack)-1]
 
-[file]{stack_test}-[region]{size}
+/* Получение длины стека */
+size := len(stack)
 
-[file]{stack_test}-[region]{is_empty}
+/* Проверка на пустоту */
+isEmpty := len(stack) == 0
 ```
 
 ```swift title="stack.swift"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+// В Swift нет встроенного класса стека, поэтому Array можно использовать как стек
+var stack: [Int] = []
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+let peek = stack.last!
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+let pop = stack.removeLast()
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+let size = stack.count
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+let isEmpty = stack.isEmpty
 ```
 
 ```javascript title="stack.js"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+// В JavaScript нет встроенного класса стека, поэтому Array можно использовать как стек
+const stack = [];
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+const peek = stack[stack.length - 1];
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+// В TypeScript нет встроенного класса стека, поэтому Array можно использовать как стек
+const stack: number[] = [];
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+const peek = stack[stack.length - 1];
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+// В Dart нет встроенного класса стека, поэтому List можно использовать как стек
+final List<int> stack = [];
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.add(1);
+stack.add(3);
+stack.add(2);
+stack.add(5);
+stack.add(4);
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+final int peek = stack.last;
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+final int pop = stack.removeLast();
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+final int size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-[file]{stack}-[region]{init_stack}
+// Инициализировать стек
+// В Rust рекомендуется использовать Vec как стек
+let mut stack: Vec<i32> = Vec::new();
 
-[file]{stack}-[region]{push}
+// Помещение элемента в стек
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+// Доступ к верхнему элементу стека
+let peek = stack.last().unwrap();
 
-[file]{stack}-[region]{pop}
+// Извлечение элемента из стека
+let pop = stack.pop().unwrap();
 
-[file]{stack}-[region]{size}
+// Получение длины стека
+let size = stack.len();
 
-[file]{stack}-[region]{is_empty}
+// Проверка, пуст ли стек
+let is_empty = stack.is_empty();
 ```
 
 ```c title="stack.c"
@@ -144,31 +252,52 @@
 ```
 
 ```kotlin title="stack.kt"
-[file]{stack}-[region]{init_stack}
+/* Инициализация стека */
+val stack = Stack<Int>()
 
-[file]{stack}-[region]{push}
+/* Помещение элемента в стек */
+stack.push(1)
+stack.push(3)
+stack.push(2)
+stack.push(5)
+stack.push(4)
 
-[file]{stack}-[region]{peek}
+/* Доступ к верхнему элементу стека */
+val peek = stack.peek()
 
-[file]{stack}-[region]{pop}
+/* Извлечение элемента из стека */
+val pop = stack.pop()
 
-[file]{stack}-[region]{size}
+/* Получение длины стека */
+val size = stack.size
 
-[file]{stack}-[region]{is_empty}
+/* Проверка на пустоту */
+val isEmpty = stack.isEmpty()
 ```
 
 ```ruby title="stack.rb"
-[file]{stack}-[region]{init_stack}
+# Инициализировать стек
+# В Ruby нет встроенного класса стека, поэтому Array можно использовать как стек
+stack = []
 
-[file]{stack}-[region]{push}
+# Помещение элемента в стек
+stack << 1
+stack << 3
+stack << 2
+stack << 5
+stack << 4
 
-[file]{stack}-[region]{peek}
+# Доступ к верхнему элементу стека
+peek = stack.last
 
-[file]{stack}-[region]{pop}
+# Извлечение элемента из стека
+pop = stack.pop
 
-[file]{stack}-[region]{size}
+# Получение длины стека
+size = stack.length
 
-[file]{stack}-[region]{is_empty}
+# Проверка на пустоту
+is_empty = stack.empty?
 ```
 
 <!-- [tutor]{stack_operations_tutor} -->

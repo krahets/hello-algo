@@ -4,7 +4,6 @@
 
 package chapter_heap
 
-// [region]{int_heap}
 // В Go можно построить максимальную кучу для целых чисел, реализовав heap.Interface
 // Для реализации heap.Interface одновременно требуется реализовать sort.Interface
 type intHeap []any
@@ -44,5 +43,3 @@ func (h *intHeap) Swap(i, j int) {
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }
-
-// [endregion]{int_heap}

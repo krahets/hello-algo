@@ -7,51 +7,36 @@
 import 'dart:collection';
 
 void main() {
-  // [region]{init_deque}
   /* Initialize the deque */
-  // In Dart, Queue is defined as a deque
   final Queue<int> deque = Queue();
-  // [endregion]{init_deque}
-
-  // [region]{push}
-  /* Enqueue elements */
-  deque.addLast(2); // Add to the rear
+  deque.addFirst(3);
+  deque.addLast(2);
   deque.addLast(5);
-  deque.addLast(4);
-  deque.addFirst(3); // Add to the front
-  deque.addFirst(1);
-  // [endregion]{push}
   print("Deque deque = $deque");
 
-  // [region]{peek_first}
   /* Access an element */
-  final int peekFirst = deque.first; // Front element
-  // [endregion]{peek_first}
+  final int peekFirst = deque.first;
   print("Front element peekFirst = $peekFirst");
-  // [region]{peek_last}
-  final int peekLast = deque.last; // Rear element
-  // [endregion]{peek_last}
+  final int peekLast = deque.last;
   print("Rear element peekLast = $peekLast");
 
-  // [region]{pop_first}
-  /* Dequeue an element */
-  final int popFirst = deque.removeFirst(); // Dequeue the front element
-  // [endregion]{pop_first}
-  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = $deque");
-  // [region]{pop_last}
-  final int popLast = deque.removeLast(); // Dequeue the rear element
-  // [endregion]{pop_last}
-  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = $deque");
+  /* Enqueue elements */
+  deque.addLast(4);
+  print("After enqueuing 4 at the rear, deque = $deque");
+  deque.addFirst(1);
+  print("After enqueuing 1 at the front, deque = $deque");
 
-  // [region]{size}
+  /* Dequeue an element */
+  final int popLast = deque.removeLast();
+  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = $deque");
+  final int popFirst = deque.removeFirst();
+  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = $deque");
+
   /* Get the deque size */
   final int size = deque.length;
-  // [endregion]{size}
   print("Deque size = $size");
 
-  // [region]{is_empty}
   /* Check whether the deque is empty */
   final bool isEmpty = deque.isEmpty;
-  // [endregion]{is_empty}
   print("Is the deque empty = $isEmpty");
 }

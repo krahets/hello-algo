@@ -65,21 +65,18 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
 
 /* 실행 코드 */
 fn main() {
-    // [region]{init_linked_list}
-    /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
+    /* 연결 리스트 초기화 */
     // 각 노드를 초기화한다
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
-
     // 노드 사이의 참조를 설정한다
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    // [endregion]{init_linked_list}
     print!("초기화한 연결 리스트 ");
     print_util::print_linked_list(&n0);
 

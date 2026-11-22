@@ -1,102 +1,214 @@
 <!-- [snippet]{hash_map_operations} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{init_hash_map}
+# Инициализация хеш-таблицы
+hmap = dict[int, str]()
 
-[file]{hash_map}-[region]{add_pairs}
+# Операция добавления
+# Добавить пару (key, value) в хеш-таблицу
+hmap[12836] = "Сяо Ха"
+hmap[15937] = "Сяо Ло"
+hmap[16750] = "Сяо Суань"
+hmap[13276] = "Сяо Фа"
+hmap[10583] = "Сяо Я"
 
-[file]{hash_map}-[region]{get_value}
+# Операция поиска
+# Передать ключ key в хеш-таблицу и получить значение value
+name: str = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# Операция удаления
+# Удалить пару (key, value) из хеш-таблицы
+hmap.pop(10583)
 ```
 
 ```cpp title="hash_map.cpp"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+unordered_map<int, string> map;
 
-[file]{hash_map}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+map[12836] = "Сяо Ха";
+map[15937] = "Сяо Ло";
+map[16750] = "Сяо Суань";
+map[13276] = "Сяо Фа";
+map[10583] = "Сяо Я";
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.erase(10583);
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+Map<Integer, String> map = new HashMap<>();
 
-[file]{hash_map}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+map.put(12836, "Сяо Ха");
+map.put(15937, "Сяо Ло");
+map.put(16750, "Сяо Суань");
+map.put(13276, "Сяо Фа");
+map.put(10583, "Сяо Я");
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+String name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.remove(10583);
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+Dictionary<int, string> map = new() {
+    /* Операция добавления */
+    // Добавить пару (key, value) в хеш-таблицу
+    { 12836, "Сяо Ха" },
+    { 15937, "Сяо Ло" },
+    { 16750, "Сяо Суань" },
+    { 13276, "Сяо Фа" },
+    { 10583, "Сяо Я" }
+};
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.Remove(10583);
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+hmap := make(map[int]string)
 
-[file]{hash_map_test}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+hmap[12836] = "Сяо Ха"
+hmap[15937] = "Сяо Ло"
+hmap[16750] = "Сяо Суань"
+hmap[13276] = "Сяо Фа"
+hmap[10583] = "Сяо Я"
 
-[file]{hash_map_test}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+name := hmap[15937]
 
-[file]{hash_map_test}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+delete(hmap, 10583)
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+var map: [Int: String] = [:]
 
-[file]{hash_map}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+map[12836] = "Сяо Ха"
+map[15937] = "Сяо Ло"
+map[16750] = "Сяо Суань"
+map[13276] = "Сяо Фа"
+map[10583] = "Сяо Я"
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+let name = map[15937]!
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.removeValue(forKey: 10583)
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+const map = new Map();
 
-[file]{hash_map}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+map.set(12836, 'Сяо Ха');
+map.set(15937, 'Сяо Ло');
+map.set(16750, 'Сяо Суань');
+map.set(13276, 'Сяо Фа');
+map.set(10583, 'Сяо Я');
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+let name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.delete(10583);
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+const map = new Map<number, string>();
 
-[file]{hash_map}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+map.set(12836, 'Сяо Ха');
+map.set(15937, 'Сяо Ло');
+map.set(16750, 'Сяо Суань');
+map.set(13276, 'Сяо Фа');
+map.set(10583, 'Сяо Я');
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+let name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.delete(10583);
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+final Map<int, String> map = {};
 
-[file]{hash_map}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+map[12836] = "Сяо Ха";
+map[15937] = "Сяо Ло";
+map[16750] = "Сяо Суань";
+map[13276] = "Сяо Фа";
+map[10583] = "Сяо Я";
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+final String? name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.remove(10583);
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{import_hash_map}
+use std::collections::HashMap;
 
-[file]{hash_map}-[region]{init_hash_map}
+// Инициализация хеш-таблицы
+let mut map = HashMap::new();
 
-[file]{hash_map}-[region]{add_pairs}
+// Операция добавления
+// Добавить пару (key, value) в хеш-таблицу
+map.insert(12836, "Сяо Ха");
+map.insert(15937, "Сяо Ло");
+map.insert(16750, "Сяо Суань");
+map.insert(13276, "Сяо Фа");
+map.insert(10583, "Сяо Я");
 
-[file]{hash_map}-[region]{get_value}
+// Операция поиска
+// Передать ключ key в хеш-таблицу и получить значение value
+let name = map.get(&15937).copied().unwrap();
 
-[file]{hash_map}-[region]{remove_pair}
+// Операция удаления
+// Удалить пару (key, value) из хеш-таблицы
+_ = map.remove(&10583);
 ```
 
 ```c title="hash_map.c"
@@ -104,23 +216,45 @@
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{init_hash_map}
+/* Инициализация хеш-таблицы */
+val map = HashMap<Int, String>()
 
-[file]{hash_map}-[region]{add_pairs}
+/* Операция добавления */
+// Добавить пару (key, value) в хеш-таблицу
+map[12836] = "Сяо Ха"
+map[15937] = "Сяо Ло"
+map[16750] = "Сяо Суань"
+map[13276] = "Сяо Фа"
+map[10583] = "Сяо Я"
 
-[file]{hash_map}-[region]{get_value}
+/* Операция поиска */
+// Ввести в хеш-таблицу ключ key и получить значение value
+val name = map[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+/* Операция удаления */
+// Удалить пару (key, value) из хеш-таблицы
+map.remove(10583)
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{init_hash_map}
+# Инициализация хеш-таблицы
+hmap = {}
 
-[file]{hash_map}-[region]{add_pairs}
+# Операция добавления
+# Добавить пару (key, value) в хеш-таблицу
+hmap[12836] = "Сяо Ха"
+hmap[15937] = "Сяо Ло"
+hmap[16750] = "Сяо Суань"
+hmap[13276] = "Сяо Фа"
+hmap[10583] = "Сяо Я"
 
-[file]{hash_map}-[region]{get_value}
+# Операция поиска
+# Передать ключ key в хеш-таблицу и получить значение value
+name = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# Операция удаления
+# Удалить пару (key, value) из хеш-таблицы
+hmap.delete(10583)
 ```
 
 <!-- [tutor]{hash_map_operations_tutor} -->
@@ -128,81 +262,169 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{hash_map_traversal} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{iterate_pairs}
+# Обход хеш-таблицы
+# Обход пар ключ-значение key->value
+for key, value in hmap.items():
+    print(key, "->", value)
 
-[file]{hash_map}-[region]{iterate_keys}
+# Обход только ключей key
+for key in hmap.keys():
+    print(key)
 
-[file]{hash_map}-[region]{iterate_values}
+# Обход только значений value
+for val in hmap.values():
+    print(val)
 ```
 
 ```cpp title="hash_map.cpp"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+for (auto kv : map) {
+    cout << kv.first << " -> " << kv.second << endl;
+}
 
-[file]{hash_map}-[region]{iterate_pairs_iterator}
+// Обход key->value с помощью итератора
+for (auto iter = map.begin(); iter != map.end(); iter++) {
+    cout << iter->first << " -> " << iter->second << endl;
+}
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    System.out.println(kv.getKey() + " -> " + kv.getValue());
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+for (int key : map.keySet()) {
+    System.out.println(key);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+for (String val : map.values()) {
+    System.out.println(val);
+}
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+foreach (var kv in map) {
+    Console.WriteLine(kv.Key + " -> " + kv.Value);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+foreach (int key in map.Keys) {
+    Console.WriteLine(key);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+foreach (string val in map.Values) {
+    Console.WriteLine(val);
+}
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+for key, value := range hmap {
+    fmt.Println(key, "->", value)
+}
 
-[file]{hash_map_test}-[region]{iterate_keys}
+// Обход только ключей key
+for key := range hmap {
+    fmt.Println(key)
+}
 
-[file]{hash_map_test}-[region]{iterate_values}
+// Обход только значений value
+for _, value := range hmap {
+    fmt.Println(value)
+}
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+for (key, value) in map {
+    print("\(key) -> \(value)")
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+for key in map.keys {
+    print(key)
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+for value in map.values {
+    print(value)
+}
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+for (const k of map.keys()) {
+    console.info(k);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+for (const k of map.keys()) {
+    console.info(k);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+map.forEach((key, value) => print("$key -> $value"));
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+map.keys.forEach((key) => print(key));
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+map.values.forEach((value) => print(value));
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{iterate_pairs}
+// Обход хеш-таблицы
+// Обход пар ключ-значение key->value
+for (key, value) in &map {
+    println!("{key} -> {value}");
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+for key in map.keys() {
+    println!("{key}");
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+for value in map.values() {
+    println!("{value}");
+}
 ```
 
 ```c title="hash_map.c"
@@ -210,19 +432,33 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{iterate_pairs}
+/* Обход хеш-таблицы */
+// Обход пар ключ-значение key->value
+for ((key, value) in map) {
+    println("$key -> $value")
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// Обход только ключей key
+for (key in map.keys) {
+    println(key)
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// Обход только значений value
+for (_val in map.values) {
+    println(_val)
+}
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{iterate_pairs}
+# Обход хеш-таблицы
+# Обход пар ключ-значение key->value
+hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-[file]{hash_map}-[region]{iterate_keys}
+# Обход только ключей key
+hmap.keys.each { |key| puts key }
 
-[file]{hash_map}-[region]{iterate_values}
+# Обход только значений value
+hmap.values.each { |val| puts val }
 ```
 
 <!-- [tutor]{hash_map_traversal_tutor} -->

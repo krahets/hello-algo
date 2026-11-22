@@ -1,24 +1,57 @@
 <!-- [snippet]{list_node_class} -->
 ```python title=""
-[file]{modules/list_node}-[region]{list_node}
+class ListNode:
+    """連結リストのノードクラス"""
+
+    def __init__(self, val: int):
+        self.val: int = val  # ノードの値
+        self.next: ListNode | None = None  # 次のノードへの参照
 ```
 
 ```cpp title=""
-[file]{utils/list_node.hpp}-[region]{list_node}
+/* 連結リストのノード */
+struct ListNode {
+    int val;        // ノードの値
+    ListNode *next; // 後続ノードへのポインタ
+    ListNode(int x) : val(x), next(nullptr) {
+    }
+};
 ```
 
 ```java title=""
-[file]{utils/ListNode}-[region]{list_node}
-[file]{utils/ListNode}-[region]{list_node_end}
+/* 連結リストのノード */
+public class ListNode {
+    public int val;       // ノードの値
+    public ListNode next; // 次のノードへの参照
+
+    public ListNode(int x) {
+        val = x;
+    }
+}
 ```
 
 ```csharp title=""
-[file]{utils/ListNode}-[region]{list_node}
-[file]{utils/ListNode}-[region]{list_node_end}
+/* 連結リストのノード */
+public class ListNode(int x) {
+    public int val = x;    // ノードの値
+    public ListNode? next; // 次のノードへの参照
+}
 ```
 
 ```go title=""
-[file]{pkg/list_node}-[region]{list_node}
+// ListNode は連結リストのノード
+type ListNode struct {
+    Val  int       // ノードの値
+    Next *ListNode // 後続ノードへのポインタ
+}
+
+// NewListNode は連結リストのノードのコンストラクタ
+func NewListNode(v int) *ListNode {
+    return &ListNode{
+        Val:  v,
+        Next: nil,
+    }
+}
 ```
 
 ```swift title=""
@@ -34,89 +67,291 @@ class ListNode {
 ```
 
 ```javascript title=""
-[file]{modules/ListNode}-[region]{list_node}
+/* 連結リストのノード */
+class ListNode {
+    val; // ノードの値
+    next; // 次のノードへの参照（ポインタ）
+    constructor(val, next) {
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
+    }
+}
 ```
 
 ```typescript title=""
-[file]{modules/ListNode}-[region]{list_node}
+/* 連結リストのノード */
+class ListNode {
+    val: number; // ノードの値
+    next: ListNode | null; // 次のノードへの参照
+    constructor(val?: number, next?: ListNode | null) {
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
+    }
+}
 ```
 
 ```dart title=""
-[file]{utils/list_node}-[region]{list_node}
+/* 連結リストのノード */
+class ListNode {
+  int val; // ノードの値
+  ListNode? next; // 次のノードへの参照
+
+  ListNode(this.val, [this.next]); // コンストラクタ
+}
 ```
 
 ```rust title=""
-[file]{src/include/list_node}-[region]{import_cell}
-[file]{src/include/list_node}-[region]{import_rc}
+use std::cell::RefCell;
+use std::rc::Rc;
 
-[file]{src/include/list_node}-[region]{list_node}
-[file]{src/include/list_node}-[region]{list_node_end}
+/* 連結リストのノード */
+#[derive(Debug)]
+pub struct ListNode<T> {
+    pub val: T, // ノードの値
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 後続ノードへのポインタ
+}
+
+impl<T> ListNode<T> {
+    pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+        Rc::new(RefCell::new(ListNode { val, next: None }))
+    }
+}
 ```
 
 ```c title=""
-[file]{utils/list_node.h}-[region]{list_node}
+/* 連結リストのノードの構造体 */
+typedef struct ListNode {
+    int val;               // ノードの値
+    struct ListNode *next; // 次のノードへのポインタ
+} ListNode;
+
+/* コンストラクタ：新しいノードを初期化する */
+ListNode *newListNode(int val) {
+    ListNode *node;
+    node = (ListNode *)malloc(sizeof(ListNode));
+    node->val = val;
+    node->next = NULL;
+    return node;
+}
 ```
 
 ```kotlin title=""
-[file]{utils/ListNode}-[region]{list_node}
-[file]{utils/ListNode}-[region]{list_node_end}
+/* 連結リストのノード */
+class ListNode(var _val: Int) {
+    var next: ListNode? = null // 次のノードへの参照
+}
 ```
 
 ```ruby title=""
-[file]{utils/list_node}-[region]{list_node}
+### 連結リストのノードクラス ###
+class ListNode
+  attr_accessor :val  # ノードの値
+  attr_accessor :next # 次のノードへの参照
+
+  def initialize(val=0, next_node=nil)
+    @val = val
+    @next = next_node
+  end
+end
 ```
 
 <!-- [snippet]{init_linked_list} -->
 ```python title="linked_list.py"
-[file]{linked_list}-[region]{init_linked_list}
+# 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する
+# 各ノードを初期化する
+n0 = ListNode(1)
+n1 = ListNode(3)
+n2 = ListNode(2)
+n3 = ListNode(5)
+n4 = ListNode(4)
+# ノード間の参照を設定する
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 ```cpp title="linked_list.cpp"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+ListNode *n0 = new ListNode(1);
+ListNode *n1 = new ListNode(3);
+ListNode *n2 = new ListNode(2);
+ListNode *n3 = new ListNode(5);
+ListNode *n4 = new ListNode(4);
+// ノード間の参照を設定する
+n0->next = n1;
+n1->next = n2;
+n2->next = n3;
+n3->next = n4;
 ```
 
 ```java title="linked_list.java"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+ListNode n0 = new ListNode(1);
+ListNode n1 = new ListNode(3);
+ListNode n2 = new ListNode(2);
+ListNode n3 = new ListNode(5);
+ListNode n4 = new ListNode(4);
+// ノード間の参照を設定する
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```csharp title="linked_list.cs"
-[file]{linked_list}-[region]{init_linked_list}
+// 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する
+// 各ノードを初期化する
+ListNode n0 = new(1);
+ListNode n1 = new(3);
+ListNode n2 = new(2);
+ListNode n3 = new(5);
+ListNode n4 = new(4);
+// ノード間の参照を設定する
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```go title="linked_list.go"
-[file]{linked_list_test}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+n0 := NewListNode(1)
+n1 := NewListNode(3)
+n2 := NewListNode(2)
+n3 := NewListNode(5)
+n4 := NewListNode(4)
+
+// ノード間の参照を設定する
+n0.Next = n1
+n1.Next = n2
+n2.Next = n3
+n3.Next = n4
 ```
 
 ```swift title="linked_list.swift"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+let n0 = ListNode(x: 1)
+let n1 = ListNode(x: 3)
+let n2 = ListNode(x: 2)
+let n3 = ListNode(x: 5)
+let n4 = ListNode(x: 4)
+// ノード間の参照を設定する
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 ```javascript title="linked_list.js"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+const n0 = new ListNode(1);
+const n1 = new ListNode(3);
+const n2 = new ListNode(2);
+const n3 = new ListNode(5);
+const n4 = new ListNode(4);
+// ノード間の参照を設定する
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```typescript title="linked_list.ts"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+const n0 = new ListNode(1);
+const n1 = new ListNode(3);
+const n2 = new ListNode(2);
+const n3 = new ListNode(5);
+const n4 = new ListNode(4);
+// ノード間の参照を設定する
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```dart title="linked_list.dart"
-[file]{linked_list}-[region]{init_linked_list}
+// 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する
+// 各ノードを初期化する
+ListNode n0 = ListNode(1);
+ListNode n1 = ListNode(3);
+ListNode n2 = ListNode(2);
+ListNode n3 = ListNode(5);
+ListNode n4 = ListNode(4);
+// ノード間の参照を設定する
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```rust title="linked_list.rs"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+let n0 = ListNode::new(1);
+let n1 = ListNode::new(3);
+let n2 = ListNode::new(2);
+let n3 = ListNode::new(5);
+let n4 = ListNode::new(4);
+
+// ノード間の参照を設定する
+n0.borrow_mut().next = Some(n1.clone());
+n1.borrow_mut().next = Some(n2.clone());
+n2.borrow_mut().next = Some(n3.clone());
+n3.borrow_mut().next = Some(n4.clone());
 ```
 
 ```c title="linked_list.c"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+ListNode *n0 = newListNode(1);
+ListNode *n1 = newListNode(3);
+ListNode *n2 = newListNode(2);
+ListNode *n3 = newListNode(5);
+ListNode *n4 = newListNode(4);
+// ノード間の参照を設定する
+n0->next = n1;
+n1->next = n2;
+n2->next = n3;
+n3->next = n4;
 ```
 
 ```kotlin title="linked_list.kt"
-[file]{linked_list}-[region]{init_linked_list}
+/* 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する */
+// 各ノードを初期化する
+val n0 = ListNode(1)
+val n1 = ListNode(3)
+val n2 = ListNode(2)
+val n3 = ListNode(5)
+val n4 = ListNode(4)
+
+// ノード間の参照を設定する
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 ```ruby title="linked_list.rb"
-[file]{linked_list}-[region]{init_linked_list}
+# 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する
+# 各ノードを初期化する
+n0 = ListNode.new(1)
+n1 = ListNode.new(3)
+n2 = ListNode.new(2)
+n3 = ListNode.new(5)
+n4 = ListNode.new(4)
+# ノード間の参照を設定する
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 <!-- [tutor]{init_linked_list_tutor} -->
@@ -124,19 +359,48 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+class ListNode:
+    """双方向連結リストのノード"""
+
+    def __init__(self, val: int):
+        """コンストラクタ"""
+        self.val: int = val  # ノードの値
+        self.next: ListNode | None = None  # 後続ノードへの参照
+        self.prev: ListNode | None = None  # 前のノードへの参照
 ```
 
 ```cpp title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+struct DoublyListNode {
+    int val;              // ノードの値
+    DoublyListNode *next; // 後続ノードへのポインタ
+    DoublyListNode *prev; // 前のノードへのポインタ
+    DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+    }
+};
 ```
 
 ```java title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+class ListNode {
+    int val;       // ノードの値
+    ListNode next; // 後続ノードへの参照
+    ListNode prev; // 前のノードへの参照
+
+    ListNode(int val) {
+        this.val = val;
+        prev = next = null;
+    }
+}
 ```
 
 ```csharp title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+public class ListNode(int val) {
+    public int val = val;         // ノードの値
+    public ListNode? next = null; // 後続ノードへの参照
+    public ListNode? prev = null; // 前のノードへの参照
+}
 ```
 
 ```go title=""
@@ -158,35 +422,119 @@ func NewDoublyListNode(val int) *DoublyListNode {
 ```
 
 ```swift title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+class ListNode {
+    var val: Int // ノードの値
+    var next: ListNode? // 後続ノードへの参照
+    weak var prev: ListNode? // 前のノードへの参照
+
+    init(val: Int) {
+        self.val = val
+    }
+}
 ```
 
 ```javascript title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+class ListNode {
+    prev; // 前のノードへの参照（ポインタ）
+    next; // 後続ノードへの参照（ポインタ）
+    val; // ノードの値
+
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
+    }
+}
 ```
 
 ```typescript title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+class ListNode {
+    prev: ListNode | null; // 前のノードへの参照（ポインタ）
+    next: ListNode | null; // 後続ノードへの参照（ポインタ）
+    val: number; // ノードの値
+
+    constructor(val: number) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
+    }
+}
 ```
 
 ```dart title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+class ListNode {
+  int val; // ノードの値
+  ListNode? next; // 後続ノードへの参照
+  ListNode? prev; // 前のノードへの参照
+
+  ListNode(this.val, {this.next, this.prev});
+}
 ```
 
 ```rust title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{import}
+use std::cell::RefCell;
+use std::rc::Rc;
 
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+pub struct ListNode<T> {
+    pub val: T,                                 // ノードの値
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 後続ノードへのポインタ
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前のノードへのポインタ
+}
+
+impl<T> ListNode<T> {
+    pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+        Rc::new(RefCell::new(ListNode {
+            val,
+            next: None,
+            prev: None,
+        }))
+    }
+}
 ```
 
 ```c title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+typedef struct DoublyListNode {
+    int val;                     // ノードの値
+    struct DoublyListNode *next; // 後続ノードへのポインタ
+    struct DoublyListNode *prev; // 前のノードへのポインタ
+} DoublyListNode;
+
+/* コンストラクタ */
+DoublyListNode *newDoublyListNode(int num) {
+    DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
+    new->val = num;
+    new->next = NULL;
+    new->prev = NULL;
+    return new;
+}
 ```
 
 ```kotlin title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* 双方向連結リストのノード */
+class ListNode(
+    var _val: Int // ノードの値
+) {
+    var next: ListNode? = null // 後続ノードへの参照
+    var prev: ListNode? = null // 前のノードへの参照
+}
 ```
 
 ```ruby title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+### 双方向連結リストのノード ###
+class ListNode
+  attr_accessor :val  # ノードの値
+  attr_accessor :next # 後続ノードへの参照
+  attr_accessor :prev # 前のノードへの参照
+
+  ### コンストラクタ ###
+  def initialize(val)
+    @val = val
+  end
+end
 ```

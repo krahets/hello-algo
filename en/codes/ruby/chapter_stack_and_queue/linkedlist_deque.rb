@@ -4,10 +4,9 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{doubly_list_node}
 ### Doubly linked list node ###
 class ListNode
-  attr_accessor :val  # Node value
+  attr_accessor :val
   attr_accessor :next # Reference to the next node
   attr_accessor :prev # Reference to the previous node
 
@@ -16,7 +15,6 @@ class ListNode
     @val = val
   end
 end
-# [endregion]{doubly_list_node}
 
 ### Deque implemented with a doubly linked list ###
 class LinkedListDeque

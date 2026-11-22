@@ -6,80 +6,59 @@
 
 #include "../utils/common.hpp"
 
+void testPush(priority_queue<int> &heap, int val) {
+    heap.push(val); // Push an element onto the heap
+    cout << "\nAfter pushing element " << val << " onto the heap:" << endl;
+    printHeap(heap);
+}
+
+void testPop(priority_queue<int> &heap) {
+    int val = heap.top();
+    heap.pop();
+    cout << "\nAfter popping top element " << val << " from the heap:" << endl;
+    printHeap(heap);
+}
+
 /* Driver code */
 int main() {
-    // [region]{init}
     /* Initialize the heap */
     // Initialize a min heap
-    priority_queue<int, vector<int>, greater<int>> minHeap;
+    // priority_queue<int, vector<int>, greater<int>> minHeap;
     // Initialize a max heap
     priority_queue<int, vector<int>, less<int>> maxHeap;
-    // [endregion]{init}
 
     cout << "\nThe following example uses a max heap" << endl;
 
-    // [region]{push}
     /* Push an element onto the heap */
-    maxHeap.push(1);
-    maxHeap.push(3);
-    maxHeap.push(2);
-    maxHeap.push(5);
-    maxHeap.push(4);
-    // [endregion]{push}
-    printHeap(maxHeap);
+    testPush(maxHeap, 1);
+    testPush(maxHeap, 3);
+    testPush(maxHeap, 2);
+    testPush(maxHeap, 5);
+    testPush(maxHeap, 4);
 
-    // [region]{peek}
     /* Get the top element of the heap */
-    int peek = maxHeap.top(); // 5
-    // [endregion]{peek}
+    int peek = maxHeap.top();
     cout << "\nTop element of the heap: " << peek << endl;
 
-    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
-    // [region]{pop_1}
     /* Pop the top element from the heap */
-    // The elements are popped in descending order
-    maxHeap.pop(); // 5
-    // [endregion]{pop_1}
-    printHeap(maxHeap);
-    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
-    // [region]{pop_2}
-    maxHeap.pop(); // 4
-    // [endregion]{pop_2}
-    printHeap(maxHeap);
-    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
-    // [region]{pop_3}
-    maxHeap.pop(); // 3
-    // [endregion]{pop_3}
-    printHeap(maxHeap);
-    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
-    // [region]{pop_4}
-    maxHeap.pop(); // 2
-    // [endregion]{pop_4}
-    printHeap(maxHeap);
-    cout << "\nElement popped from the heap: " << maxHeap.top() << endl;
-    // [region]{pop_5}
-    maxHeap.pop(); // 1
-    // [endregion]{pop_5}
-    printHeap(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
+    testPop(maxHeap);
 
-    // [region]{size}
     /* Get the heap size */
     int size = maxHeap.size();
-    // [endregion]{size}
     cout << "\nNumber of elements in the heap: " << size << endl;
 
-    // [region]{is_empty}
     /* Check whether the heap is empty */
     bool isEmpty = maxHeap.empty();
-    // [endregion]{is_empty}
     cout << "\nIs the heap empty: " << isEmpty << endl;
 
-    // [region]{heapify}
     /* Build a heap from an input list */
     // The time complexity is O(n), not O(nlogn)
     vector<int> input{1, 3, 2, 5, 4};
-    minHeap = priority_queue<int, vector<int>, greater<int>>(input.begin(), input.end());
-    // [endregion]{heapify}
+    priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
     cout << "After building a min heap from the input list:" << endl;
     printHeap(minHeap);
 

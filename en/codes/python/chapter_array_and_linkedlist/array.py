@@ -70,12 +70,10 @@ def find(nums: list[int], target: int) -> int:
 
 """Driver code"""
 if __name__ == "__main__":
-    # [region]{init_array}
     # Initialize the array
-    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]
-    # [endregion]{init_array}
+    arr = [0] * 5
     print("Array arr =", arr)
+    nums = [1, 3, 2, 5, 4]
     print("Array nums =", nums)
 
     # Random access

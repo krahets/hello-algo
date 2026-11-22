@@ -50,8 +50,7 @@ def find(head: ListNode, target: int) -> int:
 
 """実行用コード"""
 if __name__ == "__main__":
-    # [region]{init_linked_list}
-    # 連結リスト 1 -> 3 -> 2 -> 5 -> 4 を初期化する
+    # 連結リストを初期化する
     # 各ノードを初期化する
     n0 = ListNode(1)
     n1 = ListNode(3)
@@ -63,7 +62,6 @@ if __name__ == "__main__":
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    # [endregion]{init_linked_list}
     print("初期化した連結リスト")
     print_linked_list(n0)
 

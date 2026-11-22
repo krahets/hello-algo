@@ -4,27 +4,20 @@
  * Author: codingonion (coderonion@gmail.com), rongyi (hiarongyi@gmail.com)
  */
 
-// [region]{import_cell}
 use std::cell::RefCell;
-// [endregion]{import_cell}
 use std::collections::HashMap;
-// [region]{import_rc}
 use std::rc::Rc;
-// [endregion]{import_rc}
 
-// [region]{list_node}
-/* 연결 리스트 노드 */
 #[derive(Debug)]
 pub struct ListNode<T> {
-    pub val: T, // 노드 값
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 다음 노드 포인터
+    pub val: T,
+    pub next: Option<Rc<RefCell<ListNode<T>>>>,
 }
 
 impl<T> ListNode<T> {
     pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
-// [endregion]{list_node}
 
     /* 배열을 역직렬화하여 연결 리스트로 변환한다 */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
@@ -61,6 +54,4 @@ impl<T> ListNode<T> {
 
         hashmap
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

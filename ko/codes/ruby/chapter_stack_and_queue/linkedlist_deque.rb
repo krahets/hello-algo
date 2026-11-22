@@ -4,10 +4,9 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{doubly_list_node}
 ### 이중 연결 리스트 노드 ###
 class ListNode
-  attr_accessor :val  # 노드 값
+  attr_accessor :val
   attr_accessor :next # 다음 노드 참조
   attr_accessor :prev # 이전 노드 참조
 
@@ -16,7 +15,6 @@ class ListNode
     @val = val
   end
 end
-# [endregion]{doubly_list_node}
 
 ### 이중 연결 리스트로 구현한 덱 ###
 class LinkedListDeque

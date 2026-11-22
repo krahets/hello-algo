@@ -1,102 +1,214 @@
 <!-- [snippet]{hash_map_operations} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{init_hash_map}
+# 해시 테이블 초기화
+hmap = dict[int, str]()
 
-[file]{hash_map}-[region]{add_pairs}
+# 추가 연산
+# 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+hmap[12836] = "小哈"
+hmap[15937] = "小啰"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+# 조회 연산
+# 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+name: str = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# 삭제 연산
+# 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+hmap.pop(10583)
 ```
 
 ```cpp title="hash_map.cpp"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+unordered_map<int, string> map;
 
-[file]{hash_map}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map[12836] = "小哈";
+map[15937] = "小啰";
+map[16750] = "小算";
+map[13276] = "小法";
+map[10583] = "小鸭";
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.erase(10583);
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+Map<Integer, String> map = new HashMap<>();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map.put(12836, "小哈");
+map.put(15937, "小啰");
+map.put(16750, "小算");
+map.put(13276, "小法");
+map.put(10583, "小鸭");
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+String name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.remove(10583);
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+Dictionary<int, string> map = new() {
+    /* 추가 연산 */
+    // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+    { 12836, "小哈" },
+    { 15937, "小啰" },
+    { 16750, "小算" },
+    { 13276, "小法" },
+    { 10583, "小鸭" }
+};
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.Remove(10583);
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+hmap := make(map[int]string)
 
-[file]{hash_map_test}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+hmap[12836] = "小哈"
+hmap[15937] = "小啰"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鸭"
 
-[file]{hash_map_test}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+name := hmap[15937]
 
-[file]{hash_map_test}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+delete(hmap, 10583)
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+var map: [Int: String] = [:]
 
-[file]{hash_map}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map[12836] = "小哈"
+map[15937] = "小啰"
+map[16750] = "小算"
+map[13276] = "小法"
+map[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+let name = map[15937]!
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.removeValue(forKey: 10583)
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+const map = new Map();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map.set(12836, '小哈');
+map.set(15937, '小啰');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鸭');
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+let name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.delete(10583);
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+const map = new Map<number, string>();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map.set(12836, '小哈');
+map.set(15937, '小啰');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鸭');
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+let name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.delete(10583);
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+final Map<int, String> map = {};
 
-[file]{hash_map}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map[12836] = "小哈";
+map[15937] = "小啰";
+map[16750] = "小算";
+map[13276] = "小法";
+map[10583] = "小鸭";
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+final String? name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.remove(10583);
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{import_hash_map}
+use std::collections::HashMap;
 
-[file]{hash_map}-[region]{init_hash_map}
+// 해시 테이블 초기화
+let mut map = HashMap::new();
 
-[file]{hash_map}-[region]{add_pairs}
+// 추가 연산
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map.insert(12836, "小哈");
+map.insert(15937, "小啰");
+map.insert(16750, "小算");
+map.insert(13276, "小法");
+map.insert(10583, "小鸭");
 
-[file]{hash_map}-[region]{get_value}
+// 조회 연산
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+let name = map.get(&15937).copied().unwrap();
 
-[file]{hash_map}-[region]{remove_pair}
+// 삭제 연산
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+_ = map.remove(&10583);
 ```
 
 ```c title="hash_map.c"
@@ -104,23 +216,45 @@
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{init_hash_map}
+/* 해시 테이블 초기화 */
+val map = HashMap<Int, String>()
 
-[file]{hash_map}-[region]{add_pairs}
+/* 추가 연산 */
+// 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+map[12836] = "小哈"
+map[15937] = "小啰"
+map[16750] = "小算"
+map[13276] = "小法"
+map[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+/* 조회 연산 */
+// 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+val name = map[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+/* 삭제 연산 */
+// 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+map.remove(10583)
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{init_hash_map}
+# 해시 테이블 초기화
+hmap = {}
 
-[file]{hash_map}-[region]{add_pairs}
+# 추가 연산
+# 해시 테이블에 (key, value) 키-값 쌍을 추가한다
+hmap[12836] = "小哈"
+hmap[15937] = "小啰"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+# 조회 연산
+# 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+name = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# 삭제 연산
+# 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+hmap.delete(10583)
 ```
 
 <!-- [tutor]{hash_map_operations_tutor} -->
@@ -128,81 +262,169 @@ https://pythontutor.com/render.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94
 
 <!-- [snippet]{hash_map_traversal} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{iterate_pairs}
+# 해시 테이블 순회
+# 키-값 쌍 key->value를 순회한다
+for key, value in hmap.items():
+    print(key, "->", value)
 
-[file]{hash_map}-[region]{iterate_keys}
+# 키 key만 순회한다
+for key in hmap.keys():
+    print(key)
 
-[file]{hash_map}-[region]{iterate_values}
+# 값 value만 순회한다
+for val in hmap.values():
+    print(val)
 ```
 
 ```cpp title="hash_map.cpp"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+for (auto kv : map) {
+    cout << kv.first << " -> " << kv.second << endl;
+}
 
-[file]{hash_map}-[region]{iterate_pairs_iterator}
+// 반복자로 key->value를 순회한다
+for (auto iter = map.begin(); iter != map.end(); iter++) {
+    cout << iter->first << " -> " << iter->second << endl;
+}
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    System.out.println(kv.getKey() + " -> " + kv.getValue());
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+for (int key : map.keySet()) {
+    System.out.println(key);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+for (String val : map.values()) {
+    System.out.println(val);
+}
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+foreach (var kv in map) {
+    Console.WriteLine(kv.Key + " -> " + kv.Value);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+foreach (int key in map.Keys) {
+    Console.WriteLine(key);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+foreach (string val in map.Values) {
+    Console.WriteLine(val);
+}
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+for key, value := range hmap {
+    fmt.Println(key, "->", value)
+}
 
-[file]{hash_map_test}-[region]{iterate_keys}
+// 키 key만 순회한다
+for key := range hmap {
+    fmt.Println(key)
+}
 
-[file]{hash_map_test}-[region]{iterate_values}
+// 값 value만 순회한다
+for _, value := range hmap {
+    fmt.Println(value)
+}
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+for (key, value) in map {
+    print("\(key) -> \(value)")
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+for key in map.keys {
+    print(key)
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+for value in map.values {
+    print(value)
+}
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+for (const k of map.keys()) {
+    console.info(k);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+for (const k of map.keys()) {
+    console.info(k);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+map.forEach((key, value) => print("$key -> $value"));
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+map.keys.forEach((key) => print(key));
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+map.values.forEach((value) => print(value));
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{iterate_pairs}
+// 해시 테이블 순회
+// 키-값 쌍 key->value를 순회한다
+for (key, value) in &map {
+    println!("{key} -> {value}");
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+for key in map.keys() {
+    println!("{key}");
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+for value in map.values() {
+    println!("{value}");
+}
 ```
 
 ```c title="hash_map.c"
@@ -210,19 +432,33 @@ https://pythontutor.com/render.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{iterate_pairs}
+/* 해시 테이블 순회 */
+// 키-값 쌍 key->value를 순회한다
+for ((key, value) in map) {
+    println("$key -> $value")
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// 키 key만 순회한다
+for (key in map.keys) {
+    println(key)
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 값 value만 순회한다
+for (_val in map.values) {
+    println(_val)
+}
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{iterate_pairs}
+# 해시 테이블 순회
+# 키-값 쌍 key->value를 순회한다
+hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-[file]{hash_map}-[region]{iterate_keys}
+# 키 key만 순회한다
+hmap.keys.each { |key| puts key }
 
-[file]{hash_map}-[region]{iterate_values}
+# 값 value만 순회한다
+hmap.values.each { |val| puts val }
 ```
 
 <!-- [tutor]{hash_map_traversal_tutor} -->

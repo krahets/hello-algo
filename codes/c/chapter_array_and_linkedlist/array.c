@@ -73,14 +73,13 @@ int main() {
     /* 初始化随机种子（只需执行一次） */
     srand((unsigned)time(NULL));
 
-    // [region]{init_array}
     /* 初始化数组 */
-    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
-    int nums[] = {1, 3, 2, 5, 4};
-    // [endregion]{init_array}
     int size = 5;
+    int arr[5] = {0};
     printf("数组 arr = ");
     printArray(arr, size);
+
+    int nums[] = {1, 3, 2, 5, 4};
     printf("数组 nums = ");
     printArray(nums, size);
 

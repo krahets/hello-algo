@@ -6,15 +6,12 @@
 
 package chapter_stack_and_queue
 
-// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
-class ListNode(
-    var _val: Int // 노드 값
-) {
+class ListNode(var _val: Int) {
+    // 노드 값
     var next: ListNode? = null // 다음 노드 참조
     var prev: ListNode? = null // 이전 노드 참조
 }
-// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {

@@ -1,142 +1,250 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-[file]{stack}-[region]{init_stack}
+# 初始化堆疊
+# Python 沒有內建的堆疊類別，可以把 list 當作堆疊來使用
+stack: list[int] = []
 
-[file]{stack}-[region]{push}
+# 元素入堆疊
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+# 訪問堆疊頂元素
+peek: int = stack[-1]
 
-[file]{stack}-[region]{pop}
+# 元素出堆疊
+pop: int = stack.pop()
 
-[file]{stack}-[region]{size}
+# 獲取堆疊的長度
+size: int = len(stack)
 
-[file]{stack}-[region]{is_empty}
+# 判斷是否為空
+is_empty: bool = len(stack) == 0
 ```
 
 ```cpp title="stack.cpp"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+stack<int> stack;
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+int top = stack.top();
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+stack.pop(); // 無返回值
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+bool empty = stack.empty();
 ```
 
 ```java title="stack.java"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+Stack<Integer> stack = new Stack<>();
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+int peek = stack.peek();
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+int pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+boolean isEmpty = stack.isEmpty();
 ```
 
 ```csharp title="stack.cs"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+Stack<int> stack = new();
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.Push(1);
+stack.Push(3);
+stack.Push(2);
+stack.Push(5);
+stack.Push(4);
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+int peek = stack.Peek();
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+int pop = stack.Pop();
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+int size = stack.Count;
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+bool isEmpty = stack.Count == 0;
 ```
 
 ```go title="stack_test.go"
-[file]{stack_test}-[region]{init_stack}
+/* 初始化堆疊 */
+// 在 Go 中，推薦將 Slice 當作堆疊來使用
+var stack []int
 
-[file]{stack_test}-[region]{push}
+/* 元素入堆疊 */
+stack = append(stack, 1)
+stack = append(stack, 3)
+stack = append(stack, 2)
+stack = append(stack, 5)
+stack = append(stack, 4)
 
-[file]{stack_test}-[region]{peek}
+/* 訪問堆疊頂元素 */
+peek := stack[len(stack)-1]
 
-[file]{stack_test}-[region]{pop}
+/* 元素出堆疊 */
+pop := stack[len(stack)-1]
+stack = stack[:len(stack)-1]
 
-[file]{stack_test}-[region]{size}
+/* 獲取堆疊的長度 */
+size := len(stack)
 
-[file]{stack_test}-[region]{is_empty}
+/* 判斷是否為空 */
+isEmpty := len(stack) == 0
 ```
 
 ```swift title="stack.swift"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+// Swift 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+var stack: [Int] = []
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+let peek = stack.last!
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+let pop = stack.removeLast()
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+let size = stack.count
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+let isEmpty = stack.isEmpty
 ```
 
 ```javascript title="stack.js"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+// JavaScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+const stack = [];
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+const peek = stack[stack.length - 1];
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+// TypeScript 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+const stack: number[] = [];
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+const peek = stack[stack.length - 1];
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+// Dart 沒有內建的堆疊類別，可以把 List 當作堆疊來使用
+final List<int> stack = [];
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.add(1);
+stack.add(3);
+stack.add(2);
+stack.add(5);
+stack.add(4);
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+final int peek = stack.last;
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+final int pop = stack.removeLast();
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+final int size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-[file]{stack}-[region]{init_stack}
+// 初始化堆疊
+// 在 Rust 中，推薦將 Vec 當作堆疊來使用
+let mut stack: Vec<i32> = Vec::new();
 
-[file]{stack}-[region]{push}
+// 元素入堆疊
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+// 訪問堆疊頂元素
+let peek = stack.last().unwrap();
 
-[file]{stack}-[region]{pop}
+// 元素出堆疊
+let pop = stack.pop().unwrap();
 
-[file]{stack}-[region]{size}
+// 獲取堆疊的長度
+let size = stack.len();
 
-[file]{stack}-[region]{is_empty}
+// 判斷堆疊是否為空
+let is_empty = stack.is_empty();
 ```
 
 ```c title="stack.c"
@@ -144,31 +252,52 @@
 ```
 
 ```kotlin title="stack.kt"
-[file]{stack}-[region]{init_stack}
+/* 初始化堆疊 */
+val stack = Stack<Int>()
 
-[file]{stack}-[region]{push}
+/* 元素入堆疊 */
+stack.push(1)
+stack.push(3)
+stack.push(2)
+stack.push(5)
+stack.push(4)
 
-[file]{stack}-[region]{peek}
+/* 訪問堆疊頂元素 */
+val peek = stack.peek()
 
-[file]{stack}-[region]{pop}
+/* 元素出堆疊 */
+val pop = stack.pop()
 
-[file]{stack}-[region]{size}
+/* 獲取堆疊的長度 */
+val size = stack.size
 
-[file]{stack}-[region]{is_empty}
+/* 判斷是否為空 */
+val isEmpty = stack.isEmpty()
 ```
 
 ```ruby title="stack.rb"
-[file]{stack}-[region]{init_stack}
+# 初始化堆疊
+# Ruby 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+stack = []
 
-[file]{stack}-[region]{push}
+# 元素入堆疊
+stack << 1
+stack << 3
+stack << 2
+stack << 5
+stack << 4
 
-[file]{stack}-[region]{peek}
+# 訪問堆疊頂元素
+peek = stack.last
 
-[file]{stack}-[region]{pop}
+# 元素出堆疊
+pop = stack.pop
 
-[file]{stack}-[region]{size}
+# 獲取堆疊的長度
+size = stack.length
 
-[file]{stack}-[region]{is_empty}
+# 判斷是否為空
+is_empty = stack.empty?
 ```
 
 <!-- [tutor]{stack_operations_tutor} -->

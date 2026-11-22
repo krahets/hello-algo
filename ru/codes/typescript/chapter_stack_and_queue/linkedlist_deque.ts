@@ -4,7 +4,6 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-// [region]{doubly_list_node}
 /* Узел двусвязного списка */
 class ListNode {
     prev: ListNode | null; // Ссылка на узел-предшественник (указатель)
@@ -17,7 +16,6 @@ class ListNode {
         this.prev = null;
     }
 }
-// [endregion]{doubly_list_node}
 
 /* Двусторонняя очередь на основе двусвязного списка */
 class LinkedListDeque {

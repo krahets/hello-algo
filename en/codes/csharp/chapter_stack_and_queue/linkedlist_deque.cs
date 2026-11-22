@@ -6,14 +6,12 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-// [region]{doubly_list_node}
 /* Doubly linked list node */
 public class ListNode(int val) {
-    public int val = val;         // Node value
+    public int val = val;       // Node value
     public ListNode? next = null; // Reference to the next node
     public ListNode? prev = null; // Reference to the previous node
 }
-// [endregion]{doubly_list_node}
 
 /* Deque implemented with a doubly linked list */
 public class LinkedListDeque {

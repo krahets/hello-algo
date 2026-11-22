@@ -11,15 +11,13 @@
 
 using namespace std;
 
-// [region]{list_node}
 /* 연결 리스트 노드 */
 struct ListNode {
-    int val;        // 노드 값
-    ListNode *next; // 다음 노드 포인터
+    int val;
+    ListNode *next;
     ListNode(int x) : val(x), next(nullptr) {
     }
 };
-// [endregion]{list_node}
 
 /* 리스트를 연결 리스트로 역직렬화 */
 ListNode *vecToLinkedList(vector<int> list) {

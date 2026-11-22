@@ -13,32 +13,42 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-// [region]{test_heap}
+func testPush(h *intHeap, val int) {
+	// 调用 heap.Interface 的函数，来添加元素
+	heap.Push(h, val)
+	fmt.Printf("\n元素 %d 入堆后 \n", val)
+	PrintHeap(*h)
+}
+
+func testPop(h *intHeap) {
+	// 调用 heap.Interface 的函数，来移除元素
+	val := heap.Pop(h)
+	fmt.Printf("\n堆顶元素 %d 出堆后 \n", val)
+	PrintHeap(*h)
+}
+
 func TestHeap(t *testing.T) {
 	/* 初始化堆 */
 	// 初始化大顶堆
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* 元素入堆 */
-	// 调用 heap.Interface 的函数，来添加元素
-	heap.Push(maxHeap, 1)
-	heap.Push(maxHeap, 3)
-	heap.Push(maxHeap, 2)
-	heap.Push(maxHeap, 5)
-	heap.Push(maxHeap, 4)
-	PrintHeap(*maxHeap)
+	testPush(maxHeap, 1)
+	testPush(maxHeap, 3)
+	testPush(maxHeap, 2)
+	testPush(maxHeap, 5)
+	testPush(maxHeap, 4)
 
 	/* 获取堆顶元素 */
 	top := maxHeap.Top()
 	fmt.Printf("堆顶元素为 %d\n", top)
 
 	/* 堆顶元素出堆 */
-	// 调用 heap.Interface 的函数，来移除元素
-	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 5
-	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 4
-	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 3
-	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 2
-	fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 1
+	testPop(maxHeap)
+	testPop(maxHeap)
+	testPop(maxHeap)
+	testPop(maxHeap)
+	testPop(maxHeap)
 
 	/* 获取堆大小 */
 	size := len(*maxHeap)
@@ -48,8 +58,6 @@ func TestHeap(t *testing.T) {
 	isEmpty := len(*maxHeap) == 0
 	fmt.Printf("堆是否为空 %t\n", isEmpty)
 }
-
-// [endregion]{test_heap}
 
 func TestMyHeap(t *testing.T) {
 	/* 初始化堆 */

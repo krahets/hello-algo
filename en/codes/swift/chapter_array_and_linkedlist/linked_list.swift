@@ -54,8 +54,7 @@ func find(head: ListNode, target: Int) -> Int {
 enum LinkedList {
     /* Driver code */
     static func main() {
-        // [region]{init_linked_list}
-        /* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+        /* Initialize the linked list */
         // Initialize the individual nodes
         let n0 = ListNode(x: 1)
         let n1 = ListNode(x: 3)
@@ -67,7 +66,6 @@ enum LinkedList {
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        // [endregion]{init_linked_list}
         print("The initialized linked list is")
         PrintUtil.printLinkedList(head: n0)
 

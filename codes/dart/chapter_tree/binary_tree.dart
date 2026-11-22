@@ -8,7 +8,6 @@ import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
 void main() {
-  // [region]{init_binary_tree}
   /* 初始化二叉树 */
   // 初始化节点
   TreeNode n1 = TreeNode(1);
@@ -21,23 +20,18 @@ void main() {
   n1.right = n3;
   n2.left = n4;
   n2.right = n5;
-  // [endregion]{init_binary_tree}
   print("\n初始化二叉树\n");
   printTree(n1);
 
-  // [region]{insert_node}
   /* 插入与删除节点 */
   TreeNode p = TreeNode(0);
-  // 在 n1 -> n2 中间插入节点 P
+  // 在 n1 -> n2 中间插入节点 p
   n1.left = p;
   p.left = n2;
-  // [endregion]{insert_node}
   print("\n插入节点 P 后\n");
   printTree(n1);
-  // [region]{remove_node}
   // 删除节点 P
   n1.left = n2;
-  // [endregion]{remove_node}
   print("\n删除节点 P 后\n");
   printTree(n1);
 }

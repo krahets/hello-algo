@@ -73,14 +73,13 @@ int main() {
     /* 初始化隨機種子（只需執行一次） */
     srand((unsigned)time(NULL));
 
-    // [region]{init_array}
     /* 初始化陣列 */
-    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
-    int nums[] = {1, 3, 2, 5, 4};
-    // [endregion]{init_array}
     int size = 5;
+    int arr[5] = {0};
     printf("陣列 arr = ");
     printArray(arr, size);
+
+    int nums[] = {1, 3, 2, 5, 4};
     printf("陣列 nums = ");
     printArray(nums, size);
 

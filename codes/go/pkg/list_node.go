@@ -4,22 +4,19 @@
 
 package pkg
 
-// [region]{list_node}
 // ListNode 链表节点
 type ListNode struct {
-	Val  int       // 节点值
-	Next *ListNode // 后继节点指针
+	Next *ListNode
+	Val  int
 }
 
 // NewListNode 链表节点构造函数
 func NewListNode(v int) *ListNode {
 	return &ListNode{
-		Val:  v,
 		Next: nil,
+		Val:  v,
 	}
 }
-
-// [endregion]{list_node}
 
 // ArrayToLinkedList 将数组反序列化为链表
 func ArrayToLinkedList(arr []int) *ListNode {

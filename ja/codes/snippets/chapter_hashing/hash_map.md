@@ -1,102 +1,214 @@
 <!-- [snippet]{hash_map_operations} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{init_hash_map}
+# ハッシュテーブルを初期化する
+hmap = dict[int, str]()
 
-[file]{hash_map}-[region]{add_pairs}
+# 追加操作
+# ハッシュテーブルにキーと値のペア (key, value) を追加する
+hmap[12836] = "小哈"
+hmap[15937] = "小啰"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+# 取得操作
+# ハッシュテーブルにキー key を渡し、値 value を取得する
+name: str = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# 削除操作
+# ハッシュテーブルからキーと値のペア (key, value) を削除する
+hmap.pop(10583)
 ```
 
 ```cpp title="hash_map.cpp"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+unordered_map<int, string> map;
 
-[file]{hash_map}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map[12836] = "小哈";
+map[15937] = "小啰";
+map[16750] = "小算";
+map[13276] = "小法";
+map[10583] = "小鸭";
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.erase(10583);
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+Map<Integer, String> map = new HashMap<>();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map.put(12836, "小哈");
+map.put(15937, "小啰");
+map.put(16750, "小算");
+map.put(13276, "小法");
+map.put(10583, "小鸭");
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+String name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.remove(10583);
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+Dictionary<int, string> map = new() {
+    /* 追加操作 */
+    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    { 12836, "小哈" },
+    { 15937, "小啰" },
+    { 16750, "小算" },
+    { 13276, "小法" },
+    { 10583, "小鸭" }
+};
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+string name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.Remove(10583);
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+hmap := make(map[int]string)
 
-[file]{hash_map_test}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+hmap[12836] = "小哈"
+hmap[15937] = "小啰"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鸭"
 
-[file]{hash_map_test}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+name := hmap[15937]
 
-[file]{hash_map_test}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+delete(hmap, 10583)
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+var map: [Int: String] = [:]
 
-[file]{hash_map}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map[12836] = "小哈"
+map[15937] = "小啰"
+map[16750] = "小算"
+map[13276] = "小法"
+map[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+let name = map[15937]!
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.removeValue(forKey: 10583)
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+const map = new Map();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map.set(12836, '小哈');
+map.set(15937, '小啰');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鸭');
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+let name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.delete(10583);
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+const map = new Map<number, string>();
 
-[file]{hash_map}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map.set(12836, '小哈');
+map.set(15937, '小啰');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鸭');
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+let name = map.get(15937);
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.delete(10583);
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+final Map<int, String> map = {};
 
-[file]{hash_map}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map[12836] = "小哈";
+map[15937] = "小啰";
+map[16750] = "小算";
+map[13276] = "小法";
+map[10583] = "小鸭";
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+final String? name = map[15937];
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.remove(10583);
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{import_hash_map}
+use std::collections::HashMap;
 
-[file]{hash_map}-[region]{init_hash_map}
+// ハッシュテーブルを初期化する
+let mut map = HashMap::new();
 
-[file]{hash_map}-[region]{add_pairs}
+// 追加操作
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map.insert(12836, "小哈");
+map.insert(15937, "小啰");
+map.insert(16750, "小算");
+map.insert(13276, "小法");
+map.insert(10583, "小鸭");
 
-[file]{hash_map}-[region]{get_value}
+// 取得操作
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+let name = map.get(&15937).copied().unwrap();
 
-[file]{hash_map}-[region]{remove_pair}
+// 削除操作
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+_ = map.remove(&10583);
 ```
 
 ```c title="hash_map.c"
@@ -104,23 +216,45 @@
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{init_hash_map}
+/* ハッシュテーブルを初期化する */
+val map = HashMap<Int, String>()
 
-[file]{hash_map}-[region]{add_pairs}
+/* 追加操作 */
+// ハッシュテーブルにキーと値のペア (key, value) を追加する
+map[12836] = "小哈"
+map[15937] = "小啰"
+map[16750] = "小算"
+map[13276] = "小法"
+map[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+/* 取得操作 */
+// ハッシュテーブルにキー key を渡し、値 value を取得する
+val name = map[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+/* 削除操作 */
+// ハッシュテーブルからキーと値のペア (key, value) を削除する
+map.remove(10583)
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{init_hash_map}
+# ハッシュテーブルを初期化する
+hmap = {}
 
-[file]{hash_map}-[region]{add_pairs}
+# 追加操作
+# ハッシュテーブルにキーと値のペア (key, value) を追加する
+hmap[12836] = "小哈"
+hmap[15937] = "小啰"
+hmap[16750] = "小算"
+hmap[13276] = "小法"
+hmap[10583] = "小鸭"
 
-[file]{hash_map}-[region]{get_value}
+# 取得操作
+# ハッシュテーブルにキー key を渡し、値 value を取得する
+name = hmap[15937]
 
-[file]{hash_map}-[region]{remove_pair}
+# 削除操作
+# ハッシュテーブルからキーと値のペア (key, value) を削除する
+hmap.delete(10583)
 ```
 
 <!-- [tutor]{hash_map_operations_tutor} -->
@@ -128,81 +262,169 @@ https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3
 
 <!-- [snippet]{hash_map_traversal} -->
 ```python title="hash_map.py"
-[file]{hash_map}-[region]{iterate_pairs}
+# ハッシュテーブルを走査する
+# キーと値のペア key->value を走査する
+for key, value in hmap.items():
+    print(key, "->", value)
 
-[file]{hash_map}-[region]{iterate_keys}
+# キー key だけを走査する
+for key in hmap.keys():
+    print(key)
 
-[file]{hash_map}-[region]{iterate_values}
+# 値 value だけを走査する
+for val in hmap.values():
+    print(val)
 ```
 
 ```cpp title="hash_map.cpp"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+for (auto kv : map) {
+    cout << kv.first << " -> " << kv.second << endl;
+}
 
-[file]{hash_map}-[region]{iterate_pairs_iterator}
+// イテレータで key->value を走査する
+for (auto iter = map.begin(); iter != map.end(); iter++) {
+    cout << iter->first << " -> " << iter->second << endl;
+}
 ```
 
 ```java title="hash_map.java"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+for (Map.Entry<Integer, String> kv : map.entrySet()) {
+    System.out.println(kv.getKey() + " -> " + kv.getValue());
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+for (int key : map.keySet()) {
+    System.out.println(key);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+for (String val : map.values()) {
+    System.out.println(val);
+}
 ```
 
 ```csharp title="hash_map.cs"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+foreach (var kv in map) {
+    Console.WriteLine(kv.Key + " -> " + kv.Value);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+foreach (int key in map.Keys) {
+    Console.WriteLine(key);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+foreach (string val in map.Values) {
+    Console.WriteLine(val);
+}
 ```
 
 ```go title="hash_map_test.go"
-[file]{hash_map_test}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+for key, value := range hmap {
+    fmt.Println(key, "->", value)
+}
 
-[file]{hash_map_test}-[region]{iterate_keys}
+// キー key だけを走査する
+for key := range hmap {
+    fmt.Println(key)
+}
 
-[file]{hash_map_test}-[region]{iterate_values}
+// 値 value だけを走査する
+for _, value := range hmap {
+    fmt.Println(value)
+}
 ```
 
 ```swift title="hash_map.swift"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+for (key, value) in map {
+    print("\(key) -> \(value)")
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+for key in map.keys {
+    print(key)
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+for value in map.values {
+    print(value)
+}
 ```
 
 ```javascript title="hash_map.js"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+for (const k of map.keys()) {
+    console.info(k);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```typescript title="hash_map.ts"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+for (const [k, v] of map.entries()) {
+    console.info(k + ' -> ' + v);
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+for (const k of map.keys()) {
+    console.info(k);
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+for (const v of map.values()) {
+    console.info(v);
+}
 ```
 
 ```dart title="hash_map.dart"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+map.forEach((key, value) => print("$key -> $value"));
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+map.keys.forEach((key) => print(key));
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+map.values.forEach((value) => print(value));
 ```
 
 ```rust title="hash_map.rs"
-[file]{hash_map}-[region]{iterate_pairs}
+// ハッシュテーブルを走査する
+// キーと値のペア key->value を走査する
+for (key, value) in &map {
+    println!("{key} -> {value}");
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+for key in map.keys() {
+    println!("{key}");
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+for value in map.values() {
+    println!("{value}");
+}
 ```
 
 ```c title="hash_map.c"
@@ -210,19 +432,33 @@ https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3
 ```
 
 ```kotlin title="hash_map.kt"
-[file]{hash_map}-[region]{iterate_pairs}
+/* ハッシュテーブルを走査する */
+// キーと値のペア key->value を走査する
+for ((key, value) in map) {
+    println("$key -> $value")
+}
 
-[file]{hash_map}-[region]{iterate_keys}
+// キー key だけを走査する
+for (key in map.keys) {
+    println(key)
+}
 
-[file]{hash_map}-[region]{iterate_values}
+// 値 value だけを走査する
+for (_val in map.values) {
+    println(_val)
+}
 ```
 
 ```ruby title="hash_map.rb"
-[file]{hash_map}-[region]{iterate_pairs}
+# ハッシュテーブルを走査する
+# キーと値のペア key->value を走査する
+hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-[file]{hash_map}-[region]{iterate_keys}
+# キー key だけを走査する
+hmap.keys.each { |key| puts key }
 
-[file]{hash_map}-[region]{iterate_values}
+# 値 value だけを走査する
+hmap.values.each { |val| puts val }
 ```
 
 <!-- [tutor]{hash_map_traversal_tutor} -->

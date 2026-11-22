@@ -67,12 +67,10 @@ function find(nums, target) {
 }
 
 /* Driver Code */
-// [region]{init_array}
 /* 初始化陣列 */
 const arr = new Array(5).fill(0);
-let nums = [1, 3, 2, 5, 4];
-// [endregion]{init_array}
 console.log('陣列 arr =', arr);
+let nums = [1, 3, 2, 5, 4];
 console.log('陣列 nums =', nums);
 
 /* 隨機訪問 */

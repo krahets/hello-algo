@@ -1,24 +1,57 @@
 <!-- [snippet]{list_node_class} -->
 ```python title=""
-[file]{modules/list_node}-[region]{list_node}
+class ListNode:
+    """Linked list node class"""
+
+    def __init__(self, val: int):
+        self.val: int = val  # Node value
+        self.next: ListNode | None = None  # Reference to the next node
 ```
 
 ```cpp title=""
-[file]{utils/list_node.hpp}-[region]{list_node}
+/* Linked list node */
+struct ListNode {
+    int val;        // Node value
+    ListNode *next; // Pointer to the next node
+    ListNode(int x) : val(x), next(nullptr) {
+    }
+};
 ```
 
 ```java title=""
-[file]{utils/ListNode}-[region]{list_node}
-[file]{utils/ListNode}-[region]{list_node_end}
+/* Linked list node */
+public class ListNode {
+    public int val;       // Node value
+    public ListNode next; // Reference to the next node
+
+    public ListNode(int x) {
+        val = x;
+    }
+}
 ```
 
 ```csharp title=""
-[file]{utils/ListNode}-[region]{list_node}
-[file]{utils/ListNode}-[region]{list_node_end}
+/* Linked list node */
+public class ListNode(int x) {
+    public int val = x;    // Node value
+    public ListNode? next; // Reference to the next node
+}
 ```
 
 ```go title=""
-[file]{pkg/list_node}-[region]{list_node}
+// ListNode represents a linked list node.
+type ListNode struct {
+    Val  int       // Node value
+    Next *ListNode // Pointer to the next node
+}
+
+// NewListNode constructs a linked list node.
+func NewListNode(v int) *ListNode {
+    return &ListNode{
+        Val:  v,
+        Next: nil,
+    }
+}
 ```
 
 ```swift title=""
@@ -34,89 +67,291 @@ class ListNode {
 ```
 
 ```javascript title=""
-[file]{modules/ListNode}-[region]{list_node}
+/* Linked list node */
+class ListNode {
+    val; // Node value
+    next; // Reference (pointer) to the next node
+    constructor(val, next) {
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
+    }
+}
 ```
 
 ```typescript title=""
-[file]{modules/ListNode}-[region]{list_node}
+/* Linked list node */
+class ListNode {
+    val: number; // Node value
+    next: ListNode | null; // Reference to the next node
+    constructor(val?: number, next?: ListNode | null) {
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
+    }
+}
 ```
 
 ```dart title=""
-[file]{utils/list_node}-[region]{list_node}
+/* Linked list node */
+class ListNode {
+  int val; // Node value
+  ListNode? next; // Reference to the next node
+
+  ListNode(this.val, [this.next]); // Constructor
+}
 ```
 
 ```rust title=""
-[file]{src/include/list_node}-[region]{import_cell}
-[file]{src/include/list_node}-[region]{import_rc}
+use std::cell::RefCell;
+use std::rc::Rc;
 
-[file]{src/include/list_node}-[region]{list_node}
-[file]{src/include/list_node}-[region]{list_node_end}
+/* Linked list node */
+#[derive(Debug)]
+pub struct ListNode<T> {
+    pub val: T, // Node value
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the next node
+}
+
+impl<T> ListNode<T> {
+    pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+        Rc::new(RefCell::new(ListNode { val, next: None }))
+    }
+}
 ```
 
 ```c title=""
-[file]{utils/list_node.h}-[region]{list_node}
+/* Linked list node structure */
+typedef struct ListNode {
+    int val;               // Node value
+    struct ListNode *next; // Pointer to the next node
+} ListNode;
+
+/* Constructor: initialize a new node */
+ListNode *newListNode(int val) {
+    ListNode *node;
+    node = (ListNode *)malloc(sizeof(ListNode));
+    node->val = val;
+    node->next = NULL;
+    return node;
+}
 ```
 
 ```kotlin title=""
-[file]{utils/ListNode}-[region]{list_node}
-[file]{utils/ListNode}-[region]{list_node_end}
+/* Linked list node */
+class ListNode(var _val: Int) {
+    var next: ListNode? = null // Reference to the next node
+}
 ```
 
 ```ruby title=""
-[file]{utils/list_node}-[region]{list_node}
+### Linked list node class ###
+class ListNode
+  attr_accessor :val  # Node value
+  attr_accessor :next # Reference to the next node
+
+  def initialize(val=0, next_node=nil)
+    @val = val
+    @next = next_node
+  end
+end
 ```
 
 <!-- [snippet]{init_linked_list} -->
 ```python title="linked_list.py"
-[file]{linked_list}-[region]{init_linked_list}
+# Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
+# Initialize the individual nodes
+n0 = ListNode(1)
+n1 = ListNode(3)
+n2 = ListNode(2)
+n3 = ListNode(5)
+n4 = ListNode(4)
+# Set up references between the nodes
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 ```cpp title="linked_list.cpp"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+ListNode *n0 = new ListNode(1);
+ListNode *n1 = new ListNode(3);
+ListNode *n2 = new ListNode(2);
+ListNode *n3 = new ListNode(5);
+ListNode *n4 = new ListNode(4);
+// Set up references between the nodes
+n0->next = n1;
+n1->next = n2;
+n2->next = n3;
+n3->next = n4;
 ```
 
 ```java title="linked_list.java"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+ListNode n0 = new ListNode(1);
+ListNode n1 = new ListNode(3);
+ListNode n2 = new ListNode(2);
+ListNode n3 = new ListNode(5);
+ListNode n4 = new ListNode(4);
+// Set up references between the nodes
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```csharp title="linked_list.cs"
-[file]{linked_list}-[region]{init_linked_list}
+// Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
+// Initialize the individual nodes
+ListNode n0 = new(1);
+ListNode n1 = new(3);
+ListNode n2 = new(2);
+ListNode n3 = new(5);
+ListNode n4 = new(4);
+// Set up references between the nodes
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```go title="linked_list.go"
-[file]{linked_list_test}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+n0 := NewListNode(1)
+n1 := NewListNode(3)
+n2 := NewListNode(2)
+n3 := NewListNode(5)
+n4 := NewListNode(4)
+
+// Set up references between the nodes
+n0.Next = n1
+n1.Next = n2
+n2.Next = n3
+n3.Next = n4
 ```
 
 ```swift title="linked_list.swift"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+let n0 = ListNode(x: 1)
+let n1 = ListNode(x: 3)
+let n2 = ListNode(x: 2)
+let n3 = ListNode(x: 5)
+let n4 = ListNode(x: 4)
+// Set up references between the nodes
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 ```javascript title="linked_list.js"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+const n0 = new ListNode(1);
+const n1 = new ListNode(3);
+const n2 = new ListNode(2);
+const n3 = new ListNode(5);
+const n4 = new ListNode(4);
+// Set up references between the nodes
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```typescript title="linked_list.ts"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+const n0 = new ListNode(1);
+const n1 = new ListNode(3);
+const n2 = new ListNode(2);
+const n3 = new ListNode(5);
+const n4 = new ListNode(4);
+// Set up references between the nodes
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```dart title="linked_list.dart"
-[file]{linked_list}-[region]{init_linked_list}
+// Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
+// Initialize the individual nodes
+ListNode n0 = ListNode(1);
+ListNode n1 = ListNode(3);
+ListNode n2 = ListNode(2);
+ListNode n3 = ListNode(5);
+ListNode n4 = ListNode(4);
+// Set up references between the nodes
+n0.next = n1;
+n1.next = n2;
+n2.next = n3;
+n3.next = n4;
 ```
 
 ```rust title="linked_list.rs"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+let n0 = ListNode::new(1);
+let n1 = ListNode::new(3);
+let n2 = ListNode::new(2);
+let n3 = ListNode::new(5);
+let n4 = ListNode::new(4);
+
+// Set up references between the nodes
+n0.borrow_mut().next = Some(n1.clone());
+n1.borrow_mut().next = Some(n2.clone());
+n2.borrow_mut().next = Some(n3.clone());
+n3.borrow_mut().next = Some(n4.clone());
 ```
 
 ```c title="linked_list.c"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+ListNode *n0 = newListNode(1);
+ListNode *n1 = newListNode(3);
+ListNode *n2 = newListNode(2);
+ListNode *n3 = newListNode(5);
+ListNode *n4 = newListNode(4);
+// Set up references between the nodes
+n0->next = n1;
+n1->next = n2;
+n2->next = n3;
+n3->next = n4;
 ```
 
 ```kotlin title="linked_list.kt"
-[file]{linked_list}-[region]{init_linked_list}
+/* Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4 */
+// Initialize the individual nodes
+val n0 = ListNode(1)
+val n1 = ListNode(3)
+val n2 = ListNode(2)
+val n3 = ListNode(5)
+val n4 = ListNode(4)
+
+// Set up references between the nodes
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 ```ruby title="linked_list.rb"
-[file]{linked_list}-[region]{init_linked_list}
+# Initialize the linked list 1 -> 3 -> 2 -> 5 -> 4
+# Initialize the individual nodes
+n0 = ListNode.new(1)
+n1 = ListNode.new(3)
+n2 = ListNode.new(2)
+n3 = ListNode.new(5)
+n4 = ListNode.new(4)
+# Set up references between the nodes
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 <!-- [tutor]{init_linked_list_tutor} -->
@@ -124,19 +359,48 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+class ListNode:
+    """Doubly linked list node"""
+
+    def __init__(self, val: int):
+        """Constructor"""
+        self.val: int = val  # Node value
+        self.next: ListNode | None = None  # Reference to the next node
+        self.prev: ListNode | None = None  # Reference to the previous node
 ```
 
 ```cpp title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+struct DoublyListNode {
+    int val;              // Node value
+    DoublyListNode *next; // Pointer to the next node
+    DoublyListNode *prev; // Pointer to the previous node
+    DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+    }
+};
 ```
 
 ```java title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+class ListNode {
+    int val;       // Node value
+    ListNode next; // Reference to the next node
+    ListNode prev; // Reference to the previous node
+
+    ListNode(int val) {
+        this.val = val;
+        prev = next = null;
+    }
+}
 ```
 
 ```csharp title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+public class ListNode(int val) {
+    public int val = val;         // Node value
+    public ListNode? next = null; // Reference to the next node
+    public ListNode? prev = null; // Reference to the previous node
+}
 ```
 
 ```go title=""
@@ -158,35 +422,119 @@ func NewDoublyListNode(val int) *DoublyListNode {
 ```
 
 ```swift title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+class ListNode {
+    var val: Int // Node value
+    var next: ListNode? // Reference to the next node
+    weak var prev: ListNode? // Reference to the previous node
+
+    init(val: Int) {
+        self.val = val
+    }
+}
 ```
 
 ```javascript title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+class ListNode {
+    prev; // Reference (pointer) to the previous node
+    next; // Reference (pointer) to the next node
+    val; // Node value
+
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
+    }
+}
 ```
 
 ```typescript title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+class ListNode {
+    prev: ListNode | null; // Reference (pointer) to the previous node
+    next: ListNode | null; // Reference (pointer) to the next node
+    val: number; // Node value
+
+    constructor(val: number) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
+    }
+}
 ```
 
 ```dart title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+class ListNode {
+  int val; // Node value
+  ListNode? next; // Reference to the next node
+  ListNode? prev; // Reference to the previous node
+
+  ListNode(this.val, {this.next, this.prev});
+}
 ```
 
 ```rust title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{import}
+use std::cell::RefCell;
+use std::rc::Rc;
 
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+pub struct ListNode<T> {
+    pub val: T,                                 // Node value
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the next node
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // Pointer to the previous node
+}
+
+impl<T> ListNode<T> {
+    pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+        Rc::new(RefCell::new(ListNode {
+            val,
+            next: None,
+            prev: None,
+        }))
+    }
+}
 ```
 
 ```c title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+typedef struct DoublyListNode {
+    int val;                     // Node value
+    struct DoublyListNode *next; // Pointer to the next node
+    struct DoublyListNode *prev; // Pointer to the previous node
+} DoublyListNode;
+
+/* Constructor */
+DoublyListNode *newDoublyListNode(int num) {
+    DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
+    new->val = num;
+    new->next = NULL;
+    new->prev = NULL;
+    return new;
+}
 ```
 
 ```kotlin title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+/* Doubly linked list node */
+class ListNode(
+    var _val: Int // The node value is stored in _val
+) {
+    var next: ListNode? = null // Reference to the next node
+    var prev: ListNode? = null // Reference to the previous node
+}
 ```
 
 ```ruby title=""
-[file]{chapter_stack_and_queue/linkedlist_deque}-[region]{doubly_list_node}
+### Doubly linked list node ###
+class ListNode
+  attr_accessor :val  # Node value
+  attr_accessor :next # Reference to the next node
+  attr_accessor :prev # Reference to the previous node
+
+  ### Constructor ###
+  def initialize(val)
+    @val = val
+  end
+end
 ```

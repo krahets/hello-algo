@@ -10,51 +10,37 @@ import java.util.*;
 
 public class deque {
     public static void main(String[] args) {
-        // [region]{init_deque}
         /* 両端キューを初期化する */
         Deque<Integer> deque = new LinkedList<>();
-        // [endregion]{init_deque}
-
-        // [region]{push}
-        /* 要素をエンキューする */
-        deque.offerLast(2); // キューの末尾に追加する
+        deque.offerLast(3);
+        deque.offerLast(2);
         deque.offerLast(5);
-        deque.offerLast(4);
-        deque.offerFirst(3); // キューの先頭に追加する
-        deque.offerFirst(1);
-        // [endregion]{push}
         System.out.println("両端キュー deque = " + deque);
 
-        // [region]{peek_first}
         /* 要素にアクセスする */
-        int peekFirst = deque.peekFirst(); // キューの先頭要素
-        // [endregion]{peek_first}
+        int peekFirst = deque.peekFirst();
         System.out.println("キューの先頭要素 peekFirst = " + peekFirst);
-        // [region]{peek_last}
-        int peekLast = deque.peekLast(); // キューの末尾要素
-        // [endregion]{peek_last}
+        int peekLast = deque.peekLast();
         System.out.println("キューの末尾要素 peekLast = " + peekLast);
 
-        // [region]{pop_first}
-        /* 要素をデキューする */
-        int popFirst = deque.pollFirst(); // キューの先頭要素をデキューする
-        // [endregion]{pop_first}
-        System.out.println("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後 deque = " + deque);
-        // [region]{pop_last}
-        int popLast = deque.pollLast(); // キューの末尾要素をデキューする
-        // [endregion]{pop_last}
-        System.out.println("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後 deque = " + deque);
+        /* 要素をエンキューする */
+        deque.offerLast(4);
+        System.out.println("要素 4 を末尾にエンキューした後 deque = " + deque);
+        deque.offerFirst(1);
+        System.out.println("要素 1 を先頭にエンキューした後 deque = " + deque);
 
-        // [region]{size}
+        /* 要素をデキューする */
+        int popLast = deque.pollLast();
+        System.out.println("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後 deque = " + deque);
+        int popFirst = deque.pollFirst();
+        System.out.println("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後 deque = " + deque);
+
         /* 両端キューの長さを取得する */
         int size = deque.size();
-        // [endregion]{size}
         System.out.println("両端キューの長さ size = " + size);
 
-        // [region]{is_empty}
         /* 両端キューが空かどうかを判定する */
         boolean isEmpty = deque.isEmpty();
-        // [endregion]{is_empty}
         System.out.println("両端キューは空か = " + isEmpty);
     }
 }

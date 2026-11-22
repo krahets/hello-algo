@@ -16,15 +16,13 @@ import (
 
 /* 실행 코드 */
 func TestArray(t *testing.T) {
-	// [region]{init_array}
 	/* 배열 초기화 */
 	var arr [5]int
+	fmt.Println("배열 arr =", arr)
 	// Go에서 길이를 지정한 [5]int는 배열이고, 길이를 지정하지 않은 []int는 슬라이스다
 	// Go의 배열은 컴파일 시점에 길이가 정해지도록 설계되어 있으므로 상수로만 길이를 지정할 수 있다
 	// 용량을 늘리는 extend() 함수를 쉽게 구현하기 위해 아래에서는 슬라이스(Slice)를 배열(Array)로 취급한다
 	nums := []int{1, 3, 2, 5, 4}
-	// [endregion]{init_array}
-	fmt.Println("배열 arr =", arr)
 	fmt.Println("배열 nums =", nums)
 
 	/* 임의 접근 */

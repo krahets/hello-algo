@@ -1,164 +1,275 @@
 <!-- [snippet]{deque_operations} -->
 ```python title="deque.py"
-[file]{deque}-[region]{import_deque}
+from collections import deque
 
-[file]{deque}-[region]{init_deque}
+# 初始化双向队列
+deq: deque[int] = deque()
 
-[file]{deque}-[region]{push}
+# 元素入队
+deq.append(2)  # 添加至队尾
+deq.append(5)
+deq.append(4)
+deq.appendleft(3)  # 添加至队首
+deq.appendleft(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+# 访问元素
+front: int = deq[0]  # 队首元素
+rear: int = deq[-1]  # 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+# 元素出队
+pop_front: int = deq.popleft()  # 队首元素出队
+pop_rear: int = deq.pop()  # 队尾元素出队
 
-[file]{deque}-[region]{size}
+# 获取双向队列的长度
+size: int = len(deq)
 
-[file]{deque}-[region]{is_empty}
+# 判断双向队列是否为空
+is_empty: bool = len(deq) == 0
 ```
 
 ```cpp title="deque.cpp"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+deque<int> deque;
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.push_back(2); // 添加至队尾
+deque.push_back(5);
+deque.push_back(4);
+deque.push_front(3); // 添加至队首
+deque.push_front(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+int front = deque.front(); // 队首元素
+int back = deque.back(); // 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+deque.pop_front(); // 队首元素出队
+deque.pop_back(); // 队尾元素出队
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+int size = deque.size();
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+bool empty = deque.empty();
 ```
 
 ```java title="deque.java"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+Deque<Integer> deque = new LinkedList<>();
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.offerLast(2); // 添加至队尾
+deque.offerLast(5);
+deque.offerLast(4);
+deque.offerFirst(3); // 添加至队首
+deque.offerFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+int peekFirst = deque.peekFirst(); // 队首元素
+int peekLast = deque.peekLast(); // 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+int popFirst = deque.pollFirst(); // 队首元素出队
+int popLast = deque.pollLast(); // 队尾元素出队
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+int size = deque.size();
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+boolean isEmpty = deque.isEmpty();
 ```
 
 ```csharp title="deque.cs"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+// 在 C# 中，将链表 LinkedList 当作双向队列来使用
+LinkedList<int> deque = new();
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.AddLast(2);   // 添加至队尾
+deque.AddLast(5);
+deque.AddLast(4);
+deque.AddFirst(3);  // 添加至队首
+deque.AddFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+int? peekFirst = deque.First?.Value;  // 队首元素
+int? peekLast = deque.Last?.Value;    // 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+deque.RemoveFirst();  // 队首元素出队
+deque.RemoveLast();   // 队尾元素出队
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+int size = deque.Count;
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+bool isEmpty = deque.Count == 0;
 ```
 
 ```go title="deque_test.go"
-[file]{deque_test}-[region]{init_deque}
+/* 初始化双向队列 */
+// 在 Go 中，将 list 作为双向队列使用
+deque := list.New()
 
-[file]{deque_test}-[region]{push}
+/* 元素入队 */
+deque.PushBack(2) // 添加至队尾
+deque.PushBack(5)
+deque.PushBack(4)
+deque.PushFront(3) // 添加至队首
+deque.PushFront(1)
 
-[file]{deque_test}-[region]{peek_first}
-[file]{deque_test}-[region]{peek_last}
+/* 访问元素 */
+front := deque.Front() // 队首元素
+rear := deque.Back() // 队尾元素
 
-[file]{deque_test}-[region]{pop_first}
-[file]{deque_test}-[region]{pop_last}
+/* 元素出队 */
+deque.Remove(front) // 队首元素出队
+deque.Remove(rear) // 队尾元素出队
 
-[file]{deque_test}-[region]{size}
+/* 获取双向队列的长度 */
+size := deque.Len()
 
-[file]{deque_test}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+isEmpty := deque.Len() == 0
 ```
 
 ```swift title="deque.swift"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+// Swift 没有内置的双向队列类，可以把 Array 当作双向队列来使用
+var deque: [Int] = []
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.append(2) // 添加至队尾
+deque.append(5)
+deque.append(4)
+deque.insert(3, at: 0) // 添加至队首
+deque.insert(1, at: 0)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+let peekFirst = deque.first! // 队首元素
+let peekLast = deque.last! // 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+// 使用 Array 模拟时 popFirst 的复杂度为 O(n)
+let popFirst = deque.removeFirst() // 队首元素出队
+let popLast = deque.removeLast() // 队尾元素出队
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+let size = deque.count
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+let isEmpty = deque.isEmpty
 ```
 
 ```javascript title="deque.js"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+// JavaScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
+const deque = [];
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.push(2);
+deque.push(5);
+deque.push(4);
+// 请注意，由于是数组，unshift() 方法的时间复杂度为 O(n)
+deque.unshift(3);
+deque.unshift(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+const peekFirst = deque[0];
+const peekLast = deque[deque.length - 1];
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+// 请注意，由于是数组，shift() 方法的时间复杂度为 O(n)
+const popFront = deque.shift();
+const popBack = deque.pop();
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+const size = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+const isEmpty = size === 0;
 ```
 
 ```typescript title="deque.ts"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+// TypeScript 没有内置的双端队列，只能把 Array 当作双端队列来使用
+const deque: number[] = [];
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.push(2);
+deque.push(5);
+deque.push(4);
+// 请注意，由于是数组，unshift() 方法的时间复杂度为 O(n)
+deque.unshift(3);
+deque.unshift(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+const peekFirst: number = deque[0];
+const peekLast: number = deque[deque.length - 1];
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+// 请注意，由于是数组，shift() 方法的时间复杂度为 O(n)
+const popFront: number = deque.shift() as number;
+const popBack: number = deque.pop() as number;
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+const size: number = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+const isEmpty: boolean = size === 0;
 ```
 
 ```dart title="deque.dart"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+// 在 Dart 中，Queue 被定义为双向队列
+final Queue<int> deque = Queue();
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.addLast(2); // 添加至队尾
+deque.addLast(5);
+deque.addLast(4);
+deque.addFirst(3); // 添加至队首
+deque.addFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+final int peekFirst = deque.first; // 队首元素
+final int peekLast = deque.last; // 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+final int popFirst = deque.removeFirst(); // 队首元素出队
+final int popLast = deque.removeLast(); // 队尾元素出队
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+final int size = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+final bool isEmpty = deque.isEmpty;
 ```
 
 ```rust title="deque.rs"
-[file]{deque}-[region]{init_deque}
+// 初始化双向队列
+let mut deque: VecDeque<i32> = VecDeque::new();
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.push_back(2); // 添加至队尾
+deque.push_back(5);
+deque.push_back(4);
+deque.push_front(3); // 添加至队首
+deque.push_front(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+// 访问元素
+let peek_first = deque.front().unwrap(); // 队首元素
+let peek_last = deque.back().unwrap(); // 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+// 元素出队
+let pop_first = deque.pop_front().unwrap(); // 队首元素出队
+let pop_last = deque.pop_back().unwrap(); // 队尾元素出队
 
-[file]{deque}-[region]{size}
+// 获取双向队列的长度
+let size = deque.len();
 
-[file]{deque}-[region]{is_empty}
+// 判断双向队列是否为空
+let is_empty = deque.is_empty();
 ```
 
 ```c title="deque.c"
@@ -166,35 +277,58 @@
 ```
 
 ```kotlin title="deque.kt"
-[file]{deque}-[region]{init_deque}
+/* 初始化双向队列 */
+val deque = LinkedList<Int>()
 
-[file]{deque}-[region]{push}
+/* 元素入队 */
+deque.offerLast(2) // 添加至队尾
+deque.offerLast(5)
+deque.offerLast(4)
+deque.offerFirst(3) // 添加至队首
+deque.offerFirst(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 访问元素 */
+val peekFirst = deque.peekFirst() // 队首元素
+val peekLast = deque.peekLast() // 队尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出队 */
+val popFirst = deque.pollFirst() // 队首元素出队
+val popLast = deque.pollLast() // 队尾元素出队
 
-[file]{deque}-[region]{size}
+/* 获取双向队列的长度 */
+val size = deque.size
 
-[file]{deque}-[region]{is_empty}
+/* 判断双向队列是否为空 */
+val isEmpty = deque.isEmpty()
 ```
 
 ```ruby title="deque.rb"
-[file]{deque}-[region]{init_deque}
+# 初始化双向队列
+# Ruby 没有内置的双端队列，只能把 Array 当作双端队列来使用
+deque = []
 
-[file]{deque}-[region]{push}
+# 元素入队
+deque << 2
+deque << 5
+deque << 4
+# 请注意，由于是数组，Array#unshift 方法的时间复杂度为 O(n)
+deque.unshift(3)
+deque.unshift(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+# 访问元素
+peek_first = deque.first
+peek_last = deque.last
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+# 元素出队
+# 请注意，由于是数组，Array#shift 方法的时间复杂度为 O(n)
+pop_front = deque.shift
+pop_back = deque.pop
 
-[file]{deque}-[region]{size}
+# 获取双向队列的长度
+size = deque.length
 
-[file]{deque}-[region]{is_empty}
+# 判断双向队列是否为空
+is_empty = size.zero?
 ```
 
 <!-- [tutor]{deque_operations_tutor} -->

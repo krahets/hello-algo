@@ -12,47 +12,35 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	// [region]{init_stack}
 	/* スタックを初期化する */
 	// Go では Slice をスタックとして使うことを推奨する
 	var stack []int
-	// [endregion]{init_stack}
 
-	// [region]{push}
 	/* 要素をプッシュする */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
-	// [endregion]{push}
 	fmt.Print("スタック stack = ")
 	PrintSlice(stack)
 
-	// [region]{peek}
 	/* スタックの先頭要素にアクセスする */
 	peek := stack[len(stack)-1]
-	// [endregion]{peek}
 	fmt.Println("スタックの先頭要素 peek =", peek)
 
-	// [region]{pop}
 	/* 要素をポップする */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	// [endregion]{pop}
 	fmt.Print("ポップした要素 pop = ", pop, "、ポップ後 stack = ")
 	PrintSlice(stack)
 
-	// [region]{size}
 	/* スタックの長さを取得する */
 	size := len(stack)
-	// [endregion]{size}
 	fmt.Println("スタックの長さ size =", size)
 
-	// [region]{is_empty}
 	/* 空かどうかを判定する */
 	isEmpty := len(stack) == 0
-	// [endregion]{is_empty}
 	fmt.Println("スタックは空か =", isEmpty)
 }
 

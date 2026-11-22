@@ -10,73 +10,56 @@ import utils.*;
 import java.util.*;
 
 public class heap {
+    public static void testPush(Queue<Integer> heap, int val) {
+        heap.offer(val); // Добавление элемента в кучу
+        System.out.format("\nПосле добавления элемента %d в кучу\n", val);
+        PrintUtil.printHeap(heap);
+    }
+
+    public static void testPop(Queue<Integer> heap) {
+        int val = heap.poll(); // Извлечение элемента с вершины кучи
+        System.out.format("\nПосле удаления элемента %d с вершины кучи\n", val);
+        PrintUtil.printHeap(heap);
+    }
+
     public static void main(String[] args) {
-        // [region]{init}
         /* Инициализация кучи */
         // Инициализация минимальной кучи
         Queue<Integer> minHeap = new PriorityQueue<>();
         // Инициализация максимальной кучи (достаточно изменить Comparator с помощью lambda-выражения)
         Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
-        // [endregion]{init}
 
         System.out.println("\nНиже приведен тестовый пример для max-heap");
 
-        // [region]{push}
         /* Добавление элемента в кучу */
-        maxHeap.offer(1);
-        maxHeap.offer(3);
-        maxHeap.offer(2);
-        maxHeap.offer(5);
-        maxHeap.offer(4);
-        // [endregion]{push}
-        PrintUtil.printHeap(maxHeap);
+        testPush(maxHeap, 1);
+        testPush(maxHeap, 3);
+        testPush(maxHeap, 2);
+        testPush(maxHeap, 5);
+        testPush(maxHeap, 4);
 
-        // [region]{peek}
         /* Получение элемента с вершины кучи */
-        int peek = maxHeap.peek(); // 5
-        // [endregion]{peek}
+        int peek = maxHeap.peek();
         System.out.format("\nЭлемент на вершине кучи = %d\n", peek);
 
-        // [region]{pop_1}
         /* Извлечение элемента с вершины кучи */
-        // Извлеченные элементы образуют последовательность по убыванию
-        peek = maxHeap.poll(); // 5
-        // [endregion]{pop_1}
-        System.out.format("Извлеченный элемент = %d\n", peek);
-        // [region]{pop_2}
-        peek = maxHeap.poll(); // 4
-        // [endregion]{pop_2}
-        System.out.format("Извлеченный элемент = %d\n", peek);
-        // [region]{pop_3}
-        peek = maxHeap.poll(); // 3
-        // [endregion]{pop_3}
-        System.out.format("Извлеченный элемент = %d\n", peek);
-        // [region]{pop_4}
-        peek = maxHeap.poll(); // 2
-        // [endregion]{pop_4}
-        System.out.format("Извлеченный элемент = %d\n", peek);
-        // [region]{pop_5}
-        peek = maxHeap.poll(); // 1
-        // [endregion]{pop_5}
-        System.out.format("Извлеченный элемент = %d\n", peek);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
+        testPop(maxHeap);
 
-        // [region]{size}
         /* Получение размера кучи */
         int size = maxHeap.size();
-        // [endregion]{size}
         System.out.format("\nКоличество элементов в куче = %d\n", size);
 
-        // [region]{is_empty}
         /* Проверка, пуста ли куча */
         boolean isEmpty = maxHeap.isEmpty();
-        // [endregion]{is_empty}
         System.out.format("\nПуста ли куча: %b\n", isEmpty);
 
-        // [region]{heapify}
         /* Построить кучу по входному списку */
         // Временная сложность равна O(n), а не O(nlogn)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        // [endregion]{heapify}
         System.out.println("\nПосле построения min-heap из входного списка");
         PrintUtil.printHeap(minHeap);
     }

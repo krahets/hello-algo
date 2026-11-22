@@ -1,42 +1,84 @@
 <!-- [snippet]{init_list} -->
 ```python title="list.py"
-[file]{list}-[region]{init_list}
+# Initialize the list
+# Without initial values
+empty_nums: list[int] = []
+# With initial values
+nums: list[int] = [1, 3, 2, 5, 4]
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+vector<int> emptyNums;
+// With initial values
+vector<int> nums = {1, 3, 2, 5, 4};
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+List<Integer> emptyNums = new ArrayList<>();
+// With initial values (note that the array type must be Integer[] rather than int[], because list elements must use Integer, the wrapper class for int)
+Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
+List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+List<int> emptyNums = [];
+// With initial values
+int[] numbers = [1, 3, 2, 5, 4];
+List<int> nums = [.. numbers];
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+emptyNums := []int{}
+// With initial values
+nums := []int{1, 3, 2, 5, 4}
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+let emptyNums: [Int] = []
+// With initial values
+var nums = [1, 3, 2, 5, 4]
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+const emptyNums = [];
+// With initial values
+const nums = [1, 3, 2, 5, 4];
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+const emptyNums: number[] = [];
+// With initial values
+const nums: number[] = [1, 3, 2, 5, 4];
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+List<int> emptyNums = [];
+// With initial values
+List<int> nums = [1, 3, 2, 5, 4];
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{init_list}
+// Initialize the list
+// Without initial values
+let empty_nums: Vec<i32> = Vec::new();
+// With initial values
+let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```c title="list.c"
@@ -44,11 +86,19 @@
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{init_list}
+/* Initialize the list */
+// Without initial values
+val emptyNums = mutableListOf<Int>()
+// With initial values
+val nums = mutableListOf(1, 3, 2, 5, 4)
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{init_list}
+# Initialize the list
+# Without initial values
+empty_nums = []
+# With initial values
+nums = [1, 3, 2, 5, 4]
 ```
 
 <!-- [tutor]{init_list_tutor} -->
@@ -56,63 +106,83 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
-[file]{list}-[region]{access_element}
+# Access an element
+x: int = nums[1]  # Access the element at index 1
 
-[file]{list}-[region]{update_element}
+# Update an element
+nums[1] = 0  # Update the element at index 1 to 0
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{access_element}
+/* Access an element */
+int num = nums[1]; // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums[1] = 0; // Update the element at index 1 to 0
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{access_element}
+/* Access an element */
+int num = nums.get(1); // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums.set(1, 0); // Update the element at index 1 to 0
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{access_element}
+/* Access an element */
+int num = nums[1]; // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums[1] = 0; // Update the element at index 1 to 0
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{access_element}
+/* Access an element */
+num := nums[1] // Access the element at index 1
 
-[file]{list_test}-[region]{update_element}
+/* Update an element */
+nums[1] = 0 // Update the element at index 1 to 0
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{access_element}
+/* Access an element */
+let num = nums[1] // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums[1] = 0 // Update the element at index 1 to 0
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{access_element}
+/* Access an element */
+const num = nums[1]; // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums[1] = 0; // Update the element at index 1 to 0
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{access_element}
+/* Access an element */
+const num: number = nums[1]; // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums[1] = 0; // Update the element at index 1 to 0
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{access_element}
+/* Access an element */
+int _num = nums[1]; // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums[1] = 0; // Update the element at index 1 to 0
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{access_element}
+// Access an element
+let num = nums[1]; // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+// Update an element
+nums[1] = 0; // Update the element at index 1 to 0
 ```
 
 ```c title="list.c"
@@ -120,15 +190,19 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{access_element}
+/* Access an element */
+val num = nums[1] // Access the element at index 1
 
-[file]{list}-[region]{update_element}
+/* Update an element */
+nums[1] = 0 // Update the element at index 1 to 0
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{access_element}
+# Access an element
+num = nums[1] # Access the element at index 1
 
-[file]{list}-[region]{update_element}
+# Update an element
+nums[1] = 0 # Update the element at index 1 to 0
 ```
 
 <!-- [tutor]{access_element_tutor} -->
@@ -136,103 +210,183 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"
-[file]{list}-[region]{clear_list}
+# Clear the list
+nums.clear()
 
-[file]{list}-[region]{append_element}
+# Append an element at the end
+nums.append(1)
+nums.append(3)
+nums.append(2)
+nums.append(5)
+nums.append(4)
 
-[file]{list}-[region]{insert_element}
+# Insert an element in the middle
+nums.insert(3, 6)  # Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+# Remove an element
+nums.pop(3)  # Remove the element at index 3
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* Append an element at the end */
+nums.push_back(1);
+nums.push_back(3);
+nums.push_back(2);
+nums.push_back(5);
+nums.push_back(4);
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.insert(nums.begin() + 3, 6); // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.erase(nums.begin() + 3); // Remove the element at index 3
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* Append at the end */
+nums.add(1);
+nums.add(3);
+nums.add(2);
+nums.add(5);
+nums.add(4);
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.add(3, 6); // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.remove(3); // Remove the element at index 3
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.Clear();
 
-[file]{list}-[region]{append_element}
+/* Append at the end */
+nums.Add(1);
+nums.Add(3);
+nums.Add(2);
+nums.Add(5);
+nums.Add(4);
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.Insert(3, 6); // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.RemoveAt(3); // Remove the element at index 3
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{clear_list}
+/* Clear the list */
+nums = nil
 
-[file]{list_test}-[region]{append_element}
+/* Append at the end */
+nums = append(nums, 1)
+nums = append(nums, 3)
+nums = append(nums, 2)
+nums = append(nums, 5)
+nums = append(nums, 4)
 
-[file]{list_test}-[region]{insert_element}
+/* Insert an element in the middle */
+nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert the number 6 at index 3
 
-[file]{list_test}-[region]{remove_element}
+/* Remove an element */
+nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.removeAll()
 
-[file]{list}-[region]{append_element}
+/* Append at the end */
+nums.append(1)
+nums.append(3)
+nums.append(2)
+nums.append(5)
+nums.append(4)
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.insert(6, at: 3) // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.remove(at: 3) // Remove the element at index 3
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.length = 0;
 
-[file]{list}-[region]{append_element}
+/* Append an element at the end */
+nums.push(1);
+nums.push(3);
+nums.push(2);
+nums.push(5);
+nums.push(4);
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.splice(3, 0, 6); // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.splice(3, 1); // Remove the element at index 3
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.length = 0;
 
-[file]{list}-[region]{append_element}
+/* Append an element at the end */
+nums.push(1);
+nums.push(3);
+nums.push(2);
+nums.push(5);
+nums.push(4);
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.splice(3, 0, 6); // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.splice(3, 1); // Remove the element at index 3
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.clear();
 
-[file]{list}-[region]{append_element}
+/* Append an element at the end */
+nums.add(1);
+nums.add(3);
+nums.add(2);
+nums.add(5);
+nums.add(4);
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.insert(3, 6); // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.removeAt(3); // Remove the element at index 3
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{clear_list}
+// Clear the list
+nums.clear();
 
-[file]{list}-[region]{append_element}
+// Append an element at the end
+nums.push(1);
+nums.push(3);
+nums.push(2);
+nums.push(5);
+nums.push(4);
 
-[file]{list}-[region]{insert_element}
+// Insert an element in the middle
+nums.insert(3, 6); // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+// Remove an element
+nums.remove(3); // Remove the element at index 3
 ```
 
 ```c title="list.c"
@@ -240,23 +394,39 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{clear_list}
+/* Clear the list */
+nums.clear()
 
-[file]{list}-[region]{append_element}
+/* Append at the end */
+nums.add(1)
+nums.add(3)
+nums.add(2)
+nums.add(5)
+nums.add(4)
 
-[file]{list}-[region]{insert_element}
+/* Insert an element in the middle */
+nums.add(3, 6) // Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+/* Remove an element */
+nums.removeAt(3) // Remove the element at index 3
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{clear_list}
+# Clear the list
+nums.clear
 
-[file]{list}-[region]{append_element}
+# Append an element at the end
+nums << 1
+nums << 3
+nums << 2
+nums << 5
+nums << 4
 
-[file]{list}-[region]{insert_element}
+# Insert an element in the middle
+nums.insert(3, 6) # Insert the number 6 at index 3
 
-[file]{list}-[region]{remove_element}
+# Remove an element
+nums.delete_at(3) # Remove the element at index 3
 ```
 
 <!-- [tutor]{insert_remove_element_tutor} -->
@@ -264,43 +434,139 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{iterate_list} -->
 ```python title="list.py"
-[file]{list}-[region]{iterate_list}
+# Traverse the list by index
+count = 0
+for i in range(len(nums)):
+    count += nums[i]
+
+# Iterate directly over the list elements
+for num in nums:
+    count += num
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+int count = 0;
+for (int i = 0; i < nums.size(); i++) {
+    count += nums[i];
+}
+
+/* Iterate directly over the list elements */
+count = 0;
+for (int x : nums) {
+    count += x;
+}
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+int count = 0;
+for (int i = 0; i < nums.size(); i++) {
+    count += nums.get(i);
+}
+
+/* Iterate directly over the list elements */
+for (int x : nums) {
+    count += x;
+}
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+int count = 0;
+for (int i = 0; i < nums.Count; i++) {
+    count += nums[i];
+}
+
+/* Iterate directly over the list elements */
+count = 0;
+foreach (int x in nums) {
+    count += x;
+}
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{iterate_list}
+/* Traverse the list by index */
+count := 0
+for i := 0; i < len(nums); i++ {
+    count += nums[i]
+}
+
+/* Iterate directly over the list elements */
+count = 0
+for _, x := range nums {
+    count += x
+}
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+var count = 0
+for i in nums.indices {
+    count += nums[i]
+}
+
+/* Iterate directly over the list elements */
+count = 0
+for x in nums {
+    count += x
+}
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+let count = 0;
+for (let i = 0; i < nums.length; i++) {
+    count += nums[i];
+}
+
+/* Iterate directly over the list elements */
+count = 0;
+for (const x of nums) {
+    count += x;
+}
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+let count = 0;
+for (let i = 0; i < nums.length; i++) {
+    count += nums[i];
+}
+
+/* Iterate directly over the list elements */
+count = 0;
+for (const x of nums) {
+    count += x;
+}
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+int count = 0;
+for (var i = 0; i < nums.length; i++) {
+  count += nums[i];
+}
+
+/* Iterate directly over the list elements */
+count = 0;
+for (var x in nums) {
+  count += x;
+}
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{iterate_list}
+// Traverse the list by index
+let mut _count = 0;
+for i in 0..nums.len() {
+    _count += nums[i];
+}
+
+// Iterate directly over the list elements
+_count = 0;
+for x in &nums {
+    _count += x;
+}
 ```
 
 ```c title="list.c"
@@ -308,11 +574,30 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{iterate_list}
+/* Traverse the list by index */
+var count = 0
+for (i in nums.indices) {
+    count += nums[i]
+}
+
+/* Iterate directly over the list elements */
+for (j in nums) {
+    count += j
+}
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{iterate_list}
+# Traverse the list by index
+count = 0
+for i in 0...nums.length
+  count += nums[i]
+end
+
+# Iterate directly over the list elements
+count = 0
+nums.each do |x|
+  count += x
+end
 ```
 
 <!-- [tutor]{iterate_list_tutor} -->
@@ -320,43 +605,64 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{concat_list} -->
 ```python title="list.py"
-[file]{list}-[region]{concat_list}
+# Concatenate two lists
+nums1 = [6, 8, 7, 10, 9]
+nums += nums1  # Append list nums1 to nums
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+vector<int> nums1 = {6, 8, 7, 10, 9};
+// Append list nums1 to nums
+nums.insert(nums.end(), nums1.begin(), nums1.end());
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
+nums.addAll(nums1); // Append list nums1 to nums
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+List<int> nums1 = [6, 8, 7, 10, 9];
+nums.AddRange(nums1); // Append list nums1 to nums
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{concat_list}
+/* Concatenate two lists */
+nums1 := []int{6, 8, 7, 10, 9}
+nums = append(nums, nums1...) // Append list nums1 to nums
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+let nums1 = [6, 8, 7, 10, 9]
+nums.append(contentsOf: nums1) // Append list nums1 to nums
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+const nums1 = [6, 8, 7, 10, 9];
+nums.push(...nums1); // Append list nums1 to nums
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+const nums1: number[] = [6, 8, 7, 10, 9];
+nums.push(...nums1); // Append list nums1 to nums
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+List<int> nums1 = [6, 8, 7, 10, 9];
+nums.addAll(nums1); // Append list nums1 to nums
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{concat_list}
+// Concatenate two lists
+let mut nums1 = vec![6, 8, 7, 10, 9];
+nums.append(&mut nums1); // append moves the elements out of nums1, leaving nums1 empty
 ```
 
 ```c title="list.c"
@@ -364,11 +670,15 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{concat_list}
+/* Concatenate two lists */
+val nums1 = mutableListOf(6, 8, 7, 10, 9)
+nums.addAll(nums1) // Append list nums1 to nums
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{concat_list}
+# Concatenate two lists
+nums1 = [6, 8, 7, 10, 9]
+nums += nums1
 ```
 
 <!-- [tutor]{concat_list_tutor} -->
@@ -376,43 +686,53 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 
 <!-- [snippet]{sort_list} -->
 ```python title="list.py"
-[file]{list}-[region]{sort_list}
+# Sort the list
+nums.sort()  # After sorting, the list elements are in ascending order
 ```
 
 ```cpp title="list.cpp"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+sort(nums.begin(), nums.end()); // After sorting, the list elements are in ascending order
 ```
 
 ```java title="list.java"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+Collections.sort(nums); // After sorting, the list elements are in ascending order
 ```
 
 ```csharp title="list.cs"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+nums.Sort(); // After sorting, the list elements are in ascending order
 ```
 
 ```go title="list_test.go"
-[file]{list_test}-[region]{sort_list}
+/* Sort the list */
+sort.Ints(nums) // After sorting, the list elements are in ascending order
 ```
 
 ```swift title="list.swift"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+nums.sort() // After sorting, the list elements are in ascending order
 ```
 
 ```javascript title="list.js"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+nums.sort((a, b) => a - b); // After sorting, the list elements are in ascending order
 ```
 
 ```typescript title="list.ts"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+nums.sort((a, b) => a - b); // After sorting, the list elements are in ascending order
 ```
 
 ```dart title="list.dart"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+nums.sort(); // After sorting, the list elements are in ascending order
 ```
 
 ```rust title="list.rs"
-[file]{list}-[region]{sort_list}
+// Sort the list
+nums.sort(); // After sorting, the list elements are in ascending order
 ```
 
 ```c title="list.c"
@@ -420,11 +740,13 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 ```
 
 ```kotlin title="list.kt"
-[file]{list}-[region]{sort_list}
+/* Sort the list */
+nums.sort() // After sorting, the list elements are in ascending order
 ```
 
 ```ruby title="list.rb"
-[file]{list}-[region]{sort_list}
+# Sort the list
+nums = nums.sort { |a, b| a <=> b } # After sorting, the list elements are in ascending order
 ```
 
 <!-- [tutor]{sort_list_tutor} -->

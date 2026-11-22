@@ -6,7 +6,6 @@
 
 #include "../utils/common.hpp"
 
-// [region]{doubly_list_node}
 /* 이중 연결 리스트 노드 */
 struct DoublyListNode {
     int val;              // 노드 값
@@ -15,7 +14,6 @@ struct DoublyListNode {
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
 };
-// [endregion]{doubly_list_node}
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {

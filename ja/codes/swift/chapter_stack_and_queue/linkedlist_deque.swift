@@ -4,7 +4,6 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 class ListNode {
     var val: Int // ノードの値
@@ -15,7 +14,6 @@ class ListNode {
         self.val = val
     }
 }
-// [endregion]{doubly_list_node}
 
 /* 双方向連結リストで実装した両端キュー */
 class LinkedListDeque {

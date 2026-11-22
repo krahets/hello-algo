@@ -73,14 +73,13 @@ int main() {
     /* Инициализация генератора случайных чисел (выполняется один раз) */
     srand((unsigned)time(NULL));
 
-    // [region]{init_array}
     /* Инициализация массива */
-    int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
-    int nums[] = {1, 3, 2, 5, 4};
-    // [endregion]{init_array}
     int size = 5;
+    int arr[5] = {0};
     printf("Массив arr = ");
     printArray(arr, size);
+
+    int nums[] = {1, 3, 2, 5, 4};
     printf("Массив nums = ");
     printArray(nums, size);
 

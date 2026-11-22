@@ -1,164 +1,275 @@
 <!-- [snippet]{deque_operations} -->
 ```python title="deque.py"
-[file]{deque}-[region]{import_deque}
+from collections import deque
 
-[file]{deque}-[region]{init_deque}
+# 初始化雙向佇列
+deq: deque[int] = deque()
 
-[file]{deque}-[region]{push}
+# 元素入列
+deq.append(2)  # 新增至佇列尾
+deq.append(5)
+deq.append(4)
+deq.appendleft(3)  # 新增至佇列首
+deq.appendleft(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+# 訪問元素
+front: int = deq[0]  # 佇列首元素
+rear: int = deq[-1]  # 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+# 元素出列
+pop_front: int = deq.popleft()  # 佇列首元素出列
+pop_rear: int = deq.pop()  # 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+# 獲取雙向佇列的長度
+size: int = len(deq)
 
-[file]{deque}-[region]{is_empty}
+# 判斷雙向佇列是否為空
+is_empty: bool = len(deq) == 0
 ```
 
 ```cpp title="deque.cpp"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+deque<int> deque;
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.push_back(2); // 新增至佇列尾
+deque.push_back(5);
+deque.push_back(4);
+deque.push_front(3); // 新增至佇列首
+deque.push_front(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+int front = deque.front(); // 佇列首元素
+int back = deque.back(); // 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+deque.pop_front(); // 佇列首元素出列
+deque.pop_back(); // 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+int size = deque.size();
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+bool empty = deque.empty();
 ```
 
 ```java title="deque.java"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+Deque<Integer> deque = new LinkedList<>();
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.offerLast(2); // 新增至佇列尾
+deque.offerLast(5);
+deque.offerLast(4);
+deque.offerFirst(3); // 新增至佇列首
+deque.offerFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+int peekFirst = deque.peekFirst(); // 佇列首元素
+int peekLast = deque.peekLast(); // 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+int popFirst = deque.pollFirst(); // 佇列首元素出列
+int popLast = deque.pollLast(); // 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+int size = deque.size();
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+boolean isEmpty = deque.isEmpty();
 ```
 
 ```csharp title="deque.cs"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+// 在 C# 中，將鏈結串列 LinkedList 當作雙向佇列來使用
+LinkedList<int> deque = new();
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.AddLast(2);   // 新增至佇列尾
+deque.AddLast(5);
+deque.AddLast(4);
+deque.AddFirst(3);  // 新增至佇列首
+deque.AddFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+int? peekFirst = deque.First?.Value;  // 佇列首元素
+int? peekLast = deque.Last?.Value;    // 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+deque.RemoveFirst();  // 佇列首元素出列
+deque.RemoveLast();   // 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+int size = deque.Count;
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+bool isEmpty = deque.Count == 0;
 ```
 
 ```go title="deque_test.go"
-[file]{deque_test}-[region]{init_deque}
+/* 初始化雙向佇列 */
+// 在 Go 中，將 list 作為雙向佇列使用
+deque := list.New()
 
-[file]{deque_test}-[region]{push}
+/* 元素入列 */
+deque.PushBack(2) // 新增至佇列尾
+deque.PushBack(5)
+deque.PushBack(4)
+deque.PushFront(3) // 新增至佇列首
+deque.PushFront(1)
 
-[file]{deque_test}-[region]{peek_first}
-[file]{deque_test}-[region]{peek_last}
+/* 訪問元素 */
+front := deque.Front() // 佇列首元素
+rear := deque.Back() // 佇列尾元素
 
-[file]{deque_test}-[region]{pop_first}
-[file]{deque_test}-[region]{pop_last}
+/* 元素出列 */
+deque.Remove(front) // 佇列首元素出列
+deque.Remove(rear) // 佇列尾元素出列
 
-[file]{deque_test}-[region]{size}
+/* 獲取雙向佇列的長度 */
+size := deque.Len()
 
-[file]{deque_test}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+isEmpty := deque.Len() == 0
 ```
 
 ```swift title="deque.swift"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+// Swift 沒有內建的雙向佇列類別，可以把 Array 當作雙向佇列來使用
+var deque: [Int] = []
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.append(2) // 新增至佇列尾
+deque.append(5)
+deque.append(4)
+deque.insert(3, at: 0) // 新增至佇列首
+deque.insert(1, at: 0)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+let peekFirst = deque.first! // 佇列首元素
+let peekLast = deque.last! // 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+// 使用 Array 模擬時 popFirst 的複雜度為 O(n)
+let popFirst = deque.removeFirst() // 佇列首元素出列
+let popLast = deque.removeLast() // 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+let size = deque.count
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+let isEmpty = deque.isEmpty
 ```
 
 ```javascript title="deque.js"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+// JavaScript 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
+const deque = [];
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.push(2);
+deque.push(5);
+deque.push(4);
+// 請注意，由於是陣列，unshift() 方法的時間複雜度為 O(n)
+deque.unshift(3);
+deque.unshift(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+const peekFirst = deque[0];
+const peekLast = deque[deque.length - 1];
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+// 請注意，由於是陣列，shift() 方法的時間複雜度為 O(n)
+const popFront = deque.shift();
+const popBack = deque.pop();
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+const size = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+const isEmpty = size === 0;
 ```
 
 ```typescript title="deque.ts"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+// TypeScript 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
+const deque: number[] = [];
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.push(2);
+deque.push(5);
+deque.push(4);
+// 請注意，由於是陣列，unshift() 方法的時間複雜度為 O(n)
+deque.unshift(3);
+deque.unshift(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+const peekFirst: number = deque[0];
+const peekLast: number = deque[deque.length - 1];
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+// 請注意，由於是陣列，shift() 方法的時間複雜度為 O(n)
+const popFront: number = deque.shift() as number;
+const popBack: number = deque.pop() as number;
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+const size: number = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+const isEmpty: boolean = size === 0;
 ```
 
 ```dart title="deque.dart"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+// 在 Dart 中，Queue 被定義為雙向佇列
+final Queue<int> deque = Queue();
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.addLast(2); // 新增至佇列尾
+deque.addLast(5);
+deque.addLast(4);
+deque.addFirst(3); // 新增至佇列首
+deque.addFirst(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+final int peekFirst = deque.first; // 佇列首元素
+final int peekLast = deque.last; // 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+final int popFirst = deque.removeFirst(); // 佇列首元素出列
+final int popLast = deque.removeLast(); // 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+final int size = deque.length;
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+final bool isEmpty = deque.isEmpty;
 ```
 
 ```rust title="deque.rs"
-[file]{deque}-[region]{init_deque}
+// 初始化雙向佇列
+let mut deque: VecDeque<i32> = VecDeque::new();
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.push_back(2); // 新增至佇列尾
+deque.push_back(5);
+deque.push_back(4);
+deque.push_front(3); // 新增至佇列首
+deque.push_front(1);
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+// 訪問元素
+let peek_first = deque.front().unwrap(); // 佇列首元素
+let peek_last = deque.back().unwrap(); // 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+// 元素出列
+let pop_first = deque.pop_front().unwrap(); // 佇列首元素出列
+let pop_last = deque.pop_back().unwrap(); // 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+// 獲取雙向佇列的長度
+let size = deque.len();
 
-[file]{deque}-[region]{is_empty}
+// 判斷雙向佇列是否為空
+let is_empty = deque.is_empty();
 ```
 
 ```c title="deque.c"
@@ -166,35 +277,58 @@
 ```
 
 ```kotlin title="deque.kt"
-[file]{deque}-[region]{init_deque}
+/* 初始化雙向佇列 */
+val deque = LinkedList<Int>()
 
-[file]{deque}-[region]{push}
+/* 元素入列 */
+deque.offerLast(2) // 新增至佇列尾
+deque.offerLast(5)
+deque.offerLast(4)
+deque.offerFirst(3) // 新增至佇列首
+deque.offerFirst(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+/* 訪問元素 */
+val peekFirst = deque.peekFirst() // 佇列首元素
+val peekLast = deque.peekLast() // 佇列尾元素
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+/* 元素出列 */
+val popFirst = deque.pollFirst() // 佇列首元素出列
+val popLast = deque.pollLast() // 佇列尾元素出列
 
-[file]{deque}-[region]{size}
+/* 獲取雙向佇列的長度 */
+val size = deque.size
 
-[file]{deque}-[region]{is_empty}
+/* 判斷雙向佇列是否為空 */
+val isEmpty = deque.isEmpty()
 ```
 
 ```ruby title="deque.rb"
-[file]{deque}-[region]{init_deque}
+# 初始化雙向佇列
+# Ruby 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
+deque = []
 
-[file]{deque}-[region]{push}
+# 元素入列
+deque << 2
+deque << 5
+deque << 4
+# 請注意，由於是陣列，Array#unshift 方法的時間複雜度為 O(n)
+deque.unshift(3)
+deque.unshift(1)
 
-[file]{deque}-[region]{peek_first}
-[file]{deque}-[region]{peek_last}
+# 訪問元素
+peek_first = deque.first
+peek_last = deque.last
 
-[file]{deque}-[region]{pop_first}
-[file]{deque}-[region]{pop_last}
+# 元素出列
+# 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
+pop_front = deque.shift
+pop_back = deque.pop
 
-[file]{deque}-[region]{size}
+# 獲取雙向佇列的長度
+size = deque.length
 
-[file]{deque}-[region]{is_empty}
+# 判斷雙向佇列是否為空
+is_empty = size.zero?
 ```
 
 <!-- [tutor]{deque_operations_tutor} -->

@@ -8,12 +8,9 @@
 
 /* Driver Code */
 int main() {
-    // [region]{init_hash_map}
     /* 初始化雜湊表 */
     unordered_map<int, string> map;
-    // [endregion]{init_hash_map}
 
-    // [region]{add_pairs}
     /* 新增操作 */
     // 在雜湊表中新增鍵值對 (key, value)
     map[12836] = "小哈";
@@ -21,41 +18,29 @@ int main() {
     map[16750] = "小算";
     map[13276] = "小法";
     map[10583] = "小鴨";
-    // [endregion]{add_pairs}
     cout << "\n新增完成後，雜湊表為\nKey -> Value" << endl;
     printHashMap(map);
 
-    // [region]{get_value}
     /* 查詢操作 */
     // 向雜湊表中輸入鍵 key ，得到值 value
     string name = map[15937];
-    // [endregion]{get_value}
     cout << "\n輸入學號 15937 ，查詢到姓名 " << name << endl;
 
-    // [region]{remove_pair}
     /* 刪除操作 */
     // 在雜湊表中刪除鍵值對 (key, value)
     map.erase(10583);
-    // [endregion]{remove_pair}
     cout << "\n刪除 10583 後，雜湊表為\nKey -> Value" << endl;
     printHashMap(map);
 
-    cout << "\n走訪鍵值對 Key->Value" << endl;
-    // [region]{iterate_pairs}
     /* 走訪雜湊表 */
-    // 走訪鍵值對 key->value
+    cout << "\n走訪鍵值對 Key->Value" << endl;
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-    // [endregion]{iterate_pairs}
-
     cout << "\n使用迭代器走訪 Key->Value" << endl;
-    // [region]{iterate_pairs_iterator}
-    // 使用迭代器走訪 key->value
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << " -> " << iter->second << endl;
+        cout << iter->first << "->" << iter->second << endl;
     }
-    // [endregion]{iterate_pairs_iterator}
 
     return 0;
 }

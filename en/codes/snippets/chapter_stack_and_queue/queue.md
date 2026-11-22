@@ -1,144 +1,256 @@
 <!-- [snippet]{queue_operations} -->
 ```python title="queue.py"
-[file]{queue}-[region]{import_deque}
+from collections import deque
 
-[file]{queue}-[region]{init_queue}
+# Initialize the queue
+# In Python, we generally use the deque class as a queue
+# Although queue.Queue() is a dedicated queue class, it is less convenient to use and is therefore not recommended
+que: deque[int] = deque()
 
-[file]{queue}-[region]{push}
+# Enqueue elements
+que.append(1)
+que.append(3)
+que.append(2)
+que.append(5)
+que.append(4)
 
-[file]{queue}-[region]{peek}
+# Access the front element
+front: int = que[0]
 
-[file]{queue}-[region]{pop}
+# Dequeue an element
+pop: int = que.popleft()
 
-[file]{queue}-[region]{size}
+# Get the queue size
+size: int = len(que)
 
-[file]{queue}-[region]{is_empty}
+# Check whether the queue is empty
+is_empty: bool = len(que) == 0
 ```
 
 ```cpp title="queue.cpp"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+queue<int> queue;
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+int front = queue.front();
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+queue.pop();
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+int size = queue.size();
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+bool empty = queue.empty();
 ```
 
 ```java title="queue.java"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+Queue<Integer> queue = new LinkedList<>();
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.offer(1);
+queue.offer(3);
+queue.offer(2);
+queue.offer(5);
+queue.offer(4);
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+int peek = queue.peek();
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+int pop = queue.poll();
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+int size = queue.size();
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+boolean isEmpty = queue.isEmpty();
 ```
 
 ```csharp title="queue.cs"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+Queue<int> queue = new();
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.Enqueue(1);
+queue.Enqueue(3);
+queue.Enqueue(2);
+queue.Enqueue(5);
+queue.Enqueue(4);
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+int peek = queue.Peek();
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+int pop = queue.Dequeue();
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+int size = queue.Count;
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+bool isEmpty = queue.Count == 0;
 ```
 
 ```go title="queue_test.go"
-[file]{queue_test}-[region]{init_queue}
+/* Initialize the queue */
+// In Go, use list as a queue
+queue := list.New()
 
-[file]{queue_test}-[region]{push}
+/* Enqueue elements */
+queue.PushBack(1)
+queue.PushBack(3)
+queue.PushBack(2)
+queue.PushBack(5)
+queue.PushBack(4)
 
-[file]{queue_test}-[region]{peek}
+/* Access the front element */
+peek := queue.Front()
 
-[file]{queue_test}-[region]{pop}
+/* Dequeue an element */
+pop := queue.Front()
+queue.Remove(pop)
 
-[file]{queue_test}-[region]{size}
+/* Get the queue size */
+size := queue.Len()
 
-[file]{queue_test}-[region]{is_empty}
+/* Check whether the queue is empty */
+isEmpty := queue.Len() == 0
 ```
 
 ```swift title="queue.swift"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+// The Swift standard library has no built-in queue class; Array can be used as a queue
+var queue: [Int] = []
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.append(1)
+queue.append(3)
+queue.append(2)
+queue.append(5)
+queue.append(4)
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+let peek = queue.first!
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+// When using Array as a queue, removeFirst has O(n) time complexity
+let pop = queue.removeFirst()
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+let size = queue.count
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+let isEmpty = queue.isEmpty
 ```
 
 ```javascript title="queue.js"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+// JavaScript has no built-in queue; an Array can be used as a queue
+const queue = [];
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+const peek = queue[0];
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+// The underlying structure is an array, so shift() has O(n) time complexity
+const pop = queue.shift();
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+const size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+const isEmpty = queue.length === 0;
 ```
 
 ```typescript title="queue.ts"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+// TypeScript has no built-in queue; an Array can be used as a queue
+const queue: number[] = [];
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.push(1);
+queue.push(3);
+queue.push(2);
+queue.push(5);
+queue.push(4);
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+const peek = queue[0];
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+// The underlying structure is an array, so shift() has O(n) time complexity
+const pop = queue.shift();
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+const size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+const isEmpty = queue.length === 0;
 ```
 
 ```dart title="queue.dart"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+// In Dart, the deque class Queue is commonly used as a queue
+final Queue<int> queue = Queue();
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.add(1);
+queue.add(3);
+queue.add(2);
+queue.add(5);
+queue.add(4);
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+final int peek = queue.first;
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+final int pop = queue.removeFirst();
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+final int size = queue.length;
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+final bool isEmpty = queue.isEmpty;
 ```
 
 ```rust title="queue.rs"
-[file]{queue}-[region]{init_queue}
+// Initialize the queue
+// In Rust, the deque VecDeque is commonly used as a queue
+let mut queue: VecDeque<i32> = VecDeque::new();
 
-[file]{queue}-[region]{push}
+// Enqueue elements
+queue.push_back(1);
+queue.push_back(3);
+queue.push_back(2);
+queue.push_back(5);
+queue.push_back(4);
 
-[file]{queue}-[region]{peek}
+// Access the front element
+let peek = queue.front().unwrap();
 
-[file]{queue}-[region]{pop}
+// Dequeue an element
+let pop = queue.pop_front().unwrap();
 
-[file]{queue}-[region]{size}
+// Get the queue size
+let size = queue.len();
 
-[file]{queue}-[region]{is_empty}
+// Check whether the queue is empty
+let is_empty = queue.is_empty();
 ```
 
 ```c title="queue.c"
@@ -146,31 +258,53 @@
 ```
 
 ```kotlin title="queue.kt"
-[file]{queue}-[region]{init_queue}
+/* Initialize the queue */
+val queue = LinkedList<Int>()
 
-[file]{queue}-[region]{push}
+/* Enqueue elements */
+queue.offer(1)
+queue.offer(3)
+queue.offer(2)
+queue.offer(5)
+queue.offer(4)
 
-[file]{queue}-[region]{peek}
+/* Access the front element */
+val peek = queue.peek()
 
-[file]{queue}-[region]{pop}
+/* Dequeue an element */
+val pop = queue.poll()
 
-[file]{queue}-[region]{size}
+/* Get the queue size */
+val size = queue.size
 
-[file]{queue}-[region]{is_empty}
+/* Check whether the queue is empty */
+val isEmpty = queue.isEmpty()
 ```
 
 ```ruby title="queue.rb"
-[file]{queue}-[region]{init_queue}
+# Initialize the queue
+# The built-in Ruby queue (Thread::Queue) has no peek or traversal methods; use an Array as a queue
+queue = []
 
-[file]{queue}-[region]{push}
+# Enqueue elements
+queue.push(1)
+queue.push(3)
+queue.push(2)
+queue.push(5)
+queue.push(4)
 
-[file]{queue}-[region]{peek}
+# Access a queue element
+peek = queue.first
 
-[file]{queue}-[region]{pop}
+# Dequeue an element
+# Note that Array#shift has O(n) time complexity because the underlying structure is an array
+pop = queue.shift
 
-[file]{queue}-[region]{size}
+# Get the queue size
+size = queue.length
 
-[file]{queue}-[region]{is_empty}
+# Check whether the queue is empty
+is_empty = queue.empty?
 ```
 
 <!-- [tutor]{queue_operations_tutor} -->

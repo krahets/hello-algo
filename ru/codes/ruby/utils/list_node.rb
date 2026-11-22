@@ -4,7 +4,6 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-# [region]{list_node}
 ### Класс узла связного списка ###
 class ListNode
   attr_accessor :val  # Значение узла
@@ -15,7 +14,6 @@ class ListNode
     @next = next_node
   end
 end
-# [endregion]{list_node}
 
 ### Десериализация списка в связный список ###
 def arr_to_linked_list(arr)

@@ -4,27 +4,20 @@
  * Author: codingonion (coderonion@gmail.com), rongyi (hiarongyi@gmail.com)
  */
 
-// [region]{import_cell}
 use std::cell::RefCell;
-// [endregion]{import_cell}
 use std::collections::HashMap;
-// [region]{import_rc}
 use std::rc::Rc;
-// [endregion]{import_rc}
 
-// [region]{list_node}
-/* 連結リストのノード */
 #[derive(Debug)]
 pub struct ListNode<T> {
-    pub val: T, // ノードの値
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 後続ノードへのポインタ
+    pub val: T,
+    pub next: Option<Rc<RefCell<ListNode<T>>>>,
 }
 
 impl<T> ListNode<T> {
     pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
-// [endregion]{list_node}
 
     /* 配列をデシリアライズして連結リストにする */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
@@ -61,6 +54,4 @@ impl<T> ListNode<T> {
 
         hashmap
     }
-// [region]{list_node_end}
 }
-// [endregion]{list_node_end}

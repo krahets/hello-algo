@@ -67,24 +67,15 @@ int find(int *nums, int size, int target) {
 
 /* 実行用コード */
 int main() {
-    // [region]{init_array}
     /* 配列を初期化する */
-    // スタック上に格納する
-    int arr[5] = {};
-    int nums[5] = {1, 3, 2, 5, 4};
-    // ヒープ上に格納する（メモリを手動で解放する必要がある）
-    int *arr1 = new int[5]{};
-    int *nums1 = new int[5]{1, 3, 2, 5, 4};
-    // [endregion]{init_array}
     int size = 5;
+    int *arr = new int[size]{};
     cout << "配列 arr = ";
     printArray(arr, size);
+
+    int *nums = new int[size]{1, 3, 2, 5, 4};
     cout << "配列 nums = ";
     printArray(nums, size);
-    cout << "配列 arr1 = ";
-    printArray(arr1, size);
-    cout << "配列 nums1 = ";
-    printArray(nums1, size);
 
     /* ランダムアクセス */
     int randomNum = randomAccess(nums, size);
@@ -92,31 +83,31 @@ int main() {
 
     /* 長さの拡張 */
     int enlarge = 3;
-    nums1 = extend(nums1, size, enlarge);
+    nums = extend(nums, size, enlarge);
     size += enlarge;
     cout << "配列の長さを 8 に拡張した結果 nums = ";
-    printArray(nums1, size);
+    printArray(nums, size);
 
     /* 要素を挿入する */
-    insert(nums1, size, 6, 3);
+    insert(nums, size, 6, 3);
     cout << "インデックス 3 に数値 6 を挿入した結果 nums = ";
-    printArray(nums1, size);
+    printArray(nums, size);
 
     /* 要素を削除する */
-    remove(nums1, size, 2);
+    remove(nums, size, 2);
     cout << "インデックス 2 の要素を削除した結果 nums = ";
-    printArray(nums1, size);
+    printArray(nums, size);
 
     /* 配列を走査する */
-    traverse(nums1, size);
+    traverse(nums, size);
 
     /* 要素を探索する */
-    int index = find(nums1, size, 3);
+    int index = find(nums, size, 3);
     cout << "nums から要素 3 を探索した結果のインデックス = " << index << endl;
 
     // メモリを解放する
-    delete[] arr1;
-    delete[] nums1;
+    delete[] arr;
+    delete[] nums;
 
     return 0;
 }

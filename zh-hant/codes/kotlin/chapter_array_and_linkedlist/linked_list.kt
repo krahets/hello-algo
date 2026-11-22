@@ -52,8 +52,7 @@ fun find(head: ListNode?, target: Int): Int {
 
 /* Driver Code */
 fun main() {
-    // [region]{init_linked_list}
-    /* 初始化鏈結串列 1 -> 3 -> 2 -> 5 -> 4 */
+    /* 初始化鏈結串列 */
     // 初始化各個節點
     val n0 = ListNode(1)
     val n1 = ListNode(3)
@@ -66,7 +65,6 @@ fun main() {
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    // [endregion]{init_linked_list}
     println("初始化的鏈結串列為")
     printLinkedList(n0)
 

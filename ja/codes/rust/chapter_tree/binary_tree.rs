@@ -8,7 +8,6 @@ use hello_algo_rust::include::{print_util, TreeNode};
 
 /* 実行用コード */
 fn main() {
-    // [region]{init_binary_tree}
     /* 二分木を初期化する */
     // ノードを初期化する
     let n1 = TreeNode::new(1);
@@ -21,24 +20,19 @@ fn main() {
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
     n2.borrow_mut().right = Some(Rc::clone(&n5));
-    // [endregion]{init_binary_tree}
     println!("\n二分木を初期化する\n");
     print_util::print_tree(&n1);
 
-    // [region]{insert_node}
-    /* ノードの挿入と削除 */
+    // ノードの挿入と削除
     let p = TreeNode::new(0);
     // n1 -> n2 の間にノード P を挿入する
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
-    // [endregion]{insert_node}
     println!("\nノード P の挿入後\n");
     print_util::print_tree(&n1);
-    // [region]{remove_node}
     // ノード P を削除する
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
-    // [endregion]{remove_node}
     println!("\nノード P の削除後\n");
     print_util::print_tree(&n1);
 }

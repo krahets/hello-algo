@@ -1,142 +1,250 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-[file]{stack}-[region]{init_stack}
+# Initialize the stack
+# Python has no built-in stack class; a list can be used as a stack
+stack: list[int] = []
 
-[file]{stack}-[region]{push}
+# Push elements onto the stack
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+# Access the top element
+peek: int = stack[-1]
 
-[file]{stack}-[region]{pop}
+# Pop an element from the stack
+pop: int = stack.pop()
 
-[file]{stack}-[region]{size}
+# Get the stack size
+size: int = len(stack)
 
-[file]{stack}-[region]{is_empty}
+# Check whether it is empty
+is_empty: bool = len(stack) == 0
 ```
 
 ```cpp title="stack.cpp"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+stack<int> stack;
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+int top = stack.top();
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+stack.pop(); // No return value
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+bool empty = stack.empty();
 ```
 
 ```java title="stack.java"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+Stack<Integer> stack = new Stack<>();
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+int peek = stack.peek();
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+int pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+int size = stack.size();
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+boolean isEmpty = stack.isEmpty();
 ```
 
 ```csharp title="stack.cs"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+Stack<int> stack = new();
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.Push(1);
+stack.Push(3);
+stack.Push(2);
+stack.Push(5);
+stack.Push(4);
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+int peek = stack.Peek();
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+int pop = stack.Pop();
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+int size = stack.Count;
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+bool isEmpty = stack.Count == 0;
 ```
 
 ```go title="stack_test.go"
-[file]{stack_test}-[region]{init_stack}
+/* Initialize the stack */
+// In Go, a slice is the recommended way to implement a stack
+var stack []int
 
-[file]{stack_test}-[region]{push}
+/* Push elements onto the stack */
+stack = append(stack, 1)
+stack = append(stack, 3)
+stack = append(stack, 2)
+stack = append(stack, 5)
+stack = append(stack, 4)
 
-[file]{stack_test}-[region]{peek}
+/* Access the top element */
+peek := stack[len(stack)-1]
 
-[file]{stack_test}-[region]{pop}
+/* Pop an element from the stack */
+pop := stack[len(stack)-1]
+stack = stack[:len(stack)-1]
 
-[file]{stack_test}-[region]{size}
+/* Get the stack size */
+size := len(stack)
 
-[file]{stack_test}-[region]{is_empty}
+/* Check whether it is empty */
+isEmpty := len(stack) == 0
 ```
 
 ```swift title="stack.swift"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+// The Swift standard library has no built-in stack class; Array can be used as a stack
+var stack: [Int] = []
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.append(1)
+stack.append(3)
+stack.append(2)
+stack.append(5)
+stack.append(4)
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+let peek = stack.last!
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+let pop = stack.removeLast()
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+let size = stack.count
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+let isEmpty = stack.isEmpty
 ```
 
 ```javascript title="stack.js"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+// JavaScript has no built-in stack class; an Array can be used as a stack
+const stack = [];
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+const peek = stack[stack.length - 1];
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+// TypeScript has no built-in stack class; an Array can be used as a stack
+const stack: number[] = [];
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+const peek = stack[stack.length - 1];
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+const pop = stack.pop();
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+const size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+// Dart has no built-in stack class; a List can be used as a stack
+final List<int> stack = [];
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.add(1);
+stack.add(3);
+stack.add(2);
+stack.add(5);
+stack.add(4);
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+final int peek = stack.last;
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+final int pop = stack.removeLast();
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+final int size = stack.length;
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-[file]{stack}-[region]{init_stack}
+// Initialize the stack
+// In Rust, Vec is the recommended type for implementing a stack
+let mut stack: Vec<i32> = Vec::new();
 
-[file]{stack}-[region]{push}
+// Push elements onto the stack
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
 
-[file]{stack}-[region]{peek}
+// Access the top element
+let peek = stack.last().unwrap();
 
-[file]{stack}-[region]{pop}
+// Pop an element from the stack
+let pop = stack.pop().unwrap();
 
-[file]{stack}-[region]{size}
+// Get the stack size
+let size = stack.len();
 
-[file]{stack}-[region]{is_empty}
+// Check whether the stack is empty
+let is_empty = stack.is_empty();
 ```
 
 ```c title="stack.c"
@@ -144,31 +252,52 @@
 ```
 
 ```kotlin title="stack.kt"
-[file]{stack}-[region]{init_stack}
+/* Initialize the stack */
+val stack = Stack<Int>()
 
-[file]{stack}-[region]{push}
+/* Push elements onto the stack */
+stack.push(1)
+stack.push(3)
+stack.push(2)
+stack.push(5)
+stack.push(4)
 
-[file]{stack}-[region]{peek}
+/* Access the top element */
+val peek = stack.peek()
 
-[file]{stack}-[region]{pop}
+/* Pop an element from the stack */
+val pop = stack.pop()
 
-[file]{stack}-[region]{size}
+/* Get the stack size */
+val size = stack.size
 
-[file]{stack}-[region]{is_empty}
+/* Check whether it is empty */
+val isEmpty = stack.isEmpty()
 ```
 
 ```ruby title="stack.rb"
-[file]{stack}-[region]{init_stack}
+# Initialize the stack
+# Ruby has no built-in stack class; use an Array as a stack
+stack = []
 
-[file]{stack}-[region]{push}
+# Push elements onto the stack
+stack << 1
+stack << 3
+stack << 2
+stack << 5
+stack << 4
 
-[file]{stack}-[region]{peek}
+# Access the top element
+peek = stack.last
 
-[file]{stack}-[region]{pop}
+# Pop an element from the stack
+pop = stack.pop
 
-[file]{stack}-[region]{size}
+# Get the stack size
+size = stack.length
 
-[file]{stack}-[region]{is_empty}
+# Check whether it is empty
+is_empty = stack.empty?
 ```
 
 <!-- [tutor]{stack_operations_tutor} -->

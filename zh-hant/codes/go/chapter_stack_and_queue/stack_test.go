@@ -12,47 +12,35 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	// [region]{init_stack}
 	/* 初始化堆疊 */
 	// 在 Go 中，推薦將 Slice 當作堆疊來使用
 	var stack []int
-	// [endregion]{init_stack}
 
-	// [region]{push}
 	/* 元素入堆疊 */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
-	// [endregion]{push}
 	fmt.Print("堆疊 stack = ")
 	PrintSlice(stack)
 
-	// [region]{peek}
 	/* 訪問堆疊頂元素 */
 	peek := stack[len(stack)-1]
-	// [endregion]{peek}
 	fmt.Println("堆疊頂元素 peek =", peek)
 
-	// [region]{pop}
 	/* 元素出堆疊 */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	// [endregion]{pop}
 	fmt.Print("出堆疊元素 pop = ", pop, "，出堆疊後 stack = ")
 	PrintSlice(stack)
 
-	// [region]{size}
 	/* 獲取堆疊的長度 */
 	size := len(stack)
-	// [endregion]{size}
 	fmt.Println("堆疊的長度 size =", size)
 
-	// [region]{is_empty}
 	/* 判斷是否為空 */
 	isEmpty := len(stack) == 0
-	// [endregion]{is_empty}
 	fmt.Println("堆疊是否為空 =", isEmpty)
 }
 

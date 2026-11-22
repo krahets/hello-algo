@@ -6,12 +6,11 @@
 
 #include "../utils/common.h"
 
-// [region]{doubly_list_node}
 /* 双方向連結リストのノード */
 typedef struct DoublyListNode {
     int val;                     // ノードの値
-    struct DoublyListNode *next; // 後続ノードへのポインタ
-    struct DoublyListNode *prev; // 前のノードへのポインタ
+    struct DoublyListNode *next; // 後続ノード
+    struct DoublyListNode *prev; // 前のノード
 } DoublyListNode;
 
 /* コンストラクタ */
@@ -22,7 +21,6 @@ DoublyListNode *newDoublyListNode(int num) {
     new->prev = NULL;
     return new;
 }
-// [endregion]{doubly_list_node}
 
 /* デストラクタ */
 void delDoublyListNode(DoublyListNode *node) {

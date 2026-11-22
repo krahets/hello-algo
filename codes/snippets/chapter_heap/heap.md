@@ -1,110 +1,263 @@
 <!-- [snippet]{heap_operations} -->
 ```python title="heap.py"
-[file]{heap}-[region]{init}
+# 初始化小顶堆
+min_heap, flag = [], 1
+# 初始化大顶堆
+max_heap, flag = [], -1
 
-[file]{heap}-[region]{push}
+# Python 的 heapq 模块默认实现小顶堆
+# 考虑将“元素取负”后再入堆，这样就可以将大小关系颠倒，从而实现大顶堆
+# 在本示例中，flag = 1 时对应小顶堆，flag = -1 时对应大顶堆
 
-[file]{heap}-[region]{peek}
+# 元素入堆
+heapq.heappush(max_heap, flag * 1)
+heapq.heappush(max_heap, flag * 3)
+heapq.heappush(max_heap, flag * 2)
+heapq.heappush(max_heap, flag * 5)
+heapq.heappush(max_heap, flag * 4)
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+# 获取堆顶元素
+peek: int = flag * max_heap[0]  # 5
 
-[file]{heap}-[region]{size}
+# 堆顶元素出堆
+# 出堆元素会形成一个从大到小的序列
+val = flag * heapq.heappop(max_heap)  # 5
+val = flag * heapq.heappop(max_heap)  # 4
+val = flag * heapq.heappop(max_heap)  # 3
+val = flag * heapq.heappop(max_heap)  # 2
+val = flag * heapq.heappop(max_heap)  # 1
 
-[file]{heap}-[region]{is_empty}
+# 获取堆大小
+size: int = len(max_heap)
 
-[file]{heap}-[region]{heapify}
+# 判断堆是否为空
+is_empty: bool = not max_heap
+
+# 输入列表并建堆
+# 时间复杂度为 O(n) ，而非 O(nlogn)
+min_heap: list[int] = [1, 3, 2, 5, 4]
+heapq.heapify(min_heap)
 ```
 
 ```cpp title="heap.cpp"
-[file]{heap}-[region]{init}
+/* 初始化堆 */
+// 初始化小顶堆
+priority_queue<int, vector<int>, greater<int>> minHeap;
+// 初始化大顶堆
+priority_queue<int, vector<int>, less<int>> maxHeap;
 
-[file]{heap}-[region]{push}
+/* 元素入堆 */
+maxHeap.push(1);
+maxHeap.push(3);
+maxHeap.push(2);
+maxHeap.push(5);
+maxHeap.push(4);
 
-[file]{heap}-[region]{peek}
+/* 获取堆顶元素 */
+int peek = maxHeap.top(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 堆顶元素出堆 */
+// 出堆元素会形成一个从大到小的序列
+maxHeap.pop(); // 5
+maxHeap.pop(); // 4
+maxHeap.pop(); // 3
+maxHeap.pop(); // 2
+maxHeap.pop(); // 1
 
-[file]{heap}-[region]{size}
+/* 获取堆大小 */
+int size = maxHeap.size();
 
-[file]{heap}-[region]{is_empty}
+/* 判断堆是否为空 */
+bool isEmpty = maxHeap.empty();
 
-[file]{heap}-[region]{heapify}
+/* 输入列表并建堆 */
+// 时间复杂度为 O(n) ，而非 O(nlogn)
+vector<int> input{1, 3, 2, 5, 4};
+minHeap = priority_queue<int, vector<int>, greater<int>>(input.begin(), input.end());
 ```
 
 ```java title="heap.java"
-[file]{heap}-[region]{init}
+/* 初始化堆 */
+// 初始化小顶堆
+Queue<Integer> minHeap = new PriorityQueue<>();
+// 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
+Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-[file]{heap}-[region]{push}
+/* 元素入堆 */
+maxHeap.offer(1);
+maxHeap.offer(3);
+maxHeap.offer(2);
+maxHeap.offer(5);
+maxHeap.offer(4);
 
-[file]{heap}-[region]{peek}
+/* 获取堆顶元素 */
+int peek = maxHeap.peek(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 堆顶元素出堆 */
+// 出堆元素会形成一个从大到小的序列
+peek = maxHeap.poll(); // 5
+peek = maxHeap.poll(); // 4
+peek = maxHeap.poll(); // 3
+peek = maxHeap.poll(); // 2
+peek = maxHeap.poll(); // 1
 
-[file]{heap}-[region]{size}
+/* 获取堆大小 */
+int size = maxHeap.size();
 
-[file]{heap}-[region]{is_empty}
+/* 判断堆是否为空 */
+boolean isEmpty = maxHeap.isEmpty();
 
-[file]{heap}-[region]{heapify}
+/* 输入列表并建堆 */
+// 时间复杂度为 O(n) ，而非 O(nlogn)
+minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
 ```
 
 ```csharp title="heap.cs"
-[file]{heap}-[region]{init}
+/* 初始化堆 */
+// 初始化小顶堆
+PriorityQueue<int, int> minHeap = new();
+// 初始化大顶堆（使用 lambda 表达式修改 Comparer 即可）
+PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
 
-[file]{heap}-[region]{push}
+/* 元素入堆 */
+maxHeap.Enqueue(1, 1);
+maxHeap.Enqueue(3, 3);
+maxHeap.Enqueue(2, 2);
+maxHeap.Enqueue(5, 5);
+maxHeap.Enqueue(4, 4);
 
-[file]{heap}-[region]{peek}
+/* 获取堆顶元素 */
+int peek = maxHeap.Peek(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 堆顶元素出堆 */
+// 出堆元素会形成一个从大到小的序列
+peek = maxHeap.Dequeue(); // 5
+peek = maxHeap.Dequeue(); // 4
+peek = maxHeap.Dequeue(); // 3
+peek = maxHeap.Dequeue(); // 2
+peek = maxHeap.Dequeue(); // 1
 
-[file]{heap}-[region]{size}
+/* 获取堆大小 */
+int size = maxHeap.Count;
 
-[file]{heap}-[region]{is_empty}
+/* 判断堆是否为空 */
+bool isEmpty = maxHeap.Count == 0;
 
-[file]{heap}-[region]{heapify}
+/* 输入列表并建堆 */
+// 时间复杂度为 O(n) ，而非 O(nlogn)
+minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
 ```
 
 ```go title="heap.go"
-[file]{heap}-[region]{int_heap}
+// Go 语言中可以通过实现 heap.Interface 来构建整数大顶堆
+// 实现 heap.Interface 需要同时实现 sort.Interface
+type intHeap []any
 
-[file]{heap_test}-[region]{test_heap}
+// Push heap.Interface 的函数，实现推入元素到堆
+func (h *intHeap) Push(x any) {
+    // Push 和 Pop 使用 pointer receiver 作为参数
+    // 因为它们不仅会对切片的内容进行调整，还会修改切片的长度。
+    *h = append(*h, x.(int))
+}
+
+// Pop heap.Interface 的函数，实现弹出堆顶元素
+func (h *intHeap) Pop() any {
+    // 待出堆元素存放在最后
+    last := (*h)[len(*h)-1]
+    *h = (*h)[:len(*h)-1]
+    return last
+}
+
+// Len sort.Interface 的函数
+func (h *intHeap) Len() int {
+    return len(*h)
+}
+
+// Less sort.Interface 的函数
+func (h *intHeap) Less(i, j int) bool {
+    // 如果实现小顶堆，则需要调整为小于号
+    return (*h)[i].(int) > (*h)[j].(int)
+}
+
+// Swap sort.Interface 的函数
+func (h *intHeap) Swap(i, j int) {
+    (*h)[i], (*h)[j] = (*h)[j], (*h)[i]
+}
+
+// Top 获取堆顶元素
+func (h *intHeap) Top() any {
+    return (*h)[0]
+}
+
+func TestHeap(t *testing.T) {
+    /* 初始化堆 */
+    // 初始化大顶堆
+    maxHeap := &intHeap{}
+    heap.Init(maxHeap)
+    /* 元素入堆 */
+    // 调用 heap.Interface 的函数，来添加元素
+    heap.Push(maxHeap, 1)
+    heap.Push(maxHeap, 3)
+    heap.Push(maxHeap, 2)
+    heap.Push(maxHeap, 5)
+    heap.Push(maxHeap, 4)
+    PrintHeap(*maxHeap)
+
+    /* 获取堆顶元素 */
+    top := maxHeap.Top()
+    fmt.Printf("堆顶元素为 %d\n", top)
+
+    /* 堆顶元素出堆 */
+    // 调用 heap.Interface 的函数，来移除元素
+    fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 5
+    fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 4
+    fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 3
+    fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 2
+    fmt.Printf("出堆元素为 %d\n", heap.Pop(maxHeap)) // 1
+
+    /* 获取堆大小 */
+    size := len(*maxHeap)
+    fmt.Printf("堆元素数量为 %d\n", size)
+
+    /* 判断堆是否为空 */
+    isEmpty := len(*maxHeap) == 0
+    fmt.Printf("堆是否为空 %t\n", isEmpty)
+}
 ```
 
 ```swift title="heap.swift"
-[file]{heap}-[region]{import}
+import HeapModule
 
-[file]{heap}-[region]{init}
+/* 初始化堆 */
+// Swift 的 Heap 类型同时支持大顶堆和小顶堆，需要引入 swift-collections 包
+var heap = Heap<Int>()
 
-[file]{heap}-[region]{push}
+/* 元素入堆 */
+heap.insert(1)
+heap.insert(3)
+heap.insert(2)
+heap.insert(5)
+heap.insert(4)
 
-[file]{heap}-[region]{peek}
+/* 获取堆顶元素 */
+var peek = heap.max()
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 堆顶元素出堆 */
+peek = heap.removeMax() // 5
+peek = heap.removeMax() // 4
+peek = heap.removeMax() // 3
+peek = heap.removeMax() // 2
+peek = heap.removeMax() // 1
 
-[file]{heap}-[region]{size}
+/* 获取堆大小 */
+let size = heap.count
 
-[file]{heap}-[region]{is_empty}
+/* 判断堆是否为空 */
+let isEmpty = heap.isEmpty
 
-[file]{heap}-[region]{heapify}
+/* 输入列表并建堆 */
+// 时间复杂度为 O(n) ，而非 O(nlogn)
+let heap2 = Heap([1, 3, 2, 5, 4])
 ```
 
 ```javascript title="heap.js"
@@ -120,25 +273,43 @@
 ```
 
 ```rust title="heap.rs"
-[file]{heap}-[region]{import}
+use std::{cmp::Reverse, collections::BinaryHeap};
 
-[file]{heap}-[region]{init}
+/* 初始化堆 */
+// 初始化小顶堆
+// Rust 的 BinaryHeap 是大顶堆，小顶堆需用 Reverse 包装元素
+#[allow(unused_assignments)]
+let mut min_heap = BinaryHeap::new();
+// 初始化大顶堆
+let mut max_heap = BinaryHeap::new();
 
-[file]{heap}-[region]{push}
+/* 元素入堆 */
+max_heap.push(1);
+max_heap.push(3);
+max_heap.push(2);
+max_heap.push(5);
+max_heap.push(4);
 
-[file]{heap}-[region]{peek}
+/* 获取堆顶元素 */
+let peek = max_heap.peek().unwrap(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 堆顶元素出堆 */
+// 出堆元素会形成一个从大到小的序列
+let peek = max_heap.pop().unwrap(); // 5
+let peek = max_heap.pop().unwrap(); // 4
+let peek = max_heap.pop().unwrap(); // 3
+let peek = max_heap.pop().unwrap(); // 2
+let peek = max_heap.pop().unwrap(); // 1
 
-[file]{heap}-[region]{size}
+/* 获取堆大小 */
+let size = max_heap.len();
 
-[file]{heap}-[region]{is_empty}
+/* 判断堆是否为空 */
+let is_empty = max_heap.is_empty();
 
-[file]{heap}-[region]{heapify}
+/* 输入列表并建堆 */
+// 时间复杂度为 O(n) ，而非 O(nlogn)
+min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
 ```
 
 ```c title="heap.c"
@@ -146,23 +317,39 @@
 ```
 
 ```kotlin title="heap.kt"
-[file]{heap}-[region]{init}
+/* 初始化堆 */
+// 初始化小顶堆
+var minHeap = PriorityQueue<Int>()
+// 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）
+val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-[file]{heap}-[region]{push}
+/* 元素入堆 */
+maxHeap.offer(1)
+maxHeap.offer(3)
+maxHeap.offer(2)
+maxHeap.offer(5)
+maxHeap.offer(4)
 
-[file]{heap}-[region]{peek}
+/* 获取堆顶元素 */
+var peek = maxHeap.peek() // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 堆顶元素出堆 */
+// 出堆元素会形成一个从大到小的序列
+peek = maxHeap.poll() // 5
+peek = maxHeap.poll() // 4
+peek = maxHeap.poll() // 3
+peek = maxHeap.poll() // 2
+peek = maxHeap.poll() // 1
 
-[file]{heap}-[region]{size}
+/* 获取堆大小 */
+val size = maxHeap.size
 
-[file]{heap}-[region]{is_empty}
+/* 判断堆是否为空 */
+val isEmpty = maxHeap.isEmpty()
 
-[file]{heap}-[region]{heapify}
+/* 输入列表并建堆 */
+// 时间复杂度为 O(n) ，而非 O(nlogn)
+minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
 ```
 
 ```ruby title="heap.rb"

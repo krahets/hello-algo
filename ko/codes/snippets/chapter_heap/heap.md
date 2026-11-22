@@ -1,110 +1,263 @@
 <!-- [snippet]{heap_operations} -->
 ```python title="heap.py"
-[file]{heap}-[region]{init}
+# 최소 힙 초기화
+min_heap, flag = [], 1
+# 최대 힙 초기화
+max_heap, flag = [], -1
 
-[file]{heap}-[region]{push}
+# Python의 heapq 모듈은 기본적으로 최소 힙을 구현한다
+# 원소의 부호를 바꾸어 힙에 삽입하면 대소 관계가 뒤집히므로 최대 힙을 구현할 수 있다
+# 이 예제에서 flag = 1은 최소 힙에, flag = -1은 최대 힙에 해당한다
 
-[file]{heap}-[region]{peek}
+# 힙에 원소 삽입
+heapq.heappush(max_heap, flag * 1)
+heapq.heappush(max_heap, flag * 3)
+heapq.heappush(max_heap, flag * 2)
+heapq.heappush(max_heap, flag * 5)
+heapq.heappush(max_heap, flag * 4)
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+# 힙의 루트 원소 반환
+peek: int = flag * max_heap[0]  # 5
 
-[file]{heap}-[region]{size}
+# 힙의 루트 원소 꺼내기
+# 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
+val = flag * heapq.heappop(max_heap)  # 5
+val = flag * heapq.heappop(max_heap)  # 4
+val = flag * heapq.heappop(max_heap)  # 3
+val = flag * heapq.heappop(max_heap)  # 2
+val = flag * heapq.heappop(max_heap)  # 1
 
-[file]{heap}-[region]{is_empty}
+# 힙 크기 반환
+size: int = len(max_heap)
 
-[file]{heap}-[region]{heapify}
+# 힙이 비어 있는지 판단
+is_empty: bool = not max_heap
+
+# 리스트를 입력하여 힙 구성
+# 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+min_heap: list[int] = [1, 3, 2, 5, 4]
+heapq.heapify(min_heap)
 ```
 
 ```cpp title="heap.cpp"
-[file]{heap}-[region]{init}
+/* 힙 초기화 */
+// 최소 힙 초기화
+priority_queue<int, vector<int>, greater<int>> minHeap;
+// 최대 힙 초기화
+priority_queue<int, vector<int>, less<int>> maxHeap;
 
-[file]{heap}-[region]{push}
+/* 힙에 원소 삽입 */
+maxHeap.push(1);
+maxHeap.push(3);
+maxHeap.push(2);
+maxHeap.push(5);
+maxHeap.push(4);
 
-[file]{heap}-[region]{peek}
+/* 힙의 루트 원소 반환 */
+int peek = maxHeap.top(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 힙의 루트 원소 꺼내기 */
+// 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
+maxHeap.pop(); // 5
+maxHeap.pop(); // 4
+maxHeap.pop(); // 3
+maxHeap.pop(); // 2
+maxHeap.pop(); // 1
 
-[file]{heap}-[region]{size}
+/* 힙 크기 반환 */
+int size = maxHeap.size();
 
-[file]{heap}-[region]{is_empty}
+/* 힙이 비어 있는지 판단 */
+bool isEmpty = maxHeap.empty();
 
-[file]{heap}-[region]{heapify}
+/* 리스트를 입력하여 힙 구성 */
+// 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+vector<int> input{1, 3, 2, 5, 4};
+minHeap = priority_queue<int, vector<int>, greater<int>>(input.begin(), input.end());
 ```
 
 ```java title="heap.java"
-[file]{heap}-[region]{init}
+/* 힙 초기화 */
+// 최소 힙 초기화
+Queue<Integer> minHeap = new PriorityQueue<>();
+// 최대 힙 초기화(lambda 식으로 Comparator를 수정하면 된다)
+Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-[file]{heap}-[region]{push}
+/* 힙에 원소 삽입 */
+maxHeap.offer(1);
+maxHeap.offer(3);
+maxHeap.offer(2);
+maxHeap.offer(5);
+maxHeap.offer(4);
 
-[file]{heap}-[region]{peek}
+/* 힙의 루트 원소 반환 */
+int peek = maxHeap.peek(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 힙의 루트 원소 꺼내기 */
+// 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
+peek = maxHeap.poll(); // 5
+peek = maxHeap.poll(); // 4
+peek = maxHeap.poll(); // 3
+peek = maxHeap.poll(); // 2
+peek = maxHeap.poll(); // 1
 
-[file]{heap}-[region]{size}
+/* 힙 크기 반환 */
+int size = maxHeap.size();
 
-[file]{heap}-[region]{is_empty}
+/* 힙이 비어 있는지 판단 */
+boolean isEmpty = maxHeap.isEmpty();
 
-[file]{heap}-[region]{heapify}
+/* 리스트를 입력하여 힙 구성 */
+// 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
 ```
 
 ```csharp title="heap.cs"
-[file]{heap}-[region]{init}
+/* 힙 초기화 */
+// 최소 힙 초기화
+PriorityQueue<int, int> minHeap = new();
+// 최대 힙 초기화(람다 식으로 Comparer를 변경하면 된다)
+PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
 
-[file]{heap}-[region]{push}
+/* 힙에 원소 삽입 */
+maxHeap.Enqueue(1, 1);
+maxHeap.Enqueue(3, 3);
+maxHeap.Enqueue(2, 2);
+maxHeap.Enqueue(5, 5);
+maxHeap.Enqueue(4, 4);
 
-[file]{heap}-[region]{peek}
+/* 힙의 루트 원소 반환 */
+int peek = maxHeap.Peek(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 힙의 루트 원소 꺼내기 */
+// 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
+peek = maxHeap.Dequeue(); // 5
+peek = maxHeap.Dequeue(); // 4
+peek = maxHeap.Dequeue(); // 3
+peek = maxHeap.Dequeue(); // 2
+peek = maxHeap.Dequeue(); // 1
 
-[file]{heap}-[region]{size}
+/* 힙 크기 반환 */
+int size = maxHeap.Count;
 
-[file]{heap}-[region]{is_empty}
+/* 힙이 비어 있는지 판단 */
+bool isEmpty = maxHeap.Count == 0;
 
-[file]{heap}-[region]{heapify}
+/* 리스트를 입력하여 힙 구성 */
+// 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
 ```
 
 ```go title="heap.go"
-[file]{heap}-[region]{int_heap}
+// Go에서는 heap.Interface를 구현하여 정수 최대 힙을 만들 수 있다
+// heap.Interface를 구현하려면 sort.Interface도 구현해야 한다
+type intHeap []any
 
-[file]{heap_test}-[region]{test_heap}
+// Push: heap.Interface의 함수로, 힙에 원소를 삽입한다
+func (h *intHeap) Push(x any) {
+    // Push와 Pop은 포인터 리시버(pointer receiver)를 매개변수로 사용한다
+    // 슬라이스의 내용뿐 아니라 길이도 변경하기 때문이다.
+    *h = append(*h, x.(int))
+}
+
+// Pop: heap.Interface의 함수로, 힙의 루트 원소를 꺼낸다
+func (h *intHeap) Pop() any {
+    // 꺼낼 원소는 맨 마지막에 저장되어 있다
+    last := (*h)[len(*h)-1]
+    *h = (*h)[:len(*h)-1]
+    return last
+}
+
+// Len: sort.Interface의 함수
+func (h *intHeap) Len() int {
+    return len(*h)
+}
+
+// Less: sort.Interface의 함수
+func (h *intHeap) Less(i, j int) bool {
+    // 최소 힙을 구현하려면 부등호를 <로 바꾸어야 한다
+    return (*h)[i].(int) > (*h)[j].(int)
+}
+
+// Swap: sort.Interface의 함수
+func (h *intHeap) Swap(i, j int) {
+    (*h)[i], (*h)[j] = (*h)[j], (*h)[i]
+}
+
+// Top: 힙의 루트 원소를 반환한다
+func (h *intHeap) Top() any {
+    return (*h)[0]
+}
+
+func TestHeap(t *testing.T) {
+    /* 힙 초기화 */
+    // 최대 힙 초기화
+    maxHeap := &intHeap{}
+    heap.Init(maxHeap)
+    /* 힙에 원소 삽입 */
+    // heap.Interface의 함수를 호출하여 원소를 추가한다
+    heap.Push(maxHeap, 1)
+    heap.Push(maxHeap, 3)
+    heap.Push(maxHeap, 2)
+    heap.Push(maxHeap, 5)
+    heap.Push(maxHeap, 4)
+    PrintHeap(*maxHeap)
+
+    /* 힙의 루트 원소 반환 */
+    top := maxHeap.Top()
+    fmt.Printf("힙의 루트 원소: %d\n", top)
+
+    /* 힙의 루트 원소 꺼내기 */
+    // heap.Interface의 함수를 호출하여 원소를 제거한다
+    fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 5
+    fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 4
+    fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 3
+    fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 2
+    fmt.Printf("힙에서 꺼낸 원소: %d\n", heap.Pop(maxHeap)) // 1
+
+    /* 힙 크기 반환 */
+    size := len(*maxHeap)
+    fmt.Printf("힙의 원소 개수: %d\n", size)
+
+    /* 힙이 비어 있는지 판단 */
+    isEmpty := len(*maxHeap) == 0
+    fmt.Printf("힙이 비어 있는가: %t\n", isEmpty)
+}
 ```
 
 ```swift title="heap.swift"
-[file]{heap}-[region]{import}
+import HeapModule
 
-[file]{heap}-[region]{init}
+/* 힙 초기화 */
+// Swift의 Heap 타입은 최대 힙과 최소 힙을 모두 지원하며, swift-collections 패키지를 도입해야 한다
+var heap = Heap<Int>()
 
-[file]{heap}-[region]{push}
+/* 힙에 원소 삽입 */
+heap.insert(1)
+heap.insert(3)
+heap.insert(2)
+heap.insert(5)
+heap.insert(4)
 
-[file]{heap}-[region]{peek}
+/* 힙의 루트 원소 반환 */
+var peek = heap.max()
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 힙의 루트 원소 꺼내기 */
+peek = heap.removeMax() // 5
+peek = heap.removeMax() // 4
+peek = heap.removeMax() // 3
+peek = heap.removeMax() // 2
+peek = heap.removeMax() // 1
 
-[file]{heap}-[region]{size}
+/* 힙 크기 반환 */
+let size = heap.count
 
-[file]{heap}-[region]{is_empty}
+/* 힙이 비어 있는지 판단 */
+let isEmpty = heap.isEmpty
 
-[file]{heap}-[region]{heapify}
+/* 리스트를 입력하여 힙 구성 */
+// 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+let heap2 = Heap([1, 3, 2, 5, 4])
 ```
 
 ```javascript title="heap.js"
@@ -120,25 +273,43 @@
 ```
 
 ```rust title="heap.rs"
-[file]{heap}-[region]{import}
+use std::{cmp::Reverse, collections::BinaryHeap};
 
-[file]{heap}-[region]{init}
+/* 힙 초기화 */
+// 최소 힙 초기화
+// Rust의 BinaryHeap은 최대 힙이며, 최소 힙을 만들려면 원소를 Reverse로 감싸야 한다
+#[allow(unused_assignments)]
+let mut min_heap = BinaryHeap::new();
+// 최대 힙 초기화
+let mut max_heap = BinaryHeap::new();
 
-[file]{heap}-[region]{push}
+/* 힙에 원소 삽입 */
+max_heap.push(1);
+max_heap.push(3);
+max_heap.push(2);
+max_heap.push(5);
+max_heap.push(4);
 
-[file]{heap}-[region]{peek}
+/* 힙의 루트 원소 반환 */
+let peek = max_heap.peek().unwrap(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 힙의 루트 원소 꺼내기 */
+// 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
+let peek = max_heap.pop().unwrap(); // 5
+let peek = max_heap.pop().unwrap(); // 4
+let peek = max_heap.pop().unwrap(); // 3
+let peek = max_heap.pop().unwrap(); // 2
+let peek = max_heap.pop().unwrap(); // 1
 
-[file]{heap}-[region]{size}
+/* 힙 크기 반환 */
+let size = max_heap.len();
 
-[file]{heap}-[region]{is_empty}
+/* 힙이 비어 있는지 판단 */
+let is_empty = max_heap.is_empty();
 
-[file]{heap}-[region]{heapify}
+/* 리스트를 입력하여 힙 구성 */
+// 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
 ```
 
 ```c title="heap.c"
@@ -146,23 +317,39 @@
 ```
 
 ```kotlin title="heap.kt"
-[file]{heap}-[region]{init}
+/* 힙 초기화 */
+// 최소 힙 초기화
+var minHeap = PriorityQueue<Int>()
+// 최대 힙 초기화(lambda 식으로 Comparator를 수정하면 된다)
+val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-[file]{heap}-[region]{push}
+/* 힙에 원소 삽입 */
+maxHeap.offer(1)
+maxHeap.offer(3)
+maxHeap.offer(2)
+maxHeap.offer(5)
+maxHeap.offer(4)
 
-[file]{heap}-[region]{peek}
+/* 힙의 루트 원소 반환 */
+var peek = maxHeap.peek() // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* 힙의 루트 원소 꺼내기 */
+// 힙에서 꺼낸 원소는 내림차순 수열을 이룬다
+peek = maxHeap.poll() // 5
+peek = maxHeap.poll() // 4
+peek = maxHeap.poll() // 3
+peek = maxHeap.poll() // 2
+peek = maxHeap.poll() // 1
 
-[file]{heap}-[region]{size}
+/* 힙 크기 반환 */
+val size = maxHeap.size
 
-[file]{heap}-[region]{is_empty}
+/* 힙이 비어 있는지 판단 */
+val isEmpty = maxHeap.isEmpty()
 
-[file]{heap}-[region]{heapify}
+/* 리스트를 입력하여 힙 구성 */
+// 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
 ```
 
 ```ruby title="heap.rb"

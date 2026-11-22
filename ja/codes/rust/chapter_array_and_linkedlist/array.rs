@@ -71,17 +71,15 @@ fn find(nums: &[i32], target: i32) -> Option<usize> {
 
 /* 実行用コード */
 fn main() {
-    // [region]{init_array}
     /* 配列を初期化する */
-    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
+    let arr: [i32; 5] = [0; 5];
+    print!("配列 arr = ");
+    print_util::print_array(&arr);
     // Rust では長さを指定したもの（[i32; 5]）は配列、指定しないもの（&[i32]）はスライスになる
     // Rust の配列の長さはコンパイル時に決まるため、長さの指定には定数しか使えない
     // Vector は、Rust で一般に動的配列として使われる型
     // 拡張用の extend() メソッドを実装しやすくするため、以下では vector を配列（array）として扱う
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
-    // [endregion]{init_array}
-    print!("配列 arr = ");
-    print_util::print_array(&arr);
     print!("\n配列 nums = ");
     print_util::print_array(&nums);
 

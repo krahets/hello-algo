@@ -1,110 +1,263 @@
 <!-- [snippet]{heap_operations} -->
 ```python title="heap.py"
-[file]{heap}-[region]{init}
+# 最小ヒープを初期化する
+min_heap, flag = [], 1
+# 最大ヒープを初期化する
+max_heap, flag = [], -1
 
-[file]{heap}-[region]{push}
+# Python の heapq モジュールは既定で最小ヒープを実装する
+# 「要素の符号を反転」してからヒープに挿入すれば、大小関係が逆転し、最大ヒープを実装できる
+# この例では flag = 1 が最小ヒープ、flag = -1 が最大ヒープに対応する
 
-[file]{heap}-[region]{peek}
+# ヒープに要素を挿入する
+heapq.heappush(max_heap, flag * 1)
+heapq.heappush(max_heap, flag * 3)
+heapq.heappush(max_heap, flag * 2)
+heapq.heappush(max_heap, flag * 5)
+heapq.heappush(max_heap, flag * 4)
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+# ヒープの先頭要素を取得する
+peek: int = flag * max_heap[0]  # 5
 
-[file]{heap}-[region]{size}
+# ヒープの先頭要素を取り出す
+# 取り出した要素は降順の列を形成する
+val = flag * heapq.heappop(max_heap)  # 5
+val = flag * heapq.heappop(max_heap)  # 4
+val = flag * heapq.heappop(max_heap)  # 3
+val = flag * heapq.heappop(max_heap)  # 2
+val = flag * heapq.heappop(max_heap)  # 1
 
-[file]{heap}-[region]{is_empty}
+# ヒープのサイズを取得する
+size: int = len(max_heap)
 
-[file]{heap}-[region]{heapify}
+# ヒープが空か判定
+is_empty: bool = not max_heap
+
+# リストを入力してヒープを構築する
+# 時間計算量は O(n) であり、O(nlogn) ではない
+min_heap: list[int] = [1, 3, 2, 5, 4]
+heapq.heapify(min_heap)
 ```
 
 ```cpp title="heap.cpp"
-[file]{heap}-[region]{init}
+/* ヒープを初期化する */
+// 最小ヒープを初期化する
+priority_queue<int, vector<int>, greater<int>> minHeap;
+// 最大ヒープを初期化する
+priority_queue<int, vector<int>, less<int>> maxHeap;
 
-[file]{heap}-[region]{push}
+/* ヒープに要素を挿入する */
+maxHeap.push(1);
+maxHeap.push(3);
+maxHeap.push(2);
+maxHeap.push(5);
+maxHeap.push(4);
 
-[file]{heap}-[region]{peek}
+/* ヒープの先頭要素を取得する */
+int peek = maxHeap.top(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* ヒープの先頭要素を取り出す */
+// 取り出した要素は降順の列を形成する
+maxHeap.pop(); // 5
+maxHeap.pop(); // 4
+maxHeap.pop(); // 3
+maxHeap.pop(); // 2
+maxHeap.pop(); // 1
 
-[file]{heap}-[region]{size}
+/* ヒープのサイズを取得する */
+int size = maxHeap.size();
 
-[file]{heap}-[region]{is_empty}
+/* ヒープが空か判定 */
+bool isEmpty = maxHeap.empty();
 
-[file]{heap}-[region]{heapify}
+/* リストを入力してヒープを構築する */
+// 時間計算量は O(n) であり、O(nlogn) ではない
+vector<int> input{1, 3, 2, 5, 4};
+minHeap = priority_queue<int, vector<int>, greater<int>>(input.begin(), input.end());
 ```
 
 ```java title="heap.java"
-[file]{heap}-[region]{init}
+/* ヒープを初期化する */
+// 最小ヒープを初期化する
+Queue<Integer> minHeap = new PriorityQueue<>();
+// 最大ヒープを初期化する（ラムダ式で Comparator を変更すればよい）
+Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-[file]{heap}-[region]{push}
+/* ヒープに要素を挿入する */
+maxHeap.offer(1);
+maxHeap.offer(3);
+maxHeap.offer(2);
+maxHeap.offer(5);
+maxHeap.offer(4);
 
-[file]{heap}-[region]{peek}
+/* ヒープの先頭要素を取得する */
+int peek = maxHeap.peek(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* ヒープの先頭要素を取り出す */
+// 取り出した要素は降順の列を形成する
+peek = maxHeap.poll(); // 5
+peek = maxHeap.poll(); // 4
+peek = maxHeap.poll(); // 3
+peek = maxHeap.poll(); // 2
+peek = maxHeap.poll(); // 1
 
-[file]{heap}-[region]{size}
+/* ヒープのサイズを取得する */
+int size = maxHeap.size();
 
-[file]{heap}-[region]{is_empty}
+/* ヒープが空か判定 */
+boolean isEmpty = maxHeap.isEmpty();
 
-[file]{heap}-[region]{heapify}
+/* リストを入力してヒープを構築する */
+// 時間計算量は O(n) であり、O(nlogn) ではない
+minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
 ```
 
 ```csharp title="heap.cs"
-[file]{heap}-[region]{init}
+/* ヒープを初期化する */
+// 最小ヒープを初期化する
+PriorityQueue<int, int> minHeap = new();
+// 最大ヒープを初期化する（ラムダ式で Comparer を変更すればよい）
+PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
 
-[file]{heap}-[region]{push}
+/* ヒープに要素を挿入する */
+maxHeap.Enqueue(1, 1);
+maxHeap.Enqueue(3, 3);
+maxHeap.Enqueue(2, 2);
+maxHeap.Enqueue(5, 5);
+maxHeap.Enqueue(4, 4);
 
-[file]{heap}-[region]{peek}
+/* ヒープの先頭要素を取得する */
+int peek = maxHeap.Peek(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* ヒープの先頭要素を取り出す */
+// 取り出した要素は降順の列を形成する
+peek = maxHeap.Dequeue(); // 5
+peek = maxHeap.Dequeue(); // 4
+peek = maxHeap.Dequeue(); // 3
+peek = maxHeap.Dequeue(); // 2
+peek = maxHeap.Dequeue(); // 1
 
-[file]{heap}-[region]{size}
+/* ヒープのサイズを取得する */
+int size = maxHeap.Count;
 
-[file]{heap}-[region]{is_empty}
+/* ヒープが空か判定 */
+bool isEmpty = maxHeap.Count == 0;
 
-[file]{heap}-[region]{heapify}
+/* リストを入力してヒープを構築する */
+// 時間計算量は O(n) であり、O(nlogn) ではない
+minHeap = new PriorityQueue<int, int>([(1, 1), (3, 3), (2, 2), (5, 5), (4, 4)]);
 ```
 
 ```go title="heap.go"
-[file]{heap}-[region]{int_heap}
+// Go では heap.Interface を実装して整数の最大ヒープを構築できる
+// heap.Interface の実装には sort.Interface も実装する必要がある
+type intHeap []any
 
-[file]{heap_test}-[region]{test_heap}
+// Push は heap.Interface の関数であり、ヒープへの要素の挿入を実装する
+func (h *intHeap) Push(x any) {
+    // Push と Pop は引数としてポインタレシーバを使う
+    // スライスの内容を変更するだけでなく、スライスの長さも変更するためである。
+    *h = append(*h, x.(int))
+}
+
+// Pop は heap.Interface の関数であり、ヒープの先頭要素の取り出しを実装する
+func (h *intHeap) Pop() any {
+    // 取り出す要素は末尾に格納されている
+    last := (*h)[len(*h)-1]
+    *h = (*h)[:len(*h)-1]
+    return last
+}
+
+// Len は sort.Interface の関数
+func (h *intHeap) Len() int {
+    return len(*h)
+}
+
+// Less は sort.Interface の関数
+func (h *intHeap) Less(i, j int) bool {
+    // 最小ヒープを実装する場合、不等号を小なりに変更する必要がある
+    return (*h)[i].(int) > (*h)[j].(int)
+}
+
+// Swap は sort.Interface の関数
+func (h *intHeap) Swap(i, j int) {
+    (*h)[i], (*h)[j] = (*h)[j], (*h)[i]
+}
+
+// Top はヒープの先頭要素を取得する
+func (h *intHeap) Top() any {
+    return (*h)[0]
+}
+
+func TestHeap(t *testing.T) {
+    /* ヒープを初期化する */
+    // 最大ヒープを初期化する
+    maxHeap := &intHeap{}
+    heap.Init(maxHeap)
+    /* ヒープに要素を挿入する */
+    // heap.Interface の関数を呼び出し、要素を追加する
+    heap.Push(maxHeap, 1)
+    heap.Push(maxHeap, 3)
+    heap.Push(maxHeap, 2)
+    heap.Push(maxHeap, 5)
+    heap.Push(maxHeap, 4)
+    PrintHeap(*maxHeap)
+
+    /* ヒープの先頭要素を取得する */
+    top := maxHeap.Top()
+    fmt.Printf("ヒープの先頭要素は %d\n", top)
+
+    /* ヒープの先頭要素を取り出す */
+    // heap.Interface の関数を呼び出し、要素を取り除く
+    fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 5
+    fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 4
+    fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 3
+    fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 2
+    fmt.Printf("ヒープから取り出した要素は %d\n", heap.Pop(maxHeap)) // 1
+
+    /* ヒープのサイズを取得する */
+    size := len(*maxHeap)
+    fmt.Printf("ヒープの要素数は %d\n", size)
+
+    /* ヒープが空か判定 */
+    isEmpty := len(*maxHeap) == 0
+    fmt.Printf("ヒープは空か %t\n", isEmpty)
+}
 ```
 
 ```swift title="heap.swift"
-[file]{heap}-[region]{import}
+import HeapModule
 
-[file]{heap}-[region]{init}
+/* ヒープを初期化する */
+// Swift の Heap 型は最大ヒープと最小ヒープの両方に対応し、swift-collections パッケージを導入する必要がある
+var heap = Heap<Int>()
 
-[file]{heap}-[region]{push}
+/* ヒープに要素を挿入する */
+heap.insert(1)
+heap.insert(3)
+heap.insert(2)
+heap.insert(5)
+heap.insert(4)
 
-[file]{heap}-[region]{peek}
+/* ヒープの先頭要素を取得する */
+var peek = heap.max()
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* ヒープの先頭要素を取り出す */
+peek = heap.removeMax() // 5
+peek = heap.removeMax() // 4
+peek = heap.removeMax() // 3
+peek = heap.removeMax() // 2
+peek = heap.removeMax() // 1
 
-[file]{heap}-[region]{size}
+/* ヒープのサイズを取得する */
+let size = heap.count
 
-[file]{heap}-[region]{is_empty}
+/* ヒープが空か判定 */
+let isEmpty = heap.isEmpty
 
-[file]{heap}-[region]{heapify}
+/* リストを入力してヒープを構築する */
+// 時間計算量は O(n) であり、O(nlogn) ではない
+let heap2 = Heap([1, 3, 2, 5, 4])
 ```
 
 ```javascript title="heap.js"
@@ -120,25 +273,43 @@
 ```
 
 ```rust title="heap.rs"
-[file]{heap}-[region]{import}
+use std::{cmp::Reverse, collections::BinaryHeap};
 
-[file]{heap}-[region]{init}
+/* ヒープを初期化する */
+// 最小ヒープを初期化する
+// Rust の BinaryHeap は最大ヒープであり、最小ヒープにするには要素を Reverse で包む必要がある
+#[allow(unused_assignments)]
+let mut min_heap = BinaryHeap::new();
+// 最大ヒープを初期化する
+let mut max_heap = BinaryHeap::new();
 
-[file]{heap}-[region]{push}
+/* ヒープに要素を挿入する */
+max_heap.push(1);
+max_heap.push(3);
+max_heap.push(2);
+max_heap.push(5);
+max_heap.push(4);
 
-[file]{heap}-[region]{peek}
+/* ヒープの先頭要素を取得する */
+let peek = max_heap.peek().unwrap(); // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* ヒープの先頭要素を取り出す */
+// 取り出した要素は降順の列を形成する
+let peek = max_heap.pop().unwrap(); // 5
+let peek = max_heap.pop().unwrap(); // 4
+let peek = max_heap.pop().unwrap(); // 3
+let peek = max_heap.pop().unwrap(); // 2
+let peek = max_heap.pop().unwrap(); // 1
 
-[file]{heap}-[region]{size}
+/* ヒープのサイズを取得する */
+let size = max_heap.len();
 
-[file]{heap}-[region]{is_empty}
+/* ヒープが空か判定 */
+let is_empty = max_heap.is_empty();
 
-[file]{heap}-[region]{heapify}
+/* リストを入力してヒープを構築する */
+// 時間計算量は O(n) であり、O(nlogn) ではない
+min_heap = BinaryHeap::from(vec![Reverse(1), Reverse(3), Reverse(2), Reverse(5), Reverse(4)]);
 ```
 
 ```c title="heap.c"
@@ -146,23 +317,39 @@
 ```
 
 ```kotlin title="heap.kt"
-[file]{heap}-[region]{init}
+/* ヒープを初期化する */
+// 最小ヒープを初期化する
+var minHeap = PriorityQueue<Int>()
+// 最大ヒープを初期化する（ラムダ式で Comparator を変更すればよい）
+val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-[file]{heap}-[region]{push}
+/* ヒープに要素を挿入する */
+maxHeap.offer(1)
+maxHeap.offer(3)
+maxHeap.offer(2)
+maxHeap.offer(5)
+maxHeap.offer(4)
 
-[file]{heap}-[region]{peek}
+/* ヒープの先頭要素を取得する */
+var peek = maxHeap.peek() // 5
 
-[file]{heap}-[region]{pop_1}
-[file]{heap}-[region]{pop_2}
-[file]{heap}-[region]{pop_3}
-[file]{heap}-[region]{pop_4}
-[file]{heap}-[region]{pop_5}
+/* ヒープの先頭要素を取り出す */
+// 取り出した要素は降順の列を形成する
+peek = maxHeap.poll() // 5
+peek = maxHeap.poll() // 4
+peek = maxHeap.poll() // 3
+peek = maxHeap.poll() // 2
+peek = maxHeap.poll() // 1
 
-[file]{heap}-[region]{size}
+/* ヒープのサイズを取得する */
+val size = maxHeap.size
 
-[file]{heap}-[region]{is_empty}
+/* ヒープが空か判定 */
+val isEmpty = maxHeap.isEmpty()
 
-[file]{heap}-[region]{heapify}
+/* リストを入力してヒープを構築する */
+// 時間計算量は O(n) であり、O(nlogn) ではない
+minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
 ```
 
 ```ruby title="heap.rb"
