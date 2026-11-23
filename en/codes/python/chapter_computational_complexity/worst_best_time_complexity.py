@@ -8,29 +8,29 @@ import random
 
 
 def random_numbers(n: int) -> list[int]:
-    """Generate an array with elements: 1, 2, ..., n, shuffled in order"""
-    # Generate array nums =: 1, 2, 3, ..., n
+    """Generate an array containing 1, 2, ..., n in shuffled order"""
+    # Generate the array nums = 1, 2, 3, ..., n
     nums = [i for i in range(1, n + 1)]
-    # Randomly shuffle array elements
+    # Randomly shuffle the array elements
     random.shuffle(nums)
     return nums
 
 
 def find_one(nums: list[int]) -> int:
-    """Find the index of number 1 in array nums"""
+    """Find the index of the number 1 in array nums"""
     for i in range(len(nums)):
-        # When element 1 is at the head of the array, best time complexity O(1) is achieved
-        # When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+        # When 1 is at the start of the array, the best-case time complexity is O(1)
+        # When 1 is at the end of the array, the worst-case time complexity is O(n)
         if nums[i] == 1:
             return i
     return -1
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     for i in range(10):
         n = 100
         nums: list[int] = random_numbers(n)
         index: int = find_one(nums)
-        print("\nArray [ 1, 2, ..., n ] after being shuffled =", nums)
-        print("The index of number 1 is", index)
+        print("\nArray [ 1, 2, ..., n ] after shuffling =", nums)
+        print("The index of the number 1 is", index)

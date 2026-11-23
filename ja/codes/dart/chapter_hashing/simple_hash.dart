@@ -24,7 +24,7 @@ int mulHash(String key) {
   return hash;
 }
 
-/* XOR ハッシュ */
+/* 排他的論理和ハッシュ */
 int xorHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -44,19 +44,19 @@ int rotHash(String key) {
   return hash;
 }
 
-/* Dirver Code */
+/* 実行用コード */
 void main() {
-  String key = "Hello アルゴリズム";
+  String key = "Hello 算法";
 
   int hash = addHash(key);
-  print("加算ハッシュ値は $hash です");
+  print("加算ハッシュの値は $hash");
 
   hash = mulHash(key);
-  print("乗算ハッシュ値は $hash です");
+  print("乗算ハッシュの値は $hash");
 
   hash = xorHash(key);
-  print("XOR ハッシュ値は $hash です");
+  print("排他的論理和ハッシュの値は $hash");
 
   hash = rotHash(key);
-  print("回転ハッシュ値は $hash です");
+  print("回転ハッシュの値は $hash");
 }

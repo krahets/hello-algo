@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "title": "Tower of Hanoi recursion tree: two smaller tasks plus one single-disk move",
+  "summary": "Every Tower of Hanoi problem larger than 1 splits into two smaller transfer tasks flanking one single-disk move until every task executes directly.",
+  "context": [
+    "Each node f(k) denotes the subproblem size of moving k disks. Every problem with k > 1 decomposes into moving the top k - 1 disks aside, moving the largest disk at the bottom, and moving the k - 1 disks onto the destination rod. Nodes in the figure label only subproblem sizes without writing each subproblem's distinct source, auxiliary, and destination rods."
+  ],
+  "description": [
+    "At the top of the recursion tree sits the original problem f(n), branching downward from left to right into three children: f(n - 1), f(1), and f(n - 1). Each green f(n - 1) node on the left and right branches further into f(n - 2), f(1), and f(n - 2), whereas the middle cyan node f(1) is already a smallest single-move subproblem that does not split further.",
+    "Green boxes denote subproblems that still decompose recursively, while cyan boxes denote base-case single-disk moves f(1). Intermediate levels are condensed with ellipses \"…\", and the bottom row consists entirely of cyan f(1) nodes; because this diagram schematically represents general n, do not count the drawn cyan boxes as the exact move count for a specific n."
+  ],
+  "result": "From this decomposition (formulas not printed in the figure), let T(n) be the number of disk moves. The base case is T(1) = 1. For n > 1, T(n) = 2T(n - 1) + 1, giving 2ⁿ − 1 (one less than 2 to the power n) total single-disk moves and O(2ⁿ) time complexity. Because the left and right branches execute sequentially and reuse stack space after returning, the longest active call chain along f(n) → f(n - 1) → … → f(1) holds n dfs stack frames, giving O(n) stack space counted by call depth.",
+  "frames": [
+    {
+      "id": "source-328",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_recursive_tree.png",
+      "title": "Tower of Hanoi recursion tree: two smaller tasks plus one single-disk move",
+      "explanation": "Strictly matching the chapter code, each middle cyan f(1) executes move directly inside its parent call without invoking dfs(1); only the left and right f(1) children of each f(2) run as actual dfs(1) calls. Thus the figure depicts a problem-decomposition tree rather than treating every box as a separate dfs call."
+    }
+  ]
+}

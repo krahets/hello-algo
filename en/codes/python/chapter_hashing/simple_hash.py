@@ -33,7 +33,7 @@ def xor_hash(key: str) -> int:
 
 
 def rot_hash(key: str) -> int:
-    """Rotational hash"""
+    """Rotating hash"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -41,18 +41,18 @@ def rot_hash(key: str) -> int:
     return hash % modulus
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    key = "Hello algo"
+    key = "Hello 算法"
 
     hash = add_hash(key)
-    print(f"Additive hash value is {hash}")
+    print(f"Additive hash value: {hash}")
 
     hash = mul_hash(key)
-    print(f"Multiplicative hash value is {hash}")
+    print(f"Multiplicative hash value: {hash}")
 
     hash = xor_hash(key)
-    print(f"XOR hash value is {hash}")
+    print(f"XOR hash value: {hash}")
 
     hash = rot_hash(key)
-    print(f"Rotational hash value is {hash}")
+    print(f"Rotating hash value: {hash}")

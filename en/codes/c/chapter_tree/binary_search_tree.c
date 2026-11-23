@@ -13,7 +13,7 @@ typedef struct {
 
 /* Constructor */
 BinarySearchTree *newBinarySearchTree() {
-    // Initialize empty tree
+    // Initialize an empty tree
     BinarySearchTree *bst = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
     bst->root = NULL;
     return bst;
@@ -25,55 +25,55 @@ void delBinarySearchTree(BinarySearchTree *bst) {
     free(bst);
 }
 
-/* Get binary tree root node */
+/* Get the root of the binary tree */
 TreeNode *getRoot(BinarySearchTree *bst) {
     return bst->root;
 }
 
-/* Search node */
+/* Find a node */
 TreeNode *search(BinarySearchTree *bst, int num) {
     TreeNode *cur = bst->root;
-    // Loop search, exit after passing leaf node
+    // Search in a loop until reaching a null reference beyond a leaf
     while (cur != NULL) {
         if (cur->val < num) {
-            // Target node is in cur's right subtree
+            // The target node lies in the right subtree of cur
             cur = cur->right;
         } else if (cur->val > num) {
-            // Target node is in cur's left subtree
+            // The target node lies in the left subtree of cur
             cur = cur->left;
         } else {
-            // Found target node, exit loop
+            // The target node was found; exit the loop
             break;
         }
     }
-    // Return target node
+    // Return the target node
     return cur;
 }
 
-/* Insert node */
+/* Insert a node */
 void insert(BinarySearchTree *bst, int num) {
-    // If tree is empty, initialize root node
+    // If the tree is empty, initialize the root node
     if (bst->root == NULL) {
         bst->root = newTreeNode(num);
         return;
     }
     TreeNode *cur = bst->root, *pre = NULL;
-    // Loop search, exit after passing leaf node
+    // Search in a loop until reaching a null reference beyond a leaf
     while (cur != NULL) {
-        // Found duplicate node, return directly
+        // Return immediately if a duplicate node is found
         if (cur->val == num) {
             return;
         }
         pre = cur;
         if (cur->val < num) {
-            // Insertion position is in cur's right subtree
+            // The insertion position lies in the right subtree of cur
             cur = cur->right;
         } else {
-            // Insertion position is in cur's left subtree
+            // The insertion position lies in the left subtree of cur
             cur = cur->left;
         }
     }
-    // Insert node
+    // Insert a node
     TreeNode *node = newTreeNode(num);
     if (pre->val < num) {
         pre->right = node;
@@ -82,36 +82,36 @@ void insert(BinarySearchTree *bst, int num) {
     }
 }
 
-/* Remove node */
-// Cannot use remove keyword here due to stdio.h inclusion
+/* Remove a node */
+// The name remove conflicts with the function declared in stdio.h
 void removeItem(BinarySearchTree *bst, int num) {
-    // If tree is empty, return directly
+    // Return immediately if the tree is empty
     if (bst->root == NULL)
         return;
     TreeNode *cur = bst->root, *pre = NULL;
-    // Loop search, exit after passing leaf node
+    // Search in a loop until reaching a null reference beyond a leaf
     while (cur != NULL) {
-        // Found node to delete, exit loop
+        // The node to remove was found; exit the loop
         if (cur->val == num)
             break;
         pre = cur;
         if (cur->val < num) {
-            // Node to delete is in right subtree of root
+            // The node to remove is in cur's right subtree
             cur = cur->right;
         } else {
-            // Node to delete is in left subtree of root
+            // The node to remove is in cur's left subtree
             cur = cur->left;
         }
     }
-    // If no node to delete, return directly
+    // Return immediately if the node to remove does not exist
     if (cur == NULL)
         return;
-    // Check if node to delete has children
+    // Check whether the node to remove has children
     if (cur->left == NULL || cur->right == NULL) {
-        /* Number of child nodes = 0 or 1 */
-        // When number of child nodes = 0 / 1, child = nullptr / that child node
+        /* Number of children = 0 or 1 */
+        // With 0 or 1 child, child is NULL or that child, respectively
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
-        // Delete node cur
+        // Remove node cur
         if (pre->left == cur) {
             pre->left = child;
         } else {
@@ -120,49 +120,49 @@ void removeItem(BinarySearchTree *bst, int num) {
         // Free memory
         free(cur);
     } else {
-        /* Number of child nodes = 2 */
-        // Get next node of cur in inorder traversal
+        /* Number of children = 2 */
+        // Get the inorder successor of cur
         TreeNode *tmp = cur->right;
         while (tmp->left != NULL) {
             tmp = tmp->left;
         }
         int tmpVal = tmp->val;
-        // Recursively delete node tmp
+        // Recursively remove node tmp
         removeItem(bst, tmp->val);
-        // Replace cur with tmp
+        // Replace the value of cur with the value of tmp
         cur->val = tmpVal;
     }
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize binary search tree */
+    /* Initialize the binary search tree */
     int nums[] = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
     BinarySearchTree *bst = newBinarySearchTree();
     for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
         insert(bst, nums[i]);
     }
-    printf("Initialized binary tree is\n");
+    printf("Binary tree after initialization:\n");
     printTree(getRoot(bst));
 
-    /* Search node */
+    /* Find a node */
     TreeNode *node = search(bst, 7);
-    printf("Found node object value = %d\n", node->val);
+    printf("Value of the node found = %d\n", node->val);
 
-    /* Insert node */
+    /* Insert a node */
     insert(bst, 16);
-    printf("After inserting node 16, binary tree is\n");
+    printf("Binary tree after inserting node 16:\n");
     printTree(getRoot(bst));
 
-    /* Remove node */
+    /* Remove a node */
     removeItem(bst, 1);
-    printf("After removing node 1, binary tree is\n");
+    printf("Binary tree after removing node 1:\n");
     printTree(getRoot(bst));
     removeItem(bst, 2);
-    printf("After removing node 2, binary tree is\n");
+    printf("Binary tree after removing node 2:\n");
     printTree(getRoot(bst));
     removeItem(bst, 4);
-    printf("After removing node 4, binary tree is\n");
+    printf("Binary tree after removing node 4:\n");
     printTree(getRoot(bst));
 
     // Free memory

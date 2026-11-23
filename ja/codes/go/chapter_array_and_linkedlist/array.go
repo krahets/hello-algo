@@ -8,20 +8,20 @@ import (
 	"math/rand"
 )
 
-/* 要素へランダムアクセス */
+/* 要素にランダムアクセスする */
 func randomAccess(nums []int) (randomNum int) {
-	// 区間 [0, nums.length) からランダムに 1 つの数を選ぶ
+	// 区間 [0, nums.length) から数値をランダムに 1 つ選ぶ
 	randomIndex := rand.Intn(len(nums))
-	// ランダムな要素を取得して返す
+	// ランダムに選んだ要素を取得して返す
 	randomNum = nums[randomIndex]
 	return
 }
 
-/* 配列長を拡張する */
+/* 配列の長さを拡張する */
 func extend(nums []int, enlarge int) []int {
-	// 拡張後の長さを持つ配列を初期化する
+	// 拡張後の長さの配列を初期化する
 	res := make([]int, len(nums)+enlarge)
-	// 元の配列の全要素を新しい配列にコピー
+	// 元の配列の全要素を新しい配列にコピーする
 	for i, num := range nums {
 		res[i] = num
 	}
@@ -29,33 +29,33 @@ func extend(nums []int, enlarge int) []int {
 	return res
 }
 
-/* 配列の index 番目に要素 num を挿入 */
+/* 配列のインデックス index に要素 num を挿入する */
 func insert(nums []int, num int, index int) {
-	// インデックス index 以降の全要素を 1 つ後ろへ移動する
+	// インデックス index 以降の全要素を 1 つ後ろにずらす
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
-	// index の要素に num を代入する
+	// インデックス index の要素に num を代入する
 	nums[index] = num
 }
 
-/* index の要素を削除する */
+/* インデックス index の要素を削除する */
 func remove(nums []int, index int) {
-	// インデックス index より後ろの全要素を 1 つ前へ移動する
+	// インデックス index より後の全要素を 1 つ前にずらす
 	for i := index; i < len(nums)-1; i++ {
 		nums[i] = nums[i+1]
 	}
 }
 
-/* 配列を走査 */
+/* 配列を走査する */
 func traverse(nums []int) {
 	count := 0
-	// インデックスで配列を走査
+	// インデックスを使って配列を走査する
 	for i := 0; i < len(nums); i++ {
 		count += nums[i]
 	}
 	count = 0
-	// 配列要素を直接走査
+	// 配列の要素を直接走査する
 	for _, num := range nums {
 		count += num
 	}
@@ -66,7 +66,7 @@ func traverse(nums []int) {
 	}
 }
 
-/* 配列内で指定要素を探す */
+/* 配列から指定した要素を探索する */
 func find(nums []int, target int) (index int) {
 	index = -1
 	for i := 0; i < len(nums); i++ {

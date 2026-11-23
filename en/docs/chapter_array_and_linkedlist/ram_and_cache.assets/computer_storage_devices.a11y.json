@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "Data flow between disk, memory, and cache",
+  "summary": "The processor, cache, memory, and disk work together through bidirectional data flows.",
+  "context": [],
+  "description": [
+    "From left to right are CPU, Memory, and Disk. Inside the green CPU box, Processor is on the left and Cache is on the right. Between each of the three adjacent pairs—Processor and Cache, Cache and Memory, and Memory and Disk—sit two horizontal arrows stacked vertically: the upper arrow points right and the lower arrow points left.",
+    "Above the boxes, two bent arrows bypass Cache, one pointing from Processor to Memory and the other from Memory to Processor. Together these connections represent bidirectional read and write paths."
+  ],
+  "frames": [
+    {
+      "id": "source-55",
+      "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png",
+      "title": "Data flow between disk, memory, and cache",
+      "explanation": "As the chapter explains, the disk stores data long term. Data needed at runtime is loaded into memory. The CPU cache holds frequently accessed data and instructions so the processor makes fewer trips to slower memory."
+    }
+  ]
+}

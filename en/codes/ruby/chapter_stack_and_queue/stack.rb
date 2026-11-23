@@ -4,13 +4,13 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Access top of the stack element
-  # Ruby has no built-in stack class, can use Array as stack
+  # Initialize the stack
+  # Ruby has no built-in stack class; use an Array as a stack
   stack = []
 
-  # Elements push onto stack
+  # Push elements onto the stack
   stack << 1
   stack << 3
   stack << 2
@@ -18,20 +18,20 @@ if __FILE__ == $0
   stack << 4
   puts "Stack stack = #{stack}"
 
-  # Return list for printing
+  # Access the top element
   peek = stack.last
   puts "Top element peek = #{peek}"
 
-  # Element pop from stack
+  # Pop an element from the stack
   pop = stack.pop
-  puts "Pop element pop = #{pop}"
-  puts "After pop, stack = #{stack}"
+  puts "Popped element pop = #{pop}"
+  puts "After popping, stack = #{stack}"
 
-  # Get the length of the stack
+  # Get the stack size
   size = stack.length
-  puts "Stack length size = #{size}"
+  puts "Stack size = #{size}"
 
-  # Check if empty
+  # Check whether it is empty
   is_empty = stack.empty?
-  puts "Is stack empty = #{is_empty}"
+  puts "Is the stack empty? #{is_empty}"
 end

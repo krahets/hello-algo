@@ -4,11 +4,11 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Memoization search ###
+### Memoized search ###
 def dfs(i, mem)
-  # Known dp[1] and dp[2], return them
+  # The values of dp[1] and dp[2] are known; return them
   return i if i == 1 || i == 2
-  # If record dp[i] exists, return it directly
+  # If dp[i] has been recorded, return it directly
   return mem[i] if mem[i] != -1
 
   # dp[i] = dp[i-1] + dp[i-2]
@@ -17,17 +17,17 @@ def dfs(i, mem)
   mem[i] = count
 end
 
-### Climbing stairs: memoization search ###
+### Climbing stairs: memoized search ###
 def climbing_stairs_dfs_mem(n)
-  # mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+  # mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
   mem = Array.new(n + 1, -1)
   dfs(n, mem)
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_dfs_mem(n)
-  puts "Climbing #{n} stairs has #{res} solutions"
+  puts "Number of ways to climb #{n} stairs: #{res}"
 end

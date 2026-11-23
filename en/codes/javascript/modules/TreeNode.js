@@ -7,9 +7,9 @@
 /* Binary tree node */
 class TreeNode {
     val; // Node value
-    left; // Left child pointer
-    right; // Right child pointer
-    height; // Node height
+    left; // Pointer to the left child
+    right; // Pointer to the right child
+    height; //Node height
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.left = left === undefined ? null : left;
@@ -18,7 +18,7 @@ class TreeNode {
     }
 }
 
-/* Deserialize array to binary tree */
+/* Deserialize an array into a binary tree */
 function arrToTree(arr, i = 0) {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

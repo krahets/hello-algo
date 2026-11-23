@@ -6,19 +6,19 @@
 
 #include "../utils/common.h"
 
-// Assume max node count is 100
+// Assume at most 100 vertices
 #define MAX_SIZE 100
 
-/* Node structure */
+/* Adjacency-list node structure */
 typedef struct AdjListNode {
     Vertex *vertex;           // Vertex
-    struct AdjListNode *next; // Successor node
+    struct AdjListNode *next; // Next node
 } AdjListNode;
 
-/* Undirected graph class based on adjacency list */
+/* Undirected graph structure implemented with an adjacency list */
 typedef struct {
-    AdjListNode *heads[MAX_SIZE]; // Node array
-    int size;                     // Node count
+    AdjListNode *heads[MAX_SIZE]; // Array of list heads
+    int size;                     // Number of vertices
 } GraphAdjList;
 
 /* Constructor */
@@ -51,7 +51,7 @@ void delGraphAdjList(GraphAdjList *graph) {
     free(graph);
 }
 
-/* Find node corresponding to vertex */
+/* Find the list node corresponding to a vertex */
 AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
     for (int i = 0; i < graph->size; i++) {
         if (graph->heads[i]->vertex == vet) {
@@ -61,16 +61,16 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
     return NULL;
 }
 
-/* Add edge helper function */
+/* Helper for adding an edge */
 void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
     node->vertex = vet;
-    // Head insertion
+    // Insert at the front of the neighbor list
     node->next = head->next;
     head->next = node;
 }
 
-/* Add edge */
+/* Add an edge */
 void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
@@ -80,24 +80,24 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     addEdgeHelper(head2, vet1);
 }
 
-/* Remove edge helper function */
+/* Helper for removing an edge */
 void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *pre = head;
     AdjListNode *cur = head->next;
-    // Search for node corresponding to vet in list
+    // Search the linked list for the node corresponding to vet
     while (cur != NULL && cur->vertex != vet) {
         pre = cur;
         cur = cur->next;
     }
     if (cur == NULL)
         return;
-    // Remove node corresponding to vet from list
+    // Remove the node corresponding to vet from the linked list
     pre->next = cur->next;
     // Free memory
     free(cur);
 }
 
-/* Remove edge */
+/* Remove an edge */
 void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
@@ -107,28 +107,28 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     removeEdgeHelper(head2, head1->vertex);
 }
 
-/* Add vertex */
+/* Add a vertex */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
     assert(graph != NULL && graph->size < MAX_SIZE);
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
-    // Add a new linked list in the adjacency list
+    // Add a new list to the adjacency list
     graph->heads[graph->size++] = head;
 }
 
-/* Remove vertex */
+/* Remove a vertex */
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // Remove the linked list corresponding to vertex vet in the adjacency list
+    // Remove the list corresponding to vertex vet from the adjacency list
     AdjListNode *cur = node, *pre = NULL;
     while (cur) {
         pre = cur;
         cur = cur->next;
         free(pre);
     }
-    // Traverse the linked lists of other vertices and remove all edges containing vet
+    // Traverse the lists of the other vertices and remove all edges incident to vet
     for (int i = 0; i < graph->size; i++) {
         cur = graph->heads[i];
         pre = NULL;
@@ -142,7 +142,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
             }
         }
     }
-    // Move vertices after this vertex forward to fill gap
+    // Shift subsequent vertices forward to fill the gap
     int i;
     for (i = 0; i < graph->size; i++) {
         if (graph->heads[i] == node)
@@ -155,7 +155,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
     free(vet);
 }
 
-/* Print adjacency list */
+/* Print the adjacency list */
 void printGraph(const GraphAdjList *graph) {
     printf("Adjacency list =\n");
     for (int i = 0; i < graph->size; ++i) {

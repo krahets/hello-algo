@@ -7,7 +7,7 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 二分木ノード型 */
+/* 二分木のノードの型 */
 #[derive(Debug)]
 pub struct TreeNode {
     pub val: i32,
@@ -39,23 +39,23 @@ macro_rules! op_vec {
     };
 }
 
-// シリアライズの符号化規則は以下を参照:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二分木の配列表現:
+// シリアライズの符号化規則は次を参照：
+// https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
+// 二分木の配列表現：
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// 二分木の連結リスト表現:
-// /——— 15
-// /——— 7
-// /——— 3
-// |    \——— 6
-// |        \——— 12
+// 二分木の連結リスト表現：
+//             /——— 15
+//         /——— 7
+//     /——— 3
+//    |    \——— 6
+//    |        \——— 12
 // ——— 1
-// \——— 2
-// |    /——— 9
-// \——— 4
-// \——— 8
+//     \——— 2
+//        |    /——— 9
+//         \——— 4
+//             \——— 8
 
-/* リストを二分木にデシリアライズする: 再帰 */
+/* リストから二分木へデシリアライズ：再帰 */
 fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>>> {
     if i >= arr.len() || arr[i].is_none() {
         return None;
@@ -66,15 +66,15 @@ fn vec_to_tree_dfs(arr: &[Option<i32>], i: usize) -> Option<Rc<RefCell<TreeNode>
     Some(root)
 }
 
-/* リストを二分木にデシリアライズする */
+/* リストから二分木へデシリアライズ */
 pub fn vec_to_tree(arr: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     vec_to_tree_dfs(&arr, 0)
 }
 
-/* 二分木をリストにシリアライズする: 再帰 */
+/* 二分木をシリアライズしてリストにする：再帰 */
 fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec<Option<i32>>) {
     if let Some(root) = root {
-        // i + 1 is the minimum valid size to access index i
+        // インデックス i にアクセスできる最小のサイズは i + 1
         while res.len() < i + 1 {
             res.push(None);
         }
@@ -84,7 +84,7 @@ fn tree_to_vec_dfs(root: Option<&Rc<RefCell<TreeNode>>>, i: usize, res: &mut Vec
     }
 }
 
-/* 二分木をリストにシリアライズする */
+/* 二分木をシリアライズしてリストにする */
 pub fn tree_to_vec(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Option<i32>> {
     let mut res = vec![];
     tree_to_vec_dfs(root.as_ref(), 0, &mut res);

@@ -18,46 +18,46 @@ class BinarySearchTree {
         root = nullptr;
     }
 
-    /* デストラクタメソッド */
+    /* デストラクタ */
     ~BinarySearchTree() {
         freeMemoryTree(root);
     }
 
-    /* 二分木の根ノードを取得 */
+    /* 二分木の根ノードを取得する */
     TreeNode *getRoot() {
         return root;
     }
 
-    /* ノードを探索 */
+    /* ノードを探索する */
     TreeNode *search(int num) {
         TreeNode *cur = root;
-        // ループで探索し、葉ノードを越えたら抜ける
+        // 繰り返し探索し、葉ノードを越えたら終了する
         while (cur != nullptr) {
-            // 目標ノードは cur の右部分木にある
+            // 目的のノードは cur の右部分木にある
             if (cur->val < num)
                 cur = cur->right;
-            // 目標ノードは cur の左部分木にある
+            // 目的のノードは cur の左部分木にある
             else if (cur->val > num)
                 cur = cur->left;
-            // 目標ノードが見つかったらループを抜ける
+            // 目的のノードが見つかったので、ループを終了する
             else
                 break;
         }
-        // 目標ノードを返す
+        // 目的のノードを返す
         return cur;
     }
 
-    /* ノードを挿入 */
+    /* ノードを挿入する */
     void insert(int num) {
-        // 木が空なら、根ノードを初期化する
+        // 木が空の場合、根ノードを初期化する
         if (root == nullptr) {
             root = new TreeNode(num);
             return;
         }
         TreeNode *cur = root, *pre = nullptr;
-        // ループで探索し、葉ノードを越えたら抜ける
+        // 繰り返し探索し、葉ノードを越えたら終了する
         while (cur != nullptr) {
-            // 重複ノードが見つかったら、直ちに返す
+            // 重複したノードが見つかったので、そのまま戻る
             if (cur->val == num)
                 return;
             pre = cur;
@@ -68,7 +68,7 @@ class BinarySearchTree {
             else
                 cur = cur->left;
         }
-        // ノードを挿入
+        // ノードを挿入する
         TreeNode *node = new TreeNode(num);
         if (pre->val < num)
             pre->right = node;
@@ -76,31 +76,31 @@ class BinarySearchTree {
             pre->left = node;
     }
 
-    /* ノードを削除 */
+    /* ノードを削除する */
     void remove(int num) {
-        // 木が空なら、そのまま早期リターンする
+        // 木が空の場合、そのまま早期リターンする
         if (root == nullptr)
             return;
         TreeNode *cur = root, *pre = nullptr;
-        // ループで探索し、葉ノードを越えたら抜ける
+        // 繰り返し探索し、葉ノードを越えたら終了する
         while (cur != nullptr) {
-            // 削除対象のノードが見つかったら、ループを抜ける
+            // 削除対象のノードが見つかったので、ループを終了する
             if (cur->val == num)
                 break;
             pre = cur;
-            // 削除対象ノードは cur の右部分木にある
+            // 削除対象のノードは cur の右部分木にある
             if (cur->val < num)
                 cur = cur->right;
-            // 削除対象ノードは cur の左部分木にある
+            // 削除対象のノードは cur の左部分木にある
             else
                 cur = cur->left;
         }
-        // 削除対象ノードがなければそのまま返す
+        // 削除対象のノードが存在しない場合、そのまま戻る
         if (cur == nullptr)
             return;
-        // 子ノード数 = 0 or 1
+        // 子ノード数 = 0 または 1
         if (cur->left == nullptr || cur->right == nullptr) {
-            // 子ノード数 = 0 / 1 のとき、child = nullptr / その子ノード
+            // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
             TreeNode *child = cur->left != nullptr ? cur->left : cur->right;
             // ノード cur を削除する
             if (cur != root) {
@@ -109,7 +109,7 @@ class BinarySearchTree {
                 else
                     pre->right = child;
             } else {
-                // 削除ノードが根ノードなら、根ノードを再設定
+                // 削除するノードが根ノードの場合、根ノードを指定し直す
                 root = child;
             }
             // メモリを解放する
@@ -117,13 +117,13 @@ class BinarySearchTree {
         }
         // 子ノード数 = 2
         else {
-            // 中順走査における cur の次ノードを取得
+            // 通りがけ順で cur の次のノードを取得する
             TreeNode *tmp = cur->right;
             while (tmp->left != nullptr) {
                 tmp = tmp->left;
             }
             int tmpVal = tmp->val;
-            // ノード tmp を再帰的に削除
+            // ノード tmp を再帰的に削除する
             remove(tmp->val);
             // tmp で cur を上書きする
             cur->val = tmpVal;
@@ -131,36 +131,36 @@ class BinarySearchTree {
     }
 };
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* 二分探索木を初期化 */
+    /* 二分探索木を初期化する */
     BinarySearchTree *bst = new BinarySearchTree();
-    // 注意：挿入順序が異なると異なる二分木が生成される。このシーケンスからは完全二分木を生成できる
+    // 挿入順序が異なると異なる二分木になることに注意。この順序ではパーフェクト二分木を生成できる
     vector<int> nums = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
     for (int num : nums) {
         bst->insert(num);
     }
-    cout << endl << "初期化した二分木は\n" << endl;
+    cout << endl << "初期化した二分木\n" << endl;
     printTree(bst->getRoot());
 
-    /* ノードを探索 */
+    /* ノードを探索する */
     TreeNode *node = bst->search(7);
-    cout << endl << "見つかったノードオブジェクトは " << node << "、ノード値 = " << node->val << endl;
+    cout << endl << "見つかったノードオブジェクトは " << node << "、ノードの値 = " << node->val << endl;
 
-    /* ノードを挿入 */
+    /* ノードを挿入する */
     bst->insert(16);
-    cout << endl << "ノード 16 を挿入した後、二分木は\n" << endl;
+    cout << endl << "ノード 16 を挿入した後の二分木\n" << endl;
     printTree(bst->getRoot());
 
-    /* ノードを削除 */
+    /* ノードを削除する */
     bst->remove(1);
-    cout << endl << "ノード 1 を削除した後、二分木は\n" << endl;
+    cout << endl << "ノード 1 を削除した後の二分木\n" << endl;
     printTree(bst->getRoot());
     bst->remove(2);
-    cout << endl << "ノード 2 を削除した後、二分木は\n" << endl;
+    cout << endl << "ノード 2 を削除した後の二分木\n" << endl;
     printTree(bst->getRoot());
     bst->remove(4);
-    cout << endl << "ノード 4 を削除した後、二分木は\n" << endl;
+    cout << endl << "ノード 4 を削除した後の二分木\n" << endl;
     printTree(bst->getRoot());
 
     // メモリを解放する

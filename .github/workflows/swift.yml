@@ -10,12 +10,16 @@ on:
       - ".github/workflows/swift.yml"
       - "codes/swift/**/*.swift"
       - "en/codes/swift/**/*.swift"
+      - "ja/codes/swift/**/*.swift"
+      - "ko/codes/swift/**/*.swift"
   pull_request:
     branches: ["main"]
     paths:
       - ".github/workflows/swift.yml"
       - "codes/swift/**/*.swift"
       - "en/codes/swift/**/*.swift"
+      - "ja/codes/swift/**/*.swift"
+      - "ko/codes/swift/**/*.swift"
   workflow_dispatch:
 
 jobs:
@@ -25,7 +29,7 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-22.04", "macos-14"]
-        code-dir: ["codes/swift", "en/codes/swift"]
+        code-dir: ["codes/swift", "en/codes/swift", "ja/codes/swift", "ko/codes/swift"]
     steps:
       - uses: actions/checkout@v6
       - name: Build

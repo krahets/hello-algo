@@ -1,0 +1,804 @@
+{
+  "schema_version": 2,
+  "title": "ASCII characters and code table",
+  "summary": "Look up the binary representation by decimal code or character, and distinguish control characters from printable characters.",
+  "context": [
+    "ASCII uses 7 bits to represent 128 characters, with codes ranging from 0 to 127. The figure displays binary values as 8-bit single bytes grouped into nibbles of 4 bits, with the highest bit fixed at 0; the table below merges the figure's four column panels into a single complete table ordered by increasing decimal code."
+  ],
+  "description": [
+    "By code range: 0 to 31 and 127 are control characters, where 127 is DEL for delete (left blank in the figure's meaning column); 32 is the space character SP; 48 to 57 are the digits 0 to 9; 65 to 90 are uppercase letters A to Z; and 97 to 122 are lowercase letters a to z. Printable punctuation and symbols occupy 33 to 47, 58 to 64, 91 to 96, and 123 to 126.",
+    "The table’s meaning column uses the labels in the English figure. Code 14, SO (Shift out), selects an alternate character set; code 15, SI (Shift in), switches back to the original set. Code 27, ESC (Escape), can introduce an escape sequence. Codes 10 (LF, Line feed), 12 (FF, Form feed), and 13 (CR, Carriage return) control line breaks, page breaks, and returning to the start of a line, respectively.",
+    "A character glyph differs from its numeric code: the digit character 0 has code 48 (binary 0011 0000), whereas code 0 is the null character NUL (binary 0000 0000); both also differ from the space character SP (32) and the delete character DEL (127)."
+  ],
+  "frames": [
+    {
+      "id": "source-43",
+      "book_path": "chapter_data_structure/character_encoding.assets/ascii_table.png",
+      "title": "ASCII characters and code table",
+      "explanation": "For the digit characters 0 to 9, the upper four bits are always 0011 and the lower four bits run from 0000 to 1001. Uppercase and lowercase forms of the same letter differ by 32, changing only the 6th bit from the right (weight 32): A is 65 (binary 0100 0001) and a is 97 (binary 0110 0001). For instance, to look up a newline, locate LF at decimal row 10 in the table below."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Complete ASCII code table (matching every row in the figure)",
+      "headers": [
+        "Decimal",
+        "Binary",
+        "Character",
+        "Meaning (shown in figure)"
+      ],
+      "rows": [
+        [
+          "0",
+          "0000 0000",
+          "NUL",
+          "Null"
+        ],
+        [
+          "1",
+          "0000 0001",
+          "SOH",
+          "Start of heading"
+        ],
+        [
+          "2",
+          "0000 0010",
+          "STX",
+          "Start of text"
+        ],
+        [
+          "3",
+          "0000 0011",
+          "ETX",
+          "End of text"
+        ],
+        [
+          "4",
+          "0000 0100",
+          "EOT",
+          "End of transmission"
+        ],
+        [
+          "5",
+          "0000 0101",
+          "ENQ",
+          "Enquiry"
+        ],
+        [
+          "6",
+          "0000 0110",
+          "ACK",
+          "Acknowledge"
+        ],
+        [
+          "7",
+          "0000 0111",
+          "BEL",
+          "Bell"
+        ],
+        [
+          "8",
+          "0000 1000",
+          "BS",
+          "Backspace"
+        ],
+        [
+          "9",
+          "0000 1001",
+          "HT",
+          "Horizontal tab"
+        ],
+        [
+          "10",
+          "0000 1010",
+          "LF",
+          "Line feed"
+        ],
+        [
+          "11",
+          "0000 1011",
+          "VT",
+          "Vertical tab"
+        ],
+        [
+          "12",
+          "0000 1100",
+          "FF",
+          "Form feed"
+        ],
+        [
+          "13",
+          "0000 1101",
+          "CR",
+          "Carriage return"
+        ],
+        [
+          "14",
+          "0000 1110",
+          "SO",
+          "Shift out"
+        ],
+        [
+          "15",
+          "0000 1111",
+          "SI",
+          "Shift in"
+        ],
+        [
+          "16",
+          "0001 0000",
+          "DLE",
+          "Data link escape"
+        ],
+        [
+          "17",
+          "0001 0001",
+          "DC1",
+          "Device control 1"
+        ],
+        [
+          "18",
+          "0001 0010",
+          "DC2",
+          "Device control 2"
+        ],
+        [
+          "19",
+          "0001 0011",
+          "DC3",
+          "Device control 3"
+        ],
+        [
+          "20",
+          "0001 0100",
+          "DC4",
+          "Device control 4"
+        ],
+        [
+          "21",
+          "0001 0101",
+          "NAK",
+          "Negative acknowledge"
+        ],
+        [
+          "22",
+          "0001 0110",
+          "SYN",
+          "Synchronous idle"
+        ],
+        [
+          "23",
+          "0001 0111",
+          "ETB",
+          "End of transmission block"
+        ],
+        [
+          "24",
+          "0001 1000",
+          "CAN",
+          "Cancel"
+        ],
+        [
+          "25",
+          "0001 1001",
+          "EM",
+          "End of medium"
+        ],
+        [
+          "26",
+          "0001 1010",
+          "SUB",
+          "Substitute"
+        ],
+        [
+          "27",
+          "0001 1011",
+          "ESC",
+          "Escape"
+        ],
+        [
+          "28",
+          "0001 1100",
+          "FS",
+          "File separator"
+        ],
+        [
+          "29",
+          "0001 1101",
+          "GS",
+          "Group separator"
+        ],
+        [
+          "30",
+          "0001 1110",
+          "RS",
+          "Record separator"
+        ],
+        [
+          "31",
+          "0001 1111",
+          "US",
+          "Unit separator"
+        ],
+        [
+          "32",
+          "0010 0000",
+          "SP",
+          "Space"
+        ],
+        [
+          "33",
+          "0010 0001",
+          "!",
+          ""
+        ],
+        [
+          "34",
+          "0010 0010",
+          "\"",
+          ""
+        ],
+        [
+          "35",
+          "0010 0011",
+          "#",
+          ""
+        ],
+        [
+          "36",
+          "0010 0100",
+          "$",
+          ""
+        ],
+        [
+          "37",
+          "0010 0101",
+          "%",
+          ""
+        ],
+        [
+          "38",
+          "0010 0110",
+          "&",
+          ""
+        ],
+        [
+          "39",
+          "0010 0111",
+          "'",
+          ""
+        ],
+        [
+          "40",
+          "0010 1000",
+          "(",
+          ""
+        ],
+        [
+          "41",
+          "0010 1001",
+          ")",
+          ""
+        ],
+        [
+          "42",
+          "0010 1010",
+          "*",
+          ""
+        ],
+        [
+          "43",
+          "0010 1011",
+          "+",
+          ""
+        ],
+        [
+          "44",
+          "0010 1100",
+          ",",
+          ""
+        ],
+        [
+          "45",
+          "0010 1101",
+          "-",
+          ""
+        ],
+        [
+          "46",
+          "0010 1110",
+          ".",
+          ""
+        ],
+        [
+          "47",
+          "0010 1111",
+          "/",
+          ""
+        ],
+        [
+          "48",
+          "0011 0000",
+          "0",
+          ""
+        ],
+        [
+          "49",
+          "0011 0001",
+          "1",
+          ""
+        ],
+        [
+          "50",
+          "0011 0010",
+          "2",
+          ""
+        ],
+        [
+          "51",
+          "0011 0011",
+          "3",
+          ""
+        ],
+        [
+          "52",
+          "0011 0100",
+          "4",
+          ""
+        ],
+        [
+          "53",
+          "0011 0101",
+          "5",
+          ""
+        ],
+        [
+          "54",
+          "0011 0110",
+          "6",
+          ""
+        ],
+        [
+          "55",
+          "0011 0111",
+          "7",
+          ""
+        ],
+        [
+          "56",
+          "0011 1000",
+          "8",
+          ""
+        ],
+        [
+          "57",
+          "0011 1001",
+          "9",
+          ""
+        ],
+        [
+          "58",
+          "0011 1010",
+          ":",
+          ""
+        ],
+        [
+          "59",
+          "0011 1011",
+          ";",
+          ""
+        ],
+        [
+          "60",
+          "0011 1100",
+          "<",
+          ""
+        ],
+        [
+          "61",
+          "0011 1101",
+          "=",
+          ""
+        ],
+        [
+          "62",
+          "0011 1110",
+          ">",
+          ""
+        ],
+        [
+          "63",
+          "0011 1111",
+          "?",
+          ""
+        ],
+        [
+          "64",
+          "0100 0000",
+          "@",
+          ""
+        ],
+        [
+          "65",
+          "0100 0001",
+          "A",
+          ""
+        ],
+        [
+          "66",
+          "0100 0010",
+          "B",
+          ""
+        ],
+        [
+          "67",
+          "0100 0011",
+          "C",
+          ""
+        ],
+        [
+          "68",
+          "0100 0100",
+          "D",
+          ""
+        ],
+        [
+          "69",
+          "0100 0101",
+          "E",
+          ""
+        ],
+        [
+          "70",
+          "0100 0110",
+          "F",
+          ""
+        ],
+        [
+          "71",
+          "0100 0111",
+          "G",
+          ""
+        ],
+        [
+          "72",
+          "0100 1000",
+          "H",
+          ""
+        ],
+        [
+          "73",
+          "0100 1001",
+          "I",
+          ""
+        ],
+        [
+          "74",
+          "0100 1010",
+          "J",
+          ""
+        ],
+        [
+          "75",
+          "0100 1011",
+          "K",
+          ""
+        ],
+        [
+          "76",
+          "0100 1100",
+          "L",
+          ""
+        ],
+        [
+          "77",
+          "0100 1101",
+          "M",
+          ""
+        ],
+        [
+          "78",
+          "0100 1110",
+          "N",
+          ""
+        ],
+        [
+          "79",
+          "0100 1111",
+          "O",
+          ""
+        ],
+        [
+          "80",
+          "0101 0000",
+          "P",
+          ""
+        ],
+        [
+          "81",
+          "0101 0001",
+          "Q",
+          ""
+        ],
+        [
+          "82",
+          "0101 0010",
+          "R",
+          ""
+        ],
+        [
+          "83",
+          "0101 0011",
+          "S",
+          ""
+        ],
+        [
+          "84",
+          "0101 0100",
+          "T",
+          ""
+        ],
+        [
+          "85",
+          "0101 0101",
+          "U",
+          ""
+        ],
+        [
+          "86",
+          "0101 0110",
+          "V",
+          ""
+        ],
+        [
+          "87",
+          "0101 0111",
+          "W",
+          ""
+        ],
+        [
+          "88",
+          "0101 1000",
+          "X",
+          ""
+        ],
+        [
+          "89",
+          "0101 1001",
+          "Y",
+          ""
+        ],
+        [
+          "90",
+          "0101 1010",
+          "Z",
+          ""
+        ],
+        [
+          "91",
+          "0101 1011",
+          "[",
+          ""
+        ],
+        [
+          "92",
+          "0101 1100",
+          "\\",
+          ""
+        ],
+        [
+          "93",
+          "0101 1101",
+          "]",
+          ""
+        ],
+        [
+          "94",
+          "0101 1110",
+          "^",
+          ""
+        ],
+        [
+          "95",
+          "0101 1111",
+          "_",
+          ""
+        ],
+        [
+          "96",
+          "0110 0000",
+          "`",
+          ""
+        ],
+        [
+          "97",
+          "0110 0001",
+          "a",
+          ""
+        ],
+        [
+          "98",
+          "0110 0010",
+          "b",
+          ""
+        ],
+        [
+          "99",
+          "0110 0011",
+          "c",
+          ""
+        ],
+        [
+          "100",
+          "0110 0100",
+          "d",
+          ""
+        ],
+        [
+          "101",
+          "0110 0101",
+          "e",
+          ""
+        ],
+        [
+          "102",
+          "0110 0110",
+          "f",
+          ""
+        ],
+        [
+          "103",
+          "0110 0111",
+          "g",
+          ""
+        ],
+        [
+          "104",
+          "0110 1000",
+          "h",
+          ""
+        ],
+        [
+          "105",
+          "0110 1001",
+          "i",
+          ""
+        ],
+        [
+          "106",
+          "0110 1010",
+          "j",
+          ""
+        ],
+        [
+          "107",
+          "0110 1011",
+          "k",
+          ""
+        ],
+        [
+          "108",
+          "0110 1100",
+          "l",
+          ""
+        ],
+        [
+          "109",
+          "0110 1101",
+          "m",
+          ""
+        ],
+        [
+          "110",
+          "0110 1110",
+          "n",
+          ""
+        ],
+        [
+          "111",
+          "0110 1111",
+          "o",
+          ""
+        ],
+        [
+          "112",
+          "0111 0000",
+          "p",
+          ""
+        ],
+        [
+          "113",
+          "0111 0001",
+          "q",
+          ""
+        ],
+        [
+          "114",
+          "0111 0010",
+          "r",
+          ""
+        ],
+        [
+          "115",
+          "0111 0011",
+          "s",
+          ""
+        ],
+        [
+          "116",
+          "0111 0100",
+          "t",
+          ""
+        ],
+        [
+          "117",
+          "0111 0101",
+          "u",
+          ""
+        ],
+        [
+          "118",
+          "0111 0110",
+          "v",
+          ""
+        ],
+        [
+          "119",
+          "0111 0111",
+          "w",
+          ""
+        ],
+        [
+          "120",
+          "0111 1000",
+          "x",
+          ""
+        ],
+        [
+          "121",
+          "0111 1001",
+          "y",
+          ""
+        ],
+        [
+          "122",
+          "0111 1010",
+          "z",
+          ""
+        ],
+        [
+          "123",
+          "0111 1011",
+          "{",
+          ""
+        ],
+        [
+          "124",
+          "0111 1100",
+          "|",
+          ""
+        ],
+        [
+          "125",
+          "0111 1101",
+          "}",
+          ""
+        ],
+        [
+          "126",
+          "0111 1110",
+          "~",
+          ""
+        ],
+        [
+          "127",
+          "0111 1111",
+          "DEL",
+          ""
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": []
+}

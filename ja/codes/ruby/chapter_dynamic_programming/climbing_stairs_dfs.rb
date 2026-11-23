@@ -6,18 +6,18 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### 探索 ###
 def dfs(i)
-  # dp[1] と dp[2] は既知なので返す
+  # dp[1] と dp[2] は既知なので、その値を返す
   return i if i == 1 || i == 2
   # dp[i] = dp[i-1] + dp[i-2]
   dfs(i - 1) + dfs(i - 2)
 end
 
-### 階段登り：探索 ###
+### 階段の上り方：探索 ###
 def climbing_stairs_dfs(n)
   dfs(n)
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   n = 9
 

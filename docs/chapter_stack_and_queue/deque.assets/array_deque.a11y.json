@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "title": "循环数组实现双向队列",
+  "summary": "移动队首索引并维护有效长度，实现不搬移中间元素的双端操作。",
+  "context": [
+    "左侧是双向队列，右侧是竖直的底层循环数组，两者从上到下均为队首到队尾。front 是队首索引，size 是有效长度；向上移动一格表示索引减 1，对应代码注释中的“向左移动”；向下移动一格表示索引加 1。",
+    "队尾下次写入位置按 rear = (front + size) % capacity 计算。图中简写为 rear = front + size，没有展示跨边界环绕，也未标具体容量和数值下标。"
+  ],
+  "description": [
+    "入队前须有空位，出队前须非空。有效元素位于 (front + i) % capacity，其中 i 从 0 到 size - 1。队首入队时，front 按 (front - 1 + capacity) % capacity 更新。",
+    "原有的 3、2、5 始终留在原槽位。灰色虚线格表示不属于有效区间；出队后变为虚线，不表示代码把槽内原值清零。新加入的队尾 4 为青色，队首 1 为橙色。"
+  ],
+  "result": "两端入队和出队只修改端点槽位、front 或 size，中间元素无须搬移，均为 O(1)。",
+  "frames": [
+    {
+      "id": "source-76",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step1.png",
+      "title": "初始双向队列",
+      "explanation": "初始有效队列为 [3, 2, 5]，front 指向 3，size = 3。rear 按 front + size 计算，指向 5 下方的首个空槽；上下两端还有空位和省略号。",
+      "key_state": "有效队列 [3, 2, 5]，front 指向 3，size = 3；rear 指向 5 下方空槽。",
+      "announcement": "初始有效队列为 [3, 2, 5]，front 指向 3，size = 3，rear 指向 5 之后的首个空槽。"
+    },
+    {
+      "id": "source-77",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png",
+      "title": "队尾加入 4",
+      "explanation": "执行 push_last(4)：先按入队前的 front 和 size = 3 算出 rear，在该空槽写入 4，再把 size 增至 4。当前队列为 [3, 2, 5, 4]，front 仍指向 3。图中 rear 箭头保留在本次写入的 4 处；若用新 size 重算，尾后位置应在 4 下方一格。",
+      "key_state": "front 指 3，size = 4，有效队列 [3, 2, 5, 4]；图上 rear 标本次写入 4 的位置。",
+      "announcement": "在入队前算出的 rear 槽位写入 4，size 增至 4；图中 rear 箭头保留在本次写入的 4 处。"
+    },
+    {
+      "id": "source-78",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png",
+      "title": "队首加入 1",
+      "explanation": "执行 push_first(1)：front 向上移动一格到 3 上方的空槽，写入 1，再把 size 从 4 增至 5。当前队列为 [1, 3, 2, 5, 4]，front 指向新队首 1，其余元素留在原槽位。本帧不画 rear 标记。",
+      "key_state": "front 指 1，size = 5，有效队列 [1, 3, 2, 5, 4]。",
+      "announcement": "front 向上移一格并写入 1，size 增至 5，其余元素位置不变。"
+    },
+    {
+      "id": "source-79",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png",
+      "title": "队尾取出 4",
+      "explanation": "执行 pop_last()，读取并返回队尾 4，把 size 从 5 减为 4。当前队列为 [1, 3, 2, 5]，front 仍指向 1；原 4 所在格变为虚线，退出有效范围。本帧不画 rear 标记。",
+      "key_state": "front 指 1，size = 4，有效队列 [1, 3, 2, 5]，返回 4。",
+      "announcement": "读取并返回队尾 4，size 减为 4，原队尾槽位退出有效范围。"
+    },
+    {
+      "id": "source-80",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png",
+      "title": "队首取出 1",
+      "explanation": "执行 pop_first()，读取并返回队首 1，front 向下移动一格重新指向 3，同时把 size 从 4 减为 3。当前队列恢复为 [3, 2, 5]，原 1 所在格退出有效范围。本帧不画 rear 标记。",
+      "key_state": "front 指 3，size = 3，有效队列 [3, 2, 5]，返回 1。",
+      "announcement": "读取并返回队首 1，front 向下移一格重新指向 3，size 减为 3。"
+    }
+  ],
+  "animations": {
+    "array-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-76"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-77"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-78"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-79"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-80"
+        }
+      ]
+    }
+  }
+}

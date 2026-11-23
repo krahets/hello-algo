@@ -23,7 +23,7 @@ int sumRecur(int n) {
     return n + sumRecur(n - 1);
 }
 
-/* 線形時間のループ */
+/* 線形オーダーのループ */
 int linearLoop(int n) {
     int res = 0;
     for (int i = 0; i < n; ++i) {
@@ -32,7 +32,7 @@ int linearLoop(int n) {
     return res;
 }
 
-/* 二次時間のループ */
+/* 二次オーダーのループ */
 int quadraticLoop(int n) {
     int res = 0;
     for (int i = 0; i < n; ++i) {
@@ -43,7 +43,7 @@ int quadraticLoop(int n) {
     return res;
 }
 
-/* 対数時間のループ */
+/* 対数オーダーのループ */
 int logarithmicLoop(int n) {
     while (n > 1) {
         n /= 2;

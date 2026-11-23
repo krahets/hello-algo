@@ -6,26 +6,26 @@
 
 #include "../utils/common.h"
 
-/* Coin change II: Dynamic programming */
+/* Coin change II: dynamic programming */
 int coinChangeIIDP(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
-    // Initialize dp table
+    // Initialize the dp table
     int **dp = malloc((n + 1) * sizeof(int *));
     for (int i = 0; i <= n; i++) {
         dp[i] = calloc(amt + 1, sizeof(int));
     }
-    // Initialize first column
+    // Initialize the first column
     for (int i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // Sum of the two options: not selecting and selecting coin i
+                // Add the numbers of ways without and with coin i
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -39,20 +39,20 @@ int coinChangeIIDP(int coins[], int amt, int coinsSize) {
     return res;
 }
 
-/* Coin change II: Space-optimized dynamic programming */
+/* Coin change II: space-optimized dynamic programming */
 int coinChangeIIDPComp(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
-    // Initialize dp table
+    // Initialize the dp table
     int *dp = calloc(amt + 1, sizeof(int));
     dp[0] = 1;
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[a] = dp[a];
             } else {
-                // Sum of the two options: not selecting and selecting coin i
+                // Add the numbers of ways without and with coin i
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -71,11 +71,11 @@ int main() {
 
     // Dynamic programming
     int res = coinChangeIIDP(coins, amt, coinsSize);
-    printf("Number of coin combinations to make target amount is %d\n", res);
+    printf("Number of coin combinations that make the target amount: %d\n", res);
 
     // Space-optimized dynamic programming
     res = coinChangeIIDPComp(coins, amt, coinsSize);
-    printf("Number of coin combinations to make target amount is %d\n", res);
+    printf("Number of coin combinations that make the target amount: %d\n", res);
 
     return 0;
 }

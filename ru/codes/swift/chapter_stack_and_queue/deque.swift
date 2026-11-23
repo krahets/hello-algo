@@ -27,7 +27,7 @@ enum Deque {
         print("Последний элемент peekLast = \(peekLast)")
 
         /* Извлечение элемента из очереди */
-        // При использовании Array для имитации popFirst имеет сложность O(n)
+        // При использовании Array для имитации removeFirst имеет сложность O(n)
         let popFirst = deque.removeFirst()
         print("Извлеченный из головы элемент popFirst = \(popFirst), deque после извлечения из головы = \(deque)")
         let popLast = deque.removeLast()

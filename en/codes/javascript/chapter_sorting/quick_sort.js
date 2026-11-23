@@ -6,39 +6,39 @@
 
 /* Quick sort class */
 class QuickSort {
-    /* Swap elements */
+    /* Swap the elements */
     swap(nums, i, j) {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    /* Sentinel partition */
+    /* Two-pointer partitioning */
     partition(nums, left, right) {
         // Use nums[left] as the pivot
         let i = left,
             j = right;
         while (i < j) {
             while (i < j && nums[j] >= nums[left]) {
-                j -= 1; // Search from right to left for the first element smaller than the pivot
+                j -= 1; // Scan from right to left for the first element smaller than the pivot
             }
             while (i < j && nums[i] <= nums[left]) {
-                i += 1; // Search from left to right for the first element greater than the pivot
+                i += 1; // Scan from left to right for the first element larger than the pivot
             }
-            // Swap elements
+            // Swap the elements
             this.swap(nums, i, j); // Swap these two elements
         }
-        this.swap(nums, i, left); // Swap the pivot to the boundary between the two subarrays
-        return i; // Return the index of the pivot
+        this.swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+        return i; // Return the pivot index
     }
 
     /* Quick sort */
     quickSort(nums, left, right) {
-        // Terminate recursion when subarray length is 1
+        // Stop recursing when the subarray has at most one element
         if (left >= right) return;
-        // Sentinel partition
+        // Two-pointer partitioning
         const pivot = this.partition(nums, left, right);
-        // Recursively process the left subarray and right subarray
+        // Recurse on the left and right subarrays
         this.quickSort(nums, left, pivot - 1);
         this.quickSort(nums, pivot + 1, right);
     }
@@ -46,7 +46,7 @@ class QuickSort {
 
 /* Quick sort class (median pivot optimization) */
 class QuickSortMedian {
-    /* Swap elements */
+    /* Swap the elements */
     swap(nums, i, j) {
         let tmp = nums[i];
         nums[i] = nums[j];
@@ -58,14 +58,14 @@ class QuickSortMedian {
         let l = nums[left],
             m = nums[mid],
             r = nums[right];
-        // m is between l and r
+        // m lies between l and r
         if ((l <= m && m <= r) || (r <= m && m <= l)) return mid;
-        // l is between m and r
+        // l lies between m and r
         if ((m <= l && l <= r) || (r <= l && l <= m)) return left;
         return right;
     }
 
-    /* Sentinel partition (median of three) */
+    /* Two-pointer partitioning (median of three) */
     partition(nums, left, right) {
         // Select the median of three candidate elements
         let med = this.medianThree(
@@ -74,27 +74,27 @@ class QuickSortMedian {
             Math.floor((left + right) / 2),
             right
         );
-        // Swap the median to the array's leftmost position
+        // Swap the median into the leftmost position of the current subarray
         this.swap(nums, left, med);
         // Use nums[left] as the pivot
         let i = left,
             j = right;
         while (i < j) {
-            while (i < j && nums[j] >= nums[left]) j--; // Search from right to left for the first element smaller than the pivot
-            while (i < j && nums[i] <= nums[left]) i++; // Search from left to right for the first element greater than the pivot
+            while (i < j && nums[j] >= nums[left]) j--; // Scan from right to left for the first element smaller than the pivot
+            while (i < j && nums[i] <= nums[left]) i++; // Scan from left to right for the first element larger than the pivot
             this.swap(nums, i, j); // Swap these two elements
         }
-        this.swap(nums, i, left); // Swap the pivot to the boundary between the two subarrays
-        return i; // Return the index of the pivot
+        this.swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+        return i; // Return the pivot index
     }
 
     /* Quick sort */
     quickSort(nums, left, right) {
-        // Terminate recursion when subarray length is 1
+        // Stop recursing when the subarray has at most one element
         if (left >= right) return;
-        // Sentinel partition
+        // Two-pointer partitioning
         const pivot = this.partition(nums, left, right);
-        // Recursively process the left subarray and right subarray
+        // Recurse on the left and right subarrays
         this.quickSort(nums, left, pivot - 1);
         this.quickSort(nums, pivot + 1, right);
     }
@@ -102,60 +102,60 @@ class QuickSortMedian {
 
 /* Quick sort class (recursion depth optimization) */
 class QuickSortTailCall {
-    /* Swap elements */
+    /* Swap the elements */
     swap(nums, i, j) {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    /* Sentinel partition */
+    /* Two-pointer partitioning */
     partition(nums, left, right) {
         // Use nums[left] as the pivot
         let i = left,
             j = right;
         while (i < j) {
-            while (i < j && nums[j] >= nums[left]) j--; // Search from right to left for the first element smaller than the pivot
-            while (i < j && nums[i] <= nums[left]) i++; // Search from left to right for the first element greater than the pivot
+            while (i < j && nums[j] >= nums[left]) j--; // Scan from right to left for the first element smaller than the pivot
+            while (i < j && nums[i] <= nums[left]) i++; // Scan from left to right for the first element larger than the pivot
             this.swap(nums, i, j); // Swap these two elements
         }
-        this.swap(nums, i, left); // Swap the pivot to the boundary between the two subarrays
-        return i; // Return the index of the pivot
+        this.swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+        return i; // Return the pivot index
     }
 
     /* Quick sort (recursion depth optimization) */
     quickSort(nums, left, right) {
-        // Terminate when subarray length is 1
+        // Stop when the subarray has at most one element
         while (left < right) {
-            // Sentinel partition operation
+            // Perform two-pointer partitioning
             let pivot = this.partition(nums, left, right);
-            // Perform quick sort on the shorter of the two subarrays
+            // Apply quick sort to the shorter of the two subarrays
             if (pivot - left < right - pivot) {
                 this.quickSort(nums, left, pivot - 1); // Recursively sort the left subarray
-                left = pivot + 1; // Remaining unsorted interval is [pivot + 1, right]
+                left = pivot + 1; // The remaining unsorted range is [pivot + 1, right]
             } else {
                 this.quickSort(nums, pivot + 1, right); // Recursively sort the right subarray
-                right = pivot - 1; // Remaining unsorted interval is [left, pivot - 1]
+                right = pivot - 1; // The remaining unsorted range is [left, pivot - 1]
             }
         }
     }
 }
 
-/* Driver Code */
-/* Quick sort */
+/* Driver code */
+/* Quick sort  */
 const nums = [2, 4, 1, 0, 3, 5];
 const quickSort = new QuickSort();
 quickSort.quickSort(nums, 0, nums.length - 1);
 console.log('After quick sort, nums =', nums);
 
-/* Quick sort (recursion depth optimization) */
+/* Quick sort (median pivot optimization) */
 const nums1 = [2, 4, 1, 0, 3, 5];
 const quickSortMedian = new QuickSortMedian();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-console.log('After quick sort (median pivot optimization), nums =', nums1);
+console.log('After quick sort (median pivot optimization), nums1 =', nums1);
 
 /* Quick sort (recursion depth optimization) */
 const nums2 = [2, 4, 1, 0, 3, 5];
 const quickSortTailCall = new QuickSortTailCall();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-console.log('After quick sort (recursion depth optimization), nums =', nums2);
+console.log('After quick sort (recursion depth optimization), nums2 =', nums2);

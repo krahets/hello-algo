@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Insertion position in a sorted array",
+  "summary": "Insert an equal new value to the left of the existing element while keeping the array sorted.",
+  "context": [
+    "The initial duplicate-free sorted array is nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35], and the target element to insert is target = 6. By convention, the array remains sorted after insertion; if an element equal to target is already present, the new element is inserted to the left of that equal element."
+  ],
+  "description": [
+    "The upper row displays the original array nums, with an upward arrow labeled “Insertion point” beneath the gap between element 3 (index 1) and the existing element 6 (index 2), indicating that the insertion index for target is 2.",
+    "Below a thick downward arrow labeled “Insert target” in the middle, the lower row displays the resulting 11-element array [1, 3, 6, 6, 8, 12, 15, 23, 26, 31, 35]: the cyan-highlighted 6 is the newly inserted element at index 2, while the original green 6 and every element to its right are shifted one position to the right, moving the original 6 to index 3."
+  ],
+  "frames": [
+    {
+      "id": "source-222",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_example.png",
+      "title": "Insertion position in a sorted array",
+      "explanation": "Because the initial array in this example has no duplicates, the index of the existing target is itself the insertion point; equal elements may appear after insertion."
+    }
+  ]
+}

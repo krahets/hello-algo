@@ -37,7 +37,7 @@ public class simple_hash {
         return hash & MODULUS;
     }
 
-    /* Rotational hash */
+    /* Rotating hash */
     static int rotHash(String key) {
         long hash = 0;
         final int MODULUS = 1000000007;
@@ -48,18 +48,18 @@ public class simple_hash {
     }
 
     public static void main(String[] args) {
-        String key = "Hello Algo";
+        String key = "Hello 算法";
 
         int hash = addHash(key);
-        System.out.println("Additive hash value is " + hash);
+        System.out.println("Additive hash value: " + hash);
 
         hash = mulHash(key);
-        System.out.println("Multiplicative hash value is " + hash);
+        System.out.println("Multiplicative hash value: " + hash);
 
         hash = xorHash(key);
-        System.out.println("XOR hash value is " + hash);
+        System.out.println("XOR hash value: " + hash);
 
         hash = rotHash(key);
-        System.out.println("Rotational hash value is " + hash);
+        System.out.println("Rotating hash value: " + hash);
     }
 }

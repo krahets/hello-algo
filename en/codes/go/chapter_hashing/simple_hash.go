@@ -42,7 +42,7 @@ func xorHash(key string) int {
 	return hash & modulus
 }
 
-/* Rotational hash */
+/* Rotating hash */
 func rotHash(key string) int {
 	var hash int64
 	var modulus int64

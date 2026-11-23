@@ -1,0 +1,54 @@
+{
+  "schema_version": 2,
+  "title": "Representing recursive tree-building index intervals with i, l, m, and r",
+  "summary": "The left subtree root is at preorder index i+1 and the right subtree root is at i+1+(m−l), where m−l is the number of nodes in the left subtree.",
+  "context": [
+    "The input consists of preorder traversal preorder = [3, 9, 2, 1, 7] and inorder traversal inorder = [9, 3, 1, 2, 7], with all node values distinct.",
+    "Array indices are 0-based: i is the index of the current subtree's root in preorder; [l, r] is the closed interval occupied by the current subtree in inorder; and m is the index of the current subtree's root in inorder. Note that m is obtained by looking up the root value in inorder (or via a hash table), not as the geometric midpoint of [l, r]."
+  ],
+  "description": [
+    "The diagram labels the symbolic pointers for the top-level call. Reading 0-based indices from the positions shown: root 3 is at preorder index i = 0, the closed inorder interval is [l, r] = [0, 4], and the root's inorder index is m = 1. Hence the left subtree size is m − l = 1; these numeric indices are read off from cell positions, while the diagram primarily shows symbolic labels.",
+    "The left subtree's root immediately follows the current root at preorder index i + 1. The right subtree's root skips past the current root and all m − l left-subtree nodes, landing at preorder index i + 1 + (m − l).",
+    "The corresponding tree on the left has root 3 with left child 9 and right child 2; node 2 has left child 1 and right child 7, and 9, 1, and 7 are leaves. In the recursive implementation, whenever an empty inorder interval with l > r is reached, the call immediately returns an empty subtree. In the table below, i, l, m, and r in the formulas all refer to the current parent call, while the last column gives the concrete preorder root index and inorder interval for this example."
+  ],
+  "frames": [
+    {
+      "id": "source-315",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_division_pointers.png",
+      "title": "Representing recursive tree-building index intervals with i, l, m, and r",
+      "explanation": "Using the algebraic relationships among pointer variables i, l, m, and r, each recursive call can delimit the left and right subtrees accurately by passing integer indices alone, without slicing or copying subarrays."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "General formulas and example values for recursive parameters",
+      "headers": [
+        "Subproblem",
+        "Root index in preorder",
+        "Closed interval in inorder",
+        "This example"
+      ],
+      "rows": [
+        [
+          "Current tree",
+          "i",
+          "[l,r]",
+          "Preorder root index 0, inorder interval [0,4], root value 3; root's inorder index m=1"
+        ],
+        [
+          "Left subtree",
+          "i+1",
+          "[l,m−1]",
+          "Preorder root index 1, inorder interval [0,0], root value 9"
+        ],
+        [
+          "Right subtree",
+          "i+1+(m−l)",
+          "[m+1,r]",
+          "Preorder root index 2, inorder interval [2,4], root value 2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

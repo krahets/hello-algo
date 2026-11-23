@@ -13,14 +13,14 @@ class TreeNode:
     def __init__(self, val: int = 0):
         self.val: int = val  # Node value
         self.height: int = 0  # Node height
-        self.left: TreeNode | None = None  # Reference to left child node
-        self.right: TreeNode | None = None  # Reference to right child node
+        self.left: TreeNode | None = None  # Reference to the left child
+        self.right: TreeNode | None = None  # Reference to the right child
 
-    # For the serialization encoding rules, please refer to:
-    # https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    # Array representation of binary tree:
+    # For the serialization rules, see:
+    # https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
+    # Array representation of the binary tree:
     # [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    # Linked list representation of binary tree:
+    # Linked representation of the binary tree:
     #             /——— 15
     #         /——— 7
     #     /——— 3
@@ -35,10 +35,10 @@ class TreeNode:
 
 def list_to_tree_dfs(arr: list[int], i: int) -> TreeNode | None:
     """Deserialize a list into a binary tree: recursion"""
-    # If the index exceeds the array length, or the corresponding element is None, return None
+    # Return None if the index is out of bounds or the corresponding element is None
     if i < 0 or i >= len(arr) or arr[i] is None:
         return None
-    # Build the current node
+    # Create the current node
     root = TreeNode(arr[i])
     # Recursively build the left and right subtrees
     root.left = list_to_tree_dfs(arr, 2 * i + 1)

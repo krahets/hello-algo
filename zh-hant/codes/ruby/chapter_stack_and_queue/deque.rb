@@ -26,7 +26,7 @@ if __FILE__ == $0
   puts "佇列尾元素 peek_last = #{peek_last}"
 
   # 元素出列
-  # 請注意，由於是陣列， Array#shift 方法的時間複雜度為 O(n)
+  # 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
   pop_front = deque.shift
   puts "佇列首出列元素 pop_front = #{pop_front}，佇列首出列後 deque = #{deque}"
   pop_back = deque.pop

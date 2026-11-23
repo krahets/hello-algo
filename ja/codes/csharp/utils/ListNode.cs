@@ -4,12 +4,12 @@
 
 namespace hello_algo.utils;
 
-/* 連結リストノード */
+/* 連結リストのノード */
 public class ListNode(int x) {
     public int val = x;
     public ListNode? next;
 
-    /* 配列をデシリアライズして連結リストに変換する */
+    /* 配列をデシリアライズして連結リストにする */
     public static ListNode? ArrToLinkedList(int[] arr) {
         ListNode dum = new(0);
         ListNode head = dum;

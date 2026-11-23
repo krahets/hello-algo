@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "哈希表求两数之和",
+  "summary": "用哈希表保存已见元素及索引，先查补数，再决定是否存入当前元素。",
+  "context": [
+    "给定整数数组 nums = [2, 7, 11, 15]（索引从 0 到 3）与目标和 target = 13。",
+    "借助辅助哈希表 map 记录已遍历过的元素：键（key，标有“元素”）存数组元素值，值（value，标有“索引”）存该元素对应的数组索引。单层循环每轮先查询补数 target − nums[i] 是否已在 map 中：若存在则立即返回 [map[target − nums[i]], i]；若不存在才将当前键值对 nums[i]: i 写入 map。"
+  ],
+  "description": [
+    "每轮“先查补数、后存当前元素”的顺序保证了配对的另一个元素必定来自当前位置 i 之前的不同索引。三幅分步画面依次展示 i = 0、1、2 时的判断与哈希表状态（注意第 1 步画面展示的是完成首次插入 2: 0 之后的状态，而非空表）。"
+  ],
+  "result": "在哈希查询平均为 O(1) 的前提下，总体平均时间为 O(n)，辅助空间为 O(n)，体现以空间换时间。",
+  "frames": [
+    {
+      "id": "source-235",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png",
+      "title": "未找到补数 11，记录 2",
+      "explanation": "i = 0 指向元素 2。图右侧说明：因为 13 − 2 = 11 不在初始空表中，所以写入 2: 0；当前 map = {2: 0}。尚未返回答案，下一项是索引 1 的 7。",
+      "key_state": "i = 0（值 2）：补数 11 未命中，写入后 map = {2: 0}。",
+      "announcement": "访问索引 0 的元素 2，补数 11 不在哈希表中，将键值对 2: 0 存入 map。"
+    },
+    {
+      "id": "source-236",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png",
+      "title": "未找到补数 6，记录 7",
+      "explanation": "i = 1 指向元素 7。图右侧说明：因为 13 − 7 = 6 不在 map 中，所以写入 7: 1。此前表中只有键 2，写入后 map = {2: 0, 7: 1}；尚未返回答案，下一项是索引 2 的 11。",
+      "key_state": "i = 1（值 7）：补数 6 未命中，写入后 map = {2: 0, 7: 1}。",
+      "announcement": "访问索引 1 的元素 7，补数 6 不在哈希表中，将键值对 7: 1 存入 map。"
+    },
+    {
+      "id": "source-237",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png",
+      "title": "找到补数 2，返回索引",
+      "explanation": "i = 2 指向元素 11。图右侧说明：因为 13 − 11 = 2 已在 map 中，且 map[2] = 0，所以返回索引 [0, 2]。map 仍为 {2: 0, 7: 1}；11 不再入表，索引 3 的 15 不再处理。",
+      "key_state": "i = 2（值 11）：补数 2 在 map 中命中索引 0，直接返回 [0, 2]。map 仍为 {2: 0, 7: 1}，11 未入表，15 不再处理。",
+      "announcement": "访问索引 2 的元素 11，在哈希表中查到补数 2（索引 0），返回 [0, 2]。"
+    }
+  ],
+  "animations": {
+    "two-sum-hash": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-235"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-236"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-237"
+        }
+      ]
+    }
+  }
+}

@@ -8,7 +8,7 @@
 
 #define MAX_SIZE 5000
 
-/* Stack based on array implementation */
+/* Stack implemented with an array */
 typedef struct {
     int *data;
     int size;
@@ -17,7 +17,7 @@ typedef struct {
 /* Constructor */
 ArrayStack *newArrayStack() {
     ArrayStack *stack = malloc(sizeof(ArrayStack));
-    // Initialize with large capacity to avoid expansion
+    // Initialize with a large capacity to avoid resizing
     stack->data = malloc(sizeof(int) * MAX_SIZE);
     stack->size = 0;
     return stack;
@@ -29,12 +29,12 @@ void delArrayStack(ArrayStack *stack) {
     free(stack);
 }
 
-/* Get the length of the stack */
+/* Get the stack size */
 int size(ArrayStack *stack) {
     return stack->size;
 }
 
-/* Check if the stack is empty */
+/* Check whether the stack is empty */
 bool isEmpty(ArrayStack *stack) {
     return stack->size == 0;
 }
@@ -49,7 +49,7 @@ void push(ArrayStack *stack, int num) {
     stack->size++;
 }
 
-/* Return list for printing */
+/* Access the top element */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
         printf("Stack is empty\n");
@@ -65,12 +65,12 @@ int pop(ArrayStack *stack) {
     return val;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Access top of the stack element */
+    /* Initialize the stack */
     ArrayStack *stack = newArrayStack();
 
-    /* Elements push onto stack */
+    /* Push elements onto the stack */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -79,22 +79,22 @@ int main() {
     printf("Stack stack = ");
     printArray(stack->data, stack->size);
 
-    /* Return list for printing */
+    /* Access the top element */
     int val = peek(stack);
     printf("Top element top = %d\n", val);
 
-    /* Element pop from stack */
+    /* Pop an element from the stack */
     val = pop(stack);
-    printf("Pop element pop = %d, stack after pop = ", val);
+    printf("Popped element pop = %d; after popping, stack = ", val);
     printArray(stack->data, stack->size);
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     int size = stack->size;
     printf("Stack size = %d\n", size);
 
-    /* Check if empty */
+    /* Check whether it is empty */
     bool empty = isEmpty(stack);
-    printf("Is stack empty = %s\n", empty ? "true" : "false");
+    printf("Is the stack empty = %s\n", empty ? "true" : "false");
 
     // Free memory
     delArrayStack(stack);

@@ -34,7 +34,7 @@ int *getMinHeap(MaxHeap *maxHeap) {
     return res;
 }
 
-// 基於堆積查詢陣列中最大的 k 個元素的函式
+/* 基於堆積查詢陣列中最大的 k 個元素的函式 */
 int *topKHeap(int *nums, int sizeNums, int k) {
     // 初始化小頂堆積
     // 請注意：我們將堆積中所有元素取反，從而用大頂堆積來模擬小頂堆積

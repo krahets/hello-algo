@@ -28,7 +28,7 @@ class MyList {
     return _arr[index];
   }
 
-  /* Обновление элемента */
+  /* Изменение элемента */
   void set(int index, int _num) {
     if (index >= _size) throw RangeError('индекс выходит за границы');
     _arr[index] = _num;
@@ -48,7 +48,7 @@ class MyList {
     if (index >= _size) throw RangeError('индекс выходит за границы');
     // При превышении вместимости по числу элементов запускается расширение
     if (_size == _capacity) extendCapacity();
-    // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
     for (var j = _size - 1; j >= index; j--) {
       _arr[j + 1] = _arr[j];
     }
@@ -61,7 +61,7 @@ class MyList {
   int remove(int index) {
     if (index >= _size) throw RangeError('индекс выходит за границы');
     int _num = _arr[index];
-    // Сдвинуть все элементы после индекса index на одну позицию вперед
+    // Сдвинуть все элементы после индекса index на одну позицию влево
     for (var j = index; j < _size - 1; j++) {
       _arr[j] = _arr[j + 1];
     }
@@ -118,9 +118,9 @@ void main() {
   int _num = nums.get(1);
   print('Элемент по индексу 1: _num = $_num');
 
-  /* Обновление элемента */
+  /* Изменение элемента */
   nums.set(1, 0);
-  print('После обновления элемента по индексу 1 до 0 nums = ${nums.toArray()}');
+  print('После изменения значения элемента с индексом 1 на 0 nums = ${nums.toArray()}');
 
   /* Проверка механизма расширения */
   for (var i = 0; i < 10; i++) {

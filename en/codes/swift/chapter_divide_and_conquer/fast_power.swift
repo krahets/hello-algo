@@ -4,7 +4,7 @@
  Author: Hello Algo Team
  */
 
-/* Exponentiation by squaring */
+/* Fast exponentiation */
 func fastPow(x: Int, n: Int) -> Int {
     if n == 0 {
         return 1

@@ -8,7 +8,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
 def for_loop(n)
   res = 0
 
-  # 1, 2, ..., n-1, n を順に加算する
+  # ループで 1, 2, ..., n-1, n の和を求める
   for i in 1..n
     res += i
   end
@@ -21,7 +21,7 @@ def while_loop(n)
   res = 0
   i = 1 # 条件変数を初期化する
 
-  # 1, 2, ..., n-1, n を順に加算する
+  # ループで 1, 2, ..., n-1, n の和を求める
   while i <= n
     res += i
     i += 1 # 条件変数を更新する
@@ -30,12 +30,12 @@ def while_loop(n)
   res
 end
 
-# ## while ループ（2 回更新）###
+### while ループ（2 回の更新）###
 def while_loop_ii(n)
   res = 0
   i = 1 # 条件変数を初期化する
 
-  # 1, 4, 10, ... を順に加算する
+  # ループで 1, 4, 10, ... の和を求める
   while i <= n
     res += i
     # 条件変数を更新する
@@ -50,9 +50,9 @@ end
 def nested_for_loop(n)
   res = ""
 
-  # i = 1, 2, ..., n-1, n とループする
+  # i = 1, 2, ..., n-1, n のループ
   for i in 1..n
-    # j = 1, 2, ..., n-1, n とループする
+    # j = 1, 2, ..., n-1, n のループ
     for j in 1..n
       res += "(#{i}, #{j}), "
     end
@@ -61,18 +61,18 @@ def nested_for_loop(n)
   res
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   n = 5
 
   res = for_loop(n)
-  puts "\nfor ループの合計結果 res = #{res}"
+  puts "\nfor ループで求めた和 res = #{res}"
 
   res = while_loop(n)
-  puts "\nwhile ループの合計結果 res = #{res}"
+  puts "\nwhile ループで求めた和 res = #{res}"
 
   res = while_loop_ii(n)
-  puts "\nwhile ループ（2 回更新）の合計結果 res = #{res}"
+  puts "\nwhile ループ（2 回の更新）で求めた和 res = #{res}"
 
   res = nested_for_loop(n)
   puts "\n二重 for ループの走査結果 #{res}"

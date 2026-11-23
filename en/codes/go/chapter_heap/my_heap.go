@@ -11,41 +11,41 @@ import (
 )
 
 type maxHeap struct {
-	// Use slice instead of array to avoid expansion issues
+	// Use a slice instead of an array so append can handle capacity growth
 	data []any
 }
 
-/* Constructor, build empty heap */
+/* Constructor: create an empty heap */
 func newHeap() *maxHeap {
 	return &maxHeap{
 		data: make([]any, 0),
 	}
 }
 
-/* Constructor, build heap from slice */
+/* Constructor: build a heap from a slice */
 func newMaxHeap(nums []any) *maxHeap {
-	// Add list elements to heap as is
+	// Place the list elements in the heap without changing their order
 	h := &maxHeap{data: nums}
 	for i := h.parent(len(h.data) - 1); i >= 0; i-- {
-		// Heapify all nodes except leaf nodes
+		// Sift down from every non-leaf node
 		h.siftDown(i)
 	}
 	return h
 }
 
-/* Get index of left child node */
+/* Get the left child index */
 func (h *maxHeap) left(i int) int {
 	return 2*i + 1
 }
 
-/* Get index of right child node */
+/* Get the right child index */
 func (h *maxHeap) right(i int) int {
 	return 2*i + 2
 }
 
-/* Get index of parent node */
+/* Get the parent index */
 func (h *maxHeap) parent(i int) int {
-	// Floor division
+	// Integer division (truncates toward zero in Go)
 	return (i - 1) / 2
 }
 
@@ -54,68 +54,68 @@ func (h *maxHeap) swap(i, j int) {
 	h.data[i], h.data[j] = h.data[j], h.data[i]
 }
 
-/* Get heap size */
+/* Get the heap size */
 func (h *maxHeap) size() int {
 	return len(h.data)
 }
 
-/* Check if heap is empty */
+/* Check whether the heap is empty */
 func (h *maxHeap) isEmpty() bool {
 	return len(h.data) == 0
 }
 
-/* Access top element */
+/* Access the top element of the heap */
 func (h *maxHeap) peek() any {
 	return h.data[0]
 }
 
-/* Element enters heap */
+/* Push an element onto the heap */
 func (h *maxHeap) push(val any) {
-	// Add node
+	// Add a node
 	h.data = append(h.data, val)
-	// Heapify from bottom to top
+	// Sift up
 	h.siftUp(len(h.data) - 1)
 }
 
-/* Starting from node i, heapify from bottom to top */
+/* Sift up starting from node i */
 func (h *maxHeap) siftUp(i int) {
 	for true {
-		// Get parent node of node i
+		// Get the parent of node i
 		p := h.parent(i)
-		// When "crossing root node" or "node needs no repair", end heapify
+		// Stop sifting when the root has been passed or the node needs no repair
 		if p < 0 || h.data[i].(int) <= h.data[p].(int) {
 			break
 		}
-		// Swap two nodes
+		// Swap the two nodes
 		h.swap(i, p)
-		// Loop upward heapify
+		// Continue sifting up
 		i = p
 	}
 }
 
-/* Element exits heap */
+/* Pop an element from the heap */
 func (h *maxHeap) pop() any {
-	// Handle empty case
+	// Handle an empty heap
 	if h.isEmpty() {
 		fmt.Println("error")
 		return nil
 	}
-	// Delete node
+	// Swap the root with the rightmost leaf on the last level (swap the first and last elements)
 	h.swap(0, h.size()-1)
-	// Remove node
+	// Remove a node
 	val := h.data[len(h.data)-1]
 	h.data = h.data[:len(h.data)-1]
-	// Return top element
+	// Sift down
 	h.siftDown(0)
 
-	// Return heap top element
+	// Return the top element of the heap
 	return val
 }
 
-/* Starting from node i, heapify from top to bottom */
+/* Sift down starting from node i */
 func (h *maxHeap) siftDown(i int) {
 	for true {
-		// Find node with maximum value among nodes i, l, r, denoted as max
+		// Find the node with the largest value among i, l, and r, and store its index in max
 		l, r, max := h.left(i), h.right(i), i
 		if l < h.size() && h.data[l].(int) > h.data[max].(int) {
 			max = l
@@ -123,18 +123,18 @@ func (h *maxHeap) siftDown(i int) {
 		if r < h.size() && h.data[r].(int) > h.data[max].(int) {
 			max = r
 		}
-		// Swap two nodes
+		// Stop if node i is largest or both child indices l and r are out of bounds
 		if max == i {
 			break
 		}
-		// Swap two nodes
+		// Swap the two nodes
 		h.swap(i, max)
-		// Loop downwards heapification
+		// Continue sifting down
 		i = max
 	}
 }
 
-/* Driver Code */
+/* Print the heap (binary tree) */
 func (h *maxHeap) print() {
 	PrintHeap(h.data)
 }

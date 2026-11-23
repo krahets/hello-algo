@@ -16,5 +16,5 @@ func TestFractionalKnapsack(t *testing.T) {
 
 	// Greedy algorithm
 	res := fractionalKnapsack(wgt, val, capacity)
-	fmt.Println("Maximum item value not exceeding knapsack capacity is", res)
+	fmt.Println("Maximum total item value within the knapsack capacity:", res)
 }

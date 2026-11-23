@@ -6,44 +6,44 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative "./my_heap"
 
-### Push element to heap ###
+### Push an element onto the heap ###
 def push_min_heap(heap, val)
-  # Negate element
+  # Negate the value
   heap.push(-val)
 end
 
-### Pop element from heap ###
+### Pop an element from the heap ###
 def pop_min_heap(heap)
-  # Negate element
+  # Negate the value
   -heap.pop
 end
 
-### Access heap top element ###
+### Access the top element of the heap ###
 def peek_min_heap(heap)
-  # Negate element
+  # Negate the value
   -heap.peek
 end
 
-### Get elements from heap ###
+### Get the elements in the heap ###
 def get_min_heap(heap)
-  # Negate all elements in heap
+  # Negate all elements in the heap
   heap.max_heap.map { |x| -x }
 end
 
-### Find largest k elements in array using heap ###
+### Use a heap to find the k largest elements in an array ###
 def top_k_heap(nums, k)
-  # Python's heapq module implements min heap by default
-  # Note: We negate all heap elements to simulate min heap using max heap
+  # Initialize a min heap
+  # Note: negate all values in the heap to simulate a min heap with a max heap
   max_heap = MaxHeap.new([])
 
-  # Enter the first k elements of array into heap
+  # Push the first k array elements onto the heap
   for i in 0...k
     push_min_heap(max_heap, nums[i])
   end
 
-  # Starting from the (k+1)th element, maintain heap length as k
+  # Starting with element k+1, keep the heap size at k
   for i in k...nums.length
-    # If current element is greater than top element, top element exits heap, current element enters heap
+    # If the current element is larger than the heap top, pop the top element and push the current element
     if nums[i] > peek_min_heap(max_heap)
       pop_min_heap(max_heap)
       push_min_heap(max_heap, nums[i])
@@ -53,12 +53,12 @@ def top_k_heap(nums, k)
   get_min_heap(max_heap)
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   nums = [1, 7, 6, 3, 2]
   k = 3
 
   res = top_k_heap(nums, k)
-  puts "The largest #{k} elements are"
+  puts "The largest #{k} elements are:"
   print_heap(res)
 end

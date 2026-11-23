@@ -12,63 +12,63 @@ class BinarySearchTree {
 
     /* Constructor */
     init() {
-        // Initialize empty tree
+        // Initialize an empty tree
         root = nil
     }
 
-    /* Get binary tree root node */
+    /* Get the root of the binary tree */
     func getRoot() -> TreeNode? {
         root
     }
 
-    /* Search node */
+    /* Find a node */
     func search(num: Int) -> TreeNode? {
         var cur = root
-        // Loop search, exit after passing leaf node
+        // Search in a loop, stopping if cur becomes nil
         while cur != nil {
-            // Target node is in cur's right subtree
+            // If present, the target node lies in the right subtree of cur
             if cur!.val < num {
                 cur = cur?.right
             }
-            // Target node is in cur's left subtree
+            // If present, the target node lies in the left subtree of cur
             else if cur!.val > num {
                 cur = cur?.left
             }
-            // Found target node, exit loop
+            // The target node was found; exit the loop
             else {
                 break
             }
         }
-        // Return target node
+        // Return the target node, or nil if it was not found
         return cur
     }
 
-    /* Insert node */
+    /* Insert a node */
     func insert(num: Int) {
-        // If tree is empty, initialize root node
+        // If the tree is empty, initialize the root node
         if root == nil {
             root = TreeNode(x: num)
             return
         }
         var cur = root
         var pre: TreeNode?
-        // Loop search, exit after passing leaf node
+        // Search in a loop, stopping if cur becomes nil
         while cur != nil {
-            // Found duplicate node, return directly
+            // Return immediately if a duplicate node is found
             if cur!.val == num {
                 return
             }
             pre = cur
-            // Insertion position is in cur's right subtree
+            // The insertion position lies in the right subtree of cur
             if cur!.val < num {
                 cur = cur?.right
             }
-            // Insertion position is in cur's left subtree
+            // The insertion position lies in the left subtree of cur
             else {
                 cur = cur?.left
             }
         }
-        // Insert node
+        // Insert a node
         let node = TreeNode(x: num)
         if pre!.val < num {
             pre?.right = node
@@ -77,39 +77,39 @@ class BinarySearchTree {
         }
     }
 
-    /* Remove node */
+    /* Remove a node */
     func remove(num: Int) {
-        // If tree is empty, return directly
+        // Return immediately if the tree is empty
         if root == nil {
             return
         }
         var cur = root
         var pre: TreeNode?
-        // Loop search, exit after passing leaf node
+        // Search in a loop, stopping if cur becomes nil
         while cur != nil {
-            // Found node to delete, exit loop
+            // The node to remove was found; exit the loop
             if cur!.val == num {
                 break
             }
             pre = cur
-            // Node to delete is in cur's right subtree
+            // If present, the node to remove lies in the right subtree of cur
             if cur!.val < num {
                 cur = cur?.right
             }
-            // Node to delete is in cur's left subtree
+            // If present, the node to remove lies in the left subtree of cur
             else {
                 cur = cur?.left
             }
         }
-        // If no node to delete, return directly
+        // Return immediately if the node to remove does not exist
         if cur == nil {
             return
         }
-        // Number of child nodes = 0 or 1
+        // Number of children = 0 or 1
         if cur?.left == nil || cur?.right == nil {
-            // When number of child nodes = 0 / 1, child = null / that child node
+            // With 0 / 1 children, child is nil / the child node, respectively
             let child = cur?.left ?? cur?.right
-            // Delete node cur
+            // Remove node cur
             if cur !== root {
                 if pre?.left === cur {
                     pre?.left = child
@@ -117,20 +117,20 @@ class BinarySearchTree {
                     pre?.right = child
                 }
             } else {
-                // If deleted node is root node, reassign root node
+                // If the removed node is the root, assign the new root
                 root = child
             }
         }
-        // Number of child nodes = 2
+        // Number of children = 2
         else {
-            // Get next node of cur in inorder traversal
+            // Get the inorder successor of cur
             var tmp = cur?.right
             while tmp?.left != nil {
                 tmp = tmp?.left
             }
-            // Recursively delete node tmp
+            // Recursively remove node tmp
             remove(num: tmp!.val)
-            // Replace cur with tmp
+            // Replace the value of cur with the value of tmp
             cur?.val = tmp!.val
         }
     }
@@ -138,36 +138,36 @@ class BinarySearchTree {
 
 @main
 enum _BinarySearchTree {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Initialize binary search tree */
+        /* Initialize the binary search tree */
         let bst = BinarySearchTree()
-        // Please note that different insertion orders will generate different binary trees, this sequence can generate a perfect binary tree
+        // Different insertion orders produce different binary trees; this sequence produces a perfect binary tree
         let nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15]
         for num in nums {
             bst.insert(num: num)
         }
-        print("\nInitialized binary tree is\n")
+        print("\nThe initialized binary tree is:\n")
         PrintUtil.printTree(root: bst.getRoot())
 
-        /* Search node */
+        /* Find a node */
         let node = bst.search(num: 7)
-        print("\nFound node object is \(node!), node value = \(node!.val)")
+        print("\nFound node object: \(node!), node value = \(node!.val)")
 
-        /* Insert node */
+        /* Insert a node */
         bst.insert(num: 16)
-        print("\nAfter inserting node 16, binary tree is\n")
+        print("\nBinary tree after inserting node 16:\n")
         PrintUtil.printTree(root: bst.getRoot())
 
-        /* Remove node */
+        /* Remove a node */
         bst.remove(num: 1)
-        print("\nAfter removing node 1, binary tree is\n")
+        print("\nBinary tree after removing node 1:\n")
         PrintUtil.printTree(root: bst.getRoot())
         bst.remove(num: 2)
-        print("\nAfter removing node 2, binary tree is\n")
+        print("\nBinary tree after removing node 2:\n")
         PrintUtil.printTree(root: bst.getRoot())
         bst.remove(num: 4)
-        print("\nAfter removing node 4, binary tree is\n")
+        print("\nBinary tree after removing node 4:\n")
         PrintUtil.printTree(root: bst.getRoot())
     }
 }

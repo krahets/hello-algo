@@ -6,21 +6,21 @@
 
 import { ListNode } from '../modules/ListNode';
 
-/* 連結リストベースのスタック */
+/* 連結リストで実装したスタック */
 class LinkedListStack {
-    private stackPeek: ListNode | null; // 先頭ノードをスタックトップとする
+    private stackPeek: ListNode | null; // 先頭ノードをスタックの先頭とする
     private stkSize: number = 0; // スタックの長さ
 
     constructor() {
         this.stackPeek = null;
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     get size(): number {
         return this.stkSize;
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     isEmpty(): boolean {
         return this.size === 0;
     }
@@ -42,7 +42,7 @@ class LinkedListStack {
         return num;
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     peek(): number {
         if (!this.stackPeek) throw new Error('スタックが空です');
         return this.stackPeek.val;
@@ -60,11 +60,11 @@ class LinkedListStack {
     }
 }
 
-/* Driver Code */
-/* スタックを初期化 */
+/* 実行用コード */
+/* スタックを初期化する */
 const stack = new LinkedListStack();
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -72,20 +72,20 @@ stack.push(5);
 stack.push(4);
 console.log('スタック stack = ' + stack.toArray());
 
-/* スタックトップの要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 const peek = stack.peek();
-console.log('スタックトップ要素 peek = ' + peek);
+console.log('スタックの先頭要素 peek = ' + peek);
 
-/* 要素をポップ */
+/* 要素をポップする */
 const pop = stack.pop();
-console.log('ポップした要素 pop = ' + pop + '，ポップ後の stack = ' + stack.toArray());
+console.log('ポップした要素 pop = ' + pop + '、ポップ後 stack = ' + stack.toArray());
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 const size = stack.size;
 console.log('スタックの長さ size = ' + size);
 
-/* 空かどうかを判定 */
+/* 空かどうかを判定する */
 const isEmpty = stack.isEmpty();
-console.log('スタックが空かどうか = ' + isEmpty);
+console.log('スタックは空か = ' + isEmpty);
 
 export {};

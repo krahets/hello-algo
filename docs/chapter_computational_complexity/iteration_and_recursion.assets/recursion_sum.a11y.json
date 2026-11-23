@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "普通递归求和",
+  "summary": "先把求和问题缩小到基本情况，再在返回时逐层相加。",
+  "context": [
+    "n 为正整数。图左列“向下‘递’”给出调用，右列“向上‘归’”给出对应返回表达式；省略号代表中间调用。下表保留图中的首尾层，小 n 只经过实际需要的层。"
+  ],
+  "description": [],
+  "result": "逐层累加后，最初的 recur(n) 返回 1 + 2 + … + n。",
+  "frames": [
+    {
+      "id": "source-21",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum.png",
+      "title": "普通递归求和",
+      "explanation": "recur(n) 调用 recur(n−1)，每层将参数减 1，直到 recur(1)。图在这一行标注“触发递归终止条件”，并用向右箭头转入返回阶段。recur(1) 返回 1；recur(2) 收到 1 后算得 2 + 1 = 3；recur(3) 收到 3 后算得 3 + 3 = 6。一般层 recur(k) 必须等子调用返回，才能加上本层参数 k，因此加法在返回阶段完成。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "图中调用与返回表达式",
+      "headers": [
+        "向下“递”的调用",
+        "向上“归”的返回表达式"
+      ],
+      "rows": [
+        [
+          "recur(n)",
+          "n+((n−1)+…+2+1)"
+        ],
+        [
+          "recur(n−1)",
+          "(n−1)+((n−2)+…+2+1)"
+        ],
+        [
+          "中间调用",
+          "省略"
+        ],
+        [
+          "recur(4)",
+          "4+(3+2+1)"
+        ],
+        [
+          "recur(3)",
+          "3+(2+1)"
+        ],
+        [
+          "recur(2)",
+          "2+(1)"
+        ],
+        [
+          "recur(1)，终止条件",
+          "1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

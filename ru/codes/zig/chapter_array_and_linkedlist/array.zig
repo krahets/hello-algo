@@ -7,14 +7,14 @@ const utils = @import("utils");
 
 // Случайный доступ к элементу
 pub fn randomAccess(nums: []const i32) i32 {
-    // Случайным образом выбрать целое число из интервала [0, nums.len)
+    // Случайный выбор целого числа из диапазона [0, nums.len)
     const random_index = std.crypto.random.intRangeLessThan(usize, 0, nums.len);
     // Получить и вернуть случайный элемент
     const randomNum = nums[random_index];
     return randomNum;
 }
 
-// Увеличить длину массива
+// Увеличение длины массива
 pub fn extend(allocator: std.mem.Allocator, nums: []const i32, enlarge: usize) ![]i32 {
     // Инициализировать массив увеличенной длины
     const res = try allocator.alloc(i32, nums.len + enlarge);
@@ -27,9 +27,9 @@ pub fn extend(allocator: std.mem.Allocator, nums: []const i32, enlarge: usize) !
     return res;
 }
 
-// Вставить элемент num по индексу index в массив
+// Вставка элемента num в массив по индексу index
 pub fn insert(nums: []i32, num: i32, index: usize) void {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
     var i = nums.len - 1;
     while (i > index) : (i -= 1) {
         nums[i] = nums[i - 1];
@@ -38,9 +38,9 @@ pub fn insert(nums: []i32, num: i32, index: usize) void {
     nums[index] = num;
 }
 
-// Удалить элемент по индексу index
+// Удаление элемента по индексу index
 pub fn remove(nums: []i32, index: usize) void {
-    // Сдвинуть все элементы после индекса index на одну позицию вперед
+    // Сдвинуть все элементы после индекса index на одну позицию влево
     var i = index;
     while (i < nums.len - 1) : (i += 1) {
         nums[i] = nums[i + 1];
@@ -70,7 +70,7 @@ pub fn traverse(nums: []const i32) void {
     }
 }
 
-// Найти заданный элемент в массиве
+// Поиск заданного элемента в массиве
 pub fn find(nums: []i32, target: i32) i32 {
     for (nums, 0..) |num, i| {
         if (num == target) return @intCast(i);

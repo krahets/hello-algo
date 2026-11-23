@@ -106,7 +106,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-collections", branch: "release/1.1"),
     ],
     targets: [
-        // helper
+        // 補助処理
         .target(name: "utils", path: "utils"),
         .target(name: "graph_adjacency_list_target", dependencies: ["utils"], path: "chapter_graph", sources: ["graph_adjacency_list_target.swift"], swiftSettings: [.define("TARGET")]),
         .target(name: "binary_search_insertion_target", path: "chapter_searching", sources: ["binary_search_insertion_target.swift"], swiftSettings: [.define("TARGET")]),

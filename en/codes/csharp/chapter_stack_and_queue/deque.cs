@@ -9,36 +9,36 @@ namespace hello_algo.chapter_stack_and_queue;
 public class deque {
     [Test]
     public void Test() {
-        /* Get the length of the double-ended queue */
-        // In C#, use LinkedList as deque
+        /* Initialize the deque */
+        // In C#, use LinkedList as a deque
         LinkedList<int> deque = new();
 
-        /* Elements enqueue */
-        deque.AddLast(2);   // Add to the rear of the queue
+        /* Enqueue elements */
+        deque.AddLast(2);   // Add to the rear
         deque.AddLast(5);
         deque.AddLast(4);
-        deque.AddFirst(3);  // Add to the front of the queue
+        deque.AddFirst(3);  // Add to the front
         deque.AddFirst(1);
-        Console.WriteLine("Double-ended queue deque = " + string.Join(",", deque));
+        Console.WriteLine("Deque deque = " + string.Join(",", deque));
 
-        /* Update element */
-        int? peekFirst = deque.First?.Value;  // Rear of the queue element
+        /* Access an element */
+        int? peekFirst = deque.First?.Value;  // Front element
         Console.WriteLine("Front element peekFirst = " + peekFirst);
-        int? peekLast = deque.Last?.Value;    // Front of the queue element dequeues
+        int? peekLast = deque.Last?.Value;    // Rear element
         Console.WriteLine("Rear element peekLast = " + peekLast);
 
-        /* Element dequeue */
-        deque.RemoveFirst();  // Check if the double-ended queue is empty
-        Console.WriteLine("After front element dequeues, deque = " + string.Join(",", deque));
-        deque.RemoveLast();   // Rear element dequeue
-        Console.WriteLine("After rear element dequeues, deque = " + string.Join(",", deque));
+        /* Dequeue an element */
+        deque.RemoveFirst();  // Dequeue the front element
+        Console.WriteLine("After dequeuing the front element, deque = " + string.Join(",", deque));
+        deque.RemoveLast();   // Dequeue the rear element
+        Console.WriteLine("After dequeuing the rear element, deque = " + string.Join(",", deque));
 
-        /* Get the length of the double-ended queue */
+        /* Get the deque size */
         int size = deque.Count;
-        Console.WriteLine("Double-ended queue length size = " + size);
+        Console.WriteLine("Deque size = " + size);
 
-        /* Check if the double-ended queue is empty */
+        /* Check whether the deque is empty */
         bool isEmpty = deque.Count == 0;
-        Console.WriteLine("Double-ended queue is empty = " + isEmpty);
+        Console.WriteLine("Is the deque empty = " + isEmpty);
     }
 }

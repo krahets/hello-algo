@@ -7,17 +7,17 @@
 namespace hello_algo.chapter_heap;
 
 public class top_k {
-    /* Find the largest k elements in array based on heap */
+    /* Use a heap to find the k largest elements in an array */
     PriorityQueue<int, int> TopKHeap(int[] nums, int k) {
-        // Python's heapq module implements min heap by default
+        // Initialize a min heap
         PriorityQueue<int, int> heap = new();
-        // Enter the first k elements of array into heap
+        // Push the first k array elements onto the heap
         for (int i = 0; i < k; i++) {
             heap.Enqueue(nums[i], nums[i]);
         }
-        // Starting from the (k+1)th element, maintain heap length as k
+        // Starting with element k+1, keep the heap size at k
         for (int i = k; i < nums.Length; i++) {
-            // If current element is greater than top element, top element exits heap, current element enters heap
+            // If the current element is larger than the heap top, pop the top element and push the current element
             if (nums[i] > heap.Peek()) {
                 heap.Dequeue();
                 heap.Enqueue(nums[i], nums[i]);
@@ -31,7 +31,7 @@ public class top_k {
         int[] nums = [1, 7, 6, 3, 2];
         int k = 3;
         PriorityQueue<int, int> res = TopKHeap(nums, k);
-        Console.WriteLine("The largest " + k + " elements are");
+        Console.WriteLine("The largest " + k + " elements are:");
         PrintUtil.PrintHeap(res);
     }
 }

@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Double-ended queue based on circular array implementation */
+/* Deque implemented with a circular array */
 class ArrayDeque {
   private:
-    vector<int> nums; // Array for storing double-ended queue elements
-    int front;        // Front pointer, points to the front of the queue element
-    int queSize;      // Double-ended queue length
+    vector<int> nums; // Array for storing deque elements
+    int front;        // Front index, identifying the first element
+    int queSize;      // Deque size
 
   public:
     /* Constructor */
@@ -20,91 +20,91 @@ class ArrayDeque {
         front = queSize = 0;
     }
 
-    /* Get the capacity of the double-ended queue */
+    /* Get the deque capacity */
     int capacity() {
         return nums.size();
     }
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     int size() {
         return queSize;
     }
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     bool isEmpty() {
         return queSize == 0;
     }
 
-    /* Calculate circular array index */
+    /* Calculate an index in the circular array */
     int index(int i) {
-        // Use modulo operation to wrap the array head and tail together
-        // When i passes the tail of the array, return to the head
-        // When i passes the head of the array, return to the tail
+        // Use modulo to connect the end of the array to its beginning
+        // When i passes the end of the array, wrap around to the beginning
+        // When i passes the beginning of the array, wrap around to the end
         return (i + capacity()) % capacity();
     }
 
-    /* Front of the queue enqueue */
+    /* Enqueue at the front */
     void pushFirst(int num) {
         if (queSize == capacity()) {
-            cout << "Double-ended queue is full" << endl;
+            cout << "Deque is full" << endl;
             return;
         }
-        // Use modulo operation to wrap front around to the tail after passing the head of the array
-        // Add num to the front of the queue
+        // Move the front index one position to the left
+        // Use modulo to wrap front to the end when it passes the beginning of the array
         front = index(front - 1);
-        // Add num to front of queue
+        // Add num to the front
         nums[front] = num;
         queSize++;
     }
 
-    /* Rear of the queue enqueue */
+    /* Enqueue at the rear */
     void pushLast(int num) {
         if (queSize == capacity()) {
-            cout << "Double-ended queue is full" << endl;
+            cout << "Deque is full" << endl;
             return;
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
+        // Calculate the rear index, one position past the last element
         int rear = index(front + queSize);
-        // Front pointer moves one position backward
+        // Add num to the rear
         nums[rear] = num;
         queSize++;
     }
 
-    /* Rear of the queue dequeue */
+    /* Dequeue from the front */
     int popFirst() {
         int num = peekFirst();
-        // Move front pointer backward by one position
+        // Advance the front index by one position
         front = index(front + 1);
         queSize--;
         return num;
     }
 
-    /* Access rear of the queue element */
+    /* Dequeue from the rear */
     int popLast() {
         int num = peekLast();
         queSize--;
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     int peekFirst() {
         if (isEmpty())
             throw out_of_range("Deque is empty");
         return nums[front];
     }
 
-    /* Driver Code */
+    /* Access the rear element */
     int peekLast() {
         if (isEmpty())
             throw out_of_range("Deque is empty");
-        // Initialize double-ended queue
+        // Calculate the index of the last element
         int last = index(front + queSize - 1);
         return nums[last];
     }
 
-    /* Return array for printing */
+    /* Return a vector for printing */
     vector<int> toVector() {
-        // Elements enqueue
+        // Copy only the elements in the occupied range
         vector<int> res(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[index(j)];
@@ -113,44 +113,44 @@ class ArrayDeque {
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Get the length of the double-ended queue */
+    /* Initialize the deque */
     ArrayDeque *deque = new ArrayDeque(10);
     deque->pushLast(3);
     deque->pushLast(2);
     deque->pushLast(5);
-    cout << "Double-ended queue deque = ";
+    cout << "Deque deque = ";
     printVector(deque->toVector());
 
-    /* Update element */
+    /* Access an element */
     int peekFirst = deque->peekFirst();
     cout << "Front element peekFirst = " << peekFirst << endl;
     int peekLast = deque->peekLast();
     cout << "Rear element peekLast = " << peekLast << endl;
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     deque->pushLast(4);
-    cout << "After element 4 enqueues at rear, deque = ";
+    cout << "After enqueuing element 4 at the rear, deque = ";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "After element 1 enqueues at front, deque = ";
+    cout << "After enqueuing element 1 at the front, deque = ";
     printVector(deque->toVector());
 
-    /* Element dequeue */
+    /* Dequeue an element */
     int popLast = deque->popLast();
-    cout << "Rear dequeue element = " << popLast << ", after rear dequeue, deque = ";
+    cout << "Element dequeued from the rear = " << popLast << ", after dequeuing from the rear, deque = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Front dequeue element = " << popFirst << ", after front dequeue, deque = ";
+    cout << "Element dequeued from the front = " << popFirst << ", after dequeuing from the front, deque = ";
     printVector(deque->toVector());
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     int size = deque->size();
-    cout << "Double-ended queue length size = " << size << endl;
+    cout << "Deque size = " << size << endl;
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     bool isEmpty = deque->isEmpty();
-    cout << "Double-ended queue is empty = " << boolalpha << isEmpty << endl;
+    cout << "Is the deque empty = " << boolalpha << isEmpty << endl;
     return 0;
 }

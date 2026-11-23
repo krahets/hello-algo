@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "title": "Decision tree for edit distance",
+  "summary": "Modeling strings as nodes and single edits as directed edges frames the problem as finding the shortest path from hello to algo in a decision tree; the figure expands one three-step transformation path while leaving other branches unexpanded.",
+  "context": [
+    "In the decision tree model, each node represents a string state, and each outgoing directed edge represents one decision (a single insertion, deletion, or replacement operation). Finding the edit distance from string s = hello to t = algo is equivalent to finding the shortest path from the root node hello to the target node algo in this decision tree."
+  ],
+  "description": [
+    "From top to bottom on the left, the figure expands a single path of 4 string nodes and 3 directed edges, starting from s = hello at the top and ending at t = algo at the bottom. The table below lists each edge and its operation in order; the first edge in the drawing reads only \"Replace l with g,\" and \"the second l\" is added by comparing the two node strings to clarify the position.",
+    "To the right of each expanded node in the top three levels (hello, helgo, and halgo), 3 additional branch arrows point to ellipses \"...\", indicating that without restrictions on edits, every string can branch into many other edit choices; those abbreviated branches omit specific strings, since the figure illustrates the shortest-path perspective on the decision tree rather than exhausting the entire search tree."
+  ],
+  "frames": [
+    {
+      "id": "source-442",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png",
+      "title": "Three-step edit path from hello to algo",
+      "explanation": "This path reaches algo from hello in 3 edits, matching the edit distance of 3 shown in Figure 14-27 earlier in this section. Examining this single expanded path only confirms that 3 edits suffice; by itself, it cannot rule out a shorter path."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Edits along the expanded path",
+      "headers": [
+        "Starting string",
+        "Operation",
+        "Resulting string"
+      ],
+      "rows": [
+        [
+          "hello",
+          "Replace the second l with g",
+          "helgo"
+        ],
+        [
+          "helgo",
+          "Replace e with a",
+          "halgo"
+        ],
+        [
+          "halgo",
+          "Delete the leading h",
+          "algo"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

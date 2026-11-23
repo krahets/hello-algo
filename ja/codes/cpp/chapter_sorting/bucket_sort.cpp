@@ -8,14 +8,14 @@
 
 /* バケットソート */
 void bucketSort(vector<float> &nums) {
-    // k = n/2 個のバケットを初期化し、各バケットに 2 要素ずつ割り当てる想定とする
+    // k = n/2 個のバケットを初期化し、各バケットに平均 2 個の要素を割り当てることを想定する
     int k = nums.size() / 2;
     vector<vector<float>> buckets(k);
-    // 1. 配列要素を各バケットに振り分ける
+    // 1. 配列の要素を各バケットに振り分ける
     for (float num : nums) {
-        // 入力データの範囲は [0, 1) であり、num * k を用いてインデックス範囲 [0, k-1] に写像する
+        // 入力データの範囲は [0, 1) なので、num * k によりインデックス範囲 [0, k-1] に対応付ける
         int i = num * k;
-        // num をバケット bucket_idx に追加
+        // num をバケット bucket_idx に追加する
         buckets[i].push_back(num);
     }
     // 2. 各バケットをソートする
@@ -23,7 +23,7 @@ void bucketSort(vector<float> &nums) {
         // 組み込みのソート関数を使う。他のソートアルゴリズムに置き換えてもよい
         sort(bucket.begin(), bucket.end());
     }
-    // 3. バケットを走査して結果を結合
+    // 3. バケットを走査して結果を結合する
     int i = 0;
     for (vector<float> &bucket : buckets) {
         for (float num : bucket) {
@@ -32,9 +32,9 @@ void bucketSort(vector<float> &nums) {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    // 入力データは範囲 [0, 1) の浮動小数点数とする
+    // 入力データは [0, 1) の範囲の浮動小数点数とする
     vector<float> nums = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums);
     cout << "バケットソート完了後 nums = ";

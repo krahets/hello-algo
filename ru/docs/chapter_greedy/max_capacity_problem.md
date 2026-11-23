@@ -8,7 +8,7 @@
 
     Требуется выбрать две перегородки так, чтобы образованный ими контейнер имел максимальную вместимость. Пример показан на рисунке ниже.
 
-![Пример данных для задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_example.png)
+![Пример данных для задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_example.svg)
 
 Контейнер образуется произвольными двумя перегородками, **поэтому состоянием задачи служит пара индексов этих перегородок, обозначим ее как $[i, j]$**.
 
@@ -24,17 +24,17 @@ $$
 
 У этой задачи есть и более эффективное решение. Как показано на рисунке ниже, рассмотрим состояние $[i, j]$, где индексы удовлетворяют $i < j$, а высоты - условию $ht[i] < ht[j]$, то есть $i$ - короткая перегородка, а $j$ - длинная.
 
-![Начальное состояние](max_capacity_problem.assets/max_capacity_initial_state.png)
+![Начальное состояние](max_capacity_problem.assets/max_capacity_initial_state.svg)
 
 Как показано на рисунке ниже, **если в этот момент сдвинуть длинную перегородку $j$ ближе к короткой перегородке $i$, то вместимость обязательно уменьшится**.
 
 Причина в том, что после смещения длинной перегородки $j$ ширина $j-i$ обязательно станет меньше, а высота определяется короткой перегородкой, поэтому высота либо останется прежней (если $i$ останется короткой перегородкой), либо уменьшится (если сдвинутая $j$ станет короткой перегородкой).
 
-![Состояние после перемещения длинной перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_long_board.png)
+![Состояние после перемещения длинной перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_long_board.svg)
 
 Рассуждая в обратную сторону, **только сдвигая короткую перегородку $i$ внутрь, мы можем получить шанс увеличить вместимость**. Хотя ширина при этом обязательно уменьшится, **высота может возрасти** (если после перемещения короткая перегородка $i$ станет выше). Например, на рисунке ниже после перемещения короткой перегородки площадь увеличивается.
 
-![Состояние после перемещения короткой перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_short_board.png)
+![Состояние после перемещения короткой перегородки внутрь](max_capacity_problem.assets/max_capacity_moving_short_board.svg)
 
 Отсюда и выводится жадная стратегия для этой задачи: инициализировать два указателя по краям контейнера и на каждом шаге сдвигать внутрь указатель, соответствующий короткой перегородке, пока указатели не встретятся.
 
@@ -46,31 +46,31 @@ $$
 4. Повторять шаги `2.` и `3.` до тех пор, пока $i$ и $j$ не встретятся.
 
 === "<1>"
-    ![Жадный процесс решения задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_greedy_step1.png)
+    ![Жадный процесс решения задачи о максимальной вместимости](max_capacity_problem.assets/max_capacity_greedy_step1.svg)
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png)
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png)
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png)
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png)
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png)
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png)
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png)
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
 
 ### Код реализации
 
@@ -92,7 +92,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![Состояния, пропущенные из-за смещения короткой перегородки](max_capacity_problem.assets/max_capacity_skipped_states.png)
+![Состояния, пропущенные из-за смещения короткой перегородки](max_capacity_problem.assets/max_capacity_skipped_states.svg)
 
 Нетрудно заметить, что **эти пропущенные состояния на самом деле и есть все состояния, в которых длинная перегородка $j$ сдвигается внутрь**. Ранее мы уже доказали, что перемещение длинной перегородки внутрь обязательно уменьшает вместимость. Иными словами, пропущенные состояния не могут быть оптимальным решением, **поэтому их пропуск не приводит к потере оптимума**.
 

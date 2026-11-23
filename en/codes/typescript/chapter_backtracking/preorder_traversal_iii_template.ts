@@ -8,66 +8,66 @@ import { type TreeNode } from '../modules/TreeNode';
 import { arrToTree } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* Check if the current state is a solution */
+/* Check whether the current state is a solution */
 function isSolution(state: TreeNode[]): boolean {
     return state && state[state.length - 1]?.val === 7;
 }
 
-/* Record solution */
+/* Record the solution */
 function recordSolution(state: TreeNode[], res: TreeNode[][]): void {
     res.push([...state]);
 }
 
-/* Check if the choice is valid under the current state */
+/* Check whether the choice is valid in the current state */
 function isValid(state: TreeNode[], choice: TreeNode): boolean {
     return choice !== null && choice.val !== 3;
 }
 
-/* Update state */
+/* Update the state */
 function makeChoice(state: TreeNode[], choice: TreeNode): void {
     state.push(choice);
 }
 
-/* Restore state */
+/* Restore the state */
 function undoChoice(state: TreeNode[]): void {
     state.pop();
 }
 
-/* Backtracking algorithm: Example 3 */
+/* Backtracking: example 3 */
 function backtrack(
     state: TreeNode[],
     choices: TreeNode[],
     res: TreeNode[][]
 ): void {
-    // Check if it is a solution
+    // Check whether this is a solution
     if (isSolution(state)) {
-        // Record solution
+        // Record the solution
         recordSolution(state, res);
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (const choice of choices) {
-        // Pruning: check if the choice is valid
+        // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             makeChoice(state, choice);
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, [choice.left, choice.right], res);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             undoChoice(state);
         }
     }
 }
 
-// Driver Code
+// Driver code
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nInitialize binary tree');
+console.log('\nInitialize the binary tree');
 printTree(root);
 
 // Backtracking algorithm
 const res: TreeNode[][] = [];
 backtrack([], [root], res);
 
-console.log('\nOutput all paths from root node to node 7, requiring paths do not include nodes with value 3');
+console.log('\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

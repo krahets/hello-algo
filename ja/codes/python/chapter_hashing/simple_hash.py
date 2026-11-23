@@ -24,7 +24,7 @@ def mul_hash(key: str) -> int:
 
 
 def xor_hash(key: str) -> int:
-    """XOR ハッシュ"""
+    """排他的論理和ハッシュ"""
     hash = 0
     modulus = 1000000007
     for c in key:
@@ -41,18 +41,18 @@ def rot_hash(key: str) -> int:
     return hash % modulus
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
-    key = "Hello アルゴリズム"
+    key = "Hello 算法"
 
     hash = add_hash(key)
-    print(f"加算ハッシュ値は {hash}")
+    print(f"加算ハッシュの値は {hash}")
 
     hash = mul_hash(key)
-    print(f"乗算ハッシュ値は {hash}")
+    print(f"乗算ハッシュの値は {hash}")
 
     hash = xor_hash(key)
-    print(f"XOR ハッシュ値は {hash}")
+    print(f"排他的論理和ハッシュの値は {hash}")
 
     hash = rot_hash(key)
-    print(f"回転ハッシュ値は {hash}")
+    print(f"回転ハッシュの値は {hash}")

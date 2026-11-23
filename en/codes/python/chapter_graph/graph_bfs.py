@@ -15,30 +15,30 @@ from graph_adjacency_list import GraphAdjList
 
 def graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """Breadth-first traversal"""
-    # Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+    # Represent the graph with an adjacency list to access all neighbors of a given vertex
     # Vertex traversal sequence
     res = []
-    # Hash set for recording vertices that have been visited
+    # Hash set recording visited vertices
     visited = set[Vertex]([start_vet])
-    # Queue used to implement BFS
+    # Use a queue to implement BFS
     que = deque[Vertex]([start_vet])
-    # Starting from vertex vet, loop until all vertices are visited
+    # Starting from start_vet, loop until all reachable vertices have been visited
     while len(que) > 0:
         vet = que.popleft()  # Dequeue the front vertex
-        res.append(vet)  # Record visited vertex
-        # Traverse all adjacent vertices of this vertex
+        res.append(vet)  # Record the visited vertex
+        # Traverse all neighbors of this vertex
         for adj_vet in graph.adj_list[vet]:
             if adj_vet in visited:
-                continue  # Skip vertices that have been visited
-            que.append(adj_vet)  # Only enqueue unvisited vertices
+                continue  # Skip vertices that have already been visited
+            que.append(adj_vet)  # Enqueue only unvisited vertices
             visited.add(adj_vet)  # Mark this vertex as visited
-    # Return vertex traversal sequence
+    # Return the vertex traversal sequence
     return res
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize undirected graph
+    # Initialize the undirected graph
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     edges = [
         [v[0], v[1]],
@@ -55,10 +55,10 @@ if __name__ == "__main__":
         [v[7], v[8]],
     ]
     graph = GraphAdjList(edges)
-    print("\nAfter initialization, the graph is")
+    print("\nGraph after initialization:")
     graph.print()
 
     # Breadth-first traversal
     res = graph_bfs(graph, v[0])
-    print("\nBreadth-first traversal (BFS) vertex sequence is")
+    print("\nVertex sequence from breadth-first traversal (BFS):")
     print(vets_to_vals(res))

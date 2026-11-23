@@ -9,9 +9,9 @@ package chapter_divide_and_conquer;
 import java.util.*;
 
 public class hanota {
-    /* Move a disk */
+    /* Move one disk */
     static void move(List<Integer> src, List<Integer> tar) {
-        // Take out a disk from the top of src
+        // Take a disk from the top of src
         Integer pan = src.remove(src.size() - 1);
         // Place the disk on top of tar
         tar.add(pan);
@@ -19,14 +19,14 @@ public class hanota {
 
     /* Solve the Tower of Hanoi problem f(i) */
     static void dfs(int i, List<Integer> src, List<Integer> buf, List<Integer> tar) {
-        // If there is only one disk left in src, move it directly to tar
+        // If only one disk remains to be moved from src, move it directly to tar
         if (i == 1) {
             move(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         dfs(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk from src to tar
+        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
         move(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         dfs(i - 1, buf, src, tar);
@@ -40,18 +40,18 @@ public class hanota {
     }
 
     public static void main(String[] args) {
-        // The tail of the list is the top of the rod
+        // The end of each list represents the top of the peg
         List<Integer> A = new ArrayList<>(Arrays.asList(5, 4, 3, 2, 1));
         List<Integer> B = new ArrayList<>();
         List<Integer> C = new ArrayList<>();
-        System.out.println("In initial state:");
+        System.out.println("Initial state:");
         System.out.println("A = " + A);
         System.out.println("B = " + B);
         System.out.println("C = " + C);
 
         solveHanota(A, B, C);
 
-        System.out.println("After disk movement is complete:");
+        System.out.println("After moving the disks:");
         System.out.println("A = " + A);
         System.out.println("B = " + B);
         System.out.println("C = " + C);

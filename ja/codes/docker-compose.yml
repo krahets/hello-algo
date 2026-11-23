@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  hello-algo-code:
+    build:
+      context: .
+      args:
+        # インストールする言語を空白区切りで設定する
+        # インストールする言語を空白区切りで設定する
+        LANGS: "python cpp java csharp"
+    image: hello-algo-code
+    container_name: hello-algo-code
+    stdin_open: true
+    tty: true

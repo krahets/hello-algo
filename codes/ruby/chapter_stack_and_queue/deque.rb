@@ -26,7 +26,7 @@ if __FILE__ == $0
   puts "队尾元素 peek_last = #{peek_last}"
 
   # 元素出队
-  # 请注意，由于是数组， Array#shift 方法的时间复杂度为 O(n)
+  # 请注意，由于是数组，Array#shift 方法的时间复杂度为 O(n)
   pop_front = deque.shift
   puts "队首出队元素 pop_front = #{pop_front}，队首出队后 deque = #{deque}"
   pop_back = deque.pop

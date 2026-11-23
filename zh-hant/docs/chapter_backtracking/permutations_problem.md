@@ -24,7 +24,7 @@
 
 如下圖所示，我們可以將搜尋過程展開成一棵遞迴樹，樹中的每個節點代表當前狀態 `state` 。從根節點開始，經過三輪選擇後到達葉節點，每個葉節點都對應一個排列。
 
-![全排列的遞迴樹](permutations_problem.assets/permutations_i.png)
+![全排列的遞迴樹](permutations_problem.assets/permutations_i.svg)
 
 ### 重複選擇剪枝
 
@@ -35,7 +35,7 @@
 
 如下圖所示，假設我們第一輪選擇 1 ，第二輪選擇 3 ，第三輪選擇 2 ，則需要在第二輪剪掉元素 1 的分支，在第三輪剪掉元素 1 和元素 3 的分支。
 
-![全排列剪枝示例](permutations_problem.assets/permutations_i_pruning.png)
+![全排列剪枝示例](permutations_problem.assets/permutations_i_pruning.svg)
 
 觀察上圖發現，該剪枝操作將搜尋空間大小從 $O(n^n)$ 減小至 $O(n!)$ 。
 
@@ -57,7 +57,7 @@
 
 如下圖所示，上述方法生成的排列有一半是重複的。
 
-![重複排列](permutations_problem.assets/permutations_ii.png)
+![重複排列](permutations_problem.assets/permutations_ii.svg)
 
 那麼如何去除重複的排列呢？最直接地，考慮藉助一個雜湊集合，直接對排列結果進行去重。然而這樣做不夠優雅，**因為生成重複排列的搜尋分支沒有必要，應當提前識別並剪枝**，這樣可以進一步提升演算法效率。
 
@@ -69,7 +69,7 @@
 
 從本質上看，**我們的目標是在某一輪選擇中，保證多個相等的元素僅被選擇一次**。
 
-![重複排列剪枝](permutations_problem.assets/permutations_ii_pruning.png)
+![重複排列剪枝](permutations_problem.assets/permutations_ii_pruning.svg)
 
 ### 程式碼實現
 
@@ -92,4 +92,4 @@
 
 下圖展示了兩個剪枝條件的生效範圍。注意，樹中的每個節點代表一個選擇，從根節點到葉節點的路徑上的各個節點構成一個排列。
 
-![兩種剪枝條件的作用範圍](permutations_problem.assets/permutations_ii_pruning_summary.png)
+![兩種剪枝條件的作用範圍](permutations_problem.assets/permutations_ii_pruning_summary.svg)

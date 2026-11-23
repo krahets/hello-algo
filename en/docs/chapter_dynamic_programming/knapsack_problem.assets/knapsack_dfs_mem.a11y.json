@@ -1,0 +1,133 @@
+{
+  "schema_version": 2,
+  "title": "Memoized search for 0-1 knapsack",
+  "summary": "When reaching dp[1, 10] again along the path that includes item 3, the search returns the cached result directly and skips the duplicate subtree; this differs in meaning from overweight pruning.",
+  "context": [
+    "In 0-1 knapsack, each item may be chosen at most once. This figure uses the same dedicated 3-item example with capacity cap = 30 as the preceding figure: weights 10, 20, 20 and values 60, 110, 120 (see the table). State dp[i, c] denotes the maximum value obtainable from the first i items with available capacity c; the table header in the drawing writes wgt[i] and val[i] (with i from 1 to 3), whereas the code in the text indexes the arrays at i - 1.",
+    "When the current item fits, compare dp[i-1, c] (excluding it) with dp[i-1, c-wgt[i-1]] + val[i-1] (including it) and take the larger value; when it does not fit, take only the exclude branch. With no items left (i = 0) or remaining capacity 0 (c = 0), return 0."
+  ],
+  "description": [
+    "Decisions proceed from the root dp[3, 30] for items 3, 2, and 1 in turn. Because item 2 (watermelon) and item 3 (pineapple) both weigh 20, either \"exclude item 3, then include item 2\" or \"include item 3, then exclude item 2\" leaves capacity 10 with only item 1 (apple, weight 10, value 60) remaining, so both paths converge on the same state dp[1, 10].",
+    "When the left subtree first visits dp[1, 10] (path \"Exclude 3 → Include 2\"), it expands to compare dp[0, 10] with dp[0, 0] + 60 and stores the result in the cache; when the right subtree under dp[2, 10] chooses to exclude item 2 and encounters dp[1, 10] again (path \"Include 3 → Exclude 2\"), it triggers \"Prune: cached result found\" and returns the cached value directly without expanding the two leaf nodes again. From item 1's weight 10 and value 60, that cached return value is 60—derived from the input table rather than written on the node.",
+    "Under the right child dp[2, 10], both branches carry scissors icons, yet they stop for completely different reasons: the left branch dp[1, 10] is a cache hit that directly returns the valid subproblem solution 60, whereas the right branch dp[1, -10] (\"Prune: item weight > knapsack capacity\") is an invalid illustrative node excluded because item 2's weight 20 exceeds the remaining capacity 10; the code checks for overweight before recursing and calls only the exclude branch dp[1, 10], never actually calling dp[1, -10].",
+    "The two tables below list the dedicated input items and the complete recursion tree shown in the figure; using the decision path from the root as the row header distinguishes multiple occurrences of the same state."
+  ],
+  "frames": [
+    {
+      "id": "source-396",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs_mem.png",
+      "title": "Cache hit reuses dp[1, 10], distinct from overweight pruning",
+      "explanation": "The figure contains 11 nodes in total, reducing the base-case leaf nodes from 6 in the brute-force tree to 4; the global maximum value remains 180 from choosing item 1 and item 3. Both the cached value 60 and the maximum value 180 are derived from the input data rather than printed on the tree nodes."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Three items used in the recursion tree; capacity 30",
+      "headers": [
+        "Item ID",
+        "Illustrated item",
+        "Weight",
+        "Value"
+      ],
+      "rows": [
+        [
+          "1",
+          "Apple",
+          "10",
+          "60"
+        ],
+        [
+          "2",
+          "Watermelon",
+          "20",
+          "110"
+        ],
+        [
+          "3",
+          "Pineapple",
+          "20",
+          "120"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Complete recursion tree; paths start at the root and include the excluded negative-capacity node",
+      "headers": [
+        "Decision path",
+        "State",
+        "Action or return",
+        "Child states and value gain"
+      ],
+      "rows": [
+        [
+          "Root",
+          "dp[3,30]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[2,30]; Include: dp[2,10]+120"
+        ],
+        [
+          "Exclude 3",
+          "dp[2,30]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[1,30]; Include: dp[1,10]+110"
+        ],
+        [
+          "Exclude 3 → Exclude 2",
+          "dp[1,30]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[0,30]; Include: dp[0,20]+60"
+        ],
+        [
+          "Exclude 3 → Exclude 2 → Exclude 1",
+          "dp[0,30]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Exclude 3 → Exclude 2 → Include 1",
+          "dp[0,20]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Exclude 3 → Include 2",
+          "dp[1,10]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[0,10]; Include: dp[0,0]+60"
+        ],
+        [
+          "Exclude 3 → Include 2 → Exclude 1",
+          "dp[0,10]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Exclude 3 → Include 2 → Include 1",
+          "dp[0,0]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Include 3",
+          "dp[2,10]",
+          "Overweight, take only the exclude branch",
+          "Exclude: dp[1,10]; Include: dp[1,-10] (excluded)"
+        ],
+        [
+          "Include 3 → Exclude 2",
+          "dp[1,10]",
+          "Cache hit, return 60 (derived from input)",
+          "Not expanded"
+        ],
+        [
+          "Include 3 → Include 2",
+          "dp[1,-10]",
+          "Illustrative overweight branch; not actually called",
+          "Not expanded"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

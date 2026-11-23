@@ -6,10 +6,10 @@
 
 /* リストクラス */
 class MyList {
-    private var arr: [Int] // 配列（リスト要素を格納）
-    private var _capacity: Int // リスト容量
+    private var arr: [Int] // 配列（リストの要素を格納する）
+    private var _capacity: Int // リストの容量
     private var _size: Int // リストの長さ（現在の要素数）
-    private let extendRatio: Int // リスト拡張時の増加倍率
+    private let extendRatio: Int // リストの容量を拡張する際の倍率
 
     /* コンストラクタ */
     init() {
@@ -19,84 +19,84 @@ class MyList {
         arr = Array(repeating: 0, count: _capacity)
     }
 
-    /* リストの長さを取得（現在の要素数） */
+    /* リストの長さ（現在の要素数）を取得する*/
     func size() -> Int {
         _size
     }
 
-    /* リスト容量を取得する */
+    /* リストの容量を取得する */
     func capacity() -> Int {
         _capacity
     }
 
-    /* 要素にアクセス */
+    /* 要素にアクセスする */
     func get(index: Int) -> Int {
-        // インデックスが範囲外ならエラーを投げる。以下同様
+        // インデックスが範囲外の場合、エラーを送出する。以下も同様
         if index < 0 || index >= size() {
-            fatalError("インデックスが範囲外")
+            fatalError("インデックスが範囲外です")
         }
         return arr[index]
     }
 
-    /* 要素を更新 */
+    /* 要素を更新する */
     func set(index: Int, num: Int) {
         if index < 0 || index >= size() {
-            fatalError("インデックスが範囲外")
+            fatalError("インデックスが範囲外です")
         }
         arr[index] = num
     }
 
-    /* 末尾に要素を追加 */
+    /* 末尾に要素を追加する */
     func add(num: Int) {
-        // 要素数が容量を超えると、拡張機構が発動する
+        // 要素数が容量を超える場合、容量を拡張する
         if size() == capacity() {
             extendCapacity()
         }
         arr[size()] = num
-        // 要素数を更新
+        // 要素数を更新する
         _size += 1
     }
 
-    /* 中間に要素を挿入 */
+    /* 途中に要素を挿入する */
     func insert(index: Int, num: Int) {
         if index < 0 || index >= size() {
-            fatalError("インデックスが範囲外")
+            fatalError("インデックスが範囲外です")
         }
-        // 要素数が容量を超えると、拡張機構が発動する
+        // 要素数が容量を超える場合、容量を拡張する
         if size() == capacity() {
             extendCapacity()
         }
-        // index 以降の要素をすべて 1 つ後ろへずらす
+        // インデックス index 以降の全要素を後ろに 1 つずらす
         for j in (index ..< size()).reversed() {
             arr[j + 1] = arr[j]
         }
         arr[index] = num
-        // 要素数を更新
+        // 要素数を更新する
         _size += 1
     }
 
-    /* 要素を削除 */
+    /* 要素を削除する */
     @discardableResult
     func remove(index: Int) -> Int {
         if index < 0 || index >= size() {
-            fatalError("インデックスが範囲外")
+            fatalError("インデックスが範囲外です")
         }
         let num = arr[index]
-        // インデックス index より後の要素をすべて 1 つ前に移動する
+        // インデックス index より後の全要素を前に 1 つずらす
         for j in index ..< (size() - 1) {
             arr[j] = arr[j + 1]
         }
-        // 要素数を更新
+        // 要素数を更新する
         _size -= 1
-        // 削除された要素を返す
+        // 削除した要素を返す
         return num
     }
 
-    /* リストの拡張 */
+    /* リストの容量を拡張する */
     func extendCapacity() {
-        // 元の配列の extendRatio 倍の長さを持つ新しい配列を作成し、元の配列をコピーする
+        // 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
         arr = arr + Array(repeating: 0, count: capacity() * (extendRatio - 1))
-        // リストの容量を更新
+        // リストの容量を更新する
         _capacity = arr.count
     }
 
@@ -108,11 +108,11 @@ class MyList {
 
 @main
 enum _MyList {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* リストを初期化 */
+        /* リストを初期化する */
         let nums = MyList()
-        /* 末尾に要素を追加 */
+        /* 末尾に要素を追加する */
         nums.add(num: 1)
         nums.add(num: 3)
         nums.add(num: 2)
@@ -120,27 +120,27 @@ enum _MyList {
         nums.add(num: 4)
         print("リスト nums = \(nums.toArray()) 、容量 = \(nums.capacity()) 、長さ = \(nums.size())")
 
-        /* 中間に要素を挿入 */
+        /* 途中に要素を挿入する */
         nums.insert(index: 3, num: 6)
-        print("インデックス 3 に数値 6 を挿入すると、nums = \(nums.toArray())")
+        print("インデックス 3 に数値 6 を挿入した結果 nums = \(nums.toArray())")
 
-        /* 要素を削除 */
+        /* 要素を削除する */
         nums.remove(index: 3)
-        print("インデックス 3 の要素を削除すると、nums = \(nums.toArray())")
+        print("インデックス 3 の要素を削除した結果 nums = \(nums.toArray())")
 
-        /* 要素にアクセス */
+        /* 要素にアクセスする */
         let num = nums.get(index: 1)
-        print("インデックス 1 の要素にアクセスすると、num = \(num)")
+        print("インデックス 1 の要素にアクセスした結果 num = \(num)")
 
-        /* 要素を更新 */
+        /* 要素を更新する */
         nums.set(index: 1, num: 0)
-        print("インデックス 1 の要素を 0 に更新すると、nums = \(nums.toArray())")
+        print("インデックス 1 の要素を 0 に更新した結果 nums = \(nums.toArray())")
 
-        /* 拡張機構をテストする */
+        /* 容量の拡張をテストする */
         for i in 0 ..< 10 {
-            // i = 5 のとき、リスト長が容量を超えるため、この時点で拡張機構が発動する
+            // i = 5 のときにリストの長さが容量を超えるため、容量が拡張される
             nums.add(num: i)
         }
-        print("拡張後のリスト nums = \(nums.toArray()) 、容量 = \(nums.capacity()) 、長さ = \(nums.size())")
+        print("容量を拡張した後のリスト nums = \(nums.toArray()) 、容量 = \(nums.capacity()) 、長さ = \(nums.size())")
     }
 }

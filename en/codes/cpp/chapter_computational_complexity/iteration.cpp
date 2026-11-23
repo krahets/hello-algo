@@ -9,7 +9,7 @@
 /* for loop */
 int forLoop(int n) {
     int res = 0;
-    // Sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n in a loop
     for (int i = 1; i <= n; ++i) {
         res += i;
     }
@@ -19,11 +19,11 @@ int forLoop(int n) {
 /* while loop */
 int whileLoop(int n) {
     int res = 0;
-    int i = 1; // Initialize condition variable
-    // Sum 1, 2, ..., n-1, n
+    int i = 1; // Initialize the loop control variable
+    // Sum 1, 2, ..., n-1, n in a loop
     while (i <= n) {
         res += i;
-        i++; // Update condition variable
+        i++; // Update the loop control variable
     }
     return res;
 }
@@ -31,23 +31,23 @@ int whileLoop(int n) {
 /* while loop (two updates) */
 int whileLoopII(int n) {
     int res = 0;
-    int i = 1; // Initialize condition variable
-    // Sum 1, 4, 10, ...
+    int i = 1; // Initialize the loop control variable
+    // Sum 1, 4, 10, ... in a loop
     while (i <= n) {
         res += i;
-        // Update condition variable
+        // Update the loop control variable
         i++;
         i *= 2;
     }
     return res;
 }
 
-/* Nested for loop */
+/* Nested for loops */
 string nestedForLoop(int n) {
     ostringstream res;
-    // Loop i = 1, 2, ..., n-1, n
+    // Loop over i = 1, 2, ..., n-1, n
     for (int i = 1; i <= n; ++i) {
-        // Loop j = 1, 2, ..., n-1, n
+        // Loop over j = 1, 2, ..., n-1, n
         for (int j = 1; j <= n; ++j) {
             res << "(" << i << ", " << j << "), ";
         }
@@ -55,22 +55,22 @@ string nestedForLoop(int n) {
     return res.str();
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    cout << "\nfor loop sum result res = " << res << endl;
+    cout << "\nSum from the for loop, res = " << res << endl;
 
     res = whileLoop(n);
-    cout << "\nwhile loop sum result res = " << res << endl;
+    cout << "\nSum from the while loop, res = " << res << endl;
 
     res = whileLoopII(n);
-    cout << "\nwhile loop (two updates) sum result res = " << res << endl;
+    cout << "\nSum from the while loop with two updates, res = " << res << endl;
 
     string resStr = nestedForLoop(n);
-    cout << "\nDouble for loop traversal result " << resStr << endl;
+    cout << "\nTraversal result from the nested for loops: " << resStr << endl;
 
     return 0;
 }

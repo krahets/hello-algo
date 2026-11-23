@@ -26,7 +26,7 @@ func removeItem(n0 *ListNode) {
 	n0.Next = n1
 }
 
-/* Access the node at index index in the linked list */
+/* Access the node at index `index` in the linked list */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		if head == nil {

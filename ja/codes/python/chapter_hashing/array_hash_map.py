@@ -6,7 +6,7 @@ Author: msk397 (machangxinq@gmail.com)
 
 
 class Pair:
-    """キーと値の組"""
+    """キーと値のペア"""
 
     def __init__(self, key: int, val: str):
         self.key = key
@@ -14,11 +14,11 @@ class Pair:
 
 
 class ArrayHashMap:
-    """配列ベースのハッシュテーブル"""
+    """配列で実装したハッシュテーブル"""
 
     def __init__(self):
         """コンストラクタ"""
-        # 100 個のバケットを含む配列を初期化
+        # 100 個のバケットを含む配列を初期化する
         self.buckets: list[Pair | None] = [None] * 100
 
     def hash_func(self, key: int) -> int:
@@ -27,7 +27,7 @@ class ArrayHashMap:
         return index
 
     def get(self, key: int) -> str | None:
-        """検索操作"""
+        """取得操作"""
         index: int = self.hash_func(key)
         pair: Pair = self.buckets[index]
         if pair is None:
@@ -43,11 +43,11 @@ class ArrayHashMap:
     def remove(self, key: int):
         """削除操作"""
         index: int = self.hash_func(key)
-        # None に設定し、削除を表す
+        # None に設定して、削除を表す
         self.buckets[index] = None
 
     def entry_set(self) -> list[Pair]:
-        """すべてのキーと値のペアを取得"""
+        """キーと値のペアをすべて取得する"""
         result: list[Pair] = []
         for pair in self.buckets:
             if pair is not None:
@@ -55,7 +55,7 @@ class ArrayHashMap:
         return result
 
     def key_set(self) -> list[int]:
-        """すべてのキーを取得"""
+        """すべてのキーを取得する"""
         result = []
         for pair in self.buckets:
             if pair is not None:
@@ -63,7 +63,7 @@ class ArrayHashMap:
         return result
 
     def value_set(self) -> list[str]:
-        """すべての値を取得"""
+        """すべての値を取得する"""
         result = []
         for pair in self.buckets:
             if pair is not None:
@@ -71,47 +71,47 @@ class ArrayHashMap:
         return result
 
     def print(self):
-        """ハッシュテーブルを出力"""
+        """ハッシュテーブルを表示する"""
         for pair in self.buckets:
             if pair is not None:
                 print(pair.key, "->", pair.val)
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
-    # ハッシュテーブルを初期化
+    # ハッシュテーブルを初期化する
     hmap = ArrayHashMap()
 
     # 追加操作
-    # ハッシュテーブルにキーと値の組 (key, value) を追加する
-    hmap.put(12836, "シャオハー")
-    hmap.put(15937, "シャオルオ")
-    hmap.put(16750, "シャオスワン")
-    hmap.put(13276, "シャオファー")
-    hmap.put(10583, "シャオヤー")
-    print("\n追加完了後、ハッシュテーブルは\nKey -> Value")
+    # ハッシュテーブルにキーと値のペア (key, value) を追加する
+    hmap.put(12836, "小哈")
+    hmap.put(15937, "小啰")
+    hmap.put(16750, "小算")
+    hmap.put(13276, "小法")
+    hmap.put(10583, "小鸭")
+    print("\n追加後のハッシュテーブル\nKey -> Value")
     hmap.print()
 
-    # 検索操作
-    # ハッシュテーブルにキー key を入力し、値 value を取得する
+    # 取得操作
+    # ハッシュテーブルにキー key を渡し、値 value を取得する
     name = hmap.get(15937)
-    print("\n学籍番号 15937 を入力すると、氏名は " + name)
+    print("\n学生番号 15937 に対応する氏名は " + name)
 
     # 削除操作
-    # ハッシュテーブルからキーと値の組 (key, value) を削除する
+    # ハッシュテーブルからキーと値のペア (key, value) を削除する
     hmap.remove(10583)
-    print("\n10583 を削除した後、ハッシュテーブルは\nKey -> Value")
+    print("\n10583 を削除した後のハッシュテーブル\nKey -> Value")
     hmap.print()
 
-    # ハッシュテーブルを走査
-    print("\nキーと値のペア Key->Value を走査")
+    # ハッシュテーブルを走査する
+    print("\nキーと値のペア Key->Value を走査する")
     for pair in hmap.entry_set():
         print(pair.key, "->", pair.val)
 
-    print("\nキー Key を個別に走査")
+    print("\nキー Key だけを走査する")
     for key in hmap.key_set():
         print(key)
 
-    print("\n値 Value を個別に走査")
+    print("\n値 Value だけを走査する")
     for val in hmap.value_set():
         print(val)

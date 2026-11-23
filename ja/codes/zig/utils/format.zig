@@ -86,7 +86,7 @@ pub fn TreeFormatter(comptime T: type) type {
             try printTree(self.root, null, false, writer);
         }
 
-        // 二分木を出力
+        // 二分木を表示する
         fn printTree(root: ?*const TreeNode(T), prev: ?*Trunk, isRight: bool, writer: anytype) !void {
             if (root == null) {
                 return;
@@ -118,8 +118,8 @@ pub fn TreeFormatter(comptime T: type) type {
             try printTree(root.?.left, &trunk, false, writer);
         }
 
-        // 二分木を出力
-        // This tree printer is borrowed from TECHIE DELIGHT
+        // 二分木を表示する
+        // この木の表示処理は TECHIE DELIGHT から借用した
         // https://www.techiedelight.com/c-program-print-binary-tree/
         const Trunk = struct {
             prev: ?*Trunk = null,

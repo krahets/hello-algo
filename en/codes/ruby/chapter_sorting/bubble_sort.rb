@@ -7,9 +7,9 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Bubble sort ###
 def bubble_sort(nums)
   n = nums.length
-  # Outer loop: unsorted range is [0, i]
+  # Outer loop: the unsorted range is [0, i]
   for i in (n - 1).downto(1)
-    # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+    # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
     for j in 0...i
       if nums[j] > nums[j + 1]
         # Swap nums[j] and nums[j + 1]
@@ -19,27 +19,27 @@ def bubble_sort(nums)
   end
 end
 
-### Bubble sort (flag optimization) ###
+### Bubble sort (flag optimization)###
 def bubble_sort_with_flag(nums)
   n = nums.length
-  # Outer loop: unsorted range is [0, i]
+  # Outer loop: the unsorted range is [0, i]
   for i in (n - 1).downto(1)
-    flag = false # Initialize flag
+    flag = false # Initialize the flag
 
-    # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+    # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
     for j in 0...i
       if nums[j] > nums[j + 1]
         # Swap nums[j] and nums[j + 1]
         nums[j], nums[j + 1] = nums[j + 1], nums[j]
-        flag = true # Record element swap
+        flag = true # Record that a swap occurred
       end
     end
 
-    break unless flag # No elements were swapped in this round of "bubbling", exit directly
+    break unless flag # Exit immediately if this pass made no swaps
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   nums = [4, 1, 3, 1, 5, 2]
   bubble_sort(nums)
@@ -47,5 +47,5 @@ if __FILE__ == $0
 
   nums1 = [4, 1, 3, 1, 5, 2]
   bubble_sort_with_flag(nums1)
-  puts "After bubble sort, nums = #{nums1}"
+  puts "After bubble sort, nums1 = #{nums1}"
 end

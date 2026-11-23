@@ -6,13 +6,13 @@
 
 #include "./array_hash_map.cpp"
 
-/* チェイン法ハッシュテーブル */
+/* チェイン法のハッシュテーブル */
 class HashMapChaining {
   private:
-    int size;                       // キーと値のペア数
-    int capacity;                   // ハッシュテーブル容量
-    double loadThres;               // リサイズを発動する負荷率のしきい値
-    int extendRatio;                // 拡張倍率
+    int size;                       // キーと値のペアの数
+    int capacity;                   // ハッシュテーブルの容量
+    double loadThres;               // 容量の拡張を開始する負荷率のしきい値
+    int extendRatio;                // 容量の拡張倍率
     vector<vector<Pair *>> buckets; // バケット配列
 
   public:
@@ -21,7 +21,7 @@ class HashMapChaining {
         buckets.resize(capacity);
     }
 
-    /* デストラクタメソッド */
+    /* デストラクタ */
     ~HashMapChaining() {
         for (auto &bucket : buckets) {
             for (Pair *pair : bucket) {
@@ -41,34 +41,34 @@ class HashMapChaining {
         return (double)size / (double)capacity;
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     string get(int key) {
         int index = hashFunc(key);
-        // バケットを走査し、key が見つかれば対応する val を返す
+        // バケットを走査し、key が見つかったら対応する val を返す
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 return pair->val;
             }
         }
-        // key が見つからない場合は空文字列を返す
+        // key が見つからなかった場合、空文字列を返す
         return "";
     }
 
     /* 追加操作 */
     void put(int key, string val) {
-        // 負荷率がしきい値を超えたら、リサイズを実行
+        // 負荷率がしきい値を超えた場合、容量を拡張する
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
-        // バケットを走査し、指定した key が見つかれば対応する val を更新して返す
+        // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 pair->val = val;
                 return;
             }
         }
-        // その key が存在しなければ、キーと値のペアを末尾に追加
+        // key が存在しない場合、キーと値のペアを末尾に追加する
         buckets[index].push_back(new Pair(key, val));
         size++;
     }
@@ -77,11 +77,11 @@ class HashMapChaining {
     void remove(int key) {
         int index = hashFunc(key);
         auto &bucket = buckets[index];
-        // バケットを走査してキーと値のペアを削除
+        // バケットを走査し、キーと値のペアを削除する
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
                 Pair *tmp = bucket[i];
-                bucket.erase(bucket.begin() + i); // そこからキーと値の組を削除する
+                bucket.erase(bucket.begin() + i); // キーと値のペアを削除する
                 delete tmp;                       // メモリを解放する
                 size--;
                 return;
@@ -89,16 +89,16 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを拡張 */
+    /* ハッシュテーブルの容量を拡張する */
     void extend() {
-        // 元のハッシュテーブルを一時保存
+        // 元のハッシュテーブルを一時保存する
         vector<vector<Pair *>> bucketsTmp = buckets;
-        // リサイズ後の新しいハッシュテーブルを初期化
+        // 拡張後の新しいハッシュテーブルを初期化する
         capacity *= extendRatio;
         buckets.clear();
         buckets.resize(capacity);
         size = 0;
-        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
+        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
         for (auto &bucket : bucketsTmp) {
             for (Pair *pair : bucket) {
                 put(pair->key, pair->val);
@@ -108,7 +108,7 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     void print() {
         for (auto &bucket : buckets) {
             cout << "[";
@@ -120,30 +120,30 @@ class HashMapChaining {
     }
 };
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* ハッシュテーブルを初期化 */
+    /* ハッシュテーブルを初期化する */
     HashMapChaining map = HashMapChaining();
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map.put(12836, "シャオハー");
-    map.put(15937, "シャオルオ");
-    map.put(16750, "シャオスワン");
-    map.put(13276, "シャオファー");
-    map.put(10583, "シャオヤー");
-    cout << "\n追加完了後、ハッシュテーブルは\nKey -> Value" << endl;
+    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    map.put(12836, "小哈");
+    map.put(15937, "小啰");
+    map.put(16750, "小算");
+    map.put(13276, "小法");
+    map.put(10583, "小鸭");
+    cout << "\n追加後のハッシュテーブル\nKey -> Value" << endl;
     map.print();
 
-    /* 検索操作 */
-    // キー key をハッシュテーブルに渡し、値 value を取得
+    /* 取得操作 */
+    // ハッシュテーブルにキー key を渡し、値 value を取得する
     string name = map.get(13276);
-    cout << "\n学籍番号 13276 を入力すると、氏名 " << name << endl;
+    cout << "\n学生番号 13276 に対応する氏名は " << name << endl;
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからキーと値のペア (key, value) を削除する
     map.remove(12836);
-    cout << "\n12836 を削除した後、ハッシュテーブルは\nKey -> Value" << endl;
+    cout << "\n12836 を削除した後のハッシュテーブル\nKey -> Value" << endl;
     map.print();
 
     return 0;

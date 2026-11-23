@@ -4,7 +4,7 @@
 
     給定一棵二元樹的前序走訪 `preorder` 和中序走訪 `inorder` ，請從中構建二元樹，返回二元樹的根節點。假設二元樹中沒有值重複的節點（如下圖所示）。
 
-![構建二元樹的示例資料](build_binary_tree_problem.assets/build_tree_example.png)
+![構建二元樹的示例資料](build_binary_tree_problem.assets/build_tree_example.svg)
 
 ### 判斷是否為分治問題
 
@@ -29,7 +29,7 @@
 2. 查詢根節點 3 在 `inorder` 中的索引，利用該索引可將 `inorder` 劃分為 `[ 9 | 3 | 1 2 7 ]` 。
 3. 根據 `inorder` 的劃分結果，易得左子樹和右子樹的節點數量分別為 1 和 3 ，從而可將 `preorder` 劃分為 `[ 3 | 9 | 2 1 7 ]` 。
 
-![在前序走訪和中序走訪中劃分子樹](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
+![在前序走訪和中序走訪中劃分子樹](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
 
 ### 基於變數描述子樹區間
 
@@ -51,7 +51,7 @@
 
 請注意，右子樹根節點索引中的 $(m-l)$ 的含義是“左子樹的節點數量”，建議結合下圖理解。
 
-![根節點和左右子樹的索引區間表示](build_binary_tree_problem.assets/build_tree_division_pointers.png)
+![根節點和左右子樹的索引區間表示](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
 
 ### 程式碼實現
 
@@ -64,35 +64,35 @@
 下圖展示了構建二元樹的遞迴過程，各個節點是在向下“遞”的過程中建立的，而各條邊（引用）是在向上“迴”的過程中建立的。
 
 === "<1>"
-    ![構建二元樹的遞迴過程](build_binary_tree_problem.assets/built_tree_step1.png)
+    ![構建二元樹的遞迴過程](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.png)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.png)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.png)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.png)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.png)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.png)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.png)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.png)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg)
 
 每個遞迴函式內的前序走訪 `preorder` 和中序走訪 `inorder` 的劃分結果如下圖所示。
 
-![每個遞迴函式中的劃分結果](build_binary_tree_problem.assets/built_tree_overall.png)
+![每個遞迴函式中的劃分結果](build_binary_tree_problem.assets/built_tree_overall.svg)
 
 設樹的節點數量為 $n$ ，初始化每一個節點（執行一個遞迴函式 `dfs()` ）使用 $O(1)$ 時間。**因此總體時間複雜度為 $O(n)$** 。
 

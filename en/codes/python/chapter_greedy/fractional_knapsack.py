@@ -14,27 +14,27 @@ class Item:
 
 
 def fractional_knapsack(wgt: list[int], val: list[int], cap: int) -> int:
-    """Fractional knapsack: Greedy algorithm"""
-    # Create item list with two attributes: weight, value
+    """Fractional knapsack: greedy algorithm"""
+    # Create a list of items, each with two attributes: weight and value
     items = [Item(w, v) for w, v in zip(wgt, val)]
-    # Sort by unit value item.v / item.w from high to low
+    # Sort by value per unit weight, item.v / item.w, in descending order
     items.sort(key=lambda item: item.v / item.w, reverse=True)
-    # Loop for greedy selection
+    # Repeatedly make greedy choices
     res = 0
     for item in items:
         if item.w <= cap:
-            # If remaining capacity is sufficient, put the entire current item into the knapsack
+            # If enough capacity remains, put the entire current item in the knapsack
             res += item.v
             cap -= item.w
         else:
-            # If remaining capacity is insufficient, put part of the current item into the knapsack
+            # If the remaining capacity is insufficient, put part of the current item in the knapsack
             res += (item.v / item.w) * cap
-            # No remaining capacity, so break out of the loop
+            # No capacity remains, so exit the loop
             break
     return res
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     wgt = [10, 20, 30, 40, 50]
     val = [50, 120, 150, 210, 240]
@@ -43,4 +43,4 @@ if __name__ == "__main__":
 
     # Greedy algorithm
     res = fractional_knapsack(wgt, val, cap)
-    print(f"The maximum item value without exceeding knapsack capacity is {res}")
+    print(f"Maximum total value within the knapsack capacity: {res}")

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "title": "Splitting a bubble sort into two smaller sorting tasks",
+  "summary": "Compare sorting eight elements directly with bubble sort against splitting the array in half, bubble-sorting each half, and merging: both produce the same sorted result, and a single split remains quadratic.",
+  "context": [
+    "Both comparison paths share the input [7, 3, 2, 6, 0, 1, 5, 4] and the sorted target [0, 1, 2, 3, 4, 5, 6, 7]. Letting n denote the array length, the diagram compares operation counts before and after splitting via complexity expressions rather than measured runtimes."
+  ],
+  "description": [
+    "The left path runs bubble sort directly on the full array of length n, labeled with time cost O(n²), and outputs the ascending array [0, 1, 2, 3, 4, 5, 6, 7] at the bottom.",
+    "The right path first splits the array at its midpoint into left half [7, 3, 2, 6] and right half [0, 1, 5, 4], labeled \"Divide O(n)\"; it then runs bubble sort on each subarray of length n/2, each labeled \"Bubble sort O((n/2)²)\", producing sorted left half [2, 3, 6, 7] and sorted right half [0, 1, 4, 5]; finally it performs \"Merge O(n)\", interleaving the smaller elements from both sides into [0, 1, 2, 3, 4, 5, 6, 7].",
+    "Crossing arrows in the merge stage on the right show that elements from the two sorted halves must be interleaved in value order rather than simply concatenated end to end. At the bottom, the total complexity of the right path is summarized as \"Overall: O(n²/2 + 2n)\", combining two half-size bubble sorts with linear dividing and merging."
+  ],
+  "frames": [
+    {
+      "id": "source-310",
+      "book_path": "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_bubble_sort.png",
+      "title": "Splitting a bubble sort into two smaller sorting tasks",
+      "explanation": "After a single split, O(n²/2 + 2n) is still asymptotically O(n²). The simplified expression illustrates how reducing the coefficient on the quadratic term can lower work, rather than giving an exact operation count or guaranteeing that actual runtime is cut in half."
+    }
+  ]
+}

@@ -4,11 +4,11 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Memoization search */
+/* Memoized search */
 function dfs(i, mem) {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if (i === 1 || i === 2) return i;
-    // If record dp[i] exists, return it directly
+    // If dp[i] has been recorded, return it directly
     if (mem[i] != -1) return mem[i];
     // dp[i] = dp[i-1] + dp[i-2]
     const count = dfs(i - 1, mem) + dfs(i - 2, mem);
@@ -17,14 +17,14 @@ function dfs(i, mem) {
     return count;
 }
 
-/* Climbing stairs: Memoization search */
+/* Climbing stairs: memoized search */
 function climbingStairsDFSMem(n) {
-    // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+    // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
     const mem = new Array(n + 1).fill(-1);
     return dfs(n, mem);
 }
 
-/* Driver Code */
+/* Driver code */
 const n = 9;
 const res = climbingStairsDFSMem(n);
-console.log(`Climbing ${n} stairs has ${res} solutions`);
+console.log(`Number of ways to climb ${n} stairs: ${res}`);

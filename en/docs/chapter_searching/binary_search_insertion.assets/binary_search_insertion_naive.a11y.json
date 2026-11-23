@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Scanning left after a binary search match",
+  "summary": "First find one occurrence of the target with ordinary binary search, then scan left linearly to locate the leftmost position.",
+  "context": [
+    "The sorted array is nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15] (0-indexed), and the search target is target = 6. Five duplicate 6s occupy indices 2 through 6 consecutively, and the insertion rule requires placing a new 6 to the left of all existing 6s."
+  ],
+  "description": [
+    "The figure illustrates this initial approach in two steps: first, “1. First use binary search to find any 6,” where ordinary binary search hits the orange cell at index 4 (marked with pointer k), though this match alone cannot tell how many equal 6s lie to its left.",
+    "Second, “2. Then scan left to find the leftmost 6”: starting from index k = 4, two curved blue arrows beneath the array step leftward one cell at a time, passing the 6 at index 3 and reaching the blue-highlighted cell 6 at index 2. Because the element further left at index 1 is 3 (less than 6), index 2 is the leftmost 6 and therefore the desired insertion point."
+  ],
+  "frames": [
+    {
+      "id": "source-223",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_naive.png",
+      "title": "Scanning left after a binary search match",
+      "explanation": "Scanning left linearly can take O(n) time when there are many duplicates, degrading worst-case complexity; modifying binary search directly preserves O(log n) time."
+    }
+  ]
+}

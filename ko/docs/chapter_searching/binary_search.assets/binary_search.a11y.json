@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "title": "이진 탐색",
+  "summary": "오름차순 배열에서 목표 값 6을 찾으며 매 순회마다 중간점 원소를 비교한 뒤 목표가 들어 있을 수 없는 절반 구간을 제외한다.",
+  "context": [
+    "입력은 서로 다른 원소 10개로 이루어진 오름차순 배열(인덱스 0~9)이며 찾을 목표 값은 target = 6이다. 각 인덱스에 대응하는 원소는 입력 표와 같다.",
+    "포인터 i, j는 각각 현재 탐색 닫힌 구간 [i, j]의 왼쪽, 오른쪽 경계(양 끝점 모두 탐색 범위에 포함)를 나타내며 m은 구간 중간점 인덱스로 (i + j) / 2의 내림값으로 계산한다. 매 순회에서 먼저 중간점 m을 계산한 뒤 nums[m]과 목표 값을 비교한다."
+  ],
+  "description": [
+    "총 7개 화면으로 이루어져 있으며 먼저 초기화한 뒤 3차례의 비교를 보여 준다. 매 순회마다 ‘중간점 계산’과 ‘비교 후 구간 축소 또는 탐색 성공’을 나누어 표시하며 점선 상자는 현재 탐색 구간을 나타낸다."
+  ],
+  "result": "중간점 원소 12, 3, 6을 차례로 비교해 세 번째 비교에서 목표를 찾으며 반환값은 원소 값 6이 아니라 인덱스 2다.",
+  "frames": [
+    {
+      "id": "source-214",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step1.png",
+      "title": "탐색 구간 초기화",
+      "explanation": "i = 0, j = 9로 두면 닫힌 탐색 구간 [0, 9]가 원소 10개 전체를 포함하며 양 끝점의 값은 각각 1, 35다. 이 시점에는 아직 중간점 m을 계산하지 않았다.",
+      "key_state": "i = 0, j = 9; 닫힌 탐색 구간 [0, 9], 아직 중간점 m 없음.",
+      "announcement": "왼쪽 경계 i를 인덱스 0, 오른쪽 경계 j를 인덱스 9로 초기화해 배열 전체를 탐색한다."
+    },
+    {
+      "id": "source-215",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step2.png",
+      "title": "1차 순회: 중간점 m = 4 계산",
+      "explanation": "닫힌 구간 [0, 9](i = 0, j = 9)에서 m = (0 + 9) / 2의 내림값을 구하면 4가 되어 원소 12를 가리킨다. 다음 단계에서 이를 목표 6과 비교한다.",
+      "key_state": "i = 0, j = 9, m = 4; 중간점 값은 12이며 다음 단계에서 목표 6과 비교한다.",
+      "announcement": "중간점 m을 인덱스 4(값 12)로 계산하고 목표 값 6과 비교할 준비를 한다."
+    },
+    {
+      "id": "source-216",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step3.png",
+      "title": "1차 순회: 12 > 6이므로 오른쪽 경계를 3으로 이동",
+      "explanation": "원래 구간 [0, 9]에서 중간점 m = 4의 값 12는 목표 6보다 크다. 배열이 오름차순이므로 인덱스 4와 그 오른쪽에는 목표가 있을 수 없어 j = m - 1 = 3으로 둔다. 이제 i = 0, j = 3이고 구간은 [0, 3]으로 [1, 3, 6, 8]이 남으며, 이전 포인터 m은 아직 다시 계산하기 전이라 구간 밖의 인덱스 4(값 12)를 가리킨 채 남아 있다.",
+      "key_state": "m = 4의 값 12가 목표 6보다 크므로 구간이 [0, 9]에서 [0, 3]으로 줄어든다: i = 0, j = 3, 남은 원소 [1, 3, 6, 8]; 이전 m = 4는 구간 밖에 남아 있다.",
+      "announcement": "중간점 값 12가 목표 값 6보다 크므로 오른쪽 경계 j를 인덱스 3으로 옮겨 인덱스 0~3만 남긴다."
+    },
+    {
+      "id": "source-217",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step4.png",
+      "title": "2차 순회: 중간점 m = 1 계산",
+      "explanation": "닫힌 구간 [0, 3](i = 0, j = 3)에서 m = (0 + 3) / 2의 내림값을 구하면 1이 되어 원소 3을 가리킨다. 다음 단계에서 이를 목표 6과 비교한다.",
+      "key_state": "i = 0, j = 3, m = 1; 중간점 값은 3이며 다음 단계에서 목표 6과 비교한다.",
+      "announcement": "구간 [0, 3]에서 중간점 m을 인덱스 1(값 3)로 다시 계산한다."
+    },
+    {
+      "id": "source-218",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step5.png",
+      "title": "2차 순회: 3 < 6이므로 왼쪽 경계를 2로 이동",
+      "explanation": "원래 구간 [0, 3]에서 중간점 m = 1의 값 3은 목표 6보다 작다. 배열이 오름차순이므로 인덱스 1과 그 왼쪽에는 목표가 있을 수 없어 i = m + 1 = 2로 둔다. 이제 i = 2, j = 3이고 구간은 [2, 3]으로 [6, 8]이 남으며, 이전 포인터 m은 아직 다시 계산하기 전이라 구간 밖의 인덱스 1(값 3)을 가리킨 채 남아 있다.",
+      "key_state": "m = 1의 값 3이 목표 6보다 작으므로 구간이 [0, 3]에서 [2, 3]으로 줄어든다: i = 2, j = 3, 남은 원소 [6, 8]; 이전 m = 1은 구간 밖에 남아 있다.",
+      "announcement": "중간점 값 3이 목표 값 6보다 작으므로 왼쪽 경계 i를 인덱스 2로 옮겨 구간 안에 6과 8만 남긴다."
+    },
+    {
+      "id": "source-219",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step6.png",
+      "title": "3차 순회: 중간점 m = 2 계산",
+      "explanation": "닫힌 구간 [2, 3](i = 2, j = 3)에서 m = (2 + 3) / 2의 내림값을 구하면 2가 되어 왼쪽 경계 i와 겹치며 원소 6을 가리킨다. 다음 단계에서 이를 목표 6과 비교한다.",
+      "key_state": "인덱스 2에서 i와 m이 겹치고 j = 3이며 중간점 값은 6이다. 다음 단계에서 목표 6과 비교한다.",
+      "announcement": "중간점 m을 왼쪽 경계 i와 겹치는 인덱스 2(값 6)로 다시 계산한다."
+    },
+    {
+      "id": "source-220",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step7.png",
+      "title": "3차 순회: 목표 발견, 인덱스 2 반환",
+      "explanation": "중간점 m = 2의 값 6이 목표 6과 같으므로 탐색을 마친다. 마지막 화면에는 인덱스 2를 가리키는 중간점 포인터 m만 남고 경계 포인터 i, j와 구간 점선 상자는 모두 숨겨진다.",
+      "key_state": "목표 값 6 발견: m = 2만 표시하며 인덱스 2를 반환한다.",
+      "announcement": "중간점 값이 목표 값 6과 같아 탐색에 성공했으며 인덱스 2를 반환한다."
+    }
+  ],
+  "animations": {
+    "binary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-214"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-215"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-216"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-217"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-218"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-219"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-220"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "오름차순 입력 배열",
+      "headers": [
+        "인덱스",
+        "원소 값"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "8"
+        ],
+        [
+          "4",
+          "12"
+        ],
+        [
+          "5",
+          "15"
+        ],
+        [
+          "6",
+          "23"
+        ],
+        [
+          "7",
+          "26"
+        ],
+        [
+          "8",
+          "31"
+        ],
+        [
+          "9",
+          "35"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

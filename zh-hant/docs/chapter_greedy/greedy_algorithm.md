@@ -15,7 +15,7 @@
 
 本題採取的貪婪策略如下圖所示。給定目標金額，**我們貪婪地選擇不大於且最接近它的硬幣**，不斷迴圈該步驟，直至湊出目標金額為止。
 
-![零錢兌換的貪婪策略](greedy_algorithm.assets/coin_change_greedy_strategy.png)
+![零錢兌換的貪婪策略](greedy_algorithm.assets/coin_change_greedy_strategy.svg)
 
 實現程式碼如下所示：
 
@@ -35,7 +35,7 @@
 - **反例 $coins = [1, 20, 50]$**：假設 $amt = 60$ ，貪婪演算法只能找到 $50 + 1 \times 10$ 的兌換組合，共計 $11$ 枚硬幣，但動態規劃可以找到最優解 $20 + 20 + 20$ ，僅需 $3$ 枚硬幣。
 - **反例 $coins = [1, 49, 50]$**：假設 $amt = 98$ ，貪婪演算法只能找到 $50 + 1 \times 48$ 的兌換組合，共計 $49$ 枚硬幣，但動態規劃可以找到最優解 $49 + 49$ ，僅需 $2$ 枚硬幣。
 
-![貪婪演算法無法找出最優解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
+![貪婪演算法無法找出最優解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.svg)
 
 也就是說，對於零錢兌換問題，貪婪演算法無法保證找到全域性最優解，並且有可能找到非常差的解。它更適合用動態規劃解決。
 

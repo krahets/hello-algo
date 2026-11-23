@@ -4,9 +4,9 @@
 
 package chapter_dynamic_programming
 
-/* 検索 */
+/* 探索 */
 func dfs(i int) int {
-	// dp[1] と dp[2] は既知なので返す
+	// dp[1] と dp[2] は既知なので、その値を返す
 	if i == 1 || i == 2 {
 		return i
 	}
@@ -15,7 +15,7 @@ func dfs(i int) int {
 	return count
 }
 
-/* 階段登り：探索 */
+/* 階段の上り方：探索 */
 func climbingStairsDFS(n int) int {
 	return dfs(n)
 }

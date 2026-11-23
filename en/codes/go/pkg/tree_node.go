@@ -4,15 +4,15 @@
 
 package pkg
 
-// TreeNode binary tree node
+// TreeNode represents a binary tree node.
 type TreeNode struct {
 	Val    any       // Node value
 	Height int       // Node height
-	Left   *TreeNode // Reference to left child node
-	Right  *TreeNode // Reference to right child node
+	Left   *TreeNode // Reference to the left child
+	Right  *TreeNode // Reference to the right child
 }
 
-// NewTreeNode binary tree node constructor
+// NewTreeNode constructs a binary tree node.
 func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,
@@ -22,11 +22,11 @@ func NewTreeNode(v any) *TreeNode {
 	}
 }
 
-// For the serialization encoding rules, please refer to:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// Array representation of binary tree:
+// For the serialization rules, see:
+// https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
+// Array representation of the binary tree:
 // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
-// Linked list representation of binary tree:
+// Linked representation of the binary tree:
 //
 //	         /——— 15
 //	     /——— 7
@@ -41,7 +41,7 @@ func NewTreeNode(v any) *TreeNode {
 //	    \——— 4
 //	        \——— 8
 
-// SliceToTreeDFS deserialize list to binary tree: recursion
+// SliceToTreeDFS recursively deserializes a slice into a binary tree.
 func SliceToTreeDFS(arr []any, i int) *TreeNode {
 	if i < 0 || i >= len(arr) || arr[i] == nil {
 		return nil
@@ -52,12 +52,12 @@ func SliceToTreeDFS(arr []any, i int) *TreeNode {
 	return root
 }
 
-// SliceToTree deserialize slice to binary tree
+// SliceToTree deserializes a slice into a binary tree.
 func SliceToTree(arr []any) *TreeNode {
 	return SliceToTreeDFS(arr, 0)
 }
 
-// TreeToSliceDFS serialize binary tree to slice: recursion
+// TreeToSliceDFS recursively serializes a binary tree into a slice.
 func TreeToSliceDFS(root *TreeNode, i int, res *[]any) {
 	if root == nil {
 		return
@@ -70,7 +70,7 @@ func TreeToSliceDFS(root *TreeNode, i int, res *[]any) {
 	TreeToSliceDFS(root.Right, 2*i+2, res)
 }
 
-// TreeToSlice serialize binary tree to slice
+// TreeToSlice serializes a binary tree into a slice.
 func TreeToSlice(root *TreeNode) []any {
 	var res []any
 	TreeToSliceDFS(root, 0, &res)

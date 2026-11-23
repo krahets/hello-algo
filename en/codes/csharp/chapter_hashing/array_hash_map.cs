@@ -6,17 +6,17 @@
 
 namespace hello_algo.chapter_hashing;
 
-/* Key-value pair int->string */
+/* Key-value pair: int->string */
 class Pair(int key, string val) {
     public int key = key;
     public string val = val;
 }
 
-/* Hash table based on array implementation */
+/* Hash table implemented with an array */
 class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {
-        // Initialize array with 100 buckets
+        // Initialize an array containing 100 buckets
         buckets = [];
         for (int i = 0; i < 100; i++) {
             buckets.Add(null);
@@ -29,7 +29,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     public string? Get(int key) {
         int index = HashFunc(key);
         Pair? pair = buckets[index];
@@ -37,7 +37,7 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* Add operation */
+    /* Insert operation */
     public void Put(int key, string val) {
         Pair pair = new(key, val);
         int index = HashFunc(key);
@@ -47,7 +47,7 @@ class ArrayHashMap {
     /* Remove operation */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // Set to null to represent deletion
+        // Set the bucket to null to mark it as removed
         buckets[index] = null;
     }
 
@@ -81,7 +81,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     public void Print() {
         foreach (Pair kv in PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
@@ -93,40 +93,40 @@ class ArrayHashMap {
 public class array_hash_map {
     [Test]
     public void Test() {
-        /* Initialize hash table */
+        /* Initialize the hash table */
         ArrayHashMap map = new();
 
-        /* Add operation */
-        // Add key-value pair (key, value) to the hash table
-        map.Put(12836, "Xiao Ha");
-        map.Put(15937, "Xiao Luo");
-        map.Put(16750, "Xiao Suan");
-        map.Put(13276, "Xiao Fa");
-        map.Put(10583, "Xiao Ya");
-        Console.WriteLine("\nAfter adding is complete, hash table is\nKey -> Value");
+        /* Insert operation */
+        // Insert the key-value pair (key, value) into the hash table
+        map.Put(12836, "小哈");
+        map.Put(15937, "小啰");
+        map.Put(16750, "小算");
+        map.Put(13276, "小法");
+        map.Put(10583, "小鸭");
+        Console.WriteLine("\nHash table after insertion:\nKey -> Value");
         map.Print();
 
-        /* Query operation */
-        // Input key into hash table to get value
+        /* Lookup operation */
+        // Look up key in the hash table to obtain value
         string? name = map.Get(15937);
-        Console.WriteLine("\nInput student ID 15937, query name " + name);
+        Console.WriteLine("\nLook up student ID 15937 to obtain the name " + name);
 
         /* Remove operation */
-        // Remove key-value pair (key, value) from hash table
+        // Remove the key-value pair (key, value) from the hash table
         map.Remove(10583);
-        Console.WriteLine("\nAfter removing 10583, hash table is\nKey -> Value");
+        Console.WriteLine("\nHash table after removing 10583:\nKey -> Value");
         map.Print();
 
-        /* Traverse hash table */
-        Console.WriteLine("\nTraverse key-value pairs Key->Value");
+        /* Traverse the hash table */
+        Console.WriteLine("\nTraverse key-value pairs: Key->Value");
         foreach (Pair kv in map.PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
-        Console.WriteLine("\nTraverse keys only Key");
+        Console.WriteLine("\nTraverse keys only: Key");
         foreach (int key in map.KeySet()) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\nTraverse values only Value");
+        Console.WriteLine("\nTraverse values only: Value");
         foreach (string val in map.ValueSet()) {
             Console.WriteLine(val);
         }

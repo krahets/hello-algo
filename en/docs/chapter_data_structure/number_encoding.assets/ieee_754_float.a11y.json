@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "title": "Bit fields of a single-precision floating-point number",
+  "summary": "Split a 32-bit encoding into sign, exponent, and fraction fields, then evaluate the number it represents.",
+  "context": [
+    "This example shows a 4-byte IEEE 754 single-precision float. The 32 bit cells are arranged left to right from bit 31 down to bit 0, with brackets marking the orange sign bit S, the blue exponent E, and the green fraction N."
+  ],
+  "description": [
+    "The table below lists each field and its stored bits first. Bit positions are indexed starting from bit 0 at the rightmost end; b31, b30, b23, b22, and b0 are labeled at the field boundaries in the figure."
+  ],
+  "frames": [
+    {
+      "id": "source-42",
+      "book_path": "chapter_data_structure/number_encoding.assets/ieee_754_float.png",
+      "title": "Bit fields of a single-precision floating-point number",
+      "explanation": "Because E lies between 1 and 254, the normal-number formula applies: the sign factor is +1; the unbiased exponent is 124 − 127 = −3, so the scaling factor is 2 to the power of −3, which equals 0.125. In the fraction, only the 2nd and 3rd bits after the binary point are 1, giving N = 2 to the power of −2 + 2 to the power of −3 = 0.375; adding the implicit leading 1 yields 1.375. Multiplying all three factors gives 1 × 0.125 × 1.375 = 0.171875, matching the calculation at the bottom right of the figure."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Fields in the 32-bit encoding and their meanings",
+      "headers": [
+        "Field",
+        "Bit range",
+        "Bit width",
+        "Binary in example",
+        "Interpretation"
+      ],
+      "rows": [
+        [
+          "Sign bit S",
+          "Bit 31",
+          "1",
+          "0",
+          "Positive sign"
+        ],
+        [
+          "Exponent E",
+          "Bits 30 to 23",
+          "8",
+          "01111100",
+          "Stored biased exponent is decimal 124"
+        ],
+        [
+          "Fraction N",
+          "Bits 22 to 0",
+          "23",
+          "01100000000000000000000",
+          "First 3 bits are 011, remaining 20 bits are 0"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "The normal-number formula is (−1)^S × 2^(E−127) × (1+N), that is, negative one to the power S, times 2 to the power (E minus 127), times (1 plus N). When E is 0 or 255, dedicated rules govern zero, subnormal numbers, infinity, and NaN, so this formula cannot be applied directly. The exponent widens the representable range without increasing significand precision: a normal float has 23 fraction bits plus the implicit 1, giving 24 bits of binary precision, so adjacent representable numbers generally grow farther apart as magnitude increases."
+}

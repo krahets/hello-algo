@@ -11,19 +11,19 @@
 3. 不断重复步骤 `1.` 和步骤 `2.` ，直至找到拼音首字母为 $r$ 的页码为止。
 
 === "<1>"
-    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![查字典步骤](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 查字典这个小学生必备技能，实际上就是著名的“二分查找”算法。从数据结构的角度，我们可以把字典视为一个已排序的“数组”；从算法的角度，我们可以将上述查字典的一系列操作看作“二分查找”。
 
@@ -33,7 +33,7 @@
 2. 在无序部分抽出一张扑克牌，插入至有序部分的正确位置；完成后最左 2 张扑克已经有序。
 3. 不断循环步骤 `2.` ，每一轮将一张扑克牌从无序部分插入至有序部分，直至所有扑克牌都有序。
 
-![扑克排序步骤](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![扑克排序步骤](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
 
 上述整理扑克牌的方法本质上是“插入排序”算法，它在处理小型数据集时非常高效。许多编程语言的排序库函数中都有插入排序的身影。
 
@@ -45,7 +45,7 @@
 4. 从剩余可选项中拿出最大的 $1$ 元，剩余 $1 - 1 = 0$ 元。
 5. 完成找零，方案为 $20 + 10 + 1 = 31$ 元。
 
-![货币找零过程](algorithms_are_everywhere.assets/greedy_change.png)
+![货币找零过程](algorithms_are_everywhere.assets/greedy_change.svg)
 
 在以上步骤中，我们每一步都采取当前看来最好的选择（尽可能用大面额的货币），最终得到了可行的找零方案。从数据结构与算法的角度看，这种方法本质上是“贪心”算法。
 
