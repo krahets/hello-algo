@@ -25,7 +25,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="Python" />
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="Java" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=openjdk&logoColor=ED8B00" alt="Java" />
   <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="C++" />
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="C" />
   <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="C#" />
@@ -78,7 +78,7 @@
 이 오픈 소스 도서는 계속 갱신되고 있다. 프로젝트에 참여하여 독자에게 더 좋은 학습 내용을 제공하는 일에 함께해 주기 바란다.
 
 - [내용 수정](https://www.hello-algo.com/ko/chapter_appendix/contribution/): 문법 오류, 빠진 내용, 모호한 표현, 끊어진 링크, 코드 버그 등을 수정하거나 댓글로 알려 주기 바란다.
-- [코드 이식](https://github.com/krahets/hello-algo/issues/15): 다양한 프로그래밍 언어의 코드 기여를 기다린다. 현재 Python, Java, C++, Go, JavaScript 등 12개 언어를 지원한다.
+- [코드 이식](https://github.com/krahets/hello-algo/issues/15): 다양한 프로그래밍 언어의 코드 기여를 기다린다. 현재 Python, Java, C++, Go, JavaScript 등 13개 언어를 지원한다.
 - 번역 검토: 더 많은 독자가 모국어로 자료 구조와 알고리즘을 공부할 수 있도록 다국어 번역과 교정에 참여해 주기 바란다.
 
 소중한 의견과 제안을 기다린다. 궁금한 점이 있으면 Issue를 만들거나 위챗에서 `krahets-jyd`로 연락하기 바란다.

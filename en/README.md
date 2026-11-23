@@ -23,7 +23,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="Python" />
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="Java" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=openjdk&logoColor=ED8B00" alt="Java" />
   <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="C++" />
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="C" />
   <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="C#" />
@@ -76,7 +76,7 @@ If you find this book helpful, please support it by clicking Star :star: at the 
 This open-source book is continually being updated. You are welcome to join the project and help improve the learning material for readers.
 
 - [Content corrections](https://www.hello-algo.com/en/chapter_appendix/contribution/): Help fix or report grammatical errors, missing content, ambiguous wording, broken links, and code bugs in the comments.
-- [Code ports](https://github.com/krahets/hello-algo/issues/15): Contributions in different programming languages are welcome. The book supports 12 languages, including Python, Java, C++, Go, and JavaScript.
+- [Code ports](https://github.com/krahets/hello-algo/issues/15): Contributions in different programming languages are welcome. The book supports 13 languages, including Python, Java, C++, Go, and JavaScript.
 - Translation and review: Help translate and proofread the book so more readers can learn data structures and algorithms in their own language.
 
 Feedback and suggestions are welcome. If you have questions, open an issue or contact `krahets-jyd` on WeChat.

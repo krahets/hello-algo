@@ -23,7 +23,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="Python" />
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="Java" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=openjdk&logoColor=ED8B00" alt="Java" />
   <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="C++" />
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="C" />
   <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="C#" />
@@ -78,7 +78,7 @@
 このオープンソースの書籍は、現在も更新を続けています。読者によりよい学習内容を届けられるよう、ぜひプロジェクトにご参加ください。
 
 - [内容の修正](https://www.hello-algo.com/ja/chapter_appendix/contribution/)：文法の誤り、説明の不足、曖昧な表現、リンク切れ、コードのバグなどに気づいたら、修正にご協力いただくか、コメント欄でお知らせください。
-- [コードの移植](https://github.com/krahets/hello-algo/issues/15)：さまざまな言語でのコードの提供をお待ちしています。Python、Java、C++、Go、JavaScript など、12 種類のプログラミング言語に対応しています。
+- [コードの移植](https://github.com/krahets/hello-algo/issues/15)：さまざまな言語でのコードの提供をお待ちしています。Python、Java、C++、Go、JavaScript など、13 種類のプログラミング言語に対応しています。
 - 翻訳と校正：より多くの読者が母語でデータ構造とアルゴリズムを学べるよう、多言語への翻訳や校正にもぜひご参加ください。
 
 ご意見やご提案をお待ちしています。質問がある場合は、Issue を作成するか、WeChat の `krahets-jyd` までご連絡ください。
