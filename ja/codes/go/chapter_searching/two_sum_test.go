@@ -10,15 +10,15 @@ import (
 )
 
 func TestTwoSum(t *testing.T) {
-	// ======= Test Case =======
+	// ======= テストケース =======
 	nums := []int{2, 7, 11, 15}
 	target := 13
 
-	// ====== Driver Code ======
+	// ====== 実行用コード ======
 	// 方法 1：総当たり法
 	res := twoSumBruteForce(nums, target)
-	fmt.Println("方法1 res =", res)
-	// 方法2: ハッシュテーブル
+	fmt.Println("方法 1 res =", res)
+	// 方法 2：ハッシュテーブル
 	res = twoSumHashTable(nums, target)
-	fmt.Println("方法2 res =", res)
+	fmt.Println("方法 2 res =", res)
 }

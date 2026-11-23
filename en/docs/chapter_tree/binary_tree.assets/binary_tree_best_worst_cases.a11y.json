@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "An ideal binary tree and a tree reduced to a chain",
+  "summary": "The same seven nodes produce different heights depending on whether they branch or connect in a single chain.",
+  "context": [],
+  "description": [
+    "The left panel is labeled “Ideal structure” and “Perfect binary tree.” Root 1 has left and right children 2 and 3, node 2 has children 4 and 5, and node 3 has children 6 and 7. All 4 bottom nodes, 4, 5, 6, and 7, are leaves. The tree has 3 levels. From root 1 to any leaf there are 2 edges, so its height is 2.",
+    "The right panel is labeled “Degenerate structure” and “Linked list.” All 7 nodes lean left in the chain 1 → 2 → 3 → 4 → 5 → 6 → 7. Every right link is empty. There are 7 levels and 6 edges from root 1 to the only leaf 7, giving height 6."
+  ],
+  "frames": [
+    {
+      "id": "source-96",
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.png",
+      "title": "An ideal binary tree and a tree reduced to a chain",
+      "explanation": "When all levels are full, a perfect binary tree has minimum height and can exploit divide and conquer. A tree that degenerates into a one-sided linked list reaches maximum height and operations along a path can take linear time."
+    }
+  ]
+}

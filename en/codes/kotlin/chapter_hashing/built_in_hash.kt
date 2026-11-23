@@ -8,29 +8,29 @@ package chapter_hashing
 
 import utils.ListNode
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val num = 3
     val hashNum = num.hashCode()
-    println("Hash value of integer $num is $hashNum")
+    println("Integer $num has hash value $hashNum")
 
     val bol = true
     val hashBol = bol.hashCode()
-    println("Hash value of boolean $bol is $hashBol")
+    println("Boolean $bol has hash value $hashBol")
 
     val dec = 3.14159
     val hashDec = dec.hashCode()
-    println("Hash value of decimal $dec is $hashDec")
+    println("Floating-point number $dec has hash value $hashDec")
 
-    val str = "Hello Algo"
+    val str = "Hello 算法"
     val hashStr = str.hashCode()
-    println("Hash value of string $str is $hashStr")
+    println("String $str has hash value $hashStr")
 
-    val arr = arrayOf<Any>(12836, "Xiao Ha")
+    val arr = arrayOf<Any>(12836, "小哈")
     val hashTup = arr.contentHashCode()
-    println("Hash value of array ${arr.contentToString()} is $hashTup")
+    println("Array ${arr.contentToString()} has hash value $hashTup")
 
     val obj = ListNode(0)
     val hashObj = obj.hashCode()
-    println("Hash value of node object $obj is $hashObj")
+    println("Node object $obj has hash value $hashObj")
 }

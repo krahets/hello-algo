@@ -14,7 +14,7 @@ func TestFractionalKnapsack(t *testing.T) {
 	val := []int{50, 120, 150, 210, 240}
 	capacity := 50
 
-	// 貪欲法
+	// 貪欲アルゴリズム
 	res := fractionalKnapsack(wgt, val, capacity)
-	fmt.Println("ナップサック容量を超えない最大価値は", res)
+	fmt.Println("ナップサックの容量を超えない品物の最大価値は", res)
 }

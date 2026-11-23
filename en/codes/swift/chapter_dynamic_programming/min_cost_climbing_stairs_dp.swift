@@ -4,25 +4,25 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Minimum cost climbing stairs: Dynamic programming */
+/* Minimum cost to climb stairs: dynamic programming */
 func minCostClimbingStairsDP(cost: [Int]) -> Int {
     let n = cost.count - 1
     if n == 1 || n == 2 {
         return cost[n]
     }
-    // Initialize dp table, used to store solutions to subproblems
+    // Initialize the dp table to store subproblem solutions
     var dp = Array(repeating: 0, count: n + 1)
-    // Initial state: preset the solution to the smallest subproblem
+    // Initial states: set the solutions to the smallest subproblems
     dp[1] = cost[1]
     dp[2] = cost[2]
-    // State transition: gradually solve larger subproblems from smaller ones
+    // State transitions: solve progressively larger subproblems using smaller ones
     for i in 3 ... n {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
 }
 
-/* Minimum cost climbing stairs: Space-optimized dynamic programming */
+/* Minimum cost to climb stairs: space-optimized dynamic programming */
 func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
     let n = cost.count - 1
     if n == 1 || n == 2 {
@@ -37,15 +37,15 @@ func minCostClimbingStairsDPComp(cost: [Int]) -> Int {
 
 @main
 enum MinCostClimbingStairsDP {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]
-        print("Input stair cost list is \(cost)")
+        print("Input stair costs: \(cost)")
 
         var res = minCostClimbingStairsDP(cost: cost)
-        print("Minimum cost to climb stairs is \(res)")
+        print("Minimum cost to climb the stairs: \(res)")
 
         res = minCostClimbingStairsDPComp(cost: cost)
-        print("Minimum cost to climb stairs is \(res)")
+        print("Minimum cost to climb the stairs: \(res)")
     }
 }

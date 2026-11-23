@@ -4,7 +4,7 @@
 
 package chapter_divide_and_conquer
 
-/* Бинарный поиск: задача f(i, j) */
+/* Двоичный поиск: задача f(i, j) */
 func dfs(nums []int, target, i, j int) int {
 	// Если интервал пуст, это означает отсутствие целевого элемента, вернуть -1
 	if i > j {
@@ -27,7 +27,7 @@ func dfs(nums []int, target, i, j int) int {
 	}
 }
 
-/* Бинарный поиск */
+/* Двоичный поиск */
 func binarySearch(nums []int, target int) int {
 	n := len(nums)
 	return dfs(nums, target, 0, n-1)

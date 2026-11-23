@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Moving the shorter wall inward",
+  "summary": "Moving the shorter wall inward can raise container height and increase capacity—here from 21 to 24.",
+  "context": [
+    "In height array ht = [3, 8, 5, 2, 7, 7, 3, 4] (indices 0 to 7), container capacity is cap[i, j] = min(ht[i], ht[j]) × (j - i).",
+    "Contrasting with Figure 15-9, which moved the taller wall inward from [0, 7], this figure moves the left shorter-wall pointer rightward from the same starting pair (heights 3 and 4, capacity 21)."
+  ],
+  "description": [
+    "Right pointer j stays at 7 (height 4) while left pointer i moves right from 0 to 1 (height ht[1] = 8, returning wall 0 to unselected gray). Because left wall 8 now exceeds right wall 4, right wall j = 7 becomes the new shorter wall; the light-blue water region spans indices 1 to 7 at height 4, captioned below \"Moving the shorter wall inward may increase capacity\" with the current capacity formula."
+  ],
+  "frames": [
+    {
+      "id": "source-468",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.png",
+      "title": "Moving the shorter wall inward",
+      "explanation": "Width shrinks from 7 to 6 while water height rises from 3 to 4, giving cap = min(8, 4) × (7 - 1) = 24. Moving the shorter wall inward can therefore increase capacity, though not on every step. Capacity 24 is still not the global maximum; Figure 15-7 shows the optimal pair [1, 5] with capacity 28."
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "title": "前序遍历的递归过程",
+  "summary": "沿一棵 7 节点二叉树演示前序遍历，展示访问节点与向上返回的区别。",
+  "context": [
+    "输入为 7 节点普通二叉树：根节点为 1，1 的左右子节点是 2、3，2 的左右子节点是 4、5，3 的左右子节点是 6、7；4、5、6、7 为叶节点。",
+    "前序遍历按“根 → 左子树 → 右子树”执行：每次首次进入非空节点时立即记录其值，再依次递归处理左、右子树；遇到空节点直接返回。"
+  ],
+  "description": [
+    "调用路径指从根到当前节点、尚未结束的递归调用。下面的 11 步省略了空节点调用：7 步首次进入节点，4 步向上返回。第 4、9 步从左叶节点返回父节点，准备转向右子树；第 6、11 步则连续返回两层。"
+  ],
+  "frames": [
+    {
+      "id": "source-99",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step1.png",
+      "title": "访问根节点 1",
+      "explanation": "从根节点 1 开始，记录 1。调用路径为 1，输出为 [1]；左子树（2、4、5）和右子树（3、6、7）均未访问，下一步进入左子节点 2。",
+      "key_state": "调用路径为 1，输出 [1]。",
+      "announcement": "访问根节点 1，输出更新为 [1]。"
+    },
+    {
+      "id": "source-100",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step2.png",
+      "title": "访问左子节点 2",
+      "explanation": "从 1 进入左子节点 2，记录 2。调用路径为 1 → 2，输出为 [1, 2]；2 的左右叶节点 4、5 和根的右子树（3、6、7）尚未访问，下一步进入 4。",
+      "key_state": "调用路径为 1 → 2，输出 [1, 2]。",
+      "announcement": "访问左子节点 2，输出更新为 [1, 2]。"
+    },
+    {
+      "id": "source-101",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step3.png",
+      "title": "访问叶节点 4",
+      "explanation": "从 2 进入左叶节点 4，记录 4。调用路径为 1 → 2 → 4，输出为 [1, 2, 4]；4 的左右空子树调用直接返回，随后将回到 2。节点 5 和根的右子树（3、6、7）尚未访问。",
+      "key_state": "调用路径为 1 → 2 → 4，输出 [1, 2, 4]。",
+      "announcement": "访问叶节点 4，输出更新为 [1, 2, 4]。"
+    },
+    {
+      "id": "source-102",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step4.png",
+      "title": "从 4 返回 2",
+      "explanation": "叶节点 4 处理完毕，返回父节点 2，调用路径回到 1 → 2。返回不再记录节点，输出保持 [1, 2, 4]；2 的左子树已完成，下一步进入右子节点 5，根的右子树（3、6、7）仍未访问。",
+      "key_state": "调用路径为 1 → 2，输出 [1, 2, 4]。下一步访问 2 的右子节点 5。",
+      "announcement": "从叶节点 4 返回父节点 2，输出保持 [1, 2, 4]。下一步访问 2 的右子节点 5。"
+    },
+    {
+      "id": "source-103",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step5.png",
+      "title": "访问叶节点 5",
+      "explanation": "从 2 进入右叶节点 5，记录 5。调用路径为 1 → 2 → 5，输出为 [1, 2, 4, 5]；根的左子树已全部访问，但调用尚待返回。5 的左右空子树调用直接返回，根的右子树（3、6、7）仍未访问。",
+      "key_state": "调用路径为 1 → 2 → 5，输出 [1, 2, 4, 5]。",
+      "announcement": "访问叶节点 5，输出更新为 [1, 2, 4, 5]。"
+    },
+    {
+      "id": "source-104",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step6.png",
+      "title": "从 5 经 2 返回 1",
+      "explanation": "5 处理完毕后返回 2；2 的左右子树均已完成，继续返回根节点 1。调用路径回到 1，输出保持 [1, 2, 4, 5]；根的左子树处理完毕，下一步进入尚未访问的右子树（3、6、7），从节点 3 开始。",
+      "key_state": "调用路径为 1，输出 [1, 2, 4, 5]。下一步访问根 1 的右子节点 3。",
+      "announcement": "从叶节点 5 经 2 返回根节点 1，输出保持 [1, 2, 4, 5]。下一步访问根 1 的右子节点 3。"
+    },
+    {
+      "id": "source-105",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step7.png",
+      "title": "访问右子节点 3",
+      "explanation": "从根节点 1 进入右子节点 3，记录 3。调用路径为 1 → 3，输出为 [1, 2, 4, 5, 3]；3 的左右叶节点 6、7 尚未访问，下一步进入 6。",
+      "key_state": "调用路径为 1 → 3，输出 [1, 2, 4, 5, 3]。",
+      "announcement": "访问右子节点 3，输出更新为 [1, 2, 4, 5, 3]。"
+    },
+    {
+      "id": "source-106",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step8.png",
+      "title": "访问叶节点 6",
+      "explanation": "从 3 进入左叶节点 6，记录 6。调用路径为 1 → 3 → 6，输出为 [1, 2, 4, 5, 3, 6]；6 的左右空子树调用直接返回，随后将回到 3，只剩右叶节点 7 尚未访问。",
+      "key_state": "调用路径为 1 → 3 → 6，输出 [1, 2, 4, 5, 3, 6]。",
+      "announcement": "访问叶节点 6，输出更新为 [1, 2, 4, 5, 3, 6]。"
+    },
+    {
+      "id": "source-107",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step9.png",
+      "title": "从 6 返回 3",
+      "explanation": "叶节点 6 处理完毕，返回父节点 3，调用路径回到 1 → 3。输出保持 [1, 2, 4, 5, 3, 6]；3 的左子树已完成，下一步进入尚未访问的右叶节点 7。",
+      "key_state": "调用路径为 1 → 3，输出 [1, 2, 4, 5, 3, 6]。下一步访问 3 的右子节点 7。",
+      "announcement": "从叶节点 6 返回父节点 3，输出保持 [1, 2, 4, 5, 3, 6]。下一步访问 3 的右子节点 7。"
+    },
+    {
+      "id": "source-108",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step10.png",
+      "title": "访问叶节点 7",
+      "explanation": "从 3 进入右叶节点 7，记录 7。调用路径为 1 → 3 → 7，输出集齐为 [1, 2, 4, 5, 3, 6, 7]；7、3、1 的调用尚未结束，仍需完成向上返回。",
+      "key_state": "调用路径为 1 → 3 → 7，输出 [1, 2, 4, 5, 3, 6, 7]。输出已集齐，调用尚待返回。",
+      "announcement": "访问最后叶节点 7，输出集齐为 [1, 2, 4, 5, 3, 6, 7]，调用尚待返回。"
+    },
+    {
+      "id": "source-109",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step11.png",
+      "title": "从 7 经 3 返回 1，调用结束",
+      "explanation": "7 的左右空子树调用结束后，沿 7 → 3 → 1 连续返回，最后结束根节点的调用。所有子树均已处理完毕，调用路径清空，最终输出仍为 [1, 2, 4, 5, 3, 6, 7]。",
+      "key_state": "调用路径为 空，输出 [1, 2, 4, 5, 3, 6, 7]。全部调用已结束。",
+      "announcement": "沿 7、3、1 完成收尾返回，递归调用结束，输出仍为 [1, 2, 4, 5, 3, 6, 7]。"
+    }
+  ],
+  "animations": {
+    "preorder-traversal": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-99"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-100"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-101"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-102"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-103"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-104"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-105"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-106"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-107"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-108"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-109"
+        }
+      ]
+    }
+  },
+  "tables": [],
+  "input_tables": []
+}

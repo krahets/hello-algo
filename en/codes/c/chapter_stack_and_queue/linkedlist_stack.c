@@ -6,10 +6,10 @@
 
 #include "../utils/common.h"
 
-/* Stack based on linked list implementation */
+/* Stack implemented with a linked list */
 typedef struct {
-    ListNode *top; // Use head node as stack top
-    int size;      // Stack length
+    ListNode *top; // Use the head node as the stack top
+    int size;      // Stack size
 } LinkedListStack;
 
 /* Constructor */
@@ -30,12 +30,12 @@ void delLinkedListStack(LinkedListStack *s) {
     free(s);
 }
 
-/* Get the length of the stack */
+/* Get the stack size */
 int size(LinkedListStack *s) {
     return s->size;
 }
 
-/* Check if the stack is empty */
+/* Check whether the stack is empty */
 bool isEmpty(LinkedListStack *s) {
     return size(s) == 0;
 }
@@ -43,13 +43,13 @@ bool isEmpty(LinkedListStack *s) {
 /* Push */
 void push(LinkedListStack *s, int num) {
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-    node->next = s->top; // Update new node's pointer field
-    node->val = num;     // Update new node's data field
-    s->top = node;       // Update stack top
-    s->size++;           // Update stack size
+    node->next = s->top; // Set the new node's pointer field
+    node->val = num;     // Set the new node's data field
+    s->top = node;       // Update the stack top
+    s->size++;           // Update the stack size
 }
 
-/* Return list for printing */
+/* Access the top element */
 int peek(LinkedListStack *s) {
     if (s->size == 0) {
         printf("Stack is empty\n");
@@ -69,12 +69,12 @@ int pop(LinkedListStack *s) {
     return val;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Access top of the stack element */
+    /* Initialize the stack */
     LinkedListStack *stack = newLinkedListStack();
 
-    /* Elements push onto stack */
+    /* Push elements onto the stack */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -84,21 +84,21 @@ int main() {
     printf("Stack stack = ");
     printLinkedList(stack->top);
 
-    /* Return list for printing */
+    /* Access the top element */
     int val = peek(stack);
     printf("Top element top = %d\r\n", val);
 
-    /* Element pop from stack */
+    /* Pop an element from the stack */
     val = pop(stack);
-    printf("Pop element pop = %d, stack after pop = ", val);
+    printf("Popped element pop = %d; after popping, stack =  ", val);
     printLinkedList(stack->top);
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     printf("Stack size = %d\n", size(stack));
 
-    /* Check if empty */
+    /* Check whether it is empty */
     bool empty = isEmpty(stack);
-    printf("Is stack empty = %s\n", empty ? "true" : "false");
+    printf("Is the stack empty = %s\n", empty ? "true" : "false");
 
     // Free memory
     delLinkedListStack(stack);

@@ -8,7 +8,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
 def for_loop(n)
   res = 0
 
-  # Sum 1, 2, ..., n-1, n
+  # Sum 1, 2, ..., n-1, n in a loop
   for i in 1..n
     res += i
   end
@@ -19,26 +19,26 @@ end
 ### while loop ###
 def while_loop(n)
   res = 0
-  i = 1 # Initialize condition variable
+  i = 1 # Initialize the loop control variable
 
-  # Sum 1, 2, ..., n-1, n
+  # Sum 1, 2, ..., n-1, n in a loop
   while i <= n
     res += i
-    i += 1 # Update condition variable
+    i += 1 # Update the loop control variable
   end
 
   res
 end
 
-### while loop (two updates) ###
+### while loop (two updates)###
 def while_loop_ii(n)
   res = 0
-  i = 1 # Initialize condition variable
+  i = 1 # Initialize the loop control variable
 
-  # Sum 1, 4, 10, ...
+  # Sum 1, 4, 10, ... in a loop
   while i <= n
     res += i
-    # Update condition variable
+    # Update the loop control variable
     i += 1
     i *= 2
   end
@@ -46,13 +46,13 @@ def while_loop_ii(n)
   res
 end
 
-### Nested for loop ###
+### Nested for loops ###
 def nested_for_loop(n)
   res = ""
 
-  # Loop i = 1, 2, ..., n-1, n
+  # Loop over i = 1, 2, ..., n-1, n
   for i in 1..n
-    # Loop j = 1, 2, ..., n-1, n
+    # Loop over j = 1, 2, ..., n-1, n
     for j in 1..n
       res += "(#{i}, #{j}), "
     end
@@ -61,19 +61,19 @@ def nested_for_loop(n)
   res
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   n = 5
 
   res = for_loop(n)
-  puts "\nFor loop sum result res = #{res}"
+  puts "\nSum from the for loop: res = #{res}"
 
   res = while_loop(n)
-  puts "\nWhile loop sum result res = #{res}"
+  puts "\nSum from the while loop: res = #{res}"
 
   res = while_loop_ii(n)
-  puts "\nWhile loop (two updates) sum result res = #{res}"
+  puts "\nSum from the while loop with two updates: res = #{res}"
 
   res = nested_for_loop(n)
-  puts "\nNested for loop traversal result #{res}"
+  puts "\nTraversal result from nested for loops: #{res}"
 end

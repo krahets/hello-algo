@@ -1,32 +1,32 @@
 # Summary
 
-### Key Review
+### Key takeaways
 
-- Algorithms are ubiquitous in daily life and are not some distant, esoteric body of knowledge. In fact, we have already learned many algorithms unconsciously and use them to solve problems big and small in life.
-- The principle of looking up a dictionary is consistent with the binary search algorithm. Binary search embodies the important algorithmic idea of divide and conquer.
-- The process of organizing playing cards is very similar to the insertion sort algorithm. Insertion sort is suitable for sorting small datasets.
-- The steps of making change are essentially a greedy algorithm, where the best choice is made at each step based on the current situation.
-- An algorithm is a set of instructions or operational steps that solves a specific problem within a finite amount of time, while a data structure is a way of organizing and storing data in a computer.
-- Data structures and algorithms are closely connected. Data structures are the foundation of algorithms, and algorithms breathe life into data structures.
-- We can compare data structures and algorithms to assembling building blocks. The blocks represent data, the way they are shaped and connected represents the data structure, and the steps used to assemble them correspond to the algorithm.
+- Algorithms are everywhere in daily life; they are not remote, inaccessible knowledge. In fact, we have already learned many algorithms without realizing it and use them to solve problems large and small.
+- Looking up a word in a dictionary follows the same principle as binary search. Binary search illustrates the important algorithmic idea of divide and conquer.
+- Arranging playing cards closely resembles insertion sort. Insertion sort is well suited to small datasets.
+- Making change is essentially a greedy algorithm: at each step, make the choice that looks best at the moment.
+- An algorithm is a set of instructions or steps that solves a specific problem within a finite time. A data structure is a way of organizing and storing data in a computer.
+- Data structures and algorithms are closely connected. Data structures provide the foundation for algorithms, while algorithms bring data structures to life.
+- We can compare data structures and algorithms to assembling building blocks: the blocks represent data; their shapes and connections represent data structures; and the assembly steps represent algorithms.
 
 ### Q & A
 
-**Q**: As a programmer, I have never used algorithms to solve problems in my daily work. Common algorithms are already encapsulated by programming languages and can be used directly. Does this mean that the problems in our work have not yet reached the level where algorithms are needed?
+**Q**: As a programmer, I have never used algorithms to solve problems in my daily work. Common algorithms are already built into programming languages, so I can simply use them. Does this mean the problems we encounter at work are not difficult enough to require algorithms?
 
-If we compare specific work skills to "techniques" in martial arts, then fundamental subjects should be more like "internal skills".
+If specific job skills are like the techniques of a martial art, foundational subjects are more like the underlying strength that makes those techniques effective.
 
-I believe the significance of learning algorithms (and other fundamental subjects) is not that you will need to implement them from scratch at work, but that the knowledge you gain enables you to make sound professional judgments when solving problems, thereby improving the overall quality of your work. Here is a simple example. Every programming language has a built-in sorting function:
+I believe the purpose of learning algorithms—and other foundational subjects—is not to implement them from scratch at work. It is to use what we have learned to respond and make judgments professionally when solving problems, improving the overall quality of our work. For a simple example, every programming language has a built-in sorting function:
 
-- If we have not studied data structures and algorithms, we might simply feed any given data to this sorting function. It runs smoothly with good performance, and there doesn't seem to be any problem.
-- But if we have studied algorithms, we would know that the time complexity of the built-in sorting function is $O(n \log n)$. However, if the given data consists of integers with a fixed number of digits (such as student IDs), we can use the more efficient "radix sort", reducing the time complexity to $O(nk)$, where $k$ is the number of digits. When the data volume is very large, the saved running time can create significant value (reduced costs, improved experience, etc.).
+- Without studying data structures and algorithms, we might pass any dataset to this sorting function. It runs smoothly and performs reasonably well, so nothing seems wrong.
+- After studying algorithms, however, we know that the built-in sorting function has a time complexity of $O(n \log n)$. If the data consists of integers with a fixed number of digits, such as student IDs, we can use the more efficient “radix sort” to reduce the time complexity to $O(nk)$, where $k$ is the number of digits. For large datasets, the time saved can create considerable value through lower costs, a better user experience, and so on.
 
-In engineering, many problems are difficult to solve optimally, and many others are only solved "well enough." The difficulty of a problem depends, on the one hand, on the nature of the problem itself and, on the other hand, on the knowledge of the person examining it. The more complete a person's knowledge and the more experience they have, the deeper their analysis will be, and the more elegantly the problem can be solved.
+In engineering, optimal solutions are difficult to reach for many problems, and many others are solved only “well enough.” How difficult a problem appears depends both on its nature and on the knowledge of the person examining it. The more knowledge and experience we have, the more deeply we can analyze a problem and the more elegantly we can solve it.
 
-**Q**: Now that we let AI agents write almost all our code, do we still need to learn algorithms?
+**Q**: Now that AI agents write almost all our code, do we still need to learn algorithms?
 
-To quote Mu Li: “An agent is an amplifier of ability—it multiplies your ability by 10, rather than adding 10 to it.”
+To quote Mu Li: “An agent is an ability multiplier: it multiplies your ability by 10. It is not an adder that adds 10 to your ability.”
 
-Since AI amplifies our abilities, the abilities being multiplied matter too. I think two abilities are especially worth developing. The first is communication, particularly the ability to work with AI: making goals clear, providing the necessary context, and correcting course in time. Explaining a problem to AI also helps us think it through ourselves. The second is foundational knowledge. AI can fill in the details, but we need to understand the basic concepts ourselves to ask the right questions, judge whether answers are correct, and turn its output into useful results.
+If AI multiplies our ability, then that starting ability matters too. I think two kinds of ability are especially worth developing. The first is communication, particularly collaboration with AI: state the goal clearly, supply the necessary context, and correct the course promptly. Explaining a problem to AI also helps us clarify it for ourselves. The second is foundational knowledge. AI can fill in the details, but we need to understand the basic concepts ourselves to ask relevant questions, judge what is correct, and turn its output into useful results.
 
-One distinctive thing about AI is that, unlike earlier tools, it does not have clearly defined functional boundaries. It is a little like water, taking different shapes in different people's hands. The greater a person's abilities and the better their taste, the more pronounced AI's amplifying effect becomes.
+One distinctive feature of AI is that, unlike earlier tools, it has no clear boundaries to its functionality. It is a little like water, taking different shapes in different people's hands. The stronger a person's abilities and the better their taste, the more pronounced AI's multiplying effect becomes.

@@ -6,33 +6,33 @@
 
 #include "my_heap.c"
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize heap */
-    // Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap
+    /* Initialize the heap */
+    // Initialize a max heap
     int nums[] = {9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
     MaxHeap *maxHeap = newMaxHeap(nums, sizeof(nums) / sizeof(int));
-    printf("After input array and building heap\n");
+    printf("After building a heap from the input array:\n");
     printHeap(maxHeap->data, maxHeap->size);
 
-    /* Check if heap is empty */
-    printf("\nHeap top element is %d\n", peek(maxHeap));
+    /* Get the top element of the heap */
+    printf("\nTop element of the heap: %d\n", peek(maxHeap));
 
-    /* Element enters heap */
+    /* Push an element onto the heap */
     push(maxHeap, 7);
-    printf("\nAfter element 7 pushes to heap\n");
+    printf("\nAfter pushing element 7 onto the heap:\n");
     printHeap(maxHeap->data, maxHeap->size);
 
-    /* Time complexity is O(n), not O(nlogn) */
+    /* Pop the top element from the heap */
     int top = pop(maxHeap);
-    printf("\nAfter heap top element %d exits heap\n", top);
+    printf("\nAfter popping top element %d from the heap:\n", top);
     printHeap(maxHeap->data, maxHeap->size);
 
-    /* Get heap size */
-    printf("\nHeap element count is %d\n", size(maxHeap));
+    /* Get the heap size */
+    printf("\nNumber of elements in the heap: %d\n", size(maxHeap));
 
-    /* Check if heap is empty */
-    printf("\nIs heap empty %d\n", isEmpty(maxHeap));
+    /* Check whether the heap is empty */
+    printf("\nIs the heap empty: %d\n", isEmpty(maxHeap));
 
     // Free memory
     delMaxHeap(maxHeap);

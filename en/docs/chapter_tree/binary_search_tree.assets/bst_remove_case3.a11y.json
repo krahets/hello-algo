@@ -1,0 +1,151 @@
+{
+  "schema_version": 2,
+  "title": "Delete a node with two children from a binary search tree",
+  "summary": "For a target of degree 2, find its inorder successor in the right subtree, detach that node, and then copy its value into the target cur.",
+  "context": [
+    "The target value is 4. The initial tree contains 3 through 15 and has root 8. The table gives all initial links, with “Empty” for a missing child. Throughout, cur points to the object that originally held 4.",
+    "Steps 1 and 2 leave all links intact. Step 3 detaches the original node 5, and only step 4 writes value 5 into cur. Links in the table stay the same except for the changes noted at each step. The right subtree rooted at 12 never changes. The figure’s successor pointer nex corresponds to tmp in the source code."
+  ],
+  "description": [
+    "The code first recursively deletes the successor, then overwrites the value of cur. If cur were changed to 5 first, a search from the root to delete value 5 would encounter cur before the original successor. These two operations cannot simply be reversed in this implementation."
+  ],
+  "result": "Afterward the tree no longer contains 4. The cur object remains in its original position. The other nodes and the binary search tree order are preserved.",
+  "frames": [
+    {
+      "id": "source-124",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png",
+      "title": "Locate the target with two children",
+      "explanation": "Since 4 is smaller than root 8, follow the left link to cur, currently holding 4. Its left and right children are 3 and 6; 6 has left leaf 5 and right leaf 7, as in “All tree links before deletion.” The degree of cur is 2. Simply disconnecting its parent’s edge would lose its children, so this example searches the right subtree for its minimum as a replacement.",
+      "key_state": "Pointer cur is left of root 8 and holds 4, with left child 3 and right child 6. Node 6 has left child 5 and right child 7. Nothing has changed yet.",
+      "announcement": "Find target node cur, which holds 4 and has two children."
+    },
+    {
+      "id": "source-125",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png",
+      "title": "Find inorder successor 5",
+      "explanation": "Follow cur (4)→6→5 and point nex to the original node 5. Root 8 has cur on the left; cur still has left child 3 and right child 6; 6 has left child 5 and right child 7. Values and links are unchanged. As the minimum on the right, 5 is greater than 3 on the left and smaller than the remaining right-side values 6 and 7, preserving order after replacement.",
+      "key_state": "Pointer cur still holds 4 with left child 3 and right child 6, while nex points to 6’s left leaf 5 and 6’s right child is 7. Nothing has changed.",
+      "announcement": "Find the minimum node 5 in cur’s right subtree and mark it as inorder successor nex."
+    },
+    {
+      "id": "source-126",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png",
+      "title": "Detach the original successor node",
+      "explanation": "Recursively delete leaf 5 referenced by nex and clear 6.left. Root 8 still has cur (value 4) as its left child, and cur has left child 3 and right child 6. Node 6 has no left child and has right leaf 7. Only the original node 5 has been detached; other links match the initial table. Pointer nex retains a reference to the original object so its value can be read next. The dashed circle marks its former position; no node remains there.",
+      "key_state": "The original node 5 is detached, while cur still holds 4 with left child 3 and right child 6. Node 6 has no left child and has right child 7.",
+      "announcement": "First detach successor leaf 5 from the left of 6. The value in cur is still 4."
+    },
+    {
+      "id": "source-127",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png",
+      "title": "Copy the successor’s value into cur",
+      "explanation": "Write successor value 5 into cur, replacing 4. Root 8 has cur (now holding 5) as its left child; cur has left child 3 and right child 6. Node 6 has no left child and has right leaf 7. Only the value in cur changed. Its links to parent 8 and children 3 and 6 are unchanged. The original node 5 is gone, leaving just one copy of value 5 in the tree.",
+      "key_state": "Pointer cur now holds 5 with left child 3 and right child 6. Node 6 has no left child and has right child 7. Original node 5 is detached; deletion is complete.",
+      "announcement": "Overwrite the original value 4 in cur with successor value 5, completing deletion of the node with two children."
+    }
+  ],
+  "animations": {
+    "bst-delete-two-children": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-124"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-125"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-126"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-127"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "All tree links before deletion",
+      "headers": [
+        "Node",
+        "Initial left child",
+        "Initial right child"
+      ],
+      "rows": [
+        [
+          "8 (root)",
+          "cur (initial value 4)",
+          "12"
+        ],
+        [
+          "3",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "cur (initial value 4)",
+          "3",
+          "6"
+        ],
+        [
+          "5 (original node)",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "6",
+          "5 (original node)",
+          "7"
+        ],
+        [
+          "7",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "9",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "10",
+          "9",
+          "11"
+        ],
+        [
+          "11",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "12",
+          "10",
+          "14"
+        ],
+        [
+          "13",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "14",
+          "13",
+          "15"
+        ],
+        [
+          "15",
+          "Empty",
+          "Empty"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

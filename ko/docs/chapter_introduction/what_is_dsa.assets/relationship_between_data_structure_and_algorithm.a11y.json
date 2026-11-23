@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "title": "자료 구조와 알고리즘의 관계",
+  "summary": "두 층의 구조로 알고리즘의 처리 흐름과 그 전 과정을 뒷받침하는 자료 구조의 역할을 보여 준다.",
+  "context": [],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-17",
+      "book_path": "chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png",
+      "title": "자료 구조와 알고리즘의 관계",
+      "explanation": "위쪽에는 왼쪽에서 오른쪽으로 입력(input) → 알고리즘(algorithm) → 출력(output)이 놓여 있고, 알고리즘 위에는 일련의 명령을 통해 입력을 출력으로 변환한다는 설명이 적혀 있다. 아래쪽에는 자료 구조(data structure)가 놓여 있으며 구조화된 데이터 저장 방식과 그 데이터에 대한 연산을 제공한다는 설명이 적혀 있다. 자료 구조에서 위쪽을 향하는 세 화살표가 각각 입력, 알고리즘, 출력을 가리키는데, 이는 시작 전에 입력만 저장하는 데 그치지 않고 세 단계 전체를 뒷받침함을 뜻한다."
+    }
+  ]
+}

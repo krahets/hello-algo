@@ -7,29 +7,29 @@
 /* Doubly linked list node */
 class ListNode {
   int val; // Node value
-  ListNode? next; // Successor node reference
-  ListNode? prev; // Predecessor node reference
+  ListNode? next; // Reference to the next node
+  ListNode? prev; // Reference to the previous node
 
   ListNode(this.val, {this.next, this.prev});
 }
 
-/* Deque implemented based on doubly linked list */
+/* Deque implemented with a doubly linked list */
 class LinkedListDeque {
   late ListNode? _front; // Head node _front
   late ListNode? _rear; // Tail node _rear
-  int _queSize = 0; // Length of the double-ended queue
+  int _queSize = 0; // Deque size
 
   LinkedListDeque() {
     this._front = null;
     this._rear = null;
   }
 
-  /* Get deque length */
+  /* Get the deque size */
   int size() {
     return this._queSize;
   }
 
-  /* Check if the double-ended queue is empty */
+  /* Check whether the deque is empty */
   bool isEmpty() {
     return size() == 0;
   }
@@ -38,89 +38,89 @@ class LinkedListDeque {
   void push(int _num, bool isFront) {
     final ListNode node = ListNode(_num);
     if (isEmpty()) {
-      // If list is empty, let both _front and _rear point to node
+      // If the linked list is empty, make both _front and _rear point to node
       _front = _rear = node;
     } else if (isFront) {
-      // Front of the queue enqueue operation
+      // Enqueue at the front
       // Add node to the head of the linked list
       _front!.prev = node;
       node.next = _front;
-      _front = node; // Update head node
+      _front = node; // Update the head node
     } else {
-      // Rear of the queue enqueue operation
+      // Enqueue at the rear
       // Add node to the tail of the linked list
       _rear!.next = node;
       node.prev = _rear;
-      _rear = node; // Update tail node
+      _rear = node; // Update the tail node
     }
-    _queSize++; // Update queue length
+    _queSize++; // Update the queue size
   }
 
-  /* Front of the queue enqueue */
+  /* Enqueue at the front */
   void pushFirst(int _num) {
     push(_num, true);
   }
 
-  /* Rear of the queue enqueue */
+  /* Enqueue at the rear */
   void pushLast(int _num) {
     push(_num, false);
   }
 
   /* Dequeue operation */
   int? pop(bool isFront) {
-    // If queue is empty, return null directly
+    // If the queue is empty, return null immediately
     if (isEmpty()) {
       return null;
     }
     final int val;
-    // When the deque has one element, front and rear point to the same node
+    // When the queue size is 1, the head and tail point to the same node
     if (_queSize == 1) {
       val = _front!.val;
       _front = null;
       _rear = null;
     }
-    // Temporarily store head node value
+    // Dequeue from the front
     else if (isFront) {
-      val = _front!.val; // Delete head node
-      // Delete head node
+      val = _front!.val; // Save the head node value
+      // Remove the head node
       ListNode? fNext = _front!.next;
       fNext!.prev = null;
       _front!.next = null;
-      _front = fNext; // Update head node
-    // Temporarily store tail node value
+      _front = fNext; // Update the head node
+    // Dequeue from the rear
     } else {
-      val = _rear!.val; // Delete tail node
-      // Update tail node
+      val = _rear!.val; // Save the tail node value
+      // Remove the tail node
       ListNode? rPrev = _rear!.prev;
       rPrev!.next = null;
       _rear!.prev = null;
-      _rear = rPrev; // Update tail node
+      _rear = rPrev; // Update the tail node
     }
-    _queSize--; // Update queue length
+    _queSize--; // Update the queue size
     return val;
   }
 
-  /* Rear of the queue dequeue */
+  /* Dequeue from the front */
   int? popFirst() {
     return pop(true);
   }
 
-  /* Access rear of the queue element */
+  /* Dequeue from the rear */
   int? popLast() {
     return pop(false);
   }
 
-  /* Return list for printing */
+  /* Access the front element */
   int? peekFirst() {
     return _front?.val;
   }
 
-  /* Driver Code */
+  /* Access the rear element */
   int? peekLast() {
     return _rear?.val;
   }
 
-  /* Return array for printing */
+  /* Return an array for printing */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> res = [];
@@ -132,38 +132,38 @@ class LinkedListDeque {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Get the length of the double-ended queue */
+  /* Initialize the deque */
   final LinkedListDeque deque = LinkedListDeque();
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
   print("Deque deque = ${deque.toArray()}");
 
-  /* Update element */
+  /* Access an element */
   int? peekFirst = deque.peekFirst();
   print("Front element peekFirst = $peekFirst");
   int? peekLast = deque.peekLast();
   print("Rear element peekLast = $peekLast");
 
-  /* Elements enqueue */
+  /* Enqueue elements */
   deque.pushLast(4);
-  print("After element 4 enqueues at rear, deque = ${deque.toArray()}");
+  print("After enqueuing 4 at the rear, deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("After element 1 enqueues at front, deque = ${deque.toArray()}");
+  print("After enqueuing 1 at the front, deque = ${deque.toArray()}");
 
-  /* Element dequeue */
+  /* Dequeue an element */
   int? popLast = deque.popLast();
-  print("Dequeue rear element = $popLast, after rear dequeue deque = ${deque.toArray()}");
+  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = ${deque.toArray()}");
   int? popFirst = deque.popFirst();
-  print("Dequeue front element = $popFirst, after front dequeue deque = ${deque.toArray()}");
+  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = ${deque.toArray()}");
 
-  /* Get the length of the double-ended queue */
+  /* Get the deque size */
   int size = deque.size();
-  print("Deque length size = $size");
+  print("Deque size = $size");
 
-  /* Check if the double-ended queue is empty */
+  /* Check whether the deque is empty */
   bool isEmpty = deque.isEmpty();
-  print("Is deque empty = $isEmpty");
+  print("Is the deque empty = $isEmpty");
 }

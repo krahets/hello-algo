@@ -4,7 +4,7 @@
 
 package chapter_array_and_linkedlist
 
-/* List class */
+/* List type */
 type myList struct {
 	arrCapacity int
 	arr         []int
@@ -16,32 +16,32 @@ type myList struct {
 func newMyList() *myList {
 	return &myList{
 		arrCapacity: 10,              // List capacity
-		arr:         make([]int, 10), // Array (stores list elements)
+		arr:         make([]int, 10), // Array (stores the list elements)
 		arrSize:     0,               // List length (current number of elements)
-		extendRatio: 2,               // Multiple by which the list capacity is extended each time
+		extendRatio: 2,               // Factor by which the list capacity grows each time
 	}
 }
 
-/* Get list length (current number of elements) */
+/* Get the list length (current number of elements) */
 func (l *myList) size() int {
 	return l.arrSize
 }
 
-/* Get list capacity */
+/*  Get the list capacity */
 func (l *myList) capacity() int {
 	return l.arrCapacity
 }
 
-/* Update element */
+/* Access an element */
 func (l *myList) get(index int) int {
-	// If the index is out of bounds, throw an exception, as below
+	// Panic if the index is out of bounds; the same applies below
 	if index < 0 || index >= l.arrSize {
 		panic("Index out of bounds")
 	}
 	return l.arr[index]
 }
 
-/* Add elements at the end */
+/* Update an element */
 func (l *myList) set(num, index int) {
 	if index < 0 || index >= l.arrSize {
 		panic("Index out of bounds")
@@ -49,9 +49,9 @@ func (l *myList) set(num, index int) {
 	l.arr[index] = num
 }
 
-/* Direct traversal of list elements */
+/* Append at the end */
 func (l *myList) add(num int) {
-	// When the number of elements exceeds capacity, trigger the extension mechanism
+	// Grow the capacity when adding an element would exceed it
 	if l.arrSize == l.arrCapacity {
 		l.extendCapacity()
 	}
@@ -60,16 +60,16 @@ func (l *myList) add(num int) {
 	l.arrSize++
 }
 
-/* Sort list */
+/* Insert an element in the middle */
 func (l *myList) insert(num, index int) {
 	if index < 0 || index >= l.arrSize {
 		panic("Index out of bounds")
 	}
-	// When the number of elements exceeds capacity, trigger the extension mechanism
+	// Grow the capacity when adding an element would exceed it
 	if l.arrSize == l.arrCapacity {
 		l.extendCapacity()
 	}
-	// Move all elements after index index forward by one position
+	// Shift all elements at and after index `index` one position to the right
 	for j := l.arrSize - 1; j >= index; j-- {
 		l.arr[j+1] = l.arr[j]
 	}
@@ -78,13 +78,13 @@ func (l *myList) insert(num, index int) {
 	l.arrSize++
 }
 
-/* Remove element */
+/* Remove an element */
 func (l *myList) remove(index int) int {
 	if index < 0 || index >= l.arrSize {
 		panic("Index out of bounds")
 	}
 	num := l.arr[index]
-	// Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
+	// Shift all elements after index `index` one position to the left
 	for j := index; j < l.arrSize-1; j++ {
 		l.arr[j] = l.arr[j+1]
 	}
@@ -94,16 +94,16 @@ func (l *myList) remove(index int) int {
 	return num
 }
 
-/* Driver Code */
+/* Grow the list capacity */
 func (l *myList) extendCapacity() {
-	// Create a new array with length extendRatio times the original array and copy the original array to the new array
+	// Extend the backing slice to extendRatio times its original length, preserving the existing elements
 	l.arr = append(l.arr, make([]int, l.arrCapacity*(l.extendRatio-1))...)
-	// Add elements at the end
+	// Update the list capacity
 	l.arrCapacity = len(l.arr)
 }
 
-/* Return list with valid length */
+/* Return the portion of the list that contains elements */
 func (l *myList) toArray() []int {
-	// Elements enqueue
+	// Return a slice containing only the occupied elements
 	return l.arr[:l.arrSize]
 }

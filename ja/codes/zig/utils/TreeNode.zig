@@ -4,17 +4,17 @@
 
 const std = @import("std");
 
-// 二分木ノード
+// 二分木のノード
 pub fn TreeNode(comptime T: type) type {
     return struct {
         const Self = @This();
 
-        val: T = undefined, // ノード値
+        val: T = undefined, // ノードの値
         height: i32 = undefined, // ノードの高さ
         left: ?*Self = null, // 左の子ノードへのポインタ
         right: ?*Self = null, // 右の子ノードへのポインタ
 
-        // Initialize a tree node with specific value
+        // 指定された値で木のノードを初期化する
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.height = 0;
@@ -24,7 +24,7 @@ pub fn TreeNode(comptime T: type) type {
     };
 }
 
-// 配列をデシリアライズして二分木に変換する
+// 配列をデシリアライズして二分木にする
 pub fn arrToTree(comptime T: type, allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
     if (arr.len == 0) return null;
     var root = try allocator.create(TreeNode(T));

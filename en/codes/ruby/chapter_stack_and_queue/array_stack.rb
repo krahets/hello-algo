@@ -4,19 +4,19 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Stack based on array ###
+### Stack implemented with an array ###
 class ArrayStack
   ### Constructor ###
   def initialize
     @stack = []
   end
 
-  ### Get stack length ###
+  ### Get the stack size ###
   def size
     @stack.length
   end
 
-  ### Check if stack is empty ###
+  ### Check whether the stack is empty ###
   def is_empty?
     @stack.empty?
   end
@@ -33,25 +33,25 @@ class ArrayStack
     @stack.pop
   end
 
-  ### Access top element ###
+  ### Access the top element ###
   def peek
     raise IndexError, 'Stack is empty' if is_empty?
 
     @stack.last
   end
 
-  ### Return list for printing ###
+  ### Return a list for printing ###
   def to_array
     @stack
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Access top of the stack element
+  # Initialize the stack
   stack = ArrayStack.new
 
-  # Elements push onto stack
+  # Push elements onto the stack
   stack.push(1)
   stack.push(3)
   stack.push(2)
@@ -59,20 +59,20 @@ if __FILE__ == $0
   stack.push(4)
   puts "Stack stack = #{stack.to_array}"
 
-  # Return list for printing
+  # Access the top element
   peek = stack.peek
   puts "Top element peek = #{peek}"
 
-  # Element pop from stack
+  # Pop an element from the stack
   pop = stack.pop
-  puts "Pop element pop = #{pop}"
-  puts "After pop, stack = #{stack.to_array}"
+  puts "Popped element pop = #{pop}"
+  puts "After popping, stack = #{stack.to_array}"
 
-  # Get the length of the stack
+  # Get the stack size
   size = stack.size
-  puts "Stack length size = #{size}"
+  puts "Stack size = #{size}"
 
-  # Check if empty
+  # Check whether it is empty
   is_empty = stack.is_empty?
-  puts "Is stack empty = #{is_empty}"
+  puts "Is the stack empty? #{is_empty}"
 end

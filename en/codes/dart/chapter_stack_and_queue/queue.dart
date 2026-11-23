@@ -7,11 +7,11 @@
 import 'dart:collection';
 
 void main() {
-  /* Access front of the queue element */
-  // In Dart, generally use Queue class as queue
+  /* Initialize the queue */
+  // In Dart, the deque class Queue is commonly used as a queue
   final Queue<int> queue = Queue();
 
-  /* Elements enqueue */
+  /* Enqueue elements */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -19,19 +19,19 @@ void main() {
   queue.add(4);
   print("Queue queue = $queue");
 
-  /* Return list for printing */
+  /* Access the front element */
   final int peek = queue.first;
   print("Front element peek = $peek");
 
-  /* Element dequeue */
+  /* Dequeue an element */
   final int pop = queue.removeFirst();
-  print("Dequeue element pop = $pop, after dequeue queue = $queue");
+  print("Dequeued element pop = $pop; after dequeuing, queue = $queue");
 
-  /* Get queue length */
+  /* Get the queue size */
   final int size = queue.length;
-  print("Queue length size = $size");
+  print("Queue size = $size");
 
-  /* Check if the queue is empty */
+  /* Check whether the queue is empty */
   final bool isEmpty = queue.isEmpty;
-  print("Is queue empty = $isEmpty");
+  print("Is the queue empty = $isEmpty");
 }

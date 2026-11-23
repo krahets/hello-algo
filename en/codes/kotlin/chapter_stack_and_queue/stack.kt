@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Access top of the stack element */
+    /* Initialize the stack */
     val stack = Stack<Int>()
 
-    /* Elements push onto stack */
+    /* Push elements onto the stack */
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -21,19 +21,19 @@ fun main() {
     stack.push(4)
     println("Stack stack = $stack")
 
-    /* Return list for printing */
+    /* Access the top element */
     val peek = stack.peek()
-    println("Top element peek = $peek")
+    println("Top element: peek = $peek")
 
-    /* Element pop from stack */
+    /* Pop an element from the stack */
     val pop = stack.pop()
-    println("Pop element pop = $pop, after pop stack = $stack")
+    println("Popped element: pop = $pop; stack after removal = $stack")
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     val size = stack.size
-    println("Stack length size = $size")
+    println("Stack size = $size")
 
-    /* Check if empty */
+    /* Check whether it is empty */
     val isEmpty = stack.isEmpty()
-    println("Is stack empty = $isEmpty")
+    println("Is the stack empty? $isEmpty")
 }

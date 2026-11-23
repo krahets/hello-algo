@@ -6,38 +6,38 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* ハッシュテーブルを初期化 */
+    /* ハッシュテーブルを初期化する */
     unordered_map<int, string> map;
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map[12836] = "シャオハー";
-    map[15937] = "シャオルオ";
-    map[16750] = "シャオスワン";
-    map[13276] = "シャオファー";
-    map[10583] = "シャオヤー";
-    cout << "\n追加完了後、ハッシュテーブルは\nKey -> Value" << endl;
+    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    map[12836] = "小哈";
+    map[15937] = "小啰";
+    map[16750] = "小算";
+    map[13276] = "小法";
+    map[10583] = "小鸭";
+    cout << "\n追加後のハッシュテーブル\nKey -> Value" << endl;
     printHashMap(map);
 
-    /* 検索操作 */
-    // キー key をハッシュテーブルに渡し、値 value を取得
+    /* 取得操作 */
+    // ハッシュテーブルにキー key を渡し、値 value を取得する
     string name = map[15937];
-    cout << "\n学籍番号 15937 を入力すると、氏名 " << name << endl;
+    cout << "\n学生番号 15937 に対応する氏名は " << name << endl;
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからキーと値のペア (key, value) を削除する
     map.erase(10583);
-    cout << "\n10583 を削除した後、ハッシュテーブルは\nKey -> Value" << endl;
+    cout << "\n10583 を削除した後のハッシュテーブル\nKey -> Value" << endl;
     printHashMap(map);
 
-    /* ハッシュテーブルを走査 */
-    cout << "\nキーと値のペア Key->Value を走査" << endl;
+    /* ハッシュテーブルを走査する */
+    cout << "\nキーと値のペア Key->Value を走査する" << endl;
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
-    cout << "\nイテレータで Key->Value を走査" << endl;
+    cout << "\nイテレータで Key->Value を走査する" << endl;
     for (auto iter = map.begin(); iter != map.end(); iter++) {
         cout << iter->first << "->" << iter->second << endl;
     }

@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "二分探索木でノード 7 を探す",
+  "summary": "1 から 15 までの値を持つ二分探索木で 7 を探します。各ノードで値を比較し、左か右の枝を選びます。",
+  "context": [
+    "二分探索木では、どのノードでも、左部分木のすべての値はそのノードの値より小さく、右部分木のすべての値は大きくなります。枝の矢印は親から子を指します。",
+    "4 層のパーフェクトな二分探索木に、1 から 15 までのノードがあります。左右の子を順に挙げると、根 8 の子は 4 と 12、4 の子は 2 と 6、12 の子は 10 と 14 です。2 の子は 1 と 3、6 の子は 5 と 7、10 の子は 9 と 11、14 の子は 13 と 15 です。",
+    "ポインタ cur が指す現在のノードは、青く塗りつぶしてあります。すでにたどった経路は青い矢印とノードを囲む青い輪で示します。"
+  ],
+  "description": [],
+  "result": "cur は 8 → 4 → 6 → 7 の順に 4 個のノードで値を比較します。4 回目で目的の値 7 と一致し、そのノードを返します。探索中、木の枝のつながりは変わりません。",
+  "frames": [
+    {
+      "id": "source-118",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
+      "title": "根ノード 8 から探索を開始",
+      "explanation": "cur の初期位置は、青く塗られた根ノード 8 です。目的の値 7 と現在の値 8 を比較します。7 < 8 なので、7 があるのは左部分木です。次は左下の子 4 に進みます。ここまでの経路は 8 です。",
+      "key_state": "cur は根ノード 8 を指しています。目的の値 7 は 8 より小さいので、次は左の子 4 です。",
+      "announcement": "7 の探索を開始し、cur を根ノード 8 に置きました。"
+    },
+    {
+      "id": "source-119",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step2.png",
+      "title": "左の子 4 に進む",
+      "explanation": "7 < 8 なので cur = cur.left を実行し、青い矢印に沿って 8 から左の子 4 に進みます。今度は 7 > 4 なので、次は 4 の右部分木に進みます。ここまでの経路は 8 → 4 です。",
+      "key_state": "cur は 4 を指し、経路は 8 → 4 です。目的の値 7 は 4 より大きいので、次は右の子 6 です。",
+      "announcement": "7 は 8 より小さいので、cur は 8 から左の子 4 に移りました。"
+    },
+    {
+      "id": "source-120",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step3.png",
+      "title": "右の子 6 に進む",
+      "explanation": "7 > 4 なので cur = cur.right を実行し、青い矢印に沿って 4 から右の子 6 に進みます。今度も 7 > 6 なので、次は 6 の右の子です。ここまでの経路は 8 → 4 → 6 です。",
+      "key_state": "cur は 6 を指し、経路は 8 → 4 → 6 です。目的の値 7 は 6 より大きいので、次は右の子 7 です。",
+      "announcement": "7 は 4 より大きいので、cur は 4 から右の子 6 に移りました。"
+    },
+    {
+      "id": "source-121",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
+      "title": "ノード 7 を発見",
+      "explanation": "7 > 6 なので cur = cur.right を実行し、青い矢印に沿って 6 から右の子 7 に進みます。値が目的の 7 と一致したので、ループを抜けてノード 7 を返します。経路は 8 → 4 → 6 → 7 です。",
+      "key_state": "cur が目的のノード 7 を指し、探索に成功しました。経路は 8 → 4 → 6 → 7 です。",
+      "announcement": "7 は 6 より大きいので、cur は 6 から右の子 7 に移り、目的のノードを見つけました。"
+    }
+  ],
+  "animations": {
+    "bst-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-118"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-119"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-120"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-121"
+        }
+      ]
+    }
+  }
+}

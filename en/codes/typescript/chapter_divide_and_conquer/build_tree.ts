@@ -7,7 +7,7 @@
 import { printTree } from '../modules/PrintUtil';
 import { TreeNode } from '../modules/TreeNode';
 
-/* Build binary tree: divide and conquer */
+/* Build a binary tree: divide and conquer */
 function dfs(
     preorder: number[],
     inorderMap: Map<number, number>,
@@ -15,11 +15,11 @@ function dfs(
     l: number,
     r: number
 ): TreeNode | null {
-    // Terminate when the subtree interval is empty
+    // Stop when the subtree interval is empty
     if (r - l < 0) return null;
     // Initialize the root node
     const root: TreeNode = new TreeNode(preorder[i]);
-    // Query m to divide the left and right subtrees
+    // Look up m to separate the left and right subtrees
     const m = inorderMap.get(preorder[i]);
     // Subproblem: build the left subtree
     root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
@@ -29,9 +29,9 @@ function dfs(
     return root;
 }
 
-/* Build binary tree */
+/* Build a binary tree */
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
-    // Initialize hash map, storing the mapping from inorder elements to indices
+    // Initialize a hash table mapping each element in inorder to its index
     let inorderMap = new Map<number, number>();
     for (let i = 0; i < inorder.length; i++) {
         inorderMap.set(inorder[i], i);
@@ -40,7 +40,7 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     return root;
 }
 
-/* Driver Code */
+/* Driver code */
 const preorder = [3, 9, 2, 1, 7];
 const inorder = [9, 3, 1, 2, 7];
 console.log('Preorder traversal = ' + JSON.stringify(preorder));

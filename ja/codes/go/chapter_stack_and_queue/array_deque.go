@@ -6,15 +6,15 @@ package chapter_stack_and_queue
 
 import "fmt"
 
-/* 循環配列ベースの両端キュー */
+/* 循環配列で実装した両端キュー */
 type arrayDeque struct {
 	nums        []int // 両端キューの要素を格納する配列
-	front       int   // 先頭ポインタ。先頭要素を指す
+	front       int   // キューの先頭要素を指す先頭ポインタ
 	queSize     int   // 両端キューの長さ
-	queCapacity int   // キュー容量（格納できる要素数の上限）
+	queCapacity int   // キューの容量（格納できる要素数の上限）
 }
 
-/* キューを初期化 */
+/* キューを初期化する */
 func newArrayDeque(queCapacity int) *arrayDeque {
 	return &arrayDeque{
 		nums:        make([]int, queCapacity),
@@ -24,64 +24,64 @@ func newArrayDeque(queCapacity int) *arrayDeque {
 	}
 }
 
-/* 両端キューの長さを取得 */
+/* 両端キューの長さを取得する */
 func (q *arrayDeque) size() int {
 	return q.queSize
 }
 
-/* 両端キューが空かどうかを判定 */
+/* 両端キューが空かどうかを判定する */
 func (q *arrayDeque) isEmpty() bool {
 	return q.queSize == 0
 }
 
-/* 循環配列のインデックスを計算 */
+/* 循環配列のインデックスを計算する */
 func (q *arrayDeque) index(i int) int {
-	// 剰余演算により配列の先頭と末尾をつなげる
-	// i が配列の末尾を越えたら先頭に戻る
-	// i が配列の先頭を越えて前に出たら末尾に戻る
+	// 剰余演算を使い、配列の先頭と末尾をつなぐ
+	// i が配列の末尾を越えたら、先頭に戻る
+	// i が配列の先頭を越えたら、末尾に戻る
 	return (i + q.queCapacity) % q.queCapacity
 }
 
-/* キュー先頭にエンキュー */
+/* 先頭にエンキューする */
 func (q *arrayDeque) pushFirst(num int) {
 	if q.queSize == q.queCapacity {
-		fmt.Println("両端キューは満杯です")
+		fmt.Println("両端キューが満杯です")
 		return
 	}
 	// 先頭ポインタを左に 1 つ移動する
-	// 剰余演算により、front が配列先頭を越えた後に末尾へ戻るようにする
+	// 剰余演算により、front が配列の先頭を越えたら末尾に戻るようにする
 	q.front = q.index(q.front - 1)
-	// num をキュー先頭に追加
+	// num をキューの先頭に追加する
 	q.nums[q.front] = num
 	q.queSize++
 }
 
-/* キュー末尾にエンキュー */
+/* 末尾にエンキューする */
 func (q *arrayDeque) pushLast(num int) {
 	if q.queSize == q.queCapacity {
-		fmt.Println("両端キューは満杯です")
+		fmt.Println("両端キューが満杯です")
 		return
 	}
-	// キュー末尾ポインタを計算し、末尾インデックス + 1 を指す
+	// 末尾のインデックス + 1 を指す末尾ポインタを計算する
 	rear := q.index(q.front + q.queSize)
-	// num をキュー末尾に追加
+	// num をキューの末尾に追加する
 	q.nums[rear] = num
 	q.queSize++
 }
 
-/* キュー先頭からデキュー */
+/* 先頭からデキューする */
 func (q *arrayDeque) popFirst() any {
 	num := q.peekFirst()
 	if num == nil {
 		return nil
 	}
-	// 先頭ポインタを 1 つ後ろへ進める
+	// 先頭ポインタを後ろに 1 つ移動する
 	q.front = q.index(q.front + 1)
 	q.queSize--
 	return num
 }
 
-/* キュー末尾からデキュー */
+/* 末尾からデキューする */
 func (q *arrayDeque) popLast() any {
 	num := q.peekLast()
 	if num == nil {
@@ -91,7 +91,7 @@ func (q *arrayDeque) popLast() any {
 	return num
 }
 
-/* キュー先頭の要素にアクセス */
+/* キューの先頭要素にアクセス */
 func (q *arrayDeque) peekFirst() any {
 	if q.isEmpty() {
 		return nil
@@ -99,19 +99,19 @@ func (q *arrayDeque) peekFirst() any {
 	return q.nums[q.front]
 }
 
-/* キュー末尾の要素にアクセス */
+/* キューの末尾要素にアクセスする */
 func (q *arrayDeque) peekLast() any {
 	if q.isEmpty() {
 		return nil
 	}
-	// 末尾要素のインデックスを計算
+	// 末尾要素のインデックスを計算する
 	last := q.index(q.front + q.queSize - 1)
 	return q.nums[last]
 }
 
-/* 表示用に Slice を取得 */
+/* 表示用の Slice を取得する */
 func (q *arrayDeque) toSlice() []int {
-	// 有効長の範囲内のリスト要素のみを変換
+	// 有効な長さの範囲内にあるリストの要素だけを変換する
 	res := make([]int, q.queSize)
 	for i, j := 0, q.front; i < q.queSize; i++ {
 		res[i] = q.nums[q.index(j)]

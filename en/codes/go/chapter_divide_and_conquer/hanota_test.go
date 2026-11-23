@@ -13,14 +13,14 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// The tail of the list is the top of the rod
+	// The end of each list represents the top of the peg
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)
 	}
 	B := list.New()
 	C := list.New()
-	fmt.Println("In initial state:")
+	fmt.Println("Initial state:")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")
@@ -30,7 +30,7 @@ func TestHanota(t *testing.T) {
 
 	solveHanota(A, B, C)
 
-	fmt.Println("After disk movement is complete:")
+	fmt.Println("After moving the disks:")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")

@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "title": "State transition for minimum path sum",
+  "summary": "Because the final step into an interior cell can come only from above or from the left, take the smaller of those two cumulative minimum path sums plus the current cell's cost.",
+  "context": [
+    "Moving only one cell right or down at a time from top-left [0, 0] in a nonnegative grid and summing all visited cells (including start and end), let dp[i, j] denote the minimum path sum to row i, column j (zero-based); the 4×4 input grid for this example appears in the table."
+  ],
+  "description": [
+    "On the left is the 4×4 cost grid, and on the right is a symbolic dp table of equal size labeled dp[0, 0] through dp[3, 3]. In the left grid, current cell [2, 2] (value 2) is shaded green, upper neighbor [1, 2] (value 4) is shaded purple, and left neighbor [2, 1] (value 3) is shaded blue; the right table highlights dp[2, 2], dp[1, 2], and dp[2, 1] in matching colors.",
+    "In the right table, a downward arrow points from dp[1, 2] to dp[2, 2] and a rightward arrow points from dp[2, 1] to dp[2, 2]. Below appears the state transition equation dp[i, j] = min(dp[i - 1, j], dp[i, j - 1]) + grid[i, j]; note that min compares the cumulative minimum path sums to the two predecessor cells rather than the single-cell costs 4 and 3 in the left grid."
+  ],
+  "frames": [
+    {
+      "id": "source-378",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png",
+      "title": "State transition for minimum path sum",
+      "explanation": "For the green interior cell i = 2, j = 2, one can arrive only by stepping down from [1, 2] above or stepping right from [2, 1] on the left, giving dp[2, 2] = min(dp[1, 2], dp[2, 1]) + grid[2, 2] with grid[2, 2] = 2. The dp table on the right shows only symbolic dependencies here without filling in numeric cumulative sums."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "State transition: input grid (zero-based row and column indices)",
+      "headers": [
+        "Row index",
+        "Column 0",
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "3",
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "2",
+          "2",
+          "4",
+          "2"
+        ],
+        [
+          "2",
+          "5",
+          "3",
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "4",
+          "3",
+          "5",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

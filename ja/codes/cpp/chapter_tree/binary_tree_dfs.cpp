@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-// 走査順序を格納するリストを初期化
+// 走査順序を格納するリストを初期化する
 vector<int> vec;
 
-/* 先行順走査 */
+/* 行きがけ順走査 */
 void preOrder(TreeNode *root) {
     if (root == nullptr)
         return;
@@ -19,50 +19,50 @@ void preOrder(TreeNode *root) {
     preOrder(root->right);
 }
 
-/* 中順走査 */
+/* 通りがけ順走査 */
 void inOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // 訪問優先順: 左部分木 -> 根ノード -> 右部分木
+    // 訪問順序：左部分木 -> 根ノード -> 右部分木
     inOrder(root->left);
     vec.push_back(root->val);
     inOrder(root->right);
 }
 
-/* 後順走査 */
+/* 帰りがけ順走査 */
 void postOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // 訪問優先順: 左部分木 -> 右部分木 -> 根ノード
+    // 訪問順序：左部分木 -> 右部分木 -> 根ノード
     postOrder(root->left);
     postOrder(root->right);
     vec.push_back(root->val);
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* 二分木を初期化 */
-    // ここでは、配列から直接二分木を生成する関数を利用する
+    /* 二分木を初期化する */
+    // ここでは配列から二分木を直接生成する関数を使う
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
-    cout << endl << "二分木を初期化\n" << endl;
+    cout << endl << "二分木を初期化する\n" << endl;
     printTree(root);
 
-    /* 先行順走査 */
+    /* 行きがけ順走査 */
     vec.clear();
     preOrder(root);
-    cout << endl << "前順走査のノード出力列 = ";
+    cout << endl << "行きがけ順走査で表示するノードの順序 = ";
     printVector(vec);
 
-    /* 中順走査 */
+    /* 通りがけ順走査 */
     vec.clear();
     inOrder(root);
-    cout << endl << "中順走査のノード出力列 = ";
+    cout << endl << "通りがけ順走査で表示するノードの順序 = ";
     printVector(vec);
 
-    /* 後順走査 */
+    /* 帰りがけ順走査 */
     vec.clear();
     postOrder(root);
-    cout << endl << "後順走査のノード出力列 = ";
+    cout << endl << "帰りがけ順走査で表示するノードの順序 = ";
     printVector(vec);
 
     return 0;

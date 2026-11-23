@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "title": "Hash collision",
+  "summary": "Different student IDs can map to the same bucket; without collision handling, reading solely by bucket index returns an incorrect result.",
+  "context": [
+    "Reusing the bucket array from Figure 6-2, the chapter sets the capacity to 100 and the hash function to key % 100. Neither this figure nor the surrounding text gives the true name associated with student ID 20336."
+  ],
+  "description": [
+    "On the left under \"Input key\", orange 20336 appears above blue 12836; after passing through \"Hash function key % 100\", both curves point to bold index 36, with a pink label \"Hash collision\" above where they converge.",
+    "On the right under \"Output value\", both the upper orange box and the lower blue box display \"小哈\". The two tables below list the array contents and the lookup outcomes; remaining buckets are omitted with ellipses."
+  ],
+  "tables": [
+    {
+      "caption": "Buckets shown in the array",
+      "headers": [
+        "Bucket index",
+        "Student ID key",
+        "Name value"
+      ],
+      "rows": [
+        [
+          "36",
+          "12836",
+          "小哈"
+        ],
+        [
+          "37",
+          "15937",
+          "小啰"
+        ],
+        [
+          "50",
+          "16750",
+          "小算"
+        ],
+        [
+          "76",
+          "13276",
+          "小法"
+        ],
+        [
+          "83",
+          "10583",
+          "小鸭"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Two colliding inputs",
+      "headers": [
+        "Input student ID",
+        "key % 100",
+        "Result read in the figure"
+      ],
+      "rows": [
+        [
+          "12836",
+          "36",
+          "小哈, matches the student ID in the bucket"
+        ],
+        [
+          "20336",
+          "36",
+          "小哈, mistakenly reads another student ID's value"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "Collision-resolution mechanisms such as separate chaining or open addressing distinguish and store colliding keys, while table expansion lowers the load factor to reduce collisions.",
+  "frames": [
+    {
+      "id": "source-83",
+      "book_path": "chapter_hashing/hash_map.assets/hash_collision.png",
+      "title": "Hash collision between 20336 and 12836 at bucket 36",
+      "explanation": "Because both student IDs share the same last two digits, the bucket index from the modulo operation alone cannot tell whether the full student ID in the bucket matches. Lookups must therefore verify the full key and use a collision-handling mechanism."
+    }
+  ]
+}

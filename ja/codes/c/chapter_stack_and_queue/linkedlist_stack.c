@@ -6,9 +6,9 @@
 
 #include "../utils/common.h"
 
-/* 連結リストベースのスタック */
+/* 連結リストで実装したスタック */
 typedef struct {
-    ListNode *top; // 先頭ノードをスタックトップとする
+    ListNode *top; // 先頭ノードをスタックの先頭とする
     int size;      // スタックの長さ
 } LinkedListStack;
 
@@ -30,12 +30,12 @@ void delLinkedListStack(LinkedListStack *s) {
     free(s);
 }
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 int size(LinkedListStack *s) {
     return s->size;
 }
 
-/* スタックが空かどうかを判定 */
+/* スタックが空かどうかを判定する */
 bool isEmpty(LinkedListStack *s) {
     return size(s) == 0;
 }
@@ -43,16 +43,16 @@ bool isEmpty(LinkedListStack *s) {
 /* プッシュ */
 void push(LinkedListStack *s, int num) {
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-    node->next = s->top; // 新しく追加したノードのポインタフィールドを更新
-    node->val = num;     // 新しく追加したノードのデータフィールドを更新
-    s->top = node;       // スタックトップを更新
-    s->size++;           // スタックサイズを更新
+    node->next = s->top; // 追加するノードのポインタ領域を更新する
+    node->val = num;     // 追加するノードのデータ領域を更新する
+    s->top = node;       // スタックの先頭を更新する
+    s->size++;           // スタックのサイズを更新する
 }
 
-/* スタックトップの要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 int peek(LinkedListStack *s) {
     if (s->size == 0) {
-        printf("スタックは空です\n");
+        printf("スタックが空です\n");
         return INT_MAX;
     }
     return s->top->val;
@@ -69,12 +69,12 @@ int pop(LinkedListStack *s) {
     return val;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     LinkedListStack *stack = newLinkedListStack();
 
-    /* 要素をプッシュ */
+    /* 要素をプッシュする */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -84,21 +84,21 @@ int main() {
     printf("スタック stack = ");
     printLinkedList(stack->top);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     int val = peek(stack);
-    printf("スタックトップ要素 top = %d\r\n", val);
+    printf("スタックの先頭要素 top = %d\r\n", val);
 
-    /* 要素をポップ */
+    /* 要素をポップする */
     val = pop(stack);
     printf("ポップした要素 pop = %d, ポップ後 stack =  ", val);
     printLinkedList(stack->top);
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     printf("スタックの長さ size = %d\n", size(stack));
 
-    /* 空かどうかを判定 */
+    /* 空かどうかを判定する */
     bool empty = isEmpty(stack);
-    printf("スタックが空かどうか = %s\n", empty ? "true" : "false");
+    printf("スタックは空か = %s\n", empty ? "true" : "false");
 
     // メモリを解放する
     delLinkedListStack(stack);

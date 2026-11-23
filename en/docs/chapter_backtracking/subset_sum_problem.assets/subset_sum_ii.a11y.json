@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "title": "Four pruning conditions for subset sum II",
+  "summary": "Search the sorted array [4, 4, 5] for subsets summing to 9, combining four pruning conditions to keep only the unique solution [4, 5].",
+  "context": [
+    "The input array is choices = [4, 4, 5] at indices 0, 1, and 2. Below, \"first 4\" and \"second 4\" distinguish indices 0 and 1; the figure places a hat over the second 4, though both have numeric value 4. The array is sorted and target = 9; numbers inside the circles show the remaining target."
+  ],
+  "description": [
+    "Each index may be used at most once, and subsets ignore order. After selecting index i, the next round begins at start = i + 1, enforcing two rules at once: neither going back to an earlier index (Pruning 2) nor reusing the current index (Pruning 3).",
+    "When trying the second 4 at the root, its index i = 1 is greater than start = 0, and its value equals the previous candidate’s value, triggering same-round deduplication (Pruning 4). After entering [first 4], the new call has start = 1; now the second 4 has i = 1 equal to start rather than i > start, so it remains selectable. Choosing it leaves a remaining target of 1, and the only candidate afterward is 5, which exceeds the remaining target and triggers an immediate break under Pruning 1.",
+    "Below, the \"Meanings of the four pruning conditions\" table matches the four colors of scissors in the figure, and the next table lists each prefix and candidate in turn. None of the pruned branches is entered recursively. Pruning 2 and Pruning 3 are skipped directly via start = i + 1—the code never loops over those candidates individually, though the figure draws them for comparison; under [first 4, second 4], choosing the first 4 again is labeled as returning to an earlier index (Pruning 2) in the figure, while its index 0 is also already on the path."
+  ],
+  "frames": [
+    {
+      "id": "source-362",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii.png",
+      "title": "Four pruning conditions for subset sum II",
+      "explanation": "The only path that reduces the remaining target to 0 picks the first 4 and then 5, yielding [4, 5]."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Meanings of the four pruning conditions",
+      "headers": [
+        "Legend",
+        "Excluded case"
+      ],
+      "rows": [
+        [
+          "Pruning 1 (red)",
+          "Selecting the candidate pushes the sum past 9, making remaining target negative"
+        ],
+        [
+          "Pruning 2 (blue)",
+          "Going back to an earlier index produces a duplicate combination in a different order"
+        ],
+        [
+          "Pruning 3 (purple)",
+          "Reusing the current array index that was just selected"
+        ],
+        [
+          "Pruning 4 (cyan)",
+          "Trying another candidate with the same value within the same round"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Candidates and dispositions for each prefix in the figure",
+      "headers": [
+        "Prefix and illustrated candidate",
+        "Remaining target before candidate",
+        "Outcome or pruning reason"
+      ],
+      "rows": [
+        [
+          "[]: candidate first 4",
+          "9",
+          "Kept, remaining target 5"
+        ],
+        [
+          "[]: candidate second 4",
+          "9",
+          "Duplicate value in round, Pruning 4"
+        ],
+        [
+          "[]: candidate 5",
+          "9",
+          "Kept, remaining target 4"
+        ],
+        [
+          "[first 4]: candidate first 4",
+          "5",
+          "Reuses current index, Pruning 3"
+        ],
+        [
+          "[first 4]: candidate second 4",
+          "5",
+          "Distinct index, selectable, remaining target 1"
+        ],
+        [
+          "[first 4]: candidate 5",
+          "5",
+          "Remaining target 0, record [4, 5]"
+        ],
+        [
+          "[first 4, second 4]: candidate first 4",
+          "1",
+          "Returns to earlier index, shown as Pruning 2"
+        ],
+        [
+          "[first 4, second 4]: candidate second 4",
+          "1",
+          "Reuses current index, Pruning 3"
+        ],
+        [
+          "[first 4, second 4]: candidate 5",
+          "1",
+          "Exceeds remaining target, Pruning 1"
+        ],
+        [
+          "[5]: candidates first 4, second 4",
+          "4",
+          "Returns to earlier index, Pruning 2"
+        ],
+        [
+          "[5]: candidate 5",
+          "4",
+          "Reuses current index, Pruning 3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

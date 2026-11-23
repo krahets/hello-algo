@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "title": "递归各层保留数组形成平方空间",
+  "summary": "每层递归还保留一个局部数组，峰值空间需要把所有未返回层的数组长度相加。",
+  "context": [
+    "n 为正整数。每次 quadratic_recur(k) 在 k > 0 时创建长度为 k 的 nums，再调用参数 k−1。图省略了不分配数组的最终调用 quadratic_recur(0)，将终止与返回简化画在参数 1 这一行；代码实际在参数 0 时直接返回。"
+  ],
+  "description": [
+    "图从左到右是“数组 nums 长度”“向下‘递’”“向上‘归’”三列，同行长度与调用用线相连。大括号标“递归深度 n”，覆盖分配数组的 n 层；中间调用以省略号代替。参数 1 那一行用“触发递归终止条件”箭头转入右列，各层 return 0 由向上箭头相连。"
+  ],
+  "frames": [
+    {
+      "id": "source-36",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic.png",
+      "title": "递归各层保留数组形成平方空间",
+      "explanation": "上层等待下层返回时，局部数组仍被保留。图底部将长度相加：1 + 2 + … + (n−1) + n = n(n+1)/2，指向平方阶 O(n²)。代码最深处还多一个参数 0 的栈帧，但不多分配数组；调用栈的 O(n) 开销不会改变由这些数组决定的 O(n²) 峰值空间。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "各调用层保留的数组",
+      "headers": [
+        "调用",
+        "nums 长度"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "quadratic_recur(n)",
+          "n"
+        ],
+        [
+          "quadratic_recur(n−1)",
+          "n−1"
+        ],
+        [
+          "中间调用",
+          "省略"
+        ],
+        [
+          "quadratic_recur(2)",
+          "2"
+        ],
+        [
+          "quadratic_recur(1)",
+          "1"
+        ]
+      ]
+    }
+  ]
+}

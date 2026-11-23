@@ -17,7 +17,7 @@ func (h *minHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-// Pop heap.Interface 的方法，实现弹出堆顶元素
+// Pop heap.Interface 的方法，弹出切片末尾元素（heap.Pop 已将堆顶元素交换至末尾）
 func (h *minHeap) Pop() any {
 	// 待出堆元素存放在最后
 	last := (*h)[len(*h)-1]

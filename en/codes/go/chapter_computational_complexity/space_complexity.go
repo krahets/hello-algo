@@ -17,7 +17,7 @@ type node struct {
 	next *node
 }
 
-/* Create node struct */
+/* Create a node struct  */
 func newNode(val int) *node {
 	return &node{val: val}
 }
@@ -28,9 +28,9 @@ func function() int {
 	return 0
 }
 
-/* Constant order */
+/* Constant complexity */
 func spaceConstant(n int) {
-	// Constants, variables, objects occupy O(1) space
+	// Constants, variables, and objects occupy O(1) space
 	const a = 0
 	b := 0
 	nums := make([]int, 10000)
@@ -40,7 +40,7 @@ func spaceConstant(n int) {
 	for i := 0; i < n; i++ {
 		c = 0
 	}
-	// Functions in the loop occupy O(1) space
+	// Function calls in the loop occupy O(1) space
 	for i := 0; i < n; i++ {
 		function()
 	}
@@ -50,51 +50,51 @@ func spaceConstant(n int) {
 	node.val = 0
 }
 
-/* Linear order */
+/* Linear complexity */
 func spaceLinear(n int) {
-	// Array of length n uses O(n) space
+	// An array of length n uses O(n) space
 	_ = make([]int, n)
 	// A list of length n occupies O(n) space
 	var nodes []*node
 	for i := 0; i < n; i++ {
 		nodes = append(nodes, newNode(i))
 	}
-	// A hash table of length n occupies O(n) space
+	// A hash table with n entries occupies O(n) space
 	m := make(map[int]string, n)
 	for i := 0; i < n; i++ {
 		m[i] = strconv.Itoa(i)
 	}
 }
 
-/* Linear order (recursive implementation) */
+/* Linear complexity (recursive implementation) */
 func spaceLinearRecur(n int) {
-	fmt.Println("Recursion n =", n)
+	fmt.Println("Recursive call: n =", n)
 	if n == 1 {
 		return
 	}
 	spaceLinearRecur(n - 1)
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 func spaceQuadratic(n int) {
-	// Matrix uses O(n^2) space
+	// The matrix uses O(n^2) space
 	numMatrix := make([][]int, n)
 	for i := 0; i < n; i++ {
 		numMatrix[i] = make([]int, n)
 	}
 }
 
-/* Quadratic order (recursive implementation) */
+/* Quadratic complexity (recursive implementation) */
 func spaceQuadraticRecur(n int) int {
 	if n <= 0 {
 		return 0
 	}
 	nums := make([]int, n)
-	fmt.Printf("In recursion n = %d, nums length = %d \n", n, len(nums))
+	fmt.Printf("Recursive call n = %d: length of nums = %d \n", n, len(nums))
 	return spaceQuadraticRecur(n - 1)
 }
 
-/* Driver Code */
+/* Exponential complexity (building a perfect binary tree) */
 func buildTree(n int) *TreeNode {
 	if n == 0 {
 		return nil

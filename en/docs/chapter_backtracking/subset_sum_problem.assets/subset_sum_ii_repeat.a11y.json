@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Equal candidates introduce new duplicate combinations",
+  "summary": "Two elements of value 4 in the candidate array create duplicate subset branches with identical contents within the same round of choices.",
+  "context": [
+    "The input array is choices = [4, 4, 5] at indices 0, 1, and 2. Below, \"first 4\" and \"second 4\" distinguish indices 0 and 1; the figure places a hat over the second 4, though both have numeric value 4. Subset sum II requires using each index at most once and producing no duplicate subsets. This figure initially reuses the subset sum I selection rule—passing start = i to the next round so the current index may be chosen again—to illustrate the problem caused by equal candidates."
+  ],
+  "description": [
+    "At the top is choices. Starting from the empty state, the two-level partial search tree chooses the first 4, the second 4, or 5 in the first round; in the second round, it tries all three candidates again only under [first 4, …]. In both places, the third branch is labeled only +5 without writing out its prefix.",
+    "The first gray arc connects [first 4, …] with [second 4, …], and the second connects [first 4, first 4, …] with [first 4, second 4, …], both labeled \"Duplicate subsets\". The first pair shares the numeric prefix [4, …], and the second pair shares [4, 4, …]. Moreover, choosing the first 4 again reuses index 0, which is itself disallowed under the rules of subset sum II."
+  ],
+  "frames": [
+    {
+      "id": "source-361",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_ii_repeat.png",
+      "title": "Equal candidates introduce new duplicate combinations",
+      "explanation": "Eliminating duplicates in subset sum II requires both forbidding reuse of the same index along a path and trying equal-valued candidates only once within the same round, while still allowing the two 4s at distinct indices to be chosen in different rounds along the same path."
+    }
+  ]
+}

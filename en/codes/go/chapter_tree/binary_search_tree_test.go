@@ -12,34 +12,34 @@ import (
 func TestBinarySearchTree(t *testing.T) {
 	bst := newBinarySearchTree()
 	nums := []int{8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15}
-	// Please note that different insertion orders will generate different binary trees, this sequence can generate a perfect binary tree
+	// Different insertion orders produce different binary trees; this sequence produces a perfect binary tree
 	for _, num := range nums {
 		bst.insert(num)
 	}
-	fmt.Println("\nInitialized binary tree is:")
+	fmt.Println("\nInitial binary tree:")
 	bst.print()
 
-	// Get root node
+	// Get the root node
 	node := bst.getRoot()
-	fmt.Println("\nRoot node of binary tree is:", node.Val)
+	fmt.Println("\nRoot of the binary tree:", node.Val)
 
-	// Search node
+	// Find a node
 	node = bst.search(7)
-	fmt.Println("Found node object is", node, ", node value =", node.Val)
+	fmt.Println("Found node:", node, ", node value =", node.Val)
 
-	// Insert node
+	// Insert a node
 	bst.insert(16)
-	fmt.Println("\nAfter inserting node 16, binary tree is:")
+	fmt.Println("\nBinary tree after inserting node 16:")
 	bst.print()
 
-	// Remove node
+	// Remove a node
 	bst.remove(1)
-	fmt.Println("\nAfter removing node 1, binary tree is:")
+	fmt.Println("\nBinary tree after removing node 1:")
 	bst.print()
 	bst.remove(2)
-	fmt.Println("\nAfter removing node 2, binary tree is:")
+	fmt.Println("\nBinary tree after removing node 2:")
 	bst.print()
 	bst.remove(4)
-	fmt.Println("\nAfter removing node 4, binary tree is:")
+	fmt.Println("\nBinary tree after removing node 4:")
 	bst.print()
 }

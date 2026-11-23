@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "两张圆盘借助缓冲柱 B 完成移动",
+  "summary": "先把小盘暂存到柱 B，再把大盘移到柱 C，最后把小盘叠到大盘上，共三次移动。",
+  "context": [
+    "三根柱子从左到右为 A、B、C，目标是把 A 上的两张圆盘移到 C。每次只移动柱顶的一张盘，大盘不能压在小盘上方；下文各柱的圆盘按从下到上排列。",
+    "绿色表示大盘，蓝色表示小盘。"
+  ],
+  "description": [
+    "四幅画面是初始状态和三次单盘移动后的状态：播放器步号包含初始画面，因此第 2、3、4 步分别完成第 1、2、3 次移动。后三幅下方列出已完成的移动指令，用浅灰底突出当前指令。"
+  ],
+  "frames": [
+    {
+      "id": "source-331",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step1.png",
+      "title": "两张圆盘叠放在柱 A",
+      "explanation": "初始 A=[大盘, 小盘]，B=[]，C=[]，尚未移动。蓝色小盘在绿色大盘上方，必须先将小盘移到缓冲柱 B，才能取出大盘。",
+      "key_state": "尚未移动；A 从下到上是大盘、小盘，B、C 为空。",
+      "announcement": "展示大小两盘叠放在柱 A 的初始状态。"
+    },
+    {
+      "id": "source-332",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step2.png",
+      "title": "先把小盘从柱 A 移到柱 B",
+      "explanation": "第 1 次移动：把蓝色小盘从 A 移到空的 B，使绿色大盘露在柱顶。当前 A=[大盘]，B=[小盘]，C=[]。",
+      "key_state": "已完成第 1 次移动；A 有大盘，B 有小盘，C 为空。",
+      "announcement": "第 1 次移动：将小盘从柱 A 移到缓冲柱 B。"
+    },
+    {
+      "id": "source-333",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step3.png",
+      "title": "再把大盘从柱 A 移到柱 C",
+      "explanation": "第 2 次移动：A 上的绿色大盘已无阻挡，C 为空，将大盘从 A 移到 C。当前 A=[]，B=[小盘]，C=[大盘]，小盘仍留在 B。",
+      "key_state": "已完成第 2 次移动；A 为空，B 有小盘，C 有大盘。",
+      "announcement": "第 2 次移动：将大盘从柱 A 移到目标柱 C。"
+    },
+    {
+      "id": "source-334",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step4.png",
+      "title": "最后把小盘从柱 B 移到柱 C",
+      "explanation": "第 3 次移动：把 B 上的蓝色小盘放到 C 的绿色大盘上方，符合小盘在上的规则。当前 A=[]，B=[]，C=[大盘, 小盘]，两盘迁移完成。",
+      "key_state": "已完成第 3 次移动；A、B 为空，C 从下到上是大盘、小盘。",
+      "announcement": "第 3 次移动：将小盘从柱 B 移到柱 C 的大盘上，完成迁移。"
+    }
+  ],
+  "animations": {
+    "hanota-f2": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-331"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-332"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-333"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-334"
+        }
+      ]
+    }
+  }
+}

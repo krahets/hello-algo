@@ -7,21 +7,21 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### Pre-order traversal: example 1 ###
+### Preorder traversal: example 1 ###
 def pre_order(root)
   return unless root
 
-  # Record solution
+  # Record the solution
   $res << root if root.val == 7
 
   pre_order(root.left)
   pre_order(root.right)
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\nInitialize binary tree"
+  puts "\nInitialize the binary tree"
   print_tree(root)
 
   # Preorder traversal

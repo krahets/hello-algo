@@ -19,7 +19,7 @@ class Trunk {
 };
 
 public class PrintUtil {
-    /* Print matrix (Array) */
+    /* Print a matrix (array) */
     public static <T> void printMatrix(T[][] matrix) {
         System.out.println("[");
         for (T[] row : matrix) {
@@ -28,7 +28,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* Print matrix (List) */
+    /* Print a matrix (list) */
     public static <T> void printMatrix(List<List<T>> matrix) {
         System.out.println("[");
         for (List<T> row : matrix) {
@@ -37,7 +37,7 @@ public class PrintUtil {
         System.out.println("]");
     }
 
-    /* Print linked list */
+    /* Print a linked list */
     public static void printLinkedList(ListNode head) {
         List<String> list = new ArrayList<>();
         while (head != null) {
@@ -47,13 +47,13 @@ public class PrintUtil {
         System.out.println(String.join(" -> ", list));
     }
 
-    /* Print binary tree */
+    /* Print a binary tree */
     public static void printTree(TreeNode root) {
         printTree(root, null, false);
     }
 
     /**
-     * 打印二叉树
+     * Print a binary tree
      * This tree printer is borrowed from TECHIE DELIGHT
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
@@ -97,19 +97,19 @@ public class PrintUtil {
         System.out.print(p.str);
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     public static <K, V> void printHashMap(Map<K, V> map) {
         for (Map.Entry<K, V> kv : map.entrySet()) {
             System.out.println(kv.getKey() + " -> " + kv.getValue());
         }
     }
 
-    /* Print heap (priority queue) */
+    /* Print a heap (priority queue) */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
-        System.out.print("Heap array representation:");
+        System.out.print("Array representation of the heap:");
         System.out.println(list);
-        System.out.println("Heap tree representation:");
+        System.out.println("Tree representation of the heap:");
         TreeNode root = TreeNode.listToTree(list);
         printTree(root);
     }

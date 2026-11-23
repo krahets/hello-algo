@@ -12,10 +12,10 @@ import (
 )
 
 func TestAVLTree(t *testing.T) {
-	/* Please pay attention to how the AVL tree maintains balance after inserting nodes */
+	/* Initialize an empty AVL tree */
 	tree := newAVLTree()
-	/* Insert node */
-	// Delete nodes
+	/* Insert a node */
+	// Observe how the AVL tree maintains balance after a node is inserted
 	testInsert(tree, 1)
 	testInsert(tree, 2)
 	testInsert(tree, 3)
@@ -27,28 +27,28 @@ func TestAVLTree(t *testing.T) {
 	testInsert(tree, 10)
 	testInsert(tree, 6)
 
-	/* Please pay attention to how the AVL tree maintains balance after deleting nodes */
+	/* Insert a duplicate node */
 	testInsert(tree, 7)
 
-	/* Remove node */
-	// Delete node with degree 1
-	testRemove(tree, 8) // Delete node with degree 2
-	testRemove(tree, 5) // Remove node with degree 1
-	testRemove(tree, 4) // Remove node with degree 2
+	/* Remove a node */
+	// Observe how the AVL tree maintains balance after a node is removed
+	testRemove(tree, 8) // Remove a node with 0 children
+	testRemove(tree, 5) // Remove a node with 1 child
+	testRemove(tree, 4) // Remove a node with 2 children
 
-	/* Search node */
+	/* Look up a node */
 	node := tree.search(7)
-	fmt.Printf("\nFound node object is %#v, node value = %d \n", node, node.Val)
+	fmt.Printf("\nFound node: %#v; node value = %d \n", node, node.Val)
 }
 
 func testInsert(tree *aVLTree, val int) {
 	tree.insert(val)
-	fmt.Printf("\nAfter inserting node %d, AVL tree is \n", val)
+	fmt.Printf("\nAVL tree after inserting node %d: \n", val)
 	PrintTree(tree.root)
 }
 
 func testRemove(tree *aVLTree, val int) {
 	tree.remove(val)
-	fmt.Printf("\nAfter removing node %d, AVL tree is \n", val)
+	fmt.Printf("\nAVL tree after removing node %d: \n", val)
 	PrintTree(tree.root)
 }

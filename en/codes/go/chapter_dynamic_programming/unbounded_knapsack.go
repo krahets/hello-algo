@@ -6,22 +6,22 @@ package chapter_dynamic_programming
 
 import "math"
 
-/* Unbounded knapsack: Dynamic programming */
+/* Unbounded knapsack: dynamic programming */
 func unboundedKnapsackDP(wgt, val []int, cap int) int {
 	n := len(wgt)
-	// Initialize dp table
+	// Initialize the dp table
 	dp := make([][]int, n+1)
 	for i := 0; i <= n; i++ {
 		dp[i] = make([]int, cap+1)
 	}
-	// State transition
+	// State transitions
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// If exceeds knapsack capacity, don't select item i
+				// If item i exceeds the remaining capacity, do not choose it
 				dp[i][c] = dp[i-1][c]
 			} else {
-				// The larger value between not selecting and selecting item i
+				// Take the larger value obtained by excluding and including item i
 				dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i][c-wgt[i-1]]+val[i-1])))
 			}
 		}
@@ -29,19 +29,19 @@ func unboundedKnapsackDP(wgt, val []int, cap int) int {
 	return dp[n][cap]
 }
 
-/* Unbounded knapsack: Space-optimized dynamic programming */
+/* Unbounded knapsack: space-optimized dynamic programming */
 func unboundedKnapsackDPComp(wgt, val []int, cap int) int {
 	n := len(wgt)
-	// Initialize dp table
+	// Initialize the dp table
 	dp := make([]int, cap+1)
-	// State transition
+	// State transitions
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// If exceeds knapsack capacity, don't select item i
+				// If item i exceeds the remaining capacity, do not choose it
 				dp[c] = dp[c]
 			} else {
-				// The larger value between not selecting and selecting item i
+				// Take the larger value obtained by excluding and including item i
 				dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
 			}
 		}

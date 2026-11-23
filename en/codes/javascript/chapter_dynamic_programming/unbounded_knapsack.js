@@ -4,21 +4,21 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* Unbounded knapsack: Dynamic programming */
+/* Unbounded knapsack: dynamic programming */
 function unboundedKnapsackDP(wgt, val, cap) {
     const n = wgt.length;
-    // Initialize dp table
+    // Initialize the dp table
     const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: cap + 1 }, () => 0)
     );
-    // State transition
+    // State transitions
     for (let i = 1; i <= n; i++) {
         for (let c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // If exceeds knapsack capacity, don't select item i
+                // If item i exceeds the remaining capacity, do not choose it
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // The larger value between not selecting and selecting item i
+                // Take the larger value obtained by excluding and including item i
                 dp[i][c] = Math.max(
                     dp[i - 1][c],
                     dp[i][c - wgt[i - 1]] + val[i - 1]
@@ -29,19 +29,19 @@ function unboundedKnapsackDP(wgt, val, cap) {
     return dp[n][cap];
 }
 
-/* Unbounded knapsack: Space-optimized dynamic programming */
+/* Unbounded knapsack: space-optimized dynamic programming */
 function unboundedKnapsackDPComp(wgt, val, cap) {
     const n = wgt.length;
-    // Initialize dp table
+    // Initialize the dp table
     const dp = Array.from({ length: cap + 1 }, () => 0);
-    // State transition
+    // State transitions
     for (let i = 1; i <= n; i++) {
         for (let c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // If exceeds knapsack capacity, don't select item i
+                // If item i exceeds the remaining capacity, do not choose it
                 dp[c] = dp[c];
             } else {
-                // The larger value between not selecting and selecting item i
+                // Take the larger value obtained by excluding and including item i
                 dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
@@ -49,15 +49,15 @@ function unboundedKnapsackDPComp(wgt, val, cap) {
     return dp[cap];
 }
 
-/* Driver Code */
+/* Driver code */
 const wgt = [1, 2, 3];
 const val = [5, 11, 15];
 const cap = 4;
 
 // Dynamic programming
 let res = unboundedKnapsackDP(wgt, val, cap);
-console.log(`Maximum item value not exceeding knapsack capacity is ${res}`);
+console.log(`Maximum item value within the knapsack capacity: ${res}`);
 
 // Space-optimized dynamic programming
 res = unboundedKnapsackDPComp(wgt, val, cap);
-console.log(`Maximum item value not exceeding knapsack capacity is ${res}`);
+console.log(`Maximum item value within the knapsack capacity: ${res}`);

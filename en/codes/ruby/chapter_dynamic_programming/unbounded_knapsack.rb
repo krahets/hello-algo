@@ -7,16 +7,16 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Unbounded knapsack: dynamic programming ###
 def unbounded_knapsack_dp(wgt, val, cap)
   n = wgt.length
-  # Initialize dp table
+  # Initialize the dp table
   dp = Array.new(n + 1) { Array.new(cap + 1, 0) }
-  # State transition
+  # State transitions
   for i in 1...(n + 1)
     for c in 1...(cap + 1)
       if wgt[i - 1] > c
-        # If exceeds knapsack capacity, don't select item i
+        # If item i exceeds the remaining capacity, do not choose it
         dp[i][c] = dp[i - 1][c]
       else
-        # The larger value between not selecting and selecting item i
+        # Take the larger value obtained by excluding and including item i
         dp[i][c] = [dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]].max
       end
     end
@@ -24,20 +24,20 @@ def unbounded_knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-### Unbounded knapsack: space-optimized DP ###
+### Unbounded knapsack: space-optimized dynamic programming ###
 def unbounded_knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
-  # Initialize dp table
+  # Initialize the dp table
   dp = Array.new(cap + 1, 0)
-  # State transition
+  # State transitions
   for i in 1...(n + 1)
-    # Traverse in forward order
+    # Traverse in increasing order
     for c in 1...(cap + 1)
       if wgt[i -1] > c
-        # If exceeds knapsack capacity, don't select item i
+        # If item i exceeds the remaining capacity, do not choose it
         dp[c] = dp[c]
       else
-        # The larger value between not selecting and selecting item i
+        # Take the larger value obtained by excluding and including item i
         dp[c] = [dp[c], dp[c - wgt[i - 1]] + val[i - 1]].max
       end
     end
@@ -45,7 +45,7 @@ def unbounded_knapsack_dp_comp(wgt, val, cap)
   dp[cap]
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   wgt = [1, 2, 3]
   val = [5, 11, 15]
@@ -53,9 +53,9 @@ if __FILE__ == $0
 
   # Dynamic programming
   res = unbounded_knapsack_dp(wgt, val, cap)
-  puts "Maximum item value not exceeding knapsack capacity is #{res}"
+  puts "Maximum total item value within the knapsack capacity: #{res}"
 
   # Space-optimized dynamic programming
   res = unbounded_knapsack_dp_comp(wgt, val, cap)
-  puts "Maximum item value not exceeding knapsack capacity is #{res}"
+  puts "Maximum total item value within the knapsack capacity: #{res}"
 end

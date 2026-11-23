@@ -6,17 +6,17 @@
 
 package chapter_stack_and_queue
 
-/* 配列ベースのスタック */
+/* 配列で実装したスタック */
 class ArrayStack {
     // リスト（動的配列）を初期化する
     private val stack = mutableListOf<Int>()
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     fun size(): Int {
         return stack.size
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     fun isEmpty(): Boolean {
         return size() == 0
     }
@@ -32,7 +32,7 @@ class ArrayStack {
         return stack.removeAt(size() - 1)
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stack[size() - 1]
@@ -44,12 +44,12 @@ class ArrayStack {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     val stack = ArrayStack()
 
-    /* 要素をプッシュ */
+    /* 要素をプッシュする */
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -57,19 +57,19 @@ fun main() {
     stack.push(4)
     println("スタック stack = ${stack.toArray().contentToString()}")
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     val peek = stack.peek()
-    println("スタックトップ要素 peek = $peek")
+    println("スタックの先頭要素 peek = $peek")
 
-    /* 要素をポップ */
+    /* 要素をポップする */
     val pop = stack.pop()
-    println("ポップした要素 pop = $pop、ポップ後の stack = ${stack.toArray().contentToString()}")
+    println("ポップした要素 pop = $pop、ポップ後 stack = ${stack.toArray().contentToString()}")
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     val size = stack.size()
     println("スタックの長さ size = $size")
 
-    /* 空かどうかを判定 */
+    /* 空かどうかを判定する */
     val isEmpty = stack.isEmpty()
-    println("スタックが空かどうか = $isEmpty")
+    println("スタックは空か = $isEmpty")
 }

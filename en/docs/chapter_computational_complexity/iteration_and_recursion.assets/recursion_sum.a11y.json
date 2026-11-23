@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "Ordinary recursive summation",
+  "summary": "Reduce the summation problem down to the base case first, then add level by level on the way back up.",
+  "context": [
+    "Here n is a positive integer. The left column, \"Recurse downward\", shows the calls, and the right column, \"Return upward\", shows the corresponding return expressions, with ellipses standing in for intermediate calls. The table below retains the top and bottom levels shown in the figure; small values of n pass only through the levels actually needed."
+  ],
+  "description": [],
+  "result": "After accumulating level by level, the initial call recur(n) returns 1 + 2 + … + n.",
+  "frames": [
+    {
+      "id": "source-21",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum.png",
+      "title": "Ordinary recursive summation",
+      "explanation": "Call recur(n) invokes recur(n - 1), decreasing the argument by 1 at each level until recur(1). At that row, the figure marks \"Reach the base case\" with a rightward arrow into the return phase. Call recur(1) returns 1; recur(2) receives 1 and computes 2 + 1 = 3; recur(3) receives 3 and computes 3 + 3 = 6. In general, recur(k) must wait for its child call to return before adding its own parameter k, so additions happen during the return phase."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Calls and return expressions in the figure",
+      "headers": [
+        "Downward recursive call",
+        "Upward return expression"
+      ],
+      "rows": [
+        [
+          "recur(n)",
+          "n+((n−1)+…+2+1)"
+        ],
+        [
+          "recur(n−1)",
+          "(n−1)+((n−2)+…+2+1)"
+        ],
+        [
+          "Intermediate calls",
+          "Omitted"
+        ],
+        [
+          "recur(4)",
+          "4+(3+2+1)"
+        ],
+        [
+          "recur(3)",
+          "3+(2+1)"
+        ],
+        [
+          "recur(2)",
+          "2+(1)"
+        ],
+        [
+          "recur(1), base case",
+          "1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

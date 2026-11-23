@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "基于数组实现队列的入队与出队",
+  "summary": "用 front 标记队首、size 记录长度，入队写入尾后位置，出队移动队首索引，其他元素原地保留。",
+  "context": [
+    "左侧是对外队列，右侧是竖直数组，中间标注“底层实现是数组，对外表现为队列”。两者自上而下按队首到队尾排列；向下即索引增大，对应后文横排数组叙述中的“向右移动”。"
+  ],
+  "description": [
+    "这三帧没有跨越数组末端，图中用 rear = front + size 表示队尾之后的下一写入位置，有效区间为 [front, rear - 1]。数组两端的灰色虚线格和省略号表示其余空间；槽位退出有效区间，不表示原值被清零。"
+  ],
+  "result": "入队只需在 rear 处写入元素并将 size 加 1，出队只需将 front 加 1 并将 size 减 1，避免了每次出队搬移剩余元素，时间复杂度均为 O(1)。",
+  "frames": [
+    {
+      "id": "source-67",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step1.png",
+      "title": "初始队列：确定有效区间",
+      "explanation": "初始队列为 [1, 3, 2, 5]，size = 4。橙色 front 指向 1，青色 rear 按 front + 4 算出，指向 5 下方的首个空槽。说明框写明 front 指队首、rear 指队尾位置加 1。",
+      "key_state": "初始队列 [1, 3, 2, 5]，size = 4；front 指向 1，rear = front + size 指向 5 下方的空位。",
+      "announcement": "初始数组队列为 [1, 3, 2, 5]，size = 4，front 指向队首 1，rear 指向尾元素 5 之后的空位。"
+    },
+    {
+      "id": "source-68",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step2_push.png",
+      "title": "在 rear 位置入队 4",
+      "explanation": "执行 push(4)。说明框列出三个子步骤：计算 rear、在 rear 处添加元素、size 自增 1。先用入队前的 size = 4 算出 5 下方的空槽，写入青色的 4，再把 size 增至 5。当前队列为 [1, 3, 2, 5, 4]，front 仍指 1；图中 rear 停在本次写入的 4 处，未按新 size 重算。重算后应指向 4 下方一格的空槽。",
+      "key_state": "push(4) 后：队列 [1, 3, 2, 5, 4]，size = 5，front 指向 1；图中 rear 停在本次写入的 4 处。",
+      "announcement": "执行 push(4)，在尾指针 rear 处写入 4 并将 size 增至 5，队列变为 [1, 3, 2, 5, 4]。"
+    },
+    {
+      "id": "source-69",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step3_pop.png",
+      "title": "移动 front，队首 1 出队",
+      "explanation": "执行 pop()，取出并返回原队首 1。说明框列出 front 自增 1、size 自减 1：front 向下移动一格指向 3，size 从 5 减为 4。当前有效队列为 [3, 2, 5, 4]，这些元素仍在原槽位；原 1 所在格画为虚线，退出有效范围。本帧不画 rear 标记。",
+      "key_state": "pop() 返回 1；front 向下移一格指向 3，size = 4，有效队列为 [3, 2, 5, 4]。原 1 所在槽退出有效范围，未清零；本帧不画 rear。",
+      "announcement": "执行 pop()，front 下移指向 3，size 减为 4，元素 1 出队，其余元素 [3, 2, 5, 4] 原地保留。"
+    }
+  ],
+  "animations": {
+    "array-queue": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-67"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-68"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-69"
+        }
+      ]
+    }
+  }
+}

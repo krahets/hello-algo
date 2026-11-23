@@ -36,7 +36,7 @@ class MyList {
         return arr[index];
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     public void Set(int index, int num) {
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("индекс выходит за границы");
@@ -60,7 +60,7 @@ class MyList {
         // При превышении вместимости по числу элементов запускается расширение
         if (arrSize == arrCapacity)
             ExtendCapacity();
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for (int j = arrSize - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
@@ -74,7 +74,7 @@ class MyList {
         if (index < 0 || index >= arrSize)
             throw new IndexOutOfRangeException("индекс выходит за границы");
         int num = arr[index];
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for (int j = index; j < arrSize - 1; j++) {
             arr[j] = arr[j + 1];
         }
@@ -129,9 +129,9 @@ public class my_list {
         int num = nums.Get(1);
         Console.WriteLine("Элемент по индексу 1: num = " + num);
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         nums.Set(1, 0);
-        Console.WriteLine("После обновления элемента по индексу 1 до 0 nums = " + string.Join(",", nums.ToArray()));
+        Console.WriteLine("После изменения значения элемента с индексом 1 на 0 nums = " + string.Join(",", nums.ToArray()));
 
         /* Проверка механизма расширения */
         for (int i = 0; i < 10; i++) {

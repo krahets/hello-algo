@@ -10,7 +10,7 @@
 
 观察下图，由于物品编号 $i$ 从 $1$ 开始计数，数组索引从 $0$ 开始计数，因此物品 $i$ 对应重量 $wgt[i-1]$ 和价值 $val[i-1]$ 。
 
-![0-1 背包的示例数据](knapsack_problem.assets/knapsack_example.png)
+![0-1 背包的示例数据](knapsack_problem.assets/knapsack_example.svg)
 
 我们可以将 0-1 背包问题看作一个由 $n$ 轮决策组成的过程，对于每个物体都有不放入和放入两种决策，因此该问题满足决策树模型。
 
@@ -64,7 +64,7 @@ $$
 
 观察递归树，容易发现其中存在重叠子问题，例如 $dp[1, 10]$ 等。而当物品较多、背包容量较大，尤其是相同重量的物品较多时，重叠子问题的数量将会大幅增多。
 
-![0-1 背包问题的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.png)
+![0-1 背包问题的暴力搜索递归树](knapsack_problem.assets/knapsack_dfs.svg)
 
 ### 方法二：记忆化搜索
 
@@ -78,7 +78,7 @@ $$
 
 下图展示了在记忆化搜索中被剪掉的搜索分支。
 
-![0-1 背包问题的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.png)
+![0-1 背包问题的记忆化搜索递归树](knapsack_problem.assets/knapsack_dfs_mem.svg)
 
 ### 方法三：动态规划
 
@@ -91,46 +91,46 @@ $$
 如下图所示，时间复杂度和空间复杂度都由数组 `dp` 大小决定，即 $O(n \times cap)$ 。
 
 === "<1>"
-    ![0-1 背包问题的动态规划过程](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![0-1 背包问题的动态规划过程](knapsack_problem.assets/knapsack_dp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png)
+    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.png)
+    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.png)
+    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.png)
+    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.png)
+    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.svg)
 
 === "<7>"
-    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.png)
+    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.svg)
 
 === "<8>"
-    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.png)
+    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.svg)
 
 === "<9>"
-    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.png)
+    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.svg)
 
 === "<10>"
-    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.png)
+    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.svg)
 
 === "<11>"
-    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.png)
+    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.svg)
 
 === "<12>"
-    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.png)
+    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.svg)
 
 === "<13>"
-    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.png)
+    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.svg)
 
 === "<14>"
-    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
+    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.svg)
 
 ### 空间优化
 
@@ -144,22 +144,22 @@ $$
 下图展示了在单个数组下从第 $i = 1$ 行转换至第 $i = 2$ 行的过程。请思考正序遍历和倒序遍历的区别。
 
 === "<1>"
-    ![0-1 背包的空间优化后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![0-1 背包的空间优化后的动态规划过程](knapsack_problem.assets/knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
+    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.png)
+    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.png)
+    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.png)
+    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
+    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
 
 在代码实现中，我们仅需将数组 `dp` 的第一维 $i$ 直接删除，并且把内循环更改为倒序遍历即可：
 

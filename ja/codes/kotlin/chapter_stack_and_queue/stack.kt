@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     val stack = Stack<Int>()
 
-    /* 要素をプッシュ */
+    /* 要素をプッシュする */
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -21,19 +21,19 @@ fun main() {
     stack.push(4)
     println("スタック stack = $stack")
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     val peek = stack.peek()
-    println("スタックトップ要素 peek = $peek")
+    println("スタックの先頭要素 peek = $peek")
 
-    /* 要素をポップ */
+    /* 要素をポップする */
     val pop = stack.pop()
     println("ポップした要素 pop = $pop、ポップ後 stack = $stack")
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     val size = stack.size
     println("スタックの長さ size = $size")
 
-    /* 空かどうかを判定 */
+    /* 空かどうかを判定する */
     val isEmpty = stack.isEmpty()
-    println("スタックが空かどうか = $isEmpty")
+    println("スタックは空か = $isEmpty")
 }

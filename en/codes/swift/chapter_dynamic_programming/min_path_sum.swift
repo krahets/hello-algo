@@ -4,61 +4,61 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Minimum path sum: Brute-force search */
+/* Minimum path sum: brute-force search */
 func minPathSumDFS(grid: [[Int]], i: Int, j: Int) -> Int {
-    // If it's the top-left cell, terminate the search
+    // Stop searching at the top-left cell
     if i == 0, j == 0 {
         return grid[0][0]
     }
-    // If row or column index is out of bounds, return +∞ cost
+    // If a row or column index is out of bounds, return Int.max to represent an infinite cost
     if i < 0 || j < 0 {
         return .max
     }
-    // Calculate the minimum path cost from top-left to (i-1, j) and (i, j-1)
+    // Calculate the minimum path costs from the top-left corner to (i-1, j) and (i, j-1)
     let up = minPathSumDFS(grid: grid, i: i - 1, j: j)
     let left = minPathSumDFS(grid: grid, i: i, j: j - 1)
-    // Return the minimum path cost from top-left to (i, j)
+    // Return the minimum path cost from the top-left corner to (i, j)
     return min(left, up) + grid[i][j]
 }
 
-/* Minimum path sum: Memoization search */
+/* Minimum path sum: memoized search */
 func minPathSumDFSMem(grid: [[Int]], mem: inout [[Int]], i: Int, j: Int) -> Int {
-    // If it's the top-left cell, terminate the search
+    // Stop searching at the top-left cell
     if i == 0, j == 0 {
         return grid[0][0]
     }
-    // If row or column index is out of bounds, return +∞ cost
+    // If a row or column index is out of bounds, return Int.max to represent an infinite cost
     if i < 0 || j < 0 {
         return .max
     }
-    // If there's a record, return it directly
+    // If a result has already been recorded, return it directly
     if mem[i][j] != -1 {
         return mem[i][j]
     }
-    // Minimum path cost for left and upper cells
+    // Minimum path costs to the cells on the left and above
     let up = minPathSumDFSMem(grid: grid, mem: &mem, i: i - 1, j: j)
     let left = minPathSumDFSMem(grid: grid, mem: &mem, i: i, j: j - 1)
-    // Record and return the minimum path cost from top-left to (i, j)
+    // Record and return the minimum path cost from the top-left corner to (i, j)
     mem[i][j] = min(left, up) + grid[i][j]
     return mem[i][j]
 }
 
-/* Minimum path sum: Dynamic programming */
+/* Minimum path sum: dynamic programming */
 func minPathSumDP(grid: [[Int]]) -> Int {
     let n = grid.count
     let m = grid[0].count
-    // Initialize dp table
+    // Initialize the dp table
     var dp = Array(repeating: Array(repeating: 0, count: m), count: n)
     dp[0][0] = grid[0][0]
-    // State transition: first row
+    // State transitions: first row
     for j in 1 ..< m {
         dp[0][j] = dp[0][j - 1] + grid[0][j]
     }
-    // State transition: first column
+    // State transitions: first column
     for i in 1 ..< n {
         dp[i][0] = dp[i - 1][0] + grid[i][0]
     }
-    // State transition: rest of the rows and columns
+    // State transitions: remaining rows and columns
     for i in 1 ..< n {
         for j in 1 ..< m {
             dp[i][j] = min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j]
@@ -67,22 +67,22 @@ func minPathSumDP(grid: [[Int]]) -> Int {
     return dp[n - 1][m - 1]
 }
 
-/* Minimum path sum: Space-optimized dynamic programming */
+/* Minimum path sum: space-optimized dynamic programming */
 func minPathSumDPComp(grid: [[Int]]) -> Int {
     let n = grid.count
     let m = grid[0].count
-    // Initialize dp table
+    // Initialize the dp table
     var dp = Array(repeating: 0, count: m)
-    // State transition: first row
+    // State transitions: first row
     dp[0] = grid[0][0]
     for j in 1 ..< m {
         dp[j] = dp[j - 1] + grid[0][j]
     }
-    // State transition: rest of the rows
+    // State transitions: remaining rows
     for i in 1 ..< n {
-        // State transition: first column
+        // State transitions: first column
         dp[0] = dp[0] + grid[i][0]
-        // State transition: rest of the columns
+        // State transitions: remaining columns
         for j in 1 ..< m {
             dp[j] = min(dp[j - 1], dp[j]) + grid[i][j]
         }
@@ -92,7 +92,7 @@ func minPathSumDPComp(grid: [[Int]]) -> Int {
 
 @main
 enum MinPathSum {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let grid = [
             [1, 3, 1, 5],
@@ -105,19 +105,19 @@ enum MinPathSum {
 
         // Brute-force search
         var res = minPathSumDFS(grid: grid, i: n - 1, j: m - 1)
-        print("Minimum path sum from top-left to bottom-right is \(res)")
+        print("Minimum path sum from the top-left to the bottom-right corner: \(res)")
 
-        // Memoization search
+        // Memoized search
         var mem = Array(repeating: Array(repeating: -1, count: m), count: n)
         res = minPathSumDFSMem(grid: grid, mem: &mem, i: n - 1, j: m - 1)
-        print("Minimum path sum from top-left to bottom-right is \(res)")
+        print("Minimum path sum from the top-left to the bottom-right corner: \(res)")
 
         // Dynamic programming
         res = minPathSumDP(grid: grid)
-        print("Minimum path sum from top-left to bottom-right is \(res)")
+        print("Minimum path sum from the top-left to the bottom-right corner: \(res)")
 
         // Space-optimized dynamic programming
         res = minPathSumDPComp(grid: grid)
-        print("Minimum path sum from top-left to bottom-right is \(res)")
+        print("Minimum path sum from the top-left to the bottom-right corner: \(res)")
     }
 }

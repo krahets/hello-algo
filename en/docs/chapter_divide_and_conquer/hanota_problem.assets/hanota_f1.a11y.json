@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "title": "One-disk Tower of Hanoi (f(1))",
+  "summary": "Move the sole disk on rod A directly to destination rod C in a single move.",
+  "context": [
+    "The three rods from left to right are A, B, and C. Only one top disk may be moved at a time, and a larger disk may never sit on a smaller one. Subproblem f(1) moves a single disk and serves as the base case of the recursive decomposition."
+  ],
+  "description": [
+    "A green rounded rectangle represents the sole disk. The two frames show the state before and after that single move."
+  ],
+  "frames": [
+    {
+      "id": "source-329",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step1.png",
+      "title": "Sole disk on rod A",
+      "explanation": "Initially A = [green disk], B = [], and C = [], with no move made yet. Because nothing blocks the disk and destination rod C is empty, it can move directly from A to C without using auxiliary rod B.",
+      "key_state": "Rod A holds one disk, rods B and C are empty, and no move has occurred yet.",
+      "announcement": "Show the initial state with the single disk on rod A."
+    },
+    {
+      "id": "source-330",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step2.png",
+      "title": "Move the disk directly from rod A to rod C",
+      "explanation": "Because the sole green disk at the top of A is unobstructed and destination rod C is empty, move the disk directly from A to C without using B. Now A = [], B = [], and C = [green disk]; one single-disk move is complete, finishing the task.",
+      "key_state": "One single-disk move completed; the disk is on rod C, and rods A and B are empty.",
+      "announcement": "Move the sole disk directly from rod A to rod C."
+    }
+  ],
+  "animations": {
+    "hanota-f1": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-329"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-330"
+        }
+      ]
+    }
+  }
+}

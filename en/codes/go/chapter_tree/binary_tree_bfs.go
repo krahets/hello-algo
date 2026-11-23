@@ -12,22 +12,22 @@ import (
 
 /* Level-order traversal */
 func levelOrder(root *TreeNode) []any {
-	// Initialize queue, add root node
+	// Initialize a queue and enqueue the root
 	queue := list.New()
 	queue.PushBack(root)
-	// Initialize a slice to save traversal sequence
+	// Initialize a slice to store the traversal sequence
 	nums := make([]any, 0)
 	for queue.Len() > 0 {
-		// Dequeue
+		// Dequeue from the queue
 		node := queue.Remove(queue.Front()).(*TreeNode)
-		// Save node value
+		// Store the node value
 		nums = append(nums, node.Val)
 		if node.Left != nil {
-			// Left child node enqueue
+			// Enqueue the left child
 			queue.PushBack(node.Left)
 		}
 		if node.Right != nil {
-			// Right child node enqueue
+			// Enqueue the right child
 			queue.PushBack(node.Right)
 		}
 	}

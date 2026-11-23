@@ -75,7 +75,7 @@ int main() {
 
     /* 初始化数组 */
     int size = 5;
-    int arr[5];
+    int arr[5] = {0};
     printf("数组 arr = ");
     printArray(arr, size);
 

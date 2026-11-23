@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("Хеш-значение объекта узла {:?} = {}", node, hash);
+    println!("Хеш-значение значения в узле {:?} = {}", node, hash);
 }

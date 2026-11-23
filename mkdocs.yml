@@ -3,8 +3,6 @@ site_name: Hello 算法
 site_url: https://www.hello-algo.com/
 site_author: krahets
 site_description: 动画图解、一键运行的数据结构与算法教程
-docs_dir: build/docs
-site_dir: site
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
@@ -17,35 +15,10 @@ copyright: Copyright &copy; 2026 krahets<br>The website content is licensed unde
 # Configuration
 theme:
   name: material
-  custom_dir: build/overrides
   language: zh
   font:
     text: Noto Sans SC
     code: JetBrains Mono
-  features:
-    # - announce.dismiss
-    - content.action.edit
-    # - content.action.view
-    - content.code.annotate
-    - content.code.copy
-    - content.tabs.link
-    - content.tooltips
-    # - header.autohide
-    # - navigation.expand
-    - navigation.indexes
-    # - navigation.instant
-    # - navigation.prune
-    # - navigation.sections
-    # - navigation.tabs
-    # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.footer
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
-    - toc.follow
-    # - toc.integrate
   palette:
     - scheme: default
       primary: white
@@ -83,6 +56,9 @@ extra:
     - name: Русский
       link: /ru/
       lang: ru
+    - name: 한국어
+      link: /ko/
+      lang: ko
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/krahets
@@ -97,65 +73,43 @@ extra:
 # Plugins
 plugins:
   - search
-  - glightbox:
-      touchNavigation: true
-      loop: false
-      effect: zoom
-      slide_effect: none
-      width: 100%
-      height: auto
-      zoomable: true
-      draggable: false
-      auto_caption: false
-      caption_position: bottom
 
 # Extensions
 markdown_extensions:
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - toc:
-      permalink: true
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.details
-  # - pymdownx.emoji:
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.keys
-  # - pymdownx.magiclink:
-  #     repo_url_shorthand: true
-  #     user: squidfunk
-  #     repo: mkdocs-material
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
-  # - javascripts/katex.js 
-  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
-  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-
-extra_css:
-  - stylesheets/extra.css
-  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  abbr: {}
+  admonition: {}
+  attr_list: {}
+  def_list: {}
+  footnotes: {}
+  md_in_html: {}
+  toc:
+    permalink: true
+  pymdownx.arithmatex:
+    generic: true
+  pymdownx.betterem:
+    smart_enable: underscore
+  pymdownx.caret: {}
+  pymdownx.details: {}
+  # pymdownx.emoji:
+  #   emoji_index: !!python/name:materialx.emoji.twemoji
+  #   emoji_generator: !!python/name:materialx.emoji.to_svg
+  pymdownx.highlight:
+    anchor_linenums: true
+  pymdownx.inlinehilite: {}
+  pymdownx.snippets: {}
+  pymdownx.superfences: {}
+  pymdownx.keys: {}
+  # pymdownx.magiclink:
+  #   repo_url_shorthand: true
+  #   user: squidfunk
+  #   repo: mkdocs-material
+  pymdownx.mark: {}
+  pymdownx.smartsymbols: {}
+  pymdownx.tabbed:
+    alternate_style: true
+  pymdownx.tasklist:
+    custom_checkbox: true
+  pymdownx.tilde: {}
 
 # Page tree
 nav:

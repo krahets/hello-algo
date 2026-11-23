@@ -10,29 +10,29 @@ import utils
 class MaxHeap {
     private var maxHeap: [Int]
 
-    /* Constructor, build heap based on input list */
+    /* Constructor: build a heap from the input list */
     init(nums: [Int]) {
-        // Add list elements to heap as is
+        // Place the list elements in the heap without changing their order
         maxHeap = nums
-        // Heapify all nodes except leaf nodes
+        // Sift down from every non-leaf node
         for i in (0 ... parent(i: size() - 1)).reversed() {
             siftDown(i: i)
         }
     }
 
-    /* Get index of left child node */
+    /* Get the left child index */
     private func left(i: Int) -> Int {
         2 * i + 1
     }
 
-    /* Get index of right child node */
+    /* Get the right child index */
     private func right(i: Int) -> Int {
         2 * i + 2
     }
 
-    /* Get index of parent node */
+    /* Get the parent index */
     private func parent(i: Int) -> Int {
-        (i - 1) / 2 // Floor division
+        (i - 1) / 2 // Integer division truncates toward zero
     }
 
     /* Swap elements */
@@ -40,67 +40,67 @@ class MaxHeap {
         maxHeap.swapAt(i, j)
     }
 
-    /* Get heap size */
+    /* Get the heap size */
     func size() -> Int {
         maxHeap.count
     }
 
-    /* Check if heap is empty */
+    /* Check whether the heap is empty */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* Access top element */
+    /* Access the top element of the heap */
     func peek() -> Int {
         maxHeap[0]
     }
 
-    /* Element enters heap */
+    /* Push an element onto the heap */
     func push(val: Int) {
-        // Add node
+        // Add a node
         maxHeap.append(val)
-        // Heapify from bottom to top
+        // Sift up
         siftUp(i: size() - 1)
     }
 
-    /* Starting from node i, heapify from bottom to top */
+    /* Sift up starting from node i */
     private func siftUp(i: Int) {
         var i = i
         while true {
-            // Get parent node of node i
+            // Get the parent of node i
             let p = parent(i: i)
-            // When "crossing root node" or "node needs no repair", end heapify
+            // Stop when the parent index is invalid or the node already satisfies the heap order
             if p < 0 || maxHeap[i] <= maxHeap[p] {
                 break
             }
-            // Swap two nodes
+            // Swap the two nodes
             swap(i: i, j: p)
-            // Loop upward heapify
+            // Continue sifting up
             i = p
         }
     }
 
-    /* Element exits heap */
+    /* Pop an element from the heap */
     func pop() -> Int {
-        // Handle empty case
+        // Handle an empty heap
         if isEmpty() {
             fatalError("Heap is empty")
         }
-        // Delete node
+        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
         swap(i: 0, j: size() - 1)
-        // Remove node
+        // Remove a node
         let val = maxHeap.remove(at: size() - 1)
-        // Return top element
+        // Sift down
         siftDown(i: 0)
-        // Return heap top element
+        // Return the top element of the heap
         return val
     }
 
-    /* Starting from node i, heapify from top to bottom */
+    /* Sift down starting from node i */
     private func siftDown(i: Int) {
         var i = i
         while true {
-            // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
+            // Find the node with the largest value among i, l, and r, and store its index in ma
             let l = left(i: i)
             let r = right(i: i)
             var ma = i
@@ -110,18 +110,18 @@ class MaxHeap {
             if r < size(), maxHeap[r] > maxHeap[ma] {
                 ma = r
             }
-            // Swap two nodes
+            // Stop if node i is largest or both child indices l and r are out of bounds
             if ma == i {
                 break
             }
-            // Swap two nodes
+            // Swap the two nodes
             swap(i: i, j: ma)
-            // Loop downwards heapification
+            // Continue sifting down
             i = ma
         }
     }
 
-    /* Driver Code */
+    /* Print the heap (binary tree) */
     func print() {
         let queue = maxHeap
         PrintUtil.printHeap(queue: queue)
@@ -130,34 +130,34 @@ class MaxHeap {
 
 @main
 enum MyHeap {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap */
+        /* Initialize a max heap */
         let maxHeap = MaxHeap(nums: [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
-        print("\nAfter inputting list and building heap")
+        print("\nAfter building a heap from the input list:")
         maxHeap.print()
 
-        /* Check if heap is empty */
+        /* Get the top element of the heap */
         var peek = maxHeap.peek()
-        print("\nHeap top element is \(peek)")
+        print("\nTop heap element: \(peek)")
 
-        /* Element enters heap */
+        /* Push an element onto the heap */
         let val = 7
         maxHeap.push(val: val)
-        print("\nAfter element \(val) pushes to heap")
+        print("\nAfter inserting element \(val) into the heap:")
         maxHeap.print()
 
-        /* Time complexity is O(n), not O(nlogn) */
+        /* Pop the top element from the heap */
         peek = maxHeap.pop()
-        print("\nAfter heap top element \(peek) pops from heap")
+        print("\nAfter removing the top element \(peek) from the heap:")
         maxHeap.print()
 
-        /* Get heap size */
+        /* Get the heap size */
         let size = maxHeap.size()
-        print("\nHeap size is \(size)")
+        print("\nNumber of heap elements: \(size)")
 
-        /* Check if heap is empty */
+        /* Check whether the heap is empty */
         let isEmpty = maxHeap.isEmpty()
-        print("\nIs heap empty \(isEmpty)")
+        print("\nIs the heap empty: \(isEmpty)")
     }
 }

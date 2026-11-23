@@ -1,0 +1,130 @@
+{
+  "schema_version": 2,
+  "title": "以 2 为基准的一次哨兵划分",
+  "summary": "先移动右指针 j，再移动左指针 i；交换放错分区的元素，最后将基准数 2 放到分界位置。",
+  "context": [
+    "初始数组为 nums = [2, 4, 1, 0, 3, 5]，索引从 0 到 5，当前处理区间为 left = 0、right = 5，选取最左端元素 nums[left] = 2 作为基准数。",
+    "左指针 i 从左向右寻找首个大于基准数的元素，右指针 j 从右向左寻找首个小于基准数的元素。本实现每轮循环先移动 j、再移动 i，且移动条件均要求 i < j；当两端都找到放错分区的元素后便交换它们，直到两指针相遇，最后将基准数交换到相遇位置。"
+  ],
+  "description": [
+    "画面上方展示数组 nums、基准数标记以及区间边界指针 left、right 与扫描指针 i、j；下方展示 partition 函数代码，并以灰色高亮标出当前步骤执行的语句。在最终将基准数交换到分界位置之前，基准数 2 一直保存在索引 0 处，不会随指针 i 向右扫描而改变位置。本次划分的边界 left = 0、right = 5 全程不变，末态仅将这些指针文字隐藏。"
+  ],
+  "result": "一次划分只确定基准数的最终位置；左右两侧还须分别递归排序。",
+  "frames": [
+    {
+      "id": "source-263",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step1.png",
+      "title": "初始化边界、基准数与双指针",
+      "explanation": "初始 nums = [2, 4, 1, 0, 3, 5]。选取索引 0 的 2 为基准；灰色高亮代码 i, j = left, right，令 i = 0、j = 5，分别指向 2、5。尚未扫描或交换。",
+      "key_state": "当前 nums = [2, 4, 1, 0, 3, 5]；i = 0，j = 5；基准 2 在索引 0。",
+      "announcement": "初始化双指针 i = 0、j = 5，选取最左端元素 2 作为基准数。"
+    },
+    {
+      "id": "source-264",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step2.png",
+      "title": "指针 j 从右向左找到小于基准数的 0",
+      "explanation": "先移动 j：索引 5 的 5 和索引 4 的 3 均不小于基准 2，依次跳过；到索引 3 遇到 0 < 2，停止。当前 nums = [2, 4, 1, 0, 3, 5]，i = 0，j = 3；基准 2 仍在索引 0。",
+      "key_state": "当前 nums = [2, 4, 1, 0, 3, 5]；i = 0，j = 3；基准 2 在索引 0。j 找到小于基准 2 的元素 0 而停止。",
+      "announcement": "j 向左越过 5 和 3，停在索引 3 的元素 0 处。"
+    },
+    {
+      "id": "source-265",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step3.png",
+      "title": "指针 i 从左向右找到大于基准数的 4",
+      "explanation": "接着移动 i：索引 0 的 2 不大于基准 2，向右越过；到索引 1 遇到 4 > 2，停止。当前 nums = [2, 4, 1, 0, 3, 5]，i = 1 指向 4，j = 3 指向 0，准备交换这两个元素；基准 2 仍在索引 0。",
+      "key_state": "当前 nums = [2, 4, 1, 0, 3, 5]；i = 1，j = 3；基准 2 在索引 0。i 找到大于基准 2 的元素 4 而停止，准备交换。",
+      "announcement": "i 向右停在索引 1 的元素 4 处，准备与 j 所指的元素 0 交换。"
+    },
+    {
+      "id": "source-266",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step4.png",
+      "title": "交换元素 4 与 0",
+      "explanation": "交换索引 1 的 4 与索引 3 的 0，使小于基准的 0 移到左侧、大于基准的 4 移到右侧。当前 nums = [2, 0, 1, 4, 3, 5]，i = 1，j = 3；基准 2 仍在索引 0。",
+      "key_state": "当前 nums = [2, 0, 1, 4, 3, 5]；i = 1，j = 3；基准 2 在索引 0。索引 1 与 3 的交换已完成。",
+      "announcement": "交换索引 1 的元素 4 与索引 3 的元素 0。"
+    },
+    {
+      "id": "source-267",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step5.png",
+      "title": "指针 j 继续向左找到小于基准数的 1",
+      "explanation": "下一轮先移动 j：索引 3 的 4 ≥ 2，向左移至索引 2，遇到 1 < 2 而停止。当前 nums = [2, 0, 1, 4, 3, 5]，i = 1 指向 0，j = 2 指向 1；基准 2 仍在索引 0。",
+      "key_state": "当前 nums = [2, 0, 1, 4, 3, 5]；i = 1，j = 2；基准 2 在索引 0。j 找到小于基准 2 的元素 1 而停止。",
+      "announcement": "j 从元素 4 向左移到索引 2 的元素 1 处。"
+    },
+    {
+      "id": "source-268",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step6.png",
+      "title": "指针 i 右移并与指针 j 相遇",
+      "explanation": "索引 1 的 0 ≤ 2，i 向右移至索引 2，与 j 相遇。当前 nums = [2, 0, 1, 4, 3, 5]，i = j = 2；相遇处为 1，基准 2 仍在索引 0。i 的内层扫描停止是因为 i < j 不再成立，并非找到了大于基准的元素。",
+      "key_state": "当前 nums = [2, 0, 1, 4, 3, 5]；i = 2，j = 2；基准 2 在索引 0。两指针已相遇，尚未自交换。",
+      "announcement": "i 右移到索引 2 与 j 相遇，停止扫描。"
+    },
+    {
+      "id": "source-269",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step7.png",
+      "title": "相遇位置的自交换不改变数组",
+      "explanation": "继续执行本轮末尾的 nums[i], nums[j] 交换语句。由于 i = j = 2，索引 2 的 1 与自身交换，当前 nums 仍为 [2, 0, 1, 4, 3, 5]，基准 2 仍在索引 0。随后 i < j 不成立，退出外层划分循环。",
+      "key_state": "当前 nums = [2, 0, 1, 4, 3, 5]；i = 2，j = 2；基准 2 在索引 0。自交换已完成，数组不变，外层划分循环结束。",
+      "announcement": "两指针指向同一位置，自交换不改变数据，外层划分循环结束。"
+    },
+    {
+      "id": "source-270",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step8.png",
+      "title": "将基准数 2 交换到分界索引 2",
+      "explanation": "执行循环后的基准归位语句，交换索引 0 的基准 2 与索引 2 的 1。当前 nums = [1, 0, 2, 4, 3, 5]，i = j = 2，基准 2 已在最终索引 2。",
+      "key_state": "当前 nums = [1, 0, 2, 4, 3, 5]；i = 2，j = 2；基准 2 在索引 2。",
+      "announcement": "交换索引 0 的基准数 2 与相遇位置索引 2 的元素 1，基准数就位。"
+    },
+    {
+      "id": "source-271",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step9.png",
+      "title": "完成一次划分，保留左右子数组子问题",
+      "explanation": "执行 return i 返回索引 2。当前 nums = [1, 0, 2, 4, 3, 5]；画面隐藏 left、right、i、j，并用大括号标出左子数组 [1, 0]（索引 0 至 1）与右子数组 [4, 3, 5]（索引 3 至 5）。左侧元素均 ≤ 2，右侧均 ≥ 2，但两侧内部仍无序。",
+      "key_state": "返回索引 2；当前 nums = [1, 0, 2, 4, 3, 5]，左子数组 [1, 0]、右子数组 [4, 3, 5] 均待递归排序；画面已隐藏指针。",
+      "announcement": "一次哨兵划分完成并返回索引 2；左右两侧子数组仍需递归排序。"
+    }
+  ],
+  "animations": {
+    "pivot-division": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-263"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-264"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-265"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-266"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-267"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-268"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-269"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-270"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-271"
+        }
+      ]
+    }
+  }
+}

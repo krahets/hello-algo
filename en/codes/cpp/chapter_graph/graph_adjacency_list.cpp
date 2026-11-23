@@ -6,13 +6,13 @@
 
 #include "../utils/common.hpp"
 
-/* Undirected graph class based on adjacency list */
+/* Undirected graph class implemented with an adjacency list */
 class GraphAdjList {
   public:
-    // Adjacency list, key: vertex, value: all adjacent vertices of that vertex
+    // Adjacency list: key is a vertex, value is the list of all its neighbors
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
-    /* Remove specified node from vector */
+    /* Remove the specified vertex from the vector */
     void remove(vector<Vertex *> &vec, Vertex *vet) {
         for (int i = 0; i < vec.size(); i++) {
             if (vec[i] == vet) {
@@ -37,45 +37,45 @@ class GraphAdjList {
         return adjList.size();
     }
 
-    /* Add edge */
+    /* Add an edge */
     void addEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("Vertex does not exist");
+            throw invalid_argument("Invalid vertex");
         // Add edge vet1 - vet2
         adjList[vet1].push_back(vet2);
         adjList[vet2].push_back(vet1);
     }
 
-    /* Remove edge */
+    /* Remove an edge */
     void removeEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("Vertex does not exist");
+            throw invalid_argument("Invalid vertex");
         // Remove edge vet1 - vet2
         remove(adjList[vet1], vet2);
         remove(adjList[vet2], vet1);
     }
 
-    /* Add vertex */
+    /* Add a vertex */
     void addVertex(Vertex *vet) {
         if (adjList.count(vet))
             return;
-        // Add a new linked list in the adjacency list
+        // Add a new list to the adjacency list
         adjList[vet] = vector<Vertex *>();
     }
 
-    /* Remove vertex */
+    /* Remove a vertex */
     void removeVertex(Vertex *vet) {
         if (!adjList.count(vet))
-            throw invalid_argument("Vertex does not exist");
-        // Remove the linked list corresponding to vertex vet in the adjacency list
+            throw invalid_argument("Invalid vertex");
+        // Remove the list corresponding to vertex vet from the adjacency list
         adjList.erase(vet);
-        // Traverse the linked lists of other vertices and remove all edges containing vet
+        // Traverse the lists of the other vertices and remove all edges incident to vet
         for (auto &adj : adjList) {
             remove(adj.second, vet);
         }
     }
 
-    /* Print adjacency list */
+    /* Print the adjacency list */
     void print() {
         cout << "Adjacency list =" << endl;
         for (auto &adj : adjList) {
@@ -87,4 +87,4 @@ class GraphAdjList {
     }
 };
 
-// See graph_adjacency_list_test.cpp for test cases
+// See graph_adjacency_list_test.cpp for the test example

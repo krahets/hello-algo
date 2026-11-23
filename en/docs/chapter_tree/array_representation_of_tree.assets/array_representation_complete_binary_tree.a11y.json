@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "title": "Array representation of a complete binary tree can omit trailing empty slots",
+  "summary": "In a complete binary tree, empty slots appear only at the end of the level-order array and can be omitted without changing existing node indices.",
+  "context": [
+    "In a complete binary tree, every level except possibly the last is completely filled, and nodes on the last level are packed contiguously from left to right. Array indices start at 0 here, so the ten actual nodes occupy indices 0 through 9."
+  ],
+  "description": [
+    "On the left, the four-level complete binary tree has 10 solid nodes: root 1 has left and right children 2 and 3; 2 has left and right children 4 and 5; 3 has left and right children 6 and 7; 4 has left and right children 8 and 9; 5 has only left child 10; and 6, 7, 8, 9, and 10 are leaf nodes. On the fourth level, to the right of node 10, five gray dashed empty circles represent the unfilled trailing positions.",
+    "At upper right, \"Level-order traversal sequence (array)\" first shows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] together with the five trailing dashed empty cells. A downward arrow in the middle, paired with the gray note \"For a complete binary tree, empty slots need not be stored\", points to the final array [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] at lower right. Because all five omitted empty slots lie at the very end of the sequence, the array indices of the first ten actual nodes remain completely unchanged."
+  ],
+  "result": "After omitting trailing empty slots, the 2i+1 and 2i+2 mappings still hold; check array bounds when accessing a computed child position.",
+  "frames": [
+    {
+      "id": "source-113",
+      "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_complete_binary_tree.png",
+      "title": "Omitting the five trailing empty slots in the level-order array of a complete binary tree",
+      "explanation": "For example, node 5 is at index 4: left child position 2×4+1 = 9 stores node 10, whereas right child position 2×4+2 = 10 falls past the end of the length-10 array, indicating no right child."
+    }
+  ]
+}

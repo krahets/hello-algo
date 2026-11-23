@@ -10,53 +10,53 @@ import (
 )
 
 func TestHashMapChaining(t *testing.T) {
-	/* ハッシュテーブルを初期化 */
+	/* ハッシュテーブルを初期化する */
 	hmap := newHashMapChaining()
 
 	/* 追加操作 */
-	// ハッシュテーブルにキーと値のペア (key, value) を追加
-	hmap.put(12836, "シャオハー")
-	hmap.put(15937, "シャオルオ")
-	hmap.put(16750, "シャオスワン")
-	hmap.put(13276, "シャオファー")
-	hmap.put(10583, "シャオヤ")
-	fmt.Println("\n追加後、ハッシュ表は\nKey -> Value")
+	// ハッシュテーブルにキーと値のペア (key, value) を追加する
+	hmap.put(12836, "小哈")
+	hmap.put(15937, "小啰")
+	hmap.put(16750, "小算")
+	hmap.put(13276, "小法")
+	hmap.put(10583, "小鸭")
+	fmt.Println("\n追加後のハッシュテーブル\nKey -> Value")
 	hmap.print()
 
-	/* 検索操作 */
-	// キー key をハッシュテーブルに渡し、値 value を取得
+	/* 取得操作 */
+	// ハッシュテーブルにキー key を渡し、値 value を取得する
 	name := hmap.get(15937)
-	fmt.Println("\n学籍番号 15937 を入力し、見つかった名前は", name)
+	fmt.Println("\n学生番号 15937 に対応する氏名は", name)
 
 	/* 削除操作 */
-	// ハッシュテーブルからキーと値のペア (key, value) を削除
+	// ハッシュテーブルからキーと値のペア (key, value) を削除する
 	hmap.remove(12836)
-	fmt.Println("\n12836 を削除後、ハッシュ表は\nKey -> Value")
+	fmt.Println("\n12836 を削除した後のハッシュテーブル\nKey -> Value")
 	hmap.print()
 }
 
 func TestHashMapOpenAddressing(t *testing.T) {
-	/* ハッシュテーブルを初期化 */
+	/* ハッシュテーブルを初期化する */
 	hmap := newHashMapOpenAddressing()
 
 	/* 追加操作 */
-	// ハッシュテーブルにキーと値のペア (key, value) を追加
-	hmap.put(12836, "シャオハー")
-	hmap.put(15937, "シャオルオ")
-	hmap.put(16750, "シャオスワン")
-	hmap.put(13276, "シャオファー")
-	hmap.put(10583, "シャオヤ")
-	fmt.Println("\n追加後、ハッシュ表は\nKey -> Value")
+	// ハッシュテーブルにキーと値のペア (key, value) を追加する
+	hmap.put(12836, "小哈")
+	hmap.put(15937, "小啰")
+	hmap.put(16750, "小算")
+	hmap.put(13276, "小法")
+	hmap.put(10583, "小鸭")
+	fmt.Println("\n追加後のハッシュテーブル\nKey -> Value")
 	hmap.print()
 
-	/* 検索操作 */
-	// キー key をハッシュテーブルに渡し、値 value を取得
+	/* 取得操作 */
+	// ハッシュテーブルにキー key を渡し、値 value を取得する
 	name := hmap.get(13276)
-	fmt.Println("\n学籍番号 13276 を入力し、見つかった名前は ", name)
+	fmt.Println("\n学生番号 13276 に対応する氏名は ", name)
 
 	/* 削除操作 */
-	// ハッシュテーブルからキーと値のペア (key, value) を削除
+	// ハッシュテーブルからキーと値のペア (key, value) を削除する
 	hmap.remove(16750)
-	fmt.Println("\n16750 を削除後、ハッシュ表は\nKey -> Value")
+	fmt.Println("\n16750 を削除した後のハッシュテーブル\nKey -> Value")
 	hmap.print()
 }

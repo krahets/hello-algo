@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "title": "Swapping across positions in selection sort",
+  "summary": "See how the first swap reverses two equal elements with value 4, and how their order after one pass differs from their order at the end of the sort.",
+  "context": [
+    "The array starts as [4A, 4B, 3, 1, 5, 2], with indices 0 through 5. The blue 4 at index 0 is called 4A and the purple 4 at index 1 is called 4B. A and B distinguish equal elements in this description. Both boxes in the figure are labeled 4.",
+    "On each pass, selection sort finds the minimum in the unsorted range and swaps it with the first element of that range. Stability depends on whether equal elements retain their original order in the final output, after all passes."
+  ],
+  "description": [],
+  "result": "The reversal shown on the first pass is temporary. Continuing with the strict less-than comparison in the code, the second pass swaps 4B at index 1 with 2 at index 5. The final array is [1, 2, 3, 4A, 4B, 5], with the two 4s back in their original order. The picture shows how a swap can cross another element, but does not establish a reversal in the final output for this input. A counterexample outside the figure starts with [4A, 4B, 1]. The first pass gives [1, 4B, 4A]. On the second pass the two 4s compare equal, so the strict less-than test fails and no distinct positions are swapped. The final array is still [1, 4B, 4A]. This one input suffices to show that selection sort is unstable.",
+  "frames": [
+    {
+      "id": "source-252",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_instability.png",
+      "title": "Swapping across positions in selection sort",
+      "explanation": "The first pass finds the minimum, 1 at index 3, in the unsorted range [0, 5] and swaps it with 4A at index 0. Now 1 is in its final position at index 0 and the unsorted range is [1, 5]. Moving from index 0 to index 3, 4A crosses 4B at index 1, temporarily reversing the two 4s. The figure shows only this first pass."
+    }
+  ],
+  "animations": {
+    "selection-sort-instability": {
+      "kind": "prose",
+      "prose": {
+        "title": "Swapping across positions in selection sort",
+        "summary": "The two states show positions before and after the first swap. The sort is still in progress.",
+        "context": [],
+        "description": [],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Locate the minimum and the two equal elements with value 4",
+            "explanation": "The array is [4A, 4B, 3, 1, 5, 2]. Indices 0 through 5 are unsorted. A and B distinguish equal elements: blue 4A starts at index 0 and purple 4B at index 1. Scanning [0, 5] finds the minimum, 1 at index 3, ready to swap with 4A at index 0.",
+            "key_state": "Unsorted range [0, 5]: 4A is at index 0, 4B at index 1, and the minimum, 1, at index 3.",
+            "announcement": "The minimum in the unsorted range [0, 5] is 1 at index 3. It is about to swap with 4A at index 0."
+          },
+          {
+            "id": "step-2",
+            "title": "After the first swap, 4B comes before 4A",
+            "explanation": "The first pass swaps 4A at index 0 with 1 at index 3, giving [1, 4B, 3, 4A, 5, 2]. Only 1 at index 0 is in its final position. The unsorted range is [1, 5]. Now 4A is at index 3, past 4B, which remains at index 1. The two 4s are temporarily reversed. Later passes may change their order again.",
+            "key_state": "After the first pass the array is [1, 4B, 3, 4A, 5, 2]. 4B is at index 1 and 4A at index 3. Only index 0 is settled.",
+            "announcement": "1 and 4A have swapped. 4A moves to index 3, temporarily placing 4B before 4A."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Positions before and after the first swap",
+      "headers": [
+        "State",
+        "Index 0",
+        "Index 1",
+        "Index 2",
+        "Index 3",
+        "Index 4",
+        "Index 5"
+      ],
+      "rows": [
+        [
+          "Before the swap",
+          "4A",
+          "4B",
+          "3",
+          "1",
+          "5",
+          "2"
+        ],
+        [
+          "After the first swap",
+          "1",
+          "4B",
+          "3",
+          "4A",
+          "5",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

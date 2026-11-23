@@ -4,7 +4,7 @@
  * Author: Jefferson (JeffersonHuang77@gmail.com)
  */
 
-/* 連結リストノード */
+/* 連結リストのノード */
 class ListNode {
   int val;
   ListNode? next;
@@ -12,7 +12,7 @@ class ListNode {
   ListNode(this.val, [this.next]);
 }
 
-/* リストを連結リストにデシリアライズする */
+/* リストをデシリアライズして連結リストにする */
 ListNode? listToLinkedList(List<int> list) {
   ListNode dum = ListNode(0);
   ListNode? head = dum;

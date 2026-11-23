@@ -6,7 +6,7 @@
 
 import '../chapter_stack_and_queue/linkedlist_deque.dart';
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
   int _num = 3;
   int hashNum = _num.hashCode;
@@ -18,17 +18,17 @@ void main() {
 
   double dec = 3.14159;
   int hashDec = dec.hashCode;
-  print("小数 $dec のハッシュ値は $hashDec です");
+  print("小数 $dec のハッシュ値は $hashDec");
 
-  String str = "Hello アルゴリズム";
+  String str = "Hello 算法";
   int hashStr = str.hashCode;
-  print("文字列 $str のハッシュ値は $hashStr です");
+  print("文字列 $str のハッシュ値は $hashStr");
 
-  List arr = [12836, "シャオハー"];
+  List arr = [12836, "小哈"];
   int hashArr = arr.hashCode;
-  print("配列 $arr のハッシュ値は $hashArr です");
+  print("配列 $arr のハッシュ値は $hashArr");
 
   ListNode obj = new ListNode(0);
   int hashObj = obj.hashCode;
-  print("ノードオブジェクト $obj のハッシュ値は $hashObj です");
+  print("ノードオブジェクト $obj のハッシュ値は $hashObj");
 }

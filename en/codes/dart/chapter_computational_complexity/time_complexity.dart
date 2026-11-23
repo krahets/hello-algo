@@ -6,7 +6,7 @@
 
 // ignore_for_file: unused_local_variable
 
-/* Constant order */
+/* Constant complexity */
 int constant(int n) {
   int count = 0;
   int size = 100000;
@@ -16,7 +16,7 @@ int constant(int n) {
   return count;
 }
 
-/* Linear order */
+/* Linear complexity */
 int linear(int n) {
   int count = 0;
   for (var i = 0; i < n; i++) {
@@ -25,20 +25,20 @@ int linear(int n) {
   return count;
 }
 
-/* Linear order (traversing array) */
+/* Linear complexity (array traversal) */
 int arrayTraversal(List<int> nums) {
   int count = 0;
-  // Number of iterations is proportional to the array length
+  // The number of iterations is proportional to the array length
   for (var _num in nums) {
     count++;
   }
   return count;
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 int quadratic(int n) {
   int count = 0;
-  // Number of iterations is quadratically related to the data size n
+  // The number of iterations is proportional to the square of the input size n
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
       count++;
@@ -47,29 +47,29 @@ int quadratic(int n) {
   return count;
 }
 
-/* Quadratic order (bubble sort) */
+/* Quadratic complexity (bubble sort) */
 int bubbleSort(List<int> nums) {
   int count = 0; // Counter
-  // Outer loop: unsorted range is [0, i]
+  // Outer loop: the unsorted range is [0, i]
   for (var i = nums.length - 1; i > 0; i--) {
-    // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+    // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
     for (var j = 0; j < i; j++) {
       if (nums[j] > nums[j + 1]) {
         // Swap nums[j] and nums[j + 1]
         int tmp = nums[j];
         nums[j] = nums[j + 1];
         nums[j + 1] = tmp;
-        count += 3; // Element swap includes 3 unit operations
+        count += 3; // Swapping two elements takes 3 elementary operations
       }
     }
   }
   return count;
 }
 
-/* Exponential order (loop implementation) */
+/* Exponential complexity (iterative implementation) */
 int exponential(int n) {
   int count = 0, base = 1;
-  // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+  // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < base; j++) {
       count++;
@@ -80,13 +80,13 @@ int exponential(int n) {
   return count;
 }
 
-/* Exponential order (recursive implementation) */
+/* Exponential complexity (recursive implementation) */
 int expRecur(int n) {
   if (n == 1) return 1;
   return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
-/* Logarithmic order (loop implementation) */
+/* Logarithmic complexity (iterative implementation) */
 int logarithmic(int n) {
   int count = 0;
   while (n > 1) {
@@ -96,13 +96,13 @@ int logarithmic(int n) {
   return count;
 }
 
-/* Logarithmic order (recursive implementation) */
+/* Logarithmic complexity (recursive implementation) */
 int logRecur(int n) {
   if (n <= 1) return 0;
   return logRecur(n ~/ 2) + 1;
 }
 
-/* Linearithmic order */
+/* Linearithmic complexity */
 int linearLogRecur(int n) {
   if (n <= 1) return 1;
   int count = linearLogRecur(n ~/ 2) + linearLogRecur(n ~/ 2);
@@ -112,54 +112,54 @@ int linearLogRecur(int n) {
   return count;
 }
 
-/* Factorial order (recursive implementation) */
+/* Factorial complexity (recursive implementation) */
 int factorialRecur(int n) {
   if (n == 0) return 1;
   int count = 0;
-  // Split from 1 into n
+  // Split one problem into n subproblems
   for (var i = 0; i < n; i++) {
     count += factorialRecur(n - 1);
   }
   return count;
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  // You can modify n to run and observe the trend of the number of operations for various complexities
+  // Try different values of n to see how the operation count grows for each complexity
   int n = 8;
-  print('Input data size n = $n');
+  print('Input size n = $n');
 
   int count = constant(n);
-  print('Constant-time operations count = $count');
+  print('Operation count for constant complexity = $count');
 
   count = linear(n);
-  print('Linear-time operations count = $count');
+  print('Operation count for linear complexity = $count');
 
   count = arrayTraversal(List.filled(n, 0));
-  print('Linear-time (array traversal) operations count = $count');
+  print('Operation count for linear complexity (array traversal) = $count');
 
   count = quadratic(n);
-  print('Quadratic-time operations count = $count');
+  print('Operation count for quadratic complexity = $count');
   final nums = List.filled(n, 0);
   for (int i = 0; i < n; i++) {
     nums[i] = n - i; // [n,n-1,...,2,1]
   }
   count = bubbleSort(nums);
-  print('Quadratic-time (bubble sort) operations count = $count');
+  print('Operation count for quadratic complexity (bubble sort) = $count');
 
   count = exponential(n);
-  print('Exponential-time (iterative) operations count = $count');
+  print('Operation count for exponential complexity (iterative) = $count');
   count = expRecur(n);
-  print('Exponential-time (recursive) operations count = $count');
+  print('Operation count for exponential complexity (recursive) = $count');
 
   count = logarithmic(n);
-  print('Logarithmic-time (iterative) operations count = $count');
+  print('Operation count for logarithmic complexity (iterative) = $count');
   count = logRecur(n);
-  print('Logarithmic-time (recursive) operations count = $count');
+  print('Operation count for logarithmic complexity (recursive) = $count');
 
   count = linearLogRecur(n);
-  print('Linearithmic-time (recursive) operations count = $count');
+  print('Operation count for linearithmic complexity (recursive) = $count');
 
   count = factorialRecur(n);
-  print('Factorial-time (recursive) operations count = $count');
+  print('Operation count for factorial complexity (recursive) = $count');
 }

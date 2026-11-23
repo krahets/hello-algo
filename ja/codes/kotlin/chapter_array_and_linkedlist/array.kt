@@ -8,20 +8,20 @@ package chapter_array_and_linkedlist
 
 import java.util.concurrent.ThreadLocalRandom
 
-/* 要素へランダムアクセス */
+/* 要素にランダムアクセスする */
 fun randomAccess(nums: IntArray): Int {
-    // 区間 [0, nums.size) からランダムに数字を 1 つ選ぶ
+    // 区間 [0, nums.size) から数値をランダムに 1 つ選ぶ
     val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
-    // ランダムな要素を取得して返す
+    // ランダムに選んだ要素を取得して返す
     val randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* 配列長を拡張する */
+/* 配列の長さを拡張する */
 fun extend(nums: IntArray, enlarge: Int): IntArray {
-    // 拡張後の長さを持つ配列を初期化する
+    // 拡張後の長さの配列を初期化する
     val res = IntArray(nums.size + enlarge)
-    // 元の配列の全要素を新しい配列にコピー
+    // 元の配列の全要素を新しい配列にコピーする
     for (i in nums.indices) {
         res[i] = nums[i]
     }
@@ -29,38 +29,38 @@ fun extend(nums: IntArray, enlarge: Int): IntArray {
     return res
 }
 
-/* 配列の index 番目に要素 num を挿入 */
+/* 配列のインデックス index に要素 num を挿入する */
 fun insert(nums: IntArray, num: Int, index: Int) {
-    // インデックス index 以降の全要素を 1 つ後ろへ移動する
+    // インデックス index 以降の全要素を 1 つ後ろにずらす
     for (i in nums.size - 1 downTo index + 1) {
         nums[i] = nums[i - 1]
     }
-    // index の要素に num を代入する
+    // インデックス index の要素に num を代入する
     nums[index] = num
 }
 
-/* index の要素を削除する */
+/* インデックス index の要素を削除する */
 fun remove(nums: IntArray, index: Int) {
-    // インデックス index より後ろの全要素を 1 つ前へ移動する
+    // インデックス index より後の全要素を 1 つ前にずらす
     for (i in index..<nums.size - 1) {
         nums[i] = nums[i + 1]
     }
 }
 
-/* 配列を走査 */
+/* 配列を走査する */
 fun traverse(nums: IntArray) {
     var count = 0
-    // インデックスで配列を走査
+    // インデックスを使って配列を走査する
     for (i in nums.indices) {
         count += nums[i]
     }
-    // 配列要素を直接走査
+    // 配列の要素を直接走査する
     for (j in nums) {
         count += j
     }
 }
 
-/* 配列内で指定要素を探す */
+/* 配列から指定した要素を探索する */
 fun find(nums: IntArray, target: Int): Int {
     for (i in nums.indices) {
         if (nums[i] == target)
@@ -69,9 +69,9 @@ fun find(nums: IntArray, target: Int): Int {
     return -1
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* 配列を初期化 */
+    /* 配列を初期化する */
     val arr = IntArray(5)
     println("配列 arr = ${arr.contentToString()}")
     var nums = intArrayOf(1, 3, 2, 5, 4)
@@ -79,24 +79,24 @@ fun main() {
 
     /* ランダムアクセス */
     val randomNum: Int = randomAccess(nums)
-    println("nums からランダムな要素 $randomNum を取得")
+    println("nums からランダムに取得した要素 $randomNum")
 
-    /* 長さを拡張 */
+    /* 長さの拡張 */
     nums = extend(nums, 3)
-    println("配列の長さを 8 まで拡張し，nums = ${nums.contentToString()}")
+    println("配列の長さを 8 に拡張した結果 nums = ${nums.contentToString()}")
 
     /* 要素を挿入する */
     insert(nums, 6, 3)
-    println("インデックス 3 に数値 6 を挿入し，nums = ${nums.contentToString()}")
+    println("インデックス 3 に数値 6 を挿入した結果 nums = ${nums.contentToString()}")
 
-    /* 要素を削除 */
+    /* 要素を削除する */
     remove(nums, 2)
-    println("インデックス 2 の要素を削除し，nums = ${nums.contentToString()}")
+    println("インデックス 2 の要素を削除した結果 nums = ${nums.contentToString()}")
 
-    /* 配列を走査 */
+    /* 配列を走査する */
     traverse(nums)
 
     /* 要素を探索する */
     val index: Int = find(nums, 3)
-    println("nums 内で要素 3 を検索し，インデックス = $index")
+    println("nums から要素 3 を探索した結果のインデックス = $index")
 }

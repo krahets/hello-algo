@@ -37,7 +37,7 @@ public class simple_hash {
         return hash & MODULUS;
     }
 
-    /* Rotational hash */
+    /* Rotating hash */
     int RotHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
@@ -49,18 +49,18 @@ public class simple_hash {
 
     [Test]
     public void Test() {
-        string key = "Hello Algo";
+        string key = "Hello 算法";
 
         int hash = AddHash(key);
-        Console.WriteLine("Additive hash value is " + hash);
+        Console.WriteLine("Additive hash value: " + hash);
 
         hash = MulHash(key);
-        Console.WriteLine("Multiplicative hash value is " + hash);
+        Console.WriteLine("Multiplicative hash value: " + hash);
 
         hash = XorHash(key);
-        Console.WriteLine("XOR hash value is " + hash);
+        Console.WriteLine("XOR hash value: " + hash);
 
         hash = RotHash(key);
-        Console.WriteLine("Rotational hash value is " + hash);
+        Console.WriteLine("Rotating hash value: " + hash);
     }
 }

@@ -10,57 +10,57 @@ import utils.printHeap
 import java.util.*
 
 fun testPush(heap: Queue<Int>, _val: Int) {
-    heap.offer(_val) // 要素をヒープに追加
-    print("\n要素 $_val をヒープに追加した後\n")
+    heap.offer(_val) // ヒープに要素を挿入する
+    print("\n要素 $_val をヒープに挿入した後\n")
     printHeap(heap)
 }
 
 fun testPop(heap: Queue<Int>) {
-    val _val = heap.poll() // ヒープ頂点の要素を取り出す
-    print("\nヒープ先頭要素 $_val を取り出した後\n")
+    val _val = heap.poll() // ヒープの先頭要素を取り出す
+    print("\nヒープの先頭要素 $_val を取り出した後\n")
     printHeap(heap)
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* ヒープを初期化 */
-    // 最小ヒープを初期化
+    /* ヒープを初期化する */
+    // 最小ヒープを初期化する
     var minHeap = PriorityQueue<Int>()
 
-    // 最大ヒープを初期化する（lambda 式で Comparator を変更すればよい）
+    // 最大ヒープを初期化する（ラムダ式で Comparator を変更すればよい）
     val maxHeap = PriorityQueue { a: Int, b: Int -> b - a }
 
-    println("\n以下のテストケースは最大ヒープです")
+    println("\n以下のテストケースは最大ヒープを対象とする")
 
-    /* 要素をヒープに追加 */
+    /* ヒープに要素を挿入する */
     testPush(maxHeap, 1)
     testPush(maxHeap, 3)
     testPush(maxHeap, 2)
     testPush(maxHeap, 5)
     testPush(maxHeap, 4)
 
-    /* ヒープ頂点の要素を取得 */
+    /* ヒープの先頭要素を取得する */
     val peek = maxHeap.peek()
-    print("\nヒープ先頭要素は $peek\n")
+    print("\nヒープの先頭要素は $peek\n")
 
-    /* ヒープ頂点の要素を取り出す */
+    /* ヒープの先頭要素を取り出す */
     testPop(maxHeap)
     testPop(maxHeap)
     testPop(maxHeap)
     testPop(maxHeap)
     testPop(maxHeap)
 
-    /* ヒープのサイズを取得 */
+    /* ヒープのサイズを取得する */
     val size = maxHeap.size
-    print("\nヒープ要素数は $size\n")
+    print("\nヒープの要素数は $size\n")
 
-    /* ヒープが空かどうかを判定 */
+    /* ヒープが空か判定 */
     val isEmpty = maxHeap.isEmpty()
-    print("\nヒープが空かどうか $isEmpty\n")
+    print("\nヒープは空か $isEmpty\n")
 
-    /* リストを入力してヒープを構築 */
+    /* リストを入力してヒープを構築する */
     // 時間計算量は O(n) であり、O(nlogn) ではない
     minHeap = PriorityQueue(mutableListOf<Int?>(1, 3, 2, 5, 4))
-    println("\n入力リストから最小ヒープを構築した後")
+    println("\nリストを入力して最小ヒープを構築した後")
     printHeap(minHeap)
 }

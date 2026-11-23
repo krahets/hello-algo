@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "Dividing and merging in merge sort",
+  "summary": "Recursively split the array at its midpoint until each subarray contains one element. Then merge neighboring sorted subarrays level by level into a single sorted array.",
+  "context": [
+    "The input is [7, 3, 2, 6, 0, 1, 5, 4]. Each split halves a subarray by position, irrespective of its values. Splitting stops at length 1 because a single element is already sorted."
+  ],
+  "description": [],
+  "result": "The figure groups dependencies by level in the recursion tree. The code completes the entire left branch, then the right, and finally merges the results.",
+  "frames": [
+    {
+      "id": "source-273",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_overview.png",
+      "title": "Dividing and merging in merge sort",
+      "explanation": "The upper half shows three levels of splitting, ending with 8 single-element subarrays at the base case. The lower half merges pairs from the bottom up. Both inputs to each merge are already in ascending order. Compare their first remaining elements, take the smaller, and repeat. Once either side runs out, append the remainder from the other side. Thus each result remains sorted. Crossed arrows in the lower half trace elements to their destinations at the next level. They do not represent in-place swaps."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Subarrays at each level, separated by semicolons",
+      "headers": [
+        "Phase",
+        "Subarrays"
+      ],
+      "rows": [
+        [
+          "Input",
+          "[7, 3, 2, 6, 0, 1, 5, 4]"
+        ],
+        [
+          "Split to length 4",
+          "[7, 3, 2, 6]; [0, 1, 5, 4]"
+        ],
+        [
+          "Split to length 2",
+          "[7, 3]; [2, 6]; [0, 1]; [5, 4]"
+        ],
+        [
+          "Single elements: stop splitting",
+          "[7]; [3]; [2]; [6]; [0]; [1]; [5]; [4]"
+        ],
+        [
+          "Merge to length 2",
+          "[3, 7]; [2, 6]; [0, 1]; [4, 5]"
+        ],
+        [
+          "Merge to length 4",
+          "[2, 3, 6, 7]; [0, 1, 4, 5]"
+        ],
+        [
+          "Merge to length 8",
+          "[0, 1, 2, 3, 4, 5, 6, 7]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

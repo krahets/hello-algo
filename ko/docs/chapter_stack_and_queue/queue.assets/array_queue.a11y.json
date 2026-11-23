@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "배열 기반 큐에 넣기와 꺼내기",
+  "summary": "front는 맨 앞을 가리키고 size는 길이를 기록한다. 넣을 때는 맨 뒤 다음 칸에 쓰고 꺼낼 때는 맨 앞 인덱스를 옮긴다. 다른 원소는 제자리에 남는다.",
+  "context": [
+    "왼쪽은 외부에서 본 큐, 오른쪽은 세로 배열이다. 가운데에는 ‘내부적으로 배열을 사용하며 큐 연산을 제공한다’라고 적혀 있다. 양쪽 모두 위에서 아래로 큐의 맨 앞부터 맨 뒤 순서로 놓였다. 아래로 가면 인덱스가 커지므로 뒤에서 가로 배열로 설명하는 ‘오른쪽으로 이동’에 해당한다."
+  ],
+  "description": [
+    "세 장면 모두 배열 끝을 넘어가지 않는다. 그림에서 rear = front + size는 마지막 원소 다음에 쓸 위치이며 유효한 인덱스 구간은 [front, rear - 1]이다. 배열 양 끝의 회색 점선 칸과 말줄임표는 나머지 공간이다. 어떤 칸이 유효 구간에서 빠져도 그 값이 0으로 지워진 것은 아니다."
+  ],
+  "result": "넣을 때는 rear 위치에 원소를 쓰고 size를 1 늘린다. 꺼낼 때는 front를 1 늘리고 size를 1 줄인다. 매번 남은 원소를 옮길 필요가 없으므로 두 연산 모두 O(1)이다.",
+  "frames": [
+    {
+      "id": "source-67",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step1.png",
+      "title": "초기 큐: 유효 구간 확인",
+      "explanation": "초기 큐는 [1, 3, 2, 5]이고 size = 4다. 주황색 front는 1, 청록색 rear는 front + 4로 구한 5 바로 아래의 첫 빈칸을 가리킨다. 설명 상자에는 front가 첫 원소, rear가 마지막 원소 바로 다음 위치를 가리킨다고 적혀 있다.",
+      "key_state": "초기 큐는 [1, 3, 2, 5], size = 4다. front는 1을 가리키고 rear = front + size는 5 아래 빈칸을 가리킨다.",
+      "announcement": "배열로 구현한 초기 큐는 [1, 3, 2, 5], size = 4다. front는 맨 앞의 1을, rear는 맨 뒤 원소 5 다음의 빈칸을 가리킨다."
+    },
+    {
+      "id": "source-68",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step2_push.png",
+      "title": "rear 위치에 4 넣기",
+      "explanation": "push(4)를 실행한다. 설명 상자의 세 단계는 rear 계산, rear 위치에 원소 추가, size를 1 증가시키기다. 넣기 전 size = 4로 5 아래의 빈칸을 찾아 청록색 4를 쓰고 size를 5로 늘린다. 현재 큐는 [1, 3, 2, 5, 4]이고 front는 여전히 1을 가리킨다. 그림의 rear는 새 size로 다시 계산하지 않아 방금 쓴 4에 남아 있다. 다시 계산하면 4 바로 아래의 빈칸을 가리킨다.",
+      "key_state": "push(4) 후 큐는 [1, 3, 2, 5, 4], size = 5다. front는 1, 그림의 rear는 방금 쓴 4를 가리킨다.",
+      "announcement": "push(4)로 rear 위치에 4를 쓰고 size를 5로 늘렸다. 큐는 [1, 3, 2, 5, 4]다."
+    },
+    {
+      "id": "source-69",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step3_pop.png",
+      "title": "front를 옮겨 맨 앞의 1 꺼내기",
+      "explanation": "pop()은 기존 맨 앞의 1을 꺼내 반환한다. 설명 상자에는 front를 1 늘리고 size를 1 줄인다고 적혀 있다. front는 아래로 한 칸 이동해 3을 가리키고 size는 5에서 4가 된다. 유효한 원소 [3, 2, 5, 4]는 제자리에 있다. 1이 있던 칸은 점선으로 바뀌어 유효 범위에서 빠진다. 이번 장면에는 rear 표시가 없다.",
+      "key_state": "pop()은 1을 반환한다. front는 아래로 한 칸 옮겨 3을 가리키고 size = 4, 유효한 원소는 [3, 2, 5, 4]다. 1이 있던 칸은 유효 범위에서 빠졌지만 값을 지우지는 않았다. 이번 장면에는 rear 표시가 없다.",
+      "announcement": "pop()으로 front를 아래로 옮겨 3을 가리키게 하고 size를 4로 줄였다. 1을 꺼내고 나머지 원소 [3, 2, 5, 4]는 제자리에 남겼다."
+    }
+  ],
+  "animations": {
+    "array-queue": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-67"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-68"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-69"
+        }
+      ]
+    }
+  }
+}

@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)
-    print(f"元組 {tup} 的雜湊值為 {hash(hash_tup)}")
+    print(f"元組 {tup} 的雜湊值為 {hash_tup}")
 
     obj = ListNode(0)
     hash_obj = hash(obj)

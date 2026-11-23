@@ -6,10 +6,10 @@
 
 #include "../utils/common.h"
 
-// Assume max vertex count is 100
+// Assume at most 100 vertices
 #define MAX_SIZE 100
 
-/* Undirected graph structure based on adjacency matrix */
+/* Undirected graph structure implemented with an adjacency matrix */
 typedef struct {
     int vertices[MAX_SIZE];
     int adjMat[MAX_SIZE][MAX_SIZE];
@@ -33,13 +33,13 @@ void delGraphAdjMat(GraphAdjMat *graph) {
     free(graph);
 }
 
-/* Add vertex */
+/* Add a vertex */
 void addVertex(GraphAdjMat *graph, int val) {
     if (graph->size == MAX_SIZE) {
-        fprintf(stderr, "Graph vertex count has reached maximum\n");
+        fprintf(stderr, "The graph has reached its maximum number of vertices\n");
         return;
     }
-    // Add nth vertex and zero nth row and column
+    // Add the vertex at index n and set row n and column n to zero
     int n = graph->size;
     graph->vertices[n] = val;
     for (int i = 0; i <= n; i++) {
@@ -48,23 +48,23 @@ void addVertex(GraphAdjMat *graph, int val) {
     graph->size++;
 }
 
-/* Remove vertex */
+/* Remove a vertex */
 void removeVertex(GraphAdjMat *graph, int index) {
     if (index < 0 || index >= graph->size) {
         fprintf(stderr, "Vertex index out of bounds\n");
         return;
     }
-    // Remove the vertex at index from the vertex list
+    // Remove the vertex at index `index` from the vertex list
     for (int i = index; i < graph->size - 1; i++) {
         graph->vertices[i] = graph->vertices[i + 1];
     }
-    // Remove the row at index from the adjacency matrix
+    // Remove row `index` from the adjacency matrix
     for (int i = index; i < graph->size - 1; i++) {
         for (int j = 0; j < graph->size; j++) {
             graph->adjMat[i][j] = graph->adjMat[i + 1][j];
         }
     }
-    // Remove the column at index from the adjacency matrix
+    // Remove column `index` from the adjacency matrix
     for (int i = 0; i < graph->size; i++) {
         for (int j = index; j < graph->size - 1; j++) {
             graph->adjMat[i][j] = graph->adjMat[i][j + 1];
@@ -73,29 +73,29 @@ void removeVertex(GraphAdjMat *graph, int index) {
     graph->size--;
 }
 
-/* Add edge */
-// Parameters i, j correspond to the vertices element indices
+/* Add an edge */
+// Parameters i and j are element indices in vertices
 void addEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "Edge index out of bounds or equal\n");
+        fprintf(stderr, "Edge endpoint indices are out of bounds or equal\n");
         return;
     }
     graph->adjMat[i][j] = 1;
     graph->adjMat[j][i] = 1;
 }
 
-/* Remove edge */
-// Parameters i, j correspond to the vertices element indices
+/* Remove an edge */
+// Parameters i and j are element indices in vertices
 void removeEdge(GraphAdjMat *graph, int i, int j) {
     if (i < 0 || j < 0 || i >= graph->size || j >= graph->size || i == j) {
-        fprintf(stderr, "Edge index out of bounds or equal\n");
+        fprintf(stderr, "Edge endpoint indices are out of bounds or equal\n");
         return;
     }
     graph->adjMat[i][j] = 0;
     graph->adjMat[j][i] = 0;
 }
 
-/* Print adjacency matrix */
+/* Print the adjacency matrix */
 void printGraphAdjMat(GraphAdjMat *graph) {
     printf("Vertex list = ");
     printArray(graph->vertices, graph->size);
@@ -105,9 +105,9 @@ void printGraphAdjMat(GraphAdjMat *graph) {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    // Add edge
+    // Initialize the undirected graph
     GraphAdjMat *graph = newGraphAdjMat();
     int vertices[] = {1, 3, 2, 5, 4};
     for (int i = 0; i < 5; i++) {
@@ -117,30 +117,30 @@ int main() {
     for (int i = 0; i < 6; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\nAfter initialization, graph is\n");
+    printf("\nGraph after initialization:\n");
     printGraphAdjMat(graph);
 
-    /* Add edge */
-    // Add vertex
+    /* Add an edge */
+    // Vertices 1 and 2 have indices 0 and 2, respectively
     addEdge(graph, 0, 2);
-    printf("\nAfter adding edge 1-2, graph is\n");
+    printf("\nGraph after adding edge 1-2:\n");
     printGraphAdjMat(graph);
 
-    /* Remove edge */
-    // Vertices 1, 3 have indices 0, 1 respectively
+    /* Remove an edge */
+    // Vertices 1 and 3 have indices 0 and 1, respectively
     removeEdge(graph, 0, 1);
-    printf("\nAfter deleting edge 1-3, graph is\n");
+    printf("\nGraph after removing edge 1-3:\n");
     printGraphAdjMat(graph);
 
-    /* Add vertex */
+    /* Add a vertex */
     addVertex(graph, 6);
-    printf("\nAfter adding vertex 6, graph is\n");
+    printf("\nGraph after adding vertex 6:\n");
     printGraphAdjMat(graph);
 
-    /* Remove vertex */
+    /* Remove a vertex */
     // Vertex 3 has index 1
     removeVertex(graph, 1);
-    printf("\nAfter deleting vertex 3, graph is\n");
+    printf("\nGraph after removing vertex 3:\n");
     printGraphAdjMat(graph);
 
     // Free memory

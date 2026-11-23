@@ -15,7 +15,7 @@ func preOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// Visit priority: root node -> left subtree -> right subtree
+	// Visit order: root -> left subtree -> right subtree
 	nums = append(nums, node.Val)
 	preOrder(node.Left)
 	preOrder(node.Right)
@@ -26,7 +26,7 @@ func inOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// Visit priority: left subtree -> root node -> right subtree
+	// Visit order: left subtree -> root -> right subtree
 	inOrder(node.Left)
 	nums = append(nums, node.Val)
 	inOrder(node.Right)
@@ -37,7 +37,7 @@ func postOrder(node *TreeNode) {
 	if node == nil {
 		return
 	}
-	// Visit priority: left subtree -> right subtree -> root node
+	// Visit order: left subtree -> right subtree -> root
 	postOrder(node.Left)
 	postOrder(node.Right)
 	nums = append(nums, node.Val)

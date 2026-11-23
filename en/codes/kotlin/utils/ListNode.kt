@@ -11,7 +11,7 @@ class ListNode(var _val: Int) {
     var next: ListNode? = null
 
     companion object {
-        /* Deserialize a list into a linked list */
+        /* Deserialize an array into a linked list */
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum

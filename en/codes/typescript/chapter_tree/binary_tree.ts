@@ -7,31 +7,31 @@
 import { TreeNode } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* Initialize binary tree */
-// Initialize nodes
+/* Initialize the binary tree */
+// Initialize the nodes
 let n1 = new TreeNode(1),
     n2 = new TreeNode(2),
     n3 = new TreeNode(3),
     n4 = new TreeNode(4),
     n5 = new TreeNode(5);
-// Build references (pointers) between nodes
+// Set up references (pointers) between the nodes
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;
 n2.right = n5;
-console.log('\nInitialize binary tree\n');
+console.log('\nInitialize the binary tree\n');
 printTree(n1);
 
-/* Insert node P between n1 -> n2 */
+/* Insert and remove nodes */
 const P = new TreeNode(0);
-// Delete node
+// Insert node P between n1 and n2 in n1 -> n2
 n1.left = P;
 P.left = n2;
-console.log('\nAfter inserting node P\n');
+console.log('\nAfter inserting node P:\n');
 printTree(n1);
 // Remove node P
 n1.left = n2;
-console.log('\nAfter removing node P\n');
+console.log('\nAfter removing node P:\n');
 printTree(n1);
 
 export {};

@@ -10,53 +10,53 @@ import (
 )
 
 func TestHashMapChaining(t *testing.T) {
-	/* Initialize hash table */
+	/* Initialize the hash table */
 	hmap := newHashMapChaining()
 
-	/* Add operation */
-	// Add key-value pair (key, value) to the hash table
-	hmap.put(12836, "Xiao Ha")
-	hmap.put(15937, "Xiao Luo")
-	hmap.put(16750, "Xiao Suan")
-	hmap.put(13276, "Xiao Fa")
-	hmap.put(10583, "Xiao Ya")
-	fmt.Println("\nAfter adding is complete, hash table is\nKey -> Value")
+	/* Insert operation */
+	// Insert the key-value pair (key, value) into the hash table
+	hmap.put(12836, "小哈")
+	hmap.put(15937, "小啰")
+	hmap.put(16750, "小算")
+	hmap.put(13276, "小法")
+	hmap.put(10583, "小鸭")
+	fmt.Println("\nHash table after insertion:\nKey -> Value")
 	hmap.print()
 
-	/* Query operation */
-	// Input key into hash table to get value
+	/* Lookup operation */
+	// Look up key in the hash table to obtain value
 	name := hmap.get(15937)
-	fmt.Println("\nInput student ID 15937, found name", name)
+	fmt.Println("\nLook up student ID 15937 to obtain the name", name)
 
 	/* Remove operation */
-	// Remove key-value pair (key, value) from hash table
+	// Remove the key-value pair (key, value) from the hash table
 	hmap.remove(12836)
-	fmt.Println("\nAfter removing 12836, hash table is\nKey -> Value")
+	fmt.Println("\nHash table after removing 12836:\nKey -> Value")
 	hmap.print()
 }
 
 func TestHashMapOpenAddressing(t *testing.T) {
-	/* Initialize hash table */
+	/* Initialize the hash table */
 	hmap := newHashMapOpenAddressing()
 
-	/* Add operation */
-	// Add key-value pair (key, value) to the hash table
-	hmap.put(12836, "Xiao Ha")
-	hmap.put(15937, "Xiao Luo")
-	hmap.put(16750, "Xiao Suan")
-	hmap.put(13276, "Xiao Fa")
-	hmap.put(10583, "Xiao Ya")
-	fmt.Println("\nAfter adding is complete, hash table is\nKey -> Value")
+	/* Insert operation */
+	// Insert the key-value pair (key, value) into the hash table
+	hmap.put(12836, "小哈")
+	hmap.put(15937, "小啰")
+	hmap.put(16750, "小算")
+	hmap.put(13276, "小法")
+	hmap.put(10583, "小鸭")
+	fmt.Println("\nHash table after insertion:\nKey -> Value")
 	hmap.print()
 
-	/* Query operation */
-	// Input key into hash table to get value
+	/* Lookup operation */
+	// Look up key in the hash table to obtain value
 	name := hmap.get(13276)
-	fmt.Println("\nInput student ID 13276, query name ", name)
+	fmt.Println("\nLook up student ID 13276 to obtain the name ", name)
 
 	/* Remove operation */
-	// Remove key-value pair (key, value) from hash table
+	// Remove the key-value pair (key, value) from the hash table
 	hmap.remove(16750)
-	fmt.Println("\nAfter removing 16750, hash table is\nKey -> Value")
+	fmt.Println("\nHash table after removing 16750:\nKey -> Value")
 	hmap.print()
 }

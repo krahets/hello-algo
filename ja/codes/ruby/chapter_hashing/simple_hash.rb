@@ -24,7 +24,7 @@ def mul_hash(key)
   hash % modulus
 end
 
-### XOR ハッシュ ###
+### 排他的論理和ハッシュ ###
 def xor_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -44,19 +44,19 @@ def rot_hash(key)
   hash % modulus
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
-  key = "Hello アルゴリズム"
+  key = "Hello 算法"
 
   hash = add_hash(key)
-  puts "加算ハッシュ値は #{hash}"
+  puts "加算ハッシュの値は #{hash}"
 
   hash = mul_hash(key)
-  puts "乗算ハッシュ値は #{hash}"
+  puts "乗算ハッシュの値は #{hash}"
 
   hash = xor_hash(key)
-  puts "XORハッシュ値は #{hash}"
+  puts "排他的論理和ハッシュの値は #{hash}"
 
   hash = rot_hash(key)
-  puts "ローテーションハッシュ値は #{hash}"
+  puts "回転ハッシュの値は #{hash}"
 end

@@ -4,11 +4,11 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Double-ended queue based on circular array implementation */
+/* Deque implemented with a circular array */
 class ArrayDeque {
-  late List<int> _nums; // Array for storing double-ended queue elements
-  late int _front; // Front pointer, points to the front of the queue element
-  late int _queSize; // Double-ended queue length
+  late List<int> _nums; // Array for storing deque elements
+  late int _front; // Front pointer, pointing to the first element
+  late int _queSize; // Deque size
 
   /* Constructor */
   ArrayDeque(int capacity) {
@@ -16,71 +16,71 @@ class ArrayDeque {
     this._front = this._queSize = 0;
   }
 
-  /* Get the capacity of the double-ended queue */
+  /* Get the deque capacity */
   int capacity() {
     return _nums.length;
   }
 
-  /* Get the length of the double-ended queue */
+  /* Get the deque size */
   int size() {
     return _queSize;
   }
 
-  /* Check if the double-ended queue is empty */
+  /* Check whether the deque is empty */
   bool isEmpty() {
     return _queSize == 0;
   }
 
-  /* Calculate circular array index */
+  /* Calculate an index in the circular array */
   int index(int i) {
-    // Use modulo operation to wrap the array head and tail together
-    // When i passes the tail of the array, return to the head
-    // When i passes the head of the array, return to the tail
+    // Use modulo to connect the end of the array to its beginning
+    // When i passes the end of the array, wrap around to the beginning
+    // When i passes the beginning of the array, wrap around to the end
     return (i + capacity()) % capacity();
   }
 
-  /* Front of the queue enqueue */
+  /* Enqueue at the front */
   void pushFirst(int _num) {
     if (_queSize == capacity()) {
-      throw Exception("Double-ended queue is full");
+      throw Exception("Deque is full");
     }
-    // Use modulo operation to wrap front around to the tail after passing the head of the array
-    // Use modulo operation to wrap _front from array head back to tail
+    // Move the front pointer one position to the left
+    // Use modulo to wrap _front to the end when it passes the beginning of the array
     _front = index(_front - 1);
-    // Add _num to queue front
+    // Add _num to the front
     _nums[_front] = _num;
     _queSize++;
   }
 
-  /* Rear of the queue enqueue */
+  /* Enqueue at the rear */
   void pushLast(int _num) {
     if (_queSize == capacity()) {
-      throw Exception("Double-ended queue is full");
+      throw Exception("Deque is full");
     }
-    // Use modulo operation to wrap rear around to the head after passing the tail of the array
+    // Calculate the rear pointer, which points one position past the last element
     int rear = index(_front + _queSize);
-    // Add _num to queue rear
+    // Add _num to the rear
     _nums[rear] = _num;
     _queSize++;
   }
 
-  /* Rear of the queue dequeue */
+  /* Dequeue from the front */
   int popFirst() {
     int _num = peekFirst();
-    // Move front pointer right by one
+    // Move the front pointer one position to the right
     _front = index(_front + 1);
     _queSize--;
     return _num;
   }
 
-  /* Access rear of the queue element */
+  /* Dequeue from the rear */
   int popLast() {
     int _num = peekLast();
     _queSize--;
     return _num;
   }
 
-  /* Return list for printing */
+  /* Access the front element */
   int peekFirst() {
     if (isEmpty()) {
       throw Exception("Deque is empty");
@@ -88,19 +88,19 @@ class ArrayDeque {
     return _nums[_front];
   }
 
-  /* Driver Code */
+  /* Access the rear element */
   int peekLast() {
     if (isEmpty()) {
       throw Exception("Deque is empty");
     }
-    // Initialize double-ended queue
+    // Calculate the index of the last element
     int last = index(_front + _queSize - 1);
     return _nums[last];
   }
 
-  /* Return array for printing */
+  /* Return an array for printing */
   List<int> toArray() {
-    // Elements enqueue
+    // Convert only the list elements within the occupied range
     List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[index(j)];
@@ -109,38 +109,38 @@ class ArrayDeque {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Get the length of the double-ended queue */
+  /* Initialize the deque */
   final ArrayDeque deque = ArrayDeque(10);
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
   print("Deque deque = ${deque.toArray()}");
 
-  /* Update element */
+  /* Access an element */
   final int peekFirst = deque.peekFirst();
   print("Front element peekFirst = $peekFirst");
   final int peekLast = deque.peekLast();
   print("Rear element peekLast = $peekLast");
 
-  /* Elements enqueue */
+  /* Enqueue elements */
   deque.pushLast(4);
-  print("After element 4 enqueues at rear, deque = ${deque.toArray()}");
+  print("After enqueuing 4 at the rear, deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("After element 1 enqueues at front, deque = ${deque.toArray()}");
+  print("After enqueuing 1 at the front, deque = ${deque.toArray()}");
 
-  /* Element dequeue */
+  /* Dequeue an element */
   final int popLast = deque.popLast();
-  print("Dequeue rear element = $popLast, after rear dequeue deque = ${deque.toArray()}");
+  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = ${deque.toArray()}");
   final int popFirst = deque.popFirst();
-  print("Dequeue front element = $popFirst, after front dequeue deque = ${deque.toArray()}");
+  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = ${deque.toArray()}");
 
-  /* Get the length of the double-ended queue */
+  /* Get the deque size */
   final int size = deque.size();
-  print("Deque length size = $size");
+  print("Deque size = $size");
 
-  /* Check if the double-ended queue is empty */
+  /* Check whether the deque is empty */
   final bool isEmpty = deque.isEmpty();
-  print("Is deque empty = $isEmpty");
+  print("Is the deque empty = $isEmpty");
 }

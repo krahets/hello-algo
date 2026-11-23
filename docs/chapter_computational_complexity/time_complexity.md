@@ -8,198 +8,9 @@
 
 例如在以下代码中，输入数据大小为 $n$ ：
 
-=== "Python"
-
-    ```python title=""
-    # 在某运行平台下
-    def algorithm(n: int):
-        a = 2      # 1 ns
-        a = a + 1  # 1 ns
-        a = a * 2  # 10 ns
-        # 循环 n 次
-        for _ in range(n):  # 1 ns
-            print(0)        # 5 ns
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // 在某运行平台下
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // 循环 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns
-            cout << 0 << endl;         // 5 ns
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // 在某运行平台下
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // 循环 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns
-            System.out.println(0);     // 5 ns
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // 在某运行平台下
-    void Algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // 循环 n 次
-        for (int i = 0; i < n; i++) {  // 1 ns
-            Console.WriteLine(0);      // 5 ns
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // 在某运行平台下
-    func algorithm(n int) {
-        a := 2     // 1 ns
-        a = a + 1  // 1 ns
-        a = a * 2  // 10 ns
-        // 循环 n 次
-        for i := 0; i < n; i++ {  // 1 ns
-            fmt.Println(a)        // 5 ns
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // 在某运行平台下
-    func algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // 循环 n 次
-        for _ in 0 ..< n { // 1 ns
-            print(0) // 5 ns
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // 在某运行平台下
-    function algorithm(n) {
-        var a = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // 循环 n 次
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // 在某运行平台下
-    function algorithm(n: number): void {
-        var a: number = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // 循环 n 次
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // 在某运行平台下
-    void algorithm(int n) {
-      int a = 2; // 1 ns
-      a = a + 1; // 1 ns
-      a = a * 2; // 10 ns
-      // 循环 n 次
-      for (int i = 0; i < n; i++) { // 1 ns
-        print(0); // 5 ns
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // 在某运行平台下
-    fn algorithm(n: i32) {
-        let mut a = 2;      // 1 ns
-        a = a + 1;          // 1 ns
-        a = a * 2;          // 10 ns
-        // 循环 n 次
-        for _ in 0..n {     // 1 ns
-            println!("{}", 0);  // 5 ns
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // 在某运行平台下
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // 循环 n 次
-        for (int i = 0; i < n; i++) {   // 1 ns
-            printf("%d", 0);            // 5 ns
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // 在某运行平台下
-    fun algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // 循环 n 次
-        for (i in 0..<n) {  // 1 ns
-            println(0)      // 5 ns
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # 在某运行平台下
-    def algorithm(n)
-        a = 2       # 1 ns
-        a = a + 1   # 1 ns
-        a = a * 2   # 10 ns
-        # 循环 n 次
-        (0...n).each do # 1 ns
-            puts 0      # 5 ns
-        end
-    end
-    ```
+```snippet
+run_time_estimate
+```
 
 根据以上方法，可以得到算法的运行时间为 $(6n + 12)$ ns ：
 
@@ -215,274 +26,9 @@ $$
 
 “时间增长趋势”这个概念比较抽象，我们通过一个例子来加以理解。假设输入数据大小为 $n$ ，给定三个算法 `A`、`B` 和 `C` ：
 
-=== "Python"
-
-    ```python title=""
-    # 算法 A 的时间复杂度：常数阶
-    def algorithm_A(n: int):
-        print(0)
-    # 算法 B 的时间复杂度：线性阶
-    def algorithm_B(n: int):
-        for _ in range(n):
-            print(0)
-    # 算法 C 的时间复杂度：常数阶
-    def algorithm_C(n: int):
-        for _ in range(1000000):
-            print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // 算法 A 的时间复杂度：常数阶
-    void algorithm_A(int n) {
-        cout << 0 << endl;
-    }
-    // 算法 B 的时间复杂度：线性阶
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            cout << 0 << endl;
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            cout << 0 << endl;
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // 算法 A 的时间复杂度：常数阶
-    void algorithm_A(int n) {
-        System.out.println(0);
-    }
-    // 算法 B 的时间复杂度：线性阶
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.println(0);
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            System.out.println(0);
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // 算法 A 的时间复杂度：常数阶
-    void AlgorithmA(int n) {
-        Console.WriteLine(0);
-    }
-    // 算法 B 的时间复杂度：线性阶
-    void AlgorithmB(int n) {
-        for (int i = 0; i < n; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    void AlgorithmC(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // 算法 A 的时间复杂度：常数阶
-    func algorithm_A(n int) {
-        fmt.Println(0)
-    }
-    // 算法 B 的时间复杂度：线性阶
-    func algorithm_B(n int) {
-        for i := 0; i < n; i++ {
-            fmt.Println(0)
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    func algorithm_C(n int) {
-        for i := 0; i < 1000000; i++ {
-            fmt.Println(0)
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // 算法 A 的时间复杂度：常数阶
-    func algorithmA(n: Int) {
-        print(0)
-    }
-
-    // 算法 B 的时间复杂度：线性阶
-    func algorithmB(n: Int) {
-        for _ in 0 ..< n {
-            print(0)
-        }
-    }
-
-    // 算法 C 的时间复杂度：常数阶
-    func algorithmC(n: Int) {
-        for _ in 0 ..< 1_000_000 {
-            print(0)
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // 算法 A 的时间复杂度：常数阶
-    function algorithm_A(n) {
-        console.log(0);
-    }
-    // 算法 B 的时间复杂度：线性阶
-    function algorithm_B(n) {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    function algorithm_C(n) {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // 算法 A 的时间复杂度：常数阶
-    function algorithm_A(n: number): void {
-        console.log(0);
-    }
-    // 算法 B 的时间复杂度：线性阶
-    function algorithm_B(n: number): void {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    function algorithm_C(n: number): void {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // 算法 A 的时间复杂度：常数阶
-    void algorithmA(int n) {
-      print(0);
-    }
-    // 算法 B 的时间复杂度：线性阶
-    void algorithmB(int n) {
-      for (int i = 0; i < n; i++) {
-        print(0);
-      }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    void algorithmC(int n) {
-      for (int i = 0; i < 1000000; i++) {
-        print(0);
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // 算法 A 的时间复杂度：常数阶
-    fn algorithm_A(n: i32) {
-        println!("{}", 0);
-    }
-    // 算法 B 的时间复杂度：线性阶
-    fn algorithm_B(n: i32) {
-        for _ in 0..n {
-            println!("{}", 0);
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    fn algorithm_C(n: i32) {
-        for _ in 0..1000000 {
-            println!("{}", 0);
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // 算法 A 的时间复杂度：常数阶
-    void algorithm_A(int n) {
-        printf("%d", 0);
-    }
-    // 算法 B 的时间复杂度：线性阶
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            printf("%d", 0);
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            printf("%d", 0);
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // 算法 A 的时间复杂度：常数阶
-    fun algorithm_A(n: Int) {
-        println(0)
-    }
-    // 算法 B 的时间复杂度：线性阶
-    fun algorithm_B(n: Int) {
-        for (i in 0..<n){
-            println(0)
-        }
-    }
-    // 算法 C 的时间复杂度：常数阶
-    fun algorithm_C(n: Int) {
-        for (i in 0..<1000000) {
-            println(0)
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # 算法 A 的时间复杂度：常数阶
-    def algorithm_A(n)
-        puts 0
-    end
-
-    # 算法 B 的时间复杂度：线性阶
-    def algorithm_B(n)
-        (0...n).each { puts 0 }
-    end
-
-    # 算法 C 的时间复杂度：常数阶
-    def algorithm_C(n)
-        (0...1_000_000).each { puts 0 }
-    end
-    ```
+```snippet
+growth_trend
+```
 
 下图展示了以上三个算法函数的时间复杂度。
 
@@ -490,7 +36,7 @@ $$
 - 算法 `B` 中的打印操作需要循环 $n$ 次，算法运行时间随着 $n$ 增大呈线性增长。此算法的时间复杂度被称为“线性阶”。
 - 算法 `C` 中的打印操作需要循环 $1000000$ 次，虽然运行时间很长，但它与输入数据大小 $n$ 无关。因此 `C` 的时间复杂度和 `A` 相同，仍为“常数阶”。
 
-![算法 A、B 和 C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.png)
+![算法 A、B 和 C 的时间增长趋势](time_complexity.assets/time_complexity_simple_example.svg)
 
 相较于直接统计算法的运行时间，时间复杂度分析有哪些特点呢？
 
@@ -502,186 +48,9 @@ $$
 
 给定一个输入大小为 $n$ 的函数：
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +1
-        a = a + 1  # +1
-        a = a * 2  # +1
-        # 循环 n 次
-        for i in range(n):  # +1
-            print(0)        # +1
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // 循环 n 次
-        for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
-            cout << 0 << endl;    // +1
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // 循环 n 次
-        for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
-            System.out.println(0);    // +1
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // 循环 n 次
-        for (int i = 0; i < n; i++) {   // +1（每轮都执行 i ++）
-            Console.WriteLine(0);   // +1
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1      // +1
-        a = a + 1   // +1
-        a = a * 2   // +1
-        // 循环 n 次
-        for i := 0; i < n; i++ {   // +1
-            fmt.Println(a)         // +1
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // 循环 n 次
-        for _ in 0 ..< n { // +1
-            print(0) // +1
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        var a = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // 循环 n 次
-        for(let i = 0; i < n; i++){ // +1（每轮都执行 i ++）
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void{
-        var a: number = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // 循环 n 次
-        for(let i = 0; i < n; i++){ // +1（每轮都执行 i ++）
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +1
-      a = a + 1; // +1
-      a = a * 2; // +1
-      // 循环 n 次
-      for (int i = 0; i < n; i++) { // +1（每轮都执行 i ++）
-        print(0); // +1
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;   // +1
-        a = a + 1;      // +1
-        a = a * 2;      // +1
-
-        // 循环 n 次
-        for _ in 0..n { // +1（每轮都执行 i ++）
-            println!("{}", 0); // +1
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // 循环 n 次
-        for (int i = 0; i < n; i++) {   // +1（每轮都执行 i ++）
-            printf("%d", 0);            // +1
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // 循环 n 次
-        for (i in 0..<n) { // +1（每轮都执行 i ++）
-            println(0) // +1
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +1
-        a = a + 1   # +1
-        a = a * 2   # +1
-        # 循环 n 次
-        (0...n).each do # +1
-            puts 0      # +1
-        end
-    end
-    ```
+```snippet
+asymptotic_upper_bound
+```
 
 设算法的操作数量是一个关于输入数据大小 $n$ 的函数，记为 $T(n)$ ，则以上函数的操作数量为：
 
@@ -701,7 +70,7 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 
 如下图所示，计算渐近上界就是寻找一个函数 $f(n)$ ，使得当 $n$ 趋向于无穷大时，$T(n)$ 和 $f(n)$ 处于相同的增长级别，仅相差一个常数系数 $c$。
 
-![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.png)
+![函数的渐近上界](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## 推算方法
 
@@ -719,246 +88,9 @@ $T(n)$ 是一次函数，说明其运行时间的增长趋势是线性的，因�
 
 给定一个函数，我们可以用上述技巧来统计操作数量：
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +0（技巧 1）
-        a = a + n  # +0（技巧 1）
-        # +n（技巧 2）
-        for i in range(5 * n + 1):
-            print(0)
-        # +n*n（技巧 3）
-        for i in range(2 * n):
-            for j in range(n + 1):
-                print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +0（技巧 1）
-        a = a + n;  // +0（技巧 1）
-        // +n（技巧 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            cout << 0 << endl;
-        }
-        // +n*n（技巧 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                cout << 0 << endl;
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +0（技巧 1）
-        a = a + n;  // +0（技巧 1）
-        // +n（技巧 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            System.out.println(0);
-        }
-        // +n*n（技巧 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                System.out.println(0);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +0（技巧 1）
-        a = a + n;  // +0（技巧 1）
-        // +n（技巧 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            Console.WriteLine(0);
-        }
-        // +n*n（技巧 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                Console.WriteLine(0);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1     // +0（技巧 1）
-        a = a + n  // +0（技巧 1）
-        // +n（技巧 2）
-        for i := 0; i < 5 * n + 1; i++ {
-            fmt.Println(0)
-        }
-        // +n*n（技巧 3）
-        for i := 0; i < 2 * n; i++ {
-            for j := 0; j < n + 1; j++ {
-                fmt.Println(0)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +0（技巧 1）
-        a = a + n // +0（技巧 1）
-        // +n（技巧 2）
-        for _ in 0 ..< (5 * n + 1) {
-            print(0)
-        }
-        // +n*n（技巧 3）
-        for _ in 0 ..< (2 * n) {
-            for _ in 0 ..< (n + 1) {
-                print(0)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        let a = 1;  // +0（技巧 1）
-        a = a + n;  // +0（技巧 1）
-        // +n（技巧 2）
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n（技巧 3）
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void {
-        let a = 1;  // +0（技巧 1）
-        a = a + n;  // +0（技巧 1）
-        // +n（技巧 2）
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n（技巧 3）
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +0（技巧 1）
-      a = a + n; // +0（技巧 1）
-      // +n（技巧 2）
-      for (int i = 0; i < 5 * n + 1; i++) {
-        print(0);
-      }
-      // +n*n（技巧 3）
-      for (int i = 0; i < 2 * n; i++) {
-        for (int j = 0; j < n + 1; j++) {
-          print(0);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;     // +0（技巧 1）
-        a = a + n;        // +0（技巧 1）
-
-        // +n（技巧 2）
-        for i in 0..(5 * n + 1) {
-            println!("{}", 0);
-        }
-
-        // +n*n（技巧 3）
-        for i in 0..(2 * n) {
-            for j in 0..(n + 1) {
-                println!("{}", 0);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +0（技巧 1）
-        a = a + n;  // +0（技巧 1）
-        // +n（技巧 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            printf("%d", 0);
-        }
-        // +n*n（技巧 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                printf("%d", 0);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1   // +0（技巧 1）
-        a = a + n   // +0（技巧 1）
-        // +n（技巧 2）
-        for (i in 0..<5 * n + 1) {
-            println(0)
-        }
-        // +n*n（技巧 3）
-        for (i in 0..<2 * n) {
-            for (j in 0..<n + 1) {
-                println(0)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +0（技巧 1）
-        a = a + n   # +0（技巧 1）
-        # +n（技巧 2）
-        (0...(5 * n + 1)).each do { puts 0 }
-        # +n*n（技巧 3）
-        (0...(2 * n)).each do
-            (0...(n + 1)).each do { puts 0 }
-        end
-    end
-    ```
+```snippet
+count_operations
+```
 
 以下公式展示了使用上述技巧前后的统计结果，两者推算出的时间复杂度都为 $O(n^2)$ 。
 
@@ -997,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![常见的时间复杂度类型](time_complexity.assets/time_complexity_common_types.png)
+![常见的时间复杂度类型](time_complexity.assets/time_complexity_common_types.svg)
 
 ### 常数阶 $O(1)$
 
@@ -1035,7 +167,7 @@ $$
 
 下图对比了常数阶、线性阶和平方阶三种时间复杂度。
 
-![常数阶、线性阶和平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![常数阶、线性阶和平方阶的时间复杂度](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 以冒泡排序为例，外层循环执行 $n - 1$ 次，内层循环执行 $n-1$、$n-2$、$\dots$、$2$、$1$ 次，平均为 $n / 2$ 次，因此时间复杂度为 $O((n - 1) n / 2) = O(n^2)$ ：
 
@@ -1053,7 +185,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.png)
+![指数阶的时间复杂度](time_complexity.assets/time_complexity_exponential.svg)
 
 在实际算法中，指数阶常出现于递归函数中。例如在以下代码中，其递归地一分为二，经过 $n$ 次分裂后停止：
 
@@ -1073,7 +205,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.png)
+![对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic.svg)
 
 与指数阶类似，对数阶也常出现于递归函数中。以下代码形成了一棵高度为 $\log_2 n$ 的递归树：
 
@@ -1103,7 +235,7 @@ $$
 
 下图展示了线性对数阶的生成方式。二叉树的每一层的操作总数都为 $n$ ，树共有 $\log_2 n + 1$ 层，因此时间复杂度为 $O(n \log n)$ 。
 
-![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![线性对数阶的时间复杂度](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 主流排序算法的时间复杂度通常为 $O(n \log n)$ ，例如快速排序、归并排序、堆排序等。
 
@@ -1121,7 +253,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.png)
+![阶乘阶的时间复杂度](time_complexity.assets/time_complexity_factorial.svg)
 
 请注意，因为当 $n \geq 4$ 时恒有 $n! > 2^n$ ，所以阶乘阶比指数阶增长得更快，在 $n$ 较大时也是不可接受的。
 
