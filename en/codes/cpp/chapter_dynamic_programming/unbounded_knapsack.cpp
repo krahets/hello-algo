@@ -6,19 +6,19 @@
 
 #include "../utils/common.hpp"
 
-/* Complete knapsack: Dynamic programming */
+/* Unbounded knapsack: dynamic programming */
 int unboundedKnapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
     int n = wgt.size();
-    // Initialize dp table
+    // Initialize the dp table
     vector<vector<int>> dp(n + 1, vector<int>(cap + 1, 0));
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // If exceeding the knapsack capacity, do not choose item i
+                // If item i exceeds the remaining capacity, do not choose it
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // The greater value between not choosing and choosing item i
+                // Take the larger value obtained by excluding and including item i
                 dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
             }
         }
@@ -26,19 +26,19 @@ int unboundedKnapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
     return dp[n][cap];
 }
 
-/* Complete knapsack: Space-optimized dynamic programming */
+/* Unbounded knapsack: space-optimized dynamic programming */
 int unboundedKnapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
     int n = wgt.size();
-    // Initialize dp table
+    // Initialize the dp table
     vector<int> dp(cap + 1, 0);
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // If exceeding the knapsack capacity, do not choose item i
+                // If item i exceeds the remaining capacity, do not choose it
                 dp[c] = dp[c];
             } else {
-                // The greater value between not choosing and choosing item i
+                // Take the larger value obtained by excluding and including item i
                 dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
@@ -54,11 +54,11 @@ int main() {
 
     // Dynamic programming
     int res = unboundedKnapsackDP(wgt, val, cap);
-    cout << "The maximum value within the bag capacity is " << res << endl;
+    cout << "Maximum total item value within the knapsack capacity: " << res << endl;
 
     // Space-optimized dynamic programming
     res = unboundedKnapsackDPComp(wgt, val, cap);
-    cout << "The maximum value within the bag capacity is " << res << endl;
+    cout << "Maximum total item value within the knapsack capacity: " << res << endl;
 
     return 0;
 }

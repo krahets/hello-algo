@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "title": "Reconstructing a five-node binary tree from preorder and inorder traversals",
+  "summary": "From preorder [3,9,2,1,7] and inorder [9,3,1,2,7], uniquely reconstruct the five-node binary tree rooted at 3.",
+  "context": [
+    "We are given a binary tree's preorder traversal sequence preorder = [3, 9, 2, 1, 7] and inorder traversal sequence inorder = [9, 3, 1, 2, 7], where all node values in the tree are distinct.",
+    "Preorder traversal visits nodes in \"root → left subtree → right subtree\" order, whereas inorder traversal visits them in \"left subtree → root → right subtree\" order. Together, their complementary positional structure uniquely determines the entire binary tree."
+  ],
+  "description": [
+    "The left side of the figure shows the target binary tree to be reconstructed: root node 3 has left child 9 and right child 2; node 2 has left child 1 and right child 7; and nodes 9, 1, and 7 are leaf nodes.",
+    "The right side stacks the two traversal arrays vertically, with a leftward arrow labeled \"Reconstruct the binary tree\" pointing to the tree on the left. Checking against the traversal rules confirms why: the first preorder element, 3, identifies the overall root; in inorder, only 9 appears to the left of 3, so the left subtree contains node 9 alone; to the right of 3 lies [1, 2, 7], paired with the last three preorder elements [2, 1, 7], showing that the right subtree is rooted at 2 with left and right children 1 and 7.",
+    "Note that this is a general binary tree rather than a binary search tree: node placement is determined by traversal order and does not require a left child to be smaller than its parent (for example, left child 9 is greater than root 3)."
+  ],
+  "frames": [
+    {
+      "id": "source-313",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_example.png",
+      "title": "Reconstructing a five-node binary tree from preorder and inorder traversals",
+      "explanation": "Preorder pinpoints each subtree's root, while inorder partitions which nodes belong to its left and right subtrees; as long as all node values are distinct, the two sequences uniquely determine the tree."
+    }
+  ]
+}

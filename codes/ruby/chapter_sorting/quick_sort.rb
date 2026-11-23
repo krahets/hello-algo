@@ -92,7 +92,7 @@ class QuickSortMedian
   end
 end
 
-### 快速排序类（尾递归优化）###
+### 快速排序类（递归深度优化）###
 class QuickSortTailCall
   class << self
     ### 哨兵划分 ###
@@ -115,7 +115,7 @@ class QuickSortTailCall
       i # 返回基准数的索引
     end
 
-    ### 快速排序（尾递归优化）###
+    ### 快速排序（递归深度优化）###
     def quick_sort(nums, left, right)
       # 子数组长度不为 1 时递归
       while left < right
@@ -146,8 +146,8 @@ if __FILE__ == $0
   QuickSortMedian.quick_sort(nums1, 0, nums1.length - 1)
   puts "快速排序（中位基准数优化）完成后 nums1 = #{nums1}"
 
-  # 快速排序（尾递归优化）
+  # 快速排序（递归深度优化）
   nums2 = [2, 4, 1, 0, 3, 5]
   QuickSortTailCall.quick_sort(nums2, 0, nums2.length - 1)
-  puts "快速排序（尾递归优化）完成后 nums2 = #{nums2}"
+  puts "快速排序（递归深度优化）完成后 nums2 = #{nums2}"
 end

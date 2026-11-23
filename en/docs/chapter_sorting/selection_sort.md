@@ -1,58 +1,58 @@
 # Selection sort
 
-<u>Selection sort</u> works on a very simple principle: it uses a loop where each iteration selects the smallest element from the unsorted interval and moves it to the end of the sorted section.
+<u>Selection sort</u> works very simply: in each round, select the smallest element from the unsorted section and place it at the end of the sorted section.
 
-Suppose the length of the array is $n$, the steps of selection sort is shown in the figure below.
+For an array of length $n$, the algorithm proceeds as shown below.
 
-1. Initially, all elements are unsorted, i.e., the unsorted (index) interval is $[0, n-1]$.
-2. Select the smallest element in the interval $[0, n-1]$ and swap it with the element at index $0$. After this, the first element of the array is sorted.
-3. Select the smallest element in the interval $[1, n-1]$ and swap it with the element at index $1$. After this, the first two elements of the array are sorted.
-4. Continue in this manner. After $n - 1$ rounds of selection and swapping, the first $n - 1$ elements are sorted.
-5. The only remaining element is subsequently the largest element and does not need sorting, thus the array is sorted.
+1. Initially, all elements are unsorted, so the unsorted index interval is $[0, n-1]$.
+2. Select the smallest element in $[0, n-1]$ and swap it with the element at index $0$. The first element is now sorted.
+3. Select the smallest element in $[1, n-1]$ and swap it with the element at index $1$. The first two elements are now sorted.
+4. Continue in this way. After $n - 1$ rounds of selection and swapping, the first $n - 1$ elements are sorted.
+5. The remaining element must be the largest and needs no sorting. The array is now sorted.
 
 === "<1>"
-    ![Selection sort process](selection_sort.assets/selection_sort_step1.png)
+    ![Steps of selection sort](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.png)
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.png)
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.png)
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.png)
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.png)
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.png)
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.png)
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.png)
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.png)
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png)
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg)
 
-In the code, we use $k$ to record the smallest element within the unsorted interval:
+In the code, $k$ tracks the smallest element in the unsorted section:
 
 ```src
 [file]{selection_sort}-[class]{}-[func]{selection_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm properties
 
-- **Time complexity of $O(n^2)$, non-adaptive sort**: There are $n - 1$ iterations in the outer loop, with the length of the unsorted section starting at $n$ in the first iteration and decreasing to $2$ in the last iteration, i.e., each outer loop iterations contain $n$, $n - 1$, $\dots$, $3$, $2$ inner loop iterations respectively, summing up to $\frac{(n - 1)(n + 2)}{2}$.
-- **Space complexity of $O(1)$, in-place sort**: Uses constant extra space with pointers $i$ and $j$.
-- **Non-stable sort**: As shown in the figure below, an element `nums[i]` may be swapped to the right of an equal element, causing their relative order to change.
+- **Time complexity: $O(n^2)$; not adaptive**. The outer loop runs $n - 1$ times. The inner loop runs $n - 1$ times in the first round and $1$ time in the last, giving successive counts of $n - 1$, $n - 2$, $\dots$, $2$, and $1$, which sum to $\frac{n(n - 1)}{2}$.
+- **Space complexity: $O(1)$; in-place**. Pointers $i$ and $j$ use constant extra space.
+- **Not stable**. As shown below, `nums[i]` may be swapped to the right of an equal element, changing their relative order.
 
-![Selection sort instability example](selection_sort.assets/selection_sort_instability.png)
+![An example showing that selection sort is not stable](selection_sort.assets/selection_sort_instability.svg)

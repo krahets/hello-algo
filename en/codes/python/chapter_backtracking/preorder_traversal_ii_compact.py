@@ -12,31 +12,31 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def pre_order(root: TreeNode):
-    """Pre-order traversal: Example two"""
+    """Preorder traversal: example 2"""
     if root is None:
         return
-    # Attempt
+    # Try
     path.append(root)
     if root.val == 7:
-        # Record solution
+        # Record the solution
         res.append(list(path))
     pre_order(root.left)
     pre_order(root.right)
-    # Retract
+    # Backtrack
     path.pop()
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\nInitialize binary tree")
+    print("\nInitialize the binary tree")
     print_tree(root)
 
-    # Pre-order traversal
+    # Preorder traversal
     path = list[TreeNode]()
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\nOutput all root-to-node 7 paths")
+    print("\nOutput all paths from the root to nodes with value 7")
     for path in res:
         print([node.val for node in path])

@@ -1,0 +1,271 @@
+{
+  "schema_version": 2,
+  "title": "0-1 背包动态规划",
+  "summary": "三件物品各最多选一次，演示 0-1 背包的逐格递推；容量 4 时求得最大总价值 20。",
+  "context": [
+    "候选物品共 3 件（n = 3），编号、名称、重量和价值见输入表。背包容量 cap = 4，目标是不超重时获得最大总价值，无须恰好装满。",
+    "状态 dp[i, c] 表示从前 i 件物品中选择、总重量不超过容量 c 时的最大价值。行下标 i 取 0 至 3，列下标 c 取 0 至 4，状态表共 4 行 5 列；物品编号 i 从 1 开始，对应数组重量 wgt[i-1] 和价值 val[i-1]。"
+  ],
+  "description": [
+    "第 1 步初始化；第 2 至 5、6 至 9、10 至 13 步分别计算第 1、2、3 行，每行按容量 c = 1 至 4 推进；第 14 步返回答案。每个非边界格只计算一次，之后不再改动。最终表的单元格附有首次计算的步骤号：到达该步之前，此格为未计算初值 0；到达该步及之后，此格取表中的最终值。",
+    "对于第 i 件物品，重量记为 w，价值记为 v。若 w > c，装不下，只能不选，继承正上方 dp[i-1, c]；否则比较不选时的 dp[i-1, c] 与选入时的 dp[i-1, c-w] + v。后者位于上一行、向左移 w 列。两个来源都取自上一行，尚未包含第 i 件物品，保证每件最多选一次。"
+  ],
+  "frames": [
+    {
+      "id": "source-397",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step1.png",
+      "title": "初始化 4×5 状态矩阵",
+      "explanation": "建立 4 行 5 列的 dp 表，所有格子先填 0。第 0 行（无物品）和第 0 列（零容量）是已确定的边界值 0，图中用深色字表示；其余 12 格是尚未计算的初值 0，用淡色字表示，不能当作已算出的最优价值。",
+      "key_state": "初始化 4×5 的 dp 表全为 0：首行与首列为有效边界 0，其余 12 格为未计算初值 0。",
+      "announcement": "初始化 4×5 的 dp 矩阵，将无物品的首行与零容量的首列边界确定为 0。"
+    },
+    {
+      "id": "source-398",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step2.png",
+      "title": "计算 dp[1, 1]，得 5",
+      "explanation": "考虑前 1 件物品、容量 1，当前物品是苹果（重 1、价值 5）。不选得上一行 dp[0, 1] = 0；选入后剩余容量 1 - 1 = 0，查上一行（前 0 件物品）的 dp[0, 0] = 0，加价值 5 得 5。取较大值 5 写入 dp[1, 1]。此前只有初始化的边界格，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 1 件物品（苹果）、容量 1：选入苹果，dp[1, 1] 已算为 5；其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[1, 1]（前 1 件物品、容量 1）：选入苹果优于不选，写入最大价值 5。"
+    },
+    {
+      "id": "source-399",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step3.png",
+      "title": "计算 dp[1, 2]，得 5",
+      "explanation": "考虑前 1 件物品、容量 2，当前物品是苹果（重 1、价值 5）。不选得上一行 dp[0, 2] = 0；选入后剩余容量 2 - 1 = 1，查上一行（前 0 件物品）的 dp[0, 1] = 0，加价值 5 得 5。取较大值 5 写入 dp[1, 2]。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 1 件物品（苹果）、容量 2：苹果只能选一次，dp[1, 2] 已算为 5；其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[1, 2]（前 1 件物品、容量 2）：苹果最多选一次，写入最大价值 5。"
+    },
+    {
+      "id": "source-400",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step4.png",
+      "title": "计算 dp[1, 3]，得 5",
+      "explanation": "考虑前 1 件物品、容量 3，当前物品是苹果（重 1、价值 5）。不选得上一行 dp[0, 3] = 0；选入后剩余容量 3 - 1 = 2，查上一行（前 0 件物品）的 dp[0, 2] = 0，加价值 5 得 5。取较大值 5 写入 dp[1, 3]。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 1 件物品（苹果）、容量 3：dp[1, 3] 已算为 5；其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[1, 3]（前 1 件物品、容量 3）：选入一件苹果，写入最大价值 5。"
+    },
+    {
+      "id": "source-401",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step5.png",
+      "title": "计算 dp[1, 4]，得 5",
+      "explanation": "考虑前 1 件物品、容量 4，当前物品是苹果（重 1、价值 5）。不选得上一行 dp[0, 4] = 0；选入后剩余容量 4 - 1 = 3，查上一行（前 0 件物品）的 dp[0, 3] = 0，加价值 5 得 5。取较大值 5 写入 dp[1, 4]。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 1 件物品（苹果）、容量 4：dp[1, 4] 已算为 5，第 1 行计算完毕；第 2、3 行容量大于 0 的格仍为未计算初值 0。",
+      "announcement": "计算 dp[1, 4]（前 1 件物品、容量 4）：写入最大价值 5，完成第 1 行。"
+    },
+    {
+      "id": "source-402",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step6.png",
+      "title": "计算 dp[2, 1]，得 5",
+      "explanation": "考虑前 2 件物品、容量 1，当前物品是菠萝（重 2、价值 11）。重量 2 大于容量 1，装不下，只能不选；继承上一行 dp[1, 1] = 5，写入 dp[2, 1] = 5。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 2 件物品（至菠萝）、容量 1：装不下重 2 的菠萝，dp[2, 1] 已算为 5；其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[2, 1]（前 2 件物品、容量 1）：装不下菠萝，继承上一行价值 5。"
+    },
+    {
+      "id": "source-403",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step7.png",
+      "title": "计算 dp[2, 2]，得 11",
+      "explanation": "考虑前 2 件物品、容量 2，当前物品是菠萝（重 2、价值 11）。不选得上一行 dp[1, 2] = 5；选入后剩余容量 2 - 2 = 0，查上一行（前 1 件物品）的 dp[1, 0] = 0，加价值 11 得 11。取较大值 11 写入 dp[2, 2]。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 2 件物品（至菠萝）、容量 2：选入菠萝，dp[2, 2] 已算为 11；其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[2, 2]（前 2 件物品、容量 2）：选入菠萝（11）优于不选（5），写入最大价值 11。"
+    },
+    {
+      "id": "source-404",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step8.png",
+      "title": "计算 dp[2, 3]，得 16",
+      "explanation": "考虑前 2 件物品、容量 3，当前物品是菠萝（重 2、价值 11）。不选得上一行 dp[1, 3] = 5；选入后剩余容量 3 - 2 = 1，查上一行（前 1 件物品）的 dp[1, 1] = 5，加价值 11 得 16。取较大值 16 写入 dp[2, 3]。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 2 件物品、容量 3：选入菠萝得 16，优于不选的 5，dp[2, 3] = 16。其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[2, 3]：选入菠萝得 16，优于不选的 5，写入 16。"
+    },
+    {
+      "id": "source-405",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step9.png",
+      "title": "计算 dp[2, 4]，得 16",
+      "explanation": "考虑前 2 件物品、容量 4，当前物品是菠萝（重 2、价值 11）。不选得上一行 dp[1, 4] = 5；选入后剩余容量 4 - 2 = 2，查上一行（前 1 件物品）的 dp[1, 2] = 5，加价值 11 得 16。取较大值 16 写入 dp[2, 4]。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 2 件物品、容量 4：选入菠萝得 16，优于不选的 5，dp[2, 4] = 16。其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[2, 4]：选入菠萝得 16，优于不选的 5，写入 16。"
+    },
+    {
+      "id": "source-406",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step10.png",
+      "title": "计算 dp[3, 1]，得 5",
+      "explanation": "考虑前 3 件物品、容量 1，当前物品是西瓜（重 3、价值 15）。重量 3 大于容量 1，装不下，只能不选；继承上一行 dp[2, 1] = 5，写入 dp[3, 1] = 5。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 3 件物品（至西瓜）、容量 1：装不下重 3 的西瓜，dp[3, 1] 已算为 5；其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[3, 1]（前 3 件物品、容量 1）：装不下西瓜，继承上一行价值 5。"
+    },
+    {
+      "id": "source-407",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step11.png",
+      "title": "计算 dp[3, 2]，得 11",
+      "explanation": "考虑前 3 件物品、容量 2，当前物品是西瓜（重 3、价值 15）。重量 3 大于容量 2，装不下，只能不选；继承上一行 dp[2, 2] = 11，写入 dp[3, 2] = 11。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 3 件物品（至西瓜）、容量 2：仍装不下重 3 的西瓜，dp[3, 2] 已算为 11；其后非边界格仍为未计算初值 0。",
+      "announcement": "计算 dp[3, 2]（前 3 件物品、容量 2）：仍装不下西瓜，继承上一行价值 11。"
+    },
+    {
+      "id": "source-408",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step12.png",
+      "title": "计算 dp[3, 3]，得 16",
+      "explanation": "考虑前 3 件物品、容量 3，当前物品是西瓜（重 3、价值 15）。不选得上一行 dp[2, 3] = 16；选入后剩余容量 3 - 3 = 0，查上一行（前 2 件物品）的 dp[2, 0] = 0，加价值 15 得 15。取较大值 16 写入 dp[3, 3]。此前各格已算好，其后非边界格仍为未计算初值 0。",
+      "key_state": "前 3 件物品（至西瓜）、容量 3：不选西瓜（16）高于单选西瓜（15），dp[3, 3] 已算为 16；仅剩 dp[3, 4] 为未计算初值 0。",
+      "announcement": "计算 dp[3, 3]（前 3 件物品、容量 3）：不选西瓜的 16 高于单选西瓜的 15，写入最大价值 16。"
+    },
+    {
+      "id": "source-409",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step13.png",
+      "title": "计算 dp[3, 4]，得 20",
+      "explanation": "考虑前 3 件物品、容量 4，当前物品是西瓜（重 3、价值 15）。不选得上一行 dp[2, 4] = 16；选入后剩余容量 4 - 3 = 1，查上一行（前 2 件物品）的 dp[2, 1] = 5，加价值 15 得 20。取较大值 20 写入 dp[3, 4]。至此全部 12 个非边界格已算完。",
+      "key_state": "前 3 件物品、容量 4：选入西瓜得 20，优于不选的 16，dp[3, 4] = 20。全部非边界格已算完。",
+      "announcement": "计算 dp[3, 4]：选入西瓜得 20，优于不选的 16，写入 20。"
+    },
+    {
+      "id": "source-410",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step14.png",
+      "title": "返回容量 4 的最大价值 20",
+      "explanation": "读取右下角 dp[3, 4] = 20，选择苹果与西瓜：总重量 1 + 3 = 4，总价值 5 + 15 = 20。末帧所写“将所有物品放入背包的最大价值 20”指考虑全部三件候选物品后的最优子集；三件全选重 6，超过容量 4。",
+      "key_state": "填表完成，返回右下角 dp[3, 4] = 20（选择苹果与西瓜）。",
+      "announcement": "全部状态计算完成，返回容量 4 下的最大价值 dp[3, 4] = 20。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "本组物品数据",
+      "headers": [
+        "物品编号i",
+        "物品",
+        "重量wgt[i−1]",
+        "价值val[i−1]"
+      ],
+      "rows": [
+        [
+          "1",
+          "苹果",
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "菠萝",
+          "2",
+          "11"
+        ],
+        [
+          "3",
+          "西瓜",
+          "3",
+          "15"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "填表完成后的 dp 最大价值与首次计算步骤",
+      "headers": [
+        "可选物品（前 i 件）",
+        "容量 c=0",
+        "容量 c=1",
+        "容量 c=2",
+        "容量 c=3",
+        "容量 c=4"
+      ],
+      "rows": [
+        [
+          "没有物品（i=0）",
+          "0（边界有效）",
+          "0（边界有效）",
+          "0（边界有效）",
+          "0（边界有效）",
+          "0（边界有效）"
+        ],
+        [
+          "苹果（i=1）",
+          "0（边界有效）",
+          "5（第 2 步）",
+          "5（第 3 步）",
+          "5（第 4 步）",
+          "5（第 5 步）"
+        ],
+        [
+          "苹果、菠萝（i=2）",
+          "0（边界有效）",
+          "5（第 6 步）",
+          "11（第 7 步）",
+          "16（第 8 步）",
+          "16（第 9 步）"
+        ],
+        [
+          "苹果、菠萝、西瓜（i=3）",
+          "0（边界有效）",
+          "5（第 10 步）",
+          "11（第 11 步）",
+          "16（第 12 步）",
+          "20（第 13 步）"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "knapsack-dp": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-397"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-398"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-399"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-400"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-401"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-402"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-403"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-404"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-405"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-406"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-407"
+        },
+        {
+          "id": "step-12",
+          "frame_id": "source-408"
+        },
+        {
+          "id": "step-13",
+          "frame_id": "source-409"
+        },
+        {
+          "id": "step-14",
+          "frame_id": "source-410"
+        }
+      ]
+    }
+  },
+  "input_tables": [
+    0
+  ]
+}

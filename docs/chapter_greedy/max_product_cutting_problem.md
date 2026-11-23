@@ -4,7 +4,7 @@
 
     给定一个正整数 $n$ ，将其切分为至少两个正整数的和，求切分后所有整数的乘积最大是多少，如下图所示。
 
-![最大切分乘积的问题定义](max_product_cutting_problem.assets/max_product_cutting_definition.png)
+![最大切分乘积的问题定义](max_product_cutting_problem.assets/max_product_cutting_definition.svg)
 
 假设我们将 $n$ 切分为 $m$ 个整数因子，其中第 $i$ 个因子记为 $n_i$ ，即
 
@@ -36,7 +36,7 @@ $$
 
 **贪心策略一**：如果切分方案中包含 $\geq 4$ 的因子，那么它就应该被继续切分。最终的切分方案只应出现 $1$、$2$、$3$ 这三种因子。
 
-![切分导致乘积变大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
+![切分导致乘积变大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg)
 
 接下来思考哪个因子是最优的。在 $1$、$2$、$3$ 这三个因子中，显然 $1$ 是最差的，因为 $1 \times (n-1) < n$ 恒成立，即切分出 $1$ 反而会导致乘积减小。
 
@@ -44,14 +44,14 @@ $$
 
 **贪心策略二**：在切分方案中，最多只应存在两个 $2$ 。因为三个 $2$ 总是可以替换为两个 $3$ ，从而获得更大的乘积。
 
-![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
+![最优切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg)
 
 综上所述，可推理出以下贪心策略。
 
 1. 输入整数 $n$ ，从其不断地切分出因子 $3$ ，直至余数为 $0$、$1$、$2$ 。
 2. 当余数为 $0$ 时，代表 $n$ 是 $3$ 的倍数，因此不做任何处理。
 3. 当余数为 $2$ 时，不继续划分，保留。
-4. 当余数为 $1$ 时，由于 $2 \times 2 > 1 \times 3$ ，因此应将最后一个 $3$ 替换为 $2$ 。
+4. 当余数为 $1$ 时，由于 $2 \times 2 > 1 \times 3$ ，因此应将最后一个 $3$ 和余数 $1$ 替换为两个 $2$ 。
 
 ### 代码实现
 
@@ -67,7 +67,7 @@ $$
 [file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}
 ```
 
-![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
+![最大切分乘积的计算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg)
 
 **时间复杂度取决于编程语言的幂运算的实现方法**。以 Python 为例，常用的幂计算函数有三种。
 
@@ -78,8 +78,8 @@ $$
 
 ### 正确性证明
 
-使用反证法，只分析 $n \geq 3$ 的情况。
+使用反证法，只分析 $n \geq 4$ 的情况。
 
-1. **所有因子 $\leq 3$** ：假设最优切分方案中存在 $\geq 4$ 的因子 $x$ ，那么一定可以将其继续划分为 $2(x-2)$ ，从而获得更大的乘积。这与假设矛盾。
+1. **所有因子 $\leq 3$** ：假设最优切分方案中存在 $\geq 4$ 的因子 $x$ ，那么一定可以将其继续划分为 $2(x-2)$ ，从而获得更大（或相等）的乘积。这与假设矛盾。
 2. **切分方案不包含 $1$** ：假设最优切分方案中存在一个因子 $1$ ，那么它一定可以合并入另外一个因子中，以获得更大的乘积。这与假设矛盾。
 3. **切分方案最多包含两个 $2$** ：假设最优切分方案中包含三个 $2$ ，那么一定可以替换为两个 $3$ ，乘积更大。这与假设矛盾。

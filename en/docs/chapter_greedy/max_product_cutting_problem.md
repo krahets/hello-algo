@@ -2,27 +2,27 @@
 
 !!! question
 
-    Given a positive integer $n$, split it into at least two positive integers that sum up to $n$, and find the maximum product of these integers, as illustrated in the figure below.
+    Given a positive integer $n$, split it into a sum of at least two positive integers. What is the largest possible product of those integers? The problem is illustrated in the figure below.
 
-![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.png)
+![Definition of the maximum product cutting problem](max_product_cutting_problem.assets/max_product_cutting_definition.svg)
 
-Assume we split $n$ into $m$ integer factors, where the $i$-th factor is denoted as $n_i$, that is,
+Suppose we split $n$ into $m$ integers that will be factors in the product. Denote the $i$-th factor by $n_i$, so that
 
 $$
 n = \sum_{i=1}^{m}n_i
 $$
 
-The goal of this problem is to find the maximum product of all integer factors, namely,
+Our goal is to maximize the product of all these integer factors:
 
 $$
 \max(\prod_{i=1}^{m}n_i)
 $$
 
-We need to consider: How large should the number of splits $m$ be, and what should each $n_i$ be?
+We need to determine how many parts $m$ to create and what each $n_i$ should be.
 
-### Greedy strategy determination
+### Choosing a greedy strategy
 
-Experience suggests that the product of two integers is often greater than their sum. Suppose we split a factor of $2$ from $n$, then their product is $2(n-2)$. Compare this product with $n$:
+The product of two integers is often greater than their sum. Suppose we split off a factor of $2$ from $n$, giving the product $2(n-2)$. Comparing this product with $n$ gives:
 
 $$
 \begin{aligned}
@@ -32,54 +32,54 @@ n & \geq 4
 \end{aligned}
 $$
 
-As shown in the figure below, when $n \geq 4$, splitting out a $2$ increases the product, **which indicates that integers greater than or equal to $4$ should be split**.
+As shown in the figure below, when $n \geq 4$, splitting off a $2$ increases the product. **This suggests that every integer greater than or equal to $4$ should be split further**.
 
-**Greedy strategy one**: If the splitting scheme includes factors $\geq 4$, they should be further split. The final split should only include factors $1$, $2$, and $3$.
+**Greedy strategy 1**: If a factor $\geq 4$ appears in a split, divide it further. The final split should contain only the factors $1$, $2$, and $3$.
 
-![Product increase due to splitting](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
+![Splitting increases the product](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg)
 
-Next, consider which factor is optimal. Among the factors $1$, $2$, and $3$, clearly $1$ is the worst, as $1 \times (n-1) < n$ always holds, meaning splitting out $1$ actually decreases the product.
+Next, consider which factor is best. Of $1$, $2$, and $3$, clearly $1$ is the worst: $1 \times (n-1) < n$ always holds, so splitting off a $1$ reduces the product.
 
-As shown in the figure below, when $n = 6$, $3 \times 3 > 2 \times 2 \times 2$. **This means splitting out $3$ is better than splitting out $2$**.
+As shown in the figure below, when $n = 6$, we have $3 \times 3 > 2 \times 2 \times 2$. **This means that splitting into factors of $3$ is better than splitting into factors of $2$**.
 
-**Greedy strategy two**: In the splitting scheme, there should be at most two $2$s. Because three $2$s can always be replaced by two $3$s to obtain a higher product.
+**Greedy strategy 2**: A split should contain at most two factors of $2$, because three $2$s can always be replaced with two $3$s to obtain a larger product.
 
-![Optimal splitting factors](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
+![Optimal factors](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg)
 
-From the above, the following greedy strategies can be derived.
+These observations lead to the following greedy strategy.
 
-1. Input integer $n$, continually split out factor $3$ until the remainder is $0$, $1$, or $2$.
-2. When the remainder is $0$, it means $n$ is a multiple of $3$, so no further action is taken.
-3. When the remainder is $2$, do not continue to split, keep it.
-4. When the remainder is $1$, since $2 \times 2 > 1 \times 3$, the last $3$ should be replaced with $2$.
+1. Starting with $n$, keep splitting off factors of $3$ until the remainder is $0$, $1$, or $2$.
+2. If the remainder is $0$, then $n$ is a multiple of $3$, and no further action is needed.
+3. If the remainder is $2$, keep it without splitting it further.
+4. If the remainder is $1$, replace the last $3$ and the remaining $1$ with two $2$s, since $2 \times 2 > 1 \times 3$.
 
 ### Code implementation
 
-As shown in the figure below, we do not need to use loops to split the integer but can use the floor division operation to get the number of $3$s, $a$, and the modulo operation to get the remainder, $b$, thus:
+As shown in the figure below, we do not need a loop to split the integer. Floor division gives the number of $3$s, denoted by $a$, and the modulo operation gives the remainder $b$. Thus:
 
 $$
-n = 3a + b
+n = 3 a + b
 $$
 
-Please note, for the boundary case where $n \leq 3$, a $1$ must be split out, with a product of $1 \times (n - 1)$.
+For the boundary cases $n \leq 3$, we must split off a $1$, giving a product of $1 \times (n - 1)$.
 
 ```src
 [file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}
 ```
 
-![Calculation method of the maximum product after cutting](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
+![Calculating the maximum product](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg)
 
-**Time complexity depends on the implementation of the power operation in the programming language**. For Python, the commonly used power calculation functions are three types:
+**The time complexity depends on how the programming language implements exponentiation**. Python, for example, offers three common ways to compute powers.
 
-- Both the operator `**` and the function `pow()` have a time complexity of $O(\log⁡ a)$.
-- The `math.pow()` function internally calls the C language library's `pow()` function, performing floating-point exponentiation, with a time complexity of $O(1)$.
+- The `**` operator and the `pow()` function both have a time complexity of $O(\log⁡ a)$.
+- The `math.pow()` function calls the C library's `pow()` function internally, performing floating-point exponentiation in $O(1)$ time.
 
-Variables $a$ and $b$ use constant size of extra space, **hence the space complexity is $O(1)$**.
+The variables $a$ and $b$ use constant extra space, **so the space complexity is $O(1)$**.
 
-### Correctness proof
+### Proof of correctness
 
-Using the proof by contradiction, only analyze cases where $n \geq 3$.
+We use proof by contradiction, considering only $n \geq 4$.
 
-1. **All factors $\leq 3$**: Assume the optimal splitting scheme includes a factor $x \geq 4$, then it can definitely be further split into $2(x-2)$, obtaining a larger product. This contradicts the assumption.
-2. **The splitting scheme does not contain $1$**: Assume the optimal splitting scheme includes a factor of $1$, then it can definitely be merged into another factor to obtain a larger product. This contradicts the assumption.
-3. **The splitting scheme contains at most two $2$s**: Assume the optimal splitting scheme includes three $2$s, then they can definitely be replaced by two $3$s, achieving a higher product. This contradicts the assumption.
+1. **All factors are $\leq 3$**: Suppose an optimal split contains a factor $x$ that is $\geq 4$. We can split it further to obtain $2(x-2)$, giving a greater (or equal) product. This contradicts the assumption.
+2. **The split contains no $1$**: Suppose an optimal split contains a factor of $1$. We can merge it into another factor to obtain a larger product, contradicting the assumption.
+3. **The split contains at most two $2$s**: Suppose an optimal split contains three $2$s. Replacing them with two $3$s gives a larger product, contradicting the assumption.

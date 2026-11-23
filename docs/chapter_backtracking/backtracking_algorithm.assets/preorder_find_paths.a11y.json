@@ -1,0 +1,206 @@
+{
+  "schema_version": 2,
+  "title": "尝试与回退：保存到达 7 的路径",
+  "summary": "进入节点时追加进 path，退出时弹出；两次命中 7 复制保存路径副本，搜索结束时 path 清空。",
+  "context": [
+    "固定树的父子关系见下表。左侧 7 是根 1 的左子节点，右侧 7 是节点 3 的右子节点。",
+    "按“根 → 左 → 右”的前序顺序遍历整棵树，找出从根节点 1 到所有值为 7 节点的路径。",
+    "状态列表 path 实时维护从根到当前节点的活跃路径，结果列表 res 保存每次命中 7 时的路径副本。图中以节点值简写 path 与 res，配套代码实际保存节点对象及列表拷贝 list(path)，左、右两个值为 7 的节点是不同对象。"
+  ],
+  "description": [
+    "每次向前“尝试”进入节点时将其追加到 path 末尾；若当前节点值为 7，则复制当前 path 的副本加入 res；离开节点“回退”前将其从 path 末尾弹出，恢复进入该节点前的路径。"
+  ],
+  "result": "res 保存的是命中时 path 的独立列表副本，回退弹出只修改当前 path，不会改变已保存的解。",
+  "frames": [
+    {
+      "id": "source-342",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png",
+      "title": "进入根 1",
+      "explanation": "从根节点 1 开始，将 1 追加进 path。节点值 1 不是目标 7，当前 path = [1]，res = []；左右子树均待探索，接下来进入左侧 7。",
+      "key_state": "进入根 1，path = [1]，res = []。",
+      "announcement": "进入根节点 1，将 1 追加进 path。"
+    },
+    {
+      "id": "source-343",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png",
+      "title": "命中左侧 7，保存路径",
+      "explanation": "从根 1 进入左侧 7，追加 7 并命中目标，把当前路径的副本存入 res。当前 path = [1, 7]，res = [[1, 7]]；继续探索左侧 7 的子节点 4、5。",
+      "key_state": "命中左侧 7，path = [1, 7]，复制保存后 res = [[1, 7]]。",
+      "announcement": "访问左侧节点 7，将路径副本 [1, 7] 存入 res。"
+    },
+    {
+      "id": "source-344",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png",
+      "title": "进入节点 4",
+      "explanation": "进入左侧 7 的左叶节点 4，将 4 追加进 path；它不是目标 7。当前 path = [1, 7, 4]，res = [[1, 7]]；节点 5 与根的右子树待探索。",
+      "key_state": "进入叶节点 4，path = [1, 7, 4]，res = [[1, 7]]。",
+      "announcement": "进入左叶节点 4，path 更新为 [1, 7, 4]。"
+    },
+    {
+      "id": "source-345",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png",
+      "title": "退出 4，回到左侧 7",
+      "explanation": "叶节点 4 的左右空子树均已返回，从 path 弹出 4，回到父节点左侧 7。当前 path = [1, 7]，res = [[1, 7]]；节点 4 已完成，接下来探索右子节点 5。",
+      "key_state": "弹出 4 回退到左侧 7，path 恢复为 [1, 7]，res = [[1, 7]]。",
+      "announcement": "从叶节点 4 回退并弹出 4，path 恢复为 [1, 7]。"
+    },
+    {
+      "id": "source-346",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png",
+      "title": "进入节点 5",
+      "explanation": "进入左侧 7 的右叶节点 5，将 5 追加进 path；先前已弹出的兄弟节点 4 不会残留。当前 path = [1, 7, 5]，res = [[1, 7]]；左子树所有节点已访问，根的右子树待探索。",
+      "key_state": "进入叶节点 5，path = [1, 7, 5]，res = [[1, 7]]。",
+      "announcement": "进入右叶节点 5，path 更新为 [1, 7, 5]。"
+    },
+    {
+      "id": "source-347",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png",
+      "title": "退出 5 和左侧 7",
+      "explanation": "节点 5 访问完毕后先弹出 5，回到左侧 7；其左右子树均已完成，再弹出左侧 7，回到根 1。本画面合并这两次回退。当前 path = [1]，res = [[1, 7]]；下一步探索根的右子节点 3。",
+      "key_state": "连续弹出 5 和左侧 7 回到根 1，path 恢复为 [1]，res 保持 [[1, 7]]。",
+      "announcement": "连续退出节点 5 与左侧 7，path 恢复为 [1]。"
+    },
+    {
+      "id": "source-348",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png",
+      "title": "进入节点 3",
+      "explanation": "进入根 1 的右子节点 3，将 3 追加进 path；它不是目标 7。当前 path = [1, 3]，res = [[1, 7]]；继续探索节点 3 的左叶节点 6 与右叶节点 7。",
+      "key_state": "进入右子节点 3，path = [1, 3]，res = [[1, 7]]。",
+      "announcement": "进入根的右子节点 3，path 更新为 [1, 3]。"
+    },
+    {
+      "id": "source-349",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png",
+      "title": "进入节点 6",
+      "explanation": "进入节点 3 的左叶节点 6，将 6 追加进 path；它不是目标 7。当前 path = [1, 3, 6]，res = [[1, 7]]；全树仅剩节点 3 的右子节点 7 尚未访问。",
+      "key_state": "进入叶节点 6，path = [1, 3, 6]，res = [[1, 7]]。",
+      "announcement": "进入左叶节点 6，path 更新为 [1, 3, 6]。"
+    },
+    {
+      "id": "source-350",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png",
+      "title": "退出 6，回到 3",
+      "explanation": "叶节点 6 访问完毕，从 path 弹出 6，回到父节点 3。当前 path = [1, 3]，res = [[1, 7]]；节点 6 已完成，接下来探索右侧 7。",
+      "key_state": "弹出 6 回退到节点 3，path 恢复为 [1, 3]，res = [[1, 7]]。",
+      "announcement": "从叶节点 6 回退并弹出 6，path 恢复为 [1, 3]。"
+    },
+    {
+      "id": "source-351",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png",
+      "title": "命中右侧 7，保存路径",
+      "explanation": "进入节点 3 的右叶节点 7，追加 7 并命中第二个目标节点，将路径副本存入 res。当前 path = [1, 3, 7]，res = [[1, 7], [1, 3, 7]]；全部节点已访问，尚待收尾回退。",
+      "key_state": "命中右侧 7，path = [1, 3, 7]，复制保存后 res = [[1, 7], [1, 3, 7]]。",
+      "announcement": "访问右侧节点 7，将第二条路径副本 [1, 3, 7] 存入 res。"
+    },
+    {
+      "id": "source-352",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png",
+      "title": "退出右侧 7、3 和根 1",
+      "explanation": "右侧 7 访问结束，依次从 path 弹出右侧 7、父节点 3 和根 1。本画面合并三次收尾回退，搜索结束：path = []，res = [[1, 7], [1, 3, 7]]；已保存的副本完好保留。",
+      "key_state": "已依次弹出右侧 7、3 和根 1，完成三次收尾回退，path = []，res = [[1, 7], [1, 3, 7]]。",
+      "announcement": "依次退出右侧 7、节点 3 和根 1，path 清空，搜索完成。"
+    }
+  ],
+  "animations": {
+    "preorder-find-paths": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-342"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-343"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-344"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-345"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-346"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-347"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-348"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-349"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-350"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-351"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-352"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "固定二叉树：区分两个值为 7 的节点",
+      "headers": [
+        "节点",
+        "左子节点",
+        "右子节点"
+      ],
+      "rows": [
+        [
+          "根 1",
+          "左侧 7",
+          "3"
+        ],
+        [
+          "左侧 7",
+          "4",
+          "5"
+        ],
+        [
+          "3",
+          "6",
+          "右侧 7"
+        ],
+        [
+          "4",
+          "无",
+          "无"
+        ],
+        [
+          "5",
+          "无",
+          "无"
+        ],
+        [
+          "6",
+          "无",
+          "无"
+        ],
+        [
+          "右侧 7",
+          "无",
+          "无"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

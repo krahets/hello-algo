@@ -1,23 +1,23 @@
 # Summary
 
-### Key review
+### Key takeaways
 
-- The essence of the backtracking algorithm is an exhaustive search method, where the solution space is traversed deeply first to find solutions that meet the criteria. During the search, if a satisfying solution is found, it is recorded, until all solutions are found or the search is completed.
-- The search process of the backtracking algorithm includes trying and retreating. It uses depth-first search to explore various choices, and when a choice does not meet the constraint conditions, the previous choice is undone, reverting to the previous state, and other options are then continued to be tried. Trying and retreating are operations in opposite directions.
-- Backtracking problems usually contain multiple constraints, which can be used to perform pruning operations. Pruning can terminate unnecessary search branches early, greatly enhancing search efficiency.
-- Backtracking algorithms are mainly used to solve search problems and constraint satisfaction problems. Although combinatorial optimization problems can be solved using backtracking, there are often more efficient or effective solutions available.
-- The permutation problem aims to search for all possible permutations of a given set of elements. We use an array to record whether each element has been chosen, cutting off branches that repeatedly select the same element, ensuring each element is selected only once.
-- In permutation problems, if the set contains duplicate elements, the final result will include duplicate permutations. We need to restrict that identical elements can only be selected once in each round, which is usually implemented using a hash set.
-- The subset-sum problem aims to find all subsets in a given set that sum to a target value. The set does not distinguish the order of elements, but the search process outputs all ordered results, producing duplicate subsets. Before backtracking, we sort the data and set a variable to indicate the starting point of each round of traversal, thereby pruning the search branches that generate duplicate subsets.
-- For the subset-sum problem, equal elements in the array can produce duplicate sets. Using the precondition that the array is already sorted, we prune by determining if adjacent elements are equal, thus ensuring equal elements are only selected once per round.
-- The $n$ queens problem aims to find schemes to place $n$ queens on an $n \times n$ size chessboard in such a way that no two queens can attack each other. The constraints of the problem include row constraints, column constraints, main diagonal constraints, and secondary diagonal constraints. To meet the row constraint, we adopt a strategy of placing one queen per row, ensuring each row has one queen placed.
-- The handling of column constraints and diagonal constraints is similar. For column constraints, we use an array to record whether there is a queen in each column, thereby indicating whether the selected cell is legal. For diagonal constraints, we use two arrays to respectively record the presence of queens on the main and secondary diagonals; the challenge is in identifying the row and column index patterns that satisfy the same primary (secondary) diagonal.
+- Backtracking is fundamentally exhaustive search. It traverses the solution space depth first to find solutions meeting the requirements, records them when found, and continues until all solutions are found or traversal is complete.
+- Backtracking alternates between trying a choice and undoing it. It explores choices through depth-first search; when a constraint is violated, it undoes the last choice, restores the previous state, and tries another choice. Trying and undoing are opposite operations.
+- Backtracking problems usually have multiple constraints that enable pruning. Pruning stops unnecessary branches early and can greatly improve search efficiency.
+- Backtracking is mainly used for search and constraint satisfaction problems. It can also solve combinatorial optimization problems, though more efficient or more effective approaches often exist.
+- The permutations problem asks for every possible ordering of a collection's elements. An array tracks whether each element has been selected, pruning branches that select the same element again and ensuring each is used only once.
+- If the input contains equal elements, permutation generation produces duplicate results. We must try each value only once per round, usually by using a hash set.
+- The subset sum problem asks for all subsets of a collection whose sum equals a target. Subsets disregard order, but the search generates all orderings, producing duplicates. Sorting the data before backtracking and using a variable to mark each round's starting index allows us to prune duplicate-generating branches.
+- Equal elements also produce duplicate subsets. Because the array is sorted, we can prune by comparing adjacent elements, ensuring that each value is tried only once per round.
+- The $n$-queens problem asks for arrangements of $n$ queens on an $n \times n$ chessboard such that no two queens can attack each other. It imposes row, column, and both diagonal constraints. Placing queens row by row ensures exactly one queen per row.
+- Column and diagonal constraints are handled similarly. An array records whether each column contains a queen, indicating whether a chosen square is valid. Two more arrays track queens on diagonals in each direction. The main challenge is identifying the relationship between row and column indices for squares on the same diagonal.
 
 ### Q & A
 
-**Q**: How can we understand the relationship between backtracking and recursion?
+**Q**: How are backtracking and recursion related?
 
-Overall, backtracking is a "strategic algorithm," while recursion is more of a "tool."
+Broadly speaking, backtracking is an algorithmic strategy, while recursion is a tool.
 
-- Backtracking algorithms are typically based on recursion. However, backtracking is one of the application scenarios of recursion, specifically in search problems.
-- The structure of recursion reflects the "sub-problem decomposition" problem-solving paradigm, commonly used in solving problems involving divide and conquer, backtracking, and dynamic programming (memoized recursion).
+- Backtracking is usually implemented recursively. It is one application of recursion, specifically to search problems.
+- Recursion expresses the idea of decomposing a problem into subproblems. It is commonly used in divide and conquer, backtracking, and dynamic programming (memoized recursion).

@@ -8,11 +8,11 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* Double-linked list node */
+/* Doubly linked list node */
 class ListNode {
     int val; // Node value
-    ListNode next; // Reference to successor node
-    ListNode prev; // Reference to predecessor node
+    ListNode next; // Reference to the next node
+    ListNode prev; // Reference to the previous node
 
     ListNode(int val) {
         this.val = val;
@@ -20,21 +20,21 @@ class ListNode {
     }
 }
 
-/* Double-ended queue class based on double-linked list */
+/* Deque implemented with a doubly linked list */
 class LinkedListDeque {
-    private ListNode front, rear; // Front node front, back node rear
-    private int queSize = 0; // Length of the double-ended queue
+    private ListNode front, rear; // Head node front and tail node rear
+    private int queSize = 0; // Deque size
 
     public LinkedListDeque() {
         front = rear = null;
     }
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     public int size() {
         return queSize;
     }
 
-    /* Determine if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -42,31 +42,31 @@ class LinkedListDeque {
     /* Enqueue operation */
     private void push(int num, boolean isFront) {
         ListNode node = new ListNode(num);
-        // If the list is empty, make front and rear both point to node
+        // If the linked list is empty, make both front and rear point to node
         if (isEmpty())
             front = rear = node;
-        // Front enqueue operation
+        // Enqueue at the front
         else if (isFront) {
-            // Add node to the head of the list
+            // Add node to the head of the linked list
             front.prev = node;
             node.next = front;
-            front = node; // Update head node
-        // Rear enqueue operation
+            front = node; // Update the head node
+        // Enqueue at the rear
         } else {
-            // Add node to the tail of the list
+            // Add node to the tail of the linked list
             rear.next = node;
             node.prev = rear;
-            rear = node; // Update tail node
+            rear = node; // Update the tail node
         }
-        queSize++; // Update queue length
+        queSize++; // Update the queue size
     }
 
-    /* Front enqueue */
+    /* Enqueue at the front */
     public void pushFirst(int num) {
         push(num, true);
     }
 
-    /* Rear enqueue */
+    /* Enqueue at the rear */
     public void pushLast(int num) {
         push(num, false);
     }
@@ -76,56 +76,58 @@ class LinkedListDeque {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         int val;
-        // Front dequeue operation
-        if (isFront) {
-            val = front.val; // Temporarily store the head node value
-            // Remove head node
-            ListNode fNext = front.next;
-            if (fNext != null) {
-                fNext.prev = null;
-                front.next = null;
-            }
-            front = fNext; // Update head node
-        // Rear dequeue operation
-        } else {
-            val = rear.val; // Temporarily store the tail node value
-            // Remove tail node
-            ListNode rPrev = rear.prev;
-            if (rPrev != null) {
-                rPrev.next = null;
-                rear.prev = null;
-            }
-            rear = rPrev; // Update tail node
+        // When the queue size is 1, the head and tail point to the same node
+        if (queSize == 1) {
+            val = front.val;
+            front = null;
+            rear = null;
         }
-        queSize--; // Update queue length
+        // Dequeue from the front
+        else if (isFront) {
+            val = front.val; // Save the head node value
+            // Remove the head node
+            ListNode fNext = front.next;
+            fNext.prev = null;
+            front.next = null;
+            front = fNext; // Update the head node
+        // Dequeue from the rear
+        } else {
+            val = rear.val; // Save the tail node value
+            // Remove the tail node
+            ListNode rPrev = rear.prev;
+            rPrev.next = null;
+            rear.prev = null;
+            rear = rPrev; // Update the tail node
+        }
+        queSize--; // Update the queue size
         return val;
     }
 
-    /* Front dequeue */
+    /* Dequeue from the front */
     public int popFirst() {
         return pop(true);
     }
 
-    /* Rear dequeue */
+    /* Dequeue from the rear */
     public int popLast() {
         return pop(false);
     }
 
-    /* Access front element */
+    /* Access the front element */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* Access rear element */
+    /* Access the rear element */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return rear.val;
     }
 
-    /* Return array for printing */
+    /* Return an array for printing */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -139,37 +141,37 @@ class LinkedListDeque {
 
 public class linkedlist_deque {
     public static void main(String[] args) {
-        /* Initialize double-ended queue */
+        /* Initialize the deque */
         LinkedListDeque deque = new LinkedListDeque();
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.println("Double-ended queue deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("Deque deque = " + Arrays.toString(deque.toArray()));
 
-        /* Access element */
+        /* Access an element */
         int peekFirst = deque.peekFirst();
         System.out.println("Front element peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("Back element peekLast = " + peekLast);
+        System.out.println("Rear element peekLast = " + peekLast);
 
-        /* Element enqueue */
+        /* Enqueue elements */
         deque.pushLast(4);
-        System.out.println("Element 4 enqueued at the tail, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("After enqueuing element 4 at the rear, deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("Element 1 enqueued at the head, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("After enqueuing element 1 at the front, deque = " + Arrays.toString(deque.toArray()));
 
-        /* Element dequeue */
+        /* Dequeue an element */
         int popLast = deque.popLast();
-        System.out.println("Deque tail element = " + popLast + ", after dequeuing from the tail" + Arrays.toString(deque.toArray()));
+        System.out.println("Element dequeued from the rear = " + popLast + ", after dequeuing from the rear, deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
-        System.out.println("Deque front element = " + popFirst + ", after dequeuing from the front" + Arrays.toString(deque.toArray()));
+        System.out.println("Element dequeued from the front = " + popFirst + ", after dequeuing from the front, deque = " + Arrays.toString(deque.toArray()));
 
-        /* Get the length of the double-ended queue */
+        /* Get the deque size */
         int size = deque.size();
-        System.out.println("Length of the double-ended queue size = " + size);
+        System.out.println("Deque size = " + size);
 
-        /* Determine if the double-ended queue is empty */
+        /* Check whether the deque is empty */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Is the double-ended queue empty = " + isEmpty);
+        System.out.println("Is the deque empty = " + isEmpty);
     }
 }

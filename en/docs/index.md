@@ -1,5 +1,5 @@
 # Hello Algo
 
-Data structures and algorithms crash course with animated illustrations and off-the-shelf code
+An introduction to data structures and algorithms, with animated illustrations and code you can run with one click.
 
-[Dive in](chapter_hello_algo/)
+[Start reading](chapter_hello_algo/)

@@ -14,7 +14,7 @@
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![在前序走訪中搜索節點](backtracking_algorithm.assets/preorder_find_nodes.png)
+![在前序走訪中搜索節點](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## 嘗試與回退
 
@@ -39,37 +39,37 @@
 觀察下圖所示的過程，**我們可以將嘗試和回退理解為“前進”與“撤銷”**，兩個操作互為逆向。
 
 === "<1>"
-    ![嘗試與回退](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![嘗試與回退](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## 剪枝
 
@@ -87,7 +87,7 @@
 
 “剪枝”是一個非常形象的名詞。如下圖所示，在搜尋過程中，**我們“剪掉”了不滿足約束條件的搜尋分支**，避免許多無意義的嘗試，從而提高了搜尋效率。
 
-![根據約束條件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![根據約束條件剪枝](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## 框架程式碼
 
@@ -95,345 +95,9 @@
 
 在以下框架程式碼中，`state` 表示問題的當前狀態，`choices` 表示當前狀態下可以做出的選擇：
 
-=== "Python"
-
-    ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
-        """回溯演算法框架"""
-        # 判斷是否為解
-        if is_solution(state):
-            # 記錄解
-            record_solution(state, res)
-            # 不再繼續搜尋
-            return
-        # 走訪所有選擇
-        for choice in choices:
-            # 剪枝：判斷選擇是否合法
-            if is_valid(state, choice):
-                # 嘗試：做出選擇，更新狀態
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # 回退：撤銷選擇，恢復到之前的狀態
-                undo_choice(state, choice)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* 回溯演算法框架 */
-    void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // 判斷是否為解
-        if (isSolution(state)) {
-            // 記錄解
-            recordSolution(state, res);
-            // 不再繼續搜尋
-            return;
-        }
-        // 走訪所有選擇
-        for (Choice choice : choices) {
-            // 剪枝：判斷選擇是否合法
-            if (isValid(state, choice)) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* 回溯演算法框架 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // 判斷是否為解
-        if (isSolution(state)) {
-            // 記錄解
-            recordSolution(state, res);
-            // 不再繼續搜尋
-            return;
-        }
-        // 走訪所有選擇
-        for (Choice choice : choices) {
-            // 剪枝：判斷選擇是否合法
-            if (isValid(state, choice)) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 回溯演算法框架 */
-    void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // 判斷是否為解
-        if (IsSolution(state)) {
-            // 記錄解
-            RecordSolution(state, res);
-            // 不再繼續搜尋
-            return;
-        }
-        // 走訪所有選擇
-        foreach (Choice choice in choices) {
-            // 剪枝：判斷選擇是否合法
-            if (IsValid(state, choice)) {
-                // 嘗試：做出選擇，更新狀態
-                MakeChoice(state, choice);
-                Backtrack(state, choices, res);
-                // 回退：撤銷選擇，恢復到之前的狀態
-                UndoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* 回溯演算法框架 */
-    func backtrack(state *State, choices []Choice, res *[]State) {
-        // 判斷是否為解
-        if isSolution(state) {
-            // 記錄解
-            recordSolution(state, res)
-            // 不再繼續搜尋
-            return
-        }
-        // 走訪所有選擇
-        for _, choice := range choices {
-            // 剪枝：判斷選擇是否合法
-            if isValid(state, choice) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 回溯演算法框架 */
-    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // 判斷是否為解
-        if isSolution(state: state) {
-            // 記錄解
-            recordSolution(state: state, res: &res)
-            // 不再繼續搜尋
-            return
-        }
-        // 走訪所有選擇
-        for choice in choices {
-            // 剪枝：判斷選擇是否合法
-            if isValid(state: state, choice: choice) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state: &state, choice: choice)
-                backtrack(state: &state, choices: choices, res: &res)
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state: &state, choice: choice)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* 回溯演算法框架 */
-    function backtrack(state, choices, res) {
-        // 判斷是否為解
-        if (isSolution(state)) {
-            // 記錄解
-            recordSolution(state, res);
-            // 不再繼續搜尋
-            return;
-        }
-        // 走訪所有選擇
-        for (let choice of choices) {
-            // 剪枝：判斷選擇是否合法
-            if (isValid(state, choice)) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* 回溯演算法框架 */
-    function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // 判斷是否為解
-        if (isSolution(state)) {
-            // 記錄解
-            recordSolution(state, res);
-            // 不再繼續搜尋
-            return;
-        }
-        // 走訪所有選擇
-        for (let choice of choices) {
-            // 剪枝：判斷選擇是否合法
-            if (isValid(state, choice)) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* 回溯演算法框架 */
-    void backtrack(State state, List<Choice>, List<State> res) {
-      // 判斷是否為解
-      if (isSolution(state)) {
-        // 記錄解
-        recordSolution(state, res);
-        // 不再繼續搜尋
-        return;
-      }
-      // 走訪所有選擇
-      for (Choice choice in choices) {
-        // 剪枝：判斷選擇是否合法
-        if (isValid(state, choice)) {
-          // 嘗試：做出選擇，更新狀態
-          makeChoice(state, choice);
-          backtrack(state, choices, res);
-          // 回退：撤銷選擇，恢復到之前的狀態
-          undoChoice(state, choice);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* 回溯演算法框架 */
-    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // 判斷是否為解
-        if is_solution(state) {
-            // 記錄解
-            record_solution(state, res);
-            // 不再繼續搜尋
-            return;
-        }
-        // 走訪所有選擇
-        for choice in choices {
-            // 剪枝：判斷選擇是否合法
-            if is_valid(state, choice) {
-                // 嘗試：做出選擇，更新狀態
-                make_choice(state, choice);
-                backtrack(state, choices, res);
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undo_choice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* 回溯演算法框架 */
-    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // 判斷是否為解
-        if (isSolution(state)) {
-            // 記錄解
-            recordSolution(state, res, numRes);
-            // 不再繼續搜尋
-            return;
-        }
-        // 走訪所有選擇
-        for (int i = 0; i < numChoices; i++) {
-            // 剪枝：判斷選擇是否合法
-            if (isValid(state, &choices[i])) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state, &choices[i]);
-                backtrack(state, choices, numChoices, res, numRes);
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state, &choices[i]);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* 回溯演算法框架 */
-    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // 判斷是否為解
-        if (isSolution(state)) {
-            // 記錄解
-            recordSolution(state, res)
-            // 不再繼續搜尋
-            return
-        }
-        // 走訪所有選擇
-        for (choice in choices) {
-            // 剪枝：判斷選擇是否合法
-            if (isValid(state, choice)) {
-                // 嘗試：做出選擇，更新狀態
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // 回退：撤銷選擇，恢復到之前的狀態
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### 回溯演算法框架 ###
-    def backtrack(state, choices, res)
-        # 判斷是否為解
-        if is_solution?(state)
-            # 記錄解
-            record_solution(state, res)
-            return
-        end
-
-        # 走訪所有選擇
-        for choice in choices
-            # 剪枝：判斷選擇是否合法
-            if is_valid?(state, choice)
-                # 嘗試：做出選擇，更新狀態
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # 回退：撤銷選擇，恢復到之前的狀態
-                undo_choice(state, choice)
-            end
-        end
-    end
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
+```snippet
+backtrack_framework
+```
 
 接下來，我們基於框架程式碼來解決例題三。狀態 `state` 為節點走訪路徑，選擇 `choices` 為當前節點的左子節點和右子節點，結果 `res` 是路徑串列：
 
@@ -443,7 +107,7 @@
 
 根據題意，我們在找到值為 $7$ 的節點後應該繼續搜尋，**因此需要將記錄解之後的 `return` 語句刪除**。下圖對比了保留或刪除 `return` 語句的搜尋過程。
 
-![保留與刪除 return 的搜尋過程對比](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![保留與刪除 return 的搜尋過程對比](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 相比基於前序走訪的程式碼實現，基於回溯演算法框架的程式碼實現雖然顯得囉唆，但通用性更好。實際上，**許多回溯問題可以在該框架下解決**。我們只需根據具體問題來定義 `state` 和 `choices` ，並實現框架中的各個方法即可。
 

@@ -9,9 +9,9 @@ package chapter_graph;
 import java.util.*;
 import utils.*;
 
-/* Undirected graph class based on adjacency list */
+/* Undirected graph class implemented with an adjacency list */
 class GraphAdjList {
-    // Adjacency list, key: vertex, value: all adjacent vertices of that vertex
+    // Adjacency list: key is a vertex, value is the list of all its neighbors
     Map<Vertex, List<Vertex>> adjList;
 
     /* Constructor */
@@ -30,7 +30,7 @@ class GraphAdjList {
         return adjList.size();
     }
 
-    /* Add edge */
+    /* Add an edge */
     public void addEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw new IllegalArgumentException();
@@ -39,7 +39,7 @@ class GraphAdjList {
         adjList.get(vet2).add(vet1);
     }
 
-    /* Remove edge */
+    /* Remove an edge */
     public void removeEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw new IllegalArgumentException();
@@ -48,21 +48,21 @@ class GraphAdjList {
         adjList.get(vet2).remove(vet1);
     }
 
-    /* Add vertex */
+    /* Add a vertex */
     public void addVertex(Vertex vet) {
         if (adjList.containsKey(vet))
             return;
-        // Add a new linked list to the adjacency list
+        // Add a new list to the adjacency list
         adjList.put(vet, new ArrayList<>());
     }
 
-    /* Remove vertex */
+    /* Remove a vertex */
     public void removeVertex(Vertex vet) {
         if (!adjList.containsKey(vet))
             throw new IllegalArgumentException();
-        // Remove the vertex vet's corresponding linked list from the adjacency list
+        // Remove the list corresponding to vertex vet from the adjacency list
         adjList.remove(vet);
-        // Traverse other vertices' linked lists, removing all edges containing vet
+        // Traverse the lists of the other vertices and remove all edges incident to vet
         for (List<Vertex> list : adjList.values()) {
             list.remove(vet);
         }
@@ -82,36 +82,36 @@ class GraphAdjList {
 
 public class graph_adjacency_list {
     public static void main(String[] args) {
-        /* Initialize undirected graph */
+        /* Initialize the undirected graph */
         Vertex[] v = Vertex.valsToVets(new int[] { 1, 3, 2, 5, 4 });
         Vertex[][] edges = { { v[0], v[1] }, { v[0], v[3] }, { v[1], v[2] },
                              { v[2], v[3] }, { v[2], v[4] }, { v[3], v[4] } };
         GraphAdjList graph = new GraphAdjList(edges);
-        System.out.println("\nAfter initialization, the graph is");
+        System.out.println("\nGraph after initialization:");
         graph.print();
 
-        /* Add edge */
-        // Vertices 1, 2 i.e., v[0], v[2]
+        /* Add an edge */
+        // Vertices 1 and 2 are v[0] and v[2]
         graph.addEdge(v[0], v[2]);
-        System.out.println("\nAfter adding edge 1-2, the graph is");
+        System.out.println("\nGraph after adding edge 1-2:");
         graph.print();
 
-        /* Remove edge */
-        // Vertices 1, 3 i.e., v[0], v[1]
+        /* Remove an edge */
+        // Vertices 1 and 3 are v[0] and v[1]
         graph.removeEdge(v[0], v[1]);
-        System.out.println("\nAfter removing edge 1-3, the graph is");
+        System.out.println("\nGraph after removing edge 1-3:");
         graph.print();
 
-        /* Add vertex */
+        /* Add a vertex */
         Vertex v5 = new Vertex(6);
         graph.addVertex(v5);
-        System.out.println("\nAfter adding vertex 6, the graph is");
+        System.out.println("\nGraph after adding vertex 6:");
         graph.print();
 
-        /* Remove vertex */
-        // Vertex 3 i.e., v[1]
+        /* Remove a vertex */
+        // Vertex 3 is v[1]
         graph.removeVertex(v[1]);
-        System.out.println("\nAfter removing vertex 3, the graph is");
+        System.out.println("\nGraph after removing vertex 3:");
         graph.print();
     }
 }

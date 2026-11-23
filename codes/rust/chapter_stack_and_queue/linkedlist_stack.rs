@@ -58,13 +58,17 @@ impl<T: Copy> LinkedListStack<T> {
     }
 
     /* 将 List 转化为 Array 并返回 */
-    pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-        if let Some(node) = head {
-            let mut nums = self.to_array(node.borrow().next.as_ref());
-            nums.push(node.borrow().val);
-            return nums;
+    pub fn to_array(&self) -> Vec<T> {
+        fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
+            if let Some(node) = head {
+                let mut nums = _to_array(node.borrow().next.as_ref());
+                nums.push(node.borrow().val);
+                return nums;
+            }
+            return Vec::new();
         }
-        return Vec::new();
+
+        _to_array(self.peek())
     }
 }
 
@@ -80,7 +84,7 @@ fn main() {
     stack.push(5);
     stack.push(4);
     print!("栈 stack = ");
-    print_util::print_array(&stack.to_array(stack.peek()));
+    print_util::print_array(&stack.to_array());
 
     /* 访问栈顶元素 */
     let peek = stack.peek().unwrap().borrow().val;
@@ -89,7 +93,7 @@ fn main() {
     /* 元素出栈 */
     let pop = stack.pop().unwrap();
     print!("\n出栈元素 pop = {}，出栈后 stack = ", pop);
-    print_util::print_array(&stack.to_array(stack.peek()));
+    print_util::print_array(&stack.to_array());
 
     /* 获取栈的长度 */
     let size = stack.size();

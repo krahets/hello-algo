@@ -5,17 +5,17 @@
  */
 use hello_algo_rust::include::print_util;
 /* 基于环形数组实现的双向队列 */
-struct ArrayDeque {
-    nums: Vec<i32>,  // 用于存储双向队列元素的数组
+struct ArrayDeque<T> {
+    nums: Vec<T>,    // 用于存储双向队列元素的数组
     front: usize,    // 队首指针，指向队首元素
     que_size: usize, // 双向队列长度
 }
 
-impl ArrayDeque {
+impl<T: Copy + Default> ArrayDeque<T> {
     /* 构造方法 */
     pub fn new(capacity: usize) -> Self {
         Self {
-            nums: vec![0; capacity],
+            nums: vec![T::default(); capacity],
             front: 0,
             que_size: 0,
         }
@@ -41,11 +41,11 @@ impl ArrayDeque {
         // 通过取余操作实现数组首尾相连
         // 当 i 越过数组尾部后，回到头部
         // 当 i 越过数组头部后，回到尾部
-        return ((i + self.capacity() as i32) % self.capacity() as i32) as usize;
+        ((i + self.capacity() as i32) % self.capacity() as i32) as usize
     }
 
     /* 队首入队 */
-    pub fn push_first(&mut self, num: i32) {
+    pub fn push_first(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("双向队列已满");
             return;
@@ -59,7 +59,7 @@ impl ArrayDeque {
     }
 
     /* 队尾入队 */
-    pub fn push_last(&mut self, num: i32) {
+    pub fn push_last(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("双向队列已满");
             return;
@@ -72,7 +72,7 @@ impl ArrayDeque {
     }
 
     /* 队首出队 */
-    fn pop_first(&mut self) -> i32 {
+    fn pop_first(&mut self) -> T {
         let num = self.peek_first();
         // 队首指针向后移动一位
         self.front = self.index(self.front as i32 + 1);
@@ -81,14 +81,14 @@ impl ArrayDeque {
     }
 
     /* 队尾出队 */
-    fn pop_last(&mut self) -> i32 {
+    fn pop_last(&mut self) -> T {
         let num = self.peek_last();
         self.que_size -= 1;
         num
     }
 
     /* 访问队首元素 */
-    fn peek_first(&self) -> i32 {
+    fn peek_first(&self) -> T {
         if self.is_empty() {
             panic!("双向队列为空")
         };
@@ -96,7 +96,7 @@ impl ArrayDeque {
     }
 
     /* 访问队尾元素 */
-    fn peek_last(&self) -> i32 {
+    fn peek_last(&self) -> T {
         if self.is_empty() {
             panic!("双向队列为空")
         };
@@ -106,9 +106,9 @@ impl ArrayDeque {
     }
 
     /* 返回数组用于打印 */
-    fn to_array(&self) -> Vec<i32> {
+    fn to_array(&self) -> Vec<T> {
         // 仅转换有效长度范围内的列表元素
-        let mut res = vec![0; self.que_size];
+        let mut res = vec![T::default(); self.que_size];
         let mut j = self.front;
         for i in 0..self.que_size {
             res[i] = self.nums[self.index(j as i32)];

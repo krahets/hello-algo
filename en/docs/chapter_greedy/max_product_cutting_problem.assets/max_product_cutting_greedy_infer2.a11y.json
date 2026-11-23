@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Replacing three 2s with two 3s",
+  "summary": "Compare two local splits with the same sum of 6: three 2s versus two 3s.",
+  "context": [
+    "Building on the result that an optimal split need only consider the factors 1, 2, and 3, this figure examines a split that already contains three 2s while keeping all remaining factors unchanged."
+  ],
+  "description": [
+    "At the top is a solid gray bar of total length n. On the middle row, three consecutive blue blocks labeled \"2\" (total length 6) appear on the left, followed by a gray remainder segment on the right. On the bottom row, only the left span of equal length 6 is drawn, replaced by two purple blocks labeled \"3\"; the gray remainder on the right is drawn only on the middle row and does not take part in the replacement. A downward solid gray arrow in the center marks the conversion from three 2s to two 3s, and a caption below reads \"Whenever there are three 2s, greedily replace them with two 3s\"."
+  ],
+  "frames": [
+    {
+      "id": "source-481",
+      "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png",
+      "title": "Replacing three 2s with two 3s",
+      "explanation": "The product of three 2s is 8 and the product of two 3s is 9, while both sum to 6. Let P be the product of the remaining positive integer factors, taking P = 1 when there are none. This local replacement increases the overall product from 8P to 9P, so an optimal split retains at most two 2s. This algebraic argument provides the derivation for the local replacement shown in the figure."
+    }
+  ]
+}

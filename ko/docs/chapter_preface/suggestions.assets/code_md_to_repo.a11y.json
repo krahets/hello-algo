@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "title": "본문 코드와 소스 코드 파일",
+  "summary": "본문 코드 블록에 표시된 파일 이름을 기준으로, 언어와 장 디렉터리를 따라 저장소에서 실행 가능한 전체 소스 코드를 찾는다.",
+  "context": [],
+  "description": [
+    "왼쪽은 본문에 실린 Python 레벨 순서 순회 함수 level_order의 코드 조각으로, 코드 블록 왼쪽 위에 초록색 테두리로 파일 이름 binary_tree_bfs.py가 강조되어 있다. 오른쪽은 저장소 디렉터리 화면 캡처이며, 같은 이름의 파일에도 초록색 테두리가 둘러져 있다. 초록색 양방향 점선이 ‘코드 파일 이름’과 ‘해당 코드 파일’ 두 안내 문구를 잇고, 두 개의 회색 화살표가 각 문구에서 왼쪽 코드 블록의 파일 이름과 오른쪽 디렉터리의 같은 파일로 각각 향한다."
+  ],
+  "frames": [
+    {
+      "id": "source-7",
+      "book_path": "chapter_preface/suggestions.assets/code_md_to_repo.png",
+      "title": "본문 코드와 소스 코드 파일",
+      "explanation": "저장소에서 차례로 codes, python, chapter_tree로 들어가 해당 파일을 찾으며, 전체 경로는 codes/python/chapter_tree/binary_tree_bfs.py이다. 일반적으로 codes/<언어>/<장 디렉터리>/<파일 이름> 형식으로 대응하는 소스 코드를 찾는다. 본문은 핵심 알고리즘 조각을 보여 주고, 저장소 파일에는 테스트 사례가 포함되어 있어 읽고 실행할 수 있으며, 같은 파일 이름이 둘 사이의 대응 관계를 나타낸다."
+    }
+  ]
+}

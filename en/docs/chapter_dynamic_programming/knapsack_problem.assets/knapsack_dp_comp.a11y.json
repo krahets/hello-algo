@@ -1,0 +1,636 @@
+{
+  "schema_version": 2,
+  "title": "Single-row space optimization for 0-1 knapsack",
+  "summary": "Store states in a single one-dimensional array and update capacities in reverse order from high to low so transitions read old values from the previous item's round rather than reusing the same item.",
+  "context": [
+    "There are three items—item 1 apple (weight 1, value 5), item 2 pineapple (weight 2, value 11), and item 3 watermelon (weight 3, value 15)—with maximum knapsack capacity 4, and each item may be chosen at most once. Item IDs i start at 1. The weight and value of item i are stored in wgt[i - 1] and val[i - 1].",
+    "The 6 steps demonstrate only the reverse-order update round for outer loop i = 2 (item 2, pineapple). Before this round begins, the one-dimensional array dp[0..4] holds the results [0, 5, 5, 5, 5] for item 1 alone (apple, i = 1); item 3 (watermelon, i = 3) remains unprocessed throughout this figure. Entry dp[c] gives the maximum value within capacity c using items considered so far without requiring the knapsack to be completely full."
+  ],
+  "description": [
+    "When processing the pineapple (weight 2, value 11) at capacity c ≥ 2, compare excluding the pineapple (keeping previous-round value dp[c]) with including it (reading previous-round smaller-capacity value dp[c - 2] + 11), writing the larger value back to dp[c]. Traversing capacities c = 4, 3, 2, 1 in reverse order guarantees that dp[c - 2] to the left has not yet been overwritten in this round and still holds its old state from round i = 1 (apple only).",
+    "Conversely, updating capacities in forward order from low to high would first update capacity 2 to dp[2] = 11 (already packing one pineapple); evaluating capacity 4 afterward would read dp[2] + 11 = 22, packing the same pineapple twice inside capacity 4 and violating the at-most-once rule of 0-1 knapsack. Reverse-order updates evaluate capacity 4 while dp[2] still holds its old value 5, yielding the correct 5 + 11 = 16.",
+    "Each frame shows the 4×5 two-dimensional reference table above and the active single-row array dp[0..4] below. In the single row, blue cells indicate retained old states from the previous round (i = 1) and green cells indicate states already updated in the current round (i = 2); at the end of the round, the entire row turns blue to serve as the old states for processing the watermelon next, with no further numeric changes.",
+    "At each step, the single-row table has separate columns for each capacity's value and the round it represents: i = 1 considers only the apple, i = 2 considers the apple and pineapple, and capacity 0 is always boundary 0. Each step also includes the full two-dimensional reference table, where rows for the first 0, first 1, and first 3 items stay unchanged and zeros at capacities 1 to 4 in row 3 remain uncomputed initial values. Both table captions include the step number for direct lookup by step, capacity, and available items."
+  ],
+  "result": "After round 2 (i = 2, pineapple) finishes updating in reverse order, the single-row array is dp = [0, 5, 11, 16, 16], where dp[4] = 16 is only the intermediate maximum value at capacity 4 for the first two items (apple and pineapple); item 3 (watermelon, weight 3, value 15) has not yet been processed, so 16 must not be mistaken for the three-item final answer 20. Derived from the input, choosing the apple and watermelon gives weight 1 + 3 = 4 and value 5 + 15 = 20, which is not drawn in this figure.",
+  "frames": [
+    {
+      "id": "source-411",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step1.png",
+      "title": "Begin processing the pineapple",
+      "explanation": "Before round i = 2 (pineapple, weight 2, value 11) starts, single-row dp[0..4] already holds the valid round i = 1 results [0, 5, 5, 5, 5] (apple only) rather than an all-zero table. Capacity 0 is fixed boundary 0, and capacities 1 through 4 hold old round i = 1 states ready for reverse-order updates starting at maximum capacity c = 4.",
+      "key_state": "Single-row dp = [0, 5, 5, 5, 5]; capacities 1 through 4 hold old i = 1 states, ready to process the pineapple in reverse from c = 4.",
+      "announcement": "Start round 2 for the pineapple with the single row holding round 1 apple results [0, 5, 5, 5, 5].",
+      "state_tables": [
+        {
+          "caption": "Knapsack space optimization step 1 (begin processing pineapple): single-row dp values and rounds",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and status"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "Boundary shared across rounds"
+            ],
+            [
+              "1",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "2",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "3",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "4",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ]
+          ],
+          "row_header": 0
+        },
+        {
+          "caption": "Knapsack space optimization step 1 (begin processing pineapple): full two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "rows": [
+            [
+              "First 0 items",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary"
+            ],
+            [
+              "First item only",
+              "0, valid boundary",
+              "5, computed",
+              "5, computed",
+              "5, computed",
+              "5, computed"
+            ],
+            [
+              "First 2 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "First 3 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-412",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step2.png",
+      "title": "Update capacity 4 in reverse order",
+      "explanation": "Process maximum capacity c = 4 first: excluding the pineapple keeps old value dp[4] = 5; including it reads previous-round old value dp[4 - 2] = dp[2] = 5 (not yet overwritten in this round) plus pineapple value 11 to get 16. Take the larger value to update dp[4] to 16 (round i = 2), while capacities 1, 2, and 3 retain old value 5 from round i = 1. Current single-row dp = [0, 5, 5, 5, 16].",
+      "key_state": "Entry dp[4] reads old dp[2] = 5 plus 11 to become 16 in round i = 2; capacities 1 to 3 remain 5 from round i = 1; dp = [0, 5, 5, 5, 16].",
+      "announcement": "Read old value dp[2] = 5 plus 11 to update capacity 4 to 16.",
+      "state_tables": [
+        {
+          "caption": "Knapsack space optimization step 2 (update capacity 4 in reverse): single-row dp values and rounds",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and status"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "Boundary shared across rounds"
+            ],
+            [
+              "1",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "2",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "3",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "4",
+              "16",
+              "i = 2, processed in this round"
+            ]
+          ],
+          "row_header": 0
+        },
+        {
+          "caption": "Knapsack space optimization step 2 (update capacity 4 in reverse): full two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "rows": [
+            [
+              "First 0 items",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary"
+            ],
+            [
+              "First item only",
+              "0, valid boundary",
+              "5, computed",
+              "5, computed",
+              "5, computed",
+              "5, computed"
+            ],
+            [
+              "First 2 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "16, computed"
+            ],
+            [
+              "First 3 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-413",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step3.png",
+      "title": "Update capacity 3 in reverse order",
+      "explanation": "Continue in reverse to capacity c = 3: excluding the pineapple keeps old value dp[3] = 5; including it reads old value dp[3 - 2] = dp[1] = 5 from round i = 1 plus 11 to get 16. Update dp[3] to 16 (round i = 2), while capacities 1 and 2 keep old state 5 from round i = 1. Current single-row dp = [0, 5, 5, 16, 16].",
+      "key_state": "Entry dp[3] reads old dp[1] = 5 plus 11 to become 16; capacities 3 and 4 belong to round i = 2, capacities 1 and 2 remain round i = 1; dp = [0, 5, 5, 16, 16].",
+      "announcement": "Read old value dp[1] = 5 plus 11 to update capacity 3 to 16.",
+      "state_tables": [
+        {
+          "caption": "Knapsack space optimization step 3 (update capacity 3 in reverse): single-row dp values and rounds",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and status"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "Boundary shared across rounds"
+            ],
+            [
+              "1",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "2",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "3",
+              "16",
+              "i = 2, processed in this round"
+            ],
+            [
+              "4",
+              "16",
+              "i = 2, processed in this round"
+            ]
+          ],
+          "row_header": 0
+        },
+        {
+          "caption": "Knapsack space optimization step 3 (update capacity 3 in reverse): full two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "rows": [
+            [
+              "First 0 items",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary"
+            ],
+            [
+              "First item only",
+              "0, valid boundary",
+              "5, computed",
+              "5, computed",
+              "5, computed",
+              "5, computed"
+            ],
+            [
+              "First 2 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "16, computed",
+              "16, computed"
+            ],
+            [
+              "First 3 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-414",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step4.png",
+      "title": "Update capacity 2 in reverse order",
+      "explanation": "Continue in reverse to capacity c = 2: excluding the pineapple keeps old value dp[2] = 5; including it reads boundary dp[2 - 2] = dp[0] = 0 plus 11 to get 11. Update dp[2] to 11 (round i = 2). Because reverse order overwrites dp[2] only now, capacity 4 earlier was able to read the unoverwritten old value dp[2] = 5; only capacity 1 still belongs to round i = 1. Current single-row dp = [0, 5, 11, 16, 16].",
+      "key_state": "Entry dp[2] reads boundary dp[0] = 0 plus 11 to become 11 (i = 2); only capacity 1 remains 5 from round i = 1; dp = [0, 5, 11, 16, 16].",
+      "announcement": "Read boundary dp[0] = 0 plus 11 to update capacity 2 to 11; only capacity 1 awaits processing.",
+      "state_tables": [
+        {
+          "caption": "Knapsack space optimization step 4 (update capacity 2 in reverse): single-row dp values and rounds",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and status"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "Boundary shared across rounds"
+            ],
+            [
+              "1",
+              "5",
+              "i = 1, previous round, not yet overwritten"
+            ],
+            [
+              "2",
+              "11",
+              "i = 2, processed in this round"
+            ],
+            [
+              "3",
+              "16",
+              "i = 2, processed in this round"
+            ],
+            [
+              "4",
+              "16",
+              "i = 2, processed in this round"
+            ]
+          ],
+          "row_header": 0
+        },
+        {
+          "caption": "Knapsack space optimization step 4 (update capacity 2 in reverse): full two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "rows": [
+            [
+              "First 0 items",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary"
+            ],
+            [
+              "First item only",
+              "0, valid boundary",
+              "5, computed",
+              "5, computed",
+              "5, computed",
+              "5, computed"
+            ],
+            [
+              "First 2 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "11, computed",
+              "16, computed",
+              "16, computed"
+            ],
+            [
+              "First 3 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-415",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step5.png",
+      "title": "Process capacity 1 where the pineapple does not fit",
+      "explanation": "Finally process capacity c = 1: because the pineapple weighs 2, exceeding capacity 1, it cannot fit, so the algorithm retains the previous-round value dp[1] = 5. Although dp[1] keeps numeric value 5, capacity 1 has now completed its round 2 (i = 2) check and represents round i = 2 rather than i = 1 (an unchanged number does not mean an unchanged round). Current single-row dp = [0, 5, 11, 16, 16].",
+      "key_state": "Capacity 1 cannot fit the weight-2 pineapple, keeping value 5 while advancing from round i = 1 to i = 2; all capacities in this round are processed; dp = [0, 5, 11, 16, 16].",
+      "announcement": "Capacity 1 cannot fit the pineapple, keeping value 5 for round i = 2 and completing round 2.",
+      "state_tables": [
+        {
+          "caption": "Knapsack space optimization step 5 (process capacity 1 where pineapple cannot fit): single-row dp values and rounds",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and status"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "Boundary shared across rounds"
+            ],
+            [
+              "1",
+              "5",
+              "i = 2, processed in this round"
+            ],
+            [
+              "2",
+              "11",
+              "i = 2, processed in this round"
+            ],
+            [
+              "3",
+              "16",
+              "i = 2, processed in this round"
+            ],
+            [
+              "4",
+              "16",
+              "i = 2, processed in this round"
+            ]
+          ],
+          "row_header": 0
+        },
+        {
+          "caption": "Knapsack space optimization step 5 (process capacity 1 where pineapple cannot fit): full two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "rows": [
+            [
+              "First 0 items",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary"
+            ],
+            [
+              "First item only",
+              "0, valid boundary",
+              "5, computed",
+              "5, computed",
+              "5, computed",
+              "5, computed"
+            ],
+            [
+              "First 2 items",
+              "0, valid boundary",
+              "5, computed",
+              "11, computed",
+              "16, computed",
+              "16, computed"
+            ],
+            [
+              "First 3 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-416",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_comp_step6.png",
+      "title": "Finish the round and prepare for the next round",
+      "explanation": "All capacities in round 2 (i = 2, pineapple) have been updated, and single-row dp[0..4] = [0, 5, 11, 16, 16] holds all solutions for the first two items. Performing no new calculation, this frame recolors capacities 1 through 4 from green to blue so the entire row is uniformly blue, indicating these round i = 2 results will serve as the old states when round i = 3 processes item 3 (watermelon), which has not yet started.",
+      "key_state": "Round 2 complete; dp = [0, 5, 11, 16, 16] becomes the old state for the next round; 16 is only the two-item partial result before processing the watermelon.",
+      "announcement": "Round 2 complete; single-row [0, 5, 11, 16, 16] becomes the old state for processing the watermelon next.",
+      "state_tables": [
+        {
+          "caption": "Knapsack space optimization step 6 (round complete, ready for next round): single-row dp values and rounds",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and status"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "Boundary shared across rounds"
+            ],
+            [
+              "1",
+              "5",
+              "i = 2, processed in this round; serves as old state for next round"
+            ],
+            [
+              "2",
+              "11",
+              "i = 2, processed in this round; serves as old state for next round"
+            ],
+            [
+              "3",
+              "16",
+              "i = 2, processed in this round; serves as old state for next round"
+            ],
+            [
+              "4",
+              "16",
+              "i = 2, processed in this round; serves as old state for next round"
+            ]
+          ],
+          "row_header": 0
+        },
+        {
+          "caption": "Knapsack space optimization step 6 (round complete, ready for next round): full two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "rows": [
+            [
+              "First 0 items",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary",
+              "0, valid boundary"
+            ],
+            [
+              "First item only",
+              "0, valid boundary",
+              "5, computed",
+              "5, computed",
+              "5, computed",
+              "5, computed"
+            ],
+            [
+              "First 2 items",
+              "0, valid boundary",
+              "5, computed",
+              "11, computed",
+              "16, computed",
+              "16, computed"
+            ],
+            [
+              "First 3 items",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Single-row optimization example: three items with capacity 4",
+      "headers": [
+        "Item ID i",
+        "Item",
+        "Weight wgt[i - 1]",
+        "Value val[i - 1]"
+      ],
+      "rows": [
+        [
+          "1",
+          "Apple",
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "Pineapple",
+          "2",
+          "11"
+        ],
+        [
+          "3",
+          "Watermelon",
+          "3",
+          "15"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "knapsack-compressed-row": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-411"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-412"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-413"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-414"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-415"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-416"
+        }
+      ]
+    }
+  },
+  "input_tables": [
+    0
+  ]
+}

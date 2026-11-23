@@ -1,0 +1,9 @@
+# Ignore all
+*
+# Unignore all files with extensions
+!*.*
+# Unignore all directories
+!*/
+*.dSYM/
+
+build/

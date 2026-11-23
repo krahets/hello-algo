@@ -4,6 +4,16 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
+# Run Command: cargo run --bin complexity_exercises
+[[bin]]
+name = "complexity_exercises"
+path = "chapter_computational_complexity/complexity_exercises.rs"
+
+# Run Command: cargo run --bin fast_power
+[[bin]]
+name = "fast_power"
+path = "chapter_divide_and_conquer/fast_power.rs"
+
 # Run Command: cargo run --bin time_complexity
 [[bin]]
 name = "time_complexity"

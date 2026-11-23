@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "title": "Three depth-first traversals of a binary tree",
+  "summary": "Preorder, inorder, and postorder follow the same recursive depth-first path. They differ in when they record the current node.",
+  "context": [
+    "The caption calls this a binary search tree, but the drawing shows an ordinary binary tree. The left child of root 1 is 2, greater than the root, violating the search tree ordering. Its inorder output is therefore not ascending.",
+    "The tree has 7 nodes in three levels. Root 1 has children 2 and 3, node 2 has children 4 and 5, and node 3 has children 6 and 7, each listed from left to right. Nodes 4, 5, 6, and 7 are leaves."
+  ],
+  "description": [
+    "The dashed path around the tree traces recursive calls and returns, distinct from the parent–child edges. An orange dot on the left of each node marks preorder, before left recursion. A blue dot below marks inorder, between the left and right calls. A purple dot on the right marks postorder, after right recursion."
+  ],
+  "frames": [
+    {
+      "id": "source-98",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/binary_tree_dfs.png",
+      "title": "Three depth-first traversals of a binary tree",
+      "explanation": "All three traversals recurse left first and right second and return at an empty node. They differ in when the current node is recorded. The table gives the recording point, visit order, and output for each traversal."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Recording points and output for the three traversals",
+      "headers": [
+        "Traversal",
+        "When to record the current node",
+        "Visit order",
+        "Output sequence"
+      ],
+      "rows": [
+        [
+          "Preorder",
+          "Before recursing left",
+          "Root → left subtree → right subtree",
+          "1, 2, 4, 5, 3, 6, 7"
+        ],
+        [
+          "Inorder",
+          "After recursing left, before recursing right",
+          "Left subtree → root → right subtree",
+          "4, 2, 5, 1, 6, 3, 7"
+        ],
+        [
+          "Postorder",
+          "After recursing right",
+          "Left subtree → right subtree → root",
+          "4, 5, 2, 6, 7, 3, 1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": []
+}

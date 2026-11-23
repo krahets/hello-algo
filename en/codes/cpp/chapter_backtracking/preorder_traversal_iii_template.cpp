@@ -6,57 +6,57 @@
 
 #include "../utils/common.hpp"
 
-/* Determine if the current state is a solution */
+/* Check whether the current state is a solution */
 bool isSolution(vector<TreeNode *> &state) {
     return !state.empty() && state.back()->val == 7;
 }
 
-/* Record solution */
+/* Record the solution */
 void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) {
     res.push_back(state);
 }
 
-/* Determine if the choice is legal under the current state */
+/* Check whether the choice is valid in the current state */
 bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
     return choice != nullptr && choice->val != 3;
 }
 
-/* Update state */
+/* Update the state */
 void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
     state.push_back(choice);
 }
 
-/* Restore state */
+/* Restore the state */
 void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
     state.pop_back();
 }
 
-/* Backtracking algorithm: Example three */
+/* Backtracking: example 3 */
 void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
-    // Check if it's a solution
+    // Check whether this is a solution
     if (isSolution(state)) {
-        // Record solution
+        // Record the solution
         recordSolution(state, res);
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (TreeNode *choice : choices) {
-        // Pruning: check if the choice is legal
+        // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Attempt: make a choice, update the state
+            // Try: make a choice and update the state
             makeChoice(state, choice);
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             vector<TreeNode *> nextChoices{choice->left, choice->right};
             backtrack(state, nextChoices, res);
-            // Retract: undo the choice, restore to the previous state
+            // Backtrack: undo the choice and restore the previous state
             undoChoice(state, choice);
         }
     }
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\nInitialize binary tree" << endl;
+    cout << "\nInitialize the binary tree" << endl;
     printTree(root);
 
     // Backtracking algorithm
@@ -65,7 +65,7 @@ int main() {
     vector<vector<TreeNode *>> res;
     backtrack(state, choices, res);
 
-    cout << "\nOutput all root-to-node 7 paths, requiring paths not to include nodes with value 3" << endl;
+    cout << "\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

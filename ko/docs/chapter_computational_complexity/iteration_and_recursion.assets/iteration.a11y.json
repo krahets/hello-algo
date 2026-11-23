@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "단일 반복문",
+  "summary": "초기화, 조건 판정, 갱신을 통해 작업의 반복 실행을 제어한다.",
+  "context": [
+    "양의 정수 n에 대해 그림의 흐름으로 1부터 n까지의 합을 구한다. 누적 합의 초깃값은 0이며 매 반복의 ‘작업’에서 현재 i를 누적 합에 더한다."
+  ],
+  "description": [],
+  "result": "작업을 실행할 때 i는 차례로 1부터 n까지 변하며 총 n번 실행된다. i = n + 1로 갱신되면 조건이 거짓이 되어 반복이 종료된다.",
+  "frames": [
+    {
+      "id": "source-19",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
+      "title": "단일 반복문",
+      "explanation": "먼저 i = 1로 초기화한 뒤 i ≤ n인지 판정한다. 참이면 작업을 실행하고 i에 1을 더한 다음 곧바로 조건 판정으로 돌아가고, 거짓이면 빠져나간다. 초기화는 반복문에 들어가기 전에 한 번만 실행되며 매 반복마다 i를 다시 1로 되돌리지 않는다."
+    }
+  ]
+}

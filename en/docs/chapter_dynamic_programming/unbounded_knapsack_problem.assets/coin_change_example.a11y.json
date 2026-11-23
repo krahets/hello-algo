@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "title": "Minimum coin count for coin change",
+  "summary": "Illustrate an optimal coin selection that makes target amount 11.",
+  "context": [
+    "Coin change provides 3 coin denominations coins = [1, 2, 5] in unlimited supply; here the target amount is amt = 11 (distinct from target amount 5 in Coin change II below and target amount 4 in the dynamic programming table). The goal is to find the minimum number of coins that sum to 11."
+  ],
+  "description": [
+    "On the left, a table lists ID i and denomination coins[i - 1]; denomination 1 is shaded light orange and denomination 5 is shaded light green, sending arrows for 1 coin and 2 coins into the pouch on the right labeled \"Target amount amt = 11\". Denomination 2 is unused. The table below summarizes these highlights and arrows as coin counts.",
+    "At the bottom appear \"Optimal coin combination: 1 + 5 + 5\" and \"Minimum number of coins: 3\"."
+  ],
+  "frames": [
+    {
+      "id": "source-424",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_example.png",
+      "title": "Optimal coin combination for amount 11",
+      "explanation": "From the illustrated combination, 1 + 5 + 5 = 11 using 3 coins in total. Why 3 is minimal: because the largest denomination is 5, any two coins sum to at most 5 + 5 = 10 < 11, so fewer than 3 coins cannot reach 11 (derived from the input data rather than written in the figure)."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Amount 11 example: available denominations and coins used",
+      "headers": [
+        "ID i",
+        "Denomination",
+        "Coins used in figure"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "2",
+          "0"
+        ],
+        [
+          "3",
+          "5",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

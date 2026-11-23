@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "title": "Sorting playing cards with insertion sort",
+  "summary": "Split 5 cards from the suit of hearts into sorted and unsorted sections and insert cards one by one so the hand ends up ordered from smallest to largest.",
+  "context": [
+    "The initial hand is [4, 2, A, 5, 3], where A denotes the ace and counts as 1. First place the leftmost card 4 into the sorted section; then repeatedly draw the rightmost card from the unsorted section—taking 3, 5, A, and 2 in turn."
+  ],
+  "description": [
+    "The 6 card groups are linked by 5 arrows along a clockwise U-shaped path: left to right across the top row, down the right side, and right to left across the bottom row. In each group, the light-green panel on the left marks “Sorted” and the light-red panel on the right marks “Unsorted”; the first group has only an unsorted panel, and the final group has only a sorted panel."
+  ],
+  "frames": [
+    {
+      "id": "source-15",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/playing_cards_sorting.png",
+      "title": "Sorting playing cards with insertion sort",
+      "explanation": "A single card is trivially sorted on its own. After each insertion, the left section stays in ascending order while the right section shrinks by one card, until the unsorted section is empty and the entire hand is sorted. The figure shows the result of each insertion directly without expanding intermediate comparisons or shifts."
+    }
+  ],
+  "animations": {
+    "playing-cards-sorting": {
+      "kind": "prose",
+      "prose": {
+        "title": "Sorting playing cards with insertion sort",
+        "summary": "Split 5 cards from the suit of hearts into sorted and unsorted sections and insert cards one by one so the hand ends up ordered from smallest to largest.",
+        "context": [
+          "The initial hand is [4, 2, A, 5, 3], where A denotes the ace and counts as 1. First place the leftmost card 4 into the sorted section; then repeatedly draw the rightmost card from the unsorted section—taking 3, 5, A, and 2 in turn."
+        ],
+        "description": [
+          "The 6 animation steps match the 6 stages in the state table above, where the full card order at every stage can be looked up. The step notes below track how the two panels change during playback; cards in both panels overlap in a fan, ordered from left to right just as listed in the table."
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Five cards before sorting",
+            "explanation": "Initially only the light-red unsorted panel is shown, holding all 5 cards, with no sorted panel yet.",
+            "key_state": "Initial state: 0 sorted cards, and 5 unsorted cards [4, 2, A, 5, 3].",
+            "announcement": "Display the five initial unsorted playing cards [4, 2, A, 5, 3]."
+          },
+          {
+            "id": "step-2",
+            "title": "Place 4 into the sorted section",
+            "explanation": "Card 4 is placed into the newly shown light-green sorted panel on the left, while the remaining 4 cards stay on the right.",
+            "key_state": "1 sorted card [4], and 4 unsorted cards [2, A, 5, 3].",
+            "announcement": "Place playing card 4 into the sorted section, leaving [2, A, 5, 3] in the unsorted section."
+          },
+          {
+            "id": "step-3",
+            "title": "Insert 3 before 4",
+            "explanation": "Inserting the rightmost card 3 before 4 grows the sorted section to 2 cards and leaves 3 cards in the unsorted section.",
+            "key_state": "After inserting 3, 2 sorted cards [3, 4] and 3 unsorted cards [2, A, 5].",
+            "announcement": "Take 3 and insert it before 4; the sorted section becomes [3, 4]."
+          },
+          {
+            "id": "step-4",
+            "title": "Insert 5 at the end of the sorted section",
+            "explanation": "Inserting the rightmost card 5 at the end of the sorted section gives 3 sorted cards and 2 unsorted cards.",
+            "key_state": "After inserting 5, 3 sorted cards [3, 4, 5] and 2 unsorted cards [2, A].",
+            "announcement": "Take 5 and insert it after 4, expanding the sorted section to [3, 4, 5]."
+          },
+          {
+            "id": "step-5",
+            "title": "Insert A before 3",
+            "explanation": "Inserting the rightmost card A at the front of the sorted section gives 4 sorted cards and 1 unsorted card.",
+            "key_state": "After inserting A, 4 sorted cards [A, 3, 4, 5] and only 1 unsorted card [2].",
+            "announcement": "Take A and insert it before 3 at the front, expanding the sorted section to [A, 3, 4, 5]."
+          },
+          {
+            "id": "step-6",
+            "title": "Insert 2 between A and 3",
+            "explanation": "Inserting the final card 2 between A and 3 completes the ordering of all 5 cards. The light-red unsorted panel disappears, leaving only the light-green sorted panel.",
+            "key_state": "All 5 cards sorted: sorted section [A, 2, 3, 4, 5], and 0 unsorted cards.",
+            "announcement": "Insert the final card 2 between A and 3, completing the sorted five-card hand [A, 2, 3, 4, 5]."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Actions and the cards in each section at all six stages",
+      "headers": [
+        "Stage and position",
+        "Action in this stage",
+        "Sorted (left to right)",
+        "Unsorted (left to right)"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1, top left",
+          "Initial hand",
+          "Empty",
+          "[4, 2, A, 5, 3]"
+        ],
+        [
+          "2, top center",
+          "Place leftmost 4 into the sorted section",
+          "[4]",
+          "[2, A, 5, 3]"
+        ],
+        [
+          "3, top right",
+          "Take 3; since 3 < 4, insert before 4",
+          "[3, 4]",
+          "[2, A, 5]"
+        ],
+        [
+          "4, bottom right",
+          "Take 5; since 5 > 4, insert at the end",
+          "[3, 4, 5]",
+          "[2, A]"
+        ],
+        [
+          "5, bottom center",
+          "Take A; since A < 3, insert at the front",
+          "[A, 3, 4, 5]",
+          "[2]"
+        ],
+        [
+          "6, bottom left",
+          "Take 2; since A < 2 and 2 < 3, insert between them",
+          "[A, 2, 3, 4, 5]",
+          "Empty"
+        ]
+      ]
+    }
+  ]
+}

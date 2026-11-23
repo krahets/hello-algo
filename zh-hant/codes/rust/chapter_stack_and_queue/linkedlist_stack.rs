@@ -45,16 +45,10 @@ impl<T: Copy> LinkedListStack<T> {
     /* 出堆疊 */
     pub fn pop(&mut self) -> Option<T> {
         self.stack_peek.take().map(|old_head| {
-            match old_head.borrow_mut().next.take() {
-                Some(new_head) => {
-                    self.stack_peek = Some(new_head);
-                }
-                None => {
-                    self.stack_peek = None;
-                }
-            }
+            self.stack_peek = old_head.borrow_mut().next.take();
             self.stk_size -= 1;
-            Rc::try_unwrap(old_head).ok().unwrap().into_inner().val
+
+            old_head.borrow().val
         })
     }
 
@@ -64,13 +58,17 @@ impl<T: Copy> LinkedListStack<T> {
     }
 
     /* 將 List 轉化為 Array 並返回 */
-    pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-        if let Some(node) = head {
-            let mut nums = self.to_array(node.borrow().next.as_ref());
-            nums.push(node.borrow().val);
-            return nums;
+    pub fn to_array(&self) -> Vec<T> {
+        fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
+            if let Some(node) = head {
+                let mut nums = _to_array(node.borrow().next.as_ref());
+                nums.push(node.borrow().val);
+                return nums;
+            }
+            return Vec::new();
         }
-        return Vec::new();
+
+        _to_array(self.peek())
     }
 }
 
@@ -86,7 +84,7 @@ fn main() {
     stack.push(5);
     stack.push(4);
     print!("堆疊 stack = ");
-    print_util::print_array(&stack.to_array(stack.peek()));
+    print_util::print_array(&stack.to_array());
 
     /* 訪問堆疊頂元素 */
     let peek = stack.peek().unwrap().borrow().val;
@@ -95,7 +93,7 @@ fn main() {
     /* 元素出堆疊 */
     let pop = stack.pop().unwrap();
     print!("\n出堆疊元素 pop = {}，出堆疊後 stack = ", pop);
-    print_util::print_array(&stack.to_array(stack.peek()));
+    print_util::print_array(&stack.to_array());
 
     /* 獲取堆疊的長度 */
     let size = stack.size();

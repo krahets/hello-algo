@@ -1,0 +1,950 @@
+{
+  "schema_version": 2,
+  "title": "Dynamic programming for coin change",
+  "summary": "Fill the table cell by cell across coin types and target amounts to find the minimum number of coins that make amount 4 exactly.",
+  "context": [
+    "Available coin denominations are 1, 2, and 5 (3 coin types, each usable repeatedly), and the target amount is 4. State dp[i, a] denotes the minimum number of coins needed to make amount a using only the first i coin types; the two-dimensional dp table has 4 rows (i = 0 to 3) and 5 columns (a = 0 to 4).",
+    "Sentinel MAX = amt + 1 = 5 marks an unreachable (infeasible) amount rather than meaning 5 coins are required. Making amount 0 takes 0 coins, so the first column has boundary value 0; with no coins available (i = 0), every positive amount is unreachable."
+  ],
+  "description": [
+    "First allocate a 4×5 all-zero table, then set positive-amount cells dp[0, 1] through dp[0, 4] in the first row to unreachable sentinel MAX = 5 while keeping first-column cells dp[0, 0] through dp[3, 0] at valid boundary 0. Next fill rows i = 1 to 3 across amounts a = 1 to 4: when the current denomination exceeds a, it cannot be used, so inherit dp[i - 1, a] directly above; otherwise compare dp[i - 1, a] above (excluding this coin) with dp[i, a - coins[i - 1]] + 1 to the left in the same row (including one coin of this denomination) and take the smaller value. Reading from the left within the same row allows using the same denomination repeatedly.",
+    "Each step includes the complete dp state table whose caption names the step number and action, with row headers showing i and available denominations and column headers showing amounts. First-column cells are marked \"boundary set\", first-row infeasible cells are marked \"MAX, unreachable boundary\", cells settled in earlier steps are marked \"computed\", and unevaluated cells are marked \"uncomputed initial value\" and must not be read as solved coin counts. Newly written cells are marked \"written in this step\", and Step 15 marks the bottom-right cell \"return value\" and displays all final entries."
+  ],
+  "result": "Because denomination 5 exceeds every positive amount 1 through 4 in this table, row 3 simply inherits the two-coin-type results above it. In code, if the final entry equals MAX, -1 is returned to indicate no solution.",
+  "frames": [
+    {
+      "id": "source-426",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step1.png",
+      "title": "Allocate the initial 4×5 all-zero dp table",
+      "explanation": "For 3 coin types (denominations 1, 2, 5) and target amount 4, allocate a 4×5 two-dimensional dp table (rows i = 0 to 3, columns a = 0 to 4). Initially every cell defaults to 0: column 0 (amount 0) already holds its valid boundary 0 (0 coins make amount 0), whereas 0 in every positive-amount cell is an uncomputed initial value awaiting Step 2 to set first-row unreachable sentinel MAX.",
+      "key_state": "Initial 4×5 all-zero table: column 0 holds set boundary 0, positive-amount cells hold uncomputed initial value 0, and first-row MAX boundaries await setup.",
+      "announcement": "Allocate the initial 4×5 all-zero dp table before setting first-row unreachable sentinel MAX.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 1: full dp table after allocating all-zero table (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-427",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step2.png",
+      "title": "Set positive amounts in row 0 to unreachable boundary MAX = 5",
+      "explanation": "With no coins available (i = 0), no positive amount can be made, so set first-row positive cells dp[0, 1] through dp[0, 4] to unreachable sentinel MAX = 5 (marking infeasibility rather than 5 coins); amount a = 0 requires 0 coins, so first-column cells dp[0, 0] through dp[3, 0] stay at boundary 0. Positive-amount zeros in rows 1 to 3 remain uncomputed initial values.",
+      "key_state": "Boundaries set: first row dp[0, 1]..dp[0, 4] = MAX (5, unreachable), first column = 0, and 12 interior cells await computation.",
+      "announcement": "Set first-row positive amounts to unreachable sentinel MAX = 5 while keeping column 0 at boundary 0.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 2: full dp table after boundary initialization (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-428",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step3.png",
+      "title": "Compute dp[1, 1] (denomination 1, amount 1): minimum 1 coin",
+      "explanation": "Begin coin type 1 (denomination 1) at amount a = 1 for dp[1, 1]: excluding denomination 1 gives upper dp[0, 1] = MAX (5, unreachable); including 1 coin of denomination 1 takes same-row left boundary dp[1, 0] = 0 plus 1 to get 1. Write the smaller value min(MAX, 1) = 1 to dp[1, 1], corresponding to 1 coin of denomination 1.",
+      "key_state": "dp[1, 1] (denomination 1, amount 1): min(MAX, dp[1, 0] + 1) = 1, minimum 1 coin.",
+      "announcement": "Compute dp[1, 1] (denomination 1, amount 1): same-row left dp[1, 0] + 1 gives minimum 1 coin.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 3: full dp table after computing dp[1, 1] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, written in this step",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-429",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step4.png",
+      "title": "Compute dp[1, 2] (denomination 1, amount 2): minimum 2 coins",
+      "explanation": "Continue with coin type 1 (denomination 1) at amount a = 2 for dp[1, 2]: excluding it gives upper dp[0, 2] = MAX (unreachable); including 1 coin of denomination 1 reuses same-row left dp[1, 1] = 1 just computed plus 1 to get 2 (two coins of value 1). Write min(MAX, 2) = 2 to dp[1, 2].",
+      "key_state": "dp[1, 2] (denomination 1, amount 2): min(MAX, dp[1, 1] + 1) = 2, minimum 2 coins.",
+      "announcement": "Compute dp[1, 2] (denomination 1, amount 2): reuse same-row dp[1, 1] + 1 to write 2 coins.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 4: full dp table after computing dp[1, 2] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, written in this step",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-430",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step5.png",
+      "title": "Compute dp[1, 3] (denomination 1, amount 3): minimum 3 coins",
+      "explanation": "Continue with coin type 1 (denomination 1) at amount a = 3 for dp[1, 3]: excluding it gives upper dp[0, 3] = MAX (unreachable); including 1 coin of denomination 1 takes same-row left dp[1, 2] = 2 plus 1 to get 3 (three coins of value 1). Write min(MAX, 3) = 3 to dp[1, 3].",
+      "key_state": "dp[1, 3] (denomination 1, amount 3): min(MAX, dp[1, 2] + 1) = 3, minimum 3 coins.",
+      "announcement": "Compute dp[1, 3] (denomination 1, amount 3): take same-row dp[1, 2] + 1 to write 3 coins.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 5: full dp table after computing dp[1, 3] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, written in this step",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-431",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step6.png",
+      "title": "Compute dp[1, 4] (denomination 1, amount 4): minimum 4 coins",
+      "explanation": "Continue with coin type 1 (denomination 1) at amount a = 4 for dp[1, 4]: excluding it gives upper dp[0, 4] = MAX (unreachable); including 1 coin of denomination 1 takes same-row left dp[1, 3] = 3 plus 1 to get 4 (four coins of value 1). Write min(MAX, 4) = 4 to dp[1, 4], completing row 1.",
+      "key_state": "dp[1, 4] (denomination 1, amount 4): min(MAX, dp[1, 3] + 1) = 4, completing row 1.",
+      "announcement": "Compute dp[1, 4] (denomination 1, amount 4): same-row dp[1, 3] + 1 gives 4 coins, completing row 1.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 6: full dp table after computing dp[1, 4] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, written in this step"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-432",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step7.png",
+      "title": "Compute dp[2, 1] (denomination 2, amount 1): denomination too large, inherit 1 coin",
+      "explanation": "Enter row 2 to introduce coin type 2 (denomination 2) at amount a = 1 for dp[2, 1]. Because denomination 2 exceeds amount 1, a value-2 coin cannot fit, so inherit upper dp[1, 1] = 1 directly and write dp[2, 1] = 1.",
+      "key_state": "dp[2, 1] (denomination 2, amount 1): denomination 2 exceeds amount 1, so inherit upper dp[1, 1] = 1.",
+      "announcement": "Compute dp[2, 1] (denomination 2, amount 1): denomination exceeds amount, so inherit 1 from the previous row.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 7: full dp table after computing dp[2, 1] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, written in this step",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-433",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step8.png",
+      "title": "Compute dp[2, 2] (denomination 2, amount 2): take 1 coin of value 2, write 1",
+      "explanation": "For coin type 2 (denomination 2) at amount a = 2: excluding value-2 coins inherits upper dp[1, 2] = 2 (two coins of value 1); including 1 coin of value 2 takes same-row left boundary dp[2, 0] = 0 plus 1 to get 1 (1 coin of value 2). Write the smaller value min(2, 1) = 1 to dp[2, 2].",
+      "key_state": "dp[2, 2] (denomination 2, amount 2): min(2, dp[2, 0] + 1) = 1, using 1 coin of value 2.",
+      "announcement": "Compute dp[2, 2] (denomination 2, amount 2): taking 1 coin of value 2 beats 2 coins without it, so write 1.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 8: full dp table after computing dp[2, 2] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, written in this step",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-434",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step9.png",
+      "title": "Compute dp[2, 3] (denomination 2, amount 3): 1 plus 2 uses 2 coins",
+      "explanation": "For coin type 2 (denomination 2) at amount a = 3: excluding value-2 coins gives upper dp[1, 3] = 3 (three coins of value 1); including 1 coin of value 2 takes same-row left dp[2, 1] = 1 (1 coin of value 1) plus 1 to get 2 (1 coin each of values 1 and 2). Write min(3, 2) = 2 to dp[2, 3].",
+      "key_state": "dp[2, 3] (denomination 2, amount 3): min(3, dp[2, 1] + 1) = 2, combining 1 and 2 for 2 coins.",
+      "announcement": "Compute dp[2, 3] (denomination 2, amount 3): add one coin of value 2 to the solution dp[2, 1] = 1 and write the minimum count, 2.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 9: full dp table after computing dp[2, 3] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, written in this step",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-435",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step10.png",
+      "title": "Compute dp[2, 4] (denomination 2, amount 4): use another coin of denomination 2; write a count of 2",
+      "explanation": "For coin type 2 (denomination 2) at amount a = 4: excluding value-2 coins gives upper dp[1, 4] = 4 (four coins of value 1); including a value-2 coin reuses updated same-row left dp[2, 2] = 1 (already holding 1 coin of value 2) plus 1 to get 2 (two coins of value 2). Write min(4, 2) = 2 to dp[2, 4], completing row 2 and showing how same-row left transitions allow reusing the same denomination.",
+      "key_state": "dp[2, 4] (denomination 2, amount 4): reuse same-row dp[2, 2] + 1 = 2 (two coins of value 2), completing row 2.",
+      "announcement": "Compute dp[2, 4] (denomination 2, amount 4): reuse same-row dp[2, 2] = 1 plus 1 coin of value 2 to write 2 coins.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 10: full dp table after computing dp[2, 4] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, written in this step"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-436",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step11.png",
+      "title": "Compute dp[3, 1] (denomination 5, amount 1): denomination too large, inherit 1 coin",
+      "explanation": "Enter row 3 to introduce coin type 3 (denomination 5) at amount a = 1 for dp[3, 1]. Because denomination 5 exceeds amount 1, a value-5 coin cannot fit, so inherit upper dp[2, 1] = 1 directly and write dp[3, 1] = 1.",
+      "key_state": "dp[3, 1] (denomination 5, amount 1): denomination 5 exceeds amount 1, so inherit upper dp[2, 1] = 1.",
+      "announcement": "Compute dp[3, 1] (denomination 5, amount 1): denomination 5 exceeds amount 1, inheriting 1 from the previous row.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 11: full dp table after computing dp[3, 1] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, computed"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "1, written in this step",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-437",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step12.png",
+      "title": "Compute dp[3, 2] (denomination 5, amount 2): denomination too large, inherit 1 coin",
+      "explanation": "Continue with coin type 3 (denomination 5) at amount a = 2: denomination 5 still exceeds amount 2, so a value-5 coin cannot fit; inherit upper dp[2, 2] = 1 directly and write dp[3, 2] = 1.",
+      "key_state": "dp[3, 2] (denomination 5, amount 2): denomination 5 exceeds amount 2, so inherit upper dp[2, 2] = 1.",
+      "announcement": "Compute dp[3, 2] (denomination 5, amount 2): denomination 5 exceeds amount 2, inheriting 1 from the previous row.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 12: full dp table after computing dp[3, 2] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, computed"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "1, computed",
+              "1, written in this step",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-438",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step13.png",
+      "title": "Compute dp[3, 3] (denomination 5, amount 3): denomination too large, inherit 2 coins",
+      "explanation": "Continue with coin type 3 (denomination 5) at amount a = 3: denomination 5 exceeds amount 3, so a value-5 coin cannot fit; inherit upper dp[2, 3] = 2 directly and write dp[3, 3] = 2.",
+      "key_state": "dp[3, 3] (denomination 5, amount 3): denomination 5 exceeds amount 3, so inherit upper dp[2, 3] = 2.",
+      "announcement": "Compute dp[3, 3] (denomination 5, amount 3): denomination 5 exceeds amount 3, inheriting 2 from the previous row.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 13: full dp table after computing dp[3, 3] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, computed"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, written in this step",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-439",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step14.png",
+      "title": "Compute dp[3, 4] (denomination 5, amount 4): denomination too large, inherit 2 coins",
+      "explanation": "At bottom-right target amount a = 4 for coin type 3 (denomination 5): because denomination 5 exceeds amount 4, a value-5 coin cannot fit, so inherit upper dp[2, 4] = 2 from the first two coin types (two coins of value 2 making amount 4) and write dp[3, 4] = 2, completing the table.",
+      "key_state": "dp[3, 4] (denomination 5, amount 4): denomination 5 exceeds amount 4, inheriting upper dp[2, 4] = 2 and completing the table.",
+      "announcement": "Compute dp[3, 4] (denomination 5, amount 4): denomination 5 exceeds amount 4, inheriting 2 to complete the table.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 14: full dp table after computing dp[3, 4] (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, computed"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, written in this step"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-440",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step15.png",
+      "title": "Read bottom-right dp[3, 4] and return minimum coin count 2",
+      "explanation": "With all state transitions complete, read highlighted bottom-right cell dp[3, 4] = 2. Because it differs from unreachable sentinel MAX (5), return 2 directly as the minimum number of coins needed to make amount 4 (using two coins of value 2; if it equaled MAX, -1 would be returned). No cell values change in this step.",
+      "key_state": "Table complete: bottom-right dp[3, 4] = 2 (two coins of value 2), not equal to MAX, so return 2.",
+      "announcement": "Table complete; read bottom-right dp[3, 4] and return minimum coin count 2 for amount 4.",
+      "state_tables": [
+        {
+          "caption": "Coin change step 15: full dp table upon returning the result (MAX = 5, unreachable)",
+          "headers": [
+            "First i coin types and denominations",
+            "Amount 0",
+            "Amount 1",
+            "Amount 2",
+            "Amount 3",
+            "Amount 4"
+          ],
+          "rows": [
+            [
+              "i = 0, no coins",
+              "0, boundary set",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary",
+              "MAX, unreachable boundary"
+            ],
+            [
+              "i = 1, denomination 1",
+              "0, boundary set",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i = 2, denominations 1, 2",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, computed"
+            ],
+            [
+              "i = 3, denominations 1, 2, 5",
+              "0, boundary set",
+              "1, computed",
+              "1, computed",
+              "2, computed",
+              "2, return value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Table-filling example: available coins for target amount 4",
+      "headers": [
+        "ID i",
+        "Denomination"
+      ],
+      "rows": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "2"
+        ],
+        [
+          "3",
+          "5"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "coin-change-dp": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-426"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-427"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-428"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-429"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-430"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-431"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-432"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-433"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-434"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-435"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-436"
+        },
+        {
+          "id": "step-12",
+          "frame_id": "source-437"
+        },
+        {
+          "id": "step-13",
+          "frame_id": "source-438"
+        },
+        {
+          "id": "step-14",
+          "frame_id": "source-439"
+        },
+        {
+          "id": "step-15",
+          "frame_id": "source-440"
+        }
+      ]
+    }
+  },
+  "input_tables": [
+    0
+  ]
+}

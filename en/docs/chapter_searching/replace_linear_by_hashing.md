@@ -1,47 +1,47 @@
-# Hash optimization strategies
+# Optimizing with hashing
 
-In algorithm problems, **we often reduce the time complexity of an algorithm by replacing a linear search with a hash-based search**. Let's use an algorithm problem to deepen the understanding.
+In algorithm problems, **we often reduce time complexity by replacing linear search with hash lookup**. Let us explore this strategy through a problem.
 
 !!! question
 
-    Given an integer array `nums` and a target element `target`, please search for two elements in the array whose "sum" equals `target`, and return their array indices. Any solution is acceptable.
+    Given an integer array `nums` and a target value `target`, find two elements whose sum equals `target` and return their array indices. Any valid solution is acceptable.
 
 ## Linear search: trading time for space
 
-Consider traversing through all possible combinations directly. As shown in the figure below, we initiate a nested loop, and in each iteration, we determine whether the sum of the two integers equals `target`. If so, we return their indices.
+Consider examining every possible pair directly. As shown below, use two nested loops and check whether the two integers sum to `target` each time. If they do, return their indices.
 
-![Linear search solution for two-sum problem](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![Solving two sum with linear search](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
 
-The code is shown below:
+The code is as follows:
 
 ```src
 [file]{two_sum}-[class]{}-[func]{two_sum_brute_force}
 ```
 
-This method has a time complexity of $O(n^2)$ and a space complexity of $O(1)$, which can be very time-consuming with large data volumes.
+This approach takes $O(n^2)$ time and $O(1)$ space, making it very slow for large datasets.
 
-## Hash search: trading space for time
+## Hash lookup: trading space for time
 
-Consider using a hash table, where the key-value pairs are the array elements and their indices, respectively. Loop through the array, performing the steps shown in the figure below during each iteration.
+Now use a hash table whose keys are array elements and whose values are their indices. Iterate through the array, performing the steps below each round.
 
-1. Check if the number `target - nums[i]` is in the hash table. If so, directly return the indices of these two elements.
-2. Add the key-value pair `nums[i]` and index `i` to the hash table.
+1. Check whether `target - nums[i]` is in the hash table. If it is, return the indices of the two elements.
+2. Add the key-value pair consisting of `nums[i]` and index `i` to the hash table.
 
 === "<1>"
-    ![Help hash table solve two-sum](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![Solving two sum with an auxiliary hash table](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
+    ![two_sum_hashtable_step2](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+    ![two_sum_hashtable_step3](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
-The implementation code is shown below, requiring only a single loop:
+The implementation below requires only one loop:
 
 ```src
 [file]{two_sum}-[class]{}-[func]{two_sum_hash_table}
 ```
 
-This method reduces the time complexity from $O(n^2)$ to $O(n)$ by using hash search, significantly enhancing runtime efficiency.
+Hash lookup reduces the time complexity from $O(n^2)$ to $O(n)$, greatly improving efficiency.
 
-As it requires maintaining an additional hash table, the space complexity is $O(n)$. **Nevertheless, this method has a more balanced time-space efficiency overall, making it the optimal solution for this problem**.
+Maintaining an additional hash table requires $O(n)$ space. **Even so, this approach offers a better balance of time and space efficiency, making it the optimal solution to this problem**.

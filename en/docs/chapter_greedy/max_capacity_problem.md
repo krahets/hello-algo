@@ -2,81 +2,81 @@
 
 !!! question
 
-    Input an array $ht$, where each element represents the height of a vertical partition. Any two partitions in the array, along with the space between them, can form a container.
+    Given an array $ht$, each element represents the height of a vertical wall. Any two walls, together with the space between them, form a container.
     
-    The capacity of the container is the product of the height and the width (area), where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions.
+    The container's capacity is its height multiplied by its width (an area). Its height is determined by the shorter wall, and its width is the difference between the two walls' array indices.
     
-    Please select two partitions in the array that maximize the container's capacity and return this maximum capacity. An example is shown in the figure below.
+    Choose two walls from the array to maximize the container's capacity, and return that maximum capacity. An example is shown in the figure below.
 
-![Example data for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.png)
+![Example input for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.svg)
 
-The container is formed by any two partitions, **therefore the state of this problem is represented by the indices of the two partitions, denoted as $[i, j]$**.
+A container is formed by two walls, **so the state of this problem is the pair of wall indices, denoted by $[i, j]$**.
 
-According to the problem statement, the capacity equals the product of height and width, where the height is determined by the shorter partition, and the width is the difference in array indices between the two partitions. The formula for capacity $cap[i, j]$ is:
+Capacity is height times width, with the height determined by the shorter wall and the width equal to the difference between the wall indices. Writing the capacity as $cap[i, j]$, we have:
 
 $$
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 $$
 
-Assuming the length of the array is $n$, the number of combinations of two partitions (total number of states) is $C_n^2 = \frac{n(n - 1)}{2}$. The most straightforward approach is to **enumerate all possible states**, resulting in a time complexity of $O(n^2)$.
+For an array of length $n$, there are $C_n^2 = \frac{n(n - 1)}{2}$ pairs of walls (possible states). The most direct approach is to **enumerate all states** and find the maximum capacity, taking $O(n^2)$ time.
 
-### Determination of a greedy strategy
+### Choosing a greedy strategy
 
-There is a more efficient solution to this problem. As shown in the figure below, we select a state $[i, j]$ where the indices $i < j$ and the height $ht[i] < ht[j]$, meaning $i$ is the shorter partition, and $j$ is the taller one.
+A more efficient solution is possible. Consider the state $[i, j]$ in the figure below, where $i < j$ and $ht[i] < ht[j]$: wall $i$ is shorter and wall $j$ is taller.
 
-![Initial state](max_capacity_problem.assets/max_capacity_initial_state.png)
+![Initial state](max_capacity_problem.assets/max_capacity_initial_state.svg)
 
-As shown in the figure below, **if we move the taller partition $j$ closer to the shorter partition $i$, the capacity will definitely decrease**.
+As shown in the figure below, **moving the taller wall $j$ inward toward the shorter wall $i$ must reduce the capacity**.
 
-This is because when moving the taller partition $j$, the width $j-i$ definitely decreases; and since the height is determined by the shorter partition, the height can only remain the same (if $i$ remains the shorter partition) or decrease (if the moved $j$ becomes the shorter partition).
+Moving wall $j$ inward always reduces the width $j-i$. Since the shorter wall determines the height, the height can only stay the same (if $i$ remains shorter) or decrease (if the new wall $j$ is shorter).
 
-![State after moving the taller partition inward](max_capacity_problem.assets/max_capacity_moving_long_board.png)
+![State after moving the taller wall inward](max_capacity_problem.assets/max_capacity_moving_long_board.svg)
 
-Conversely, **we can only possibly increase the capacity by moving the shorter partition $i$ inward**. Although the width will definitely decrease, **the height may increase** (if the moved shorter partition $i$ becomes taller). For example, in the figure below, the area increases after moving the shorter partition.
+Conversely, **only moving the shorter wall $i$ inward can potentially increase the capacity**. Although the width must decrease, **the height may increase** if the new wall $i$ is taller. The figure below shows an example where moving the shorter wall increases the area.
 
-![State after moving the shorter partition inward](max_capacity_problem.assets/max_capacity_moving_short_board.png)
+![State after moving the shorter wall inward](max_capacity_problem.assets/max_capacity_moving_short_board.svg)
 
-This leads us to the greedy strategy for this problem: initialize two pointers at the ends of the container, and in each round, move the pointer corresponding to the shorter partition inward until the two pointers meet.
+This gives us a greedy strategy: initialize two pointers at opposite ends of the container. At each step, move the pointer at the shorter wall inward until the pointers meet.
 
-The figure below illustrate the execution of the greedy strategy.
+The figure below illustrates the greedy process.
 
-1. Initially, the pointers $i$ and $j$ are positioned at the ends of the array.
-2. Calculate the current state's capacity $cap[i, j]$ and update the maximum capacity.
-3. Compare the heights of partitions $i$ and $j$, and move the shorter partition inward by one step.
+1. Initially, pointers $i$ and $j$ are at opposite ends of the array.
+2. Calculate the current capacity $cap[i, j]$ and update the maximum capacity.
+3. Compare the heights of walls $i$ and $j$, and move the shorter wall inward by one position.
 4. Repeat steps `2.` and `3.` until $i$ and $j$ meet.
 
 === "<1>"
-    ![The greedy process for maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.png)
+    ![Greedy steps for the maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.svg)
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png)
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png)
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png)
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png)
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png)
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png)
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png)
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
 
-### Implementation
+### Code implementation
 
-The code loops at most $n$ times, **thus the time complexity is $O(n)$**.
+The loop runs at most $n$ times, **so the time complexity is $O(n)$**.
 
-The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus the space complexity is $O(1)$**.
+The variables $i$, $j$, and $res$ require constant extra space, **so the space complexity is $O(1)$**.
 
 ```src
 [file]{max_capacity}-[class]{}-[func]{max_capacity}
@@ -84,16 +84,16 @@ The variables $i$, $j$, and $res$ use a constant amount of extra space, **thus t
 
 ### Proof of correctness
 
-The reason why the greedy method is faster than enumeration is that each round of greedy selection "skips" some states.
+The greedy algorithm is faster than exhaustive search because each greedy choice skips some states.
 
-For example, under the state $cap[i, j]$ where $i$ is the shorter partition and $j$ is the taller partition, greedily moving the shorter partition $i$ inward by one step leads to the "skipped" states shown in the figure below. **This means that these states' capacities cannot be verified later**.
+For example, in state $cap[i, j]$, suppose $i$ is the shorter wall and $j$ the taller one. Moving the shorter wall $i$ inward by one position skips the states shown in the figure below. **Their capacities will never be checked later**.
 
 $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![States skipped by moving the shorter partition](max_capacity_problem.assets/max_capacity_skipped_states.png)
+![States skipped by moving the shorter wall](max_capacity_problem.assets/max_capacity_skipped_states.svg)
 
-It is observed that **these skipped states are actually all states where the taller partition $j$ is moved inward**. We have already proven that moving the taller partition inward will definitely decrease the capacity. Therefore, the skipped states cannot possibly be the optimal solution, **and skipping them does not lead to missing the optimal solution**.
+Observe that **the skipped states are precisely those obtained by moving the taller wall $j$ inward**. We have already shown that moving the taller wall inward must reduce capacity. None of these skipped states can therefore be optimal, and **skipping them cannot cause us to miss the optimal solution**.
 
-The analysis shows that the operation of moving the shorter partition is "safe", and the greedy strategy is effective.
+This shows that moving the shorter wall is safe, and that the greedy strategy is valid.

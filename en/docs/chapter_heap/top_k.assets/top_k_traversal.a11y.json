@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "title": "Finding the top-k elements by repeated scans",
+  "summary": "Each round scans the unselected elements for the largest value, and selected elements do not participate in later rounds.",
+  "context": [
+    "This example has 5 input elements and k = 3. The figure has four rows from top to bottom: the initial array at the top followed by the state after each of the three selection rounds, with the unselected candidates on the left and the blue-bordered selected region on the right.",
+    "Each newly selected element is placed at the left end of the selected region on the right, so the left-to-right visual order there is the reverse of the chronological extraction order; this reflects placement position only, not an extra sorting pass."
+  ],
+  "description": [
+    "Thick downward gray arrows mark the progression of rounds, while thin curved arrows trace the maximum value extracted in each round. In the table below, the unselected-candidates and selected-region columns come from the two regions in the figure, whereas “Cumulative extraction order” lists the chosen values chronologically rather than representing another array drawn in the diagram."
+  ],
+  "result": "Performing k linear scans finds the largest k elements in O(nk) total time.",
+  "frames": [
+    {
+      "id": "source-162",
+      "book_path": "chapter_heap/top_k.assets/top_k_traversal.png",
+      "title": "Finding the top-k elements by repeated scans",
+      "explanation": "Each round compares only the unselected elements on the left. Value 6 chosen in round 2 is placed to the left of 7, and value 3 chosen in round 3 is placed to the left of 6, keeping all selected elements on the right."
+    }
+  ],
+  "animations": {
+    "top-k-traversal": {
+      "kind": "prose",
+      "prose": {
+        "title": "Finding the top-k elements by repeated scans",
+        "summary": "Each round scans the unselected elements for the largest value, and selected elements do not participate in later rounds.",
+        "context": [],
+        "description": [
+          "In the animation, the green outer box on the left holds unselected candidates, and the smaller blue box on the right holds selected elements. Aside from the initial state, each step shows the outcome of an entire selection round without expanding individual element-by-element comparisons."
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Initialize the array and parameter k = 3",
+            "explanation": "With k = 3, selection has not yet started. The green box on the left holds [1, 7, 6, 3, 2], the selected region on the right is empty, and the caption reads “Scan for the largest element.”",
+            "key_state": "Initial candidates [1, 7, 6, 3, 2], k = 3, and the selected result is empty.",
+            "announcement": "Display initial array [1, 7, 6, 3, 2] and target parameter k = 3."
+          },
+          {
+            "id": "step-2",
+            "title": "Select maximum value 7",
+            "explanation": "Round 1 selects the maximum value 7 from the five candidates and moves it into the blue box on the right. The left side retains [1, 6, 3, 2], the selected region on the right is [7], the cumulative extraction order is [7], and the caption reads “Find the largest element in round 1.”",
+            "key_state": "After round 1, [1, 6, 3, 2] remain on the left, [7] is selected on the right, and cumulative extraction is [7].",
+            "announcement": "Round 1 scan selects maximum value 7, leaving candidates [1, 6, 3, 2]."
+          },
+          {
+            "id": "step-3",
+            "title": "Select remaining maximum 6",
+            "explanation": "Round 2 selects 6 from the remaining candidates and places it to the left of the already selected 7. The left side retains [1, 3, 2], the right side reads [6, 7] from left to right, the cumulative extraction order is [7, 6], and the caption reads “Find the 2nd-largest element in round 2.”",
+            "key_state": "After round 2, [1, 3, 2] remain on the left, the right side reads [6, 7] from left to right, and cumulative extraction is [7, 6].",
+            "announcement": "Round 2 scan selects second-largest value 6, leaving candidates [1, 3, 2]."
+          },
+          {
+            "id": "step-4",
+            "title": "Select remaining maximum 3",
+            "explanation": "Round 3 selects 3 from the remaining candidates and places it at the far left of the selected region. The left side retains [1, 2], the right side reads [3, 6, 7] from left to right, the cumulative extraction order is [7, 6, 3], and the caption reads “Find the 3rd-largest element in round 3.” Now that k = 3 items have been chosen, comparisons stop.",
+            "key_state": "After round 3, [1, 2] remain on the left, the right side reads [3, 6, 7] from left to right, and cumulative extraction is [7, 6, 3]; 3 items are selected, so stop.",
+            "announcement": "Round 3 selects 3, giving [3, 6, 7] on the right; with 3 items chosen, [1, 2] on the left need no further comparison."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Candidates, selected region, and extraction order across the three rounds",
+      "headers": [
+        "Stage",
+        "Unselected candidates on the left",
+        "Selected region on the right, left to right",
+        "Cumulative extraction order"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "Initial",
+          "[1, 7, 6, 3, 2]",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "Round 1: find the largest element, 7",
+          "[1, 6, 3, 2]",
+          "[7]",
+          "[7]"
+        ],
+        [
+          "Round 2: find 2nd-largest element 6",
+          "[1, 3, 2]",
+          "[6, 7]",
+          "[7, 6]"
+        ],
+        [
+          "Round 3: find 3rd-largest element 3",
+          "[1, 2]",
+          "[3, 6, 7]",
+          "[7, 6, 3]"
+        ]
+      ]
+    }
+  ],
+  "input_tables": []
+}

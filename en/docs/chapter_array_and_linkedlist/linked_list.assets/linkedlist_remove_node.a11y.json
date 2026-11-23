@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "title": "Removing a linked list node",
+  "summary": "Redirect the predecessor node's successor reference to bypass the node being removed.",
+  "context": [
+    "The local sublist is n0 (1) → P (0) → n1 (3) → …. Given predecessor n0, the goal is to delete node P; n0 is not necessarily the head of the entire list."
+  ],
+  "description": [
+    "The figure has upper and lower panels; after deletion, P and its arrow to n1 turn dashed and remain visible for comparison, while memory deallocation is not depicted."
+  ],
+  "result": "Given predecessor node n0, redirecting a single reference takes O(1) time and no other nodes need to move; the time to locate the predecessor is not included in this step.",
+  "frames": [
+    {
+      "id": "source-52",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node.png",
+      "title": "Removing a linked list node",
+      "explanation": "After executing n0.next = n1, the main chain becomes n0 (1) → n1 (3) → …. Although P.next still points to n1, traversing forward from the list head through n0 can no longer reach P, so logical deletion is complete."
+    }
+  ],
+  "animations": {
+    "linkedlist-remove": {
+      "kind": "prose",
+      "prose": {
+        "title": "Removing a linked list node",
+        "summary": "Redirect the predecessor node's successor reference to bypass the node being removed.",
+        "context": [
+          "The local sublist is n0 (1) → P (0) → n1 (3) → …. Given predecessor n0, the goal is to delete node P; n0 is not necessarily the head of the entire list."
+        ],
+        "description": [
+          "The figure has upper and lower panels; after deletion, P and its arrow to n1 turn dashed and remain visible for comparison, while memory deallocation is not depicted."
+        ],
+        "result": "Given predecessor node n0, redirecting a single reference takes O(1) time and no other nodes need to move; the time to locate the predecessor is not included in this step.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Before deletion: n0 → P → n1",
+            "explanation": "Current links are n0 (1) → P (0) → n1 (3) → …. Here n0.next points to P and P.next points to n1, so starting from n0 must pass through P to reach n1. Next, n0.next will be redirected.",
+            "key_state": "Before deletion, n0 → P → n1, and P is reachable from n0.",
+            "announcement": "Before deletion: n0, P, and n1 are linked in sequence, ready to bypass node P."
+          },
+          {
+            "id": "step-2",
+            "title": "Redirect reference: n0.next = n1",
+            "explanation": "Execute n0.next = n1, changing the main chain to n0 (1) → n1 (3) → …. Node P (0)'s next still points to n1, but forward traversal from the list head past n0 can no longer reach P, completing logical deletion.",
+            "key_state": "n0.next = n1, so the main chain becomes n0 → n1; P is unreachable though it still points to n1.",
+            "announcement": "Set n0.next directly to n1 so node P becomes unreachable from the list, completing deletion."
+          }
+        ]
+      }
+    }
+  }
+}

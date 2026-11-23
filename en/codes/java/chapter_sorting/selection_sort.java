@@ -12,9 +12,9 @@ public class selection_sort {
     /* Selection sort */
     public static void selectionSort(int[] nums) {
         int n = nums.length;
-        // Outer loop: unsorted range is [i, n-1]
+        // Outer loop: the unsorted range is [i, n-1]
         for (int i = 0; i < n - 1; i++) {
-            // Inner loop: find the smallest element within the unsorted range
+            // Inner loop: find the smallest element in the unsorted range
             int k = i;
             for (int j = i + 1; j < n; j++) {
                 if (nums[j] < nums[k])
