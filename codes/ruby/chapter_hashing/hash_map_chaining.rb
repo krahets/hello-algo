@@ -24,7 +24,7 @@ class HashMapChaining
 
   ### 负载因子 ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### 查询操作 ###

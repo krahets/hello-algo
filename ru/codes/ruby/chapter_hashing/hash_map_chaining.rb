@@ -24,7 +24,7 @@ class HashMapChaining
 
   ### Коэффициент загрузки ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### Операция поиска ###

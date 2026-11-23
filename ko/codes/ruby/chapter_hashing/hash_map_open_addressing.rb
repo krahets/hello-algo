@@ -26,7 +26,7 @@ class HashMapOpenAddressing
 
   ### 적재율 ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### key에 해당하는 버킷 인덱스 탐색 ###

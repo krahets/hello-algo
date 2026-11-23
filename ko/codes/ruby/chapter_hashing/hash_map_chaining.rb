@@ -24,7 +24,7 @@ class HashMapChaining
 
   ### 적재율 ###
   def load_factor
-    @size / @capacity
+    @size / @capacity.to_f
   end
 
   ### 조회 연산 ###
