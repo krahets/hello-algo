@@ -12,14 +12,14 @@ type pair struct {
 	val string
 }
 
-/* Hash table based on array implementation */
+/* Hash table implemented with an array */
 type arrayHashMap struct {
 	buckets []*pair
 }
 
-/* Initialize hash table */
+/* Initialize the hash table */
 func newArrayHashMap() *arrayHashMap {
-	// Initialize array with 100 buckets
+	// Initialize an array containing 100 buckets
 	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
@@ -30,7 +30,7 @@ func (a *arrayHashMap) hashFunc(key int) int {
 	return index
 }
 
-/* Query operation */
+/* Lookup operation */
 func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
@@ -40,7 +40,7 @@ func (a *arrayHashMap) get(key int) string {
 	return pair.val
 }
 
-/* Add operation */
+/* Insert operation */
 func (a *arrayHashMap) put(key int, val string) {
 	pair := &pair{key: key, val: val}
 	index := a.hashFunc(key)
@@ -50,11 +50,11 @@ func (a *arrayHashMap) put(key int, val string) {
 /* Remove operation */
 func (a *arrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// Set to nil to delete
+	// Set to nil to mark the entry as removed
 	a.buckets[index] = nil
 }
 
-/* Get all key pairs */
+/* Get all key-value pairs */
 func (a *arrayHashMap) pairSet() []*pair {
 	var pairs []*pair
 	for _, pair := range a.buckets {
@@ -87,7 +87,7 @@ func (a *arrayHashMap) valueSet() []string {
 	return values
 }
 
-/* Print hash table */
+/* Print the hash table */
 func (a *arrayHashMap) print() {
 	for _, pair := range a.buckets {
 		if pair != nil {

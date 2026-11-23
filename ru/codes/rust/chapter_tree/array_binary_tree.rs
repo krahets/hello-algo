@@ -144,7 +144,13 @@ fn main() {
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\nТекущий индекс узла = {}, значение = {}",\ni,\nif let Some(val) = abt.val(i) {\n    format!("{val}")\n} else {\n    "null".to_string()\n}
+        "\nТекущий индекс узла = {}, значение = {}",
+        i,
+        if let Some(val) = abt.val(i) {
+            format!("{val}")
+        } else {
+            "null".to_string()
+        }
     );
     println!(
         "Индекс левого дочернего узла = {}, значение = {}",

@@ -6,37 +6,37 @@
 
 import '../utils/list_node.dart';
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 class LinkedListQueue {
   ListNode? _front; // Head node _front
   ListNode? _rear; // Tail node _rear
-  int _queSize = 0; // Queue length
+  int _queSize = 0; // Queue size
 
   LinkedListQueue() {
     _front = null;
     _rear = null;
   }
 
-  /* Get the length of the queue */
+  /* Get the queue size */
   int size() {
     return _queSize;
   }
 
-  /* Check if the queue is empty */
+  /* Check whether the queue is empty */
   bool isEmpty() {
     return _queSize == 0;
   }
 
   /* Enqueue */
   void push(int _num) {
-    // Add _num after tail node
+    // Add _num after the tail node
     final node = ListNode(_num);
-    // If the queue is empty, make both front and rear point to the node
+    // If the queue is empty, make both the head and tail point to this node
     if (_front == null) {
       _front = node;
       _rear = node;
     } else {
-      // If the queue is not empty, add the node after the tail node
+      // If the queue is not empty, add this node after the tail node
       _rear!.next = node;
       _rear = node;
     }
@@ -46,13 +46,13 @@ class LinkedListQueue {
   /* Dequeue */
   int pop() {
     final int _num = peek();
-    // Delete head node
+    // Remove the head node
     _front = _front!.next;
     _queSize--;
     return _num;
   }
 
-  /* Return list for printing */
+  /* Access the front element */
   int peek() {
     if (_queSize == 0) {
       throw Exception('Queue is empty');
@@ -60,7 +60,7 @@ class LinkedListQueue {
     return _front!.val;
   }
 
-  /* Convert linked list to Array and return */
+  /* Convert the linked list to an array and return it */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> queue = [];
@@ -72,12 +72,12 @@ class LinkedListQueue {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Access front of the queue element */
+  /* Initialize the queue */
   final queue = LinkedListQueue();
 
-  /* Elements enqueue */
+  /* Enqueue elements */
   queue.push(1);
   queue.push(3);
   queue.push(2);
@@ -85,19 +85,19 @@ void main() {
   queue.push(4);
   print("Queue queue = ${queue.toArray()}");
 
-  /* Return list for printing */
+  /* Access the front element */
   final int peek = queue.peek();
   print("Front element peek = $peek");
 
-  /* Element dequeue */
+  /* Dequeue an element */
   final int pop = queue.pop();
-  print("Dequeue element pop = $pop, after dequeue queue = ${queue.toArray()}");
+  print("Dequeued element pop = $pop; after dequeuing, queue = ${queue.toArray()}");
 
-  /* Get the length of the queue */
+  /* Get the queue size */
   final int size = queue.size();
-  print("Queue length size = $size");
+  print("Queue size = $size");
 
-  /* Check if the queue is empty */
+  /* Check whether the queue is empty */
   final bool isEmpty = queue.isEmpty();
-  print("Is queue empty = $isEmpty");
+  print("Is the queue empty = $isEmpty");
 }

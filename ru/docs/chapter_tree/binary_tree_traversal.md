@@ -10,7 +10,7 @@
 
 По своей сути обход по уровням относится к <u>обходу в ширину (breadth-first traversal)</u>, также называемому <u>поиском в ширину (breadth-first search, BFS)</u>. Он отражает идею «расширяться от центра к периферии слой за слоем».
 
-![Обход двоичного дерева по уровням](binary_tree_traversal.assets/binary_tree_bfs.png)
+![Обход двоичного дерева по уровням](binary_tree_traversal.assets/binary_tree_bfs.svg)
 
 ### Код реализации
 
@@ -31,7 +31,7 @@
 
 На рисунке ниже показан принцип работы обхода двоичного дерева в глубину. **Обход в глубину можно представить как обход всей двоичной структуры по внешнему контуру** , и у каждого узла встречаются три позиции, соответствующие прямому, симметричному и обратному обходам.
 
-![Прямой, симметричный и обратный обходы двоичного дерева поиска](binary_tree_traversal.assets/binary_tree_dfs.png)
+![Прямой, симметричный и обратный обходы двоичного дерева поиска](binary_tree_traversal.assets/binary_tree_dfs.svg)
 
 ### Код реализации
 
@@ -51,37 +51,37 @@
 2. «Возврат» означает завершение вызова функции и возврат назад, то есть текущий узел уже полностью обработан.
 
 === "<1>"
-    ![Рекурсивный процесс прямого обхода](binary_tree_traversal.assets/preorder_step1.png)
+    ![Рекурсивный процесс прямого обхода](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png)
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png)
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png)
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png)
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png)
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png)
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png)
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png)
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png)
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg)
 
 ### Анализ сложности
 

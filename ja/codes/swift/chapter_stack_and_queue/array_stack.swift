@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 配列ベースのスタック */
+/* 配列で実装したスタック */
 class ArrayStack {
     private var stack: [Int]
 
@@ -13,12 +13,12 @@ class ArrayStack {
         stack = []
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     func size() -> Int {
         stack.count
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     func isEmpty() -> Bool {
         stack.isEmpty
     }
@@ -37,7 +37,7 @@ class ArrayStack {
         return stack.removeLast()
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     func peek() -> Int {
         if isEmpty() {
             fatalError("スタックが空です")
@@ -53,12 +53,12 @@ class ArrayStack {
 
 @main
 enum _ArrayStack {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        /* スタックを初期化 */
+        /* スタックを初期化する */
         let stack = ArrayStack()
 
-        /* 要素をプッシュ */
+        /* 要素をプッシュする */
         stack.push(num: 1)
         stack.push(num: 3)
         stack.push(num: 2)
@@ -66,20 +66,20 @@ enum _ArrayStack {
         stack.push(num: 4)
         print("スタック stack = \(stack.toArray())")
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         let peek = stack.peek()
-        print("スタックトップ要素 peek = \(peek)")
+        print("スタックの先頭要素 peek = \(peek)")
 
-        /* 要素をポップ */
+        /* 要素をポップする */
         let pop = stack.pop()
-        print("ポップした要素 pop = \(pop)、ポップ後の stack = \(stack.toArray())")
+        print("ポップした要素 pop = \(pop)、ポップ後 stack = \(stack.toArray())")
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         let size = stack.size()
         print("スタックの長さ size = \(size)")
 
-        /* 空かどうかを判定 */
+        /* 空かどうかを判定する */
         let isEmpty = stack.isEmpty()
-        print("スタックが空かどうか = \(isEmpty)")
+        print("スタックは空か = \(isEmpty)")
     }
 }

@@ -1,0 +1,211 @@
+{
+  "schema_version": 2,
+  "title": "最大容量：双指针贪心",
+  "summary": "双指针从两端向内移动较短隔板，每次计算当前容量并保存历史最大值，最终返回 28。",
+  "context": [
+    "给定高度数组 ht = [3, 8, 5, 2, 7, 7, 3, 4]（索引 0 至 7），容器容量为 cap[i, j] = min(ht[i], ht[j]) × (j - i)。",
+    "双指针贪心算法初始化左指针 i = 0、右指针 j = 7、最大容量记录 res = 0。当 i < j 时循环执行：先计算当前容量 cap 并用 res = max(res, cap) 更新全局最大值，然后比较左右两板高度，将较短一侧的指针向内移动一格，直到 i 与 j 相遇时跳出循环。"
+  ],
+  "description": [
+    "图组共 9 步：选中隔板上方以青绿色标签 i 和蓝色标签 j 标出左右指针位置，选中隔板以对应颜色突出；第 2 至 8 步两板间的当前容器以浅蓝色区域填充，图下方给出当前轮的 cap 计算式与已知最大值 res 的更新式。",
+    "第 1 步仅初始化，第 2 至 8 步共进行 7 次容量计算，第 9 步相遇退出；播放器步号不等于容量计算次数。列表后的“最大容量第 2 至 8 步：计算与历史最大值”表按步号汇总数值；指针位置和 cap、res 在图中有标注，板高按坐标轴读出。"
+  ],
+  "frames": [
+    {
+      "id": "source-470",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png",
+      "title": "初始化两端指针",
+      "explanation": "初始化左指针 i = 0（指向左端高度 3 的隔板）、右指针 j = 7（指向右端高度 4 的隔板），并将容量最大值初始化为 res = 0。此时尚未开始第一轮盛水容量计算。图中尚未绘制盛水区域。",
+      "key_state": "初始化：i = 0（高 3），j = 7（高 4），历史最大值 res = 0，尚未计算当前容量。",
+      "announcement": "初始化双指针分列数组两端 i = 0、j = 7，最大容量 res = 0。"
+    },
+    {
+      "id": "source-471",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png",
+      "title": "计算容器 [0, 7] 的容量",
+      "explanation": "首次计算，考察两端状态 [0, 7]：左板高 ht[0] = 3，右板高 ht[7] = 4，宽度为 7 - 0 = 7，当前容量 cap = min(3, 4) × 7 = 21；最大容量更新为 res = max(0, 21) = 21。由于左板 3 短于右板 4，下一步将左端短板指针 i 向右移动。",
+      "key_state": "i = 0（高 3），j = 7（高 4），左板较短；宽 7，水高 3，当前 cap = 21，历史最大值 res = 21。",
+      "announcement": "计算两端状态：左板高 3、右板高 4，左板较短；cap = 21，res 更新为 21。"
+    },
+    {
+      "id": "source-472",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png",
+      "title": "右移短板指针至 i = 1",
+      "explanation": "因上一轮左板更短，左指针 i 从 0 右移至 1，形成状态 [1, 7]：左板高 ht[1] = 8，右板高 ht[7] = 4，宽度为 7 - 1 = 6，当前容量 cap = min(8, 4) × 6 = 24；最大容量更新为 res = max(21, 24) = 24。此时右板 4 短于左板 8，下一步改为左移右指针 j。",
+      "key_state": "i = 1（高 8），j = 7（高 4），右板较短；宽 6，水高 4，当前 cap = 24，历史最大值 res = 24。",
+      "announcement": "左指针从 0 右移至 1：左板高 8、右板高 4，右板较短；cap = 24，res 更新为 24。"
+    },
+    {
+      "id": "source-473",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png",
+      "title": "左移短板至 j = 6",
+      "explanation": "因上一轮右板高 4 短于左板高 8，右指针 j 从 7 左移至 6，形成状态 [1, 6]：左板高 8，右板高 ht[6] = 3，宽度为 6 - 1 = 5，当前容量 cap = min(8, 3) × 5 = 15；与历史最大值比较，res = max(24, 15) = 24 保持不变。",
+      "key_state": "i = 1（高 8），j = 6（高 3），右板较短；宽 5，水高 3，当前 cap = 15，历史最大值 res = 24。",
+      "announcement": "右指针从 7 左移至 6：左板高 8、右板高 3，右板较短；cap = 15，res 保持 24。"
+    },
+    {
+      "id": "source-474",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png",
+      "title": "左移短板至 j = 5",
+      "explanation": "因上一轮右板高 3 短于左板高 8，右指针 j 从 6 左移至 5，形成状态 [1, 5]：左板高 8，右板高 ht[5] = 7，宽度为 5 - 1 = 4，当前容量 cap = min(8, 7) × 4 = 28；历史最大值更新为 res = max(24, 28) = 28。",
+      "key_state": "i = 1（高 8），j = 5（高 7），右板较短；宽 4，水高 7，当前 cap = 28，历史最大值 res = 28。",
+      "announcement": "右指针从 6 左移至 5：左板高 8、右板高 7，右板较短；cap = 28，res 更新为 28。"
+    },
+    {
+      "id": "source-475",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png",
+      "title": "左移短板至 j = 4",
+      "explanation": "因上一轮右板高 7 短于左板高 8，右指针 j 从 5 左移至 4，形成状态 [1, 4]：左板高 8，右板高 ht[4] = 7，宽度为 4 - 1 = 3，当前容量 cap = min(8, 7) × 3 = 21；历史最大值 res = max(28, 21) = 28 保持不变。",
+      "key_state": "i = 1（高 8），j = 4（高 7），右板较短；宽 3，水高 7，当前 cap = 21，历史最大值 res = 28。",
+      "announcement": "右指针从 5 左移至 4：左板高 8、右板高 7，右板较短；cap = 21，res 保持 28。"
+    },
+    {
+      "id": "source-476",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png",
+      "title": "左移短板至 j = 3",
+      "explanation": "因上一轮右板高 7 短于左板高 8，右指针 j 从 4 左移至 3，形成状态 [1, 3]：左板高 8，右板高 ht[3] = 2，宽度为 3 - 1 = 2，当前容量 cap = min(8, 2) × 2 = 4；历史最大值 res = max(28, 4) = 28 保持不变。",
+      "key_state": "i = 1（高 8），j = 3（高 2），右板较短；宽 2，水高 2，当前 cap = 4，历史最大值 res = 28。",
+      "announcement": "右指针从 4 左移至 3：左板高 8、右板高 2，右板较短；cap = 4，res 保持 28。"
+    },
+    {
+      "id": "source-477",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png",
+      "title": "左移短板至 j = 2",
+      "explanation": "因上一轮右板高 2 短于左板高 8，右指针 j 从 3 左移至 2，形成状态 [1, 2]：左板高 8，右板高 ht[2] = 5，宽度为 2 - 1 = 1，当前容量 cap = min(8, 5) × 1 = 5；历史最大值 res = max(28, 5) = 28 保持不变。",
+      "key_state": "i = 1（高 8），j = 2（高 5），右板较短；宽 1，水高 5，当前 cap = 5，历史最大值 res = 28。",
+      "announcement": "右指针从 3 左移至 2：左板高 8、右板高 5，右板较短；cap = 5，res 保持 28。"
+    },
+    {
+      "id": "source-478",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png",
+      "title": "两指针相遇，返回最大容量",
+      "explanation": "右板高 5 仍短于左板高 8，右指针 j 从 2 左移至 1，与 i 相遇。图中 i、j 双色标签合并在索引 1 的隔板上方；横轴数字 2 虽仍为蓝色，但不是当前指针位置。此时 i < j 不成立，不再计算新容量，退出循环并返回 res = 28。",
+      "key_state": "i = j = 1 两指针相遇，跳出贪心循环，返回最大容量 res = 28。",
+      "announcement": "右指针左移至索引 1 与左指针相遇，跳出循环并返回最大容量 28。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "最大容量第 2 至 8 步：计算与历史最大值",
+      "headers": [
+        "图解步骤",
+        "i",
+        "j",
+        "左板高",
+        "右板高",
+        "当前容量 cap",
+        "已知最大值 res"
+      ],
+      "rows": [
+        [
+          "第 2 步",
+          "0",
+          "7",
+          "3",
+          "4",
+          "21",
+          "21"
+        ],
+        [
+          "第 3 步",
+          "1",
+          "7",
+          "8",
+          "4",
+          "24",
+          "24"
+        ],
+        [
+          "第 4 步",
+          "1",
+          "6",
+          "8",
+          "3",
+          "15",
+          "24"
+        ],
+        [
+          "第 5 步",
+          "1",
+          "5",
+          "8",
+          "7",
+          "28",
+          "28"
+        ],
+        [
+          "第 6 步",
+          "1",
+          "4",
+          "8",
+          "7",
+          "21",
+          "28"
+        ],
+        [
+          "第 7 步",
+          "1",
+          "3",
+          "8",
+          "2",
+          "4",
+          "28"
+        ],
+        [
+          "第 8 步",
+          "1",
+          "2",
+          "8",
+          "5",
+          "5",
+          "28"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "max-capacity-greedy": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-470"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-471"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-472"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-473"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-474"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-475"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-476"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-477"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-478"
+        }
+      ]
+    }
+  },
+  "input_tables": []
+}

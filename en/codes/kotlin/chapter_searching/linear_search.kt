@@ -10,13 +10,13 @@ import utils.ListNode
 
 /* Linear search (array) */
 fun linearSearchArray(nums: IntArray, target: Int): Int {
-    // Traverse array
+    // Traverse the array
     for (i in nums.indices) {
-        // Found the target element, return its index
+        // The target element was found; return its index
         if (nums[i] == target)
             return i
     }
-    // Target element not found, return -1
+    // The target element was not found; return -1
     return -1
 }
 
@@ -25,26 +25,26 @@ fun linearSearchLinkedList(h: ListNode?, target: Int): ListNode? {
     // Traverse the linked list
     var head = h
     while (head != null) {
-        // Found the target node, return it
+        // The target node was found; return it
         if (head._val == target)
             return head
         head = head.next
     }
-    // Target node not found, return null
+    // The target node was not found; return null
     return null
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val target = 3
 
-    /* Perform linear search in array */
+    /* Perform linear search on the array */
     val nums = intArrayOf(1, 5, 3, 2, 4, 7, 5, 9, 10, 8)
     val index = linearSearchArray(nums, target)
     println("Index of target element 3 = $index")
 
-    /* Perform linear search in linked list */
+    /* Perform linear search on the linked list */
     val head = ListNode.arrToLinkedList(nums)
     val node = linearSearchLinkedList(head, target)
-    println("Node object corresponding to target node value 3 is $node")
+    println("Node object with target value 3: $node")
 }

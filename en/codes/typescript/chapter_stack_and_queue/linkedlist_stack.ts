@@ -6,21 +6,21 @@
 
 import { ListNode } from '../modules/ListNode';
 
-/* Stack based on linked list implementation */
+/* Stack implemented with a linked list */
 class LinkedListStack {
-    private stackPeek: ListNode | null; // Use head node as stack top
-    private stkSize: number = 0; // Stack length
+    private stackPeek: ListNode | null; // Use the head node as the stack top
+    private stkSize: number = 0; // Stack size
 
     constructor() {
         this.stackPeek = null;
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     get size(): number {
         return this.stkSize;
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     isEmpty(): boolean {
         return this.size === 0;
     }
@@ -42,13 +42,13 @@ class LinkedListStack {
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     peek(): number {
         if (!this.stackPeek) throw new Error('Stack is empty');
         return this.stackPeek.val;
     }
 
-    /* Convert linked list to Array and return */
+    /* Convert the linked list to an Array and return it */
     toArray(): number[] {
         let node = this.stackPeek;
         const res = new Array<number>(this.size);
@@ -60,11 +60,11 @@ class LinkedListStack {
     }
 }
 
-/* Driver Code */
-/* Access top of the stack element */
+/* Driver code */
+/* Initialize the stack */
 const stack = new LinkedListStack();
 
-/* Elements push onto stack */
+/* Push elements onto the stack */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -72,20 +72,20 @@ stack.push(5);
 stack.push(4);
 console.log('Stack stack = ' + stack.toArray());
 
-/* Return list for printing */
+/* Access the top element */
 const peek = stack.peek();
-console.log('Stack top element peek = ' + peek);
+console.log('Top element peek = ' + peek);
 
-/* Element pop from stack */
+/* Pop an element from the stack */
 const pop = stack.pop();
-console.log('Pop element pop = ' + pop + ', after pop, stack = ' + stack.toArray());
+console.log('Popped element pop = ' + pop + '; after popping, stack = ' + stack.toArray());
 
-/* Get the length of the stack */
+/* Get the stack size */
 const size = stack.size;
-console.log('Stack length size = ' + size);
+console.log('Stack size = ' + size);
 
-/* Check if empty */
+/* Check whether it is empty */
 const isEmpty = stack.isEmpty();
-console.log('Stack is empty = ' + isEmpty);
+console.log('Is the stack empty = ' + isEmpty);
 
 export {};

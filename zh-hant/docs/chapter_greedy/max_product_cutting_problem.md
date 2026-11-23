@@ -4,7 +4,7 @@
 
     給定一個正整數 $n$ ，將其切分為至少兩個正整數的和，求切分後所有整數的乘積最大是多少，如下圖所示。
 
-![最大切分乘積的問題定義](max_product_cutting_problem.assets/max_product_cutting_definition.png)
+![最大切分乘積的問題定義](max_product_cutting_problem.assets/max_product_cutting_definition.svg)
 
 假設我們將 $n$ 切分為 $m$ 個整數因子，其中第 $i$ 個因子記為 $n_i$ ，即
 
@@ -36,7 +36,7 @@ $$
 
 **貪婪策略一**：如果切分方案中包含 $\geq 4$ 的因子，那麼它就應該被繼續切分。最終的切分方案只應出現 $1$、$2$、$3$ 這三種因子。
 
-![切分導致乘積變大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
+![切分導致乘積變大](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg)
 
 接下來思考哪個因子是最優的。在 $1$、$2$、$3$ 這三個因子中，顯然 $1$ 是最差的，因為 $1 \times (n-1) < n$ 恆成立，即切分出 $1$ 反而會導致乘積減小。
 
@@ -44,7 +44,7 @@ $$
 
 **貪婪策略二**：在切分方案中，最多隻應存在兩個 $2$ 。因為三個 $2$ 總是可以替換為兩個 $3$ ，從而獲得更大的乘積。
 
-![最優切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
+![最優切分因子](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg)
 
 綜上所述，可推理出以下貪婪策略。
 
@@ -67,7 +67,7 @@ $$
 [file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}
 ```
 
-![最大切分乘積的計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
+![最大切分乘積的計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg)
 
 **時間複雜度取決於程式語言的冪運算的實現方法**。以 Python 為例，常用的冪計算函式有三種。
 

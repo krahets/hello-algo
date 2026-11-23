@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "title": "Recursion tree where every node branches into two",
+  "summary": "Each level down the recursion tree doubles the node count, so total workload sums across all levels.",
+  "context": [
+    "Each square represents one operation, with the root counted as level 1. The top heading reads \"Recursion tree — each node branches into two\", and the right brace reads \"A total of n levels\" for a positive integer n."
+  ],
+  "description": [
+    "The figure draws 1, 2, and 4 nodes on the first three levels, each non-leaf node branching to two children. Below level 3, 8 arrows lead into ellipses, and the bottom row draws 8 squares separated by ellipses purely schematically rather than fixing the bottom level at 8 nodes. The right column writes each level's count as a power of 2, while the decimal values in the table below are supplied by calculation. For n ≤ 3, only the levels that actually exist apply, and row n in the table coincides with the corresponding earlier row."
+  ],
+  "frames": [
+    {
+      "id": "source-29",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_exponential.png",
+      "title": "Recursion tree where every node branches into two",
+      "explanation": "Summing all levels at the bottom gives 2⁰ + 2¹ + … + 2ⁿ⁻¹ = 2ⁿ - 1—that is, one less than 2 to the power n—giving O(2ⁿ). For the iterative cell-division code preceding the figure, level k represents the divisions performed in round k: n rounds perform 2ⁿ - 1 divisions in total to yield 2ⁿ final cells, which are not drawn as an extra row of operations. For exp_recur(n) following the figure, each square represents a call as the argument steps from n down to 1 across n levels, counting 1 per call and returning the same total."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Operations at each level of the recursion tree",
+      "headers": [
+        "Level (root is level 1)",
+        "Node count"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1",
+          "2⁰ = 1"
+        ],
+        [
+          "2",
+          "2¹ = 2"
+        ],
+        [
+          "3",
+          "2² = 4"
+        ],
+        [
+          "n",
+          "2ⁿ⁻¹, that is, 2 raised to the exponent (n minus 1)"
+        ]
+      ]
+    }
+  ]
+}

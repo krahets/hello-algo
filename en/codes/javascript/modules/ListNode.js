@@ -7,7 +7,7 @@
 /* Linked list node */
 class ListNode {
     val; // Node value
-    next; // Reference (pointer) to next node
+    next; // Reference (pointer) to the next node
     constructor(val, next) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;

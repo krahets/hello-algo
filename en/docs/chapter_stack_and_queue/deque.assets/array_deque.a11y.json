@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "title": "Implementing a deque with a circular array",
+  "summary": "Moving the front index and tracking the length allow operations at either end without shifting the elements in between.",
+  "context": [
+    "The deque on the left and its underlying circular array on the right both run from front to rear, top to bottom. The index front marks the first element, and size counts the active elements. Moving up one slot decreases the index by 1, equivalent to moving left in the code comments. Moving down one slot increases the index by 1.",
+    "The next insertion at the rear uses rear = (front + size) % capacity. The figure uses the shorter expression rear = front + size. It shows no wraparound and gives neither the capacity nor numeric indices."
+  ],
+  "description": [
+    "Insertion requires a free slot, and removal requires a nonempty deque. Active elements occupy positions (front + i) % capacity for i from 0 to size - 1. Inserting at the front updates front to (front - 1 + capacity) % capacity.",
+    "The original elements 3, 2, and 5 stay in their slots throughout. A dashed gray cell lies outside the active range. Its dashed outline after removal does not mean the code clears the stored value to zero. The new rear element 4 is cyan, and the new front element 1 is orange."
+  ],
+  "result": "Insertions and removals at either end change only an end slot, front, or size. They take O(1) time and do not move intermediate elements.",
+  "frames": [
+    {
+      "id": "source-76",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step1.png",
+      "title": "Initial deque",
+      "explanation": "The deque initially contains [3, 2, 5]. The index front points to 3, and size = 3. Calculated as front + size, rear points to the first free slot below 5. Free slots and ellipses appear at both ends.",
+      "key_state": "Deque: [3, 2, 5]. The index front points to 3, size = 3, and rear points to the empty slot below 5.",
+      "announcement": "Initially the deque is [3, 2, 5], front points to 3, size = 3, and rear points to the first free slot after 5."
+    },
+    {
+      "id": "source-77",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png",
+      "title": "Add 4 at the rear",
+      "explanation": "Call push_last(4). Before insertion, use front and size = 3 to compute rear. Write 4 into that free slot, then increase size to 4. The deque is now [3, 2, 5, 4], and front still points to 3. The arrow labeled rear stays at the newly written 4. Recomputing rear with the new size would put it one slot below 4.",
+      "key_state": "The index front points to 3, size = 4, and the deque is [3, 2, 5, 4]. The rear marker shows where 4 was just written.",
+      "announcement": "Write 4 to the rear slot calculated before insertion and increase size to 4. The rear arrow still marks the slot where 4 was written."
+    },
+    {
+      "id": "source-78",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png",
+      "title": "Add 1 at the front",
+      "explanation": "Call push_first(1). Move front up one slot to the free slot above 3, write 1, then increase size from 4 to 5. The deque is now [1, 3, 2, 5, 4]. The index front points to the new first element, 1. Other elements stay in their slots. This frame has no rear marker.",
+      "key_state": "The index front points to 1, size = 5, and the deque is [1, 3, 2, 5, 4].",
+      "announcement": "Move front up one slot, write 1, and increase size to 5. The other elements stay in place."
+    },
+    {
+      "id": "source-79",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png",
+      "title": "Remove 4 from the rear",
+      "explanation": "Call pop_last() to read and return 4 from the rear. Decrease size from 5 to 4. The deque now contains [1, 3, 2, 5], with front still pointing to 1. The former slot for 4 has a dashed outline because it now lies outside the active range. This frame has no rear marker.",
+      "key_state": "The index front points to 1, size = 4, and the deque is [1, 3, 2, 5]. Returned 4.",
+      "announcement": "Read and return the rear element, 4. Decrease size to 4. The former rear slot is outside the active range."
+    },
+    {
+      "id": "source-80",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png",
+      "title": "Remove 1 from the front",
+      "explanation": "Call pop_first() to read and return the front element, 1. Move front one slot down to 3 and decrease size from 4 to 3. The deque is back to [3, 2, 5]. The slot that held 1 is outside the active range. This frame has no rear marker.",
+      "key_state": "The index front points to 3, size = 3, and the deque is [3, 2, 5]. Returned 1.",
+      "announcement": "Read and return the front element, 1. Move front down one slot to point to 3 again and decrease size to 3."
+    }
+  ],
+  "animations": {
+    "array-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-76"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-77"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-78"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-79"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-80"
+        }
+      ]
+    }
+  }
+}

@@ -7,7 +7,7 @@
 /* for ループ */
 func forLoop(n: Int) -> Int {
     var res = 0
-    // 1, 2, ..., n-1, n を順に加算する
+    // ループで 1, 2, ..., n-1, n の和を求める
     for i in 1 ... n {
         res += i
     }
@@ -18,7 +18,7 @@ func forLoop(n: Int) -> Int {
 func whileLoop(n: Int) -> Int {
     var res = 0
     var i = 1 // 条件変数を初期化する
-    // 1, 2, ..., n-1, n を順に加算する
+    // ループで 1, 2, ..., n-1, n の和を求める
     while i <= n {
         res += i
         i += 1 // 条件変数を更新する
@@ -26,11 +26,11 @@ func whileLoop(n: Int) -> Int {
     return res
 }
 
-/* while ループ（2回更新） */
+/* while ループ（2 回の更新） */
 func whileLoopII(n: Int) -> Int {
     var res = 0
     var i = 1 // 条件変数を初期化する
-    // 1, 4, 10, ... を順に加算する
+    // ループで 1, 4, 10, ... の和を求める
     while i <= n {
         res += i
         // 条件変数を更新する
@@ -43,9 +43,9 @@ func whileLoopII(n: Int) -> Int {
 /* 二重 for ループ */
 func nestedForLoop(n: Int) -> String {
     var res = ""
-    // i = 1, 2, ..., n-1, n とループする
+    // i = 1, 2, ..., n-1, n のループ
     for i in 1 ... n {
-        // j = 1, 2, ..., n-1, n とループする
+        // j = 1, 2, ..., n-1, n のループ
         for j in 1 ... n {
             res.append("(\(i), \(j)), ")
         }
@@ -55,19 +55,19 @@ func nestedForLoop(n: Int) -> String {
 
 @main
 enum Iteration {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         let n = 5
         var res = 0
 
         res = forLoop(n: n)
-        print("\nfor ループの合計結果 res = \(res)")
+        print("\nfor ループで求めた和 res = \(res)")
 
         res = whileLoop(n: n)
-        print("\nwhile ループの合計結果 res = \(res)")
+        print("\nwhile ループで求めた和 res = \(res)")
 
         res = whileLoopII(n: n)
-        print("\nwhile ループ（2 回更新）の合計結果 res = \(res)")
+        print("\nwhile ループ（2 回の更新）で求めた和 res = \(res)")
 
         let resStr = nestedForLoop(n: n)
         print("\n二重 for ループの走査結果 \(resStr)")

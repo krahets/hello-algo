@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "State transitions for edit distance",
+  "summary": "When transforming book into code, the last characters k and e differ. Insertion, deletion, and replacement each leave a different pair of prefixes to transform.",
+  "context": [
+    "Let state dp[i, j] be the minimum number of edits needed to transform the first i characters of source string s into the first j characters of target string t, where each insertion, deletion, or replacement costs 1. Using s = book and t = code (current prefix lengths i = 4 and j = 4), this figure examines where the state transitions come from when the current final characters s[i-1] = k and t[j-1] = e differ."
+  ],
+  "description": [
+    "On the left is the current state dp[i, j], and on the right from top to bottom are the three branches for insertion (appending), deletion, and replacement. Grayed-out final characters indicate characters already matched or deleted and no longer part of the remaining prefixes to be solved.",
+    "After insertion, the newly appended final character matches and cancels the target's final character without consuming any character of the original source string, so only j decreases by 1. Deletion removes only the source's final character, so only i decreases by 1. After replacement, the two final characters match and cancel each other, so both i and j decrease by 1.",
+    "Following the three branches in order, the table below distinguishes \"Source after edit\" from \"Remaining source prefix\" and lists the corresponding subproblem state; the figure does not compute the final edit distance from book to code."
+  ],
+  "frames": [
+    {
+      "id": "source-443",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_state_transfer.png",
+      "title": "Three edit operations reduce the problem to different remaining prefixes",
+      "explanation": "Each of the three operations costs 1 edit, and we choose whichever leaves the fewest edits in its remaining subproblem; therefore, when the final characters differ, dp[i,j] = min(dp[i,j-1], dp[i-1,j], dp[i-1,j-1]) + 1."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Three operations and remaining prefixes when the final characters differ",
+      "headers": [
+        "Operation",
+        "Source after edit",
+        "Remaining source prefix",
+        "Remaining target prefix",
+        "Subproblem state"
+      ],
+      "rows": [
+        [
+          "Insert e",
+          "booke",
+          "book",
+          "cod",
+          "dp[i,j-1]"
+        ],
+        [
+          "Delete k",
+          "boo",
+          "boo",
+          "code",
+          "dp[i-1,j]"
+        ],
+        [
+          "Replace k with e",
+          "booe",
+          "boo",
+          "cod",
+          "dp[i-1,j-1]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

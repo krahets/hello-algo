@@ -9,38 +9,38 @@ import utils
 /* 関数 */
 @discardableResult
 func function() -> Int {
-    // 何らかの処理を行う
+    // 何らかの処理を実行する
     return 0
 }
 
-/* 定数階 */
+/* 定数オーダー */
 func constant(n: Int) {
-    // 定数、変数、オブジェクトは O(1) の空間を占める
+    // 定数、変数、オブジェクトは O(1) の領域を使用する
     let a = 0
     var b = 0
     let nums = Array(repeating: 0, count: 10000)
     let node = ListNode(x: 0)
-    // ループ内の変数は O(1) の空間を占める
+    // ループ内の変数は O(1) の領域を使用する
     for _ in 0 ..< n {
         let c = 0
     }
-    // ループ内の関数は O(1) の空間を占める
+    // ループ内の関数は O(1) の領域を使用する
     for _ in 0 ..< n {
         function()
     }
 }
 
-/* 線形階 */
+/* 線形オーダー */
 func linear(n: Int) {
-    // 長さ n の配列は O(n) の空間を使用
+    // 長さ n の配列は O(n) の領域を使用する
     let nums = Array(repeating: 0, count: n)
-    // 長さ n のリストは O(n) の空間を使用
+    // 長さ n のリストは O(n) の領域を使用する
     let nodes = (0 ..< n).map { ListNode(x: $0) }
-    // 長さ n のハッシュテーブルは O(n) の空間を使用
+    // 長さ n のハッシュテーブルは O(n) の領域を使用する
     let map = Dictionary(uniqueKeysWithValues: (0 ..< n).map { ($0, "\($0)") })
 }
 
-/* 線形時間（再帰実装） */
+/* 線形オーダー（再帰による実装） */
 func linearRecur(n: Int) {
     print("再帰 n = \(n)")
     if n == 1 {
@@ -49,13 +49,13 @@ func linearRecur(n: Int) {
     linearRecur(n: n - 1)
 }
 
-/* 二乗階 */
+/* 二次オーダー */
 func quadratic(n: Int) {
-    // 二次元リストは O(n^2) の空間を使用
+    // 二次元リストは O(n^2) の領域を使用する
     let numList = Array(repeating: Array(repeating: 0, count: n), count: n)
 }
 
-/* 二次時間（再帰実装） */
+/* 二次オーダー（再帰による実装） */
 @discardableResult
 func quadraticRecur(n: Int) -> Int {
     if n <= 0 {
@@ -67,7 +67,7 @@ func quadraticRecur(n: Int) -> Int {
     return quadraticRecur(n: n - 1)
 }
 
-/* 指数時間（完全二分木の構築） */
+/* 指数オーダー（パーフェクト二分木の構築） */
 func buildTree(n: Int) -> TreeNode? {
     if n == 0 {
         return nil
@@ -80,15 +80,15 @@ func buildTree(n: Int) -> TreeNode? {
 
 @main
 enum SpaceComplexity {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         let n = 5
-        // 定数階
+        // 定数オーダー
         constant(n: n)
-        // 線形階
+        // 線形オーダー
         linear(n: n)
         linearRecur(n: n)
-        // 二乗階
+        // 二次オーダー
         quadratic(n: n)
         quadraticRecur(n: n)
         // 指数オーダー

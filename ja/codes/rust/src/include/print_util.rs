@@ -17,7 +17,7 @@ struct Trunk<'a, 'b> {
     str: Cell<&'b str>,
 }
 
-/* 配列を出力する */
+/* 配列を表示する */
 pub fn print_array<T: Display>(nums: &[T]) {
     print!("[");
     if nums.len() > 0 {
@@ -29,14 +29,14 @@ pub fn print_array<T: Display>(nums: &[T]) {
     }
 }
 
-/* ハッシュテーブルを出力 */
+/* ハッシュテーブルを表示する */
 pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue>) {
     for (key, value) in map {
         println!("{key} -> {value}");
     }
 }
 
-/* キューを出力（双方向キュー） */
+/* キュー（両端キュー）を表示する */
 pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();
@@ -45,7 +45,7 @@ pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     }
 }
 
-/* 連結リストを出力 */
+/* 連結リストを表示する */
 pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
     print!("{}{}", head.borrow().val, if head.borrow().next.is_none() {"\n"} else {" -> "});
     if let Some(node) = &head.borrow().next {
@@ -53,12 +53,12 @@ pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* 二分木を出力 */
+/* 二分木を表示する */
 pub fn print_tree(root: &Rc<RefCell<TreeNode>>) {
     _print_tree(Some(root), None, false);
 }
 
-/* 二分木を出力 */
+/* 二分木を表示する */
 fn _print_tree(root: Option<&Rc<RefCell<TreeNode>>>, prev: Option<&Trunk>, is_right: bool) {
     if let Some(node) = root {
         let mut prev_str = "    ";
@@ -93,7 +93,7 @@ fn show_trunks(trunk: Option<&Trunk>) {
     }
 }
 
-/* ヒープを出力 */
+/* ヒープを表示する */
 pub fn print_heap(heap: Vec<i32>) {
     println!("ヒープの配列表現：{:?}", heap);
     println!("ヒープの木構造表現：");

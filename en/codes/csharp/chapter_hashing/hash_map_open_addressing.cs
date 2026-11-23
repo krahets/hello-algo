@@ -10,10 +10,10 @@ namespace hello_algo.chapter_hashing;
 class HashMapOpenAddressing {
     int size; // Number of key-value pairs
     int capacity = 4; // Hash table capacity
-    double loadThres = 2.0 / 3.0; // Load factor threshold for triggering expansion
-    int extendRatio = 2; // Expansion multiplier
+    double loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
+    int extendRatio = 2; // Capacity growth factor
     Pair[] buckets; // Bucket array
-    Pair TOMBSTONE = new(-1, "-1"); // Removal marker
+    Pair TOMBSTONE = new(-1, "-1"); // Tombstone marker
 
     /* Constructor */
     public HashMapOpenAddressing() {
@@ -31,83 +31,83 @@ class HashMapOpenAddressing {
         return (double)size / capacity;
     }
 
-    /* Search for bucket index corresponding to key */
+    /* Find the bucket index for key */
     int FindBucket(int key) {
         int index = HashFunc(key);
         int firstTombstone = -1;
-        // Linear probing, break when encountering an empty bucket
+        // Probe linearly until an empty bucket is reached
         while (buckets[index] != null) {
-            // If key is encountered, return the corresponding bucket index
+            // If key is found, return its bucket index
             if (buckets[index].key == key) {
-                // If a removal marker was encountered before, move the key-value pair to that index
+                // If a tombstone was encountered earlier, move the key-value pair to that index
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
-                    return firstTombstone; // Return the moved bucket index
+                    return firstTombstone; // Return the bucket index after the move
                 }
-                return index; // Return bucket index
+                return index; // Return the bucket index
             }
-            // Record the first removal marker encountered
+            // Record the first tombstone encountered
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Calculate bucket index, wrap around to the head if past the tail
+            // Calculate the bucket index, wrapping to the beginning after the end
             index = (index + 1) % capacity;
         }
-        // If key does not exist, return the index for insertion
+        // If key is absent, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     public string? Get(int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = FindBucket(key);
-        // If key-value pair is found, return corresponding val
+        // If the key-value pair is found, return its val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             return buckets[index].val;
         }
-        // If key-value pair does not exist, return null
+        // Return null if the key-value pair is absent
         return null;
     }
 
-    /* Add operation */
+    /* Insert operation */
     public void Put(int key, string val) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (LoadFactor() > loadThres) {
             Extend();
         }
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = FindBucket(key);
-        // If key-value pair is found, overwrite val and return
+        // If the key-value pair is found, overwrite val and return
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index].val = val;
             return;
         }
-        // If key-value pair does not exist, add the key-value pair
+        // If the key-value pair is absent, insert it
         buckets[index] = new Pair(key, val);
         size++;
     }
 
     /* Remove operation */
     public void Remove(int key) {
-        // Search for bucket index corresponding to key
+        // Find the bucket index for key
         int index = FindBucket(key);
-        // If key-value pair is found, overwrite it with removal marker
+        // If the key-value pair is found, replace it with a tombstone
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index] = TOMBSTONE;
             size--;
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     void Extend() {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         Pair[] bucketsTmp = buckets;
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         capacity *= extendRatio;
         buckets = new Pair[capacity];
         size = 0;
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         foreach (Pair pair in bucketsTmp) {
             if (pair != null && pair != TOMBSTONE) {
                 Put(pair.key, pair.val);
@@ -115,7 +115,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     public void Print() {
         foreach (Pair pair in buckets) {
             if (pair == null) {
@@ -132,28 +132,28 @@ class HashMapOpenAddressing {
 public class hash_map_open_addressing {
     [Test]
     public void Test() {
-        /* Initialize hash table */
+        /* Initialize the hash table */
         HashMapOpenAddressing map = new();
 
-        /* Add operation */
-        // Add key-value pair (key, value) to the hash table
-        map.Put(12836, "Xiao Ha");
-        map.Put(15937, "Xiao Luo");
-        map.Put(16750, "Xiao Suan");
-        map.Put(13276, "Xiao Fa");
-        map.Put(10583, "Xiao Ya");
-        Console.WriteLine("\nAfter adding is complete, hash table is\nKey -> Value");
+        /* Insert operation */
+        // Insert the key-value pair (key, value) into the hash table
+        map.Put(12836, "小哈");
+        map.Put(15937, "小啰");
+        map.Put(16750, "小算");
+        map.Put(13276, "小法");
+        map.Put(10583, "小鸭");
+        Console.WriteLine("\nHash table after insertion:\nKey -> Value");
         map.Print();
 
-        /* Query operation */
-        // Input key into hash table to get value
+        /* Lookup operation */
+        // Look up key in the hash table to obtain value
         string? name = map.Get(13276);
-        Console.WriteLine("\nInput student ID 13276, query name " + name);
+        Console.WriteLine("\nLook up student ID 13276 to obtain the name " + name);
 
         /* Remove operation */
-        // Remove key-value pair (key, value) from hash table
+        // Remove the key-value pair (key, value) from the hash table
         map.Remove(16750);
-        Console.WriteLine("\nAfter removing 16750, hash table is\nKey -> Value");
+        Console.WriteLine("\nHash table after removing 16750:\nKey -> Value");
         map.Print();
     }
 }

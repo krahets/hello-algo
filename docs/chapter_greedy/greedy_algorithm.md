@@ -15,7 +15,7 @@
 
 本题采取的贪心策略如下图所示。给定目标金额，**我们贪心地选择不大于且最接近它的硬币**，不断循环该步骤，直至凑出目标金额为止。
 
-![零钱兑换的贪心策略](greedy_algorithm.assets/coin_change_greedy_strategy.png)
+![零钱兑换的贪心策略](greedy_algorithm.assets/coin_change_greedy_strategy.svg)
 
 实现代码如下所示：
 
@@ -35,7 +35,7 @@
 - **反例 $coins = [1, 20, 50]$**：假设 $amt = 60$ ，贪心算法只能找到 $50 + 1 \times 10$ 的兑换组合，共计 $11$ 枚硬币，但动态规划可以找到最优解 $20 + 20 + 20$ ，仅需 $3$ 枚硬币。
 - **反例 $coins = [1, 49, 50]$**：假设 $amt = 98$ ，贪心算法只能找到 $50 + 1 \times 48$ 的兑换组合，共计 $49$ 枚硬币，但动态规划可以找到最优解 $49 + 49$ ，仅需 $2$ 枚硬币。
 
-![贪心算法无法找出最优解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
+![贪心算法无法找出最优解的示例](greedy_algorithm.assets/coin_change_greedy_vs_dp.svg)
 
 也就是说，对于零钱兑换问题，贪心算法无法保证找到全局最优解，并且有可能找到非常差的解。它更适合用动态规划解决。
 

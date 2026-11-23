@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Iterative summation */
+/* Sum using iteration */
 int sumIter(int n) {
   int res = 0;
   for (int i = 1; i <= n; i++) {
@@ -13,7 +13,7 @@ int sumIter(int n) {
   return res;
 }
 
-/* Recursive summation */
+/* Sum using recursion */
 int sumRecur(int n) {
   if (n == 1) {
     return 1;
@@ -21,7 +21,7 @@ int sumRecur(int n) {
   return n + sumRecur(n - 1);
 }
 
-/* Linear loop */
+/* Linear-time loop */
 int linearLoop(int n) {
   int res = 0;
   for (int i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ int linearLoop(int n) {
   return res;
 }
 
-/* Quadratic loop */
+/* Quadratic-time loop */
 int quadraticLoop(int n) {
   int res = 0;
   for (int i = 0; i < n; i++) {
@@ -41,7 +41,7 @@ int quadraticLoop(int n) {
   return res;
 }
 
-/* Logarithmic loop */
+/* Logarithmic-time loop */
 int logarithmicLoop(int n) {
   while (n > 1) {
     n ~/= 2;
@@ -58,6 +58,6 @@ void main() {
       quadraticLoop(4) != 20 ||
       logarithmicLoop(4) != 1 ||
       logarithmicLoop(5) != 1) {
-    throw StateError('complexity exercise check failed');
+    throw StateError('Complexity exercise check failed');
   }
 }

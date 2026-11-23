@@ -11,38 +11,38 @@ import (
 
 func TestTimeComplexity(t *testing.T) {
 	n := 8
-	fmt.Println("Input data size n =", n)
+	fmt.Println("Input size n =", n)
 
 	count := constant(n)
-	fmt.Println("Number of constant-order operations =", count)
+	fmt.Println("Operation count for constant complexity =", count)
 
 	count = linear(n)
-	fmt.Println("Number of linear-order operations =", count)
+	fmt.Println("Operation count for linear complexity =", count)
 	count = arrayTraversal(make([]int, n))
-	fmt.Println("Number of linear-order (array traversal) operations =", count)
+	fmt.Println("Operation count for linear complexity (array traversal) =", count)
 
 	count = quadratic(n)
-	fmt.Println("Number of quadratic-order operations =", count)
+	fmt.Println("Operation count for quadratic complexity =", count)
 	nums := make([]int, n)
 	for i := 0; i < n; i++ {
 		nums[i] = n - i
 	}
 	count = bubbleSort(nums)
-	fmt.Println("Number of quadratic-order (bubble sort) operations =", count)
+	fmt.Println("Operation count for quadratic complexity (bubble sort) =", count)
 
 	count = exponential(n)
-	fmt.Println("Number of exponential-order (loop implementation) operations =", count)
+	fmt.Println("Operation count for exponential complexity (iterative implementation) =", count)
 	count = expRecur(n)
-	fmt.Println("Number of exponential-order (recursive implementation) operations =", count)
+	fmt.Println("Operation count for exponential complexity (recursive implementation) =", count)
 
 	count = logarithmic(n)
-	fmt.Println("Number of logarithmic-order (loop implementation) operations =", count)
+	fmt.Println("Operation count for logarithmic complexity (iterative implementation) =", count)
 	count = logRecur(n)
-	fmt.Println("Number of logarithmic-order (recursive implementation) operations =", count)
+	fmt.Println("Operation count for logarithmic complexity (recursive implementation) =", count)
 
 	count = linearLogRecur(n)
-	fmt.Println("Number of linearithmic-order (recursive implementation) operations =", count)
+	fmt.Println("Operation count for linearithmic complexity (recursive implementation) =", count)
 
 	count = factorialRecur(n)
-	fmt.Println("Number of factorial-order (recursive implementation) operations =", count)
+	fmt.Println("Operation count for factorial complexity (recursive implementation) =", count)
 }

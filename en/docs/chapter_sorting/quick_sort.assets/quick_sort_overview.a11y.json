@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "title": "Quick sort recursion at a glance",
+  "summary": "Each partition fixes its pivot in its final position. Recursively partition the subarrays on both sides until every range has length at most 1.",
+  "context": [
+    "The input is [2, 4, 1, 0, 3, 5], indexed from 0 to 5. Each partition uses the current subarray’s leftmost element as the pivot. After rearrangement all elements to its left are at most the pivot and all to its right are at least the pivot. The pivot occupies its final sorted position."
+  ],
+  "description": [
+    "Blue cells mark pivots in their final positions. Downward arrows lead to the resulting subranges. Side-by-side subproblems show their recursion level and dependencies. The code processes them sequentially, left before right. This overview shows the results of each partition without tracing pointer movements or individual swaps.",
+    "The table lists the three partitions of ranges longer than 1. Range bounds and final pivot positions use indices in the entire array. The input and partition-result columns list element values.",
+    "From the recursion bounds in the code, fixing pivot 1 at index 1 leaves an empty range [2, 1] on its right. That call stops immediately. The figure shows only the other three singleton subranges."
+  ],
+  "frames": [
+    {
+      "id": "source-272",
+      "book_path": "chapter_sorting/quick_sort.assets/quick_sort_overview.png",
+      "title": "Quick sort recursion at a glance",
+      "explanation": "After three partitions, pivots 1, 2, and 4 are fixed at indices 1, 2, and 4 respectively. Singletons at indices 0, 3, and 5 terminate immediately. The full array is [0, 1, 2, 3, 4, 5]. Recursion stops at length 1 or less, with no merge step."
+    }
+  ],
+  "animations": {
+    "quick-sort-overview": {
+      "kind": "prose",
+      "prose": {
+        "title": "Quick sort recursion at a glance",
+        "summary": "Six states show partition results by recursion level. Subproblems drawn side by side run in sequence in the code, left before right.",
+        "context": [],
+        "description": [],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Initial unsorted array",
+            "explanation": "The array is [2, 4, 1, 0, 3, 5]. All elements are in the pending index range [0, 5]. No pivot has been selected and no position is settled.",
+            "key_state": "Initial array [2, 4, 1, 0, 3, 5], pending range [0, 5]. No pivot chosen.",
+            "announcement": "Show the six-element input array [2, 4, 1, 0, 3, 5]."
+          },
+          {
+            "id": "step-2",
+            "title": "Choose 2 as the first pivot",
+            "explanation": "In [0, 5], choose the leftmost value 2 at index 0. The array is still [2, 4, 1, 0, 3, 5]. It has not been rearranged and the pivot’s final position is not yet known.",
+            "key_state": "Current array [2, 4, 1, 0, 3, 5]. Pivot 2 at index 0 has been selected. Partitioning has not started.",
+            "announcement": "Choose the first element 2 as the pivot for the first partition."
+          },
+          {
+            "id": "step-3",
+            "title": "First partition complete, pivot 2 in place",
+            "explanation": "After the first partition the array is [1, 0, 2, 4, 3, 5]. Only pivot 2 at index 2 is settled. Ranges [0, 1] and [3, 5] remain, with values [1, 0] and [4, 3, 5] respectively.",
+            "key_state": "Current array [1, 0, 2, 4, 3, 5]. Only index 2 is settled. Pending index ranges: [0, 1] and [3, 5].",
+            "announcement": "The first partition fixes pivot 2 at index 2 and leaves a subrange on each side."
+          },
+          {
+            "id": "step-4",
+            "title": "Expand the left and right subproblems",
+            "explanation": "Two subproblems appear on the next level. Range [0, 1] holds [1, 0] and range [3, 5] holds [4, 3, 5]. The array is still [1, 0, 2, 4, 3, 5], with only index 2 settled. The two subproblems have been expanded but have not yet been partitioned.",
+            "key_state": "Current array [1, 0, 2, 4, 3, 5]. Only index 2 is settled. Two subproblems appear on the next level, with their partitions still pending.",
+            "announcement": "Show the left range [0, 1] and the right range [3, 5] side by side on the next recursion level."
+          },
+          {
+            "id": "step-5",
+            "title": "Complete both subproblem partitions",
+            "explanation": "Pivot 1 partitions the left subarray [1, 0] into [0, 1]. Pivot 4 partitions the right subarray [4, 3, 5] into [3, 4, 5]. The full array is [0, 1, 2, 3, 4, 5], with pivot indices 1, 2, and 4 settled. Singleton ranges [0, 0], [3, 3], and [5, 5] are not yet marked complete.",
+            "key_state": "Current array [0, 1, 2, 3, 4, 5]. Pivot indices 1, 2, and 4 are settled. Singletons at indices 0, 3, and 5 remain to be marked complete.",
+            "announcement": "Pivots 1 and 4 are in place at indices 1 and 4 respectively. Only three singleton ranges remain."
+          },
+          {
+            "id": "step-6",
+            "title": "Stop at singletons and finish sorting",
+            "explanation": "Ranges [0, 0], [3, 3], and [5, 5] all meet the base case of length at most 1. Every index from 0 through 5 is settled. Final array [0, 1, 2, 3, 4, 5]; sorting is complete without merging.",
+            "key_state": "Sorting complete. The array is [0, 1, 2, 3, 4, 5], with every index from 0 through 5 settled.",
+            "announcement": "Recursion ends at the singleton ranges. All six positions are settled and sorting is complete."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Partitions of nontrivial ranges",
+      "headers": [
+        "Range to partition",
+        "Input subarray",
+        "Pivot value",
+        "Partition result",
+        "Final pivot index"
+      ],
+      "rows": [
+        [
+          "Indices 0 through 5",
+          "[2,4,1,0,3,5]",
+          "2",
+          "[1,0,2,4,3,5]",
+          "2"
+        ],
+        [
+          "Indices 0 through 1",
+          "[1,0]",
+          "1",
+          "[0,1]",
+          "1"
+        ],
+        [
+          "Indices 3 through 5",
+          "[4,3,5]",
+          "4",
+          "[3,4,5]",
+          "4"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

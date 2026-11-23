@@ -6,32 +6,32 @@
 
 #include "../utils/common.h"
 
-/* Find minimum value */
+/* Find the minimum */
 int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
-/* Coin change: Dynamic programming */
+/* Coin change: dynamic programming */
 int coinChangeDP(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
-    // Initialize dp table
+    // Initialize the dp table
     int **dp = malloc((n + 1) * sizeof(int *));
     for (int i = 0; i <= n; i++) {
         dp[i] = calloc(amt + 1, sizeof(int));
     }
-    // State transition: first row and first column
+    // State transitions: first row and first column
     for (int a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
-    // State transition: rest of the rows and columns
+    // State transitions: remaining rows and columns
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // The smaller value between not selecting and selecting coin i
+                // Take the smaller result of not choosing and choosing coin i
                 dp[i][a] = myMin(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
@@ -45,25 +45,25 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
     return res;
 }
 
-/* Coin change: Space-optimized dynamic programming */
+/* Coin change: space-optimized dynamic programming */
 int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
-    // Initialize dp table
+    // Initialize the dp table
     int *dp = malloc((amt + 1) * sizeof(int));
     for (int j = 1; j <= amt; j++) {
         dp[j] = MAX;
     } 
     dp[0] = 0;
 
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[a] = dp[a];
             } else {
-                // The smaller value between not selecting and selecting coin i
+                // Take the smaller result of not choosing and choosing coin i
                 dp[a] = myMin(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }
@@ -82,11 +82,11 @@ int main() {
 
     // Dynamic programming
     int res = coinChangeDP(coins, amt, coinsSize);
-    printf("Minimum number of coins needed to make target amount is %d\n", res);
+    printf("Minimum number of coins needed to make the target amount: %d\n", res);
 
     // Space-optimized dynamic programming
     res = coinChangeDPComp(coins, amt, coinsSize);
-    printf("Minimum number of coins needed to make target amount is %d\n", res);
+    printf("Minimum number of coins needed to make the target amount: %d\n", res);
 
     return 0;
 }

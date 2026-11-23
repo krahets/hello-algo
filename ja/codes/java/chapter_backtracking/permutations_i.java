@@ -9,31 +9,31 @@ package chapter_backtracking;
 import java.util.*;
 
 public class permutations_i {
-    /* バックトラッキング：順列 I */
+    /* バックトラッキング：すべての順列 I */
     public static void backtrack(List<Integer> state, int[] choices, boolean[] selected, List<List<Integer>> res) {
-        // 状態の長さが要素数に等しければ、解を記録
+        // 状態の長さが要素数と等しくなったら、解を記録する
         if (state.size() == choices.length) {
             res.add(new ArrayList<Integer>(state));
             return;
         }
-        // すべての選択肢を走査
+        // すべての選択肢を走査する
         for (int i = 0; i < choices.length; i++) {
             int choice = choices[i];
-            // 枝刈り：要素の重複選択を許可しない
+            // 枝刈り：同じ要素を繰り返し選んではならない
             if (!selected[i]) {
-                // 試行: 選択を行い、状態を更新
+                // 試行：選択を行い、状態を更新する
                 selected[i] = true;
                 state.add(choice);
-                // 次の選択へ進む
+                // 次の選択に進む
                 backtrack(state, choices, selected, res);
-                // バックトラック：選択を取り消し、前の状態に戻す
+                // 復元：選択を取り消し、以前の状態に戻す
                 selected[i] = false;
                 state.remove(state.size() - 1);
             }
         }
     }
 
-    /* 全順列 I */
+    /* すべての順列 I */
     static List<List<Integer>> permutationsI(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         backtrack(new ArrayList<Integer>(), nums, new boolean[nums.length], res);

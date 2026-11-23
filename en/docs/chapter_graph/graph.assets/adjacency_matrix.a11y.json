@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "title": "Adjacency matrix of an undirected graph",
+  "summary": "Map row and column indices through a vertex list and use each matrix cell to indicate whether an edge connects two vertices.",
+  "context": [
+    "On the left is a five-vertex, seven-edge undirected graph, and on the right is its 5×5 adjacency matrix representation. The vertex list V = [1, 3, 2, 5, 4] maps in that order to row and column indices 0 through 4; vertex IDs and matrix indices must not be confused. The table headers list both index and vertex—find the corresponding indices first when looking up an edge."
+  ],
+  "description": [
+    "In the adjacency matrix, entry M[i, j] = 1 indicates an edge between vertex V[i] at index i and vertex V[j] at index j, whereas M[i, j] = 0 indicates no edge. Because each edge in an undirected graph is equivalent in both directions, the same undirected connection is recorded as 1 at both M[i, j] and M[j, i], making the matrix symmetric about its main diagonal; since this graph has no self-loops, all main-diagonal entries M[i, i] are 0. Thus, the seven undirected edges correspond to 14 cells with value 1.",
+    "Color highlighting in the figure pairs three undirected edges with their symmetric matrix cells: edge 1—2 (indices 0 and 2) corresponds to M[0, 2] = 1 and M[2, 0] = 1; edge 3—2 (indices 1 and 2) corresponds to M[1, 2] = 1 and M[2, 1] = 1; and edge 5—4 (indices 3 and 4) corresponds to M[3, 4] = 1 and M[4, 3] = 1. The table below gives the complete matrix."
+  ],
+  "frames": [
+    {
+      "id": "source-177",
+      "book_path": "chapter_graph/graph.assets/adjacency_matrix.png",
+      "title": "Adjacency matrix of an undirected graph",
+      "explanation": "To check vertices 3 and 4, first locate their indices 1 and 4, then read M[1, 4] = 0 to see that no edge connects them. Do not use vertex IDs directly as matrix indices."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Adjacency matrix in the figure",
+      "headers": [
+        "Row: index / vertex",
+        "Column 0 / vertex 1",
+        "Column 1 / vertex 3",
+        "Column 2 / vertex 2",
+        "Column 3 / vertex 5",
+        "Column 4 / vertex 4"
+      ],
+      "rows": [
+        [
+          "0／1",
+          "0",
+          "1",
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "1／3",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "2／2",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ],
+        [
+          "3／5",
+          "1",
+          "0",
+          "1",
+          "0",
+          "1"
+        ],
+        [
+          "4／4",
+          "0",
+          "0",
+          "1",
+          "1",
+          "0"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

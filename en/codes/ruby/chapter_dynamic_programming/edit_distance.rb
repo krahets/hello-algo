@@ -4,40 +4,40 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Edit distance: brute force search ###
+### Edit distance: brute-force search ###
 def edit_distance_dfs(s, t, i, j)
-  # If both s and t are empty, return 0
+  # Return 0 if both prefixes s[0...i] and t[0...j] are empty
   return 0 if i == 0 && j == 0
-  # If s is empty, return length of t
+  # If the prefix of s is empty, return the length j of the prefix of t
   return j if i == 0
-  # If t is empty, return length of s
+  # If the prefix of t is empty, return the length i of the prefix of s
   return i if j == 0
-  # If two characters are equal, skip both characters
+  # If the two characters are equal, skip both of them
   return edit_distance_dfs(s, t, i - 1, j - 1) if s[i - 1] == t[j - 1]
-  # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+  # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
   insert = edit_distance_dfs(s, t, i, j - 1)
   delete = edit_distance_dfs(s, t, i - 1, j)
   replace = edit_distance_dfs(s, t, i - 1, j - 1)
-  # Return minimum edit steps
+  # Return the minimum number of edits
   [insert, delete, replace].min + 1
 end
 
 def edit_distance_dfs_mem(s, t, mem, i, j)
-  # If both s and t are empty, return 0
+  # Return 0 if both prefixes s[0...i] and t[0...j] are empty
   return 0 if i == 0 && j == 0
-  # If s is empty, return length of t
+  # If the prefix of s is empty, return the length j of the prefix of t
   return j if i == 0
-  # If t is empty, return length of s
+  # If the prefix of t is empty, return the length i of the prefix of s
   return i if j == 0
-  # If there's a record, return it directly
+  # If a result has already been recorded, return it directly
   return mem[i][j] if mem[i][j] != -1
-  # If two characters are equal, skip both characters
+  # If the two characters are equal, skip both of them
   return edit_distance_dfs_mem(s, t, mem, i - 1, j - 1) if s[i - 1] == t[j - 1]
-  # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+  # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
   insert = edit_distance_dfs_mem(s, t, mem, i, j - 1)
   delete = edit_distance_dfs_mem(s, t, mem, i - 1, j)
   replace = edit_distance_dfs_mem(s, t, mem, i - 1, j - 1)
-  # Record and return minimum edit steps
+  # Record and return the minimum number of edits
   mem[i][j] = [insert, delete, replace].min + 1
 end
 
@@ -45,17 +45,17 @@ end
 def edit_distance_dp(s, t)
   n, m = s.length, t.length
   dp = Array.new(n + 1) { Array.new(m + 1, 0) }
-  # State transition: first row and first column
+  # State transitions: first row and first column
   (1...(n + 1)).each { |i| dp[i][0] = i }
   (1...(m + 1)).each { |j| dp[0][j] = j }
-  # State transition: rest of the rows and columns
+  # State transitions: remaining rows and columns
   for i in 1...(n + 1)
     for j in 1...(m +1)
       if s[i - 1] == t[j - 1]
-        # If two characters are equal, skip both characters
+        # If the two characters are equal, skip both of them
         dp[i][j] = dp[i - 1][j - 1]
       else
-        # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+        # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
         dp[i][j] = [dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]].min + 1
       end
     end
@@ -63,34 +63,34 @@ def edit_distance_dp(s, t)
   dp[n][m]
 end
 
-### Edit distance: space-optimized DP ###
+### Edit distance: space-optimized dynamic programming ###
 def edit_distance_dp_comp(s, t)
   n, m = s.length, t.length
   dp = Array.new(m + 1, 0)
-  # State transition: first row
+  # State transitions: first row
   (1...(m + 1)).each { |j| dp[j] = j }
-  # State transition: rest of the rows
+  # State transitions: remaining rows
   for i in 1...(n + 1)
-    # State transition: first column
+    # State transitions: first column
     leftup = dp.first # Temporarily store dp[i-1, j-1]
     dp[0] += 1
-    # State transition: rest of the columns
+    # State transitions: remaining columns
     for j in 1...(m + 1)
       temp = dp[j]
       if s[i - 1] == t[j - 1]
-        # If two characters are equal, skip both characters
+        # If the two characters are equal, skip both of them
         dp[j] = leftup
       else
-        # Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+        # Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
         dp[j] = [dp[j - 1], dp[j], leftup].min + 1
       end
-      leftup = temp # Update for next round's dp[i-1, j-1]
+      leftup = temp # Update to dp[i-1, j-1] for the next iteration
     end
   end
   dp[m]
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   s = 'bag'
   t = 'pack'
@@ -98,18 +98,18 @@ if __FILE__ == $0
 
   # Brute-force search
   res = edit_distance_dfs(s, t, n, m)
-  puts "Changing #{s} to #{t} requires minimum #{res} edits"
+  puts "Minimum edits needed to change #{s} into #{t}: #{res}"
 
-  # Memoization search
+  # Memoized search
   mem = Array.new(n + 1) { Array.new(m + 1, -1) }
   res = edit_distance_dfs_mem(s, t, mem, n, m)
-  puts "Changing #{s} to #{t} requires minimum #{res} edits"
+  puts "Minimum edits needed to change #{s} into #{t}: #{res}"
 
   # Dynamic programming
   res = edit_distance_dp(s, t)
-  puts "Changing #{s} to #{t} requires minimum #{res} edits"
+  puts "Minimum edits needed to change #{s} into #{t}: #{res}"
 
   # Space-optimized dynamic programming
   res = edit_distance_dp_comp(s, t)
-  puts "Changing #{s} to #{t} requires minimum #{res} edits"
+  puts "Minimum edits needed to change #{s} into #{t}: #{res}"
 end

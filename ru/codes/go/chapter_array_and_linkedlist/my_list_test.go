@@ -33,9 +33,9 @@ func TestMyList(t *testing.T) {
 	num := nums.get(1)
 	fmt.Printf("Элемент по индексу 1: num = %v\n", num)
 
-	/* Обновление элемента */
+	/* Изменение элемента */
 	nums.set(0, 1)
-	fmt.Printf("После обновления элемента по индексу 1 до 0 nums = %v\n", nums.toArray())
+	fmt.Printf("После изменения значения элемента с индексом 1 на 0 nums = %v\n", nums.toArray())
 
 	/* Проверка механизма расширения */
 	for i := 0; i < 10; i++ {

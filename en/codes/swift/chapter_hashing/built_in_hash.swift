@@ -8,30 +8,30 @@ import utils
 
 @main
 enum BuiltInHash {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let num = 3
         let hashNum = num.hashValue
-        print("Hash value of integer \(num) is \(hashNum)")
+        print("Integer \(num) has hash value \(hashNum)")
 
         let bol = true
         let hashBol = bol.hashValue
-        print("Hash value of boolean \(bol) is \(hashBol)")
+        print("Boolean \(bol) has hash value \(hashBol)")
 
         let dec = 3.14159
         let hashDec = dec.hashValue
-        print("Hash value of decimal \(dec) is \(hashDec)")
+        print("Floating-point number \(dec) has hash value \(hashDec)")
 
-        let str = "Hello Algo"
+        let str = "Hello 算法"
         let hashStr = str.hashValue
-        print("Hash value of string \(str) is \(hashStr)")
+        print("Hash value of string \(str): \(hashStr)")
 
-        let arr = [AnyHashable(12836), AnyHashable("Xiao Ha")]
+        let arr = [AnyHashable(12836), AnyHashable("小哈")]
         let hashTup = arr.hashValue
-        print("Hash value of array \(arr) is \(hashTup)")
+        print("Hash value of array \(arr): \(hashTup)")
 
         let obj = ListNode(x: 0)
         let hashObj = obj.hashValue
-        print("Hash value of node object \(obj) is \(hashObj)")
+        print("Node object \(obj) has hash value \(hashObj)")
     }
 }

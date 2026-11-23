@@ -1,0 +1,110 @@
+{
+  "schema_version": 2,
+  "title": "Enqueue and dequeue operations on a queue",
+  "summary": "Elements join at the rear and leave from the front, following the first-in, first-out rule.",
+  "context": [
+    "All sequences are written from front to rear. In the figure, push enqueues an element at the rear, and pop dequeues and returns the element at the front."
+  ],
+  "description": [
+    "Five vertical panels linked from left to right by arrows correspond in order to the five rows of the table below. In each panel, the upper end is the front and the lower end is the rear; enqueue arrows enter from below, and dequeue arrows exit from above.",
+    "Dashed boxes only indicate elements' previous positions before an operation and are not counted again in the current queue; a solid box moved outside the container represents the return value of the current pop."
+  ],
+  "frames": [
+    {
+      "id": "source-63",
+      "book_path": "chapter_stack_and_queue/queue.assets/queue_operations.png",
+      "title": "Enqueue and dequeue operations on a queue",
+      "explanation": "New elements can only join at the rear, leaving existing elements in their original order. Thus, after 5 and 4 are added, consecutive dequeues still remove the original front element 1 first and 3 next, demonstrating first-in, first-out order."
+    }
+  ],
+  "animations": {
+    "flow-queue-operations": {
+      "kind": "prose",
+      "prose": {
+        "title": "Enqueue and dequeue operations on a queue",
+        "summary": "Elements join at the rear and leave from the front, following the first-in, first-out rule.",
+        "context": [
+          "All sequences are written from front to rear. In the figure, push enqueues an element at the rear, and pop dequeues and returns the element at the front."
+        ],
+        "description": [
+          "Dashed boxes only indicate elements' previous positions before an operation and are not counted again in the current queue; a solid box moved outside the container represents the return value of the current pop."
+        ],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Initial",
+            "explanation": "Initial queue. From front to rear, the current queue is [1, 3, 2] with 3 elements, front 1, and rear 2; there is no return value.",
+            "key_state": "Initial: queue (front to rear) [1, 3, 2], front 1, rear 2, no return value.",
+            "announcement": "Initial queue [1, 3, 2], with front 1 and rear 2."
+          },
+          {
+            "id": "step-2",
+            "title": "push(5)",
+            "explanation": "Call push(5) to add 5 at the rear while keeping the existing elements in order. From front to rear, the current queue is [1, 3, 2, 5] with 4 elements, front 1, and rear 5; there is no return value.",
+            "key_state": "After push(5): queue (front to rear) [1, 3, 2, 5], front 1, rear 5, no return value.",
+            "announcement": "Enqueue 5 at the rear; the new rear is 5."
+          },
+          {
+            "id": "step-3",
+            "title": "push(4)",
+            "explanation": "Call push(4) to add 4 at the rear, behind 5. From front to rear, the current queue is [1, 3, 2, 5, 4] with 5 elements, front 1, and rear 4; there is no return value.",
+            "key_state": "After push(4): queue (front to rear) [1, 3, 2, 5, 4], front 1, rear 4, no return value.",
+            "announcement": "Enqueue 4 at the rear; the new rear is 4."
+          },
+          {
+            "id": "step-4",
+            "title": "First pop()",
+            "explanation": "First call to pop(): remove and return the front element 1, making its successor 3 the new front. From front to rear, the current queue is [3, 2, 5, 4] with 4 elements, front 3, and rear 4; this operation returns 1, shown outside the queue.",
+            "key_state": "After first pop(): queue (front to rear) [3, 2, 5, 4], front 3, rear 4, returned 1.",
+            "announcement": "Dequeue and return 1 from the front; the new front is 3."
+          },
+          {
+            "id": "step-5",
+            "title": "Second pop()",
+            "explanation": "Second call to pop(): remove and return the front element 3, making 2 the new front. From front to rear, the current queue is [2, 5, 4] with 3 elements, front 2, and rear 4; this operation returns 3, shown outside the queue.",
+            "key_state": "After second pop(): queue (front to rear) [2, 5, 4], front 2, rear 4, returned 3.",
+            "announcement": "Dequeue and return 3 from the front; the remaining queue is [2, 5, 4]."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Queue contents after each operation",
+      "headers": [
+        "Operation",
+        "Active sequence (front to rear)",
+        "Returned value"
+      ],
+      "rows": [
+        [
+          "Initial",
+          "[1, 3, 2]",
+          "None"
+        ],
+        [
+          "push(5)",
+          "[1, 3, 2, 5]",
+          "None"
+        ],
+        [
+          "push(4)",
+          "[1, 3, 2, 5, 4]",
+          "None"
+        ],
+        [
+          "First pop()",
+          "[3, 2, 5, 4]",
+          "1"
+        ],
+        [
+          "Second pop()",
+          "[2, 5, 4]",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

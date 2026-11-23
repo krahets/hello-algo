@@ -4,7 +4,7 @@
 
 如下圖所示，排序演算法中的資料型別可以是整數、浮點數、字元或字串等。排序的判斷規則可根據需求設定，如數字大小、字元 ASCII 碼順序或自定義規則。
 
-![資料型別和判斷規則示例](sorting_algorithm.assets/sorting_examples.png)
+![資料型別和判斷規則示例](sorting_algorithm.assets/sorting_examples.svg)
 
 ## 評價維度
 

@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)
-    print(f"元组 {tup} 的哈希值为 {hash(hash_tup)}")
+    print(f"元组 {tup} 的哈希值为 {hash_tup}")
 
     obj = ListNode(0)
     hash_obj = hash(obj)

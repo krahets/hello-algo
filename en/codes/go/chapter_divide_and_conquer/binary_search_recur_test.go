@@ -16,5 +16,5 @@ func TestBinarySearch(t *testing.T) {
 	targetIndex := binarySearch(nums, target)
 	fmt.Println("Index of target element 6 = ", targetIndex)
 	noTargetIndex := binarySearch(nums, noTarget)
-	fmt.Println("Index of non-existent target element = ", noTargetIndex)
+	fmt.Println("Index returned for the absent target = ", noTargetIndex)
 }

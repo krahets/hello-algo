@@ -9,13 +9,13 @@ namespace hello_algo.chapter_backtracking;
 public class preorder_traversal_i_compact {
     List<TreeNode> res = [];
 
-    /* 前順走査：例題 1 */
+    /* 行きがけ順走査：例題 1 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // 解を記録
+            // 解を記録する
             res.Add(root);
         }
         PreOrder(root.left);
@@ -25,13 +25,13 @@ public class preorder_traversal_i_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n二分木を初期化");
+        Console.WriteLine("\n二分木を初期化する");
         PrintUtil.PrintTree(root);
 
-        // 先行順走査
+        // 行きがけ順走査
         PreOrder(root);
 
-        Console.WriteLine("\n値が 7 のノードをすべて出力");
+        Console.WriteLine("\n値が 7 であるすべてのノードを出力する");
         PrintUtil.PrintList(res.Select(p => p.val).ToList());
     }
 }

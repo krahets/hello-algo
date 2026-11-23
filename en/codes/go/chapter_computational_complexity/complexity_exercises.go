@@ -4,7 +4,7 @@
 
 package chapter_computational_complexity
 
-/* Iterative summation */
+/* Sum using iteration */
 func sumIter(n int) int {
 	res := 0
 	for i := 1; i <= n; i++ {
@@ -13,7 +13,7 @@ func sumIter(n int) int {
 	return res
 }
 
-/* Recursive summation */
+/* Sum using recursion */
 func sumRecur(n int) int {
 	if n == 1 {
 		return 1
@@ -21,7 +21,7 @@ func sumRecur(n int) int {
 	return n + sumRecur(n-1)
 }
 
-/* Linear loop */
+/* Linear-time loop */
 func linearLoop(n int) int {
 	res := 0
 	for i := 0; i < n; i++ {
@@ -30,7 +30,7 @@ func linearLoop(n int) int {
 	return res
 }
 
-/* Quadratic loop */
+/* Quadratic-time loop */
 func quadraticLoop(n int) int {
 	res := 0
 	for i := 0; i < n; i++ {
@@ -41,7 +41,7 @@ func quadraticLoop(n int) int {
 	return res
 }
 
-/* Logarithmic loop */
+/* Logarithmic-time loop */
 func logarithmicLoop(n int) int {
 	for n > 1 {
 		n /= 2

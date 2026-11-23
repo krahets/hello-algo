@@ -6,15 +6,15 @@
 
 import { Vertex } from '../modules/Vertex';
 
-/* 隣接リストに基づく無向グラフクラス */
+/* 隣接リストで実装した無向グラフクラス */
 class GraphAdjList {
-    // 隣接リスト。key は頂点、value はその頂点に隣接する全頂点
+    // 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
     adjList: Map<Vertex, Vertex[]>;
 
     /* コンストラクタ */
     constructor(edges: Vertex[][]) {
         this.adjList = new Map();
-        // すべての頂点と辺を追加
+        // すべての頂点と辺を追加する
         for (const edge of edges) {
             this.addVertex(edge[0]);
             this.addVertex(edge[1]);
@@ -22,26 +22,26 @@ class GraphAdjList {
         }
     }
 
-    /* 頂点数を取得 */
+    /* 頂点数を取得する */
     size(): number {
         return this.adjList.size;
     }
 
-    /* 辺を追加 */
+    /* 辺を追加する */
     addEdge(vet1: Vertex, vet2: Vertex): void {
         if (
             !this.adjList.has(vet1) ||
             !this.adjList.has(vet2) ||
             vet1 === vet2
         ) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('不正な引数の例外');
         }
-        // 辺 vet1 - vet2 を追加
+        // 辺 vet1 - vet2 を追加する
         this.adjList.get(vet1).push(vet2);
         this.adjList.get(vet2).push(vet1);
     }
 
-    /* 辺を削除 */
+    /* 辺を削除する */
     removeEdge(vet1: Vertex, vet2: Vertex): void {
         if (
             !this.adjList.has(vet1) ||
@@ -49,28 +49,28 @@ class GraphAdjList {
             vet1 === vet2 ||
             this.adjList.get(vet1).indexOf(vet2) === -1
         ) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('不正な引数の例外');
         }
-        // 辺 vet1 - vet2 を削除
+        // 辺 vet1 - vet2 を削除する
         this.adjList.get(vet1).splice(this.adjList.get(vet1).indexOf(vet2), 1);
         this.adjList.get(vet2).splice(this.adjList.get(vet2).indexOf(vet1), 1);
     }
 
-    /* 頂点を追加 */
+    /* 頂点を追加する */
     addVertex(vet: Vertex): void {
         if (this.adjList.has(vet)) return;
-        // 隣接リストに新しいリストを追加
+        // 隣接リストに新しい連結リストを追加する
         this.adjList.set(vet, []);
     }
 
-    /* 頂点を削除 */
+    /* 頂点を削除する */
     removeVertex(vet: Vertex): void {
         if (!this.adjList.has(vet)) {
-            throw new Error('Illegal Argument Exception');
+            throw new Error('不正な引数の例外');
         }
-        // 隣接リストから頂点 vet に対応するリストを削除
+        // 隣接リストから頂点 vet に対応する連結リストを削除する
         this.adjList.delete(vet);
-        // 他の頂点のリストを走査し、vet を含むすべての辺を削除
+        // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
         for (const set of this.adjList.values()) {
             const index: number = set.indexOf(vet);
             if (index > -1) {
@@ -79,7 +79,7 @@ class GraphAdjList {
         }
     }
 
-    /* 隣接リストを出力 */
+    /* 隣接リストを表示する */
     print(): void {
         console.log('隣接リスト =');
         for (const [key, value] of this.adjList.entries()) {
@@ -92,9 +92,9 @@ class GraphAdjList {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 if (import.meta.url.endsWith(process.argv[1])) {
-    /* 無向グラフを初期化 */
+    /* 無向グラフを初期化する */
     const v0 = new Vertex(1),
         v1 = new Vertex(3),
         v2 = new Vertex(2),
@@ -109,31 +109,31 @@ if (import.meta.url.endsWith(process.argv[1])) {
         [v3, v4],
     ];
     const graph = new GraphAdjList(edges);
-    console.log('\n初期化後、グラフは');
+    console.log('\n初期化後のグラフ');
     graph.print();
 
-    /* 辺を追加 */
-    // 頂点 1, 2 は v0, v2
+    /* 辺を追加する */
+    // 頂点 1, 2 は v0, v2 に対応する
     graph.addEdge(v0, v2);
-    console.log('\n辺 1-2 を追加した後、グラフは');
+    console.log('\n辺 1-2 を追加した後のグラフ');
     graph.print();
 
-    /* 辺を削除 */
-    // 頂点 1, 3 は v0, v1
+    /* 辺を削除する */
+    // 頂点 1, 3 は v0, v1 に対応する
     graph.removeEdge(v0, v1);
-    console.log('\n辺 1-3 を削除した後、グラフは');
+    console.log('\n辺 1-3 を削除した後のグラフ');
     graph.print();
 
-    /* 頂点を追加 */
+    /* 頂点を追加する */
     const v5 = new Vertex(6);
     graph.addVertex(v5);
-    console.log('\n頂点 6 を追加した後、グラフは');
+    console.log('\n頂点 6 を追加した後のグラフ');
     graph.print();
 
-    /* 頂点を削除 */
-    // 頂点 3 は v1
+    /* 頂点を削除する */
+    // 頂点 3 は v1 に対応する
     graph.removeVertex(v1);
-    console.log('\n頂点 3 を削除した後、グラフは');
+    console.log('\n頂点 3 を削除した後のグラフ');
     graph.print();
 }
 

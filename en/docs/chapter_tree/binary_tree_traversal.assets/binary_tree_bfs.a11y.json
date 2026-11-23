@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "title": "Level-order traversal of a binary tree",
+  "summary": "Visit the tree level by level from top to bottom, moving from left to right within each level.",
+  "context": [
+    "The example has 7 nodes in three levels. Root 1 has children 2 and 3, node 2 has children 4 and 5, and node 3 has children 6 and 7, each listed from left to right. Nodes 4, 5, 6, and 7 are leaves."
+  ],
+  "description": [],
+  "result": "The level-order sequence is [1, 2, 3, 4, 5, 6, 7]. Each node is visited exactly once.",
+  "frames": [
+    {
+      "id": "source-97",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/binary_tree_bfs.png",
+      "title": "Level-order traversal of a binary tree",
+      "explanation": "After nodes 2 and 3 on level 2, traversal moves to the leftmost node 4 on level 3. That is why 4 follows 3. Solid gray arrows show parent–child links. Dashed arrows through the blue dots below the nodes show only visit order. The diagonal 3→4 arrow crosses levels, while 4’s parent remains 2."
+    }
+  ],
+  "animations": {
+    "binary-tree-level-order": {
+      "kind": "prose",
+      "prose": {
+        "title": "Level-order traversal of a binary tree",
+        "summary": "Visit the tree level by level from top to bottom, moving from left to right within each level.",
+        "context": [
+          "The example has 7 nodes in three levels. Root 1 has children 2 and 3, node 2 has children 4 and 5, and node 3 has children 6 and 7, each listed from left to right. Nodes 4, 5, 6, and 7 are leaves."
+        ],
+        "description": [
+          "Each step visits one node and appends it to the result on the right. Blue dots under nodes mark those already visited. Dashed arrows remain visible from the first step as a guide to visit order, even on unvisited nodes. The animation shows traversal directly without drawing the auxiliary queue."
+        ],
+        "result": "The level-order sequence is [1, 2, 3, 4, 5, 6, 7]. Each node is visited exactly once.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Visit node 1",
+            "explanation": "Begin at root 1 on level 1. Visited: [1]. Still to visit: [2, 3, 4, 5, 6, 7].",
+            "key_state": "At root 1 on level 1. Visited: [1]. Still to visit: [2, 3, 4, 5, 6, 7].",
+            "announcement": "Begin at root 1 on level 1. Sequence: [1]."
+          },
+          {
+            "id": "step-2",
+            "title": "Visit node 2",
+            "explanation": "Level 1 is complete. Visit the leftmost node on level 2, the left child 2 of root 1. Visited: [1, 2]. Still to visit: [3, 4, 5, 6, 7].",
+            "key_state": "At node 2 on level 2. Visited: [1, 2]. Still to visit: [3, 4, 5, 6, 7].",
+            "announcement": "Level 1 is complete. Visit the leftmost node on level 2, the left child 2 of root 1. Sequence: [1, 2]."
+          },
+          {
+            "id": "step-3",
+            "title": "Visit node 3",
+            "explanation": "Move right along level 2 to visit the right child 3 of root 1. Visited: [1, 2, 3]. Still to visit: [4, 5, 6, 7].",
+            "key_state": "At node 3 on level 2. Visited: [1, 2, 3]. Still to visit: [4, 5, 6, 7].",
+            "announcement": "Move right along level 2 to visit the right child 3 of root 1. Sequence: [1, 2, 3]."
+          },
+          {
+            "id": "step-4",
+            "title": "Visit node 4",
+            "explanation": "Level 2 is complete. Visit the leftmost node on level 3, the left child 4 of node 2. The dashed 3→4 arrow marks visit order, not a parent–child link. Visited: [1, 2, 3, 4]. Still to visit: [5, 6, 7].",
+            "key_state": "At node 4 on level 3. Its parent is 2. Visited: [1, 2, 3, 4]. Still to visit: [5, 6, 7].",
+            "announcement": "Level 2 is complete. Visit the leftmost node on level 3, the left child 4 of node 2. Sequence: [1, 2, 3, 4]."
+          },
+          {
+            "id": "step-5",
+            "title": "Visit node 5",
+            "explanation": "Move right along level 3 to visit the right child 5 of node 2. Visited: [1, 2, 3, 4, 5]. Still to visit: [6, 7].",
+            "key_state": "At node 5 on level 3. Visited: [1, 2, 3, 4, 5]. Still to visit: [6, 7].",
+            "announcement": "Move right along level 3 to visit the right child 5 of node 2. Sequence: [1, 2, 3, 4, 5]."
+          },
+          {
+            "id": "step-6",
+            "title": "Visit node 6",
+            "explanation": "Continue right along level 3 to visit the left child 6 of node 3. Visited: [1, 2, 3, 4, 5, 6]. Still to visit: [7].",
+            "key_state": "At node 6 on level 3. Visited: [1, 2, 3, 4, 5, 6]. Still to visit: [7].",
+            "announcement": "Continue right along level 3 to visit the left child 6 of node 3. Sequence: [1, 2, 3, 4, 5, 6]."
+          },
+          {
+            "id": "step-7",
+            "title": "Visit node 7",
+            "explanation": "Visit the rightmost node 7 on level 3, the right child of node 3. The traversal is complete. All nodes visited. Final sequence: [1, 2, 3, 4, 5, 6, 7].",
+            "key_state": "At node 7 on level 3. All nodes visited. Final sequence: [1, 2, 3, 4, 5, 6, 7].",
+            "announcement": "Visit the rightmost node 7 on level 3, the right child of node 3. The traversal is complete. Sequence: [1, 2, 3, 4, 5, 6, 7]."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Visit order by level",
+      "headers": [
+        "Level",
+        "Nodes from left to right"
+      ],
+      "rows": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "2, 3"
+        ],
+        [
+          "3",
+          "4, 5, 6, 7"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

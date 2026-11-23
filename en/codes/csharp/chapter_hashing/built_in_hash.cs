@@ -19,15 +19,15 @@ public class built_in_hash {
 
         double dec = 3.14159;
         int hashDec = dec.GetHashCode();
-        Console.WriteLine("Decimal " + dec + " has hash value " + hashDec);
+        Console.WriteLine("Floating-point number " + dec + " has hash value " + hashDec);
 
-        string str = "Hello Algo";
+        string str = "Hello 算法";
         int hashStr = str.GetHashCode();
         Console.WriteLine("String " + str + " has hash value " + hashStr);
 
-        object[] arr = [12836, "Xiao Ha"];
+        object[] arr = [12836, "小哈"];
         int hashTup = arr.GetHashCode();
-        Console.WriteLine("Array [" + string.Join(", ", arr) + "] hash value is " + hashTup);
+        Console.WriteLine("Array [" + string.Join(", ", arr) + "] has hash value " + hashTup);
 
         ListNode obj = new(0);
         int hashObj = obj.GetHashCode();

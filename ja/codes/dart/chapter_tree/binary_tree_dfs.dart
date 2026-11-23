@@ -7,10 +7,10 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-// 走査順序を格納するリストを初期化
+// 走査順序を格納するリストを初期化する
 List<int> list = [];
 
-/* 先行順走査 */
+/* 行きがけ順走査 */
 void preOrder(TreeNode? node) {
   if (node == null) return;
   // 訪問順序：根ノード -> 左部分木 -> 右部分木
@@ -19,44 +19,44 @@ void preOrder(TreeNode? node) {
   preOrder(node.right);
 }
 
-/* 中順走査 */
+/* 通りがけ順走査 */
 void inOrder(TreeNode? node) {
   if (node == null) return;
-  // 訪問優先順: 左部分木 -> 根ノード -> 右部分木
+  // 訪問順序：左部分木 -> 根ノード -> 右部分木
   inOrder(node.left);
   list.add(node.val);
   inOrder(node.right);
 }
 
-/* 後順走査 */
+/* 帰りがけ順走査 */
 void postOrder(TreeNode? node) {
   if (node == null) return;
-  // 訪問優先順: 左部分木 -> 右部分木 -> 根ノード
+  // 訪問順序：左部分木 -> 右部分木 -> 根ノード
   postOrder(node.left);
   postOrder(node.right);
   list.add(node.val);
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
-  /* 二分木を初期化 */
-  // ここでは、配列から直接二分木を生成する関数を利用する
+  /* 二分木を初期化する */
+  // ここでは配列から二分木を直接生成する関数を使う
   TreeNode? root = listToTree([1, 2, 3, 4, 5, 6, 7]);
-  print("\n二分木を初期化\n");
+  print("\n二分木を初期化する\n");
   printTree(root);
 
-  /* 先行順走査 */
+  /* 行きがけ順走査 */
   list.clear();
   preOrder(root);
-  print("\n先行順走査のノード出力順 = $list");
+  print("\n行きがけ順走査で表示するノードの順序 = $list");
 
-  /* 中順走査 */
+  /* 通りがけ順走査 */
   list.clear();
   inOrder(root);
-  print("\n中間順走査のノード出力順 = $list");
+  print("\n通りがけ順走査で表示するノードの順序 = $list");
 
-  /* 後順走査 */
+  /* 帰りがけ順走査 */
   list.clear();
   postOrder(root);
-  print("\n後行順走査のノード出力順 = $list");
+  print("\n帰りがけ順走査で表示するノードの順序 = $list");
 }

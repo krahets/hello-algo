@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "title": "Best-case distribution vs. worst-case degradation in a separate-chaining hash table",
+  "summary": "For the same six key-value pairs, the number of comparisons needed for lookup differs depending on whether they are distributed evenly or concentrated in a single bucket.",
+  "context": [
+    "Under the top-left heading \"Hash table with chaining\", two light green panels stacked vertically show the best case and worst case for the same six key-value pairs (k₁, s₁) through (k₆, s₆).",
+    "On the left of each panel, a light blue vertical column represents the bucket array (containing the head node of each non-empty bucket's linked list and an ellipsis \"…\" for the remaining buckets), while horizontal arrows to the right connect the nodes of each bucket's singly linked list."
+  ],
+  "description": [
+    "The upper panel shows \"Best case: Key-value pairs are evenly distributed across buckets; Time complexity: O(1)\". The six key-value pairs are distributed evenly across three drawn buckets: the first bucket chains (k₁, s₁) → (k₂, s₂), the second bucket chains (k₃, s₃) → (k₄, s₄), and the third bucket chains (k₅, s₅) → (k₆, s₆). Every bucket's linked list is short (only 2 nodes), so after locating the bucket, a lookup finishes within a constant number of comparisons. As the input size grows, achieving O(1) lookup also requires maintaining a suitable load factor so that the average chain length stays constant; uniform distribution alone does not unconditionally guarantee this complexity.",
+    "The lower panel shows \"Worst case: All key-value pairs are in one bucket; Time complexity: O(n)\". All six key-value pairs map to the first bucket and form a single 6-node singly linked list, (k₁, s₁) → (k₂, s₂) → (k₃, s₃) → (k₄, s₄) → (k₅, s₅) → (k₆, s₆), while all remaining buckets below are empty (indicated by an ellipsis). Here the hash table degenerates completely into a singly linked list, and looking up the last element requires traversing all n nodes."
+  ],
+  "result": "A hash algorithm should distribute keys as evenly as possible, paired with an appropriate load factor to bound chain lengths and avoid concentrating all keys in a single bucket.",
+  "frames": [
+    {
+      "id": "source-88",
+      "book_path": "chapter_hashing/hash_algorithm.assets/hash_collision_best_worst_condition.png",
+      "title": "Uniform O(1) distribution vs. single-bucket O(n) degradation for six key-value pairs",
+      "explanation": "Tracing a lookup for k₆ in the figure: in the upper panel, once the third bucket is located, only two entries—k₅ and k₆—need to be checked; in the lower panel, the search must traverse from k₁ to the tail of the list, checking 6 entries in total."
+    }
+  ]
+}

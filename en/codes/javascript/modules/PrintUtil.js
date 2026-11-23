@@ -6,7 +6,7 @@
 
 const { arrToTree } = require('./TreeNode');
 
-/* Print linked list */
+/* Print a linked list */
 function printLinkedList(head) {
     let list = [];
     while (head !== null) {
@@ -22,7 +22,7 @@ function Trunk(prev, str) {
 }
 
 /**
- * Print binary tree
+ * Print the binary tree
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
@@ -30,7 +30,7 @@ function printTree(root) {
     printTree(root, null, false);
 }
 
-/* Print binary tree */
+/* Print the binary tree */
 function printTree(root, prev, isRight) {
     if (root === null) {
         return;
@@ -71,11 +71,11 @@ function showTrunks(p) {
     process.stdout.write(p.str);
 }
 
-/* Print heap */
+/* Print a heap */
 function printHeap(arr) {
-    console.log('Heap array representation:');
+    console.log('Array representation of the heap:');
     console.log(arr);
-    console.log('Heap tree representation:');
+    console.log('Tree representation of the heap:');
     printTree(arrToTree(arr));
 }
 

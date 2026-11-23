@@ -6,14 +6,14 @@
 
 #include "../utils/common.hpp"
 
-/* Вставить узел P после узла n0 в связном списке */
+/* Вставка узла P в связный список после узла n0 */
 void insert(ListNode *n0, ListNode *P) {
     ListNode *n1 = n0->next;
     P->next = n1;
     n0->next = P;
 }
 
-/* Удалить первый узел после узла n0 в связном списке */
+/* Удаление первого узла после узла n0 из связного списка */
 void remove(ListNode *n0) {
     if (n0->next == nullptr)
         return;
@@ -25,7 +25,7 @@ void remove(ListNode *n0) {
     delete P;
 }
 
-/* Доступ к узлу связного списка по индексу index */
+/* Доступ к узлу с индексом index в связном списке */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == nullptr)
@@ -35,7 +35,7 @@ ListNode *access(ListNode *head, int index) {
     return head;
 }
 
-/* Найти в связном списке первый узел со значением target */
+/* Поиск первого узла со значением target в связном списке */
 int find(ListNode *head, int target) {
     int index = 0;
     while (head != nullptr) {

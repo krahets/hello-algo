@@ -9,28 +9,28 @@ require_relative '../utils/print_util'
 
 ### Level-order traversal ###
 def level_order(root)
-  # Initialize queue, add root node
+  # Initialize a queue and enqueue the root
   queue = [root]
-  # Initialize a list to save the traversal sequence
+  # Initialize a list to store the traversal sequence
   res = []
   while !queue.empty?
-    node = queue.shift # Dequeue
-    res << node.val # Save node value
-    queue << node.left unless node.left.nil? # Left child node enqueue
-    queue << node.right unless node.right.nil? # Right child node enqueue
+    node = queue.shift # Dequeue from the queue
+    res << node.val # Store the node value
+    queue << node.left unless node.left.nil? # Enqueue the left child
+    queue << node.right unless node.right.nil? # Enqueue the right child
   end
   res
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Initialize binary tree
-  # Here we use a function to generate a binary tree directly from an array
+  # Initialize the binary tree
+  # Use a helper function that builds a binary tree directly from an array
   root = arr_to_tree([1, 2, 3, 4, 5, 6, 7])
-  puts "\nInitialize binary tree\n\n"
+  puts "\nInitialize the binary tree\n\n"
   print_tree(root)
 
   # Level-order traversal
   res = level_order(root)
-  puts "\nLevel-order traversal node sequence = #{res}"
+  puts "\nNode sequence from level-order traversal = #{res}"
 end

@@ -14,28 +14,28 @@ class AVLTree
     @root = nil
   end
 
-  ### Get binary tree root node ###
+  ### Get the root of the binary tree ###
   def get_root
     @root
   end
 
-  ### Get node height ###
+  ### Get the node height ###
   def height(node)
-    # Empty node height is -1, leaf node height is 0
+    # A nil node has height -1; a leaf has height 0
     return node.height unless node.nil?
 
     -1
   end
 
-  ### Update node height ###
+  ### Update the node height ###
   def update_height(node)
-    # Node height equals the height of the tallest subtree + 1
+    # The node height equals the height of its taller subtree + 1
     node.height = [height(node.left), height(node.right)].max + 1
   end
 
-  ### Get balance factor ###
+  ### Get the balance factor ###
   def balance_factor(node)
-    # Empty node balance factor is 0
+    # A nil node has balance factor 0
     return 0 if node.nil?
 
     # Node balance factor = left subtree height - right subtree height
@@ -46,13 +46,13 @@ class AVLTree
   def right_rotate(node)
     child = node.left
     grand_child = child.right
-    # Using child as pivot, rotate node to the right
+    # Rotate node to the right around child
     child.right = node
     node.left = grand_child
-    # Update node height
+    # Update the node height
     update_height(node)
     update_height(child)
-    # Return root node of subtree after rotation
+    # Return the root of the rotated subtree
     child
   end
 
@@ -60,77 +60,77 @@ class AVLTree
   def left_rotate(node)
     child = node.right
     grand_child = child.left
-    # Using child as pivot, rotate node to the left
+    # Rotate node to the left around child
     child.left = node
     node.right = grand_child
-    # Update node height
+    # Update the node height
     update_height(node)
     update_height(child)
-    # Return root node of subtree after rotation
+    # Return the root of the rotated subtree
     child
   end
 
-  ### Perform rotation to rebalance subtree ###
+  ### Perform rotations to restore balance in this subtree ###
   def rotate(node)
-    # Get balance factor of node
+    # Get the balance factor of node
     balance_factor = balance_factor(node)
     # Left-heavy tree
     if balance_factor > 1
       if balance_factor(node.left) >= 0
-        # Right rotation
+        # Rotate right
         return right_rotate(node)
       else
-        # First left rotation then right rotation
+        # Rotate left, then right
         node.left = left_rotate(node.left)
         return right_rotate(node)
       end
     # Right-heavy tree
     elsif balance_factor < -1
       if balance_factor(node.right) <= 0
-        # Left rotation
+        # Rotate left
         return left_rotate(node)
       else
-        # First right rotation then left rotation
+        # Rotate right, then left
         node.right = right_rotate(node.right)
         return left_rotate(node)
       end
     end
-    # Balanced tree, no rotation needed, return directly
+    # The tree is balanced; return without rotating
     node
   end
 
-  ### Insert node ###
+  ### Insert a node ###
   def insert(val)
     @root = insert_helper(@root, val)
   end
 
-  ### Recursively insert node (helper method) ###
+  ### Insert a node recursively (helper method)###
   def insert_helper(node, val)
     return TreeNode.new(val) if node.nil?
-    # 1. Find insertion position and insert node
+    # 1. Find the insertion position and insert the node
     if val < node.val
       node.left = insert_helper(node.left, val)
     elsif val > node.val
       node.right = insert_helper(node.right, val)
     else
-      # Duplicate node not inserted, return directly
+      # Return without inserting a duplicate node
       return node
     end
-    # Update node height
+    # Update the node height
     update_height(node)
-    # 2. Perform rotation operation to restore balance to this subtree
+    # 2. Perform rotations to restore balance in this subtree
     rotate(node)
   end
 
-  ### Delete node ###
+  ### Remove a node ###
   def remove(val)
     @root = remove_helper(@root, val)
   end
 
-  ### Recursively delete node (helper method) ###
+  ### Remove a node recursively (helper method)###
   def remove_helper(node, val)
     return if node.nil?
-    # 1. Find node and delete
+    # 1. Find and remove the node
     if val < node.val
       node.left = remove_helper(node.left, val)
     elsif val > node.val
@@ -138,12 +138,12 @@ class AVLTree
     else
       if node.left.nil? || node.right.nil?
         child = node.left || node.right
-        # Number of child nodes = 0, delete node directly and return
+        # Number of children = 0: remove node and return
         return if child.nil?
-        # Number of child nodes = 1, delete node directly
+        # Number of children = 1: remove node directly
         node = child
       else
-        # Number of child nodes = 2, delete the next node in inorder traversal and replace current node with it
+        # Number of children = 2: remove the inorder successor and use its value to replace the current node value
         temp = node.right
         while !temp.left.nil?
           temp = temp.left
@@ -152,65 +152,65 @@ class AVLTree
         node.val = temp.val
       end
     end
-    # Update node height
+    # Update the node height
     update_height(node)
-    # 2. Perform rotation operation to restore balance to this subtree
+    # 2. Perform rotations to restore balance in this subtree
     rotate(node)
   end
 
-  ### Search node ###
+  ### Find a node ###
   def search(val)
     cur = @root
-    # Loop search, exit after passing leaf node
+    # Search in a loop, stopping if cur becomes nil
     while !cur.nil?
-      # Target node is in cur's right subtree
+      # The target node lies in the right subtree of cur
       if cur.val < val
         cur = cur.right
-      # Target node is in cur's left subtree
+      # The target node lies in the left subtree of cur
       elsif cur.val > val
         cur = cur.left
-      # Found target node, exit loop
+      # The target node was found; exit the loop
       else
         break
       end
     end
-    # Return target node
+    # Return the target node
     cur
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   def test_insert(tree, val)
     tree.insert(val)
-    puts "\nAfter inserting node #{val}, AVL tree is"
+    puts "\nAVL tree after inserting node #{val}:"
     print_tree(tree.get_root)
   end
 
   def test_remove(tree, val)
     tree.remove(val)
-    puts "\nAfter deleting node #{val}, AVL tree is"
+    puts "\nAVL tree after removing node #{val}:"
     print_tree(tree.get_root)
   end
 
-  # Please pay attention to how the AVL tree maintains balance after inserting nodes
+  # Initialize an empty AVL tree
   avl_tree = AVLTree.new
 
-  # Insert node
-  # Delete nodes
+  # Insert a node
+  # Observe how the AVL tree maintains balance after a node is inserted
   for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]
     test_insert(avl_tree, val)
   end
 
-  # Please pay attention to how the AVL tree maintains balance after deleting nodes
+  # Insert a duplicate node
   test_insert(avl_tree, 7)
 
-  # Remove node
-  # Delete node with degree 1
-  test_remove(avl_tree, 8) # Delete node with degree 2
-  test_remove(avl_tree, 5) # Remove node with degree 1
-  test_remove(avl_tree, 4) # Remove node with degree 2
+  # Remove a node
+  # Observe how the AVL tree maintains balance after a node is removed
+  test_remove(avl_tree, 8) # Remove a node with 0 children
+  test_remove(avl_tree, 5) # Remove a node with 1 child
+  test_remove(avl_tree, 4) # Remove a node with 2 children
 
   result_node = avl_tree.search(7)
-  puts "\nFound node object #{result_node}, node value = #{result_node.val}"
+  puts "\nNode found: #{result_node}, node value = #{result_node.val}"
 end

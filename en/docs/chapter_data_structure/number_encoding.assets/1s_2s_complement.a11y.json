@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "title": "Eight-bit sign-magnitude, one's complement, and two's complement",
+  "summary": "Compare how positive and negative integers convert across the three encodings, and see why two's complement has only one representation of zero.",
+  "context": [],
+  "description": [
+    "The figure arranges sign-magnitude, one's complement, and two's complement in three rows comparing +0, +5, −0, and −28, each written as 8 bits grouped into two 4-bit nibbles. Bidirectional arrows connect sign-magnitude with one's complement and one's complement with two's complement; the notes on the right state the forward rules for converting a negative number from sign-magnitude to one's complement and then to two's complement."
+  ],
+  "frames": [
+    {
+      "id": "source-41",
+      "book_path": "chapter_data_structure/number_encoding.assets/1s_2s_complement.png",
+      "title": "Eight-bit sign-magnitude, one's complement, and two's complement",
+      "explanation": "The highest bit is the sign bit, and +0 and +5 have identical bit patterns across all three representations. For a negative number, keep the leading sign bit 1 and invert only the lower 7 bits to get the one's complement, then add 1 and keep the lower 8 bits to get the two's complement. In the table, −28 follows this rule; the reverse conversion subtracts 1 from the two's complement and then inverts the lower 7 bits while keeping the sign bit to return to sign-magnitude. Adding 1 to the one's complement of −0 (1111 1111) produces the nine-bit value 1 0000 0000; discarding the carry-out leaves 0000 0000, identical to +0, so positive zero and negative zero can no longer be distinguished from the two's complement."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Eight-bit encoding comparison",
+      "headers": [
+        "Number",
+        "Sign-magnitude",
+        "One's complement",
+        "Two's complement"
+      ],
+      "rows": [
+        [
+          "+0",
+          "0000 0000",
+          "0000 0000",
+          "0000 0000"
+        ],
+        [
+          "+5",
+          "0000 0101",
+          "0000 0101",
+          "0000 0101"
+        ],
+        [
+          "−0",
+          "1000 0000",
+          "1111 1111",
+          "0000 0000"
+        ],
+        [
+          "−28",
+          "1001 1100",
+          "1110 0011",
+          "1110 0100"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -37,7 +37,7 @@
 
 На рисунке ниже показан пример, в котором минимальная сумма пути равна $13$ .
 
-![Пример данных для задачи о минимальной сумме пути](dp_solution_pipeline.assets/min_path_sum_example.png)
+![Пример данных для задачи о минимальной сумме пути](dp_solution_pipeline.assets/min_path_sum_example.svg)
 
 **Шаг 1: понять решения на каждом раунде, определить состояние и тем самым получить таблицу $dp$**
 
@@ -47,7 +47,7 @@
 
 На этом этапе мы получаем двумерную матрицу $dp$ , показанную на рисунке ниже, размер которой совпадает с размером входной сетки `grid` .
 
-![Определение состояния и таблицы dp](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png)
+![Определение состояния и таблицы dp](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg)
 
 !!! note
 
@@ -65,7 +65,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![Оптимальная подструктура и уравнение перехода состояния](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png)
+![Оптимальная подструктура и уравнение перехода состояния](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg)
 
 !!! note
 
@@ -79,7 +79,7 @@ $$
 
 Как показано на рисунке ниже, поскольку каждая клетка получается из клетки слева и клетки сверху, мы можем проходить матрицу циклами: внешний цикл по строкам, внутренний - по столбцам.
 
-![Граничные условия и порядок перехода состояний](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png)
+![Граничные условия и порядок перехода состояний](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg)
 
 !!! note
 
@@ -108,7 +108,7 @@ $$
 
 По своей сути причина появления перекрывающихся подзадач такова: **существует много разных путей от левого верхнего угла до одной и той же клетки**.
 
-![Дерево рекурсии полного перебора](dp_solution_pipeline.assets/min_path_sum_dfs.png)
+![Дерево рекурсии полного перебора](dp_solution_pipeline.assets/min_path_sum_dfs.svg)
 
 У каждого состояния есть два выбора - вниз и вправо, а от левого верхнего угла до правого нижнего нужно сделать всего $m + n - 2$ шагов, поэтому худшая временная сложность равна $O(2^{m + n})$ , где $n$ и $m$ - число строк и столбцов сетки соответственно. Заметим, что в этой оценке не учитывается близость к границам сетки: у граничных клеток остается только один выбор, так что фактическое число путей будет несколько меньше.
 
@@ -122,7 +122,7 @@ $$
 
 Как показано на рисунке ниже, после добавления мемоизации решение каждой подзадачи вычисляется только один раз, поэтому временная сложность определяется общим числом состояний, то есть равна $O(nm)$ .
 
-![Дерево рекурсии для поиска с мемоизацией](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
+![Дерево рекурсии для поиска с мемоизацией](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg)
 
 ### Метод 3: динамическое программирование
 
@@ -137,40 +137,40 @@ $$
 Размер массива `dp` равен $n \times m$ , **поэтому пространственная сложность равна $O(nm)$** .
 
 === "<1>"
-    ![Процесс динамического программирования для минимальной суммы пути](dp_solution_pipeline.assets/min_path_sum_dp_step1.png)
+    ![Процесс динамического программирования для минимальной суммы пути](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png)
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png)
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png)
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png)
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png)
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png)
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png)
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png)
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png)
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png)
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
 
 ### Оптимизация пространства
 

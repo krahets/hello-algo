@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "Fibonacci recursion tree",
+  "summary": "Recursive branches repeatedly solve identically named subproblems, showing why naive recursion performs so much redundant work.",
+  "context": [
+    "In the figure, f(k) corresponds to fib(k) in the chapter code. The base cases are f(1) = 0 and f(2) = 1; for k > 2, it computes f(k - 1) + f(k - 2)."
+  ],
+  "description": [
+    "The figure expands only the first few levels without labeling a total height. For small n, some branches reach f(1) or f(2) earlier and stop rather than continuing through every symbolic level drawn."
+  ],
+  "result": "Actual branches stop at base cases, so not every level doubles indefinitely, yet repeated expansion still makes the call count of naive recursion grow exponentially with n. Counting levels strictly from the chapter code with the root as level 1, the longest call chain has n - 1 levels when n ≥ 2 (for instance, 2 levels when n = 3) and just the root level when n = 1. Calling the height n in the text expresses linear order of growth in n rather than the exact level count here.",
+  "frames": [
+    {
+      "id": "source-24",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree.png",
+      "title": "Fibonacci recursion tree",
+      "explanation": "Every non-base call f(k) branches into a left child call f(k - 1) and a right child call f(k - 2). For example, the root's right child f(n - 2) (level 2) and the f(n - 2) branched on the left of level 3 lie on separate call paths and are each recomputed from scratch rather than automatically merged or reused."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Calls at each level in the figure; identical names denote separate calls",
+      "headers": [
+        "Level",
+        "Call nodes (left to right in figure)",
+        "Count"
+      ],
+      "rows": [
+        [
+          "1",
+          "f(n)",
+          "1"
+        ],
+        [
+          "2",
+          "f(n - 1), f(n - 2)",
+          "2"
+        ],
+        [
+          "3",
+          "f(n - 2), f(n - 3), f(n - 3), f(n - 4)",
+          "4"
+        ],
+        [
+          "4",
+          "f(n - 3), f(n - 4), f(n - 4), f(n - 5), f(n - 4), f(n - 5), f(n - 5), f(n - 6)",
+          "8"
+        ],
+        [
+          "5",
+          "Each node from the previous level branches into two ellipses; deeper calls are not drawn explicitly",
+          "16 ellipses"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -5,7 +5,7 @@
 1. **Этап разделения**: массив рекурсивно делится пополам, и задача сортировки длинного массива превращается в задачи сортировки более коротких массивов.
 2. **Этап слияния**: когда длина подмассива становится равной 1, разделение завершается и начинается слияние. Два коротких упорядоченных массива непрерывно объединяются в один более длинный упорядоченный массив, пока процесс не завершится.
 
-![Этапы разделения и слияния в сортировке слиянием](merge_sort.assets/merge_sort_overview.png)
+![Этапы разделения и слияния в сортировке слиянием](merge_sort.assets/merge_sort_overview.svg)
 
 ## Алгоритм
 
@@ -17,34 +17,34 @@
 Этап «слияния» снизу вверх объединяет левый и правый подмассивы в один упорядоченный массив. Следует заметить, что начиная с подмассивов длины 1, каждый подмассив в фазе слияния уже является упорядоченным.
 
 === "<1>"
-    ![Шаги сортировки слиянием](merge_sort.assets/merge_sort_step1.png)
+    ![Шаги сортировки слиянием](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png)
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png)
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png)
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png)
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png)
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png)
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png)
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg)
 
 Нетрудно заметить, что порядок рекурсии в сортировке слиянием совпадает с порядком обхода в глубину двоичного дерева.
 

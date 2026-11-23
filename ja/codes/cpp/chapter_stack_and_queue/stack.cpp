@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     stack<int> stack;
 
-    /* 要素をプッシュ */
+    /* 要素をプッシュする */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -20,22 +20,22 @@ int main() {
     cout << "スタック stack = ";
     printStack(stack);
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     int top = stack.top();
-    cout << "トップ要素 top = " << top << endl;
+    cout << "スタックの先頭要素 top = " << top << endl;
 
-    /* 要素をポップ */
+    /* 要素をポップする */
     stack.pop(); // 戻り値なし
-    cout << "取り出した要素 pop = " << top << "、取り出し後の stack = ";
+    cout << "ポップした要素 pop = " << top << "、ポップ後 stack = ";
     printStack(stack);
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     int size = stack.size();
     cout << "スタックの長さ size = " << size << endl;
 
-    /* 空かどうかを判定 */
+    /* 空かどうかを判定する */
     bool empty = stack.empty();
-    cout << "スタックが空かどうか = " << empty << endl;
+    cout << "スタックは空か = " << empty << endl;
 
     return 0;
 }

@@ -51,7 +51,6 @@ func TestDeque(t *testing.T) {
 
 func TestArrayDeque(t *testing.T) {
 	/* Инициализация двусторонней очереди */
-	// В Go list используется как двусторонняя очередь
 	deque := newArrayDeque(16)
 
 	/* Добавление элемента в очередь */
@@ -102,7 +101,7 @@ func TestLinkedListDeque(t *testing.T) {
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("Очередь deque = ")
+	fmt.Print("Двусторонняя очередь deque = ")
 	PrintList(deque.toList())
 
 	// Доступ к элементу в начале очереди

@@ -1,0 +1,113 @@
+{
+  "schema_version": 2,
+  "title": "States skipped by moving the shorter wall",
+  "summary": "Advancing the left shorter wall inward from cap[0, 7] to cap[1, 7] skips all six narrower states that keep index 0 on the left with right wall 6 down to 1.",
+  "context": [
+    "Wall heights appear in the \"Input wall heights\" table below (zero-based indices). At initial endpoints [0, 7], heights are 3 and 4 with the left wall shorter, giving capacity min(3, 4) × 7 = 21.",
+    "Container capacity is cap[i, j] = min(ht[i], ht[j]) × (j - i), multiplying the shorter wall height by the index span."
+  ],
+  "description": [
+    "On the top row, a rightward arrow labeled \"Move the shorter wall\" connects cap[0, 7] → cap[1, 7]. Below, a brace labeled \"Skipped states\" spans a two-row by three-column grid of thumbnails keeping i = 0 fixed and setting j = 6, 5, 4, 3, 2, 1 from left to right across the two rows.",
+    "The two tables below give the input heights and the six skipped states. While the thumbnails print only symbolic names cap[i, j], wall heights, water heights, widths, and capacities in the table are computed from the input heights and capacity formula."
+  ],
+  "frames": [
+    {
+      "id": "source-469",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.png",
+      "title": "All six narrower containers with the left wall fixed at i = 0 have capacity below 21",
+      "explanation": "Every skipped state has width strictly less than 7 and water height at most original left wall height 3, so all six capacities stay strictly below the already recorded 21 and skipping them cannot miss the optimal solution. At [0, 3], right wall height 2 is even shorter than left wall 3, lowering water height to 2 across width 3 for capacity 6; the other five states have water height 3."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Input wall heights; zero-based indices",
+      "headers": [
+        "Index",
+        "Height"
+      ],
+      "rows": [
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "8"
+        ],
+        [
+          "2",
+          "5"
+        ],
+        [
+          "3",
+          "2"
+        ],
+        [
+          "4",
+          "7"
+        ],
+        [
+          "5",
+          "7"
+        ],
+        [
+          "6",
+          "3"
+        ],
+        [
+          "7",
+          "4"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Six skipped states; capacities computed from wall heights",
+      "headers": [
+        "Endpoints [i, j]",
+        "Water height min(ht[i], ht[j])",
+        "Width j - i",
+        "Capacity"
+      ],
+      "rows": [
+        [
+          "[0,6]",
+          "3",
+          "6",
+          "18"
+        ],
+        [
+          "[0,5]",
+          "3",
+          "5",
+          "15"
+        ],
+        [
+          "[0,4]",
+          "3",
+          "4",
+          "12"
+        ],
+        [
+          "[0,3]",
+          "2",
+          "3",
+          "6"
+        ],
+        [
+          "[0,2]",
+          "3",
+          "2",
+          "6"
+        ],
+        [
+          "[0,1]",
+          "3",
+          "1",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

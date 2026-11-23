@@ -17,7 +17,7 @@ struct Trunk<'a, 'b> {
     str: Cell<&'b str>,
 }
 
-/* Print array */
+/* Print an array */
 pub fn print_array<T: Display>(nums: &[T]) {
     print!("[");
     if nums.len() > 0 {
@@ -29,14 +29,14 @@ pub fn print_array<T: Display>(nums: &[T]) {
     }
 }
 
-/* Print hash table */
+/* Print the hash table */
 pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue>) {
     for (key, value) in map {
         println!("{key} -> {value}");
     }
 }
 
-/* Print queue (deque) */
+/* Print a queue (deque) */
 pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();
@@ -45,7 +45,7 @@ pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     }
 }
 
-/* Print linked list */
+/* Print a linked list */
 pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
     print!("{}{}", head.borrow().val, if head.borrow().next.is_none() {"\n"} else {" -> "});
     if let Some(node) = &head.borrow().next {
@@ -53,12 +53,12 @@ pub fn print_linked_list<T: Display>(head: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* Print binary tree */
+/* Print a binary tree */
 pub fn print_tree(root: &Rc<RefCell<TreeNode>>) {
     _print_tree(Some(root), None, false);
 }
 
-/* Print binary tree */
+/* Print a binary tree */
 fn _print_tree(root: Option<&Rc<RefCell<TreeNode>>>, prev: Option<&Trunk>, is_right: bool) {
     if let Some(node) = root {
         let mut prev_str = "    ";
@@ -93,10 +93,10 @@ fn show_trunks(trunk: Option<&Trunk>) {
     }
 }
 
-/* Print heap */
+/* Print a heap */
 pub fn print_heap(heap: Vec<i32>) {
-    println!("Array representation of heap: {:?}", heap);
-    println!("Heap tree representation:");
+    println!("Array representation of the heap: {:?}", heap);
+    println!("Tree representation of the heap:");
     if let Some(root) = vec_to_tree(heap.into_iter().map(|val| Some(val)).collect()) {
         print_tree(&root);
     }

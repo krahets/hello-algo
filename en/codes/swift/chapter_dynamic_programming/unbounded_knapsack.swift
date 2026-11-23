@@ -4,19 +4,19 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Unbounded knapsack: Dynamic programming */
+/* Unbounded knapsack: dynamic programming */
 func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
     let n = wgt.count
-    // Initialize dp table
+    // Initialize the dp table
     var dp = Array(repeating: Array(repeating: 0, count: cap + 1), count: n + 1)
-    // State transition
+    // State transitions
     for i in 1 ... n {
         for c in 1 ... cap {
             if wgt[i - 1] > c {
-                // If exceeds knapsack capacity, don't select item i
+                // If item i exceeds the remaining capacity, do not choose it
                 dp[i][c] = dp[i - 1][c]
             } else {
-                // The larger value between not selecting and selecting item i
+                // Take the larger value obtained by excluding and including item i
                 dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
             }
         }
@@ -24,19 +24,19 @@ func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
     return dp[n][cap]
 }
 
-/* Unbounded knapsack: Space-optimized dynamic programming */
+/* Unbounded knapsack: space-optimized dynamic programming */
 func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
     let n = wgt.count
-    // Initialize dp table
+    // Initialize the dp table
     var dp = Array(repeating: 0, count: cap + 1)
-    // State transition
+    // State transitions
     for i in 1 ... n {
         for c in 1 ... cap {
             if wgt[i - 1] > c {
-                // If exceeds knapsack capacity, don't select item i
+                // If item i exceeds the remaining capacity, do not choose it
                 dp[c] = dp[c]
             } else {
-                // The larger value between not selecting and selecting item i
+                // Take the larger value obtained by excluding and including item i
                 dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
             }
         }
@@ -46,7 +46,7 @@ func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
 
 @main
 enum UnboundedKnapsack {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let wgt = [1, 2, 3]
         let val = [5, 11, 15]
@@ -54,10 +54,10 @@ enum UnboundedKnapsack {
 
         // Dynamic programming
         var res = unboundedKnapsackDP(wgt: wgt, val: val, cap: cap)
-        print("Maximum item value not exceeding knapsack capacity is \(res)")
+        print("Maximum total item value within the knapsack capacity: \(res)")
 
         // Space-optimized dynamic programming
         res = unboundedKnapsackDPComp(wgt: wgt, val: val, cap: cap)
-        print("Maximum item value not exceeding knapsack capacity is \(res)")
+        print("Maximum total item value within the knapsack capacity: \(res)")
     }
 }

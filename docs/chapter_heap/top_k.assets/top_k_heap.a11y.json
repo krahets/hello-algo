@@ -1,0 +1,313 @@
+{
+  "schema_version": 2,
+  "title": "用小顶堆寻找 Top-k",
+  "summary": "维护至多 k 个候选，用其中最小值与后续元素比较，逐步保留最大的 k 个值。",
+  "context": [
+    "本例 k=3，输入数组及其索引见下表。指针 i 表示输入索引；heap 是小顶堆的层序数组，堆索引 0 存放最小候选，左、右子节点分别在堆索引 1、2（若存在）。输入索引表示元素来源，堆索引表示当前存储位置。",
+    "先把前 k 个输入依次入堆，随后逐个比较：当前值大于堆顶时，先弹出堆顶再加入当前值，否则跳过。表格按步号命名；比较或跳过时堆未改变，按表名引用相应的候选与来源索引。"
+  ],
+  "description": [
+    "堆顶是候选中最小的值。遇到更大的新值时，用它替换堆顶，仍能保留已处理输入中最大的 k 个值。查看堆顶用 O(1) 时间，入堆或出堆调整用 O(log k) 时间。"
+  ],
+  "result": "堆内至多保留 k 个候选，空间复杂度为 O(k)，总时间复杂度为 O(n log k)。",
+  "frames": [
+    {
+      "id": "source-164",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step1.png",
+      "title": "将1加入空堆",
+      "explanation": "指针 i=0，读取值 1 加入空堆。当前只有 1 个候选 [1]，堆顶为 1。",
+      "key_state": "输入索引 i=0 的 1 已入堆，当前 1 项 [1]，堆顶为 1。",
+      "announcement": "将 1 加入空堆，当前堆为 [1]。",
+      "state_tables": [
+        {
+          "caption": "第 1 步候选：加入 1 后",
+          "headers": [
+            "堆数组索引",
+            "值",
+            "来自输入索引"
+          ],
+          "rows": [
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-165",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step2.png",
+      "title": "将7入堆",
+      "explanation": "指针 i=1，读取值 7 入堆，挂在堆索引 1。父节点 1 小于 7，无须上浮；当前 2 个候选为 [1, 7]，堆顶为 1。",
+      "key_state": "输入索引 i=1 的 7 已入堆，当前 2 项 [1, 7]，堆顶为 1。",
+      "announcement": "将 7 入堆，无须上浮，当前堆为 [1, 7]。",
+      "state_tables": [
+        {
+          "caption": "第 2 步候选：加入 7 后",
+          "headers": [
+            "堆数组索引",
+            "值",
+            "来自输入索引"
+          ],
+          "rows": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-166",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step3.png",
+      "title": "将6入堆，初始候选齐备",
+      "explanation": "指针 i=2，读取值 6 入堆，挂在堆索引 2。当前 3 个候选为 [1, 7, 6]，堆顶为 1；前 k=3 个输入已全部入堆，接下来比较后续元素。",
+      "key_state": "输入索引 i=2 的 6 已入堆，初始 3 项 [1, 7, 6] 齐备，堆顶为 1。",
+      "announcement": "将 6 入堆，初始三个候选 [1, 7, 6] 齐备，堆顶为 1。",
+      "state_tables": [
+        {
+          "caption": "第 3 步候选：初始三项齐备",
+          "headers": [
+            "堆数组索引",
+            "值",
+            "来自输入索引"
+          ],
+          "rows": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ],
+            [
+              "2",
+              "6",
+              "2"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-167",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step4.png",
+      "title": "比较当前3与堆顶1",
+      "explanation": "指针 i=3，当前值 3 大于最小候选 1，准备替换。本步仅比较，尚未弹出或加入元素；3 个候选仍是 [1, 7, 6]，堆顶为 1。候选与来源索引见“第 3 步候选：初始三项齐备”表。",
+      "key_state": "当前输入索引 i=3，当前值 3 > 堆顶 1，准备替换；尚未修改堆，仍为 3 项 [1, 7, 6]，堆顶为 1。",
+      "announcement": "比较当前值 3 与堆顶 1：3 > 1，准备替换，尚未修改堆。"
+    },
+    {
+      "id": "source-168",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step5.png",
+      "title": "弹出旧堆顶1",
+      "explanation": "指针仍为 i=3，先弹出旧堆顶 1，剩余元素调整为 [6, 7]，堆顶暂为 6。当前只有 k−1=2 个候选，值 3 尚待入堆；这是替换的中间状态，没有漏掉结果，也尚未完成这一轮。",
+      "key_state": "当前输入索引 i=3，旧堆顶 1 已弹出，堆暂为 k−1=2 项 [6, 7]，堆顶为 6，当前值 3 尚待入堆。",
+      "announcement": "弹出旧堆顶 1，堆暂为 2 项 [6, 7]，3 尚待入堆。",
+      "state_tables": [
+        {
+          "caption": "第 5 步候选：弹出 1 后的中间态",
+          "headers": [
+            "堆数组索引",
+            "值",
+            "来自输入索引"
+          ],
+          "rows": [
+            [
+              "0",
+              "6",
+              "2"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-169",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step6.png",
+      "title": "将3入堆",
+      "explanation": "指针仍为 i=3，将值 3 入堆并上浮至根，恢复 k=3 个候选 [3, 7, 6]，新堆顶为 3。这三个候选是前 4 个输入中的最大三个值。",
+      "key_state": "当前输入索引 i=3，3 已入堆并上浮，恢复 3 项 [3, 7, 6]，堆顶为 3。",
+      "announcement": "将 3 入堆并上浮为新堆顶，恢复三个候选 [3, 7, 6]。",
+      "state_tables": [
+        {
+          "caption": "第 6 步候选：加入 3 后",
+          "headers": [
+            "堆数组索引",
+            "值",
+            "来自输入索引"
+          ],
+          "rows": [
+            [
+              "0",
+              "3",
+              "3"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ],
+            [
+              "2",
+              "6",
+              "2"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-170",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step7.png",
+      "title": "比较当前2与堆顶3",
+      "explanation": "指针 i=4，当前值 2 小于堆顶 3，不满足替换条件。本步仅比较，3 个候选仍为 [3, 7, 6]。候选与来源索引见“第 6 步候选：加入 3 后”表。",
+      "key_state": "当前输入索引 i=4，当前值 2 < 堆顶 3，不替换；堆仍为 3 项 [3, 7, 6]，堆顶为 3。",
+      "announcement": "比较当前值 2 与堆顶 3：2 < 3，不替换。"
+    },
+    {
+      "id": "source-171",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step8.png",
+      "title": "跳过2",
+      "explanation": "指针 i=4，由于 2 小于堆顶 3，跳过它，不做出堆或入堆。3 个候选仍为 [3, 7, 6]，堆顶为 3；全部输入已处理。候选与来源索引见“第 6 步候选：加入 3 后”表。",
+      "key_state": "输入索引 i=4 的 2 已跳过，全部输入处理完毕；堆仍为 3 项 [3, 7, 6]，堆顶为 3。",
+      "announcement": "跳过 2，三个候选 [3, 7, 6] 不变，全部输入处理完毕。"
+    },
+    {
+      "id": "source-172",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step9.png",
+      "title": "返回三个候选",
+      "explanation": "遍历结束，无当前指针，直接返回小顶堆 [3, 7, 6]。三个候选的输入来源见下表；堆顶为 3，但左右子节点 7 和 6 不必升序，这里没有再做排序。",
+      "key_state": "遍历结束，无当前指针；返回小顶堆 [3, 7, 6]，共 3 项，堆顶为 3，结果未按升序排列。",
+      "announcement": "返回小顶堆 [3, 7, 6]，结果未按升序排列。",
+      "state_tables": [
+        {
+          "caption": "第 9 步最终返回的候选与来源",
+          "headers": [
+            "堆数组索引",
+            "值",
+            "来自输入索引"
+          ],
+          "rows": [
+            [
+              "0",
+              "3",
+              "3"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ],
+            [
+              "2",
+              "6",
+              "2"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "top-k-heap": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-164"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-165"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-166"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-167"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-168"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-169"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-170"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-171"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-172"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "输入数组与索引",
+      "headers": [
+        "输入索引",
+        "值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "7"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "3"
+        ],
+        [
+          "4",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

@@ -8,65 +8,65 @@ import (
 	"math/rand"
 )
 
-/* Random access to element */
+/* Access an element at a random index */
 func randomAccess(nums []int) (randomNum int) {
-	// Randomly select a number in the interval [0, nums.length)
+	// Choose a random number in the interval [0, len(nums))
 	randomIndex := rand.Intn(len(nums))
-	// Retrieve and return the random element
+	// Get and return the randomly selected element
 	randomNum = nums[randomIndex]
 	return
 }
 
-/* Extend array length */
+/* Extend the array length */
 func extend(nums []int, enlarge int) []int {
-	// Initialize an array with extended length
+	// Initialize an array with the extended length
 	res := make([]int, len(nums)+enlarge)
 	// Copy all elements from the original array to the new array
 	for i, num := range nums {
 		res[i] = num
 	}
-	// Return the extended new array
+	// Return the new, extended array
 	return res
 }
 
-/* Insert element num at index index in the array */
+/* Insert element num at index `index` in the array */
 func insert(nums []int, num int, index int) {
-	// Move all elements at and after index index backward by one position
+	// Shift all elements at and after index `index` one position to the right
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
-	// Assign num to the element at index index
+	// Assign num to the element at index `index`
 	nums[index] = num
 }
 
-/* Remove the element at index index */
+/* Remove the element at index `index` */
 func remove(nums []int, index int) {
-	// Move all elements after index index forward by one position
+	// Shift all elements after index `index` one position to the left
 	for i := index; i < len(nums)-1; i++ {
 		nums[i] = nums[i+1]
 	}
 }
 
-/* Traverse array */
+/* Traverse the array */
 func traverse(nums []int) {
 	count := 0
-	// Traverse array by index
+	// Traverse the array by index
 	for i := 0; i < len(nums); i++ {
 		count += nums[i]
 	}
 	count = 0
-	// Direct traversal of array elements
+	// Iterate directly over the array elements
 	for _, num := range nums {
 		count += num
 	}
-	// Traverse simultaneously data index and elements
+	// Iterate over both the indices and the elements
 	for i, num := range nums {
 		count += nums[i]
 		count += num
 	}
 }
 
-/* Find the specified element in the array */
+/* Find a specified element in the array */
 func find(nums []int, target int) (index int) {
 	index = -1
 	for i := 0; i < len(nums); i++ {

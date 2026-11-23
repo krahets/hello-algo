@@ -9,24 +9,24 @@ package chapter_dynamic_programming;
 import java.util.Arrays;
 
 public class coin_change {
-    /* Coin change: Dynamic programming */
+    /* Coin change: dynamic programming */
     static int coinChangeDP(int[] coins, int amt) {
         int n = coins.length;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int[][] dp = new int[n + 1][amt + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int a = 1; a <= amt; a++) {
             dp[0][a] = MAX;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
                 }
             }
@@ -34,22 +34,22 @@ public class coin_change {
         return dp[n][amt] != MAX ? dp[n][amt] : -1;
     }
 
-    /* Coin change: Space-optimized dynamic programming */
+    /* Coin change: space-optimized dynamic programming */
     static int coinChangeDPComp(int[] coins, int amt) {
         int n = coins.length;
         int MAX = amt + 1;
-        // Initialize dp table
+        // Initialize the dp table
         int[] dp = new int[amt + 1];
         Arrays.fill(dp, MAX);
         dp[0] = 0;
-        // State transition
+        // State transitions
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // If exceeds target amount, don't select coin i
+                    // If the coin exceeds the target amount, do not choose coin i
                     dp[a] = dp[a];
                 } else {
-                    // The smaller value between not selecting and selecting coin i
+                    // Take the smaller result of not choosing and choosing coin i
                     dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
                 }
             }
@@ -63,10 +63,10 @@ public class coin_change {
 
         // Dynamic programming
         int res = coinChangeDP(coins, amt);
-        System.out.println("Minimum number of coins needed to make target amount is " + res);
+        System.out.println("Minimum number of coins needed to make the target amount: " + res);
 
         // Space-optimized dynamic programming
         res = coinChangeDPComp(coins, amt);
-        System.out.println("Minimum number of coins needed to make target amount is " + res);
+        System.out.println("Minimum number of coins needed to make the target amount: " + res);
     }
 }

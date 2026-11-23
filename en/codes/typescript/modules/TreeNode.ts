@@ -8,8 +8,8 @@
 class TreeNode {
     val: number; // Node value
     height: number; // Node height
-    left: TreeNode | null; // Left child pointer
-    right: TreeNode | null; // Right child pointer
+    left: TreeNode | null; // Pointer to the left child
+    right: TreeNode | null; // Pointer to the right child
     constructor(
         val?: number,
         height?: number,
@@ -23,7 +23,7 @@ class TreeNode {
     }
 }
 
-/* Deserialize array to binary tree */
+/* Deserialize an array into a binary tree */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

@@ -1,9 +1,9 @@
-# Graph
+# Graphs
 
-![Graph](../assets/covers/chapter_graph.jpg)
+![Graphs](../assets/covers/chapter_graph.jpg)
 
 !!! abstract
 
-    In the journey of life, we are like nodes, connected by countless invisible edges.
-
-    Each encounter and parting leaves a unique mark on this vast network graph.
+    On the journey of life, we are like nodes joined by countless invisible edges.
+    
+    Every meeting and parting leaves a unique mark on this vast network.

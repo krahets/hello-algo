@@ -6,11 +6,11 @@ env = os.environ.copy()
 env["PYTHONIOENCODING"] = "utf-8"
 
 if __name__ == "__main__":
-    # find source code files
+    # ソースコードのファイルを探す
     src_paths = sorted(glob.glob("chapter_*/*.py"))
     errors = []
 
-    # run python code
+    # Python コードを実行する
     for src_path in src_paths:
         process = subprocess.Popen(
             ["python", src_path],
@@ -20,14 +20,14 @@ if __name__ == "__main__":
             env=env,
             encoding='utf-8'
         )
-        # Wait for the process to complete, and get the output and error messages
+        # プロセスの終了を待ち、出力とエラーメッセージを取得する
         stdout, stderr = process.communicate()
-        # Check the exit status
+        # 終了ステータスを確認する
         exit_status = process.returncode
         if exit_status != 0:
             errors.append(stderr)
 
-    print(f"Tested {len(src_paths)} files")
-    print(f"Found exception in {len(errors)} files")
+    print(f"{len(src_paths)} 個のファイルをテストしました")
+    print(f"{len(errors)} 個のファイルで例外が見つかりました")
     if len(errors) > 0:
         raise RuntimeError("\n\n".join(errors))

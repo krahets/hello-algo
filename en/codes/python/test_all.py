@@ -6,11 +6,11 @@ env = os.environ.copy()
 env["PYTHONIOENCODING"] = "utf-8"
 
 if __name__ == "__main__":
-    # find source code files
+    # Find source code files
     src_paths = sorted(glob.glob("chapter_*/*.py"))
     errors = []
 
-    # run python code
+    # Run Python code
     for src_path in src_paths:
         process = subprocess.Popen(
             ["python", src_path],
@@ -20,7 +20,7 @@ if __name__ == "__main__":
             env=env,
             encoding='utf-8'
         )
-        # Wait for the process to complete, and get the output and error messages
+        # Wait for the process to finish and collect its output and error messages
         stdout, stderr = process.communicate()
         # Check the exit status
         exit_status = process.returncode
@@ -28,6 +28,6 @@ if __name__ == "__main__":
             errors.append(stderr)
 
     print(f"Tested {len(src_paths)} files")
-    print(f"Found exception in {len(errors)} files")
+    print(f"Found exceptions in {len(errors)} files")
     if len(errors) > 0:
         raise RuntimeError("\n\n".join(errors))

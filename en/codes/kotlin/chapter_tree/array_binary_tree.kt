@@ -9,31 +9,31 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-/* Binary tree class represented by array */
+/* Binary tree class using an array representation */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
-    /* List capacity */
+    /* List size */
     fun size(): Int {
         return tree.size
     }
 
-    /* Get value of node at index i */
+    /* Get the value of the node at index i */
     fun _val(i: Int): Int? {
-        // If index out of bounds, return null to represent empty position
+        // If the index is out of bounds, return null to represent an empty position
         if (i < 0 || i >= size()) return null
         return tree[i]
     }
 
-    /* Get index of left child node of node at index i */
+    /* Get the left child index of the node at index i */
     fun left(i: Int): Int {
         return 2 * i + 1
     }
 
-    /* Get index of right child node of node at index i */
+    /* Get the right child index of the node at index i */
     fun right(i: Int): Int {
         return 2 * i + 2
     }
 
-    /* Get index of parent node of node at index i */
+    /* Get the parent index of the node at index i */
     fun parent(i: Int): Int {
         return (i - 1) / 2
     }
@@ -41,7 +41,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* Level-order traversal */
     fun levelOrder(): MutableList<Int?> {
         val res = mutableListOf<Int?>()
-        // Traverse array directly
+        // Traverse the array directly
         for (i in 0..<size()) {
             if (_val(i) != null)
                 res.add(_val(i))
@@ -51,7 +51,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 
     /* Depth-first traversal */
     fun dfs(i: Int, order: String, res: MutableList<Int?>) {
-        // If empty position, return
+        // Return if this position is empty
         if (_val(i) == null)
             return
         // Preorder traversal
@@ -89,39 +89,39 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    // Initialize binary tree
-    // Here we use a function to generate binary tree directly from list
+    // Initialize the binary tree
+    // Use a helper function that builds a binary tree directly from a list
     val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
     val root = TreeNode.listToTree(arr)
-    println("\nInitialize binary tree\n")
-    println("Array representation of binary tree:")
+    println("\nInitialize the binary tree\n")
+    println("Array representation of the binary tree:")
     println(arr)
-    println("Linked list representation of binary tree:")
+    println("Linked representation of the binary tree:")
     printTree(root)
 
-    // Binary tree class represented by array
+    // Binary tree class using an array representation
     val abt = ArrayBinaryTree(arr)
 
-    // Access node
+    // Access a node
     val i = 1
     val l = abt.left(i)
     val r = abt.right(i)
     val p = abt.parent(i)
-    println("Current node index is $i, value is ${abt._val(i)}")
-    println("Its left child index is $l, value is ${abt._val(l)}")
-    println("Its right child index is $r, value is ${abt._val(r)}")
-    println("Its parent node index is $p, value is ${abt._val(p)}")
+    println("Current node: index = $i, value = ${abt._val(i)}")
+    println("Its left child: index = $l, value = ${abt._val(l)}")
+    println("Its right child: index = $r, value = ${abt._val(r)}")
+    println("Its parent: index = $p, value = ${abt._val(p)}")
 
-    // Traverse tree
+    // Traverse the tree
     var res = abt.levelOrder()
-    println("\nLevel-order traversal is: $res")
+    println("\nLevel-order traversal: $res")
     res = abt.preOrder()
-    println("Pre-order traversal is: $res")
+    println("Preorder traversal: $res")
     res = abt.inOrder()
-    println("In-order traversal is: $res")
+    println("Inorder traversal: $res")
     res = abt.postOrder()
-    println("Post-order traversal is: $res")
+    println("Postorder traversal: $res")
 }
