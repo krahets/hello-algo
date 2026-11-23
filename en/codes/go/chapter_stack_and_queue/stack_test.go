@@ -45,7 +45,7 @@ func TestStack(t *testing.T) {
 }
 
 func TestArrayStack(t *testing.T) {
-	// Initialize the stack and assign it to an interface
+	// Initialize the stack
 	stack := newArrayStack()
 
 	// Push elements onto the stack

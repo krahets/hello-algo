@@ -17,7 +17,7 @@ func (h *minHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-// Pop implements heap.Interface by removing the last element, where heap.Pop has moved the top element
+// Pop is a heap.Interface method that pops the last element from the slice (heap.Pop has already swapped the top element of the heap to the end)
 func (h *minHeap) Pop() any {
 	// The element to remove is stored at the end
 	last := (*h)[len(*h)-1]

@@ -52,7 +52,7 @@ size_t hashStr = hash<string>()(str);
 cout << "Хеш-значение строки «" << str << "» = " << hashStr << "\n";
 // Хеш-значение строки «Hello Algo» = 15466937326284535026
 
-// В C++ встроенный std::hash() предоставляет вычисление хеша только для базовых типов данных
+// В C++ встроенный std::hash() предоставляет вычисление хеша только для базовых типов данных и некоторых типов стандартной библиотеки (например, std::string)
 // Вычисление хеша для массивов и объектов нужно реализовывать самостоятельно
 ```
 
@@ -239,8 +239,8 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("Хеш-значение объекта узла {:?} = {}", node, hash_node);
-// Хеш-значение объекта узла RefCell { value: ListNode { val: 42, next: None } } = 15387811073369036852
+println!("Хеш-значение значения в узле {:?} = {}", node, hash_node);
+// Хеш-значение значения в узле RefCell { value: ListNode { val: 42, next: None } } = 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"

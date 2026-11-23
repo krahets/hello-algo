@@ -52,7 +52,7 @@ size_t hashStr = hash<string>()(str);
 cout << "String '" << str << "' has hash value " << hashStr << "\n";
 // String 'Hello 算法' has hash value 15466937326284535026
 
-// In C++, the built-in std::hash() only computes hash values for basic data types
+// In C++, the built-in std::hash() only computes hash values for basic data types and some standard library types (such as std::string)
 // Hashing arrays and objects requires a custom implementation
 ```
 
@@ -239,8 +239,8 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("Node object {:?} has hash value {}", node, hash_node);
-// Node object RefCell { value: ListNode { val: 42, next: None } } has hash value 15387811073369036852
+println!("The value in node {:?} has hash value {}", node, hash_node);
+// The value in node RefCell { value: ListNode { val: 42, next: None } } has hash value 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"

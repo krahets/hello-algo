@@ -160,7 +160,7 @@ func (h *intHeap) Push(x any) {
     *h = append(*h, x.(int))
 }
 
-// Функция Pop интерфейса heap.Interface, реализующая извлечение элемента с вершины кучи
+// Функция Pop интерфейса heap.Interface: извлекает последний элемент среза (heap.Pop заранее перемещает вершину кучи в конец)
 func (h *intHeap) Pop() any {
     // Элемент, который нужно удалить из кучи, хранится в конце
     last := (*h)[len(*h)-1]
@@ -201,7 +201,6 @@ func TestHeap(t *testing.T) {
     heap.Push(maxHeap, 2)
     heap.Push(maxHeap, 5)
     heap.Push(maxHeap, 4)
-    PrintHeap(*maxHeap)
 
     /* Получение элемента с вершины кучи */
     top := maxHeap.Top()

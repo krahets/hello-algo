@@ -24,6 +24,6 @@ int main() {
     size_t hashStr = hash<string>()(str);
     cout << "String " << str << " has hash value " << hashStr << "\n";
 
-    // In C++, the built-in std::hash() only computes hash values for basic data types
+    // In C++, the built-in std::hash() only computes hash values for basic data types and some standard library types (such as std::string)
     // Hashing arrays and objects requires a custom implementation
 }

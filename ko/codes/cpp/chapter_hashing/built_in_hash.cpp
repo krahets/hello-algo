@@ -24,6 +24,6 @@ int main() {
     size_t hashStr = hash<string>()(str);
     cout << "문자열 " << str << " → 해시값: " << hashStr << "\n";
 
-    // C++의 내장 std::hash()는 기본 데이터 타입에 대한 해시값 계산만 제공한다
+    // C++의 내장 std::hash()는 기본 데이터 타입과 일부 표준 라이브러리 타입(예: std::string)에 대한 해시값 계산만 제공한다
     // 배열과 객체의 해시값 계산은 직접 구현해야 한다
 }

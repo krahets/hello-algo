@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("节点对象 {:?} 的哈希值为 {}", node, hash);
+    println!("节点 {:?} 中节点值的哈希值为 {}", node, hash);
 }

@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("Node object {:?} has hash value {}", node, hash);
+    println!("The value in node {:?} has hash value {}", node, hash);
 }

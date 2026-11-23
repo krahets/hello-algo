@@ -45,7 +45,7 @@ func TestStack(t *testing.T) {
 }
 
 func TestArrayStack(t *testing.T) {
-	// スタックを初期化し、インターフェースで受け取る
+	// スタックを初期化する
 	stack := newArrayStack()
 
 	// 要素をプッシュする
