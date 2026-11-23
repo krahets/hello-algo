@@ -21,7 +21,7 @@ public class fractional_knapsack {
             items[i] = new Item(wgt[i], val[i]);
         }
         // Sort by value per unit weight, item.v / item.w, in descending order
-        Array.Sort(items, (x, y) => (y.v / y.w).CompareTo(x.v / x.w));
+        Array.Sort(items, (x, y) => ((double)y.v / y.w).CompareTo((double)x.v / x.w));
         // Repeatedly make greedy choices
         double res = 0;
         foreach (Item item in items) {

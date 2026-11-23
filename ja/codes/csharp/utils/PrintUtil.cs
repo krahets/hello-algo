@@ -124,8 +124,8 @@ public static class PrintUtil {
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
-        Console.WriteLine("ヒープの木構造表現：");
         Console.WriteLine(string.Join(',', list.ToList()));
+        Console.WriteLine("ヒープの木構造表現：");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }

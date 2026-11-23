@@ -21,7 +21,7 @@ public class fractional_knapsack {
             items[i] = new Item(wgt[i], val[i]);
         }
         // Отсортировать по удельной стоимости item.v / item.w в порядке убывания
-        Array.Sort(items, (x, y) => (y.v / y.w).CompareTo(x.v / x.w));
+        Array.Sort(items, (x, y) => ((double)y.v / y.w).CompareTo((double)x.v / x.w));
         // Циклический жадный выбор
         double res = 0;
         foreach (Item item in items) {

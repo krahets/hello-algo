@@ -21,7 +21,7 @@ public class fractional_knapsack {
             items[i] = new Item(wgt[i], val[i]);
         }
         // 단위 가치 item.v / item.w를 기준으로 내림차순 정렬한다
-        Array.Sort(items, (x, y) => (y.v / y.w).CompareTo(x.v / x.w));
+        Array.Sort(items, (x, y) => ((double)y.v / y.w).CompareTo((double)x.v / x.w));
         // 탐욕적 선택을 반복한다
         double res = 0;
         foreach (Item item in items) {
