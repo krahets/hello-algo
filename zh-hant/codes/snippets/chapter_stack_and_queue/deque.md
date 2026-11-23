@@ -150,7 +150,7 @@ let peekFirst = deque.first! // 佇列首元素
 let peekLast = deque.last! // 佇列尾元素
 
 /* 元素出列 */
-// 使用 Array 模擬時 popFirst 的複雜度為 O(n)
+// 使用 Array 模擬時 removeFirst 的複雜度為 O(n)
 let popFirst = deque.removeFirst() // 佇列首元素出列
 let popLast = deque.removeLast() // 佇列尾元素出列
 

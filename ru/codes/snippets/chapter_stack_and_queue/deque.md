@@ -150,7 +150,7 @@ let peekFirst = deque.first! // Элемент в голове
 let peekLast = deque.last! // Элемент в хвосте
 
 /* Извлечение элемента из очереди */
-// При использовании Array для имитации popFirst имеет сложность O(n)
+// При использовании Array для имитации removeFirst имеет сложность O(n)
 let popFirst = deque.removeFirst() // Извлечь элемент из головы
 let popLast = deque.removeLast() // Извлечь элемент из хвоста
 

@@ -150,7 +150,7 @@ let peekFirst = deque.first! // Front element
 let peekLast = deque.last! // Rear element
 
 /* Dequeue an element */
-// When using Array to simulate a deque, popFirst has O(n) complexity
+// When using Array to simulate a deque, removeFirst has O(n) complexity
 let popFirst = deque.removeFirst() // Dequeue the front element
 let popLast = deque.removeLast() // Dequeue the rear element
 

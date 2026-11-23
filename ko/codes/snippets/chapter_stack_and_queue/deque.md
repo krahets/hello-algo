@@ -150,7 +150,7 @@ let peekFirst = deque.first! // 맨 앞 원소
 let peekLast = deque.last! // 맨 뒤 원소
 
 /* 원소 꺼내기 */
-// Array로 구현할 때 popFirst의 시간 복잡도는 O(n)이다
+// Array로 구현할 때 removeFirst의 복잡도는 O(n)이다
 let popFirst = deque.removeFirst() // 맨 앞 원소를 꺼낸다
 let popLast = deque.removeLast() // 맨 뒤 원소를 꺼낸다
 

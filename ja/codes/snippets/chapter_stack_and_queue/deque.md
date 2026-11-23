@@ -150,7 +150,7 @@ let peekFirst = deque.first! // キューの先頭要素
 let peekLast = deque.last! // キューの末尾要素
 
 /* 要素をデキューする */
-// Array で再現する場合、popFirst の計算量は O(n)
+// Array で再現する場合、removeFirst の計算量は O(n)
 let popFirst = deque.removeFirst() // キューの先頭要素をデキューする
 let popLast = deque.removeLast() // キューの末尾要素をデキューする
 

@@ -27,7 +27,7 @@ enum Deque {
         print("맨 뒤 원소 peekLast = \(peekLast)")
 
         /* 원소 꺼내기 */
-        // Array로 구현할 때 popFirst의 시간 복잡도는 O(n)이다
+        // Array로 구현할 때 removeFirst의 복잡도는 O(n)이다
         let popFirst = deque.removeFirst()
         print("맨 앞에서 꺼낸 원소 popFirst = \(popFirst), 꺼낸 후 deque = \(deque)")
         let popLast = deque.removeLast()

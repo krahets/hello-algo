@@ -27,7 +27,7 @@ enum Deque {
         print("Rear element peekLast = \(peekLast)")
 
         /* Dequeue an element */
-        // When using Array to simulate a deque, popFirst has O(n) complexity
+        // When using Array to simulate a deque, removeFirst has O(n) complexity
         let popFirst = deque.removeFirst()
         print("Element dequeued from the front, popFirst = \(popFirst); after dequeueing, deque = \(deque)")
         let popLast = deque.removeLast()
