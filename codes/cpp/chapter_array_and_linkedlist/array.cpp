@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* 扩展数组长度 */
 int *extend(int *nums, int size, int enlarge) {
     // 初始化一个扩展长度后的数组
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // 将原数组中的所有元素复制到新数组
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -69,7 +69,7 @@ int find(int *nums, int size, int target) {
 int main() {
     /* 初始化数组 */
     int size = 5;
-    int *arr = new int[size];
+    int *arr = new int[size]{};
     cout << "数组 arr = ";
     printArray(arr, size);
 

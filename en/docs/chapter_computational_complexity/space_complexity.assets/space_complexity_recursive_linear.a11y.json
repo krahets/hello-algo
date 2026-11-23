@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "Stack space of recursive calls",
+  "summary": "Stack space depends on how many calls remain active at once, as each nested recursive call adds a stack frame.",
+  "context": [
+    "Here n is a positive integer, counted below under standard execution without tail-call optimization."
+  ],
+  "description": [],
+  "result": "Each level uses constant local space, and at maximum depth n levels coexist simultaneously for O(n) peak stack space; releasing frames afterward one by one does not reduce the peak already reached.",
+  "frames": [
+    {
+      "id": "source-35",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
+      "title": "Stack space of recursive calls",
+      "explanation": "The left column, \"Recurse downward\", steps down by 1 from linear_recur(n) to the base case linear_recur(1), spanned by a brace labeled \"Recursion depth n\". Because outer calls wait for inner calls to finish, n stack frames coexist at the deepest point; control then unwinds up the right column, \"Return upward\", freeing each level's stack frame only as it returns. Although the right column writes return 0 whereas the current Python code uses a bare return (returning None), that difference does not affect the stack-space count."
+    }
+  ]
+}

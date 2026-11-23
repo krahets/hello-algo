@@ -12,15 +12,15 @@ import utils.ListNode
 fun main() {
     val num = 3
     val hashNum = num.hashCode()
-    println("정수 = $num, 해시값 = $hashNum")
+    println("정수 $num → 해시값: $hashNum")
 
     val bol = true
     val hashBol = bol.hashCode()
-    println("불리언 값 = $bol, 해시값 = $hashBol")
+    println("불리언 값 $bol → 해시값: $hashBol")
 
     val dec = 3.14159
     val hashDec = dec.hashCode()
-    println("소수 = $dec, 해시값 = $hashDec")
+    println("소수 $dec → 해시값: $hashDec")
 
     val str = "Hello 算法"
     val hashStr = str.hashCode()
@@ -32,5 +32,5 @@ fun main() {
 
     val obj = ListNode(0)
     val hashObj = obj.hashCode()
-    println("노드 객체 = $obj, 해시값 = $hashObj")
+    println("노드 객체 $obj → 해시값: $hashObj")
 }

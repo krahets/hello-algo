@@ -34,7 +34,7 @@ class ArrayQueue {
         return queSize == 0;
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     public void push(int num) {
         if (queSize == capacity()) {
             System.out.println("큐가 가득 찼다");
@@ -48,7 +48,7 @@ class ArrayQueue {
         queSize++;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     public int pop() {
         int num = peek();
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -81,7 +81,7 @@ public class array_queue {
         int capacity = 10;
         ArrayQueue queue = new ArrayQueue(capacity);
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -93,7 +93,7 @@ public class array_queue {
         int peek = queue.peek();
         System.out.println("맨 앞 원소 peek = " + peek);
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int pop = queue.pop();
         System.out.println("큐에서 꺼낸 원소 pop = " + pop + ", 큐에서 꺼낸 후 queue = " + Arrays.toString(queue.toArray()));
 
@@ -109,7 +109,7 @@ public class array_queue {
         for (int i = 0; i < 10; i++) {
             queue.push(i);
             queue.pop();
-            System.out.println("반복 " + i + " 회에서 삽입 + 꺼내기를 수행한 후 queue = " + Arrays.toString(queue.toArray()));
+            System.out.println("반복 " + i + " 회차에서 삽입 + 꺼내기를 수행한 후 queue = " + Arrays.toString(queue.toArray()));
         }
     }
 }

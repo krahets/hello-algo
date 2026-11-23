@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "title": "전위 순회의 재귀 과정",
+  "summary": "노드가 7개인 이진 트리를 전위 순회하며, 노드를 방문할 때와 위로 되돌아갈 때의 차이를 보여 준다.",
+  "context": [
+    "입력은 노드 7개로 이루어진 일반 이진 트리다. 루트는 1이다. 1의 왼쪽 자식은 2, 오른쪽 자식은 3이다. 2의 왼쪽과 오른쪽 자식은 각각 4와 5, 3의 왼쪽과 오른쪽 자식은 각각 6과 7이다. 4, 5, 6, 7은 리프 노드다.",
+    "전위 순회는 루트, 왼쪽 서브트리, 오른쪽 서브트리 순으로 진행한다. 비어 있지 않은 노드에 처음 도달하면 바로 그 값을 기록하고 왼쪽과 오른쪽 서브트리를 차례로 재귀 호출한다. 빈 노드에 도달한 호출은 곧바로 반환한다."
+  ],
+  "description": [
+    "호출 경로는 루트에서 현재 노드까지 아직 끝나지 않은 재귀 호출을 순서대로 나타낸다. 다음 11단계에서는 빈 노드에 대한 호출을 생략했다. 이 중 7단계는 노드에 처음 들어가고, 4단계는 위로 돌아간다. 4단계와 9단계에서는 왼쪽 리프에서 부모로 돌아가 오른쪽 서브트리로 갈 준비를 한다. 6단계와 11단계에서는 두 층을 연달아 거슬러 올라간다."
+  ],
+  "frames": [
+    {
+      "id": "source-99",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step1.png",
+      "title": "루트 노드 1 방문",
+      "explanation": "루트 노드 1에서 시작해 1을 기록한다. 호출 경로는 1, 출력은 [1]이다. 왼쪽 서브트리(2, 4, 5)와 오른쪽 서브트리(3, 6, 7)는 모두 아직 방문하지 않았다. 다음은 왼쪽 자식 2다.",
+      "key_state": "호출 경로는 1, 출력은 [1]이다.",
+      "announcement": "루트 노드 1을 방문해 출력이 [1]이 되었다."
+    },
+    {
+      "id": "source-100",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step2.png",
+      "title": "왼쪽 자식 2 방문",
+      "explanation": "1에서 왼쪽 자식 2로 내려가 2를 기록한다. 호출 경로는 1 → 2, 출력은 [1, 2]다. 2의 두 자식인 리프 4와 5, 루트의 오른쪽 서브트리(3, 6, 7)는 아직 방문하지 않았다. 다음은 4다.",
+      "key_state": "호출 경로는 1 → 2, 출력은 [1, 2]다.",
+      "announcement": "왼쪽 자식 2를 방문해 출력이 [1, 2]가 되었다."
+    },
+    {
+      "id": "source-101",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step3.png",
+      "title": "리프 노드 4 방문",
+      "explanation": "2에서 왼쪽 리프 4로 내려가 4를 기록한다. 호출 경로는 1 → 2 → 4, 출력은 [1, 2, 4]다. 4의 양쪽 빈 서브트리에 대한 호출은 곧바로 반환하므로 다음에는 2로 돌아간다. 노드 5와 루트의 오른쪽 서브트리(3, 6, 7)는 아직 방문하지 않았다.",
+      "key_state": "호출 경로는 1 → 2 → 4, 출력은 [1, 2, 4]다.",
+      "announcement": "리프 노드 4를 방문해 출력이 [1, 2, 4]가 되었다."
+    },
+    {
+      "id": "source-102",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step4.png",
+      "title": "4에서 2로 복귀",
+      "explanation": "리프 4 처리를 마치고 부모 2로 돌아간다. 호출 경로는 다시 1 → 2다. 돌아갈 때는 값을 기록하지 않으므로 출력은 [1, 2, 4] 그대로다. 2의 왼쪽 서브트리를 마쳤고 다음에는 오른쪽 자식 5로 간다. 루트의 오른쪽 서브트리(3, 6, 7)는 아직 방문하지 않았다.",
+      "key_state": "호출 경로는 1 → 2, 출력은 [1, 2, 4]다. 다음은 2의 오른쪽 자식 5다.",
+      "announcement": "리프 4에서 부모 2로 돌아왔다. 출력은 [1, 2, 4] 그대로다. 다음은 2의 오른쪽 자식 5다."
+    },
+    {
+      "id": "source-103",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step5.png",
+      "title": "리프 노드 5 방문",
+      "explanation": "2에서 오른쪽 리프 5로 내려가 5를 기록한다. 호출 경로는 1 → 2 → 5, 출력은 [1, 2, 4, 5]다. 이제 루트의 왼쪽 서브트리에 있는 노드를 모두 방문했지만 호출에서 돌아가는 과정이 남아 있다. 5의 양쪽 빈 서브트리에 대한 호출은 곧바로 반환한다. 루트의 오른쪽 서브트리(3, 6, 7)는 아직 방문하지 않았다.",
+      "key_state": "호출 경로는 1 → 2 → 5, 출력은 [1, 2, 4, 5]다.",
+      "announcement": "리프 노드 5를 방문해 출력이 [1, 2, 4, 5]가 되었다."
+    },
+    {
+      "id": "source-104",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step6.png",
+      "title": "5에서 2를 거쳐 1로 복귀",
+      "explanation": "5 처리를 마치고 2로 돌아간다. 2의 양쪽 서브트리도 처리를 마쳤으므로 루트 1까지 돌아간다. 이제 호출 경로에는 1만 남고 출력은 [1, 2, 4, 5] 그대로다. 루트의 왼쪽 서브트리를 마쳤으므로 다음에는 아직 방문하지 않은 오른쪽 서브트리(3, 6, 7)의 첫 노드 3으로 간다.",
+      "key_state": "호출 경로는 1, 출력은 [1, 2, 4, 5]다. 다음은 루트 1의 오른쪽 자식 3이다.",
+      "announcement": "리프 5에서 2를 거쳐 루트 1로 돌아왔다. 출력은 [1, 2, 4, 5] 그대로다. 다음은 루트 1의 오른쪽 자식 3이다."
+    },
+    {
+      "id": "source-105",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step7.png",
+      "title": "오른쪽 자식 3 방문",
+      "explanation": "루트 1에서 오른쪽 자식 3으로 내려가 3을 기록한다. 호출 경로는 1 → 3, 출력은 [1, 2, 4, 5, 3]이다. 3의 왼쪽 리프 6과 오른쪽 리프 7은 아직 방문하지 않았다. 다음은 6이다.",
+      "key_state": "호출 경로는 1 → 3, 출력은 [1, 2, 4, 5, 3]이다.",
+      "announcement": "오른쪽 자식 3을 방문해 출력이 [1, 2, 4, 5, 3]이 되었다."
+    },
+    {
+      "id": "source-106",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step8.png",
+      "title": "리프 노드 6 방문",
+      "explanation": "3에서 왼쪽 리프 6으로 내려가 6을 기록한다. 호출 경로는 1 → 3 → 6, 출력은 [1, 2, 4, 5, 3, 6]이다. 6의 양쪽 빈 서브트리에 대한 호출은 곧바로 반환하므로 다음에는 3으로 돌아간다. 이제 오른쪽 리프 7만 방문하면 된다.",
+      "key_state": "호출 경로는 1 → 3 → 6, 출력은 [1, 2, 4, 5, 3, 6]이다.",
+      "announcement": "리프 노드 6을 방문해 출력이 [1, 2, 4, 5, 3, 6]이 되었다."
+    },
+    {
+      "id": "source-107",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step9.png",
+      "title": "6에서 3으로 복귀",
+      "explanation": "리프 6 처리를 마치고 부모 3으로 돌아간다. 호출 경로는 다시 1 → 3, 출력은 [1, 2, 4, 5, 3, 6] 그대로다. 3의 왼쪽 서브트리를 마쳤으므로 다음에는 아직 방문하지 않은 오른쪽 리프 7로 간다.",
+      "key_state": "호출 경로는 1 → 3, 출력은 [1, 2, 4, 5, 3, 6]이다. 다음은 3의 오른쪽 자식 7이다.",
+      "announcement": "리프 6에서 부모 3으로 돌아왔다. 출력은 [1, 2, 4, 5, 3, 6] 그대로다. 다음은 3의 오른쪽 자식 7이다."
+    },
+    {
+      "id": "source-108",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step10.png",
+      "title": "리프 노드 7 방문",
+      "explanation": "3에서 오른쪽 리프 7로 내려가 7을 기록한다. 호출 경로는 1 → 3 → 7이다. 출력 [1, 2, 4, 5, 3, 6, 7]에는 이제 모든 노드가 들어 있다. 7, 3, 1의 호출은 아직 끝나지 않았으므로 위로 돌아가는 과정이 남아 있다.",
+      "key_state": "호출 경로는 1 → 3 → 7, 출력은 [1, 2, 4, 5, 3, 6, 7]이다. 출력은 완성됐고 호출에서 돌아오는 과정이 남았다.",
+      "announcement": "마지막 리프 7을 방문해 출력 [1, 2, 4, 5, 3, 6, 7]을 완성했다. 호출에서 돌아오는 과정이 남았다."
+    },
+    {
+      "id": "source-109",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step11.png",
+      "title": "7에서 3을 거쳐 1로 돌아가 호출 종료",
+      "explanation": "7의 양쪽 빈 서브트리에 대한 호출이 끝나면 7 → 3 → 1을 따라 차례로 돌아가 루트의 호출까지 마친다. 모든 서브트리를 처리해 호출 경로가 비었다. 최종 출력은 [1, 2, 4, 5, 3, 6, 7] 그대로다.",
+      "key_state": "호출 경로가 비었다. 출력은 [1, 2, 4, 5, 3, 6, 7]이고 모든 호출이 끝났다.",
+      "announcement": "7에서 3을 거쳐 1까지 돌아와 재귀 호출을 마쳤다. 출력은 [1, 2, 4, 5, 3, 6, 7] 그대로다."
+    }
+  ],
+  "animations": {
+    "preorder-traversal": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-99"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-100"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-101"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-102"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-103"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-104"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-105"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-106"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-107"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-108"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-109"
+        }
+      ]
+    }
+  },
+  "tables": [],
+  "input_tables": []
+}

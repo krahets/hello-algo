@@ -11,7 +11,7 @@ import java.util.*;
 public class list {
     public static void main(String[] args) {
         /* Инициализация списка */
-        // Обратите внимание: тип элементов массива int[] — это обертка Integer[]
+        // Обратите внимание: массив должен иметь тип Integer[], а не int[], поскольку элементами списка могут быть только объекты класса-обертки Integer
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("Список nums = " + nums);

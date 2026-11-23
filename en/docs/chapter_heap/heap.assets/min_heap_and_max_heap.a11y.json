@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "title": "Structure and ordering of a min heap and a max heap",
+  "summary": "The min heap on the left and the max heap on the right share the same complete binary tree shape but enforce opposite parent-child ordering constraints.",
+  "context": [
+    "Both trees are 12-node complete binary trees: the top three levels are full, and the fourth level places 5 nodes contiguously from the far left. The table below lists node values by level from top to bottom, written left to right within each level; level numbers are assigned by position and are not printed in the diagram."
+  ],
+  "description": [
+    "Both trees have identical parent-child connections: each root has two children, and each node on level 2 also has two children. Across level 3 from left to right, the first two nodes have two children each, the third node has only a left child, and the fourth node is a leaf. Combining this layout with the table below determines every parent-child link."
+  ],
+  "result": "Comparing parent-child pairs down the levels shows that root 1 of the min heap is the minimum across the entire heap, while root 9 of the max heap is the maximum across the entire heap.",
+  "frames": [
+    {
+      "id": "source-140",
+      "book_path": "chapter_heap/heap.assets/min_heap_and_max_heap.png",
+      "title": "Structure and ordering of a min heap and a max heap",
+      "explanation": "The captions below the diagrams state that in the min heap every node's value is less than or equal to its children's values, whereas in the max heap every node's value is greater than or equal to its children's values. Duplicate values are allowed—for example, right node 2 on level 2 of the min heap equals its left child 2—and values within the same level or between siblings need not be ordered from left to right."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Node values from left to right at each level of the two heaps",
+      "headers": [
+        "Level",
+        "Min heap",
+        "Max heap"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "9"
+        ],
+        [
+          "2",
+          "3, 2",
+          "8, 6"
+        ],
+        [
+          "3",
+          "6, 4, 2, 6",
+          "6, 7, 5, 2"
+        ],
+        [
+          "4",
+          "8, 7, 9, 6, 5",
+          "1, 4, 3, 6, 2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "Divide and conquer for the three-disk Tower of Hanoi",
+  "summary": "Transfer the top two disks to B, move the largest disk to C, and transfer the two disks from B to C across three stages totaling seven single-disk moves.",
+  "context": [
+    "The three rods from left to right are A, B, and C, and the goal is to move the three disks on A to C. Only one top disk may be moved at a time, and a larger disk cannot rest on a smaller disk; disk lists below are written from bottom to top on each rod.",
+    "Green denotes the large disk, blue the medium disk, and orange the small disk. A solid cyan outline groups the medium and small disks to represent the size-2 subproblem f(2), without implying both disks can be lifted together."
+  ],
+  "description": [
+    "The four frames show the starting state and the end states of the three stages: each of the two f(2) stages takes three legal single-disk moves, plus one move of the large disk in between for seven moves in total. Player step numbers index frames rather than cumulative single-disk moves."
+  ],
+  "frames": [
+    {
+      "id": "source-335",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step1.png",
+      "title": "Group the top two disks as a subproblem",
+      "explanation": "Initially A = [large disk, medium disk, small disk], B = [], and C = [], with no move made yet. Freeing the bottom large disk requires moving the medium and small disks inside the cyan outline at the top of A to B first; within that f(2) subproblem, B is the destination rod and C is the auxiliary rod.",
+      "key_state": "No move yet; A holds the large, medium, and small disks from bottom to top, and B and C are empty.",
+      "announcement": "Treat the top two disks on rod A as a subproblem of size 2."
+    },
+    {
+      "id": "source-336",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step2.png",
+      "title": "Complete the two-disk subproblem: A to B",
+      "explanation": "The first f(2) stage—with A as source rod, C as auxiliary rod, and B as destination rod—has completed: small disk A → C, medium disk A → B, and small disk C → B, for three cumulative single-disk moves. Now A = [large disk], B = [medium disk, small disk], and C = [], with the cyan outline moved onto B alongside the medium and small disks. The frame jumps directly to the stage outcome without expanding those three internal moves.",
+      "key_state": "Three cumulative single-disk moves; A holds the large disk, B holds the medium then small disk from bottom to top, and C is empty.",
+      "announcement": "Using rod C as auxiliary, transfer the top two disks from A to B in three single-disk moves."
+    },
+    {
+      "id": "source-337",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step3.png",
+      "title": "Move the largest disk from A to C",
+      "explanation": "With the two smaller disks parked on B, the large disk on A is unobstructed and rod C is empty, so move the large disk from A to C. Now A = [], B = [medium disk, small disk], and C = [large disk], bringing the cumulative total to four single-disk moves while the cyan outline remains around the medium and small disks on B.",
+      "key_state": "Four cumulative single-disk moves; A is empty, B holds the medium then small disk from bottom to top, and C holds the large disk.",
+      "announcement": "Move the remaining largest disk directly from rod A to rod C."
+    },
+    {
+      "id": "source-338",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step4.png",
+      "title": "Complete the two-disk subproblem: B to C",
+      "explanation": "The second f(2) stage—with B as source rod, A as auxiliary rod, and C as destination rod—performs small disk B → A, medium disk B → C, and small disk A → C. Now A = [], B = [], and C = [large disk, medium disk, small disk], completing the transfer in seven cumulative single-disk moves with the cyan outline around the medium and small disks on C.",
+      "key_state": "Seven cumulative single-disk moves; A and B are empty, and C holds the large, medium, and small disks from bottom to top, completing the transfer.",
+      "announcement": "Using rod A as auxiliary, transfer the two disks on B to C in three more single-disk moves for seven moves in total, completing the transfer."
+    }
+  ],
+  "animations": {
+    "hanota-f3": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-335"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-336"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-337"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-338"
+        }
+      ]
+    }
+  }
+}

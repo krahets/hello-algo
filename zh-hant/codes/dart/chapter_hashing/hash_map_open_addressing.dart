@@ -35,22 +35,20 @@ class HashMapOpenAddressing {
   int findBucket(int key) {
     int index = hashFunc(key);
     int firstTombstone = -1;
-    // 線性探查，當遇到空桶時跳出
     for (int i = 0; i < _capacity; i++) {
-      if (_buckets[index] == null) break;
-      // 若遇到 key ，返回對應的桶索引
-      if (_buckets[index]!.key == key) {
+      final bucket = _buckets[index];
+      if (bucket == null) break;
+      // 記錄遇到的首個刪除標記
+      if (identical(bucket, _TOMBSTONE)) {
+        if (firstTombstone == -1) firstTombstone = index;
+      } else if (bucket.key == key) {
         // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
         if (firstTombstone != -1) {
-          _buckets[firstTombstone] = _buckets[index];
+          _buckets[firstTombstone] = bucket;
           _buckets[index] = _TOMBSTONE;
           return firstTombstone; // 返回移動後的桶索引
         }
         return index; // 返回桶索引
-      }
-      // 記錄遇到的首個刪除標記
-      if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-        firstTombstone = index;
       }
       // 計算桶索引，越過尾部則返回頭部
       index = (index + 1) % _capacity;

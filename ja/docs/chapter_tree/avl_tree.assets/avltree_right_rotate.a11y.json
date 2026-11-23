@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "title": "AVL 木の右回転",
+  "summary": "最初に平衡が崩れたノードを右回転します。まず部分木の親子のポインタをつなぎ替え、新しい部分木の根を上の親に接続します。",
+  "context": [
+    "初めの根は 4、左右の子は 3 と 5 です。3 の子は左の 1 だけ、1 の子は左の 0 だけで、0 と 5 は葉です。",
+    "平衡係数は左部分木の高さから右部分木の高さを引いた値です。高さは辺の数で測り、葉は 0、空の部分木は −1 とします。下から順に調べて最初に平衡が崩れているノードは 3 で、これを node、その左の子 1 を child と呼びます。"
+  ],
+  "description": [
+    "この例では child（1）の右部分木は空です。まず grand_child = child.right で古い参照を保存し、child.right = node を代入してから、最後に node.left = grand_child とします。古い参照は上書きする前に保存する必要があります。"
+  ],
+  "result": "部分木の高さが 1 下がり、木全体が AVL 木の平衡条件を満たす状態に戻ります。二分探索木の値の順序も保たれます。",
+  "frames": [
+    {
+      "id": "source-130",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
+      "title": "最初に平衡が崩れたノード 3 を特定",
+      "explanation": "根 4 の左右の子は 3 と 5、3 の子は左の 1 だけ、1 の子は左の 0 だけで、0 と 5 は葉です。ノードの下の平衡係数は、0 と 5 が 0、1 が 1、3 と 4 が 2 です。左の枝を下からたどると、最初に平衡が崩れているのは 3 なので、3 を根とする部分木から直します。",
+      "key_state": "根 4 の左右の子は 3 と 5、3 の左の子は 1、1 の左の子は 0 です。3 と 4 の平衡係数はともに 2 で、下から先に 3 を処理します。",
+      "announcement": "平衡係数を下から調べ、最初に平衡が崩れているノード 3 を見つけました。"
+    },
+    {
+      "id": "source-131",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
+      "title": "回転に使う 2 個のノードを指定",
+      "explanation": "node=3、child=1 とします。回転前で、根 4 の左右の子は 3 と 5、3 の子は左の 1 だけ、1 の子は左の 0 だけです。child.right は空なので、保存する grand_child も空であり、回転後の node.left も空になります。",
+      "key_state": "回転前の根 4 の左右の子は 3 と 5、3 の左の子は 1、1 の左の子は 0 です。node=3、child=1 で、child.right は空です。",
+      "announcement": "平衡が崩れた部分木の根を node = 3、その左の子を child = 1 としました。"
+    },
+    {
+      "id": "source-132",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
+      "title": "1 を根とする部分木を作る",
+      "explanation": "child の元の右の参照（空）を保存してから child.right = node、node.left = grand_child とします。新しい部分木の根は 1、左右の子は 0 と 3 で、どちらも葉です。図では親 4 の子は右の 5 だけで、新しい根 1 とはまだつながっていません。3 の元の位置の破線の円と、そこから 1 に伸びる破線は回転前との比較用で、現在の接続ではありません。回転の手順全体はまだ終わっていません。",
+      "key_state": "部分木の根 1 の左右の子は 0 と 3 です。親 4 の子は右の 5 だけで、新しい根 1 との接続はまだです。",
+      "announcement": "3 が 1 の右の子になって部分木ができました。親 4 にはまだつなぎ直していません。"
+    },
+    {
+      "id": "source-133",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
+      "title": "新しい部分木の根を親に接続",
+      "explanation": "4.left が部分木の新しい根 1 を指すようにします。根 4 の左右の子は 1 と 5、1 の左右の子は 0 と 3 で、0、3、5 は葉です。部分木の高さが 1 下がり、根 4 の平衡係数は 2 から 1 になります。木全体の通りがけ順は [0, 1, 3, 4, 5] のままです。",
+      "key_state": "接続後、根 4 の左右の子は 1 と 5、1 の左右の子は 0 と 3 です。通りがけ順は [0, 1, 3, 4, 5] で、木全体が平衡です。",
+      "announcement": "親 4 の左ポインタを新しい根 1 につなぎ、右回転が完了しました。木全体が平衡に戻りました。"
+    }
+  ],
+  "animations": {
+    "avl-right-rotation": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-130"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-131"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-132"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-133"
+        }
+      ]
+    }
+  },
+  "tables": [],
+  "input_tables": []
+}

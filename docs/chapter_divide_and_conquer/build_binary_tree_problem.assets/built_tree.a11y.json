@@ -1,0 +1,443 @@
+{
+  "schema_version": 2,
+  "title": "递归构树：向下创建节点，返回时连接子树",
+  "summary": "向下递进时依次创建节点 3、9、2、1、7，向上回溯返回时才将子树连接到父节点，最终建成五节点树。",
+  "context": [
+    "输入为前序遍历 preorder = [3, 9, 2, 1, 7] 与中序遍历 inorder = [9, 3, 1, 2, 7]，节点值互不重复。",
+    "每个递归子问题先从前序有效段首元素初始化当前根节点（向下“递”时创建节点），再按中序位置划分并递归构建左、右子树；当子调用返回子树根节点后，父调用才将其赋给当前根的 left 或 right 引用（向上“归”时建立连边）。空区间调用直接返回 None。"
+  ],
+  "description": [
+    "九幅画面展示创建节点或接回子树的时刻；空区间返回 None 的调用未单独拆成画面。每步的“构树第 N 步”表列出此时全部已创建节点及引用。“未连接”表示相应子树尚待构建或返回连接；“无”表示该节点确实没有这个子节点。"
+  ],
+  "result": "建成树的前序遍历为 [3, 9, 2, 1, 7]，中序遍历为 [9, 3, 1, 2, 7]，与输入一致。",
+  "frames": [
+    {
+      "id": "source-317",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step1.png",
+      "title": "创建根节点 3",
+      "explanation": "进入顶层调用 i = 0、中序区间 [0, 4]，由前序首项创建根 3。在中序索引 1 处找到 3，左子树为 [9]，右子树的中序为 [1, 2, 7]、前序为 [2, 1, 7]。当前只创建了根 3，没有父子边；接下来先递归构建左子树。",
+      "key_state": "已创建根节点 3；左右子树尚未连接。",
+      "announcement": "创建根节点 3，并划分出左子树 [9] 与右子树的三个节点。",
+      "state_tables": [
+        {
+          "caption": "构树第 1 步：创建根节点 3 后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "未连接",
+              "未连接"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-318",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step2.png",
+      "title": "创建叶节点 9",
+      "explanation": "进入左子问题 i = 1、中序区间 [0, 0]，创建节点 9。它的左右中序子区间均为空，对应空子树调用返回 None，所以 9 是叶节点。构建节点 9 的调用尚未把它返回给根 3，当前两个节点之间没有连边。",
+      "key_state": "叶节点 9 已创建，但尚未连接到根节点 3。",
+      "announcement": "递归进入左子问题并创建叶节点 9，准备向上返回。",
+      "state_tables": [
+        {
+          "caption": "构树第 2 步：创建叶节点 9 后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "未连接",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-319",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step3.png",
+      "title": "连接左子树 9",
+      "explanation": "构建节点 9 的调用将它返回给根 3，父调用执行 3.left = 9，建立第一条边。根 3 的右子树尚待构建，接下来转向右子问题。",
+      "key_state": "已建立连边 3.left = 9；根 3 的右子树待构建。",
+      "announcement": "将返回的叶节点 9 连接到根节点 3 的左侧。",
+      "state_tables": [
+        {
+          "caption": "构树第 3 步：连接左子树 9 后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-320",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step4.png",
+      "title": "创建右子树根 2",
+      "explanation": "进入右子问题 i = 2、中序区间 [2, 4]，从有效前序段 [2, 1, 7] 的首项创建节点 2。节点 2 在中序中的索引 m = 3，其左子问题为 [1]、右子问题为 [7]。当前 3.left = 9 保持不变；2 的两侧尚未连接，以 2 为根的调用尚未返回给 3，因此 3 与 2 之间没有连边。",
+      "key_state": "已创建节点 2，左右子树待构建；当前只连 3.left = 9，2 尚未接回 3。",
+      "announcement": "创建右子树根节点 2，并划分其左右子问题 [1] 和 [7]。",
+      "state_tables": [
+        {
+          "caption": "构树第 4 步：创建右子树根 2 后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "未连接",
+              "未连接"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-321",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step5.png",
+      "title": "创建叶节点 1",
+      "explanation": "进入节点 2 的左子问题 i = 3、中序区间 [2, 2]，创建叶节点 1。它两侧的中序子区间为空，但构建节点 1 的调用尚未把它返回给节点 2。当前已创建四个节点，只建立了 3.left = 9；1 未接到 2，2 也未接回 3。",
+      "key_state": "叶节点 1 已创建；当前只连 3.left = 9，1 尚未接到 2，2 尚未接回 3。",
+      "announcement": "创建叶节点 1，准备向上返回给父节点 2。",
+      "state_tables": [
+        {
+          "caption": "构树第 5 步：创建叶节点 1 后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "未连接",
+              "未连接"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-322",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step6.png",
+      "title": "连接节点 2 的左子树",
+      "explanation": "构建节点 1 的调用返回给节点 2，父调用执行 2.left = 1。当前已建立 3.left = 9 和 2.left = 1；节点 2 的右子问题 [7] 尚待构建，2 仍未返回并连接到 3。",
+      "key_state": "当前已连 3.left = 9、2.left = 1；2.right 待构建，2 尚未接回 3。",
+      "announcement": "将返回的叶节点 1 连接到节点 2 的左侧。",
+      "state_tables": [
+        {
+          "caption": "构树第 6 步：连接节点 2 的左子树后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "未连接"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-323",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step7.png",
+      "title": "创建叶节点 7",
+      "explanation": "进入节点 2 的右子问题 i = 4、中序区间 [4, 4]，创建最后一个叶节点 7。五个节点均已创建；当前已有 3.left = 9 和 2.left = 1，而 2.right、3.right 尚未连接。构建节点 7 的调用即将把它返回给节点 2。",
+      "key_state": "五个节点均已创建；当前已连 3.left = 9、2.left = 1，2.right、3.right 尚未连接。",
+      "announcement": "创建叶节点 7，准备向上返回给父节点 2。",
+      "state_tables": [
+        {
+          "caption": "构树第 7 步：创建叶节点 7 后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "未连接"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ],
+            [
+              "7",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-324",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step8.png",
+      "title": "连接节点 2 的右子树",
+      "explanation": "构建节点 7 的调用返回给节点 2，父调用执行 2.right = 7。当前三条边为 3.left = 9、2.left = 1、2.right = 7；以 2 为根的子树已完整，准备返回给根 3，3 与 2 之间尚未连边。",
+      "key_state": "当前已连 3.left = 9；以 2 为根的子树（左 1、右 7）已建成，2 尚未接回 3。",
+      "announcement": "将叶节点 7 连接到节点 2 的右侧，完成以 2 为根的子树。",
+      "state_tables": [
+        {
+          "caption": "构树第 8 步：连接节点 2 的右子树后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "未连接"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "7"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ],
+            [
+              "7",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-325",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step9.png",
+      "title": "连接完整右子树",
+      "explanation": "以 2 为根的右子树返回给顶层调用，执行 3.right = 2，建立最后一条边。当前 3 左接 9、右接 2，2 左接 1、右接 7；9、1、7 是叶节点。四条父子边全部建立，顶层函数返回根 3，构建完成。",
+      "key_state": "整棵树构建完成：3 左接 9、右接 2，2 左接 1、右接 7。",
+      "announcement": "将以 2 为根的完整右子树连接到根节点 3 右侧，返回根 3 完成构建。",
+      "state_tables": [
+        {
+          "caption": "构树第 9 步：连接完整右子树后的节点及引用",
+          "headers": [
+            "节点",
+            "左子节点",
+            "右子节点"
+          ],
+          "rows": [
+            [
+              "3",
+              "9",
+              "2"
+            ],
+            [
+              "9",
+              "无",
+              "无"
+            ],
+            [
+              "2",
+              "1",
+              "7"
+            ],
+            [
+              "1",
+              "无",
+              "无"
+            ],
+            [
+              "7",
+              "无",
+              "无"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "build-binary-tree": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-317"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-318"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-319"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-320"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-321"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-322"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-323"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-324"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-325"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "固定遍历输入",
+      "headers": [
+        "索引",
+        "前序值",
+        "中序值"
+      ],
+      "rows": [
+        [
+          "0",
+          "3",
+          "9"
+        ],
+        [
+          "1",
+          "9",
+          "3"
+        ],
+        [
+          "2",
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "1",
+          "2"
+        ],
+        [
+          "4",
+          "7",
+          "7"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

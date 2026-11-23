@@ -75,7 +75,7 @@ int main() {
 
     /* Initialize the array */
     int size = 5;
-    int arr[5];
+    int arr[5] = {0};
     printf("Array arr = ");
     printArray(arr, size);
 

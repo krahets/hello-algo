@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "title": "辞書を引くときの二分探索の手順",
+  "summary": "ピンインのアルファベット順に並んだ辞書から、ピンインが r で始まる漢字を 1 つ探します。全 5 画面で、第 1 ステップで初期範囲を示し、第 2～5 ステップで 1 回ずつページを開きます。",
+  "context": [],
+  "description": [
+    "各フレームには左から右へ a～z の全 26 個の文字ブロックが並んでいます。緑色はまだ探索範囲に残っている文字、青緑色は目標の r、薄い灰色は除外済みの文字を表します。第 2～5 フレームでは、下から上を指す「中央のページ」のポインタが現在開いた文字を示します。"
+  ],
+  "frames": [
+    {
+      "id": "source-10",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
+      "title": "辞書での探索目標と初期範囲を確認",
+      "explanation": "初期の探索範囲は a～z の全 26 文字を覆っており、まだページは開いていません。目標の r は青緑色、残りの 25 文字は緑色です。",
+      "key_state": "初期状態：探索範囲は a～z の全文字で、目標はピンインが r で始まる漢字を見つけること。",
+      "announcement": "辞書での探索目標はピンインの頭文字が r の漢字を見つけることで、初期の探索範囲は順番に並んだ a～z の全 26 文字です。"
+    },
+    {
+      "id": "source-11",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png",
+      "title": "中央のページで m を確認し、前半を除外",
+      "explanation": "1 回目として辞書全体のほぼ中央のページを開くと、ポインタは m を指します。r は m より後にあるため、a～m を除外して薄い灰色にし、残りの n～z は色付きのまま（目標の r は青緑色）にします。",
+      "key_state": "中央のページを開いて m に当たり、r は m より後なので a～m を除外し、残りの範囲は n～z。",
+      "announcement": "辞書の中央のページを開くと頭文字は m でした。r は m より後なので前半の a～m を除外し、探索範囲は n～z に縮まります。"
+    },
+    {
+      "id": "source-12",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png",
+      "title": "残りの範囲の中央のページで t を確認し、後半を除外",
+      "explanation": "残りの区間 n～z の中央の位置を開くと、ポインタは t を指します。r は t より前にあるため、t～z を除外します。これで左側の a～m と右側の t～z が薄い灰色になり、n～s だけが色付きで残ります（そのうち r は青緑色）。",
+      "key_state": "残りの区間 n～z の中央のページを開いて t に当たり、r は t より前なので t～z を除外。現在の範囲は n～s（左側の a～m と右側の t～z は除外済み）。",
+      "announcement": "残りの範囲の中央のページを開くと頭文字は t でした。r は t より前なので後半の t～z を除外し、探索範囲は n～s に縮まります。"
+    },
+    {
+      "id": "source-13",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png",
+      "title": "残りの範囲の中央のページで p を確認し、さらに前半を除外",
+      "explanation": "残りの区間 n～s の中央の位置を開くと、ポインタは p を指します。r は p より後にあるため、n～p を除外します。これで左側の a～p と右側の t～z が薄い灰色になり、q、r、s だけが色付きで残ります（q と s は緑色、r は青緑色）。",
+      "key_state": "残りの区間 n～s の中央のページを開いて p に当たり、r は p より後なので n～p を除外。現在は q、r、s のみ残り、左側の a～p と右側の t～z は除外済み。",
+      "announcement": "残りの範囲の中央のページを開くと頭文字は p でした。r は p より後なので前半の n～p を除外し、探索範囲は q、r、s だけになります。"
+    },
+    {
+      "id": "source-14",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
+      "title": "中央のページで r を確認し、探索完了",
+      "explanation": "残りの区間 q、r、s の中央の位置を開くと、ポインタが目標の r を指し、頭文字が r の漢字を見つけて探索が完了します。これは第 5 ステップであり、4 回目にページを開いた場面です。画面にはこのページを開く前の範囲を示すため q と s が緑色、r が青緑色のまま残っており、a～p と t～z は薄い灰色のままです。",
+      "key_state": "探索完了：残りの区間 q、r、s の中央のページを開いて目標の文字 r に到達。",
+      "announcement": "残りの区間 q、r、s の中央のページを開き、目標の頭文字 r にそのまま当たって辞書の探索が完了しました。"
+    }
+  ],
+  "animations": {
+    "dictionary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-10"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-11"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-12"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-13"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-14"
+        }
+      ]
+    }
+  }
+}

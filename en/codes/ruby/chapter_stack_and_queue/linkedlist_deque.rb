@@ -4,7 +4,7 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Doubly linked list node
+### Doubly linked list node ###
 class ListNode
   attr_accessor :val
   attr_accessor :next # Reference to the next node

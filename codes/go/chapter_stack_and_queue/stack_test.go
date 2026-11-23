@@ -45,7 +45,7 @@ func TestStack(t *testing.T) {
 }
 
 func TestArrayStack(t *testing.T) {
-	// 初始化栈, 使用接口承接
+	// 初始化栈
 	stack := newArrayStack()
 
 	// 元素入栈

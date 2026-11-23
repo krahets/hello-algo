@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "title": "Key-value mapping and lookup in a hash table",
+  "summary": "Each student ID key maps to a name value, so entering a student ID looks up the corresponding name.",
+  "context": [
+    "At the top is the heading \"Hash table\". Inside the light blue rounded box in the center, five key-value pairs are arranged in two rows: green boxes in the upper row for \"Student ID key\" and teal boxes in the lower row for \"Name value\", with downward arrows from each student ID to its name showing the key-to-value mapping."
+  ],
+  "description": [
+    "The table below lists the five pairs from left to right as shown in the figure. Their horizontal order is purely illustrative and does not require student IDs to be sorted numerically; neither a bucket array nor a concrete hash function is drawn here."
+  ],
+  "tables": [
+    {
+      "caption": "Student IDs and names in the figure",
+      "headers": [
+        "Student ID key",
+        "Name value"
+      ],
+      "rows": [
+        [
+          "12836",
+          "小哈"
+        ],
+        [
+          "15937",
+          "小啰"
+        ],
+        [
+          "16750",
+          "小算"
+        ],
+        [
+          "13276",
+          "小法"
+        ],
+        [
+          "10583",
+          "小鸭"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "frames": [
+    {
+      "id": "source-81",
+      "book_path": "chapter_hashing/hash_map.assets/hash_table_lookup.png",
+      "title": "Five key-value mappings from student IDs to names",
+      "explanation": "The gray box at the bottom reads \"Enter a student ID key to look up the corresponding name value\" and gives a lookup time complexity of O(1). This reflects ideal or average efficiency with a well-distributed hash function and an appropriate load factor; under severe collisions, lookup can still degrade to O(n)."
+    }
+  ]
+}

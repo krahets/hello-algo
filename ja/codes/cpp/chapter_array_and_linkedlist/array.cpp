@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* 配列の長さを拡張する */
 int *extend(int *nums, int size, int enlarge) {
     // 拡張後の長さの配列を初期化する
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // 元の配列の全要素を新しい配列にコピーする
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -69,7 +69,7 @@ int find(int *nums, int size, int target) {
 int main() {
     /* 配列を初期化する */
     int size = 5;
-    int *arr = new int[size];
+    int *arr = new int[size]{};
     cout << "配列 arr = ";
     printArray(arr, size);
 

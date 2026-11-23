@@ -76,7 +76,7 @@ int main() {
 
     /* Access a node */
     ListNode *node = access(n0, 3);
-    cout << "Value of the linked list node at index 3 = " << node->val << endl;
+    cout << "Value of the node at index 3 in the linked list = " << node->val << endl;
 
     /* Find a node */
     int index = find(n0, 2);

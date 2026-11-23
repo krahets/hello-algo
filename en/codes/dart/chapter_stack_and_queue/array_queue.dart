@@ -105,6 +105,6 @@ void main() {
   for (int i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    print("Round $i: after enqueue + dequeue, queue = ${queue.toArray()}");
+    print("After round $i of enqueue + dequeue, queue = ${queue.toArray()}");
   }
 }

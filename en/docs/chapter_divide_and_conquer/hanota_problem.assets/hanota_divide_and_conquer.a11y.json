@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "title": "Three-stage decomposition of the Tower of Hanoi",
+  "summary": "Break moving n disks from A to C into three ordered subproblems: n - 1 disks A → B, the largest disk A → C, and n - 1 disks B → C.",
+  "context": [
+    "The original problem f(n) moves n disks stacked from smallest on top to largest at the bottom from source rod A to destination rod C, illustrated here with five disks. Only one top disk may be moved at a time, and a larger disk may never sit on a smaller disk.",
+    "At the top level, A is the source rod, B is the auxiliary rod, and C is the destination rod; as recursion enters each subproblem, the three rods swap their source, auxiliary, and destination roles accordingly."
+  ],
+  "description": [
+    "The left side summarizes moving all five disks from A to C, while the right side lists the three stages from top to bottom: first move the top n - 1 smaller disks from A to B using C; next move the largest disk from A to C as the single-disk subproblem f(1); finally move the n - 1 smaller disks from B onto the largest disk on C using A.",
+    "Both the first and third stages must still be recursively decomposed into legal single-disk moves rather than lifting a stack of smaller disks all at once. Dashed outlines mark positions before each stage and solid fills mark positions after it across the same five disks.",
+    "The table below lists for each stage the move task, auxiliary rod, and resulting disk configuration on rods A, B, and C."
+  ],
+  "frames": [
+    {
+      "id": "source-327",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_divide_and_conquer.png",
+      "title": "Three-stage decomposition of the Tower of Hanoi",
+      "explanation": "These three sequentially dependent stages imply the move-count recurrence T(n) = 2T(n - 1) + 1 (not printed in the figure). Although the first and third subproblems have the same size, they assign different source, auxiliary, and destination rods."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Three stages for the five-disk example",
+      "headers": [
+        "Stage",
+        "Move task",
+        "Auxiliary rod",
+        "Rod A after stage",
+        "Rod B after stage",
+        "Rod C after stage"
+      ],
+      "rows": [
+        [
+          "Move smaller disks aside",
+          "Four smaller disks A → B",
+          "C",
+          "Largest disk",
+          "Four smaller disks",
+          "Empty"
+        ],
+        [
+          "Move largest disk",
+          "Largest disk A → C",
+          "Not needed",
+          "Empty",
+          "Four smaller disks",
+          "Largest disk"
+        ],
+        [
+          "Move smaller disks onto target",
+          "Four smaller disks B → C",
+          "A",
+          "Empty",
+          "Empty",
+          "All five disks stacked smallest on top to largest at bottom"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "title": "Finding and recording all nodes with value 7 during preorder traversal",
+  "summary": "Traverse the seven nodes in root-left-right preorder, matching and recording the root's left child 7 followed by node 3's right child 7.",
+  "context": [
+    "The binary tree has seven nodes: root 1 has left and right children 7 and 3; the left node 7 has left and right children 4 and 5; node 3 has left and right children 6 and another 7; nodes 4, 5, 6, and the right 7 are all leaf nodes.",
+    "The problem requires finding and recording every node in the tree with value 7 rather than stopping at the first match. The two cyan-highlighted 7s lie in different branches and represent two distinct node objects."
+  ],
+  "description": [
+    "Green dashed arrows trace the depth-first traversal contour around the binary tree, while the orange dot to the left of each node marks the preorder visit point: check the node's value immediately upon entering the node, then recurse into its left subtree and right subtree in turn.",
+    "The full-tree preorder visit sequence is [1, 7, 4, 5, 3, 6, 7]. Whenever a node with value 7 is reached, it is appended to the result list and traversal continues through the remaining branches; thus after matching the left node 7, the search still visits its children 4 and 5."
+  ],
+  "frames": [
+    {
+      "id": "source-339",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_nodes.png",
+      "title": "Check and record target nodes at the preorder visit point",
+      "explanation": "The code records two node objects in res, in order of discovery: the root's left child 7 and node 3's right child 7; displayed by node value, this is [7, 7], corresponding to two nodes at different positions in the tree."
+    }
+  ]
+}

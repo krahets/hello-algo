@@ -24,6 +24,6 @@ int main() {
     size_t hashStr = hash<string>()(str);
     cout << "String " << str << " has hash value " << hashStr << "\n";
 
-    // C++ std::hash provides hashing for fundamental types and selected standard-library types
-    // For arrays and unsupported object types, supply your own hash implementation
+    // In C++, the built-in std::hash() only computes hash values for basic data types and some standard library types (such as std::string)
+    // Hashing arrays and objects requires a custom implementation
 }

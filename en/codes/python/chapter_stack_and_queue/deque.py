@@ -17,7 +17,7 @@ if __name__ == "__main__":
     deq.append(4)
     deq.appendleft(3)  # Add to the front
     deq.appendleft(1)
-    print("Deque deq =", deq)
+    print("Deque deque =", deq)
 
     # Access an element
     front: int = deq[0]  # Front element
@@ -28,10 +28,10 @@ if __name__ == "__main__":
     # Dequeue an element
     pop_front: int = deq.popleft()  # Dequeue the front element
     print("Element dequeued from the front, pop_front =", pop_front)
-    print("After dequeuing from the front, deq =", deq)
+    print("After dequeuing from the front, deque =", deq)
     pop_rear: int = deq.pop()  # Dequeue the rear element
     print("Element dequeued from the rear, pop_rear =", pop_rear)
-    print("After dequeuing from the rear, deq =", deq)
+    print("After dequeuing from the rear, deque =", deq)
 
     # Get the deque size
     size: int = len(deq)

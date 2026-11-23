@@ -24,7 +24,7 @@ def unbounded_knapsack_dp(wgt, val, cap)
   dp[n][cap]
 end
 
-### 個数制限なしナップサック問題：空間を最適化した動的計画法 ##3
+### 個数制限なしナップサック問題：空間を最適化した動的計画法 ###
 def unbounded_knapsack_dp_comp(wgt, val, cap)
   n = wgt.length
   # dp テーブルを初期化する

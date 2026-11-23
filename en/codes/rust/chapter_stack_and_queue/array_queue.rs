@@ -120,6 +120,6 @@ fn main() {
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("After enqueueing and dequeueing in round {:?}, queue = {:?}", i, queue.to_vector());
+        println!("After round {:?} of enqueue + dequeue, queue = {:?}", i, queue.to_vector());
     }
 }

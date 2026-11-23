@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* 배열 길이 확장 */
 int *extend(int *nums, int size, int enlarge) {
     // 길이를 확장한 배열을 초기화한다
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // 원래 배열의 모든 원소를 새 배열에 복사한다
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -69,7 +69,7 @@ int find(int *nums, int size, int target) {
 int main() {
     /* 배열 초기화 */
     int size = 5;
-    int *arr = new int[size];
+    int *arr = new int[size]{};
     cout << "배열 arr = ";
     printArray(arr, size);
 

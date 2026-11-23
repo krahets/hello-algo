@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "title": "Growth trends of five common time complexity classes",
+  "summary": "Compare how five time complexity classes grow as input size increases.",
+  "context": [
+    "The horizontal axis shows input size n with ticks from 1 to 14; the vertical axis shows the number of operations T(n) with no numeric ticks. The curves illustrate asymptotic growth trends rather than measured operation counts from a program or unscaled function values."
+  ],
+  "description": [
+    "The table below orders the curves from lowest to highest at the right edge of the plot, matching the upward arrow on the right labeled \"Lower → higher; better → worse\"."
+  ],
+  "frames": [
+    {
+      "id": "source-27",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_common_types.png",
+      "title": "Growth trends of five common time complexity classes",
+      "explanation": "In the left portion of the plot several curves cross—for instance, the red exponential curve starts out below both the blue linear line and the orange quadratic curve before overtaking them. Those intersections are purely schematic and cannot be used to read off exact operation counts or crossover thresholds for specific inputs. What the plot conveys is that for sufficiently large n, lower complexity classes grow more slowly in operation count."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Five time complexity classes and curve shapes",
+      "headers": [
+        "Complexity (low to high at right edge)",
+        "Shape in figure"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "Constant O(1)",
+          "Green horizontal line whose operation count does not change with n"
+        ],
+        [
+          "Logarithmic O(log n)",
+          "Cyan curve rising slowly with gradually decreasing slope"
+        ],
+        [
+          "Linear O(n)",
+          "Blue straight line rising at a constant slope"
+        ],
+        [
+          "Quadratic O(n²)",
+          "Orange curve bending upward with increasingly steep slope"
+        ],
+        [
+          "Exponential O(2ⁿ)",
+          "Red curve staying near the bottom early on and rising steeply afterward"
+        ]
+      ]
+    }
+  ]
+}

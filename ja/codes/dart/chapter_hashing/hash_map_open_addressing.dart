@@ -35,22 +35,20 @@ class HashMapOpenAddressing {
   int findBucket(int key) {
     int index = hashFunc(key);
     int firstTombstone = -1;
-    // 線形探索法で探索し、空のバケットに到達したら終了する
     for (int i = 0; i < _capacity; i++) {
-      if (_buckets[index] == null) break;
-      // key が見つかった場合、対応するバケットのインデックスを返す
-      if (_buckets[index]!.key == key) {
+      final bucket = _buckets[index];
+      if (bucket == null) break;
+      // 最初に見つかった削除マーカーを記録する
+      if (identical(bucket, _TOMBSTONE)) {
+        if (firstTombstone == -1) firstTombstone = index;
+      } else if (bucket.key == key) {
         // それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
         if (firstTombstone != -1) {
-          _buckets[firstTombstone] = _buckets[index];
+          _buckets[firstTombstone] = bucket;
           _buckets[index] = _TOMBSTONE;
           return firstTombstone; // 移動後のバケットのインデックスを返す
         }
         return index; // バケットのインデックスを返す
-      }
-      // 最初に見つかった削除マーカーを記録する
-      if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-        firstTombstone = index;
       }
       // バケットのインデックスを計算し、末尾を越えたら先頭に戻る
       index = (index + 1) % _capacity;

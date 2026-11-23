@@ -32,10 +32,10 @@ func TestBinaryTree(t *testing.T) {
 	p := NewTreeNode(0)
 	n1.Left = p
 	p.Left = n2
-	fmt.Println("After inserting node p")
+	fmt.Println("After inserting node P")
 	PrintTree(n1)
 	// Remove a node
 	n1.Left = n2
-	fmt.Println("After removing node p")
+	fmt.Println("After removing node P")
 	PrintTree(n1)
 }

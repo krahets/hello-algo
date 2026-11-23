@@ -75,7 +75,7 @@ int main() {
 
     /* 配列を初期化する */
     int size = 5;
-    int arr[5];
+    int arr[5] = {0};
     printf("配列 arr = ");
     printArray(arr, size);
 

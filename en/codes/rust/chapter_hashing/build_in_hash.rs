@@ -15,19 +15,19 @@ fn main() {
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
     let hash_num = num_hasher.finish();
-    println!("Hash of integer {}: {}", num, hash_num);
+    println!("Integer {} has hash value {}", num, hash_num);
 
     let bol = true;
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    println!("Hash of boolean {}: {}", bol, hash_bol);
+    println!("Boolean {} has hash value {}", bol, hash_bol);
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("Hash of the bit representation of floating-point value {}: {}", dec, hash_dec);
+    println!("Floating-point number {} has hash value {}", dec, hash_dec);
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
@@ -39,11 +39,11 @@ fn main() {
     let mut tup_hasher = DefaultHasher::new();
     arr.hash(&mut tup_hasher);
     let hash_tup = tup_hasher.finish();
-    println!("Hash of tuple {:?}: {}", arr, hash_tup);
+    println!("Tuple {:?} has hash value {}", arr, hash_tup);
 
     let node = ListNode::new(42);
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("Hash of the value in node {:?}: {}", node, hash);
+    println!("The value in node {:?} has hash value {}", node, hash);
 }

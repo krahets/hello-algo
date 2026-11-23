@@ -36,6 +36,5 @@ void main() {
   print("\nTraverse keys only: Key");
   map.keys.forEach((key) => print(key));
   print("\nTraverse values only: Value");
-  map.forEach((key, value) => print("$value"));
   map.values.forEach((value) => print(value));
 }

@@ -29,7 +29,7 @@ class LinkedListQueue:
         return self._size == 0
 
     def push(self, num: int):
-        """큐에 삽입"""
+        """원소 삽입"""
         # 꼬리 노드 뒤에 num을 추가한다
         node = ListNode(num)
         # 큐가 비어 있으면 머리와 꼬리 노드가 모두 해당 노드를 가리키게 한다
@@ -43,7 +43,7 @@ class LinkedListQueue:
         self._size += 1
 
     def pop(self) -> int:
-        """큐에서 꺼내기"""
+        """원소 꺼내기"""
         num = self.peek()
         # 머리 노드를 삭제한다
         self._front = self._front.next
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     # 큐 초기화
     queue = LinkedListQueue()
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     peek: int = queue.peek()
     print("맨 앞 원소 front =", peek)
 
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop_front: int = queue.pop()
     print("큐에서 꺼낸 원소 pop =", pop_front)
     print("큐에서 꺼낸 후 queue =", queue.to_list())

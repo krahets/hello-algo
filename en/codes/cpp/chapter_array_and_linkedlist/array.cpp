@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* Extend the array length */
 int *extend(int *nums, int size, int enlarge) {
     // Initialize an array with the extended length
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // Copy all elements from the original array to the new array
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -69,7 +69,7 @@ int find(int *nums, int size, int target) {
 int main() {
     /* Initialize the array */
     int size = 5;
-    int *arr = new int[size];
+    int *arr = new int[size]{};
     cout << "Array arr = ";
     printArray(arr, size);
 

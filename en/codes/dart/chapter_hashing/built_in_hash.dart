@@ -18,7 +18,7 @@ void main() {
 
   double dec = 3.14159;
   int hashDec = dec.hashCode;
-  print("Hash value of decimal $dec: $hashDec");
+  print("Floating-point number $dec has hash value $hashDec");
 
   String str = "Hello 算法";
   int hashStr = str.hashCode;
@@ -26,9 +26,9 @@ void main() {
 
   List arr = [12836, "小哈"];
   int hashArr = arr.hashCode;
-  print("Hash value of array $arr: $hashArr");
+  print("Array $arr has hash value $hashArr");
 
   ListNode obj = new ListNode(0);
   int hashObj = obj.hashCode;
-  print("Hash value of node object $obj: $hashObj");
+  print("Node object $obj has hash value $hashObj");
 }

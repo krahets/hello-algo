@@ -84,7 +84,7 @@ func TestArrayQueue(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("第", i, "回のエンキューとデキューの後 queue =")
+		fmt.Print("第 ", i, " 回のエンキューとデキューの後 queue =")
 		PrintSlice(queue.toSlice())
 	}
 }

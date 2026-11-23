@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "title": "双向链表实现双向队列",
+  "summary": "维护头尾节点及双向引用，在两端增删时保持中间节点不动。",
+  "context": [
+    "左侧是对外表现的双向队列，右侧是竖直的双向链表；两者从上到下均为队首到队尾，头、尾节点分别对应队首、队尾。相邻节点以向下的 next 和向上的 prev 相连。"
+  ],
+  "description": [
+    "五帧连续展示初始、队尾加入 4、队首加入 1、队尾取出 4、队首取出 1。新加入的 4 为青色，1 为橙色；原有的 3、2、5 保持原位置。"
+  ],
+  "result": "已维护头尾引用时，队尾出队可沿尾节点的 prev 直接找到新队尾，无须从头遍历。两端入队和出队都只修改端点的局部引用，均为 O(1)。",
+  "frames": [
+    {
+      "id": "source-71",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step1.png",
+      "title": "初始双向队列",
+      "explanation": "初始双向链表为 3 ⇄ 2 ⇄ 5，头节点为 3、尾节点为 5；左侧队列对应 [3, 2, 5]，无返回值。",
+      "key_state": "头 3、尾 5，当前 [3, 2, 5]。",
+      "announcement": "初始双向链表为 3 ⇄ 2 ⇄ 5，头为 3、尾为 5。"
+    },
+    {
+      "id": "source-72",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step2_push_last.png",
+      "title": "队尾加入 4",
+      "explanation": "执行 push_last(4)，在 5 下方接入新节点 4，令 5.next 指向 4、4.prev 指向 5。当前链表为 3 ⇄ 2 ⇄ 5 ⇄ 4，头仍为 3，尾更新为 4，无返回值。",
+      "key_state": "头 3、尾 4，当前 [3, 2, 5, 4]。",
+      "announcement": "令 5 与 4 双向连接，尾引用更新为 4。"
+    },
+    {
+      "id": "source-73",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step3_push_first.png",
+      "title": "队首加入 1",
+      "explanation": "执行 push_first(1)，在 3 上方接入新节点 1，令 1.next 指向 3、3.prev 指向 1。当前链表为 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4，头更新为 1，尾仍为 4，无返回值。",
+      "key_state": "头 1、尾 4，当前 [1, 3, 2, 5, 4]。",
+      "announcement": "令 1 与 3 双向连接，头引用更新为 1。"
+    },
+    {
+      "id": "source-74",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step4_pop_last.png",
+      "title": "队尾取出 4",
+      "explanation": "执行 pop_last()，沿 4.prev 直接找到 5，将尾引用改为 5，断开 5 与 4 的双向连接，返回 4。当前链表为 1 ⇄ 3 ⇄ 2 ⇄ 5，头为 1、尾为 5。",
+      "key_state": "头 1、尾 5，当前 [1, 3, 2, 5]，返回 4。",
+      "announcement": "沿 4.prev 找到 5 并更新尾引用，断开节点 4 并返回 4。"
+    },
+    {
+      "id": "source-75",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step5_pop_first.png",
+      "title": "队首取出 1",
+      "explanation": "执行 pop_first()，沿 1.next 找到 3，将头引用改为 3，断开 1 与 3 的双向连接，返回 1。当前链表恢复为 3 ⇄ 2 ⇄ 5，头为 3、尾为 5。",
+      "key_state": "头 3、尾 5，当前 [3, 2, 5]，返回 1。",
+      "announcement": "沿 1.next 找到 3 并更新头引用，断开节点 1 并返回 1。"
+    }
+  ],
+  "animations": {
+    "linkedlist-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-71"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-72"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-73"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-74"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-75"
+        }
+      ]
+    }
+  }
+}

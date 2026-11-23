@@ -21,7 +21,7 @@ public class built_in_hash {
 
         double dec = 3.14159;
         int hashDec = Double.hashCode(dec);
-        System.out.println("Decimal " + dec + " has hash value " + hashDec);
+        System.out.println("Floating-point number " + dec + " has hash value " + hashDec);
 
         String str = "Hello 算法";
         int hashStr = str.hashCode();

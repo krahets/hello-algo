@@ -9,7 +9,7 @@
 // TypeScript에는 내장 큐가 없으므로 Array를 큐로 사용할 수 있다
 const queue: number[] = [];
 
-/* 큐에 원소 삽입 */
+/* 원소 삽입 */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -21,7 +21,7 @@ console.log('큐 queue =', queue);
 const peek = queue[0];
 console.log('맨 앞 원소 peek =', peek);
 
-/* 큐에서 원소 꺼내기 */
+/* 원소 꺼내기 */
 // 내부 자료 구조가 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
 const pop = queue.shift();
 console.log('큐에서 꺼낸 원소 pop =', pop, ', 큐에서 꺼낸 후 queue = ', queue);

@@ -12,15 +12,15 @@ enum BuiltInHash {
     static func main() {
         let num = 3
         let hashNum = num.hashValue
-        print("Hash value of integer \(num): \(hashNum)")
+        print("Integer \(num) has hash value \(hashNum)")
 
         let bol = true
         let hashBol = bol.hashValue
-        print("Hash value of Boolean \(bol): \(hashBol)")
+        print("Boolean \(bol) has hash value \(hashBol)")
 
         let dec = 3.14159
         let hashDec = dec.hashValue
-        print("Hash value of floating-point number \(dec): \(hashDec)")
+        print("Floating-point number \(dec) has hash value \(hashDec)")
 
         let str = "Hello 算法"
         let hashStr = str.hashValue
@@ -32,6 +32,6 @@ enum BuiltInHash {
 
         let obj = ListNode(x: 0)
         let hashObj = obj.hashValue
-        print("Hash value of node object \(obj): \(hashObj)")
+        print("Node object \(obj) has hash value \(hashObj)")
     }
 }

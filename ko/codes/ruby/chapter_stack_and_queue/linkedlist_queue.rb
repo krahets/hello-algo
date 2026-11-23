@@ -23,7 +23,7 @@ class LinkedListQueue
     @front.nil?
   end
 
-  ### 큐에 삽입 ###
+  ### 원소 삽입 ###
   def push(num)
     # 꼬리 노드 뒤에 num을 추가한다
     node = ListNode.new(num)
@@ -41,7 +41,7 @@ class LinkedListQueue
     @size += 1
   end
 
-  ### 큐에서 꺼내기 ###
+  ### 원소 꺼내기 ###
   def pop
     num = peek
     # 머리 노드를 삭제한다
@@ -74,7 +74,7 @@ if __FILE__ == $0
   # 큐 초기화
   queue = LinkedListQueue.new
 
-  # 큐에 원소 삽입
+  # 원소 삽입
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -86,7 +86,7 @@ if __FILE__ == $0
   peek = queue.peek
   puts "맨 앞 원소 front = #{peek}"
 
-  # 큐에서 원소 꺼내기
+  # 원소 꺼내기
   pop_front = queue.pop
   puts "큐에서 꺼낸 원소 pop = #{pop_front}"
   puts "큐에서 꺼낸 후 queue = #{queue.to_array}"

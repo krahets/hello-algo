@@ -7,10 +7,10 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### 실행 코드 ###
 if __FILE__ == $0
   # 덱 초기화
-  # Ruby에는 내장 덱이 없으므로 Array를 덱으로 사용한다
+  # Ruby에는 내장 덱이 없으므로 Array를 덱으로 사용해야 한다
   deque = []
 
-  # 큐에 원소 삽입
+  # 원소 삽입
   deque << 2
   deque << 5
   deque << 4
@@ -25,7 +25,7 @@ if __FILE__ == $0
   peek_last = deque.last
   puts "맨 뒤 원소 peek_last = #{peek_last}"
 
-  # 큐에서 원소 꺼내기
+  # 원소 꺼내기
   # 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 유의한다
   pop_front = deque.shift
   puts "맨 앞에서 꺼낸 원소 pop_front = #{pop_front}, 맨 앞에서 꺼낸 후 deque = #{deque}"

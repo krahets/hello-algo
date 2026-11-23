@@ -27,14 +27,14 @@ int isEmpty(Queue *q) {
     return q->size == 0;
 }
 
-/* 큐 삽입 연산 */
+/* 원소 삽입 연산 */
 void enqueue(Queue *q, Vertex *vet) {
     q->vertices[q->rear] = vet;
     q->rear = (q->rear + 1) % MAX_SIZE;
     q->size++;
 }
 
-/* 큐에서 꺼내는 연산 */
+/* 원소를 꺼내는 연산 */
 Vertex *dequeue(Queue *q) {
     Vertex *vet = q->vertices[q->front];
     q->front = (q->front + 1) % MAX_SIZE;

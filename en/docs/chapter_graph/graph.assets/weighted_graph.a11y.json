@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "title": "Unweighted and weighted graphs: attaching numeric weights to edges",
+  "summary": "Attach numeric weights to the same set of connections to compare unweighted and weighted graphs.",
+  "context": [
+    "Both the left and right figures contain vertices 1 through 5 and the same seven undirected edges, whose complete edge set is listed in the table below. On the left, \"Unweighted graph (All edges are equivalent)\" has no numeric labels on its edges; on the right, \"Weighted graph (Edges have weights)\" labels each edge with a decimal value."
+  ],
+  "description": [
+    "\"All edges are equivalent\" means that existing edges are not distinguished by strength or length, not that every pair of vertices is connected. In the right figure, weights range from 0.2 to 1.0, with no physical unit specified in the drawing. The table below pairs each edge's numeric weight with its visual position in the figure."
+  ],
+  "frames": [
+    {
+      "id": "source-176",
+      "book_path": "chapter_graph/graph.assets/weighted_graph.png",
+      "title": "Unweighted and weighted graphs: attaching numeric weights to edges",
+      "explanation": "Adding weights does not change which vertices are connected by edges. Depending on the application, weights can represent quantities such as distance, cost, or affinity, supporting computations like shortest paths and minimum spanning trees."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Edge weights in the undirected graph on the right",
+      "headers": [
+        "Edge",
+        "Weight",
+        "Position in figure"
+      ],
+      "rows": [
+        [
+          "1—2",
+          "0.5",
+          "Center diagonal edge"
+        ],
+        [
+          "1—3",
+          "0.2",
+          "Left vertical edge"
+        ],
+        [
+          "1—5",
+          "0.25",
+          "Top edge"
+        ],
+        [
+          "2—3",
+          "0.3",
+          "Bottom horizontal edge"
+        ],
+        [
+          "2—4",
+          "1.0",
+          "Bottom-right diagonal edge"
+        ],
+        [
+          "2—5",
+          "0.7",
+          "Center vertical edge"
+        ],
+        [
+          "4—5",
+          "0.88",
+          "Top-right diagonal edge"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     tup = (12836, "Сяо Ха")
     hash_tup = hash(tup)
-    print(f"Хеш-значение кортежа {tup} = {hash(hash_tup)}")
+    print(f"Хеш-значение кортежа {tup} = {hash_tup}")
 
     obj = ListNode(0)
     hash_obj = hash(obj)

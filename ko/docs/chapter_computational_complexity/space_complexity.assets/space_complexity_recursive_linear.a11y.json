@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "재귀 호출의 스택 공간",
+  "summary": "공간 사용량은 아직 반환되지 않고 동시에 존재하는 호출 수에 달려 있으며, 한 층씩 재귀할 때마다 스택 프레임이 쌓인다.",
+  "context": [
+    "n은 양의 정수이며, 아래에서는 꼬리 호출 최적화를 적용하지 않은 실행 과정을 기준으로 센다."
+  ],
+  "description": [],
+  "result": "각 층은 상수 크기의 지역 공간을 차지하고 가장 깊을 때 n개 층이 동시에 존재하므로 최대 스택 공간은 O(n)이다. 이후 한 층씩 해제하더라도 이미 도달한 최댓값은 달라지지 않는다.",
+  "frames": [
+    {
+      "id": "source-35",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
+      "title": "재귀 호출의 스택 공간",
+      "explanation": "왼쪽 열 ‘아래로 재귀 호출’은 linear_recur(n)부터 한 층씩 1을 줄여 기저 사례 linear_recur(1)에 이르며 중괄호로 ‘재귀 깊이 n’을 표시한다. 바깥쪽 호출이 안쪽 호출의 반환을 기다리므로 가장 깊은 지점에서는 스택 프레임 n개가 동시에 존재한다. 이어서 오른쪽 열 ‘위로 반환’을 따라 한 층씩 반환하며, 한 층이 반환될 때마다 그 층의 스택 프레임이 해제된다. 그림 오른쪽 열에는 return 0이라 적혀 있고 현재 Python 코드는 값 없는 return으로 None을 반환하지만, 이 차이는 스택 공간 계산에 영향을 주지 않는다."
+    }
+  ]
+}

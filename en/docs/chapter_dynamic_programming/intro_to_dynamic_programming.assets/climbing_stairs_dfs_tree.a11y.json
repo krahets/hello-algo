@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "title": "Overlapping subproblems in brute-force climbing stairs search",
+  "summary": "When brute-force recursion splits top-down from dp[9], identical subproblems do not share results and are repeatedly expanded across different branches.",
+  "context": [
+    "In the climbing stairs problem, each move climbs 1 or 2 steps, and dp[i] denotes the number of ways to reach step i. Brute-force search recursively decomposes each state using dp[i] = dp[i - 1] + dp[i - 2] until reaching the base cases dp[1] = 1 or dp[2] = 2."
+  ],
+  "description": [
+    "Computing dp[9] requires dp[8] and dp[7], and computing dp[8] again requires dp[7] and dp[6]. The two occurrences of dp[7] in the brute-force tree do not share a single computation; each occurrence is expanded and solved all over again.",
+    "The figure draws only the first four levels, with 15 state nodes in total, and 16 ellipses along the bottom indicating continued recursion down to the base cases dp[1] or dp[2]. Counts in the table (such as dp[5] appearing 4 times) cover only the four drawn levels, not the full recursion.",
+    "The tables below first list the four drawn levels and then summarize by state. Left and right subproblems in the decomposition table follow the recurrence; the children of every level-4 node are shown only as ellipses in the figure rather than drawn individually. In particular, dp[4] and dp[3] appear only on level 4, so their subproblems in those two rows come from the recurrence and are not drawn in the figure."
+  ],
+  "frames": [
+    {
+      "id": "source-369",
+      "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png",
+      "title": "Overlapping subproblems in brute-force climbing stairs search",
+      "explanation": "The caption at the bottom of the figure connects overlapping subproblems to exponential runtime: brute-force recursion repeatedly solves the same states, resulting in an O(2ⁿ) time bound, where 2ⁿ means 2 to the power n."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Recursive states across the four levels shown",
+      "headers": [
+        "Level (root is level 1)",
+        "States (left to right)"
+      ],
+      "rows": [
+        [
+          "1",
+          "dp[9]"
+        ],
+        [
+          "2",
+          "dp[8], dp[7]"
+        ],
+        [
+          "3",
+          "dp[7], dp[6], dp[6], dp[5]"
+        ],
+        [
+          "4",
+          "dp[6], dp[5], dp[5], dp[4], dp[5], dp[4], dp[4], dp[3]"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Decomposition and occurrence counts in the first four levels",
+      "headers": [
+        "State",
+        "Left subproblem",
+        "Right subproblem",
+        "Count in first four levels"
+      ],
+      "rows": [
+        [
+          "dp[9]",
+          "dp[8]",
+          "dp[7]",
+          "1"
+        ],
+        [
+          "dp[8]",
+          "dp[7]",
+          "dp[6]",
+          "1"
+        ],
+        [
+          "dp[7]",
+          "dp[6]",
+          "dp[5]",
+          "2"
+        ],
+        [
+          "dp[6]",
+          "dp[5]",
+          "dp[4]",
+          "3"
+        ],
+        [
+          "dp[5]",
+          "dp[4]",
+          "dp[3]",
+          "4"
+        ],
+        [
+          "dp[4]",
+          "dp[3]",
+          "dp[2]",
+          "3"
+        ],
+        [
+          "dp[3]",
+          "dp[2]",
+          "dp[1]",
+          "1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

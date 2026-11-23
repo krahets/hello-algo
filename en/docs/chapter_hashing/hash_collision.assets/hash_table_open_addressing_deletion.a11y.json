@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "title": "Deletion problem in open addressing",
+  "summary": "Setting a deleted bucket directly to None in an open-addressing hash table breaks the linear-probing chain, causing subsequent colliding entries to be mistakenly reported as absent.",
+  "context": [
+    "Continuing the step-size-1 linear-probing example with starting bucket key % 100, a lookup stops as soon as it reaches a genuinely empty bucket None. Here the pair (876, I) originally at index 77 is deleted directly and replaced with None."
+  ],
+  "description": [
+    "The entries in bucket 78 and the next two slots remain in the array, but are dimmed in gray in the figure to show that lookups are cut off by the empty bucket ahead of them. The indices for 676 and 776 are not labeled directly; from the adjacent slots immediately after 78, they are inferred to be 79 and 80."
+  ],
+  "tables": [
+    {
+      "caption": "Contents of each position after deletion",
+      "headers": [
+        "Bucket or position",
+        "Contents after deletion"
+      ],
+      "rows": [
+        [
+          "00",
+          "(200,A)"
+        ],
+        [
+          "01",
+          "(500,D)"
+        ],
+        [
+          "02",
+          "(300,Y)"
+        ],
+        [
+          "76",
+          "(076,H)"
+        ],
+        [
+          "77",
+          "None, formerly (876,I)"
+        ],
+        [
+          "78",
+          "(276,E), still in bucket"
+        ],
+        [
+          "79 (inferred from adjacent slot; unlabeled in figure)",
+          "(676,T), still further down"
+        ],
+        [
+          "80 (inferred from adjacent slot; unlabeled in figure)",
+          "(776,X), still further down"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "Under the rule that probing stops at a genuinely empty slot None, deletion cannot simply clear the bucket. The chapter introduces the lazy-deletion marker TOMBSTONE so that lookups keep probing past deleted buckets; this figure shows the broken probe chain before that marker is introduced.",
+  "frames": [
+    {
+      "id": "source-87",
+      "book_path": "chapter_hashing/hash_collision.assets/hash_table_open_addressing_deletion.png",
+      "title": "Deletion problem in open addressing",
+      "explanation": "When looking up 276, probing first checks key 076 in bucket 76, which does not match, and then encounters None in bucket 77, stopping early before reaching (276, E) in bucket 78. Lookups for 676 and 776 also start at bucket 76 and are likewise cut off at 77."
+    }
+  ]
+}
