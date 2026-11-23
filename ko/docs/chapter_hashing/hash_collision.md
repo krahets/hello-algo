@@ -1440,7 +1440,7 @@ comments: true
 
       ### 적재율 ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### 조회 연산 ###
@@ -1586,19 +1586,22 @@ comments: true
             """key에 해당하는 버킷 인덱스 탐색"""
             index = self.hash_func(key)
             first_tombstone = -1
-            # 선형 탐사로 탐색하고, 빈 버킷을 만나면 반복문을 종료한다
-            while self.buckets[index] is not None:
+            for _ in range(self.capacity):
+                bucket = self.buckets[index]
+                if bucket is None:
+                    break
+                # 처음 만난 삭제 표시를 기록한다
+                if bucket is self.TOMBSTONE:
+                    if first_tombstone == -1:
+                        first_tombstone = index
                 # key를 만나면 해당 버킷 인덱스를 반환한다
-                if self.buckets[index].key == key:
+                elif bucket.key == key:
                     # 이전에 삭제 표시를 만났으면 키-값 쌍을 그 인덱스로 옮긴다
                     if first_tombstone != -1:
-                        self.buckets[first_tombstone] = self.buckets[index]
+                        self.buckets[first_tombstone] = bucket
                         self.buckets[index] = self.TOMBSTONE
                         return first_tombstone  # 옮긴 후의 버킷 인덱스를 반환한다
                     return index  # 버킷 인덱스를 반환한다
-                # 처음 만난 삭제 표시를 기록한다
-                if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                    first_tombstone = index
                 # 버킷 인덱스를 계산하고, 끝을 넘어가면 처음으로 돌아온다
                 index = (index + 1) % self.capacity
             # key가 없으면 추가할 위치의 인덱스를 반환한다
@@ -2625,21 +2628,20 @@ comments: true
       int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // 선형 탐사로 탐색하고, 빈 버킷을 만나면 반복문을 종료한다
-        while (_buckets[index] != null) {
-          // key를 만나면 해당 버킷 인덱스를 반환한다
-          if (_buckets[index]!.key == key) {
+        for (int i = 0; i < _capacity; i++) {
+          final bucket = _buckets[index];
+          if (bucket == null) break;
+          // 처음 만난 삭제 표시를 기록한다
+          if (identical(bucket, _TOMBSTONE)) {
+            if (firstTombstone == -1) firstTombstone = index;
+          } else if (bucket.key == key) {
             // 이전에 삭제 표시를 만났으면 키-값 쌍을 그 인덱스로 옮긴다
             if (firstTombstone != -1) {
-              _buckets[firstTombstone] = _buckets[index];
+              _buckets[firstTombstone] = bucket;
               _buckets[index] = _TOMBSTONE;
               return firstTombstone; // 옮긴 후의 버킷 인덱스를 반환한다
             }
             return index; // 버킷 인덱스를 반환한다
-          }
-          // 처음 만난 삭제 표시를 기록한다
-          if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-            firstTombstone = index;
           }
           // 버킷 인덱스를 계산하고, 끝을 넘어가면 처음으로 돌아온다
           index = (index + 1) % _capacity;
@@ -2968,7 +2970,7 @@ comments: true
         // 키-값 쌍을 찾으면 val을 덮어쓰고 반환한다
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             free(hashMap->buckets[index]->val);
-            hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
+            hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
             strcpy(hashMap->buckets[index]->val, val);
             hashMap->buckets[index]->val[strlen(val)] = '\0';
             return;
@@ -2976,7 +2978,7 @@ comments: true
         // 키-값 쌍이 없으면 해당 키-값 쌍을 추가한다
         Pair *pair = (Pair *)malloc(sizeof(Pair));
         pair->key = key;
-        pair->val = (char *)malloc(sizeof(strlen(val) + 1));
+        pair->val = (char *)malloc(strlen(val) + 1);
         strcpy(pair->val, val);
         pair->val[strlen(val)] = '\0';
 
@@ -3188,7 +3190,7 @@ comments: true
 
       ### 적재율 ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### key에 해당하는 버킷 인덱스 탐색 ###

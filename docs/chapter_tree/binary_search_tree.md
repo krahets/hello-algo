@@ -1383,9 +1383,9 @@ comments: true
             (None, None) | (Some(_), None) | (None, Some(_)) => {
                 // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
                 let child = left_child.or(right_child);
-                let pre = pre.unwrap();
                 // 删除节点 cur
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
+                    let pre = pre.unwrap();
                     let left = pre.borrow().left.clone();
                     if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
                         pre.borrow_mut().left = child;
@@ -1451,7 +1451,9 @@ comments: true
             // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
             TreeNode *child = cur->left != NULL ? cur->left : cur->right;
             // 删除节点 cur
-            if (pre->left == cur) {
+            if (pre == NULL) {
+                bst->root = child;
+            } else if (pre->left == cur) {
                 pre->left = child;
             } else {
                 pre->right = child;

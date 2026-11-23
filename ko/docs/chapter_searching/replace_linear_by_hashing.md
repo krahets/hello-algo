@@ -334,7 +334,7 @@ comments: true
             if (dic.ContainsKey(target - nums[i])) {
                 return [dic[target - nums[i]], i];
             }
-            dic.Add(nums[i], i);
+            dic[nums[i]] = i;
         }
         return [];
     }

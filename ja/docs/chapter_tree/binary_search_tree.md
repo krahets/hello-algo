@@ -1383,9 +1383,9 @@ comments: true
             (None, None) | (Some(_), None) | (None, Some(_)) => {
                 // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
                 let child = left_child.or(right_child);
-                let pre = pre.unwrap();
                 // ノード cur を削除する
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
+                    let pre = pre.unwrap();
                     let left = pre.borrow().left.clone();
                     if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
                         pre.borrow_mut().left = child;
@@ -1451,7 +1451,9 @@ comments: true
             // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
             TreeNode *child = cur->left != NULL ? cur->left : cur->right;
             // ノード cur を削除する
-            if (pre->left == cur) {
+            if (pre == NULL) {
+                bst->root = child;
+            } else if (pre->left == cur) {
                 pre->left = child;
             } else {
                 pre->right = child;

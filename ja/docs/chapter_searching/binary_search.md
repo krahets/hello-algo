@@ -676,7 +676,7 @@ $i$ と $j$ はともに `int` 型なので、**$i + j$ が `int` 型の値の�
         if nums[m] < target
           i = m + 1 # この場合、target は区間 [m+1, j) に存在する
         elsif nums[m] > target
-          j = m - 1 # この場合、target は区間 [i, m) に存在する
+          j = m # この場合、target は区間 [i, m) に存在する
         else
           return m  # 目的の要素が見つかったので、そのインデックスを返す
         end

@@ -2170,7 +2170,10 @@ comments: true
 
     /* 新增頂點 */
     void addVertex(GraphAdjList *graph, Vertex *vet) {
-        assert(graph != NULL && graph->size < MAX_SIZE);
+        assert(graph != NULL);
+        if (findNode(graph, vet) != NULL)
+            return;
+        assert(graph->size < MAX_SIZE);
         AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
         head->vertex = vet;
         head->next = NULL;
@@ -2182,27 +2185,6 @@ comments: true
     void removeVertex(GraphAdjList *graph, Vertex *vet) {
         AdjListNode *node = findNode(graph, vet);
         assert(node != NULL);
-        // 在鄰接表中刪除頂點 vet 對應的鏈結串列
-        AdjListNode *cur = node, *pre = NULL;
-        while (cur) {
-            pre = cur;
-            cur = cur->next;
-            free(pre);
-        }
-        // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
-        for (int i = 0; i < graph->size; i++) {
-            cur = graph->heads[i];
-            pre = NULL;
-            while (cur) {
-                pre = cur;
-                cur = cur->next;
-                if (cur && cur->vertex == vet) {
-                    pre->next = cur->next;
-                    free(cur);
-                    break;
-                }
-            }
-        }
         // 將該頂點之後的頂點向前移動，以填補空缺
         int i;
         for (i = 0; i < graph->size; i++) {
@@ -2213,6 +2195,25 @@ comments: true
             graph->heads[j] = graph->heads[j + 1];
         }
         graph->size--;
+        // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
+        for (int i = 0; i < graph->size; i++) {
+            AdjListNode *cur = graph->heads[i];
+            while (cur->next != NULL) {
+                AdjListNode *next = cur->next;
+                if (next->vertex == vet) {
+                    cur->next = next->next;
+                    free(next);
+                } else {
+                    cur = next;
+                }
+            }
+        }
+        // 在鄰接表中刪除頂點 vet 對應的鏈結串列
+        while (node != NULL) {
+            AdjListNode *next = node->next;
+            free(node);
+            node = next;
+        }
         free(vet);
     }
     ```
@@ -2318,7 +2319,7 @@ comments: true
 
       ### 新增邊 ###
       def add_edge(vet1, vet2)
-        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
         @adj_list[vet1] << vet2
         @adj_list[vet2] << vet1
@@ -2326,7 +2327,7 @@ comments: true
 
       ### 刪除邊 ###
       def remove_edge(vet1, vet2)
-        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
         # 刪除邊 vet1 - vet2
         @adj_list[vet1].delete(vet2)

@@ -676,7 +676,7 @@ We can implement an equivalent binary search algorithm using this representation
         if nums[m] < target
           i = m + 1 # In this case, target must be in [m+1, j) if it exists
         elsif nums[m] > target
-          j = m - 1 # In this case, target must be in [i, m) if it exists
+          j = m # In this case, target must be in [i, m) if it exists
         else
           return m  # The target element was found; return its index
         end

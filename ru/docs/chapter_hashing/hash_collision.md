@@ -1440,7 +1440,7 @@ comments: true
 
       ### Коэффициент загрузки ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### Операция поиска ###
@@ -1586,19 +1586,22 @@ comments: true
             """Найти индекс корзины, соответствующий key"""
             index = self.hash_func(key)
             first_tombstone = -1
-            # Выполнять линейное пробирование и завершить при встрече с пустой корзиной
-            while self.buckets[index] is not None:
+            for _ in range(self.capacity):
+                bucket = self.buckets[index]
+                if bucket is None:
+                    break
+                # Записать первую встретившуюся метку удаления
+                if bucket is self.TOMBSTONE:
+                    if first_tombstone == -1:
+                        first_tombstone = index
                 # Если встретился key, вернуть соответствующий индекс корзины
-                if self.buckets[index].key == key:
+                elif bucket.key == key:
                     # Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
                     if first_tombstone != -1:
-                        self.buckets[first_tombstone] = self.buckets[index]
+                        self.buckets[first_tombstone] = bucket
                         self.buckets[index] = self.TOMBSTONE
                         return first_tombstone  # Вернуть индекс корзины после перемещения
                     return index  # Вернуть индекс корзины
-                # Записать первую встретившуюся метку удаления
-                if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                    first_tombstone = index
                 # Вычислить индекс корзины; при выходе за конец вернуться к началу
                 index = (index + 1) % self.capacity
             # Если key не существует, вернуть индекс точки добавления
@@ -2625,21 +2628,20 @@ comments: true
       int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
-        while (_buckets[index] != null) {
-          // Если встретился key, вернуть соответствующий индекс корзины
-          if (_buckets[index]!.key == key) {
+        for (int i = 0; i < _capacity; i++) {
+          final bucket = _buckets[index];
+          if (bucket == null) break;
+          // Записать первую встретившуюся метку удаления
+          if (identical(bucket, _TOMBSTONE)) {
+            if (firstTombstone == -1) firstTombstone = index;
+          } else if (bucket.key == key) {
             // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
             if (firstTombstone != -1) {
-              _buckets[firstTombstone] = _buckets[index];
+              _buckets[firstTombstone] = bucket;
               _buckets[index] = _TOMBSTONE;
               return firstTombstone; // Вернуть индекс корзины после перемещения
             }
             return index; // Вернуть индекс корзины
-          }
-          // Записать первую встретившуюся метку удаления
-          if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-            firstTombstone = index;
           }
           // Вычислить индекс корзины; при выходе за конец вернуться к началу
           index = (index + 1) % _capacity;
@@ -2968,7 +2970,7 @@ comments: true
         // Если пара ключ-значение найдена, перезаписать val и вернуть
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             free(hashMap->buckets[index]->val);
-            hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
+            hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
             strcpy(hashMap->buckets[index]->val, val);
             hashMap->buckets[index]->val[strlen(val)] = '\0';
             return;
@@ -2976,7 +2978,7 @@ comments: true
         // Если пары ключ-значение нет, добавить ее
         Pair *pair = (Pair *)malloc(sizeof(Pair));
         pair->key = key;
-        pair->val = (char *)malloc(sizeof(strlen(val) + 1));
+        pair->val = (char *)malloc(strlen(val) + 1);
         strcpy(pair->val, val);
         pair->val[strlen(val)] = '\0';
 
@@ -3188,7 +3190,7 @@ comments: true
 
       ### Коэффициент загрузки ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### Найти индекс корзины, соответствующий key ###

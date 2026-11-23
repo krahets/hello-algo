@@ -452,7 +452,7 @@ $$
 
     ```kotlin title=""
     // 알고리즘 A의 시간 복잡도: 상수 시간
-    fun algoritm_A(n: Int) {
+    fun algorithm_A(n: Int) {
         println(0)
     }
     // 알고리즘 B의 시간 복잡도: 선형 시간
@@ -2941,7 +2941,8 @@ $$
     /* 선형 로그 차수 */
     function linearLogRecur(n) {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }
@@ -2955,7 +2956,8 @@ $$
     /* 선형 로그 차수 */
     function linearLogRecur(n: number): number {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }

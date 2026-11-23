@@ -2170,7 +2170,10 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 
     /* Add a vertex */
     void addVertex(GraphAdjList *graph, Vertex *vet) {
-        assert(graph != NULL && graph->size < MAX_SIZE);
+        assert(graph != NULL);
+        if (findNode(graph, vet) != NULL)
+            return;
+        assert(graph->size < MAX_SIZE);
         AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
         head->vertex = vet;
         head->next = NULL;
@@ -2182,27 +2185,6 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
     void removeVertex(GraphAdjList *graph, Vertex *vet) {
         AdjListNode *node = findNode(graph, vet);
         assert(node != NULL);
-        // Remove the list corresponding to vertex vet from the adjacency list
-        AdjListNode *cur = node, *pre = NULL;
-        while (cur) {
-            pre = cur;
-            cur = cur->next;
-            free(pre);
-        }
-        // Traverse the lists of the other vertices and remove all edges incident to vet
-        for (int i = 0; i < graph->size; i++) {
-            cur = graph->heads[i];
-            pre = NULL;
-            while (cur) {
-                pre = cur;
-                cur = cur->next;
-                if (cur && cur->vertex == vet) {
-                    pre->next = cur->next;
-                    free(cur);
-                    break;
-                }
-            }
-        }
         // Shift subsequent vertices forward to fill the gap
         int i;
         for (i = 0; i < graph->size; i++) {
@@ -2213,6 +2195,25 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
             graph->heads[j] = graph->heads[j + 1];
         }
         graph->size--;
+        // Traverse the lists of the other vertices and remove all edges incident to vet
+        for (int i = 0; i < graph->size; i++) {
+            AdjListNode *cur = graph->heads[i];
+            while (cur->next != NULL) {
+                AdjListNode *next = cur->next;
+                if (next->vertex == vet) {
+                    cur->next = next->next;
+                    free(next);
+                } else {
+                    cur = next;
+                }
+            }
+        }
+        // Remove the list corresponding to vertex vet from the adjacency list
+        while (node != NULL) {
+            AdjListNode *next = node->next;
+            free(node);
+            node = next;
+        }
         free(vet);
     }
     ```
@@ -2318,7 +2319,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 
       ### Add an edge ###
       def add_edge(vet1, vet2)
-        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
         @adj_list[vet1] << vet2
         @adj_list[vet2] << vet1
@@ -2326,7 +2327,7 @@ We also use the `Vertex` class to represent vertices in the adjacency list. If w
 
       ### Remove an edge ###
       def remove_edge(vet1, vet2)
-        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2)
+        raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
         # Remove edge vet1 - vet2
         @adj_list[vet1].delete(vet2)

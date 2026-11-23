@@ -1440,7 +1440,7 @@ comments: true
 
       ### 負荷率 ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### 取得操作 ###
@@ -1586,19 +1586,22 @@ comments: true
             """key に対応するバケットのインデックスを探索する"""
             index = self.hash_func(key)
             first_tombstone = -1
-            # 線形探索法で探索し、空のバケットに到達したら終了する
-            while self.buckets[index] is not None:
+            for _ in range(self.capacity):
+                bucket = self.buckets[index]
+                if bucket is None:
+                    break
+                # 最初に見つかった削除マーカーを記録する
+                if bucket is self.TOMBSTONE:
+                    if first_tombstone == -1:
+                        first_tombstone = index
                 # key が見つかった場合、対応するバケットのインデックスを返す
-                if self.buckets[index].key == key:
+                elif bucket.key == key:
                     # それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
                     if first_tombstone != -1:
-                        self.buckets[first_tombstone] = self.buckets[index]
+                        self.buckets[first_tombstone] = bucket
                         self.buckets[index] = self.TOMBSTONE
                         return first_tombstone  # 移動後のバケットのインデックスを返す
                     return index  # バケットのインデックスを返す
-                # 最初に見つかった削除マーカーを記録する
-                if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                    first_tombstone = index
                 # バケットのインデックスを計算し、末尾を越えたら先頭に戻る
                 index = (index + 1) % self.capacity
             # key が存在しない場合、追加位置のインデックスを返す
@@ -2625,21 +2628,20 @@ comments: true
       int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // 線形探索法で探索し、空のバケットに到達したら終了する
-        while (_buckets[index] != null) {
-          // key が見つかった場合、対応するバケットのインデックスを返す
-          if (_buckets[index]!.key == key) {
+        for (int i = 0; i < _capacity; i++) {
+          final bucket = _buckets[index];
+          if (bucket == null) break;
+          // 最初に見つかった削除マーカーを記録する
+          if (identical(bucket, _TOMBSTONE)) {
+            if (firstTombstone == -1) firstTombstone = index;
+          } else if (bucket.key == key) {
             // それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
             if (firstTombstone != -1) {
-              _buckets[firstTombstone] = _buckets[index];
+              _buckets[firstTombstone] = bucket;
               _buckets[index] = _TOMBSTONE;
               return firstTombstone; // 移動後のバケットのインデックスを返す
             }
             return index; // バケットのインデックスを返す
-          }
-          // 最初に見つかった削除マーカーを記録する
-          if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-            firstTombstone = index;
           }
           // バケットのインデックスを計算し、末尾を越えたら先頭に戻る
           index = (index + 1) % _capacity;
@@ -2968,7 +2970,7 @@ comments: true
         // キーと値のペアが見つかった場合、val を上書きして戻る
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             free(hashMap->buckets[index]->val);
-            hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
+            hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
             strcpy(hashMap->buckets[index]->val, val);
             hashMap->buckets[index]->val[strlen(val)] = '\0';
             return;
@@ -2976,7 +2978,7 @@ comments: true
         // キーと値のペアが存在しない場合、そのペアを追加する
         Pair *pair = (Pair *)malloc(sizeof(Pair));
         pair->key = key;
-        pair->val = (char *)malloc(sizeof(strlen(val) + 1));
+        pair->val = (char *)malloc(strlen(val) + 1);
         strcpy(pair->val, val);
         pair->val[strlen(val)] = '\0';
 
@@ -3188,7 +3190,7 @@ comments: true
 
       ### 負荷率 ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### key に対応するバケットのインデックスを探索する ###

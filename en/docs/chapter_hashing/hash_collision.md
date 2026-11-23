@@ -1440,7 +1440,7 @@ The code below gives a simple implementation. Keep two points in mind.
 
       ### Load factor ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### Lookup operation ###
@@ -1586,19 +1586,22 @@ The code below implements linear probing with lazy deletion. To use the table's 
             """Find the bucket index for key"""
             index = self.hash_func(key)
             first_tombstone = -1
-            # Probe linearly until an empty bucket is reached
-            while self.buckets[index] is not None:
+            for _ in range(self.capacity):
+                bucket = self.buckets[index]
+                if bucket is None:
+                    break
+                # Record the first tombstone encountered
+                if bucket is self.TOMBSTONE:
+                    if first_tombstone == -1:
+                        first_tombstone = index
                 # If key is found, return its bucket index
-                if self.buckets[index].key == key:
+                elif bucket.key == key:
                     # If a tombstone was encountered earlier, move the key-value pair to that index
                     if first_tombstone != -1:
-                        self.buckets[first_tombstone] = self.buckets[index]
+                        self.buckets[first_tombstone] = bucket
                         self.buckets[index] = self.TOMBSTONE
                         return first_tombstone  # Return the bucket index after the move
                     return index  # Return the bucket index
-                # Record the first tombstone encountered
-                if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                    first_tombstone = index
                 # Calculate the bucket index, wrapping to the beginning after the end
                 index = (index + 1) % self.capacity
             # If key is absent, return the index for insertion
@@ -2625,21 +2628,20 @@ The code below implements linear probing with lazy deletion. To use the table's 
       int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // Probe linearly until an empty bucket is reached
-        while (_buckets[index] != null) {
-          // If key is found, return its bucket index
-          if (_buckets[index]!.key == key) {
+        for (int i = 0; i < _capacity; i++) {
+          final bucket = _buckets[index];
+          if (bucket == null) break;
+          // Record the first tombstone encountered
+          if (identical(bucket, _TOMBSTONE)) {
+            if (firstTombstone == -1) firstTombstone = index;
+          } else if (bucket.key == key) {
             // If a tombstone was encountered earlier, move the key-value pair to that index
             if (firstTombstone != -1) {
-              _buckets[firstTombstone] = _buckets[index];
+              _buckets[firstTombstone] = bucket;
               _buckets[index] = _TOMBSTONE;
               return firstTombstone; // Return the bucket index after the move
             }
             return index; // Return the bucket index
-          }
-          // Record the first tombstone encountered
-          if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-            firstTombstone = index;
           }
           // Calculate the bucket index, wrapping to the beginning after the end
           index = (index + 1) % _capacity;
@@ -2968,7 +2970,7 @@ The code below implements linear probing with lazy deletion. To use the table's 
         // If the key-value pair is found, overwrite val and return
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             free(hashMap->buckets[index]->val);
-            hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
+            hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
             strcpy(hashMap->buckets[index]->val, val);
             hashMap->buckets[index]->val[strlen(val)] = '\0';
             return;
@@ -2976,7 +2978,7 @@ The code below implements linear probing with lazy deletion. To use the table's 
         // If the key-value pair is absent, insert it
         Pair *pair = (Pair *)malloc(sizeof(Pair));
         pair->key = key;
-        pair->val = (char *)malloc(sizeof(strlen(val) + 1));
+        pair->val = (char *)malloc(strlen(val) + 1);
         strcpy(pair->val, val);
         pair->val[strlen(val)] = '\0';
 
@@ -3188,7 +3190,7 @@ The code below implements linear probing with lazy deletion. To use the table's 
 
       ### Load factor ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### Find the bucket index for key ###

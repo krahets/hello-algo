@@ -452,7 +452,7 @@ $$
 
     ```kotlin title=""
     // 算法 A 的时间复杂度：常数阶
-    fun algoritm_A(n: Int) {
+    fun algorithm_A(n: Int) {
         println(0)
     }
     // 算法 B 的时间复杂度：线性阶
@@ -2941,7 +2941,8 @@ $$
     /* 线性对数阶 */
     function linearLogRecur(n) {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }
@@ -2955,7 +2956,8 @@ $$
     /* 线性对数阶 */
     function linearLogRecur(n: number): number {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }

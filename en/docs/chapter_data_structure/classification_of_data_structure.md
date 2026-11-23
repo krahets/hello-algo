@@ -12,13 +12,15 @@ Common data structures include arrays, linked lists, stacks, queues, hash tables
 
 As shown in Figure 3-1, logical structures fall into two broad categories: linear and nonlinear. A linear structure arranges data in a logical sequence; a nonlinear structure does not.
 
-- **Linear data structures**: Arrays, linked lists, stacks, queues, and hash tables. Elements have one-to-one sequential relationships.
-- **Nonlinear data structures**: Trees, heaps, graphs, and hash tables.
+- **Linear data structures**: Arrays, linked lists, stacks, and queues. Elements have one-to-one sequential relationships.
+- **Nonlinear data structures**: Trees, heaps, and graphs.
 
-Nonlinear data structures can be divided further into tree and network structures.
+Trees and networks are two common nonlinear structures.
 
-- **Tree structures**: Trees, heaps, and hash tables, with one-to-many relationships.
+- **Tree structures**: Trees and heaps, with one-to-many relationships.
 - **Network structures**: Graphs, with many-to-many relationships.
+
+A hash table maps keys to values. The figure shows this mapping separately.
 
 ![Linear and nonlinear data structures](classification_of_data_structure.assets/classification_logic_structure.svg){ class="animation-figure" }
 

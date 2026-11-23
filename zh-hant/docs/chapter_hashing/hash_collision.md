@@ -1440,7 +1440,7 @@ comments: true
 
       ### 負載因子 ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### 查詢操作 ###
@@ -1586,19 +1586,22 @@ comments: true
             """搜尋 key 對應的桶索引"""
             index = self.hash_func(key)
             first_tombstone = -1
-            # 線性探查，當遇到空桶時跳出
-            while self.buckets[index] is not None:
+            for _ in range(self.capacity):
+                bucket = self.buckets[index]
+                if bucket is None:
+                    break
+                # 記錄遇到的首個刪除標記
+                if bucket is self.TOMBSTONE:
+                    if first_tombstone == -1:
+                        first_tombstone = index
                 # 若遇到 key ，返回對應的桶索引
-                if self.buckets[index].key == key:
+                elif bucket.key == key:
                     # 若之前遇到了刪除標記，則將鍵值對移動至該索引處
                     if first_tombstone != -1:
-                        self.buckets[first_tombstone] = self.buckets[index]
+                        self.buckets[first_tombstone] = bucket
                         self.buckets[index] = self.TOMBSTONE
                         return first_tombstone  # 返回移動後的桶索引
                     return index  # 返回桶索引
-                # 記錄遇到的首個刪除標記
-                if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                    first_tombstone = index
                 # 計算桶索引，越過尾部則返回頭部
                 index = (index + 1) % self.capacity
             # 若 key 不存在，則返回新增點的索引
@@ -2625,21 +2628,20 @@ comments: true
       int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // 線性探查，當遇到空桶時跳出
-        while (_buckets[index] != null) {
-          // 若遇到 key ，返回對應的桶索引
-          if (_buckets[index]!.key == key) {
+        for (int i = 0; i < _capacity; i++) {
+          final bucket = _buckets[index];
+          if (bucket == null) break;
+          // 記錄遇到的首個刪除標記
+          if (identical(bucket, _TOMBSTONE)) {
+            if (firstTombstone == -1) firstTombstone = index;
+          } else if (bucket.key == key) {
             // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
             if (firstTombstone != -1) {
-              _buckets[firstTombstone] = _buckets[index];
+              _buckets[firstTombstone] = bucket;
               _buckets[index] = _TOMBSTONE;
               return firstTombstone; // 返回移動後的桶索引
             }
             return index; // 返回桶索引
-          }
-          // 記錄遇到的首個刪除標記
-          if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-            firstTombstone = index;
           }
           // 計算桶索引，越過尾部則返回頭部
           index = (index + 1) % _capacity;
@@ -2968,7 +2970,7 @@ comments: true
         // 若找到鍵值對，則覆蓋 val 並返回
         if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
             free(hashMap->buckets[index]->val);
-            hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
+            hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
             strcpy(hashMap->buckets[index]->val, val);
             hashMap->buckets[index]->val[strlen(val)] = '\0';
             return;
@@ -2976,7 +2978,7 @@ comments: true
         // 若鍵值對不存在，則新增該鍵值對
         Pair *pair = (Pair *)malloc(sizeof(Pair));
         pair->key = key;
-        pair->val = (char *)malloc(sizeof(strlen(val) + 1));
+        pair->val = (char *)malloc(strlen(val) + 1);
         strcpy(pair->val, val);
         pair->val[strlen(val)] = '\0';
 
@@ -3188,7 +3190,7 @@ comments: true
 
       ### 負載因子 ###
       def load_factor
-        @size / @capacity
+        @size / @capacity.to_f
       end
 
       ### 搜尋 key 對應的桶索引 ###

@@ -1383,9 +1383,9 @@ comments: true
             (None, None) | (Some(_), None) | (None, Some(_)) => {
                 // Когда число дочерних узлов = 0 / 1, child = nullptr / этот дочерний узел
                 let child = left_child.or(right_child);
-                let pre = pre.unwrap();
                 // Удалить узел cur
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
+                    let pre = pre.unwrap();
                     let left = pre.borrow().left.clone();
                     if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
                         pre.borrow_mut().left = child;
@@ -1451,7 +1451,9 @@ comments: true
             // Когда число дочерних узлов = 0 / 1, child = nullptr / этот дочерний узел
             TreeNode *child = cur->left != NULL ? cur->left : cur->right;
             // Удалить узел cur
-            if (pre->left == cur) {
+            if (pre == NULL) {
+                bst->root = child;
+            } else if (pre->left == cur) {
                 pre->left = child;
             } else {
                 pre->right = child;

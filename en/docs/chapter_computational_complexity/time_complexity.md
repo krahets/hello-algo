@@ -452,7 +452,7 @@ To make this abstract idea concrete, consider three algorithms, `A`, `B`, and `C
 
     ```kotlin title=""
     // Algorithm A: constant time complexity
-    fun algoritm_A(n: Int) {
+    fun algorithm_A(n: Int) {
         println(0)
     }
     // Algorithm B: linear time complexity
@@ -2941,7 +2941,8 @@ Linearithmic time often appears when one level of a nested process takes $O(\log
     /* Linearithmic complexity */
     function linearLogRecur(n) {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }
@@ -2955,7 +2956,8 @@ Linearithmic time often appears when one level of a nested process takes $O(\log
     /* Linearithmic complexity */
     function linearLogRecur(n: number): number {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }

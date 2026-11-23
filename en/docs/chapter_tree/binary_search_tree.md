@@ -1383,9 +1383,9 @@ Deletion also takes $O(\log n)$ time: locating the target takes $O(\log n)$, and
             (None, None) | (Some(_), None) | (None, Some(_)) => {
                 // With 0 or 1 child, child is None or that child, respectively
                 let child = left_child.or(right_child);
-                let pre = pre.unwrap();
                 // Remove node cur
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
+                    let pre = pre.unwrap();
                     let left = pre.borrow().left.clone();
                     if left.is_some() && Rc::ptr_eq(left.as_ref().unwrap(), &cur) {
                         pre.borrow_mut().left = child;
@@ -1451,7 +1451,9 @@ Deletion also takes $O(\log n)$ time: locating the target takes $O(\log n)$, and
             // With 0 or 1 child, child is NULL or that child, respectively
             TreeNode *child = cur->left != NULL ? cur->left : cur->right;
             // Remove node cur
-            if (pre->left == cur) {
+            if (pre == NULL) {
+                bst->root = child;
+            } else if (pre->left == cur) {
                 pre->left = child;
             } else {
                 pre->right = child;

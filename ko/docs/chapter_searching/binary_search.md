@@ -676,7 +676,7 @@ $i$와 $j$가 모두 `int` 타입이므로 **$i + j$가 `int` 타입의 표현 �
         if nums[m] < target
           i = m + 1 # 이 경우 target은 구간 [m+1, j)에 있다
         elsif nums[m] > target
-          j = m - 1 # 이 경우 target은 구간 [i, m)에 있다
+          j = m # 이 경우 target은 구간 [i, m)에 있다
         else
           return m  # 목표 원소를 찾았으므로 해당 인덱스를 반환한다
         end

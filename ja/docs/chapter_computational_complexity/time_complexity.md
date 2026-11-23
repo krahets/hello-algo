@@ -452,7 +452,7 @@ $$
 
     ```kotlin title=""
     // アルゴリズム A の時間計算量：定数のオーダー
-    fun algoritm_A(n: Int) {
+    fun algorithm_A(n: Int) {
         println(0)
     }
     // アルゴリズム B の時間計算量：線形のオーダー
@@ -2941,7 +2941,8 @@ $$
     /* 線形対数オーダー */
     function linearLogRecur(n) {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }
@@ -2955,7 +2956,8 @@ $$
     /* 線形対数オーダー */
     function linearLogRecur(n: number): number {
         if (n <= 1) return 1;
-        let count = linearLogRecur(n / 2) + linearLogRecur(n / 2);
+        const half = Math.floor(n / 2);
+        let count = linearLogRecur(half) + linearLogRecur(half);
         for (let i = 0; i < n; i++) {
             count++;
         }
