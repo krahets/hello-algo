@@ -112,7 +112,9 @@ void removeItem(BinarySearchTree *bst, int num) {
         // 當子節點數量 = 0 / 1 時， child = nullptr / 該子節點
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // 刪除節點 cur
-        if (pre->left == cur) {
+        if (pre == NULL) {
+            bst->root = child;
+        } else if (pre->left == cur) {
             pre->left = child;
         } else {
             pre->right = child;

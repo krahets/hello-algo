@@ -112,7 +112,9 @@ void removeItem(BinarySearchTree *bst, int num) {
         // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // ノード cur を削除する
-        if (pre->left == cur) {
+        if (pre == NULL) {
+            bst->root = child;
+        } else if (pre->left == cur) {
             pre->left = child;
         } else {
             pre->right = child;
