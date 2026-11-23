@@ -2,3 +2,4 @@
 - Thanks to @yanedie for reviewing and refining the English explanation of recursive binary search ([#1663](https://github.com/krahets/hello-algo/pull/1663)).
 - Thanks to @Sophie-Zhen for reviewing the English hash algorithms chapter and clarifying its terminology ([#1667](https://github.com/krahets/hello-algo/pull/1667)).
 - Thanks to @Sophie-Zhen for refining the English explanation of heap construction ([#1670](https://github.com/krahets/hello-algo/pull/1670)).
+- Thanks to @pengchzn for refining the English wording of the subset sum examples and pruning explanation ([#1678](https://github.com/krahets/hello-algo/pull/1678)).
