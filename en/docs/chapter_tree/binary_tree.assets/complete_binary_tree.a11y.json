@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "Complete binary tree: the last level fills from left to right without gaps",
+  "summary": "The first three levels are full. The fourth level occupies its five leftmost positions, leaving only the three rightmost positions empty.",
+  "context": [],
+  "description": [
+    "The tree on the left has four levels and no node values. The first three levels contain 1, 2, and 4 nodes. From left to right on level three, each of the first two nodes has both children, the third has only a left child, and the fourth has no children. Thus the five leaves on level four occupy its five leftmost positions.",
+    "The right-hand title reads “Complete binary tree.” A long arrow points left beneath the tree. The gray note says, “The lowest level is filled from the left; all other levels are full.” There can be no gaps between nodes on the last level."
+  ],
+  "frames": [
+    {
+      "id": "source-93",
+      "book_path": "chapter_tree/binary_tree.assets/complete_binary_tree.png",
+      "title": "Complete binary tree: the last level fills from left to right without gaps",
+      "explanation": "Counting gives height 3 and 12 nodes, satisfying the definition of a complete binary tree. Three positions on the right of level four are empty, so the tree is not perfect."
+    }
+  ]
+}

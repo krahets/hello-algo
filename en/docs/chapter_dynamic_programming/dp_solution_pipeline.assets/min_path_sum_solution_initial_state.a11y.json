@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "Boundary conditions and evaluation order for minimum path sum",
+  "summary": "Initialize the start cell and accumulate rightward along row 0 and downward along column 0 first, then traverse interior cells in forward order from top to bottom and left to right.",
+  "context": [
+    "Moving only right or down from [0, 0] in a nonnegative grid with both endpoints counted, dp[i, j] denotes the minimum path sum to row i, column j (indices 0 to 3). Using two 4×4 symbolic dp tables side by side, this figure illustrates \"Boundary conditions: initialize the first row and column\" and \"State transition order: traverse the matrix in forward order\" without concrete grid values."
+  ],
+  "description": [
+    "On the left, green marks the top-left start cell, blue marks the rest of the first row, and purple marks the rest of the first column, with arrows running rightward across row 0 and downward along column 0. On the right, arrows show each interior cell depending on the already computed states above and to its left. Both tables display only symbolic labels dp[0, 0] through dp[3, 3].",
+    "First initialize the start cell, then accumulate along the unique incoming direction across the first row and first column. Fill the nine interior cells in forward order with outer row loop i = 1, 2, 3 and inner column loop j = 1, 2, 3, guaranteeing that when evaluating dp[i, j], upper dp[i - 1, j] was already computed in the previous row and left dp[i, j - 1] was already computed earlier in the current row. Formulas in the table below summarize these boundary and predecessor relationships and are not written cell by cell in the figure."
+  ],
+  "frames": [
+    {
+      "id": "source-379",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png",
+      "title": "Initialize first-row and first-column boundaries before row-major forward traversal",
+      "explanation": "Except for the starting cell, each cell in the first row or first column has only one valid predecessor; only interior cells take the minimum across both upper and left predecessors."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Initialization and interior recurrence in the 4×4 symbolic table",
+      "headers": [
+        "Region",
+        "Index range",
+        "Predecessors",
+        "Computation"
+      ],
+      "rows": [
+        [
+          "Start cell",
+          "[0,0]",
+          "None",
+          "dp[0,0]=grid[0,0]"
+        ],
+        [
+          "First row",
+          "[0, j], j = 1, 2, 3",
+          "[0,j-1]",
+          "dp[0,j]=dp[0,j-1]+grid[0,j]"
+        ],
+        [
+          "First column",
+          "[i, 0], i = 1, 2, 3",
+          "[i-1,0]",
+          "dp[i,0]=dp[i-1,0]+grid[i,0]"
+        ],
+        [
+          "Interior",
+          "i = 1, 2, 3; j = 1, 2, 3 in each row",
+          "[i - 1, j] and [i, j - 1]",
+          "dp[i,j]=min(dp[i-1,j],dp[i,j-1])+grid[i,j]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

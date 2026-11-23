@@ -24,9 +24,9 @@ if __FILE__ == $0
   hash_str = str.hash
   puts "字串 #{str} 的雜湊值為 #{hash_str}"
 
-  tup = [12836, '小哈']
-  hash_tup = tup.hash
-  puts "元組 #{tup} 的雜湊值為 #{hash_tup}"
+  arr = [12836, '小哈']
+  hash_arr = arr.hash
+  puts "陣列 #{arr} 的雜湊值為 #{hash_arr}"
 
   obj = ListNode.new(0)
   hash_obj = obj.hash

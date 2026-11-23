@@ -41,7 +41,7 @@ func (l *myList) get(index int) int {
 	return l.arr[index]
 }
 
-/* Обновление элемента */
+/* Изменение элемента */
 func (l *myList) set(num, index int) {
 	if index < 0 || index >= l.arrSize {
 		panic("индекс выходит за границы")
@@ -69,7 +69,7 @@ func (l *myList) insert(num, index int) {
 	if l.arrSize == l.arrCapacity {
 		l.extendCapacity()
 	}
-	// Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+	// Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
 	for j := l.arrSize - 1; j >= index; j-- {
 		l.arr[j+1] = l.arr[j]
 	}
@@ -84,7 +84,7 @@ func (l *myList) remove(index int) int {
 		panic("индекс выходит за границы")
 	}
 	num := l.arr[index]
-	// Сдвинуть все элементы после индекса index на одну позицию вперед
+	// Сдвинуть все элементы после индекса index на одну позицию влево
 	for j := index; j < l.arrSize-1; j++ {
 		l.arr[j] = l.arr[j+1]
 	}

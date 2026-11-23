@@ -8,14 +8,14 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 連結リストでノード n0 の後ろにノード P を挿入する */
+/* 連結リストのノード n0 の直後にノード P を挿入する */
 func insertNode(n0 *ListNode, P *ListNode) {
 	n1 := n0.Next
 	P.Next = n1
 	n0.Next = P
 }
 
-/* 連結リストでノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後のノードを削除する */
 func removeItem(n0 *ListNode) {
 	if n0.Next == nil {
 		return
@@ -26,7 +26,7 @@ func removeItem(n0 *ListNode) {
 	n0.Next = n1
 }
 
-/* 連結リスト内で index 番目のノードにアクセス */
+/* 連結リストのインデックス index にあるノードにアクセスする */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		if head == nil {
@@ -37,7 +37,7 @@ func access(head *ListNode, index int) *ListNode {
 	return head
 }
 
-/* 連結リストで値が target の最初のノードを探す */
+/* 連結リストから値が target である最初のノードを探索する */
 func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {

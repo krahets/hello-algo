@@ -6,44 +6,44 @@
 
 #include "../utils/common.h"
 
-// 順列は最大 1000 個と仮定
+// 順列は最大 1000 個と仮定する
 #define MAX_SIZE 1000
 
-/* 円盤を 1 枚移動 */
+/* 円盤を 1 枚移動する */
 void move(int *src, int *srcSize, int *tar, int *tarSize) {
-    // src の上から円盤を1枚取り出す
+    // src の一番上から円盤を 1 枚取り出す
     int pan = src[*srcSize - 1];
     src[*srcSize - 1] = 0;
     (*srcSize)--;
-    // 円盤を tar の上に置く
+    // tar の一番上に円盤を置く
     tar[*tarSize] = pan;
     (*tarSize)++;
 }
 
 /* ハノイの塔の問題 f(i) を解く */
 void dfs(int i, int *src, int *srcSize, int *buf, int *bufSize, int *tar, int *tarSize) {
-    // src に円盤が 1 枚だけ残っている場合は、そのまま tar へ移す
+    // src に円盤が 1 枚だけ残っている場合、そのまま tar に移す
     if (i == 1) {
         move(src, srcSize, tar, tarSize);
         return;
     }
-    // 部分問題 f(i-1)：src の上部 i-1 枚の円盤を tar を補助にして buf へ移す
+    // 部分問題 f(i-1) ：src の上から i-1 枚の円盤を、tar を使って buf に移す
     dfs(i - 1, src, srcSize, tar, tarSize, buf, bufSize);
-    // 部分問題 f(1)：src に残る 1 枚の円盤を tar に移す
+    // 部分問題 f(1) ：src に残った 1 枚の円盤を tar に移す
     move(src, srcSize, tar, tarSize);
-    // 部分問題 f(i-1)：buf の上部 i-1 枚の円盤を src を補助にして tar へ移す
+    // 部分問題 f(i-1) ：buf の上から i-1 枚の円盤を、src を使って tar に移す
     dfs(i - 1, buf, bufSize, src, srcSize, tar, tarSize);
 }
 
-/* ハノイの塔を解く */
+/* ハノイの塔の問題を解く */
 void solveHanota(int *A, int *ASize, int *B, int *BSize, int *C, int *CSize) {
-    // A の上から n 枚の円盤を B を介して C へ移す
+    // A の上から n 枚の円盤を、B を使って C に移す
     dfs(*ASize, A, ASize, B, BSize, C, CSize);
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    // リスト末尾が柱の頂上
+    // リストの末尾が棒の一番上に対応する
     int a[] = {5, 4, 3, 2, 1};
     int b[MAX_SIZE] = {0};
     int c[MAX_SIZE] = {0};

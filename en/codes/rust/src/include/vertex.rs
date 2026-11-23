@@ -16,12 +16,12 @@ impl From<i32> for Vertex {
     }
 }
 
-/* Input value list vals, return vertex list vets */
+/* Given the list of values vals, return the list of vertices vets */
 pub fn vals_to_vets(vals: Vec<i32>) -> Vec<Vertex> {
     vals.into_iter().map(|val| val.into()).collect()
 }
 
-/* Input vertex list vets, return value list vals */
+/* Given the list of vertices vets, return the list of values vals */
 pub fn vets_to_vals(vets: Vec<Vertex>) -> Vec<i32> {
     vets.into_iter().map(|vet| vet.val).collect()
 }

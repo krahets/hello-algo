@@ -1,0 +1,106 @@
+{
+  "schema_version": 2,
+  "title": "Subset sum I: zeroing the remaining target and index-order pruning",
+  "summary": "Starting from target 9, subtract candidates level by level while combining start = i with a break when a candidate exceeds the remaining target to output [3, 3, 3] and [4, 5].",
+  "context": [
+    "The input consists of the sorted positive integer array choices = [3, 4, 5] (indices 0, 1, 2) and initial target = 9; elements may be chosen repeatedly, and combinations ignore order. The number inside each circular node shows the remaining target balance (9 minus the current prefix sum), reaching a valid subset when reduced to 0."
+  ],
+  "description": [
+    "Upon entering a call, if the remaining target is 0, record the current combination and return to the parent call so its loop can continue; otherwise iterate through candidates choices[i] starting from index start, subtract the chosen value from the remaining target, and recurse to the next level. Passing start = i downward allows choosing the current element again while skipping earlier indices (the index-order pruning marked by black scissors in the figure).",
+    "Because the candidates are sorted in ascending order, within i ≥ start, encountering the first candidate greater than the remaining target triggers an immediate break after comparison, ending the current loop; neither that candidate nor any larger ones after it are entered recursively. Red scissors in the figure mark these out-of-range branches.",
+    "The figure contains 10 circular nodes with nonnegative remaining targets. The table below lists by prefix the remaining target, the restrictions shown in the figure, and the actual continuation; the remaining target 1 under [4, 4] is left unexpanded in the figure, and its subsequent break is supplied from the code rules."
+  ],
+  "frames": [
+    {
+      "id": "source-360",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_i.png",
+      "title": "Subset sum I: zeroing the remaining target and index-order pruning",
+      "explanation": "The two paths that reduce the remaining target to 0 are 9 → 6 → 3 → 0 and 9 → 5 → 0, yielding [3, 3, 3] and [4, 5], respectively."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Remaining target and choice restrictions by prefix",
+      "headers": [
+        "Current prefix",
+        "Remaining target",
+        "Available choices",
+        "Restriction or termination in figure",
+        "Actual continuation"
+      ],
+      "rows": [
+        [
+          "[]",
+          "9",
+          "3, 4, 5",
+          "None",
+          "Remaining targets after choosing are 6, 5, and 4, respectively"
+        ],
+        [
+          "[3]",
+          "6",
+          "3, 4, 5",
+          "None",
+          "Remaining targets after choosing are 3, 2, and 1, respectively"
+        ],
+        [
+          "[3,3]",
+          "3",
+          "3",
+          "4 and 5 exceed remaining target",
+          "Choose 3 to reach 0; break upon reaching 4"
+        ],
+        [
+          "[3,3,3]",
+          "0",
+          "None",
+          "No further choices",
+          "Record [3, 3, 3]"
+        ],
+        [
+          "[3,4]",
+          "2",
+          "None",
+          "3 is at an earlier index; 4 and 5 exceed remaining target",
+          "Immediate break starting at 4"
+        ],
+        [
+          "[3,5]",
+          "1",
+          "None",
+          "3 and 4 are at earlier indices; 5 exceeds remaining target",
+          "Immediate break starting at 5"
+        ],
+        [
+          "[4]",
+          "5",
+          "4, 5",
+          "3 is at an earlier index",
+          "Choose 4 to reach 1; choose 5 to reach 0"
+        ],
+        [
+          "[4,4]",
+          "1",
+          "None",
+          "Continuation not expanded in figure",
+          "By the code rules, immediate break starting at 4"
+        ],
+        [
+          "[4,5]",
+          "0",
+          "None",
+          "No further choices",
+          "Record [4, 5]"
+        ],
+        [
+          "[5]",
+          "4",
+          "None",
+          "3 and 4 are at earlier indices; 5 exceeds remaining target",
+          "Immediate break starting at 5"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

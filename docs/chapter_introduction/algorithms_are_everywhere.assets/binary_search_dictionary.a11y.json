@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "title": "查字典的二分查找过程",
+  "summary": "在按拼音字母表排序的字典中，查找任意一个首字母为 r 的字。共 5 个画面：第 1 步交代初始范围，第 2 至第 5 步各翻页一次。",
+  "context": [],
+  "description": [
+    "每帧从左到右排列 a 到 z 共 26 个字母块。绿色表示仍在查找范围内，青色突出目标 r，浅灰色表示已排除；第 2 至第 5 帧中，下方向上的“一半页码处”指针标出当前翻到的字母。"
+  ],
+  "frames": [
+    {
+      "id": "source-10",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
+      "title": "第 1 步：明确查字典目标与初始范围",
+      "explanation": "初始查找范围覆盖 a 到 z 全部 26 个字母，尚未翻页。目标 r 为青色，其余 25 个字母为绿色。",
+      "key_state": "第 1 步初始状态：待查找范围为全部字母 a 到 z，目标是找到首字母为 r 的字。",
+      "announcement": "明确查字典目标为找到拼音首字母为 r 的字，初始查找范围覆盖按顺序排列的 a 到 z 全部 26 个字母。"
+    },
+    {
+      "id": "source-11",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png",
+      "title": "第 2 步：翻到中间字母 m，排除前半部分",
+      "explanation": "第一次翻到全书大约一半页码处，指针指向 m。因为 r 在 m 后面，排除 a 到 m，使它们变为浅灰色；剩余 n 到 z 保持彩色，目标 r 为青色。",
+      "key_state": "第 2 步：一半页码处翻到 m，因 r 在 m 后边，排除 a 到 m，剩余范围为 n 到 z。",
+      "announcement": "翻开字典一半页码处看到首字母 m；因为 r 在 m 后边，排除前半部分 a 到 m，查找范围缩小为 n 到 z。"
+    },
+    {
+      "id": "source-12",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png",
+      "title": "第 3 步：翻到剩余部分中间字母 t，排除后半部分",
+      "explanation": "在剩余区间 n 到 z 内翻到中间位置，指针指向 t。因为 r 在 t 前面，排除 t 到 z。至此，左侧 a 到 m、右侧 t 到 z 都为浅灰色，只剩 n 到 s 保持彩色，其中 r 为青色。",
+      "key_state": "在剩余区间 n 到 z 的一半页码处翻到 t；因 r 在 t 前面，排除 t 到 z。当前范围为 n 到 s，左侧 a 到 m 与右侧 t 到 z 已排除。",
+      "announcement": "翻开剩余部分一半页码处看到首字母 t；因为 r 在 t 前边，排除后半部分 t 到 z，查找范围缩小为 n 到 s。"
+    },
+    {
+      "id": "source-13",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png",
+      "title": "第 4 步：翻到剩余部分中间字母 p，再排除前半部分",
+      "explanation": "在剩余区间 n 到 s 内翻到中间位置，指针指向 p。因为 r 在 p 后面，排除 n 到 p。至此，左侧 a 到 p、右侧 t 到 z 都为浅灰色，只剩 q、r、s 保持彩色：q、s 为绿色，r 为青色。",
+      "key_state": "在剩余区间 n 到 s 的一半页码处翻到 p；因 r 在 p 后面，排除 n 到 p。当前仅剩 q、r、s，左侧 a 到 p 与右侧 t 到 z 已排除。",
+      "announcement": "翻开剩余部分一半页码处看到首字母 p；因为 r 在 p 后边，排除前半部分 n 到 p，查找范围仅剩 q、r、s。"
+    },
+    {
+      "id": "source-14",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
+      "title": "第 5 步：翻到中间字母 r，完成查找",
+      "explanation": "在剩余区间 q、r、s 内翻到中间位置，指针指向目标 r，找到首字母为 r 的字，任务完成。这是第 5 步，也是第 4 次翻页。画面仍保留绿色的 q、s 和青色的 r，表示本次翻页前的范围；a 到 p 与 t 到 z 仍为浅灰色。",
+      "key_state": "第 5 步完成查找：在剩余区间 q、r、s 的一半页码处翻到目标字母 r。",
+      "announcement": "翻开剩余区间 q、r、s 的一半页码处，直接命中目标首字母 r，查字典任务完成。"
+    }
+  ],
+  "animations": {
+    "dictionary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-10"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-11"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-12"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-13"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-14"
+        }
+      ]
+    }
+  }
+}

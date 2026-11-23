@@ -8,7 +8,7 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* Вставить узел P после узла n0 в связном списке */
+/* Вставка узла P в связный список после узла n0 */
 #[allow(non_snake_case)]
 pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     let n1 = n0.borrow_mut().next.take();
@@ -16,7 +16,7 @@ pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     n0.borrow_mut().next = Some(P);
 }
 
-/* Удалить первый узел после узла n0 в связном списке */
+/* Удаление первого узла после узла n0 из связного списка */
 #[allow(non_snake_case)]
 pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     // n0 -> P -> n1
@@ -27,7 +27,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* Доступ к узлу связного списка по индексу index */
+/* Доступ к узлу с индексом index в связном списке */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
     fn dfs<T>(
         head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -47,7 +47,7 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCel
     dfs(Some(head).as_ref(), index)
 }
 
-/* Найти в связном списке первый узел со значением target */
+/* Поиск первого узла со значением target в связном списке */
 pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
         if let Some(node) = head {

@@ -1,0 +1,96 @@
+{
+  "schema_version": 2,
+  "title": "Pruning equal-element branches within a round",
+  "summary": "Try the repeated value 1 only once per round of choices, pruning duplicate search subtrees in advance.",
+  "context": [
+    "The input array is choices = [1, 1, 2] at indices 0, 1, and 2. Below, \"first 1\" and \"second 1\" distinguish indices 0 and 1; the figure places a hat over the second 1 as an identity marker, though both have numeric value 1."
+  ],
+  "description": [
+    "Two constraints govern indices and values separately: selected tracks indices already used on the current path, while in the code below a per-round deduplication set duplicated records values not skipped by selected and actually tried in the current round. Each recursive call creates its own duplicated set; backtracking restores selected and state without removing values already recorded in that call's set.",
+    "The figure explicitly marks only the two same-round prunings that skip the second 1 under the root [] and under prefix [2]. Below, the \"One round of choices for each prefix\" table completes all six nonterminal prefixes, where the \"Skipped due to used index\" column follows from the code rules rather than explicit pruning icons in this figure; the \"Three unique permutations\" table lists each leaf's identity order alongside its numeric values."
+  ],
+  "frames": [
+    {
+      "id": "source-356",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_ii_pruning.png",
+      "title": "Pruning equal-element branches within a round",
+      "explanation": "A single path may still pick both 1s at their two different indices in sequence; within any single round, only one branch is expanded for value 1."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "One round of choices for each prefix",
+      "headers": [
+        "Current prefix",
+        "Kept candidates",
+        "Skipped due to used index",
+        "Skipped due to duplicate value in round"
+      ],
+      "rows": [
+        [
+          "[]",
+          "first 1, 2",
+          "None",
+          "second 1: value 1 already tried in this round"
+        ],
+        [
+          "[first 1]",
+          "second 1, 2",
+          "first 1: index 0 already on path",
+          "None"
+        ],
+        [
+          "[first 1, second 1]",
+          "2",
+          "first 1, second 1: corresponding indices already used",
+          "None"
+        ],
+        [
+          "[first 1, 2]",
+          "second 1",
+          "first 1, 2: corresponding indices already used",
+          "None"
+        ],
+        [
+          "[2]",
+          "first 1",
+          "2: index 2 already on path",
+          "second 1: value 1 already tried in this round"
+        ],
+        [
+          "[2, first 1]",
+          "second 1",
+          "2, first 1: corresponding indices already used",
+          "None"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Three unique permutations",
+      "headers": [
+        "Result number",
+        "Identity notation distinguishing both 1s",
+        "Actual numeric result"
+      ],
+      "rows": [
+        [
+          "1",
+          "[first 1, second 1, 2]",
+          "[1,1,2]"
+        ],
+        [
+          "2",
+          "[first 1, 2, second 1]",
+          "[1,2,1]"
+        ],
+        [
+          "3",
+          "[2, first 1, second 1]",
+          "[2,1,1]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

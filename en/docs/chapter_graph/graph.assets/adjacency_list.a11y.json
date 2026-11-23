@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "title": "Adjacency list representation of a graph",
+  "summary": "Chain each vertex's neighbors into a horizontal linked list to represent the connections of the original graph.",
+  "context": [
+    "The undirected graph on the left contains five vertices 1, 2, 3, 4, 5 and seven undirected edges 1—3, 1—5, 3—2, 2—5, 2—4, 5—4, and 1—2."
+  ],
+  "description": [
+    "On the right under \"Adjacency list\", the left column labeled \"Vertex\" arranges five green head nodes from top to bottom in the order 1, 3, 2, 5, 4; from each row, a green linked list extends rightward under the label \"All vertices adjacent to this vertex\". The table below preserves the top-to-bottom row order shown in the figure.",
+    "Rightward arrows within a row represent only linked-list node references, not directed edges in the original graph; two neighbors adjacent in the same row are not necessarily directly connected in the graph either. Each undirected edge is recorded once in the adjacency list of each of its two endpoints, giving 14 neighbor nodes in total excluding the five head nodes in the left column."
+  ],
+  "frames": [
+    {
+      "id": "source-178",
+      "book_path": "chapter_graph/graph.assets/adjacency_list.png",
+      "title": "Adjacency list representation of a graph",
+      "explanation": "For example, undirected edge 1—2 corresponds to 2 in vertex 1's linked list and 1 in vertex 2's linked list; vertices 1 and 4 share no edge, so neither appears in the other's linked list."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Adjacency list of each vertex in the figure",
+      "headers": [
+        "Vertex",
+        "Neighbors, in figure order"
+      ],
+      "rows": [
+        [
+          "1",
+          "2, 3, 5"
+        ],
+        [
+          "3",
+          "1, 2"
+        ],
+        [
+          "2",
+          "1, 3, 5, 4"
+        ],
+        [
+          "5",
+          "1, 2, 4"
+        ],
+        [
+          "4",
+          "2, 5"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

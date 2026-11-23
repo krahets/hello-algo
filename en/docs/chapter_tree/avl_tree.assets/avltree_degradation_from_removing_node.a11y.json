@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "Deletions making a search tree degenerate",
+  "summary": "Repeatedly deleting nodes from one side of a binary search tree without rebalancing can push the subtree height difference beyond the balance limit and leave a one-sided chain.",
+  "context": [
+    "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown.",
+    "Across the three subfigures, nodes 5 and 3 are deleted in turn, reducing the node count from 5 to 4 and then to 3 under the labels \"Balanced binary tree\", \"Ordinary binary tree\", and \"Linked list\"; no rotational rebalancing is performed."
+  ],
+  "description": [],
+  "result": "Value ordering still holds, but the tree has degenerated into a chain. An AVL tree must maintain balance after deletions.",
+  "frames": [
+    {
+      "id": "source-128",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_degradation_from_removing_node.png",
+      "title": "Deletions making a search tree degenerate",
+      "explanation": "Initially, root 4 has left and right children 2 and 5, and 2 has left and right children 1 and 3. Deleting right leaf node 5 leaves root 4 with left subtree height 1 and an empty right subtree of height −1, so its balance factor becomes 1 − (−1) = 2 and the tree is already unbalanced. Deleting right leaf node 3 of node 2 next leaves only the all-left chain 4 → 2 → 1."
+    }
+  ],
+  "animations": {
+    "bst-degrade-removal": {
+      "kind": "prose",
+      "prose": {
+        "title": "Deletions making a search tree degenerate",
+        "summary": "Repeatedly deleting nodes from one side of a binary search tree without rebalancing can push the subtree height difference beyond the balance limit and leave a one-sided chain.",
+        "context": [
+          "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown.",
+          "Across the three subfigures, nodes 5 and 3 are deleted in turn, reducing the node count from 5 to 4 and then to 3 under the labels \"Balanced binary tree\", \"Ordinary binary tree\", and \"Linked list\"; no rotational rebalancing is performed."
+        ],
+        "description": [],
+        "result": "Value ordering still holds, but the tree has degenerated into a chain. An AVL tree must maintain balance after deletions.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Initial balanced tree",
+            "explanation": "Initially, root 4 connects to left 2 and right 5, and 2 connects to left 1 and right 3; 1, 3, and 5 are leaf nodes, for 5 nodes in total. The root's left and right subtrees have heights 1 and 0, giving balance factor 1, while every other node has balance factor 0, so the whole tree is balanced.",
+            "key_state": "Initial root 4 connects to left 2 and right 5, and 2 connects to left 1 and right 3; 5 nodes in total, with root balance factor 1.",
+            "announcement": "Show the initial balanced binary search tree with 5 nodes."
+          },
+          {
+            "id": "step-2",
+            "title": "Delete right leaf node 5",
+            "explanation": "After deleting right leaf node 5, root 4 has only left child 2, while 2 still connects to left 1 and right 3, for 4 nodes in total. The root's left subtree has height 1 and its empty right side has height −1, giving balance factor 2, so the tree is already unbalanced.",
+            "key_state": "After deleting 5, root 4 connects only to left 2, and 2 connects to left 1 and right 3; 4 nodes in total, with root balance factor 2.",
+            "announcement": "Delete right leaf node 5; root 4's balance factor rises to 2, making the tree unbalanced."
+          },
+          {
+            "id": "step-3",
+            "title": "Only a left chain remains after deleting node 3",
+            "explanation": "Deleting right leaf node 3 of node 2 next leaves root 4 connected only to left 2, 2 connected only to left 1, and leaf node 1, forming the 3-node all-left chain 4→2→1.",
+            "key_state": "After deleting 5 and 3, only the all-left chain 4→2→1 remains, with 3 nodes in total.",
+            "announcement": "Delete leaf node 3 as well; the remaining nodes form the all-left chain 4 → 2 → 1."
+          }
+        ]
+      }
+    }
+  }
+}

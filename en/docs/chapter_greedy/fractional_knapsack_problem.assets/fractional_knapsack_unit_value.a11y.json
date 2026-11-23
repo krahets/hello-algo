@@ -1,0 +1,63 @@
+{
+  "schema_version": 2,
+  "title": "Value per unit weight of items",
+  "summary": "Value per unit weight equals item value divided by weight; taking weight w of an item adds w times its value per unit weight to the knapsack.",
+  "context": [
+    "Because fractional knapsack allows splitting items, comparing value per unit weight determines priority better than comparing whole-item values alone."
+  ],
+  "description": [
+    "On the left, the table lists the five items by original ID with fruit icons transcribed as names. Its fourth column, \"Value per unit weight val[i - 1] / wgt[i - 1]\", prints 5, 6, 5, 5.25, and 4.8 directly in the figure rather than adding an external column. On the right, weight taken w multiplied by value per unit weight gives \"Value added to the knapsack\"."
+  ],
+  "frames": [
+    {
+      "id": "source-462",
+      "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png",
+      "title": "Value per unit weight of items",
+      "explanation": "For example, the apple's value per unit weight is 50 ÷ 10 = 5. On the right, Weight taken from the current item w × Value per unit weight val[i - 1] / wgt[i - 1] = Value added to the knapsack, holding whether an item is taken whole or in part. Across the table, banana has the highest unit value, followed by pineapple."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Unit-value figure: four-column item data from the diagram",
+      "headers": [
+        "ID and icon",
+        "Weight",
+        "Value",
+        "Value per unit weight"
+      ],
+      "rows": [
+        [
+          "1 (Apple)",
+          "10",
+          "50",
+          "5"
+        ],
+        [
+          "2 (Banana)",
+          "20",
+          "120",
+          "6"
+        ],
+        [
+          "3 (Grapes)",
+          "30",
+          "150",
+          "5"
+        ],
+        [
+          "4 (Pineapple)",
+          "40",
+          "210",
+          "5.25"
+        ],
+        [
+          "5 (Watermelon)",
+          "50",
+          "240",
+          "4.8"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

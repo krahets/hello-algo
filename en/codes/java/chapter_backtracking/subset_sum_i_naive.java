@@ -9,33 +9,33 @@ package chapter_backtracking;
 import java.util.*;
 
 public class subset_sum_i_naive {
-    /* Backtracking algorithm: Subset sum I */
+    /* Backtracking: subset sum I */
     static void backtrack(List<Integer> state, int target, int total, int[] choices, List<List<Integer>> res) {
-        // When the subset sum equals target, record the solution
+        // Record a solution when the subset sum equals target
         if (total == target) {
             res.add(new ArrayList<>(state));
             return;
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (int i = 0; i < choices.length; i++) {
-            // Pruning: if the subset sum exceeds target, skip this choice
+            // Prune: skip this choice if the subset sum would exceed target
             if (total + choices[i] > target) {
                 continue;
             }
-            // Attempt: make choice, update element sum total
+            // Try: make a choice and update the sum total
             state.add(choices[i]);
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, target, total + choices[i], choices, res);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             state.remove(state.size() - 1);
         }
     }
 
-    /* Solve subset sum I (including duplicate subsets) */
+    /* Solve subset sum I (with duplicate subsets) */
     static List<List<Integer>> subsetSumINaive(int[] nums, int target) {
         List<Integer> state = new ArrayList<>(); // State (subset)
         int total = 0; // Subset sum
-        List<List<Integer>> res = new ArrayList<>(); // Result list (subset list)
+        List<List<Integer>> res = new ArrayList<>(); // Result list (list of subsets)
         backtrack(state, target, total, nums, res);
         return res;
     }
@@ -47,7 +47,7 @@ public class subset_sum_i_naive {
         List<List<Integer>> res = subsetSumINaive(nums, target);
 
         System.out.println("Input array nums = " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("All subsets with sum equal to " + target + " are res = " + res);
-        System.out.println("Please note that this method outputs results containing duplicate sets");
+        System.out.println("All subsets with sum " + target + " : res = " + res);
+        System.out.println("Note that this method produces duplicate subsets");
     }
 }

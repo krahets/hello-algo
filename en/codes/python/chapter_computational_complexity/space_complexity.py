@@ -18,54 +18,54 @@ def function() -> int:
 
 
 def constant(n: int):
-    """Constant order"""
-    # Constants, variables, objects occupy O(1) space
+    """Constant complexity"""
+    # Constants, variables, and objects occupy O(1) space
     a = 0
     nums = [0] * 10000
     node = ListNode(0)
     # Variables in the loop occupy O(1) space
     for _ in range(n):
         c = 0
-    # Functions in the loop occupy O(1) space
+    # Function calls in the loop occupy O(1) space
     for _ in range(n):
         function()
 
 
 def linear(n: int):
-    """Linear order"""
+    """Linear complexity"""
     # A list of length n occupies O(n) space
     nums = [0] * n
-    # A hash table of length n occupies O(n) space
+    # A hash table with n entries occupies O(n) space
     hmap = dict[int, str]()
     for i in range(n):
         hmap[i] = str(i)
 
 
 def linear_recur(n: int):
-    """Linear order (recursive implementation)"""
-    print("Recursion n =", n)
+    """Linear complexity (recursive implementation)"""
+    print("Recursion: n =", n)
     if n == 1:
         return
     linear_recur(n - 1)
 
 
 def quadratic(n: int):
-    """Quadratic order"""
-    # A 2D list occupies O(n^2) space
+    """Quadratic complexity"""
+    # The two-dimensional list occupies O(n^2) space
     num_matrix = [[0] * n for _ in range(n)]
 
 
 def quadratic_recur(n: int) -> int:
-    """Quadratic order (recursive implementation)"""
+    """Quadratic complexity (recursive implementation)"""
     if n <= 0:
         return 0
-    # Array nums length is n, n-1, ..., 2, 1
+    # The lengths of array nums are n, n-1, ..., 2, 1
     nums = [0] * n
     return quadratic_recur(n - 1)
 
 
 def build_tree(n: int) -> TreeNode | None:
-    """Exponential order (build full binary tree)"""
+    """Exponential complexity (building a perfect binary tree)"""
     if n == 0:
         return None
     root = TreeNode(0)
@@ -74,17 +74,17 @@ def build_tree(n: int) -> TreeNode | None:
     return root
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     n = 5
-    # Constant order
+    # Constant complexity
     constant(n)
-    # Linear order
+    # Linear complexity
     linear(n)
     linear_recur(n)
-    # Quadratic order
+    # Quadratic complexity
     quadratic(n)
     quadratic_recur(n)
-    # Exponential order
+    # Exponential complexity
     root = build_tree(n)
     print_tree(root)

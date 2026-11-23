@@ -6,46 +6,46 @@
 
 import binary_search_insertion_target
 
-/* Binary search for the leftmost target */
+/* Find the leftmost occurrence of target using binary search */
 func binarySearchLeftEdge(nums: [Int], target: Int) -> Int {
-    // Equivalent to finding the insertion point of target
+    // This is equivalent to finding the insertion point of target
     let i = binarySearchInsertion(nums: nums, target: target)
-    // Target not found, return -1
+    // If target was not found, return -1
     if i == nums.endIndex || nums[i] != target {
         return -1
     }
-    // Found target, return index i
+    // Target was found; return index i
     return i
 }
 
-/* Binary search for the rightmost target */
+/* Find the rightmost occurrence of target using binary search */
 func binarySearchRightEdge(nums: [Int], target: Int) -> Int {
-    // Convert to finding the leftmost target + 1
+    // Reduce the problem to finding the leftmost insertion point of target + 1
     let i = binarySearchInsertion(nums: nums, target: target + 1)
-    // j points to the rightmost target, i points to the first element greater than target
+    // i is the first index with a value greater than target (or nums.endIndex); j is the candidate index of the rightmost target
     let j = i - 1
-    // Target not found, return -1
+    // If target was not found, return -1
     if j == -1 || nums[j] != target {
         return -1
     }
-    // Found target, return index j
+    // Target was found; return index j
     return j
 }
 
 @main
 enum BinarySearchEdge {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        // Array with duplicate elements
+        // Array containing duplicate elements
         let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
         print("\nArray nums = \(nums)")
 
-        // Binary search left and right boundaries
+        // Find the left and right boundaries using binary search
         for target in [6, 7] {
             var index = binarySearchLeftEdge(nums: nums, target: target)
-            print("Leftmost element \(target) index is \(index)")
+            print("Index of the leftmost occurrence of \(target): \(index)")
             index = binarySearchRightEdge(nums: nums, target: target)
-            print("Rightmost element \(target) index is \(index)")
+            print("Index of the rightmost occurrence of \(target): \(index)")
         }
     }
 }

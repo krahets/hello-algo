@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* 連結リストベースのスタック */
+/* 連結リストで実装したスタック */
 class LinkedListStack {
   private:
-    ListNode *stackTop; // 先頭ノードをスタックトップとする
+    ListNode *stackTop; // 先頭ノードをスタックの先頭とする
     int stkSize;        // スタックの長さ
 
   public:
@@ -23,12 +23,12 @@ class LinkedListStack {
         freeMemoryLinkedList(stackTop);
     }
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     int size() {
         return stkSize;
     }
 
-    /* スタックが空かどうかを判定 */
+    /* スタックが空かどうかを判定する */
     bool isEmpty() {
         return size() == 0;
     }
@@ -52,7 +52,7 @@ class LinkedListStack {
         return num;
     }
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     int top() {
         if (isEmpty())
             throw out_of_range("スタックが空です");
@@ -71,12 +71,12 @@ class LinkedListStack {
     }
 };
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* スタックを初期化 */
+    /* スタックを初期化する */
     LinkedListStack *stack = new LinkedListStack();
 
-    /* 要素をプッシュ */
+    /* 要素をプッシュする */
     stack->push(1);
     stack->push(3);
     stack->push(2);
@@ -85,22 +85,22 @@ int main() {
     cout << "スタック stack = ";
     printVector(stack->toVector());
 
-    /* スタックトップの要素にアクセス */
+    /* スタックの先頭要素にアクセスする */
     int top = stack->top();
-    cout << "トップ要素 top = " << top << endl;
+    cout << "スタックの先頭要素 top = " << top << endl;
 
-    /* 要素をポップ */
+    /* 要素をポップする */
     top = stack->pop();
-    cout << "取り出した要素 pop = " << top << "、取り出し後の stack = ";
+    cout << "ポップした要素 pop = " << top << "、ポップ後 stack = ";
     printVector(stack->toVector());
 
-    /* スタックの長さを取得 */
+    /* スタックの長さを取得する */
     int size = stack->size();
     cout << "スタックの長さ size = " << size << endl;
 
-    /* 空かどうかを判定 */
+    /* 空かどうかを判定する */
     bool empty = stack->isEmpty();
-    cout << "スタックが空かどうか = " << empty << endl;
+    cout << "スタックは空か = " << empty << endl;
 
     // メモリを解放する
     delete stack;

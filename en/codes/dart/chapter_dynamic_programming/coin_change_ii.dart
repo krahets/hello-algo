@@ -4,23 +4,23 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Coin change II: Dynamic programming */
+/* Coin change II: dynamic programming */
 int coinChangeIIDP(List<int> coins, int amt) {
   int n = coins.length;
-  // Initialize dp table
+  // Initialize the dp table
   List<List<int>> dp = List.generate(n + 1, (index) => List.filled(amt + 1, 0));
-  // Initialize first column
+  // Initialize the first column
   for (int i = 0; i <= n; i++) {
     dp[i][0] = 1;
   }
-  // State transition
+  // State transitions
   for (int i = 1; i <= n; i++) {
     for (int a = 1; a <= amt; a++) {
       if (coins[i - 1] > a) {
-        // If exceeds target amount, don't select coin i
+        // If the coin exceeds the current amount a, do not choose coin i
         dp[i][a] = dp[i - 1][a];
       } else {
-        // Sum of the two options: not selecting and selecting coin i
+        // Add the numbers of ways without and with coin i
         dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
       }
     }
@@ -28,20 +28,20 @@ int coinChangeIIDP(List<int> coins, int amt) {
   return dp[n][amt];
 }
 
-/* Coin change II: Space-optimized dynamic programming */
+/* Coin change II: space-optimized dynamic programming */
 int coinChangeIIDPComp(List<int> coins, int amt) {
   int n = coins.length;
-  // Initialize dp table
+  // Initialize the dp table
   List<int> dp = List.filled(amt + 1, 0);
   dp[0] = 1;
-  // State transition
+  // State transitions
   for (int i = 1; i <= n; i++) {
     for (int a = 1; a <= amt; a++) {
       if (coins[i - 1] > a) {
-        // If exceeds target amount, don't select coin i
+        // If the coin exceeds the current amount a, do not choose coin i
         dp[a] = dp[a];
       } else {
-        // Sum of the two options: not selecting and selecting coin i
+        // Add the numbers of ways without and with coin i
         dp[a] = dp[a] + dp[a - coins[i - 1]];
       }
     }
@@ -49,16 +49,16 @@ int coinChangeIIDPComp(List<int> coins, int amt) {
   return dp[amt];
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   List<int> coins = [1, 2, 5];
   int amt = 5;
 
   // Dynamic programming
   int res = coinChangeIIDP(coins, amt);
-  print("Number of coin combinations to make target amount is $res");
+  print("Number of coin combinations that make the target amount: $res");
 
   // Space-optimized dynamic programming
   res = coinChangeIIDPComp(coins, amt);
-  print("Number of coin combinations to make target amount is $res");
+  print("Number of coin combinations that make the target amount: $res");
 }

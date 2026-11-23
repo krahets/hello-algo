@@ -19,9 +19,9 @@ public class list {
         int num = nums[1];
         Console.WriteLine("Элемент по индексу 1: num = " + num);
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         nums[1] = 0;
-        Console.WriteLine("После обновления элемента по индексу 1 до 0 nums = " + string.Join(",", nums));
+        Console.WriteLine("После изменения значения элемента с индексом 1 на 0 nums = " + string.Join(",", nums));
 
         /* Очистить список */
         nums.Clear();

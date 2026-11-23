@@ -1,9 +1,9 @@
-# Encounter with Algorithms
+# Getting to know algorithms
 
-![Encounter with Algorithms](../assets/covers/chapter_introduction.jpg)
+![Getting to know algorithms](../assets/covers/chapter_introduction.jpg)
 
 !!! abstract
 
-    A young girl dances gracefully, intertwined with data, her skirt flowing with the melody of algorithms.
-
-    She invites you to dance with her. Follow her steps closely and enter the world of algorithms, full of logic and beauty.
+    A young woman dances gracefully among the data, the melody of algorithms rippling through her skirt.
+    
+    She invites you to join her. Follow her steps into a world of algorithms filled with logic and beauty.

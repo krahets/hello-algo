@@ -4,9 +4,9 @@ Created Time: 2024-04-05
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Deque based on circular array ###
+### Deque implemented with a circular array ###
 class ArrayDeque
-  ### Get deque length ###
+  ### Get the deque size ###
   attr_reader :size
 
   ### Constructor ###
@@ -16,80 +16,80 @@ class ArrayDeque
     @size = 0
   end
 
-  ### Get deque capacity ###
+  ### Get the deque capacity ###
   def capacity
     @nums.length
   end
 
-  ### Check if deque is empty ###
+  ### Check whether the deque is empty ###
   def is_empty?
     size.zero?
   end
 
-  ### Enqueue at front ###
+  ### Enqueue at the front ###
   def push_first(num)
     if size == capacity
-      puts 'Double-ended queue is full'
+      puts 'Deque is full'
       return
     end
 
-    # Use modulo operation to wrap front around to the tail after passing the head of the array
-    # Add num to the front of the queue
+    # Move the front pointer one position to the left
+    # Use modulo to wrap front to the end when it passes the beginning of the array
     @front = index(@front - 1)
-    # Add num to front of queue
+    # Add num to the front
     @nums[@front] = num
     @size += 1
   end
 
-  ### Enqueue at rear ###
+  ### Enqueue at the rear ###
   def push_last(num)
     if size == capacity
-      puts 'Double-ended queue is full'
+      puts 'Deque is full'
       return
     end
 
-    # Use modulo operation to wrap rear around to the head after passing the tail of the array
+    # Calculate the rear pointer, which points one position past the last element
     rear = index(@front + size)
-    # Front pointer moves one position backward
+    # Add num to the rear
     @nums[rear] = num
     @size += 1
   end
 
-  ### Dequeue from front ###
+  ### Dequeue from the front ###
   def pop_first
     num = peek_first
-    # Move front pointer backward by one position
+    # Advance the front pointer by one position
     @front = index(@front + 1)
     @size -= 1
     num
   end
 
-  ### Dequeue from rear ###
+  ### Dequeue from the rear ###
   def pop_last
     num = peek_last
     @size -= 1
     num
   end
 
-  ### Access front element ###
+  ### Access the front element ###
   def peek_first
     raise IndexError, 'Deque is empty' if is_empty?
 
     @nums[@front]
   end
 
-  ### Access rear element ###
+  ### Access the rear element ###
   def peek_last
     raise IndexError, 'Deque is empty' if is_empty?
 
-    # Initialize double-ended queue
+    # Calculate the index of the last element
     last = index(@front + size - 1)
     @nums[last]
   end
 
-  ### Return array for printing ###
+  ### Return an array for printing ###
   def to_array
-    # Elements enqueue
+    # Convert only the list elements within the occupied range
     res = []
     for i in 0...size
       res << @nums[index(@front + i)]
@@ -99,47 +99,47 @@ class ArrayDeque
 
   private
 
-  ### Calculate circular array index ###
+  ### Calculate an index in the circular array ###
   def index(i)
-    # Use modulo operation to wrap the array head and tail together
-    # When i passes the tail of the array, return to the head
-    # When i passes the head of the array, return to the tail
+    # Use modulo to connect the end of the array to its beginning
+    # When i passes the end of the array, wrap around to the beginning
+    # When i passes the beginning of the array, wrap around to the end
     (i + capacity) % capacity
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Get the length of the double-ended queue
+  # Initialize the deque
   deque = ArrayDeque.new(10)
   deque.push_last(3)
   deque.push_last(2)
   deque.push_last(5)
   puts "Deque deque = #{deque.to_array}"
 
-  # Update element
+  # Access an element
   peek_first = deque.peek_first
   puts "Front element peek_first = #{peek_first}"
   peek_last = deque.peek_last
   puts "Rear element peek_last = #{peek_last}"
 
-  # Elements enqueue
+  # Enqueue elements
   deque.push_last(4)
-  puts "After element 4 enqueues at rear, deque = #{deque.to_array}"
+  puts "After enqueueing 4 at the rear, deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "After element 1 enqueues at rear, deque = #{deque.to_array}"
+  puts "After enqueueing 1 at the front, deque = #{deque.to_array}"
 
-  # Element dequeue
+  # Dequeue an element
   pop_last = deque.pop_last
-  puts "Dequeue rear element = #{pop_last}, after dequeue deque = #{deque.to_array}"
+  puts "Element dequeued from the rear = #{pop_last}; deque = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "Dequeue front element = #{pop_first}, after dequeue deque = #{deque.to_array}"
+  puts "Element dequeued from the front = #{pop_first}; deque = #{deque.to_array}"
 
-  # Get the length of the double-ended queue
+  # Get the deque size
   size = deque.size
-  puts "Deque length size = #{size}"
+  puts "Deque size = #{size}"
 
-  # Check if the double-ended queue is empty
+  # Check whether the deque is empty
   is_empty = deque.is_empty?
-  puts "Is deque empty = #{is_empty}"
+  puts "Is the deque empty? #{is_empty}"
 end

@@ -9,12 +9,12 @@ package chapter_hashing;
 import java.util.ArrayList;
 import java.util.List;
 
-/* チェイン法ハッシュテーブル */
+/* チェイン法のハッシュテーブル */
 class HashMapChaining {
-    int size; // キーと値のペア数
-    int capacity; // ハッシュテーブル容量
-    double loadThres; // リサイズを発動する負荷率のしきい値
-    int extendRatio; // 拡張倍率
+    int size; // キーと値のペアの数
+    int capacity; // ハッシュテーブルの容量
+    double loadThres; // 容量の拡張を開始する負荷率のしきい値
+    int extendRatio; // 容量の拡張倍率
     List<List<Pair>> buckets; // バケット配列
 
     /* コンストラクタ */
@@ -39,36 +39,36 @@ class HashMapChaining {
         return (double) size / capacity;
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     String get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // バケットを走査し、key が見つかれば対応する val を返す
+        // バケットを走査し、key が見つかったら対応する val を返す
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // key が見つからない場合は null を返す
+        // key が見つからなかった場合、null を返す
         return null;
     }
 
     /* 追加操作 */
     void put(int key, String val) {
-        // 負荷率がしきい値を超えたら、リサイズを実行
+        // 負荷率がしきい値を超えた場合、容量を拡張する
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // バケットを走査し、指定した key が見つかれば対応する val を更新して返す
+        // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 pair.val = val;
                 return;
             }
         }
-        // その key が存在しなければ、キーと値のペアを末尾に追加
+        // key が存在しない場合、キーと値のペアを末尾に追加する
         Pair pair = new Pair(key, val);
         bucket.add(pair);
         size++;
@@ -78,7 +78,7 @@ class HashMapChaining {
     void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // バケットを走査してキーと値のペアを削除
+        // バケットを走査し、キーと値のペアを削除する
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 bucket.remove(pair);
@@ -88,18 +88,18 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを拡張 */
+    /* ハッシュテーブルの容量を拡張する */
     void extend() {
-        // 元のハッシュテーブルを一時保存
+        // 元のハッシュテーブルを一時保存する
         List<List<Pair>> bucketsTmp = buckets;
-        // リサイズ後の新しいハッシュテーブルを初期化
+        // 拡張後の新しいハッシュテーブルを初期化する
         capacity *= extendRatio;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.add(new ArrayList<>());
         }
         size = 0;
-        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルへ移す
+        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
         for (List<Pair> bucket : bucketsTmp) {
             for (Pair pair : bucket) {
                 put(pair.key, pair.val);
@@ -107,7 +107,7 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     void print() {
         for (List<Pair> bucket : buckets) {
             List<String> res = new ArrayList<>();
@@ -121,28 +121,28 @@ class HashMapChaining {
 
 public class hash_map_chaining {
     public static void main(String[] args) {
-        /* ハッシュテーブルを初期化 */
+        /* ハッシュテーブルを初期化する */
         HashMapChaining map = new HashMapChaining();
 
         /* 追加操作 */
-        // ハッシュテーブルにキーと値のペア (key, value) を追加
-        map.put(12836, "シャオハー");
-        map.put(15937, "シャオルオ");
-        map.put(16750, "シャオスワン");
-        map.put(13276, "シャオファー");
-        map.put(10583, "シャオヤー");
-        System.out.println("\n追加後のハッシュ表は\nKey -> Value");
+        // ハッシュテーブルにキーと値のペア (key, value) を追加する
+        map.put(12836, "小哈");
+        map.put(15937, "小啰");
+        map.put(16750, "小算");
+        map.put(13276, "小法");
+        map.put(10583, "小鸭");
+        System.out.println("\n追加後のハッシュテーブル\nKey -> Value");
         map.print();
 
-        /* 検索操作 */
-        // キー key をハッシュテーブルに渡し、値 value を取得
+        /* 取得操作 */
+        // ハッシュテーブルにキー key を渡し、値 value を取得する
         String name = map.get(13276);
-        System.out.println("\n学籍番号 13276 を入力すると、氏名 " + name);
+        System.out.println("\n学生番号 13276 に対応する氏名は " + name);
 
         /* 削除操作 */
-        // ハッシュテーブルからキーと値のペア (key, value) を削除
+        // ハッシュテーブルからキーと値のペア (key, value) を削除する
         map.remove(12836);
-        System.out.println("\n12836 を削除すると、ハッシュ表は\nKey -> Value");
+        System.out.println("\n12836 を削除した後のハッシュテーブル\nKey -> Value");
         map.print();
     }
 }

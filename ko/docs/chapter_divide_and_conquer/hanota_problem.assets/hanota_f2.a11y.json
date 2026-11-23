@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "보조 기둥 B를 이용해 원판 두 개 옮기기",
+  "summary": "작은 원판을 먼저 기둥 B에 임시로 옮겨 두고 큰 원판을 기둥 C로 옮긴 뒤 마지막에 작은 원판을 큰 원판 위에 포개어 총 세 번 이동한다.",
+  "context": [
+    "세 기둥은 왼쪽부터 A, B, C이며 목표는 A에 있는 원판 두 개를 C로 옮기는 것이다. 한 번에 기둥 맨 위의 원판 하나만 옮기고 큰 원판은 작은 원판 위에 놓을 수 없다. 아래 설명에서 각 기둥의 원판은 아래에서 위 순서로 적는다.",
+    "초록색은 큰 원판, 파란색은 작은 원판을 나타낸다."
+  ],
+  "description": [
+    "네 장면은 초기 상태와 세 번의 단일 원판 이동 후 상태다. 플레이어 단계 번호에는 초기 장면이 포함되므로 2, 3, 4단계가 각각 1, 2, 3번째 이동을 마친 상태에 해당한다. 뒤의 세 장면 아래에는 완료된 이동 지시가 나열되며 현재 지시는 연한 회색 배경으로 강조된다."
+  ],
+  "frames": [
+    {
+      "id": "source-331",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step1.png",
+      "title": "원판 두 개가 기둥 A에 쌓인 상태",
+      "explanation": "초기에는 A=[큰 원판, 작은 원판], B=[], C=[]로 아직 이동하기 전이다. 파란색 작은 원판이 초록색 큰 원판 위에 있으므로 큰 원판을 꺼내려면 먼저 작은 원판을 보조 기둥 B로 옮겨야 한다.",
+      "key_state": "아직 이동 전이다. A에는 아래에서 위로 큰 원판과 작은 원판이 있고 B, C는 비어 있다.",
+      "announcement": "크고 작은 두 원판이 기둥 A에 쌓인 초기 상태를 보여 준다."
+    },
+    {
+      "id": "source-332",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step2.png",
+      "title": "먼저 작은 원판을 기둥 A에서 기둥 B로 이동",
+      "explanation": "1번째 이동: 파란색 작은 원판을 A에서 비어 있는 B로 옮겨 초록색 큰 원판이 기둥 맨 위에 드러나게 한다. 현재 A=[큰 원판], B=[작은 원판], C=[]이다.",
+      "key_state": "1번째 이동 완료: A에 큰 원판, B에 작은 원판이 있고 C는 비어 있다.",
+      "announcement": "1번째 이동: 작은 원판을 기둥 A에서 보조 기둥 B로 옮긴다."
+    },
+    {
+      "id": "source-333",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step3.png",
+      "title": "이어서 큰 원판을 기둥 A에서 기둥 C로 이동",
+      "explanation": "2번째 이동: A에 있는 초록색 큰 원판 위를 가로막는 것이 없고 C가 비어 있으므로 큰 원판을 A에서 C로 옮긴다. 현재 A=[], B=[작은 원판], C=[큰 원판]이며 작은 원판은 여전히 B에 남아 있다.",
+      "key_state": "2번째 이동 완료: A는 비어 있고 B에 작은 원판, C에 큰 원판이 있다.",
+      "announcement": "2번째 이동: 큰 원판을 기둥 A에서 목표 기둥 C로 옮긴다."
+    },
+    {
+      "id": "source-334",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step4.png",
+      "title": "마지막으로 작은 원판을 기둥 B에서 기둥 C로 이동",
+      "explanation": "3번째 이동: B에 있는 파란색 작은 원판을 C의 초록색 큰 원판 위에 올려 작은 원판이 위에 있어야 한다는 규칙을 지킨다. 현재 A=[], B=[], C=[큰 원판, 작은 원판]으로 두 원판 이동이 완료된다.",
+      "key_state": "3번째 이동 완료: A와 B는 비어 있고 C에는 아래에서 위로 큰 원판, 작은 원판이 놓여 있다.",
+      "announcement": "3번째 이동: 작은 원판을 기둥 B에서 기둥 C의 큰 원판 위로 옮겨 이동을 마친다."
+    }
+  ],
+  "animations": {
+    "hanota-f2": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-331"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-332"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-333"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-334"
+        }
+      ]
+    }
+  }
+}

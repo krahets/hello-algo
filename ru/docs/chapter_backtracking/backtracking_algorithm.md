@@ -14,7 +14,7 @@
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![Поиск узлов при прямом обходе](backtracking_algorithm.assets/preorder_find_nodes.png)
+![Поиск узлов при прямом обходе](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## Попытка и откат
 
@@ -39,37 +39,37 @@
 Если посмотреть на процесс, изображенный на рисунке ниже, **то попытку и откат можно понимать как «движение вперед» и «отмену»**: это два взаимно противоположных действия.
 
 === "<1>"
-    ![Попытка и откат](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![Попытка и откат](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## Обрезка
 
@@ -87,7 +87,7 @@
 
 Термин «обрезка» очень нагляден. Как показано на рисунке ниже, во время поиска **мы отсекаем ветви, не удовлетворяющие ограничениям** , тем самым избегая множества бессмысленных попыток и повышая эффективность поиска.
 
-![Обрезка по условиям задачи](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![Обрезка по условиям задачи](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## Каркас кода
 
@@ -95,339 +95,9 @@
 
 В следующем каркасе кода `state` обозначает текущее состояние задачи, а `choices` - список выборов, доступных в текущем состоянии:
 
-=== "Python"
-
-    ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
-        """Каркас алгоритма поиска с возвратом"""
-        # Проверка, является ли текущее состояние решением
-        if is_solution(state):
-            # Запись решения
-            record_solution(state, res)
-            # Дальше не продолжаем поиск
-            return
-        # Перебор всех возможных выборов
-        for choice in choices:
-            # Обрезка: проверка допустимости выбора
-            if is_valid(state, choice):
-                # Попытка: сделать выбор и обновить состояние
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # Откат: отменить выбор и восстановить предыдущее состояние
-                undo_choice(state, choice)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* Каркас алгоритма поиска с возвратом */
-    void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // Проверка, является ли текущее состояние решением
-        if (isSolution(state)) {
-            // Запись решения
-            recordSolution(state, res);
-            // Дальше не продолжаем поиск
-            return;
-        }
-        // Перебор всех возможных выборов
-        for (Choice choice : choices) {
-            // Обрезка: проверка допустимости выбора
-            if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* Каркас алгоритма поиска с возвратом */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // Проверка, является ли текущее состояние решением
-        if (isSolution(state)) {
-            // Запись решения
-            recordSolution(state, res);
-            // Дальше не продолжаем поиск
-            return;
-        }
-        // Перебор всех возможных выборов
-        for (Choice choice : choices) {
-            // Обрезка: проверка допустимости выбора
-            if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* Каркас алгоритма поиска с возвратом */
-    void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // Проверка, является ли текущее состояние решением
-        if (IsSolution(state)) {
-            // Запись решения
-            RecordSolution(state, res);
-            // Дальше не продолжаем поиск
-            return;
-        }
-        // Перебор всех возможных выборов
-        foreach (Choice choice in choices) {
-            // Обрезка: проверка допустимости выбора
-            if (IsValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                MakeChoice(state, choice);
-                Backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                UndoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* Каркас алгоритма поиска с возвратом */
-    func backtrack(state *State, choices []Choice, res *[]State) {
-        // Проверка, является ли текущее состояние решением
-        if isSolution(state) {
-            // Запись решения
-            recordSolution(state, res)
-            // Дальше не продолжаем поиск
-            return
-        }
-        // Перебор всех возможных выборов
-        for _, choice := range choices {
-            // Обрезка: проверка допустимости выбора
-            if isValid(state, choice) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* Каркас алгоритма поиска с возвратом */
-    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // Проверка, является ли текущее состояние решением
-        if isSolution(state: state) {
-            // Запись решения
-            recordSolution(state: state, res: &res)
-            // Дальше не продолжаем поиск
-            return
-        }
-        // Перебор всех возможных выборов
-        for choice in choices {
-            // Обрезка: проверка допустимости выбора
-            if isValid(state: state, choice: choice) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state: &state, choice: choice)
-                backtrack(state: &state, choices: choices, res: &res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state: &state, choice: choice)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* Каркас алгоритма поиска с возвратом */
-    function backtrack(state, choices, res) {
-        // Проверка, является ли текущее состояние решением
-        if (isSolution(state)) {
-            // Запись решения
-            recordSolution(state, res);
-            // Дальше не продолжаем поиск
-            return;
-        }
-        // Перебор всех возможных выборов
-        for (let choice of choices) {
-            // Обрезка: проверка допустимости выбора
-            if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* Каркас алгоритма поиска с возвратом */
-    function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // Проверка, является ли текущее состояние решением
-        if (isSolution(state)) {
-            // Запись решения
-            recordSolution(state, res);
-            // Дальше не продолжаем поиск
-            return;
-        }
-        // Перебор всех возможных выборов
-        for (let choice of choices) {
-            // Обрезка: проверка допустимости выбора
-            if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* Каркас алгоритма поиска с возвратом */
-    void backtrack(State state, List<Choice>, List<State> res) {
-      // Проверка, является ли текущее состояние решением
-      if (isSolution(state)) {
-        // Запись решения
-        recordSolution(state, res);
-        // Дальше не продолжаем поиск
-        return;
-      }
-      // Перебор всех возможных выборов
-      for (Choice choice in choices) {
-        // Обрезка: проверка допустимости выбора
-        if (isValid(state, choice)) {
-          // Попытка: сделать выбор и обновить состояние
-          makeChoice(state, choice);
-          backtrack(state, choices, res);
-          // Откат: отменить выбор и восстановить предыдущее состояние
-          undoChoice(state, choice);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* Каркас алгоритма поиска с возвратом */
-    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // Проверка, является ли текущее состояние решением
-        if is_solution(state) {
-            // Запись решения
-            record_solution(state, res);
-            // Дальше не продолжаем поиск
-            return;
-        }
-        // Перебор всех возможных выборов
-        for choice in choices {
-            // Обрезка: проверка допустимости выбора
-            if is_valid(state, choice) {
-                // Попытка: сделать выбор и обновить состояние
-                make_choice(state, choice);
-                backtrack(state, choices, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undo_choice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* Каркас алгоритма поиска с возвратом */
-    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // Проверка, является ли текущее состояние решением
-        if (isSolution(state)) {
-            // Запись решения
-            recordSolution(state, res, numRes);
-            // Дальше не продолжаем поиск
-            return;
-        }
-        // Перебор всех возможных выборов
-        for (int i = 0; i < numChoices; i++) {
-            // Обрезка: проверка допустимости выбора
-            if (isValid(state, &choices[i])) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state, &choices[i]);
-                backtrack(state, choices, numChoices, res, numRes);
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state, &choices[i]);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* Каркас алгоритма поиска с возвратом */
-    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // Проверка, является ли текущее состояние решением
-        if (isSolution(state)) {
-            // Запись решения
-            recordSolution(state, res)
-            // Дальше не продолжаем поиск
-            return
-        }
-        // Перебор всех возможных выборов
-        for (choice in choices) {
-            // Обрезка: проверка допустимости выбора
-            if (isValid(state, choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // Откат: отменить выбор и восстановить предыдущее состояние
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### Каркас алгоритма поиска с возвратом ###
-    def backtrack(state, choices, res)
-        # Проверка, является ли текущее состояние решением
-        if is_solution?(state)
-            # Запись решения
-            record_solution(state, res)
-            return
-        end
-
-        # Перебор всех возможных выборов
-        for choice in choices
-            # Обрезка: проверка допустимости выбора
-            if is_valid?(state, choice)
-                # Попытка: сделать выбор и обновить состояние
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # Откат: отменить выбор и восстановить предыдущее состояние
-                undo_choice(state, choice)
-            end
-        end
-    end
-    ```
+```snippet
+backtrack_framework
+```
 
 Теперь, опираясь на этот каркас, решим пример 3. Состояние `state` здесь - это путь обхода узлов, выбор `choices` - левый и правый потомки текущего узла, а результат `res` - список путей:
 
@@ -437,7 +107,7 @@
 
 Согласно условию задачи, после нахождения узла со значением $7$ мы должны продолжать поиск, **поэтому оператор `return` после записи решения нужно удалить**. На рисунке ниже сравниваются процессы поиска в случаях, когда `return` сохраняется и когда он удаляется.
 
-![Сравнение поиска при сохранении и удалении return](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![Сравнение поиска при сохранении и удалении return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 По сравнению с реализацией на основе прямого обхода, версия на основе общего каркаса поиска с возвратом выглядит более громоздкой, но при этом обладает лучшей универсальностью. На практике **многие задачи поиска с возвратом можно решать в рамках этого каркаса**. Для этого нужно лишь определить `state` и `choices` под конкретную задачу и реализовать соответствующие методы каркаса.
 

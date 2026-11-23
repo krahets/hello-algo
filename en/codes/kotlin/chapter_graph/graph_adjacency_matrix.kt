@@ -8,19 +8,19 @@ package chapter_graph
 
 import utils.printMatrix
 
-/* Undirected graph class based on adjacency matrix */
+/* Undirected graph class implemented with an adjacency matrix */
 class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
-    val vertices = mutableListOf<Int>() // Vertex list, where the element represents the "vertex value" and the index represents the "vertex index"
-    val adjMat = mutableListOf<MutableList<Int>>() // Adjacency matrix, where the row and column indices correspond to the "vertex index"
+    val vertices = mutableListOf<Int>() // Vertex list: elements are vertex values, and indices are vertex indices
+    val adjMat = mutableListOf<MutableList<Int>>() // Adjacency matrix: row and column indices correspond to vertex indices
 
     /* Constructor */
     init {
-        // Add vertex
+        // Add a vertex
         for (vertex in vertices) {
             addVertex(vertex)
         }
-        // Add edge
-        // Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+        // Add an edge
+        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
         for (edge in edges) {
             addEdge(edge[0], edge[1])
         }
@@ -31,10 +31,10 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
         return vertices.size
     }
 
-    /* Add vertex */
+    /* Add a vertex */
     fun addVertex(_val: Int) {
         val n = size()
-        // Add the value of the new vertex to the vertex list
+        // Append the new vertex value to the vertex list
         vertices.add(_val)
         // Add a row to the adjacency matrix
         val newRow = mutableListOf<Int>()
@@ -48,42 +48,42 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
         }
     }
 
-    /* Remove vertex */
+    /* Remove a vertex */
     fun removeVertex(index: Int) {
         if (index >= size())
             throw IndexOutOfBoundsException()
-        // Remove the vertex at index from the vertex list
+        // Remove the vertex at index `index` from the vertex list
         vertices.removeAt(index)
-        // Remove the row at index from the adjacency matrix
+        // Remove row `index` from the adjacency matrix
         adjMat.removeAt(index)
-        // Remove the column at index from the adjacency matrix
+        // Remove column `index` from the adjacency matrix
         for (row in adjMat) {
             row.removeAt(index)
         }
     }
 
-    /* Add edge */
-    // Parameters i, j correspond to the vertices element indices
+    /* Add an edge */
+    // Parameters i and j are element indices in vertices
     fun addEdge(i: Int, j: Int) {
-        // Handle index out of bounds and equality
+        // Handle out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw IndexOutOfBoundsException()
-        // In an undirected graph, the adjacency matrix is symmetric about the main diagonal, i.e., (i, j) == (j, i)
+        // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
         adjMat[i][j] = 1
         adjMat[j][i] = 1
     }
 
-    /* Remove edge */
-    // Parameters i, j correspond to the vertices element indices
+    /* Remove an edge */
+    // Parameters i and j are element indices in vertices
     fun removeEdge(i: Int, j: Int) {
-        // Handle index out of bounds and equality
+        // Handle out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw IndexOutOfBoundsException()
         adjMat[i][j] = 0
         adjMat[j][i] = 0
     }
 
-    /* Print adjacency matrix */
+    /* Print the adjacency matrix */
     fun print() {
         print("Vertex list = ")
         println(vertices)
@@ -92,10 +92,10 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Add edge */
-    // Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+    /* Initialize the undirected graph */
+    // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
     val vertices = intArrayOf(1, 3, 2, 5, 4)
     val edges = arrayOf(
         intArrayOf(0, 1),
@@ -106,29 +106,29 @@ fun main() {
         intArrayOf(3, 4)
     )
     val graph = GraphAdjMat(vertices, edges)
-    println("\nAfter initialization, graph is")
+    println("\nGraph after initialization:")
     graph.print()
 
-    /* Add edge */
-    // Add vertex
+    /* Add an edge */
+    // Vertices 1 and 2 have indices 0 and 2, respectively
     graph.addEdge(0, 2)
-    println("\nAfter adding edge 1-2, graph is")
+    println("\nGraph after adding edge 1-2:")
     graph.print()
 
-    /* Remove edge */
-    // Vertices 1, 3 have indices 0, 1 respectively
+    /* Remove an edge */
+    // Vertices 1 and 3 have indices 0 and 1, respectively
     graph.removeEdge(0, 1)
-    println("\nAfter removing edge 1-3, graph is")
+    println("\nGraph after removing edge 1-3:")
     graph.print()
 
-    /* Add vertex */
+    /* Add a vertex */
     graph.addVertex(6)
-    println("\nAfter adding vertex 6, graph is")
+    println("\nGraph after adding vertex 6:")
     graph.print()
 
-    /* Remove vertex */
+    /* Remove a vertex */
     // Vertex 3 has index 1
     graph.removeVertex(1)
-    println("\nAfter removing vertex 3, graph is")
+    println("\nGraph after removing vertex 3:")
     graph.print()
 }

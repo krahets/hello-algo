@@ -7,10 +7,10 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Driver Code ###
 if __FILE__ == $0
   # 初始化雙向佇列
-  # Ruby 沒有內直的雙端佇列，只能把 Array 當作雙端佇列來使用
+  # Ruby 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
   deque = []
 
-  # 元素如隊
+  # 元素入列
   deque << 2
   deque << 5
   deque << 4
@@ -26,7 +26,7 @@ if __FILE__ == $0
   puts "佇列尾元素 peek_last = #{peek_last}"
 
   # 元素出列
-  # 請注意，由於是陣列， Array#shift 方法的時間複雜度為 O(n)
+  # 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
   pop_front = deque.shift
   puts "佇列首出列元素 pop_front = #{pop_front}，佇列首出列後 deque = #{deque}"
   pop_back = deque.pop

@@ -9,15 +9,15 @@ namespace hello_algo.chapter_sorting;
 public class insertion_sort {
     /* 挿入ソート */
     void InsertionSort(int[] nums) {
-        // 外側ループ：整列済み区間は [0, i-1]
+        // 外側のループ：ソート済み区間は [0, i-1]
         for (int i = 1; i < nums.Length; i++) {
             int bas = nums[i], j = i - 1;
-            // 内側ループ: base をソート済み区間 [0, i-1] の正しい位置に挿入する
+            // 内側のループ：ソート済み区間 [0, i-1] の正しい位置に base を挿入する
             while (j >= 0 && nums[j] > bas) {
-                nums[j + 1] = nums[j]; // nums[j] を 1 つ右へ移動する
+                nums[j + 1] = nums[j]; // nums[j] を右に 1 つずらす
                 j--;
             }
-            nums[j + 1] = bas;         // base を正しい位置に配置する
+            nums[j + 1] = bas;         // 正しい位置に base を代入する
         }
     }
 

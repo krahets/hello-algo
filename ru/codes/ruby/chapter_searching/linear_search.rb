@@ -20,7 +20,7 @@ end
 def linear_search_linkedlist(head, target)
   # Обойти связный список
   while head
-    return head if head.val == target # Найти целевой узел и вернуть его
+    return head if head.val == target # Целевой узел найден, возвращается этот узел
 
     head = head.next
   end

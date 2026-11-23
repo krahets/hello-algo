@@ -6,11 +6,11 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Double-ended queue based on circular array implementation */
+/* Deque implemented with a circular array */
 public class ArrayDeque {
-    int[] nums;  // Array for storing double-ended queue elements
-    int front;   // Front pointer, points to the front of the queue element
-    int queSize; // Double-ended queue length
+    int[] nums;  // Array that stores the deque elements
+    int front;   // Front pointer, pointing to the first element
+    int queSize; // Deque size
 
     /* Constructor */
     public ArrayDeque(int capacity) {
@@ -18,73 +18,73 @@ public class ArrayDeque {
         front = queSize = 0;
     }
 
-    /* Get the capacity of the double-ended queue */
+    /* Get the deque capacity */
     int Capacity() {
         return nums.Length;
     }
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     public int Size() {
         return queSize;
     }
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     public bool IsEmpty() {
         return queSize == 0;
     }
 
-    /* Calculate circular array index */
+    /* Calculate an index in the circular array */
     int Index(int i) {
-        // Use modulo operation to wrap the array head and tail together
-        // When i passes the tail of the array, return to the head
-        // When i passes the head of the array, return to the tail
+        // Use modulo to connect the end of the array to its beginning
+        // When i passes the end of the array, wrap around to the beginning
+        // When i passes the beginning of the array, wrap around to the end
         return (i + Capacity()) % Capacity();
     }
 
-    /* Front of the queue enqueue */
+    /* Enqueue at the front */
     public void PushFirst(int num) {
         if (queSize == Capacity()) {
-            Console.WriteLine("Double-ended queue is full");
+            Console.WriteLine("Deque is full");
             return;
         }
-        // Use modulo operation to wrap front around to the tail after passing the head of the array
-        // Add num to the front of the queue
+        // Move the front pointer one position to the left
+        // Use modulo to wrap front to the end when it passes the beginning of the array
         front = Index(front - 1);
-        // Add num to front of queue
+        // Add num to the front
         nums[front] = num;
         queSize++;
     }
 
-    /* Rear of the queue enqueue */
+    /* Enqueue at the rear */
     public void PushLast(int num) {
         if (queSize == Capacity()) {
-            Console.WriteLine("Double-ended queue is full");
+            Console.WriteLine("Deque is full");
             return;
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
+        // Calculate the rear pointer, which points one position past the last element
         int rear = Index(front + queSize);
-        // Front pointer moves one position backward
+        // Add num to the rear
         nums[rear] = num;
         queSize++;
     }
 
-    /* Rear of the queue dequeue */
+    /* Dequeue from the front */
     public int PopFirst() {
         int num = PeekFirst();
-        // Move front pointer backward by one position
+        // Advance the front pointer by one position
         front = Index(front + 1);
         queSize--;
         return num;
     }
 
-    /* Access rear of the queue element */
+    /* Dequeue from the rear */
     public int PopLast() {
         int num = PeekLast();
         queSize--;
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     public int PeekFirst() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
@@ -92,19 +92,19 @@ public class ArrayDeque {
         return nums[front];
     }
 
-    /* Driver Code */
+    /* Access the rear element */
     public int PeekLast() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
         }
-        // Initialize double-ended queue
+        // Calculate the index of the last element
         int last = Index(front + queSize - 1);
         return nums[last];
     }
 
-    /* Return array for printing */
+    /* Return an array for printing */
     public int[] ToArray() {
-        // Elements enqueue
+        // Copy only the elements within the occupied range
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[Index(j)];
@@ -116,37 +116,37 @@ public class ArrayDeque {
 public class array_deque {
     [Test]
     public void Test() {
-        /* Get the length of the double-ended queue */
+        /* Initialize the deque */
         ArrayDeque deque = new(10);
         deque.PushLast(3);
         deque.PushLast(2);
         deque.PushLast(5);
-        Console.WriteLine("Double-ended queue deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Deque deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Update element */
+        /* Access an element */
         int peekFirst = deque.PeekFirst();
         Console.WriteLine("Front element peekFirst = " + peekFirst);
         int peekLast = deque.PeekLast();
         Console.WriteLine("Rear element peekLast = " + peekLast);
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         deque.PushLast(4);
-        Console.WriteLine("After element 4 enqueues at rear, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("After enqueuing element 4 at the rear, deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("After element 1 enqueues at front, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("After enqueuing element 1 at the front, deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Element dequeue */
+        /* Dequeue an element */
         int popLast = deque.PopLast();
-        Console.WriteLine("Rear dequeue element = " + popLast + ", after rear dequeue, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Element dequeued from the rear = " + popLast + ", after dequeuing from the rear, deque = " + string.Join(" ", deque.ToArray()));
         int popFirst = deque.PopFirst();
-        Console.WriteLine("Front dequeue element = " + popFirst + ", after front dequeue, deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Element dequeued from the front = " + popFirst + ", after dequeuing from the front, deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Get the length of the double-ended queue */
+        /* Get the deque size */
         int size = deque.Size();
-        Console.WriteLine("Double-ended queue length size = " + size);
+        Console.WriteLine("Deque size = " + size);
 
-        /* Check if the double-ended queue is empty */
+        /* Check whether the deque is empty */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("Double-ended queue is empty = " + isEmpty);
+        Console.WriteLine("Is the deque empty = " + isEmpty);
     }
 }

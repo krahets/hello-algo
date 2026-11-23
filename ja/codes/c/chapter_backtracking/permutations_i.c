@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// 順列は最大 1000 個と仮定
+// 順列は最大 1000 個と仮定する
 #define MAX_SIZE 1000
 
-/* バックトラッキング：順列 I */
+/* バックトラッキング：すべての順列 I */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
-    // 状態の長さが要素数に等しければ、解を記録
+    // 状態の長さが要素数と等しくなったら、解を記録する
     if (stateSize == choicesSize) {
         res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
         for (int i = 0; i < choicesSize; i++) {
@@ -20,23 +20,23 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // すべての選択肢を走査
+    // すべての選択肢を走査する
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // 枝刈り：要素の重複選択を許可しない
+        // 枝刈り：同じ要素を繰り返し選んではならない
         if (!selected[i]) {
-            // 試行: 選択を行い、状態を更新
+            // 試行：選択を行い、状態を更新する
             selected[i] = true;
             state[stateSize] = choice;
-            // 次の選択へ進む
+            // 次の選択に進む
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
-            // バックトラック：選択を取り消し、前の状態に戻す
+            // 復元：選択を取り消し、以前の状態に戻す
             selected[i] = false;
         }
     }
 }
 
-/* 全順列 I */
+/* すべての順列 I */
 int **permutationsI(int *nums, int numsSize, int *returnSize) {
     int *state = (int *)malloc(numsSize * sizeof(int));
     bool *selected = (bool *)malloc(numsSize * sizeof(bool));
@@ -54,7 +54,7 @@ int **permutationsI(int *nums, int numsSize, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     int nums[] = {1, 2, 3};
     int numsSize = sizeof(nums) / sizeof(nums[0]);

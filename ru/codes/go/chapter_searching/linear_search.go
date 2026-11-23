@@ -25,7 +25,7 @@ func linearSearchArray(nums []int, target int) int {
 func linearSearchLinkedList(node *ListNode, target int) *ListNode {
 	// Обойти связный список
 	for node != nil {
-		// Найти целевой узел и вернуть его
+		// Целевой узел найден, возвращается этот узел
 		if node.Val == target {
 			return node
 		}

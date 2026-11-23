@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "title": "Pruning only sums exceeding the target still generates duplicate combinations",
+  "summary": "Starting from cumulative sum 0 and adding 3, 4, and 5 prunes branches exceeding 9, yet still outputs both duplicate combinations [4, 5] and [5, 4].",
+  "context": [
+    "The input consists of the positive integer array choices = [3, 4, 5] and target sum target = 9; each element may be chosen repeatedly, and resulting subsets (combinations) ignore element order."
+  ],
+  "description": [
+    "Each circular node shows the cumulative sum of the current prefix (0 at the root). Every round tries adding all candidates 3, 4, and 5: if the new sum exceeds 9 (pruned via a dashed > 9 branch in the figure without forming a new circular node), skip it; if it equals 9, enter the leaf node to record the result and then return to the previous level to continue trying.",
+    "The search tree has 13 solid circular state nodes. The table below lists each prefix's cumulative sum and next-round choices level by level; reaching a leaf node with sum 9 records one result, and \"enter\" in the parent row refers only to entering that child call. Arrows in the table denote entering the corresponding child node, with the cumulative sum written to the right of the arrow."
+  ],
+  "frames": [
+    {
+      "id": "source-358",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_i_naive.png",
+      "title": "Pruning only sums exceeding the target still generates duplicate combinations",
+      "explanation": "Although out-of-range pruning stops branches whose sum exceeds 9 promptly, the search still outputs three results—[3, 3, 3], [4, 5], and [5, 4]—where [4, 5] and [5, 4] are duplicate combinations containing the same elements in different orders."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Cumulative-sum search tree",
+      "headers": [
+        "Current prefix",
+        "Cumulative sum",
+        "Next-round choices or termination reason"
+      ],
+      "rows": [
+        [
+          "[]",
+          "0",
+          "+3→3; +4→4; +5→5"
+        ],
+        [
+          "[3]",
+          "3",
+          "+3→6; +4→7; +5→8"
+        ],
+        [
+          "[4]",
+          "4",
+          "+3→7; +4→8; +5→9, enter [4, 5] (hits 9)"
+        ],
+        [
+          "[5]",
+          "5",
+          "+3→8; +4→9, enter [5, 4] (hits 9); +5 exceeds target"
+        ],
+        [
+          "[3, 3]",
+          "6",
+          "+3→9, enter [3, 3, 3] (hits 9); +4 and +5 exceed target"
+        ],
+        [
+          "[3, 4]",
+          "7",
+          "+3, +4, and +5 all exceed target"
+        ],
+        [
+          "[3, 5]",
+          "8",
+          "+3, +4, and +5 all exceed target"
+        ],
+        [
+          "[4, 3]",
+          "7",
+          "+3, +4, and +5 all exceed target"
+        ],
+        [
+          "[4, 4]",
+          "8",
+          "+3, +4, and +5 all exceed target"
+        ],
+        [
+          "[4, 5]",
+          "9",
+          "Record result and return"
+        ],
+        [
+          "[5, 3]",
+          "8",
+          "+3, +4, and +5 all exceed target"
+        ],
+        [
+          "[5, 4]",
+          "9",
+          "Record result and return"
+        ],
+        [
+          "[3, 3, 3]",
+          "9",
+          "Record result and return"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

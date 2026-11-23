@@ -8,24 +8,24 @@ require 'set'
 
 ### Backtracking: permutations II ###
 def backtrack(state, choices, selected, res)
-  # When the state length equals the number of elements, record the solution
+  # Record a solution when the state length equals the number of elements
   if state.length == choices.length
     res << state.dup
     return
   end
 
-  # Traverse all choices
+  # Iterate over all choices
   duplicated = Set.new
   choices.each_with_index do |choice, i|
-    # Pruning: do not allow repeated selection of elements and do not allow repeated selection of equal elements
+    # Prune: do not reuse an element or choose the same value again at this depth
     if !selected[i] && !duplicated.include?(choice)
-      # Attempt: make choice, update state
+      # Try: make a choice and update the state
       duplicated.add(choice)
       selected[i] = true
       state << choice
-      # Proceed to the next round of selection
+      # Proceed to the next choice
       backtrack(state, choices, selected, res)
-      # Backtrack: undo choice, restore to previous state
+      # Backtrack: undo the choice and restore the previous state
       selected[i] = false
       state.pop
     end
@@ -39,7 +39,7 @@ def permutations_ii(nums)
   res
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   nums = [1, 2, 2]
 

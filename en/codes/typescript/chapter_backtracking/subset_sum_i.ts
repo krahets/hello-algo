@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Backtracking algorithm: Subset sum I */
+/* Backtracking: subset sum I */
 function backtrack(
     state: number[],
     target: number,
@@ -12,24 +12,24 @@ function backtrack(
     start: number,
     res: number[][]
 ): void {
-    // When the subset sum equals target, record the solution
+    // Record a solution when the subset reaches the original target (remaining target is 0)
     if (target === 0) {
         res.push([...state]);
         return;
     }
-    // Traverse all choices
-    // Pruning 2: start traversing from start to avoid generating duplicate subsets
+    // Iterate over all choices
+    // Pruning 2: iterate from start to avoid generating duplicate subsets
     for (let i = start; i < choices.length; i++) {
-        // Pruning 1: if the subset sum exceeds target, end the loop directly
-        // This is because the array is sorted, and later elements are larger, so the subset sum will definitely exceed target
+        // Pruning 1: exit the loop if this choice would exceed the remaining target
+        // The array is sorted, so later elements are at least as large and would also exceed the remaining target
         if (target - choices[i] < 0) {
             break;
         }
-        // Attempt: make choice, update target, start
+        // Try: make a choice and update target and start
         state.push(choices[i]);
-        // Proceed to the next round of selection
+        // Proceed to the next choice
         backtrack(state, target - choices[i], choices, i, res);
-        // Backtrack: undo choice, restore to previous state
+        // Backtrack: undo the choice and restore the previous state
         state.pop();
     }
 }
@@ -38,17 +38,17 @@ function backtrack(
 function subsetSumI(nums: number[], target: number): number[][] {
     const state = []; // State (subset)
     nums.sort((a, b) => a - b); // Sort nums
-    const start = 0; // Start point for traversal
-    const res = []; // Result list (subset list)
+    const start = 0; // Starting index for iteration
+    const res = []; // Result list (list of subsets)
     backtrack(state, target, nums, start, res);
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 const nums = [3, 4, 5];
 const target = 9;
 const res = subsetSumI(nums, target);
 console.log(`Input array nums = ${JSON.stringify(nums)}, target = ${target}`);
-console.log(`All subsets with sum equal to ${target} res = ${JSON.stringify(res)}`);
+console.log(`All subsets with sum ${target}: res = ${JSON.stringify(res)}`);
 
 export {};

@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "Moving two disks with auxiliary rod B",
+  "summary": "Park the small disk on rod B, move the large disk to rod C, and place the small disk onto the large disk in three moves total.",
+  "context": [
+    "The three rods from left to right are A, B, and C, and the goal is to move the two disks on A to C. Only one top disk may be moved at a time, and a larger disk cannot rest on a smaller disk; disk lists below are written from bottom to top on each rod.",
+    "Green denotes the large disk and blue denotes the small disk."
+  ],
+  "description": [
+    "The four frames show the initial state followed by the states after each of the three single-disk moves: because step numbering in the player includes the initial frame, Steps 2, 3, and 4 complete moves 1, 2, and 3, respectively. Below the last three frames, completed move instructions are listed with the current move highlighted in light gray."
+  ],
+  "frames": [
+    {
+      "id": "source-331",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step1.png",
+      "title": "Two disks stacked on rod A",
+      "explanation": "Initially A = [large disk, small disk], B = [], and C = [], with no move made yet. Because the blue small disk rests above the green large disk, the small disk must move to auxiliary rod B before the large disk can be freed.",
+      "key_state": "No move yet; A holds the large disk then the small disk from bottom to top, and B and C are empty.",
+      "announcement": "Show the initial state with the large and small disks stacked on rod A."
+    },
+    {
+      "id": "source-332",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step2.png",
+      "title": "Move the small disk from rod A to rod B first",
+      "explanation": "Move 1: move the blue small disk from A onto empty rod B, exposing the green large disk at the top of A. Now A = [large disk], B = [small disk], and C = [].",
+      "key_state": "Move 1 complete; A holds the large disk, B holds the small disk, and C is empty.",
+      "announcement": "Move 1: move the small disk from rod A to auxiliary rod B."
+    },
+    {
+      "id": "source-333",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step3.png",
+      "title": "Next move the large disk from rod A to rod C",
+      "explanation": "Move 2: with the green large disk on A unobstructed and rod C empty, move the large disk from A to C. Now A = [], B = [small disk], and C = [large disk], with the small disk still waiting on B.",
+      "key_state": "Move 2 complete; A is empty, B holds the small disk, and C holds the large disk.",
+      "announcement": "Move 2: move the large disk from rod A to destination rod C."
+    },
+    {
+      "id": "source-334",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step4.png",
+      "title": "Finally move the small disk from rod B to rod C",
+      "explanation": "Move 3: place the blue small disk from B onto the green large disk on C, keeping the smaller disk on top. Now A = [], B = [], and C = [large disk, small disk], completing the two-disk transfer.",
+      "key_state": "Move 3 complete; A and B are empty, and C holds the large disk then the small disk from bottom to top.",
+      "announcement": "Move 3: move the small disk from rod B onto the large disk on rod C, completing the transfer."
+    }
+  ],
+  "animations": {
+    "hanota-f2": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-331"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-332"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-333"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-334"
+        }
+      ]
+    }
+  }
+}

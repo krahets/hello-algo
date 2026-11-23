@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "title": "Pyramid hierarchy of computer storage",
+  "summary": "The storage pyramid compares speed, capacity, cost per unit capacity, and persistence across storage levels.",
+  "context": [
+    "The pyramid widens from top to bottom across five levels. The top three levels sit inside a green box labeled CPU and are grouped on the left as \"Cache\"; the fourth level is labeled \"Memory\", and the fifth level is labeled \"Disk\"."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-54",
+      "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png",
+      "title": "Pyramid hierarchy of computer storage",
+      "explanation": "On the right, the upward arrow is labeled \"Speed, Cost\": higher levels provide faster access at higher cost per unit capacity. The downward arrow is labeled \"Capacity, Persistence\": lower levels offer larger capacity, and HDD/SSD at the bottom retains data long term without power. Cache and memory are volatile storage and lose data when power is removed."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Five storage levels from top to bottom",
+      "headers": [
+        "Level",
+        "Label in figure",
+        "Category"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1, top",
+          "L1 Cache",
+          "Cache inside CPU"
+        ],
+        [
+          "2",
+          "L2 Cache",
+          "Cache inside CPU"
+        ],
+        [
+          "3",
+          "L3 Cache",
+          "Cache inside CPU"
+        ],
+        [
+          "4",
+          "RAM",
+          "Memory"
+        ],
+        [
+          "5, bottom",
+          "HDD/SSD",
+          "Disk"
+        ]
+      ]
+    }
+  ]
+}

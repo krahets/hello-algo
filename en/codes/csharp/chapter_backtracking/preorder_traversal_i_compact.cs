@@ -9,13 +9,13 @@ namespace hello_algo.chapter_backtracking;
 public class preorder_traversal_i_compact {
     List<TreeNode> res = [];
 
-    /* Preorder traversal: Example 1 */
+    /* Preorder traversal: example 1 */
     void PreOrder(TreeNode? root) {
         if (root == null) {
             return;
         }
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.Add(root);
         }
         PreOrder(root.left);
@@ -25,7 +25,7 @@ public class preorder_traversal_i_compact {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\nInitialize binary tree");
+        Console.WriteLine("\nInitialize the binary tree");
         PrintUtil.PrintTree(root);
 
         // Preorder traversal

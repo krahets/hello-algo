@@ -1,0 +1,728 @@
+{
+  "schema_version": 2,
+  "title": "Dynamic programming for minimum path sum",
+  "summary": "Starting at the top-left cell, accumulate the costs along the unique boundary paths along the first row and first column, then fill interior cells row by row by adding the current cell cost to the minimum of the cell above and the cell to the left until reaching the bottom-right corner.",
+  "context": [
+    "Given the 4×4 nonnegative integer cost grid (zero-based row and column indices; full values in the input table), move from top-left start [0, 0] to bottom-right end [3, 3] stepping only one cell right or down at a time, counting both start and end cell values in the path sum.",
+    "Entry dp[i, j] stores the minimum path sum from start [0, 0] to row i, column j. Zeros filled into the table upon creation are merely uncomputed initial placeholders and never represent zero-cost paths."
+  ],
+  "description": [
+    "Boundary initialization: set start dp[0, 0] = grid[0, 0] = 1; row 0 can only be reached by moving right from the left, and column 0 can only be reached by moving down from above, so accumulating along the first row and first column settles 7 valid boundary cells in total.",
+    "Interior recurrence: across the 9 interior cells in rows 1 to 3 and columns 1 to 3, evaluate dp[i, j] = min(dp[i - 1, j], dp[i, j - 1]) + grid[i, j] row by row from left to right so both dp[i - 1, j] above and dp[i, j - 1] to the left already hold valid results whenever needed. Each frame's state table pairs every cell's value with \"uncomputed initial value\", \"valid boundary\", or \"computed\" for direct lookup by coordinates."
+  ],
+  "tables": [
+    {
+      "caption": "Dynamic programming process: input grid (zero-based row and column indices)",
+      "headers": [
+        "Row index",
+        "Column 0",
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "3",
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "2",
+          "2",
+          "4",
+          "2"
+        ],
+        [
+          "2",
+          "5",
+          "3",
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "4",
+          "3",
+          "5",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "frames": [
+    {
+      "id": "source-382",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step1.png",
+      "title": "Initialize the dp table",
+      "explanation": "Create a 4×4 dp state table filled entirely with uncomputed initial values of 0; all 16 cells—including start [0, 0], row 0, and column 0—are still unevaluated, and 0 does not denote a zero-cost path.",
+      "key_state": "All 16 cells hold uncomputed initial values of 0; start and boundaries are not yet evaluated.",
+      "announcement": "Create the 4×4 dp table with all 16 cells initialized to uncomputed placeholder 0.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 1: dp state after initializing the dp table",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "1",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "2",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "3",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-383",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step2.png",
+      "title": "Compute first-row and first-column boundaries",
+      "explanation": "Start cell dp[0, 0] = grid[0, 0] = 1; accumulating rightward along row 0 gives [1, 4, 5, 10], and accumulating downward along column 0 gives [1, 3, 8, 12]. Seven boundary cells now hold valid boundary values, while the remaining 9 interior cells (rows 1 to 3, columns 1 to 3) still hold uncomputed initial values of 0.",
+      "key_state": "First row [1, 4, 5, 10] and first column [1, 3, 8, 12] give 7 valid boundary cells; the 9 interior cells remain uncomputed initial values of 0.",
+      "announcement": "Finish accumulating the start, first row [1, 4, 5, 10], and first column [1, 3, 8, 12] for 7 valid boundary cells; 9 interior cells remain uncomputed initial values of 0.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 2: dp state after computing first-row and first-column boundaries",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-384",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step3.png",
+      "title": "Compute dp[1, 1]",
+      "explanation": "Enter interior row 1, column 1: upper predecessor dp[0, 1] = 4 and left predecessor dp[1, 0] = 3; take the smaller value 3 plus current cell cost grid[1, 1] = 2 to get dp[1, 1] = min(4, 3) + 2 = 5. The remaining 8 interior cells ([1, 2], [1, 3], and rows 2 to 3, columns 1 to 3) still hold uncomputed initial values of 0.",
+      "key_state": "Computed dp[1, 1] = min(4, 3) + 2 = 5; the remaining 8 interior cells still hold uncomputed initial values of 0.",
+      "announcement": "Compare upper sum 4 with left sum 3 and add cell cost 2 to get dp[1, 1] = 5.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 3: dp state after computing dp[1, 1]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-385",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step4.png",
+      "title": "Compute dp[1, 2]",
+      "explanation": "At [1, 2]: upper predecessor dp[0, 2] = 5 and left predecessor dp[1, 1] = 5 are equal; take either 5 plus current cell cost grid[1, 2] = 4 to get dp[1, 2] = min(5, 5) + 4 = 9. The remaining 7 interior cells ([1, 3] and rows 2 to 3, columns 1 to 3) still hold uncomputed initial values of 0.",
+      "key_state": "Computed dp[1, 2] = min(5, 5) + 4 = 9; the remaining 7 interior cells still hold uncomputed initial values of 0.",
+      "announcement": "Upper sum 5 equals left sum 5; add cell cost 4 to get dp[1, 2] = 9.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 4: dp state after computing dp[1, 2]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "0, uncomputed initial value"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-386",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step5.png",
+      "title": "Compute dp[1, 3]",
+      "explanation": "At the end of row 1, [1, 3]: upper predecessor dp[0, 3] = 10 and left predecessor dp[1, 2] = 9; take the smaller value 9 plus current cell cost grid[1, 3] = 2 to get dp[1, 3] = min(10, 9) + 2 = 11. Row 1 is now completely settled; the 6 interior cells in rows 2 to 3, columns 1 to 3 still hold uncomputed initial values of 0.",
+      "key_state": "Computed dp[1, 3] = min(10, 9) + 2 = 11; rows 0 and 1 plus the first-column boundary are complete, leaving 6 interior cells in rows 2 and 3 uncomputed.",
+      "announcement": "Compare upper sum 10 with left sum 9 and add cell cost 2 to get dp[1, 3] = 11.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 5: dp state after computing dp[1, 3]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-387",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step6.png",
+      "title": "Compute dp[2, 1]",
+      "explanation": "Advance to the first interior cell of row 2, [2, 1]: upper predecessor dp[1, 1] = 5 and left predecessor dp[2, 0] = 8; take the smaller value 5 plus current cell cost grid[2, 1] = 3 to get dp[2, 1] = min(5, 8) + 3 = 8. The remaining 5 interior cells ([2, 2], [2, 3], and columns 1 to 3 of row 3) still hold uncomputed initial values of 0.",
+      "key_state": "Computed dp[2, 1] = min(5, 8) + 3 = 8; the remaining 5 interior cells still hold uncomputed initial values of 0.",
+      "announcement": "Compare upper sum 5 with left sum 8 and add cell cost 3 to get dp[2, 1] = 8.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 6: dp state after computing dp[2, 1]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "8, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-388",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step7.png",
+      "title": "Compute dp[2, 2]",
+      "explanation": "At [2, 2]: upper predecessor dp[1, 2] = 9 and left predecessor dp[2, 1] = 8; take the smaller value 8 plus current cell cost grid[2, 2] = 2 to get dp[2, 2] = min(9, 8) + 2 = 10. The remaining 4 interior cells ([2, 3], [3, 1], [3, 2], [3, 3]) still hold uncomputed initial values of 0.",
+      "key_state": "Computed dp[2, 2] = min(9, 8) + 2 = 10; the remaining 4 interior cells still hold uncomputed initial values of 0.",
+      "announcement": "Compare upper sum 9 with left sum 8 and add cell cost 2 to get dp[2, 2] = 10.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 7: dp state after computing dp[2, 2]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "8, computed",
+              "10, computed",
+              "0, uncomputed initial value"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-389",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step8.png",
+      "title": "Compute dp[2, 3]",
+      "explanation": "At the end of row 2, [2, 3]: upper predecessor dp[1, 3] = 11 and left predecessor dp[2, 2] = 10; take the smaller value 10 plus current cell cost grid[2, 3] = 1 to get dp[2, 3] = min(11, 10) + 1 = 11. Row 2 is now completely settled; only [3, 1], [3, 2], and [3, 3] in row 3 hold uncomputed initial values of 0.",
+      "key_state": "Computed dp[2, 3] = min(11, 10) + 1 = 11; rows 0 through 2 plus the first-column boundary are complete, leaving 3 interior cells in row 3 uncomputed.",
+      "announcement": "Compare upper sum 11 with left sum 10 and add cell cost 1 to get dp[2, 3] = 11.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 8: dp state after computing dp[2, 3]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "8, computed",
+              "10, computed",
+              "11, computed"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-390",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step9.png",
+      "title": "Compute dp[3, 1]",
+      "explanation": "Advance to [3, 1] in the bottom row: upper predecessor dp[2, 1] = 8 and left predecessor dp[3, 0] = 12; take the smaller value 8 plus current cell cost grid[3, 1] = 3 to get dp[3, 1] = min(8, 12) + 3 = 11. Only [3, 2] and destination [3, 3] remain at uncomputed initial value 0.",
+      "key_state": "Computed dp[3, 1] = min(8, 12) + 3 = 11; only [3, 2] and [3, 3] remain uncomputed.",
+      "announcement": "Compare upper sum 8 with left sum 12 and add cell cost 3 to get dp[3, 1] = 11.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 9: dp state after computing dp[3, 1]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "8, computed",
+              "10, computed",
+              "11, computed"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "11, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-391",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step10.png",
+      "title": "Compute dp[3, 2]",
+      "explanation": "At [3, 2]: upper predecessor dp[2, 2] = 10 and left predecessor dp[3, 1] = 11; take the smaller value 10 plus current cell cost grid[3, 2] = 5 to get dp[3, 2] = min(10, 11) + 5 = 15. Fifteen cells are now valid, leaving only destination dp[3, 3] at 0 (uncomputed initial value).",
+      "key_state": "Computed dp[3, 2] = min(10, 11) + 5 = 15; only destination dp[3, 3] remains at 0 (uncomputed initial value).",
+      "announcement": "Compare upper sum 10 with left sum 11 and add cell cost 5 to get dp[3, 2] = 15.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 10: dp state after computing dp[3, 2]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "8, computed",
+              "10, computed",
+              "11, computed"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "11, computed",
+              "15, computed",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-392",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step11.png",
+      "title": "Compute dp[3, 3]",
+      "explanation": "Compute the final interior cell (destination) [3, 3]: upper predecessor dp[2, 3] = 11 and left predecessor dp[3, 2] = 15; take the smaller value 11 plus current cell cost grid[3, 3] = 2 to get dp[3, 3] = min(11, 15) + 2 = 13. All 16 cells in the table are now valid.",
+      "key_state": "Computed destination dp[3, 3] = min(11, 15) + 2 = 13; all 16 cells in the table are now valid.",
+      "announcement": "Compare upper sum 11 with left sum 15 and add destination cost 2 to get dp[3, 3] = 13.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 11: dp state after computing dp[3, 3]",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "8, computed",
+              "10, computed",
+              "11, computed"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "11, computed",
+              "15, computed",
+              "13, computed"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-393",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dp_step12.png",
+      "title": "Return the minimum path sum",
+      "explanation": "With all 16 state cells computed, this step performs no new calculation and simply reads and returns bottom-right destination dp[3, 3] = 13 as the minimum path sum. The procedure returns only the minimum cumulative cost without backtracking to output path coordinates.",
+      "key_state": "Table computation complete; return bottom-right destination minimum path sum dp[3, 3] = 13.",
+      "announcement": "Table recurrence complete; return destination minimum path sum 13.",
+      "state_tables": [
+        {
+          "caption": "Minimum path sum step 12: dp state when returning the minimum path sum",
+          "headers": [
+            "Row index i",
+            "Column j=0",
+            "Column j=1",
+            "Column j=2",
+            "Column j=3"
+          ],
+          "rows": [
+            [
+              "0",
+              "1, valid boundary",
+              "4, valid boundary",
+              "5, valid boundary",
+              "10, valid boundary"
+            ],
+            [
+              "1",
+              "3, valid boundary",
+              "5, computed",
+              "9, computed",
+              "11, computed"
+            ],
+            [
+              "2",
+              "8, valid boundary",
+              "8, computed",
+              "10, computed",
+              "11, computed"
+            ],
+            [
+              "3",
+              "12, valid boundary",
+              "11, computed",
+              "15, computed",
+              "13, computed"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "min-path-sum-dp": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-382"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-383"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-384"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-385"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-386"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-387"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-388"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-389"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-390"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-391"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-392"
+        },
+        {
+          "id": "step-12",
+          "frame_id": "source-393"
+        }
+      ]
+    }
+  },
+  "input_tables": [
+    0
+  ]
+}

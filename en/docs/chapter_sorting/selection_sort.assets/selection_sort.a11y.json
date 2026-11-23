@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "title": "Selection sort",
+  "summary": "On each pass select the smallest element in the unsorted range and swap it with the first, extending the sorted prefix by one element.",
+  "context": [
+    "The goal is to sort nums = [4, 1, 3, 1, 5, 2] in nondecreasing order. There are 6 elements with indices 0 through 5.",
+    "On each pass, i points to the first element of the unsorted range and k records the index of its minimum. Green cells form the unsorted range, marked by a brace above. Gray cells on the left form the sorted prefix. Once k is chosen, swap nums[k] and nums[i] to extend the prefix one place to the right."
+  ],
+  "description": [
+    "The first ten of eleven frames show five passes in pairs. The selection frame gives i and k after scanning, omitting individual comparisons in the inner loop. The swap frame shows the resulting array and marks the exchanged positions with arcs above and below; the labels i and k disappear. The eleventh frame leaves one element, so a sixth pass is unnecessary."
+  ],
+  "frames": [
+    {
+      "id": "source-241",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step1.png",
+      "title": "Select the minimum 1 at index 1",
+      "explanation": "Pass 1, selection: nums = [4, 1, 3, 1, 5, 2]. After scanning [0, 5], i = 0 points to the first element 4 and k = 1 to the minimum 1. The two 1s are at indices 1 and 3. With a strict less-than comparison, k = 1 keeps the leftmost one. The sorted prefix is empty. No swap yet.",
+      "key_state": "Pass 1, minimum selected, no swap yet. nums = [4, 1, 3, 1, 5, 2]; unsorted range [0, 5], i = 0, k = 1, minimum 1.",
+      "announcement": "Pass 1 selects the minimum 1 at index k = 1 in [0, 5]."
+    },
+    {
+      "id": "source-242",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step2.png",
+      "title": "Swap indices 0 and 1",
+      "explanation": "Pass 1, swap: in [0, 5], swap the minimum 1 at index 1 with the first element 4 at index 0. Now nums = [1, 4, 3, 1, 5, 2]. The gray sorted prefix [1] occupies index 0. The unsorted range [1, 5] contains [4, 3, 1, 5, 2].",
+      "key_state": "Pass 1, swap complete. nums = [1, 4, 3, 1, 5, 2]; index 0 is settled. Unsorted range [1, 5].",
+      "announcement": "Swap 4 at index 0 with 1 at index 1, fixing 1 at index 0."
+    },
+    {
+      "id": "source-243",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step3.png",
+      "title": "Select the minimum 1 at index 3",
+      "explanation": "Pass 2, selection: nums = [1, 4, 3, 1, 5, 2]. After scanning [1, 5], i = 1 points to the first element 4 and k = 3 to the minimum 1. The sorted prefix occupies index 0 and contains [1]. No swap yet.",
+      "key_state": "Pass 2, minimum selected, no swap yet. nums = [1, 4, 3, 1, 5, 2]; unsorted range [1, 5], i = 1, k = 3, minimum 1.",
+      "announcement": "Pass 2 selects the minimum 1 at index k = 3 in [1, 5]."
+    },
+    {
+      "id": "source-244",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step4.png",
+      "title": "Swap indices 1 and 3",
+      "explanation": "Pass 2, swap: in [1, 5], swap the minimum 1 at index 3 with the first element 4 at index 1. Now nums = [1, 1, 3, 4, 5, 2]. The gray sorted prefix [1, 1] occupies indices 0 through 1. The unsorted range [2, 5] contains [3, 4, 5, 2].",
+      "key_state": "Pass 2, swap complete. nums = [1, 1, 3, 4, 5, 2]; indices 0 through 1 are settled. Unsorted range [2, 5].",
+      "announcement": "Swap 4 at index 1 with 1 at index 3, fixing the second 1 at index 1."
+    },
+    {
+      "id": "source-245",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step5.png",
+      "title": "Select the minimum 2 at index 5",
+      "explanation": "Pass 3, selection: nums = [1, 1, 3, 4, 5, 2]. After scanning [2, 5], i = 2 points to the first element 3 and k = 5 to the minimum 2. The sorted prefix occupies indices 0 through 1 and contains [1, 1]. No swap yet.",
+      "key_state": "Pass 3, minimum selected, no swap yet. nums = [1, 1, 3, 4, 5, 2]; unsorted range [2, 5], i = 2, k = 5, minimum 2.",
+      "announcement": "Pass 3 selects the minimum 2 at index k = 5 in [2, 5]."
+    },
+    {
+      "id": "source-246",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step6.png",
+      "title": "Swap indices 2 and 5",
+      "explanation": "Pass 3, swap: in [2, 5], swap the minimum 2 at index 5 with the first element 3 at index 2. Now nums = [1, 1, 2, 4, 5, 3]. The gray sorted prefix [1, 1, 2] occupies indices 0 through 2. The unsorted range [3, 5] contains [4, 5, 3].",
+      "key_state": "Pass 3, swap complete. nums = [1, 1, 2, 4, 5, 3]; indices 0 through 2 are settled. Unsorted range [3, 5].",
+      "announcement": "Swap 3 at index 2 with 2 at index 5, fixing 2 at index 2."
+    },
+    {
+      "id": "source-247",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step7.png",
+      "title": "Select the minimum 3 at index 5",
+      "explanation": "Pass 4, selection: nums = [1, 1, 2, 4, 5, 3]. After scanning [3, 5], i = 3 points to the first element 4 and k = 5 to the minimum 3. The sorted prefix occupies indices 0 through 2 and contains [1, 1, 2]. No swap yet.",
+      "key_state": "Pass 4, minimum selected, no swap yet. nums = [1, 1, 2, 4, 5, 3]; unsorted range [3, 5], i = 3, k = 5, minimum 3.",
+      "announcement": "Pass 4 selects the minimum 3 at index k = 5 in [3, 5]."
+    },
+    {
+      "id": "source-248",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step8.png",
+      "title": "Swap indices 3 and 5",
+      "explanation": "Pass 4, swap: in [3, 5], swap the minimum 3 at index 5 with the first element 4 at index 3. Now nums = [1, 1, 2, 3, 5, 4]. The gray sorted prefix [1, 1, 2, 3] occupies indices 0 through 3. The unsorted range [4, 5] contains [5, 4].",
+      "key_state": "Pass 4, swap complete. nums = [1, 1, 2, 3, 5, 4]; indices 0 through 3 are settled. Unsorted range [4, 5].",
+      "announcement": "Swap 4 at index 3 with 3 at index 5, fixing 3 at index 3."
+    },
+    {
+      "id": "source-249",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step9.png",
+      "title": "Select the minimum 4 at index 5",
+      "explanation": "Pass 5, selection: nums = [1, 1, 2, 3, 5, 4]. After scanning [4, 5], i = 4 points to the first element 5 and k = 5 to the minimum 4. The sorted prefix occupies indices 0 through 3 and contains [1, 1, 2, 3]. No swap yet.",
+      "key_state": "Pass 5, minimum selected, no swap yet. nums = [1, 1, 2, 3, 5, 4]; unsorted range [4, 5], i = 4, k = 5, minimum 4.",
+      "announcement": "Pass 5 selects the minimum 4 at index k = 5 in [4, 5]."
+    },
+    {
+      "id": "source-250",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step10.png",
+      "title": "Swap indices 4 and 5",
+      "explanation": "Pass 5, swap: in [4, 5], swap the minimum 4 at index 5 with the first element 5 at index 4. Now nums = [1, 1, 2, 3, 4, 5]. The gray sorted prefix [1, 1, 2, 3, 4] occupies indices 0 through 4. The unsorted range [5, 5] contains [5].",
+      "key_state": "Pass 5, swap complete. nums = [1, 1, 2, 3, 4, 5]; indices 0 through 4 are settled. Unsorted range [5, 5].",
+      "announcement": "Swap 5 at index 4 with 4 at index 5, fixing 4 at index 4."
+    },
+    {
+      "id": "source-251",
+      "book_path": "chapter_sorting/selection_sort.assets/selection_sort_step11.png",
+      "title": "Sorting complete",
+      "explanation": "After five passes nums = [1, 1, 2, 3, 4, 5]. The gray sorted prefix occupies indices 0 through 4. The green 5 at index 5 is still shown in the singleton unsorted range [5, 5]. As the maximum, it is already in the correct position. The figure reads “Sorting complete (the remaining element needs no sorting).” Both i and k are hidden.",
+      "key_state": "Five passes complete. The final element 5 is already in place, giving the sorted array [1, 1, 2, 3, 4, 5].",
+      "announcement": "Only the last element 5 remains. No more selections are needed; selection sort is complete."
+    }
+  ],
+  "animations": {
+    "selection-sort": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-241"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-242"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-243"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-244"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-245"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-246"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-247"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-248"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-249"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-250"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-251"
+        }
+      ]
+    }
+  }
+}

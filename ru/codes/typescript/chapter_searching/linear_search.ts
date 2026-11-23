@@ -26,7 +26,7 @@ function linearSearchLinkedList(
 ): ListNode | null {
     // Обойти связный список
     while (head) {
-        // Найти целевой узел и вернуть его
+        // Целевой узел найден, возвращается этот узел
         if (head.val === target) {
             return head;
         }

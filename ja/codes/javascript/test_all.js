@@ -46,8 +46,8 @@ for (const result of results) {
     }
 }
 
-console.log(`Tested ${entries.length} files`);
-console.log(`Found exception in ${errors.length} files`);
+console.log(`${entries.length} 個のファイルをテストしました`);
+console.log(`${errors.length} 個のファイルで例外が見つかりました`);
 
 if (errors.length) {
     console.log();
@@ -56,8 +56,8 @@ if (errors.length) {
         const reader = error.getReader();
         const { value } = await reader.read();
         const decoder = new TextDecoder();
-        console.log(`${bold(brightRed('error'))}: ${decoder.decode(value)}`);
+        console.log(`${bold(brightRed('エラー'))}: ${decoder.decode(value)}`);
     }
 
-    throw new Error('Test failed');
+    throw new Error('テストに失敗しました');
 }

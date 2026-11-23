@@ -25,14 +25,14 @@ class LinkedListQueue
 
   ### エンキュー ###
   def push(num)
-    # 末尾ノードの後ろに num を追加
+    # 末尾ノードの後ろに num を追加する
     node = ListNode.new(num)
 
-    # キューが空なら、先頭ノードと末尾ノードの両方をそのノードに向ける
+    # キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
     if @front.nil?
       @front = node
       @rear = node
-    # キューが空でなければ、そのノードを末尾ノードの後ろに追加する
+    # キューが空でない場合、このノードを末尾ノードの後ろに追加する
     else
       @rear.next = node
       @rear = node
@@ -44,15 +44,15 @@ class LinkedListQueue
   ### デキュー ###
   def pop
     num = peek
-    # 先頭ノードを削除
+    # 先頭ノードを削除する
     @front = @front.next
     @size -= 1
     num
   end
 
-  ### 先頭要素にアクセス ###
+  ### キューの先頭要素にアクセス ###
   def peek
-    raise IndexError, 'キューは空です' if is_empty?
+    raise IndexError, 'キューが空です' if is_empty?
 
     @front.val
   end
@@ -69,12 +69,12 @@ class LinkedListQueue
   end
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
-  # キューを初期化
+  # キューを初期化する
   queue = LinkedListQueue.new
 
-  # 要素をキューに入れる
+  # 要素をエンキューする
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -82,20 +82,20 @@ if __FILE__ == $0
   queue.push(4)
   puts "キュー queue = #{queue.to_array}"
 
-  # キュー先頭の要素にアクセス
+  # キューの先頭要素にアクセス
   peek = queue.peek
-  puts "先頭要素 front = #{peek}"
+  puts "キューの先頭要素 front = #{peek}"
 
-  # 要素をデキュー
+  # 要素をデキューする
   pop_front = queue.pop
-  puts "取り出した要素 pop = #{pop_front}"
-  puts "取り出し後 queue = #{queue.to_array}"
+  puts "デキューした要素 pop = #{pop_front}"
+  puts "デキュー後 queue = #{queue.to_array}"
 
   # キューの長さを取得
   size = queue.size
   puts "キューの長さ size = #{size}"
 
-  # キューが空かどうかを判定
+  # キューが空か判定
   is_empty = queue.is_empty?
-  puts "キューが空かどうか = #{is_empty}"
+  puts "キューは空か = #{is_empty}"
 end

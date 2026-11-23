@@ -15,31 +15,31 @@ def linear_search_array(nums: list[int], target: int) -> int:
     """Linear search (array)"""
     # Traverse the array
     for i in range(len(nums)):
-        if nums[i] == target:  # Found the target element, return its index
+        if nums[i] == target:  # The target element was found; return its index
             return i
-    return -1  # Target element not found, return -1
+    return -1  # The target element was not found; return -1
 
 
 def linear_search_linkedlist(head: ListNode, target: int) -> ListNode | None:
     """Linear search (linked list)"""
     # Traverse the linked list
     while head:
-        if head.val == target:  # Found the target node, return it
+        if head.val == target:  # The target node was found; return it
             return head
         head = head.next
-    return None  # Target node not found, return None
+    return None  # The target node was not found; return None
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     target = 3
 
-    # Perform linear search in array
+    # Perform linear search on the array
     nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
     index: int = linear_search_array(nums, target)
     print("Index of target element 3 =", index)
 
-    # Perform linear search in linked list
+    # Perform linear search on the linked list
     head: ListNode = list_to_linked_list(nums)
     node: ListNode | None = linear_search_linkedlist(head, target)
-    print("The corresponding node object for target node value 3 is", node)
+    print("The node object corresponding to target value 3 is", node)

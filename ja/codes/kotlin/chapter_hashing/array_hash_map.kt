@@ -6,15 +6,15 @@
 
 package chapter_hashing
 
-/* キーと値の組 */
+/* キーと値のペア */
 class Pair(
     var key: Int,
     var _val: String
 )
 
-/* 配列ベースのハッシュテーブル */
+/* 配列で実装したハッシュテーブル */
 class ArrayHashMap {
-    // 100 個のバケットを含む配列を初期化
+    // 100 個のバケットを含む配列を初期化する
     private val buckets = arrayOfNulls<Pair>(100)
 
     /* ハッシュ関数 */
@@ -23,7 +23,7 @@ class ArrayHashMap {
         return index
     }
 
-    /* 検索操作 */
+    /* 取得操作 */
     fun get(key: Int): String? {
         val index = hashFunc(key)
         val pair = buckets[index] ?: return null
@@ -40,11 +40,11 @@ class ArrayHashMap {
     /* 削除操作 */
     fun remove(key: Int) {
         val index = hashFunc(key)
-        // null に設定し、削除を表す
+        // null に設定して、削除を表す
         buckets[index] = null
     }
 
-    /* すべてのキーと値のペアを取得 */
+    /* キーと値のペアをすべて取得する */
     fun pairSet(): MutableList<Pair> {
         val pairSet = mutableListOf<Pair>()
         for (pair in buckets) {
@@ -54,7 +54,7 @@ class ArrayHashMap {
         return pairSet
     }
 
-    /* すべてのキーを取得 */
+    /* すべてのキーを取得する */
     fun keySet(): MutableList<Int> {
         val keySet = mutableListOf<Int>()
         for (pair in buckets) {
@@ -64,7 +64,7 @@ class ArrayHashMap {
         return keySet
     }
 
-    /* すべての値を取得 */
+    /* すべての値を取得する */
     fun valueSet(): MutableList<String> {
         val valueSet = mutableListOf<String>()
         for (pair in buckets) {
@@ -74,7 +74,7 @@ class ArrayHashMap {
         return valueSet
     }
 
-    /* ハッシュテーブルを出力 */
+    /* ハッシュテーブルを表示する */
     fun print() {
         for (kv in pairSet()) {
             val key = kv.key
@@ -84,42 +84,42 @@ class ArrayHashMap {
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* ハッシュテーブルを初期化 */
+    /* ハッシュテーブルを初期化する */
     val map = ArrayHashMap()
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    map.put(12836, "シャオハー")
-    map.put(15937, "シャオルオ")
-    map.put(16750, "シャオスワン")
-    map.put(13276, "シャオファー")
-    map.put(10583, "シャオヤ")
-    println("\n追加完了後、ハッシュテーブルは\nKey -> Value")
+    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    map.put(12836, "小哈")
+    map.put(15937, "小啰")
+    map.put(16750, "小算")
+    map.put(13276, "小法")
+    map.put(10583, "小鸭")
+    println("\n追加後のハッシュテーブル\nKey -> Value")
     map.print()
 
-    /* 検索操作 */
-    // キー key をハッシュテーブルに渡し、値 value を取得
+    /* 取得操作 */
+    // ハッシュテーブルにキー key を渡し、値 value を取得する
     val name = map.get(15937)
-    println("\n学籍番号 15937 を入力すると、名前 $name が見つかりました")
+    println("\n学生番号 15937 に対応する氏名は $name")
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからキーと値のペア (key, value) を削除する
     map.remove(10583)
-    println("\n10583 を削除した後、ハッシュテーブルは\nKey -> Value")
+    println("\n10583 を削除した後のハッシュテーブル\nKey -> Value")
     map.print()
 
-    /* ハッシュテーブルを走査 */
-    println("\nキーと値のペアを走査 Key -> Value")
+    /* ハッシュテーブルを走査する */
+    println("\nキーと値のペア Key -> Value を走査する")
     for (kv in map.pairSet()) {
         println("${kv.key} -> ${kv._val}")
     }
-    println("\nキー Key を個別に走査")
+    println("\nキー Key だけを走査する")
     for (key in map.keySet()) {
         println(key)
     }
-    println("\n値 Value を個別に走査")
+    println("\n値 Value だけを走査する")
     for (_val in map.valueSet()) {
         println(_val)
     }

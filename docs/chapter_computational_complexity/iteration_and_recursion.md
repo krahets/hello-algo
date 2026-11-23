@@ -18,7 +18,7 @@
 
 下图是该求和函数的流程框图。
 
-![求和函数的流程框图](iteration_and_recursion.assets/iteration.png)
+![求和函数的流程框图](iteration_and_recursion.assets/iteration.svg)
 
 此求和函数的操作数量与输入数据大小 $n$ 成正比，或者说成“线性关系”。实际上，**时间复杂度描述的就是这个“线性关系”**。相关内容将会在下一节中详细介绍。
 
@@ -52,7 +52,7 @@
 
 下图是该嵌套循环的流程框图。
 
-![嵌套循环的流程框图](iteration_and_recursion.assets/nested_iteration.png)
+![嵌套循环的流程框图](iteration_and_recursion.assets/nested_iteration.svg)
 
 在这种情况下，函数的操作数量与 $n^2$ 成正比，或者说算法运行时间和输入数据大小 $n$ 成“平方关系”。
 
@@ -79,7 +79,7 @@
 
 下图展示了该函数的递归过程。
 
-![求和函数的递归过程](iteration_and_recursion.assets/recursion_sum.png)
+![求和函数的递归过程](iteration_and_recursion.assets/recursion_sum.svg)
 
 虽然从计算角度看，迭代与递归可以得到相同的结果，**但它们代表了两种完全不同的思考和解决问题的范式**。
 
@@ -100,7 +100,7 @@
 
 如下图所示，在触发终止条件前，同时存在 $n$ 个未返回的递归函数，**递归深度为 $n$** 。
 
-![递归调用深度](iteration_and_recursion.assets/recursion_sum_depth.png)
+![递归调用深度](iteration_and_recursion.assets/recursion_sum_depth.svg)
 
 在实际中，编程语言允许的递归深度通常是有限的，过深的递归可能导致栈溢出错误。
 
@@ -122,7 +122,7 @@
 - **普通递归**：求和操作是在“归”的过程中执行的，每层返回后都要再执行一次求和操作。
 - **尾递归**：求和操作是在“递”的过程中执行的，“归”的过程只需层层返回。
 
-![尾递归过程](iteration_and_recursion.assets/tail_recursion_sum.png)
+![尾递归过程](iteration_and_recursion.assets/tail_recursion_sum.svg)
 
 !!! tip
 
@@ -149,7 +149,7 @@
 
 观察以上代码，我们在函数内递归调用了两个函数，**这意味着从一个调用产生了两个调用分支**。如下图所示，这样不断递归调用下去，最终将产生一棵层数为 $n$ 的<u>递归树（recursion tree）</u>。
 
-![斐波那契数列的递归树](iteration_and_recursion.assets/recursion_tree.png)
+![斐波那契数列的递归树](iteration_and_recursion.assets/recursion_tree.svg)
 
 从本质上看，递归体现了“将问题分解为更小子问题”的思维范式，这种分治策略至关重要。
 

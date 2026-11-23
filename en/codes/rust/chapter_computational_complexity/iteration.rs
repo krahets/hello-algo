@@ -7,7 +7,7 @@
 /* for loop */
 fn for_loop(n: i32) -> i32 {
     let mut res = 0;
-    // Sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n in a loop
     for i in 1..=n {
         res += i;
     }
@@ -17,12 +17,12 @@ fn for_loop(n: i32) -> i32 {
 /* while loop */
 fn while_loop(n: i32) -> i32 {
     let mut res = 0;
-    let mut i = 1; // Initialize condition variable
+    let mut i = 1; // Initialize the loop control variable
 
-    // Sum 1, 2, ..., n-1, n
+    // Sum 1, 2, ..., n-1, n in a loop
     while i <= n {
         res += i;
-        i += 1; // Update condition variable
+        i += 1; // Update the loop control variable
     }
     res
 }
@@ -30,24 +30,24 @@ fn while_loop(n: i32) -> i32 {
 /* while loop (two updates) */
 fn while_loop_ii(n: i32) -> i32 {
     let mut res = 0;
-    let mut i = 1; // Initialize condition variable
+    let mut i = 1; // Initialize the loop control variable
 
-    // Sum 1, 4, 10, ...
+    // Sum 1, 4, 10, ... in a loop
     while i <= n {
         res += i;
-        // Update condition variable
+        // Update the loop control variable
         i += 1;
         i *= 2;
     }
     res
 }
 
-/* Nested for loop */
+/* Nested for loops */
 fn nested_for_loop(n: i32) -> String {
     let mut res = vec![];
-    // Loop i = 1, 2, ..., n-1, n
+    // Loop over i = 1, 2, ..., n-1, n
     for i in 1..=n {
-        // Loop j = 1, 2, ..., n-1, n
+        // Loop over j = 1, 2, ..., n-1, n
         for j in 1..=n {
             res.push(format!("({}, {}), ", i, j));
         }
@@ -55,20 +55,20 @@ fn nested_for_loop(n: i32) -> String {
     res.join("")
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
     let n = 5;
     let mut res;
 
     res = for_loop(n);
-    println!("\nFor loop sum result res = {res}");
+    println!("\nSum from the for loop: res = {res}");
 
     res = while_loop(n);
-    println!("\nWhile loop sum result res = {res}");
+    println!("\nSum from the while loop: res = {res}");
 
     res = while_loop_ii(n);
-    println!("\nWhile loop (two updates) sum result res = {}", res);
+    println!("\nSum from the while loop with two updates, res = {}", res);
 
     let res = nested_for_loop(n);
-    println!("\nNested for loop traversal result {res}");
+    println!("\nTraversal from the nested for loops: {res}");
 }

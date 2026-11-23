@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "title": "원형 배열로 구현한 덱",
+  "summary": "맨 앞 인덱스와 유효한 원소 수를 관리하면 가운데 원소를 옮기지 않고 양 끝에서 넣고 꺼낼 수 있다.",
+  "context": [
+    "왼쪽은 덱, 오른쪽은 내부 구현인 세로 원형 배열이다. 둘 다 위에서 아래로 맨 앞부터 맨 뒤 순서다. front는 맨 앞 인덱스, size는 유효한 원소 수다. 위로 한 칸 이동은 인덱스를 1 줄이는 것으로 코드 주석의 ‘왼쪽으로 이동’에 해당한다. 아래로 한 칸 이동은 인덱스를 1 늘리는 것이다.",
+    "뒤에 다음 원소를 쓸 위치는 rear = (front + size) % capacity로 구한다. 그림은 경계에서 처음으로 돌아가는 경우를 다루지 않아 rear = front + size로 줄여 적었다. 실제 용량과 인덱스 숫자도 표시하지 않았다."
+  ],
+  "description": [
+    "넣기 전에는 빈칸이 있어야 하고 꺼내기 전에는 덱이 비어 있지 않아야 한다. 유효한 원소의 위치는 i가 0부터 size - 1까지일 때 (front + i) % capacity다. 앞에 넣을 때는 front를 (front - 1 + capacity) % capacity로 갱신한다.",
+    "기존 원소 3, 2, 5는 처음부터 끝까지 같은 칸에 남는다. 회색 점선 칸은 유효 범위 밖이다. 꺼낸 자리의 테두리가 점선으로 바뀌어도 코드가 그 값을 0으로 지운 것은 아니다. 새로 뒤에 넣는 4는 청록색, 앞에 넣는 1은 주황색이다."
+  ],
+  "result": "양 끝에서 넣고 꺼낼 때는 끝 칸이나 front, size만 바뀐다. 가운데 원소를 옮길 필요가 없어 네 연산 모두 O(1)이다.",
+  "frames": [
+    {
+      "id": "source-76",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step1.png",
+      "title": "덱의 초기 상태",
+      "explanation": "처음 유효한 원소는 [3, 2, 5]다. front는 3을 가리키고 size = 3이다. rear는 front + size로 구하며, 5 바로 아래의 첫 빈칸을 가리킨다. 위아래 양 끝에는 빈칸과 말줄임표가 있다.",
+      "key_state": "유효한 원소는 [3, 2, 5], front는 3, size = 3이다. rear는 5 아래 빈칸을 가리킨다.",
+      "announcement": "초기 덱은 [3, 2, 5]다. front는 3을 가리키고 size = 3이며 rear는 5 다음의 첫 빈칸을 가리킨다."
+    },
+    {
+      "id": "source-77",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png",
+      "title": "뒤에 4 넣기",
+      "explanation": "push_last(4)는 넣기 전 front와 size = 3으로 rear를 먼저 계산한다. 그 빈칸에 4를 쓰고 size를 4로 늘린다. 현재 덱은 [3, 2, 5, 4]이고 front는 여전히 3을 가리킨다. 그림의 rear 화살표는 방금 쓴 4에 남아 있다. 새 size로 다시 계산하면 다음 쓰기 위치는 4 바로 아래 칸이다.",
+      "key_state": "front는 3을 가리키고 size = 4, 유효한 원소는 [3, 2, 5, 4]다. 그림의 rear는 방금 4를 쓴 위치다.",
+      "announcement": "넣기 전에 구한 rear 위치에 4를 쓰고 size를 4로 늘렸다. 그림의 rear 화살표는 방금 쓴 4에 남아 있다."
+    },
+    {
+      "id": "source-78",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png",
+      "title": "앞에 1 넣기",
+      "explanation": "push_first(1)은 front를 위로 한 칸, 즉 3 위의 빈칸으로 옮긴 뒤 1을 쓰고 size를 4에서 5로 늘린다. 현재 덱은 [1, 3, 2, 5, 4]다. front는 새 맨 앞 원소 1을 가리키고 나머지 원소는 제자리에 있다. 이번 장면에서는 rear를 표시하지 않는다.",
+      "key_state": "front는 1을 가리키고 size = 5, 유효한 원소는 [1, 3, 2, 5, 4]다.",
+      "announcement": "front를 위로 한 칸 옮겨 1을 쓰고 size를 5로 늘렸다. 다른 원소의 위치는 그대로다."
+    },
+    {
+      "id": "source-79",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png",
+      "title": "뒤에서 4 꺼내기",
+      "explanation": "pop_last()는 맨 뒤의 4를 읽어 반환하고 size를 5에서 4로 줄인다. 현재 덱은 [1, 3, 2, 5]이고 front는 여전히 1을 가리킨다. 4가 있던 칸은 점선으로 바뀌어 유효 범위에서 빠진다. 이번 장면에서는 rear를 표시하지 않는다.",
+      "key_state": "front는 1을 가리키고 size = 4, 유효한 원소는 [1, 3, 2, 5]다. 반환값은 4다.",
+      "announcement": "맨 뒤의 4를 읽어 반환하고 size를 4로 줄였다. 기존 마지막 칸은 유효 범위에서 빠졌다."
+    },
+    {
+      "id": "source-80",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png",
+      "title": "앞에서 1 꺼내기",
+      "explanation": "pop_first()는 맨 앞의 1을 읽어 반환한다. front를 아래로 한 칸 옮겨 다시 3을 가리키게 하고 size를 4에서 3으로 줄인다. 덱은 다시 [3, 2, 5]가 되고 1이 있던 칸은 유효 범위에서 빠진다. 이번 장면에서는 rear를 표시하지 않는다.",
+      "key_state": "front는 3을 가리키고 size = 3, 유효한 원소는 [3, 2, 5]다. 반환값은 1이다.",
+      "announcement": "맨 앞의 1을 읽어 반환했다. front를 아래로 한 칸 옮겨 다시 3을 가리키게 하고 size를 3으로 줄였다."
+    }
+  ],
+  "animations": {
+    "array-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-76"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-77"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-78"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-79"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-80"
+        }
+      ]
+    }
+  }
+}

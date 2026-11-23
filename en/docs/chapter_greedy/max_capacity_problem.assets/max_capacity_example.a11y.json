@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Maximum capacity between two walls",
+  "summary": "Pair two vertical walls to form a container whose capacity equals the shorter wall's height times the distance between them, seeking the maximum capacity.",
+  "context": [
+    "Given the 8-element wall-height array ht = [3, 8, 5, 2, 7, 7, 3, 4] (indices 0 to 7), pairing walls [i, j] forms a container of width j - i and water height min(ht[i], ht[j]), determined by the shorter of the two walls (intermediate walls neither block nor reduce capacity under this definition)."
+  ],
+  "description": [
+    "The vertical axis marks wall heights 0 to 8 and the horizontal axis marks indices 0 to 7 with a bar at each index. Walls at index 1 (height 8) and index 5 (height 7) and the axis span between them are highlighted dark, enclosing a translucent light-blue water rectangle of height 7 and width 4; at height 7 on the vertical axis, a purple-blue label \"Shorter wall\" and horizontal dashed line mark the water-level cap. Below reads \"The maximum capacity is (5 - 1) × 7 = 28\"."
+  ],
+  "frames": [
+    {
+      "id": "source-465",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_example.png",
+      "title": "Maximum capacity between two walls",
+      "explanation": "Water height is capped at 7 by the shorter wall on the right, and the distance between the walls is 5 - 1 = 4, giving area 4 × 7 = 28. The label \"Shorter wall\" sits beside height 7 on the vertical axis pointing to that water level rather than above index 5. This figure shows the optimal pair and maximum value; how other pairs are ruled out is explained next."
+    }
+  ]
+}

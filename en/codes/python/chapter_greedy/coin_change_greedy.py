@@ -6,43 +6,43 @@ Author: krahets (krahets@163.com)
 
 
 def coin_change_greedy(coins: list[int], amt: int) -> int:
-    """Coin change: Greedy algorithm"""
-    # Assume coins list is sorted
+    """Coin change: greedy algorithm"""
+    # Assume the coins list is sorted
     i = len(coins) - 1
     count = 0
-    # Loop to make greedy choices until no remaining amount
+    # Repeatedly make greedy choices until no amount remains
     while amt > 0:
-        # Find the coin that is less than and closest to the remaining amount
+        # Find the largest coin no greater than the remaining amount
         while i > 0 and coins[i] > amt:
             i -= 1
         # Choose coins[i]
         amt -= coins[i]
         count += 1
-    # If no feasible solution is found, return -1
+    # Return -1 if no feasible solution was found
     return count if amt == 0 else -1
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Greedy algorithm: Can guarantee finding the global optimal solution
+    # Greedy algorithm: guaranteed to find a globally optimal solution
     coins = [1, 5, 10, 20, 50, 100]
     amt = 186
     res = coin_change_greedy(coins, amt)
     print(f"\ncoins = {coins}, amt = {amt}")
-    print(f"The minimum number of coins needed to make {amt} is {res}")
+    print(f"Number of coins chosen by the greedy algorithm for amount {amt}: {res}")
 
-    # Greedy algorithm: Cannot guarantee finding the global optimal solution
+    # Greedy algorithm: not guaranteed to find a globally optimal solution
     coins = [1, 20, 50]
     amt = 60
     res = coin_change_greedy(coins, amt)
     print(f"\ncoins = {coins}, amt = {amt}")
-    print(f"The minimum number of coins needed to make {amt} is {res}")
-    print(f"Actually the minimum number needed is 3, i.e., 20 + 20 + 20")
+    print(f"Number of coins chosen by the greedy algorithm for amount {amt}: {res}")
+    print(f"The actual minimum is 3 coins: 20 + 20 + 20")
 
-    # Greedy algorithm: Cannot guarantee finding the global optimal solution
+    # Greedy algorithm: not guaranteed to find a globally optimal solution
     coins = [1, 49, 50]
     amt = 98
     res = coin_change_greedy(coins, amt)
     print(f"\ncoins = {coins}, amt = {amt}")
-    print(f"The minimum number of coins needed to make {amt} is {res}")
-    print(f"Actually the minimum number needed is 2, i.e., 49 + 49")
+    print(f"Number of coins chosen by the greedy algorithm for amount {amt}: {res}")
+    print(f"The actual minimum is 2 coins: 49 + 49")

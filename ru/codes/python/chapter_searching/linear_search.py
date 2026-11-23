@@ -24,7 +24,7 @@ def linear_search_linkedlist(head: ListNode, target: int) -> ListNode | None:
     """Линейный поиск (связный список)"""
     # Обойти связный список
     while head:
-        if head.val == target:  # Найти целевой узел и вернуть его
+        if head.val == target:  # Целевой узел найден, возвращается этот узел
             return head
         head = head.next
     return None  # Целевой узел не найден, вернуть None

@@ -8,7 +8,7 @@ import utils
 
 @main
 enum BuiltInHash {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         let num = 3
         let hashNum = num.hashValue
@@ -22,11 +22,11 @@ enum BuiltInHash {
         let hashDec = dec.hashValue
         print("小数 \(dec) のハッシュ値は \(hashDec)")
 
-        let str = "Hello アルゴリズム"
+        let str = "Hello 算法"
         let hashStr = str.hashValue
         print("文字列 \(str) のハッシュ値は \(hashStr)")
 
-        let arr = [AnyHashable(12836), AnyHashable("シャオハー")]
+        let arr = [AnyHashable(12836), AnyHashable("小哈")]
         let hashTup = arr.hashValue
         print("配列 \(arr) のハッシュ値は \(hashTup)")
 

@@ -4,41 +4,41 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Backtracking algorithm: Subset sum I */
+/* Backtracking: subset sum I */
 function backtrack(state, target, total, choices, res) {
-    // When the subset sum equals target, record the solution
+    // Record a solution when the subset sum equals target
     if (total === target) {
         res.push([...state]);
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (let i = 0; i < choices.length; i++) {
-        // Pruning: if the subset sum exceeds target, skip this choice
+        // Prune: skip this choice if the subset sum would exceed target
         if (total + choices[i] > target) {
             continue;
         }
-        // Attempt: make choice, update element sum total
+        // Try: make a choice and update the sum total
         state.push(choices[i]);
-        // Proceed to the next round of selection
+        // Proceed to the next choice
         backtrack(state, target, total + choices[i], choices, res);
-        // Backtrack: undo choice, restore to previous state
+        // Backtrack: undo the choice and restore the previous state
         state.pop();
     }
 }
 
-/* Solve subset sum I (including duplicate subsets) */
+/* Solve subset sum I (with duplicate subsets) */
 function subsetSumINaive(nums, target) {
     const state = []; // State (subset)
     const total = 0; // Subset sum
-    const res = []; // Result list (subset list)
+    const res = []; // Result list (list of subsets)
     backtrack(state, target, total, nums, res);
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 const nums = [3, 4, 5];
 const target = 9;
 const res = subsetSumINaive(nums, target);
 console.log(`Input array nums = ${JSON.stringify(nums)}, target = ${target}`);
-console.log(`All subsets with sum equal to ${target} res = ${JSON.stringify(res)}`);
-console.log('Please note that this method outputs results containing duplicate sets');
+console.log(`All subsets with sum ${target}: res = ${JSON.stringify(res)}`);
+console.log('Note that this method produces duplicate subsets');

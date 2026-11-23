@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "title": "Array elements, indices, and memory addresses",
+  "summary": "An array locates elements using 0-based indices, storing all elements contiguously in memory in equal-sized slots.",
+  "context": [],
+  "description": [
+    "The left side lists the array, indices, and memory addresses; in the second row of the grid on the right, 5 contiguous green cells represent the memory allocated to the array, while the remaining light gray cells represent free memory."
+  ],
+  "result": "An index is an element's ordinal position in the array, the element value is the data stored at that position, and the memory address is the starting number of its storage unit; the three are distinct concepts.",
+  "frames": [
+    {
+      "id": "source-46",
+      "book_path": "chapter_array_and_linkedlist/array.assets/array_definition.png",
+      "title": "Array elements, indices, and memory addresses",
+      "explanation": "In this example, each element occupies 4 bytes, so the starting addresses of adjacent elements always differ by 4. The leading 0 in an address only pads the width and does not indicate octal notation."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Positions and memory addresses of the five elements",
+      "headers": [
+        "Index",
+        "Element value",
+        "Starting memory address"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "00"
+        ],
+        [
+          "1",
+          "3",
+          "04"
+        ],
+        [
+          "2",
+          "2",
+          "08"
+        ],
+        [
+          "3",
+          "5",
+          "12"
+        ],
+        [
+          "4",
+          "4",
+          "16"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

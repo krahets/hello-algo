@@ -9,12 +9,12 @@ package chapter_dynamic_programming;
 import java.util.Arrays;
 
 public class climbing_stairs_dfs_mem {
-    /* Memoization search */
+    /* Memoized search */
     public static int dfs(int i, int[] mem) {
-        // Known dp[1] and dp[2], return them
+        // The values of dp[1] and dp[2] are known; return them
         if (i == 1 || i == 2)
             return i;
-        // If record dp[i] exists, return it directly
+        // If dp[i] has been recorded, return it directly
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
@@ -24,9 +24,9 @@ public class climbing_stairs_dfs_mem {
         return count;
     }
 
-    /* Climbing stairs: Memoization search */
+    /* Climbing stairs: memoized search */
     public static int climbingStairsDFSMem(int n) {
-        // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
         int[] mem = new int[n + 1];
         Arrays.fill(mem, -1);
         return dfs(n, mem);
@@ -36,6 +36,6 @@ public class climbing_stairs_dfs_mem {
         int n = 9;
 
         int res = climbingStairsDFSMem(n);
-        System.out.println(String.format("Climbing %d stairs has %d solutions", n, res));
+        System.out.println(String.format("Number of ways to climb %d stairs: %d", n, res));
     }
 }
