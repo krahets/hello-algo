@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/51f0608aa92cc2fcf7f2839e.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1920,7 +1920,7 @@
 <li>UTF-8 は最も普及した Unicode の符号化方式で、汎用性に優れています。可変長で拡張性が高く、記憶領域を効率よく使えます。UTF-16 と UTF-32 は固定長の符号化方式です。中国語では UTF-16 の方が UTF-8 より少ない空間で済みます。Java や C# などは標準で UTF-16 を使います。</li>
 </ul>
 <h3 id="2-q-a">2.   Q &amp; A<a class="headerlink" href="#2-q-a" title="この見出しへのリンク">¶</a></h3>
-<p><strong>Q</strong>：ハッシュテーブルに、線形と非線形のデータ構造の両方が含まれるのはなぜですか。</p>
+<p><strong>Q</strong>：ハッシュテーブルの実装で、線形と非線形のデータ構造を併用することがあるのはなぜですか。</p>
 <p>ハッシュテーブルの基盤は配列ですが、衝突の解決には「チェイン法」（後の「ハッシュ衝突」の節で説明します）を使うことがあります。各バケットが連結リストを指し、その長さがしきい値を超えると、木（通常は赤黒木）に変換する場合があります。</p>
 <p>格納の観点では、基盤となる配列の各バケットには、一つの値、連結リスト、木のいずれかが入る可能性があります。そのため、線形の構造（配列、連結リスト）と非線形の構造（木）が同時に含まれる場合があります。</p>
 <p><strong>Q</strong>：<code>char</code> 型の長さは 1 バイトですか。</p>

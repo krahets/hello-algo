@@ -1911,14 +1911,15 @@
 <p><strong>논리적 구조는 데이터 원소 사이의 논리적 관계를 드러낸다</strong>. 배열과 연결 리스트에서는 데이터가 일정한 순서로 배열되어 데이터 사이의 선형 관계를 나타낸다. 트리에서는 데이터가 위에서 아래로 계층을 이루어 ‘조상’과 ‘자손’ 사이의 파생 관계를 나타낸다. 그래프는 노드와 간선으로 이루어져 복잡한 네트워크 관계를 표현한다.</p>
 <p>아래 그림(3-1)과 같이 논리적 구조는 크게 ‘선형’과 ‘비선형’으로 나뉜다. 선형 구조는 데이터가 논리적으로 일렬로 배열되어 있어 비교적 직관적이다. 비선형 구조는 이와 달리 일렬로 배열되지 않는다.</p>
 <ul>
-<li><strong>선형 자료 구조</strong>: 배열, 연결 리스트, 스택, 큐, 해시 테이블이 해당하며, 원소 사이에 일대일의 순서 관계가 있다.</li>
-<li><strong>비선형 자료 구조</strong>: 트리, 힙, 그래프, 해시 테이블이 해당한다.</li>
+<li><strong>선형 자료 구조</strong>: 배열, 연결 리스트, 스택, 큐가 해당하며, 원소 사이에 일대일의 순서 관계가 있다.</li>
+<li><strong>비선형 자료 구조</strong>: 트리, 힙, 그래프가 해당한다.</li>
 </ul>
-<p>비선형 자료 구조는 다시 트리 구조와 네트워크 구조로 나뉜다.</p>
+<p>트리 구조와 네트워크 구조는 대표적인 비선형 구조이다.</p>
 <ul>
-<li><strong>트리 구조</strong>: 트리, 힙, 해시 테이블이 해당하며, 원소 사이에 일대다 관계가 있다.</li>
+<li><strong>트리 구조</strong>: 트리, 힙이 해당하며, 원소 사이에 일대다 관계가 있다.</li>
 <li><strong>네트워크 구조</strong>: 그래프가 해당하며, 원소 사이에 다대다 관계가 있다.</li>
 </ul>
+<p>해시 테이블은 키로 값을 찾는다. 그림에서는 이 대응 관계를 따로 표시했다.</p>
 <p><ha-svg-figure aria-label="자료 구조의 논리적 관계" class="animation-figure" data-book-key="ko/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/5fa2d2a9d83e7b6089b26ac8.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/37e120faab31ae5bad25d247.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">선형 자료 구조와 비선형 자료 구조</object><object aria-hidden="true" data="/ko/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">선형 자료 구조와 비선형 자료 구조</object></ha-svg-figure></p>
 <p align="center"> 그림 3-1   선형 자료 구조와 비선형 자료 구조 </p><div class="ha-sr-only figure-description"><h3>그림 3-1 설명: 자료 구조의 논리적 관계</h3><p>순차 배열, 부모-자식 계층, 네트워크 연결, 키-값 매핑의 네 가지 논리적 관계를 비교한다.</p><p>그림의 왼쪽 열은 선형 자료 구조, 오른쪽 열은 비선형 자료 구조이며, 해시 테이블은 두 열 아래에 놓여 키-값 매핑을 따로 보여 준다.</p><table><caption>각 자료 구조의 예시와 연결 관계</caption><thead><tr><th scope="col">자료 구조</th><th scope="col">그림 내 배치</th><th scope="col">그림의 원소와 관계</th></tr></thead><tbody><tr><th scope="row">배열(array)</th><td>선형</td><td>1, 3, 2, 5, 4 순서로 나열</td></tr><tr><th scope="row">연결 리스트(linked list)</th><td>선형</td><td>1→3→2→5→4</td></tr><tr><th scope="row">스택(stack)</th><td>선형</td><td>열린 끝에서 막힌 끝 방향으로 1, 3, 2, 5, 4; 삽입(push)과 꺼내기(pop)가 모두 열린 끝에서 이루어짐</td></tr><tr><th scope="row">큐(queue)</th><td>선형</td><td>꺼내는 끝에서 넣는 끝 방향으로 1, 3, 2, 5, 4; 삽입(push)과 꺼내기(pop)가 서로 다른 끝에서 이루어짐</td></tr><tr><th scope="row">트리(tree)</th><td>비선형</td><td>루트 1의 왼쪽 2·오른쪽 3, 2의 왼쪽 4·오른쪽 5, 3의 왼쪽 6·오른쪽 7; 노드 7개, 세 층</td></tr><tr><th scope="row">그래프(graph)</th><td>비선형</td><td>정점 5개(1~5); 무방향 간선 1—2, 1—3, 2—3, 2—4, 2—5, 3—5, 4—5로 총 7개</td></tr><tr><th scope="row">힙(heap)</th><td>비선형</td><td>루트 1의 왼쪽 3·오른쪽 2, 3의 왼쪽 5·오른쪽 4; 노드 5개, 세 층</td></tr><tr><th scope="row">해시 테이블(hash table)</th><td>두 열 아래 단독 배치</td><td>키 a, b, c가 각각 값 1, 2, 3에 매핑됨</td></tr></tbody></table><p>선형 구조는 원소들 사이에 앞뒤 순서가 있지만 연산이 허용되는 위치의 제약이 서로 다르다. 트리와 힙은 부모-자식 계층을 이루며, 그래프는 한 정점이 여러 이웃을 가질 수 있다. 여기서 비교하는 것은 논리적 관계이며 물리적 저장 방식과 같지 않다. 같은 논리적 관계도 여러 방식으로 구현할 수 있고, 해시 테이블 역시 배열, 연결 리스트, 트리를 조합해 구현할 수 있다.</p></div>
 <h2 id="312">3.1.2   물리적 구조: 연속과 분산<a class="headerlink" href="#312" title="고유 링크">¶</a></h2>

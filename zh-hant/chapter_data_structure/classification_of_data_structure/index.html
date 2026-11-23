@@ -1917,14 +1917,15 @@
 <p><strong>邏輯結構揭示了資料元素之間的邏輯關係</strong>。在陣列和鏈結串列中，資料按照一定順序排列，體現了資料之間的線性關係；而在樹中，資料從頂部向下按層次排列，表現出“祖先”與“後代”之間的派生關係；圖則由節點和邊構成，反映了複雜的網路關係。</p>
 <p>如圖 3-1 所示，邏輯結構可分為“線性”和“非線性”兩大類。線性結構比較直觀，指資料在邏輯關係上呈線性排列；非線性結構則相反，呈非線性排列。</p>
 <ul>
-<li><strong>線性資料結構</strong>：陣列、鏈結串列、堆疊、佇列、雜湊表，元素之間是一對一的順序關係。</li>
-<li><strong>非線性資料結構</strong>：樹、堆積、圖、雜湊表。</li>
+<li><strong>線性資料結構</strong>：陣列、鏈結串列、堆疊、佇列，元素之間是一對一的順序關係。</li>
+<li><strong>非線性資料結構</strong>：樹、堆積、圖。</li>
 </ul>
-<p>非線性資料結構可以進一步劃分為樹形結構和網狀結構。</p>
+<p>樹形和網狀是兩種常見的非線性結構。</p>
 <ul>
-<li><strong>樹形結構</strong>：樹、堆積、雜湊表，元素之間是一對多的關係。</li>
+<li><strong>樹形結構</strong>：樹、堆積，元素之間是一對多的關係。</li>
 <li><strong>網狀結構</strong>：圖，元素之間是多對多的關係。</li>
 </ul>
+<p>雜湊表透過鍵查詢值，圖中單獨列出這種對映關係。</p>
 <p><ha-svg-figure aria-label="資料結構的邏輯關係" class="animation-figure" data-book-key="zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/dfae9105cd165b07ea323475.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/144567bbcbf790e6e4e0b1a7.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">線性資料結構與非線性資料結構</object><object aria-hidden="true" data="/zh-hant/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">線性資料結構與非線性資料結構</object></ha-svg-figure></p>
 <p align="center"> 圖 3-1   線性資料結構與非線性資料結構 </p><div class="ha-sr-only figure-description"><h3>圖解 3-1：資料結構的邏輯關係</h3><p>比較順序、父子層級、網路連線和鍵值對映四種邏輯關係。</p><p>圖左欄為線性資料結構，右欄為非線性資料結構；雜湊表位於兩欄下方，單獨展示鍵值對映。</p><table><caption>各結構的示例與連線</caption><thead><tr><th scope="col">結構</th><th scope="col">圖中分欄</th><th scope="col">圖中元素與關係</th></tr></thead><tbody><tr><th scope="row">陣列array</th><td>線性</td><td>按1、3、2、5、4排列</td></tr><tr><th scope="row">鏈結串列linked list</th><td>線性</td><td>1→3→2→5→4</td></tr><tr><th scope="row">堆疊stack</th><td>線性</td><td>從開口端到封閉端為1、3、2、5、4；push入堆疊與pop出堆疊同在開口端</td></tr><tr><th scope="row">佇列queue</th><td>線性</td><td>從出列端到入列端為1、3、2、5、4；push入列、pop出列在不同端</td></tr><tr><th scope="row">樹tree</th><td>非線性</td><td>根1左2右3；2左4右5；3左6右7；7節點三層</td></tr><tr><th scope="row">圖graph</th><td>非線性</td><td>5頂點1至5；無向邊1—2、1—3、2—3、2—4、2—5、3—5、4—5，共7條</td></tr><tr><th scope="row">堆積heap</th><td>非線性</td><td>根1左3右2；3左5右4；5節點三層</td></tr><tr><th scope="row">雜湊表hash table</th><td>跨兩欄單列</td><td>鍵a、b、c分別對映值1、2、3</td></tr></tbody></table><p>線性結構具有先後次序，但對操作位置的限制不同；樹與堆積組織父子層級，圖允許一個頂點有多個鄰居。這裡比較的是邏輯關係，不等同於底層儲存：同類別關係可以有不同實現，雜湊表也可組合陣列、鏈結串列或樹。</p></div>
 <h2 id="312">3.1.2   物理結構：連續與分散<a class="headerlink" href="#312" title="Permanent link">¶</a></h2>

@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/51f0608aa92cc2fcf7f2839e.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1911,14 +1911,15 @@
 <p><strong>論理構造は、データ要素同士の論理的な関係を表します</strong>。配列や連結リストでは一定の順に並び、線形の関係を表します。木では上から下へ階層的に並び、「祖先」から「子孫」へ派生する関係を表します。グラフはノードと辺からなり、複雑なネットワーク関係を表します。</p>
 <p>図 3-1 のように、論理構造は「線形」と「非線形」に大別できます。線形構造は直感的に理解しやすく、要素が論理的に一列に並びます。非線形構造では、そのような一列の並びにはなりません。</p>
 <ul>
-<li><strong>線形データ構造</strong>：配列、連結リスト、スタック、キュー、ハッシュテーブル。要素間には一対一の順序関係があります。</li>
-<li><strong>非線形データ構造</strong>：木、ヒープ、グラフ、ハッシュテーブル。</li>
+<li><strong>線形データ構造</strong>：配列、連結リスト、スタック、キュー。要素間には一対一の順序関係があります。</li>
+<li><strong>非線形データ構造</strong>：木、ヒープ、グラフ。</li>
 </ul>
-<p>非線形データ構造は、さらに木構造とネットワーク構造に分けられます。</p>
+<p>木構造とネットワーク構造は、代表的な非線形構造です。</p>
 <ul>
-<li><strong>木構造</strong>：木、ヒープ、ハッシュテーブル。要素間は一対多の関係です。</li>
+<li><strong>木構造</strong>：木、ヒープ。要素間は一対多の関係です。</li>
 <li><strong>ネットワーク構造</strong>：グラフ。要素間は多対多の関係です。</li>
 </ul>
+<p>ハッシュテーブルではキーを使って値を検索します。図では、この対応関係を別に示しています。</p>
 <p><ha-svg-figure aria-label="データ構造の論理関係" class="animation-figure" data-book-key="ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png" data-dark-src="/assets/figure-svg/figures/d9f2ea2ab44bfdd304239bcf.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a10cc7eedd0fb8d2018d825b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">線形データ構造と非線形データ構造</object><object aria-hidden="true" data="/ja/chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">線形データ構造と非線形データ構造</object></ha-svg-figure></p>
 <p align="center"> 図 3-1   線形データ構造と非線形データ構造 </p><div class="ha-sr-only figure-description"><h3>図解 3-1：データ構造の論理関係</h3><p>順序、親子の階層、ネットワーク接続、キーと値の対応付けという 4 種類の論理関係を比較します。</p><p>図の左列は線形データ構造、右列は非線形データ構造です。ハッシュテーブルは両列の下に置かれ、キーと値の対応付けを単独で示しています。</p><table><caption>各データ構造の例と接続関係</caption><thead><tr><th scope="col">構造</th><th scope="col">図中の配置</th><th scope="col">図中の要素と関係</th></tr></thead><tbody><tr><th scope="row">配列（array）</th><td>線形</td><td>1、3、2、5、4 の順に並ぶ</td></tr><tr><th scope="row">連結リスト（linked list）</th><td>線形</td><td>1→3→2→5→4</td></tr><tr><th scope="row">スタック（stack）</th><td>線形</td><td>開口側から閉じた底へ向かって 1、3、2、5、4。push（プッシュ）と pop（ポップ）はどちらも開口側で行う</td></tr><tr><th scope="row">キュー（queue）</th><td>線形</td><td>デキュー側からエンキュー側へ 1、3、2、5、4。push（エンキュー）と pop（デキュー）は異なる端で行う</td></tr><tr><th scope="row">木（tree）</th><td>非線形</td><td>根 1 の左が 2・右が 3、2 の左が 4・右が 5、3 の左が 6・右が 7（7 ノード・3 層）</td></tr><tr><th scope="row">グラフ（graph）</th><td>非線形</td><td>5 頂点（1 から 5）。無向辺は 1—2、1—3、2—3、2—4、2—5、3—5、4—5 の計 7 本</td></tr><tr><th scope="row">ヒープ（heap）</th><td>非線形</td><td>根 1 の左が 3・右が 2、3 の左が 5・右が 4（5 ノード・3 層）</td></tr><tr><th scope="row">ハッシュテーブル（hash table）</th><td>両列の下に単独配置</td><td>キー a、b、c がそれぞれ値 1、2、3 に対応</td></tr></tbody></table><p>線形構造には前後の順序がありますが、操作できる位置の制約は構造ごとに異なります。木とヒープは親子の階層をなし、グラフは 1 つの頂点が複数の隣接頂点を持てます。ここで比較しているのは論理関係であり、低レベルの格納方法そのものではありません。同じ論理関係でも異なる実装が可能であり、ハッシュテーブルも配列・連結リスト・木を組み合わせて実装できます。</p></div>
 <h2 id="312">3.1.2   物理構造：連続と分散<a class="headerlink" href="#312" title="この見出しへのリンク">¶</a></h2>

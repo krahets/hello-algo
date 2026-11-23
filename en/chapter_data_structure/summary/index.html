@@ -1926,7 +1926,7 @@
 <li>UTF-8 is the most popular Unicode encoding and is widely compatible. Its variable length makes it extensible and space-efficient. UTF-16 and UTF-32 use fixed lengths. For Chinese text, UTF-16 uses less space than UTF-8. Languages such as Java and C# use UTF-16 by default.</li>
 </ul>
 <h3 id="2-q-a">2.   Q &amp; A<a class="headerlink" href="#2-q-a" title="Permanent link">¶</a></h3>
-<p><strong>Q</strong>: Why can a hash table contain both linear and nonlinear data structures?</p>
+<p><strong>Q</strong>: Why might a hash table implementation use both linear and nonlinear data structures?</p>
 <p>A hash table is built on an array. To handle hash collisions, it may use separate chaining, discussed later in the Hash collisions section: each array bucket points to a linked list, which may be converted to a tree (usually a red-black tree) if it grows beyond a threshold.</p>
 <p>From a storage perspective, each bucket in the underlying array may contain a value, a linked list, or a tree. A hash table may therefore contain both linear structures (arrays and linked lists) and nonlinear structures (trees).</p>
 <p><strong>Q</strong>: Does <code>char</code> occupy 1 byte?</p>
