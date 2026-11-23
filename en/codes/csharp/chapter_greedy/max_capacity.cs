@@ -7,18 +7,18 @@
 namespace hello_algo.chapter_greedy;
 
 public class max_capacity {
-    /* Max capacity: Greedy algorithm */
+    /* Maximum container capacity: greedy algorithm */
     int MaxCapacity(int[] ht) {
-        // Initialize i, j to be at both ends of the array
+        // Initialize i and j at opposite ends of the array
         int i = 0, j = ht.Length - 1;
-        // Initial max capacity is 0
+        // The initial maximum capacity is 0
         int res = 0;
-        // Loop for greedy selection until the two boards meet
+        // Repeatedly make greedy choices until the two sides meet
         while (i < j) {
-            // Update max capacity
+            // Update the maximum capacity
             int cap = Math.Min(ht[i], ht[j]) * (j - i);
             res = Math.Max(res, cap);
-            // Move the shorter board inward
+            // Move the shorter side inward
             if (ht[i] < ht[j]) {
                 i++;
             } else {
@@ -34,6 +34,6 @@ public class max_capacity {
 
         // Greedy algorithm
         int res = MaxCapacity(ht);
-        Console.WriteLine("Maximum capacity is " + res);
+        Console.WriteLine("Maximum container capacity: " + res);
     }
 }

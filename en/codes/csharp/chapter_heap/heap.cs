@@ -8,57 +8,57 @@ namespace hello_algo.chapter_heap;
 
 public class heap {
     void TestPush(PriorityQueue<int, int> heap, int val) {
-        heap.Enqueue(val, val); // Element enters heap
-        Console.WriteLine($"\nAfter element {val} pushes to heap\n");
+        heap.Enqueue(val, val); // Push an element onto the heap
+        Console.WriteLine($"\nAfter pushing {val} onto the heap:\n");
         PrintUtil.PrintHeap(heap);
     }
 
     void TestPop(PriorityQueue<int, int> heap) {
-        int val = heap.Dequeue(); // Time complexity is O(n), not O(nlogn)
-        Console.WriteLine($"\nAfter heap top element {val} pops from heap\n");
+        int val = heap.Dequeue(); // Pop the top element from the heap
+        Console.WriteLine($"\nAfter popping the top element {val} from the heap:\n");
         PrintUtil.PrintHeap(heap);
     }
 
     [Test]
     public void Test() {
-        /* Initialize heap */
-        // Python's heapq module implements min heap by default
+        /* Initialize heaps */
+        // Initialize a min heap
         PriorityQueue<int, int> minHeap = new();
-        // Initialize max heap (modify Comparer using lambda expression)
+        // Initialize a max heap (use a lambda expression to customize the Comparer)
         PriorityQueue<int, int> maxHeap = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
-        Console.WriteLine("Following test cases are for max heap");
+        Console.WriteLine("The following examples use a max heap");
 
-        /* Element enters heap */
+        /* Push an element onto the heap */
         TestPush(maxHeap, 1);
         TestPush(maxHeap, 3);
         TestPush(maxHeap, 2);
         TestPush(maxHeap, 5);
         TestPush(maxHeap, 4);
 
-        /* Check if heap is empty */
+        /* Get the top element of the heap */
         int peek = maxHeap.Peek();
-        Console.WriteLine($"Heap top element is {peek}");
+        Console.WriteLine($"Top element of the heap: {peek}");
 
-        /* Time complexity is O(n), not O(nlogn) */
-        // Dequeued elements form a descending sequence
+        /* Pop the top element from the heap */
+        // The elements are popped in descending order
         TestPop(maxHeap);
         TestPop(maxHeap);
         TestPop(maxHeap);
         TestPop(maxHeap);
         TestPop(maxHeap);
 
-        /* Get heap size */
+        /* Get the heap size */
         int size = maxHeap.Count;
-        Console.WriteLine($"Heap size is {size}");
+        Console.WriteLine($"Number of elements in the heap: {size}");
 
-        /* Check if heap is empty */
+        /* Check whether the heap is empty */
         bool isEmpty = maxHeap.Count == 0;
-        Console.WriteLine($"Is heap empty {isEmpty}");
+        Console.WriteLine($"Is the heap empty? {isEmpty}");
 
-        /* Input list and build heap */
+        /* Build a heap from an input list */
         var list = new int[] { 1, 3, 2, 5, 4 };
         minHeap = new PriorityQueue<int, int>(list.Select(x => (x, x)));
-        Console.WriteLine("After input list and building min heap");
+        Console.WriteLine("After building a min heap from the input list:");
         PrintUtil.PrintHeap(minHeap);
     }
 }

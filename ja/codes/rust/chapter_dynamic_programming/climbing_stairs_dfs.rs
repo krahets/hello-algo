@@ -4,9 +4,9 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 検索 */
+/* 探索 */
 fn dfs(i: usize) -> i32 {
-    // dp[1] と dp[2] は既知なので返す
+    // dp[1] と dp[2] は既知なので、その値を返す
     if i == 1 || i == 2 {
         return i as i32;
     }
@@ -15,12 +15,12 @@ fn dfs(i: usize) -> i32 {
     count
 }
 
-/* 階段登り：探索 */
+/* 階段の上り方：探索 */
 fn climbing_stairs_dfs(n: usize) -> i32 {
     dfs(n)
 }
 
-/* Driver Code */
+/* 実行用コード */
 pub fn main() {
     let n: usize = 9;
 

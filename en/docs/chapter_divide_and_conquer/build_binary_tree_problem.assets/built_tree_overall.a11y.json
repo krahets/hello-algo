@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "title": "Inspecting the preorder and inorder partitions at each subproblem",
+  "summary": "Root 3 splits into left leaf 9 and the right subtree rooted at 2, and node 2 splits into left and right leaves 1 and 7; beside each node, its active traversal intervals are highlighted.",
+  "context": [
+    "The input is preorder traversal preorder = [3, 9, 2, 1, 7] and inorder traversal inorder = [9, 3, 1, 2, 7], with all node values distinct.",
+    "The reconstructed binary tree has root 3, left child 9, and right child 2; node 2 has left child 1 and right child 7; and nodes 9, 1, and 7 are leaf nodes."
+  ],
+  "description": [
+    "Beside each of the five tree nodes, the diagram draws full-length copies of the preorder and inorder arrays, coloring only the interval belonging to that recursive subproblem while dimming unrelated positions in light gray. Within each subproblem, cyan marks the current subtree's root node, blue marks its left-subtree interval, and purple marks its right-subtree interval.",
+    "Light gray cells remain part of the original arrays and are simply outside the current subproblem; at a leaf node, the active slice contains only the root, with empty left and right subtree segments. The table below writes out the root, left segment, and right segment of each active sequence explicitly, with \"Left and right subtree roots\" summarized from the parent-child edges in the diagram."
+  ],
+  "result": "Every subproblem applies the same rule: preorder identifies the root and inorder partitions the left and right ranges, while the empty intervals on both sides of each leaf return null references.",
+  "frames": [
+    {
+      "id": "source-316",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_overall.png",
+      "title": "Inspecting the preorder and inorder partitions at each subproblem",
+      "explanation": "The same node value takes on different color roles in the arrays of different recursive subproblems: for instance, element 2 belongs to the purple right-subtree interval in the top-level arrays at root 3, whereas in the subproblem rooted at 2 itself it becomes the cyan root element. All five circular tree nodes themselves are drawn in green."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Active sequences for each non-empty recursive subproblem",
+      "headers": [
+        "Current root",
+        "Active preorder parts: root, left, right",
+        "Active inorder parts: left, root, right",
+        "Left and right subtree roots"
+      ],
+      "rows": [
+        [
+          "3",
+          "Root 3; left [9]; right [2, 1, 7]",
+          "Left [9]; root 3; right [1, 2, 7]",
+          "Left 9, right 2"
+        ],
+        [
+          "9",
+          "Root 9; left empty; right empty",
+          "Left empty; root 9; right empty",
+          "Both empty"
+        ],
+        [
+          "2",
+          "Root 2; left [1]; right [7]",
+          "Left [1]; root 2; right [7]",
+          "Left 1, right 7"
+        ],
+        [
+          "1",
+          "Root 1; left empty; right empty",
+          "Left empty; root 1; right empty",
+          "Both empty"
+        ],
+        [
+          "7",
+          "Root 7; left empty; right empty",
+          "Left empty; root 7; right empty",
+          "Both empty"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

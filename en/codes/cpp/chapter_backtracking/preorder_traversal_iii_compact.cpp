@@ -9,16 +9,16 @@
 vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
-/* Preorder traversal: Example 3 */
+/* Preorder traversal: example 3 */
 void preOrder(TreeNode *root) {
-    // Pruning
+    // Prune
     if (root == nullptr || root->val == 3) {
         return;
     }
-    // Attempt
+    // Try
     path.push_back(root);
     if (root->val == 7) {
-        // Record solution
+        // Record the solution
         res.push_back(path);
     }
     preOrder(root->left);
@@ -27,16 +27,16 @@ void preOrder(TreeNode *root) {
     path.pop_back();
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\nInitialize binary tree" << endl;
+    cout << "\nInitialize the binary tree" << endl;
     printTree(root);
 
     // Preorder traversal
     preOrder(root);
 
-    cout << "\nOutput all paths from root node to node 7, requiring paths do not include nodes with value 3" << endl;
+    cout << "\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

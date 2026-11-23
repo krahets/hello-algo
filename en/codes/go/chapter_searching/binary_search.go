@@ -4,40 +4,40 @@
 
 package chapter_searching
 
-/* Binary search (closed interval on both sides) */
+/* Binary search (closed interval) */
 func binarySearch(nums []int, target int) int {
-	// Initialize closed interval [0, n-1], i.e., i, j point to the first and last elements of the array
+	// Initialize the closed interval [0, n-1], with i and j pointing to the first and last elements
 	i, j := 0, len(nums)-1
-	// Loop, exit when the search interval is empty (empty when i > j)
+	// Loop until the search interval is empty (when i > j)
 	for i <= j {
 		m := i + (j-i)/2      // Calculate the midpoint index m
-		if nums[m] < target { // This means target is in the interval [m+1, j]
+		if nums[m] < target { // In this case, target must be in [m+1, j] if it exists
 			i = m + 1
-		} else if nums[m] > target { // This means target is in the interval [i, m-1]
+		} else if nums[m] > target { // In this case, target must be in [i, m-1] if it exists
 			j = m - 1
-		} else { // Found the target element, return its index
+		} else { // The target element was found; return its index
 			return m
 		}
 	}
-	// Target element not found, return -1
+	// The target element was not found; return -1
 	return -1
 }
 
-/* Binary search (left-closed right-open interval) */
+/* Binary search (left-closed, right-open interval) */
 func binarySearchLCRO(nums []int, target int) int {
-	// Initialize left-closed right-open interval [0, n), i.e., i, j point to the first element and last element+1
+	// Initialize the left-closed, right-open interval [0, n), with i at the first element and j one past the last
 	i, j := 0, len(nums)
-	// Loop, exit when the search interval is empty (empty when i = j)
+	// Loop until the search interval is empty (when i = j)
 	for i < j {
 		m := i + (j-i)/2      // Calculate the midpoint index m
-		if nums[m] < target { // This means target is in the interval [m+1, j)
+		if nums[m] < target { // In this case, target must be in [m+1, j) if it exists
 			i = m + 1
-		} else if nums[m] > target { // This means target is in the interval [i, m)
+		} else if nums[m] > target { // In this case, target must be in [i, m) if it exists
 			j = m
-		} else { // Found the target element, return its index
+		} else { // The target element was found; return its index
 			return m
 		}
 	}
-	// Target element not found, return -1
+	// The target element was not found; return -1
 	return -1
 }

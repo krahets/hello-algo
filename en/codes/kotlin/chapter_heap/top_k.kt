@@ -9,17 +9,17 @@ package chapter_heap
 import utils.printHeap
 import java.util.*
 
-/* Find the largest k elements in array based on heap */
+/* Use a heap to find the k largest elements in an array */
 fun topKHeap(nums: IntArray, k: Int): Queue<Int> {
-    // Python's heapq module implements min heap by default
+    // Initialize a min heap
     val heap = PriorityQueue<Int>()
-    // Enter the first k elements of array into heap
+    // Push the first k array elements onto the heap
     for (i in 0..<k) {
         heap.offer(nums[i])
     }
-    // Starting from the (k+1)th element, maintain heap length as k
+    // Starting with element k+1, keep the heap size at k
     for (i in k..<nums.size) {
-        // If current element is greater than top element, top element exits heap, current element enters heap
+        // If the current element is larger than the heap top, pop the top element and push the current element
         if (nums[i] > heap.peek()) {
             heap.poll()
             heap.offer(nums[i])
@@ -28,11 +28,11 @@ fun topKHeap(nums: IntArray, k: Int): Queue<Int> {
     return heap
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val nums = intArrayOf(1, 7, 6, 3, 2)
     val k = 3
     val res = topKHeap(nums, k)
-    println("The largest $k elements are")
+    println("The $k largest elements are:")
     printHeap(res)
 }

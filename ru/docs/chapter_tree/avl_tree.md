@@ -4,11 +4,11 @@
 
 Как показано на рисунке ниже, после двух операций удаления узлов это двоичное дерево поиска вырождается в связный список.
 
-![Деградация AVL-дерева после удаления узлов](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![Деградация AVL-дерева после удаления узлов](avl_tree.assets/avltree_degradation_from_removing_node.svg)
 
 Другой пример: если в идеальное двоичное дерево, показанное на рисунке ниже, вставить два узла, то дерево сильно наклонится влево, а временная сложность поиска тоже ухудшится.
 
-![Деградация AVL-дерева после вставки узлов](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![Деградация AVL-дерева после вставки узлов](avl_tree.assets/avltree_degradation_from_inserting_node.svg)
 
 В 1962 году Г. М. Adelson-Velsky и Е. М. Landis в статье «An algorithm for the organization of information» предложили <u>AVL-дерево</u>. В статье подробно описан набор операций, гарантирующий, что при непрерывном добавлении и удалении узлов AVL-дерево не вырождается, благодаря чему временная сложность различных операций сохраняется на уровне $O(\log n)$ . Иначе говоря, в сценариях, где часто выполняются вставка, удаление, поиск и изменение, AVL-дерево всегда поддерживает эффективную работу с данными и потому имеет высокую практическую ценность.
 
@@ -20,213 +20,9 @@ AVL-дерево одновременно является и двоичным �
 
 Поскольку операции AVL-дерева требуют получать высоту узла, нам нужно добавить в класс узла переменную `height` :
 
-=== "Python"
-
-    ```python title=""
-    class TreeNode:
-        """Класс узла AVL-дерева"""
-        def __init__(self, val: int):
-            self.val: int = val                 # Значение узла
-            self.height: int = 0                # Высота узла
-            self.left: TreeNode | None = None   # Ссылка на левого дочернего узла
-            self.right: TreeNode | None = None  # Ссылка на правого дочернего узла
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* Класс узла AVL-дерева */
-    struct TreeNode {
-        int val{};          // Значение узла
-        int height = 0;     // Высота узла
-        TreeNode *left{};   // Левый дочерний узел
-        TreeNode *right{};  // Правый дочерний узел
-        TreeNode() = default;
-        explicit TreeNode(int x) : val(x){}
-    };
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode {
-        public int val;        // Значение узла
-        public int height;     // Высота узла
-        public TreeNode left;  // Левый дочерний узел
-        public TreeNode right; // Правый дочерний узел
-        public TreeNode(int x) { val = x; }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode(int? x) {
-        public int? val = x;    // Значение узла
-        public int height;      // Высота узла
-        public TreeNode? left;  // Ссылка на левого дочернего узла
-        public TreeNode? right; // Ссылка на правого дочернего узла
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* Структура узла AVL-дерева */
-    type TreeNode struct {
-        Val    int       // Значение узла
-        Height int       // Высота узла
-        Left   *TreeNode // Ссылка на левого дочернего узла
-        Right  *TreeNode // Ссылка на правого дочернего узла
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode {
-        var val: Int // Значение узла
-        var height: Int // Высота узла
-        var left: TreeNode? // Левый дочерний узел
-        var right: TreeNode? // Правый дочерний узел
-
-        init(x: Int) {
-            val = x
-            height = 0
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode {
-        val; // Значение узла
-        height; // Высота узла
-        left; // Указатель на левого дочернего узла
-        right; // Указатель на правого дочернего узла
-        constructor(val, left, right, height) {
-            this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
-            this.left = left === undefined ? null : left;
-            this.right = right === undefined ? null : right;
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode {
-        val: number;            // Значение узла
-        height: number;         // Высота узла
-        left: TreeNode | null;  // Указатель на левого дочернего узла
-        right: TreeNode | null; // Указатель на правого дочернего узла
-        constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
-            this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
-            this.left = left === undefined ? null : left;
-            this.right = right === undefined ? null : right;
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode {
-      int val;         // Значение узла
-      int height;      // Высота узла
-      TreeNode? left;  // Левый дочерний узел
-      TreeNode? right; // Правый дочерний узел
-      TreeNode(this.val, [this.height = 0, this.left, this.right]);
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    use std::rc::Rc;
-    use std::cell::RefCell;
-
-    /* Структура узла AVL-дерева */
-    struct TreeNode {
-        val: i32,                               // Значение узла
-        height: i32,                            // Высота узла
-        left: Option<Rc<RefCell<TreeNode>>>,    // Левый дочерний узел
-        right: Option<Rc<RefCell<TreeNode>>>,   // Правый дочерний узел
-    }
-
-    impl TreeNode {
-        /* Конструктор */
-        fn new(val: i32) -> Rc<RefCell<Self>> {
-            Rc::new(RefCell::new(Self {
-                val,
-                height: 0,
-                left: None,
-                right: None
-            }))
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* Структура узла AVL-дерева */
-    typedef struct TreeNode {
-        int val;
-        int height;
-        struct TreeNode *left;
-        struct TreeNode *right;
-    } TreeNode;
-
-    /* Конструктор */
-    TreeNode *newTreeNode(int val) {
-        TreeNode *node;
-
-        node = (TreeNode *)malloc(sizeof(TreeNode));
-        node->val = val;
-        node->height = 0;
-        node->left = NULL;
-        node->right = NULL;
-        return node;
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* Класс узла AVL-дерева */
-    class TreeNode(val _val: Int) {  // Значение узла
-        var height: Int = 0          // Высота узла
-        var left: TreeNode? = null   // Левый дочерний узел
-        var right: TreeNode? = null  // Правый дочерний узел
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### Класс узла AVL-дерева ###
-    class TreeNode
-      attr_accessor :val    # Значение узла
-      attr_accessor :height # Высота узла
-      attr_accessor :left   # Ссылка на левого дочернего узла
-      attr_accessor :right  # Ссылка на правого дочернего узла
-
-      def initialize(val)
-        @val = val
-        @height = 0
-      end
-    end
-    ```
+```snippet
+avl_tree_node
+```
 
 «Высота узла» означает расстояние от этого узла до самого удаленного листового узла, то есть число пройденных «ребер». Особенно важно помнить, что высота листового узла равна $0$ , а высота пустого узла равна $-1$ . Мы создадим две вспомогательные функции: одну для получения высоты узла, другую для ее обновления:
 
@@ -257,20 +53,20 @@ AVL-дерево одновременно является и двоичным �
 Как показано на рисунке ниже, под узлом указан его баланс-фактор. Если двигаться снизу вверх, то первым разбалансированным узлом в двоичном дереве будет «узел 3». Рассмотрим поддерево с этим узлом в качестве корня, обозначим данный узел как `node` , его левого дочернего узла как `child` и выполним «правое вращение». После завершения правого вращения поддерево снова станет сбалансированным и при этом сохранит свойство двоичного дерева поиска.
 
 === "<1>"
-    ![Шаги правого вращения](avl_tree.assets/avltree_right_rotate_step1.png)
+    ![Шаги правого вращения](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
-    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.png)
+    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg)
 
 === "<3>"
-    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.png)
+    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.svg)
 
 === "<4>"
-    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png)
+    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg)
 
 Как показано на рисунке ниже, когда у узла `child` есть правый дочерний узел, который мы обозначим как `grand_child` , в правое вращение нужно добавить еще один шаг: сделать `grand_child` левым дочерним узлом `node` .
 
-![Правое вращение при наличии grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![Правое вращение при наличии grand_child](avl_tree.assets/avltree_right_rotate_with_grandchild.svg)
 
 «Поворот вправо» - это лишь образное описание. В реальности он реализуется через изменение указателей узлов. Код приведен ниже:
 
@@ -282,11 +78,11 @@ AVL-дерево одновременно является и двоичным �
 
 Соответственно, если рассмотреть «зеркальную» версию приведенного выше разбалансированного двоичного дерева, то понадобится выполнить «левое вращение», показанное на рисунке ниже.
 
-![Левое вращение](avl_tree.assets/avltree_left_rotate.png)
+![Левое вращение](avl_tree.assets/avltree_left_rotate.svg)
 
 Аналогичная ситуация показана на рисунке ниже. Если у узла `child` есть левый дочерний узел, который обозначим как `grand_child` , то в левое вращение также требуется добавить шаг: сделать `grand_child` правым дочерним узлом `node` .
 
-![Левое вращение при наличии grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![Левое вращение при наличии grand_child](avl_tree.assets/avltree_left_rotate_with_grandchild.svg)
 
 Можно заметить, что **операции правого и левого вращения логически зеркально симметричны, и два вида разбаланса, которые они исправляют, тоже симметричны**. Поэтому, опираясь на эту симметрию, достаточно заменить в коде правого вращения все `left` на `right` , а все `right` на `left` , чтобы получить реализацию левого вращения:
 
@@ -298,19 +94,19 @@ AVL-дерево одновременно является и двоичным �
 
 Для разбалансированного узла 3 на рисунке ниже ни одно лишь левое вращение, ни одно лишь правое вращение не способны вернуть поддерево в баланс. В этом случае нужно сначала выполнить «левое вращение» для `child` , а затем выполнить «правое вращение» для `node` .
 
-![Сначала левое, затем правое вращение](avl_tree.assets/avltree_left_right_rotate.png)
+![Сначала левое, затем правое вращение](avl_tree.assets/avltree_left_right_rotate.svg)
 
 ### Сначала правое, затем левое вращение
 
 Как показано на рисунке ниже, для зеркальной ситуации предыдущего разбалансированного двоичного дерева нужно сначала выполнить «правое вращение» для `child` , а затем «левое вращение» для `node` .
 
-![Сначала правое, затем левое вращение](avl_tree.assets/avltree_right_left_rotate.png)
+![Сначала правое, затем левое вращение](avl_tree.assets/avltree_right_left_rotate.svg)
 
 ### Выбор вращения
 
 Четыре вида разбаланса, показанные на рисунке ниже, по одному соответствуют рассмотренным выше случаям. Для них соответственно требуются правое вращение, сначала левое затем правое, сначала правое затем левое и левое вращение.
 
-![Четыре случая вращений AVL-дерева](avl_tree.assets/avltree_rotation_cases.png)
+![Четыре случая вращений AVL-дерева](avl_tree.assets/avltree_rotation_cases.svg)
 
 Как показано в таблице ниже, мы определяем, какому из случаев на рисунке выше соответствует разбалансированный узел, по знаку баланс-фактора самого разбалансированного узла и по знаку баланс-фактора дочернего узла на более высокой стороне.
 

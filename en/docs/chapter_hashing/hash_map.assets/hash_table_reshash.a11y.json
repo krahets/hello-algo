@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "title": "Hash table expansion and rehashing",
+  "summary": "Recompute bucket indices after changing capacity, preserving key-value pairings while relieving collisions.",
+  "context": [
+    "The chapter defines the hash function as key % capacity, where % denotes modulo and bucket indices start at 0. In the figure, the left side is labeled \"Hash table capacity = 100\", the right side is labeled \"Hash table capacity = 200\", and the middle arrow indicates expanding the capacity 2-fold (\"Double the hash table capacity\"); the table below lists the positions of the four key-value pairs before and after expansion."
+  ],
+  "description": [
+    "The figure compares only the final bucket distributions before and after expansion, without prescribing a specific item-by-item migration order or collision storage structure. Before expansion, 236 is drawn outside the bucket solely to indicate that it collides with 136 in bucket 36 rather than occupying a separate bucket; ellipses represent omitted buckets."
+  ],
+  "tables": [
+    {
+      "caption": "Rehashing of the four key-value pairs",
+      "headers": [
+        "Key",
+        "Value",
+        "Bucket at capacity 100",
+        "Bucket at capacity 200"
+      ],
+      "rows": [
+        [
+          "136",
+          "A",
+          "36",
+          "136"
+        ],
+        [
+          "236",
+          "D",
+          "36 (collides with 136)",
+          "36"
+        ],
+        [
+          "550",
+          "B",
+          "50",
+          "150"
+        ],
+        [
+          "783",
+          "C",
+          "83",
+          "183"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "Expansion lowers the load factor and eliminates the original hash collision in this example, though expansion does not guarantee eliminating all collisions for arbitrary inputs.",
+  "frames": [
+    {
+      "id": "source-84",
+      "book_path": "chapter_hashing/hash_map.assets/hash_table_reshash.png",
+      "title": "Hash table expansion and rehashing",
+      "explanation": "After the capacity changes, the bucket index must be recomputed for every key, including those that never collided. In the table, although 236 remains in bucket 36, its index was still recomputed, while 550 and 783—which had not collided—move to new buckets. All key-value pairings remain unchanged."
+    }
+  ],
+  "animations": {
+    "hash-table-rehash": {
+      "kind": "prose",
+      "prose": {
+        "title": "Hash table expansion and rehashing",
+        "summary": "Recompute bucket indices after changing capacity, preserving key-value pairings while relieving collisions.",
+        "context": [
+          "The chapter defines the hash function as key % capacity, where % denotes modulo and bucket indices start at 0. In the figure, the left side is labeled \"Hash table capacity = 100\", the right side is labeled \"Hash table capacity = 200\", and the middle arrow indicates expanding the capacity 2-fold (\"Double the hash table capacity\"); the table below lists the positions of the four key-value pairs before and after expansion."
+        ],
+        "description": [
+          "The figure compares only the final bucket distributions before and after expansion, without prescribing a specific item-by-item migration order or collision storage structure. Before expansion, 236 is drawn outside the bucket solely to indicate that it collides with 136 in bucket 36 rather than occupying a separate bucket; ellipses represent omitted buckets."
+        ],
+        "result": "Expansion lowers the load factor and eliminates the original hash collision in this example, though expansion does not guarantee eliminating all collisions for arbitrary inputs.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Before expansion: capacity 100, collision at bucket 36",
+            "explanation": "Before expansion, the capacity is 100 and indices are computed by key % 100: 136:A and 236:D both land in bucket 36 and collide, while 550:B is in bucket 50 and 783:C is in bucket 83.",
+            "key_state": "Capacity 100; 136:A and 236:D collide in bucket 36, bucket 50 holds 550:B, and bucket 83 holds 783:C.",
+            "announcement": "Before expansion, at capacity 100, keys 136 and 236 both map to bucket 36 and collide."
+          },
+          {
+            "id": "step-2",
+            "title": "After expansion: capacity 200, rehashing",
+            "explanation": "After doubling the capacity to 200, recompute the bucket indices for all four keys using key % 200: 236:D stays in bucket 36, 136:A moves to bucket 136, 550:B moves to bucket 150, and 783:C moves to bucket 183. All four entries now occupy distinct buckets, resolving the collision while keeping every key-value pairing intact.",
+            "key_state": "Capacity 200; buckets 36, 136, 150, and 183 hold 236:D, 136:A, 550:B, and 783:C, respectively.",
+            "announcement": "Expanded to capacity 200 and rehashed all keys: 236 stays in bucket 36, while 136, 550, and 783 move to buckets 136, 150, and 183, resolving the collision."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "单层循环",
+  "summary": "通过初始化、条件判断和更新，控制任务重复执行。",
+  "context": [
+    "用图中流程求 1 至 n 的和，n 为正整数：累计和初值为 0，每轮“任务”将当前 i 加入累计和。"
+  ],
+  "description": [],
+  "result": "执行任务时，i 依次为 1 至 n，共执行 n 次；更新到 i = n + 1 时，条件为假，循环结束。",
+  "frames": [
+    {
+      "id": "source-19",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
+      "title": "单层循环",
+      "explanation": "先初始化 i = 1，再判断 i ≤ n。为真时执行任务，令 i 加 1，然后直接回到条件判断；为假时退出。初始化只在进入循环前执行一次，不会每轮把 i 重置为 1。"
+    }
+  ]
+}

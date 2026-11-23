@@ -8,13 +8,13 @@ import (
 	"container/list"
 )
 
-/* Stack based on linked list implementation */
+/* Stack implemented with a linked list */
 type linkedListStack struct {
-	// Use built-in package list to implement stack
+	// Use the standard library list package to implement the stack
 	data *list.List
 }
 
-/* Access top of the stack element */
+/* Initialize the stack */
 func newLinkedListStack() *linkedListStack {
 	return &linkedListStack{
 		data: list.New(),
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* Return list for printing */
+/* Access the top element */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-/* Get the length of the stack */
+/* Get the stack size */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
 
-/* Check if the stack is empty */
+/* Check whether the stack is empty */
 func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Get List for printing */
+/* Get the list for printing */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

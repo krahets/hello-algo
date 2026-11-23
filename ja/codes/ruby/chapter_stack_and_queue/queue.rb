@@ -4,13 +4,13 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   # キューを初期化する
-  # Ruby 組み込みのキュー（Thread::Queue）には peek と走査メソッドがないため、Array をキューとして使える
+  # Ruby の組み込みキュー（Thread::Queue）には peek と走査のメソッドがないため、Array をキューとして使える
   queue = []
 
-  # 要素をエンキュー
+  # 要素をエンキューする
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -18,21 +18,21 @@ if __FILE__ == $0
   queue.push(4)
   puts "キュー queue = #{queue}"
 
-  # キューの要素にアクセス
+  # キューの要素にアクセスする
   peek = queue.first
-  puts "先頭要素 peek = #{peek}"
+  puts "キューの先頭要素 peek = #{peek}"
 
-  # 要素をキューから取り出す
-  # 配列であるため、Array#shift メソッドの時間計算量は O(n) である
+  # 要素をデキューする
+  # 配列なので Array#shift メソッドの時間計算量は O(n) であることに注意
   pop = queue.shift
-  puts "取り出した要素 pop = #{pop}"
-  puts "取り出し後 queue = #{queue}"
+  puts "デキューした要素 pop = #{pop}"
+  puts "デキュー後 queue = #{queue}"
 
   # キューの長さを取得
   size = queue.length
   puts "キューの長さ size = #{size}"
 
-  # キューが空かどうかを判定
+  # キューが空か判定
   is_empty = queue.empty?
-  puts "キューが空かどうか = #{is_empty}"
+  puts "キューは空か = #{is_empty}"
 end

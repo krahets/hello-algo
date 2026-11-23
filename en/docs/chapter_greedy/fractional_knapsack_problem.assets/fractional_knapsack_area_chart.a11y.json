@@ -1,0 +1,76 @@
+{
+  "schema_version": 2,
+  "title": "Geometric representation of the fractional knapsack problem",
+  "summary": "Represent item weight by rectangle width, value per unit weight by height, and item value by area to show which items to take first when capacity is limited.",
+  "context": [
+    "Fractional knapsack allows splitting an item and taking only part of it, earning value proportional to the weight taken. Knapsack capacity is 50; because value = weight × value per unit weight, plotting item weight as rectangle width and value per unit weight as height makes rectangle area equal item value."
+  ],
+  "description": [
+    "Five adjacent rectangles are ordered from left to right by decreasing height; the fruit icons' names, original IDs, widths, and heights appear in the table below. Beneath the horizontal axis, a double-headed arrow marks knapsack capacity 50, spanning the full width of the leftmost banana rectangle and extending partway into the second rectangle (pineapple).",
+    "The diagram directly labels rectangle widths, heights, and capacity 50. Full-item values, weights taken, and values taken in the table below are computed from those labels. The item IDs come from the earlier item table; the total value 277.5 is not printed separately in this figure."
+  ],
+  "frames": [
+    {
+      "id": "source-464",
+      "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png",
+      "title": "Capacity 50 captures the area of the two highest-unit-value segments",
+      "explanation": "Banana first uses 20 of the capacity 50, leaving 30 to take three-quarters of the pineapple's width 40 while leaving weight 10 behind; the remaining three rectangles lie outside the capacity span. The captured area totals 20 × 6 + 30 × 5.25 = 277.5, giving the maximum total value."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Five items ordered left to right as in the figure; value equals weight times value per unit weight",
+      "headers": [
+        "Item (original ID)",
+        "Weight / width",
+        "Value per unit weight / height",
+        "Full-item value",
+        "Weight taken",
+        "Value taken"
+      ],
+      "rows": [
+        [
+          "Banana (2)",
+          "20",
+          "6",
+          "120",
+          "20",
+          "120"
+        ],
+        [
+          "Pineapple (4)",
+          "40",
+          "5.25",
+          "210",
+          "30",
+          "157.5"
+        ],
+        [
+          "Apple (1)",
+          "10",
+          "5",
+          "50",
+          "0",
+          "0"
+        ],
+        [
+          "Grapes (3)",
+          "30",
+          "5",
+          "150",
+          "0",
+          "0"
+        ],
+        [
+          "Watermelon (5)",
+          "50",
+          "4.8",
+          "240",
+          "0",
+          "0"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

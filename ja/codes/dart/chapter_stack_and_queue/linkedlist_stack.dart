@@ -6,21 +6,21 @@
 
 import '../utils/list_node.dart';
 
-/* 連結リストクラスに基づくスタック */
+/* 連結リストクラスで実装したスタック */
 class LinkedListStack {
-  ListNode? _stackPeek; // 先頭ノードをスタックトップとする
+  ListNode? _stackPeek; // 先頭ノードをスタックの先頭とする
   int _stkSize = 0; // スタックの長さ
 
   LinkedListStack() {
     _stackPeek = null;
   }
 
-  /* スタックの長さを取得 */
+  /* スタックの長さを取得する */
   int size() {
     return _stkSize;
   }
 
-  /* スタックが空かどうかを判定 */
+  /* スタックが空かどうかを判定する */
   bool isEmpty() {
     return _stkSize == 0;
   }
@@ -41,7 +41,7 @@ class LinkedListStack {
     return _num;
   }
 
-  /* スタックトップの要素にアクセス */
+  /* スタックの先頭要素にアクセスする */
   int peek() {
     if (_stackPeek == null) {
       throw Exception("スタックが空です");
@@ -62,12 +62,12 @@ class LinkedListStack {
   }
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
-  /* スタックを初期化 */
+  /* スタックを初期化する */
   final LinkedListStack stack = LinkedListStack();
 
-  /* 要素をプッシュ */
+  /* 要素をプッシュする */
   stack.push(1);
   stack.push(3);
   stack.push(2);
@@ -75,19 +75,19 @@ void main() {
   stack.push(4);
   print("スタック stack = ${stack.toList()}");
 
-  /* スタックトップの要素にアクセス */
+  /* スタックの先頭要素にアクセスする */
   final int peek = stack.peek();
-  print("スタックトップの要素 peek = $peek");
+  print("スタックの先頭要素 peek = $peek");
 
-  /* 要素をポップ */
+  /* 要素をポップする */
   final int pop = stack.pop();
-  print("ポップした要素 pop = $pop ，ポップ後の stack = ${stack.toList()}");
+  print("ポップした要素 pop = $pop 、ポップ後 stack = ${stack.toList()}");
 
-  /* スタックの長さを取得 */
+  /* スタックの長さを取得する */
   final int size = stack.size();
   print("スタックの長さ size = $size");
 
-  /* 空かどうかを判定 */
+  /* 空かどうかを判定する */
   final bool isEmpty = stack.isEmpty();
-  print("スタックが空かどうか = $isEmpty");
+  print("スタックは空か = $isEmpty");
 }

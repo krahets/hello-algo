@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "title": "Recursive preorder traversal",
+  "summary": "Follow a preorder traversal of a 7-node binary tree. Visiting a node adds it to the output. Returning from a call does not.",
+  "context": [
+    "The binary tree has 7 nodes. Root 1 has children 2 and 3. Node 2 has children 4 and 5, and node 3 has children 6 and 7, listed left to right. Nodes 4, 5, 6, and 7 are leaves.",
+    "Preorder visits the root, then the left subtree, then the right subtree. On entering a nonempty node, record its value immediately and recurse into its left and right children in order. A call on an empty subtree returns immediately."
+  ],
+  "description": [
+    "The call path lists active calls from the root to the current node. The 11 steps omit calls on empty subtrees. In 7 steps a node is visited for the first time, and in 4 steps calls return. Steps 4 and 9 return from a left leaf to its parent before entering the right subtree. Steps 6 and 11 return up two levels."
+  ],
+  "frames": [
+    {
+      "id": "source-99",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step1.png",
+      "title": "Visit root 1",
+      "explanation": "Start at root 1 and record 1. Call path: 1. Output: [1]. Neither the left subtree (2, 4, 5) nor the right subtree (3, 6, 7) has been visited. Next visit the left child, 2.",
+      "key_state": "Call path: 1. Output: [1].",
+      "announcement": "Visited root 1. Output: [1]."
+    },
+    {
+      "id": "source-100",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step2.png",
+      "title": "Visit left child 2",
+      "explanation": "From 1, visit its left child 2 and record 2. Call path: 1 → 2. Output: [1, 2]. The two leaves under 2 (4 and 5) and the root's right subtree (3, 6, 7) have yet to be visited. Next visit 4.",
+      "key_state": "Call path: 1 → 2. Output: [1, 2].",
+      "announcement": "Visited left child 2. Output: [1, 2]."
+    },
+    {
+      "id": "source-101",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step3.png",
+      "title": "Visit leaf 4",
+      "explanation": "From 2, visit left leaf 4 and record 4. Call path: 1 → 2 → 4. Output: [1, 2, 4]. The calls on both empty subtrees of 4 return immediately, then control will return to 2. Node 5 and the root's right subtree (3, 6, 7) are still unvisited.",
+      "key_state": "Call path: 1 → 2 → 4. Output: [1, 2, 4].",
+      "announcement": "Visited leaf 4. Output: [1, 2, 4]."
+    },
+    {
+      "id": "source-102",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step4.png",
+      "title": "Return from 4 to 2",
+      "explanation": "Leaf 4 is finished. Return to parent 2; the call path is now 1 → 2. Returning records no new node, so the output stays [1, 2, 4]. The left subtree of 2 is complete. Next visit its right child, 5. The root's right subtree (3, 6, 7) is still unvisited.",
+      "key_state": "Call path: 1 → 2. Output: [1, 2, 4]. Next visit the right child of 2, node 5.",
+      "announcement": "Returned from leaf 4 to its parent 2. Output stays [1, 2, 4]. Next visit the right child of 2, node 5."
+    },
+    {
+      "id": "source-103",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step5.png",
+      "title": "Visit leaf 5",
+      "explanation": "From 2, visit right leaf 5 and record 5. Call path: 1 → 2 → 5. Output: [1, 2, 4, 5]. Every node in the root's left subtree has been visited, but the calls have yet to return. The calls on the two empty subtrees of 5 return immediately. The root's right subtree (3, 6, 7) is still unvisited.",
+      "key_state": "Call path: 1 → 2 → 5. Output: [1, 2, 4, 5].",
+      "announcement": "Visited leaf 5. Output: [1, 2, 4, 5]."
+    },
+    {
+      "id": "source-104",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step6.png",
+      "title": "Return from 5 through 2 to 1",
+      "explanation": "When 5 finishes, return to 2. Both subtrees of 2 are complete, so return again to root 1. The call path is now 1, and the output stays [1, 2, 4, 5]. The root's left subtree is complete. Next enter its unvisited right subtree (3, 6, 7), starting at node 3.",
+      "key_state": "Call path: 1. Output: [1, 2, 4, 5]. Next visit 3, the right child of root 1.",
+      "announcement": "Returned from leaf 5 through 2 to root 1. Output stays [1, 2, 4, 5]. Next visit 3, the right child of root 1."
+    },
+    {
+      "id": "source-105",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step7.png",
+      "title": "Visit right child 3",
+      "explanation": "From root 1, enter its right child 3 and record 3. Call path: 1 → 3. Output: [1, 2, 4, 5, 3]. The left and right leaves of 3, nodes 6 and 7, are still unvisited. Next visit 6.",
+      "key_state": "Call path: 1 → 3. Output: [1, 2, 4, 5, 3].",
+      "announcement": "Visited right child 3. Output: [1, 2, 4, 5, 3]."
+    },
+    {
+      "id": "source-106",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step8.png",
+      "title": "Visit leaf 6",
+      "explanation": "From 3, visit left leaf 6 and record 6. Call path: 1 → 3 → 6. Output: [1, 2, 4, 5, 3, 6]. Calls on the two empty subtrees of 6 return immediately, then control will return to 3. Only the right leaf, 7, remains unvisited.",
+      "key_state": "Call path: 1 → 3 → 6. Output: [1, 2, 4, 5, 3, 6].",
+      "announcement": "Visited leaf 6. Output: [1, 2, 4, 5, 3, 6]."
+    },
+    {
+      "id": "source-107",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step9.png",
+      "title": "Return from 6 to 3",
+      "explanation": "Leaf 6 is finished. Return to parent 3. The call path is now 1 → 3, and the output stays [1, 2, 4, 5, 3, 6]. The left subtree of 3 is complete. Next visit its remaining right leaf, 7.",
+      "key_state": "Call path: 1 → 3. Output: [1, 2, 4, 5, 3, 6]. Next visit the right child of 3, node 7.",
+      "announcement": "Returned from leaf 6 to its parent 3. Output stays [1, 2, 4, 5, 3, 6]. Next visit the right child of 3, node 7."
+    },
+    {
+      "id": "source-108",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step10.png",
+      "title": "Visit leaf 7",
+      "explanation": "From 3, visit right leaf 7 and record 7. Call path: 1 → 3 → 7. The output is complete: [1, 2, 4, 5, 3, 6, 7]. The calls for 7, 3, and 1 still need to return.",
+      "key_state": "Call path: 1 → 3 → 7. Output: [1, 2, 4, 5, 3, 6, 7]. All values have been recorded, but the calls have yet to return.",
+      "announcement": "Visited the last leaf, 7. The output is complete: [1, 2, 4, 5, 3, 6, 7]. The calls have yet to return."
+    },
+    {
+      "id": "source-109",
+      "book_path": "chapter_tree/binary_tree_traversal.assets/preorder_step11.png",
+      "title": "Return from 7 through 3 to 1 and finish",
+      "explanation": "After the calls on the empty left and right subtrees of 7 finish, return along 7 → 3 → 1. The call on the root then ends. Every subtree is complete, the call path is empty, and the final output remains [1, 2, 4, 5, 3, 6, 7].",
+      "key_state": "Call path: empty. Output: [1, 2, 4, 5, 3, 6, 7]. All calls have returned.",
+      "announcement": "The final calls return in order: 7, 3, 1. The recursion is complete, and the output stays [1, 2, 4, 5, 3, 6, 7]."
+    }
+  ],
+  "animations": {
+    "preorder-traversal": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-99"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-100"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-101"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-102"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-103"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-104"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-105"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-106"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-107"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-108"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-109"
+        }
+      ]
+    }
+  },
+  "tables": [],
+  "input_tables": []
+}

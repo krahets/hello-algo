@@ -4,11 +4,11 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Memoization search */
+/* Memoized search */
 int dfs(int i, List<int> mem) {
-  // Known dp[1] and dp[2], return them
+  // The values of dp[1] and dp[2] are known; return them
   if (i == 1 || i == 2) return i;
-  // If record dp[i] exists, return it directly
+  // If dp[i] has been recorded, return it directly
   if (mem[i] != -1) return mem[i];
   // dp[i] = dp[i-1] + dp[i-2]
   int count = dfs(i - 1, mem) + dfs(i - 2, mem);
@@ -17,17 +17,17 @@ int dfs(int i, List<int> mem) {
   return count;
 }
 
-/* Climbing stairs: Memoization search */
+/* Climbing stairs: memoized search */
 int climbingStairsDFSMem(int n) {
-  // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+  // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
   List<int> mem = List.filled(n + 1, -1);
   return dfs(n, mem);
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   int n = 9;
 
   int res = climbingStairsDFSMem(n);
-  print("Climbing $n stairs has $res solutions");
+  print("Number of ways to climb $n stairs: $res");
 }

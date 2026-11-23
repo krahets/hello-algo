@@ -10,31 +10,31 @@ require_relative '../utils/vertex'
 
 ### Breadth-first traversal ###
 def graph_bfs(graph, start_vet)
-  # Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+  # Represent the graph with an adjacency list to access all neighbors of a given vertex
   # Vertex traversal sequence
   res = []
-  # Hash set for recording vertices that have been visited
+  # Hash set recording visited vertices
   visited = Set.new([start_vet])
-  # Queue used to implement BFS
+  # Use a queue to implement BFS
   que = [start_vet]
-  # Starting from vertex vet, loop until all vertices are visited
+  # Start from start_vet and loop until all reachable vertices have been visited
   while que.length > 0
     vet = que.shift # Dequeue the front vertex
-    res << vet # Record visited vertex
-    # Traverse all adjacent vertices of this vertex
+    res << vet # Record the visited vertex
+    # Traverse all neighbors of this vertex
     for adj_vet in graph.adj_list[vet]
-      next if visited.include?(adj_vet) # Skip vertices that have been visited
-      que << adj_vet # Only enqueue unvisited vertices
+      next if visited.include?(adj_vet) # Skip vertices that have already been visited
+      que << adj_vet # Enqueue only unvisited vertices
       visited.add(adj_vet) # Mark this vertex as visited
     end
   end
-  # Return vertex traversal sequence
+  # Return the vertex traversal sequence
   res
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Add edge
+  # Initialize the undirected graph
   v = vals_to_vets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
   edges = [
     [v[0], v[1]],
@@ -51,11 +51,11 @@ if __FILE__ == $0
     [v[7], v[8]],
   ]
   graph = GraphAdjList.new(edges)
-  puts "\nAfter initialization, graph is"
+  puts "\nGraph after initialization:"
   graph.__print__
 
   # Breadth-first traversal
   res = graph_bfs(graph, v.first)
-  puts "\nBreadth-first traversal (BFS) vertex sequence is"
+  puts "\nBreadth-first traversal (BFS) vertex sequence:"
   p vets_to_vals(res)
 end

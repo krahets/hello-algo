@@ -13,43 +13,43 @@ import (
 )
 
 func TestHashMap(t *testing.T) {
-	/* Initialize hash table */
+	/* Initialize the hash table */
 	hmap := make(map[int]string)
 
-	/* Add operation */
-	// Add key-value pair (key, value) to the hash table
-	hmap[12836] = "Xiao Ha"
-	hmap[15937] = "Xiao Luo"
-	hmap[16750] = "Xiao Suan"
-	hmap[13276] = "Xiao Fa"
-	hmap[10583] = "Xiao Ya"
-	fmt.Println("\nAfter adding is complete, hash table is\nKey -> Value")
+	/* Insert operation */
+	// Insert the key-value pair (key, value) into the hash table
+	hmap[12836] = "小哈"
+	hmap[15937] = "小啰"
+	hmap[16750] = "小算"
+	hmap[13276] = "小法"
+	hmap[10583] = "小鸭"
+	fmt.Println("\nHash table after insertion:\nKey -> Value")
 	PrintMap(hmap)
 
-	/* Query operation */
-	// Input key into hash table to get value
+	/* Lookup operation */
+	// Look up key in the hash table to obtain value
 	name := hmap[15937]
-	fmt.Println("\nInput student ID 15937, query name ", name)
+	fmt.Println("\nLook up student ID 15937 to obtain the name ", name)
 
 	/* Remove operation */
-	// Remove key-value pair (key, value) from hash table
+	// Remove the key-value pair (key, value) from the hash table
 	delete(hmap, 10583)
-	fmt.Println("\nAfter removing 10583, hash table is\nKey -> Value")
+	fmt.Println("\nHash table after removing 10583:\nKey -> Value")
 	PrintMap(hmap)
 
-	/* Traverse hash table */
-	// Traverse key-value pairs
-	fmt.Println("\nTraverse key-value pairs Key->Value")
+	/* Traverse the hash table */
+	// Traverse key-value pairs: key->value
+	fmt.Println("\nTraverse key-value pairs: Key->Value")
 	for key, value := range hmap {
 		fmt.Println(key, "->", value)
 	}
-	// Traverse keys only
-	fmt.Println("\nTraverse keys only Key")
+	// Traverse keys only: key
+	fmt.Println("\nTraverse keys only: Key")
 	for key := range hmap {
 		fmt.Println(key)
 	}
-	// Traverse values only
-	fmt.Println("\nTraverse values only Value")
+	// Traverse values only: value
+	fmt.Println("\nTraverse values only: Value")
 	for _, value := range hmap {
 		fmt.Println(value)
 	}
@@ -58,17 +58,17 @@ func TestHashMap(t *testing.T) {
 func TestSimpleHash(t *testing.T) {
 	var hash int
 
-	key := "Hello Algo"
+	key := "Hello 算法"
 
 	hash = addHash(key)
-	fmt.Println("Additive hash value is " + strconv.Itoa(hash))
+	fmt.Println("Additive hash value: " + strconv.Itoa(hash))
 
 	hash = mulHash(key)
-	fmt.Println("Multiplicative hash value is " + strconv.Itoa(hash))
+	fmt.Println("Multiplicative hash value: " + strconv.Itoa(hash))
 
 	hash = xorHash(key)
-	fmt.Println("XOR hash value is " + strconv.Itoa(hash))
+	fmt.Println("XOR hash value: " + strconv.Itoa(hash))
 
 	hash = rotHash(key)
-	fmt.Println("Rotational hash value is " + strconv.Itoa(hash))
+	fmt.Println("Rotating hash value: " + strconv.Itoa(hash))
 }

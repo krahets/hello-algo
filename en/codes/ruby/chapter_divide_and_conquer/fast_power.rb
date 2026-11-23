@@ -4,7 +4,7 @@ Created Time: 2026-08-18
 Author: Hello Algo Team
 =end
 
-### Exponentiation by squaring ###
+### Fast exponentiation ###
 def fast_pow(x, n)
   return 1 if n == 0
 
@@ -15,7 +15,7 @@ def fast_pow(x, n)
 end
 
 if __FILE__ == $0
-  raise 'fast power check failed' unless fast_pow(7, 0) == 1
-  raise 'fast power check failed' unless fast_pow(3, 5) == 243
-  raise 'fast power check failed' unless fast_pow(2, 6) == 64
+  raise 'Fast power check failed' unless fast_pow(7, 0) == 1
+  raise 'Fast power check failed' unless fast_pow(3, 5) == 243
+  raise 'Fast power check failed' unless fast_pow(2, 6) == 64
 end

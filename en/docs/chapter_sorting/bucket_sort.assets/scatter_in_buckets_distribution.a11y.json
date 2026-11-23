@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "title": "Choose bucket boundaries from the price distribution",
+  "summary": "Use the probability distribution of product prices to place the boundaries so that roughly the same proportion of values falls into each bucket, avoiding overcrowded buckets.",
+  "context": [
+    "The horizontal axis shows product price with labels 0, 3, 10, 25, 80, 200, and +∞ from left to right. The vertical axis shows probability density from 0.0 to 0.4. A gray bell-shaped curve peaks near price 25. Its shape is illustrative; neither distribution parameters nor exact bucket probabilities are given."
+  ],
+  "description": [
+    "The horizontal scale is nonlinear. Differences between successive prices (for example, 3 from 0 to 3 and 120 from 80 to 200) are not proportional to the horizontal distances drawn. The visual width of a bucket does not tell you its actual price span, and measuring the area under the drawn curve does not give an exact bucket probability.",
+    "Six braces below the curve correspond to the six buckets in the table. The rightmost bucket has no finite upper bound. The goal is to use the actual interval probabilities so that expected counts are similar. The picture gives no exact probabilities or guarantee that the six buckets are equally likely."
+  ],
+  "frames": [
+    {
+      "id": "source-298",
+      "book_path": "chapter_sorting/bucket_sort.assets/scatter_in_buckets_distribution.png",
+      "title": "Choose bucket boundaries from the price distribution",
+      "explanation": "The labels <3 and >200 exclude prices 3 and 200 respectively. Labels such as 3~10 do not specify which endpoints are included. If the six buckets cover the entire price range, 3 must belong to the second and 200 to the fifth; this follows from the coverage requirement. The figure leaves the remaining boundary conventions unspecified, so an implementation must assign values such as 10, 25, and 80 explicitly."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Range labels for the six price buckets",
+      "headers": [
+        "Bucket number",
+        "Price range shown"
+      ],
+      "rows": [
+        [
+          "1",
+          "<3"
+        ],
+        [
+          "2",
+          "3～10"
+        ],
+        [
+          "3",
+          "10～25"
+        ],
+        [
+          "4",
+          "25～80"
+        ],
+        [
+          "5",
+          "80～200"
+        ],
+        [
+          "6",
+          ">200"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -6,15 +6,15 @@
 
 #include "../utils/common.h"
 
-/* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+/* Generate an array containing { 1, 2, ..., n } in shuffled order */
 int *randomNumbers(int n) {
-    // Allocate heap memory (create 1D variable-length array: n elements of type int)
+    // Allocate heap memory for a one-dimensional array of n int elements
     int *nums = (int *)malloc(n * sizeof(int));
-    // Generate array nums = { 1, 2, 3, ..., n }
+    // Generate the array nums = { 1, 2, 3, ..., n }
     for (int i = 0; i < n; i++) {
         nums[i] = i + 1;
     }
-    // Randomly shuffle array elements
+    // Randomly shuffle the array elements
     for (int i = n - 1; i > 0; i--) {
         int j = rand() % (i + 1);
         int temp = nums[i];
@@ -24,20 +24,20 @@ int *randomNumbers(int n) {
     return nums;
 }
 
-/* Find the index of number 1 in array nums */
+/* Find the index of the number 1 in array nums */
 int findOne(int *nums, int n) {
     for (int i = 0; i < n; i++) {
-        // When element 1 is at the head of the array, best time complexity O(1) is achieved
-        // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+        // When 1 is at the start of the array, the best-case time complexity is O(1)
+        // When 1 is at the end of the array, the worst-case time complexity is O(n)
         if (nums[i] == 1)
             return i;
     }
     return -1;
 }
 
-/* Driver Code */
+/* Driver code */
 int main(int argc, char *argv[]) {
-    // Initialize random seed
+    // Initialize the random seed
     srand((unsigned int)time(NULL));
     for (int i = 0; i < 10; i++) {
         int n = 100;
@@ -45,8 +45,8 @@ int main(int argc, char *argv[]) {
         int index = findOne(nums, n);
         printf("\nArray [ 1, 2, ..., n ] after shuffling = ");
         printArray(nums, n);
-        printf("Index of number 1 is %d\n", index);
-        // Free heap memory
+        printf("Index of the number 1: %d\n", index);
+        // Free the heap memory
         if (nums != NULL) {
             free(nums);
             nums = NULL;

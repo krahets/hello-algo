@@ -4,7 +4,7 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Constant time ###
+### Constant complexity ###
 def constant(n)
   count = 0
   size = 100000
@@ -14,18 +14,18 @@ def constant(n)
   count
 end
 
-### Linear time ###
+### Linear complexity ###
 def linear(n)
   count = 0
   (0...n).each { count += 1 }
   count
 end
 
-### Linear time (array traversal) ###
+### Linear complexity (array traversal)###
 def array_traversal(nums)
   count = 0
 
-  # Number of iterations is proportional to the array length
+  # The number of iterations is proportional to the array length
   for num in nums
     count += 1
   end
@@ -33,11 +33,11 @@ def array_traversal(nums)
   count
 end
 
-### Quadratic time ###
+### Quadratic complexity ###
 def quadratic(n)
   count = 0
 
-  # Number of iterations is quadratically related to the data size n
+  # The number of iterations is proportional to the square of the input size n
   for i in 0...n
     for j in 0...n
       count += 1
@@ -47,20 +47,20 @@ def quadratic(n)
   count
 end
 
-### Quadratic time (bubble sort) ###
+### Quadratic complexity (bubble sort)###
 def bubble_sort(nums)
   count = 0  # Counter
 
-  # Outer loop: unsorted range is [0, i]
+  # Outer loop: the unsorted range is [0, i]
   for i in (nums.length - 1).downto(0)
-    # Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+    # Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
     for j in 0...i
       if nums[j] > nums[j + 1]
         # Swap nums[j] and nums[j + 1]
         tmp = nums[j]
         nums[j] = nums[j + 1]
         nums[j + 1] = tmp
-        count += 3 # Element swap includes 3 unit operations
+        count += 3 # Swapping two elements takes 3 elementary operations
       end
     end
   end
@@ -68,11 +68,11 @@ def bubble_sort(nums)
   count
 end
 
-### Exponential time (iterative) ###
+### Exponential complexity (iterative implementation)###
 def exponential(n)
   count, base = 0, 1
 
-  # Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+  # Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
   (0...n).each do
     (0...base).each { count += 1 }
     base *= 2
@@ -82,13 +82,13 @@ def exponential(n)
   count
 end
 
-### Exponential time (recursive) ###
+### Exponential complexity (recursive implementation)###
 def exp_recur(n)
   return 1 if n == 1
   exp_recur(n - 1) + exp_recur(n - 1) + 1
 end
 
-### Logarithmic time (iterative) ###
+### Logarithmic complexity (iterative implementation)###
 def logarithmic(n)
   count = 0
 
@@ -100,13 +100,13 @@ def logarithmic(n)
   count
 end
 
-### Logarithmic time (recursive) ###
+### Logarithmic complexity (recursive implementation)###
 def log_recur(n)
   return 0 unless n > 1
   log_recur(n / 2) + 1
 end
 
-### Linearithmic time ###
+### Linearithmic complexity ###
 def linear_log_recur(n)
   return 1 unless n > 1
 
@@ -116,50 +116,50 @@ def linear_log_recur(n)
   count
 end
 
-### Factorial time (recursive) ###
+### Factorial complexity (recursive implementation)###
 def factorial_recur(n)
   return 1 if n == 0
 
   count = 0
-  # Split from 1 into n
+  # Split one problem into n subproblems
   (0...n).each { count += factorial_recur(n - 1) }
 
   count
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # You can modify n to run and observe the trend of the number of operations for various complexities
+  # Try different values of n to see how the operation count grows for each complexity
   n = 8
-  puts "Input data size n = #{n}"
+  puts "Input size n = #{n}"
 
   count = constant(n)
-  puts "Constant-time operations count = #{count}"
+  puts "Operation count for constant time = #{count}"
 
   count = linear(n)
-  puts "Linear-time operations count = #{count}"
+  puts "Operation count for linear time = #{count}"
   count = array_traversal(Array.new(n, 0))
-  puts "Linear-time (array traversal) operations count = #{count}"
+  puts "Operation count for linear time (array traversal) = #{count}"
 
   count = quadratic(n)
-  puts "Quadratic-time operations count = #{count}"
+  puts "Operation count for quadratic time = #{count}"
   nums = Array.new(n) { |i| n - i } # [n, n-1, ..., 2, 1]
   count = bubble_sort(nums)
-  puts "Quadratic-time (bubble sort) operations count = #{count}"
+  puts "Operation count for quadratic time (bubble sort) = #{count}"
 
   count = exponential(n)
-  puts "Exponential-time (iterative) operations count = #{count}"
+  puts "Operation count for exponential time (iteration) = #{count}"
   count = exp_recur(n)
-  puts "Exponential-time (recursive) operations count = #{count}"
+  puts "Operation count for exponential time (recursion) = #{count}"
 
   count = logarithmic(n)
-  puts "Logarithmic-time (iterative) operations count = #{count}"
+  puts "Operation count for logarithmic time (iteration) = #{count}"
   count = log_recur(n)
-  puts "Logarithmic-time (recursive) operations count = #{count}"
+  puts "Operation count for logarithmic time (recursion) = #{count}"
 
   count = linear_log_recur(n)
-  puts "Linearithmic-time (recursive) operations count = #{count}"
+  puts "Operation count for linearithmic time (recursion) = #{count}"
 
   count = factorial_recur(n)
-  puts "Factorial-time (recursive) operations count = #{count}"
+  puts "Operation count for factorial time (recursion) = #{count}"
 end

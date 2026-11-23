@@ -2,8 +2,70 @@
   const ANIMATION_LABEL_PATTERN = /^<\d+>$/;
   const AUTO_SLIDE_INITIAL_DELAY_MS = 1000;
   const AUTO_SLIDE_INTERVAL_MS = 1500;
-  const PLAY_LABEL = "播放幻灯片";
-  const PAUSE_LABEL = "暂停幻灯片";
+  const LABELS = {
+    "zh": {
+      "play": "播放步骤",
+      "pause": "暂停播放",
+      "paused": "已暂停。",
+      "position": (n, total) => `第 ${n} 步，共 ${total} 步。`,
+      "previous": "上一步",
+      "next": "下一步"
+    },
+    "zh-hant": {
+      "play": "播放步驟",
+      "pause": "暫停播放",
+      "paused": "已暫停。",
+      "position": (n, total) => `第 ${n} 步，共 ${total} 步。`,
+      "previous": "上一步",
+      "next": "下一步"
+    },
+    "en": {
+      "play": "Play steps",
+      "pause": "Pause playback",
+      "paused": "Paused. ",
+      "position": (n, total) => `Step ${n} of ${total}. `,
+      "previous": "Previous step",
+      "next": "Next step"
+    },
+    "ru": {
+      "play": "Воспроизвести шаги",
+      "pause": "Приостановить воспроизведение",
+      "paused": "Приостановлено. ",
+      "position": (n, total) => `Шаг ${n} из ${total}. `,
+      "previous": "Предыдущий шаг",
+      "next": "Следующий шаг"
+    },
+    "ja": {
+      "play": "ステップを再生",
+      "pause": "再生を一時停止",
+      "paused": "一時停止しました。",
+      "position": (n, total) => `全${total}ステップ中のステップ${n}。`,
+      "previous": "前のステップ",
+      "next": "次のステップ"
+    },
+    "ko": {
+      "play": "단계 재생",
+      "pause": "재생 일시 정지",
+      "paused": "일시 정지했습니다. ",
+      "position": (n, total) => `전체 ${total}단계 중 ${n}단계. `,
+      "previous": "이전 단계",
+      "next": "다음 단계"
+    }
+  };
+  // Prefer the full locale, then its parents, and finally English.
+  const LOCALE_ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant" };
+  const resolveLabels = (language) => {
+    let locale = language.trim().toLowerCase().replaceAll("_", "-");
+    while (locale) {
+      const candidate = Object.prototype.hasOwnProperty.call(LOCALE_ALIASES, locale)
+        ? LOCALE_ALIASES[locale] : locale;
+      if (Object.prototype.hasOwnProperty.call(LABELS, candidate)) return LABELS[candidate];
+      const separator = locale.lastIndexOf("-");
+      locale = separator === -1 ? "" : locale.slice(0, separator);
+    }
+    return LABELS.en;
+  };
+  const labels = resolveLabels(document.documentElement.lang);
   const SVG_NS = "http://www.w3.org/2000/svg";
   const FA_PLAY_PATH =
     "M91.2 36.9c-12.4-6.8-27.4-6.5-39.6.7S32 57.9 32 72v368c0 14.1 7.5 27.2 19.6 34.4s27.2 7.5 39.6.7l336-184c12.8-7 20.8-20.5 20.8-35.1s-8-28.1-20.8-35.1z";
@@ -83,7 +145,7 @@
 
     button.type = "button";
     button.className = "animation-controls__button animation-controls__play";
-    button.setAttribute("aria-label", PLAY_LABEL);
+    button.setAttribute("aria-label", labels.play);
 
     glyph.className = "animation-controls__play-glyph";
 
@@ -91,11 +153,18 @@
     glyph.append(icon);
 
     srOnly.className = "animation-controls__sr-only";
-    srOnly.textContent = PLAY_LABEL;
+    srOnly.textContent = labels.play;
 
     button.append(glyph, srOnly);
     return { button, srOnly, icon, iconPath };
   };
+
+  // Linked content tabs issue synthetic clicks in other figures. Only the
+  // sequence receiving the reader's own interaction may announce that change.
+  let interactionSet = null;
+  for (const type of ["click", "keydown"]) document.addEventListener(type, event => {
+    if (event.isTrusted) interactionSet = event.target.closest?.(".tabbed-set") || null;
+  }, true);
 
   const initAnimationSet = (tabbedSet) => {
     if (initializedSets.has(tabbedSet) || !isAnimationSet(tabbedSet)) {
@@ -121,22 +190,30 @@
 
     const prevButton = createIconButton({
       className: "animation-controls__prev",
-      ariaLabel: "上一页",
+      ariaLabel: labels.previous,
       path: FA_ARROW_LEFT_PATH,
     });
     const pageIndicator = document.createElement("span");
     pageIndicator.className = "animation-controls__page";
-    pageIndicator.setAttribute("aria-live", "polite");
+    pageIndicator.setAttribute("aria-live", "off");
+    const announcement = document.createElement("span");
+    announcement.className = "animation-controls__sr-only";
+    announcement.setAttribute("aria-live", "polite");
+    announcement.setAttribute("aria-atomic", "true");
 
     const nextButton = createIconButton({
       className: "animation-controls__next",
-      ariaLabel: "下一页",
+      ariaLabel: labels.next,
       path: FA_ARROW_RIGHT_PATH,
     });
 
     nav.append(prevButton, pageIndicator, nextButton);
-    controls.append(playButton, nav);
+    controls.append(playButton, nav, announcement);
     tabbedContent.insertAdjacentElement("afterend", controls);
+
+    let announcementTimer = null, announcementOrigin = null;
+    let announcementCount = 0, announcementJump = false;
+    const frames = [...tabbedContent.querySelectorAll('ha-svg-figure[data-book-key]')];
 
     const state = {
       inputs,
@@ -147,7 +224,7 @@
     };
 
     const updatePlayButton = () => {
-      const label = state.isPlaying ? PAUSE_LABEL : PLAY_LABEL;
+      const label = state.isPlaying ? labels.pause : labels.play;
       playButton.setAttribute("aria-label", label);
       playButton.classList.toggle("is-playing", state.isPlaying);
       playControl.srOnly.textContent = label;
@@ -156,8 +233,37 @@
       playControl.iconPath.setAttribute("d", state.isPlaying ? FA_PAUSE_PATH : FA_PLAY_PATH);
     };
 
+    const setText = (node, value) => {
+      if (node.textContent !== value) node.textContent = value;
+    };
     const updatePageIndicator = () => {
-      pageIndicator.textContent = `${state.currentIndex + 1} / ${inputs.length}`;
+      pageIndicator.setAttribute("aria-hidden", state.isPlaying ? "true" : "false");
+      setText(pageIndicator, `${state.currentIndex + 1} / ${inputs.length}`);
+      prevButton.setAttribute("aria-disabled", String(state.currentIndex === 0));
+      nextButton.setAttribute("aria-disabled", String(state.currentIndex === inputs.length - 1));
+    };
+
+    const cancelAnnouncement = () => {
+      if (announcementTimer !== null) clearTimeout(announcementTimer);
+      announcementTimer = null; announcementOrigin = null; announcementCount = 0; announcementJump = false;
+      announcement.textContent = "";
+    };
+    const announce = (previous, jump = false) => {
+      if (announcementTimer !== null) clearTimeout(announcementTimer);
+      if (announcementOrigin === null) announcementOrigin = previous;
+      announcementCount++; announcementJump ||= jump;
+      announcement.textContent = "";
+      announcementTimer = setTimeout(() => {
+        const index = state.currentIndex;
+        const forward = !announcementJump && announcementCount === 1 && index === announcementOrigin + 1;
+        const moved = index !== announcementOrigin;
+        announcementTimer = null; announcementOrigin = null; announcementCount = 0; announcementJump = false;
+        if (!moved) return;
+        const prefix = labels.position(index + 1, inputs.length);
+        const frame = frames[index];
+        announcement.textContent = prefix + (frame?.dataset[forward ? "a11yForward" : "a11yState"] ||
+          inputs[index].getAttribute("aria-label") || "");
+      }, 250);
     };
 
     const stop = () => {
@@ -171,19 +277,22 @@
       }
       state.isPlaying = false;
       updatePlayButton();
+      updatePageIndicator();
     };
 
     const syncCurrentIndex = () => {
       state.currentIndex = getCheckedIndex(inputs);
     };
 
-    const moveTo = (index) => {
-      state.currentIndex = setCheckedIndex(inputs, index);
+    const moveTo = (index, manual = false) => {
+      const previous = state.currentIndex;
+      state.currentIndex = setCheckedIndex(inputs, manual ? Math.max(0, Math.min(inputs.length - 1, index)) : index);
       updatePageIndicator();
+      if (manual && state.currentIndex !== previous) announce(previous);
     };
 
-    const step = (delta) => {
-      moveTo(state.currentIndex + delta);
+    const step = (delta, manual = false) => {
+      moveTo(state.currentIndex + delta, manual);
     };
 
     const start = () => {
@@ -191,7 +300,9 @@
         return;
       }
       state.isPlaying = true;
+      cancelAnnouncement();
       updatePlayButton();
+      updatePageIndicator();
       state.timeoutId = window.setTimeout(() => {
         step(1);
         state.timeoutId = null;
@@ -204,6 +315,13 @@
     playButton.addEventListener("click", () => {
       if (state.isPlaying) {
         stop();
+        cancelAnnouncement();
+        announcementTimer = setTimeout(() => {
+          announcementTimer = null;
+          const index = state.currentIndex;
+          const prefix = labels.position(index + 1, inputs.length);
+          announcement.textContent = labels.paused + prefix + (frames[index]?.dataset.a11yState || "");
+        }, 250);
         return;
       }
       syncCurrentIndex();
@@ -211,25 +329,37 @@
     });
 
     prevButton.addEventListener("click", () => {
+      stop();
       syncCurrentIndex();
-      step(-1);
+      step(-1, true);
     });
 
     nextButton.addEventListener("click", () => {
+      stop();
       syncCurrentIndex();
-      step(1);
+      step(1, true);
     });
 
     inputs.forEach((input, index) => {
       input.addEventListener("change", () => {
         if (input.checked) {
+          stop();
+          const previous = state.currentIndex;
           state.currentIndex = index;
           updatePageIndicator();
+          if (interactionSet === tabbedSet) {
+            interactionSet = null;
+            if (index !== previous) announce(previous, true);
+          }
         }
       });
     });
 
     controllers.add(stop);
+    tabbedSet.addEventListener("focusin", event => {
+      if (state.isPlaying && event.target !== playButton) stop();
+    });
+    tabbedSet.addEventListener("figureinteractionpending", stop);
     updatePlayButton();
     updatePageIndicator();
   };

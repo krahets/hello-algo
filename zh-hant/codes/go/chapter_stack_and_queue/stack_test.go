@@ -45,7 +45,7 @@ func TestStack(t *testing.T) {
 }
 
 func TestArrayStack(t *testing.T) {
-	// 初始化堆疊, 使用介面承接
+	// 初始化堆疊
 	stack := newArrayStack()
 
 	// 元素入堆疊

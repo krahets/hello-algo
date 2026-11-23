@@ -11,7 +11,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from modules import TreeNode, print_tree
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
     # 二分木を初期化する
     # ノードを初期化する
@@ -20,22 +20,22 @@ if __name__ == "__main__":
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # ノード間の参照（ポインタ）を構築する
+    # ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
     n2.right = n5
-    print("\n二分木を初期化\n")
+    print("\n二分木を初期化する\n")
     print_tree(n1)
 
     # ノードの挿入と削除
     P = TreeNode(0)
-    # n1 -> n2 の間にノード P を挿入
+    # n1 -> n2 の間にノード P を挿入する
     n1.left = P
     P.left = n2
-    print("\nノード P を挿入した後\n")
+    print("\nノード P の挿入後\n")
     print_tree(n1)
-    # ノードを削除
+    # ノードを削除する
     n1.left = n2
-    print("\nノード P を削除した後\n")
+    print("\nノード P の削除後\n")
     print_tree(n1)

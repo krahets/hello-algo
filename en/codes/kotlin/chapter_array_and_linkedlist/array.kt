@@ -8,59 +8,59 @@ package chapter_array_and_linkedlist
 
 import java.util.concurrent.ThreadLocalRandom
 
-/* Random access to element */
+/* Access an element at a random index */
 fun randomAccess(nums: IntArray): Int {
-    // Randomly select a number in interval [0, nums.size)
+    // Randomly select a number in [0, nums.size)
     val randomIndex = ThreadLocalRandom.current().nextInt(0, nums.size)
-    // Retrieve and return the random element
+    // Get and return the randomly selected element
     val randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* Extend array length */
+/* Extend the array length */
 fun extend(nums: IntArray, enlarge: Int): IntArray {
-    // Initialize an array with extended length
+    // Initialize an array with the extended length
     val res = IntArray(nums.size + enlarge)
     // Copy all elements from the original array to the new array
     for (i in nums.indices) {
         res[i] = nums[i]
     }
-    // Return the extended new array
+    // Return the new, extended array
     return res
 }
 
-/* Insert element num at index index in the array */
+/* Insert element num at index `index` in the array */
 fun insert(nums: IntArray, num: Int, index: Int) {
-    // Move all elements at and after index index backward by one position
+    // Shift all elements at and after index `index` one position to the right
     for (i in nums.size - 1 downTo index + 1) {
         nums[i] = nums[i - 1]
     }
-    // Assign num to the element at index index
+    // Assign num to the element at index `index`
     nums[index] = num
 }
 
-/* Remove the element at index index */
+/* Remove the element at index `index` */
 fun remove(nums: IntArray, index: Int) {
-    // Move all elements after index index forward by one position
+    // Shift all elements after index `index` one position to the left
     for (i in index..<nums.size - 1) {
         nums[i] = nums[i + 1]
     }
 }
 
-/* Traverse array */
+/* Traverse the array */
 fun traverse(nums: IntArray) {
     var count = 0
-    // Traverse array by index
+    // Traverse the array by index
     for (i in nums.indices) {
         count += nums[i]
     }
-    // Direct traversal of array elements
+    // Iterate directly over the array elements
     for (j in nums) {
         count += j
     }
 }
 
-/* Find the specified element in the array */
+/* Find a specified element in the array */
 fun find(nums: IntArray, target: Int): Int {
     for (i in nums.indices) {
         if (nums[i] == target)
@@ -69,34 +69,34 @@ fun find(nums: IntArray, target: Int): Int {
     return -1
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Initialize array */
+    /* Initialize the array */
     val arr = IntArray(5)
     println("Array arr = ${arr.contentToString()}")
     var nums = intArrayOf(1, 3, 2, 5, 4)
     println("Array nums = ${nums.contentToString()}")
 
-    /* Insert element */
+    /* Random access */
     val randomNum: Int = randomAccess(nums)
-    println("Get random element $randomNum from nums")
+    println("Random element selected from nums: $randomNum")
 
-    /* Traverse array */
+    /* Extend the length */
     nums = extend(nums, 3)
-    println("Extend array length to 8, get nums = ${nums.contentToString()}")
+    println("After extending the array length to 8, nums = ${nums.contentToString()}")
 
-    /* Insert element */
+    /* Insert an element */
     insert(nums, 6, 3)
-    println("Insert number 6 at index 3, get nums = ${nums.contentToString()}")
+    println("After inserting 6 at index 3, nums = ${nums.contentToString()}")
 
-    /* Remove element */
+    /* Remove an element */
     remove(nums, 2)
-    println("Delete element at index 2, get nums = ${nums.contentToString()}")
+    println("After removing the element at index 2, nums = ${nums.contentToString()}")
 
-    /* Traverse array */
+    /* Traverse the array */
     traverse(nums)
 
-    /* Find element */
+    /* Find an element */
     val index: Int = find(nums, 3)
-    println("Find element 3 in nums, index = $index")
+    println("Searching nums for element 3 gives index = $index")
 }

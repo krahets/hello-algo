@@ -9,17 +9,17 @@ use hello_algo_rust::include::print_util;
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-/* Find the largest k elements in array based on heap */
+/* Use a heap to find the k largest elements in an array */
 fn top_k_heap(nums: Vec<i32>, k: usize) -> BinaryHeap<Reverse<i32>> {
-    // BinaryHeap is a max heap, use Reverse to negate elements to implement min heap
+    // BinaryHeap is a max heap; Reverse reverses the comparison order to implement a min heap
     let mut heap = BinaryHeap::<Reverse<i32>>::new();
-    // Enter the first k elements of array into heap
+    // Push the first k array elements onto the heap
     for &num in nums.iter().take(k) {
         heap.push(Reverse(num));
     }
-    // Starting from the (k+1)th element, maintain heap length as k
+    // Starting with element k+1, keep the heap size at k
     for &num in nums.iter().skip(k) {
-        // If current element is greater than top element, top element exits heap, current element enters heap
+        // If the current element is larger than the heap top, pop the top element and push the current element
         if num > heap.peek().unwrap().0 {
             heap.pop();
             heap.push(Reverse(num));
@@ -28,7 +28,7 @@ fn top_k_heap(nums: Vec<i32>, k: usize) -> BinaryHeap<Reverse<i32>> {
     heap
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
     let nums = vec![1, 7, 6, 3, 2];
     let k = 3;

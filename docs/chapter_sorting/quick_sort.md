@@ -9,31 +9,31 @@
 3. 循环执行步骤 `2.` ，直到 `i` 和 `j` 相遇时停止，最后将基准数交换至两个子数组的分界线。
 
 === "<1>"
-    ![哨兵划分步骤](quick_sort.assets/pivot_division_step1.png)
+    ![哨兵划分步骤](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.png)
+    ![pivot_division_step2](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.png)
+    ![pivot_division_step3](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.png)
+    ![pivot_division_step4](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.png)
+    ![pivot_division_step5](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.png)
+    ![pivot_division_step6](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.png)
+    ![pivot_division_step7](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.png)
+    ![pivot_division_step8](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.png)
+    ![pivot_division_step9](quick_sort.assets/pivot_division_step9.svg)
 
 哨兵划分完成后，原数组被划分成三部分：左子数组、基准数、右子数组，且满足“左子数组任意元素 $\leq$ 基准数 $\leq$ 右子数组任意元素”。因此，我们接下来只需对这两个子数组进行排序。
 
@@ -53,7 +53,7 @@
 2. 然后，对左子数组和右子数组分别递归执行“哨兵划分”。
 3. 持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序。
 
-![快速排序流程](quick_sort.assets/quick_sort_overview.png)
+![快速排序流程](quick_sort.assets/quick_sort_overview.svg)
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

@@ -11,46 +11,46 @@ use std::rc::Rc;
 
 /* 関数 */
 fn function() -> i32 {
-    // 何らかの処理を行う
+    // 何らかの処理を実行する
     return 0;
 }
 
-/* 定数階 */
+/* 定数オーダー */
 #[allow(unused)]
 fn constant(n: i32) {
-    // 定数、変数、オブジェクトは O(1) の空間を占める
+    // 定数、変数、オブジェクトは O(1) の領域を使用する
     const A: i32 = 0;
     let b = 0;
     let nums = vec![0; 10000];
     let node = ListNode::new(0);
-    // ループ内の変数は O(1) の空間を占める
+    // ループ内の変数は O(1) の領域を使用する
     for i in 0..n {
         let c = 0;
     }
-    // ループ内の関数は O(1) の空間を占める
+    // ループ内の関数は O(1) の領域を使用する
     for i in 0..n {
         function();
     }
 }
 
-/* 線形階 */
+/* 線形オーダー */
 #[allow(unused)]
 fn linear(n: i32) {
-    // 長さ n の配列は O(n) の空間を使用
+    // 長さ n の配列は O(n) の領域を使用する
     let mut nums = vec![0; n as usize];
-    // 長さ n のリストは O(n) の空間を使用
+    // 長さ n のリストは O(n) の領域を使用する
     let mut nodes = Vec::new();
     for i in 0..n {
         nodes.push(ListNode::new(i))
     }
-    // 長さ n のハッシュテーブルは O(n) の空間を使用
+    // 長さ n のハッシュテーブルは O(n) の領域を使用する
     let mut map = HashMap::new();
     for i in 0..n {
         map.insert(i, i.to_string());
     }
 }
 
-/* 線形時間（再帰実装） */
+/* 線形オーダー（再帰による実装） */
 fn linear_recur(n: i32) {
     println!("再帰 n = {}", n);
     if n == 1 {
@@ -59,12 +59,12 @@ fn linear_recur(n: i32) {
     linear_recur(n - 1);
 }
 
-/* 二乗階 */
+/* 二次オーダー */
 #[allow(unused)]
 fn quadratic(n: i32) {
-    // 行列は O(n^2) の空間を使用する
+    // 行列は O(n^2) の領域を使用する
     let num_matrix = vec![vec![0; n as usize]; n as usize];
-    // 二次元リストは O(n^2) の空間を使用
+    // 二次元リストは O(n^2) の領域を使用する
     let mut num_list = Vec::new();
     for i in 0..n {
         let mut tmp = Vec::new();
@@ -75,7 +75,7 @@ fn quadratic(n: i32) {
     }
 }
 
-/* 二次時間（再帰実装） */
+/* 二次オーダー（再帰による実装） */
 fn quadratic_recur(n: i32) -> i32 {
     if n <= 0 {
         return 0;
@@ -86,7 +86,7 @@ fn quadratic_recur(n: i32) -> i32 {
     return quadratic_recur(n - 1);
 }
 
-/* 指数時間（完全二分木の構築） */
+/* 指数オーダー（パーフェクト二分木の構築） */
 fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     if n == 0 {
         return None;
@@ -97,15 +97,15 @@ fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     return Some(root);
 }
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
     let n = 5;
-    // 定数階
+    // 定数オーダー
     constant(n);
-    // 線形階
+    // 線形オーダー
     linear(n);
     linear_recur(n);
-    // 二乗階
+    // 二次オーダー
     quadratic(n);
     quadratic_recur(n);
     // 指数オーダー

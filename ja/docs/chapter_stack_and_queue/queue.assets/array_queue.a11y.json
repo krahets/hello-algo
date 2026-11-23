@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "配列で実装したキューへの追加とキューからの取り出し",
+  "summary": "front で先頭、size で長さを管理し、追加時は末尾の次に書き込み、取り出すときは先頭のインデックスを移します。他の要素は元の位置に残ります。",
+  "context": [
+    "左は外部から見たキュー、右は縦長の配列です。中央には「内部は配列で実装、外部からはキューとして使う」とあります。どちらも上が先頭、下が末尾で、下に進むとインデックスが増えます。これは後の本文で配列を横に並べたときの「右へ移動」に相当します。"
+  ],
+  "description": [
+    "3 枚とも配列の末端をまたぎません。図では次に末尾に書き込む位置を rear = front + size とし、有効範囲は [front, rear - 1] です。両端の灰色の破線のマスと省略記号はその他の領域を表します。有効範囲を外れたマスの値が 0 に消去されるわけではありません。"
+  ],
+  "result": "追加では rear に書き込んで size を 1 増やし、取り出すときは front を 1 増やして size を 1 減らします。取り出すたびに残りの要素を移す必要がなく、いずれも O(1) です。",
+  "frames": [
+    {
+      "id": "source-67",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step1.png",
+      "title": "初期状態：有効範囲を確認",
+      "explanation": "キューは [1, 3, 2, 5]、size = 4 です。オレンジの front は 1、front + 4 で求めた青緑の rear は 5 のすぐ下の空きマスを指します。説明枠には、front は先頭要素を、rear は末尾要素の次の位置を指すとあります。",
+      "key_state": "初期キューは [1, 3, 2, 5]、size = 4 です。front は 1 を指し、rear = front + size は 5 の下の空き位置を指します。",
+      "announcement": "配列によるキューの初期状態は [1, 3, 2, 5]、size = 4 です。front は先頭の 1、rear は末尾の 5 の次の空き位置です。"
+    },
+    {
+      "id": "source-68",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step2_push.png",
+      "title": "rear の位置に 4 を追加",
+      "explanation": "push(4) を実行します。説明枠の手順は、rear を求める、rear に要素を追加する、size を 1 増やす、の 3 つです。追加前の size = 4 で 5 の下の空きマスを求め、青緑の 4 を書いてから size を 5 に増やします。キューは [1, 3, 2, 5, 4]、front は 1 のままです。図の rear は今回書いた 4 に残っています。新しい size で計算し直すと 4 の 1 マス下の空き位置です。",
+      "key_state": "push(4) 後のキューは [1, 3, 2, 5, 4]、size = 5、front は 1 です。図の rear は今回 4 を書いた位置を指します。",
+      "announcement": "push(4) で rear の位置に 4 を書き、size を 5 に増やしました。キューは [1, 3, 2, 5, 4] です。"
+    },
+    {
+      "id": "source-69",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step3_pop.png",
+      "title": "front を移し、先頭の 1 を取り出す",
+      "explanation": "pop() で元の先頭 1 を取り出して返します。説明枠のとおり front を 1 増やし、size を 1 減らします。front は 1 マス下の 3 を指し、size は 5 から 4 になります。有効なキューは [3, 2, 5, 4] で、要素はすべて元のマスにあります。元の 1 のマスは破線になり、有効範囲外です。この図には rear の印はありません。",
+      "key_state": "pop() は 1 を返します。front は 1 マス下の 3、size = 4、有効なキューは [3, 2, 5, 4] です。元の 1 のマスは有効範囲外で、値は消去されません。この図には rear の表示はありません。",
+      "announcement": "pop() で front を 3 に移し、size を 4 に減らし、1 を取り出しました。残る [3, 2, 5, 4] は元の位置のままです。"
+    }
+  ],
+  "animations": {
+    "array-queue": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-67"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-68"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-69"
+        }
+      ]
+    }
+  }
+}

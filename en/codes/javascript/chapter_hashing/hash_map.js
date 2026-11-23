@@ -4,41 +4,41 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Driver Code */
-/* Initialize hash table */
+/* Driver code */
+/* Initialize the hash table */
 const map = new Map();
 
-/* Add operation */
-// Add key-value pair (key, value) to the hash table
-map.set(12836, 'Xiao Ha');
-map.set(15937, 'Xiao Luo');
-map.set(16750, 'Xiao Suan');
-map.set(13276, 'Xiao Fa');
-map.set(10583, 'Xiao Ya');
-console.info('\nAfter adding is complete, hash table is\nKey -> Value');
+/* Insert operation */
+// Insert the key-value pair (key, value) into the hash table
+map.set(12836, '小哈');
+map.set(15937, '小啰');
+map.set(16750, '小算');
+map.set(13276, '小法');
+map.set(10583, '小鸭');
+console.info('\nHash table after insertion:\nKey -> Value');
 console.info(map);
 
-/* Query operation */
-// Input key into hash table to get value
+/* Lookup operation */
+// Look up key in the hash table to obtain value
 let name = map.get(15937);
-console.info('\nInput student ID 15937, query name ' + name);
+console.info('\nLook up student ID 15937 to obtain the name ' + name);
 
 /* Remove operation */
-// Remove key-value pair (key, value) from hash table
+// Remove the key-value pair (key, value) from the hash table
 map.delete(10583);
-console.info('\nAfter removing 10583, hash table is\nKey -> Value');
+console.info('\nHash table after removing 10583:\nKey -> Value');
 console.info(map);
 
-/* Traverse hash table */
-console.info('\nTraverse key-value pairs Key->Value');
+/* Traverse the hash table */
+console.info('\nTraverse key-value pairs: Key->Value');
 for (const [k, v] of map.entries()) {
     console.info(k + ' -> ' + v);
 }
-console.info('\nTraverse keys only Key');
+console.info('\nTraverse keys only: Key');
 for (const k of map.keys()) {
     console.info(k);
 }
-console.info('\nTraverse values only Value');
+console.info('\nTraverse values only: Value');
 for (const v of map.values()) {
     console.info(v);
 }

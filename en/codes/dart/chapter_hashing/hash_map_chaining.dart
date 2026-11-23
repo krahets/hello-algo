@@ -10,8 +10,8 @@ import 'array_hash_map.dart';
 class HashMapChaining {
   late int size; // Number of key-value pairs
   late int capacity; // Hash table capacity
-  late double loadThres; // Load factor threshold for triggering expansion
-  late int extendRatio; // Expansion multiplier
+  late double loadThres; // Load factor threshold that triggers capacity growth
+  late int extendRatio; // Capacity growth factor
   late List<List<Pair>> buckets; // Bucket array
 
   /* Constructor */
@@ -33,36 +33,36 @@ class HashMapChaining {
     return size / capacity;
   }
 
-  /* Query operation */
+  /* Lookup operation */
   String? get(int key) {
     int index = hashFunc(key);
     List<Pair> bucket = buckets[index];
-    // Traverse bucket, if key is found, return corresponding val
+    // Traverse the bucket; if key is found, return its corresponding val
     for (Pair pair in bucket) {
       if (pair.key == key) {
         return pair.val;
       }
     }
-    // If key is not found, return null
+    // Return null if key was not found
     return null;
   }
 
-  /* Add operation */
+  /* Insert operation */
   void put(int key, String val) {
-    // When load factor exceeds threshold, perform expansion
+    // Grow the capacity when the load factor exceeds the threshold
     if (loadFactor() > loadThres) {
       extend();
     }
     int index = hashFunc(key);
     List<Pair> bucket = buckets[index];
-    // Traverse bucket, if specified key is encountered, update corresponding val and return
+    // Traverse the bucket; if the specified key is found, update its val and return
     for (Pair pair in bucket) {
       if (pair.key == key) {
         pair.val = val;
         return;
       }
     }
-    // If key does not exist, append key-value pair to the end
+    // If key is absent, append the key-value pair at the end
     Pair pair = Pair(key, val);
     bucket.add(pair);
     size++;
@@ -72,7 +72,7 @@ class HashMapChaining {
   void remove(int key) {
     int index = hashFunc(key);
     List<Pair> bucket = buckets[index];
-    // Traverse bucket and remove key-value pair from it
+    // Traverse the bucket and remove the key-value pair
     for (Pair pair in bucket) {
       if (pair.key == key) {
         bucket.remove(pair);
@@ -82,15 +82,15 @@ class HashMapChaining {
     }
   }
 
-  /* Expand hash table */
+  /* Grow the hash table capacity */
   void extend() {
-    // Temporarily store the original hash table
+    // Keep a reference to the original hash table
     List<List<Pair>> bucketsTmp = buckets;
-    // Initialize expanded new hash table
+    // Initialize a new hash table with the expanded capacity
     capacity *= extendRatio;
     buckets = List.generate(capacity, (_) => []);
     size = 0;
-    // Move key-value pairs from original hash table to new hash table
+    // Move the key-value pairs from the original hash table to the new one
     for (List<Pair> bucket in bucketsTmp) {
       for (Pair pair in bucket) {
         put(pair.key, pair.val);
@@ -98,7 +98,7 @@ class HashMapChaining {
     }
   }
 
-  /* Print hash table */
+  /* Print the hash table */
   void printHashMap() {
     for (List<Pair> bucket in buckets) {
       List<String> res = [];
@@ -110,29 +110,29 @@ class HashMapChaining {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Initialize hash table */
+  /* Initialize the hash table */
   HashMapChaining map = HashMapChaining();
 
-  /* Add operation */
-  // Add key-value pair (key, value) to the hash table
-  map.put(12836, "Xiao Ha");
-  map.put(15937, "Xiao Luo");
-  map.put(16750, "Xiao Suan");
-  map.put(13276, "Xiao Fa");
-  map.put(10583, "Xiao Ya");
-  print("\nAfter adding is complete, hash table is\nKey -> Value");
+  /* Insert operation */
+  // Insert the key-value pair (key, value) into the hash table
+  map.put(12836, "小哈");
+  map.put(15937, "小啰");
+  map.put(16750, "小算");
+  map.put(13276, "小法");
+  map.put(10583, "小鸭");
+  print("\nHash table after insertion:\nKey -> Value");
   map.printHashMap();
 
-  /* Query operation */
-  // Input key into hash table to get value
+  /* Lookup operation */
+  // Look up key in the hash table to obtain value
   String? name = map.get(13276);
-  print("\nInput student ID 13276, found name ${name}");
+  print("\nLook up student ID 13276: name = ${name}");
 
   /* Remove operation */
-  // Remove key-value pair (key, value) from hash table
+  // Remove the key-value pair (key, value) from the hash table
   map.remove(12836);
-  print("\nAfter removing 12836, hash table is\nKey -> Value");
+  print("\nHash table after removing 12836:\nKey -> Value");
   map.printHashMap();
 }

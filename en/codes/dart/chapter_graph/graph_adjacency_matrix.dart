@@ -6,21 +6,21 @@
 
 import '../utils/print_util.dart';
 
-/* Undirected graph class based on adjacency matrix */
+/* Undirected graph class implemented with an adjacency matrix */
 class GraphAdjMat {
-  List<int> vertices = []; // Vertex elements, elements represent "vertex values", indices represent "vertex indices"
-  List<List<int>> adjMat = []; // Adjacency matrix, where the row and column indices correspond to the "vertex index"
+  List<int> vertices = []; // Vertex entries: each element is a vertex value, and its index is the vertex index
+  List<List<int>> adjMat = []; //Adjacency matrix: row and column indices correspond to vertex indices
 
   /* Constructor */
   GraphAdjMat(List<int> vertices, List<List<int>> edges) {
     this.vertices = [];
     this.adjMat = [];
-    // Add vertex
+    // Add a vertex
     for (int val in vertices) {
       addVertex(val);
     }
-    // Add edge
-    // Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+    // Add an edge
+    // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
     for (List<int> e in edges) {
       addEdge(e[0], e[1]);
     }
@@ -31,10 +31,10 @@ class GraphAdjMat {
     return vertices.length;
   }
 
-  /* Add vertex */
+  /* Add a vertex */
   void addVertex(int val) {
     int n = size();
-    // Add the value of the new vertex to the vertex list
+    // Append the new vertex value to the vertex list
     vertices.add(val);
     // Add a row to the adjacency matrix
     List<int> newRow = List.filled(n, 0, growable: true);
@@ -45,37 +45,37 @@ class GraphAdjMat {
     }
   }
 
-  /* Remove vertex */
+  /* Remove a vertex */
   void removeVertex(int index) {
     if (index >= size()) {
       throw IndexError;
     }
-    // Remove the vertex at index from the vertex list
+    // Remove the vertex at index `index` from the vertex list
     vertices.removeAt(index);
-    // Remove the row at index from the adjacency matrix
+    // Remove row `index` from the adjacency matrix
     adjMat.removeAt(index);
-    // Remove the column at index from the adjacency matrix
+    // Remove column `index` from the adjacency matrix
     for (List<int> row in adjMat) {
       row.removeAt(index);
     }
   }
 
-  /* Add edge */
-  // Parameters i, j correspond to the vertices element indices
+  /* Add an edge */
+  // Parameters i and j are element indices in vertices
   void addEdge(int i, int j) {
-    // Handle index out of bounds and equality
+    // Handle out-of-bounds or equal indices
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
       throw IndexError;
     }
-    // In an undirected graph, the adjacency matrix is symmetric about the main diagonal, i.e., (i, j) == (j, i)
+    // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
     adjMat[i][j] = 1;
     adjMat[j][i] = 1;
   }
 
-  /* Remove edge */
-  // Parameters i, j correspond to the vertices element indices
+  /* Remove an edge */
+  // Parameters i and j are element indices in vertices
   void removeEdge(int i, int j) {
-    // Handle index out of bounds and equality
+    // Handle out-of-bounds or equal indices
     if (i < 0 || j < 0 || i >= size() || j >= size() || i == j) {
       throw IndexError;
     }
@@ -83,7 +83,7 @@ class GraphAdjMat {
     adjMat[j][i] = 0;
   }
 
-  /* Print adjacency matrix */
+  /* Print the adjacency matrix */
   void printAdjMat() {
     print("Vertex list = $vertices");
     print("Adjacency matrix = ");
@@ -91,10 +91,10 @@ class GraphAdjMat {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Add edge */
-  // Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+  /* Initialize the undirected graph */
+  // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
   List<int> vertices = [1, 3, 2, 5, 4];
   List<List<int>> edges = [
     [0, 1],
@@ -105,29 +105,29 @@ void main() {
     [3, 4],
   ];
   GraphAdjMat graph = GraphAdjMat(vertices, edges);
-  print("\nAfter initialization, graph is");
+  print("\nGraph after initialization:");
   graph.printAdjMat();
 
-  /* Add edge */
-  // Add vertex
+  /* Add an edge */
+  // Vertices 1 and 2 have indices 0 and 2, respectively
   graph.addEdge(0, 2);
-  print("\nAfter adding edge 1-2, graph is");
+  print("\nGraph after adding edge 1-2:");
   graph.printAdjMat();
 
-  /* Remove edge */
-  // Vertices 1, 3 have indices 0, 1 respectively
+  /* Remove an edge */
+  // Vertices 1 and 3 have indices 0 and 1, respectively
   graph.removeEdge(0, 1);
-  print("\nAfter removing edge 1-3, graph is");
+  print("\nGraph after removing edge 1-3:");
   graph.printAdjMat();
 
-  /* Add vertex */
+  /* Add a vertex */
   graph.addVertex(6);
-  print("\nAfter adding vertex 6, graph is");
+  print("\nGraph after adding vertex 6:");
   graph.printAdjMat();
 
-  /* Remove vertex */
+  /* Remove a vertex */
   // Vertex 3 has index 1
   graph.removeVertex(1);
-  print("\nAfter removing vertex 3, graph is");
+  print("\nGraph after removing vertex 3:");
   graph.printAdjMat();
 }

@@ -14,10 +14,10 @@ end
 puts "\x1b[34mTested #{files.count} files\x1b[m"
 
 unless errors.empty?
-  puts "\x1b[33mFound exception in #{errors.length} files\x1b[m"
+  puts "\x1b[33mFound exceptions in #{errors.length} files\x1b[m"
   raise errors.join("\n\n")
 else
   puts "\x1b[32mPASS\x1b[m"
 end
 
-puts "Testing finishes after #{((Time.now - start_time) * 1000).round} ms"
+puts "Testing finished after #{((Time.now - start_time) * 1000).round} ms"

@@ -8,14 +8,14 @@ public class array {
     /* Случайный доступ к элементу */
     int RandomAccess(int[] nums) {
         Random random = new();
-        // Случайным образом выбрать число из интервала [0, nums.Length)
+        // Случайный выбор числа из диапазона [0, nums.Length)
         int randomIndex = random.Next(nums.Length);
         // Получить и вернуть случайный элемент
         int randomNum = nums[randomIndex];
         return randomNum;
     }
 
-    /* Увеличить длину массива */
+    /* Увеличение длины массива */
     int[] Extend(int[] nums, int enlarge) {
         // Инициализировать массив увеличенной длины
         int[] res = new int[nums.Length + enlarge];
@@ -27,9 +27,9 @@ public class array {
         return res;
     }
 
-    /* Вставить элемент num по индексу index в массив */
+    /* Вставка элемента num в массив по индексу index */
     void Insert(int[] nums, int num, int index) {
-        // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
         for (int i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
@@ -37,9 +37,9 @@ public class array {
         nums[index] = num;
     }
 
-    /* Удалить элемент по индексу index */
+    /* Удаление элемента по индексу index */
     void Remove(int[] nums, int index) {
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for (int i = index; i < nums.Length - 1; i++) {
             nums[i] = nums[i + 1];
         }
@@ -58,7 +58,7 @@ public class array {
         }
     }
 
-    /* Найти заданный элемент в массиве */
+    /* Поиск заданного элемента в массиве */
     int Find(int[] nums, int target) {
         for (int i = 0; i < nums.Length; i++) {
             if (nums[i] == target)

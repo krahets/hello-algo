@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// Assume at most 1000 permutations
+// Assume there are at most 1000 permutations
 #define MAX_SIZE 1000
 
-/* Backtracking algorithm: Permutations I */
+/* Backtracking: permutations I */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if (stateSize == choicesSize) {
         res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
         for (int i = 0; i < choicesSize; i++) {
@@ -20,17 +20,17 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // Pruning: do not allow repeated selection of elements
+        // Prune: do not choose an element more than once
         if (!selected[i]) {
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             selected[i] = true;
             state[stateSize] = choice;
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false;
         }
     }
@@ -54,7 +54,7 @@ int **permutationsI(int *nums, int numsSize, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int nums[] = {1, 2, 3};
     int numsSize = sizeof(nums) / sizeof(nums[0]);

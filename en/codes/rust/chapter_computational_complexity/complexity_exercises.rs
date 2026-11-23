@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Iterative summation */
+/* Sum using iteration */
 fn sum_iter(n: i32) -> i32 {
     let mut res = 0;
     for i in 1..=n {
@@ -13,7 +13,7 @@ fn sum_iter(n: i32) -> i32 {
     res
 }
 
-/* Recursive summation */
+/* Sum using recursion */
 fn sum_recur(n: i32) -> i32 {
     if n == 1 {
         return 1;
@@ -21,7 +21,7 @@ fn sum_recur(n: i32) -> i32 {
     n + sum_recur(n - 1)
 }
 
-/* Linear loop */
+/* Linear-time loop */
 fn linear_loop(n: i32) -> i32 {
     let mut res = 0;
     for i in 0..n {
@@ -30,7 +30,7 @@ fn linear_loop(n: i32) -> i32 {
     res
 }
 
-/* Quadratic loop */
+/* Quadratic-time loop */
 fn quadratic_loop(n: i32) -> i32 {
     let mut res = 0;
     for i in 0..n {
@@ -41,7 +41,7 @@ fn quadratic_loop(n: i32) -> i32 {
     res
 }
 
-/* Logarithmic loop */
+/* Logarithmic-time loop */
 fn logarithmic_loop(mut n: i32) -> i32 {
     while n > 1 {
         n /= 2;

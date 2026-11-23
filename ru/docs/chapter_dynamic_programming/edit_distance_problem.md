@@ -10,7 +10,7 @@
 
 Как показано на рисунке ниже, для преобразования `kitten` в `sitting` требуется 3 шага редактирования: 2 операции замены и 1 операция вставки. Для преобразования `hello` в `algo` также требуется 3 шага: 2 замены и 1 удаление.
 
-![Пример данных для задачи о расстоянии редактирования](edit_distance_problem.assets/edit_distance_example.png)
+![Пример данных для задачи о расстоянии редактирования](edit_distance_problem.assets/edit_distance_example.svg)
 
 **Задачу о расстоянии редактирования можно естественным образом объяснить с помощью модели дерева решений**. Строки соответствуют узлам дерева, а один шаг решения, то есть одна операция редактирования, соответствует одному ребру дерева.
 
@@ -18,7 +18,7 @@
 
 С точки зрения дерева решений цель этой задачи - найти кратчайший путь между узлом `hello` и узлом `algo` .
 
-![Представление задачи о расстоянии редактирования через дерево решений](edit_distance_problem.assets/edit_distance_decision_tree.png)
+![Представление задачи о расстоянии редактирования через дерево решений](edit_distance_problem.assets/edit_distance_decision_tree.svg)
 
 ### Идея динамического программирования
 
@@ -45,7 +45,7 @@
 2. Удалить $s[i-1]$. Тогда остается подзадача $dp[i-1, j]$ .
 3. Заменить $s[i-1]$ на $t[j-1]$. Тогда остается подзадача $dp[i-1, j-1]$ .
 
-![Переходы состояния в задаче о расстоянии редактирования](edit_distance_problem.assets/edit_distance_state_transfer.png)
+![Переходы состояния в задаче о расстоянии редактирования](edit_distance_problem.assets/edit_distance_state_transfer.svg)
 
 Согласно этому анализу оптимальная подструктура такова: минимальное число шагов редактирования для $dp[i, j]$ равно минимуму из трех значений - $dp[i, j-1]$ , $dp[i-1, j]$ и $dp[i-1, j-1]$ - плюс $1$ шаг за текущее редактирование. Значит, уравнение перехода состояния имеет вид:
 
@@ -74,49 +74,49 @@ $$
 Как показано на рисунке ниже, процесс переходов состояния в задаче о расстоянии редактирования очень похож на задачи о рюкзаке: и там и здесь его можно рассматривать как заполнение двумерной сетки.
 
 === "<1>"
-    ![Процесс динамического программирования для расстояния редактирования](edit_distance_problem.assets/edit_distance_dp_step1.png)
+    ![Процесс динамического программирования для расстояния редактирования](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.png)
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.png)
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.png)
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.png)
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.png)
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.png)
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.png)
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.png)
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.png)
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.png)
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.png)
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.png)
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.png)
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png)
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### Оптимизация пространства
 

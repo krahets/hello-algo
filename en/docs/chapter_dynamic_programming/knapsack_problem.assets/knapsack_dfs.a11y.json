@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "title": "Repeated recursion in 0-1 knapsack",
+  "summary": "In a dedicated three-item example with capacity 30, two different decision paths reach dp[1, 10]. Each expands its subtree once, so it is expanded twice in total.",
+  "context": [
+    "In 0-1 knapsack, each item may be chosen at most once. Note that this figure uses a separate 3-item example distinct from the earlier figure and the main driver code: knapsack capacity cap = 30, and the 3 items have weights 10, 20, 20 and values 60, 110, 120 (see the table). State dp[i, c] denotes the maximum value obtainable from the first i items with remaining capacity c; the table header in the drawing writes wgt[i] and val[i] (with item IDs i starting at 1), whereas the code in the text indexes the arrays at i - 1.",
+    "When the current item fits, compare dp[i-1, c] (excluding it) with dp[i-1, c-wgt[i-1]] + val[i-1] (including it) and take the larger value; when it does not fit, take only the exclude branch. With no items left (i = 0) or remaining capacity 0 (c = 0), return 0."
+  ],
+  "description": [
+    "Recursion starts at the root dp[3, 30] and makes decisions in order for item 3 (pineapple, weight 20, value 120), item 2 (watermelon, weight 20, value 110), and item 1 (apple, weight 10, value 60). Because item 2 and item 3 both have weight 20, taking either \"exclude item 3, then include item 2\" (dp[3, 30] → dp[2, 30] → dp[1, 10]) or \"include item 3, then exclude item 2\" (dp[3, 30] → dp[2, 10] → dp[1, 10]) subtracts weight 20, leaves capacity 10, and leaves only item 1 to consider, so the two distinct paths converge on the same subproblem dp[1, 10].",
+    "Brute-force search does not record previously solved subproblems, so upon encountering the two occurrences of dp[1, 10], it expands each one downward separately, comparing dp[0, 10] (excluding item 1) with dp[0, 0] + 60 (including item 1) both times; thus the same subproblem dp[1, 10] is expanded twice in full, making the second expansion redundant.",
+    "At the right child dp[2, 10], the remaining capacity is 10 while item 2 has weight 20, exceeding the remaining capacity. The node dp[1, -10] drawn in the figure is labeled \"Prune: item weight > knapsack capacity\" solely to illustrate the excluded overweight branch; the code in the text checks whether the item weight exceeds the remaining capacity before recursing, calling only the exclude branch dp[1, 10] when overweight rather than making a call with negative capacity.",
+    "The two tables below list the dedicated input items and the complete recursion tree shown in the figure; using the decision path from the root as the row header distinguishes multiple occurrences of the same state."
+  ],
+  "frames": [
+    {
+      "id": "source-395",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dfs.png",
+      "title": "Two decision paths repeatedly expand subproblem dp[1, 10]",
+      "explanation": "The figure contains 13 nodes in total, including 6 base-case leaf nodes that return 0 and 1 illustrative overweight node. From the input data, choosing item 1 and item 3 gives total weight 10 + 20 = 30 and maximum value 60 + 120 = 180; the value 180 is not written directly on the tree nodes."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Three items used in the recursion tree; capacity 30",
+      "headers": [
+        "Item ID",
+        "Illustrated item",
+        "Weight",
+        "Value"
+      ],
+      "rows": [
+        [
+          "1",
+          "Apple",
+          "10",
+          "60"
+        ],
+        [
+          "2",
+          "Watermelon",
+          "20",
+          "110"
+        ],
+        [
+          "3",
+          "Pineapple",
+          "20",
+          "120"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Complete recursion tree; paths start at the root and include the excluded negative-capacity node",
+      "headers": [
+        "Decision path",
+        "State",
+        "Action or return",
+        "Child states and value gain"
+      ],
+      "rows": [
+        [
+          "Root",
+          "dp[3,30]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[2,30]; Include: dp[2,10]+120"
+        ],
+        [
+          "Exclude 3",
+          "dp[2,30]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[1,30]; Include: dp[1,10]+110"
+        ],
+        [
+          "Exclude 3 → Exclude 2",
+          "dp[1,30]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[0,30]; Include: dp[0,20]+60"
+        ],
+        [
+          "Exclude 3 → Exclude 2 → Exclude 1",
+          "dp[0,30]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Exclude 3 → Exclude 2 → Include 1",
+          "dp[0,20]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Exclude 3 → Include 2",
+          "dp[1,10]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[0,10]; Include: dp[0,0]+60"
+        ],
+        [
+          "Exclude 3 → Include 2 → Exclude 1",
+          "dp[0,10]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Exclude 3 → Include 2 → Include 1",
+          "dp[0,0]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Include 3",
+          "dp[2,10]",
+          "Overweight, take only the exclude branch",
+          "Exclude: dp[1,10]; Include: dp[1,-10] (excluded)"
+        ],
+        [
+          "Include 3 → Exclude 2",
+          "dp[1,10]",
+          "Compare total values of excluding and including",
+          "Exclude: dp[0,10]; Include: dp[0,0]+60"
+        ],
+        [
+          "Include 3 → Exclude 2 → Exclude 1",
+          "dp[0,10]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Include 3 → Exclude 2 → Include 1",
+          "dp[0,0]",
+          "Base case, return 0",
+          "Not expanded"
+        ],
+        [
+          "Include 3 → Include 2",
+          "dp[1,-10]",
+          "Illustrative overweight branch; not actually called",
+          "Not expanded"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

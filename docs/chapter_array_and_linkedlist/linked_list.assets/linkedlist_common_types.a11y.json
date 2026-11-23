@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "title": "三种常见链表类型",
+  "summary": "以同一组节点 1、3、2、5、4 对比单向链表、环形链表和双向链表的连接方式。",
+  "context": [
+    "三行都使用按 1、3、2、5、4 排列的五个节点，从上到下比较三种连接方式。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-53",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png",
+      "title": "三种常见链表类型",
+      "explanation": "单向链表只能沿后继方向遍历；环形链表可以选任意节点作为头节点；双向链表可沿 next 或 prev 向两个方向遍历，但需要额外保存前驱引用。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "三种链表的引用与边界",
+      "headers": [
+        "类型与位置",
+        "相邻节点之间",
+        "首尾边界"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "单向链表，singly linked list，上方",
+          "向右的 next：1 → 3 → 2 → 5 → 4",
+          "尾节点 4 的 next 指向 None"
+        ],
+        [
+          "环形链表，circular linked list，中间",
+          "向右的 next：1 → 3 → 2 → 5 → 4",
+          "尾节点 4 经下方折线连回节点 1，形成闭环"
+        ],
+        [
+          "双向链表，doubly linked list，下方",
+          "节点顺序为 1、3、2、5、4；每对相邻节点间，向右的 next 指向后继，向左的 prev 指向前驱",
+          "节点 1 的 prev 指向左侧 None，节点 4 的 next 指向右侧 None"
+        ]
+      ]
+    }
+  ]
+}

@@ -10,24 +10,24 @@ def recur(n: int) -> int:
     # 終了条件
     if n == 1:
         return 1
-    # 再帰：再帰呼び出し
+    # 往路：再帰呼び出し
     res = recur(n - 1)
-    # 帰りがけ：結果を返す
+    # 復路：結果を返す
     return n + res
 
 
 def for_loop_recur(n: int) -> int:
-    """反復で再帰を模擬する"""
-    # 明示的なスタックを使ってシステムコールスタックを模擬する
+    """反復を使って再帰を再現する"""
+    # 明示的なスタックを使って、システムの呼び出しスタックを再現する
     stack = []
     res = 0
-    # 再帰：再帰呼び出し
+    # 往路：再帰呼び出し
     for i in range(n, 0, -1):
-        # 「スタックへのプッシュ」で「再帰」を模擬する
+        # 「プッシュ操作」で再帰の「往路」を再現する
         stack.append(i)
-    # 帰りがけ：結果を返す
+    # 復路：結果を返す
     while stack:
-        # 「スタックから取り出す操作」で「帰り」をシミュレート
+        # 「ポップ操作」で再帰の「復路」を再現する
         res += stack.pop()
     # res = 1+2+3+...+n
     return res
@@ -47,23 +47,23 @@ def fib(n: int) -> int:
     # 終了条件 f(1) = 0, f(2) = 1
     if n == 1 or n == 2:
         return n - 1
-    # f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+    # 再帰呼び出し f(n) = f(n-1) + f(n-2)
     res = fib(n - 1) + fib(n - 2)
     # 結果 f(n) を返す
     return res
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
     n = 5
     res = recur(n)
-    print(f"\n再帰関数の合計結果 res = {res}")
+    print(f"\n再帰関数で求めた和 res = {res}")
 
     res = for_loop_recur(n)
-    print(f"\n反復で再帰をシミュレートした合計結果 res = {res}")
+    print(f"\n反復で再帰を再現して求めた和 res = {res}")
 
     res = tail_recur(n, 0)
-    print(f"\n末尾再帰関数の合計結果 res = {res}")
+    print(f"\n末尾再帰関数で求めた和 res = {res}")
 
     res = fib(n)
     print(f"\nフィボナッチ数列の第 {n} 項は {res}")

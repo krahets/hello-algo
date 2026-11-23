@@ -19,13 +19,13 @@ impl<T> ListNode<T> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
 
-    /* 配列をデシリアライズして連結リストに変換する */
+    /* 配列をデシリアライズして連結リストにする */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
     where
         T: Copy + Clone,
     {
         let mut head = None;
-        // insert in reverse order
+        // 逆順に挿入する
         for item in array.iter().rev() {
             let node = Rc::new(RefCell::new(ListNode {
                 val: *item,
@@ -36,7 +36,7 @@ impl<T> ListNode<T> {
         head
     }
 
-    /* 連結リストをハッシュテーブルに変換 */
+    /* 連結リストをハッシュテーブルに変換する */
     pub fn linked_list_to_hashmap(
         linked_list: Option<Rc<RefCell<ListNode<T>>>>,
     ) -> HashMap<T, Rc<RefCell<ListNode<T>>>>

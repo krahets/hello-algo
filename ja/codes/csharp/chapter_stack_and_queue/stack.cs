@@ -9,32 +9,32 @@ namespace hello_algo.chapter_stack_and_queue;
 public class stack {
     [Test]
     public void Test() {
-        /* スタックを初期化 */
+        /* スタックを初期化する */
         Stack<int> stack = new();
 
-        /* 要素をプッシュ */
+        /* 要素をプッシュする */
         stack.Push(1);
         stack.Push(3);
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // 注意：stack.ToArray() で得られるのは逆順のシーケンスであり、インデックス 0 がスタックトップです
+        // stack.ToArray() が返す列は逆順であり、インデックス 0 がスタックの先頭になることに注意
         Console.WriteLine("スタック stack = " + string.Join(",", stack));
 
-        /* スタックトップの要素にアクセス */
+        /* スタックの先頭要素にアクセスする */
         int peek = stack.Peek();
-        Console.WriteLine("スタックトップ要素 peek = " + peek);
+        Console.WriteLine("スタックの先頭要素 peek = " + peek);
 
-        /* 要素をポップ */
+        /* 要素をポップする */
         int pop = stack.Pop();
-        Console.WriteLine("ポップした要素 pop = " + pop + "、ポップ後の stack = " + string.Join(",", stack));
+        Console.WriteLine("ポップした要素 pop = " + pop + "、ポップ後 stack = " + string.Join(",", stack));
 
-        /* スタックの長さを取得 */
+        /* スタックの長さを取得する */
         int size = stack.Count;
         Console.WriteLine("スタックの長さ size = " + size);
 
-        /* 空かどうかを判定 */
+        /* 空かどうかを判定する */
         bool isEmpty = stack.Count == 0;
-        Console.WriteLine("スタックが空かどうか = " + isEmpty);
+        Console.WriteLine("スタックは空か = " + isEmpty);
     }
 }

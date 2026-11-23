@@ -127,13 +127,13 @@ if __FILE__ == $0
   deque.push_last(4)
   puts "元素 4 佇列尾入列後 deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "元素 1 佇列尾入列後 deque = #{deque.to_array}"
+  puts "元素 1 佇列首入列後 deque = #{deque.to_array}"
 
   # 元素出列
   pop_last = deque.pop_last
   puts "佇列尾出列元素 = #{pop_last}，佇列尾出列後 deque = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "佇列尾出列元素 = #{pop_first}，佇列尾出列後 deque = #{deque.to_array}"
+  puts "佇列首出列元素 = #{pop_first}，佇列首出列後 deque = #{deque.to_array}"
 
   # 獲取雙向佇列的長度
   size = deque.size

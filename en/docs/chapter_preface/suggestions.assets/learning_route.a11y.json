@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "title": "A learning path for algorithms",
+  "summary": "Progress from learning the basics to practicing problems and building a knowledge framework, deepening understanding through regular review and active summarization.",
+  "context": [],
+  "description": [
+    "Three stages are arranged from left to right in the figure, and the table below lists each stage's goal, study material, and supporting method. Beneath Stages 2 and 3, method boxes point upward to their respective stages with arrows; Stage 1 has no separate method box."
+  ],
+  "frames": [
+    {
+      "id": "source-9",
+      "book_path": "chapter_preface/suggestions.assets/learning_route.png",
+      "title": "A learning path for algorithms",
+      "explanation": "A one-way arrow leads from Stage 1 to Stage 2, while two arrows in opposite directions connect Stage 2 and Stage 3. After entering Stage 3, you can return to Stage 2 to practice more problems so that hands-on problem solving and organizing knowledge reinforce each other."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Three learning stages and supporting methods",
+      "headers": [
+        "Stage",
+        "Goal",
+        "Study material",
+        "Supporting method"
+      ],
+      "rows": [
+        [
+          "Stage 1",
+          "Learn the basics",
+          "An introductory book on algorithms",
+          "No separate method shown in the figure"
+        ],
+        [
+          "Stage 2",
+          "Build proficiency",
+          "Practice algorithm problems",
+          "Review regularly: re-solve the same problem at intervals for lasting recall and deeper understanding"
+        ],
+        [
+          "Stage 3",
+          "Build a knowledge framework",
+          "Algorithm articles, problem-solving frameworks, and algorithm textbooks",
+          "Summarize what you learn: organize the material, identify patterns, and build a complete knowledge framework"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -9,13 +9,13 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-// Initialize list for storing traversal sequence
+// Initialize a list to store the traversal sequence
 var list = mutableListOf<Int>()
 
 /* Preorder traversal */
 fun preOrder(root: TreeNode?) {
     if (root == null) return
-    // Visit priority: root node -> left subtree -> right subtree
+    // Visit order: root -> left subtree -> right subtree
     list.add(root._val)
     preOrder(root.left)
     preOrder(root.right)
@@ -24,7 +24,7 @@ fun preOrder(root: TreeNode?) {
 /* Inorder traversal */
 fun inOrder(root: TreeNode?) {
     if (root == null) return
-    // Visit priority: left subtree -> root node -> right subtree
+    // Visit order: left subtree -> root -> right subtree
     inOrder(root.left)
     list.add(root._val)
     inOrder(root.right)
@@ -33,32 +33,32 @@ fun inOrder(root: TreeNode?) {
 /* Postorder traversal */
 fun postOrder(root: TreeNode?) {
     if (root == null) return
-    // Visit priority: left subtree -> right subtree -> root node
+    // Visit order: left subtree -> right subtree -> root
     postOrder(root.left)
     postOrder(root.right)
     list.add(root._val)
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Initialize binary tree */
-    // Here we use a function to generate binary tree directly from list
+    /* Initialize the binary tree */
+    // Use a helper function that builds a binary tree directly from a list
     val root = TreeNode.listToTree(mutableListOf(1, 2, 3, 4, 5, 6, 7))
-    println("\nInitialize binary tree\n")
+    println("\nInitialize the binary tree\n")
     printTree(root)
 
     /* Preorder traversal */
     list.clear()
     preOrder(root)
-    println("\nPre-order traversal node print sequence = $list")
+    println("\nNode sequence from preorder traversal = $list")
 
     /* Inorder traversal */
     list.clear()
     inOrder(root)
-    println("\nIn-order traversal node print sequence = $list")
+    println("\nNode sequence from inorder traversal = $list")
 
     /* Postorder traversal */
     list.clear()
     postOrder(root)
-    println("\nPost-order traversal node print sequence = $list")
+    println("\nNode sequence from postorder traversal = $list")
 }

@@ -5,17 +5,17 @@
  */
 
 /* Counting sort */
-// Simple implementation, cannot be used for sorting objects
+// Simple implementation; cannot be used to sort objects
 func countingSortNaive(nums: inout [Int]) {
-    // 1. Count the maximum element m in the array
+    // 1. Find the maximum array element m
     let m = nums.max()!
-    // 2. Count the occurrence of each number
-    // counter[num] represents the occurrence of num
+    // 2. Count the occurrences of each number
+    // counter[num] is the number of occurrences of num
     var counter = Array(repeating: 0, count: m + 1)
     for num in nums {
         counter[num] += 1
     }
-    // 3. Traverse counter, filling each element back into the original array nums
+    // 3. Traverse counter and fill the original array nums with the elements
     var i = 0
     for num in 0 ..< m + 1 {
         for _ in 0 ..< counter[num] {
@@ -26,30 +26,30 @@ func countingSortNaive(nums: inout [Int]) {
 }
 
 /* Counting sort */
-// Complete implementation, can sort objects and is a stable sort
+// Full implementation; stable and adaptable to sorting objects
 func countingSort(nums: inout [Int]) {
-    // 1. Count the maximum element m in the array
+    // 1. Find the maximum array element m
     let m = nums.max()!
-    // 2. Count the occurrence of each number
-    // counter[num] represents the occurrence of num
+    // 2. Count the occurrences of each number
+    // counter[num] is the number of occurrences of num
     var counter = Array(repeating: 0, count: m + 1)
     for num in nums {
         counter[num] += 1
     }
-    // 3. Calculate the prefix sum of counter, converting "occurrence count" to "tail index"
-    // counter[num]-1 is the last index where num appears in res
+    // 3. Compute prefix sums of counter to convert occurrence counts into end positions
+    // That is, counter[num]-1 is the index of the last occurrence of num in res
     for i in 0 ..< m {
         counter[i + 1] += counter[i]
     }
-    // 4. Traverse nums in reverse order, placing each element into the result array res
-    // Initialize the array res to record results
+    // 4. Traverse nums in reverse and place each element in the result array res
+    // Initialize array res to store the result
     var res = Array(repeating: 0, count: nums.count)
     for i in nums.indices.reversed() {
         let num = nums[i]
         res[counter[num] - 1] = num // Place num at the corresponding index
-        counter[num] -= 1 // Decrement the prefix sum by 1, getting the next index to place num
+        counter[num] -= 1 // Decrement the prefix sum by 1 to determine where to place the next occurrence of num
     }
-    // Use result array res to overwrite the original array nums
+    // Overwrite the original array nums with the result array res
     for i in nums.indices {
         nums[i] = res[i]
     }
@@ -57,7 +57,7 @@ func countingSort(nums: inout [Int]) {
 
 @main
 enum CountingSort {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         var nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4]
         countingSortNaive(nums: &nums)

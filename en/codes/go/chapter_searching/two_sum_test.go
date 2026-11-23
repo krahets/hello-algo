@@ -10,15 +10,15 @@ import (
 )
 
 func TestTwoSum(t *testing.T) {
-	// ======= Test Case =======
+	// ======= Test case =======
 	nums := []int{2, 7, 11, 15}
 	target := 13
 
-	// ====== Driver Code ======
-	// Method 1: Brute-force approach
+	// ====== Driver code ======
+	// Method 1: brute-force solution
 	res := twoSumBruteForce(nums, target)
-	fmt.Println("Method 1 res =", res)
-	// Method 2: Hash table
+	fmt.Println("Method 1: res =", res)
+	// Method 2: hash table
 	res = twoSumHashTable(nums, target)
-	fmt.Println("Method 2 res =", res)
+	fmt.Println("Method 2: res =", res)
 }

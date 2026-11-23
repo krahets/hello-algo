@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "渐近上界：越过阈值后的大小关系",
+  "summary": "图用两条曲线说明：渐近上界关心越过阈值之后的大小关系。",
+  "context": [
+    "横轴为输入数据大小 n，刻度 0 至 14；纵轴为函数值，没有可见数值刻度。蓝线是操作数量 T(n)，橙线是候选函数 f(n) 乘以正常数 c 后的 c·f(n)；图未给出具体函数公式。"
+  ],
+  "description": [
+    "绿色竖直虚线 n₀ 位于刻度 7 与 8 之间的两线交点。蓝线在刻度 1 至 7 之间有起伏，并高于橙线；越过 n₀ 后，橙线一直在蓝线上方，两线继续向上增长。"
+  ],
+  "frames": [
+    {
+      "id": "source-26",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/asymptotic_upper_bound.png",
+      "title": "渐近上界：越过阈值后的大小关系",
+      "explanation": "底部给出的条件是：存在正常数 c 和阈值 n₀，使所有 n > n₀ 都满足 T(n) ≤ c·f(n)，于是记作 T(n) = O(f(n))，称 f(n) 为一个渐近上界。阈值之前 T(n) 曾超过 c·f(n) 不影响这一结论，也不要求两条曲线处处相等。"
+    }
+  ]
+}

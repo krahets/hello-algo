@@ -6,7 +6,7 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative './binary_search_insertion'
 
-### Бинарный поиск самого левого target ###
+### Двоичный поиск самого левого элемента target ###
 def binary_search_left_edge(nums, target)
   # Эквивалентно поиску точки вставки target
   i = binary_search_insertion(nums, target)
@@ -14,10 +14,10 @@ def binary_search_left_edge(nums, target)
   # target не найден, вернуть -1
   return -1 if i == nums.length || nums[i] != target
 
-  i # Найти target и вернуть индекс i
+  i # target найден, возвращается индекс i
 end
 
-### Бинарный поиск самого правого target ###
+### Двоичный поиск самого правого элемента target ###
 def binary_search_right_edge(nums, target)
   # Преобразовать задачу в поиск самого левого target + 1
   i = binary_search_insertion(nums, target + 1)
@@ -28,7 +28,7 @@ def binary_search_right_edge(nums, target)
   # target не найден, вернуть -1
   return -1 if j == -1 || nums[j] != target
 
-  j # Найти target и вернуть индекс j
+  j # target найден, возвращается индекс j
 end
 
 ### Driver Code ###
@@ -37,7 +37,7 @@ if __FILE__ == $0
   nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
   puts "\nМассив nums = #{nums}"
 
-  # Бинарный поиск левой и правой границы
+  # Двоичный поиск левой и правой границы
   for target in [6, 7]
     index = binary_search_left_edge(nums, target)
     puts "Индекс крайнего левого элемента #{target}: #{index}"

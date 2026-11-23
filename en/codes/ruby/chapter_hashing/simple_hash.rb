@@ -34,7 +34,7 @@ def xor_hash(key)
   hash % modulus
 end
 
-### Rotational hash ###
+### Rotating hash ###
 def rot_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -44,19 +44,19 @@ def rot_hash(key)
   hash % modulus
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  key = "Hello Algo"
+  key = "Hello 算法"
 
   hash = add_hash(key)
-  puts "Additive hash value is #{hash}"
+  puts "Additive hash value: #{hash}"
 
   hash = mul_hash(key)
-  puts "Multiplicative hash value is #{hash}"
+  puts "Multiplicative hash value: #{hash}"
 
   hash = xor_hash(key)
-  puts "XOR hash value is #{hash}"
+  puts "XOR hash value: #{hash}"
 
   hash = rot_hash(key)
-  puts "Rotational hash value is #{hash}"
+  puts "Rotating hash value: #{hash}"
 end

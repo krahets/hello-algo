@@ -1,8 +1,8 @@
-# Ignore all
+# すべて無視する
 *
-# Unignore all with extensions
+# 拡張子のあるファイルをすべて対象に戻す
 !*.*
-# Unignore all dirs
+# すべてのディレクトリを対象に戻す
 !*/
 
 *.dSYM/

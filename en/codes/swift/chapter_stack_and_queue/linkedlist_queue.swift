@@ -6,7 +6,7 @@
 
 import utils
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 class LinkedListQueue {
     private var front: ListNode? // Head node
     private var rear: ListNode? // Tail node
@@ -16,12 +16,12 @@ class LinkedListQueue {
         _size = 0
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     func size() -> Int {
         _size
     }
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -30,12 +30,12 @@ class LinkedListQueue {
     func push(num: Int) {
         // Add num after the tail node
         let node = ListNode(x: num)
-        // If the queue is empty, make both front and rear point to the node
+        // If the queue is empty, make both the head and tail point to this node
         if front == nil {
             front = node
             rear = node
         }
-        // If the queue is not empty, add the node after the tail node
+        // If the queue is not empty, add this node after the tail node
         else {
             rear?.next = node
             rear = node
@@ -47,13 +47,13 @@ class LinkedListQueue {
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // Delete head node
+        // Remove the head node
         front = front?.next
         _size -= 1
         return num
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     func peek() -> Int {
         if isEmpty() {
             fatalError("Queue is empty")
@@ -61,7 +61,7 @@ class LinkedListQueue {
         return front!.val
     }
 
-    /* Convert linked list to Array and return */
+    /* Convert the linked list to an array and return it */
     func toArray() -> [Int] {
         var node = front
         var res = Array(repeating: 0, count: size())
@@ -75,12 +75,12 @@ class LinkedListQueue {
 
 @main
 enum _LinkedListQueue {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Access front of the queue element */
+        /* Initialize the queue */
         let queue = LinkedListQueue()
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -88,20 +88,20 @@ enum _LinkedListQueue {
         queue.push(num: 4)
         print("Queue queue = \(queue.toArray())")
 
-        /* Return list for printing */
+        /* Access the front element */
         let peek = queue.peek()
         print("Front element peek = \(peek)")
 
-        /* Element dequeue */
+        /* Dequeue an element */
         let pop = queue.pop()
-        print("Dequeue element pop = \(pop), after dequeue queue = \(queue.toArray())")
+        print("Dequeued element pop = \(pop); after dequeueing, queue = \(queue.toArray())")
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         let size = queue.size()
-        print("Queue length size = \(size)")
+        print("Queue size = \(size)")
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         let isEmpty = queue.isEmpty()
-        print("Is queue empty = \(isEmpty)")
+        print("Is the queue empty? \(isEmpty)")
     }
 }

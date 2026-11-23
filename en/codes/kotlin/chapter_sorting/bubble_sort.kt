@@ -8,9 +8,9 @@ package chapter_sorting
 
 /* Bubble sort */
 fun bubbleSort(nums: IntArray) {
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for (i in nums.size - 1 downTo 1) {
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // Swap nums[j] and nums[j + 1]
@@ -24,30 +24,30 @@ fun bubbleSort(nums: IntArray) {
 
 /* Bubble sort (flag optimization) */
 fun bubbleSortWithFlag(nums: IntArray) {
-    // Outer loop: unsorted range is [0, i]
+    // Outer loop: the unsorted range is [0, i]
     for (i in nums.size - 1 downTo 1) {
-        var flag = false // Initialize flag
-        // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+        var flag = false // Initialize the flag
+        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // Swap nums[j] and nums[j + 1]
                 val temp = nums[j]
                 nums[j] = nums[j + 1]
                 nums[j + 1] = temp
-                flag = true // Record element swap
+                flag = true // Record that a swap occurred
             }
         }
-        if (!flag) break // No elements were swapped in this round of "bubbling", exit directly
+        if (!flag) break // Exit immediately if this pass made no swaps
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     bubbleSort(nums)
-    println("After bubble sort, nums = ${nums.contentToString()}")
+    println("After bubble sort: nums = ${nums.contentToString()}")
 
     val nums1 = intArrayOf(4, 1, 3, 1, 5, 2)
     bubbleSortWithFlag(nums1)
-    println("After bubble sort, nums1 = ${nums1.contentToString()}")
+    println("After bubble sort: nums1 = ${nums1.contentToString()}")
 }

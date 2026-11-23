@@ -17,10 +17,10 @@ func TestLinearSearch(t *testing.T) {
 
 	// 配列で線形探索を行う
 	index := linearSearchArray(nums, target)
-	fmt.Println("対象要素 3 のインデックス =", index)
+	fmt.Println("目的の要素 3 のインデックス =", index)
 
 	// 連結リストで線形探索を行う
 	head := ArrayToLinkedList(nums)
 	node := linearSearchLinkedList(head, target)
-	fmt.Println("対象ノード値 3 に対応するノードオブジェクト =", node)
+	fmt.Println("目的のノードの値 3 に対応するノードオブジェクトは", node)
 }

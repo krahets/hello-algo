@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Queue based on linked list implementation */
+/* Queue implemented with a linked list */
 typedef struct {
     ListNode *front, *rear;
     int queSize;
@@ -29,30 +29,30 @@ void delLinkedListQueue(LinkedListQueue *queue) {
         queue->front = queue->front->next;
         free(tmp);
     }
-    // Free queue structure
+    // Free the queue structure
     free(queue);
 }
 
-/* Get the length of the queue */
+/* Get the queue size */
 int size(LinkedListQueue *queue) {
     return queue->queSize;
 }
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 bool empty(LinkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
 /* Enqueue */
 void push(LinkedListQueue *queue, int num) {
-    // Add node at tail
+    // Add node at the tail
     ListNode *node = newListNode(num);
-    // If the queue is empty, make both front and rear point to the node
+    // If the queue is empty, make both the head and tail point to this node
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
     }
-    // If the queue is not empty, add the node after the tail node
+    // If the queue is not empty, add this node after the tail node
     else {
         queue->rear->next = node;
         queue->rear = node;
@@ -60,7 +60,7 @@ void push(LinkedListQueue *queue, int num) {
     queue->queSize++;
 }
 
-/* Return list for printing */
+/* Access the front element */
 int peek(LinkedListQueue *queue) {
     assert(size(queue) && queue->front);
     return queue->front->val;
@@ -76,10 +76,10 @@ int pop(LinkedListQueue *queue) {
     return num;
 }
 
-/* Print queue */
+/* Print the queue */
 void printLinkedListQueue(LinkedListQueue *queue) {
     int *arr = malloc(sizeof(int) * queue->queSize);
-    // Copy data from list to array
+    // Copy the linked list data into an array
     int i;
     ListNode *node;
     for (i = 0, node = queue->front; i < queue->queSize; i++) {
@@ -90,12 +90,12 @@ void printLinkedListQueue(LinkedListQueue *queue) {
     free(arr);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Access front of the queue element */
+    /* Initialize the queue */
     LinkedListQueue *queue = newLinkedListQueue();
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
@@ -104,22 +104,22 @@ int main() {
     printf("Queue queue = ");
     printLinkedListQueue(queue);
 
-    /* Return list for printing */
+    /* Access the front element */
     int peekNum = peek(queue);
     printf("Front element peek = %d\r\n", peekNum);
 
-    /* Element dequeue */
+    /* Dequeue an element */
     peekNum = pop(queue);
-    printf("Dequeue element pop = %d, queue after dequeue = ", peekNum);
+    printf("Dequeued element pop = %d; after dequeuing, queue = ", peekNum);
     printLinkedListQueue(queue);
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int queueSize = size(queue);
     printf("Queue size = %d\r\n", queueSize);
 
-    /* Check if the queue is empty */
+    /* Check whether the queue is empty */
     bool isEmpty = empty(queue);
-    printf("Is queue empty = %s\r\n", isEmpty ? "true" : "false");
+    printf("Is the queue empty = %s\r\n", isEmpty ? "true" : "false");
 
     // Free memory
     delLinkedListQueue(queue);

@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "title": "Loop structures and operation counts",
+  "summary": "Compare how workload grows across a single operation, a single loop, and a nested two-level loop.",
+  "context": [],
+  "description": [
+    "Each small square represents 1 elementary operation, and each surrounding loop box indicates the scope repeated."
+  ],
+  "frames": [
+    {
+      "id": "source-28",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
+      "title": "Loop structures and operation counts",
+      "explanation": "A double enclosure represents nesting: for every 1 iteration of the outer loop, the inner loop runs all n iterations in full, so the counts multiply to n × n rather than adding as they would for two sequential loops."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Workloads across loop structures",
+      "headers": [
+        "Structure",
+        "Elementary operation count",
+        "Time complexity"
+      ],
+      "rows": [
+        [
+          "No loop",
+          "1",
+          "Constant O(1)"
+        ],
+        [
+          "Single loop of n iterations",
+          "n",
+          "Linear O(n)"
+        ],
+        [
+          "Two nested loops of n iterations each",
+          "n×n=n²",
+          "Quadratic O(n²)"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

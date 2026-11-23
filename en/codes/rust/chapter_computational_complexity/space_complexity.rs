@@ -15,10 +15,10 @@ fn function() -> i32 {
     return 0;
 }
 
-/* Constant order */
+/* Constant complexity */
 #[allow(unused)]
 fn constant(n: i32) {
-    // Constants, variables, objects occupy O(1) space
+    // Constants, variables, and objects occupy O(1) space
     const A: i32 = 0;
     let b = 0;
     let nums = vec![0; 10000];
@@ -27,44 +27,44 @@ fn constant(n: i32) {
     for i in 0..n {
         let c = 0;
     }
-    // Functions in the loop occupy O(1) space
+    // Function calls in the loop occupy O(1) space
     for i in 0..n {
         function();
     }
 }
 
-/* Linear order */
+/* Linear complexity */
 #[allow(unused)]
 fn linear(n: i32) {
-    // Array of length n uses O(n) space
+    // An array of length n uses O(n) space
     let mut nums = vec![0; n as usize];
     // A list of length n occupies O(n) space
     let mut nodes = Vec::new();
     for i in 0..n {
         nodes.push(ListNode::new(i))
     }
-    // A hash table of length n occupies O(n) space
+    // A hash table with n entries occupies O(n) space
     let mut map = HashMap::new();
     for i in 0..n {
         map.insert(i, i.to_string());
     }
 }
 
-/* Linear order (recursive implementation) */
+/* Linear complexity (recursive implementation) */
 fn linear_recur(n: i32) {
-    println!("Recursion n = {}", n);
+    println!("Recursive call n = {}", n);
     if n == 1 {
         return;
     };
     linear_recur(n - 1);
 }
 
-/* Exponential order */
+/* Quadratic complexity */
 #[allow(unused)]
 fn quadratic(n: i32) {
-    // Matrix uses O(n^2) space
+    // The matrix uses O(n^2) space
     let num_matrix = vec![vec![0; n as usize]; n as usize];
-    // 2D list uses O(n^2) space
+    // The two-dimensional list occupies O(n^2) space
     let mut num_list = Vec::new();
     for i in 0..n {
         let mut tmp = Vec::new();
@@ -75,18 +75,18 @@ fn quadratic(n: i32) {
     }
 }
 
-/* Quadratic order (recursive implementation) */
+/* Quadratic complexity (recursive implementation) */
 fn quadratic_recur(n: i32) -> i32 {
     if n <= 0 {
         return 0;
     };
-    // Array nums has length n, n-1, ..., 2, 1
+    // The lengths of array nums are n, n-1, ..., 2, 1
     let nums = vec![0; n as usize];
-    println!("In recursion n = {}, nums length = {}", n, nums.len());
+    println!("In recursive call n = {}, nums has length {}", n, nums.len());
     return quadratic_recur(n - 1);
 }
 
-/* Driver Code */
+/* Exponential complexity (building a perfect binary tree) */
 fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     if n == 0 {
         return None;
@@ -97,18 +97,18 @@ fn build_tree(n: i32) -> Option<Rc<RefCell<TreeNode>>> {
     return Some(root);
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
     let n = 5;
-    // Constant order
+    // Constant complexity
     constant(n);
-    // Linear order
+    // Linear complexity
     linear(n);
     linear_recur(n);
-    // Exponential order
+    // Quadratic complexity
     quadratic(n);
     quadratic_recur(n);
-    // Exponential order
+    // Exponential complexity
     let root = build_tree(n);
     print_util::print_tree(&root.unwrap());
 }

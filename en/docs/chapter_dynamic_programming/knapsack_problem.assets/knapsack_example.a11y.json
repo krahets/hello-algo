@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "title": "0-1 knapsack: optimal selection at capacity 50",
+  "summary": "Selecting the weight-20 banana and weight-30 grapes from five items fills capacity 50 exactly for a maximum value of 270.",
+  "context": [
+    "In 0-1 knapsack, each item may be chosen at most once to maximize total value without exceeding knapsack capacity. This example has 5 items and knapsack capacity cap = 50; item IDs i run from 1 to 5, mapping to array index i - 1 (written wgt[i - 1] and val[i - 1] in the figure's table header)."
+  ],
+  "description": [
+    "At the upper left, a table lists the icon, weight, and value of items 1 through 5 (full data in the table below); row 2 (banana) is shaded light orange and row 3 (grapes) is shaded light purple, each sending an arrow to the purple knapsack icon at the upper right labeled \"Knapsack capacity cap = 50\".",
+    "Below, the result box states \"Maximum value: 270\" and pairs the banana and grapes icons with \"Optimal choice: pack [banana and grapes] into the knapsack using 50 units of capacity in total\"."
+  ],
+  "frames": [
+    {
+      "id": "source-394",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_example.png",
+      "title": "0-1 knapsack: optimal selection at capacity 50",
+      "explanation": "Computed from the input data, choosing item 2 (banana) and item 3 (grapes) gives total weight 20 + 30 = 50 and total value 120 + 150 = 270. That is the highest value among all non-overweight subsets—beating, for instance, 260 from items 1 and 4 or 240 from item 5 alone, supplied here from the input table for comparison."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Five items for capacity 50; IDs start at 1",
+      "headers": [
+        "ID",
+        "Illustrated item",
+        "Weight",
+        "Value",
+        "Included in optimal choice?"
+      ],
+      "rows": [
+        [
+          "1",
+          "Apple",
+          "10",
+          "50",
+          "No"
+        ],
+        [
+          "2",
+          "Banana",
+          "20",
+          "120",
+          "Yes"
+        ],
+        [
+          "3",
+          "Grapes",
+          "30",
+          "150",
+          "Yes"
+        ],
+        [
+          "4",
+          "Pineapple",
+          "40",
+          "210",
+          "No"
+        ],
+        [
+          "5",
+          "Watermelon",
+          "50",
+          "240",
+          "No"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

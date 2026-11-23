@@ -8,38 +8,38 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Get the length of the double-ended queue */
+    /* Initialize the deque */
     val deque = LinkedList<Int>()
     deque.offerLast(3)
     deque.offerLast(2)
     deque.offerLast(5)
     println("Deque deque = $deque")
 
-    /* Update element */
+    /* Access an element */
     val peekFirst = deque.peekFirst()
-    println("Front element peekFirst = $peekFirst")
+    println("Front element: peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("Rear element peekLast = $peekLast")
+    println("Rear element: peekLast = $peekLast")
 
-    /* Elements enqueue */
+    /* Enqueue elements */
     deque.offerLast(4)
-    println("After element 4 enqueues at rear, deque = $deque")
+    println("After enqueuing 4 at the rear: deque = $deque")
     deque.offerFirst(1)
-    println("After element 1 enqueues at front, deque = $deque")
+    println("After enqueuing 1 at the front: deque = $deque")
 
-    /* Element dequeue */
+    /* Dequeue an element */
     val popLast = deque.pollLast()
-    println("Dequeue rear element = $popLast, after rear dequeue deque = $deque")
+    println("Element dequeued from the rear = $popLast; deque after removal = $deque")
     val popFirst = deque.pollFirst()
-    println("Dequeue front element = $popFirst, after front dequeue deque = $deque")
+    println("Element dequeued from the front = $popFirst; deque after removal = $deque")
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     val size = deque.size
-    println("Deque length size = $size")
+    println("Deque size = $size")
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     val isEmpty = deque.isEmpty()
-    println("Is deque empty = $isEmpty")
+    println("Is the deque empty? $isEmpty")
 }

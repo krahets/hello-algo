@@ -14,7 +14,7 @@ extern "C" {
 /* 链表节点结构体 */
 typedef struct ListNode {
     int val;               // 节点值
-    struct ListNode *next; // 指向下一节点的引用
+    struct ListNode *next; // 指向下一节点的指针
 } ListNode;
 
 /* 构造函数，初始化一个新节点 */

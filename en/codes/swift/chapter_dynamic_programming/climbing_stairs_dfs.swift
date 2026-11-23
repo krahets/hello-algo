@@ -6,7 +6,7 @@
 
 /* Search */
 func dfs(i: Int) -> Int {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if i == 1 || i == 2 {
         return i
     }
@@ -15,18 +15,18 @@ func dfs(i: Int) -> Int {
     return count
 }
 
-/* Climbing stairs: Search */
+/* Climbing stairs: search */
 func climbingStairsDFS(n: Int) -> Int {
     dfs(i: n)
 }
 
 @main
 enum ClimbingStairsDFS {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFS(n: n)
-        print("Climbing \(n) stairs has \(res) solutions")
+        print("Number of ways to climb \(n) steps: \(res)")
     }
 }

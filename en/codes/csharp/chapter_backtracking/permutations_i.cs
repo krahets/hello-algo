@@ -7,24 +7,24 @@
 namespace hello_algo.chapter_backtracking;
 
 public class permutations_i {
-    /* Backtracking algorithm: Permutations I */
+    /* Backtracking: permutations I */
     void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
-        // When the state length equals the number of elements, record the solution
+        // Record a solution when the state length equals the number of elements
         if (state.Count == choices.Length) {
             res.Add(new List<int>(state));
             return;
         }
-        // Traverse all choices
+        // Iterate over all choices
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // Pruning: do not allow repeated selection of elements
+            // Prune: do not choose an element more than once
             if (!selected[i]) {
-                // Attempt: make choice, update state
+                // Try: make a choice and update the state
                 selected[i] = true;
                 state.Add(choice);
-                // Proceed to the next round of selection
+                // Proceed to the next choice
                 Backtrack(state, choices, selected, res);
-                // Backtrack: undo choice, restore to previous state
+                // Backtrack: undo the choice and restore the previous state
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
             }
@@ -45,7 +45,7 @@ public class permutations_i {
         List<List<int>> res = PermutationsI(nums);
 
         Console.WriteLine("Input array nums = " + string.Join(", ", nums));
-        Console.WriteLine("All permutations res = ");
+        Console.WriteLine("All permutations: res = ");
         foreach (List<int> permutation in res) {
             PrintUtil.PrintList(permutation);
         }

@@ -6,39 +6,39 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/print_util'
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Initialize hash table
+  # Initialize the hash table
   hmap = {}
 
-  # Add operation
-  # Add key-value pair (key, value) to the hash table
-  hmap[12836] = "Xiao Ha"
-  hmap[15937] = "Xiao Luo"
-  hmap[16750] = "Xiao Suan"
-  hmap[13276] = "Xiao Fa"
-  hmap[10583] = "Xiao Ya"
-  puts "\nAfter adding is complete, hash table is\nKey -> Value"
+  # Insert operation
+  # Insert the key-value pair (key, value) into the hash table
+  hmap[12836] = "小哈"
+  hmap[15937] = "小啰"
+  hmap[16750] = "小算"
+  hmap[13276] = "小法"
+  hmap[10583] = "小鸭"
+  puts "\nHash table after insertion:\nKey -> Value"
   print_hash_map(hmap)
 
-  # Query operation
-  # Input key into hash table to get value
+  # Lookup operation
+  # Look up key in the hash table to obtain value
   name = hmap[15937]
-  puts "\nInput student ID 15937, found name #{name}"
+  puts "\nLook up student ID 15937: name = #{name}"
 
   # Remove operation
-  # Remove key-value pair (key, value) from hash table
+  # Remove the key-value pair (key, value) from the hash table
   hmap.delete(10583)
-  puts "\nAfter removing 10583, hash table is\nKey -> Value"
+  puts "\nHash table after removing 10583:\nKey -> Value"
   print_hash_map(hmap)
 
-  # Traverse hash table
-  puts "\nTraverse key-value pairs Key->Value"
+  # Traverse the hash table
+  puts "\nTraverse key-value pairs: Key->Value"
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 
-  puts "\nTraverse keys only Key"
+  puts "\nTraverse keys only: Key"
   hmap.keys.each { |key| puts key }
 
-  puts "\nTraverse values only Value"
+  puts "\nTraverse values only: Value"
   hmap.values.each { |val| puts val }
 end

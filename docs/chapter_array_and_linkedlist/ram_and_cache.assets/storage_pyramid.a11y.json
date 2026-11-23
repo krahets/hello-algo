@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "title": "计算机存储系统的金字塔层级",
+  "summary": "存储金字塔比较不同层级的速度、容量、单位容量成本和持久性。",
+  "context": [
+    "金字塔从上到下由窄变宽，共五层。前三层位于标为 CPU 的绿色框内，左侧统称“缓存”；第四层标为“内存”，第五层标为“硬盘”。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-54",
+      "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png",
+      "title": "计算机存储系统的金字塔层级",
+      "explanation": "右侧向上的箭头标“速度、价格”：越往上访问越快、单位容量价格越高；向下的箭头标“容量、持久性”：越往下容量越大，底层 HDD/SSD 可以在断电后长期保存数据。缓存与内存属于易失性存储，断电后数据会丢失。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "从顶到底的五层存储",
+      "headers": [
+        "层次",
+        "图中标签",
+        "所属类别"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1，顶层",
+          "L1 Cache",
+          "CPU 内的缓存"
+        ],
+        [
+          "2",
+          "L2 Cache",
+          "CPU 内的缓存"
+        ],
+        [
+          "3",
+          "L3 Cache",
+          "CPU 内的缓存"
+        ],
+        [
+          "4",
+          "RAM",
+          "内存"
+        ],
+        [
+          "5，底层",
+          "HDD/SSD",
+          "硬盘"
+        ]
+      ]
+    }
+  ]
+}

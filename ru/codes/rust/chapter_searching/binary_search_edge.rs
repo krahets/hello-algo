@@ -8,7 +8,7 @@ mod binary_search_insertion;
 
 use binary_search_insertion::binary_search_insertion;
 
-/* Бинарный поиск самого левого target */
+/* Двоичный поиск самого левого элемента target */
 fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
     // Эквивалентно поиску точки вставки target
     let i = binary_search_insertion(nums, target);
@@ -16,11 +16,11 @@ fn binary_search_left_edge(nums: &[i32], target: i32) -> i32 {
     if i == nums.len() as i32 || nums[i as usize] != target {
         return -1;
     }
-    // Найти target и вернуть индекс i
+    // target найден, возвращается индекс i
     i
 }
 
-/* Бинарный поиск самого правого target */
+/* Двоичный поиск самого правого элемента target */
 fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
     // Преобразовать задачу в поиск самого левого target + 1
     let i = binary_search_insertion(nums, target + 1);
@@ -30,7 +30,7 @@ fn binary_search_right_edge(nums: &[i32], target: i32) -> i32 {
     if j == -1 || nums[j as usize] != target {
         return -1;
     }
-    // Найти target и вернуть индекс j
+    // target найден, возвращается индекс j
     j
 }
 
@@ -40,7 +40,7 @@ fn main() {
     let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
     println!("\nМассив nums = {:?}", nums);
 
-    // Бинарный поиск левой и правой границы
+    // Двоичный поиск левой и правой границы
     for target in [6, 7] {
         let index = binary_search_left_edge(&nums, target);
         println!("Индекс самого левого элемента {} равен {}", target, index);
