@@ -1,0 +1,18 @@
+{
+  "context": [
+    "n 為正整數，i 控制外迴圈，j 控制內迴圈。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png",
+      "explanation": "先令 i = 1，判斷 i ≤ n。為真時進入內迴圈，重置 j = 1，再判斷 j ≤ n：為真則執行任務、令 j 加 1，並回到內層判斷；為假則結束內迴圈，令 i 加 1，回到外層判斷。若外層仍為真，下一輪再次從 j = 1 開始；直到外層條件為假，整個流程才結束。",
+      "id": "source-20",
+      "title": "雙層巢狀迴圈"
+    }
+  ],
+  "result": "每個 i 都對應完整的 j = 1 至 n，因此任務總次數為 n × n = n²。",
+  "schema_version": 2,
+  "summary": "每輪外迴圈都重新執行完整的內迴圈，決定任務總次數。",
+  "title": "雙層巢狀迴圈"
+}

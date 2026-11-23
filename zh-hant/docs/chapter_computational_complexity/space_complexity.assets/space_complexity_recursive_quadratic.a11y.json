@@ -1,0 +1,51 @@
+{
+  "context": [
+    "n 為正整數。每次 quadratic_recur(k) 在 k > 0 時建立長度為 k 的 nums，再呼叫參數 k−1。圖省略了不分配陣列的最終呼叫 quadratic_recur(0)，將終止與返回簡化畫在參數 1 這一行；程式碼實際在參數 0 時直接返回。"
+  ],
+  "description": [
+    "圖從左到右是“陣列 nums 長度”“向下‘遞’”“向上‘迴’”三列，同行長度與呼叫用線相連。大括號標“遞迴深度 n”，覆蓋分配陣列的 n 層；中間呼叫以省略號代替。參數 1 那一行用“觸發遞迴終止條件”箭頭轉入右列，各層 return 0 由向上箭頭相連。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_quadratic.png",
+      "explanation": "上層等待下層返回時，區域性陣列仍被保留。圖底部將長度相加：1 + 2 + … + (n−1) + n = n(n+1)/2，指向平方階 O(n²)。程式碼最深處還多一個參數 0 的堆疊幀，但不多分配陣列；呼叫堆疊的 O(n) 開銷不會改變由這些陣列決定的 O(n²) 峰值空間。",
+      "id": "source-36",
+      "title": "遞迴各層保留陣列形成平方空間"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "每層遞迴還保留一個區域性陣列，峰值空間需要把所有未返回層的陣列長度相加。",
+  "tables": [
+    {
+      "caption": "各呼叫層保留的陣列",
+      "headers": [
+        "呼叫",
+        "nums 長度"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "quadratic_recur(n)",
+          "n"
+        ],
+        [
+          "quadratic_recur(n−1)",
+          "n−1"
+        ],
+        [
+          "中間呼叫",
+          "省略"
+        ],
+        [
+          "quadratic_recur(2)",
+          "2"
+        ],
+        [
+          "quadratic_recur(1)",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "title": "遞迴各層保留陣列形成平方空間"
+}

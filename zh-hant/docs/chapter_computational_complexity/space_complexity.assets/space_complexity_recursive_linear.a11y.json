@@ -1,0 +1,18 @@
+{
+  "context": [
+    "n 為正整數，以下按未做尾呼叫最佳化的執行過程計數。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
+      "explanation": "左列“向下‘遞’”從 linear_recur(n) 逐層減 1，直到基本情況 linear_recur(1)，大括號標註“遞迴深度 n”。外層等待內層返回，因此最深處有 n 個堆疊幀同時存在；隨後沿右列“向上‘迴’”逐層返回，每返回一層才釋放該層堆疊幀。圖右列寫作 return 0；現版 Python 用裸 return，實際返回 None，這一差異不影響堆疊空間計數。",
+      "id": "source-35",
+      "title": "遞迴呼叫的堆疊空間"
+    }
+  ],
+  "result": "每層佔常數區域性空間，最深時同時存在 n 層，峰值堆疊空間為 O(n)；之後逐層釋放不改變已經達到的峰值。",
+  "schema_version": 2,
+  "summary": "空間取決於同時未返回的呼叫數，逐層遞迴會積累堆疊幀。",
+  "title": "遞迴呼叫的堆疊空間"
+}

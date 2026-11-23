@@ -1,0 +1,18 @@
+{
+  "context": [
+    "用圖中流程求 1 至 n 的和，n 為正整數：累計和初值為 0，每輪“任務”將當前 i 加入累計和。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
+      "explanation": "先初始化 i = 1，再判斷 i ≤ n。為真時執行任務，令 i 加 1，然後直接回到條件判斷；為假時退出。初始化只在進入迴圈前執行一次，不會每輪把 i 重置為 1。",
+      "id": "source-19",
+      "title": "單層迴圈"
+    }
+  ],
+  "result": "執行任務時，i 依次為 1 至 n，共執行 n 次；更新到 i = n + 1 時，條件為假，迴圈結束。",
+  "schema_version": 2,
+  "summary": "透過初始化、條件判斷和更新，控制任務重複執行。",
+  "title": "單層迴圈"
+}

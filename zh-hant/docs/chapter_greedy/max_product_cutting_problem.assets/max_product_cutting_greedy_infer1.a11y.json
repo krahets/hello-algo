@@ -1,0 +1,19 @@
+{
+  "context": [
+    "在最大切分乘積問題中，考察一個整數因子 n 是否還應拆開：比較原因子 n 與拆成 2 和 n - 2 後的乘積。"
+  ],
+  "description": [
+    "畫面上方為表示長度 n 的灰色長條；下方等長條在左側切出一段綠色短條“2”，右側剩餘藍色長條標註“n - 2”，分界處有豎直虛線對齊；圖下方給出推導結論：“當 n ≥ 4 時，恆有 2(n - 2) ≥ n，因此最終切分方案只應存在 1, 2, 3 因子”。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png",
+      "explanation": "2(n - 2) - n = n - 4，所以 n = 4 時相等，n > 4 時嚴格增大。反覆拆分大於等於 4 的因子不會損失乘積，因此存在一種只含 1、2、3 的最優方案；這不表示所有最優方案都不能保留 4。",
+      "id": "source-480",
+      "title": "切分可使乘積不減"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "較大的整數因子可以繼續切分，使乘積不減。",
+  "title": "切分可使乘積不減"
+}

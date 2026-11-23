@@ -1,0 +1,58 @@
+{
+  "animations": {
+    "two-sum-hash": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-235",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-236",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-237",
+          "id": "step-3"
+        }
+      ]
+    }
+  },
+  "context": [
+    "給定整數陣列 nums = [2, 7, 11, 15]（索引從 0 到 3）與目標和 target = 13。",
+    "藉助輔助雜湊表 map 記錄已走訪過的元素：鍵（key，標有“元素”）存陣列元素值，值（value，標有“索引”）存該元素對應的陣列索引。單層迴圈每輪先查詢補數 target − nums[i] 是否已在 map 中：若存在則立即返回 [map[target − nums[i]], i]；若不存在才將當前鍵值對 nums[i]: i 寫入 map。"
+  ],
+  "description": [
+    "每輪“先查補數、後存當前元素”的順序保證了配對的另一個元素必定來自當前位置 i 之前的不同索引。三幅分步畫面依次展示 i = 0、1、2 時的判斷與雜湊表狀態（注意第 1 步畫面展示的是完成首次插入 2: 0 之後的狀態，而非空表）。"
+  ],
+  "frames": [
+    {
+      "announcement": "訪問索引 0 的元素 2，補數 11 不在雜湊表中，將鍵值對 2: 0 存入 map。",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png",
+      "explanation": "i = 0 指向元素 2。圖右側說明：因為 13 − 2 = 11 不在初始空表中，所以寫入 2: 0；當前 map = {2: 0}。尚未返回答案，下一項是索引 1 的 7。",
+      "id": "source-235",
+      "key_state": "i = 0（值 2）：補數 11 未命中，寫入後 map = {2: 0}。",
+      "title": "未找到補數 11，記錄 2"
+    },
+    {
+      "announcement": "訪問索引 1 的元素 7，補數 6 不在雜湊表中，將鍵值對 7: 1 存入 map。",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png",
+      "explanation": "i = 1 指向元素 7。圖右側說明：因為 13 − 7 = 6 不在 map 中，所以寫入 7: 1。此前表中只有鍵 2，寫入後 map = {2: 0, 7: 1}；尚未返回答案，下一項是索引 2 的 11。",
+      "id": "source-236",
+      "key_state": "i = 1（值 7）：補數 6 未命中，寫入後 map = {2: 0, 7: 1}。",
+      "title": "未找到補數 6，記錄 7"
+    },
+    {
+      "announcement": "訪問索引 2 的元素 11，在雜湊表中查到補數 2（索引 0），返回 [0, 2]。",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png",
+      "explanation": "i = 2 指向元素 11。圖右側說明：因為 13 − 11 = 2 已在 map 中，且 map[2] = 0，所以返回索引 [0, 2]。map 仍為 {2: 0, 7: 1}；11 不再入表，索引 3 的 15 不再處理。",
+      "id": "source-237",
+      "key_state": "i = 2（值 11）：補數 2 在 map 中命中索引 0，直接返回 [0, 2]。map 仍為 {2: 0, 7: 1}，11 未入表，15 不再處理。",
+      "title": "找到補數 2，返回索引"
+    }
+  ],
+  "result": "在雜湊查詢平均為 O(1) 的前提下，總體平均時間為 O(n)，輔助空間為 O(n)，體現以空間換時間。",
+  "schema_version": 2,
+  "summary": "用雜湊表儲存已見元素及索引，先查補數，再決定是否存入當前元素。",
+  "title": "雜湊表求兩數之和"
+}

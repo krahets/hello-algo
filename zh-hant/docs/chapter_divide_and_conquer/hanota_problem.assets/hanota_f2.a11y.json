@@ -1,0 +1,69 @@
+{
+  "animations": {
+    "hanota-f2": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-331",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-332",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-333",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-334",
+          "id": "step-4"
+        }
+      ]
+    }
+  },
+  "context": [
+    "三根柱子從左到右為 A、B、C，目標是把 A 上的兩張圓盤移到 C。每次只移動柱頂的一張盤，大盤不能壓在小盤上方；下文各柱的圓盤按從下到上排列。",
+    "綠色表示大盤，藍色表示小盤。"
+  ],
+  "description": [
+    "四幅畫面是初始狀態和三次單盤移動後的狀態：播放器步號包含初始畫面，因此第 2、3、4 步分別完成第 1、2、3 次移動。後三幅下方列出已完成的移動指令，用淺灰底突出當前指令。"
+  ],
+  "frames": [
+    {
+      "announcement": "展示大小兩盤疊放在柱 A 的初始狀態。",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step1.png",
+      "explanation": "初始 A=[大盤, 小盤]，B=[]，C=[]，尚未移動。藍色小盤在綠色大盤上方，必須先將小盤移到緩衝柱 B，才能取出大盤。",
+      "id": "source-331",
+      "key_state": "尚未移動；A 從下到上是大盤、小盤，B、C 為空。",
+      "title": "兩張圓盤疊放在柱 A"
+    },
+    {
+      "announcement": "第 1 次移動：將小盤從柱 A 移到緩衝柱 B。",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step2.png",
+      "explanation": "第 1 次移動：把藍色小盤從 A 移到空的 B，使綠色大盤露在柱頂。當前 A=[大盤]，B=[小盤]，C=[]。",
+      "id": "source-332",
+      "key_state": "已完成第 1 次移動；A 有大盤，B 有小盤，C 為空。",
+      "title": "先把小盤從柱 A 移到柱 B"
+    },
+    {
+      "announcement": "第 2 次移動：將大盤從柱 A 移到目標柱 C。",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step3.png",
+      "explanation": "第 2 次移動：A 上的綠色大盤已無阻擋，C 為空，將大盤從 A 移到 C。當前 A=[]，B=[小盤]，C=[大盤]，小盤仍留在 B。",
+      "id": "source-333",
+      "key_state": "已完成第 2 次移動；A 為空，B 有小盤，C 有大盤。",
+      "title": "再把大盤從柱 A 移到柱 C"
+    },
+    {
+      "announcement": "第 3 次移動：將小盤從柱 B 移到柱 C 的大盤上，完成遷移。",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step4.png",
+      "explanation": "第 3 次移動：把 B 上的藍色小盤放到 C 的綠色大盤上方，符合小盤在上的規則。當前 A=[]，B=[]，C=[大盤, 小盤]，兩盤遷移完成。",
+      "id": "source-334",
+      "key_state": "已完成第 3 次移動；A、B 為空，C 從下到上是大盤、小盤。",
+      "title": "最後把小盤從柱 B 移到柱 C"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "先把小盤暫存到柱 B，再把大盤移到柱 C，最後把小盤疊到大盤上，共三次移動。",
+  "title": "兩張圓盤藉助緩衝柱 B 完成移動"
+}

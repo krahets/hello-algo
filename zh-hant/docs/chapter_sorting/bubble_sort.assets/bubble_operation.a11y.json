@@ -1,0 +1,105 @@
+{
+  "animations": {
+    "bubble-pass": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-253",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-254",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-255",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-256",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-257",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-258",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-259",
+          "id": "step-7"
+        }
+      ]
+    }
+  },
+  "context": [
+    "輸入陣列為 nums = [4, 1, 3, 1, 5, 2]，索引從 0 到 5。單輪冒泡從最左端開始向右走訪，每次比較相鄰兩個元素：若“左邊元素 > 右邊元素”則交換二者，若“左邊元素 ≤ 右邊元素”則維持不變。",
+    "畫面將陣列元素形象地畫成一排圓球“泡泡”，元素數值越大則泡泡體積越大；陣列左端對應“水底”，右端對應“水面”。每步用淺綠色方框圈出當前比較的相鄰位置對，淺框內位於泡泡上、下方的交換弧線表示該對剛剛完成了交換。"
+  ],
+  "description": [
+    "第 2 至 6 步依次比較五對相鄰位置，展示本次比較或交換後的結果；第 7 步總結本輪的已排序位置與剩餘區間。"
+  ],
+  "frames": [
+    {
+      "announcement": "將六個待排序元素 [4, 1, 3, 1, 5, 2] 表示為六個泡泡，準備從左向右比較。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step1.png",
+      "explanation": "下方陣列 nums = [4, 1, 3, 1, 5, 2] 與上方六個泡泡一一對應，索引為 0 至 5；圖中說明元素大小與泡泡體積成正比。尚未開始比較，全部六項待本輪掃描。",
+      "id": "source-253",
+      "key_state": "初始狀態：nums = [4, 1, 3, 1, 5, 2]，六個泡泡按原順序排列。",
+      "title": "將陣列表示為一排泡泡"
+    },
+    {
+      "announcement": "索引 0 的 4 大於索引 1 的 1，交換二者後 4 移至索引 1。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step2.png",
+      "explanation": "本步比較索引 0、1：4 > 1，因此交換兩者，4 移至索引 1。淺綠框內的值變為 [1, 4]，交換弧線表示交換已完成；當前 nums = [1, 4, 3, 1, 5, 2]，本輪已掃描至索引 1。",
+      "id": "source-254",
+      "key_state": "索引 0、1 交換完成：4 與 1 互換，陣列變為 [1, 4, 3, 1, 5, 2]。",
+      "title": "比較並交換索引 0、1"
+    },
+    {
+      "announcement": "索引 1 的 4 大於索引 2 的 3，交換二者後 4 移至索引 2。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step3.png",
+      "explanation": "本步比較索引 1、2：4 > 3，因此交換兩者，4 移至索引 2。淺綠框內的值變為 [3, 4]；當前 nums = [1, 3, 4, 1, 5, 2]，本輪已掃描至索引 2。",
+      "id": "source-255",
+      "key_state": "索引 1、2 交換完成：4 與 3 互換，陣列變為 [1, 3, 4, 1, 5, 2]。",
+      "title": "比較並交換索引 1、2"
+    },
+    {
+      "announcement": "索引 2 的 4 大於索引 3 的 1，交換二者後 4 移至索引 3。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step4.png",
+      "explanation": "本步比較索引 2、3：4 大於右側的 1（原陣列中的第二個 1），因此交換兩者，4 移至索引 3。淺綠框內的值變為 [1, 4]；當前 nums = [1, 3, 1, 4, 5, 2]，本輪已掃描至索引 3。",
+      "id": "source-256",
+      "key_state": "索引 2、3 交換完成：4 與第二個 1 互換，陣列變為 [1, 3, 1, 4, 5, 2]。",
+      "title": "比較並交換索引 2、3"
+    },
+    {
+      "announcement": "索引 3 的 4 小於等於索引 4 的 5，維持原位不交換。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step5.png",
+      "explanation": "本步比較索引 3、4：4 ≤ 5，因此維持不變。淺框內為 [4, 5]，沒有交換弧線；當前 nums = [1, 3, 1, 4, 5, 2]，本輪已掃描至索引 4。下一步由 5 與右側元素比較。",
+      "id": "source-257",
+      "key_state": "索引 3、4 的 4 ≤ 5，不發生交換，陣列保持 [1, 3, 1, 4, 5, 2]。",
+      "title": "比較索引 3、4，保持不變"
+    },
+    {
+      "announcement": "索引 4 的 5 大於索引 5 的 2，交換二者後最大元素 5 移至最右端。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step6.png",
+      "explanation": "本步比較索引 4、5：5 > 2，因此交換兩者。淺綠框內的值變為 [2, 5]，最大值 5 到達索引 5；當前 nums = [1, 3, 1, 4, 2, 5]，五對相鄰位置已全部比較完。",
+      "id": "source-258",
+      "key_state": "索引 4、5 交換完成：5 與 2 互換，最大值 5 到達索引 5；陣列為 [1, 3, 1, 4, 2, 5]。",
+      "title": "比較並交換索引 4、5"
+    },
+    {
+      "announcement": "第一輪冒泡結束，最大元素 5 在最右端就位，剩餘前五個元素待排序。",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step7.png",
+      "explanation": "本輪結束，當前 nums = [1, 3, 1, 4, 2, 5]。索引 5 的最大泡泡 5 到達豎直“水面”標線右側並變灰，表示最終位置已固定。下方花括號標出左側“水底”方向剩餘區間 [0, 4]，其中 [1, 3, 1, 4, 2] 尚待後續輪次排序。",
+      "id": "source-259",
+      "key_state": "本輪冒泡完成：最大值 5 在索引 5 就位，剩餘未排序區間 [0, 4] 為 [1, 3, 1, 4, 2]。",
+      "title": "最大值 5 就位"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "從左向右比較相鄰元素，一輪把最大值 5 移到陣列最右端。",
+  "title": "一輪冒泡操作"
+}

@@ -1,0 +1,19 @@
+{
+  "context": [
+    "最大切分乘積問題要求：給定一個正整數 n（n ≥ 2），將其拆分為 m 個（m ≥ 2）正整數的和 n = n₁ + n₂ + … + nₘ，最大化這 m 個切分因子的乘積 n₁ × n₂ × … × nₘ。"
+  ],
+  "description": [
+    "畫面是一張符號示意條形圖：上方一整條灰色長條標註為總長度 n；下方一條等長的彩色分段條被豎直虛線切分為多段，從左到右依次標註為 n₁、n₂、n₃、…、nₘ₋₂、nₘ₋₁、nₘ，左右兩端對齊虛線表明各段長度之和仍等於 n；圖下方列出目標表達式：“輸入整數 n，求 max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ)”。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png",
+      "explanation": "這些標籤與省略號是表示任意 m 段的通用寫法，不限定至少有六段；m 最小可為 2。本圖沒有指定 n、m 或各段的具體數值，不能由示意寬度推算各段的大小。",
+      "id": "source-479",
+      "title": "最大切分乘積的問題定義"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "在總和固定的條件下，選擇切分段數和各段大小，使乘積最大。",
+  "title": "最大切分乘積的問題定義"
+}

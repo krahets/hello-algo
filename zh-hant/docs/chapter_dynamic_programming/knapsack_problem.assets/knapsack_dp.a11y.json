@@ -1,0 +1,271 @@
+{
+  "animations": {
+    "knapsack-dp": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-397",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-398",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-399",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-400",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-401",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-402",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-403",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-404",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-405",
+          "id": "step-9"
+        },
+        {
+          "frame_id": "source-406",
+          "id": "step-10"
+        },
+        {
+          "frame_id": "source-407",
+          "id": "step-11"
+        },
+        {
+          "frame_id": "source-408",
+          "id": "step-12"
+        },
+        {
+          "frame_id": "source-409",
+          "id": "step-13"
+        },
+        {
+          "frame_id": "source-410",
+          "id": "step-14"
+        }
+      ]
+    }
+  },
+  "context": [
+    "候選物品共 3 件（n = 3），編號、名稱、重量和價值見輸入表。背包容量 cap = 4，目標是不超重時獲得最大總價值，無須恰好裝滿。",
+    "狀態 dp[i, c] 表示從前 i 件物品中選擇、總重量不超過容量 c 時的最大價值。行下標 i 取 0 至 3，列下標 c 取 0 至 4，狀態表共 4 行 5 列；物品編號 i 從 1 開始，對應陣列重量 wgt[i-1] 和價值 val[i-1]。"
+  ],
+  "description": [
+    "第 1 步初始化；第 2 至 5、6 至 9、10 至 13 步分別計算第 1、2、3 行，每行按容量 c = 1 至 4 推進；第 14 步返回答案。每個非邊界格只計算一次，之後不再改動。最終表的單元格附有首次計算的步驟號：到達該步之前，此格為未計算初值 0；到達該步及之後，此格取表中的最終值。",
+    "對於第 i 件物品，重量記為 w，價值記為 v。若 w > c，裝不下，只能不選，繼承正上方 dp[i-1, c]；否則比較不選時的 dp[i-1, c] 與選入時的 dp[i-1, c-w] + v。後者位於上一行、向左移 w 列。兩個來源都取自上一行，尚未包含第 i 件物品，保證每件最多選一次。"
+  ],
+  "frames": [
+    {
+      "announcement": "初始化 4×5 的 dp 矩陣，將無物品的首行與零容量的首列邊界確定為 0。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step1.png",
+      "explanation": "建立 4 行 5 列的 dp 表，所有格子先填 0。第 0 行（無物品）和第 0 列（零容量）是已確定的邊界值 0，圖中用深色字表示；其餘 12 格是尚未計算的初值 0，用淡色字表示，不能當作已算出的最優價值。",
+      "id": "source-397",
+      "key_state": "初始化 4×5 的 dp 表全為 0：首行與首列為有效邊界 0，其餘 12 格為未計算初值 0。",
+      "title": "初始化 4×5 狀態矩陣"
+    },
+    {
+      "announcement": "計算 dp[1, 1]（前 1 件物品、容量 1）：選入蘋果優於不選，寫入最大價值 5。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step2.png",
+      "explanation": "考慮前 1 件物品、容量 1，當前物品是蘋果（重 1、價值 5）。不選得上一行 dp[0, 1] = 0；選入後剩餘容量 1 - 1 = 0，查上一行（前 0 件物品）的 dp[0, 0] = 0，加價值 5 得 5。取較大值 5 寫入 dp[1, 1]。此前只有初始化的邊界格，其後非邊界格仍為未計算初值 0。",
+      "id": "source-398",
+      "key_state": "前 1 件物品（蘋果）、容量 1：選入蘋果，dp[1, 1] 已算為 5；其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[1, 1]，得 5"
+    },
+    {
+      "announcement": "計算 dp[1, 2]（前 1 件物品、容量 2）：蘋果最多選一次，寫入最大價值 5。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step3.png",
+      "explanation": "考慮前 1 件物品、容量 2，當前物品是蘋果（重 1、價值 5）。不選得上一行 dp[0, 2] = 0；選入後剩餘容量 2 - 1 = 1，查上一行（前 0 件物品）的 dp[0, 1] = 0，加價值 5 得 5。取較大值 5 寫入 dp[1, 2]。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-399",
+      "key_state": "前 1 件物品（蘋果）、容量 2：蘋果只能選一次，dp[1, 2] 已算為 5；其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[1, 2]，得 5"
+    },
+    {
+      "announcement": "計算 dp[1, 3]（前 1 件物品、容量 3）：選入一件蘋果，寫入最大價值 5。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step4.png",
+      "explanation": "考慮前 1 件物品、容量 3，當前物品是蘋果（重 1、價值 5）。不選得上一行 dp[0, 3] = 0；選入後剩餘容量 3 - 1 = 2，查上一行（前 0 件物品）的 dp[0, 2] = 0，加價值 5 得 5。取較大值 5 寫入 dp[1, 3]。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-400",
+      "key_state": "前 1 件物品（蘋果）、容量 3：dp[1, 3] 已算為 5；其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[1, 3]，得 5"
+    },
+    {
+      "announcement": "計算 dp[1, 4]（前 1 件物品、容量 4）：寫入最大價值 5，完成第 1 行。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step5.png",
+      "explanation": "考慮前 1 件物品、容量 4，當前物品是蘋果（重 1、價值 5）。不選得上一行 dp[0, 4] = 0；選入後剩餘容量 4 - 1 = 3，查上一行（前 0 件物品）的 dp[0, 3] = 0，加價值 5 得 5。取較大值 5 寫入 dp[1, 4]。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-401",
+      "key_state": "前 1 件物品（蘋果）、容量 4：dp[1, 4] 已算為 5，第 1 行計算完畢；第 2、3 行容量大於 0 的格仍為未計算初值 0。",
+      "title": "計算 dp[1, 4]，得 5"
+    },
+    {
+      "announcement": "計算 dp[2, 1]（前 2 件物品、容量 1）：裝不下菠蘿，繼承上一行價值 5。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step6.png",
+      "explanation": "考慮前 2 件物品、容量 1，當前物品是菠蘿（重 2、價值 11）。重量 2 大於容量 1，裝不下，只能不選；繼承上一行 dp[1, 1] = 5，寫入 dp[2, 1] = 5。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-402",
+      "key_state": "前 2 件物品（至菠蘿）、容量 1：裝不下重 2 的菠蘿，dp[2, 1] 已算為 5；其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[2, 1]，得 5"
+    },
+    {
+      "announcement": "計算 dp[2, 2]（前 2 件物品、容量 2）：選入菠蘿（11）優於不選（5），寫入最大價值 11。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step7.png",
+      "explanation": "考慮前 2 件物品、容量 2，當前物品是菠蘿（重 2、價值 11）。不選得上一行 dp[1, 2] = 5；選入後剩餘容量 2 - 2 = 0，查上一行（前 1 件物品）的 dp[1, 0] = 0，加價值 11 得 11。取較大值 11 寫入 dp[2, 2]。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-403",
+      "key_state": "前 2 件物品（至菠蘿）、容量 2：選入菠蘿，dp[2, 2] 已算為 11；其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[2, 2]，得 11"
+    },
+    {
+      "announcement": "計算 dp[2, 3]：選入菠蘿得 16，優於不選的 5，寫入 16。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step8.png",
+      "explanation": "考慮前 2 件物品、容量 3，當前物品是菠蘿（重 2、價值 11）。不選得上一行 dp[1, 3] = 5；選入後剩餘容量 3 - 2 = 1，查上一行（前 1 件物品）的 dp[1, 1] = 5，加價值 11 得 16。取較大值 16 寫入 dp[2, 3]。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-404",
+      "key_state": "前 2 件物品、容量 3：選入菠蘿得 16，優於不選的 5，dp[2, 3] = 16。其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[2, 3]，得 16"
+    },
+    {
+      "announcement": "計算 dp[2, 4]：選入菠蘿得 16，優於不選的 5，寫入 16。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step9.png",
+      "explanation": "考慮前 2 件物品、容量 4，當前物品是菠蘿（重 2、價值 11）。不選得上一行 dp[1, 4] = 5；選入後剩餘容量 4 - 2 = 2，查上一行（前 1 件物品）的 dp[1, 2] = 5，加價值 11 得 16。取較大值 16 寫入 dp[2, 4]。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-405",
+      "key_state": "前 2 件物品、容量 4：選入菠蘿得 16，優於不選的 5，dp[2, 4] = 16。其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[2, 4]，得 16"
+    },
+    {
+      "announcement": "計算 dp[3, 1]（前 3 件物品、容量 1）：裝不下西瓜，繼承上一行價值 5。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step10.png",
+      "explanation": "考慮前 3 件物品、容量 1，當前物品是西瓜（重 3、價值 15）。重量 3 大於容量 1，裝不下，只能不選；繼承上一行 dp[2, 1] = 5，寫入 dp[3, 1] = 5。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-406",
+      "key_state": "前 3 件物品（至西瓜）、容量 1：裝不下重 3 的西瓜，dp[3, 1] 已算為 5；其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[3, 1]，得 5"
+    },
+    {
+      "announcement": "計算 dp[3, 2]（前 3 件物品、容量 2）：仍裝不下西瓜，繼承上一行價值 11。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step11.png",
+      "explanation": "考慮前 3 件物品、容量 2，當前物品是西瓜（重 3、價值 15）。重量 3 大於容量 2，裝不下，只能不選；繼承上一行 dp[2, 2] = 11，寫入 dp[3, 2] = 11。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-407",
+      "key_state": "前 3 件物品（至西瓜）、容量 2：仍裝不下重 3 的西瓜，dp[3, 2] 已算為 11；其後非邊界格仍為未計算初值 0。",
+      "title": "計算 dp[3, 2]，得 11"
+    },
+    {
+      "announcement": "計算 dp[3, 3]（前 3 件物品、容量 3）：不選西瓜的 16 高於單選西瓜的 15，寫入最大價值 16。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step12.png",
+      "explanation": "考慮前 3 件物品、容量 3，當前物品是西瓜（重 3、價值 15）。不選得上一行 dp[2, 3] = 16；選入後剩餘容量 3 - 3 = 0，查上一行（前 2 件物品）的 dp[2, 0] = 0，加價值 15 得 15。取較大值 16 寫入 dp[3, 3]。此前各格已算好，其後非邊界格仍為未計算初值 0。",
+      "id": "source-408",
+      "key_state": "前 3 件物品（至西瓜）、容量 3：不選西瓜（16）高於單選西瓜（15），dp[3, 3] 已算為 16；僅剩 dp[3, 4] 為未計算初值 0。",
+      "title": "計算 dp[3, 3]，得 16"
+    },
+    {
+      "announcement": "計算 dp[3, 4]：選入西瓜得 20，優於不選的 16，寫入 20。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step13.png",
+      "explanation": "考慮前 3 件物品、容量 4，當前物品是西瓜（重 3、價值 15）。不選得上一行 dp[2, 4] = 16；選入後剩餘容量 4 - 3 = 1，查上一行（前 2 件物品）的 dp[2, 1] = 5，加價值 15 得 20。取較大值 20 寫入 dp[3, 4]。至此全部 12 個非邊界格已算完。",
+      "id": "source-409",
+      "key_state": "前 3 件物品、容量 4：選入西瓜得 20，優於不選的 16，dp[3, 4] = 20。全部非邊界格已算完。",
+      "title": "計算 dp[3, 4]，得 20"
+    },
+    {
+      "announcement": "全部狀態計算完成，返回容量 4 下的最大價值 dp[3, 4] = 20。",
+      "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_dp_step14.png",
+      "explanation": "讀取右下角 dp[3, 4] = 20，選擇蘋果與西瓜：總重量 1 + 3 = 4，總價值 5 + 15 = 20。末幀所寫“將所有物品放入背包的最大價值 20”指考慮全部三件候選物品後的最優子集；三件全選重 6，超過容量 4。",
+      "id": "source-410",
+      "key_state": "填表完成，返回右下角 dp[3, 4] = 20（選擇蘋果與西瓜）。",
+      "title": "返回容量 4 的最大價值 20"
+    }
+  ],
+  "input_tables": [
+    0
+  ],
+  "schema_version": 2,
+  "summary": "三件物品各最多選一次，演示 0-1 背包的逐格遞推；容量 4 時求得最大總價值 20。",
+  "tables": [
+    {
+      "caption": "本組物品資料",
+      "headers": [
+        "物品編號i",
+        "物品",
+        "重量wgt[i−1]",
+        "價值val[i−1]"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1",
+          "蘋果",
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "菠蘿",
+          "2",
+          "11"
+        ],
+        [
+          "3",
+          "西瓜",
+          "3",
+          "15"
+        ]
+      ]
+    },
+    {
+      "caption": "填表完成後的 dp 最大價值與首次計算步驟",
+      "headers": [
+        "可選物品（前 i 件）",
+        "容量 c=0",
+        "容量 c=1",
+        "容量 c=2",
+        "容量 c=3",
+        "容量 c=4"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "沒有物品（i=0）",
+          "0（邊界有效）",
+          "0（邊界有效）",
+          "0（邊界有效）",
+          "0（邊界有效）",
+          "0（邊界有效）"
+        ],
+        [
+          "蘋果（i=1）",
+          "0（邊界有效）",
+          "5（第 2 步）",
+          "5（第 3 步）",
+          "5（第 4 步）",
+          "5（第 5 步）"
+        ],
+        [
+          "蘋果、菠蘿（i=2）",
+          "0（邊界有效）",
+          "5（第 6 步）",
+          "11（第 7 步）",
+          "16（第 8 步）",
+          "16（第 9 步）"
+        ],
+        [
+          "蘋果、菠蘿、西瓜（i=3）",
+          "0（邊界有效）",
+          "5（第 10 步）",
+          "11（第 11 步）",
+          "16（第 12 步）",
+          "20（第 13 步）"
+        ]
+      ]
+    }
+  ],
+  "title": "0-1 背包動態規劃"
+}

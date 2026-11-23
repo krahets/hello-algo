@@ -1,0 +1,19 @@
+{
+  "context": [
+    "n 為正整數；遞迴深度是同時未返回的最大呼叫層數。"
+  ],
+  "description": [
+    "左列標題為“向下‘遞’”，呼叫鏈從 recur(n) → recur(n−1) → … → recur(4) → recur(3) → recur(2) → recur(1)，左側大括號跨滿整列並標註“遞迴深度 n”。底部“觸發遞迴終止條件”的箭頭指向右列“向上‘迴’”；右列返回求和過程被淡化，突出左列的呼叫積累。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth.png",
+      "explanation": "到達 recur(1) 時，外層呼叫都在等待子呼叫的結果，包括頂層在內共有 n 個堆疊幀同時存在。此後才從 1 開始返回，逐層加上本層參數並釋放該層堆疊幀。最深處的呼叫數決定遞迴深度為 n，堆疊空間為 O(n)。",
+      "id": "source-22",
+      "title": "遞迴求和的遞迴深度"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "圖突出遞迴求和在觸底前積累的呼叫層數。",
+  "title": "遞迴求和的遞迴深度"
+}

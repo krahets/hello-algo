@@ -1,0 +1,55 @@
+{
+  "context": [
+    "金字塔從上到下由窄變寬，共五層。前三層位於標為 CPU 的綠色框內，左側統稱“快取”；第四層標為“記憶體”，第五層標為“硬碟”。"
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/storage_pyramid.png",
+      "explanation": "右側向上的箭頭標“速度、價格”：越往上訪問越快、單位容量價格越高；向下的箭頭標“容量、永續性”：越往下容量越大，底層 HDD/SSD 可以在斷電後長期儲存資料。快取與記憶體屬於易失性儲存，斷電後資料會丟失。",
+      "id": "source-54",
+      "title": "計算機儲存系統的金字塔層級"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "儲存金字塔比較不同層級的速度、容量、單位容量成本和永續性。",
+  "tables": [
+    {
+      "caption": "從頂到底的五層儲存",
+      "headers": [
+        "層次",
+        "圖中標籤",
+        "所屬型別"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1，頂層",
+          "L1 Cache",
+          "CPU 內的快取"
+        ],
+        [
+          "2",
+          "L2 Cache",
+          "CPU 內的快取"
+        ],
+        [
+          "3",
+          "L3 Cache",
+          "CPU 內的快取"
+        ],
+        [
+          "4",
+          "RAM",
+          "記憶體"
+        ],
+        [
+          "5，底層",
+          "HDD/SSD",
+          "硬碟"
+        ]
+      ]
+    }
+  ],
+  "title": "計算機儲存系統的金字塔層級"
+}

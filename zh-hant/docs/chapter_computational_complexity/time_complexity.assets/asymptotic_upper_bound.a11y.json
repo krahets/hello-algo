@@ -1,0 +1,19 @@
+{
+  "context": [
+    "橫軸為輸入資料大小 n，刻度 0 至 14；縱軸為函式值，沒有可見數值刻度。藍線是操作數量 T(n)，橙線是候選函式 f(n) 乘以正常數 c 後的 c·f(n)；圖未給出具體函式公式。"
+  ],
+  "description": [
+    "綠色豎直虛線 n₀ 位於刻度 7 與 8 之間的兩線交點。藍線在刻度 1 至 7 之間有起伏，並高於橙線；越過 n₀ 後，橙線一直在藍線上方，兩線繼續向上增長。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_computational_complexity/time_complexity.assets/asymptotic_upper_bound.png",
+      "explanation": "底部給出的條件是：存在正常數 c 和閾值 n₀，使所有 n > n₀ 都滿足 T(n) ≤ c·f(n)，於是記作 T(n) = O(f(n))，稱 f(n) 為一個漸近上界。閾值之前 T(n) 曾超過 c·f(n) 不影響這一結論，也不要求兩條曲線處處相等。",
+      "id": "source-26",
+      "title": "漸近上界：越過閾值後的大小關係"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "圖用兩條曲線說明：漸近上界關心越過閾值之後的大小關係。",
+  "title": "漸近上界：越過閾值後的大小關係"
+}

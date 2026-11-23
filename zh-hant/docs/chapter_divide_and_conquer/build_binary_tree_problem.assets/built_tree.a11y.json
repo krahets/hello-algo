@@ -1,0 +1,443 @@
+{
+  "animations": {
+    "build-binary-tree": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-317",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-318",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-319",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-320",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-321",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-322",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-323",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-324",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-325",
+          "id": "step-9"
+        }
+      ]
+    }
+  },
+  "context": [
+    "輸入為前序走訪 preorder = [3, 9, 2, 1, 7] 與中序走訪 inorder = [9, 3, 1, 2, 7]，節點值互不重複。",
+    "每個遞迴子問題先從前序有效段首元素初始化當前根節點（向下“遞”時建立節點），再按中序位置劃分並遞迴構建左、右子樹；當子呼叫返回子樹根節點後，父呼叫才將其賦給當前根的 left 或 right 引用（向上“迴”時建立連邊）。空區間呼叫直接返回 None。"
+  ],
+  "description": [
+    "九幅畫面展示建立節點或接回子樹的時刻；空區間返回 None 的呼叫未單獨拆成畫面。每步的“構樹第 N 步”表列出此時全部已建立節點及引用。“未連線”表示相應子樹尚待構建或返回連線；“無”表示該節點確實沒有這個子節點。"
+  ],
+  "frames": [
+    {
+      "announcement": "建立根節點 3，並劃分出左子樹 [9] 與右子樹的三個節點。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step1.png",
+      "explanation": "進入頂層呼叫 i = 0、中序區間 [0, 4]，由前序首項建立根 3。在中序索引 1 處找到 3，左子樹為 [9]，右子樹的中序為 [1, 2, 7]、前序為 [2, 1, 7]。當前只建立了根 3，沒有父子邊；接下來先遞迴構建左子樹。",
+      "id": "source-317",
+      "key_state": "已建立根節點 3；左右子樹尚未連線。",
+      "state_tables": [
+        {
+          "caption": "構樹第 1 步：建立根節點 3 後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "未連線",
+              "未連線"
+            ]
+          ]
+        }
+      ],
+      "title": "建立根節點 3"
+    },
+    {
+      "announcement": "遞迴進入左子問題並建立葉節點 9，準備向上返回。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step2.png",
+      "explanation": "進入左子問題 i = 1、中序區間 [0, 0]，建立節點 9。它的左右中序子區間均為空，對應空子樹呼叫返回 None，所以 9 是葉節點。構建節點 9 的呼叫尚未把它返回給根 3，當前兩個節點之間沒有連邊。",
+      "id": "source-318",
+      "key_state": "葉節點 9 已建立，但尚未連線到根節點 3。",
+      "state_tables": [
+        {
+          "caption": "構樹第 2 步：建立葉節點 9 後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "未連線",
+              "未連線"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ]
+          ]
+        }
+      ],
+      "title": "建立葉節點 9"
+    },
+    {
+      "announcement": "將返回的葉節點 9 連線到根節點 3 的左側。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step3.png",
+      "explanation": "構建節點 9 的呼叫將它返回給根 3，父呼叫執行 3.left = 9，建立第一條邊。根 3 的右子樹尚待構建，接下來轉向右子問題。",
+      "id": "source-319",
+      "key_state": "已建立連邊 3.left = 9；根 3 的右子樹待構建。",
+      "state_tables": [
+        {
+          "caption": "構樹第 3 步：連線左子樹 9 後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "9",
+              "未連線"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ]
+          ]
+        }
+      ],
+      "title": "連線左子樹 9"
+    },
+    {
+      "announcement": "建立右子樹根節點 2，並劃分其左右子問題 [1] 和 [7]。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step4.png",
+      "explanation": "進入右子問題 i = 2、中序區間 [2, 4]，從有效前序段 [2, 1, 7] 的首項建立節點 2。節點 2 在中序中的索引 m = 3，其左子問題為 [1]、右子問題為 [7]。當前 3.left = 9 保持不變；2 的兩側尚未連線，以 2 為根的呼叫尚未返回給 3，因此 3 與 2 之間沒有連邊。",
+      "id": "source-320",
+      "key_state": "已建立節點 2，左右子樹待構建；當前只連 3.left = 9，2 尚未接回 3。",
+      "state_tables": [
+        {
+          "caption": "構樹第 4 步：建立右子樹根 2 後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "9",
+              "未連線"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ],
+            [
+              "2",
+              "未連線",
+              "未連線"
+            ]
+          ]
+        }
+      ],
+      "title": "建立右子樹根 2"
+    },
+    {
+      "announcement": "建立葉節點 1，準備向上返回給父節點 2。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step5.png",
+      "explanation": "進入節點 2 的左子問題 i = 3、中序區間 [2, 2]，建立葉節點 1。它兩側的中序子區間為空，但構建節點 1 的呼叫尚未把它返回給節點 2。當前已建立四個節點，只建立了 3.left = 9；1 未接到 2，2 也未接回 3。",
+      "id": "source-321",
+      "key_state": "葉節點 1 已建立；當前只連 3.left = 9，1 尚未接到 2，2 尚未接回 3。",
+      "state_tables": [
+        {
+          "caption": "構樹第 5 步：建立葉節點 1 後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "9",
+              "未連線"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ],
+            [
+              "2",
+              "未連線",
+              "未連線"
+            ],
+            [
+              "1",
+              "無",
+              "無"
+            ]
+          ]
+        }
+      ],
+      "title": "建立葉節點 1"
+    },
+    {
+      "announcement": "將返回的葉節點 1 連線到節點 2 的左側。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step6.png",
+      "explanation": "構建節點 1 的呼叫返回給節點 2，父呼叫執行 2.left = 1。當前已建立 3.left = 9 和 2.left = 1；節點 2 的右子問題 [7] 尚待構建，2 仍未返回並連線到 3。",
+      "id": "source-322",
+      "key_state": "當前已連 3.left = 9、2.left = 1；2.right 待構建，2 尚未接回 3。",
+      "state_tables": [
+        {
+          "caption": "構樹第 6 步：連線節點 2 的左子樹後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "9",
+              "未連線"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ],
+            [
+              "2",
+              "1",
+              "未連線"
+            ],
+            [
+              "1",
+              "無",
+              "無"
+            ]
+          ]
+        }
+      ],
+      "title": "連線節點 2 的左子樹"
+    },
+    {
+      "announcement": "建立葉節點 7，準備向上返回給父節點 2。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step7.png",
+      "explanation": "進入節點 2 的右子問題 i = 4、中序區間 [4, 4]，建立最後一個葉節點 7。五個節點均已建立；當前已有 3.left = 9 和 2.left = 1，而 2.right、3.right 尚未連線。構建節點 7 的呼叫即將把它返回給節點 2。",
+      "id": "source-323",
+      "key_state": "五個節點均已建立；當前已連 3.left = 9、2.left = 1，2.right、3.right 尚未連線。",
+      "state_tables": [
+        {
+          "caption": "構樹第 7 步：建立葉節點 7 後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "9",
+              "未連線"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ],
+            [
+              "2",
+              "1",
+              "未連線"
+            ],
+            [
+              "1",
+              "無",
+              "無"
+            ],
+            [
+              "7",
+              "無",
+              "無"
+            ]
+          ]
+        }
+      ],
+      "title": "建立葉節點 7"
+    },
+    {
+      "announcement": "將葉節點 7 連線到節點 2 的右側，完成以 2 為根的子樹。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step8.png",
+      "explanation": "構建節點 7 的呼叫返回給節點 2，父呼叫執行 2.right = 7。當前三條邊為 3.left = 9、2.left = 1、2.right = 7；以 2 為根的子樹已完整，準備返回給根 3，3 與 2 之間尚未連邊。",
+      "id": "source-324",
+      "key_state": "當前已連 3.left = 9；以 2 為根的子樹（左 1、右 7）已建成，2 尚未接回 3。",
+      "state_tables": [
+        {
+          "caption": "構樹第 8 步：連線節點 2 的右子樹後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "9",
+              "未連線"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ],
+            [
+              "2",
+              "1",
+              "7"
+            ],
+            [
+              "1",
+              "無",
+              "無"
+            ],
+            [
+              "7",
+              "無",
+              "無"
+            ]
+          ]
+        }
+      ],
+      "title": "連線節點 2 的右子樹"
+    },
+    {
+      "announcement": "將以 2 為根的完整右子樹連線到根節點 3 右側，返回根 3 完成構建。",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step9.png",
+      "explanation": "以 2 為根的右子樹返回給頂層呼叫，執行 3.right = 2，建立最後一條邊。當前 3 左接 9、右接 2，2 左接 1、右接 7；9、1、7 是葉節點。四條父子邊全部建立，頂層函式返回根 3，構建完成。",
+      "id": "source-325",
+      "key_state": "整棵樹構建完成：3 左接 9、右接 2，2 左接 1、右接 7。",
+      "state_tables": [
+        {
+          "caption": "構樹第 9 步：連線完整右子樹後的節點及引用",
+          "headers": [
+            "節點",
+            "左子節點",
+            "右子節點"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "3",
+              "9",
+              "2"
+            ],
+            [
+              "9",
+              "無",
+              "無"
+            ],
+            [
+              "2",
+              "1",
+              "7"
+            ],
+            [
+              "1",
+              "無",
+              "無"
+            ],
+            [
+              "7",
+              "無",
+              "無"
+            ]
+          ]
+        }
+      ],
+      "title": "連線完整右子樹"
+    }
+  ],
+  "input_tables": [
+    0
+  ],
+  "result": "建成樹的前序走訪為 [3, 9, 2, 1, 7]，中序走訪為 [9, 3, 1, 2, 7]，與輸入一致。",
+  "schema_version": 2,
+  "summary": "向下遞進時依次建立節點 3、9、2、1、7，向上回溯返回時才將子樹連線到父節點，最終建成五節點樹。",
+  "tables": [
+    {
+      "caption": "固定走訪輸入",
+      "headers": [
+        "索引",
+        "前序值",
+        "中序值"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "0",
+          "3",
+          "9"
+        ],
+        [
+          "1",
+          "9",
+          "3"
+        ],
+        [
+          "2",
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "1",
+          "2"
+        ],
+        [
+          "4",
+          "7",
+          "7"
+        ]
+      ]
+    }
+  ],
+  "title": "遞迴構樹：向下建立節點，返回時連線子樹"
+}

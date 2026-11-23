@@ -1,0 +1,17 @@
+{
+  "context": [],
+  "description": [
+    "左側是正文 Python 層序走訪函式 level_order 的程式碼片段，程式碼塊左上角以綠色框突出檔案名 binary_tree_bfs.py；右側是倉庫目錄截圖，同名檔案也有綠色框。綠色雙向點線連線“程式碼檔案名稱”與“對應程式碼檔案”兩處標註；兩條灰色箭頭分別從標註指向左側程式碼塊的檔案名和右側目錄中的同名檔案。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_preface/suggestions.assets/code_md_to_repo.png",
+      "explanation": "在倉庫中依次進入 codes、python、chapter_tree，找到該檔案；完整路徑為 codes/python/chapter_tree/binary_tree_bfs.py。一般按 codes/<語言>/<章節目錄>/<檔案名> 定位對應原始碼。正文展示核心演算法片段，倉庫檔案附有測試樣例，可閱讀並執行；相同檔案名建立兩者的對應關係。",
+      "id": "source-7",
+      "title": "正文程式碼與原始碼檔案"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "根據正文程式碼塊標註的檔案名，沿語言和章節目錄在倉庫中定位完整可執行原始碼。",
+  "title": "正文程式碼與原始碼檔案"
+}

@@ -1,0 +1,52 @@
+{
+  "animations": {
+    "linkedlist-remove": {
+      "kind": "prose",
+      "prose": {
+        "context": [
+          "區域性鏈結串列為 n0（1）→ P（0）→ n1（3）→ …。已知前驅 n0，目標是刪除節點 P；n0 不一定是整條鏈結串列的頭節點。"
+        ],
+        "description": [
+          "圖分上下兩幅，刪除後 P 及其到 n1 的箭頭變為虛線，保留在畫面中作對比；圖中沒有展示記憶體釋放。"
+        ],
+        "result": "已知前驅節點 n0 時，只改接一次引用，耗時 O(1)，其餘節點無須移動；查詢前驅的耗時不計入此步。",
+        "steps": [
+          {
+            "announcement": "刪除前：n0、P、n1 依次相連，準備繞過節點 P。",
+            "explanation": "當前連線為 n0（1）→ P（0）→ n1（3）→ …。n0.next 指向 P，P.next 指向 n1，從 n0 出發必須經過 P 才能到達 n1。下一步將改接 n0.next。",
+            "id": "step-1",
+            "key_state": "刪除前 n0 → P → n1，P 從 n0 可達。",
+            "title": "刪除前：n0 → P → n1"
+          },
+          {
+            "announcement": "令 n0.next 直接指向 n1，節點 P 從鏈結串列中不可達，完成刪除。",
+            "explanation": "執行 n0.next = n1，主鏈變為 n0（1）→ n1（3）→ …。P（0）的 next 仍指向 n1，但從鏈結串列頭經 n0 向後已無法到達 P，邏輯刪除完成。",
+            "id": "step-2",
+            "key_state": "n0.next = n1，主鏈變為 n0 → n1；P 不可達但仍指向 n1。",
+            "title": "改接引用：n0.next = n1"
+          }
+        ],
+        "summary": "修改前驅節點的後繼引用，繞過待刪除節點。",
+        "title": "鏈結串列刪除節點"
+      }
+    }
+  },
+  "context": [
+    "區域性鏈結串列為 n0（1）→ P（0）→ n1（3）→ …。已知前驅 n0，目標是刪除節點 P；n0 不一定是整條鏈結串列的頭節點。"
+  ],
+  "description": [
+    "圖分上下兩幅，刪除後 P 及其到 n1 的箭頭變為虛線，保留在畫面中作對比；圖中沒有展示記憶體釋放。"
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node.png",
+      "explanation": "執行 n0.next = n1 後，主鏈變為 n0（1）→ n1（3）→ …。P.next 雖仍指向 n1，但沿鏈結串列頭經過 n0 向後走訪已無法到達 P，因此邏輯刪除完成。",
+      "id": "source-52",
+      "title": "鏈結串列刪除節點"
+    }
+  ],
+  "result": "已知前驅節點 n0 時，只改接一次引用，耗時 O(1)，其餘節點無須移動；查詢前驅的耗時不計入此步。",
+  "schema_version": 2,
+  "summary": "修改前驅節點的後繼引用，繞過待刪除節點。",
+  "title": "鏈結串列刪除節點"
+}
