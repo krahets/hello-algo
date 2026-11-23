@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/abd17f77112eaa7224f372b6.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/864e54ce411d71bab123d983.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -2038,25 +2038,24 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 리스트 초기화</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># 초깃값 없음</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">nums1</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 초깃값 지정</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">empty_nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 초깃값 있음</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 리스트 초기화 */</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// C++의 vector가 이 글에서 설명하는 nums에 해당한다</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="p">;</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="c1">// 초깃값 지정</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// 초깃값 없음</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">emptyNums</span><span class="p">;</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1">// 초깃값 있음</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">};</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1">// 초깃값 지정(배열은 int[]의 래퍼형인 Integer[]여야 함)</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">emptyNums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1">// 초깃값 있음(리스트 원소는 int의 래퍼 클래스인 Integer만 사용할 수 있으므로 배열 타입은 int[]가 아닌 Integer[]여야 한다는 점에 유의한다)</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
 </code></pre></div>
@@ -2064,8 +2063,8 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1">// 초깃값 지정</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">emptyNums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1">// 초깃값 있음</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[..</span><span class="w"> </span><span class="n">numbers</span><span class="p">];</span>
 </code></pre></div>
@@ -2073,48 +2072,48 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nx">nums1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1">// 초깃값 지정</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nx">emptyNums</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{}</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1">// 초깃값 있음</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nx">nums</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kd">let</span><span class="w"> </span><span class="nv">nums1</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1">// 초깃값 지정</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kd">let</span><span class="w"> </span><span class="nv">emptyNums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1">// 초깃값 있음</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="kd">var</span><span class="w"> </span><span class="nv">nums</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1">// 초깃값 지정</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">emptyNums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1">// 초깃값 있음</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">];</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums1</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1">// 초깃값 지정</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">emptyNums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1">// 초깃값 있음</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">];</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1">// 초깃값 지정</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">emptyNums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1">// 초깃값 있음</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">];</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 리스트 초기화 */</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">// 리스트 초기화</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums1</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1">// 초깃값 지정</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="kd">let</span><span class="w"> </span><span class="n">empty_nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1">// 초깃값 있음</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span>
 </code></pre></div>
 </div>
@@ -2125,17 +2124,16 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 리스트 초기화 */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="c1">// 초깃값 없음</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kd">var</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="c1">// 초깃값 지정</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="kd">var</span><span class="w"> </span><span class="nv">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="kd">var</span><span class="w"> </span><span class="nv">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="na">toMutableList</span><span class="p">()</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kd">val</span><span class="w"> </span><span class="nv">emptyNums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="c1">// 초깃값 있음</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># 리스트 초기화</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1"># 초깃값 없음</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="c1"># 초깃값 지정</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">empty_nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="c1"># 초깃값 있음</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">]</span>
 </code></pre></div>
 </div>
@@ -2143,8 +2141,8 @@
 </div>
 <details class="pythontutor">
 <summary>코드 시각화</summary>
-<p><div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="코드 시각화"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">전체 화면 &gt;</a></div></p>
+<p><div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="코드 시각화"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">전체 화면 &gt;</a></div></p>
 </details>
 <h3 id="2">2.   원소 접근<a class="headerlink" href="#2" title="고유 링크">¶</a></h3>
 <p>리스트는 본질적으로 배열이므로 원소에 접근하고 갱신하는 데 <span class="arithmatex">\(O(1)\)</span> 시간이 걸려 매우 효율적이다.</p>
@@ -2152,81 +2150,82 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># 원소 접근</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">num</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>
 <a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1"># 원소 갱신</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1"># 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
 <a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>
 <a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
 <a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
 <a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">     </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>
 <a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>
 <a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>
 <a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="nx">nums</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">int</span><span class="w"> </span><span class="kt">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
 <a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
 <a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">nums</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">num</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// 인덱스 1의 원소에 접근</span>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">             </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="c1">// 원소 접근</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1">// 원소 갱신</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2235,24 +2234,26 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* 원소 접근 */</span>
-<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w">       </span><span class="c1">// 인덱스 1의 원소에 접근</span>
-<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="cm">/* 원소 갱신 */</span>
-<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w">             </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소에 접근한다</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="cm">/* 원소 갱신 */</span>
+<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="n">nums</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c1">// 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1"># 원소 접근</span>
-<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="c1"># 인덱스 1의 원소에 접근</span>
-<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="c1"># 원소 갱신</span>
-<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1"># 인덱스 1의 원소를 0으로 갱신</span>
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="c1"># 인덱스 1의 원소에 접근한다</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a>
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="c1"># 원소 갱신</span>
+<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="n">nums</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1"># 인덱스 1의 원소를 0으로 갱신한다</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <details class="pythontutor">
 <summary>코드 시각화</summary>
-<p><div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="코드 시각화"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">전체 화면 &gt;</a></div></p>
+<p><div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="코드 시각화"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">전체 화면 &gt;</a></div></p>
 </details>
 <h3 id="3">3.   원소 삽입과 삭제<a class="headerlink" href="#3" title="고유 링크">¶</a></h3>
 <p>배열과 달리 리스트는 원소를 자유롭게 추가하고 삭제할 수 있다. 끝에 원소를 추가하는 시간 복잡도는 <span class="arithmatex">\(O(1)\)</span>이지만, 삽입과 삭제의 효율은 배열과 같아 시간 복잡도가 <span class="arithmatex">\(O(n)\)</span>이다.</p>
@@ -2262,7 +2263,7 @@
 <div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1"># 리스트 비우기</span>
 <a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">nums</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a>
-<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="c1"># 끝에 원소 추가</span>
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="c1"># 맨 뒤에 원소 추가</span>
 <a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -2270,17 +2271,17 @@
 <a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a>
 <a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="c1"># 중간에 원소 삽입</span>
-<a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a>
 <a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="c1"># 원소 삭제</span>
-<a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>        <span class="c1"># 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a>
-<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -2288,17 +2289,17 @@
 <a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a>
 <a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-27-13" id="__codelineno-27-13" name="__codelineno-27-13"></a>
 <a href="#__codelineno-27-14" id="__codelineno-27-14" name="__codelineno-27-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-27-15" id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">      </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-27-15" id="__codelineno-27-15" name="__codelineno-27-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
 <a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a>
-<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -2306,17 +2307,17 @@
 <a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a>
 <a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-28-13" id="__codelineno-28-13" name="__codelineno-28-13"></a>
 <a href="#__codelineno-28-14" id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-28-15" id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-28-15" id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
 <a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a>
-<a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -2324,17 +2325,17 @@
 <a href="#__codelineno-29-9" id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-29-10" id="__codelineno-29-10" name="__codelineno-29-10"></a>
 <a href="#__codelineno-29-11" id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-29-12" id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-29-13" id="__codelineno-29-13" name="__codelineno-29-13"></a>
 <a href="#__codelineno-29-14" id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-29-15" id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-29-15" id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">RemoveAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span>
 <a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a>
-<a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-30-5" id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-30-6" id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-30-7" id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
@@ -2342,17 +2343,17 @@
 <a href="#__codelineno-30-9" id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-30-10" id="__codelineno-30-10" name="__codelineno-30-10"></a>
 <a href="#__codelineno-30-11" id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-30-12" id="__codelineno-30-12" name="__codelineno-30-12"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nb">append</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">},</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">:]...)...)</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-30-12" id="__codelineno-30-12" name="__codelineno-30-12"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nb">append</span><span class="p">([]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">},</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">:]...)...)</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-30-13" id="__codelineno-30-13" name="__codelineno-30-13"></a>
 <a href="#__codelineno-30-14" id="__codelineno-30-14" name="__codelineno-30-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-30-15" id="__codelineno-30-15" name="__codelineno-30-15"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">4</span><span class="p">:]...)</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-30-15" id="__codelineno-30-15" name="__codelineno-30-15"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="mi">4</span><span class="p">:]...)</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="n">nums</span><span class="p">.</span><span class="bp">removeAll</span><span class="p">()</span>
 <a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>
-<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-31-7" id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -2360,17 +2361,17 @@
 <a href="#__codelineno-31-9" id="__codelineno-31-9" name="__codelineno-31-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-31-10" id="__codelineno-31-10" name="__codelineno-31-10"></a>
 <a href="#__codelineno-31-11" id="__codelineno-31-11" name="__codelineno-31-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-31-12" id="__codelineno-31-12" name="__codelineno-31-12"></a><span class="n">nums</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-31-12" id="__codelineno-31-12" name="__codelineno-31-12"></a><span class="n">nums</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-31-13" id="__codelineno-31-13" name="__codelineno-31-13"></a>
 <a href="#__codelineno-31-14" id="__codelineno-31-14" name="__codelineno-31-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-31-15" id="__codelineno-31-15" name="__codelineno-31-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-31-15" id="__codelineno-31-15" name="__codelineno-31-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">at</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a>
-<a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-32-7" id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
@@ -2378,17 +2379,17 @@
 <a href="#__codelineno-32-9" id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
 <a href="#__codelineno-32-10" id="__codelineno-32-10" name="__codelineno-32-10"></a>
 <a href="#__codelineno-32-11" id="__codelineno-32-11" name="__codelineno-32-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-32-12" id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-32-12" id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-32-13" id="__codelineno-32-13" name="__codelineno-32-13"></a>
 <a href="#__codelineno-32-14" id="__codelineno-32-14" name="__codelineno-32-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-32-15" id="__codelineno-32-15" name="__codelineno-32-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-32-15" id="__codelineno-32-15" name="__codelineno-32-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a>
-<a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
@@ -2396,17 +2397,17 @@
 <a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mf">4</span><span class="p">);</span>
 <a href="#__codelineno-33-10" id="__codelineno-33-10" name="__codelineno-33-10"></a>
 <a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-33-12" id="__codelineno-33-12" name="__codelineno-33-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-33-12" id="__codelineno-33-12" name="__codelineno-33-12"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-33-13" id="__codelineno-33-13" name="__codelineno-33-13"></a>
 <a href="#__codelineno-33-14" id="__codelineno-33-14" name="__codelineno-33-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-33-15" id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-33-15" id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cm">/* 리스트 비우기 */</span>
 <a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a>
-<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
 <a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
 <a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
 <a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
@@ -2414,28 +2415,28 @@
 <a href="#__codelineno-34-9" id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
 <a href="#__codelineno-34-10" id="__codelineno-34-10" name="__codelineno-34-10"></a>
 <a href="#__codelineno-34-11" id="__codelineno-34-11" name="__codelineno-34-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-34-12" id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-34-12" id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-34-13" id="__codelineno-34-13" name="__codelineno-34-13"></a>
 <a href="#__codelineno-34-14" id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-34-15" id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-34-15" id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cm">/* 리스트 비우기 */</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="c1">// 리스트 비우기</span>
 <a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
 <a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a>
-<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
+<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="c1">// 맨 뒤에 원소 추가</span>
 <a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <a href="#__codelineno-35-8" id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a href="#__codelineno-35-9" id="__codelineno-35-9" name="__codelineno-35-9"></a><span class="n">nums</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-35-10" id="__codelineno-35-10" name="__codelineno-35-10"></a>
-<a href="#__codelineno-35-11" id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-35-12" id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-35-11" id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="c1">// 중간에 원소 삽입</span>
+<a href="#__codelineno-35-12" id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-35-13" id="__codelineno-35-13" name="__codelineno-35-13"></a>
-<a href="#__codelineno-35-14" id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-35-15" id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">    </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-35-14" id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="c1">// 원소 삭제</span>
+<a href="#__codelineno-35-15" id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="n">nums</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2444,27 +2445,27 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="cm">/* 리스트 비우기 */</span>
-<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">clear</span><span class="p">()</span>
 <a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a>
-<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="cm">/* 끝에 원소 추가 */</span>
-<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
-<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
-<a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
-<a href="#__codelineno-37-8" id="__codelineno-37-8" name="__codelineno-37-8"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
-<a href="#__codelineno-37-9" id="__codelineno-37-9" name="__codelineno-37-9"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="cm">/* 맨 뒤에 원소 추가 */</span>
+<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>
+<a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<a href="#__codelineno-37-8" id="__codelineno-37-8" name="__codelineno-37-8"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
+<a href="#__codelineno-37-9" id="__codelineno-37-9" name="__codelineno-37-9"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>
 <a href="#__codelineno-37-10" id="__codelineno-37-10" name="__codelineno-37-10"></a>
 <a href="#__codelineno-37-11" id="__codelineno-37-11" name="__codelineno-37-11"></a><span class="cm">/* 중간에 원소 삽입 */</span>
-<a href="#__codelineno-37-12" id="__codelineno-37-12" name="__codelineno-37-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">);</span><span class="w">    </span><span class="c1">// 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-37-12" id="__codelineno-37-12" name="__codelineno-37-12"></a><span class="n">nums</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="c1">// 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-37-13" id="__codelineno-37-13" name="__codelineno-37-13"></a>
 <a href="#__codelineno-37-14" id="__codelineno-37-14" name="__codelineno-37-14"></a><span class="cm">/* 원소 삭제 */</span>
-<a href="#__codelineno-37-15" id="__codelineno-37-15" name="__codelineno-37-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">);</span><span class="w">  </span><span class="c1">// 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-37-15" id="__codelineno-37-15" name="__codelineno-37-15"></a><span class="n">nums</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="c1">// 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="c1"># 리스트 비우기</span>
 <a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="n">nums</span><span class="o">.</span><span class="n">clear</span>
 <a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a>
-<a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="c1"># 끝에 원소 추가</span>
+<a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="c1"># 맨 뒤에 원소 추가</span>
 <a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-38-7" id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span>
@@ -2472,10 +2473,10 @@
 <a href="#__codelineno-38-9" id="__codelineno-38-9" name="__codelineno-38-9"></a><span class="n">nums</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span>
 <a href="#__codelineno-38-10" id="__codelineno-38-10" name="__codelineno-38-10"></a>
 <a href="#__codelineno-38-11" id="__codelineno-38-11" name="__codelineno-38-11"></a><span class="c1"># 중간에 원소 삽입</span>
-<a href="#__codelineno-38-12" id="__codelineno-38-12" name="__codelineno-38-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1"># 인덱스 3에 숫자 6 삽입</span>
+<a href="#__codelineno-38-12" id="__codelineno-38-12" name="__codelineno-38-12"></a><span class="n">nums</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1"># 인덱스 3에 숫자 6을 삽입한다</span>
 <a href="#__codelineno-38-13" id="__codelineno-38-13" name="__codelineno-38-13"></a>
 <a href="#__codelineno-38-14" id="__codelineno-38-14" name="__codelineno-38-14"></a><span class="c1"># 원소 삭제</span>
-<a href="#__codelineno-38-15" id="__codelineno-38-15" name="__codelineno-38-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># 인덱스 3의 원소 삭제</span>
+<a href="#__codelineno-38-15" id="__codelineno-38-15" name="__codelineno-38-15"></a><span class="n">nums</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># 인덱스 3의 원소를 삭제한다</span>
 </code></pre></div>
 </div>
 </div>
@@ -2490,138 +2491,138 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:13"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><input id="__tabbed_4_3" name="__tabbed_4" type="radio"/><input id="__tabbed_4_4" name="__tabbed_4" type="radio"/><input id="__tabbed_4_5" name="__tabbed_4" type="radio"/><input id="__tabbed_4_6" name="__tabbed_4" type="radio"/><input id="__tabbed_4_7" name="__tabbed_4" type="radio"/><input id="__tabbed_4_8" name="__tabbed_4" type="radio"/><input id="__tabbed_4_9" name="__tabbed_4" type="radio"/><input id="__tabbed_4_10" name="__tabbed_4" type="radio"/><input id="__tabbed_4_11" name="__tabbed_4" type="radio"/><input id="__tabbed_4_12" name="__tabbed_4" type="radio"/><input id="__tabbed_4_13" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">C++</label><label for="__tabbed_4_3">Java</label><label for="__tabbed_4_4">C#</label><label for="__tabbed_4_5">Go</label><label for="__tabbed_4_6">Swift</label><label for="__tabbed_4_7">JS</label><label for="__tabbed_4_8">TS</label><label for="__tabbed_4_9">Dart</label><label for="__tabbed_4_10">Rust</label><label for="__tabbed_4_11">C</label><label for="__tabbed_4_12">Kotlin</label><label for="__tabbed_4_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="c1"># 인덱스로 리스트 순회</span>
+<div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-39-1" id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="c1"># 인덱스를 통해 리스트를 순회한다</span>
 <a href="#__codelineno-39-2" id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <a href="#__codelineno-39-3" id="__codelineno-39-3" name="__codelineno-39-3"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
 <a href="#__codelineno-39-4" id="__codelineno-39-4" name="__codelineno-39-4"></a>    <span class="n">count</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a href="#__codelineno-39-5" id="__codelineno-39-5" name="__codelineno-39-5"></a>
-<a href="#__codelineno-39-6" id="__codelineno-39-6" name="__codelineno-39-6"></a><span class="c1"># 리스트 원소를 직접 순회</span>
+<a href="#__codelineno-39-6" id="__codelineno-39-6" name="__codelineno-39-6"></a><span class="c1"># 리스트의 원소를 직접 순회한다</span>
 <a href="#__codelineno-39-7" id="__codelineno-39-7" name="__codelineno-39-7"></a><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
 <a href="#__codelineno-39-8" id="__codelineno-39-8" name="__codelineno-39-8"></a>    <span class="n">count</span> <span class="o">+=</span> <span class="n">num</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-40-1" id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-40-2" id="__codelineno-40-2" name="__codelineno-40-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-40-3" id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-40-4" id="__codelineno-40-4" name="__codelineno-40-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-40-5" id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="p">}</span>
 <a href="#__codelineno-40-6" id="__codelineno-40-6" name="__codelineno-40-6"></a>
-<a href="#__codelineno-40-7" id="__codelineno-40-7" name="__codelineno-40-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
+<a href="#__codelineno-40-7" id="__codelineno-40-7" name="__codelineno-40-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
 <a href="#__codelineno-40-8" id="__codelineno-40-8" name="__codelineno-40-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-40-9" id="__codelineno-40-9" name="__codelineno-40-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-40-10" id="__codelineno-40-10" name="__codelineno-40-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a href="#__codelineno-40-9" id="__codelineno-40-9" name="__codelineno-40-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-40-10" id="__codelineno-40-10" name="__codelineno-40-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <a href="#__codelineno-40-11" id="__codelineno-40-11" name="__codelineno-40-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-41-1" id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-41-2" id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-41-3" id="__codelineno-41-3" name="__codelineno-41-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-41-4" id="__codelineno-41-4" name="__codelineno-41-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-41-5" id="__codelineno-41-5" name="__codelineno-41-5"></a><span class="p">}</span>
 <a href="#__codelineno-41-6" id="__codelineno-41-6" name="__codelineno-41-6"></a>
-<a href="#__codelineno-41-7" id="__codelineno-41-7" name="__codelineno-41-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
-<a href="#__codelineno-41-8" id="__codelineno-41-8" name="__codelineno-41-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-41-9" id="__codelineno-41-9" name="__codelineno-41-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a href="#__codelineno-41-7" id="__codelineno-41-7" name="__codelineno-41-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
+<a href="#__codelineno-41-8" id="__codelineno-41-8" name="__codelineno-41-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-41-9" id="__codelineno-41-9" name="__codelineno-41-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <a href="#__codelineno-41-10" id="__codelineno-41-10" name="__codelineno-41-10"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-42-1" id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-42-2" id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-42-3" id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-42-4" id="__codelineno-42-4" name="__codelineno-42-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-42-5" id="__codelineno-42-5" name="__codelineno-42-5"></a><span class="p">}</span>
 <a href="#__codelineno-42-6" id="__codelineno-42-6" name="__codelineno-42-6"></a>
-<a href="#__codelineno-42-7" id="__codelineno-42-7" name="__codelineno-42-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
+<a href="#__codelineno-42-7" id="__codelineno-42-7" name="__codelineno-42-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
 <a href="#__codelineno-42-8" id="__codelineno-42-8" name="__codelineno-42-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-42-9" id="__codelineno-42-9" name="__codelineno-42-9"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-42-10" id="__codelineno-42-10" name="__codelineno-42-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a href="#__codelineno-42-9" id="__codelineno-42-9" name="__codelineno-42-9"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-42-10" id="__codelineno-42-10" name="__codelineno-42-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <a href="#__codelineno-42-11" id="__codelineno-42-11" name="__codelineno-42-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-43-1" id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-43-2" id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="nx">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-43-3" id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-43-4" id="__codelineno-43-4" name="__codelineno-43-4"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
 <a href="#__codelineno-43-5" id="__codelineno-43-5" name="__codelineno-43-5"></a><span class="p">}</span>
 <a href="#__codelineno-43-6" id="__codelineno-43-6" name="__codelineno-43-6"></a>
-<a href="#__codelineno-43-7" id="__codelineno-43-7" name="__codelineno-43-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
+<a href="#__codelineno-43-7" id="__codelineno-43-7" name="__codelineno-43-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
 <a href="#__codelineno-43-8" id="__codelineno-43-8" name="__codelineno-43-8"></a><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-43-9" id="__codelineno-43-9" name="__codelineno-43-9"></a><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-43-10" id="__codelineno-43-10" name="__codelineno-43-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">num</span>
+<a href="#__codelineno-43-9" id="__codelineno-43-9" name="__codelineno-43-9"></a><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-43-10" id="__codelineno-43-10" name="__codelineno-43-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span>
 <a href="#__codelineno-43-11" id="__codelineno-43-11" name="__codelineno-43-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-44-1" id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-44-2" id="__codelineno-44-2" name="__codelineno-44-2"></a><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-44-3" id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-44-4" id="__codelineno-44-4" name="__codelineno-44-4"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a href="#__codelineno-44-5" id="__codelineno-44-5" name="__codelineno-44-5"></a><span class="p">}</span>
 <a href="#__codelineno-44-6" id="__codelineno-44-6" name="__codelineno-44-6"></a>
-<a href="#__codelineno-44-7" id="__codelineno-44-7" name="__codelineno-44-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
+<a href="#__codelineno-44-7" id="__codelineno-44-7" name="__codelineno-44-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
 <a href="#__codelineno-44-8" id="__codelineno-44-8" name="__codelineno-44-8"></a><span class="bp">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-44-9" id="__codelineno-44-9" name="__codelineno-44-9"></a><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-44-10" id="__codelineno-44-10" name="__codelineno-44-10"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
+<a href="#__codelineno-44-9" id="__codelineno-44-9" name="__codelineno-44-9"></a><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-44-10" id="__codelineno-44-10" name="__codelineno-44-10"></a><span class="w">    </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
 <a href="#__codelineno-44-11" id="__codelineno-44-11" name="__codelineno-44-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-45-1" id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-45-2" id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-45-3" id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-45-4" id="__codelineno-45-4" name="__codelineno-45-4"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a href="#__codelineno-45-5" id="__codelineno-45-5" name="__codelineno-45-5"></a><span class="p">}</span>
 <a href="#__codelineno-45-6" id="__codelineno-45-6" name="__codelineno-45-6"></a>
-<a href="#__codelineno-45-7" id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
+<a href="#__codelineno-45-7" id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
 <a href="#__codelineno-45-8" id="__codelineno-45-8" name="__codelineno-45-8"></a><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-45-9" id="__codelineno-45-9" name="__codelineno-45-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-45-10" id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">num</span><span class="p">;</span>
+<a href="#__codelineno-45-9" id="__codelineno-45-9" name="__codelineno-45-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-45-10" id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span>
 <a href="#__codelineno-45-11" id="__codelineno-45-11" name="__codelineno-45-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-46-1" id="__codelineno-46-1" name="__codelineno-46-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-46-2" id="__codelineno-46-2" name="__codelineno-46-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <a href="#__codelineno-46-3" id="__codelineno-46-3" name="__codelineno-46-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-46-4" id="__codelineno-46-4" name="__codelineno-46-4"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a href="#__codelineno-46-5" id="__codelineno-46-5" name="__codelineno-46-5"></a><span class="p">}</span>
 <a href="#__codelineno-46-6" id="__codelineno-46-6" name="__codelineno-46-6"></a>
-<a href="#__codelineno-46-7" id="__codelineno-46-7" name="__codelineno-46-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
+<a href="#__codelineno-46-7" id="__codelineno-46-7" name="__codelineno-46-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
 <a href="#__codelineno-46-8" id="__codelineno-46-8" name="__codelineno-46-8"></a><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-46-9" id="__codelineno-46-9" name="__codelineno-46-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-46-10" id="__codelineno-46-10" name="__codelineno-46-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">num</span><span class="p">;</span>
+<a href="#__codelineno-46-9" id="__codelineno-46-9" name="__codelineno-46-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-46-10" id="__codelineno-46-10" name="__codelineno-46-10"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span>
 <a href="#__codelineno-46-11" id="__codelineno-46-11" name="__codelineno-46-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-47-1" id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-47-2" id="__codelineno-47-2" name="__codelineno-47-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
 <a href="#__codelineno-47-3" id="__codelineno-47-3" name="__codelineno-47-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-47-4" id="__codelineno-47-4" name="__codelineno-47-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-47-4" id="__codelineno-47-4" name="__codelineno-47-4"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-47-5" id="__codelineno-47-5" name="__codelineno-47-5"></a><span class="p">}</span>
 <a href="#__codelineno-47-6" id="__codelineno-47-6" name="__codelineno-47-6"></a>
-<a href="#__codelineno-47-7" id="__codelineno-47-7" name="__codelineno-47-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
+<a href="#__codelineno-47-7" id="__codelineno-47-7" name="__codelineno-47-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
 <a href="#__codelineno-47-8" id="__codelineno-47-8" name="__codelineno-47-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<a href="#__codelineno-47-9" id="__codelineno-47-9" name="__codelineno-47-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="kt">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-47-10" id="__codelineno-47-10" name="__codelineno-47-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="kt">num</span><span class="p">;</span>
+<a href="#__codelineno-47-9" id="__codelineno-47-9" name="__codelineno-47-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-47-10" id="__codelineno-47-10" name="__codelineno-47-10"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <a href="#__codelineno-47-11" id="__codelineno-47-11" name="__codelineno-47-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="c1">// 인덱스로 리스트 순회</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-48-1" id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="c1">// 인덱스를 통해 리스트를 순회한다</span>
 <a href="#__codelineno-48-2" id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-48-3" id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-48-4" id="__codelineno-48-4" name="__codelineno-48-4"></a><span class="w">    </span><span class="n">_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-48-5" id="__codelineno-48-5" name="__codelineno-48-5"></a><span class="p">}</span>
 <a href="#__codelineno-48-6" id="__codelineno-48-6" name="__codelineno-48-6"></a>
-<a href="#__codelineno-48-7" id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="c1">// 리스트 원소를 직접 순회</span>
+<a href="#__codelineno-48-7" id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="c1">// 리스트의 원소를 직접 순회한다</span>
 <a href="#__codelineno-48-8" id="__codelineno-48-8" name="__codelineno-48-8"></a><span class="n">_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-48-9" id="__codelineno-48-9" name="__codelineno-48-9"></a><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-48-10" id="__codelineno-48-10" name="__codelineno-48-10"></a><span class="w">    </span><span class="n">_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<a href="#__codelineno-48-9" id="__codelineno-48-9" name="__codelineno-48-9"></a><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-48-10" id="__codelineno-48-10" name="__codelineno-48-10"></a><span class="w">    </span><span class="n">_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <a href="#__codelineno-48-11" id="__codelineno-48-11" name="__codelineno-48-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
@@ -2630,29 +2631,29 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="cm">/* 인덱스로 리스트 순회 */</span>
+<div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-50-1" id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="cm">/* 인덱스를 통해 리스트를 순회한다 */</span>
 <a href="#__codelineno-50-2" id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 <a href="#__codelineno-50-3" id="__codelineno-50-3" name="__codelineno-50-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">indices</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-50-4" id="__codelineno-50-4" name="__codelineno-50-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a href="#__codelineno-50-5" id="__codelineno-50-5" name="__codelineno-50-5"></a><span class="p">}</span>
 <a href="#__codelineno-50-6" id="__codelineno-50-6" name="__codelineno-50-6"></a>
-<a href="#__codelineno-50-7" id="__codelineno-50-7" name="__codelineno-50-7"></a><span class="cm">/* 리스트 원소를 직접 순회 */</span>
-<a href="#__codelineno-50-8" id="__codelineno-50-8" name="__codelineno-50-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-50-9" id="__codelineno-50-9" name="__codelineno-50-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
+<a href="#__codelineno-50-7" id="__codelineno-50-7" name="__codelineno-50-7"></a><span class="cm">/* 리스트의 원소를 직접 순회한다 */</span>
+<a href="#__codelineno-50-8" id="__codelineno-50-8" name="__codelineno-50-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-50-9" id="__codelineno-50-9" name="__codelineno-50-9"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">j</span>
 <a href="#__codelineno-50-10" id="__codelineno-50-10" name="__codelineno-50-10"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="c1"># 인덱스로 리스트 순회</span>
+<div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-51-1" id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="c1"># 인덱스를 통해 리스트를 순회한다</span>
 <a href="#__codelineno-51-2" id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-51-3" id="__codelineno-51-3" name="__codelineno-51-3"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
-<a href="#__codelineno-51-4" id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+<a href="#__codelineno-51-4" id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a href="#__codelineno-51-5" id="__codelineno-51-5" name="__codelineno-51-5"></a><span class="k">end</span>
 <a href="#__codelineno-51-6" id="__codelineno-51-6" name="__codelineno-51-6"></a>
-<a href="#__codelineno-51-7" id="__codelineno-51-7" name="__codelineno-51-7"></a><span class="c1"># 리스트 원소를 직접 순회</span>
+<a href="#__codelineno-51-7" id="__codelineno-51-7" name="__codelineno-51-7"></a><span class="c1"># 리스트의 원소를 직접 순회한다</span>
 <a href="#__codelineno-51-8" id="__codelineno-51-8" name="__codelineno-51-8"></a><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-51-9" id="__codelineno-51-9" name="__codelineno-51-9"></a><span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span>
-<a href="#__codelineno-51-10" id="__codelineno-51-10" name="__codelineno-51-10"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">num</span>
+<a href="#__codelineno-51-9" id="__codelineno-51-9" name="__codelineno-51-9"></a><span class="n">nums</span><span class="o">.</span><span class="n">each</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">x</span><span class="o">|</span>
+<a href="#__codelineno-51-10" id="__codelineno-51-10" name="__codelineno-51-10"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span>
 <a href="#__codelineno-51-11" id="__codelineno-51-11" name="__codelineno-51-11"></a><span class="k">end</span>
 </code></pre></div>
 </div>
@@ -2669,63 +2670,63 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-52-1" id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="c1"># 두 리스트 연결</span>
-<a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="n">nums1</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="n">nums</span> <span class="o">+=</span> <span class="n">nums1</span>  <span class="c1"># 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-52-2" id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="n">nums1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<a href="#__codelineno-52-3" id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="n">nums</span> <span class="o">+=</span> <span class="n">nums1</span>  <span class="c1"># 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-53-1" id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="cm">/* 두 리스트 연결 */</span>
-<a href="#__codelineno-53-2" id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">};</span>
-<a href="#__codelineno-53-3" id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-53-2" id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
+<a href="#__codelineno-53-3" id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 <a href="#__codelineno-53-4" id="__codelineno-53-4" name="__codelineno-53-4"></a><span class="n">nums</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">nums1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-54-1" id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="cm">/* 두 리스트 연결 */</span>
 <a href="#__codelineno-54-2" id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Integer</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="p">}));</span>
-<a href="#__codelineno-54-3" id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-54-3" id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-55-1" id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="cm">/* 두 리스트 연결 */</span>
 <a href="#__codelineno-55-2" id="__codelineno-55-2" name="__codelineno-55-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
-<a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-55-3" id="__codelineno-55-3" name="__codelineno-55-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-56-1" id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="cm">/* 두 리스트 연결 */</span>
 <a href="#__codelineno-56-2" id="__codelineno-56-2" name="__codelineno-56-2"></a><span class="nx">nums1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">}</span>
-<a href="#__codelineno-56-3" id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">nums1</span><span class="p">...)</span><span class="w">  </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-56-3" id="__codelineno-56-3" name="__codelineno-56-3"></a><span class="nx">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">nums1</span><span class="p">...)</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-57-1" id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="cm">/* 두 리스트 연결 */</span>
 <a href="#__codelineno-57-2" id="__codelineno-57-2" name="__codelineno-57-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">]</span>
-<a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span><span class="w"> </span><span class="n">nums1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-57-3" id="__codelineno-57-3" name="__codelineno-57-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">contentsOf</span><span class="p">:</span><span class="w"> </span><span class="n">nums1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-58-1" id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="cm">/* 두 리스트 연결 */</span>
 <a href="#__codelineno-58-2" id="__codelineno-58-2" name="__codelineno-58-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">];</span>
-<a href="#__codelineno-58-3" id="__codelineno-58-3" name="__codelineno-58-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-58-3" id="__codelineno-58-3" name="__codelineno-58-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-59-1" id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="cm">/* 두 리스트 연결 */</span>
 <a href="#__codelineno-59-2" id="__codelineno-59-2" name="__codelineno-59-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">nums1</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">];</span>
-<a href="#__codelineno-59-3" id="__codelineno-59-3" name="__codelineno-59-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-59-3" id="__codelineno-59-3" name="__codelineno-59-3"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-60-1" id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="cm">/* 두 리스트 연결 */</span>
 <a href="#__codelineno-60-2" id="__codelineno-60-2" name="__codelineno-60-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">];</span>
-<a href="#__codelineno-60-3" id="__codelineno-60-3" name="__codelineno-60-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-60-3" id="__codelineno-60-3" name="__codelineno-60-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-61-1" id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="cm">/* 두 리스트 연결 */</span>
-<a href="#__codelineno-61-2" id="__codelineno-61-2" name="__codelineno-61-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">nums1</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
-<a href="#__codelineno-61-3" id="__codelineno-61-3" name="__codelineno-61-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nums1</span><span class="p">);</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-61-1" id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="c1">// 두 리스트 연결</span>
+<a href="#__codelineno-61-2" id="__codelineno-61-2" name="__codelineno-61-2"></a><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">];</span>
+<a href="#__codelineno-61-3" id="__codelineno-61-3" name="__codelineno-61-3"></a><span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">nums1</span><span class="p">);</span><span class="w"> </span><span class="c1">// append는 nums1의 원소를 이동시키므로 이후 nums1은 비게 된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2734,8 +2735,8 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-63-1" id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="cm">/* 두 리스트 연결 */</span>
-<a href="#__codelineno-63-2" id="__codelineno-63-2" name="__codelineno-63-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intArrayOf</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">).</span><span class="na">toMutableList</span><span class="p">()</span>
-<a href="#__codelineno-63-3" id="__codelineno-63-3" name="__codelineno-63-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span><span class="w">  </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결</span>
+<a href="#__codelineno-63-2" id="__codelineno-63-2" name="__codelineno-63-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">nums1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">)</span>
+<a href="#__codelineno-63-3" id="__codelineno-63-3" name="__codelineno-63-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span><span class="w"> </span><span class="c1">// 리스트 nums1을 nums 뒤에 연결한다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2757,52 +2758,52 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.py</span><pre><span></span><code><a href="#__codelineno-65-1" id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="c1"># 리스트 정렬</span>
-<a href="#__codelineno-65-2" id="__codelineno-65-2" name="__codelineno-65-2"></a><span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-65-2" id="__codelineno-65-2" name="__codelineno-65-2"></a><span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cpp</span><pre><span></span><code><a href="#__codelineno-66-1" id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-66-2" id="__codelineno-66-2" name="__codelineno-66-2"></a><span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w">  </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-66-2" id="__codelineno-66-2" name="__codelineno-66-2"></a><span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.java</span><pre><span></span><code><a href="#__codelineno-67-1" id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w">  </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-67-2" id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.cs</span><pre><span></span><code><a href="#__codelineno-68-1" id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-68-2" id="__codelineno-68-2" name="__codelineno-68-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-68-2" id="__codelineno-68-2" name="__codelineno-68-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list_test.go</span><pre><span></span><code><a href="#__codelineno-69-1" id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w">  </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-69-2" id="__codelineno-69-2" name="__codelineno-69-2"></a><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.swift</span><pre><span></span><code><a href="#__codelineno-70-1" id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-70-2" id="__codelineno-70-2" name="__codelineno-70-2"></a><span class="n">nums</span><span class="p">.</span><span class="bp">sort</span><span class="p">()</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-70-2" id="__codelineno-70-2" name="__codelineno-70-2"></a><span class="n">nums</span><span class="p">.</span><span class="bp">sort</span><span class="p">()</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.js</span><pre><span></span><code><a href="#__codelineno-71-1" id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-71-2" id="__codelineno-71-2" name="__codelineno-71-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-71-2" id="__codelineno-71-2" name="__codelineno-71-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.ts</span><pre><span></span><code><a href="#__codelineno-72-1" id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-72-2" id="__codelineno-72-2" name="__codelineno-72-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-72-2" id="__codelineno-72-2" name="__codelineno-72-2"></a><span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.dart</span><pre><span></span><code><a href="#__codelineno-73-1" id="__codelineno-73-1" name="__codelineno-73-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-73-2" id="__codelineno-73-2" name="__codelineno-73-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-73-2" id="__codelineno-73-2" name="__codelineno-73-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-74-1" id="__codelineno-74-1" name="__codelineno-74-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-74-2" id="__codelineno-74-2" name="__codelineno-74-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<div class="highlight"><span class="filename">list.rs</span><pre><span></span><code><a href="#__codelineno-74-1" id="__codelineno-74-1" name="__codelineno-74-1"></a><span class="c1">// 리스트 정렬</span>
+<a href="#__codelineno-74-2" id="__codelineno-74-2" name="__codelineno-74-2"></a><span class="n">nums</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2811,12 +2812,12 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.kt</span><pre><span></span><code><a href="#__codelineno-76-1" id="__codelineno-76-1" name="__codelineno-76-1"></a><span class="cm">/* 리스트 정렬 */</span>
-<a href="#__codelineno-76-2" id="__codelineno-76-2" name="__codelineno-76-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-76-2" id="__codelineno-76-2" name="__codelineno-76-2"></a><span class="n">nums</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span><span class="w"> </span><span class="c1">// 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">list.rb</span><pre><span></span><code><a href="#__codelineno-77-1" id="__codelineno-77-1" name="__codelineno-77-1"></a><span class="c1"># 리스트 정렬</span>
-<a href="#__codelineno-77-2" id="__codelineno-77-2" name="__codelineno-77-2"></a><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1"># 정렬 후 리스트 원소가 오름차순으로 배치됨</span>
+<a href="#__codelineno-77-2" id="__codelineno-77-2" name="__codelineno-77-2"></a><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;=&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1"># 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다</span>
 </code></pre></div>
 </div>
 </div>
