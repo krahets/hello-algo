@@ -35,19 +35,22 @@ class HashMapOpenAddressing:
         """Найти индекс корзины, соответствующий key"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # Выполнять линейное пробирование и завершить при встрече с пустой корзиной
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            bucket = self.buckets[index]
+            if bucket is None:
+                break
+            # Записать первую встретившуюся метку удаления
+            if bucket is self.TOMBSTONE:
+                if first_tombstone == -1:
+                    first_tombstone = index
             # Если встретился key, вернуть соответствующий индекс корзины
-            if self.buckets[index].key == key:
+            elif bucket.key == key:
                 # Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
                 if first_tombstone != -1:
-                    self.buckets[first_tombstone] = self.buckets[index]
+                    self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
                     return first_tombstone  # Вернуть индекс корзины после перемещения
                 return index  # Вернуть индекс корзины
-            # Записать первую встретившуюся метку удаления
-            if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                first_tombstone = index
             # Вычислить индекс корзины; при выходе за конец вернуться к началу
             index = (index + 1) % self.capacity
         # Если key не существует, вернуть индекс точки добавления

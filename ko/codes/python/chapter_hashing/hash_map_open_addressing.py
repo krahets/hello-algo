@@ -35,19 +35,22 @@ class HashMapOpenAddressing:
         """key에 해당하는 버킷 인덱스 탐색"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # 선형 탐사로 탐색하고, 빈 버킷을 만나면 반복문을 종료한다
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            bucket = self.buckets[index]
+            if bucket is None:
+                break
+            # 처음 만난 삭제 표시를 기록한다
+            if bucket is self.TOMBSTONE:
+                if first_tombstone == -1:
+                    first_tombstone = index
             # key를 만나면 해당 버킷 인덱스를 반환한다
-            if self.buckets[index].key == key:
+            elif bucket.key == key:
                 # 이전에 삭제 표시를 만났으면 키-값 쌍을 그 인덱스로 옮긴다
                 if first_tombstone != -1:
-                    self.buckets[first_tombstone] = self.buckets[index]
+                    self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
                     return first_tombstone  # 옮긴 후의 버킷 인덱스를 반환한다
                 return index  # 버킷 인덱스를 반환한다
-            # 처음 만난 삭제 표시를 기록한다
-            if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                first_tombstone = index
             # 버킷 인덱스를 계산하고, 끝을 넘어가면 처음으로 돌아온다
             index = (index + 1) % self.capacity
         # key가 없으면 추가할 위치의 인덱스를 반환한다

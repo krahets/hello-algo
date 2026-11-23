@@ -35,19 +35,22 @@ class HashMapOpenAddressing:
         """Find the bucket index for key"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # Probe linearly until an empty bucket is reached
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            bucket = self.buckets[index]
+            if bucket is None:
+                break
+            # Record the first tombstone encountered
+            if bucket is self.TOMBSTONE:
+                if first_tombstone == -1:
+                    first_tombstone = index
             # If key is found, return its bucket index
-            if self.buckets[index].key == key:
+            elif bucket.key == key:
                 # If a tombstone was encountered earlier, move the key-value pair to that index
                 if first_tombstone != -1:
-                    self.buckets[first_tombstone] = self.buckets[index]
+                    self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
                     return first_tombstone  # Return the bucket index after the move
                 return index  # Return the bucket index
-            # Record the first tombstone encountered
-            if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                first_tombstone = index
             # Calculate the bucket index, wrapping to the beginning after the end
             index = (index + 1) % self.capacity
         # If key is absent, return the index for insertion

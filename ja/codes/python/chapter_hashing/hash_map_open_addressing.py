@@ -35,19 +35,22 @@ class HashMapOpenAddressing:
         """key に対応するバケットのインデックスを探索する"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # 線形探索法で探索し、空のバケットに到達したら終了する
-        while self.buckets[index] is not None:
+        for _ in range(self.capacity):
+            bucket = self.buckets[index]
+            if bucket is None:
+                break
+            # 最初に見つかった削除マーカーを記録する
+            if bucket is self.TOMBSTONE:
+                if first_tombstone == -1:
+                    first_tombstone = index
             # key が見つかった場合、対応するバケットのインデックスを返す
-            if self.buckets[index].key == key:
+            elif bucket.key == key:
                 # それ以前に削除マーカーが見つかっていれば、そのインデックスにキーと値のペアを移す
                 if first_tombstone != -1:
-                    self.buckets[first_tombstone] = self.buckets[index]
+                    self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
                     return first_tombstone  # 移動後のバケットのインデックスを返す
                 return index  # バケットのインデックスを返す
-            # 最初に見つかった削除マーカーを記録する
-            if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                first_tombstone = index
             # バケットのインデックスを計算し、末尾を越えたら先頭に戻る
             index = (index + 1) % self.capacity
         # key が存在しない場合、追加位置のインデックスを返す
