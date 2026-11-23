@@ -11,56 +11,56 @@ import java.util.*;
 
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
-        heap.offer(val); // Push the element into heap
-        System.out.format("\nAfter element %d is added to the heap\n", val);
+        heap.offer(val); // Push an element onto the heap
+        System.out.format("\nAfter pushing %d onto the heap:\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void testPop(Queue<Integer> heap) {
-        int val = heap.poll(); // Pop the element at the heap top
-        System.out.format("\nAfter the top element %d is removed from the heap\n", val);
+        int val = heap.poll(); // Pop the top element from the heap
+        System.out.format("\nAfter popping the top element %d:\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void main(String[] args) {
-        /* Initialize the heap */
-        // Initialize min-heap
+        /* Initialize heaps */
+        // Initialize a min heap
         Queue<Integer> minHeap = new PriorityQueue<>();
-        // Initialize the max-heap (using lambda expression to modify Comparator if necessary)
+        // Initialize a max heap by supplying a lambda expression as the Comparator
         Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-        System.out.println("\nThe following test case is for max-heap");
+        System.out.println("\nThe following example uses a max heap");
 
-        /* Push the element into heap */
+        /* Push an element onto the heap */
         testPush(maxHeap, 1);
         testPush(maxHeap, 3);
         testPush(maxHeap, 2);
         testPush(maxHeap, 5);
         testPush(maxHeap, 4);
 
-        /* Access heap top element */
+        /* Get the top element of the heap */
         int peek = maxHeap.peek();
-        System.out.format("\nTop element of the heap is %d\n", peek);
+        System.out.format("\nTop element: %d\n", peek);
 
-        /* Pop the element at the heap top */
+        /* Pop the top element from the heap */
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
 
-        /* Get heap size */
+        /* Get the heap size */
         int size = maxHeap.size();
-        System.out.format("\nNumber of elements in the heap is %d\n", size);
+        System.out.format("\nNumber of elements in the heap: %d\n", size);
 
-        /* Determine if heap is empty */
+        /* Check whether the heap is empty */
         boolean isEmpty = maxHeap.isEmpty();
-        System.out.format("\nIs the heap empty %b\n", isEmpty);
+        System.out.format("\nIs the heap empty? %b\n", isEmpty);
 
-        /* Enter list and build heap */
-        // Time complexity is O(n), not O(nlogn)
+        /* Build a heap from an input list */
+        // The time complexity is O(n), not O(nlogn)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\nEnter list and build min-heap");
+        System.out.println("\nAfter building a min heap from the input list:");
         PrintUtil.printHeap(minHeap);
     }
 }

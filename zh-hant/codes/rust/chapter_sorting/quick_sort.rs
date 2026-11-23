@@ -90,7 +90,7 @@ impl QuickSortMedian {
     }
 }
 
-/* 快速排序（尾遞迴最佳化） */
+/* 快速排序（遞迴深度最佳化） */
 struct QuickSortTailCall;
 
 impl QuickSortTailCall {
@@ -111,7 +111,7 @@ impl QuickSortTailCall {
         i // 返回基準數的索引
     }
 
-    /* 快速排序（尾遞迴最佳化） */
+    /* 快速排序（遞迴深度最佳化） */
     pub fn quick_sort(mut left: i32, mut right: i32, nums: &mut [i32]) {
         // 子陣列長度為 1 時終止
         while left < right {
@@ -141,8 +141,8 @@ fn main() {
     QuickSortMedian::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
     println!("快速排序（中位基準數最佳化）完成後 nums = {:?}", nums);
 
-    /* 快速排序（尾遞迴最佳化） */
+    /* 快速排序（遞迴深度最佳化） */
     let mut nums = [2, 4, 1, 0, 3, 5];
     QuickSortTailCall::quick_sort(0, (nums.len() - 1) as i32, &mut nums);
-    println!("快速排序（尾遞迴最佳化）完成後 nums = {:?}", nums);
+    println!("快速排序（遞迴深度最佳化）完成後 nums = {:?}", nums);
 }

@@ -1,239 +1,78 @@
-# How to read
+# How to use this book
 
 !!! tip
 
-    For the best reading experience, it is recommended that you read through this section.
+    For the best reading experience, we recommend reading this section in full.
 
 ## Writing conventions
 
-- Chapters marked with '*' after the title are optional and contain relatively challenging content. If you are short on time, it is advisable to skip them.
-- Technical terms will be in boldface (in the print and PDF versions) or underlined (in the web version), for instance, <u>array</u>. It's advisable to familiarize yourself with these for better comprehension of technical texts.
-- **Bolded text** indicates key content or summary statements, which deserve special attention.
-- Words and phrases with specific meanings are indicated with “quotation marks” to avoid ambiguity.
-- When it comes to terms that are inconsistent between programming languages, this book follows Python, for example using `None` to mean `null`.
-- This book partially ignores the comment conventions for programming languages in exchange for a more compact layout of the content. The comments primarily consist of three types: title comments, content comments, and multi-line comments.
+- Sections with `*` after the title are optional and cover more difficult material. If your time is limited, you can skip them at first.
+- Technical terms appear in bold in the print and PDF editions or are underlined in the web edition, such as <u>array</u>. Remembering these terms will help you read technical literature.
+- Key points and summary statements appear in **bold** and deserve particular attention.
+- Words and phrases used in a specific sense appear in “quotation marks” to avoid ambiguity.
+- When terminology differs between programming languages, this book follows Python; for example, it uses `None` to represent a null value.
+- For a more compact layout, this book sometimes departs from a language's usual commenting conventions. Comments fall into three main categories: heading comments, explanatory comments, and multiline comments.
 
-=== "Python"
+```snippet
+comment_style
+```
 
-    ```python title=""
-    """Header comments for labeling functions, classes, test samples, etc"""
-   
-    # Comments for explaining details
-   
-    """
-    Multiline
-    comments
-    """
-    ```
+## Learn efficiently with animated illustrations
 
-=== "C++"
+Compared with text, videos and images convey information in a denser, more structured form that is easier to understand. In this book, **key and difficult concepts are presented mainly through animated illustrations**, with text providing explanations and additional detail.
 
-    ```cpp title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
+When a passage includes an animated illustration like the one below, **focus on the illustration and use the text to support it**, drawing on both to understand the material.
 
-=== "Java"
+![An example of an animated illustration](../index.assets/animation.gif)
 
-    ```java title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
+## Deepen your understanding through coding
 
-=== "C#"
+The accompanying code is hosted in the [GitHub repository](https://github.com/krahets/hello-algo). As the figure below shows, **the source code includes test cases and can be run with one click**.
 
-    ```csharp title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
+If time permits, **we recommend typing out the code yourself while referring to the examples**. If your study time is limited, at least read and run all the code.
 
-=== "Go"
+Writing code often teaches us more than reading it. **Hands-on practice is where real learning happens**.
 
-    ```go title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
+![An example of running code](../index.assets/running_code.gif)
 
-=== "Swift"
+Getting ready to run the code involves three main steps.
 
-    ```swift title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
+**Step 1: Set up a local programming environment**. Follow the [tutorial](../chapter_appendix/installation.md) in the appendix. If your environment is already set up, skip this step.
 
-=== "JS"
-
-    ```javascript title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* Header comments for labeling functions, classes, test samples, etc */
-   
-    // Comments for explaining details.
-   
-    /**
-     * Multiline
-     * comments
-     */
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-    // Header comments for labeling functions, classes, test samples, etc
-   
-    // Comments for explaining details.
-   
-    // Multiline
-    // comments
-    ```
-
-## Efficient learning via animated illustrations
-
-Compared with text, videos and pictures have a higher density of information and are more structured, making them easier to understand. In this book, **key and difficult concepts are mainly presented through animations and illustrations**, with text serving as explanations and supplements.
-
-When encountering content with animations or illustrations as shown in the figure below, **prioritize understanding the figure, with text as supplementary**, integrating both for a comprehensive understanding.
-
-![Animated illustration example](../index.assets/animation.gif)
-
-## Deepen understanding through coding practice
-
-The source code of this book is hosted on the [GitHub Repository](https://github.com/krahets/hello-algo). As shown in the figure below, **the source code comes with test examples and can be executed with just a single click**.
-
-If time permits, **it's recommended to type out the code yourself**. If pressed for time, at least read and run all the codes.
-
-Compared to just reading code, writing code often yields more learning. **Learning by doing is the real way to learn.**
-
-![Running code example](../index.assets/running_code.gif)
-
-Setting up to run the code involves three main steps.
-
-**Step 1: Install a local programming environment**. Follow the [tutorial](https://www.hello-algo.com/chapter_appendix/installation/) in the appendix for installation, or skip this step if already installed.
-
-**Step 2: Clone or download the code repository**. Visit the [GitHub Repository](https://github.com/krahets/hello-algo).
-
-If [Git](https://git-scm.com/downloads) is installed, use the following command to clone the repository:
+**Step 2: Clone or download the repository**. Visit the [GitHub repository](https://github.com/krahets/hello-algo). If you have [Git](https://git-scm.com/downloads) installed, clone the repository with the following command:
 
 ```shell
 git clone https://github.com/krahets/hello-algo.git
 ```
 
-Alternatively, you can also click the "Download ZIP" button at the location shown in the figure below to directly download the code as a compressed ZIP file. Then, you can simply extract it locally.
+Alternatively, click “Download ZIP” in the location shown below to download the code as an archive, then extract it on your computer.
 
-![Cloning repository and downloading code](suggestions.assets/download_code.png)
+![Cloning the repository and downloading the code](suggestions.assets/download_code.png)
 
-**Step 3: Run the source code**. As shown in the figure below, for the code block labeled with the file name at the top, we can find the corresponding source code file in the `codes` folder of the repository. These files can be executed with a single click, which will help you save unnecessary debugging time and allow you to focus on learning.
+**Step 3: Run the source code**. As shown below, when a code block has a filename at the top, you can find the corresponding source file in the repository's `en/codes` folder. These files can be run with one click, saving unnecessary debugging time so you can focus on learning.
 
-![Code block and corresponding source code file](suggestions.assets/code_md_to_repo.png)
+![A code block labeled with its source filename](suggestions.assets/code_md_to_repo.svg)
 
-## Learning together in discussion
+In addition to running code locally, **the web edition supports visual execution of Python code** through [pythontutor](https://pythontutor.com/). Click “Visualize execution” beneath a code block to expand the view and watch the algorithm run. You can also click “View full screen” for a larger display, as shown in the figure below.
 
-While reading this book, please don't skip over the points that you didn't learn. **Feel free to post your questions in the comment section**. We will be happy to answer them and can usually respond within two days.
+![Python code visualized in PythonTutor](suggestions.assets/pythontutor_example.png)
 
-As illustrated in the figure below, each chapter features a comment section at the bottom. I encourage you to pay attention to these comments. They not only expose you to others' encountered problems, aiding in identifying knowledge gaps and sparking deeper contemplation, but also invite you to generously contribute by answering fellow readers' inquiries, sharing insights, and fostering mutual improvement.
+## Learn together through questions and discussion
 
-![Comment section example](../index.assets/comment.gif)
+As you read, do not simply skip concepts you have not understood. **You are welcome to ask questions in the comments**. My fellow contributors and I will do our best to answer, usually within two days.
 
-## Algorithm learning path
+As shown below, every section in the web edition has a comments area at the bottom. I hope you will read it regularly. Other readers' questions can reveal gaps in your own understanding and encourage deeper thought. I also hope you will generously answer their questions, share your insights, and help them make progress.
 
-Overall, the journey of mastering data structures and algorithms can be divided into three stages:
+![An example of the comments area](../index.assets/comment.gif)
 
-1. **Stage 1: Introduction to algorithms**. We need to familiarize ourselves with the characteristics and usage of various data structures and learn about the principles, processes, uses, and efficiency of different algorithms.
-2. **Stage 2: Practicing algorithm problems**. It is recommended to start from popular problems, such as [Sword for Offer](https://leetcode.cn/studyplan/coding-interviews/) and [LeetCode Hot 100](https://leetcode.cn/studyplan/top-100- liked/), and accumulate at least 100 questions to familiarize yourself with mainstream algorithmic problems. Forgetfulness can be a challenge when you start practicing, but rest assured that this is normal. We can follow the "Ebbinghaus Forgetting Curve" to review the questions, and usually after 3~5 rounds of repetitions, we will be able to memorize them.
-3. **Stage 3: Building the knowledge system**. In terms of learning, we can read algorithm column articles, solution frameworks, and algorithm textbooks to continuously enrich the knowledge system. In terms of practicing, we can try advanced strategies, such as categorizing by topic, multiple solutions for a single problem,  and one solution for multiple problems, etc. Insights on these strategies can be found in various communities.
+## A learning path for algorithms
 
-As shown in the figure below, this book mainly covers “Stage 1,” aiming to help you more efficiently embark on Stages 2 and 3.
+Broadly speaking, learning data structures and algorithms can be divided into three stages.
 
-![Algorithm learning path](suggestions.assets/learning_route.png)
+1. **Stage 1: Learn the fundamentals**. Become familiar with the properties and uses of data structures, and study how different algorithms work, their steps, applications, and efficiency.
+2. **Stage 2: Solve practice problems**. We recommend starting with popular problems and solving at least 100 to become familiar with common algorithmic problems. When you first begin, forgetting what you have learned may be a challenge, but this is normal. Review problems according to the “Ebbinghaus forgetting curve”; after 3–5 rounds of repetition, they will usually be firmly in memory. See this [GitHub repository](https://github.com/krahets/LeetCode-Book) for recommended problem lists and practice plans.
+3. **Stage 3: Build a systematic understanding**. Read algorithm articles, problem-solving frameworks, and textbooks to keep expanding your knowledge. In your practice, try more advanced strategies: group problems by topic, solve one problem in several ways, or apply one solution to several problems. You can find advice on these strategies in various communities.
+
+As the figure below shows, this book mainly covers “Stage 1,” helping you approach Stages 2 and 3 more efficiently.
+
+![A learning path for algorithms](suggestions.assets/learning_route.svg)

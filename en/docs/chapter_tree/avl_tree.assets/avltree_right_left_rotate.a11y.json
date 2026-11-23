@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "title": "Right-then-left rotation in an AVL tree",
+  "summary": "The path 3 → 5 → 4 bends right and then left. Rotate child (5) right, then node (3) left to make 4 the new root of this subtree.",
+  "context": [
+    "Root 2 has left child 1 and right child 3; 3 has only a right child, 5, and 5 only a left child, 4. Here node denotes the unbalanced node 3 and child its right child 5.",
+    "The balance factor is left subtree height minus right subtree height. A leaf has height 0 and an empty subtree has height −1. The tree is balanced when every node’s factor has absolute value at most 1. The values below follow from the links in the figure.",
+    "The balance factor is −2 at node (3), 1 at child (5), and −2 at the outer root 2. Repairing the lowest unbalanced node, 3, also restores balance at the outer root."
+  ],
+  "description": [
+    "Three panels from left to right show the initial tree, the first rotation, and the second rotation.",
+    "First, rotate child (5) right. Node 4 becomes the root of that small subtree, 5 becomes its right child, and 4 replaces 5 as the right child of 3. In the middle panel the bent path has straightened into the rightward chain 3 → 4 → 5.",
+    "Next, rotate the originally unbalanced node (3) left. Node 4 rises again and becomes the local root, with 3 as its left child and 5 still its right child. Outer parent 2 updates its right child to 4 and keeps its left child 1."
+  ],
+  "result": "After both rotations the entire tree is balanced. Its inorder traversal remains [1, 2, 3, 4, 5].",
+  "frames": [
+    {
+      "id": "source-138",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_left_rotate.png",
+      "title": "Right-then-left rotation in an AVL tree",
+      "explanation": "This mirrors a left rotation followed by a right rotation. First rotate the child to align the bent path with the direction of the imbalance. Then rotate the unbalanced node. Balance returns while key order is preserved."
+    }
+  ],
+  "animations": {
+    "avl-right-left": {
+      "kind": "prose",
+      "prose": {
+        "title": "Right-then-left rotation in an AVL tree",
+        "summary": "The path 3 → 5 → 4 bends right and then left. Rotate child (5) right, then node (3) left to make 4 the new root of this subtree.",
+        "context": [
+          "Root 2 has left child 1 and right child 3; 3 has only a right child, 5, and 5 only a left child, 4. Here node denotes the unbalanced node 3 and child its right child 5.",
+          "The balance factor is left subtree height minus right subtree height. A leaf has height 0 and an empty subtree has height −1. The tree is balanced when every node’s factor has absolute value at most 1. The values below follow from the links in the figure.",
+          "The balance factor is −2 at node (3), 1 at child (5), and −2 at the outer root 2. Repairing the lowest unbalanced node, 3, also restores balance at the outer root."
+        ],
+        "description": [
+          "Three panels from left to right show the initial tree, the first rotation, and the second rotation.",
+          "First, rotate child (5) right. Node 4 becomes the root of that small subtree, 5 becomes its right child, and 4 replaces 5 as the right child of 3. In the middle panel the bent path has straightened into the rightward chain 3 → 4 → 5.",
+          "Next, rotate the originally unbalanced node (3) left. Node 4 rises again and becomes the local root, with 3 as its left child and 5 still its right child. Outer parent 2 updates its right child to 4 and keeps its left child 1."
+        ],
+        "result": "After both rotations the entire tree is balanced. Its inorder traversal remains [1, 2, 3, 4, 5].",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Identify the right–left imbalance at node 3",
+            "explanation": "Before rotation: Root 2 has left child 1 and right child 3; 3 has only a right child, 5, and 5 only a left child, 4. Nodes 1 and 4 are leaves. Orange node points to 3 with factor −2, blue child points to 5 with factor 1, and the green grandchild is 4. “Perform a right rotation on child” is the first step in straightening the right–left path.",
+            "key_state": "Root 2 has left child 1 and right child 3; 3 has only a right child, 5, and 5 only a left child, 4. With node=3 and child=5, first rotate 5 right.",
+            "announcement": "Locate the right–left imbalance at node 3. Its right child 5 is the first node to rotate, to the right."
+          },
+          {
+            "id": "step-2",
+            "title": "Complete the right rotation at node 5",
+            "explanation": "After rotating child (5) right: Root 2 has left child 1 and right child 3; 3 has only a right child, 4, and 4 only a right child, 5. Nodes 1 and 5 are leaves. Green 4 has risen and blue 5 has moved down, forming the rightward chain 3→4→5. The prompt changes to “Perform a left rotation on node,” and a curved arrow indicates a left rotation at 3.",
+            "key_state": "After rotating 5 right: Root 2 has left child 1 and right child 3; 3 has only a right child, 4, and 4 only a right child, 5. Next rotate 3 left.",
+            "announcement": "Right rotation at 5 complete. Node 4 becomes the right child of 3, ready for the left rotation at 3."
+          },
+          {
+            "id": "step-3",
+            "title": "Complete the left rotation at node 3",
+            "explanation": "Rotate node (3) left. Green 4 becomes the right child of outer root 2, whose left child remains 1. Node 4 has orange 3 on the left and blue 5 on the right. Nodes 1, 3, and 5 are leaves. “Balance restored” beside 4 marks the end of the double rotation.",
+            "key_state": "After rotating 3 left: Root 2 has left child 1 and right child 4; 4 has left child 3 and right child 5. The entire tree is balanced.",
+            "announcement": "Rotate 3 left. Node 4 takes over as the subtree root, restoring balance to the entire tree."
+          }
+        ]
+      }
+    }
+  }
+}

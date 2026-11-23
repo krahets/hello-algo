@@ -10,59 +10,59 @@ import utils.*;
 import java.util.*;
 
 public class binary_tree_dfs {
-    // Initialize the list for storing traversal sequences
+    // Initialize a list to store the traversal sequence
     static ArrayList<Integer> list = new ArrayList<>();
 
-    /* Pre-order traversal */
+    /* Preorder traversal */
     static void preOrder(TreeNode root) {
         if (root == null)
             return;
-        // Visit priority: root node -> left subtree -> right subtree
+        // Visit order: root -> left subtree -> right subtree
         list.add(root.val);
         preOrder(root.left);
         preOrder(root.right);
     }
 
-    /* In-order traversal */
+    /* Inorder traversal */
     static void inOrder(TreeNode root) {
         if (root == null)
             return;
-        // Visit priority: left subtree -> root node -> right subtree
+        // Visit order: left subtree -> root -> right subtree
         inOrder(root.left);
         list.add(root.val);
         inOrder(root.right);
     }
 
-    /* Post-order traversal */
+    /* Postorder traversal */
     static void postOrder(TreeNode root) {
         if (root == null)
             return;
-        // Visit priority: left subtree -> right subtree -> root node
+        // Visit order: left subtree -> right subtree -> root
         postOrder(root.left);
         postOrder(root.right);
         list.add(root.val);
     }
 
     public static void main(String[] args) {
-        /* Initialize binary tree */
-        // Use a specific function to convert an array into a binary tree
+        /* Initialize the binary tree */
+        // Use a helper function that builds a binary tree directly from an array
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
-        System.out.println("\nInitialize binary tree\n");
+        System.out.println("\nInitialize the binary tree\n");
         PrintUtil.printTree(root);
 
-        /* Pre-order traversal */
+        /* Preorder traversal */
         list.clear();
         preOrder(root);
-        System.out.println("\nPrint sequence of nodes from pre-order traversal = " + list);
+        System.out.println("\nNode sequence from preorder traversal = " + list);
 
-        /* In-order traversal */
+        /* Inorder traversal */
         list.clear();
         inOrder(root);
-        System.out.println("\nPrint sequence of nodes from in-order traversal = " + list);
+        System.out.println("\nNode sequence from inorder traversal = " + list);
 
-        /* Post-order traversal */
+        /* Postorder traversal */
         list.clear();
         postOrder(root);
-        System.out.println("\nPrint sequence of nodes from post-order traversal = " + list);
+        System.out.println("\nNode sequence from postorder traversal = " + list);
     }
 }

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Undirected and directed graphs: two-way undirected edges vs. independent directed edges",
+  "summary": "Contrast edge direction constraints on the same vertex layout using undirected segments and directed arrows.",
+  "context": [
+    "Both the left and right figures contain five vertices numbered 1, 2, 3, 4, 5 in the exact same geometric layout (1 top-left, 3 bottom-left, 5 top-center, 2 bottom-center, 4 right) to contrast undirected and directed edges."
+  ],
+  "description": [
+    "On the left is \"Undirected graph (Edges have no direction)\" with 7 arrowhead-free undirected edges: 1—2, 1—3, 1—5, 2—3, 2—4, 2—5, and 4—5. Every undirected edge inherently represents a two-way connection between two vertices; for example, edge 1—5 allows traversal both from 1 to 5 and from 5 to 1.",
+    "On the right is \"Directed graph (Edges have a direction)\" with 9 arrows, listed by tail vertex as 1→3, 2→1, 2→4, 2→5, 3→1, 3→2, 4→5, 5→1, and 5→4. Between vertices 1 and 3, and between 4 and 5, there is a pair of arrows in opposite directions, while the other five connections each have only a one-way arrow."
+  ],
+  "frames": [
+    {
+      "id": "source-174",
+      "book_path": "chapter_graph/graph.assets/directed_graph.png",
+      "title": "Undirected and directed graphs: two-way undirected edges vs. independent directed edges",
+      "explanation": "Directed edges in opposite directions are independent of one another. For instance, the right graph has 5→1 without a direct 1→5, although 5 is still indirectly reachable from 1 via 1→3→2→5. Direct two-way reachability requires two opposite directed edges; an indirect path must not be mistaken for a direct edge."
+    }
+  ]
+}

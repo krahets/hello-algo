@@ -11,6 +11,7 @@ let package = Package(
         .executable(name: "time_complexity", targets: ["time_complexity"]),
         .executable(name: "worst_best_time_complexity", targets: ["worst_best_time_complexity"]),
         .executable(name: "space_complexity", targets: ["space_complexity"]),
+        .executable(name: "complexity_exercises", targets: ["complexity_exercises"]),
         // chapter_array_and_linkedlist
         .executable(name: "array", targets: ["array"]),
         .executable(name: "linked_list", targets: ["linked_list"]),
@@ -70,6 +71,7 @@ let package = Package(
         .executable(name: "binary_search_recur", targets: ["binary_search_recur"]),
         .executable(name: "build_tree", targets: ["build_tree"]),
         .executable(name: "hanota", targets: ["hanota"]),
+        .executable(name: "fast_power", targets: ["fast_power"]),
         // chapter_backtracking
         .executable(name: "preorder_traversal_i_compact", targets: ["preorder_traversal_i_compact"]),
         .executable(name: "preorder_traversal_ii_compact", targets: ["preorder_traversal_ii_compact"]),
@@ -114,6 +116,7 @@ let package = Package(
         .executableTarget(name: "time_complexity", path: "chapter_computational_complexity", sources: ["time_complexity.swift"]),
         .executableTarget(name: "worst_best_time_complexity", path: "chapter_computational_complexity", sources: ["worst_best_time_complexity.swift"]),
         .executableTarget(name: "space_complexity", dependencies: ["utils"], path: "chapter_computational_complexity", sources: ["space_complexity.swift"]),
+        .executableTarget(name: "complexity_exercises", path: "chapter_computational_complexity", sources: ["complexity_exercises.swift"]),
         // chapter_array_and_linkedlist
         .executableTarget(name: "array", path: "chapter_array_and_linkedlist", sources: ["array.swift"]),
         .executableTarget(name: "linked_list", dependencies: ["utils"], path: "chapter_array_and_linkedlist", sources: ["linked_list.swift"]),
@@ -173,6 +176,7 @@ let package = Package(
         .executableTarget(name: "binary_search_recur", path: "chapter_divide_and_conquer", sources: ["binary_search_recur.swift"]),
         .executableTarget(name: "build_tree", dependencies: ["utils"], path: "chapter_divide_and_conquer", sources: ["build_tree.swift"]),
         .executableTarget(name: "hanota", path: "chapter_divide_and_conquer", sources: ["hanota.swift"]),
+        .executableTarget(name: "fast_power", path: "chapter_divide_and_conquer", sources: ["fast_power.swift"]),
         // chapter_backtracking
         .executableTarget(name: "preorder_traversal_i_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_i_compact.swift"]),
         .executableTarget(name: "preorder_traversal_ii_compact", dependencies: ["utils"], path: "chapter_backtracking", sources: ["preorder_traversal_ii_compact.swift"]),

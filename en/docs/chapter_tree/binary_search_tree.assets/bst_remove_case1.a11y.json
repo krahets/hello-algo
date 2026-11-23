@@ -1,0 +1,300 @@
+{
+  "schema_version": 2,
+  "title": "Delete a leaf from a binary search tree",
+  "summary": "A leaf has degree 0, so it leaves no subtree to reconnect. Clear the parent’s reference to the leaf.",
+  "context": [
+    "Delete leaf 1 from a tree rooted at 8 with values 1 through 15. The two panels show the tree before and after deletion with a degree-0 check between them. The pointer cur identifies the target and pre its parent. The table compares links before and after deletion. “Removed” means the node is no longer in the tree."
+  ],
+  "description": [],
+  "result": "The remaining values 2 through 15 preserve binary search tree order. The empty position to the left of 2 represents a None reference, not a new node.",
+  "frames": [
+    {
+      "id": "source-122",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case1.png",
+      "title": "Delete a leaf from a binary search tree",
+      "explanation": "Follow 8 → 4 → 2 → 1 to find target 1. Now cur points to 1 and pre to parent 2. Since 1 has no children, its degree is 0 and no subtree needs reattaching. Set pre.left = None to clear the left link of parent 2."
+    }
+  ],
+  "animations": {
+    "bst-remove-leaf": {
+      "kind": "prose",
+      "prose": {
+        "title": "Delete a leaf from a binary search tree",
+        "summary": "A leaf has degree 0, so it leaves no subtree to reconnect. Clear the parent’s reference to the leaf.",
+        "context": [
+          "Delete leaf 1 from a tree rooted at 8 with values 1 through 15. The two panels show the tree before and after deletion with a degree-0 check between them. The pointer cur identifies the target and pre its parent. The table compares links before and after deletion. “Removed” means the node is no longer in the tree."
+        ],
+        "description": [
+          "Animation steps 1 and 2 correspond to the two before-deletion columns in the links table. The last step corresponds to the two after-deletion columns. Look up any node by its row header in either state."
+        ],
+        "result": "The remaining values 2 through 15 preserve binary search tree order. The empty position to the left of 2 represents a None reference, not a new node.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Locate the leaf to delete",
+            "explanation": "Target 1 is smaller than 8, 4, and 2. Following 8→4→2→1 gives cur=1 and pre=2. Node 2 still has left child 1 and right child 3. Nothing has been deleted. See the two before-deletion columns in “Binary search tree links before and after leaf deletion” for all links.",
+            "key_state": "With cur = 1 and pre = 2, the target is located and not yet deleted.",
+            "announcement": "Follow left links to find target 1 and its parent 2."
+          },
+          {
+            "id": "step-2",
+            "title": "Check that the target has no children",
+            "explanation": "Both child links of cur (1) are empty. Its degree is 0, so there is no subtree to reconnect. This is only the check: node 1 is still present. Here pre=2, and node 2 still has left child 1 and right child 3. All links still match the table’s two before-deletion columns.",
+            "key_state": "Node 1 has degree 0 and is still present. Parent 2 has left child 1 and right child 3.",
+            "announcement": "Target 1 has degree 0. Its parent’s link is still intact."
+          },
+          {
+            "id": "step-3",
+            "title": "Clear the parent’s left link",
+            "explanation": "Execute pre.left = None to detach leaf 1. The root is still 8. Node 2 has no left child and has right leaf 3. All other links are unchanged, leaving values 2 through 15. The two after-deletion columns in the same table give the full tree and mark node 1 as removed.",
+            "key_state": "Node 2’s left link is None and its right child is 3. Leaf 1 has been detached, leaving values 2 through 15.",
+            "announcement": "Set parent 2’s left link to None to finish deleting leaf 1."
+          }
+        ],
+        "tables": [
+          {
+            "caption": "Binary search tree links before and after leaf deletion",
+            "headers": [
+              "Node",
+              "Left child before deletion",
+              "Right child before deletion",
+              "Left child after deletion",
+              "Right child after deletion"
+            ],
+            "rows": [
+              [
+                "1",
+                "Empty",
+                "Empty",
+                "Removed",
+                "Removed"
+              ],
+              [
+                "2",
+                "1",
+                "3",
+                "Empty",
+                "3"
+              ],
+              [
+                "3",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "4",
+                "2",
+                "6",
+                "2",
+                "6"
+              ],
+              [
+                "5",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "6",
+                "5",
+                "7",
+                "5",
+                "7"
+              ],
+              [
+                "7",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "8",
+                "4",
+                "12",
+                "4",
+                "12"
+              ],
+              [
+                "9",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "10",
+                "9",
+                "11",
+                "9",
+                "11"
+              ],
+              [
+                "11",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "12",
+                "10",
+                "14",
+                "10",
+                "14"
+              ],
+              [
+                "13",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "14",
+                "13",
+                "15",
+                "13",
+                "15"
+              ],
+              [
+                "15",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ]
+            ],
+            "row_header": 0
+          }
+        ],
+        "input_tables": [
+          0
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Binary search tree links before and after leaf deletion",
+      "headers": [
+        "Node",
+        "Left child before deletion",
+        "Right child before deletion",
+        "Left child after deletion",
+        "Right child after deletion"
+      ],
+      "rows": [
+        [
+          "1",
+          "Empty",
+          "Empty",
+          "Removed",
+          "Removed"
+        ],
+        [
+          "2",
+          "1",
+          "3",
+          "Empty",
+          "3"
+        ],
+        [
+          "3",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "4",
+          "2",
+          "6",
+          "2",
+          "6"
+        ],
+        [
+          "5",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "6",
+          "5",
+          "7",
+          "5",
+          "7"
+        ],
+        [
+          "7",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "8",
+          "4",
+          "12",
+          "4",
+          "12"
+        ],
+        [
+          "9",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "10",
+          "9",
+          "11",
+          "9",
+          "11"
+        ],
+        [
+          "11",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "12",
+          "10",
+          "14",
+          "10",
+          "14"
+        ],
+        [
+          "13",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "14",
+          "13",
+          "15",
+          "13",
+          "15"
+        ],
+        [
+          "15",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

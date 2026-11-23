@@ -1,0 +1,180 @@
+{
+  "schema_version": 2,
+  "title": "AVL right rotation with a grandchild",
+  "summary": "Rotate unbalanced node 5 right, promoting its left child 3 to root. Reattach the former right child of 3, node 4, as the left child of 5.",
+  "context": [
+    "Root 5 has left child 3 and right child 6; 3 has left child 1 and right child 4; 1 has only left child 0. The unbalanced node 5 is labeled node, its left child 3 is child, and the right child of 3, node 4, is grand_child.",
+    "The balance factor is left subtree height minus right subtree height. An empty subtree has height −1 and a leaf 0. The links give root 5 a left height of 2 and a right height of 0, so its factor is 2 and a right rotation is needed."
+  ],
+  "description": [
+    "The right rotation promotes left child 3 to subtree root and moves the old root 5 to its right. Since the right child of 3 was grandchild 4, save its reference first and reattach it as the left child of 5. Because 3 < 4 < 5, node 4 stays in the right subtree of 3 and to the left of 5, preserving search tree order.",
+    "First save grand_child = child.right, then set child.right = node, and finally node.left = grand_child. Node 1 with its left child 0 remains to the left of 3. Node 6 remains the right child of 5.",
+    "Three panels, left to right: before rotation, after the right rotation and transfer of the grandchild, and the tidied layout. The middle panel already shows all final links. The pale dashed old positions of 5 and 6 and their old links provide a reference. The last panel removes the dashes and adjusts the layout without rotating again."
+  ],
+  "result": "All nodes are retained. The inorder sequence remains [0, 1, 3, 4, 5, 6].",
+  "frames": [
+    {
+      "id": "source-134",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_with_grandchild.png",
+      "title": "AVL right rotation with a grandchild",
+      "explanation": "After rotation, both subtrees of new root 3 have height 1, restoring balance. Nodes 0, 4, and 6 remain leaves."
+    }
+  ],
+  "animations": {
+    "avl-right-with-grandchild": {
+      "kind": "prose",
+      "prose": {
+        "title": "AVL right rotation with a grandchild",
+        "summary": "Rotate unbalanced node 5 right, promoting its left child 3 to root. Reattach the former right child of 3, node 4, as the left child of 5.",
+        "context": [
+          "Root 5 has left child 3 and right child 6; 3 has left child 1 and right child 4; 1 has only left child 0. The unbalanced node 5 is labeled node, its left child 3 is child, and the right child of 3, node 4, is grand_child.",
+          "The balance factor is left subtree height minus right subtree height. An empty subtree has height −1 and a leaf 0. The links give root 5 a left height of 2 and a right height of 0, so its factor is 2 and a right rotation is needed."
+        ],
+        "description": [
+          "The right rotation promotes left child 3 to subtree root and moves the old root 5 to its right. Since the right child of 3 was grandchild 4, save its reference first and reattach it as the left child of 5. Because 3 < 4 < 5, node 4 stays in the right subtree of 3 and to the left of 5, preserving search tree order.",
+          "First save grand_child = child.right, then set child.right = node, and finally node.left = grand_child. Node 1 with its left child 0 remains to the left of 3. Node 6 remains the right child of 5.",
+          "Three panels, left to right: before rotation, after the right rotation and transfer of the grandchild, and the tidied layout. The middle panel already shows all final links. The pale dashed old positions of 5 and 6 and their old links provide a reference. The last panel removes the dashes and adjusts the layout without rotating again."
+        ],
+        "result": "All nodes are retained. The inorder sequence remains [0, 1, 3, 4, 5, 6].",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Locate grandchild 4 for reattachment",
+            "explanation": "Before rotation: Root 5 has left child 3 and right child 6; 3 has left child 1 and right child 4; 1 has only left child 0. Nodes 0, 4, and 6 are leaves. Here node=5, child=3, and grand_child=4. The left and right heights of the root are 2 and 0, giving balance factor 2. Save the reference to grandchild 4 before rotating right.",
+            "key_state": "Before rotation: Root 5 has left child 3 and right child 6; 3 has left child 1 and right child 4; 1 has only left child 0. Grandchild 4 awaits reattachment.",
+            "announcement": "Identify unbalanced node 5 and grandchild 4 to reattach."
+          },
+          {
+            "id": "step-2",
+            "title": "Rotate right and reattach node 4",
+            "explanation": "Right rotation complete. Root 3 has left child 1 and right child 5; 1 has only left child 0; 5 has left child 4 and right child 6. Nodes 0, 4, and 6 are leaves. Node 3 has risen to root and 5 occupies its former right child position. Since 3<4<5, grandchild 4 reattaches to the left of 5. Dashed former positions of 5 and 6 and their old links show the original layout. There are still 6 actual nodes.",
+            "key_state": "After the right rotation: Root 3 has left child 1 and right child 5; 1 has only left child 0; 5 has left child 4 and right child 6. All current links are in place. Dashes mark former positions only.",
+            "announcement": "Complete the right rotation, attaching grandchild 4 to the left of 5."
+          },
+          {
+            "id": "step-3",
+            "title": "Show the balanced tree",
+            "explanation": "The old dashes disappear and the layout is tidied. No further rotation or reference changes occur. Root 3 has left child 1 and right child 5; 1 has only left child 0; 5 has left child 4 and right child 6. Nodes 0, 4, and 6 are leaves. Both subtrees of root 3 have height 1. Inorder traversal gives [0, 1, 3, 4, 5, 6].",
+            "key_state": "Dashes removed; no second rotation. Root 3 has left child 1 and right child 5; 1 has only left child 0; 5 has left child 4 and right child 6. Both subtrees of the new root have height 1.",
+            "announcement": "Remove the dashed reference marks to show the balanced subtree."
+          }
+        ],
+        "tables": [
+          {
+            "caption": "Parent–child links before and after the right rotation",
+            "headers": [
+              "Node",
+              "Left child before rotation",
+              "Right child before rotation",
+              "Left child after rotation",
+              "Right child after rotation"
+            ],
+            "rows": [
+              [
+                "5",
+                "3",
+                "6",
+                "4",
+                "6"
+              ],
+              [
+                "3",
+                "1",
+                "4",
+                "1",
+                "5"
+              ],
+              [
+                "1",
+                "0",
+                "None",
+                "0",
+                "None"
+              ],
+              [
+                "0",
+                "None",
+                "None",
+                "None",
+                "None"
+              ],
+              [
+                "4",
+                "None",
+                "None",
+                "None",
+                "None"
+              ],
+              [
+                "6",
+                "None",
+                "None",
+                "None",
+                "None"
+              ]
+            ],
+            "row_header": 0
+          }
+        ],
+        "input_tables": []
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Parent–child links before and after the right rotation",
+      "headers": [
+        "Node",
+        "Left child before rotation",
+        "Right child before rotation",
+        "Left child after rotation",
+        "Right child after rotation"
+      ],
+      "rows": [
+        [
+          "5",
+          "3",
+          "6",
+          "4",
+          "6"
+        ],
+        [
+          "3",
+          "1",
+          "4",
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "0",
+          "None",
+          "0",
+          "None"
+        ],
+        [
+          "0",
+          "None",
+          "None",
+          "None",
+          "None"
+        ],
+        [
+          "4",
+          "None",
+          "None",
+          "None",
+          "None"
+        ],
+        [
+          "6",
+          "None",
+          "None",
+          "None",
+          "None"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

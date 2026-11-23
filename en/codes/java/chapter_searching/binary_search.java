@@ -7,39 +7,39 @@
 package chapter_searching;
 
 public class binary_search {
-    /* Binary search (double closed interval) */
+    /* Binary search (closed interval) */
     static int binarySearch(int[] nums, int target) {
-        // Initialize double closed interval [0, n-1], i.e., i, j point to the first element and last element of the array respectively
+        // Initialize the closed interval [0, n-1], with i and j pointing to the first and last elements
         int i = 0, j = nums.length - 1;
-        // Loop until the search interval is empty (when i > j, it is empty)
+        // Loop until the search interval is empty (when i > j)
         while (i <= j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
-            if (nums[m] < target) // This situation indicates that target is in the interval [m+1, j]
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target) // In this case, target must be in [m+1, j] if it exists
                 i = m + 1;
-            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m-1]
+            else if (nums[m] > target) // In this case, target must be in [i, m-1] if it exists
                 j = m - 1;
-            else // Found the target element, thus return its index
+            else // The target element was found; return its index
                 return m;
         }
-        // Did not find the target element, thus return -1
+        // The target element was not found; return -1
         return -1;
     }
 
-    /* Binary search (left closed right open interval) */
+    /* Binary search (left-closed, right-open interval) */
     static int binarySearchLCRO(int[] nums, int target) {
-        // Initialize left closed right open interval [0, n), i.e., i, j point to the first element and the last element +1 of the array respectively
+        // Initialize the left-closed, right-open interval [0, n), with i at the first element and j one past the last
         int i = 0, j = nums.length;
-        // Loop until the search interval is empty (when i = j, it is empty)
+        // Loop until the search interval is empty (when i = j)
         while (i < j) {
-            int m = i + (j - i) / 2; // Calculate midpoint index m
-            if (nums[m] < target) // This situation indicates that target is in the interval [m+1, j)
+            int m = i + (j - i) / 2; // Calculate the midpoint index m
+            if (nums[m] < target) // In this case, target must be in [m+1, j) if it exists
                 i = m + 1;
-            else if (nums[m] > target) // This situation indicates that target is in the interval [i, m)
+            else if (nums[m] > target) // In this case, target must be in [i, m) if it exists
                 j = m;
-            else // Found the target element, thus return its index
+            else // The target element was found; return its index
                 return m;
         }
-        // Did not find the target element, thus return -1
+        // The target element was not found; return -1
         return -1;
     }
 
@@ -47,12 +47,12 @@ public class binary_search {
         int target = 6;
         int[] nums = { 1, 3, 6, 8, 12, 15, 23, 26, 31, 35 };
 
-        /* Binary search (double closed interval) */
+        /* Binary search (closed interval) */
         int index = binarySearch(nums, target);
-        System.out.println("Index of target element 6 =" + index);
+        System.out.println("Index of target element 6 = " + index);
 
-        /* Binary search (left closed right open interval) */
+        /* Binary search (left-closed, right-open interval) */
         index = binarySearchLCRO(nums, target);
-        System.out.println("Index of target element 6 =" + index);
+        System.out.println("Index of target element 6 = " + index);
     }
 }

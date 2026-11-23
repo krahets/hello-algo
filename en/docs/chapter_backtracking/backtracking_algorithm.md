@@ -1,489 +1,173 @@
 # Backtracking algorithms
 
-<u>Backtracking algorithm</u> is a method to solve problems by exhaustive search, where the core idea is to start from an initial state and brute force all possible solutions, recording the correct ones until a solution is found or all possible choices are exhausted without finding a solution.
+A <u>backtracking algorithm</u> solves a problem through exhaustive search. Starting from an initial state, it explores possible solutions by brute force, recording valid solutions as it finds them, until a solution is found or every possible choice has been tried without success.
 
-Backtracking typically employs "depth-first search" to traverse the solution space. In the "Binary Tree" chapter, we mentioned that pre-order, in-order, and post-order traversals are all depth-first searches. Next, we use pre-order traversal to construct a backtracking problem to gradually understand the workings of the backtracking algorithm.
+Backtracking usually traverses the solution space through depth-first search. In the binary tree chapter, we learned that preorder, inorder, and postorder traversal are all forms of depth-first search. We will use preorder traversal to build a backtracking problem and explore the approach step by step.
 
-!!! question "Example One"
+!!! question "Example 1"
 
-    Given a binary tree, search and record all nodes with a value of $7$, please return a list of nodes.
+    Given a binary tree, find and record every node with value $7$. Return a list of these nodes.
 
-For this problem, we traverse this tree in pre-order and check if the current node's value is $7$. If it is, we add the node's value to the result list `res`. The relevant process is shown in the figure below:
+Traverse the tree in preorder and check whether the current node's value is $7$. If so, add that node's value to the result list `res`. The code and figure below show the process:
 
 ```src
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![Searching nodes in pre-order traversal](backtracking_algorithm.assets/preorder_find_nodes.png)
+![Finding nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
-## Trying and retreating
+## Trying choices and backtracking
 
-**The reason it is called backtracking is that the algorithm uses a "try" and "retreat" strategy when searching the solution space**. When the algorithm encounters a state where it can no longer progress or fails to achieve a satisfying solution, it undoes the previous choice, reverts to the previous state, and tries other possible choices.
+**Backtracking gets its name from its pattern of trying choices and undoing them while searching the solution space**. When the search reaches a state that cannot advance or lead to a valid solution, it undoes the last choice, returns to the previous state, and tries other possibilities.
 
-For Example One, visiting each node represents a "try", and passing a leaf node or returning to the parent node's `return` represents "retreat".
+In Example 1, visiting a node is a trial, while a `return` after passing a leaf or returning to a parent is backtracking.
 
-It's worth noting that **retreat is not merely about function returns**. We expand slightly on Example One for clarification.
+**Backtracking involves more than returning from a function**. To see why, let's extend Example 1.
 
-!!! question "Example Two"
+!!! question "Example 2"
 
-    In a binary tree, search for all nodes with a value of $7$ and **please return the paths from the root node to these nodes**.
+    Find every node with value $7$ in a binary tree, and **return the paths from the root to those nodes**.
 
-Based on the code from Example One, we need to use a list `path` to record the visited node paths. When a node with a value of $7$ is reached, we copy `path` and add it to the result list `res`. After the traversal, `res` holds all the solutions. The code is as shown:
+Extend the first solution with a list `path` recording the current path of visited nodes. When a node with value $7$ is reached, append a copy of `path` to the result list `res`. After traversal, `res` contains all solutions. The code is as follows:
 
 ```src
 [file]{preorder_traversal_ii_compact}-[class]{}-[func]{pre_order}
 ```
 
-In each "try", we record the path by adding the current node to `path`; before "retreating", we need to pop the node from `path` **to restore the state before this attempt**.
+Each time we try a node, append it to `path`. Before backtracking, pop that node from `path` **to restore the state from before the trial**.
 
-Observe the process shown in the figure below, **we can understand trying and retreating as "advancing" and "undoing"**, two operations that are reverse to each other.
+As the figure below illustrates, **trying a choice and backtracking are like moving forward and undoing that move**: they are inverse operations.
 
 === "<1>"
-    ![Trying and retreating](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![Trying choices and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## Pruning
 
-Complex backtracking problems usually involve one or more constraints, **which are often used for "pruning"**.
+Complex backtracking problems usually have one or more constraints, **which can often be used for pruning**.
 
-!!! question "Example Three"
+!!! question "Example 3"
 
-    In a binary tree, search for all nodes with a value of $7$ and return the paths from the root to these nodes, **requiring that the paths do not contain nodes with a value of $3$**.
+    Find every node with value $7$ in a binary tree and return the paths from the root to those nodes, **requiring that no path contain a node with value $3$**.
 
-To meet the above constraints, **we need to add a pruning operation**: during the search process, if a node with a value of $3$ is encountered, it returns early, discontinuing further search. The code is as shown:
+To enforce this constraint, **add a pruning step**: when a node with value $3$ is encountered, return immediately without searching farther. The code is as follows:
 
 ```src
 [file]{preorder_traversal_iii_compact}-[class]{}-[func]{pre_order}
 ```
 
-"Pruning" is a very vivid noun. As shown in the figure below, in the search process, **we "cut off" the search branches that do not meet the constraints**, avoiding many meaningless attempts, thus enhancing the search efficiency.
+Pruning is an apt name. As shown in the figure below, **we cut off search branches that violate the constraints**, avoiding pointless trials and improving efficiency.
 
-![Pruning based on constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![Pruning according to constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
-## Framework code
+## A code template
 
-Next, we attempt to distill the main framework of "trying, retreating, and pruning" from backtracking to enhance the code's universality.
+We will now extract the core pattern of trying, undoing, and pruning into a more general backtracking template.
 
-In the following framework code, `state` represents the current state of the problem, `choices` represents the choices available under the current state:
+In the following template, `state` is the current problem state, and `choices` contains the choices available from that state:
 
-=== "Python"
+```snippet
+backtrack_framework
+```
 
-    ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
-        """Backtracking algorithm framework"""
-        # Check if it's a solution
-        if is_solution(state):
-            # Record the solution
-            record_solution(state, res)
-            # Stop searching
-            return
-        # Iterate through all choices
-        for choice in choices:
-            # Pruning: check if the choice is valid
-            if is_valid(state, choice):
-                # Try: make a choice, update the state
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # Retreat: undo the choice, revert to the previous state
-                undo_choice(state, choice)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* Backtracking algorithm framework */
-    void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // Check if it's a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching
-            return;
-        }
-        // Iterate through all choices
-        for (Choice choice : choices) {
-            // Pruning: check if the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make a choice, update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* Backtracking algorithm framework */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check if it's a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching
-            return;
-        }
-        // Iterate through all choices
-        for (Choice choice : choices) {
-            // Pruning: check if the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make a choice, update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* Backtracking algorithm framework */
-    void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check if it's a solution
-        if (IsSolution(state)) {
-            // Record the solution
-            RecordSolution(state, res);
-            // Stop searching
-            return;
-        }
-        // Iterate through all choices
-        foreach (Choice choice in choices) {
-            // Pruning: check if the choice is valid
-            if (IsValid(state, choice)) {
-                // Try: make a choice, update the state
-                MakeChoice(state, choice);
-                Backtrack(state, choices, res);
-                // Retreat: undo the choice, revert to the previous state
-                UndoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* Backtracking algorithm framework */
-    func backtrack(state *State, choices []Choice, res *[]State) {
-        // Check if it's a solution
-        if isSolution(state) {
-            // Record the solution
-            recordSolution(state, res)
-            // Stop searching
-            return
-        }
-        // Iterate through all choices
-        for _, choice := range choices {
-            // Pruning: check if the choice is valid
-            if isValid(state, choice) {
-                // Try: make a choice, update the state
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* Backtracking algorithm framework */
-    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // Check if it's a solution
-        if isSolution(state: state) {
-            // Record the solution
-            recordSolution(state: state, res: &res)
-            // Stop searching
-            return
-        }
-        // Iterate through all choices
-        for choice in choices {
-            // Pruning: check if the choice is valid
-            if isValid(state: state, choice: choice) {
-                // Try: make a choice, update the state
-                makeChoice(state: &state, choice: choice)
-                backtrack(state: &state, choices: choices, res: &res)
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state: &state, choice: choice)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* Backtracking algorithm framework */
-    function backtrack(state, choices, res) {
-        // Check if it's a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching
-            return;
-        }
-        // Iterate through all choices
-        for (let choice of choices) {
-            // Pruning: check if the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make a choice, update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* Backtracking algorithm framework */
-    function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // Check if it's a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching
-            return;
-        }
-        // Iterate through all choices
-        for (let choice of choices) {
-            // Pruning: check if the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make a choice, update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* Backtracking algorithm framework */
-    void backtrack(State state, List<Choice>, List<State> res) {
-      // Check if it's a solution
-      if (isSolution(state)) {
-        // Record the solution
-        recordSolution(state, res);
-        // Stop searching
-        return;
-      }
-      // Iterate through all choices
-      for (Choice choice in choices) {
-        // Pruning: check if the choice is valid
-        if (isValid(state, choice)) {
-          // Try: make a choice, update the state
-          makeChoice(state, choice);
-          backtrack(state, choices, res);
-          // Retreat: undo the choice, revert to the previous state
-          undoChoice(state, choice);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* Backtracking algorithm framework */
-    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // Check if it's a solution
-        if is_solution(state) {
-            // Record the solution
-            record_solution(state, res);
-            // Stop searching
-            return;
-        }
-        // Iterate through all choices
-        for choice in choices {
-            // Pruning: check if the choice is valid
-            if is_valid(state, choice) {
-                // Try: make a choice, update the state
-                make_choice(state, choice);
-                backtrack(state, choices, res);
-                // Retreat: undo the choice, revert to the previous state
-                undo_choice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* Backtracking algorithm framework */
-    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // Check if it's a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res, numRes);
-            // Stop searching
-            return;
-        }
-        // Iterate through all choices
-        for (int i = 0; i < numChoices; i++) {
-            // Pruning: check if the choice is valid
-            if (isValid(state, &choices[i])) {
-                // Try: make a choice, update the state
-                makeChoice(state, &choices[i]);
-                backtrack(state, choices, numChoices, res, numRes);
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state, &choices[i]);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* Backtracking algorithm framework */
-    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // Check if it's a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res)
-            // Stop searching
-            return
-        }
-        // Iterate through all choices
-        for (choice in choices) {
-            // Pruning: check if the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make a choice, update the state
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // Retreat: undo the choice, revert to the previous state
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-
-    ```
-
-=== "Zig"
-
-    ```zig title=""
-
-    ```
-
-Next, we solve Example Three based on the framework code. The `state` is the node traversal path, `choices` are the current node's left and right children, and the result `res` is the list of paths:
+Now apply this template to Example 3. The `state` is the current path of visited nodes, `choices` consists of the current node's left and right children, and `res` is the list of paths:
 
 ```src
 [file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}
 ```
 
-As per the requirements, after finding a node with a value of $7$, the search should continue, **thus the `return` statement after recording the solution should be removed**. The figure below compares the search processes with and without retaining the `return` statement.
+The problem requires us to keep searching after finding a node with value $7$, **so remove the `return` after recording a solution**. The figure below compares the searches with and without that `return`.
 
-![Comparison of retaining and removing the return in the search process](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![Comparing searches with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
-Compared to the implementation based on pre-order traversal, the code implementation based on the backtracking algorithm framework seems verbose, but it has better universality. In fact, **many backtracking problems can be solved within this framework**. We just need to define `state` and `choices` according to the specific problem and implement the methods in the framework.
+The template-based implementation is more verbose than the preorder version, but more general. **Many backtracking problems can be solved within this template**: define `state` and `choices` for the problem, then implement each helper method.
 
 ## Common terminology
 
-To analyze algorithmic problems more clearly, we summarize the meanings of commonly used terminology in backtracking algorithms and provide corresponding examples from Example Three as shown in the table below.
+The table below summarizes common backtracking terms and illustrates them with Example 3, helping us analyze problems more clearly.
 
-<p align="center"> Table <id> &nbsp; Common backtracking algorithm terminology </p>
+<p align="center"> Table <id> &nbsp; Common backtracking terminology </p>
 
-| Term                        | Definition                                                                                                                                                          | Example Three                                                                                                                    |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Solution (solution)         | A solution is an answer that satisfies specific conditions of the problem, which may have one or more                                                               | All paths from the root node to node $7$ that meet the constraint                                                                |
-| Constraint (constraint)     | Constraints are conditions in the problem that limit the feasibility of solutions, often used for pruning                                                           | Paths do not contain node $3$                                                                                                    |
-| State (state)               | State represents the situation of the problem at a certain moment, including choices made                                                                           | Current visited node path, i.e., `path` node list                                                                                |
-| Attempt (attempt)           | An attempt is the process of exploring the solution space based on available choices, including making choices, updating the state, and checking if it's a solution | Recursively visiting left (right) child nodes, adding nodes to `path`, checking if the node's value is $7$                       |
-| Backtracking (backtracking) | Backtracking refers to the action of undoing previous choices and returning to the previous state when encountering states that do not meet the constraints         | When passing leaf nodes, ending node visits, encountering nodes with a value of $3$, terminating the search, and function return |
-| Pruning (pruning)           | Pruning is a method to avoid meaningless search paths based on the characteristics and constraints of the problem, which can enhance search efficiency              | When encountering a node with a value of $3$, no further search is continued                                                     |
+| Term                   | Definition                                                                       | Example 3                                                               |
+| ---------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Solution         | An answer satisfying the problem's conditions; there may be one or more                               | All paths from the root to a node valued $7$ that satisfy the constraint                            |
+| Constraint | A condition restricting which solutions are feasible, often used for pruning                         | The path contains no node valued $3$                                                 |
+| State          | The situation at a particular point, including the choices already made                           | The current path of visited nodes, stored in `path`                             |
+| Trial        | Exploring the solution space by making a choice, updating the state, and checking for a solution | Recursively visit a left or right child, append it to `path`, and check whether its value is $7$ |
+| Backtracking   | Undoing an earlier choice and returning to the previous state when a constraint cannot be met       | Stop searching and return after passing a leaf, finishing a node, or encountering value $3$  |
+| Pruning        | Using problem properties and constraints to avoid pointless search paths and improve efficiency     | Stop searching when a node valued $3$ is encountered                              |
 
 !!! tip
 
-    Concepts like problems, solutions, states, etc., are universal, and are involved in divide and conquer, backtracking, dynamic programming, and greedy algorithms, among others.
+    Concepts such as problems, solutions, and states are shared by divide and conquer, backtracking, dynamic programming, greedy algorithms, and other approaches.
 
-## Advantages and limitations
+## Strengths and limitations
 
-The backtracking algorithm is essentially a depth-first search algorithm that attempts all possible solutions until a satisfying solution is found. The advantage of this method is that it can find all possible solutions, and with reasonable pruning operations, it can be highly efficient.
+Backtracking is fundamentally a depth-first search that tries possible solutions until it finds ones meeting the conditions. It can find all possible solutions and can be highly efficient with effective pruning.
 
-However, when dealing with large-scale or complex problems, **the operational efficiency of backtracking may be difficult to accept**.
+However, for large or complex problems, **backtracking may be unacceptably slow**.
 
-- **Time**: Backtracking algorithms usually need to traverse all possible states in the state space, which can reach exponential or factorial time complexity.
-- **Space**: In recursive calls, it is necessary to save the current state (such as paths, auxiliary variables for pruning, etc.). When the depth is very large, the space requirement may become significant.
+- **Time**: Backtracking often explores every possibility in the state space, leading to exponential or factorial time complexity.
+- **Space**: Recursive calls must preserve state, such as the path and auxiliary pruning variables. Deep recursion can therefore require substantial space.
 
-Even so, **backtracking remains the best solution for certain search problems and constraint satisfaction problems**. For these problems, since it is unpredictable which choices can generate valid solutions, we must traverse all possible choices. In this case, **the key is how to optimize efficiency**, with common efficiency optimization methods being two types.
+Even so, **backtracking remains the best approach for some search and constraint satisfaction problems**. When we cannot predict which choices lead to valid solutions, we must explore every possibility. **The key is then to improve efficiency**, commonly through two techniques.
 
-- **Pruning**: Avoid searching paths that definitely will not produce a solution, thus saving time and space.
-- **Heuristic search**: Introduce some strategies or estimates during the search process to prioritize the paths that are most likely to produce valid solutions.
+- **Pruning**: Avoid paths that cannot produce a solution, saving time and space.
+- **Heuristic search**: Use strategies or estimates to explore paths most likely to yield valid solutions first.
 
 ## Typical backtracking problems
 
-Backtracking algorithms can be used to solve many search problems, constraint satisfaction problems, and combinatorial optimization problems.
+Backtracking can solve many search, constraint satisfaction, and combinatorial optimization problems.
 
-**Search problems**: The goal of these problems is to find solutions that meet specific conditions.
+**Search problems** seek solutions satisfying specified conditions.
 
-- Full permutation problem: Given a set, find all possible permutations and combinations of it.
-- Subset sum problem: Given a set and a target sum, find all subsets of the set that sum to the target.
-- Tower of Hanoi problem: Given three rods and a series of different-sized discs, the goal is to move all the discs from one rod to another, moving only one disc at a time, and never placing a larger disc on a smaller one.
+- Permutations: Given a collection, find every possible ordering of its elements.
+- Subset sum: Given a collection and a target sum, find every subset whose sum equals the target.
+- Tower of Hanoi: Given three rods and disks of different sizes, move all disks from one rod to another, moving only one at a time and never placing a larger disk on a smaller one.
 
-**Constraint satisfaction problems**: The goal of these problems is to find solutions that satisfy all the constraints.
+**Constraint satisfaction problems** seek solutions meeting all constraints.
 
-- $n$ queens: Place $n$ queens on an $n \times n$ chessboard so that they do not attack each other.
-- Sudoku: Fill a $9 \times 9$ grid with the numbers $1$ to $9$, ensuring that the numbers do not repeat in each row, each column, and each $3 \times 3$ subgrid.
-- Graph coloring problem: Given an undirected graph, color each vertex with the fewest possible colors so that adjacent vertices have different colors.
+- $n$-queens: Place $n$ queens on an $n \times n$ chessboard so that no two attack each other.
+- Sudoku: Fill a $9 \times 9$ grid with digits $1$ ~ $9$ so that no digit repeats in any row, column, or $3 \times 3$ subgrid.
+- Graph coloring: Color an undirected graph's vertices with as few colors as possible, ensuring adjacent vertices have different colors.
 
-**Combinatorial optimization problems**: The goal of these problems is to find the optimal solution within a combination space that meets certain conditions.
+**Combinatorial optimization problems** seek an optimal solution satisfying conditions within a space of combinations.
 
-- 0-1 knapsack problem: Given a set of items and a backpack, each item has a certain value and weight. The goal is to choose items to maximize the total value within the backpack's capacity limit.
-- Traveling salesman problem: In a graph, starting from one point, visit all other points exactly once and then return to the starting point, seeking the shortest path.
-- Maximum clique problem: Given an undirected graph, find the largest complete subgraph, i.e., a subgraph where any two vertices are connected by an edge.
+- 0-1 knapsack: Given items with values and weights and a knapsack, choose items to maximize total value within the capacity limit.
+- Traveling salesperson: Starting at a vertex in a graph, visit every other vertex exactly once and return to the start along the shortest possible route.
+- Maximum clique: Given an undirected graph, find its largest complete subgraph, in which every pair of vertices is connected by an edge.
 
-Please note that for many combinatorial optimization problems, backtracking is not the optimal solution.
+For many combinatorial optimization problems, backtracking is not the best approach.
 
-- The 0-1 knapsack problem is usually solved using dynamic programming to achieve higher time efficiency.
-- The traveling salesman is a well-known NP-Hard problem, commonly solved using genetic algorithms and ant colony algorithms, among others.
-- The maximum clique problem is a classic problem in graph theory, which can be solved using greedy algorithms and other heuristic methods.
+- 0-1 knapsack is usually solved more efficiently with dynamic programming.
+- The traveling salesperson problem is a well-known NP-hard problem. Common approaches include genetic algorithms and ant colony algorithms.
+- Maximum clique is a classic graph theory problem that can be approached with heuristics such as greedy algorithms.

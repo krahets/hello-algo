@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize queue */
+    /* Initialize the queue */
     queue<int> queue;
 
-    /* Element enqueue */
+    /* Enqueue elements */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -20,20 +20,20 @@ int main() {
     cout << "Queue queue = ";
     printQueue(queue);
 
-    /* Access front element */
+    /* Access the front element */
     int front = queue.front();
-    cout << "Front element of the queue front = " << front << endl;
+    cout << "Front element front = " << front << endl;
 
-    /* Element dequeue */
+    /* Dequeue an element */
     queue.pop();
-    cout << "Element dequeued = " << front << ", after dequeuing";
+    cout << "Dequeued element front = " << front << "; after dequeueing, queue = ";
     printQueue(queue);
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int size = queue.size();
-    cout << "Length of the queue size = " << size << endl;
+    cout << "Queue size = " << size << endl;
 
-    /* Determine if the queue is empty */
+    /* Check whether the queue is empty */
     bool empty = queue.empty();
     cout << "Is the queue empty = " << empty << endl;
 

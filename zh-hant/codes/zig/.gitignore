@@ -1,2 +1,4 @@
-zig-out/
-zig-cache/
+zig-out
+zig-cache
+.zig-cache
+!/.vscode/

@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "title": "Minimum cost to climb a three-step staircase",
+  "summary": "With costs 0, 1, 10, and 1 on the ground and steps 1 through 3, stepping over cost-10 step 2 along 0→1→3 achieves the minimum total cost of 2.",
+  "context": [
+    "Each move climbs 1 or 2 steps and pays the cost of every step landed on; the figure labels step numbers as n and step costs as cost[n]. Ground start has cost[0] = 0, and the goal is to land on step 3 and pay step 3's cost."
+  ],
+  "description": [
+    "Aligned beneath the staircase are step numbers n = 0, 1, 2, 3 and costs cost[n] = 0, 1, 10, 1, with step 2's tread and cost 10 highlighted in red and target step 3's tread highlighted in green. Above the steps, a solid cyan curve traces 0→1→2→3, a blue dotted curve traces 0→2→3, and an orange dashed curve traces 0→1→3. The bottom note states that among these 3 routes, 0→1→3 has the minimum cost of 2.",
+    "Single-step costs in the table below come from cost in the figure, while the sums and totals 12 and 11 are computed by adding the steps visited rather than printed in the figure."
+  ],
+  "frames": [
+    {
+      "id": "source-372",
+      "book_path": "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_example.png",
+      "title": "Minimum cost to climb a three-step staircase",
+      "explanation": "Both of the first two routes land on step 2 of cost 10; only 0→1→3 steps over it, achieving the lowest total cost."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Costs of the three routes (computed from cost in the figure)",
+      "headers": [
+        "Route",
+        "Cost calculation",
+        "Total cost"
+      ],
+      "rows": [
+        [
+          "0→1→2→3",
+          "1+10+1",
+          "12"
+        ],
+        [
+          "0→2→3",
+          "10+1",
+          "11"
+        ],
+        [
+          "0→1→3",
+          "1+1",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

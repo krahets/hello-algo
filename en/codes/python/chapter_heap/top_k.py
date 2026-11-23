@@ -14,26 +14,26 @@ import heapq
 
 
 def top_k_heap(nums: list[int], k: int) -> list[int]:
-    """Using heap to find the largest k elements in an array"""
-    # Initialize min-heap
+    """Use a heap to find the k largest elements in an array"""
+    # Initialize a min heap
     heap = []
-    # Enter the first k elements of the array into the heap
+    # Push the first k array elements onto the heap
     for i in range(k):
         heapq.heappush(heap, nums[i])
-    # From the k+1th element, keep the heap length as k
+    # Starting with element k+1, keep the heap size at k
     for i in range(k, len(nums)):
-        # If the current element is larger than the heap top element, remove the heap top element and enter the current element into the heap
+        # If the current element is larger than the heap top, pop the top element and push the current element
         if nums[i] > heap[0]:
             heapq.heappop(heap)
             heapq.heappush(heap, nums[i])
     return heap
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     nums = [1, 7, 6, 3, 2]
     k = 3
 
     res = top_k_heap(nums, k)
-    print(f"The largest {k} elements are")
+    print(f"The {k} largest elements are")
     print_heap(res)

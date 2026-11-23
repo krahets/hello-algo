@@ -1,0 +1,591 @@
+{
+  "schema_version": 2,
+  "title": "Removing the root from a max heap",
+  "summary": "After removing the maximum value, sift down from the root by swapping with the larger child at each step to restore the max heap.",
+  "context": [
+    "This example starts with 13 elements: root index 0 holds the maximum value 9, and last index 12 holds 5. A max heap requires every parent node's value to be greater than or equal to its children's values.",
+    "The binary tree and the array represent the same underlying storage: the array lists nodes in level order from top to bottom and left to right within each level, indexed from 0. For any non-root index i, the parent index is floor((i − 1) / 2), and the left and right child indices are 2i + 1 and 2i + 2; an out-of-bounds index means that child does not exist. Equal values are distinguished by their indices."
+  ],
+  "description": [
+    "To remove the root, first swap the top element (index 0) with the last element (index 12), then delete the original root from the end of the array—avoiding the shift of all subsequent elements that deleting the first item directly would cause. Next, sift downward from the root: at each step, find the largest value among the current node and its left and right children; if a child is larger, swap with the larger child—only promoting the larger child guarantees that the new parent is also greater than or equal to the other child. Stop sifting down once the current node is at least as large as its children or reaches a leaf.",
+    "Each storage table caption includes the operation name and step number. A new table is listed only when the array changes; steps that only compare, stop, or clear highlights refer by full caption to the unchanged storage table. Every step still states the current element count, heap top, and action."
+  ],
+  "result": "Removing the root returns 9, while element 5 sifts down along indices 0 → 1 → 4 → 10 in three swaps.",
+  "frames": [
+    {
+      "id": "source-152",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step1.png",
+      "title": "Locate heap top 9 and last element 5",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. Value 9 to be removed is at root index 0, and 5 at last index 12 will be moved to the root; neither the swap nor the deletion has occurred yet.",
+      "key_state": "13 items, heap top 9. Maximum value 9 is at root index 0, and last element 5 is at index 12.",
+      "announcement": "Maximum value 9 is at root index 0, and last element 5 is at index 12.",
+      "state_tables": [
+        {
+          "caption": "Root removal step 1: initial 13-item storage",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "9",
+              "9 to be removed"
+            ],
+            [
+              "1",
+              "8",
+              "—"
+            ],
+            [
+              "2",
+              "7",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "—"
+            ],
+            [
+              "5",
+              "6",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ],
+            [
+              "12",
+              "5",
+              "5 sifting down"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-153",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step2.png",
+      "title": "Swap the top and last elements",
+      "explanation": "The heap currently stores 13 items, and the heap top is 5. Swap 9 at index 0 with 5 at index 12: the root becomes 5 and 9 moves to the end. All 13 items are still present because 9 has not yet been deleted.",
+      "key_state": "13 items, heap top 5. After swapping the ends, 5 is at index 0 and 9 is at last index 12 (still 13 items, not yet deleted).",
+      "announcement": "After swapping the ends, 5 is at index 0 and 9 is at last index 12 (still 13 items, not yet deleted).",
+      "state_tables": [
+        {
+          "caption": "Root removal step 2: 13-item storage after swapping ends",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "5",
+              "5 sifting down"
+            ],
+            [
+              "1",
+              "8",
+              "—"
+            ],
+            [
+              "2",
+              "7",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "—"
+            ],
+            [
+              "5",
+              "6",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ],
+            [
+              "12",
+              "9",
+              "9 to be removed"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-154",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step3.png",
+      "title": "Delete 9 from the end",
+      "explanation": "The heap currently stores 12 items, and the heap top is 5. Delete 9 from former last index 12 and save it as the return value. Removing the rightmost leaf preserves the complete binary tree shape, but 5 at root index 0 is smaller than its children and must sift down.",
+      "key_state": "12 items, heap top 5. Delete 9 from the end (saved as the return value), shrinking the heap array to 12 items.",
+      "announcement": "Delete 9 from the end (saved as the return value), shrinking the heap array to 12 items.",
+      "state_tables": [
+        {
+          "caption": "Root removal step 3: 12-item storage after deleting 9 from the end",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "5",
+              "5 sifting down"
+            ],
+            [
+              "1",
+              "8",
+              "—"
+            ],
+            [
+              "2",
+              "7",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "—"
+            ],
+            [
+              "5",
+              "6",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-155",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step4.png",
+      "title": "Compare root 5 with its children",
+      "explanation": "The heap currently stores 12 items, and the heap top is 5. Compare 5 at root index 0 with left child 8 at index 1 and right child 7 at index 2. The largest is 8 at index 1, so the next step swaps with it; this step only compares without swapping yet. The array is unchanged; see table “Root removal step 3: 12-item storage after deleting 9 from the end” for full storage.",
+      "key_state": "12 items, heap top 5. Comparing 5, 8, and 7 at indices 0, 1, and 2: the larger child is 8 at index 1, which exceeds 5 and awaits a swap.",
+      "announcement": "Comparing 5, 8, and 7 at indices 0, 1, and 2: the larger child is 8 at index 1, which exceeds 5 and awaits a swap."
+    },
+    {
+      "id": "source-156",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step5.png",
+      "title": "Swap indices 0 and 1",
+      "explanation": "The heap currently stores 12 items, and the heap top is 8. First sift-down swap: exchange 5 at index 0 with 8 at index 1. Value 8 rises to the heap top and is larger than right child 7 at index 2; 5 moves to index 1, whose left and right children are 6 at index 3 and 7 at index 4.",
+      "key_state": "12 items, heap top 8. Swap indices 0 and 1: 8 rises to the heap top, and 5 sifts down to index 1.",
+      "announcement": "Swap indices 0 and 1: 8 rises to the heap top, and 5 sifts down to index 1.",
+      "state_tables": [
+        {
+          "caption": "Root removal step 5: storage after the first sift-down swap",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "8",
+              "—"
+            ],
+            [
+              "1",
+              "5",
+              "5 sifting down"
+            ],
+            [
+              "2",
+              "7",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "—"
+            ],
+            [
+              "5",
+              "6",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-157",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step6.png",
+      "title": "Compare children of index 1",
+      "explanation": "The heap currently stores 12 items, and the heap top is 8. Compare 5 at index 1 with left child 6 at index 3 and right child 7 at index 4. The largest is 7 at index 4, with no swap yet; the other 7 at index 2 on the right side of the root is outside this comparison. The array is unchanged; see table “Root removal step 5: storage after the first sift-down swap” for full storage.",
+      "key_state": "12 items, heap top 8. Comparing 5 at index 1 with children 6 at index 3 and 7 at index 4: the larger child is 7 at index 4, which exceeds 5 and awaits a swap.",
+      "announcement": "Comparing 5 at index 1 with children 6 at index 3 and 7 at index 4: the larger child is 7 at index 4, which exceeds 5 and awaits a swap."
+    },
+    {
+      "id": "source-158",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step7.png",
+      "title": "Swap indices 1 and 4",
+      "explanation": "The heap currently stores 12 items, and the heap top is 8. Second sift-down swap: exchange 5 at index 1 with 7 at index 4. Value 7 moves up to index 1, and 5 reaches index 4, whose left and right children are 3 at index 9 and 6 at index 10.",
+      "key_state": "12 items, heap top 8. Swap indices 1 and 4: 7 moves up to index 1, and 5 sifts down to index 4.",
+      "announcement": "Swap indices 1 and 4: 7 moves up to index 1, and 5 sifts down to index 4.",
+      "state_tables": [
+        {
+          "caption": "Root removal step 7: storage after the second sift-down swap",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "8",
+              "—"
+            ],
+            [
+              "1",
+              "7",
+              "—"
+            ],
+            [
+              "2",
+              "7",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "5",
+              "5 sifting down"
+            ],
+            [
+              "5",
+              "6",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-159",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step8.png",
+      "title": "Compare children of index 4",
+      "explanation": "The heap currently stores 12 items, and the heap top is 8. Compare 5 at index 4 with left child 3 at index 9 and right child 6 at index 10. The largest is 6 at index 10, so 5 must sift down again; this step has not swapped yet. The array is unchanged; see table “Root removal step 7: storage after the second sift-down swap” for full storage.",
+      "key_state": "12 items, heap top 8. Comparing 5 at index 4 with children 3 at index 9 and 6 at index 10: the larger child is 6 at index 10, which exceeds 5 and awaits a swap.",
+      "announcement": "Comparing 5 at index 4 with children 3 at index 9 and 6 at index 10: the larger child is 6 at index 10, which exceeds 5 and awaits a swap."
+    },
+    {
+      "id": "source-160",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step9.png",
+      "title": "Swap indices 4 and 10",
+      "explanation": "The heap currently stores 12 items, and the heap top is 8. Third sift-down swap: exchange 5 at index 4 with 6 at index 10. Value 6 moves up to index 4, and 5 reaches leaf index 10; its child indices 21 and 22 are both out of bounds, so sifting down stops.",
+      "key_state": "12 items, heap top 8. Swap indices 4 and 10: 6 moves up to index 4, and 5 reaches leaf index 10.",
+      "announcement": "Swap indices 4 and 10: 6 moves up to index 4, and 5 reaches leaf index 10.",
+      "state_tables": [
+        {
+          "caption": "Root removal step 9: storage after the third sift-down swap",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "8",
+              "—"
+            ],
+            [
+              "1",
+              "7",
+              "—"
+            ],
+            [
+              "2",
+              "7",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "6",
+              "—"
+            ],
+            [
+              "5",
+              "6",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "5",
+              "5 sifting down"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-161",
+      "book_path": "chapter_heap/heap.assets/heap_pop_step10.png",
+      "title": "Root removal complete",
+      "explanation": "The heap currently stores 12 items, and the heap top is 8. Highlights are cleared, root removal is complete, and the previously deleted 9 is returned. Value 5 settles at index 10, and all 12 items again satisfy the max-heap property. The array is unchanged; see table “Root removal step 9: storage after the third sift-down swap” for full storage.",
+      "key_state": "12 items, heap top 8. All elements satisfy the max-heap property, 5 settles at index 10, and 9 is returned.",
+      "announcement": "Root removal complete: 9 is returned, heap top is 8, and 5 settles at index 10. The heap now contains 12 items."
+    }
+  ],
+  "animations": {
+    "heap-pop": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-152"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-153"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-154"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-155"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-156"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-157"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-158"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-159"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-160"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-161"
+        }
+      ]
+    }
+  }
+}

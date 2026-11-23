@@ -1,0 +1,8 @@
+add_executable(climbing_stairs_constraint_dp climbing_stairs_constraint_dp.c)
+add_executable(min_cost_climbing_stairs_dp min_cost_climbing_stairs_dp.c)
+add_executable(min_path_sum min_path_sum.c)
+add_executable(knapsack knapsack.c)
+add_executable(unbounded_knapsack unbounded_knapsack.c)
+add_executable(coin_change coin_change.c)
+add_executable(coin_change_ii coin_change_ii.c)
+add_executable(edit_distance edit_distance.c)

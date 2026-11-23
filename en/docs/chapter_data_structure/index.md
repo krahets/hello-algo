@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Data structures serve as a robust and diverse framework.
-
-    They offer a blueprint for the orderly organization of data, upon which algorithms come to life.
+    Data structures provide a framework that is both sturdy and versatile.
+    
+    They offer a blueprint for organizing data, a foundation on which algorithms come to life.

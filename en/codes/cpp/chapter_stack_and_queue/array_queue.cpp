@@ -6,17 +6,17 @@
 
 #include "../utils/common.hpp"
 
-/* Queue class based on circular array */
+/* Queue implemented with a circular array */
 class ArrayQueue {
   private:
-    int *nums;       // Array for storing queue elements
-    int front;       // Front pointer, pointing to the front element
-    int queSize;     // Queue length
+    int *nums;       // Array that stores the queue elements
+    int front;       // Front index, identifying the first element
+    int queSize;     // Queue size
     int queCapacity; // Queue capacity
 
   public:
     ArrayQueue(int capacity) {
-        // Initialize an array
+        // Initialize the array
         nums = new int[capacity];
         queCapacity = capacity;
         front = queSize = 0;
@@ -26,17 +26,17 @@ class ArrayQueue {
         delete[] nums;
     }
 
-    /* Get the capacity of the queue */
+    /* Get the queue capacity */
     int capacity() {
         return queCapacity;
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int size() {
         return queSize;
     }
 
-    /* Determine if the queue is empty */
+    /* Check whether the queue is empty */
     bool isEmpty() {
         return size() == 0;
     }
@@ -47,8 +47,8 @@ class ArrayQueue {
             cout << "Queue is full" << endl;
             return;
         }
-        // Calculate rear pointer, pointing to rear index + 1
-        // Use modulo operation to wrap the rear pointer from the end of the array back to the start
+        // Calculate the rear index, one position past the last element
+        // Use modulo to wrap rear to the beginning when it passes the end of the array
         int rear = (front + queSize) % queCapacity;
         // Add num to the rear
         nums[rear] = num;
@@ -58,22 +58,22 @@ class ArrayQueue {
     /* Dequeue */
     int pop() {
         int num = peek();
-        // Move front pointer one position backward, returning to the head of the array if it exceeds the tail
+        // Advance the front index by one position, wrapping to the beginning if it passes the end
         front = (front + 1) % queCapacity;
         queSize--;
         return num;
     }
 
-    /* Access front element */
+    /* Access the front element */
     int peek() {
         if (isEmpty())
             throw out_of_range("Queue is empty");
         return nums[front];
     }
 
-    /* Convert array to Vector and return */
+    /* Convert the array to a vector and return it */
     vector<int> toVector() {
-        // Only convert elements within valid length range
+        // Copy only the elements in the occupied range
         vector<int> arr(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             arr[i] = nums[j % queCapacity];
@@ -82,13 +82,13 @@ class ArrayQueue {
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize queue */
+    /* Initialize the queue */
     int capacity = 10;
     ArrayQueue *queue = new ArrayQueue(capacity);
 
-    /* Element enqueue */
+    /* Enqueue elements */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -97,28 +97,28 @@ int main() {
     cout << "Queue queue = ";
     printVector(queue->toVector());
 
-    /* Access front element */
+    /* Access the front element */
     int peek = queue->peek();
     cout << "Front element peek = " << peek << endl;
 
-    /* Element dequeue */
+    /* Dequeue an element */
     peek = queue->pop();
-    cout << "Element dequeued = " << peek << ", after dequeuing";
+    cout << "Dequeued element pop = " << peek << "; after dequeueing, queue = ";
     printVector(queue->toVector());
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     int size = queue->size();
-    cout << "Length of the queue size = " << size << endl;
+    cout << "Queue size = " << size << endl;
 
-    /* Determine if the queue is empty */
+    /* Check whether the queue is empty */
     bool empty = queue->isEmpty();
     cout << "Is the queue empty = " << empty << endl;
 
-    /* Test circular array */
+    /* Test the circular array */
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "After the " << i << "th round of enqueueing + dequeuing, queue = ";
+        cout << "After round " << i << " of enqueue + dequeue, queue = ";
         printVector(queue->toVector());
     }
 

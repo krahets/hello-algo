@@ -31,7 +31,7 @@ function xorHash(key) {
     for (const c of key) {
         hash ^= c.charCodeAt(0);
     }
-    return hash & MODULUS;
+    return hash % MODULUS;
 }
 
 /* 旋轉雜湊 */

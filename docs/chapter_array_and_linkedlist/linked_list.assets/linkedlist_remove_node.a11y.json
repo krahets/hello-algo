@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "title": "链表删除节点",
+  "summary": "修改前驱节点的后继引用，绕过待删除节点。",
+  "context": [
+    "局部链表为 n0（1）→ P（0）→ n1（3）→ …。已知前驱 n0，目标是删除节点 P；n0 不一定是整条链表的头节点。"
+  ],
+  "description": [
+    "图分上下两幅，删除后 P 及其到 n1 的箭头变为虚线，保留在画面中作对比；图中没有展示内存释放。"
+  ],
+  "result": "已知前驱节点 n0 时，只改接一次引用，耗时 O(1)，其余节点无须移动；查找前驱的耗时不计入此步。",
+  "frames": [
+    {
+      "id": "source-52",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_remove_node.png",
+      "title": "链表删除节点",
+      "explanation": "执行 n0.next = n1 后，主链变为 n0（1）→ n1（3）→ …。P.next 虽仍指向 n1，但沿链表头经过 n0 向后遍历已无法到达 P，因此逻辑删除完成。"
+    }
+  ],
+  "animations": {
+    "linkedlist-remove": {
+      "kind": "prose",
+      "prose": {
+        "title": "链表删除节点",
+        "summary": "修改前驱节点的后继引用，绕过待删除节点。",
+        "context": [
+          "局部链表为 n0（1）→ P（0）→ n1（3）→ …。已知前驱 n0，目标是删除节点 P；n0 不一定是整条链表的头节点。"
+        ],
+        "description": [
+          "图分上下两幅，删除后 P 及其到 n1 的箭头变为虚线，保留在画面中作对比；图中没有展示内存释放。"
+        ],
+        "result": "已知前驱节点 n0 时，只改接一次引用，耗时 O(1)，其余节点无须移动；查找前驱的耗时不计入此步。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "删除前：n0 → P → n1",
+            "explanation": "当前连接为 n0（1）→ P（0）→ n1（3）→ …。n0.next 指向 P，P.next 指向 n1，从 n0 出发必须经过 P 才能到达 n1。下一步将改接 n0.next。",
+            "key_state": "删除前 n0 → P → n1，P 从 n0 可达。",
+            "announcement": "删除前：n0、P、n1 依次相连，准备绕过节点 P。"
+          },
+          {
+            "id": "step-2",
+            "title": "改接引用：n0.next = n1",
+            "explanation": "执行 n0.next = n1，主链变为 n0（1）→ n1（3）→ …。P（0）的 next 仍指向 n1，但从链表头经 n0 向后已无法到达 P，逻辑删除完成。",
+            "key_state": "n0.next = n1，主链变为 n0 → n1；P 不可达但仍指向 n1。",
+            "announcement": "令 n0.next 直接指向 n1，节点 P 从链表中不可达，完成删除。"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 2,
+  "title": "Knowledge map of the book",
+  "summary": "Review and look up the book's coverage of data structures, complexity analysis, and algorithms by topic.",
+  "context": [
+    "In the mind map, the Data structures section is on the left, Complexity analysis is at the upper right, and Algorithms is at the lower right. The three sections have 7, 3, and 6 topic branches respectively, for 16 in total; connecting lines show topic grouping rather than a single fixed reading order. No chapter numbers are shown in the figure."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "id": "document-chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
+      "book_path": "chapter_preface/about_the_book.assets/hello_algo_mindmap.png",
+      "title": "Knowledge map of the book",
+      "explanation": "The three tables below correspond to the three sections: first choose a section table, then use the topic row headers to look up each branch's concepts, implementations, and example problems. In the Data structures table, the first row (“Data structures”) is an overview branch with the same name as the section."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Knowledge map: 7 topics in the Data structures section",
+      "headers": [
+        "Topic",
+        "Branch contents and example problems"
+      ],
+      "rows": [
+        [
+          "Data structures",
+          "Logical and physical structures; basic data types, number encodings, and character encodings."
+        ],
+        [
+          "Arrays and linked lists",
+          "Contiguous and noncontiguous storage, comparison of operations, strengths, and weaknesses, implementing lists with dynamic arrays, and computer memory and caches."
+        ],
+        [
+          "Stacks and queues",
+          "LIFO stacks, FIFO queues, and deques, plus array-based and linked-list-based implementations of stacks and queues."
+        ],
+        [
+          "Hash table",
+          "How hash tables work and array-based implementation; hash collisions, separate chaining, and open addressing; uses and design goals of hash algorithms."
+        ],
+        [
+          "Tree",
+          "Perfect, complete, full, and balanced binary trees; comparison of linked and array representations; level-order, preorder, inorder, and postorder traversal; binary search trees and AVL trees."
+        ],
+        [
+          "Heap",
+          "Min heaps, max heaps, and priority queues; array-based heap implementation and building a heap; the top-k problem."
+        ],
+        [
+          "Graph",
+          "Directed, connected, and weighted graphs; comparison of adjacency lists and adjacency matrices; breadth-first and depth-first traversal."
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Knowledge map: 3 topics in the Complexity analysis section",
+      "headers": [
+        "Topic",
+        "Branch contents and example problems"
+      ],
+      "rows": [
+        [
+          "Iteration and recursion",
+          "for loops, while loops, and nested loops; recursive call stacks, tail recursion, and recursion trees; iteration versus recursion."
+        ],
+        [
+          "Time complexity",
+          "Asymptotic upper bounds of functions; derivation methods and common complexity classes; worst-, best-, and average-case time complexity."
+        ],
+        [
+          "Space complexity",
+          "Derivation methods and common complexity classes; time-space trade-offs."
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Knowledge map: 6 topics in the Algorithms section",
+      "headers": [
+        "Topic",
+        "Branch contents and example problems"
+      ],
+      "rows": [
+        [
+          "Searching",
+          "Brute-force search (linear search, breadth-first search, and depth-first search); efficient search (binary search, hash lookup, and tree search); choosing a search algorithm."
+        ],
+        [
+          "Sorting",
+          "Evaluation dimensions include in-place operation, stability, adaptivity, and whether sorting is comparison-based; following the figure's branches, algorithms are grouped under “Traversal” (selection sort, bubble sort, insertion sort), “Divide and conquer” (quick sort, merge sort, heap sort), and “Non-comparison sorting” (bucket sort, counting sort, radix sort)."
+        ],
+        [
+          "Divide and conquer",
+          "Problem properties and how to identify them; example problems include binary search, tree construction, and Tower of Hanoi."
+        ],
+        [
+          "Backtracking",
+          "Problem properties and code framework; example problems include permutations, subset sum, and n-queens."
+        ],
+        [
+          "Dynamic programming",
+          "Brute-force search, memoized recursion, and bottom-up tabulation; overlapping subproblems, optimal substructure, and the no-aftereffect property; how to identify dynamic programming problems and solution steps; example problems include 0-1 knapsack, unbounded knapsack, and edit distance."
+        ],
+        [
+          "Greedy algorithms",
+          "Problem properties and solution steps; example problems include fractional knapsack, maximum capacity, and maximum product cutting."
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": []
+}

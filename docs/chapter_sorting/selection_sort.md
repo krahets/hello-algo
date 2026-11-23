@@ -11,37 +11,37 @@
 5. 仅剩的一个元素必定是最大元素，无须排序，因此数组排序完成。
 
 === "<1>"
-    ![选择排序步骤](selection_sort.assets/selection_sort_step1.png)
+    ![选择排序步骤](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.png)
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.png)
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.png)
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.png)
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.png)
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.png)
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.png)
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.png)
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.png)
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png)
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg)
 
 在代码中，我们用 $k$ 来记录未排序区间内的最小元素：
 
@@ -51,8 +51,8 @@
 
 ## 算法特性
 
-- **时间复杂度为 $O(n^2)$、非自适应排序**：外循环共 $n - 1$ 轮，第一轮的未排序区间长度为 $n$ ，最后一轮的未排序区间长度为 $2$ ，即各轮外循环分别包含 $n$、$n - 1$、$\dots$、$3$、$2$ 轮内循环，求和为 $\frac{(n - 1)(n + 2)}{2}$ 。
+- **时间复杂度为 $O(n^2)$、非自适应排序**：外循环共 $n - 1$ 轮，第一轮内循环执行 $n - 1$ 次，最后一轮执行 $1$ 次，即各轮内循环分别执行 $n - 1$、$n - 2$、$\dots$、$2$、$1$ 次，求和为 $\frac{n(n - 1)}{2}$ 。
 - **空间复杂度为 $O(1)$、原地排序**：指针 $i$ 和 $j$ 使用常数大小的额外空间。
 - **非稳定排序**：如下图所示，元素 `nums[i]` 有可能被交换至与其相等的元素的右边，导致两者的相对顺序发生改变。
 
-![选择排序非稳定示例](selection_sort.assets/selection_sort_instability.png)
+![选择排序非稳定示例](selection_sort.assets/selection_sort_instability.svg)

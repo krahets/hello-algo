@@ -1,68 +1,68 @@
-# Installation
+# Setting up a programming environment
 
-## Install IDE
+## Install an IDE
 
-We recommend using the open-source, lightweight VS Code as your local Integrated Development Environment (IDE). Visit the [VS Code official website](https://code.visualstudio.com/) and choose the version of VS Code appropriate for your operating system to download and install.
+We recommend VS Code, a lightweight, open-source integrated development environment (IDE). Visit the [VS Code website](https://code.visualstudio.com/), then download and install the version for your operating system.
 
-![Download VS Code from the official website](installation.assets/vscode_installation.png)
+![Downloading VS Code from the official website](installation.assets/vscode_installation.png)
 
-VS Code has a powerful extension ecosystem, supporting the execution and debugging of most programming languages. For example, after installing the "Python Extension Pack," you can debug Python code. The installation steps are shown in the figure below.
+VS Code has an extensive ecosystem of extensions that support running and debugging code in most programming languages. For example, installing the Python Extension Pack lets you debug Python code. The installation steps are shown in the figure below.
 
-![Install VS Code Extension Pack](installation.assets/vscode_extension_installation.png)
+![Installing VS Code extensions](installation.assets/vscode_extension_installation.png)
 
-## Install language environments
+## Install a language environment
 
-### Python environment
+### Python
 
-1. Download and install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html), requiring Python 3.10 or newer.
-2. In the VS Code extension marketplace, search for `python` and install the Python Extension Pack.
-3. (Optional) Enter `pip install black` in the command line to install the code formatting tool.
+1. Download and install [Miniconda3](https://docs.conda.io/en/latest/miniconda.html). Python 3.10 or later is required.
+2. Search for `python` in the VS Code Extensions Marketplace and install Python Extension Pack.
+3. (Optional) Run `pip install black` in a terminal to install a code formatter.
 
-### C/C++ environment
+### C/C++
 
-1. Windows systems need to install [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([Configuration tutorial](https://blog.csdn.net/qq_33698226/article/details/129031241)); MacOS comes with Clang, so no installation is necessary.
-2. In the VS Code extension marketplace, search for `c++` and install the C/C++ Extension Pack.
-3. (Optional) Open the Settings page, search for the `Clang_format_fallback Style` code formatting option, and set it to `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }`.
+1. On Windows, install [MinGW](https://sourceforge.net/projects/mingw-w64/files/) ([setup guide](https://blog.csdn.net/qq_33698226/article/details/129031241)). macOS comes with Clang, so no installation is needed.
+2. Search for `c++` in the VS Code Extensions Marketplace and install C/C++ Extension Pack.
+3. (Optional) Open Settings, search for the `Clang_format_fallback Style` formatting option, and set it to `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }`.
 
-### Java environment
+### Java
 
-1. Download and install [OpenJDK](https://jdk.java.net/18/) (version must be > JDK 9).
-2. In the VS Code extension marketplace, search for `java` and install the Extension Pack for Java.
+1. Download and install [OpenJDK](https://jdk.java.net/18/) (a version later than JDK 9 is required).
+2. Search for `java` in the VS Code Extensions Marketplace and install Extension Pack for Java.
 
-### C# environment
+### C\#
 
-1. Download and install [.Net 8.0](https://dotnet.microsoft.com/en-us/download).
-2. In the VS Code extension marketplace, search for `C# Dev Kit` and install the C# Dev Kit ([Configuration tutorial](https://code.visualstudio.com/docs/csharp/get-started)).
-3. You can also use Visual Studio ([Installation tutorial](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)).
+1. Download and install [.NET 8.0](https://dotnet.microsoft.com/en-us/download).
+2. Search for `C# Dev Kit` in the VS Code Extensions Marketplace and install C# Dev Kit ([setup guide](https://code.visualstudio.com/docs/csharp/get-started)).
+3. You can also use Visual Studio ([installation guide](https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022)).
 
-### Go environment
+### Go
 
-1. Download and install [go](https://go.dev/dl/).
-2. In the VS Code extension marketplace, search for `go` and install Go.
-3. Press `Ctrl + Shift + P` to call up the command bar, enter go, choose `Go: Install/Update Tools`, select all and install.
+1. Download and install [Go](https://go.dev/dl/).
+2. Search for `go` in the VS Code Extensions Marketplace and install Go.
+3. Press `Ctrl + Shift + P` to open the Command Palette, enter go, select `Go: Install/Update Tools`, then select and install all the tools.
 
-### Swift environment
+### Swift
 
 1. Download and install [Swift](https://www.swift.org/download/).
-2. In the VS Code extension marketplace, search for `swift` and install [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang).
+2. Search for `swift` in the VS Code Extensions Marketplace and install [Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang).
 
-### JavaScript environment
+### JavaScript
 
 1. Download and install [Node.js](https://nodejs.org/en/).
-2. (Optional) In the VS Code extension marketplace, search for `Prettier` and install the code formatting tool.
+2. (Optional) Search for `Prettier` in the VS Code Extensions Marketplace and install this code formatter.
 
-### TypeScript environment
+### TypeScript
 
-1. Follow the same installation steps as the JavaScript environment.
+1. Follow the JavaScript environment setup steps.
 2. Install [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation).
-3. In the VS Code extension marketplace, search for `typescript` and install [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors).
+3. Search for `typescript` in the VS Code Extensions Marketplace and install [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors).
 
-### Dart environment
+### Dart
 
 1. Download and install [Dart](https://dart.dev/get-dart).
-2. In the VS Code extension marketplace, search for `dart` and install [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code).
+2. Search for `dart` in the VS Code Extensions Marketplace and install [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code).
 
-### Rust environment
+### Rust
 
 1. Download and install [Rust](https://www.rust-lang.org/tools/install).
-2. In the VS Code extension marketplace, search for `rust` and install [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+2. Search for `rust` in the VS Code Extensions Marketplace and install [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).

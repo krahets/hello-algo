@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Streams merge into rivers, and rivers merge into the sea.
+    Streams flow into rivers, and rivers flow into the sea.
     
-    Dynamic programming combines the solutions of small problems to solve bigger problems, step by step leading us to the solution.
+    Dynamic programming brings together solutions to small problems to answer a larger one, guiding us step by step to the other shore.

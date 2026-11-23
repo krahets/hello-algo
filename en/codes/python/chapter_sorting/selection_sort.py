@@ -8,9 +8,9 @@ Author: krahets (krahets@163.com)
 def selection_sort(nums: list[int]):
     """Selection sort"""
     n = len(nums)
-    # Outer loop: unsorted range is [i, n-1]
+    # Outer loop: the unsorted range is [i, n-1]
     for i in range(n - 1):
-        # Inner loop: find the smallest element within the unsorted range
+        # Inner loop: find the smallest element in the unsorted range
         k = i
         for j in range(i + 1, n):
             if nums[j] < nums[k]:
@@ -19,8 +19,8 @@ def selection_sort(nums: list[int]):
         nums[i], nums[k] = nums[k], nums[i]
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     nums = [4, 1, 3, 1, 5, 2]
     selection_sort(nums)
-    print("Selection sort completed nums =", nums)
+    print("After selection sort, nums =", nums)

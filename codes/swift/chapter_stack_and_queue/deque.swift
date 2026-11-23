@@ -27,7 +27,7 @@ enum Deque {
         print("队尾元素 peekLast = \(peekLast)")
 
         /* 元素出队 */
-        // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
+        // 使用 Array 模拟时 removeFirst 的复杂度为 O(n)
         let popFirst = deque.removeFirst()
         print("队首出队元素 popFirst = \(popFirst)，队首出队后 deque = \(deque)")
         let popLast = deque.removeLast()

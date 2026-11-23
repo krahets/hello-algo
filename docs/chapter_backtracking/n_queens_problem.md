@@ -6,11 +6,11 @@
 
 如下图所示，当 $n = 4$ 时，共可以找到两个解。从回溯算法的角度看，$n \times n$ 大小的棋盘共有 $n^2$ 个格子，给出了所有的选择 `choices` 。在逐个放置皇后的过程中，棋盘状态在不断地变化，每个时刻的棋盘就是状态 `state` 。
 
-![4 皇后问题的解](n_queens_problem.assets/solution_4_queens.png)
+![4 皇后问题的解](n_queens_problem.assets/solution_4_queens.svg)
 
 下图展示了本题的三个约束条件：**多个皇后不能在同一行、同一列、同一条对角线上**。值得注意的是，对角线分为主对角线 `\` 和次对角线 `/` 两种。
 
-![n 皇后问题的约束条件](n_queens_problem.assets/n_queens_constraints.png)
+![n 皇后问题的约束条件](n_queens_problem.assets/n_queens_constraints.svg)
 
 ### 逐行放置策略
 
@@ -20,7 +20,7 @@
 
 下图所示为 4 皇后问题的逐行放置过程。受画幅限制，下图仅展开了第一行的其中一个搜索分支，并且将不满足列约束和对角线约束的方案都进行了剪枝。
 
-![逐行放置策略](n_queens_problem.assets/n_queens_placing.png)
+![逐行放置策略](n_queens_problem.assets/n_queens_placing.svg)
 
 从本质上看，**逐行放置策略起到了剪枝的作用**，它避免了同一行出现多个皇后的所有搜索分支。
 
@@ -38,7 +38,7 @@
 
 同理，**次对角线上的所有格子的 $row + col$ 是恒定值**。我们同样也可以借助数组 `diags2` 来处理次对角线约束。
 
-![处理列约束和对角线约束](n_queens_problem.assets/n_queens_cols_diagonals.png)
+![处理列约束和对角线约束](n_queens_problem.assets/n_queens_cols_diagonals.svg)
 
 ### 代码实现
 

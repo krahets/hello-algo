@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "递归调用的栈空间",
+  "summary": "空间取决于同时未返回的调用数，逐层递归会积累栈帧。",
+  "context": [
+    "n 为正整数，以下按未做尾调用优化的执行过程计数。"
+  ],
+  "description": [],
+  "result": "每层占常数局部空间，最深时同时存在 n 层，峰值栈空间为 O(n)；之后逐层释放不改变已经达到的峰值。",
+  "frames": [
+    {
+      "id": "source-35",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
+      "title": "递归调用的栈空间",
+      "explanation": "左列“向下‘递’”从 linear_recur(n) 逐层减 1，直到基本情况 linear_recur(1)，大括号标注“递归深度 n”。外层等待内层返回，因此最深处有 n 个栈帧同时存在；随后沿右列“向上‘归’”逐层返回，每返回一层才释放该层栈帧。图右列写作 return 0；现版 Python 用裸 return，实际返回 None，这一差异不影响栈空间计数。"
+    }
+  ]
+}

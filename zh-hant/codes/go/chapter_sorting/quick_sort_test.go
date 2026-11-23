@@ -25,10 +25,10 @@ func TestQuickSortMedian(t *testing.T) {
 	fmt.Println("快速排序（中位基準數最佳化）完成後 nums = ", nums)
 }
 
-// 快速排序（尾遞迴最佳化）
+// 快速排序（遞迴深度最佳化）
 func TestQuickSortTailCall(t *testing.T) {
 	q := quickSortTailCall{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("快速排序（尾遞迴最佳化）完成後 nums = ", nums)
+	fmt.Println("快速排序（遞迴深度最佳化）完成後 nums = ", nums)
 }

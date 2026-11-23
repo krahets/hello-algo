@@ -31,17 +31,3 @@
 3. 在本地進行內容創作，並進行完整測試，驗證程式碼的正確性。
 4. 將本地所做更改 Commit ，然後 Push 至遠端倉庫。
 5. 重新整理倉庫網頁，點選“Create pull request”按鈕即可發起拉取請求。
-
-### Docker 部署
-
-在 `hello-algo` 根目錄下，執行以下 Docker 指令碼，即可在 `http://localhost:8000` 訪問本專案：
-
-```shell
-docker-compose up -d
-```
-
-使用以下命令即可刪除部署：
-
-```shell
-docker-compose down
-```

@@ -2,7 +2,7 @@
 
 <u>数组（array）</u>是一种线性数据结构，其将相同类型的元素存储在连续的内存空间中。我们将元素在数组中的位置称为该元素的<u>索引（index）</u>。下图展示了数组的主要概念和存储方式。
 
-![数组定义与存储方式](array.assets/array_definition.png)
+![数组定义与存储方式](array.assets/array_definition.svg)
 
 ## 数组常用操作
 
@@ -10,139 +10,19 @@
 
 我们可以根据需求选用数组的两种初始化方式：无初始值、给定初始值。在未指定初始值的情况下，大多数编程语言会将数组元素初始化为 $0$ ：
 
-=== "Python"
-
-    ```python title="array.py"
-    # 初始化数组
-    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    /* 初始化数组 */
-    // 存储在栈上
-    int arr[5];
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    // 存储在堆上（需要手动释放空间）
-    int* arr1 = new int[5];
-    int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    /* 初始化数组 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-    int[] nums = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 初始化数组 */
-    int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
-    int[] nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    /* 初始化数组 */
-    var arr [5]int
-    // 在 Go 中，指定长度时（[5]int）为数组，不指定长度时（[]int）为切片
-    // 由于 Go 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
-    // 为了方便实现扩容 extend() 方法，以下将切片（Slice）看作数组（Array）
-    nums := []int{1, 3, 2, 5, 4}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 初始化数组 */
-    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-    let nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    /* 初始化数组 */
-    var arr = new Array(5).fill(0);
-    var nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    /* 初始化数组 */
-    let arr: number[] = new Array(5).fill(0);
-    let nums: number[] = [1, 3, 2, 5, 4];
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    /* 初始化数组 */
-    List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
-    List<int> nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    /* 初始化数组 */
-    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
-    let slice: &[i32] = &[0; 5];
-    // 在 Rust 中，指定长度时（[i32; 5]）为数组，不指定长度时（&[i32]）为切片
-    // 由于 Rust 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
-    // Vector 是 Rust 一般情况下用作动态数组的类型
-    // 为了方便实现扩容 extend() 方法，以下将 vector 看作数组（array）
-    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    /* 初始化数组 */
-    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title="array.kt"
-    /* 初始化数组 */
-    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
-    var nums = intArrayOf(1, 3, 2, 5, 4)
-    ```
-
-=== "Ruby"
-
-    ```ruby title="array.rb"
-    # 初始化数组
-    arr = Array.new(5, 0)
-    nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化数组
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
+```snippet
+init_array
+```
 
 ??? pythontutor "可视化运行"
 
-    https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    @tutor init_array_tutor
 
 ### 访问元素
 
 数组元素被存储在连续的内存空间中，这意味着计算数组元素的内存地址非常容易。给定数组内存地址（首元素内存地址）和某个元素的索引，我们可以使用下图所示的公式计算得到该元素的内存地址，从而直接访问该元素。
 
-![数组元素的内存地址计算](array.assets/array_memory_location_calculation.png)
+![数组元素的内存地址计算](array.assets/array_memory_location_calculation.svg)
 
 观察上图，我们发现数组首个元素的索引为 $0$ ，这似乎有些反直觉，因为从 $1$ 开始计数会更自然。但从地址计算公式的角度看，**索引本质上是内存地址的偏移量**。首个元素的地址偏移量是 $0$ ，因此它的索引为 $0$ 是合理的。
 
@@ -156,7 +36,7 @@
 
 数组元素在内存中是“紧挨着的”，它们之间没有空间再存放任何数据。如下图所示，如果想在数组中间插入一个元素，则需要将该元素之后的所有元素都向后移动一位，之后再把元素赋值给该索引。
 
-![数组插入元素示例](array.assets/array_insert_element.png)
+![数组插入元素示例](array.assets/array_insert_element.svg)
 
 值得注意的是，由于数组的长度是固定的，因此插入一个元素必定会导致数组尾部元素“丢失”。我们将这个问题的解决方案留在“列表”章节中讨论。
 
@@ -168,7 +48,7 @@
 
 同理，如下图所示，若想删除索引 $i$ 处的元素，则需要把索引 $i$ 之后的元素都向前移动一位。
 
-![数组删除元素示例](array.assets/array_remove_element.png)
+![数组删除元素示例](array.assets/array_remove_element.svg)
 
 请注意，删除元素完成后，原先末尾的元素变得“无意义”了，所以我们无须特意去修改它。
 

@@ -8,28 +8,28 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* Queue class based on circular array */
+/* Queue implemented with a circular array */
 class ArrayQueue {
-    private int[] nums; // Array for storing queue elements
-    private int front; // Front pointer, pointing to the front element
-    private int queSize; // Queue length
+    private int[] nums; // Array that stores the queue elements
+    private int front; // Front pointer, pointing to the first element
+    private int queSize; // Queue size
 
     public ArrayQueue(int capacity) {
         nums = new int[capacity];
         front = queSize = 0;
     }
 
-    /* Get the capacity of the queue */
+    /* Get the queue capacity */
     public int capacity() {
         return nums.length;
     }
 
-    /* Get the length of the queue */
+    /* Get the queue size */
     public int size() {
         return queSize;
     }
 
-    /* Determine if the queue is empty */
+    /* Check whether the queue is empty */
     public boolean isEmpty() {
         return queSize == 0;
     }
@@ -40,8 +40,8 @@ class ArrayQueue {
             System.out.println("Queue is full");
             return;
         }
-        // Calculate rear pointer, pointing to rear index + 1
-        // Use modulo operation to wrap the rear pointer from the end of the array back to the start
+        // Calculate the rear pointer, which points one position past the last element
+        // Use modulo to wrap rear to the beginning when it passes the end of the array
         int rear = (front + queSize) % capacity();
         // Add num to the rear
         nums[rear] = num;
@@ -51,22 +51,22 @@ class ArrayQueue {
     /* Dequeue */
     public int pop() {
         int num = peek();
-        // Move front pointer one position backward, returning to the head of the array if it exceeds the tail
+        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
         front = (front + 1) % capacity();
         queSize--;
         return num;
     }
 
-    /* Access front element */
+    /* Access the front element */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return nums[front];
     }
 
-    /* Return array */
+    /* Return an array */
     public int[] toArray() {
-        // Only convert elements within valid length range
+        // Convert only the list elements within the occupied range
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[j % capacity()];
@@ -77,11 +77,11 @@ class ArrayQueue {
 
 public class array_queue {
     public static void main(String[] args) {
-        /* Initialize queue */
+        /* Initialize the queue */
         int capacity = 10;
         ArrayQueue queue = new ArrayQueue(capacity);
 
-        /* Element enqueue */
+        /* Enqueue elements */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -89,27 +89,27 @@ public class array_queue {
         queue.push(4);
         System.out.println("Queue queue = " + Arrays.toString(queue.toArray()));
 
-        /* Access front element */
+        /* Access the front element */
         int peek = queue.peek();
         System.out.println("Front element peek = " + peek);
 
-        /* Element dequeue */
+        /* Dequeue an element */
         int pop = queue.pop();
-        System.out.println("Dequeued element = " + pop + ", after dequeuing" + Arrays.toString(queue.toArray()));
+        System.out.println("Dequeued element pop = " + pop + ", after dequeuing, queue = " + Arrays.toString(queue.toArray()));
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         int size = queue.size();
-        System.out.println("Length of the queue size = " + size);
+        System.out.println("Queue size = " + size);
 
-        /* Determine if the queue is empty */
+        /* Check whether the queue is empty */
         boolean isEmpty = queue.isEmpty();
         System.out.println("Is the queue empty = " + isEmpty);
 
-        /* Test circular array */
+        /* Test the circular array */
         for (int i = 0; i < 10; i++) {
             queue.push(i);
             queue.pop();
-            System.out.println("After the " + i + "th round of enqueueing + dequeuing, queue = " + Arrays.toString(queue.toArray()));
+            System.out.println("After round " + i + " of enqueue + dequeue, queue = " + Arrays.toString(queue.toArray()));
         }
     }
 }

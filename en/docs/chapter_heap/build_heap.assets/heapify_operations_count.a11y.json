@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "title": "Level-by-level work in building a heap",
+  "summary": "When building a heap, lower levels contain many more nodes, yet each node can sift down far fewer levels; summing the work by level yields a linear-time upper bound.",
+  "context": [
+    "The figure analyzes heap construction using a perfect binary tree of height h: nodes are selected from bottom to top, and top-down heapification (sift-down) is applied to each node. Here “bottom up” refers to the order in which nodes are visited, while each repair still moves downward toward child nodes.",
+    "The tree is drawn on the left, while the two columns on the right are labeled “Node height (maximum number of sift-down iterations)” and “Number of nodes at each level,” aligned across levels by horizontal dashed lines. Leaf nodes have height 0 and the root has height h, where height counts edges down to the deepest leaf. The iteration count in the figure refers to the maximum number of levels a node can swap downward, excluding the final comparison check in code that confirms termination."
+  ],
+  "description": [
+    "Let the root level have depth 0 and the leaf level have depth h. Level d has 2^d (2 to the power d) nodes, and each can sift down at most h − d levels; multiplying the two gives the upper bound for that level. Multiplying the total node count by the root height h would overestimate the total work, because roughly half the nodes are leaves that need no sifting down at all.",
+    "The figure lists the top four levels and the bottom two levels, separated by vertical ellipses; the table below adds the depth, general formula, and level-product columns. When h is small, only levels that actually exist apply, and top and bottom rows that coincide are not counted twice."
+  ],
+  "result": "Summing across levels gives T(h) = 2^0×h + 2^1×(h−1) + … + 2^(h−1)×1 + 2^h×0. Shifting and subtracting in the accompanying text simplifies this to T(h) = 2^(h+1) − h − 2, where 2^(h+1) is 2 raised to the exponent (h plus 1). Since the total number of nodes is n = 2^(h+1) − 1, we obtain T(h) = n − h − 1; including linear overhead such as per-node checks, building a heap takes O(n) time.",
+  "frames": [
+    {
+      "id": "source-142",
+      "book_path": "chapter_heap/build_heap.assets/heapify_operations_count.png",
+      "title": "Level-by-level work in building a heap",
+      "explanation": "In the table below, the node count and maximum sift-down levels per node come from the two columns in the figure, while the depth and per-level upper bound are added for organization and calculation. In practice, sifting down can stop before reaching the upper bound whenever the heap property is satisfied early."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Number of nodes and maximum sift-down steps at each level",
+      "headers": [
+        "Depth or position",
+        "Number of nodes",
+        "Max sift-down levels per node",
+        "Upper bound on sift-down steps at level"
+      ],
+      "rows": [
+        [
+          "0 (root level)",
+          "2^0",
+          "h",
+          "2^0×h"
+        ],
+        [
+          "1",
+          "2^1",
+          "h−1",
+          "2^1×(h−1)"
+        ],
+        [
+          "2",
+          "2^2",
+          "h−2",
+          "2^2×(h−2)"
+        ],
+        [
+          "3",
+          "2^3",
+          "h−3",
+          "2^3×(h−3)"
+        ],
+        [
+          "d (general term, 0 ≤ d ≤ h)",
+          "2^d",
+          "h−d",
+          "2^d×(h−d)"
+        ],
+        [
+          "h−1 (second-lowest level)",
+          "2^(h−1)",
+          "1",
+          "2^(h−1)"
+        ],
+        [
+          "h (leaf level)",
+          "2^h",
+          "0",
+          "0"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": []
+}

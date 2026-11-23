@@ -11,37 +11,37 @@
 5. 僅剩的一個元素必定是最大元素，無須排序，因此陣列排序完成。
 
 === "<1>"
-    ![選擇排序步驟](selection_sort.assets/selection_sort_step1.png)
+    ![選擇排序步驟](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.png)
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.png)
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.png)
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.png)
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.png)
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.png)
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.png)
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.png)
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.png)
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png)
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg)
 
 在程式碼中，我們用 $k$ 來記錄未排序區間內的最小元素：
 
@@ -51,8 +51,8 @@
 
 ## 演算法特性
 
-- **時間複雜度為 $O(n^2)$、非自適應排序**：外迴圈共 $n - 1$ 輪，第一輪的未排序區間長度為 $n$ ，最後一輪的未排序區間長度為 $2$ ，即各輪外迴圈分別包含 $n$、$n - 1$、$\dots$、$3$、$2$ 輪內迴圈，求和為 $\frac{(n - 1)(n + 2)}{2}$ 。
+- **時間複雜度為 $O(n^2)$、非自適應排序**：外迴圈共 $n - 1$ 輪，第一輪內迴圈執行 $n - 1$ 次，最後一輪執行 $1$ 次，即各輪內迴圈分別執行 $n - 1$、$n - 2$、$\dots$、$2$、$1$ 次，求和為 $\frac{n(n - 1)}{2}$ 。
 - **空間複雜度為 $O(1)$、原地排序**：指標 $i$ 和 $j$ 使用常數大小的額外空間。
 - **非穩定排序**：如下圖所示，元素 `nums[i]` 有可能被交換至與其相等的元素的右邊，導致兩者的相對順序發生改變。
 
-![選擇排序非穩定示例](selection_sort.assets/selection_sort_instability.png)
+![選擇排序非穩定示例](selection_sort.assets/selection_sort_instability.svg)

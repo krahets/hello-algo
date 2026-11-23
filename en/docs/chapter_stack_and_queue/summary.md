@@ -1,31 +1,31 @@
 # Summary
 
-### Key review
+### Key takeaways
 
-- Stack is a data structure that follows the Last-In-First-Out (LIFO) principle and can be implemented using arrays or linked lists.
-- In terms of time efficiency, the array implementation of the stack has a higher average efficiency. However, during expansion, the time complexity for a single push operation can degrade to $O(n)$. In contrast, the linked list implementation of a stack offers more stable efficiency.
-- Regarding space efficiency, the array implementation of the stack may lead to a certain degree of space wastage. However, it's important to note that the memory space occupied by nodes in a linked list is generally larger than that for elements in an array.
-- A queue is a data structure that follows the First-In-First-Out (FIFO) principle, and it can also be implemented using arrays or linked lists. The conclusions regarding time and space efficiency for queues are similar to those for stacks.
-- A double-ended queue (deque) is a more flexible type of queue that allows adding and removing elements at both ends.
+- A stack follows last-in, first-out order and can be implemented with an array or linked list.
+- An array-based stack offers higher average time efficiency, but a push that triggers expansion takes $O(n)$ time. A linked-list stack provides more consistent performance.
+- An array-based stack may waste some space. However, linked-list nodes require more memory than individual array elements.
+- A queue follows first-in, first-out order and can also be implemented with an array or linked list. Their time and space tradeoffs resemble those of stack implementations.
+- A deque is a more flexible queue that allows insertion and removal at both ends.
 
 ### Q & A
 
-**Q**: Is the browser's forward and backward functionality implemented with a doubly linked list?
+**Q**: Are browser back and forward navigation implemented with a doubly linked list?
 
-A browser's forward and backward navigation is essentially a manifestation of the "stack" concept. When a user visits a new page, the page is added to the top of the stack; when they click the back button, the page is popped from the top of the stack. A double-ended queue (deque) can conveniently implement some additional operations, as mentioned in the "Double-Ended Queue" section.
+Browser navigation fundamentally reflects stack behavior. Visiting a new page adds it to the top of a stack; clicking Back removes it. A deque conveniently supports additional operations, as discussed in the deque section.
 
-**Q**: After popping from a stack, is it necessary to free the memory of the popped node?
+**Q**: After popping a node, do we need to free its memory?
 
-If the popped node will still be used later, it's not necessary to free its memory. In languages like Java and Python that have automatic garbage collection, manual memory release is not necessary; in C and C++, manual memory release is required.
+If the node will still be used, do not free it. If it is no longer needed, languages such as `Java` and `Python` use automatic garbage collection, so manual deallocation is unnecessary. In `C` and `C++`, memory must be released manually.
 
-**Q**: A double-ended queue seems like two stacks joined together. What are its uses?
+**Q**: A deque looks like two stacks joined together. What is it useful for?
 
-A double-ended queue, which is a combination of a stack and a queue or two stacks joined together, exhibits both stack and queue logic. Thus, it can implement all applications of stacks and queues while offering more flexibility.
+A deque resembles a combination of a stack and a queue, or two stacks joined together. It combines stack and queue behavior, supporting all their applications with greater flexibility.
 
-**Q**: How exactly are undo and redo implemented?
+**Q**: How exactly do undo and redo work?
 
-Undo and redo operations are implemented using two stacks: Stack `A` for undo and Stack `B` for redo.
+Use two stacks: `A` for undo and `B` for redo.
 
-1. Each time a user performs an operation, it is pushed onto Stack `A`, and Stack `B` is cleared.
-2. When the user executes an "undo", the most recent operation is popped from Stack `A` and pushed onto Stack `B`.
-3. When the user executes a "redo", the most recent operation is popped from Stack `B` and pushed back onto Stack `A`.
+1. Whenever the user performs an action, push it onto `A` and clear `B`.
+2. To undo, pop the most recent action from `A` and push it onto `B`.
+3. To redo, pop the most recent action from `B` and push it onto `A`.

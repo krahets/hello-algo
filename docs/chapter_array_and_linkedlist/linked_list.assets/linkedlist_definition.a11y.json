@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "title": "链表的节点与连接",
+  "summary": "图由逻辑视图与内存网格两部分组成，展示同一条链表。网格中每个节点占相邻两格，分别存放值与后继引用 next（指针）；其余浅色格是可用空间，格子大小仅为示意。",
+  "context": [],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-50",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_definition.png",
+      "title": "链表的节点与连接",
+      "explanation": "链表共有 5 个节点，沿 next 引用依次为 1 → 3 → 2 → 5 → 4 → None。头节点是 1，尾节点是 4，None 表示没有下一节点。在内存网格中，节点 2、5 位于下方，而尾节点 4 位于上方：节点 5 的 next 仍指向 4，说明逻辑顺序由引用决定，与物理位置无关。"
+    }
+  ]
+}

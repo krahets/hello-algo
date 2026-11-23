@@ -25,7 +25,7 @@
 
 这是因为搜索过程是区分选择顺序的，然而子集不区分选择顺序。如下图所示，先选 $4$ 后选 $5$ 与先选 $5$ 后选 $4$ 是不同的分支，但对应同一个子集。
 
-![子集搜索与越界剪枝](subset_sum_problem.assets/subset_sum_i_naive.png)
+![子集搜索与越界剪枝](subset_sum_problem.assets/subset_sum_i_naive.svg)
 
 为了去除重复子集，**一种直接的思路是对结果列表进行去重**。但这个方法效率很低，有两方面原因。
 
@@ -45,7 +45,7 @@
 2. 前两轮选择 $4$ 和 $5$ ，生成子集 $[4, 5, \dots]$ 。
 3. 若第一轮选择 $5$ ，**则第二轮应该跳过 $3$ 和 $4$** ，因为子集 $[5, 3, \dots]$ 和 $[5, 4, \dots]$ 与第 `1.` 步和第 `2.` 步中描述的子集完全重复。
 
-![不同选择顺序导致的重复子集](subset_sum_problem.assets/subset_sum_i_pruning.png)
+![不同选择顺序导致的重复子集](subset_sum_problem.assets/subset_sum_i_pruning.svg)
 
 总结来看，给定输入数组 $[x_1, x_2, \dots, x_n]$ ，设搜索过程中的选择序列为 $[x_{i_1}, x_{i_2}, \dots, x_{i_m}]$ ，则该选择序列需要满足 $i_1 \leq i_2 \leq \dots \leq i_m$ ，**不满足该条件的选择序列都会造成重复，应当剪枝**。
 
@@ -64,7 +64,7 @@
 
 下图所示为将数组 $[3, 4, 5]$ 和目标元素 $9$ 输入以上代码后的整体回溯过程。
 
-![子集和 I 回溯过程](subset_sum_problem.assets/subset_sum_i.png)
+![子集和 I 回溯过程](subset_sum_problem.assets/subset_sum_i.svg)
 
 ## 考虑重复元素的情况
 
@@ -76,7 +76,7 @@
 
 **造成这种重复的原因是相等元素在某轮中被多次选择**。在下图中，第一轮共有三个选择，其中两个都为 $4$ ，会产生两个重复的搜索分支，从而输出重复子集；同理，第二轮的两个 $4$ 也会产生重复子集。
 
-![相等元素导致的重复子集](subset_sum_problem.assets/subset_sum_ii_repeat.png)
+![相等元素导致的重复子集](subset_sum_problem.assets/subset_sum_ii_repeat.svg)
 
 ### 相等元素剪枝
 
@@ -92,4 +92,4 @@
 
 下图展示了数组 $[4, 4, 5]$ 和目标元素 $9$ 的回溯过程，共包含四种剪枝操作。请你将图示与代码注释相结合，理解整个搜索过程，以及每种剪枝操作是如何工作的。
 
-![子集和 II 回溯过程](subset_sum_problem.assets/subset_sum_ii.png)
+![子集和 II 回溯过程](subset_sum_problem.assets/subset_sum_ii.svg)

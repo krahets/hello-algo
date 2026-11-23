@@ -12,39 +12,39 @@ from modules import TreeNode, list_to_tree, print_tree
 
 
 class ArrayBinaryTree:
-    """Array-based binary tree class"""
+    """Binary tree class using an array representation"""
 
     def __init__(self, arr: list[int | None]):
         """Constructor"""
         self._tree = list(arr)
 
     def size(self):
-        """List capacity"""
+        """Length of the backing list"""
         return len(self._tree)
 
     def val(self, i: int) -> int | None:
         """Get the value of the node at index i"""
-        # If the index is out of bounds, return None, representing a vacancy
+        # If the index is out of bounds, return None to represent an empty position
         if i < 0 or i >= self.size():
             return None
         return self._tree[i]
 
     def left(self, i: int) -> int | None:
-        """Get the index of the left child of the node at index i"""
+        """Get the left child index of the node at index i"""
         return 2 * i + 1
 
     def right(self, i: int) -> int | None:
-        """Get the index of the right child of the node at index i"""
+        """Get the right child index of the node at index i"""
         return 2 * i + 2
 
     def parent(self, i: int) -> int | None:
-        """Get the index of the parent of the node at index i"""
+        """Get the parent index of the node at index i"""
         return (i - 1) // 2
 
     def level_order(self) -> list[int]:
         """Level-order traversal"""
         self.res = []
-        # Traverse array
+        # Traverse the array directly
         for i in range(self.size()):
             if self.val(i) is not None:
                 self.res.append(self.val(i))
@@ -54,66 +54,66 @@ class ArrayBinaryTree:
         """Depth-first traversal"""
         if self.val(i) is None:
             return
-        # Pre-order traversal
+        # Preorder traversal
         if order == "pre":
             self.res.append(self.val(i))
         self.dfs(self.left(i), order)
-        # In-order traversal
+        # Inorder traversal
         if order == "in":
             self.res.append(self.val(i))
         self.dfs(self.right(i), order)
-        # Post-order traversal
+        # Postorder traversal
         if order == "post":
             self.res.append(self.val(i))
 
     def pre_order(self) -> list[int]:
-        """Pre-order traversal"""
+        """Preorder traversal"""
         self.res = []
         self.dfs(0, order="pre")
         return self.res
 
     def in_order(self) -> list[int]:
-        """In-order traversal"""
+        """Inorder traversal"""
         self.res = []
         self.dfs(0, order="in")
         return self.res
 
     def post_order(self) -> list[int]:
-        """Post-order traversal"""
+        """Postorder traversal"""
         self.res = []
         self.dfs(0, order="post")
         return self.res
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize binary tree
-    # Use a specific function to convert an array into a binary tree
+    # Initialize the binary tree
+    # Use a helper function that builds a binary tree directly from an array
     arr = [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
     root = list_to_tree(arr)
-    print("\nInitialize binary tree\n")
+    print("\nInitialize the binary tree\n")
     print("Array representation of the binary tree:")
     print(arr)
-    print("Linked list representation of the binary tree:")
+    print("Linked representation of the binary tree:")
     print_tree(root)
 
-    # Array-based binary tree class
+    # Binary tree class using an array representation
     abt = ArrayBinaryTree(arr)
 
-    # Access node
+    # Access a node
     i = 1
     l, r, p = abt.left(i), abt.right(i), abt.parent(i)
-    print(f"\nCurrent node index is {i}, value is {abt.val(i)}")
-    print(f"Its left child node index is {l}, value is {abt.val(l)}")
-    print(f"Its right child node index is {r}, value is {abt.val(r)}")
-    print(f"Its parent node index is {p}, value is {abt.val(p)}")
+    print(f"\nCurrent node index: {i}, value: {abt.val(i)}")
+    print(f"Left child index: {l}, value: {abt.val(l)}")
+    print(f"Right child index: {r}, value: {abt.val(r)}")
+    print(f"Parent index: {p}, value: {abt.val(p)}")
 
-    # Traverse tree
+    # Traverse the tree
     res = abt.level_order()
-    print("\nLevel-order traversal is:", res)
+    print("\nLevel-order traversal:", res)
     res = abt.pre_order()
-    print("Pre-order traversal is:", res)
+    print("Preorder traversal:", res)
     res = abt.in_order()
-    print("In-order traversal is:", res)
+    print("Inorder traversal:", res)
     res = abt.post_order()
-    print("Post-order traversal is:", res)
+    print("Postorder traversal:", res)

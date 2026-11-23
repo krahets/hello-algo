@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "基于数组实现栈的入栈与出栈",
+  "summary": "将数组尾部作为栈顶，入栈和出栈都在尾部操作。",
+  "context": [
+    "左侧是对外表现的栈，上为栈顶、下为栈底；右侧是竖直数组，首元素在下、尾元素在上。中间向左箭头标注“底层实现是数组，对外表现为栈”。"
+  ],
+  "description": [
+    "数组从首到尾与栈从底到顶顺序一致，图中都从下往上读。尾元素上方的灰色虚线格和省略号标为“数组剩余空位”。"
+  ],
+  "result": "基于数组实现栈时，入栈和出栈分别对应在数组尾部追加和删除元素，未触发扩容时时间复杂度均为 O(1)，已有元素无须搬移。",
+  "frames": [
+    {
+      "id": "source-60",
+      "book_path": "chapter_stack_and_queue/stack.assets/array_stack_step1.png",
+      "title": "初始栈：数组尾元素 5 为栈顶",
+      "explanation": "初始有效数组从首到尾为 [1, 3, 2, 5]，与栈从底到顶的顺序相同，共 4 个元素。首元素 1 对应栈底，尾元素 5 对应栈顶；5 上方画有两个灰色虚线空位和省略号。",
+      "key_state": "初始有效数组（首到尾）[1, 3, 2, 5]；首元素 1 为栈底，尾元素 5 为栈顶，上方有剩余空位。",
+      "announcement": "初始数组包含 4 个有效元素 [1, 3, 2, 5]，尾元素 5 对应栈顶。"
+    },
+    {
+      "id": "source-61",
+      "book_path": "chapter_stack_and_queue/stack.assets/array_stack_step2_push.png",
+      "title": "在数组尾部入栈 4",
+      "explanation": "执行 push(4)，右侧标注“将元素 4 添加至数组尾部”。青色的 4 写入原尾元素 5 上方的首个空位，尾元素标记上移到 4。当前有效数组从首到尾为 [1, 3, 2, 5, 4]，与栈从底到顶顺序相同，共 5 个元素；首元素和栈底仍为 1，尾元素和栈顶为 4，上方仍有空位。",
+      "key_state": "push(4) 后：有效数组（首到尾）[1, 3, 2, 5, 4]；尾元素与栈顶更新为 4。",
+      "announcement": "执行 push(4)，将 4 写入数组尾部空位，尾元素和栈顶变为 4。"
+    },
+    {
+      "id": "source-62",
+      "book_path": "chapter_stack_and_queue/stack.assets/array_stack_step3_pop.png",
+      "title": "在数组尾部出栈 4",
+      "explanation": "执行 pop()，右侧标注“删除数组尾元素”。移除并返回尾元素 4，其原位置画回灰色虚线空位，尾元素标记下移到 5。当前有效数组从首到尾恢复为 [1, 3, 2, 5]，与栈从底到顶顺序相同，共 4 个元素；首元素和栈底为 1，尾元素和栈顶为 5。",
+      "key_state": "pop() 移除并返回尾元素 4 后：有效数组（首到尾）[1, 3, 2, 5]；尾元素与栈顶恢复为 5。",
+      "announcement": "执行 pop() 移除并返回数组尾元素 4，尾元素和栈顶恢复为 5。"
+    }
+  ],
+  "animations": {
+    "array-stack": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-60"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-61"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-62"
+        }
+      ]
+    }
+  }
+}

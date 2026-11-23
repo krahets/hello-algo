@@ -1,0 +1,206 @@
+{
+  "schema_version": 2,
+  "title": "試行と後戻り：7 に到達する経路の保存",
+  "summary": "ノードに入るときに path へ追加し、出るときに取り出します。二箇所で 7 を見つけた際に経路のコピーを保存し、探索終了時には path は空になります。",
+  "context": [
+    "固定された木の親子関係を下の表に示します。左側の 7 は根 1 の左の子ノード、右側の 7 はノード 3 の右の子ノードです。",
+    "「根 → 左 → 右」の行きがけ順で木全体を走査し、根ノード 1 から値が 7 のすべてのノードまでの経路を求めます。",
+    "状態リスト path は根から現在のノードまで、探索中の経路を保持し、結果リスト res は 7 に到達するたびにその時点の経路のコピーを保存します。図では path と res をノードの値で簡略表記していますが、対応するコードでは実際にはノードオブジェクトとリストのコピー list(path) を保存しており、左右二つの値が 7 のノードは別々のオブジェクトです。"
+  ],
+  "description": [
+    "前へ「試行」してノードに入るたびにそのノードを path の末尾へ追加し、現在のノードの値が 7 であれば現在の path のコピーを作って res に追加します。ノードを離れて「後戻り」する前には path の末尾から取り出し、そのノードに入る前の経路を復元します。"
+  ],
+  "result": "res に保存されるのは目標を見つけた時点での path の独立したリストコピーであるため、後戻りで要素を取り出しても変更されるのは現在の path だけであり、保存済みの解は変わりません。",
+  "frames": [
+    {
+      "id": "source-342",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png",
+      "title": "根 1 に入る",
+      "explanation": "根ノード 1 から始め、1 を path に追加します。ノードの値 1 は目標の 7 ではなく、現在は path = [1]、res = [] です。左右の部分木はいずれも未探索であり、次に左側の 7 に入ります。",
+      "key_state": "根 1 に入り、path = [1]、res = [] です。",
+      "announcement": "根ノード 1 に入り、1 を path に追加します。"
+    },
+    {
+      "id": "source-343",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png",
+      "title": "左側の 7 に到達し、経路を保存",
+      "explanation": "根 1 から左側の 7 に入り、7 を追加して目標に到達したため、現在の経路のコピーを res に保存します。現在は path = [1, 7]、res = [[1, 7]] であり、続けて左側の 7 の子ノード 4、5 を探索します。",
+      "key_state": "左側の 7 に到達し、path = [1, 7]、コピーを保存して res = [[1, 7]] です。",
+      "announcement": "左側のノード 7 を訪問し、経路のコピー [1, 7] を res に保存します。"
+    },
+    {
+      "id": "source-344",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png",
+      "title": "ノード 4 に入る",
+      "explanation": "左側の 7 の左の葉ノード 4 に入り、4 を path に追加します。これは目標の 7 ではありません。現在は path = [1, 7, 4]、res = [[1, 7]] であり、ノード 5 と根の右部分木が未探索です。",
+      "key_state": "葉ノード 4 に入り、path = [1, 7, 4]、res = [[1, 7]] です。",
+      "announcement": "左の葉ノード 4 に入り、path を [1, 7, 4] に更新します。"
+    },
+    {
+      "id": "source-345",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png",
+      "title": "4 を出て、左側の 7 に戻る",
+      "explanation": "葉ノード 4 の左右の空の部分木から戻ったため、path から 4 を取り出し、親ノードである左側の 7 に戻ります。現在は path = [1, 7]、res = [[1, 7]] です。ノード 4 の処理は完了し、次に右の子ノード 5 を探索します。",
+      "key_state": "4 を取り出して左側の 7 へ後戻りし、path は [1, 7] に戻り、res = [[1, 7]] です。",
+      "announcement": "葉ノード 4 から後戻りして 4 を取り出し、path を [1, 7] に戻します。"
+    },
+    {
+      "id": "source-346",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png",
+      "title": "ノード 5 に入る",
+      "explanation": "左側の 7 の右の葉ノード 5 に入り、5 を path に追加します。先ほど取り出した兄弟ノード 4 は残りません。現在は path = [1, 7, 5]、res = [[1, 7]] であり、左部分木の全ノードを訪問し終え、根の右部分木が未探索です。",
+      "key_state": "葉ノード 5 に入り、path = [1, 7, 5]、res = [[1, 7]] です。",
+      "announcement": "右の葉ノード 5 に入り、path を [1, 7, 5] に更新します。"
+    },
+    {
+      "id": "source-347",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png",
+      "title": "5 と左側の 7 を出る",
+      "explanation": "ノード 5 の訪問を終えるとまず 5 を取り出して左側の 7 に戻り、その左右の部分木もすべて完了したため、さらに左側の 7 を取り出して根 1 に戻ります。この画面ではこれら二回の後戻りをまとめて示しています。現在は path = [1]、res = [[1, 7]] であり、次は根の右の子ノード 3 を探索します。",
+      "key_state": "5 と左側の 7 を順に取り出して根 1 に戻り、path は [1] に戻り、res は [[1, 7]] のままです。",
+      "announcement": "ノード 5 と左側の 7 から続けて出て、path を [1] に戻します。"
+    },
+    {
+      "id": "source-348",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png",
+      "title": "ノード 3 に入る",
+      "explanation": "根 1 の右の子ノード 3 に入り、3 を path に追加します。これは目標の 7 ではありません。現在は path = [1, 3]、res = [[1, 7]] であり、続けてノード 3 の左の葉ノード 6 と右の葉ノード 7 を探索します。",
+      "key_state": "右の子ノード 3 に入り、path = [1, 3]、res = [[1, 7]] です。",
+      "announcement": "根の右の子ノード 3 に入り、path を [1, 3] に更新します。"
+    },
+    {
+      "id": "source-349",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png",
+      "title": "ノード 6 に入る",
+      "explanation": "ノード 3 の左の葉ノード 6 に入り、6 を path に追加します。これは目標の 7 ではありません。現在は path = [1, 3, 6]、res = [[1, 7]] であり、木全体で未訪問なのはノード 3 の右の子ノード 7 だけです。",
+      "key_state": "葉ノード 6 に入り、path = [1, 3, 6]、res = [[1, 7]] です。",
+      "announcement": "左の葉ノード 6 に入り、path を [1, 3, 6] に更新します。"
+    },
+    {
+      "id": "source-350",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png",
+      "title": "6 を出て、3 に戻る",
+      "explanation": "葉ノード 6 の訪問を終え、path から 6 を取り出して親ノード 3 に戻ります。現在は path = [1, 3]、res = [[1, 7]] です。ノード 6 は完了し、次に右側の 7 を探索します。",
+      "key_state": "6 を取り出してノード 3 へ後戻りし、path は [1, 3] に戻り、res = [[1, 7]] です。",
+      "announcement": "葉ノード 6 から後戻りして 6 を取り出し、path を [1, 3] に戻します。"
+    },
+    {
+      "id": "source-351",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png",
+      "title": "右側の 7 に到達し、経路を保存",
+      "explanation": "ノード 3 の右の葉ノード 7 に入り、7 を追加して二つ目の目標ノードに到達したため、経路のコピーを res に保存します。現在は path = [1, 3, 7]、res = [[1, 7], [1, 3, 7]] であり、すべてのノードを訪問し終え、最後の後戻りを残すのみです。",
+      "key_state": "右側の 7 に到達し、path = [1, 3, 7]、コピーを保存して res = [[1, 7], [1, 3, 7]] です。",
+      "announcement": "右側のノード 7 を訪問し、二つ目の経路のコピー [1, 3, 7] を res に保存します。"
+    },
+    {
+      "id": "source-352",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png",
+      "title": "右側の 7、3、根 1 を出る",
+      "explanation": "右側の 7 の訪問を終え、path から右側の 7、親ノード 3、根 1 を順に取り出します。この画面では最後の三回の後戻りをまとめて示しており、探索が完了します。path = []、res = [[1, 7], [1, 3, 7]] となり、保存済みのコピーはそのまま残ります。",
+      "key_state": "右側の 7、3、根 1 を順に取り出して最後の三回の後戻りを終え、path = []、res = [[1, 7], [1, 3, 7]] です。",
+      "announcement": "右側の 7、ノード 3、根 1 から順に出て path が空になり、探索が完了しました。"
+    }
+  ],
+  "animations": {
+    "preorder-find-paths": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-342"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-343"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-344"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-345"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-346"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-347"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-348"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-349"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-350"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-351"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-352"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "固定された二分木：値が 7 の二つのノードの区別",
+      "headers": [
+        "ノード",
+        "左の子ノード",
+        "右の子ノード"
+      ],
+      "rows": [
+        [
+          "根 1",
+          "左側の 7",
+          "3"
+        ],
+        [
+          "左側の 7",
+          "4",
+          "5"
+        ],
+        [
+          "3",
+          "6",
+          "右側の 7"
+        ],
+        [
+          "4",
+          "なし",
+          "なし"
+        ],
+        [
+          "5",
+          "なし",
+          "なし"
+        ],
+        [
+          "6",
+          "なし",
+          "なし"
+        ],
+        [
+          "右側の 7",
+          "なし",
+          "なし"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

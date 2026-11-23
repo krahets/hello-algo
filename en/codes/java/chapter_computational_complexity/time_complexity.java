@@ -24,10 +24,10 @@ public class time_complexity {
         return count;
     }
 
-    /* Linear complexity (traversing an array) */
+    /* Linear complexity (array traversal) */
     static int arrayTraversal(int[] nums) {
         int count = 0;
-        // Loop count is proportional to the length of the array
+        // The number of iterations is proportional to the array length
         for (int num : nums) {
             count++;
         }
@@ -37,7 +37,7 @@ public class time_complexity {
     /* Quadratic complexity */
     static int quadratic(int n) {
         int count = 0;
-        // Loop count is squared in relation to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -49,26 +49,26 @@ public class time_complexity {
     /* Quadratic complexity (bubble sort) */
     static int bubbleSort(int[] nums) {
         int count = 0; // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the right end of the range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    count += 3; // Element swap includes 3 individual operations
+                    count += 3; // Swapping two elements takes 3 elementary operations
                 }
             }
         }
         return count;
     }
 
-    /* Exponential complexity (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     static int exponential(int n) {
         int count = 0, base = 1;
-        // Cells split into two every round, forming the sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < base; j++) {
                 count++;
@@ -86,7 +86,7 @@ public class time_complexity {
         return expRecur(n - 1) + expRecur(n - 1) + 1;
     }
 
-    /* Logarithmic complexity (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     static int logarithmic(int n) {
         int count = 0;
         while (n > 1) {
@@ -103,7 +103,7 @@ public class time_complexity {
         return logRecur(n / 2) + 1;
     }
 
-    /* Linear logarithmic complexity */
+    /* Linearithmic complexity */
     static int linearLogRecur(int n) {
         if (n <= 1)
             return 1;
@@ -119,49 +119,49 @@ public class time_complexity {
         if (n == 0)
             return 1;
         int count = 0;
-        // From 1 split into n
+        // Split one problem into n subproblems
         for (int i = 0; i < n; i++) {
             count += factorialRecur(n - 1);
         }
         return count;
     }
 
-    /* Driver Code */
+    /* Driver code */
     public static void main(String[] args) {
-        // Can modify n to experience the trend of operation count changes under various complexities
+        // Try different values of n to see how the operation count grows for each complexity
         int n = 8;
-        System.out.println("Input data size n = " + n);
+        System.out.println("Input size n = " + n);
 
         int count = constant(n);
-        System.out.println("Number of constant complexity operations = " + count);
+        System.out.println("Operation count for constant complexity = " + count);
 
         count = linear(n);
-        System.out.println("Number of linear complexity operations = " + count);
+        System.out.println("Operation count for linear complexity = " + count);
         count = arrayTraversal(new int[n]);
-        System.out.println("Number of linear complexity operations (traversing the array) = " + count);
+        System.out.println("Operation count for linear complexity (array traversal) = " + count);
 
         count = quadratic(n);
-        System.out.println("Number of quadratic order operations = " + count);
+        System.out.println("Operation count for quadratic complexity = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i; // [n,n-1,...,2,1]
         count = bubbleSort(nums);
-        System.out.println("Number of quadratic order operations (bubble sort) = " + count);
+        System.out.println("Operation count for quadratic complexity (bubble sort) = " + count);
 
         count = exponential(n);
-        System.out.println("Number of exponential complexity operations (implemented by loop) = " + count);
+        System.out.println("Operation count for exponential complexity (iterative implementation) = " + count);
         count = expRecur(n);
-        System.out.println("Number of exponential complexity operations (implemented by recursion) = " + count);
+        System.out.println("Operation count for exponential complexity (recursive implementation) = " + count);
 
         count = logarithmic(n);
-        System.out.println("Number of logarithmic complexity operations (implemented by loop) = " + count);
+        System.out.println("Operation count for logarithmic complexity (iterative implementation) = " + count);
         count = logRecur(n);
-        System.out.println("Number of logarithmic complexity operations (implemented by recursion) = " + count);
+        System.out.println("Operation count for logarithmic complexity (recursive implementation) = " + count);
 
         count = linearLogRecur(n);
-        System.out.println("Number of linear logarithmic complexity operations (implemented by recursion) = " + count);
+        System.out.println("Operation count for linearithmic complexity (recursive implementation) = " + count);
 
         count = factorialRecur(n);
-        System.out.println("Number of factorial complexity operations (implemented by recursion) = " + count);
+        System.out.println("Operation count for factorial complexity (recursive implementation) = " + count);
     }
 }

@@ -11,28 +11,28 @@ import java.util.Stack;
 public class recursion {
     /* Recursion */
     static int recur(int n) {
-        // Termination condition
+        // Base case
         if (n == 1)
             return 1;
-        // Recursive: recursive call
+        // Recurse: make a recursive call
         int res = recur(n - 1);
-        // Return: return result
+        // Unwind: return the result
         return n + res;
     }
 
-    /* Simulate recursion with iteration */
+    /* Simulate recursion using iteration */
     static int forLoopRecur(int n) {
         // Use an explicit stack to simulate the system call stack
         Stack<Integer> stack = new Stack<>();
         int res = 0;
-        // Recursive: recursive call
+        // Recurse: make a recursive call
         for (int i = n; i > 0; i--) {
-            // Simulate "recursive" by "pushing onto the stack"
+            // Simulate recursive calls by pushing onto the stack
             stack.push(i);
         }
-        // Return: return result
+        // Unwind: return the result
         while (!stack.isEmpty()) {
-            // Simulate "return" by "popping from the stack"
+            // Simulate unwinding by popping from the stack
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -41,39 +41,39 @@ public class recursion {
 
     /* Tail recursion */
     static int tailRecur(int n, int res) {
-        // Termination condition
+        // Base case
         if (n == 0)
             return res;
-        // Tail recursive call
+        // Tail-recursive call
         return tailRecur(n - 1, res + n);
     }
 
-    /* Fibonacci sequence: Recursion */
+    /* Fibonacci sequence: recursion */
     static int fib(int n) {
-        // Termination condition f(1) = 0, f(2) = 1
+        // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
             return n - 1;
-        // Recursive call f(n) = f(n-1) + f(n-2)
+        // Recursive calls: f(n) = f(n-1) + f(n-2)
         int res = fib(n - 1) + fib(n - 2);
-        // Return result f(n)
+        // Return the result f(n)
         return res;
     }
 
-    /* Driver Code */
+    /* Driver code */
     public static void main(String[] args) {
         int n = 5;
         int res;
 
         res = recur(n);
-        System.out.println("\nSum result of the recursive function res = " + res);
+        System.out.println("\nSum from recursion: res = " + res);
 
         res = forLoopRecur(n);
-        System.out.println("\nSum result using iteration to simulate recursion res = " + res);
+        System.out.println("\nSum from simulating recursion with iteration: res = " + res);
 
         res = tailRecur(n, 0);
-        System.out.println("\nSum result of the tail-recursive function res = " + res);
+        System.out.println("\nSum from tail recursion: res = " + res);
 
         res = fib(n);
-        System.out.println("\nThe " + n + "th number in the Fibonacci sequence is " + res);
+        System.out.println("\nFibonacci term " + n + " is " + res);
     }
 }

@@ -24,9 +24,9 @@ if __FILE__ == $0
   hash_str = str.hash
   puts "字符串 #{str} 的哈希值为 #{hash_str}"
 
-  tup = [12836, '小哈']
-  hash_tup = tup.hash
-  puts "元组 #{tup} 的哈希值为 #{hash_tup}"
+  arr = [12836, '小哈']
+  hash_arr = arr.hash
+  puts "数组 #{arr} 的哈希值为 #{hash_arr}"
 
   obj = ListNode.new(0)
   hash_obj = obj.hash

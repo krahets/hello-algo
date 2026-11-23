@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Complexity analysis is like a space-time navigator in the vast universe of algorithms.
-
-    It guides us in exploring deeper within the the dimensions of time and space, seeking more elegant solutions.
+    Complexity analysis is our guide to time and space in the vast universe of algorithms.
+    
+    It leads us to explore these two dimensions in depth as we search for more elegant solutions.

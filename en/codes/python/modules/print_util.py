@@ -9,7 +9,7 @@ from .list_node import ListNode, linked_list_to_list
 
 
 def print_matrix(mat: list[list[int]]):
-    """Print matrix"""
+    """Print a matrix"""
     s = []
     for arr in mat:
         s.append("  " + str(arr))
@@ -17,7 +17,7 @@ def print_matrix(mat: list[list[int]]):
 
 
 def print_linked_list(head: ListNode | None):
-    """Print linked list"""
+    """Print a linked list"""
     arr: list[int] = linked_list_to_list(head)
     print(" -> ".join([str(a) for a in arr]))
 
@@ -39,7 +39,7 @@ def print_tree(
     root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False
 ):
     """
-    Print binary tree
+    Print a binary tree
     This tree printer is borrowed from TECHIE DELIGHT
     https://www.techiedelight.com/c-program-print-binary-tree/
     """
@@ -68,13 +68,13 @@ def print_tree(
 
 
 def print_dict(hmap: dict):
-    """Print dictionary"""
+    """Print a dictionary"""
     for key, value in hmap.items():
         print(key, "->", value)
 
 
 def print_heap(heap: list[int]):
-    """Print heap"""
+    """Print a heap"""
     print("Array representation of the heap:", heap)
     print("Tree representation of the heap:")
     root: TreeNode | None = list_to_tree(heap)

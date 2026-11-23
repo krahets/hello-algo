@@ -1,0 +1,211 @@
+{
+  "schema_version": 2,
+  "title": "Maximum capacity: two-pointer greedy search",
+  "summary": "Start with a pointer at each end. For each pair of walls, compute the capacity, keep the largest seen, and move the pointer at the shorter wall inward. The maximum is 28.",
+  "context": [
+    "Given wall heights ht = [3, 8, 5, 2, 7, 7, 3, 4] (indices 0 to 7), container capacity is cap[i, j] = min(ht[i], ht[j]) × (j - i).",
+    "Initialize left pointer i = 0, right pointer j = 7, and maximum capacity res = 0. While i < j, compute current capacity cap, update res = max(res, cap), compare the two wall heights, and move the pointer on the shorter wall one step inward until i and j meet."
+  ],
+  "description": [
+    "Across 9 steps, teal label i and blue label j sit above the selected left and right walls highlighted in matching colors; in Steps 2 through 8, the current container between them is shaded light blue with the current cap formula and running maximum res shown below.",
+    "Step 1 only initializes, Steps 2 through 8 perform 7 capacity evaluations, and Step 9 exits when the pointers meet, so player step numbers do not equal capacity-evaluation counts. Below, the \"Maximum capacity steps 2 to 8: calculations and running maximum\" table summarizes each step; pointer indices, cap, and res are printed in the figure, while wall heights are read off the vertical axis."
+  ],
+  "frames": [
+    {
+      "id": "source-470",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png",
+      "title": "Initialize pointers at opposite ends",
+      "explanation": "Initialize left pointer i = 0 (wall height 3), right pointer j = 7 (wall height 4), and maximum capacity res = 0. No capacity has been evaluated yet, and no water region is shaded.",
+      "key_state": "Initialized: i = 0 (height 3), j = 7 (height 4), running maximum res = 0, current capacity not yet computed.",
+      "announcement": "Initialize two pointers at opposite ends i = 0, j = 7 with maximum capacity res = 0."
+    },
+    {
+      "id": "source-471",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png",
+      "title": "Compute capacity of container [0, 7]",
+      "explanation": "First evaluation on outer pair [0, 7]: left wall ht[0] = 3, right wall ht[7] = 4, width 7 - 0 = 7, giving cap = min(3, 4) × 7 = 21 and updating res = max(0, 21) = 21. Because left wall 3 is shorter than right wall 4, move shorter-wall pointer i rightward next.",
+      "key_state": "i = 0 (height 3), j = 7 (height 4), left wall shorter; width 7, water height 3, cap = 21, running max res = 21.",
+      "announcement": "Evaluate outer walls: left height 3, right height 4, left shorter; cap = 21, update res to 21."
+    },
+    {
+      "id": "source-472",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png",
+      "title": "Move shorter-wall pointer right to i = 1",
+      "explanation": "Because the left wall was shorter in the previous round, advance i from 0 to 1 for state [1, 7]: left wall ht[1] = 8, right wall ht[7] = 4, width 7 - 1 = 6, giving cap = min(8, 4) × 6 = 24 and updating res = max(21, 24) = 24. Now right wall 4 is shorter than left wall 8, so move right pointer j leftward next.",
+      "key_state": "i = 1 (height 8), j = 7 (height 4), right wall shorter; width 6, water height 4, cap = 24, running max res = 24.",
+      "announcement": "Move i from 0 to 1: left height 8, right height 4, right shorter; cap = 24, update res to 24."
+    },
+    {
+      "id": "source-473",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png",
+      "title": "Move the right pointer left to j = 6",
+      "explanation": "Because right wall 4 was shorter than left wall 8, move j left from 7 to 6 for state [1, 6]: left wall 8, right wall ht[6] = 3, width 6 - 1 = 5, giving cap = min(8, 3) × 5 = 15; running maximum res = max(24, 15) = 24 stays unchanged.",
+      "key_state": "i = 1 (height 8), j = 6 (height 3), right wall shorter; width 5, water height 3, cap = 15, running max res = 24.",
+      "announcement": "Move j from 7 to 6: left height 8, right height 3, right shorter; cap = 15, res stays 24."
+    },
+    {
+      "id": "source-474",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png",
+      "title": "Move the right pointer left to j = 5",
+      "explanation": "Because right wall 3 was shorter than left wall 8, move j left from 6 to 5 for state [1, 5]: left wall 8, right wall ht[5] = 7, width 5 - 1 = 4, giving cap = min(8, 7) × 4 = 28 and updating running maximum res = max(24, 28) = 28.",
+      "key_state": "i = 1 (height 8), j = 5 (height 7), right wall shorter; width 4, water height 7, cap = 28, running max res = 28.",
+      "announcement": "Move j from 6 to 5: left height 8, right height 7, right shorter; cap = 28, update res to 28."
+    },
+    {
+      "id": "source-475",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png",
+      "title": "Move the right pointer left to j = 4",
+      "explanation": "Because right wall 7 was shorter than left wall 8, move j left from 5 to 4 for state [1, 4]: left wall 8, right wall ht[4] = 7, width 4 - 1 = 3, giving cap = min(8, 7) × 3 = 21; running maximum res = max(28, 21) = 28 stays unchanged.",
+      "key_state": "i = 1 (height 8), j = 4 (height 7), right wall shorter; width 3, water height 7, cap = 21, running max res = 28.",
+      "announcement": "Move j from 5 to 4: left height 8, right height 7, right shorter; cap = 21, res stays 28."
+    },
+    {
+      "id": "source-476",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png",
+      "title": "Move the right pointer left to j = 3",
+      "explanation": "Because right wall 7 was shorter than left wall 8, move j left from 4 to 3 for state [1, 3]: left wall 8, right wall ht[3] = 2, width 3 - 1 = 2, giving cap = min(8, 2) × 2 = 4; running maximum res = max(28, 4) = 28 stays unchanged.",
+      "key_state": "i = 1 (height 8), j = 3 (height 2), right wall shorter; width 2, water height 2, cap = 4, running max res = 28.",
+      "announcement": "Move j from 4 to 3: left height 8, right height 2, right shorter; cap = 4, res stays 28."
+    },
+    {
+      "id": "source-477",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png",
+      "title": "Move the right pointer left to j = 2",
+      "explanation": "Because right wall 2 was shorter than left wall 8, move j left from 3 to 2 for state [1, 2]: left wall 8, right wall ht[2] = 5, width 2 - 1 = 1, giving cap = min(8, 5) × 1 = 5; running maximum res = max(28, 5) = 28 stays unchanged.",
+      "key_state": "i = 1 (height 8), j = 2 (height 5), right wall shorter; width 1, water height 5, cap = 5, running max res = 28.",
+      "announcement": "Move j from 3 to 2: left height 8, right height 5, right shorter; cap = 5, res stays 28."
+    },
+    {
+      "id": "source-478",
+      "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png",
+      "title": "Pointers meet and return maximum capacity",
+      "explanation": "Because right wall 5 is still shorter than left wall 8, j moves left from 2 to 1 and meets i. Above index 1, the two-color ij badge marks both pointers together (although axis tick 2 remains colored blue, it is no longer the current pointer position). Now i < j fails, so exit the loop without computing another capacity and return res = 28.",
+      "key_state": "Pointers meet at i = j = 1; exit the greedy loop and return maximum capacity res = 28.",
+      "announcement": "Right pointer moves left to index 1 to meet left pointer; exit loop and return maximum capacity 28."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Maximum capacity steps 2 to 8: calculations and running maximum",
+      "headers": [
+        "Step",
+        "i",
+        "j",
+        "Left wall height",
+        "Right wall height",
+        "Current capacity cap",
+        "Running maximum res"
+      ],
+      "rows": [
+        [
+          "Step 2",
+          "0",
+          "7",
+          "3",
+          "4",
+          "21",
+          "21"
+        ],
+        [
+          "Step 3",
+          "1",
+          "7",
+          "8",
+          "4",
+          "24",
+          "24"
+        ],
+        [
+          "Step 4",
+          "1",
+          "6",
+          "8",
+          "3",
+          "15",
+          "24"
+        ],
+        [
+          "Step 5",
+          "1",
+          "5",
+          "8",
+          "7",
+          "28",
+          "28"
+        ],
+        [
+          "Step 6",
+          "1",
+          "4",
+          "8",
+          "7",
+          "21",
+          "28"
+        ],
+        [
+          "Step 7",
+          "1",
+          "3",
+          "8",
+          "2",
+          "4",
+          "28"
+        ],
+        [
+          "Step 8",
+          "1",
+          "2",
+          "8",
+          "5",
+          "5",
+          "28"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "max-capacity-greedy": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-470"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-471"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-472"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-473"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-474"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-475"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-476"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-477"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-478"
+        }
+      ]
+    }
+  },
+  "input_tables": []
+}

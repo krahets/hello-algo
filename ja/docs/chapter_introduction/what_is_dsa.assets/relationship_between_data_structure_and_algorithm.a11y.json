@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "title": "データ構造とアルゴリズムの関係",
+  "summary": "この図は 2 段の構成で、アルゴリズムの処理の流れと、データ構造がその流れ全体を支える関係を表しています。",
+  "context": [],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-17",
+      "book_path": "chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png",
+      "title": "データ構造とアルゴリズムの関係",
+      "explanation": "上段には左から右へ、入力（input）→ アルゴリズム（algorithm）→ 出力（output）が並び、アルゴリズムの上には「一連の操作命令によって入力を出力に変換する」と記されています。下段はデータ構造（data structure）で、「構造化して格納したデータとその操作方法を提供する」と記されています。データ構造から上向きに伸びる 3 本の矢印がそれぞれ入力、アルゴリズム、出力を指しており、処理開始前に入力を格納するだけでなく、3 つの段階すべてを支えていることを表しています。"
+    }
+  ]
+}

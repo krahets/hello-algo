@@ -1,0 +1,243 @@
+{
+  "schema_version": 2,
+  "title": "그래프의 너비 우선 순회",
+  "summary": "왼쪽 위 시작 정점 0에서 출발해 시작점까지의 최소 간선 수를 기준으로 가까운 곳부터 먼 곳으로 레벨별로 정점을 방문한다.",
+  "context": [
+    "순회할 무방향 그래프에는 0부터 8까지 번호가 붙은 정점 9개가 3행 3열 격자 형태로 놓여 있으며 세 행은 차례로 0, 1, 2; 3, 4, 5; 6, 7, 8이다. 그림에서는 가로 또는 세로로 인접한 정점들 사이에만 무방향 간선이 연결되어 있어 총 12개의 간선이 있고 대각선 간선은 없으며, 각 정점의 이웃은 인접 관계 표에 정리되어 있다."
+  ],
+  "description": [],
+  "result": "같은 거리 레벨 안에서의 방문 선후는 이웃 정점을 확인하는 순서에 따라 달라지므로 너비 우선 순회 결과 수열은 유일하지 않다.",
+  "frames": [
+    {
+      "id": "source-190",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step1.png",
+      "title": "큐와 집합 초기화",
+      "explanation": "과정 그림에서는 res에 큐에서 꺼낸 정점을 기록하고, 큐 que에 처리 대기 중인 정점을 담으며(큐의 맨 앞부터 끝 순서로 표기), 집합 visited에 이미 발견한 정점을 기록한다. 정점은 큐에서 꺼낼 때까지 기다리지 않고 큐에 넣는 즉시 visited에 기록하므로 아직 큐에서 대기 중인 정점도 중복해서 큐에 들어가지 않는다. 큐 왼쪽의 빈칸은 꺼낸 뒤 비워진 이전 자리이지 빈 원소가 아니며, visited의 가로 배치나 아래 설명의 중괄호 표기도 집합 내부에 순서가 있다는 뜻이 아니다. 처음에는 0을 큐에 넣고 발견된 정점으로 기록하여 res=[], que=[0], visited={0}이 되며 아직 큐에서 꺼낸 정점은 없다.",
+      "key_state": "큐에는 시작 정점 0만 있고 발견된 정점 집합은 {0}, 결과는 비어 있다.",
+      "announcement": "시작 정점 0을 큐에 넣고 발견된 정점으로 기록하며 순회를 시작한다."
+    },
+    {
+      "id": "source-191",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step2.png",
+      "title": "정점 0 처리",
+      "explanation": "큐의 맨 앞 정점 0을 꺼내 res에 추가한다. 0의 이웃 1, 3을 확인하면 둘 다 아직 발견되지 않았으므로 차례로 큐 que의 끝에 넣고 visited에 기록한다. 현재 결과는 res=[0], 대기 큐는 que=[1, 3], 발견 집합은 visited={0, 1, 3}이다.",
+      "key_state": "정점 0 처리 완료; 큐의 맨 앞부터 끝까지는 [1, 3]이고 결과는 [0]이다.",
+      "announcement": "정점 0을 큐에서 꺼내고 새 이웃 1, 3을 큐에 넣는다."
+    },
+    {
+      "id": "source-192",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step3.png",
+      "title": "정점 1 처리",
+      "explanation": "큐의 맨 앞 정점 1을 꺼내 res에 추가한다. 1의 이웃 0, 2, 4 가운데 0은 이미 visited에 있으므로 건너뛰고, 아직 발견되지 않은 새 이웃 2, 4를 차례로 큐에 넣고 visited에 기록한다. 현재 결과는 res=[0, 1], 대기 큐는 que=[3, 2, 4], 발견 집합은 visited={0, 1, 3, 2, 4}다.",
+      "key_state": "정점 1 처리 완료; 큐의 맨 앞부터 끝까지는 [3, 2, 4]이고 결과는 [0, 1]이다.",
+      "announcement": "정점 1을 큐에서 꺼내고 새 이웃 2, 4를 큐에 넣는다."
+    },
+    {
+      "id": "source-193",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step4.png",
+      "title": "정점 3 처리",
+      "explanation": "큐의 맨 앞 정점 3을 꺼내 res에 추가한다. 3의 이웃 0, 4, 6 가운데 0과 4는 이미 visited에 있으므로 건너뛰고 새 이웃 6만 큐에 넣고 visited에 기록한다. 여기서 정점 4는 직전 단계에서 정점 1을 통해 이미 발견되어 큐에 들어갔으므로 아직 큐에서 꺼내지 않은 대기 상태라도 중복 추가되지 않는다. 현재 결과는 res=[0, 1, 3], 대기 큐는 que=[2, 4, 6], 발견 집합은 visited={0, 1, 3, 2, 4, 6}이다.",
+      "key_state": "정점 3 처리 완료; 큐의 맨 앞부터 끝까지는 [2, 4, 6]이고 결과는 [0, 1, 3]이다.",
+      "announcement": "정점 3을 큐에서 꺼내고 새 이웃 6을 큐에 넣는다."
+    },
+    {
+      "id": "source-194",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step5.png",
+      "title": "정점 2 처리",
+      "explanation": "큐의 맨 앞 정점 2를 꺼내 res에 추가한다. 2의 이웃 1, 5 가운데 1은 이미 visited에 있으므로 건너뛰고 새 이웃 5를 큐에 넣고 visited에 기록한다. 현재 결과는 res=[0, 1, 3, 2], 대기 큐는 que=[4, 6, 5], 발견 집합은 visited={0, 1, 3, 2, 4, 6, 5}다.",
+      "key_state": "정점 2 처리 완료; 큐의 맨 앞부터 끝까지는 [4, 6, 5]이고 결과는 [0, 1, 3, 2]다.",
+      "announcement": "정점 2를 큐에서 꺼내고 새 이웃 5를 큐에 넣는다."
+    },
+    {
+      "id": "source-195",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step6.png",
+      "title": "정점 4 처리",
+      "explanation": "큐의 맨 앞 정점 4를 꺼내 res에 추가한다. 4의 이웃 1, 3, 5, 7 가운데 1, 3, 5는 모두 이미 visited에 있으므로 건너뛰고 새 이웃 7을 큐에 넣고 visited에 기록한다. 현재 결과는 res=[0, 1, 3, 2, 4], 대기 큐는 que=[6, 5, 7], 발견 집합은 visited={0, 1, 3, 2, 4, 6, 5, 7}이다.",
+      "key_state": "정점 4 처리 완료; 큐의 맨 앞부터 끝까지는 [6, 5, 7]이고 결과는 [0, 1, 3, 2, 4]다.",
+      "announcement": "정점 4를 큐에서 꺼내고 새 이웃 7을 큐에 넣는다."
+    },
+    {
+      "id": "source-196",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step7.png",
+      "title": "정점 6 처리",
+      "explanation": "큐의 맨 앞 정점 6을 꺼내 res에 추가한다. 6의 이웃 3, 7은 모두 이미 visited에 있으므로(그중 7은 직전 단계에서 4를 통해 발견되어 큐에 들어감) 이번 단계에서는 새로 큐에 들어가는 이웃이 없다. 현재 결과는 res=[0, 1, 3, 2, 4, 6], 대기 큐는 que=[5, 7], 발견 집합은 visited={0, 1, 3, 2, 4, 6, 5, 7}이다.",
+      "key_state": "정점 6 처리 완료; 큐의 맨 앞부터 끝까지는 [5, 7]이고 결과는 [0, 1, 3, 2, 4, 6]이다.",
+      "announcement": "정점 6을 큐에서 꺼냈으며 이웃이 모두 이미 발견되어 새로 큐에 들어가는 정점은 없다."
+    },
+    {
+      "id": "source-197",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step8.png",
+      "title": "정점 5 처리",
+      "explanation": "큐의 맨 앞 정점 5를 꺼내 res에 추가한다. 5의 이웃 2, 4, 8 가운데 2와 4는 이미 visited에 있으므로 건너뛰고 마지막 새 이웃 8을 큐에 넣고 visited에 기록한다. 이로써 아홉 정점이 모두 발견되었지만 큐에 있는 7, 8은 아직 꺼내어 처리해야 한다. 현재 결과는 res=[0, 1, 3, 2, 4, 6, 5], 대기 큐는 que=[7, 8], 발견 집합은 visited={0, 1, 3, 2, 4, 6, 5, 7, 8}이다.",
+      "key_state": "정점 5 처리 완료; 큐의 맨 앞부터 끝까지는 [7, 8]이고 결과는 [0, 1, 3, 2, 4, 6, 5]다.",
+      "announcement": "정점 5를 큐에서 꺼내고 새 이웃 8을 큐에 넣는다."
+    },
+    {
+      "id": "source-198",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step9.png",
+      "title": "정점 7 처리",
+      "explanation": "큐의 맨 앞 정점 7을 꺼내 res에 추가한다. 7의 이웃 4, 6, 8이 모두 이미 visited에 있으므로 새로 큐에 들어가는 이웃은 없고 큐에는 8만 남는다. 현재 결과는 res=[0, 1, 3, 2, 4, 6, 5, 7], 대기 큐는 que=[8], 발견 집합은 visited={0, 1, 3, 2, 4, 6, 5, 7, 8}이다.",
+      "key_state": "정점 7 처리 완료; 큐의 맨 앞부터 끝까지는 [8]이고 결과는 [0, 1, 3, 2, 4, 6, 5, 7]이다.",
+      "announcement": "정점 7을 큐에서 꺼냈으며 이웃이 모두 이미 발견되어 새로 큐에 들어가는 정점은 없다."
+    },
+    {
+      "id": "source-199",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step10.png",
+      "title": "정점 8 처리",
+      "explanation": "큐의 맨 앞 정점 8을 꺼내 res에 추가한다. 8의 이웃 5, 7이 모두 이미 visited에 있으므로 새로 큐에 들어가는 이웃은 없으며 이로써 큐 que가 완전히 비워진다. 현재 결과는 res=[0, 1, 3, 2, 4, 6, 5, 7, 8], 대기 큐는 que=[], 발견 집합은 visited={0, 1, 3, 2, 4, 6, 5, 7, 8}이다.",
+      "key_state": "정점 8 처리 완료; 큐의 맨 앞부터 끝까지는 []이고 결과는 [0, 1, 3, 2, 4, 6, 5, 7, 8]이다.",
+      "announcement": "정점 8을 큐에서 꺼냈으며 이웃이 모두 이미 발견되어 새로 큐에 들어가는 정점은 없다."
+    },
+    {
+      "id": "source-200",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step11.png",
+      "title": "순회 결과 반환",
+      "explanation": "큐가 que=[]로 비었으므로 반복문을 종료하고 res=[0, 1, 3, 2, 4, 6, 5, 7, 8]을 반환하며 visited에는 0부터 8까지 모든 정점이 들어 있다.",
+      "key_state": "큐가 비워져 [0, 1, 3, 2, 4, 6, 5, 7, 8]을 반환한다.",
+      "announcement": "큐가 비어 순회를 마치고 결과를 반환한다."
+    },
+    {
+      "id": "source-189",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs.png",
+      "title": "너비 우선 순회 전체 요약",
+      "explanation": "이 그림은 방문 순서만 요약하며 큐나 visited 저장소는 따로 그리지 않았다. 파란색 점선 화살표는 방문 선후를 나타낼 뿐 원래 그래프의 간선이 아니며 예를 들어 1→3이나 6→5 사이에는 원래 간선이 없다. 회색 곡선 점선은 시작점으로부터의 거리 레벨을 구분하며 구체적인 구성 정점은 아래 표와 같다. 전체 방문 수열은 [0, 1, 3, 2, 4, 6, 5, 7, 8]이다.",
+      "key_state": "0에서 시작해 거리 레벨 {0}, {1, 3}, {2, 4, 6}, {5, 7}, {8} 순서로 순회한다.",
+      "announcement": "시작 정점 0에서 가까운 곳부터 먼 곳으로 이어지는 방문 순서를 보여 준다.",
+      "kind": "overview",
+      "state_tables": [
+        {
+          "caption": "시작 정점 0으로부터의 거리 레벨",
+          "headers": [
+            "최소 간선 수",
+            "예시의 방문 순서"
+          ],
+          "rows": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "1, 3"
+            ],
+            [
+              "2",
+              "2, 4, 6"
+            ],
+            [
+              "3",
+              "5, 7"
+            ],
+            [
+              "4",
+              "8"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "graph-bfs": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-190"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-191"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-192"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-193"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-194"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-195"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-196"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-197"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-198"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-199"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-200"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "원래 그래프의 인접 관계(무방향 간선 12개)",
+      "headers": [
+        "정점",
+        "인접 정점"
+      ],
+      "rows": [
+        [
+          "0",
+          "1, 3"
+        ],
+        [
+          "1",
+          "0, 2, 4"
+        ],
+        [
+          "2",
+          "1, 5"
+        ],
+        [
+          "3",
+          "0, 4, 6"
+        ],
+        [
+          "4",
+          "1, 3, 5, 7"
+        ],
+        [
+          "5",
+          "2, 4, 8"
+        ],
+        [
+          "6",
+          "3, 7"
+        ],
+        [
+          "7",
+          "4, 6, 8"
+        ],
+        [
+          "8",
+          "5, 7"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

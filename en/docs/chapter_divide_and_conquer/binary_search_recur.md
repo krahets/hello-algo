@@ -1,44 +1,44 @@
-# Divide and conquer search strategy
+# Divide-and-conquer search
 
-We have learned from the [chapter 10.5](../chapter_searching/searching_algorithm_revisited.md) that search algorithms fall into two main categories.
+We have learned that search algorithms fall into two broad categories.
 
-- **Brute-force search**: It is implemented by traversing every element of a data structure, with a time complexity of $O(n)$.
-- **Adaptive search**: It utilizes a unique data structure or prior information, with a time complexity of $O(\log n)$ or even $O(1)$.
+- **Brute-force search**: Traverses a data structure, taking $O(n)$ time.
+- **Adaptive search**: Uses a particular organization of data or prior information to achieve $O(\log n)$ or even $O(1)$ time.
 
-In fact, **search algorithms with a time complexity of $O(\log n)$ are typically based on the divide-and-conquer strategy**, such as binary search and tree.
+In fact, **search algorithms that run in $O(\log n)$ time are usually based on divide and conquer**, as seen in binary search and trees.
 
-- Binary search divides the original problem (searching for a target element in an array) into a smaller subproblem (searching for a target element in half of the array) at each step. This process continues until the array is empty or the target element is found.
-- Trees are a classic example of the divide-and-conquer paradigm. In data structures such as binary search trees, AVL trees, and heaps, the time complexity of operations is $O(\log n)$.
+- Each step of binary search reduces the problem of finding a target in an array to a smaller problem of finding it in half of the array. This continues until the array is empty or the target is found.
+- Trees exemplify divide and conquer. In data structures such as binary search trees, AVL trees, and heaps, various operations take $O(\log n)$ time.
 
-The divide-and-conquer strategy of binary search is characterized as follows.
+Binary search uses divide and conquer in the following way.
 
-- **Dividing the problem**: Binary search recursively divides the original problem (searching in the full array) into subproblems (searching in half of the array) by comparing the middle element with the target element.
-- **Independence of subproblems**: Each round of binary search handle only one subproblem, unaffected by other subproblems.
-- **No subproblem solution merging**: Binary search aims to find a specific element, so there is no need to merge the solutions of subproblems. Solving the subproblem inherently solves the original problem.
+- **The problem can be divided**: By comparing the middle element with the target, binary search recursively reduces the original problem of searching an array to the subproblem of searching half of that array.
+- **The subproblems are independent**: Binary search handles only one subproblem at each step, unaffected by other subproblems.
+- **The subproblem solutions need not be combined**: Binary search seeks a particular element, so there is no need to combine solutions. Solving the subproblem also solves the original problem.
 
-Divide-and-conquer improves search efficiency. This is because, in brute-force search, only one option can be eliminated per round. In contrast, **divide-and-conquer search eliminates half of the options in each round**.
+Divide and conquer makes searching faster because brute-force search eliminates only one option per step, **whereas divide-and-conquer search can eliminate half the options**.
 
-### Implementing binary search based on divide-and-conquer
+### Implementing binary search with divide and conquer
 
-In previous chapters, binary search was implemented iteratively. Here, we will implement it using a divide-and-conquer (recursive) approach.
+Earlier chapters implemented binary search iteratively. We will now implement it recursively using divide and conquer.
 
 !!! question
 
-    Given a sorted array `nums` of length $n$ with unique elements, find the index of element `target`.
+    Given a sorted array `nums` of length $n$ with distinct elements, find the element `target`.
 
-From a divide-and-conquer perspective, we define $f(i, j)$ as the subproblem of the search interval $[i, j]$.
+From a divide-and-conquer perspective, let $f(i, j)$ denote the subproblem for the search interval $[i, j]$.
 
-Starting from the original problem $f(0, n-1)$, the binary search proceeds as follows.
+Starting with the original problem $f(0, n-1)$, perform binary search as follows.
 
-1. Calculate the midpoint $m$ of the search interval $[i, j]$ to eliminate half of the search space.
-2. Recursively solve the subproblem on the reduced interval, either $f(i, m-1)$ or $f(m+1, j)$.
-3. Repeat steps `1.` and `2.`, until `target` is found or the interval becomes empty.
+1. Calculate the midpoint $m$ of the search interval $[i, j]$ and use it to eliminate half the interval.
+2. Recursively solve the subproblem of half the size, either $f(i, m-1)$ or $f(m+1, j)$.
+3. Repeat steps `1.` and `2.`, returning when `target` is found or the interval is empty.
 
-The figure below shows the divide-and-conquer process of performing binary search for element $6$ in a sorted array.
+The figure below shows the divide-and-conquer process for finding $6$ in an array using binary search.
 
-![The divide-and-conquer process of binary search](binary_search_recur.assets/binary_search_recur.png)
+![Divide-and-conquer process for binary search](binary_search_recur.assets/binary_search_recur.svg)
 
-In the implementation code, we declare a recursive function `dfs()` to solve the problem $f(i, j)$:
+In the implementation, we define a recursive function `dfs()` to solve $f(i, j)$:
 
 ```src
 [file]{binary_search_recur}-[class]{}-[func]{binary_search}

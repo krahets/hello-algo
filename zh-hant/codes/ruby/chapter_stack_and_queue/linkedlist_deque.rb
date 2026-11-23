@@ -4,11 +4,11 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 雙向鏈結串列節點
+### 雙向鏈結串列節點 ###
 class ListNode
   attr_accessor :val
   attr_accessor :next # 後繼節點引用
-  attr_accessor :prev # 前軀節點引用
+  attr_accessor :prev # 前驅節點引用
 
   ### 建構子 ###
   def initialize(val)
@@ -69,25 +69,26 @@ class LinkedListDeque
   def pop(is_front)
     raise IndexError, '雙向佇列為空' if is_empty?
 
+    # 佇列長度為 1 時, 頭尾指向同一節點
+    if @size == 1
+      val = @front.val
+      @front = nil
+      @rear = nil
     # 佇列首出列操作
-    if is_front
+    elsif is_front
       val = @front.val # 暫存頭節點值
       # 刪除頭節點
       fnext = @front.next
-      unless fnext.nil?
-        fnext.prev = nil
-        @front.next = nil
-      end
+      fnext.prev = nil
+      @front.next = nil
       @front = fnext # 更新頭節點
     # 佇列尾出列操作
     else
       val = @rear.val # 暫存尾節點值
       # 刪除尾節點
       rprev = @rear.prev
-      unless rprev.nil?
-        rprev.next = nil
-        @rear.prev = nil
-      end
+      rprev.next = nil
+      @rear.prev = nil
       @rear = rprev # 更新尾節點
     end
     @size -= 1 # 更新佇列長度
@@ -100,7 +101,7 @@ class LinkedListDeque
     pop(true)
   end
 
-  ### 佇列首出列 ###
+  ### 佇列尾出列 ###
   def pop_last
     pop(false)
   end
@@ -144,7 +145,7 @@ if __FILE__ == $0
   peek_first = deque.peek_first
   puts "佇列首元素 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "佇列首元素 peek_last = #{peek_last}"
+  puts "佇列尾元素 peek_last = #{peek_last}"
 
   # 元素入列
   deque.push_last(4)

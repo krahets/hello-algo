@@ -6,40 +6,40 @@
 
 #include "../utils/common.hpp"
 
-/* Backtracking algorithm: n queens */
+/* Backtracking: n-queens */
 void backtrack(int row, int n, vector<vector<string>> &state, vector<vector<vector<string>>> &res, vector<bool> &cols,
                vector<bool> &diags1, vector<bool> &diags2) {
-    // When all rows are placed, record the solution
+    // Record a solution when a queen has been placed in every row
     if (row == n) {
         res.push_back(state);
         return;
     }
-    // Traverse all columns
+    // Iterate over all columns
     for (int col = 0; col < n; col++) {
-        // Calculate the main and minor diagonals corresponding to the cell
+        // Calculate the main-diagonal and anti-diagonal indices for this square
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
-        // Pruning: do not allow queens on the column, main diagonal, or minor diagonal of the cell
+        // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // Attempt: place the queen in the cell
+            // Try: place a queen on this square
             state[row][col] = "Q";
             cols[col] = diags1[diag1] = diags2[diag2] = true;
-            // Place the next row
+            // Place a queen in the next row
             backtrack(row + 1, n, state, res, cols, diags1, diags2);
-            // Retract: restore the cell to an empty spot
+            // Backtrack: restore this square to empty
             state[row][col] = "#";
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
     }
 }
 
-/* Solve n queens */
+/* Solve the n-queens problem */
 vector<vector<vector<string>>> nQueens(int n) {
-    // Initialize an n*n size chessboard, where 'Q' represents the queen and '#' represents an empty spot
+    // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
     vector<vector<string>> state(n, vector<string>(n, "#"));
-    vector<bool> cols(n, false);           // Record columns with queens
-    vector<bool> diags1(2 * n - 1, false); // Record main diagonals with queens
-    vector<bool> diags2(2 * n - 1, false); // Record minor diagonals with queens
+    vector<bool> cols(n, false);           // Track whether a column contains a queen
+    vector<bool> diags1(2 * n - 1, false); // Track whether a main diagonal contains a queen
+    vector<bool> diags2(2 * n - 1, false); // Track whether an anti-diagonal contains a queen
     vector<vector<vector<string>>> res;
 
     backtrack(0, n, state, res, cols, diags1, diags2);
@@ -47,13 +47,13 @@ vector<vector<vector<string>>> nQueens(int n) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 4;
     vector<vector<vector<string>>> res = nQueens(n);
 
-    cout << "Input the dimensions of the chessboard as " << n << endl;
-    cout << "Total number of queen placement solutions = " << res.size() << endl;
+    cout << "Board width and height: " << n << endl;
+    cout << "Queen placements: " << res.size() << " solutions" << endl;
     for (const vector<vector<string>> &state : res) {
         cout << "--------------------" << endl;
         for (const vector<string> &row : state) {

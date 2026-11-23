@@ -1,0 +1,96 @@
+{
+  "schema_version": 2,
+  "title": "Two permutation pruning rules restricting indices and values",
+  "summary": "Compare side by side the two pruning conditions: no repeated indices along a path (selected) and no repeated values within a round (duplicated).",
+  "context": [
+    "The input array is choices = [1, 1, 2] at indices 0, 1, and 2. Below, \"first 1\" and \"second 1\" distinguish indices 0 and 1; the figure places a hat over the second 1 as an identity marker, though both have numeric value 1."
+  ],
+  "description": [
+    "Black scissors mark path-index pruning, which forbids reusing an index already on the current path until backtracking makes that index available again. Red scissors mark same-round value pruning: duplicated records only values not skipped by the black scissors and actually chosen during the current call's round, and each recursive call creates a fresh set whose scope differs from selected.",
+    "Each square node here represents a single choice, the prefix in the table concatenates the choices along the path from the root to that node, and a complete root-to-leaf path forms a permutation. The first table below separates the black and red scissors shown in the figure into two columns; a cell listing multiple candidates corresponds to multiple pruned branches. The second 1 under the root [] and under prefix [2] is pruned by red scissors, while all branches with already used indices are pruned by black scissors. The second table lists the three unique permutations in order."
+  ],
+  "frames": [
+    {
+      "id": "source-357",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_ii_pruning_summary.png",
+      "title": "Two permutation pruning rules restricting indices and values",
+      "explanation": "A single path may still pick both 1s at their two different indices in sequence; within any single round, only one branch is expanded for value 1."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "One round of choices for each prefix",
+      "headers": [
+        "Current prefix",
+        "Kept candidates",
+        "Black scissors: skipped due to used index",
+        "Red scissors: skipped due to duplicate value in round"
+      ],
+      "rows": [
+        [
+          "[]",
+          "first 1, 2",
+          "None",
+          "second 1: value 1 already tried in this round"
+        ],
+        [
+          "[first 1]",
+          "second 1, 2",
+          "first 1: index 0 already on path",
+          "None"
+        ],
+        [
+          "[first 1, second 1]",
+          "2",
+          "first 1, second 1: corresponding indices already used",
+          "None"
+        ],
+        [
+          "[first 1, 2]",
+          "second 1",
+          "first 1, 2: corresponding indices already used",
+          "None"
+        ],
+        [
+          "[2]",
+          "first 1",
+          "2: index 2 already on path",
+          "second 1: value 1 already tried in this round"
+        ],
+        [
+          "[2, first 1]",
+          "second 1",
+          "2, first 1: corresponding indices already used",
+          "None"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Three unique permutations",
+      "headers": [
+        "Result number",
+        "Identity notation distinguishing both 1s",
+        "Actual numeric result"
+      ],
+      "rows": [
+        [
+          "1",
+          "[first 1, second 1, 2]",
+          "[1,1,2]"
+        ],
+        [
+          "2",
+          "[first 1, 2, second 1]",
+          "[1,2,1]"
+        ],
+        [
+          "3",
+          "[2, first 1, second 1]",
+          "[2,1,1]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}
