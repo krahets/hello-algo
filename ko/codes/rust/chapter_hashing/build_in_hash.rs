@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("노드 객체 {:?} → 해시값: {}", node, hash);
+    println!("노드 {:?}의 값 → 해시값: {}", node, hash);
 }

@@ -160,7 +160,7 @@ func (h *intHeap) Push(x any) {
     *h = append(*h, x.(int))
 }
 
-// Pop heap.Interface 的函式，實現彈出堆積頂元素
+// Pop heap.Interface 的函式，彈出切片末尾元素（heap.Pop 已將堆積頂元素交換至末尾）
 func (h *intHeap) Pop() any {
     // 待出堆積元素存放在最後
     last := (*h)[len(*h)-1]
@@ -201,7 +201,6 @@ func TestHeap(t *testing.T) {
     heap.Push(maxHeap, 2)
     heap.Push(maxHeap, 5)
     heap.Push(maxHeap, 4)
-    PrintHeap(*maxHeap)
 
     /* 獲取堆積頂元素 */
     top := maxHeap.Top()

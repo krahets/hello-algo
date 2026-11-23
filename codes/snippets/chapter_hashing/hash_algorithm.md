@@ -52,7 +52,7 @@ size_t hashStr = hash<string>()(str);
 cout << "字符串“" << str << "”的哈希值为 " << hashStr << "\n";
 // 字符串“Hello 算法”的哈希值为 15466937326284535026
 
-// 在 C++ 中，内置 std::hash() 仅提供基本数据类型的哈希值计算
+// 在 C++ 中，内置 std::hash() 仅提供基本数据类型和部分标准库类型（如 std::string）的哈希值计算
 // 数组、对象的哈希值计算需要自行实现
 ```
 
@@ -239,8 +239,8 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("节点对象 {:?} 的哈希值为 {}", node, hash_node);
-// 节点对象 RefCell { value: ListNode { val: 42, next: None } } 的哈希值为 15387811073369036852
+println!("节点 {:?} 中节点值的哈希值为 {}", node, hash_node);
+// 节点 RefCell { value: ListNode { val: 42, next: None } } 中节点值的哈希值为 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"

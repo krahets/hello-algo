@@ -52,7 +52,7 @@ size_t hashStr = hash<string>()(str);
 cout << "文字列「" << str << "」のハッシュ値は " << hashStr << "\n";
 // 文字列「Hello 算法」のハッシュ値は 15466937326284535026
 
-// C++ の組み込み std::hash() は、基本データ型のハッシュ値の計算にのみ対応する
+// C++ の組み込み std::hash() は、基本データ型と標準ライブラリの一部の型（std::string など）のハッシュ値の計算にのみ対応する
 // 配列やオブジェクトのハッシュ値の計算は自分で実装する必要がある
 ```
 
@@ -239,8 +239,8 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("ノードオブジェクト {:?} のハッシュ値は {}", node, hash_node);
-// ノードオブジェクト RefCell { value: ListNode { val: 42, next: None } } のハッシュ値は 15387811073369036852
+println!("ノード {:?} の値のハッシュ値は {}", node, hash_node);
+// ノード RefCell { value: ListNode { val: 42, next: None } } の値のハッシュ値は 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"

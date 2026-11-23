@@ -52,7 +52,7 @@ size_t hashStr = hash<string>()(str);
 cout << "字串“" << str << "”的雜湊值為 " << hashStr << "\n";
 // 字串“Hello 演算法”的雜湊值為 15466937326284535026
 
-// 在 C++ 中，內建 std::hash() 僅提供基本資料型別的雜湊值計算
+// 在 C++ 中，內建 std::hash() 僅提供基本資料型別和部分標準庫型別（如 std::string）的雜湊值計算
 // 陣列、物件的雜湊值計算需要自行實現
 ```
 
@@ -75,7 +75,7 @@ System.out.println("小數 " + dec + " 的雜湊值為 " + hashDec);
 String str = "Hello 演算法";
 int hashStr = str.hashCode();
 System.out.println("字串“" + str + "”的雜湊值為 " + hashStr);
-// 字串“Hello 演算法”的雜湊值為 -727081396
+// 字串“Hello 演算法”的雜湊值為 -1067619900
 
 Object[] arr = { 12836, "小哈" };
 int hashArr = Arrays.hashCode(arr);
@@ -183,7 +183,7 @@ print("小數 $dec 的雜湊值為 $hashDec");
 String str = "Hello 演算法";
 int hashStr = str.hashCode;
 print("字串“$str”的雜湊值為 $hashStr");
-// 字串“Hello 演算法”的雜湊值為 468167534
+// 字串“Hello 演算法”的雜湊值為 544745643
 
 List arr = [12836, "小哈"];
 int hashArr = arr.hashCode;
@@ -226,7 +226,7 @@ let mut str_hasher = DefaultHasher::new();
 str.hash(&mut str_hasher);
 let hash_str = str_hasher.finish();
 println!("字串“{}”的雜湊值為 {}", str, hash_str);
-// 字串“Hello 演算法”的雜湊值為 16092673739211250988
+// 字串“Hello 演算法”的雜湊值為 14554651044579956997
 
 let tup = (&12836, &"小哈");
 let mut tup_hasher = DefaultHasher::new();
@@ -239,8 +239,8 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("節點物件 {:?} 的雜湊值為 {}", node, hash_node);
-// 節點物件 RefCell { value: ListNode { val: 42, next: None } } 的雜湊值為 15387811073369036852
+println!("節點 {:?} 中節點值的雜湊值為 {}", node, hash_node);
+// 節點 RefCell { value: ListNode { val: 42, next: None } } 中節點值的雜湊值為 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"
@@ -266,7 +266,7 @@ println("小數 $dec 的雜湊值為 $hashDec")
 val str = "Hello 演算法"
 val hashStr = str.hashCode()
 println("字串“$str”的雜湊值為 $hashStr")
-// 字串“Hello 演算法”的雜湊值為 -727081396
+// 字串“Hello 演算法”的雜湊值為 -1067619900
 
 val arr = arrayOf<Any>(12836, "小哈")
 val hashArr = arr.contentHashCode()

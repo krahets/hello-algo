@@ -45,7 +45,7 @@ func TestStack(t *testing.T) {
 }
 
 func TestArrayStack(t *testing.T) {
-	// 스택을 초기화하고 인터페이스로 받는다
+	// 스택 초기화
 	stack := newArrayStack()
 
 	// 스택에 원소 삽입

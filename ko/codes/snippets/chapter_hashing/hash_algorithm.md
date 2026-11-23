@@ -52,7 +52,7 @@ size_t hashStr = hash<string>()(str);
 cout << "문자열 ‘" << str << "’ → 해시값: " << hashStr << "\n";
 // 문자열 ‘Hello 算法’ → 해시값: 15466937326284535026
 
-// C++의 내장 std::hash()는 기본 데이터 타입에 대한 해시값 계산만 제공한다
+// C++의 내장 std::hash()는 기본 데이터 타입과 일부 표준 라이브러리 타입(예: std::string)에 대한 해시값 계산만 제공한다
 // 배열과 객체의 해시값 계산은 직접 구현해야 한다
 ```
 
@@ -239,8 +239,8 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("노드 객체 {:?} → 해시값: {}", node, hash_node);
-// 노드 객체 RefCell { value: ListNode { val: 42, next: None } } → 해시값: 15387811073369036852
+println!("노드 {:?}의 값 → 해시값: {}", node, hash_node);
+// 노드 RefCell { value: ListNode { val: 42, next: None } }의 값 → 해시값: 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"

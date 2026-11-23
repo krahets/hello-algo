@@ -15,7 +15,7 @@ func (h *intHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-// Pop is a heap.Interface function that pops the top element from the heap
+// Pop is a heap.Interface function that pops the last element from the slice (heap.Pop has already swapped the top element of the heap to the end)
 func (h *intHeap) Pop() any {
 	// The element to remove is stored at the end
 	last := (*h)[len(*h)-1]

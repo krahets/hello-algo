@@ -160,7 +160,7 @@ func (h *intHeap) Push(x any) {
     *h = append(*h, x.(int))
 }
 
-// Pop: heap.Interface의 함수로, 힙의 루트 원소를 꺼낸다
+// Pop: heap.Interface의 함수로, 슬라이스의 마지막 원소를 꺼낸다(heap.Pop이 이미 힙의 루트 원소를 교환하여 맨 뒤로 옮겼다)
 func (h *intHeap) Pop() any {
     // 꺼낼 원소는 맨 마지막에 저장되어 있다
     last := (*h)[len(*h)-1]
@@ -201,7 +201,6 @@ func TestHeap(t *testing.T) {
     heap.Push(maxHeap, 2)
     heap.Push(maxHeap, 5)
     heap.Push(maxHeap, 4)
-    PrintHeap(*maxHeap)
 
     /* 힙의 루트 원소 반환 */
     top := maxHeap.Top()
