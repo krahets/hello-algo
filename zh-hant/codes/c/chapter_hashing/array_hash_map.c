@@ -63,13 +63,13 @@ const char *get(const ArrayHashMap *hmap, const int key) {
 
 /* 新增操作 */
 void put(ArrayHashMap *hmap, const int key, const char *val) {
-    Pair *Pair = malloc(sizeof(Pair));
-    Pair->key = key;
-    Pair->val = malloc(strlen(val) + 1);
-    strcpy(Pair->val, val);
+    Pair *pair = malloc(sizeof(Pair));
+    pair->key = key;
+    pair->val = malloc(strlen(val) + 1);
+    strcpy(pair->val, val);
 
     int index = hashFunc(key);
-    hmap->buckets[index] = Pair;
+    hmap->buckets[index] = pair;
 }
 
 /* 刪除操作 */

@@ -109,7 +109,10 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 
 /* 정점 추가 */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
-    assert(graph != NULL && graph->size < MAX_SIZE);
+    assert(graph != NULL);
+    if (findNode(graph, vet) != NULL)
+        return;
+    assert(graph->size < MAX_SIZE);
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
@@ -121,27 +124,6 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // 인접 리스트에서 정점 vet에 해당하는 연결 리스트를 삭제한다
-    AdjListNode *cur = node, *pre = NULL;
-    while (cur) {
-        pre = cur;
-        cur = cur->next;
-        free(pre);
-    }
-    // 다른 정점의 연결 리스트를 순회하여 vet를 포함하는 모든 간선을 삭제한다
-    for (int i = 0; i < graph->size; i++) {
-        cur = graph->heads[i];
-        pre = NULL;
-        while (cur) {
-            pre = cur;
-            cur = cur->next;
-            if (cur && cur->vertex == vet) {
-                pre->next = cur->next;
-                free(cur);
-                break;
-            }
-        }
-    }
     // 해당 정점 뒤의 정점을 앞으로 옮겨 빈자리를 채운다
     int i;
     for (i = 0; i < graph->size; i++) {
@@ -152,6 +134,25 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
         graph->heads[j] = graph->heads[j + 1];
     }
     graph->size--;
+    // 다른 정점의 연결 리스트를 순회하여 vet를 포함하는 모든 간선을 삭제한다
+    for (int i = 0; i < graph->size; i++) {
+        AdjListNode *cur = graph->heads[i];
+        while (cur->next != NULL) {
+            AdjListNode *next = cur->next;
+            if (next->vertex == vet) {
+                cur->next = next->next;
+                free(next);
+            } else {
+                cur = next;
+            }
+        }
+    }
+    // 인접 리스트에서 정점 vet에 해당하는 연결 리스트를 삭제한다
+    while (node != NULL) {
+        AdjListNode *next = node->next;
+        free(node);
+        node = next;
+    }
     free(vet);
 }
 

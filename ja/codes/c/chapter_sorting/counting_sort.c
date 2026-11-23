@@ -45,7 +45,7 @@ void countingSort(int nums[], int size) {
     }
     // 2. 各数値の出現回数を数える
     // counter[num] は num の出現回数を表す
-    int *counter = calloc(m, sizeof(int));
+    int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }

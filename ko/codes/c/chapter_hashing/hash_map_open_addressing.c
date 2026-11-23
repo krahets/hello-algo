@@ -114,7 +114,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
     // 키-값 쌍을 찾으면 val을 덮어쓰고 반환한다
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         free(hashMap->buckets[index]->val);
-        hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
+        hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
         strcpy(hashMap->buckets[index]->val, val);
         hashMap->buckets[index]->val[strlen(val)] = '\0';
         return;
@@ -122,7 +122,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
     // 키-값 쌍이 없으면 해당 키-값 쌍을 추가한다
     Pair *pair = (Pair *)malloc(sizeof(Pair));
     pair->key = key;
-    pair->val = (char *)malloc(sizeof(strlen(val) + 1));
+    pair->val = (char *)malloc(strlen(val) + 1);
     strcpy(pair->val, val);
     pair->val[strlen(val)] = '\0';
 

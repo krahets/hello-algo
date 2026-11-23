@@ -109,7 +109,10 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 
 /* 頂点を追加する */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
-    assert(graph != NULL && graph->size < MAX_SIZE);
+    assert(graph != NULL);
+    if (findNode(graph, vet) != NULL)
+        return;
+    assert(graph->size < MAX_SIZE);
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
@@ -121,27 +124,6 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // 隣接リストから頂点 vet に対応する連結リストを削除する
-    AdjListNode *cur = node, *pre = NULL;
-    while (cur) {
-        pre = cur;
-        cur = cur->next;
-        free(pre);
-    }
-    // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
-    for (int i = 0; i < graph->size; i++) {
-        cur = graph->heads[i];
-        pre = NULL;
-        while (cur) {
-            pre = cur;
-            cur = cur->next;
-            if (cur && cur->vertex == vet) {
-                pre->next = cur->next;
-                free(cur);
-                break;
-            }
-        }
-    }
     // この頂点より後の頂点を前にずらし、空きを埋める
     int i;
     for (i = 0; i < graph->size; i++) {
@@ -152,6 +134,25 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
         graph->heads[j] = graph->heads[j + 1];
     }
     graph->size--;
+    // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+    for (int i = 0; i < graph->size; i++) {
+        AdjListNode *cur = graph->heads[i];
+        while (cur->next != NULL) {
+            AdjListNode *next = cur->next;
+            if (next->vertex == vet) {
+                cur->next = next->next;
+                free(next);
+            } else {
+                cur = next;
+            }
+        }
+    }
+    // 隣接リストから頂点 vet に対応する連結リストを削除する
+    while (node != NULL) {
+        AdjListNode *next = node->next;
+        free(node);
+        node = next;
+    }
     free(vet);
 }
 

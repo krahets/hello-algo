@@ -45,7 +45,7 @@ void countingSort(int nums[], int size) {
     }
     // 2. 각 숫자의 등장 횟수를 센다
     // counter[num]은 num의 등장 횟수를 나타낸다
-    int *counter = calloc(m, sizeof(int));
+    int *counter = calloc(m + 1, sizeof(int));
     for (int i = 0; i < size; i++) {
         counter[nums[i]]++;
     }

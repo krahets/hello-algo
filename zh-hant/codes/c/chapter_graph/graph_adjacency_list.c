@@ -109,7 +109,10 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 
 /* 新增頂點 */
 void addVertex(GraphAdjList *graph, Vertex *vet) {
-    assert(graph != NULL && graph->size < MAX_SIZE);
+    assert(graph != NULL);
+    if (findNode(graph, vet) != NULL)
+        return;
+    assert(graph->size < MAX_SIZE);
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
@@ -121,27 +124,6 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // 在鄰接表中刪除頂點 vet 對應的鏈結串列
-    AdjListNode *cur = node, *pre = NULL;
-    while (cur) {
-        pre = cur;
-        cur = cur->next;
-        free(pre);
-    }
-    // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
-    for (int i = 0; i < graph->size; i++) {
-        cur = graph->heads[i];
-        pre = NULL;
-        while (cur) {
-            pre = cur;
-            cur = cur->next;
-            if (cur && cur->vertex == vet) {
-                pre->next = cur->next;
-                free(cur);
-                break;
-            }
-        }
-    }
     // 將該頂點之後的頂點向前移動，以填補空缺
     int i;
     for (i = 0; i < graph->size; i++) {
@@ -152,6 +134,25 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
         graph->heads[j] = graph->heads[j + 1];
     }
     graph->size--;
+    // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
+    for (int i = 0; i < graph->size; i++) {
+        AdjListNode *cur = graph->heads[i];
+        while (cur->next != NULL) {
+            AdjListNode *next = cur->next;
+            if (next->vertex == vet) {
+                cur->next = next->next;
+                free(next);
+            } else {
+                cur = next;
+            }
+        }
+    }
+    // 在鄰接表中刪除頂點 vet 對應的鏈結串列
+    while (node != NULL) {
+        AdjListNode *next = node->next;
+        free(node);
+        node = next;
+    }
     free(vet);
 }
 

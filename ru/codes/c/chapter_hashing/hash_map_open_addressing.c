@@ -114,7 +114,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
     // Если пара ключ-значение найдена, перезаписать val и вернуть
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         free(hashMap->buckets[index]->val);
-        hashMap->buckets[index]->val = (char *)malloc(sizeof(strlen(val) + 1));
+        hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
         strcpy(hashMap->buckets[index]->val, val);
         hashMap->buckets[index]->val[strlen(val)] = '\0';
         return;
@@ -122,7 +122,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
     // Если пары ключ-значение нет, добавить ее
     Pair *pair = (Pair *)malloc(sizeof(Pair));
     pair->key = key;
-    pair->val = (char *)malloc(sizeof(strlen(val) + 1));
+    pair->val = (char *)malloc(strlen(val) + 1);
     strcpy(pair->val, val);
     pair->val[strlen(val)] = '\0';
 
