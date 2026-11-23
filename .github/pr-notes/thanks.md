@@ -1,0 +1,1 @@
+- Thanks to @DAPI177 for identifying typos in the Ruby deque and queue examples and their Chinese documentation ([#1994](https://github.com/krahets/hello-algo/pull/1994)).
