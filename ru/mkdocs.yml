@@ -5,15 +5,12 @@ INHERIT: ../mkdocs.yml
 site_name: Hello Algo
 site_url: https://www.hello-algo.com/ru/
 site_description: "Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом"
-docs_dir: ../build/ru/docs
-site_dir: ../site/ru
 # Repository
 edit_uri: tree/main/ru/docs
 version: 1.3.0
 
 # Configuration
 theme:
-  custom_dir: ../build/overrides
   language: ru
   font:
     text: PT Sans

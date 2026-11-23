@@ -10,7 +10,7 @@
 2. **С помощью `counter` подсчитать, сколько раз каждое число встречается в `nums`**. При этом `counter[num]` хранит число вхождений значения `num` . Делается это просто: достаточно пройти по `nums` (пусть текущее число равно `num` ) и на каждом шаге увеличить `counter[num]` на $1$ .
 3. **Поскольку индексы массива `counter` изначально упорядочены, можно считать, что все числа уже отсортированы**. Далее остается пройти по `counter` и в соответствии с числом вхождений записать значения обратно в `nums` в порядке возрастания.
 
-![Процесс сортировки подсчетом](counting_sort.assets/counting_sort_overview.png)
+![Процесс сортировки подсчетом](counting_sort.assets/counting_sort_overview.svg)
 
 Код приведен ниже:
 
@@ -40,28 +40,28 @@ $$
 После завершения прохода массив `res` будет содержать отсортированный результат. Остается только переписать `res` обратно в `nums` . Полный процесс сортировки подсчетом показан на рисунке ниже.
 
 === "<1>"
-    ![Шаги сортировки подсчетом](counting_sort.assets/counting_sort_step1.png)
+    ![Шаги сортировки подсчетом](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
-    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.png)
+    ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg)
 
 === "<3>"
-    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.png)
+    ![counting_sort_step3](counting_sort.assets/counting_sort_step3.svg)
 
 === "<4>"
-    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.png)
+    ![counting_sort_step4](counting_sort.assets/counting_sort_step4.svg)
 
 === "<5>"
-    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.png)
+    ![counting_sort_step5](counting_sort.assets/counting_sort_step5.svg)
 
 === "<6>"
-    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.png)
+    ![counting_sort_step6](counting_sort.assets/counting_sort_step6.svg)
 
 === "<7>"
-    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.png)
+    ![counting_sort_step7](counting_sort.assets/counting_sort_step7.svg)
 
 === "<8>"
-    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.png)
+    ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg)
 
 Код реализации сортировки подсчетом приведен ниже:
 

@@ -30,7 +30,7 @@ if __FILE__ == $0
   pop_front = deque.shift
   puts "先頭からデキューした要素 pop_front = #{pop_front}、先頭からデキューした後 deque = #{deque}"
   pop_back = deque.pop
-  puts "末尾からデキューした要素 pop_back = #{pop_back}, 末尾からデキューした後 deque = #{deque}"
+  puts "末尾からデキューした要素 pop_back = #{pop_back}、末尾からデキューした後 deque = #{deque}"
 
   # 両端キューの長さを取得する
   size = deque.length

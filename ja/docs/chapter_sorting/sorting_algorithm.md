@@ -4,7 +4,7 @@
 
 下図のように、ソートするデータの型には整数、浮動小数点数、文字、文字列などがあります。大小の判定規則は、数値の大小、文字の ASCII コード順、独自の規則など、必要に応じて設定できます。
 
-![データ型と判定規則の例](sorting_algorithm.assets/sorting_examples.png)
+![データ型と判定規則の例](sorting_algorithm.assets/sorting_examples.svg)
 
 ## 評価の観点
 

@@ -4,7 +4,7 @@
 
     正の整数 $n$ を、少なくとも二つの正の整数の和に分けます。分割後のすべての整数の積の最大値を求めてください。下図に例を示します。
 
-![整数を分割して積を最大にする問題の定義](max_product_cutting_problem.assets/max_product_cutting_definition.png)
+![整数を分割して積を最大にする問題の定義](max_product_cutting_problem.assets/max_product_cutting_definition.svg)
 
 $n$ を $m$ 個の整数に分け、それぞれを積の因数とします。$i$ 番目の因数を $n_i$ とすると、次の式が成り立ちます。
 
@@ -36,7 +36,7 @@ $$
 
 **貪欲戦略 1**：分割結果に $\geq 4$ の因数が含まれるなら、それをさらに分割します。最終的に残る因数は、$1$、$2$、$3$ の 3 種類だけにします。
 
-![分割によって積が大きくなる](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png)
+![分割によって積が大きくなる](max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg)
 
 次に、どの因数が最もよいかを考えます。$1$、$2$、$3$ の中では、明らかに $1$ が最も不利です。常に $1 \times (n-1) < n$ なので、$1$ を切り出すと、かえって積が小さくなるためです。
 
@@ -44,7 +44,7 @@ $$
 
 **貪欲戦略 2**：分割結果の $2$ は、多くても二つにします。三つの $2$ は常に二つの $3$ に置き換えられ、その方が積が大きくなるためです。
 
-![最適な分割の因数](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png)
+![最適な分割の因数](max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg)
 
 以上から、次の貪欲戦略が導けます。
 
@@ -67,7 +67,7 @@ $$
 [file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}
 ```
 
-![分割後の最大の積の計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png)
+![分割後の最大の積の計算方法](max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg)
 
 **時間計算量は、プログラミング言語の累乗演算の実装によって決まります**。Python を例にすると、よく使われる累乗の計算方法には三つあります。
 

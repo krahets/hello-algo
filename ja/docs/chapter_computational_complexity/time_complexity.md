@@ -8,198 +8,9 @@
 
 たとえば、次のコードで入力の大きさを $n$ とします。
 
-=== "Python"
-
-    ```python title=""
-    # ある実行環境において
-    def algorithm(n: int):
-        a = 2      # 1 ns
-        a = a + 1  # 1 ns
-        a = a * 2  # 10 ns
-        # n 回繰り返す
-        for _ in range(n):  # 1 ns
-            print(0)        # 5 ns
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // ある実行環境において
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) {  // 1 ns
-            cout << 0 << endl;         // 5 ns
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // ある実行環境において
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) {  // 1 ns
-            System.out.println(0);     // 5 ns
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // ある実行環境において
-    void Algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) {  // 1 ns
-            Console.WriteLine(0);      // 5 ns
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // ある実行環境において
-    func algorithm(n int) {
-        a := 2     // 1 ns
-        a = a + 1  // 1 ns
-        a = a * 2  // 10 ns
-        // n 回繰り返す
-        for i := 0; i < n; i++ {  // 1 ns
-            fmt.Println(a)        // 5 ns
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // ある実行環境において
-    func algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // n 回繰り返す
-        for _ in 0 ..< n { // 1 ns
-            print(0) // 5 ns
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // ある実行環境において
-    function algorithm(n) {
-        var a = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // n 回繰り返す
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // ある実行環境において
-    function algorithm(n: number): void {
-        var a: number = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // n 回繰り返す
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // ある実行環境において
-    void algorithm(int n) {
-      int a = 2; // 1 ns
-      a = a + 1; // 1 ns
-      a = a * 2; // 10 ns
-      // n 回繰り返す
-      for (int i = 0; i < n; i++) { // 1 ns
-        print(0); // 5 ns
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // ある実行環境において
-    fn algorithm(n: i32) {
-        let mut a = 2;      // 1 ns
-        a = a + 1;          // 1 ns
-        a = a * 2;          // 10 ns
-        // n 回繰り返す
-        for _ in 0..n {     // 1 ns
-            println!("{}", 0);  // 5 ns
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // ある実行環境において
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) {   // 1 ns
-            printf("%d", 0);            // 5 ns
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // ある実行環境において
-    fun algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // n 回繰り返す
-        for (i in 0..<n) {  // 1 ns
-            println(0)      // 5 ns
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # ある実行環境において
-    def algorithm(n)
-        a = 2       # 1 ns
-        a = a + 1   # 1 ns
-        a = a * 2   # 10 ns
-        # n 回繰り返す
-        (0...n).each do # 1 ns
-            puts 0      # 5 ns
-        end
-    end
-    ```
+```snippet
+run_time_estimate
+```
 
 この方法では、実行時間は $(6n + 12)$ ns になります。
 
@@ -215,274 +26,9 @@ $$
 
 「時間の増え方」は抽象的なので、例で理解しましょう。入力の大きさを $n$ とし、三つのアルゴリズム `A`、`B`、`C` を考えます。
 
-=== "Python"
-
-    ```python title=""
-    # アルゴリズム A の時間計算量：定数のオーダー
-    def algorithm_A(n: int):
-        print(0)
-    # アルゴリズム B の時間計算量：線形のオーダー
-    def algorithm_B(n: int):
-        for _ in range(n):
-            print(0)
-    # アルゴリズム C の時間計算量：定数のオーダー
-    def algorithm_C(n: int):
-        for _ in range(1000000):
-            print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    void algorithm_A(int n) {
-        cout << 0 << endl;
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            cout << 0 << endl;
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            cout << 0 << endl;
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    void algorithm_A(int n) {
-        System.out.println(0);
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.println(0);
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            System.out.println(0);
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    void AlgorithmA(int n) {
-        Console.WriteLine(0);
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    void AlgorithmB(int n) {
-        for (int i = 0; i < n; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    void AlgorithmC(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    func algorithm_A(n int) {
-        fmt.Println(0)
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    func algorithm_B(n int) {
-        for i := 0; i < n; i++ {
-            fmt.Println(0)
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    func algorithm_C(n int) {
-        for i := 0; i < 1000000; i++ {
-            fmt.Println(0)
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    func algorithmA(n: Int) {
-        print(0)
-    }
-
-    // アルゴリズム B の時間計算量：線形のオーダー
-    func algorithmB(n: Int) {
-        for _ in 0 ..< n {
-            print(0)
-        }
-    }
-
-    // アルゴリズム C の時間計算量：定数のオーダー
-    func algorithmC(n: Int) {
-        for _ in 0 ..< 1_000_000 {
-            print(0)
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    function algorithm_A(n) {
-        console.log(0);
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    function algorithm_B(n) {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    function algorithm_C(n) {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    function algorithm_A(n: number): void {
-        console.log(0);
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    function algorithm_B(n: number): void {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    function algorithm_C(n: number): void {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    void algorithmA(int n) {
-      print(0);
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    void algorithmB(int n) {
-      for (int i = 0; i < n; i++) {
-        print(0);
-      }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    void algorithmC(int n) {
-      for (int i = 0; i < 1000000; i++) {
-        print(0);
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    fn algorithm_A(n: i32) {
-        println!("{}", 0);
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    fn algorithm_B(n: i32) {
-        for _ in 0..n {
-            println!("{}", 0);
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    fn algorithm_C(n: i32) {
-        for _ in 0..1000000 {
-            println!("{}", 0);
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    void algorithm_A(int n) {
-        printf("%d", 0);
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            printf("%d", 0);
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            printf("%d", 0);
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // アルゴリズム A の時間計算量：定数のオーダー
-    fun algoritm_A(n: Int) {
-        println(0)
-    }
-    // アルゴリズム B の時間計算量：線形のオーダー
-    fun algorithm_B(n: Int) {
-        for (i in 0..<n){
-            println(0)
-        }
-    }
-    // アルゴリズム C の時間計算量：定数のオーダー
-    fun algorithm_C(n: Int) {
-        for (i in 0..<1000000) {
-            println(0)
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # アルゴリズム A の時間計算量：定数のオーダー
-    def algorithm_A(n)
-        puts 0
-    end
-
-    # アルゴリズム B の時間計算量：線形のオーダー
-    def algorithm_B(n)
-        (0...n).each { puts 0 }
-    end
-
-    # アルゴリズム C の時間計算量：定数のオーダー
-    def algorithm_C(n)
-        (0...1_000_000).each { puts 0 }
-    end
-    ```
+```snippet
+growth_trend
+```
 
 下図に、この三つのアルゴリズムの時間計算量を示します。
 
@@ -490,7 +36,7 @@ $$
 - `B` は出力を $n$ 回繰り返し、$n$ の増加に対して実行時間が線形に増えます。この時間計算量を「線形のオーダー」と呼びます。
 - `C` は出力を $1000000$ 回繰り返します。実行時間は長いものの、入力の大きさ $n$ とは無関係です。そのため、`C` の時間計算量は `A` と同じ「定数のオーダー」です。
 
-![アルゴリズム A、B、C の実行時間の増え方](time_complexity.assets/time_complexity_simple_example.png)
+![アルゴリズム A、B、C の実行時間の増え方](time_complexity.assets/time_complexity_simple_example.svg)
 
 実行時間を直接数える方法と比べ、時間計算量の解析にはどのような特徴があるでしょうか。
 
@@ -502,186 +48,9 @@ $$
 
 入力の大きさが $n$ の関数を考えます。
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +1
-        a = a + 1  # +1
-        a = a * 2  # +1
-        # n 回繰り返す
-        for i in range(n):  # +1
-            print(0)        # +1
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) { // +1（毎回 i ++ を実行）
-            cout << 0 << endl;    // +1
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) { // +1（毎回 i ++ を実行）
-            System.out.println(0);    // +1
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) {   // +1（毎回 i ++ を実行）
-            Console.WriteLine(0);   // +1
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1      // +1
-        a = a + 1   // +1
-        a = a * 2   // +1
-        // n 回繰り返す
-        for i := 0; i < n; i++ {   // +1
-            fmt.Println(a)         // +1
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // n 回繰り返す
-        for _ in 0 ..< n { // +1
-            print(0) // +1
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        var a = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // n 回繰り返す
-        for(let i = 0; i < n; i++){ // +1（毎回 i ++ を実行）
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void{
-        var a: number = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // n 回繰り返す
-        for(let i = 0; i < n; i++){ // +1（毎回 i ++ を実行）
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +1
-      a = a + 1; // +1
-      a = a * 2; // +1
-      // n 回繰り返す
-      for (int i = 0; i < n; i++) { // +1（毎回 i ++ を実行）
-        print(0); // +1
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;   // +1
-        a = a + 1;      // +1
-        a = a * 2;      // +1
-
-        // n 回繰り返す
-        for _ in 0..n { // +1（毎回 i ++ を実行）
-            println!("{}", 0); // +1
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n 回繰り返す
-        for (int i = 0; i < n; i++) {   // +1（毎回 i ++ を実行）
-            printf("%d", 0);            // +1
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // n 回繰り返す
-        for (i in 0..<n) { // +1（毎回 i ++ を実行）
-            println(0) // +1
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +1
-        a = a + 1   # +1
-        a = a * 2   # +1
-        # n 回繰り返す
-        (0...n).each do # +1
-            puts 0      # +1
-        end
-    end
-    ```
+```snippet
+asymptotic_upper_bound
+```
 
 操作回数を入力の大きさ $n$ の関数 $T(n)$ とすると、上の関数では次のようになります。
 
@@ -701,7 +70,7 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
 下図のように、漸近上界を求めるとは、$n$ が無限大に近づくとき、$T(n)$ と $f(n)$ が同じ増加のオーダーとなり、定数係数 $c$ だけ異なるような関数 $f(n)$ を探すことです。
 
-![関数の漸近上界](time_complexity.assets/asymptotic_upper_bound.png)
+![関数の漸近上界](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## 見積もり方
 
@@ -719,246 +88,9 @@ $T(n)$ は一次関数なので、実行時間は線形に増え、時間計算�
 
 これらの工夫を使って、次の関数の操作回数を数えます。
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +0（工夫 1）
-        a = a + n  # +0（工夫 1）
-        # +n（工夫 2）
-        for i in range(5 * n + 1):
-            print(0)
-        # +n*n（工夫 3）
-        for i in range(2 * n):
-            for j in range(n + 1):
-                print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            cout << 0 << endl;
-        }
-        // +n*n（工夫 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                cout << 0 << endl;
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            System.out.println(0);
-        }
-        // +n*n（工夫 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                System.out.println(0);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            Console.WriteLine(0);
-        }
-        // +n*n（工夫 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                Console.WriteLine(0);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1     // +0（工夫 1）
-        a = a + n  // +0（工夫 1）
-        // +n（工夫 2）
-        for i := 0; i < 5 * n + 1; i++ {
-            fmt.Println(0)
-        }
-        // +n*n（工夫 3）
-        for i := 0; i < 2 * n; i++ {
-            for j := 0; j < n + 1; j++ {
-                fmt.Println(0)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +0（工夫 1）
-        a = a + n // +0（工夫 1）
-        // +n（工夫 2）
-        for _ in 0 ..< (5 * n + 1) {
-            print(0)
-        }
-        // +n*n（工夫 3）
-        for _ in 0 ..< (2 * n) {
-            for _ in 0 ..< (n + 1) {
-                print(0)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        let a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n（工夫 3）
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void {
-        let a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n（工夫 3）
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +0（工夫 1）
-      a = a + n; // +0（工夫 1）
-      // +n（工夫 2）
-      for (int i = 0; i < 5 * n + 1; i++) {
-        print(0);
-      }
-      // +n*n（工夫 3）
-      for (int i = 0; i < 2 * n; i++) {
-        for (int j = 0; j < n + 1; j++) {
-          print(0);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;     // +0（工夫 1）
-        a = a + n;        // +0（工夫 1）
-
-        // +n（工夫 2）
-        for i in 0..(5 * n + 1) {
-            println!("{}", 0);
-        }
-
-        // +n*n（工夫 3）
-        for i in 0..(2 * n) {
-            for j in 0..(n + 1) {
-                println!("{}", 0);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +0（工夫 1）
-        a = a + n;  // +0（工夫 1）
-        // +n（工夫 2）
-        for (int i = 0; i < 5 * n + 1; i++) {
-            printf("%d", 0);
-        }
-        // +n*n（工夫 3）
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                printf("%d", 0);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1   // +0（工夫 1）
-        a = a + n   // +0（工夫 1）
-        // +n（工夫 2）
-        for (i in 0..<5 * n + 1) {
-            println(0)
-        }
-        // +n*n（工夫 3）
-        for (i in 0..<2 * n) {
-            for (j in 0..<n + 1) {
-                println(0)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +0（工夫 1）
-        a = a + n   # +0（工夫 1）
-        # +n（工夫 2）
-        (0...(5 * n + 1)).each do { puts 0 }
-        # +n*n（工夫 3）
-        (0...(2 * n)).each do
-            (0...(n + 1)).each do { puts 0 }
-        end
-    end
-    ```
+```snippet
+count_operations
+```
 
 次の式は、工夫を使う前と後の集計結果です。どちらからも、時間計算量 $O(n^2)$ が得られます。
 
@@ -997,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![代表的な時間計算量](time_complexity.assets/time_complexity_common_types.png)
+![代表的な時間計算量](time_complexity.assets/time_complexity_common_types.svg)
 
 ### 定数のオーダー $O(1)$
 
@@ -1035,7 +167,7 @@ $$
 
 下図で、定数、線形、二乗の三つの時間計算量を比較します。
 
-![定数、線形、二乗の時間計算量](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![定数、線形、二乗の時間計算量](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 バブルソートでは、外側のループが $n - 1$ 回、内側が $n-1$、$n-2$、$\dots$、$2$、$1$ 回、平均 $n / 2$ 回実行されます。したがって、時間計算量は $O((n - 1) n / 2) = O(n^2)$ です。
 
@@ -1053,7 +185,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![指数の時間計算量](time_complexity.assets/time_complexity_exponential.png)
+![指数の時間計算量](time_complexity.assets/time_complexity_exponential.svg)
 
 実際のアルゴリズムでは、指数のオーダーは再帰関数によく現れます。次のコードは、再帰的に二つに分かれ、$n$ 回分岐したら止まります。
 
@@ -1073,7 +205,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![対数の時間計算量](time_complexity.assets/time_complexity_logarithmic.png)
+![対数の時間計算量](time_complexity.assets/time_complexity_logarithmic.svg)
 
 指数と同様、対数のオーダーも再帰関数によく現れます。次のコードは、高さ $\log_2 n$ の再帰木を作ります。
 
@@ -1103,7 +235,7 @@ $$
 
 下図に、線形対数のオーダーが生じる仕組みを示します。二分木の各層の総操作回数は $n$ で、層数は $\log_2 n + 1$ なので、時間計算量は $O(n \log n)$ です。
 
-![線形対数の時間計算量](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![線形対数の時間計算量](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 クイックソート、マージソート、ヒープソートなど、主要なソートの時間計算量は通常 $O(n \log n)$ です。
 
@@ -1121,7 +253,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![階乗の時間計算量](time_complexity.assets/time_complexity_factorial.png)
+![階乗の時間計算量](time_complexity.assets/time_complexity_factorial.svg)
 
 $n \geq 4$ なら常に $n! > 2^n$ なので、階乗は指数より速く増えます。したがって、$n$ が大きい場合には、これも許容できません。
 

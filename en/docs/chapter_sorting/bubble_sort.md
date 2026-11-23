@@ -5,25 +5,25 @@
 As shown below, we can simulate bubbling through swaps. Scan from the left end of the array to the right, comparing each pair of adjacent elements. If the left element is greater than the right, swap them. After the scan, the largest element has moved to the far right.
 
 === "<1>"
-    ![Simulating bubbling through element swaps](bubble_sort.assets/bubble_operation_step1.png)
+    ![Simulating bubbling through element swaps](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
+    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.png)
+    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.png)
+    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.png)
+    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.png)
+    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
+    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.svg)
 
 ## Algorithm steps
 
@@ -34,7 +34,7 @@ For an array of length $n$, bubble sort proceeds as shown below.
 3. Continue in this way. After $n - 1$ passes, **the largest $n - 1$ elements are all in their correct positions**.
 4. The one remaining element must be the smallest and needs no further sorting. The array is now sorted.
 
-![The bubble sort process](bubble_sort.assets/bubble_sort_overview.png)
+![The bubble sort process](bubble_sort.assets/bubble_sort_overview.svg)
 
 An implementation follows:
 

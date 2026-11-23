@@ -6,11 +6,11 @@
 
 As shown in the figure below, there are two solutions when $n = 4$. From a backtracking perspective, the $n \times n$ board has $n^2$ squares, which provide all possible `choices`. As we place queens one by one, the board changes; its arrangement at any moment is the current `state`.
 
-![Solutions to the 4-queens problem](n_queens_problem.assets/solution_4_queens.png)
+![Solutions to the 4-queens problem](n_queens_problem.assets/solution_4_queens.svg)
 
 The figure below shows the three constraints: **no two queens may share a row, column, or diagonal**. Diagonals run in two directions: the main-diagonal direction `\` and the antidiagonal direction `/`.
 
-![Constraints of the n-queens problem](n_queens_problem.assets/n_queens_constraints.png)
+![Constraints of the n-queens problem](n_queens_problem.assets/n_queens_constraints.svg)
 
 ### Placing queens row by row
 
@@ -20,7 +20,7 @@ We can therefore place queens row by row: start at the first row and place one q
 
 The figure below illustrates this process for 4 queens. To fit the illustration, only one branch from the first row is expanded, and all arrangements violating the column or diagonal constraints are pruned.
 
-![Placing queens row by row](n_queens_problem.assets/n_queens_placing.png)
+![Placing queens row by row](n_queens_problem.assets/n_queens_placing.svg)
 
 In essence, **placing queens row by row is itself a form of pruning**: it eliminates every search branch that places multiple queens in the same row.
 
@@ -38,7 +38,7 @@ Thus, if two squares satisfy $row_1 - col_1 = row_2 - col_2$, they lie on the sa
 
 Similarly, **$row + col$ is constant along each antidiagonal**. We can use an array `diags2` to enforce the antidiagonal constraint.
 
-![Enforcing column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.png)
+![Enforcing column and diagonal constraints](n_queens_problem.assets/n_queens_cols_diagonals.svg)
 
 ### Code implementation
 

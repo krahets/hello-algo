@@ -8,7 +8,7 @@
 
 **너비 우선 순회는 가까운 곳에서 먼 곳으로 진행하는 순회 방식이다. 한 노드에서 출발하여 항상 거리가 가장 가까운 정점을 먼저 방문하고, 한 층씩 바깥으로 확장한다**. 아래 그림에서는 왼쪽 위 정점에서 출발하여 해당 정점의 모든 인접 정점을 먼저 순회한 다음, 다음 정점의 모든 인접 정점을 순회한다. 이를 모든 정점을 방문할 때까지 반복한다.
 
-![그래프의 너비 우선 순회](graph_traversal.assets/graph_bfs.png)
+![그래프의 너비 우선 순회](graph_traversal.assets/graph_bfs.svg)
 
 ### 알고리즘 구현
 
@@ -31,37 +31,37 @@ BFS는 보통 큐로 구현하며, 코드는 다음과 같다. 큐의 '선입선
 코드만으로는 추상적일 수 있으므로 아래 그림과 함께 살펴보며 이해를 깊이 다져 보자.
 
 === "<1>"
-    ![그래프의 너비 우선 순회 단계](graph_traversal.assets/graph_bfs_step1.png)
+    ![그래프의 너비 우선 순회 단계](graph_traversal.assets/graph_bfs_step1.svg)
 
 === "<2>"
-    ![그래프 너비 우선 순회 2단계](graph_traversal.assets/graph_bfs_step2.png)
+    ![그래프 너비 우선 순회 2단계](graph_traversal.assets/graph_bfs_step2.svg)
 
 === "<3>"
-    ![그래프 너비 우선 순회 3단계](graph_traversal.assets/graph_bfs_step3.png)
+    ![그래프 너비 우선 순회 3단계](graph_traversal.assets/graph_bfs_step3.svg)
 
 === "<4>"
-    ![그래프 너비 우선 순회 4단계](graph_traversal.assets/graph_bfs_step4.png)
+    ![그래프 너비 우선 순회 4단계](graph_traversal.assets/graph_bfs_step4.svg)
 
 === "<5>"
-    ![그래프 너비 우선 순회 5단계](graph_traversal.assets/graph_bfs_step5.png)
+    ![그래프 너비 우선 순회 5단계](graph_traversal.assets/graph_bfs_step5.svg)
 
 === "<6>"
-    ![그래프 너비 우선 순회 6단계](graph_traversal.assets/graph_bfs_step6.png)
+    ![그래프 너비 우선 순회 6단계](graph_traversal.assets/graph_bfs_step6.svg)
 
 === "<7>"
-    ![그래프 너비 우선 순회 7단계](graph_traversal.assets/graph_bfs_step7.png)
+    ![그래프 너비 우선 순회 7단계](graph_traversal.assets/graph_bfs_step7.svg)
 
 === "<8>"
-    ![그래프 너비 우선 순회 8단계](graph_traversal.assets/graph_bfs_step8.png)
+    ![그래프 너비 우선 순회 8단계](graph_traversal.assets/graph_bfs_step8.svg)
 
 === "<9>"
-    ![그래프 너비 우선 순회 9단계](graph_traversal.assets/graph_bfs_step9.png)
+    ![그래프 너비 우선 순회 9단계](graph_traversal.assets/graph_bfs_step9.svg)
 
 === "<10>"
-    ![그래프 너비 우선 순회 10단계](graph_traversal.assets/graph_bfs_step10.png)
+    ![그래프 너비 우선 순회 10단계](graph_traversal.assets/graph_bfs_step10.svg)
 
 === "<11>"
-    ![그래프 너비 우선 순회 11단계](graph_traversal.assets/graph_bfs_step11.png)
+    ![그래프 너비 우선 순회 11단계](graph_traversal.assets/graph_bfs_step11.svg)
 
 !!! question "너비 우선 순회 순서는 유일한가?"
 
@@ -77,7 +77,7 @@ BFS는 보통 큐로 구현하며, 코드는 다음과 같다. 큐의 '선입선
 
 **깊이 우선 순회는 먼저 끝까지 나아가고, 더 갈 곳이 없으면 되돌아오는 순회 방식이다**. 아래 그림에서는 왼쪽 위 정점에서 출발하여 현재 정점의 인접 정점 하나를 방문한다. 끝에 도달하면 되돌아오고, 다시 끝까지 나아갔다가 돌아오는 과정을 모든 정점을 순회할 때까지 반복한다.
 
-![그래프의 깊이 우선 순회](graph_traversal.assets/graph_dfs.png)
+![그래프의 깊이 우선 순회](graph_traversal.assets/graph_dfs.svg)
 
 ### 알고리즘 구현
 
@@ -95,37 +95,37 @@ BFS는 보통 큐로 구현하며, 코드는 다음과 같다. 큐의 '선입선
 이해를 깊이 다지기 위해 아래 그림과 코드를 함께 보면서, 각 재귀 메서드가 언제 호출되고 언제 반환되는지까지 포함하여 전체 DFS 과정을 머릿속으로 따라가 보자(또는 직접 그려 보자).
 
 === "<1>"
-    ![그래프의 깊이 우선 순회 단계](graph_traversal.assets/graph_dfs_step1.png)
+    ![그래프의 깊이 우선 순회 단계](graph_traversal.assets/graph_dfs_step1.svg)
 
 === "<2>"
-    ![그래프 깊이 우선 순회 2단계](graph_traversal.assets/graph_dfs_step2.png)
+    ![그래프 깊이 우선 순회 2단계](graph_traversal.assets/graph_dfs_step2.svg)
 
 === "<3>"
-    ![그래프 깊이 우선 순회 3단계](graph_traversal.assets/graph_dfs_step3.png)
+    ![그래프 깊이 우선 순회 3단계](graph_traversal.assets/graph_dfs_step3.svg)
 
 === "<4>"
-    ![그래프 깊이 우선 순회 4단계](graph_traversal.assets/graph_dfs_step4.png)
+    ![그래프 깊이 우선 순회 4단계](graph_traversal.assets/graph_dfs_step4.svg)
 
 === "<5>"
-    ![그래프 깊이 우선 순회 5단계](graph_traversal.assets/graph_dfs_step5.png)
+    ![그래프 깊이 우선 순회 5단계](graph_traversal.assets/graph_dfs_step5.svg)
 
 === "<6>"
-    ![그래프 깊이 우선 순회 6단계](graph_traversal.assets/graph_dfs_step6.png)
+    ![그래프 깊이 우선 순회 6단계](graph_traversal.assets/graph_dfs_step6.svg)
 
 === "<7>"
-    ![그래프 깊이 우선 순회 7단계](graph_traversal.assets/graph_dfs_step7.png)
+    ![그래프 깊이 우선 순회 7단계](graph_traversal.assets/graph_dfs_step7.svg)
 
 === "<8>"
-    ![그래프 깊이 우선 순회 8단계](graph_traversal.assets/graph_dfs_step8.png)
+    ![그래프 깊이 우선 순회 8단계](graph_traversal.assets/graph_dfs_step8.svg)
 
 === "<9>"
-    ![그래프 깊이 우선 순회 9단계](graph_traversal.assets/graph_dfs_step9.png)
+    ![그래프 깊이 우선 순회 9단계](graph_traversal.assets/graph_dfs_step9.svg)
 
 === "<10>"
-    ![그래프 깊이 우선 순회 10단계](graph_traversal.assets/graph_dfs_step10.png)
+    ![그래프 깊이 우선 순회 10단계](graph_traversal.assets/graph_dfs_step10.svg)
 
 === "<11>"
-    ![그래프 깊이 우선 순회 11단계](graph_traversal.assets/graph_dfs_step11.png)
+    ![그래프 깊이 우선 순회 11단계](graph_traversal.assets/graph_dfs_step11.svg)
 
 !!! question "깊이 우선 순회 순서는 유일한가?"
 

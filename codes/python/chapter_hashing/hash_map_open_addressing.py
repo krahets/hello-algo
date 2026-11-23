@@ -35,21 +35,22 @@ class HashMapOpenAddressing:
         """搜索 key 对应的桶索引"""
         index = self.hash_func(key)
         first_tombstone = -1
-        # 线性探测，当遇到空桶时跳出
         for _ in range(self.capacity):
-            if self.buckets[index] is None:
+            bucket = self.buckets[index]
+            if bucket is None:
                 break
+            # 记录遇到的首个删除标记
+            if bucket is self.TOMBSTONE:
+                if first_tombstone == -1:
+                    first_tombstone = index
             # 若遇到 key ，返回对应的桶索引
-            if self.buckets[index].key == key:
+            elif bucket.key == key:
                 # 若之前遇到了删除标记，则将键值对移动至该索引处
                 if first_tombstone != -1:
-                    self.buckets[first_tombstone] = self.buckets[index]
+                    self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
                     return first_tombstone  # 返回移动后的桶索引
                 return index  # 返回桶索引
-            # 记录遇到的首个删除标记
-            if first_tombstone == -1 and self.buckets[index] is self.TOMBSTONE:
-                first_tombstone = index
             # 计算桶索引，越过尾部则返回头部
             index = (index + 1) % self.capacity
         # 若 key 不存在，则返回添加点的索引

@@ -6,7 +6,7 @@
 
     給定一個長度為 $n$ 的陣列 `nums` ，元素按從小到大的順序排列且不重複。請查詢並返回元素 `target` 在該陣列中的索引。若陣列不包含該元素，則返回 $-1$ 。示例如下圖所示。
 
-![二分搜尋示例資料](binary_search.assets/binary_search_example.png)
+![二分搜尋示例資料](binary_search.assets/binary_search_example.svg)
 
 如下圖所示，我們先初始化指標 $i = 0$ 和 $j = n - 1$ ，分別指向陣列首元素和尾元素，代表搜尋區間 $[0, n - 1]$ 。請注意，中括號表示閉區間，其包含邊界值本身。
 
@@ -21,25 +21,25 @@
 若陣列不包含目標元素，搜尋區間最終會縮小為空。此時返回 $-1$ 。
 
 === "<1>"
-    ![二分搜尋流程](binary_search.assets/binary_search_step1.png)
+    ![二分搜尋流程](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png)
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png)
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png)
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png)
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png)
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png)
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg)
 
 值得注意的是，由於 $i$ 和 $j$ 都是 `int` 型別，**因此 $i + j$ 可能會超出 `int` 型別的取值範圍**。為了避免大數越界，我們通常採用公式 $m = \lfloor {i + (j - i) / 2} \rfloor$ 來計算中點。
 
@@ -67,7 +67,7 @@
 
 由於“雙閉區間”表示中的左右邊界都被定義為閉區間，因此透過指標 $i$ 和指標 $j$ 縮小區間的操作也是對稱的。這樣更不容易出錯，**因此一般建議採用“雙閉區間”的寫法**。
 
-![兩種區間定義](binary_search.assets/binary_search_ranges.png)
+![兩種區間定義](binary_search.assets/binary_search_ranges.svg)
 
 ## 優點與侷限性
 

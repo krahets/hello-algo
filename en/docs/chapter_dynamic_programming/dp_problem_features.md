@@ -18,7 +18,7 @@ Let's modify the climbing stairs problem slightly to illustrate optimal substruc
 
 As shown in the figure below, if steps $1$, $2$, and $3$ cost $1$, $10$, and $1$, respectively, the minimum cost of reaching step $3$ from the ground is $2$.
 
-![Minimum cost of reaching step 3](dp_problem_features.assets/min_cost_cs_example.png)
+![Minimum cost of reaching step 3](dp_problem_features.assets/min_cost_cs_example.svg)
 
 Let $dp[i]$ be the total cost of reaching step $i$. Since step $i$ can only be reached from step $i - 1$ or $i - 2$, $dp[i]$ must be either $dp[i - 1] + cost[i]$ or $dp[i - 2] + cost[i]$. To minimize the cost, choose the smaller of the two:
 
@@ -40,7 +40,7 @@ The state transition equation, together with the initial states $dp[1] = cost[1]
 
 The figure below illustrates this dynamic programming process.
 
-![Dynamic programming for the minimum climbing cost](dp_problem_features.assets/min_cost_cs_dp.png)
+![Dynamic programming for the minimum climbing cost](dp_problem_features.assets/min_cost_cs_dp.svg)
 
 We can also reduce the state storage from a one-dimensional array to scalar variables, lowering the space complexity from $O(n)$ to $O(1)$:
 
@@ -62,7 +62,7 @@ Adding a constraint changes the situation.
 
 As shown in the figure below, only $2$ ways remain to reach step $3$: taking $1$ step three times in a row violates the constraint and is discarded.
 
-![Number of ways to reach step 3 with the constraint](dp_problem_features.assets/climbing_stairs_constraint_example.png)
+![Number of ways to reach step 3 with the constraint](dp_problem_features.assets/climbing_stairs_constraint_example.svg)
 
 If the previous move climbed $1$ step, the next must climb $2$ steps. Thus, **the next choice cannot be determined by the current state (the current step number) alone; it also depends on the preceding state (the previous step number)**.
 
@@ -82,7 +82,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![Recurrence with the constraint](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png)
+![Recurrence with the constraint](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg)
 
 Finally, return $dp[n, 1] + dp[n, 2]$, the total number of ways to reach step $n$:
 

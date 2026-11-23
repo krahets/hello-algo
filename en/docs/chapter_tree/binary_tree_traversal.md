@@ -10,7 +10,7 @@ As shown below, <u>level-order traversal</u> visits the tree level by level from
 
 Level-order traversal is a form of <u>breadth-first traversal</u>, also called <u>breadth-first search (BFS)</u>. It explores outward one layer at a time.
 
-![Level-order traversal of a binary tree](binary_tree_traversal.assets/binary_tree_bfs.png)
+![Level-order traversal of a binary tree](binary_tree_traversal.assets/binary_tree_bfs.svg)
 
 ### Implementation
 
@@ -31,7 +31,7 @@ Preorder, inorder, and postorder traversal are forms of <u>depth-first traversal
 
 The figure below illustrates depth-first traversal. **Imagine walking once around the outside of the entire binary tree**. At each node, you encounter three positions corresponding to preorder, inorder, and postorder visits.
 
-![Preorder, inorder, and postorder traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.png)
+![Preorder, inorder, and postorder traversal of a binary search tree](binary_tree_traversal.assets/binary_tree_dfs.svg)
 
 ### Implementation
 
@@ -51,37 +51,37 @@ The figure below shows the recursive process for preorder traversal, with two op
 2. Returning ends a function call, indicating that the current node has been fully processed.
 
 === "<1>"
-    ![The recursive process of preorder traversal](binary_tree_traversal.assets/preorder_step1.png)
+    ![The recursive process of preorder traversal](binary_tree_traversal.assets/preorder_step1.svg)
 
 === "<2>"
-    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.png)
+    ![preorder_step2](binary_tree_traversal.assets/preorder_step2.svg)
 
 === "<3>"
-    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.png)
+    ![preorder_step3](binary_tree_traversal.assets/preorder_step3.svg)
 
 === "<4>"
-    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.png)
+    ![preorder_step4](binary_tree_traversal.assets/preorder_step4.svg)
 
 === "<5>"
-    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.png)
+    ![preorder_step5](binary_tree_traversal.assets/preorder_step5.svg)
 
 === "<6>"
-    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.png)
+    ![preorder_step6](binary_tree_traversal.assets/preorder_step6.svg)
 
 === "<7>"
-    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.png)
+    ![preorder_step7](binary_tree_traversal.assets/preorder_step7.svg)
 
 === "<8>"
-    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.png)
+    ![preorder_step8](binary_tree_traversal.assets/preorder_step8.svg)
 
 === "<9>"
-    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.png)
+    ![preorder_step9](binary_tree_traversal.assets/preorder_step9.svg)
 
 === "<10>"
-    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.png)
+    ![preorder_step10](binary_tree_traversal.assets/preorder_step10.svg)
 
 === "<11>"
-    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.png)
+    ![preorder_step11](binary_tree_traversal.assets/preorder_step11.svg)
 
 ### Complexity analysis
 

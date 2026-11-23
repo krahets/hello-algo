@@ -4,7 +4,7 @@
 
 아래 그림과 같이 정렬할 데이터의 타입은 정수, 부동 소수점 수, 문자, 문자열 등 다양하다. 정렬 기준도 수의 크기, 문자의 ASCII 코드 순서, 사용자 정의 규칙 등 필요에 따라 정할 수 있다.
 
-![데이터 타입과 정렬 기준의 예](sorting_algorithm.assets/sorting_examples.png)
+![데이터 타입과 정렬 기준의 예](sorting_algorithm.assets/sorting_examples.svg)
 
 ## 평가 기준
 

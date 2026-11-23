@@ -25,40 +25,40 @@ For an array of length $n$, heap sort proceeds as shown below.
     In fact, removing the root of a heap also includes steps `2.` and `3.`, with the additional step of removing an element from the array.
 
 === "<1>"
-    ![Steps of heap sort](heap_sort.assets/heap_sort_step1.png)
+    ![Steps of heap sort](heap_sort.assets/heap_sort_step1.svg)
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png)
+    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.svg)
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.png)
+    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.svg)
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.png)
+    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.svg)
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.png)
+    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.svg)
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.png)
+    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.svg)
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.png)
+    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.svg)
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.png)
+    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.svg)
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.png)
+    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.svg)
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.png)
+    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.svg)
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.png)
+    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.svg)
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png)
+    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.svg)
 
 The implementation uses the same `sift_down()` function introduced in the heap chapter. Because the heap shrinks as maximum elements are extracted, add a length parameter $n$ to specify its current valid length. The code is as follows:
 

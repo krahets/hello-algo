@@ -1,0 +1,122 @@
+{
+  "schema_version": 2,
+  "title": "Array representation of a perfect binary tree",
+  "summary": "Store a perfect binary tree in level order in a zero-based array, and locate left and right children with index formulas 2i+1 and 2i+2.",
+  "context": [
+    "A 4-level perfect binary tree has 15 nodes with values 1 through 15 in level order (root 1 on level 1, 2 and 3 on level 2, 4 through 7 on level 3, and leaf nodes 8 through 15 on level 4), stored sequentially at array indices 0 through 14. The table below lists every node's index and its left and right child positions."
+  ],
+  "description": [],
+  "result": "Index formulas replace child pointers, but array bounds must still be checked on access: in this figure, indices 7 through 14 (nodes 8 through 15) are leaf nodes, so their computed child positions 15 through 30 are all out of bounds, indicating no children.",
+  "frames": [
+    {
+      "id": "source-110",
+      "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_binary_tree.png",
+      "title": "Array representation of a perfect binary tree",
+      "explanation": "Substitute the array index i—not the node value—into the formulas. For example, node 6 is at index 5, so its left and right children are at index 11 (value 12) and index 12 (value 13)."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Node indices and left and right child positions",
+      "headers": [
+        "Current index",
+        "Node value",
+        "Left child: index and value",
+        "Right child: index and value"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "1: 2",
+          "2: 3"
+        ],
+        [
+          "1",
+          "2",
+          "3: 4",
+          "4: 5"
+        ],
+        [
+          "2",
+          "3",
+          "5: 6",
+          "6: 7"
+        ],
+        [
+          "3",
+          "4",
+          "7: 8",
+          "8: 9"
+        ],
+        [
+          "4",
+          "5",
+          "9: 10",
+          "10: 11"
+        ],
+        [
+          "5",
+          "6",
+          "11: 12",
+          "12: 13"
+        ],
+        [
+          "6",
+          "7",
+          "13: 14",
+          "14: 15"
+        ],
+        [
+          "7",
+          "8",
+          "15: out of bounds, no child",
+          "16: out of bounds, no child"
+        ],
+        [
+          "8",
+          "9",
+          "17: out of bounds, no child",
+          "18: out of bounds, no child"
+        ],
+        [
+          "9",
+          "10",
+          "19: out of bounds, no child",
+          "20: out of bounds, no child"
+        ],
+        [
+          "10",
+          "11",
+          "21: out of bounds, no child",
+          "22: out of bounds, no child"
+        ],
+        [
+          "11",
+          "12",
+          "23: out of bounds, no child",
+          "24: out of bounds, no child"
+        ],
+        [
+          "12",
+          "13",
+          "25: out of bounds, no child",
+          "26: out of bounds, no child"
+        ],
+        [
+          "13",
+          "14",
+          "27: out of bounds, no child",
+          "28: out of bounds, no child"
+        ],
+        [
+          "14",
+          "15",
+          "29: out of bounds, no child",
+          "30: out of bounds, no child"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

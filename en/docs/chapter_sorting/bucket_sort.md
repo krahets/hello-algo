@@ -12,7 +12,7 @@ Consider an array of length $n$ containing floating-point values in $[0, 1)$. Bu
 2. Sort each bucket separately, using the programming language's built-in sorting function here.
 3. Combine the results in ascending bucket order.
 
-![The bucket sort process](bucket_sort.assets/bucket_sort_overview.png)
+![The bucket sort process](bucket_sort.assets/bucket_sort_overview.svg)
 
 The code is as follows:
 
@@ -36,10 +36,10 @@ To obtain an even distribution, we can first choose rough boundaries and divide 
 
 As shown below, this effectively creates a recursion tree whose leaf values should be as balanced as possible. We need not use 3 buckets at every step; the subdivision can be chosen to suit the data.
 
-![Recursively subdividing buckets](bucket_sort.assets/scatter_in_buckets_recursively.png)
+![Recursively subdividing buckets](bucket_sort.assets/scatter_in_buckets_recursively.svg)
 
 If we know the probability distribution of product prices in advance, **we can choose bucket boundaries according to that distribution**. We do not necessarily need to measure the distribution explicitly; we can approximate it with a probability model suited to the data.
 
 In the figure below, we assume prices follow a normal distribution. This lets us choose suitable price intervals and distribute products evenly among the buckets.
 
-![Defining buckets from a probability distribution](bucket_sort.assets/scatter_in_buckets_distribution.png)
+![Defining buckets from a probability distribution](bucket_sort.assets/scatter_in_buckets_distribution.svg)

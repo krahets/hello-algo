@@ -26,7 +26,7 @@ class LinkedListQueue {
         size() == 0
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     func push(num: Int) {
         // 꼬리 노드 뒤에 num을 추가한다
         let node = ListNode(x: num)
@@ -43,7 +43,7 @@ class LinkedListQueue {
         _size += 1
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     @discardableResult
     func pop() -> Int {
         let num = peek()
@@ -80,7 +80,7 @@ enum _LinkedListQueue {
         /* 큐 초기화 */
         let queue = LinkedListQueue()
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -92,7 +92,7 @@ enum _LinkedListQueue {
         let peek = queue.peek()
         print("맨 앞 원소 peek = \(peek)")
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         let pop = queue.pop()
         print("큐에서 꺼낸 원소 pop = \(pop), 꺼낸 후 queue = \(queue.toArray())")
 

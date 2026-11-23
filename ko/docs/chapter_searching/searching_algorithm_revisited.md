@@ -40,7 +40,7 @@
 
 크기가 $n$인 데이터 집합이 주어지면 선형 탐색, 이진 탐색, 트리 탐색, 해시 탐색 등 다양한 방법으로 목표 원소를 찾을 수 있다. 각 방법의 동작 원리는 아래 그림과 같다.
 
-![다양한 탐색 전략](searching_algorithm_revisited.assets/searching_algorithms.png)
+![다양한 탐색 전략](searching_algorithm_revisited.assets/searching_algorithms.svg)
 
 위 방법들의 연산 효율과 특성은 아래 표와 같다.
 

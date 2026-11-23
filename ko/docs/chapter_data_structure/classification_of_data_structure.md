@@ -16,7 +16,7 @@
 - **트리 구조**: 트리, 힙, 해시 테이블이 해당하며, 원소 사이에 일대다 관계가 있다.
 - **네트워크 구조**: 그래프가 해당하며, 원소 사이에 다대다 관계가 있다.
 
-![선형 자료 구조와 비선형 자료 구조](classification_of_data_structure.assets/classification_logic_structure.png)
+![선형 자료 구조와 비선형 자료 구조](classification_of_data_structure.assets/classification_logic_structure.svg)
 
 ## 물리적 구조: 연속과 분산
 
@@ -24,7 +24,7 @@
 
 **시스템은 메모리 주소를 통해 원하는 위치의 데이터에 접근한다**. 아래 그림과 같이 컴퓨터는 특정 규칙에 따라 표의 각 셀에 번호를 부여하여 모든 메모리 공간이 고유한 메모리 주소를 갖게 한다. 프로그램은 이 주소를 이용해 메모리의 데이터에 접근한다.
 
-![메모리 모듈, 메모리 공간, 메모리 주소](classification_of_data_structure.assets/computer_memory_location.png)
+![메모리 모듈, 메모리 공간, 메모리 주소](classification_of_data_structure.assets/computer_memory_location.svg)
 
 !!! tip "참고"
 
@@ -34,7 +34,7 @@
 
 아래 그림과 같이 **물리적 구조는 데이터가 컴퓨터 메모리에 저장되는 방식을 나타내며**, 연속 공간 저장(배열)과 분산 공간 저장(연결 리스트)으로 나뉜다. 물리적 구조는 데이터 접근, 갱신, 삽입, 삭제 등의 연산 방식을 근본적으로 결정한다. 두 물리적 구조는 시간 효율과 공간 효율에서 서로 보완적인 특징을 지닌다.
 
-![연속 공간 저장과 분산 공간 저장](classification_of_data_structure.assets/classification_phisical_structure.png)
+![연속 공간 저장과 분산 공간 저장](classification_of_data_structure.assets/classification_phisical_structure.svg)
 
 **모든 자료 구조는 배열, 연결 리스트 또는 둘의 조합으로 구현된다**는 점도 알아 두자. 예를 들어 스택과 큐는 배열이나 연결 리스트로 구현할 수 있으며, 해시 테이블 구현에는 배열과 연결 리스트가 함께 포함될 수 있다.
 

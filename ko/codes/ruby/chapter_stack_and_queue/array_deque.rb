@@ -123,17 +123,17 @@ if __FILE__ == $0
   peek_last = deque.peek_last
   puts "맨 뒤 원소 peek_last = #{peek_last}"
 
-  # 큐에 원소 삽입
+  # 원소 삽입
   deque.push_last(4)
   puts "뒤쪽에 원소 4를 삽입한 후 deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "뒤쪽에 원소 1을 삽입한 후 deque = #{deque.to_array}"
+  puts "앞쪽에 원소 1을 삽입한 후 deque = #{deque.to_array}"
 
-  # 큐에서 원소 꺼내기
+  # 원소 꺼내기
   pop_last = deque.pop_last
   puts "맨 뒤에서 꺼낸 원소 = #{pop_last}, 맨 뒤에서 꺼낸 후 deque = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "맨 뒤에서 꺼낸 원소 = #{pop_first}, 맨 뒤에서 꺼낸 후 deque = #{deque.to_array}"
+  puts "맨 앞에서 꺼낸 원소 = #{pop_first}, 맨 앞에서 꺼낸 후 deque = #{deque.to_array}"
 
   # 덱의 길이 반환
   size = deque.size

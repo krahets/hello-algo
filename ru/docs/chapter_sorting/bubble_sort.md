@@ -5,25 +5,25 @@
 Как показано на рисунке ниже, процесс «всплытия» можно смоделировать через операцию обмена элементов: начиная от левого края массива и двигаясь вправо, мы последовательно сравниваем соседние элементы и, если «левый элемент > правый элемент», меняем их местами. После завершения прохода максимальный элемент будет перемещен в самый правый конец массива.
 
 === "<1>"
-    ![Моделирование пузырька через обмен элементов](bubble_sort.assets/bubble_operation_step1.png)
+    ![Моделирование пузырька через обмен элементов](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.png)
+    ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.png)
+    ![bubble_operation_step3](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.png)
+    ![bubble_operation_step4](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.png)
+    ![bubble_operation_step5](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.png)
+    ![bubble_operation_step6](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.png)
+    ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.svg)
 
 ## Алгоритм
 
@@ -34,7 +34,7 @@
 3. Продолжать по аналогии. После $n - 1$ раундов «всплытия» **первые $n - 1$ по величине элементы окажутся на правильных позициях**.
 4. Оставшийся единственный элемент обязательно является минимальным, сортировать его уже не нужно, поэтому сортировка завершена.
 
-![Процесс сортировки пузырьком](bubble_sort.assets/bubble_sort_overview.png)
+![Процесс сортировки пузырьком](bubble_sort.assets/bubble_sort_overview.svg)
 
 Пример кода:
 

@@ -29,7 +29,7 @@
 - 알고리즘은 자료 구조에 생명력을 불어넣는다. 자료 구조 자체는 데이터 정보만 저장하며, 알고리즘과 결합해야 특정 문제를 해결할 수 있다.
 - 같은 알고리즘도 서로 다른 자료 구조를 바탕으로 구현할 수 있지만, 실행 효율은 크게 달라질 수 있다. 따라서 적절한 자료 구조를 선택하는 것이 중요하다.
 
-![자료 구조와 알고리즘의 관계](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png)
+![자료 구조와 알고리즘의 관계](what_is_dsa.assets/relationship_between_data_structure_and_algorithm.svg)
 
 자료 구조와 알고리즘은 아래 그림의 조립 블록에 비유할 수 있다. 블록 한 세트에는 여러 부품뿐 아니라 자세한 조립 설명서도 들어 있다. 설명서를 따라 차례대로 조립하면 멋진 블록 모형을 만들 수 있다.
 

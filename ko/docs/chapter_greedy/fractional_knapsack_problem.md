@@ -4,7 +4,7 @@
 
     물건 $n$ 개와 용량이 $cap$인 배낭이 주어진다. $i$ 번째 물건의 무게는 $wgt[i-1]$, 가치는 $val[i-1]$이다. 각 물건은 한 번만 선택할 수 있지만, **일부만 선택할 수 있으며 가치는 선택한 무게의 비율에 따라 계산한다**. 용량 제한 안에서 배낭에 담을 수 있는 최대 가치를 구하라. 예시는 아래 그림과 같다.
 
-![분할 가능한 배낭 문제 예시 데이터](fractional_knapsack_problem.assets/fractional_knapsack_example.png)
+![분할 가능한 배낭 문제 예시 데이터](fractional_knapsack_problem.assets/fractional_knapsack_example.svg)
 
 분할 가능한 배낭 문제는 전체적으로 0-1 배낭 문제와 매우 비슷하다. 상태는 현재 물건 $i$와 용량 $c$를 포함하며, 목표는 용량 제한 안에서 최대 가치를 구하는 것이다.
 
@@ -13,7 +13,7 @@
 1. 물건 $i$의 단위 무게당 가치는 $val[i-1] / wgt[i-1]$이며, 줄여서 단위 가치라고 한다.
 2. 물건 $i$의 일부를 무게 $w$만큼 넣으면 배낭의 가치는 $w \times val[i-1] / wgt[i-1]$만큼 늘어난다.
 
-![물건의 단위 무게당 가치](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png)
+![물건의 단위 무게당 가치](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg)
 
 ### 탐욕 전략 결정
 
@@ -23,7 +23,7 @@
 2. 모든 물건을 순회하며 **매번 단위 가치가 가장 높은 물건을 탐욕적으로 선택한다**.
 3. 남은 용량이 부족하면 현재 물건의 일부로 배낭을 가득 채운다.
 
-![분할 가능한 배낭 문제의 탐욕 전략](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png)
+![분할 가능한 배낭 문제의 탐욕 전략](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg)
 
 ### 코드 구현
 
@@ -49,4 +49,4 @@
 
 아래 그림과 같이 물건 무게를 가로축, 단위 가치를 세로축으로 보면, 분할 가능한 배낭 문제는 '제한된 가로축 구간에서 최대 넓이를 구하는' 문제로 바뀐다. 이 비유는 탐욕 전략의 유효성을 기하학적으로 이해하는 데 도움이 된다.
 
-![분할 가능한 배낭 문제의 기하학적 표현](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png)
+![분할 가능한 배낭 문제의 기하학적 표현](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg)

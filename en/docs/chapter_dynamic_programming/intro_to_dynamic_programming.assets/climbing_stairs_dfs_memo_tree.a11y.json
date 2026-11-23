@@ -1,0 +1,71 @@
+{
+  "schema_version": 2,
+  "title": "Memoized search reuses previously computed states",
+  "summary": "On the first visit, memoized search computes and caches each non-base state along the left branch. When a right branch reaches the same state, its cached value still contributes to the parent’s sum.",
+  "context": [
+    "Again counting ways to climb stairs by taking 1 or 2 steps at a time, with base cases dp[1] = 1 and dp[2] = 2, memoized search introduces an array mem to record computed non-base state values: base cases return immediately, while non-base states check mem first and expand further only if not yet recorded."
+  ],
+  "description": [
+    "In the figure, the main first-time computation chain runs dp[9] → dp[8] → dp[7] → ... → dp[3], with dp[6] through dp[4] condensed as ellipses; dp[3] then splits into the base cases dp[2] and dp[1]. On the right, scissors icons explicitly mark cached reuse at dp[7], dp[6], and dp[5], while remaining reuse points are summarized by ellipses. Filling in the omitted segment from the code also reuses dp[4] inside dp[6] and dp[3] inside dp[5]; the right subproblem dp[2] of dp[4] returns directly as a base case rather than a cache hit.",
+    "For example, computing dp[9] first completes its left subproblem dp[8], during which dp[7] is already computed and stored; when evaluating the right subproblem (dp[7] marked with scissors), the search reads the cached value directly without expanding it again, and that value still contributes to the sum for dp[9].",
+    "The two tables below list the three reuse relationships explicitly shown in the figure and how the code handles base cases, first-time computations, and cache hits."
+  ],
+  "frames": [
+    {
+      "id": "source-370",
+      "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png",
+      "title": "Memoized search reuses previously computed states",
+      "explanation": "Each non-base state is expanded and computed only once, and repeated lookups return the cached value directly, reducing the time complexity to O(n)."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Cached state reuses explicitly shown in the figure",
+      "headers": [
+        "Parent state",
+        "Left subproblem completed first",
+        "Right subproblem read from cache"
+      ],
+      "rows": [
+        [
+          "dp[9]",
+          "dp[8]",
+          "dp[7]"
+        ],
+        [
+          "dp[8]",
+          "dp[7]",
+          "dp[6]"
+        ],
+        [
+          "dp[7]",
+          "dp[6] (shown as an ellipsis in the figure)",
+          "dp[5]"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Handling of the three kinds of states",
+      "headers": [
+        "Encountered state",
+        "Action"
+      ],
+      "rows": [
+        [
+          "dp[1], dp[2]",
+          "Return 1 or 2 directly"
+        ],
+        [
+          "Non-base state, not yet recorded",
+          "Compute recursively, sum, store in mem, and return"
+        ],
+        [
+          "Non-base state, already recorded",
+          "Return the value from mem directly; still added into parent sum"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

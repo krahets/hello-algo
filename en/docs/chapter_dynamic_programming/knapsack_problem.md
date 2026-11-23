@@ -10,7 +10,7 @@ We will begin with the most common variant, 0-1 knapsack.
 
 As shown in the figure below, item numbers $i$ start at $1$, while array indices start at $0$. Item $i$ therefore has weight $wgt[i-1]$ and value $val[i-1]$.
 
-![Example input for 0-1 knapsack](knapsack_problem.assets/knapsack_example.png)
+![Example input for 0-1 knapsack](knapsack_problem.assets/knapsack_example.svg)
 
 We can view 0-1 knapsack as $n$ rounds of decisions, with two choices for each item: leave it out or put it in. It therefore fits the decision tree model.
 
@@ -64,7 +64,7 @@ As shown in the figure below, each item creates two branches, excluding it or in
 
 The recursion tree contains overlapping subproblems, such as $dp[1, 10]$. Their number grows substantially with more items and larger capacity, especially when many items share the same weight.
 
-![Brute-force recursion tree for 0-1 knapsack](knapsack_problem.assets/knapsack_dfs.png)
+![Brute-force recursion tree for 0-1 knapsack](knapsack_problem.assets/knapsack_dfs.svg)
 
 ### Method 2: Memoized search
 
@@ -78,7 +78,7 @@ With memoization, **the time complexity depends on the number of subproblems**, 
 
 The figure below shows the branches pruned by memoized search.
 
-![Memoized recursion tree for 0-1 knapsack](knapsack_problem.assets/knapsack_dfs_mem.png)
+![Memoized recursion tree for 0-1 knapsack](knapsack_problem.assets/knapsack_dfs_mem.svg)
 
 ### Method 3: Dynamic programming
 
@@ -91,46 +91,46 @@ Dynamic programming essentially fills the $dp$ table using state transitions, as
 As shown in the figure below, both time and space complexity are determined by the size of `dp`: $O(n \times cap)$.
 
 === "<1>"
-    ![Dynamic programming for 0-1 knapsack](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![Dynamic programming for 0-1 knapsack](knapsack_problem.assets/knapsack_dp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png)
+    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.png)
+    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.png)
+    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.png)
+    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.png)
+    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.svg)
 
 === "<7>"
-    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.png)
+    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.svg)
 
 === "<8>"
-    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.png)
+    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.svg)
 
 === "<9>"
-    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.png)
+    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.svg)
 
 === "<10>"
-    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.png)
+    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.svg)
 
 === "<11>"
-    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.png)
+    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.svg)
 
 === "<12>"
-    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.png)
+    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.svg)
 
 === "<13>"
-    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.png)
+    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.svg)
 
 === "<14>"
-    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
+    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.svg)
 
 ### Space optimization
 
@@ -144,22 +144,22 @@ Can we go further and use just one array? Each state depends on entries directly
 The figure below shows one array changing from row $i = 1$ to row $i = 2$. Consider how forward and backward iteration differ.
 
 === "<1>"
-    ![Space-optimized dynamic programming for 0-1 knapsack](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![Space-optimized dynamic programming for 0-1 knapsack](knapsack_problem.assets/knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
+    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.png)
+    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.png)
+    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.png)
+    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
+    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
 
 In the implementation, simply remove the first dimension $i$ from `dp` and reverse the inner loop:
 

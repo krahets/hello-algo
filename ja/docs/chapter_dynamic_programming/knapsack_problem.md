@@ -10,7 +10,7 @@
 
 下図のように、品物の番号 $i$ は $1$ から始まり、配列のインデックスは $0$ から始まるので、品物 $i$ の重さと価値は $wgt[i-1]$ と $val[i-1]$ に対応します。
 
-![0-1 ナップサック問題のデータ例](knapsack_problem.assets/knapsack_example.png)
+![0-1 ナップサック問題のデータ例](knapsack_problem.assets/knapsack_example.svg)
 
 0-1 ナップサック問題は、$n$ 回の選択からなる過程と捉えられます。各品物について、入れないか入れるかの二つを選ぶため、決定木モデルに当てはまります。
 
@@ -64,7 +64,7 @@ $$
 
 再帰木には、$dp[1, 10]$ などの重複した部分問題があります。品物が多く、容量が大きく、特に同じ重さの品物が多いと、重複する部分問題の数は大幅に増えます。
 
-![0-1 ナップサック問題の全探索の再帰木](knapsack_problem.assets/knapsack_dfs.png)
+![0-1 ナップサック問題の全探索の再帰木](knapsack_problem.assets/knapsack_dfs.svg)
 
 ### 方法 2：メモ化探索
 
@@ -78,7 +78,7 @@ $$
 
 下図に、メモ化探索で枝刈りされる探索分岐を示します。
 
-![0-1 ナップサック問題のメモ化探索の再帰木](knapsack_problem.assets/knapsack_dfs_mem.png)
+![0-1 ナップサック問題のメモ化探索の再帰木](knapsack_problem.assets/knapsack_dfs_mem.svg)
 
 ### 方法 3：動的計画法
 
@@ -91,46 +91,46 @@ $$
 下図のように、時間計算量と空間計算量は、どちらも配列 `dp` の大きさで決まり、$O(n \times cap)$ です。
 
 === "<1>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ](knapsack_problem.assets/knapsack_dp_step1.svg)
 
 === "<2>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 2](knapsack_problem.assets/knapsack_dp_step2.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 2](knapsack_problem.assets/knapsack_dp_step2.svg)
 
 === "<3>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 3](knapsack_problem.assets/knapsack_dp_step3.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 3](knapsack_problem.assets/knapsack_dp_step3.svg)
 
 === "<4>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 4](knapsack_problem.assets/knapsack_dp_step4.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 4](knapsack_problem.assets/knapsack_dp_step4.svg)
 
 === "<5>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 5](knapsack_problem.assets/knapsack_dp_step5.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 5](knapsack_problem.assets/knapsack_dp_step5.svg)
 
 === "<6>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 6](knapsack_problem.assets/knapsack_dp_step6.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 6](knapsack_problem.assets/knapsack_dp_step6.svg)
 
 === "<7>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 7](knapsack_problem.assets/knapsack_dp_step7.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 7](knapsack_problem.assets/knapsack_dp_step7.svg)
 
 === "<8>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 8](knapsack_problem.assets/knapsack_dp_step8.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 8](knapsack_problem.assets/knapsack_dp_step8.svg)
 
 === "<9>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 9](knapsack_problem.assets/knapsack_dp_step9.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 9](knapsack_problem.assets/knapsack_dp_step9.svg)
 
 === "<10>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 10](knapsack_problem.assets/knapsack_dp_step10.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 10](knapsack_problem.assets/knapsack_dp_step10.svg)
 
 === "<11>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 11](knapsack_problem.assets/knapsack_dp_step11.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 11](knapsack_problem.assets/knapsack_dp_step11.svg)
 
 === "<12>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 12](knapsack_problem.assets/knapsack_dp_step12.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 12](knapsack_problem.assets/knapsack_dp_step12.svg)
 
 === "<13>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 13](knapsack_problem.assets/knapsack_dp_step13.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 13](knapsack_problem.assets/knapsack_dp_step13.svg)
 
 === "<14>"
-    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 14](knapsack_problem.assets/knapsack_dp_step14.png)
+    ![0-1 ナップサック問題を動的計画法で解く流れ：手順 14](knapsack_problem.assets/knapsack_dp_step14.svg)
 
 ### 空間の最適化
 
@@ -144,22 +144,22 @@ $$
 下図に、配列一つで $i = 1$ 行目から $i = 2$ 行目へ移る過程を示します。順方向と逆方向の違いを考えてみてください。
 
 === "<1>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法](knapsack_problem.assets/knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 2](knapsack_problem.assets/knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 3](knapsack_problem.assets/knapsack_dp_comp_step3.png)
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 3](knapsack_problem.assets/knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 4](knapsack_problem.assets/knapsack_dp_comp_step4.png)
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 4](knapsack_problem.assets/knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 5](knapsack_problem.assets/knapsack_dp_comp_step5.png)
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 5](knapsack_problem.assets/knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
+    ![空間最適化後の 0-1 ナップサック問題の動的計画法：手順 6](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
 
 実装では、配列 `dp` の第 1 次元 $i$ を取り除き、内側のループを逆順にするだけです。
 

@@ -8,7 +8,7 @@
 
     $n$ 個の品物があり、$i$ 番目の重さは $wgt[i-1]$、価値は $val[i-1]$ です。容量 $cap$ のナップサックがあり、**各品物は繰り返し選べます**。容量の制限内で入れられる品物の最大価値を求めてください。例を下図に示します。
 
-![個数制限なしナップサック問題のデータ例](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
+![個数制限なしナップサック問題のデータ例](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
 
 ### 動的計画法の考え方
 
@@ -43,22 +43,22 @@ $$
 この順序は 0-1 ナップサック問題と逆です。下図で違いを確認してください。
 
 === "<1>"
-    ![空間最適化後の個数制限なしナップサック問題の動的計画法](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![空間最適化後の個数制限なしナップサック問題の動的計画法](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
+    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png)
+    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png)
+    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png)
+    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png)
+    ![空間最適化後の個数制限なしナップサック問題の動的計画法：手順 6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
 
 実装は簡単で、配列 `dp` の第 1 次元を取り除くだけです。
 
@@ -74,7 +74,7 @@ $$
 
     $n$ 種類の硬貨があり、$i$ 番目の額面は $coins[i - 1]$、目標金額は $amt$ です。**各種類の硬貨は繰り返し選べます**。目標金額を作るための硬貨の最小枚数を求めてください。作れない場合は $-1$ を返します。例を下図に示します。
 
-![硬貨の両替問題のデータ例](unbounded_knapsack_problem.assets/coin_change_example.png)
+![硬貨の両替問題のデータ例](unbounded_knapsack_problem.assets/coin_change_example.svg)
 
 ### 動的計画法の考え方
 
@@ -120,49 +120,49 @@ $$
 下図に、硬貨の両替を動的計画法で解く流れを示します。個数制限なしナップサック問題によく似ています。
 
 === "<1>"
-    ![硬貨の両替問題を動的計画法で解く流れ](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
+    ![硬貨の両替問題を動的計画法で解く流れ](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 2](unbounded_knapsack_problem.assets/coin_change_dp_step2.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
 
 === "<3>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 3](unbounded_knapsack_problem.assets/coin_change_dp_step3.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 3](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
 
 === "<4>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 4](unbounded_knapsack_problem.assets/coin_change_dp_step4.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 4](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
 
 === "<5>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 5](unbounded_knapsack_problem.assets/coin_change_dp_step5.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 5](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
 
 === "<6>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 6](unbounded_knapsack_problem.assets/coin_change_dp_step6.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 6](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
 
 === "<7>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 7](unbounded_knapsack_problem.assets/coin_change_dp_step7.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 7](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
 
 === "<8>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 8](unbounded_knapsack_problem.assets/coin_change_dp_step8.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 8](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
 
 === "<9>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 9](unbounded_knapsack_problem.assets/coin_change_dp_step9.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 9](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
 
 === "<10>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 10](unbounded_knapsack_problem.assets/coin_change_dp_step10.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 10](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
 
 === "<11>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 11](unbounded_knapsack_problem.assets/coin_change_dp_step11.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 11](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
 
 === "<12>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 12](unbounded_knapsack_problem.assets/coin_change_dp_step12.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 12](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
 
 === "<13>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 13](unbounded_knapsack_problem.assets/coin_change_dp_step13.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 13](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
 
 === "<14>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 14](unbounded_knapsack_problem.assets/coin_change_dp_step14.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 14](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
 
 === "<15>"
-    ![硬貨の両替問題を動的計画法で解く流れ：手順 15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
+    ![硬貨の両替問題を動的計画法で解く流れ：手順 15](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
 
 ### 空間の最適化
 
@@ -178,7 +178,7 @@ $$
 
     $n$ 種類の硬貨があり、$i$ 番目の額面は $coins[i - 1]$、目標金額は $amt$ です。各種類の硬貨は繰り返し選べます。**目標金額を作る硬貨の組み合わせは何通りありますか**。例を下図に示します。
 
-![硬貨の両替問題 II のデータ例](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
+![硬貨の両替問題 II のデータ例](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
 
 ### 動的計画法の考え方
 

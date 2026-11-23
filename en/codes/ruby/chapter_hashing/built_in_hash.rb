@@ -10,25 +10,25 @@ require_relative '../utils/list_node'
 if __FILE__ == $0
   num = 3
   hash_num = num.hash
-  puts "Hash value of integer #{num}: #{hash_num}"
+  puts "Integer #{num} has hash value #{hash_num}"
 
   bol = true
   hash_bol = bol.hash
-  puts "Hash value of Boolean #{bol}: #{hash_bol}"
+  puts "Boolean #{bol} has hash value #{hash_bol}"
 
   dec = 3.14159
   hash_dec = dec.hash
-  puts "Hash value of floating-point number #{dec}: #{hash_dec}"
+  puts "Floating-point number #{dec} has hash value #{hash_dec}"
 
   str = "Hello 算法"
   hash_str = str.hash
   puts "Hash value of string #{str}: #{hash_str}"
 
-  tup = [12836, '小哈']
-  hash_tup = tup.hash
-  puts "Hash value of array #{tup}: #{hash_tup}"
+  arr = [12836, '小哈']
+  hash_arr = arr.hash
+  puts "Array #{arr} has hash value #{hash_arr}"
 
   obj = ListNode.new(0)
   hash_obj = obj.hash
-  puts "Hash value of node object #{obj}: #{hash_obj}"
+  puts "Node object #{obj} has hash value #{hash_obj}"
 end

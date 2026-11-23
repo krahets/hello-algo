@@ -16,7 +16,7 @@
 
 下図に、三つの表現の変換方法を示します。
 
-![符号絶対値表現、1 の補数表現、2 の補数表現の相互変換](number_encoding.assets/1s_2s_complement.png)
+![符号絶対値表現、1 の補数表現、2 の補数表現の相互変換](number_encoding.assets/1s_2s_complement.svg)
 
 <u>符号絶対値表現（sign-magnitude）</u>は最も直感的ですが、制約があります。一つは、**負の数をそのまま演算に使えないこと**です。たとえば $1 + (-2)$ をこの表現で計算すると、明らかに誤った結果 $-3$ になります。
 
@@ -123,7 +123,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE 754 に従った float の計算例](number_encoding.assets/ieee_754_float.png)
+![IEEE 754 に従った float の計算例](number_encoding.assets/ieee_754_float.svg)
 
 上図の例では、$\mathrm{S} = 0$、$\mathrm{E} = 124$、$\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$ なので、次の値になります。
 

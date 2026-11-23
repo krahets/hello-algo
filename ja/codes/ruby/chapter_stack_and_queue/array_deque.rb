@@ -127,13 +127,13 @@ if __FILE__ == $0
   deque.push_last(4)
   puts "要素 4 を末尾にエンキューした後 deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "要素 1 を末尾にエンキューした後 deque = #{deque.to_array}"
+  puts "要素 1 を先頭にエンキューした後 deque = #{deque.to_array}"
 
   # 要素をデキューする
   pop_last = deque.pop_last
   puts "末尾からデキューした要素 = #{pop_last}、末尾からデキューした後 deque = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "末尾からデキューした要素 = #{pop_first}、末尾からデキューした後 deque = #{deque.to_array}"
+  puts "先頭からデキューした要素 = #{pop_first}、先頭からデキューした後 deque = #{deque.to_array}"
 
   # 両端キューの長さを取得する
   size = deque.size

@@ -10,7 +10,7 @@ In merge sort and binary tree reconstruction, we divided the original problem in
     2. Only one disk may be moved at a time.
     3. A smaller disk must always be above a larger disk.
 
-![Example of the Tower of Hanoi](hanota_problem.assets/hanota_example.png)
+![Example of the Tower of Hanoi](hanota_problem.assets/hanota_example.svg)
 
 **Let $f(i)$ denote a Tower of Hanoi problem of size $i$**. For example, $f(3)$ means moving $3$ disks from `A` to `C`.
 
@@ -19,10 +19,10 @@ In merge sort and binary tree reconstruction, we divided the original problem in
 For $f(1)$, with just one disk, simply move it directly from `A` to `C`, as shown in the figure below.
 
 === "<1>"
-    ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.png)
+    ![Solution for a problem of size 1](hanota_problem.assets/hanota_f1_step1.svg)
 
 === "<2>"
-    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png)
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.svg)
 
 For $f(2)$, with two disks, **we need to use `B` because the smaller disk must remain above the larger one**, as shown in the figure below.
 
@@ -31,16 +31,16 @@ For $f(2)$, with two disks, **we need to use `B` because the smaller disk must r
 3. Move the smaller disk from `B` to `C`.
 
 === "<1>"
-    ![Solution for a problem of size 2](hanota_problem.assets/hanota_f2_step1.png)
+    ![Solution for a problem of size 2](hanota_problem.assets/hanota_f2_step1.svg)
 
 === "<2>"
-    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png)
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.svg)
 
 === "<3>"
-    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.png)
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.svg)
 
 === "<4>"
-    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png)
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.svg)
 
 We can summarize the solution to $f(2)$ as **moving two disks from `A` to `C` using `B`**. Here, `C` is the destination rod and `B` is the auxiliary rod.
 
@@ -55,16 +55,16 @@ Since we know how to solve $f(1)$ and $f(2)$, we can use divide and conquer: **t
 3. Use `C` as the destination and `A` as the auxiliary rod to move two disks from `B` to `C`.
 
 === "<1>"
-    ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.png)
+    ![Solution for a problem of size 3](hanota_problem.assets/hanota_f3_step1.svg)
 
 === "<2>"
-    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png)
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.svg)
 
 === "<3>"
-    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.png)
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.svg)
 
 === "<4>"
-    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png)
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.svg)
 
 In essence, **we have divided $f(3)$ into two $f(2)$ subproblems and one $f(1)$ subproblem**. Solving these three subproblems in order solves the original problem. This shows that the subproblems are independent and their solutions can be combined.
 
@@ -76,7 +76,7 @@ We can now state the divide-and-conquer strategy for the Tower of Hanoi, illustr
 
 Each of the two $f(n-1)$ subproblems **can be divided recursively in the same way** until we reach the smallest subproblem, $f(1)$. The solution to $f(1)$ is a single move.
 
-![Divide-and-conquer strategy for the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.png)
+![Divide-and-conquer strategy for the Tower of Hanoi](hanota_problem.assets/hanota_divide_and_conquer.svg)
 
 ### Code implementation
 
@@ -88,7 +88,7 @@ We define a recursive function `dfs(i, src, buf, tar)` that moves the top $i$ di
 
 As shown in the figure below, the Tower of Hanoi forms a recursion tree of height $n$. Each node represents a subproblem and corresponds to a call to `dfs()`. **The time complexity is therefore $O(2^n)$, and the space complexity is $O(n)$**.
 
-![Recursion tree for the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.png)
+![Recursion tree for the Tower of Hanoi](hanota_problem.assets/hanota_recursive_tree.svg)
 
 !!! quote
 

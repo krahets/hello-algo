@@ -23,7 +23,7 @@ pub fn main() {
     let peek_last = deque.back().unwrap();
     print!("\n맨 뒤 원소 peekLast = {peek_last}");
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque.push_back(4);
     print!("\n원소 4를 뒤에 삽입한 뒤 deque = ");
     print_util::print_queue(&deque);
@@ -31,7 +31,7 @@ pub fn main() {
     print!("\n원소 1을 앞에 삽입한 뒤 deque = ");
     print_util::print_queue(&deque);
 
-    // 큐에서 원소 꺼내기
+    // 원소 꺼내기
     let pop_last = deque.pop_back().unwrap();
     print!("\n뒤에서 꺼낸 원소 = {pop_last}, 꺼낸 뒤 deque = ");
     print_util::print_queue(&deque);

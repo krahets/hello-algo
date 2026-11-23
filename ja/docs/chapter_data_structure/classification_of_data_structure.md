@@ -16,7 +16,7 @@
 - **木構造**：木、ヒープ、ハッシュテーブル。要素間は一対多の関係です。
 - **ネットワーク構造**：グラフ。要素間は多対多の関係です。
 
-![線形データ構造と非線形データ構造](classification_of_data_structure.assets/classification_logic_structure.png)
+![線形データ構造と非線形データ構造](classification_of_data_structure.assets/classification_logic_structure.svg)
 
 ## 物理構造：連続と分散
 
@@ -24,7 +24,7 @@
 
 **システムはメモリアドレスを使って、目的の位置のデータにアクセスします**。下図のように、各セルには規則に従った番号が割り当てられ、各メモリ領域が一意のアドレスを持ちます。このアドレスにより、プログラムはデータにアクセスできます。
 
-![メモリモジュール、メモリ空間、メモリアドレス](classification_of_data_structure.assets/computer_memory_location.png)
+![メモリモジュール、メモリ空間、メモリアドレス](classification_of_data_structure.assets/computer_memory_location.svg)
 
 !!! tip
 
@@ -34,7 +34,7 @@
 
 下図のように、**物理構造は、コンピュータのメモリ内での格納方法を表し**、連続した領域への格納（配列）と、分散した領域への格納（連結リスト）に分けられます。アクセス、更新、追加、削除などの方法を根本から決めるもので、二つの構造は時間効率と空間効率の面で互いを補い合います。
 
-![連続した領域への格納と分散した領域への格納](classification_of_data_structure.assets/classification_phisical_structure.png)
+![連続した領域への格納と分散した領域への格納](classification_of_data_structure.assets/classification_phisical_structure.svg)
 
 **すべてのデータ構造は、配列、連結リスト、またはその組み合わせで実装されます**。たとえばスタックとキューはどちらでも実装でき、ハッシュテーブルでは両方を使うことがあります。
 

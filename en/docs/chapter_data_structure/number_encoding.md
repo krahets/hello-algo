@@ -16,7 +16,7 @@ First, **integers are stored in two's complement form**. Before explaining why, 
 
 The figure below shows how to convert among these representations.
 
-![Converting between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.png)
+![Converting between sign-magnitude, one's complement, and two's complement](number_encoding.assets/1s_2s_complement.svg)
 
 Although <u>sign-magnitude</u> is intuitive, it has limitations. First, **negative sign-magnitude values cannot be used directly in ordinary binary arithmetic**. For example, directly adding $1 + (-2)$ in this representation gives $-3$, which is clearly wrong.
 
@@ -123,7 +123,7 @@ $$
 \end{aligned}
 $$
 
-![Example of an IEEE 754 float calculation](number_encoding.assets/ieee_754_float.png)
+![Example of an IEEE 754 float calculation](number_encoding.assets/ieee_754_float.svg)
 
 In the figure above, $\mathrm{S} = 0$, $\mathrm{E} = 124$, and $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$, giving:
 

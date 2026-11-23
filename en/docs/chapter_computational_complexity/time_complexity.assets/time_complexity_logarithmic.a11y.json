@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "title": "Logarithmic growth from halving at each step",
+  "summary": "Halving the remaining length in each round pairs every retained array state one-to-one with a single operation at that level.",
+  "context": [
+    "Let n be a nonnegative integer power of 2. From left to right, the three columns are headed \"Remaining array length\", \"Input array length: n — halved at each level\", and \"Each level has 1 operation\". Dark green cells and outlines mark the retained subarray, while light gray cells mark excluded portions."
+  ],
+  "description": [
+    "Ellipses at the top stand for earlier halving steps, followed by the final four levels drawn explicitly. On the right, each level has one light green operation box linked downward by arrows; the rightmost brace reads \"A total of log₂n + 1 levels\", and the bottom summary likewise writes log₂n + 1 total operations, pointing to O(log n)."
+  ],
+  "frames": [
+    {
+      "id": "source-30",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic.png",
+      "title": "Logarithmic growth from halving at each step",
+      "explanation": "Halving n down to 1 takes log₂ n (log base 2 of n) halving steps, which is the exact count returned by while n > 1 in the code; the figure also counts the final length-1 level as 1 operation, giving one more level than the count returned by the code. For instance, 8 → 4 → 2 → 1 has 3 halvings across 4 state levels. That constant difference does not change the logarithmic complexity O(log n). The ellipses and four rows illustrate general n; small inputs pass only through the levels that actually exist."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Retained subarrays across the final four levels in the figure",
+      "headers": [
+        "Remaining length",
+        "Retained slice in an 8-cell array"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "8",
+          "All 8 cells"
+        ],
+        [
+          "4",
+          "Rightmost 4 cells"
+        ],
+        [
+          "2",
+          "Rightmost 2 cells"
+        ],
+        [
+          "1",
+          "Rightmost 1 cell"
+        ]
+      ]
+    }
+  ]
+}

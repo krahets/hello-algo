@@ -40,7 +40,7 @@
 
 大きさ $n$ のデータ集合から目的の要素を探すには、線形探索、二分探索、木探索、ハッシュ探索などの方法が使えます。それぞれの仕組みを下図に示します。
 
-![さまざまな探索戦略](searching_algorithm_revisited.assets/searching_algorithms.png)
+![さまざまな探索戦略](searching_algorithm_revisited.assets/searching_algorithms.svg)
 
 これらの方法の操作効率と特徴を下表に示します。
 

@@ -31,7 +31,7 @@ We can use the function for finding the leftmost element to find the rightmost o
 
 As shown below, when the search finishes, pointer $i$ points to the leftmost `target + 1`, if it exists, while $j$ points to the rightmost `target`. **We therefore return $j$**.
 
-![Turning a right-boundary search into a left-boundary search](binary_search_edge.assets/binary_search_right_edge_by_left_edge.png)
+![Turning a right-boundary search into a left-boundary search](binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg)
 
 The returned insertion point is $i$, so subtract $1$ to obtain $j$:
 
@@ -48,7 +48,7 @@ As shown below, we can therefore construct a value absent from the array and use
 - To find the leftmost `target`, search for `target - 0.5` and return pointer $i$.
 - To find the rightmost `target`, search for `target + 0.5` and return pointer $j$.
 
-![Turning a boundary search into an element search](binary_search_edge.assets/binary_search_edge_by_element.png)
+![Turning a boundary search into an element search](binary_search_edge.assets/binary_search_edge_by_element.svg)
 
 The code is omitted here, but keep two points in mind.
 

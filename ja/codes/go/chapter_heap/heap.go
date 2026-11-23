@@ -15,7 +15,7 @@ func (h *intHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-// Pop は heap.Interface の関数であり、ヒープの先頭要素の取り出しを実装する
+// Pop は heap.Interface の関数であり、スライスの末尾要素を取り出す（heap.Pop がすでにヒープの先頭要素と末尾要素を交換している）
 func (h *intHeap) Pop() any {
 	// 取り出す要素は末尾に格納されている
 	last := (*h)[len(*h)-1]

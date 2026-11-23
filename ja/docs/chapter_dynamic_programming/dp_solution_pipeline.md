@@ -37,7 +37,7 @@
 
 下図のグリッドでは、経路和の最小値は $13$ です。
 
-![経路和の最小化問題のデータ例](dp_solution_pipeline.assets/min_path_sum_example.png)
+![経路和の最小化問題のデータ例](dp_solution_pipeline.assets/min_path_sum_example.svg)
 
 **第 1 段階：各回の選択を考えて状態を定義し、$dp$ テーブルを作る**
 
@@ -47,7 +47,7 @@
 
 これで、下図の二次元の $dp$ 行列が得られます。大きさは入力グリッド $grid$ と同じです。
 
-![状態の定義と dp テーブル](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png)
+![状態の定義と dp テーブル](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg)
 
 !!! note
 
@@ -65,7 +65,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![最適部分構造と状態遷移式](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png)
+![最適部分構造と状態遷移式](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg)
 
 !!! note
 
@@ -79,7 +79,7 @@ $$
 
 下図のように、各マスは左と上のマスから遷移するため、ループで行列を走査します。外側のループで行を、内側のループで列を走査します。
 
-![境界条件と状態遷移の順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png)
+![境界条件と状態遷移の順序](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg)
 
 !!! note
 
@@ -108,7 +108,7 @@ $$
 
 部分問題が重複する本質的な理由は、**左上からあるマスに到達する経路が複数あること**です。
 
-![全探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs.png)
+![全探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs.svg)
 
 各状態で下と右の二つの選択肢があり、左上から右下までは計 $m + n - 2$ 歩なので、最悪時間計算量は $O(2^{m + n})$ です。ここで $n$ と $m$ はそれぞれ行数と列数です。ただし、この計算ではグリッドの端付近を考慮していません。端に達すると選択肢は一つになるため、実際の経路数はこれより少なくなります。
 
@@ -122,7 +122,7 @@ $$
 
 下図のように、メモ化すると各部分問題の解を 1 回だけ計算すれば済みます。そのため、時間計算量は状態の総数、すなわちグリッドの大きさ $O(nm)$ になります。
 
-![メモ化探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
+![メモ化探索の再帰木](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg)
 
 ### 方法 3：動的計画法
 
@@ -137,40 +137,40 @@ $$
 配列 `dp` の大きさは $n \times m$ なので、**空間計算量は $O(nm)$ です**。
 
 === "<1>"
-    ![経路和の最小化を動的計画法で解く流れ](dp_solution_pipeline.assets/min_path_sum_dp_step1.png)
+    ![経路和の最小化を動的計画法で解く流れ](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![経路和の最小化を動的計画法で解く流れ：手順 12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
+    ![経路和の最小化を動的計画法で解く流れ：手順 12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
 
 ### 空間の最適化
 

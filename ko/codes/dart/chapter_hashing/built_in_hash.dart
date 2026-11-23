@@ -18,7 +18,7 @@ void main() {
 
   double dec = 3.14159;
   int hashDec = dec.hashCode;
-  print("소수 = $dec, 해시값 = $hashDec");
+  print("소수 $dec → 해시값: $hashDec");
 
   String str = "Hello 算法";
   int hashStr = str.hashCode;
@@ -26,9 +26,9 @@ void main() {
 
   List arr = [12836, "小哈"];
   int hashArr = arr.hashCode;
-  print("배열 = $arr, 해시값 = $hashArr");
+  print("배열 $arr → 해시값: $hashArr");
 
   ListNode obj = new ListNode(0);
   int hashObj = obj.hashCode;
-  print("노드 객체 = $obj, 해시값 = $hashObj");
+  print("노드 객체 $obj → 해시값: $hashObj");
 }

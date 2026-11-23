@@ -128,13 +128,13 @@ public class array_deque {
         int peekLast = deque.peekLast();
         System.out.println("맨 뒤 원소 peekLast = " + peekLast);
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.pushLast(4);
         System.out.println("원소 4를 맨 뒤에 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
         System.out.println("원소 1을 맨 앞에 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int popLast = deque.popLast();
         System.out.println("맨 뒤에서 꺼낸 원소 = " + popLast + ", 맨 뒤에서 꺼낸 후 deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();

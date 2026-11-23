@@ -28,10 +28,10 @@ void main() {
   // Insert node p between n1 and n2
   n1.left = p;
   p.left = n2;
-  print("\nAfter inserting node p:\n");
+  print("\nAfter inserting node P:\n");
   printTree(n1);
-  // Remove node p
+  // Remove node P
   n1.left = n2;
-  print("\nAfter removing node p:\n");
+  print("\nAfter removing node P:\n");
   printTree(n1);
 }

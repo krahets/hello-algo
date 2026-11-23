@@ -8,7 +8,7 @@
     
     Choose two walls from the array to maximize the container's capacity, and return that maximum capacity. An example is shown in the figure below.
 
-![Example input for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.png)
+![Example input for the maximum capacity problem](max_capacity_problem.assets/max_capacity_example.svg)
 
 A container is formed by two walls, **so the state of this problem is the pair of wall indices, denoted by $[i, j]$**.
 
@@ -24,17 +24,17 @@ For an array of length $n$, there are $C_n^2 = \frac{n(n - 1)}{2}$ pairs of wall
 
 A more efficient solution is possible. Consider the state $[i, j]$ in the figure below, where $i < j$ and $ht[i] < ht[j]$: wall $i$ is shorter and wall $j$ is taller.
 
-![Initial state](max_capacity_problem.assets/max_capacity_initial_state.png)
+![Initial state](max_capacity_problem.assets/max_capacity_initial_state.svg)
 
 As shown in the figure below, **moving the taller wall $j$ inward toward the shorter wall $i$ must reduce the capacity**.
 
 Moving wall $j$ inward always reduces the width $j-i$. Since the shorter wall determines the height, the height can only stay the same (if $i$ remains shorter) or decrease (if the new wall $j$ is shorter).
 
-![State after moving the taller wall inward](max_capacity_problem.assets/max_capacity_moving_long_board.png)
+![State after moving the taller wall inward](max_capacity_problem.assets/max_capacity_moving_long_board.svg)
 
 Conversely, **only moving the shorter wall $i$ inward can potentially increase the capacity**. Although the width must decrease, **the height may increase** if the new wall $i$ is taller. The figure below shows an example where moving the shorter wall increases the area.
 
-![State after moving the shorter wall inward](max_capacity_problem.assets/max_capacity_moving_short_board.png)
+![State after moving the shorter wall inward](max_capacity_problem.assets/max_capacity_moving_short_board.svg)
 
 This gives us a greedy strategy: initialize two pointers at opposite ends of the container. At each step, move the pointer at the shorter wall inward until the pointers meet.
 
@@ -46,31 +46,31 @@ The figure below illustrates the greedy process.
 4. Repeat steps `2.` and `3.` until $i$ and $j$ meet.
 
 === "<1>"
-    ![Greedy steps for the maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.png)
+    ![Greedy steps for the maximum capacity problem](max_capacity_problem.assets/max_capacity_greedy_step1.svg)
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png)
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png)
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png)
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png)
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png)
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png)
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png)
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
 
 ### Code implementation
 
@@ -92,7 +92,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![States skipped by moving the shorter wall](max_capacity_problem.assets/max_capacity_skipped_states.png)
+![States skipped by moving the shorter wall](max_capacity_problem.assets/max_capacity_skipped_states.svg)
 
 Observe that **the skipped states are precisely those obtained by moving the taller wall $j$ inward**. We have already shown that moving the taller wall inward must reduce capacity. None of these skipped states can therefore be optimal, and **skipping them cannot cause us to miss the optimal solution**.
 

@@ -38,7 +38,7 @@ Multiplying these gives a time complexity of $O(n \log n)$. **However, this esti
 
 For a more accurate calculation, assume a perfect binary tree with $n$ nodes and height $h$. This simplifies the calculation without affecting the validity of the result.
 
-![Number of nodes at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.png)
+![Number of nodes at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.svg)
 
 As shown above, the maximum number of sift-down iterations for a node equals its distance to a leaf, which is its height. Summing “number of nodes $\times$ node height” over all levels therefore gives **the total number of sifting iterations across all nodes**.
 

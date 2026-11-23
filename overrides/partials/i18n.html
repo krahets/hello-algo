@@ -44,4 +44,5 @@
   }
 } %}
 {% set locale = config.theme.language | lower %}
-{% set ui = translations[locale] | default(translations.en) %}
+{# Every configured theme.language needs an entry; a missing one fails the build. #}
+{% set ui = translations[locale] %}

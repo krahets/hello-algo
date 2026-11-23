@@ -37,7 +37,7 @@ To make these steps concrete, we will use the classic minimum path sum problem.
 
 In the example shown in the figure below, the minimum path sum is $13$.
 
-![Example input for minimum path sum](dp_solution_pipeline.assets/min_path_sum_example.png)
+![Example input for minimum path sum](dp_solution_pipeline.assets/min_path_sum_example.svg)
 
 **Step 1: Identify each decision, define the state, and establish the $dp$ table**
 
@@ -47,7 +47,7 @@ State $[i, j]$ corresponds to the subproblem of finding the minimum path sum fro
 
 This gives the two-dimensional $dp$ matrix shown in the figure below, with the same dimensions as the input $grid$.
 
-![State definition and dp table](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png)
+![State definition and dp table](dp_solution_pipeline.assets/min_path_sum_solution_state_definition.svg)
 
 !!! note
 
@@ -65,7 +65,7 @@ $$
 dp[i, j] = \min(dp[i-1, j], dp[i, j-1]) + grid[i, j]
 $$
 
-![Optimal substructure and state transition equation](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.png)
+![Optimal substructure and state transition equation](dp_solution_pipeline.assets/min_path_sum_solution_state_transition.svg)
 
 !!! note
 
@@ -79,7 +79,7 @@ A state in the first row can only come from its left, and a state in the first c
 
 As shown in the figure below, each cell depends on the cells to its left and above. We therefore traverse the matrix with an outer loop over rows and an inner loop over columns.
 
-![Boundary conditions and evaluation order](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.png)
+![Boundary conditions and evaluation order](dp_solution_pipeline.assets/min_path_sum_solution_initial_state.svg)
 
 !!! note
 
@@ -108,7 +108,7 @@ The figure below shows the recursion tree rooted at $dp[2, 1]$. It includes over
 
 The underlying reason for overlapping subproblems is that **multiple paths can reach the same cell from the top-left corner**.
 
-![Recursion tree for brute-force search](dp_solution_pipeline.assets/min_path_sum_dfs.png)
+![Recursion tree for brute-force search](dp_solution_pipeline.assets/min_path_sum_dfs.svg)
 
 Each state offers two choices, down and right, and reaching the bottom-right corner takes $m + n - 2$ moves. The worst-case time complexity is therefore $O(2^{m + n})$, where $n$ and $m$ are the numbers of rows and columns. This estimate ignores the grid boundaries, where only one choice remains, so the actual number of paths is smaller.
 
@@ -122,7 +122,7 @@ Introduce a memoization table `mem` with the same dimensions as `grid` to store 
 
 As shown in the figure below, memoization ensures that every subproblem is solved only once. The time complexity is therefore determined by the number of states, the grid size $O(nm)$.
 
-![Recursion tree for memoized search](dp_solution_pipeline.assets/min_path_sum_dfs_mem.png)
+![Recursion tree for memoized search](dp_solution_pipeline.assets/min_path_sum_dfs_mem.svg)
 
 ### Method 3: Dynamic programming
 
@@ -137,40 +137,40 @@ The figure below shows the state transitions for minimum path sum. They visit th
 The array `dp` has dimensions $n \times m$, **so the space complexity is $O(nm)$**.
 
 === "<1>"
-    ![Dynamic programming for minimum path sum](dp_solution_pipeline.assets/min_path_sum_dp_step1.png)
+    ![Dynamic programming for minimum path sum](dp_solution_pipeline.assets/min_path_sum_dp_step1.svg)
 
 === "<2>"
-    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.png)
+    ![min_path_sum_dp_step2](dp_solution_pipeline.assets/min_path_sum_dp_step2.svg)
 
 === "<3>"
-    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.png)
+    ![min_path_sum_dp_step3](dp_solution_pipeline.assets/min_path_sum_dp_step3.svg)
 
 === "<4>"
-    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.png)
+    ![min_path_sum_dp_step4](dp_solution_pipeline.assets/min_path_sum_dp_step4.svg)
 
 === "<5>"
-    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.png)
+    ![min_path_sum_dp_step5](dp_solution_pipeline.assets/min_path_sum_dp_step5.svg)
 
 === "<6>"
-    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.png)
+    ![min_path_sum_dp_step6](dp_solution_pipeline.assets/min_path_sum_dp_step6.svg)
 
 === "<7>"
-    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.png)
+    ![min_path_sum_dp_step7](dp_solution_pipeline.assets/min_path_sum_dp_step7.svg)
 
 === "<8>"
-    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.png)
+    ![min_path_sum_dp_step8](dp_solution_pipeline.assets/min_path_sum_dp_step8.svg)
 
 === "<9>"
-    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.png)
+    ![min_path_sum_dp_step9](dp_solution_pipeline.assets/min_path_sum_dp_step9.svg)
 
 === "<10>"
-    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.png)
+    ![min_path_sum_dp_step10](dp_solution_pipeline.assets/min_path_sum_dp_step10.svg)
 
 === "<11>"
-    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.png)
+    ![min_path_sum_dp_step11](dp_solution_pipeline.assets/min_path_sum_dp_step11.svg)
 
 === "<12>"
-    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.png)
+    ![min_path_sum_dp_step12](dp_solution_pipeline.assets/min_path_sum_dp_step12.svg)
 
 ### Space optimization
 

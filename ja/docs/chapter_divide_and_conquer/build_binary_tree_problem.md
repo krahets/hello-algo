@@ -4,7 +4,7 @@
 
     二分木の行きがけ順走査 `preorder` と通りがけ順走査 `inorder` が与えられます。これらから二分木を構築し、根ノードを返してください。二分木には同じ値を持つノードがないものとします（下図参照）。
 
-![二分木の構築に使うデータの例](build_binary_tree_problem.assets/build_tree_example.png)
+![二分木の構築に使うデータの例](build_binary_tree_problem.assets/build_tree_example.svg)
 
 ### 分割統治で解ける問題かどうかを判断する
 
@@ -29,7 +29,7 @@
 2. 根ノード 3 の `inorder` 内のインデックスを探します。そのインデックスを使うと、`inorder` を `[ 9 | 3 | 1 2 7 ]` に分割できます。
 3. `inorder` の分割結果から、左部分木と右部分木のノード数がそれぞれ 1 と 3 であることがわかります。そのため、`preorder` を `[ 3 | 9 | 2 1 7 ]` に分割できます。
 
-![行きがけ順走査と通りがけ順走査で部分木を分割する](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png)
+![行きがけ順走査と通りがけ順走査で部分木を分割する](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
 
 ### 変数を使って部分木の区間を表す
 
@@ -51,7 +51,7 @@
 
 右部分木の根ノードのインデックスに含まれる $(m-l)$ は、「左部分木のノード数」を表すことに注意してください。下図とあわせて考えると理解しやすくなります。
 
-![根ノードと左右の部分木のインデックス区間](build_binary_tree_problem.assets/build_tree_division_pointers.png)
+![根ノードと左右の部分木のインデックス区間](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
 
 ### コードの実装
 
@@ -64,35 +64,35 @@ $m$ を効率よく調べられるよう、ハッシュテーブル `hmap` に�
 下図に、二分木を構築する再帰の流れを示します。各ノードは再帰呼び出しを下に進める過程で作られ、各辺（参照）は上に戻る過程で作られます。
 
 === "<1>"
-    ![二分木を構築する再帰の流れ](build_binary_tree_problem.assets/built_tree_step1.png)
+    ![二分木を構築する再帰の流れ](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![二分木の構築：手順 2](build_binary_tree_problem.assets/built_tree_step2.png)
+    ![二分木の構築：手順 2](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![二分木の構築：手順 3](build_binary_tree_problem.assets/built_tree_step3.png)
+    ![二分木の構築：手順 3](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![二分木の構築：手順 4](build_binary_tree_problem.assets/built_tree_step4.png)
+    ![二分木の構築：手順 4](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![二分木の構築：手順 5](build_binary_tree_problem.assets/built_tree_step5.png)
+    ![二分木の構築：手順 5](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![二分木の構築：手順 6](build_binary_tree_problem.assets/built_tree_step6.png)
+    ![二分木の構築：手順 6](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![二分木の構築：手順 7](build_binary_tree_problem.assets/built_tree_step7.png)
+    ![二分木の構築：手順 7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![二分木の構築：手順 8](build_binary_tree_problem.assets/built_tree_step8.png)
+    ![二分木の構築：手順 8](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![二分木の構築：手順 9](build_binary_tree_problem.assets/built_tree_step9.png)
+    ![二分木の構築：手順 9](build_binary_tree_problem.assets/built_tree_step9.svg)
 
 各再帰関数内での行きがけ順走査 `preorder` と通りがけ順走査 `inorder` の分割結果を下図に示します。
 
-![各再帰関数内での分割結果](build_binary_tree_problem.assets/built_tree_overall.png)
+![各再帰関数内での分割結果](build_binary_tree_problem.assets/built_tree_overall.svg)
 
 木のノード数を $n$ とすると、各ノードの初期化（再帰関数 `dfs()` の 1 回の実行）には $O(1)$ 時間かかります。**したがって、全体の時間計算量は $O(n)$ です**。
 

@@ -19,9 +19,9 @@ pub fn main() {
 
     // Access an element
     let peek_first = deque.front().unwrap();
-    print!("\nFront element peek_first = {peek_first}");
+    print!("\nFront element peekFirst = {peek_first}");
     let peek_last = deque.back().unwrap();
-    print!("\nRear element peek_last = {peek_last}");
+    print!("\nRear element peekLast = {peek_last}");
 
     /* Enqueue elements */
     deque.push_back(4);

@@ -14,7 +14,7 @@ Traverse the tree in preorder and check whether the current node's value is $7$.
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![Finding nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.png)
+![Finding nodes during preorder traversal](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## Trying choices and backtracking
 
@@ -39,37 +39,37 @@ Each time we try a node, append it to `path`. Before backtracking, pop that node
 As the figure below illustrates, **trying a choice and backtracking are like moving forward and undoing that move**: they are inverse operations.
 
 === "<1>"
-    ![Trying choices and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![Trying choices and backtracking](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![preorder_find_paths_step2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![preorder_find_paths_step3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![preorder_find_paths_step4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![preorder_find_paths_step5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![preorder_find_paths_step6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![preorder_find_paths_step7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![preorder_find_paths_step8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![preorder_find_paths_step9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![preorder_find_paths_step10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![preorder_find_paths_step11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## Pruning
 
@@ -87,7 +87,7 @@ To enforce this constraint, **add a pruning step**: when a node with value $3$ i
 
 Pruning is an apt name. As shown in the figure below, **we cut off search branches that violate the constraints**, avoiding pointless trials and improving efficiency.
 
-![Pruning according to constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![Pruning according to constraints](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## A code template
 
@@ -95,339 +95,9 @@ We will now extract the core pattern of trying, undoing, and pruning into a more
 
 In the following template, `state` is the current problem state, and `choices` contains the choices available from that state:
 
-=== "Python"
-
-    ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
-        """Backtracking template"""
-        # Check whether the state is a solution
-        if is_solution(state):
-            # Record the solution
-            record_solution(state, res)
-            # Stop searching this branch
-            return
-        # Try every choice
-        for choice in choices:
-            # Prune: check whether the choice is valid
-            if is_valid(state, choice):
-                # Try: make the choice and update the state
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # Backtrack: undo the choice and restore the previous state
-                undo_choice(state, choice)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* Backtracking template */
-    void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // Check whether the state is a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching this branch
-            return;
-        }
-        // Try every choice
-        for (Choice choice : choices) {
-            // Prune: check whether the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make the choice and update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* Backtracking template */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check whether the state is a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching this branch
-            return;
-        }
-        // Try every choice
-        for (Choice choice : choices) {
-            // Prune: check whether the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make the choice and update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* Backtracking template */
-    void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // Check whether the state is a solution
-        if (IsSolution(state)) {
-            // Record the solution
-            RecordSolution(state, res);
-            // Stop searching this branch
-            return;
-        }
-        // Try every choice
-        foreach (Choice choice in choices) {
-            // Prune: check whether the choice is valid
-            if (IsValid(state, choice)) {
-                // Try: make the choice and update the state
-                MakeChoice(state, choice);
-                Backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
-                UndoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* Backtracking template */
-    func backtrack(state *State, choices []Choice, res *[]State) {
-        // Check whether the state is a solution
-        if isSolution(state) {
-            // Record the solution
-            recordSolution(state, res)
-            // Stop searching this branch
-            return
-        }
-        // Try every choice
-        for _, choice := range choices {
-            // Prune: check whether the choice is valid
-            if isValid(state, choice) {
-                // Try: make the choice and update the state
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* Backtracking template */
-    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // Check whether the state is a solution
-        if isSolution(state: state) {
-            // Record the solution
-            recordSolution(state: state, res: &res)
-            // Stop searching this branch
-            return
-        }
-        // Try every choice
-        for choice in choices {
-            // Prune: check whether the choice is valid
-            if isValid(state: state, choice: choice) {
-                // Try: make the choice and update the state
-                makeChoice(state: &state, choice: choice)
-                backtrack(state: &state, choices: choices, res: &res)
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state: &state, choice: choice)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* Backtracking template */
-    function backtrack(state, choices, res) {
-        // Check whether the state is a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching this branch
-            return;
-        }
-        // Try every choice
-        for (let choice of choices) {
-            // Prune: check whether the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make the choice and update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* Backtracking template */
-    function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // Check whether the state is a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res);
-            // Stop searching this branch
-            return;
-        }
-        // Try every choice
-        for (let choice of choices) {
-            // Prune: check whether the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make the choice and update the state
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* Backtracking template */
-    void backtrack(State state, List<Choice>, List<State> res) {
-      // Check whether the state is a solution
-      if (isSolution(state)) {
-        // Record the solution
-        recordSolution(state, res);
-        // Stop searching this branch
-        return;
-      }
-      // Try every choice
-      for (Choice choice in choices) {
-        // Prune: check whether the choice is valid
-        if (isValid(state, choice)) {
-          // Try: make the choice and update the state
-          makeChoice(state, choice);
-          backtrack(state, choices, res);
-          // Backtrack: undo the choice and restore the previous state
-          undoChoice(state, choice);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* Backtracking template */
-    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // Check whether the state is a solution
-        if is_solution(state) {
-            // Record the solution
-            record_solution(state, res);
-            // Stop searching this branch
-            return;
-        }
-        // Try every choice
-        for choice in choices {
-            // Prune: check whether the choice is valid
-            if is_valid(state, choice) {
-                // Try: make the choice and update the state
-                make_choice(state, choice);
-                backtrack(state, choices, res);
-                // Backtrack: undo the choice and restore the previous state
-                undo_choice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* Backtracking template */
-    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // Check whether the state is a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res, numRes);
-            // Stop searching this branch
-            return;
-        }
-        // Try every choice
-        for (int i = 0; i < numChoices; i++) {
-            // Prune: check whether the choice is valid
-            if (isValid(state, &choices[i])) {
-                // Try: make the choice and update the state
-                makeChoice(state, &choices[i]);
-                backtrack(state, choices, numChoices, res, numRes);
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state, &choices[i]);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* Backtracking template */
-    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // Check whether the state is a solution
-        if (isSolution(state)) {
-            // Record the solution
-            recordSolution(state, res)
-            // Stop searching this branch
-            return
-        }
-        // Try every choice
-        for (choice in choices) {
-            // Prune: check whether the choice is valid
-            if (isValid(state, choice)) {
-                // Try: make the choice and update the state
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // Backtrack: undo the choice and restore the previous state
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### Backtracking template ###
-    def backtrack(state, choices, res)
-        # Check whether the state is a solution
-        if is_solution?(state)
-            # Record the solution
-            record_solution(state, res)
-            return
-        end
-
-        # Try every choice
-        for choice in choices
-            # Prune: check whether the choice is valid
-            if is_valid?(state, choice)
-                # Try: make the choice and update the state
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # Backtrack: undo the choice and restore the previous state
-                undo_choice(state, choice)
-            end
-        end
-    end
-    ```
+```snippet
+backtrack_framework
+```
 
 Now apply this template to Example 3. The `state` is the current path of visited nodes, `choices` consists of the current node's left and right children, and `res` is the list of paths:
 
@@ -437,7 +107,7 @@ Now apply this template to Example 3. The `state` is the current path of visited
 
 The problem requires us to keep searching after finding a node with value $7$, **so remove the `return` after recording a solution**. The figure below compares the searches with and without that `return`.
 
-![Comparing searches with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![Comparing searches with and without return](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 The template-based implementation is more verbose than the preorder version, but more general. **Many backtracking problems can be solved within this template**: define `state` and `choices` for the problem, then implement each helper method.
 

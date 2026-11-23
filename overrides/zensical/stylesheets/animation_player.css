@@ -134,7 +134,7 @@
 }
 
 [data-md-color-scheme="slate"] .animation-controls {
-  background: color-mix(in srgb, var(--md-code-bg-color) 91%, black 9%);
+  background: var(--md-code-bg-color);
 }
 
 [data-md-color-scheme="slate"] .animation-controls__button:hover,
@@ -148,7 +148,7 @@
 }
 
 [data-md-color-scheme="slate"] .md-typeset .tabbed-set[data-auto-slide="true"] > .tabbed-content {
-  background: var(--md-code-bg-color);
+  background: var(--md-default-bg-color);
 }
 
 @media screen and (max-width: 44.9375em) {

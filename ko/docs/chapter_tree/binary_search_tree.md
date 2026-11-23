@@ -5,7 +5,7 @@
 1. 루트에 대해 왼쪽 서브트리의 모든 노드 값 $<$ 루트 값 $<$ 오른쪽 서브트리의 모든 노드 값이다.
 2. 임의의 노드의 왼쪽과 오른쪽 서브트리도 이진 탐색 트리로, 조건 `1.`을 만족한다.
 
-![이진 탐색 트리](binary_search_tree.assets/binary_search_tree.png)
+![이진 탐색 트리](binary_search_tree.assets/binary_search_tree.svg)
 
 ## 이진 탐색 트리의 연산
 
@@ -20,16 +20,16 @@
 - `cur.val = num`이면 목표 노드를 찾았으므로 반복문을 빠져나와 해당 노드를 반환한다.
 
 === "<1>"
-    ![이진 탐색 트리의 노드 탐색 예시](binary_search_tree.assets/bst_search_step1.png)
+    ![이진 탐색 트리의 노드 탐색 예시](binary_search_tree.assets/bst_search_step1.svg)
 
 === "<2>"
-    ![이진 탐색 트리 탐색 2단계](binary_search_tree.assets/bst_search_step2.png)
+    ![이진 탐색 트리 탐색 2단계](binary_search_tree.assets/bst_search_step2.svg)
 
 === "<3>"
-    ![이진 탐색 트리 탐색 3단계](binary_search_tree.assets/bst_search_step3.png)
+    ![이진 탐색 트리 탐색 3단계](binary_search_tree.assets/bst_search_step3.svg)
 
 === "<4>"
-    ![이진 탐색 트리 탐색 4단계](binary_search_tree.assets/bst_search_step4.png)
+    ![이진 탐색 트리 탐색 4단계](binary_search_tree.assets/bst_search_step4.svg)
 
 이진 탐색 트리의 탐색 원리는 이진 탐색 알고리즘과 같으며, 매번 경우의 절반을 제외한다. 반복 횟수는 최대 트리 높이이므로 트리가 균형을 이루면 $O(\log n)$ 시간이 걸린다. 예시 코드는 다음과 같다.
 
@@ -44,7 +44,7 @@
 1. **삽입 위치 찾기**: 탐색과 비슷하게 루트에서 출발하여 현재 노드 값과 `num`의 대소 관계에 따라 아래로 탐색한다. 리프를 지나 `None`에 도달하면 반복문을 종료한다.
 2. **그 위치에 노드 삽입**: 값이 `num`인 노드를 초기화하여 `None` 자리에 놓는다.
 
-![이진 탐색 트리에 노드 삽입](binary_search_tree.assets/bst_insert.png)
+![이진 탐색 트리에 노드 삽입](binary_search_tree.assets/bst_insert.svg)
 
 구현 시 다음 두 가지에 주의하자.
 
@@ -63,11 +63,11 @@
 
 아래 그림과 같이 삭제할 노드의 차수가 $0$이면 리프 노드이므로 바로 삭제할 수 있다.
 
-![이진 탐색 트리의 노드 삭제: 차수 0](binary_search_tree.assets/bst_remove_case1.png)
+![이진 탐색 트리의 노드 삭제: 차수 0](binary_search_tree.assets/bst_remove_case1.svg)
 
 아래 그림과 같이 차수가 $1$이면 삭제할 노드를 그 자식으로 바꾸면 된다.
 
-![이진 탐색 트리의 노드 삭제: 차수 1](binary_search_tree.assets/bst_remove_case2.png)
+![이진 탐색 트리의 노드 삭제: 차수 1](binary_search_tree.assets/bst_remove_case2.svg)
 
 차수가 $2$이면 바로 삭제할 수 없어 다른 노드로 대체해야 한다. '왼쪽 서브트리 $<$ 루트 $<$ 오른쪽 서브트리' 성질을 유지하려면 **오른쪽 서브트리의 최소 노드 또는 왼쪽 서브트리의 최대 노드로 대체할 수 있다**.
 
@@ -77,16 +77,16 @@
 2. 삭제할 노드의 값을 `tmp`의 값으로 덮어쓰고, 트리에서 노드 `tmp`를 재귀적으로 삭제한다.
 
 === "<1>"
-    ![이진 탐색 트리의 노드 삭제: 차수 2](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![이진 탐색 트리의 노드 삭제: 차수 2](binary_search_tree.assets/bst_remove_case3_step1.svg)
 
 === "<2>"
-    ![차수 2인 노드 삭제 2단계](binary_search_tree.assets/bst_remove_case3_step2.png)
+    ![차수 2인 노드 삭제 2단계](binary_search_tree.assets/bst_remove_case3_step2.svg)
 
 === "<3>"
-    ![차수 2인 노드 삭제 3단계](binary_search_tree.assets/bst_remove_case3_step3.png)
+    ![차수 2인 노드 삭제 3단계](binary_search_tree.assets/bst_remove_case3_step3.svg)
 
 === "<4>"
-    ![차수 2인 노드 삭제 4단계](binary_search_tree.assets/bst_remove_case3_step4.png)
+    ![차수 2인 노드 삭제 4단계](binary_search_tree.assets/bst_remove_case3_step4.svg)
 
 노드 삭제에도 $O(\log n)$ 시간이 걸린다. 삭제할 노드를 찾는 데 $O(\log n)$, 중위 순회의 후속 노드를 구하는 데 $O(\log n)$ 시간이 든다. 예시 코드는 다음과 같다.
 
@@ -102,7 +102,7 @@
 
 이 성질을 이용하면 별도 정렬 없이 $O(n)$ 시간만으로 정렬된 데이터를 얻을 수 있어 매우 효율적이다.
 
-![이진 탐색 트리의 중위 순회 결과](binary_search_tree.assets/bst_inorder_traversal.png)
+![이진 탐색 트리의 중위 순회 결과](binary_search_tree.assets/bst_inorder_traversal.svg)
 
 ## 이진 탐색 트리의 효율
 
@@ -120,7 +120,7 @@
 
 하지만 삽입과 삭제를 계속하다 보면 아래 그림의 연결 리스트로 퇴화할 수 있다. 이때 각 연산의 시간 복잡도도 $O(n)$으로 저하된다.
 
-![이진 탐색 트리의 퇴화](binary_search_tree.assets/bst_degradation.png)
+![이진 탐색 트리의 퇴화](binary_search_tree.assets/bst_degradation.svg)
 
 ## 이진 탐색 트리의 주요 응용
 

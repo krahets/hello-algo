@@ -12,19 +12,19 @@
 - **初期化**：$n$ 個の頂点を受け取り、長さ $n$ の頂点リスト `vertices` を $O(n)$ 時間で初期化します。$n \times n$ の隣接行列 `adjMat` の初期化には $O(n^2)$ 時間かかります。
 
 === "<1>"
-    ![隣接行列の初期化、辺の追加・削除、頂点の追加・削除](graph_operations.assets/adjacency_matrix_step1_initialization.png)
+    ![隣接行列の初期化、辺の追加・削除、頂点の追加・削除](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
 === "<2>"
-    ![隣接行列で辺を追加](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
+    ![隣接行列で辺を追加](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
 === "<3>"
-    ![隣接行列で辺を削除](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
+    ![隣接行列で辺を削除](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
 === "<4>"
-    ![隣接行列で頂点を追加](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
+    ![隣接行列で頂点を追加](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
 === "<5>"
-    ![隣接行列で頂点を削除](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
+    ![隣接行列で頂点を削除](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
 
 隣接行列によるグラフの実装を次に示します。
 
@@ -43,19 +43,19 @@
 - **初期化**：隣接リストに $n$ 個の頂点と $2m$ 本の辺を作るため、$O(n + m)$ 時間かかります。
 
 === "<1>"
-    ![隣接リストの初期化、辺の追加・削除、頂点の追加・削除](graph_operations.assets/adjacency_list_step1_initialization.png)
+    ![隣接リストの初期化、辺の追加・削除、頂点の追加・削除](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
 === "<2>"
-    ![隣接リストで辺を追加](graph_operations.assets/adjacency_list_step2_add_edge.png)
+    ![隣接リストで辺を追加](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
 === "<3>"
-    ![隣接リストで辺を削除](graph_operations.assets/adjacency_list_step3_remove_edge.png)
+    ![隣接リストで辺を削除](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
 === "<4>"
-    ![隣接リストで頂点を追加](graph_operations.assets/adjacency_list_step4_add_vertex.png)
+    ![隣接リストで頂点を追加](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
 === "<5>"
-    ![隣接リストで頂点を削除](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
+    ![隣接リストで頂点を削除](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
 
 隣接リストの実装を次に示します。実際のコードは、上図と次の点が異なります。
 

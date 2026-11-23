@@ -14,7 +14,7 @@
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![전위 순회로 노드 탐색](backtracking_algorithm.assets/preorder_find_nodes.png)
+![전위 순회로 노드 탐색](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## 시도와 되돌리기
 
@@ -39,37 +39,37 @@
 아래 그림의 과정을 보면 **시도와 되돌리기를 각각 '전진'과 '취소'로 이해할 수 있으며**, 두 연산은 서로 반대 방향이다.
 
 === "<1>"
-    ![시도와 되돌리기](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![시도와 되돌리기](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![경로 탐색 2단계](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![경로 탐색 2단계](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![경로 탐색 3단계](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![경로 탐색 3단계](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![경로 탐색 4단계](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![경로 탐색 4단계](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![경로 탐색 5단계](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![경로 탐색 5단계](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![경로 탐색 6단계](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![경로 탐색 6단계](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![경로 탐색 7단계](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![경로 탐색 7단계](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![경로 탐색 8단계](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![경로 탐색 8단계](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![경로 탐색 9단계](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![경로 탐색 9단계](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![경로 탐색 10단계](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![경로 탐색 10단계](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![경로 탐색 11단계](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![경로 탐색 11단계](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## 가지치기
 
@@ -87,7 +87,7 @@
 
 '가지치기'는 매우 직관적인 이름이다. 아래 그림과 같이 탐색 중 **제약 조건을 만족하지 않는 탐색 가지를 '잘라 내어'** 의미 없는 시도를 많이 피하고 탐색 효율을 높인다.
 
-![제약 조건에 따른 가지치기](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![제약 조건에 따른 가지치기](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## 기본 틀 코드
 
@@ -95,339 +95,9 @@
 
 아래 기본 틀 코드에서 `state`는 문제의 현재 상태를, `choices`는 그 상태에서 가능한 선택들을 나타낸다.
 
-=== "Python"
-
-    ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
-        """백트래킹 알고리즘의 기본 틀"""
-        # 해인지 확인
-        if is_solution(state):
-            # 해 기록
-            record_solution(state, res)
-            # 더 이상 탐색하지 않는다
-            return
-        # 모든 선택지 순회
-        for choice in choices:
-            # 가지치기: 선택이 유효한지 확인
-            if is_valid(state, choice):
-                # 시도: 선택하고 상태 갱신
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # 되돌리기: 선택을 취소하고 이전 상태 복원
-                undo_choice(state, choice)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // 해인지 확인
-        if (isSolution(state)) {
-            // 해 기록
-            recordSolution(state, res);
-            // 더 이상 탐색하지 않는다
-            return;
-        }
-        // 모든 선택지 순회
-        for (Choice choice : choices) {
-            // 가지치기: 선택이 유효한지 확인
-            if (isValid(state, choice)) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // 해인지 확인
-        if (isSolution(state)) {
-            // 해 기록
-            recordSolution(state, res);
-            // 더 이상 탐색하지 않는다
-            return;
-        }
-        // 모든 선택지 순회
-        for (Choice choice : choices) {
-            // 가지치기: 선택이 유효한지 확인
-            if (isValid(state, choice)) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // 해인지 확인
-        if (IsSolution(state)) {
-            // 해 기록
-            RecordSolution(state, res);
-            // 더 이상 탐색하지 않는다
-            return;
-        }
-        // 모든 선택지 순회
-        foreach (Choice choice in choices) {
-            // 가지치기: 선택이 유효한지 확인
-            if (IsValid(state, choice)) {
-                // 시도: 선택하고 상태 갱신
-                MakeChoice(state, choice);
-                Backtrack(state, choices, res);
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                UndoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    func backtrack(state *State, choices []Choice, res *[]State) {
-        // 해인지 확인
-        if isSolution(state) {
-            // 해 기록
-            recordSolution(state, res)
-            // 더 이상 탐색하지 않는다
-            return
-        }
-        // 모든 선택지 순회
-        for _, choice := range choices {
-            // 가지치기: 선택이 유효한지 확인
-            if isValid(state, choice) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // 해인지 확인
-        if isSolution(state: state) {
-            // 해 기록
-            recordSolution(state: state, res: &res)
-            // 더 이상 탐색하지 않는다
-            return
-        }
-        // 모든 선택지 순회
-        for choice in choices {
-            // 가지치기: 선택이 유효한지 확인
-            if isValid(state: state, choice: choice) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state: &state, choice: choice)
-                backtrack(state: &state, choices: choices, res: &res)
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state: &state, choice: choice)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    function backtrack(state, choices, res) {
-        // 해인지 확인
-        if (isSolution(state)) {
-            // 해 기록
-            recordSolution(state, res);
-            // 더 이상 탐색하지 않는다
-            return;
-        }
-        // 모든 선택지 순회
-        for (let choice of choices) {
-            // 가지치기: 선택이 유효한지 확인
-            if (isValid(state, choice)) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // 해인지 확인
-        if (isSolution(state)) {
-            // 해 기록
-            recordSolution(state, res);
-            // 더 이상 탐색하지 않는다
-            return;
-        }
-        // 모든 선택지 순회
-        for (let choice of choices) {
-            // 가지치기: 선택이 유효한지 확인
-            if (isValid(state, choice)) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    void backtrack(State state, List<Choice>, List<State> res) {
-      // 해인지 확인
-      if (isSolution(state)) {
-        // 해 기록
-        recordSolution(state, res);
-        // 더 이상 탐색하지 않는다
-        return;
-      }
-      // 모든 선택지 순회
-      for (Choice choice in choices) {
-        // 가지치기: 선택이 유효한지 확인
-        if (isValid(state, choice)) {
-          // 시도: 선택하고 상태 갱신
-          makeChoice(state, choice);
-          backtrack(state, choices, res);
-          // 되돌리기: 선택을 취소하고 이전 상태 복원
-          undoChoice(state, choice);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // 해인지 확인
-        if is_solution(state) {
-            // 해 기록
-            record_solution(state, res);
-            // 더 이상 탐색하지 않는다
-            return;
-        }
-        // 모든 선택지 순회
-        for choice in choices {
-            // 가지치기: 선택이 유효한지 확인
-            if is_valid(state, choice) {
-                // 시도: 선택하고 상태 갱신
-                make_choice(state, choice);
-                backtrack(state, choices, res);
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undo_choice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // 해인지 확인
-        if (isSolution(state)) {
-            // 해 기록
-            recordSolution(state, res, numRes);
-            // 더 이상 탐색하지 않는다
-            return;
-        }
-        // 모든 선택지 순회
-        for (int i = 0; i < numChoices; i++) {
-            // 가지치기: 선택이 유효한지 확인
-            if (isValid(state, &choices[i])) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state, &choices[i]);
-                backtrack(state, choices, numChoices, res, numRes);
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state, &choices[i]);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* 백트래킹 알고리즘의 기본 틀 */
-    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // 해인지 확인
-        if (isSolution(state)) {
-            // 해 기록
-            recordSolution(state, res)
-            // 더 이상 탐색하지 않는다
-            return
-        }
-        // 모든 선택지 순회
-        for (choice in choices) {
-            // 가지치기: 선택이 유효한지 확인
-            if (isValid(state, choice)) {
-                // 시도: 선택하고 상태 갱신
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // 되돌리기: 선택을 취소하고 이전 상태 복원
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### 백트래킹 알고리즘의 기본 틀 ###
-    def backtrack(state, choices, res)
-        # 해인지 확인
-        if is_solution?(state)
-            # 해 기록
-            record_solution(state, res)
-            return
-        end
-
-        # 모든 선택지 순회
-        for choice in choices
-            # 가지치기: 선택이 유효한지 확인
-            if is_valid?(state, choice)
-                # 시도: 선택하고 상태 갱신
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # 되돌리기: 선택을 취소하고 이전 상태 복원
-                undo_choice(state, choice)
-            end
-        end
-    end
-    ```
+```snippet
+backtrack_framework
+```
 
 이제 기본 틀 코드로 예제 3을 해결해 보자. 상태 `state`는 노드 순회 경로, 선택지 `choices`는 현재 노드의 왼쪽과 오른쪽 자식 노드, 결과 `res`는 경로들의 리스트다.
 
@@ -437,7 +107,7 @@
 
 문제의 요구에 따르면 값이 $7$인 노드를 찾은 뒤에도 탐색을 계속해야 한다. **따라서 해를 기록한 뒤의 `return` 문을 삭제해야 한다**. 아래 그림은 `return` 문을 유지하거나 삭제했을 때의 탐색 과정을 비교한다.
 
-![return 유지 여부에 따른 탐색 과정 비교](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![return 유지 여부에 따른 탐색 과정 비교](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 전위 순회 기반 코드에 비해 백트래킹 기본 틀을 사용한 코드는 다소 장황하지만 범용성이 더 좋다. 실제로 **많은 백트래킹 문제를 이 틀 안에서 해결할 수 있다**. 구체적인 문제에 맞게 `state`와 `choices`를 정의하고, 틀 안의 각 메서드만 구현하면 된다.
 

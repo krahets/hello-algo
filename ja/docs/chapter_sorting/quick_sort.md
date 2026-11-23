@@ -9,31 +9,31 @@
 3. 手順 `2.` を繰り返し、`i` と `j` が出会ったら停止します。最後に、ピボットを二つの部分配列の境目へ交換して移します。
 
 === "<1>"
-    ![番兵を用いた分割の手順](quick_sort.assets/pivot_division_step1.png)
+    ![番兵を用いた分割の手順](quick_sort.assets/pivot_division_step1.svg)
 
 === "<2>"
-    ![番兵を用いた分割の手順 2](quick_sort.assets/pivot_division_step2.png)
+    ![番兵を用いた分割の手順 2](quick_sort.assets/pivot_division_step2.svg)
 
 === "<3>"
-    ![番兵を用いた分割の手順 3](quick_sort.assets/pivot_division_step3.png)
+    ![番兵を用いた分割の手順 3](quick_sort.assets/pivot_division_step3.svg)
 
 === "<4>"
-    ![番兵を用いた分割の手順 4](quick_sort.assets/pivot_division_step4.png)
+    ![番兵を用いた分割の手順 4](quick_sort.assets/pivot_division_step4.svg)
 
 === "<5>"
-    ![番兵を用いた分割の手順 5](quick_sort.assets/pivot_division_step5.png)
+    ![番兵を用いた分割の手順 5](quick_sort.assets/pivot_division_step5.svg)
 
 === "<6>"
-    ![番兵を用いた分割の手順 6](quick_sort.assets/pivot_division_step6.png)
+    ![番兵を用いた分割の手順 6](quick_sort.assets/pivot_division_step6.svg)
 
 === "<7>"
-    ![番兵を用いた分割の手順 7](quick_sort.assets/pivot_division_step7.png)
+    ![番兵を用いた分割の手順 7](quick_sort.assets/pivot_division_step7.svg)
 
 === "<8>"
-    ![番兵を用いた分割の手順 8](quick_sort.assets/pivot_division_step8.png)
+    ![番兵を用いた分割の手順 8](quick_sort.assets/pivot_division_step8.svg)
 
 === "<9>"
-    ![番兵を用いた分割の手順 9](quick_sort.assets/pivot_division_step9.png)
+    ![番兵を用いた分割の手順 9](quick_sort.assets/pivot_division_step9.svg)
 
 分割後、元の配列は左の部分配列、ピボット、右の部分配列の三つに分かれ、「左の部分配列の任意の要素 $\leq$ ピボット $\leq$ 右の部分配列の任意の要素」を満たします。したがって、あとは二つの部分配列をソートするだけです。
 
@@ -53,7 +53,7 @@
 2. 続いて、左右それぞれの部分配列に対して、再帰的に同じ分割を行います。
 3. 部分配列の長さが 1 になるまで再帰を続けると、配列全体のソートが完了します。
 
-![クイックソートの流れ](quick_sort.assets/quick_sort_overview.png)
+![クイックソートの流れ](quick_sort.assets/quick_sort_overview.svg)
 
 ```src
 [file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}

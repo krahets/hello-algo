@@ -8,198 +8,9 @@ Runtime gives a direct, accurate picture of an algorithm's efficiency. How might
 
 For example, consider the following code with input size $n$:
 
-=== "Python"
-
-    ```python title=""
-    # On a particular execution platform
-    def algorithm(n: int):
-        a = 2      # 1 ns
-        a = a + 1  # 1 ns
-        a = a * 2  # 10 ns
-        # Repeat n times
-        for _ in range(n):  # 1 ns
-            print(0)        # 5 ns
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // On a particular execution platform
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // Repeat n times
-        for (int i = 0; i < n; i++) {  // 1 ns
-            cout << 0 << endl;         // 5 ns
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // On a particular execution platform
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // Repeat n times
-        for (int i = 0; i < n; i++) {  // 1 ns
-            System.out.println(0);     // 5 ns
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // On a particular execution platform
-    void Algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // Repeat n times
-        for (int i = 0; i < n; i++) {  // 1 ns
-            Console.WriteLine(0);      // 5 ns
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // On a particular execution platform
-    func algorithm(n int) {
-        a := 2     // 1 ns
-        a = a + 1  // 1 ns
-        a = a * 2  // 10 ns
-        // Repeat n times
-        for i := 0; i < n; i++ {  // 1 ns
-            fmt.Println(a)        // 5 ns
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // On a particular execution platform
-    func algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // Repeat n times
-        for _ in 0 ..< n { // 1 ns
-            print(0) // 5 ns
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // On a particular execution platform
-    function algorithm(n) {
-        var a = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // Repeat n times
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // On a particular execution platform
-    function algorithm(n: number): void {
-        var a: number = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // Repeat n times
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // On a particular execution platform
-    void algorithm(int n) {
-      int a = 2; // 1 ns
-      a = a + 1; // 1 ns
-      a = a * 2; // 10 ns
-      // Repeat n times
-      for (int i = 0; i < n; i++) { // 1 ns
-        print(0); // 5 ns
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // On a particular execution platform
-    fn algorithm(n: i32) {
-        let mut a = 2;      // 1 ns
-        a = a + 1;          // 1 ns
-        a = a * 2;          // 10 ns
-        // Repeat n times
-        for _ in 0..n {     // 1 ns
-            println!("{}", 0);  // 5 ns
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // On a particular execution platform
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // Repeat n times
-        for (int i = 0; i < n; i++) {   // 1 ns
-            printf("%d", 0);            // 5 ns
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // On a particular execution platform
-    fun algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // Repeat n times
-        for (i in 0..<n) {  // 1 ns
-            println(0)      // 5 ns
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # On a particular execution platform
-    def algorithm(n)
-        a = 2       # 1 ns
-        a = a + 1   # 1 ns
-        a = a * 2   # 10 ns
-        # Repeat n times
-        (0...n).each do # 1 ns
-            puts 0      # 5 ns
-        end
-    end
-    ```
+```snippet
+run_time_estimate
+```
 
 This gives a runtime of $(6n + 12)$ ns:
 
@@ -215,274 +26,9 @@ Time complexity analysis measures **how runtime grows as the input gets larger**
 
 To make this abstract idea concrete, consider three algorithms, `A`, `B`, and `C`, with input size $n$:
 
-=== "Python"
-
-    ```python title=""
-    # Algorithm A: constant time complexity
-    def algorithm_A(n: int):
-        print(0)
-    # Algorithm B: linear time complexity
-    def algorithm_B(n: int):
-        for _ in range(n):
-            print(0)
-    # Algorithm C: constant time complexity
-    def algorithm_C(n: int):
-        for _ in range(1000000):
-            print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // Algorithm A: constant time complexity
-    void algorithm_A(int n) {
-        cout << 0 << endl;
-    }
-    // Algorithm B: linear time complexity
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            cout << 0 << endl;
-        }
-    }
-    // Algorithm C: constant time complexity
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            cout << 0 << endl;
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // Algorithm A: constant time complexity
-    void algorithm_A(int n) {
-        System.out.println(0);
-    }
-    // Algorithm B: linear time complexity
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.println(0);
-        }
-    }
-    // Algorithm C: constant time complexity
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            System.out.println(0);
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // Algorithm A: constant time complexity
-    void AlgorithmA(int n) {
-        Console.WriteLine(0);
-    }
-    // Algorithm B: linear time complexity
-    void AlgorithmB(int n) {
-        for (int i = 0; i < n; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    // Algorithm C: constant time complexity
-    void AlgorithmC(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // Algorithm A: constant time complexity
-    func algorithm_A(n int) {
-        fmt.Println(0)
-    }
-    // Algorithm B: linear time complexity
-    func algorithm_B(n int) {
-        for i := 0; i < n; i++ {
-            fmt.Println(0)
-        }
-    }
-    // Algorithm C: constant time complexity
-    func algorithm_C(n int) {
-        for i := 0; i < 1000000; i++ {
-            fmt.Println(0)
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // Algorithm A: constant time complexity
-    func algorithmA(n: Int) {
-        print(0)
-    }
-
-    // Algorithm B: linear time complexity
-    func algorithmB(n: Int) {
-        for _ in 0 ..< n {
-            print(0)
-        }
-    }
-
-    // Algorithm C: constant time complexity
-    func algorithmC(n: Int) {
-        for _ in 0 ..< 1_000_000 {
-            print(0)
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // Algorithm A: constant time complexity
-    function algorithm_A(n) {
-        console.log(0);
-    }
-    // Algorithm B: linear time complexity
-    function algorithm_B(n) {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // Algorithm C: constant time complexity
-    function algorithm_C(n) {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // Algorithm A: constant time complexity
-    function algorithm_A(n: number): void {
-        console.log(0);
-    }
-    // Algorithm B: linear time complexity
-    function algorithm_B(n: number): void {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // Algorithm C: constant time complexity
-    function algorithm_C(n: number): void {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // Algorithm A: constant time complexity
-    void algorithmA(int n) {
-      print(0);
-    }
-    // Algorithm B: linear time complexity
-    void algorithmB(int n) {
-      for (int i = 0; i < n; i++) {
-        print(0);
-      }
-    }
-    // Algorithm C: constant time complexity
-    void algorithmC(int n) {
-      for (int i = 0; i < 1000000; i++) {
-        print(0);
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // Algorithm A: constant time complexity
-    fn algorithm_A(n: i32) {
-        println!("{}", 0);
-    }
-    // Algorithm B: linear time complexity
-    fn algorithm_B(n: i32) {
-        for _ in 0..n {
-            println!("{}", 0);
-        }
-    }
-    // Algorithm C: constant time complexity
-    fn algorithm_C(n: i32) {
-        for _ in 0..1000000 {
-            println!("{}", 0);
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // Algorithm A: constant time complexity
-    void algorithm_A(int n) {
-        printf("%d", 0);
-    }
-    // Algorithm B: linear time complexity
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            printf("%d", 0);
-        }
-    }
-    // Algorithm C: constant time complexity
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            printf("%d", 0);
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // Algorithm A: constant time complexity
-    fun algoritm_A(n: Int) {
-        println(0)
-    }
-    // Algorithm B: linear time complexity
-    fun algorithm_B(n: Int) {
-        for (i in 0..<n){
-            println(0)
-        }
-    }
-    // Algorithm C: constant time complexity
-    fun algorithm_C(n: Int) {
-        for (i in 0..<1000000) {
-            println(0)
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # Algorithm A: constant time complexity
-    def algorithm_A(n)
-        puts 0
-    end
-
-    # Algorithm B: linear time complexity
-    def algorithm_B(n)
-        (0...n).each { puts 0 }
-    end
-
-    # Algorithm C: constant time complexity
-    def algorithm_C(n)
-        (0...1_000_000).each { puts 0 }
-    end
-    ```
+```snippet
+growth_trend
+```
 
 The figure below shows their time complexities.
 
@@ -490,7 +36,7 @@ The figure below shows their time complexities.
 - Algorithm `B` prints $n$ times. Its runtime grows linearly with $n$, so it has linear time complexity.
 - Algorithm `C` prints $1000000$ times. It may take a long time, but that time is independent of input size $n$. Its complexity is therefore constant, like `A`.
 
-![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.png)
+![Runtime growth of algorithms A, B, and C](time_complexity.assets/time_complexity_simple_example.svg)
 
 How does time complexity analysis differ from calculating runtime directly?
 
@@ -502,186 +48,9 @@ How does time complexity analysis differ from calculating runtime directly?
 
 Consider this function with input size $n$:
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +1
-        a = a + 1  # +1
-        a = a * 2  # +1
-        # Repeat n times
-        for i in range(n):  # +1
-            print(0)        # +1
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // Repeat n times
-        for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
-            cout << 0 << endl;    // +1
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // Repeat n times
-        for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
-            System.out.println(0);    // +1
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // Repeat n times
-        for (int i = 0; i < n; i++) {   // +1 (i ++ executes each iteration)
-            Console.WriteLine(0);   // +1
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1      // +1
-        a = a + 1   // +1
-        a = a * 2   // +1
-        // Repeat n times
-        for i := 0; i < n; i++ {   // +1
-            fmt.Println(a)         // +1
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // Repeat n times
-        for _ in 0 ..< n { // +1
-            print(0) // +1
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        var a = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // Repeat n times
-        for(let i = 0; i < n; i++){ // +1 (i ++ executes each iteration)
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void{
-        var a: number = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // Repeat n times
-        for(let i = 0; i < n; i++){ // +1 (i ++ executes each iteration)
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +1
-      a = a + 1; // +1
-      a = a * 2; // +1
-      // Repeat n times
-      for (int i = 0; i < n; i++) { // +1 (i ++ executes each iteration)
-        print(0); // +1
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;   // +1
-        a = a + 1;      // +1
-        a = a * 2;      // +1
-
-        // Repeat n times
-        for _ in 0..n { // +1 (i ++ executes each iteration)
-            println!("{}", 0); // +1
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // Repeat n times
-        for (int i = 0; i < n; i++) {   // +1 (i ++ executes each iteration)
-            printf("%d", 0);            // +1
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // Repeat n times
-        for (i in 0..<n) { // +1 (i ++ executes each iteration)
-            println(0) // +1
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +1
-        a = a + 1   # +1
-        a = a * 2   # +1
-        # Repeat n times
-        (0...n).each do # +1
-            puts 0      # +1
-        end
-    end
-    ```
+```snippet
+asymptotic_upper_bound
+```
 
 Let $T(n)$ be the operation count as a function of input size $n$. For the function above:
 
@@ -701,7 +70,7 @@ Time complexity analysis essentially finds an asymptotic upper bound on the oper
 
 As shown in the figure below, we seek a function $f(n)$ such that, as $n$ tends to infinity, $T(n)$ and $f(n)$ have the same order of growth, differing only by a constant factor $c$.
 
-![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.png)
+![Asymptotic upper bound of a function](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## How to derive time complexity
 
@@ -719,246 +88,9 @@ We can count code operations line by line. Since the constant factor $c$ in $c \
 
 We can apply these shortcuts to the following function:
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +0 (shortcut 1)
-        a = a + n  # +0 (shortcut 1)
-        # +n (shortcut 2)
-        for i in range(5 * n + 1):
-            print(0)
-        # +n*n (shortcut 3)
-        for i in range(2 * n):
-            for j in range(n + 1):
-                print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +0 (shortcut 1)
-        a = a + n;  // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            cout << 0 << endl;
-        }
-        // +n*n (shortcut 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                cout << 0 << endl;
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +0 (shortcut 1)
-        a = a + n;  // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            System.out.println(0);
-        }
-        // +n*n (shortcut 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                System.out.println(0);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +0 (shortcut 1)
-        a = a + n;  // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            Console.WriteLine(0);
-        }
-        // +n*n (shortcut 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                Console.WriteLine(0);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1     // +0 (shortcut 1)
-        a = a + n  // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for i := 0; i < 5 * n + 1; i++ {
-            fmt.Println(0)
-        }
-        // +n*n (shortcut 3)
-        for i := 0; i < 2 * n; i++ {
-            for j := 0; j < n + 1; j++ {
-                fmt.Println(0)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +0 (shortcut 1)
-        a = a + n // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for _ in 0 ..< (5 * n + 1) {
-            print(0)
-        }
-        // +n*n (shortcut 3)
-        for _ in 0 ..< (2 * n) {
-            for _ in 0 ..< (n + 1) {
-                print(0)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        let a = 1;  // +0 (shortcut 1)
-        a = a + n;  // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n (shortcut 3)
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void {
-        let a = 1;  // +0 (shortcut 1)
-        a = a + n;  // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n (shortcut 3)
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +0 (shortcut 1)
-      a = a + n; // +0 (shortcut 1)
-      // +n (shortcut 2)
-      for (int i = 0; i < 5 * n + 1; i++) {
-        print(0);
-      }
-      // +n*n (shortcut 3)
-      for (int i = 0; i < 2 * n; i++) {
-        for (int j = 0; j < n + 1; j++) {
-          print(0);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;     // +0 (shortcut 1)
-        a = a + n;        // +0 (shortcut 1)
-
-        // +n (shortcut 2)
-        for i in 0..(5 * n + 1) {
-            println!("{}", 0);
-        }
-
-        // +n*n (shortcut 3)
-        for i in 0..(2 * n) {
-            for j in 0..(n + 1) {
-                println!("{}", 0);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +0 (shortcut 1)
-        a = a + n;  // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            printf("%d", 0);
-        }
-        // +n*n (shortcut 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                printf("%d", 0);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1   // +0 (shortcut 1)
-        a = a + n   // +0 (shortcut 1)
-        // +n (shortcut 2)
-        for (i in 0..<5 * n + 1) {
-            println(0)
-        }
-        // +n*n (shortcut 3)
-        for (i in 0..<2 * n) {
-            for (j in 0..<n + 1) {
-                println(0)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +0 (shortcut 1)
-        a = a + n   # +0 (shortcut 1)
-        # +n (shortcut 2)
-        (0...(5 * n + 1)).each do { puts 0 }
-        # +n*n (shortcut 3)
-        (0...(2 * n)).each do
-            (0...(n + 1)).each do { puts 0 }
-        end
-    end
-    ```
+```snippet
+count_operations
+```
 
 The formulas below compare full and simplified counts. Both give time complexity $O(n^2)$.
 
@@ -997,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![Common time complexity classes](time_complexity.assets/time_complexity_common_types.png)
+![Common time complexity classes](time_complexity.assets/time_complexity_common_types.svg)
 
 ### Constant time $O(1)$
 
@@ -1035,7 +167,7 @@ A quadratic operation count grows with the square of input size $n$. It commonly
 
 The figure below compares constant, linear, and quadratic time complexity.
 
-![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![Constant, linear, and quadratic time complexity](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 In bubble sort, for example, the outer loop runs $n - 1$ times, while the inner loop runs $n-1$, $n-2$, $\dots$, $2$, and $1$ times, averaging $n / 2$. The resulting complexity is $O((n - 1) n / 2) = O(n^2)$:
 
@@ -1053,7 +185,7 @@ The figure and code below simulate cell division in $O(2^n)$ time. The input $n$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![Exponential time complexity](time_complexity.assets/time_complexity_exponential.png)
+![Exponential time complexity](time_complexity.assets/time_complexity_exponential.svg)
 
 Exponential time often appears in recursive algorithms. The following function branches into two calls at each level, stopping after $n$ levels:
 
@@ -1073,7 +205,7 @@ The figure and code below simulate repeated halving, taking $O(\log_2 n)$ time, 
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.png)
+![Logarithmic time complexity](time_complexity.assets/time_complexity_logarithmic.svg)
 
 Like exponential growth, logarithmic growth often occurs in recursion. The following code produces a recursion tree of height $\log_2 n$:
 
@@ -1103,7 +235,7 @@ Linearithmic time often appears when one level of a nested process takes $O(\log
 
 The figure below shows how linearithmic growth arises. Each level of the binary tree performs $n$ operations, and there are $\log_2 n + 1$ levels, giving $O(n \log n)$ time.
 
-![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![Linearithmic time complexity](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 Common sorting algorithms, including quick sort, merge sort, and heap sort, typically take $O(n \log n)$ time.
 
@@ -1121,7 +253,7 @@ Algorithms with factorial time complexity are usually implemented recursively. A
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![Factorial time complexity](time_complexity.assets/time_complexity_factorial.png)
+![Factorial time complexity](time_complexity.assets/time_complexity_factorial.svg)
 
 Since $n! > 2^n$ whenever $n \geq 4$, factorial growth is faster than exponential growth and is also unacceptable for large $n$.
 

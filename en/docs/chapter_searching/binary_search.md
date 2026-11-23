@@ -6,7 +6,7 @@
 
     Given an array `nums` of length $n$, with distinct elements arranged in ascending order, find and return the index of `target`. If the array does not contain this element, return $-1$. An example is shown below.
 
-![Example data for binary search](binary_search.assets/binary_search_example.png)
+![Example data for binary search](binary_search.assets/binary_search_example.svg)
 
 As shown below, initialize pointers $i = 0$ and $j = n - 1$ to the first and last elements, respectively. They represent the search interval $[0, n - 1]$. Square brackets denote a closed interval, which includes its endpoints.
 
@@ -21,25 +21,25 @@ Next, repeat the following two steps.
 If the array does not contain the target, the search interval eventually becomes empty. Return $-1$ in this case.
 
 === "<1>"
-    ![The binary search process](binary_search.assets/binary_search_step1.png)
+    ![The binary search process](binary_search.assets/binary_search_step1.svg)
 
 === "<2>"
-    ![binary_search_step2](binary_search.assets/binary_search_step2.png)
+    ![binary_search_step2](binary_search.assets/binary_search_step2.svg)
 
 === "<3>"
-    ![binary_search_step3](binary_search.assets/binary_search_step3.png)
+    ![binary_search_step3](binary_search.assets/binary_search_step3.svg)
 
 === "<4>"
-    ![binary_search_step4](binary_search.assets/binary_search_step4.png)
+    ![binary_search_step4](binary_search.assets/binary_search_step4.svg)
 
 === "<5>"
-    ![binary_search_step5](binary_search.assets/binary_search_step5.png)
+    ![binary_search_step5](binary_search.assets/binary_search_step5.svg)
 
 === "<6>"
-    ![binary_search_step6](binary_search.assets/binary_search_step6.png)
+    ![binary_search_step6](binary_search.assets/binary_search_step6.svg)
 
 === "<7>"
-    ![binary_search_step7](binary_search.assets/binary_search_step7.png)
+    ![binary_search_step7](binary_search.assets/binary_search_step7.svg)
 
 Because $i$ and $j$ are both of type `int`, **$i + j$ may exceed the range of `int`**. To avoid integer overflow, we usually calculate the midpoint using $m = \lfloor {i + (j - i) / 2} \rfloor$.
 
@@ -67,7 +67,7 @@ As shown below, the two interval representations require different initializatio
 
 Since a closed interval includes both endpoints, the operations that narrow the interval through pointers $i$ and $j$ are symmetric. This makes mistakes less likely, **so we generally recommend the closed-interval version**.
 
-![Two ways to define the interval](binary_search.assets/binary_search_ranges.png)
+![Two ways to define the interval](binary_search.assets/binary_search_ranges.svg)
 
 ## Strengths and limitations
 

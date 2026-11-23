@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "title": "Binary search",
+  "summary": "Search for target value 6 in an ascending array, comparing the midpoint element each round to rule out the half interval that cannot contain the target.",
+  "context": [
+    "The input is an ascending array of 10 distinct elements indexed from 0 to 9, and the search target is target = 6; see the input table for the element at each index.",
+    "Pointers i and j mark the left and right boundaries of the current closed search interval [i, j] (both endpoints are included in the search range); m is the midpoint index of the interval, computed as (i + j) / 2 rounded down. Each round first computes the midpoint m and then compares nums[m] with the target value."
+  ],
+  "description": [
+    "There are 7 frames in total: initialization followed by 3 rounds of comparison. Each round separates “computing the midpoint” from “narrowing the interval or matching the target after comparison”; the dashed box marks the current search interval."
+  ],
+  "result": "Midpoint elements 12, 3, and 6 are compared in turn; the third comparison hits the target and returns index 2 rather than the element value 6.",
+  "frames": [
+    {
+      "id": "source-214",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step1.png",
+      "title": "Initialize the search interval",
+      "explanation": "Set i = 0 and j = 9 so that the closed search interval [0, 9] covers all 10 elements, whose left and right endpoint values are 1 and 35, respectively; midpoint m has not yet been computed.",
+      "key_state": "i = 0, j = 9; closed search interval [0, 9], with no midpoint m yet.",
+      "announcement": "Initialize left boundary i to index 0 and right boundary j to index 9 to search the entire array."
+    },
+    {
+      "id": "source-215",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step2.png",
+      "title": "Round 1: compute midpoint m = 4",
+      "explanation": "In the closed interval [0, 9] (i = 0, j = 9), m = (0 + 9) / 2 rounded down gives 4, pointing to element 12. Next, compare it with target 6.",
+      "key_state": "i = 0, j = 9, m = 4; midpoint value is 12. Next, compare with target 6.",
+      "announcement": "Compute midpoint m at index 4, with value 12, ready to compare against target value 6."
+    },
+    {
+      "id": "source-216",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step3.png",
+      "title": "Round 1: 12 is greater than 6, move right boundary to 3",
+      "explanation": "In the previous interval [0, 9], value 12 at midpoint m = 4 is greater than target 6. Because the array is in ascending order, neither index 4 nor any index to its right can match; set j = m - 1 = 3. Now i = 0 and j = 3, giving interval [0, 3] with remaining elements [1, 3, 6, 8]; the old pointer m still points to index 4 (value 12) outside the interval and has not yet been recomputed.",
+      "key_state": "Because value 12 at m = 4 is greater than target 6, the interval narrows from [0, 9] to [0, 3]: i = 0, j = 3, remaining [1, 3, 6, 8]; old m = 4 remains outside the interval.",
+      "announcement": "Midpoint value 12 is greater than target value 6, so right boundary j moves to index 3, keeping indices 0 through 3."
+    },
+    {
+      "id": "source-217",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step4.png",
+      "title": "Round 2: compute midpoint m = 1",
+      "explanation": "In the closed interval [0, 3] (i = 0, j = 3), m = (0 + 3) / 2 rounded down gives 1, pointing to element 3. Next, compare it with target 6.",
+      "key_state": "i = 0, j = 3, m = 1; midpoint value is 3. Next, compare with target 6.",
+      "announcement": "Within interval [0, 3], recompute midpoint m at index 1, with value 3."
+    },
+    {
+      "id": "source-218",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step5.png",
+      "title": "Round 2: 3 is less than 6, move left boundary to 2",
+      "explanation": "In the previous interval [0, 3], value 3 at midpoint m = 1 is less than target 6. Because the array is in ascending order, neither index 1 nor any index to its left can match; set i = m + 1 = 2. Now i = 2 and j = 3, giving interval [2, 3] with remaining elements [6, 8]; the old pointer m still points to index 1 (value 3) outside the interval and has not yet been recomputed.",
+      "key_state": "Because value 3 at m = 1 is less than target 6, the interval narrows from [0, 3] to [2, 3]: i = 2, j = 3, remaining [6, 8]; old m = 1 remains outside the interval.",
+      "announcement": "Midpoint value 3 is less than target value 6, so left boundary i moves to index 2, leaving only 6 and 8 in the interval."
+    },
+    {
+      "id": "source-219",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step6.png",
+      "title": "Round 3: compute midpoint m = 2",
+      "explanation": "In the closed interval [2, 3] (i = 2, j = 3), m = (2 + 3) / 2 rounded down gives 2, coinciding with left boundary i and pointing to element 6. Next, compare it with target 6.",
+      "key_state": "i and m coincide at index 2, j = 3; midpoint value is 6. Next, compare with target 6.",
+      "announcement": "Recompute midpoint m at index 2, coinciding with left boundary i, with value 6."
+    },
+    {
+      "id": "source-220",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step7.png",
+      "title": "Round 3: target found, return index 2",
+      "explanation": "Value 6 at midpoint m = 2 equals target 6, ending the search. The final frame keeps only midpoint pointer m pointing to index 2, while boundary pointers i and j and the dashed interval box are hidden.",
+      "key_state": "Target value 6 found; only m = 2 is shown, returning index 2.",
+      "announcement": "The midpoint value equals target value 6; the search succeeds and returns index 2."
+    }
+  ],
+  "animations": {
+    "binary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-214"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-215"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-216"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-217"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-218"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-219"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-220"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "Ascending input array",
+      "headers": [
+        "Index",
+        "Element value"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "8"
+        ],
+        [
+          "4",
+          "12"
+        ],
+        [
+          "5",
+          "15"
+        ],
+        [
+          "6",
+          "23"
+        ],
+        [
+          "7",
+          "26"
+        ],
+        [
+          "8",
+          "31"
+        ],
+        [
+          "9",
+          "35"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

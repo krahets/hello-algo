@@ -18,7 +18,7 @@
 
 下図に、この合計を求める関数のフローチャートを示します。
 
-![合計を求める関数のフローチャート](iteration_and_recursion.assets/iteration.png)
+![合計を求める関数のフローチャート](iteration_and_recursion.assets/iteration.svg)
 
 この関数の操作回数は入力の大きさ $n$ に比例し、「線形の関係」にあります。実際、**時間計算量が記述するのは、この「線形の関係」です**。詳しくは次の節で説明します。
 
@@ -52,7 +52,7 @@
 
 下図に、この入れ子のループのフローチャートを示します。
 
-![入れ子のループのフローチャート](iteration_and_recursion.assets/nested_iteration.png)
+![入れ子のループのフローチャート](iteration_and_recursion.assets/nested_iteration.svg)
 
 この場合、操作回数は $n^2$ に比例します。言い換えると、実行時間は入力の大きさ $n$ と「二乗の関係」にあります。
 
@@ -79,7 +79,7 @@
 
 下図に、この関数の再帰の流れを示します。
 
-![合計を求める関数の再帰の流れ](iteration_and_recursion.assets/recursion_sum.png)
+![合計を求める関数の再帰の流れ](iteration_and_recursion.assets/recursion_sum.svg)
 
 計算結果は反復でも再帰でも同じですが、**考え方と問題の解き方はまったく異なります**。
 
@@ -100,7 +100,7 @@
 
 下図のように、終了条件に到達する直前には、まだ戻っていない再帰関数が $n$ 個あり、**再帰の深さは $n$ です**。
 
-![再帰呼び出しの深さ](iteration_and_recursion.assets/recursion_sum_depth.png)
+![再帰呼び出しの深さ](iteration_and_recursion.assets/recursion_sum_depth.svg)
 
 実際には、言語が許す再帰の深さには通常、制限があります。深すぎる再帰はスタックオーバーフローを引き起こす可能性があります。
 
@@ -122,7 +122,7 @@ $1 + 2 + \dots + n$ の計算では、結果の変数 `res` を関数の引数�
 - **通常の再帰**：戻る段階で加算し、各呼び出しから戻った後に 1 回ずつ加算します。
 - **末尾再帰**：呼び出しを進める段階で加算し、戻る段階では順に戻るだけです。
 
-![末尾再帰の流れ](iteration_and_recursion.assets/tail_recursion_sum.png)
+![末尾再帰の流れ](iteration_and_recursion.assets/tail_recursion_sum.svg)
 
 !!! tip
 
@@ -149,7 +149,7 @@ $1 + 2 + \dots + n$ の計算では、結果の変数 `res` を関数の引数�
 
 このコードでは、関数内で再帰呼び出しを 2 回行い、**一つの呼び出しから二つの分岐が生じます**。下図のように呼び出しを繰り返すと、最終的に $n$ 層の<u>再帰木（recursion tree）</u>ができます。
 
-![フィボナッチ数列の再帰木](iteration_and_recursion.assets/recursion_tree.png)
+![フィボナッチ数列の再帰木](iteration_and_recursion.assets/recursion_tree.svg)
 
 本質的に、再帰は「問題を小さな部分問題に分解する」という考え方を表しており、この分割統治戦略は非常に重要です。
 

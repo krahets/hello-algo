@@ -2,7 +2,7 @@
 
 <u>배열(array)</u>은 같은 자료형의 원소를 연속된 메모리 공간에 저장하는 선형 자료 구조다. 배열에서 원소가 있는 위치를 해당 원소의 <u>인덱스(index)</u>라고 한다. 아래 그림은 배열의 주요 개념과 저장 방식을 보여 준다.
 
-![배열의 정의와 저장 방식](array.assets/array_definition.png)
+![배열의 정의와 저장 방식](array.assets/array_definition.svg)
 
 ## 배열의 기본 연산
 
@@ -10,131 +10,19 @@
 
 필요에 따라 초깃값을 지정하지 않거나 지정하는 두 가지 초기화 방식을 사용할 수 있다. 초깃값을 지정하지 않으면 대부분의 프로그래밍 언어는 배열 원소를 $0$으로 초기화한다.
 
-=== "Python"
-
-    ```python title="array.py"
-    # 배열 초기화
-    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    /* 배열 초기화 */
-    // 스택에 저장
-    int arr[5] = {};
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    // 힙에 저장(공간을 직접 해제해야 함)
-    int* arr1 = new int[5] {};
-    int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    /* 배열 초기화 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-    int[] nums = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 배열 초기화 */
-    int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
-    int[] nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    /* 배열 초기화 */
-    var arr [5]int
-    // Go에서 길이를 지정하면([5]int) 배열이고, 지정하지 않으면([]int) 슬라이스다
-    // Go 배열의 길이는 컴파일 시 결정되도록 설계되었으므로 상수로만 길이를 지정할 수 있다
-    // 용량 확장 메서드 extend()를 쉽게 구현하기 위해 아래에서는 슬라이스(Slice)를 배열(Array)로 간주한다
-    nums := []int{1, 3, 2, 5, 4}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 배열 초기화 */
-    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-    let nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    /* 배열 초기화 */
-    var arr = new Array(5).fill(0);
-    var nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    /* 배열 초기화 */
-    let arr: number[] = new Array(5).fill(0);
-    let nums: number[] = [1, 3, 2, 5, 4];
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    /* 배열 초기화 */
-    List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
-    List<int> nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    /* 배열 초기화 */
-    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
-    let slice: &[i32] = &[0; 5];
-    // Rust에서 길이를 지정하면([i32; 5]) 배열이고, 지정하지 않으면(&[i32]) 슬라이스다
-    // Rust 배열의 길이는 컴파일 시 결정되도록 설계되었으므로 상수로만 길이를 지정할 수 있다
-    // Vector는 Rust에서 일반적으로 동적 배열로 사용하는 자료형이다
-    // 용량 확장 메서드 extend()를 쉽게 구현하기 위해 아래에서는 vector를 배열(array)로 간주한다
-    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    /* 배열 초기화 */
-    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title="array.kt"
-    /* 배열 초기화 */
-    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
-    var nums = intArrayOf(1, 3, 2, 5, 4)
-    ```
-
-=== "Ruby"
-
-    ```ruby title="array.rb"
-    # 배열 초기화
-    arr = Array.new(5, 0)
-    nums = [1, 3, 2, 5, 4]
-    ```
+```snippet
+init_array
+```
 
 ??? pythontutor "코드 시각화"
 
-    https://pythontutor.com/render.html#code=%23%20%EB%B0%B0%EC%97%B4%20%EC%B4%88%EA%B8%B0%ED%99%94%0Aarr%20%3D%20%5B0%5D%20%2A%205%20%20%23%20%5B%200%2C%200%2C%200%2C%200%2C%200%20%5D%0Anums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    @tutor init_array_tutor
 
 ### 원소 접근
 
 배열 원소는 연속된 메모리 공간에 저장되므로 메모리 주소를 매우 쉽게 계산할 수 있다. 배열의 메모리 주소(첫 원소의 메모리 주소)와 원소의 인덱스가 주어지면, 아래 그림의 식으로 해당 원소의 메모리 주소를 구하여 직접 접근할 수 있다.
 
-![배열 원소의 메모리 주소 계산](array.assets/array_memory_location_calculation.png)
+![배열 원소의 메모리 주소 계산](array.assets/array_memory_location_calculation.svg)
 
 위 그림에서 배열의 첫 원소 인덱스는 $0$이다. $1$부터 세는 편이 더 자연스러워 보이므로 직관에 어긋날 수 있다. 그러나 주소 계산식의 관점에서 **인덱스는 본질적으로 메모리 주소의 오프셋이다**. 첫 원소의 주소 오프셋은 $0$이므로 인덱스가 $0$인 것은 합리적이다.
 
@@ -148,7 +36,7 @@
 
 배열 원소는 메모리에서 ‘빈틈없이 붙어 있어’ 사이에 다른 데이터를 넣을 공간이 없다. 아래 그림과 같이 배열 중간에 원소를 삽입하려면 해당 위치 이후의 모든 원소를 한 칸씩 뒤로 옮긴 다음, 그 인덱스에 새 원소를 대입해야 한다.
 
-![배열에 원소를 삽입하는 예](array.assets/array_insert_element.png)
+![배열에 원소를 삽입하는 예](array.assets/array_insert_element.svg)
 
 배열의 길이는 고정되어 있으므로 원소를 하나 삽입하면 반드시 마지막 원소가 ‘사라진다’는 점에 주의하자. 이 문제의 해결책은 ‘리스트’ 절에서 다룬다.
 
@@ -160,7 +48,7 @@
 
 마찬가지로 아래 그림과 같이 인덱스 $i$의 원소를 삭제하려면 인덱스 $i$ 뒤의 원소를 모두 한 칸씩 앞으로 옮겨야 한다.
 
-![배열에서 원소를 삭제하는 예](array.assets/array_remove_element.png)
+![배열에서 원소를 삭제하는 예](array.assets/array_remove_element.svg)
 
 삭제가 끝난 뒤 원래의 마지막 원소는 ‘의미 없는’ 값이 되므로 따로 수정할 필요가 없다.
 

@@ -10,7 +10,7 @@
 
 가능한 모든 조합을 직접 순회해 보자. 아래 그림과 같이 이중 반복문을 사용하여 매번 두 정수의 합이 `target`인지 확인하고, 맞으면 두 인덱스를 반환한다.
 
-![선형 탐색으로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_brute_force.png)
+![선형 탐색으로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_brute_force.svg)
 
 코드는 다음과 같다.
 
@@ -28,13 +28,13 @@
 2. `nums[i]`와 인덱스 `i`로 이루어진 키-값 쌍을 해시 테이블에 추가한다.
 
 === "<1>"
-    ![보조 해시 테이블로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_hashtable_step1.png)
+    ![보조 해시 테이블로 두 수의 합 구하기](replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg)
 
 === "<2>"
-    ![해시 테이블로 두 수의 합 구하기 2단계](replace_linear_by_hashing.assets/two_sum_hashtable_step2.png)
+    ![해시 테이블로 두 수의 합 구하기 2단계](replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg)
 
 === "<3>"
-    ![해시 테이블로 두 수의 합 구하기 3단계](replace_linear_by_hashing.assets/two_sum_hashtable_step3.png)
+    ![해시 테이블로 두 수의 합 구하기 3단계](replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg)
 
 구현 코드는 다음과 같으며, 단일 반복문만 있으면 된다.
 

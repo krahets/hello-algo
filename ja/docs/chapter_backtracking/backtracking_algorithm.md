@@ -14,7 +14,7 @@
 [file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}
 ```
 
-![行きがけ順走査でノードを探す](backtracking_algorithm.assets/preorder_find_nodes.png)
+![行きがけ順走査でノードを探す](backtracking_algorithm.assets/preorder_find_nodes.svg)
 
 ## 試行と後戻り
 
@@ -39,37 +39,37 @@
 下図の流れを見ると、**試行と後戻りは「前進」と「取り消し」と考えられ**、互いに逆の操作だとわかります。
 
 === "<1>"
-    ![試行と後戻り](backtracking_algorithm.assets/preorder_find_paths_step1.png)
+    ![試行と後戻り](backtracking_algorithm.assets/preorder_find_paths_step1.svg)
 
 === "<2>"
-    ![行きがけ順走査による経路の探索：手順 2](backtracking_algorithm.assets/preorder_find_paths_step2.png)
+    ![行きがけ順走査による経路の探索：手順 2](backtracking_algorithm.assets/preorder_find_paths_step2.svg)
 
 === "<3>"
-    ![行きがけ順走査による経路の探索：手順 3](backtracking_algorithm.assets/preorder_find_paths_step3.png)
+    ![行きがけ順走査による経路の探索：手順 3](backtracking_algorithm.assets/preorder_find_paths_step3.svg)
 
 === "<4>"
-    ![行きがけ順走査による経路の探索：手順 4](backtracking_algorithm.assets/preorder_find_paths_step4.png)
+    ![行きがけ順走査による経路の探索：手順 4](backtracking_algorithm.assets/preorder_find_paths_step4.svg)
 
 === "<5>"
-    ![行きがけ順走査による経路の探索：手順 5](backtracking_algorithm.assets/preorder_find_paths_step5.png)
+    ![行きがけ順走査による経路の探索：手順 5](backtracking_algorithm.assets/preorder_find_paths_step5.svg)
 
 === "<6>"
-    ![行きがけ順走査による経路の探索：手順 6](backtracking_algorithm.assets/preorder_find_paths_step6.png)
+    ![行きがけ順走査による経路の探索：手順 6](backtracking_algorithm.assets/preorder_find_paths_step6.svg)
 
 === "<7>"
-    ![行きがけ順走査による経路の探索：手順 7](backtracking_algorithm.assets/preorder_find_paths_step7.png)
+    ![行きがけ順走査による経路の探索：手順 7](backtracking_algorithm.assets/preorder_find_paths_step7.svg)
 
 === "<8>"
-    ![行きがけ順走査による経路の探索：手順 8](backtracking_algorithm.assets/preorder_find_paths_step8.png)
+    ![行きがけ順走査による経路の探索：手順 8](backtracking_algorithm.assets/preorder_find_paths_step8.svg)
 
 === "<9>"
-    ![行きがけ順走査による経路の探索：手順 9](backtracking_algorithm.assets/preorder_find_paths_step9.png)
+    ![行きがけ順走査による経路の探索：手順 9](backtracking_algorithm.assets/preorder_find_paths_step9.svg)
 
 === "<10>"
-    ![行きがけ順走査による経路の探索：手順 10](backtracking_algorithm.assets/preorder_find_paths_step10.png)
+    ![行きがけ順走査による経路の探索：手順 10](backtracking_algorithm.assets/preorder_find_paths_step10.svg)
 
 === "<11>"
-    ![行きがけ順走査による経路の探索：手順 11](backtracking_algorithm.assets/preorder_find_paths_step11.png)
+    ![行きがけ順走査による経路の探索：手順 11](backtracking_algorithm.assets/preorder_find_paths_step11.svg)
 
 ## 枝刈り
 
@@ -87,7 +87,7 @@
 
 「枝刈り」は仕組みをよく表す名前です。下図のように、**制約を満たさない探索の枝を「刈り取る」ことで**、無意味な試行を多く避け、探索効率を高めます。
 
-![制約条件による枝刈り](backtracking_algorithm.assets/preorder_find_constrained_paths.png)
+![制約条件による枝刈り](backtracking_algorithm.assets/preorder_find_constrained_paths.svg)
 
 ## 基本形のコード
 
@@ -95,339 +95,9 @@
 
 次の基本形では、`state` が問題の現在の状態を、`choices` がその状態で取れる選択肢を表します。
 
-=== "Python"
-
-    ```python title=""
-    def backtrack(state: State, choices: list[choice], res: list[state]):
-        """バックトラッキングの基本形"""
-        # 解かどうかを判定
-        if is_solution(state):
-            # 解を記録
-            record_solution(state, res)
-            # これ以上探索しない
-            return
-        # すべての選択肢を調べる
-        for choice in choices:
-            # 枝刈り：選択が有効かを判定
-            if is_valid(state, choice):
-                # 試行：選択して状態を更新
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # 後戻り：選択を取り消し、前の状態に戻す
-                undo_choice(state, choice)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* バックトラッキングの基本形 */
-    void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-        // 解かどうかを判定
-        if (isSolution(state)) {
-            // 解を記録
-            recordSolution(state, res);
-            // これ以上探索しない
-            return;
-        }
-        // すべての選択肢を調べる
-        for (Choice choice : choices) {
-            // 枝刈り：選択が有効かを判定
-            if (isValid(state, choice)) {
-                // 試行：選択して状態を更新
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* バックトラッキングの基本形 */
-    void backtrack(State state, List<Choice> choices, List<State> res) {
-        // 解かどうかを判定
-        if (isSolution(state)) {
-            // 解を記録
-            recordSolution(state, res);
-            // これ以上探索しない
-            return;
-        }
-        // すべての選択肢を調べる
-        for (Choice choice : choices) {
-            // 枝刈り：選択が有効かを判定
-            if (isValid(state, choice)) {
-                // 試行：選択して状態を更新
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* バックトラッキングの基本形 */
-    void Backtrack(State state, List<Choice> choices, List<State> res) {
-        // 解かどうかを判定
-        if (IsSolution(state)) {
-            // 解を記録
-            RecordSolution(state, res);
-            // これ以上探索しない
-            return;
-        }
-        // すべての選択肢を調べる
-        foreach (Choice choice in choices) {
-            // 枝刈り：選択が有効かを判定
-            if (IsValid(state, choice)) {
-                // 試行：選択して状態を更新
-                MakeChoice(state, choice);
-                Backtrack(state, choices, res);
-                // 後戻り：選択を取り消し、前の状態に戻す
-                UndoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* バックトラッキングの基本形 */
-    func backtrack(state *State, choices []Choice, res *[]State) {
-        // 解かどうかを判定
-        if isSolution(state) {
-            // 解を記録
-            recordSolution(state, res)
-            // これ以上探索しない
-            return
-        }
-        // すべての選択肢を調べる
-        for _, choice := range choices {
-            // 枝刈り：選択が有効かを判定
-            if isValid(state, choice) {
-                // 試行：選択して状態を更新
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* バックトラッキングの基本形 */
-    func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-        // 解かどうかを判定
-        if isSolution(state: state) {
-            // 解を記録
-            recordSolution(state: state, res: &res)
-            // これ以上探索しない
-            return
-        }
-        // すべての選択肢を調べる
-        for choice in choices {
-            // 枝刈り：選択が有効かを判定
-            if isValid(state: state, choice: choice) {
-                // 試行：選択して状態を更新
-                makeChoice(state: &state, choice: choice)
-                backtrack(state: &state, choices: choices, res: &res)
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state: &state, choice: choice)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* バックトラッキングの基本形 */
-    function backtrack(state, choices, res) {
-        // 解かどうかを判定
-        if (isSolution(state)) {
-            // 解を記録
-            recordSolution(state, res);
-            // これ以上探索しない
-            return;
-        }
-        // すべての選択肢を調べる
-        for (let choice of choices) {
-            // 枝刈り：選択が有効かを判定
-            if (isValid(state, choice)) {
-                // 試行：選択して状態を更新
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* バックトラッキングの基本形 */
-    function backtrack(state: State, choices: Choice[], res: State[]): void {
-        // 解かどうかを判定
-        if (isSolution(state)) {
-            // 解を記録
-            recordSolution(state, res);
-            // これ以上探索しない
-            return;
-        }
-        // すべての選択肢を調べる
-        for (let choice of choices) {
-            // 枝刈り：選択が有効かを判定
-            if (isValid(state, choice)) {
-                // 試行：選択して状態を更新
-                makeChoice(state, choice);
-                backtrack(state, choices, res);
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* バックトラッキングの基本形 */
-    void backtrack(State state, List<Choice>, List<State> res) {
-      // 解かどうかを判定
-      if (isSolution(state)) {
-        // 解を記録
-        recordSolution(state, res);
-        // これ以上探索しない
-        return;
-      }
-      // すべての選択肢を調べる
-      for (Choice choice in choices) {
-        // 枝刈り：選択が有効かを判定
-        if (isValid(state, choice)) {
-          // 試行：選択して状態を更新
-          makeChoice(state, choice);
-          backtrack(state, choices, res);
-          // 後戻り：選択を取り消し、前の状態に戻す
-          undoChoice(state, choice);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* バックトラッキングの基本形 */
-    fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-        // 解かどうかを判定
-        if is_solution(state) {
-            // 解を記録
-            record_solution(state, res);
-            // これ以上探索しない
-            return;
-        }
-        // すべての選択肢を調べる
-        for choice in choices {
-            // 枝刈り：選択が有効かを判定
-            if is_valid(state, choice) {
-                // 試行：選択して状態を更新
-                make_choice(state, choice);
-                backtrack(state, choices, res);
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undo_choice(state, choice);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* バックトラッキングの基本形 */
-    void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-        // 解かどうかを判定
-        if (isSolution(state)) {
-            // 解を記録
-            recordSolution(state, res, numRes);
-            // これ以上探索しない
-            return;
-        }
-        // すべての選択肢を調べる
-        for (int i = 0; i < numChoices; i++) {
-            // 枝刈り：選択が有効かを判定
-            if (isValid(state, &choices[i])) {
-                // 試行：選択して状態を更新
-                makeChoice(state, &choices[i]);
-                backtrack(state, choices, numChoices, res, numRes);
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state, &choices[i]);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* バックトラッキングの基本形 */
-    fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-        // 解かどうかを判定
-        if (isSolution(state)) {
-            // 解を記録
-            recordSolution(state, res)
-            // これ以上探索しない
-            return
-        }
-        // すべての選択肢を調べる
-        for (choice in choices) {
-            // 枝刈り：選択が有効かを判定
-            if (isValid(state, choice)) {
-                // 試行：選択して状態を更新
-                makeChoice(state, choice)
-                backtrack(state, choices, res)
-                // 後戻り：選択を取り消し、前の状態に戻す
-                undoChoice(state, choice)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### バックトラッキングの基本形 ###
-    def backtrack(state, choices, res)
-        # 解かどうかを判定
-        if is_solution?(state)
-            # 解を記録
-            record_solution(state, res)
-            return
-        end
-
-        # すべての選択肢を調べる
-        for choice in choices
-            # 枝刈り：選択が有効かを判定
-            if is_valid?(state, choice)
-                # 試行：選択して状態を更新
-                make_choice(state, choice)
-                backtrack(state, choices, res)
-                # 後戻り：選択を取り消し、前の状態に戻す
-                undo_choice(state, choice)
-            end
-        end
-    end
-    ```
+```snippet
+backtrack_framework
+```
 
 次に、この基本形を使って例題 3 を解きます。状態 `state` はノードをたどった経路、選択肢 `choices` は現在のノードの左右の子ノード、結果 `res` は経路のリストです。
 
@@ -437,7 +107,7 @@
 
 問題の条件から、値が $7$ のノードが見つかっても探索を続ける必要があります。**そのため、解を記録した直後の `return` 文を削除します**。下図に、`return` を残す場合と削除する場合の探索の違いを示します。
 
-![return を残す場合と削除する場合の探索の比較](backtracking_algorithm.assets/backtrack_remove_return_or_not.png)
+![return を残す場合と削除する場合の探索の比較](backtracking_algorithm.assets/backtrack_remove_return_or_not.svg)
 
 行きがけ順走査を使った実装に比べると、基本形に沿ったコードは冗長に見えますが、汎用性に優れています。実際、**多くのバックトラッキングの問題はこの基本形で解けます**。問題に応じて `state` と `choices` を定義し、各メソッドを実装すればよいのです。
 

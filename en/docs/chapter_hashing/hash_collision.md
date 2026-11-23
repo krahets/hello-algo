@@ -13,7 +13,7 @@ The main structural approaches are “separate chaining” and “open addressin
 
 In the original hash table, each bucket holds only one key-value pair. <u>Separate chaining</u> replaces this single element with a linked list. Each pair becomes a node, and all colliding pairs are stored in the same list. An example is shown below.
 
-![A hash table using separate chaining](hash_collision.assets/hash_table_chaining.png)
+![A hash table using separate chaining](hash_collision.assets/hash_table_chaining.svg)
 
 The operations change as follows.
 
@@ -52,13 +52,13 @@ Linear probing searches with a fixed step size. Its operations differ from those
 
 The figure below shows key-value pairs in an open-addressing table using linear probing. With this hash function, keys sharing the same last two digits map to the same bucket. Linear probing stores them successively in that bucket and the following buckets.
 
-![Distribution of key-value pairs with linear probing](hash_collision.assets/hash_table_linear_probing.png)
+![Distribution of key-value pairs with linear probing](hash_collision.assets/hash_table_linear_probing.svg)
 
 However, **linear probing is prone to clustering**. The longer a run of occupied positions becomes, the more likely a collision is to occur within it, causing the cluster to grow further. This feedback loop eventually degrades insertion, deletion, lookup, and update performance.
 
 **We cannot simply delete an element from an open-addressing table**. Deletion would leave an empty bucket, `None`. A lookup stops when linear probing reaches such a bucket, making later elements in the probe sequence inaccessible and potentially reporting them as absent, as shown below.
 
-![Lookup problems caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.png)
+![Lookup problems caused by deletion in open addressing](hash_collision.assets/hash_table_open_addressing_deletion.svg)
 
 To solve this, use <u>lazy deletion</u>: rather than simply removing the entry, **mark its bucket with the constant `TOMBSTONE`**. Both `None` and `TOMBSTONE` represent available buckets that can hold a new pair. Unlike `None`, however, a `TOMBSTONE` does not stop a search, because further pairs may lie beyond it.
 

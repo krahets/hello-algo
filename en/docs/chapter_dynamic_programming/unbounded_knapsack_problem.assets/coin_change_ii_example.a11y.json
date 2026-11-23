@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "title": "Number of coin combinations in coin change II",
+  "summary": "Using unlimited coins of denominations 1, 2, and 5 to make target amount 5 yields 4 distinct combinations when order is ignored.",
+  "context": [
+    "Coin change II likewise provides 3 unlimited denominations [1, 2, 5], but sets target amount amt = 5 and counts how many distinct coin combinations sum to 5 rather than minimizing coin count (arrangements with identical counts per denomination in different orders count as a single combination)."
+  ],
+  "description": [
+    "At the upper left, the coin table points via a thick gray rightward arrow to the pouch labeled \"Target amount amt = 5\". Below, the result box reads \"Number of coin combinations: 4\" and lists four coin-addition equations to the right of \"Coin combinations:\".",
+    "Below, the first table lists the input denominations and the second lists all four combinations in the order drawn, counting coins of each denomination from the equations (that count table is not drawn separately in the figure)."
+  ],
+  "frames": [
+    {
+      "id": "source-425",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_ii_example.png",
+      "title": "Number of coin combinations in coin change II",
+      "explanation": "Case-by-case check from the input: if denomination 5 is used, only 1 coin of value 5 fits; if denomination 5 is not used, denomination 2 may be used 2, 1, or 0 times, completed by 1, 3, or 5 coins of denomination 1, respectively. That accounts for all four unordered combinations in the table with none missed."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Amount 5 combinations example: available coins",
+      "headers": [
+        "ID i",
+        "Denomination"
+      ],
+      "rows": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "2"
+        ],
+        [
+          "3",
+          "5"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "All combinations making amount 5",
+      "headers": [
+        "Combination",
+        "Count of denomination 1",
+        "Count of denomination 2",
+        "Count of denomination 5"
+      ],
+      "rows": [
+        [
+          "1+1+1+1+1",
+          "5",
+          "0",
+          "0"
+        ],
+        [
+          "1+1+1+2",
+          "3",
+          "1",
+          "0"
+        ],
+        [
+          "1+2+2",
+          "1",
+          "2",
+          "0"
+        ],
+        [
+          "5",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

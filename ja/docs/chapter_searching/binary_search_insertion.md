@@ -8,7 +8,7 @@
 
     長さ $n$ の整列済み配列 `nums` と要素 `target` が与えられます。配列内に重複する要素はありません。整列状態を保ちながら、`target` を配列 `nums` に挿入します。すでに `target` が存在する場合は、その左側に挿入します。挿入後の `target` のインデックスを返してください。例を下図に示します。
 
-![二分探索で挿入位置を探す入力例](binary_search_insertion.assets/binary_search_insertion_example.png)
+![二分探索で挿入位置を探す入力例](binary_search_insertion.assets/binary_search_insertion_example.svg)
 
 前節の二分探索のコードを再利用するには、次の二つの問いに答える必要があります。
 
@@ -39,7 +39,7 @@
 1. 二分探索でいずれかの `target` のインデックスを求め、$k$ とします。
 2. インデックス $k$ から左へ線形に走査し、最も左の `target` が見つかったら返します。
 
-![線形探索で重複する要素の挿入位置を探す](binary_search_insertion.assets/binary_search_insertion_naive.png)
+![線形探索で重複する要素の挿入位置を探す](binary_search_insertion.assets/binary_search_insertion_naive.svg)
 
 この方法でも求められますが、線形探索を含むため時間計算量は $O(n)$ です。配列に `target` が多数重複している場合、効率が低くなります。
 
@@ -51,28 +51,28 @@
 ループが終わると、$i$ は最も左の `target` を、$j$ は `target` より小さい最も右の要素を指します。**したがって、インデックス $i$ が挿入位置です**。
 
 === "<1>"
-    ![二分探索で重複する要素の挿入位置を探す手順](binary_search_insertion.assets/binary_search_insertion_step1.png)
+    ![二分探索で重複する要素の挿入位置を探す手順](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![二分探索による挿入位置の探索の手順 2](binary_search_insertion.assets/binary_search_insertion_step2.png)
+    ![二分探索による挿入位置の探索の手順 2](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![二分探索による挿入位置の探索の手順 3](binary_search_insertion.assets/binary_search_insertion_step3.png)
+    ![二分探索による挿入位置の探索の手順 3](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![二分探索による挿入位置の探索の手順 4](binary_search_insertion.assets/binary_search_insertion_step4.png)
+    ![二分探索による挿入位置の探索の手順 4](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![二分探索による挿入位置の探索の手順 5](binary_search_insertion.assets/binary_search_insertion_step5.png)
+    ![二分探索による挿入位置の探索の手順 5](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![二分探索による挿入位置の探索の手順 6](binary_search_insertion.assets/binary_search_insertion_step6.png)
+    ![二分探索による挿入位置の探索の手順 6](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![二分探索による挿入位置の探索の手順 7](binary_search_insertion.assets/binary_search_insertion_step7.png)
+    ![二分探索による挿入位置の探索の手順 7](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![二分探索による挿入位置の探索の手順 8](binary_search_insertion.assets/binary_search_insertion_step8.png)
+    ![二分探索による挿入位置の探索の手順 8](binary_search_insertion.assets/binary_search_insertion_step8.svg)
 
 以下のコードを見ると、条件分岐 `nums[m] > target` と `nums[m] == target` では同じ操作を行うため、二つをまとめられます。
 

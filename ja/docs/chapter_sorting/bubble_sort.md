@@ -5,25 +5,25 @@
 下図のように、要素の交換で泡の動きを再現できます。配列の左端から右へ走査し、隣り合う要素を順に比較して、「左の要素 > 右の要素」なら交換します。走査が終わると、最大の要素が配列の右端に移ります。
 
 === "<1>"
-    ![要素の交換で泡の動きを再現する](bubble_sort.assets/bubble_operation_step1.png)
+    ![要素の交換で泡の動きを再現する](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
-    ![バブル操作の手順 2](bubble_sort.assets/bubble_operation_step2.png)
+    ![バブル操作の手順 2](bubble_sort.assets/bubble_operation_step2.svg)
 
 === "<3>"
-    ![バブル操作の手順 3](bubble_sort.assets/bubble_operation_step3.png)
+    ![バブル操作の手順 3](bubble_sort.assets/bubble_operation_step3.svg)
 
 === "<4>"
-    ![バブル操作の手順 4](bubble_sort.assets/bubble_operation_step4.png)
+    ![バブル操作の手順 4](bubble_sort.assets/bubble_operation_step4.svg)
 
 === "<5>"
-    ![バブル操作の手順 5](bubble_sort.assets/bubble_operation_step5.png)
+    ![バブル操作の手順 5](bubble_sort.assets/bubble_operation_step5.svg)
 
 === "<6>"
-    ![バブル操作の手順 6](bubble_sort.assets/bubble_operation_step6.png)
+    ![バブル操作の手順 6](bubble_sort.assets/bubble_operation_step6.svg)
 
 === "<7>"
-    ![バブル操作の手順 7](bubble_sort.assets/bubble_operation_step7.png)
+    ![バブル操作の手順 7](bubble_sort.assets/bubble_operation_step7.svg)
 
 ## アルゴリズムの流れ
 
@@ -34,7 +34,7 @@
 3. 同様に $n - 1$ 回繰り返すと、**大きいほうから $n - 1$ 個の要素がすべて正しい位置へ移ります**。
 4. 残った一つの要素は必ず最小要素なので、ソートは不要です。これで配列全体のソートが完了します。
 
-![バブルソートの流れ](bubble_sort.assets/bubble_sort_overview.png)
+![バブルソートの流れ](bubble_sort.assets/bubble_sort_overview.svg)
 
 コード例は次のとおりです。
 

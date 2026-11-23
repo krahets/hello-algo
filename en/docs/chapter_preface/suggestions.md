@@ -13,170 +13,9 @@
 - When terminology differs between programming languages, this book follows Python; for example, it uses `None` to represent a null value.
 - For a more compact layout, this book sometimes departs from a language's usual commenting conventions. Comments fall into three main categories: heading comments, explanatory comments, and multiline comments.
 
-=== "Python"
-
-    ```python title=""
-    """Heading comment identifying a function, class, test case, and so on"""
-    
-    # Explanatory comment describing the code in detail
-    
-    """
-    Multiline
-    comment
-    """
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-
-    // Explanatory comment describing the code in detail
-    
-    // Multiline
-    // comment
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* Heading comment identifying a function, class, test case, and so on */
-    
-    // Explanatory comment describing the code in detail
-    
-    /**
-     * Multiline
-     * comment
-     */
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### Heading comment identifying a function, class, test case, and so on ###
-
-    # Explanatory comment describing the code in detail
-    
-    # Multiline
-    # comment
-    ```
+```snippet
+comment_style
+```
 
 ## Learn efficiently with animated illustrations
 
@@ -212,7 +51,7 @@ Alternatively, click “Download ZIP” in the location shown below to download 
 
 **Step 3: Run the source code**. As shown below, when a code block has a filename at the top, you can find the corresponding source file in the repository's `en/codes` folder. These files can be run with one click, saving unnecessary debugging time so you can focus on learning.
 
-![A code block labeled with its source filename](suggestions.assets/code_md_to_repo.png)
+![A code block labeled with its source filename](suggestions.assets/code_md_to_repo.svg)
 
 In addition to running code locally, **the web edition supports visual execution of Python code** through [pythontutor](https://pythontutor.com/). Click “Visualize execution” beneath a code block to expand the view and watch the algorithm run. You can also click “View full screen” for a larger display, as shown in the figure below.
 
@@ -236,4 +75,4 @@ Broadly speaking, learning data structures and algorithms can be divided into th
 
 As the figure below shows, this book mainly covers “Stage 1,” helping you approach Stages 2 and 3 more efficiently.
 
-![A learning path for algorithms](suggestions.assets/learning_route.png)
+![A learning path for algorithms](suggestions.assets/learning_route.svg)

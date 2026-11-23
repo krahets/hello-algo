@@ -31,17 +31,3 @@ If you would like to contribute to this open-source project, for example by tran
 3. Create your content locally and test it thoroughly to verify that the code is correct.
 4. Commit your local changes, then push them to your remote repository.
 5. Refresh the repository page and click "Create pull request" to submit your pull request.
-
-### Deploying with Docker
-
-Run the following Docker command in the `hello-algo` root directory to access the English edition at `http://localhost:8000/en/`:
-
-```shell
-docker-compose up -d
-```
-
-Use the following command to remove the deployment:
-
-```shell
-docker-compose down
-```

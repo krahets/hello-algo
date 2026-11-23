@@ -8,198 +8,9 @@
 
 예를 들어 다음 코드에서 입력 데이터 크기는 $n$이다.
 
-=== "Python"
-
-    ```python title=""
-    # 어떤 실행 플랫폼에서
-    def algorithm(n: int):
-        a = 2      # 1 ns
-        a = a + 1  # 1 ns
-        a = a * 2  # 10 ns
-        # n번 반복
-        for _ in range(n):  # 1 ns
-            print(0)        # 5 ns
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // 어떤 실행 플랫폼에서
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n번 반복
-        for (int i = 0; i < n; i++) {  // 1 ns
-            cout << 0 << endl;         // 5 ns
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // 어떤 실행 플랫폼에서
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n번 반복
-        for (int i = 0; i < n; i++) {  // 1 ns
-            System.out.println(0);     // 5 ns
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // 어떤 실행 플랫폼에서
-    void Algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n번 반복
-        for (int i = 0; i < n; i++) {  // 1 ns
-            Console.WriteLine(0);      // 5 ns
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // 어떤 실행 플랫폼에서
-    func algorithm(n int) {
-        a := 2     // 1 ns
-        a = a + 1  // 1 ns
-        a = a * 2  // 10 ns
-        // n번 반복
-        for i := 0; i < n; i++ {  // 1 ns
-            fmt.Println(a)        // 5 ns
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // 어떤 실행 플랫폼에서
-    func algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // n번 반복
-        for _ in 0 ..< n { // 1 ns
-            print(0) // 5 ns
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // 어떤 실행 플랫폼에서
-    function algorithm(n) {
-        var a = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // n번 반복
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // 어떤 실행 플랫폼에서
-    function algorithm(n: number): void {
-        var a: number = 2; // 1 ns
-        a = a + 1; // 1 ns
-        a = a * 2; // 10 ns
-        // n번 반복
-        for(let i = 0; i < n; i++) { // 1 ns
-            console.log(0); // 5 ns
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // 어떤 실행 플랫폼에서
-    void algorithm(int n) {
-      int a = 2; // 1 ns
-      a = a + 1; // 1 ns
-      a = a * 2; // 10 ns
-      // n번 반복
-      for (int i = 0; i < n; i++) { // 1 ns
-        print(0); // 5 ns
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // 어떤 실행 플랫폼에서
-    fn algorithm(n: i32) {
-        let mut a = 2;      // 1 ns
-        a = a + 1;          // 1 ns
-        a = a * 2;          // 10 ns
-        // n번 반복
-        for _ in 0..n {     // 1 ns
-            println!("{}", 0);  // 5 ns
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // 어떤 실행 플랫폼에서
-    void algorithm(int n) {
-        int a = 2;  // 1 ns
-        a = a + 1;  // 1 ns
-        a = a * 2;  // 10 ns
-        // n번 반복
-        for (int i = 0; i < n; i++) {   // 1 ns
-            printf("%d", 0);            // 5 ns
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // 어떤 실행 플랫폼에서
-    fun algorithm(n: Int) {
-        var a = 2 // 1 ns
-        a = a + 1 // 1 ns
-        a = a * 2 // 10 ns
-        // n번 반복
-        for (i in 0..<n) {  // 1 ns
-            println(0)      // 5 ns
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # 어떤 실행 플랫폼에서
-    def algorithm(n)
-        a = 2       # 1 ns
-        a = a + 1   # 1 ns
-        a = a * 2   # 10 ns
-        # n번 반복
-        (0...n).each do # 1 ns
-            puts 0      # 5 ns
-        end
-    end
-    ```
+```snippet
+run_time_estimate
+```
 
 위 방법으로 구한 알고리즘의 실행 시간은 $(6n + 12)$ ns다.
 
@@ -215,274 +26,9 @@ $$
 
 ‘시간의 증가 추세’는 추상적인 개념이므로 예를 통해 이해해 보자. 입력 데이터 크기가 $n$이고, 세 알고리즘 `A`, `B`, `C`가 주어졌다고 하자.
 
-=== "Python"
-
-    ```python title=""
-    # 알고리즘 A의 시간 복잡도: 상수 시간
-    def algorithm_A(n: int):
-        print(0)
-    # 알고리즘 B의 시간 복잡도: 선형 시간
-    def algorithm_B(n: int):
-        for _ in range(n):
-            print(0)
-    # 알고리즘 C의 시간 복잡도: 상수 시간
-    def algorithm_C(n: int):
-        for _ in range(1000000):
-            print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    void algorithm_A(int n) {
-        cout << 0 << endl;
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            cout << 0 << endl;
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            cout << 0 << endl;
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    void algorithm_A(int n) {
-        System.out.println(0);
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.println(0);
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            System.out.println(0);
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    void AlgorithmA(int n) {
-        Console.WriteLine(0);
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    void AlgorithmB(int n) {
-        for (int i = 0; i < n; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    void AlgorithmC(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            Console.WriteLine(0);
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    func algorithm_A(n int) {
-        fmt.Println(0)
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    func algorithm_B(n int) {
-        for i := 0; i < n; i++ {
-            fmt.Println(0)
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    func algorithm_C(n int) {
-        for i := 0; i < 1000000; i++ {
-            fmt.Println(0)
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    func algorithmA(n: Int) {
-        print(0)
-    }
-
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    func algorithmB(n: Int) {
-        for _ in 0 ..< n {
-            print(0)
-        }
-    }
-
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    func algorithmC(n: Int) {
-        for _ in 0 ..< 1_000_000 {
-            print(0)
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    function algorithm_A(n) {
-        console.log(0);
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    function algorithm_B(n) {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    function algorithm_C(n) {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    function algorithm_A(n: number): void {
-        console.log(0);
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    function algorithm_B(n: number): void {
-        for (let i = 0; i < n; i++) {
-            console.log(0);
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    function algorithm_C(n: number): void {
-        for (let i = 0; i < 1000000; i++) {
-            console.log(0);
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    void algorithmA(int n) {
-      print(0);
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    void algorithmB(int n) {
-      for (int i = 0; i < n; i++) {
-        print(0);
-      }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    void algorithmC(int n) {
-      for (int i = 0; i < 1000000; i++) {
-        print(0);
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    fn algorithm_A(n: i32) {
-        println!("{}", 0);
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    fn algorithm_B(n: i32) {
-        for _ in 0..n {
-            println!("{}", 0);
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    fn algorithm_C(n: i32) {
-        for _ in 0..1000000 {
-            println!("{}", 0);
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    void algorithm_A(int n) {
-        printf("%d", 0);
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    void algorithm_B(int n) {
-        for (int i = 0; i < n; i++) {
-            printf("%d", 0);
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    void algorithm_C(int n) {
-        for (int i = 0; i < 1000000; i++) {
-            printf("%d", 0);
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    // 알고리즘 A의 시간 복잡도: 상수 시간
-    fun algoritm_A(n: Int) {
-        println(0)
-    }
-    // 알고리즘 B의 시간 복잡도: 선형 시간
-    fun algorithm_B(n: Int) {
-        for (i in 0..<n){
-            println(0)
-        }
-    }
-    // 알고리즘 C의 시간 복잡도: 상수 시간
-    fun algorithm_C(n: Int) {
-        for (i in 0..<1000000) {
-            println(0)
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    # 알고리즘 A의 시간 복잡도: 상수 시간
-    def algorithm_A(n)
-        puts 0
-    end
-
-    # 알고리즘 B의 시간 복잡도: 선형 시간
-    def algorithm_B(n)
-        (0...n).each { puts 0 }
-    end
-
-    # 알고리즘 C의 시간 복잡도: 상수 시간
-    def algorithm_C(n)
-        (0...1_000_000).each { puts 0 }
-    end
-    ```
+```snippet
+growth_trend
+```
 
 아래 그림은 이 세 알고리즘 함수의 시간 복잡도를 보여 준다.
 
@@ -490,7 +36,7 @@ $$
 - 알고리즘 `B`의 출력 연산은 $n$번 반복되므로, $n$이 커짐에 따라 실행 시간이 선형으로 증가한다. 이런 알고리즘의 시간 복잡도를 ‘선형 시간’이라고 한다.
 - 알고리즘 `C`의 출력 연산은 $1000000$번 반복된다. 실행 시간은 길지만 입력 데이터 크기 $n$과는 무관하다. 따라서 `C`의 시간 복잡도는 `A`와 같은 ‘상수 시간’이다.
 
-![알고리즘 A, B, C의 시간 증가 추세](time_complexity.assets/time_complexity_simple_example.png)
+![알고리즘 A, B, C의 시간 증가 추세](time_complexity.assets/time_complexity_simple_example.svg)
 
 알고리즘의 실행 시간을 직접 계산하는 방식과 비교하면 시간 복잡도 분석에는 어떤 특징이 있을까?
 
@@ -502,186 +48,9 @@ $$
 
 입력 크기가 $n$인 다음 함수를 살펴보자.
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +1
-        a = a + 1  # +1
-        a = a * 2  # +1
-        # n번 반복
-        for i in range(n):  # +1
-            print(0)        # +1
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n번 반복
-        for (int i = 0; i < n; i++) { // +1(매번 i ++ 실행)
-            cout << 0 << endl;    // +1
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n번 반복
-        for (int i = 0; i < n; i++) { // +1(매번 i ++ 실행)
-            System.out.println(0);    // +1
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n번 반복
-        for (int i = 0; i < n; i++) {   // +1(매번 i ++ 실행)
-            Console.WriteLine(0);   // +1
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1      // +1
-        a = a + 1   // +1
-        a = a * 2   // +1
-        // n번 반복
-        for i := 0; i < n; i++ {   // +1
-            fmt.Println(a)         // +1
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // n번 반복
-        for _ in 0 ..< n { // +1
-            print(0) // +1
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        var a = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // n번 반복
-        for(let i = 0; i < n; i++){ // +1(매번 i ++ 실행)
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void{
-        var a: number = 1; // +1
-        a += 1; // +1
-        a *= 2; // +1
-        // n번 반복
-        for(let i = 0; i < n; i++){ // +1(매번 i ++ 실행)
-            console.log(0); // +1
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +1
-      a = a + 1; // +1
-      a = a * 2; // +1
-      // n번 반복
-      for (int i = 0; i < n; i++) { // +1(매번 i ++ 실행)
-        print(0); // +1
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;   // +1
-        a = a + 1;      // +1
-        a = a * 2;      // +1
-
-        // n번 반복
-        for _ in 0..n { // +1(매번 i ++ 실행)
-            println!("{}", 0); // +1
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +1
-        a = a + 1;  // +1
-        a = a * 2;  // +1
-        // n번 반복
-        for (int i = 0; i < n; i++) {   // +1(매번 i ++ 실행)
-            printf("%d", 0);            // +1
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1 // +1
-        a = a + 1 // +1
-        a = a * 2 // +1
-        // n번 반복
-        for (i in 0..<n) { // +1(매번 i ++ 실행)
-            println(0) // +1
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +1
-        a = a + 1   # +1
-        a = a * 2   # +1
-        # n번 반복
-        (0...n).each do # +1
-            puts 0      # +1
-        end
-    end
-    ```
+```snippet
+asymptotic_upper_bound
+```
 
 알고리즘의 연산 횟수를 입력 데이터 크기 $n$에 대한 함수 $T(n)$으로 나타내면, 위 함수의 연산 횟수는 다음과 같다.
 
@@ -701,7 +70,7 @@ $T(n)$은 일차 함수이므로 실행 시간이 선형으로 증가한다. 따
 
 아래 그림과 같이 점근적 상한을 계산한다는 것은 함수 $f(n)$을 찾는 것이다. 이 함수는 $n$이 무한대로 향할 때 $T(n)$과 $f(n)$의 증가 차수가 같고 상수 계수 $c$만큼만 차이가 나도록 해야 한다.
 
-![함수의 점근적 상한](time_complexity.assets/asymptotic_upper_bound.png)
+![함수의 점근적 상한](time_complexity.assets/asymptotic_upper_bound.svg)
 
 ## 계산 방법
 
@@ -719,246 +88,9 @@ $T(n)$은 일차 함수이므로 실행 시간이 선형으로 증가한다. 따
 
 다음 함수에 위 요령을 적용하여 연산 횟수를 세어 보자.
 
-=== "Python"
-
-    ```python title=""
-    def algorithm(n: int):
-        a = 1      # +0(요령 1)
-        a = a + n  # +0(요령 1)
-        # +n(요령 2)
-        for i in range(5 * n + 1):
-            print(0)
-        # +n*n(요령 3)
-        for i in range(2 * n):
-            for j in range(n + 1):
-                print(0)
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    void algorithm(int n) {
-        int a = 1;  // +0(요령 1)
-        a = a + n;  // +0(요령 1)
-        // +n(요령 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            cout << 0 << endl;
-        }
-        // +n*n(요령 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                cout << 0 << endl;
-            }
-        }
-    }
-    ```
-
-=== "Java"
-
-    ```java title=""
-    void algorithm(int n) {
-        int a = 1;  // +0(요령 1)
-        a = a + n;  // +0(요령 1)
-        // +n(요령 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            System.out.println(0);
-        }
-        // +n*n(요령 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                System.out.println(0);
-            }
-        }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    void Algorithm(int n) {
-        int a = 1;  // +0(요령 1)
-        a = a + n;  // +0(요령 1)
-        // +n(요령 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            Console.WriteLine(0);
-        }
-        // +n*n(요령 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                Console.WriteLine(0);
-            }
-        }
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    func algorithm(n int) {
-        a := 1     // +0(요령 1)
-        a = a + n  // +0(요령 1)
-        // +n(요령 2)
-        for i := 0; i < 5 * n + 1; i++ {
-            fmt.Println(0)
-        }
-        // +n*n(요령 3)
-        for i := 0; i < 2 * n; i++ {
-            for j := 0; j < n + 1; j++ {
-                fmt.Println(0)
-            }
-        }
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    func algorithm(n: Int) {
-        var a = 1 // +0(요령 1)
-        a = a + n // +0(요령 1)
-        // +n(요령 2)
-        for _ in 0 ..< (5 * n + 1) {
-            print(0)
-        }
-        // +n*n(요령 3)
-        for _ in 0 ..< (2 * n) {
-            for _ in 0 ..< (n + 1) {
-                print(0)
-            }
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    function algorithm(n) {
-        let a = 1;  // +0(요령 1)
-        a = a + n;  // +0(요령 1)
-        // +n(요령 2)
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n(요령 3)
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    function algorithm(n: number): void {
-        let a = 1;  // +0(요령 1)
-        a = a + n;  // +0(요령 1)
-        // +n(요령 2)
-        for (let i = 0; i < 5 * n + 1; i++) {
-            console.log(0);
-        }
-        // +n*n(요령 3)
-        for (let i = 0; i < 2 * n; i++) {
-            for (let j = 0; j < n + 1; j++) {
-                console.log(0);
-            }
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    void algorithm(int n) {
-      int a = 1; // +0(요령 1)
-      a = a + n; // +0(요령 1)
-      // +n(요령 2)
-      for (int i = 0; i < 5 * n + 1; i++) {
-        print(0);
-      }
-      // +n*n(요령 3)
-      for (int i = 0; i < 2 * n; i++) {
-        for (int j = 0; j < n + 1; j++) {
-          print(0);
-        }
-      }
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    fn algorithm(n: i32) {
-        let mut a = 1;     // +0(요령 1)
-        a = a + n;        // +0(요령 1)
-
-        // +n(요령 2)
-        for i in 0..(5 * n + 1) {
-            println!("{}", 0);
-        }
-
-        // +n*n(요령 3)
-        for i in 0..(2 * n) {
-            for j in 0..(n + 1) {
-                println!("{}", 0);
-            }
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    void algorithm(int n) {
-        int a = 1;  // +0(요령 1)
-        a = a + n;  // +0(요령 1)
-        // +n(요령 2)
-        for (int i = 0; i < 5 * n + 1; i++) {
-            printf("%d", 0);
-        }
-        // +n*n(요령 3)
-        for (int i = 0; i < 2 * n; i++) {
-            for (int j = 0; j < n + 1; j++) {
-                printf("%d", 0);
-            }
-        }
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    fun algorithm(n: Int) {
-        var a = 1   // +0(요령 1)
-        a = a + n   // +0(요령 1)
-        // +n(요령 2)
-        for (i in 0..<5 * n + 1) {
-            println(0)
-        }
-        // +n*n(요령 3)
-        for (i in 0..<2 * n) {
-            for (j in 0..<n + 1) {
-                println(0)
-            }
-        }
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    def algorithm(n)
-        a = 1       # +0(요령 1)
-        a = a + n   # +0(요령 1)
-        # +n(요령 2)
-        (0...(5 * n + 1)).each do { puts 0 }
-        # +n*n(요령 3)
-        (0...(2 * n)).each do
-            (0...(n + 1)).each do { puts 0 }
-        end
-    end
-    ```
+```snippet
+count_operations
+```
 
 아래 식은 위 요령을 적용하기 전과 후의 계산 결과를 보여 준다. 두 결과에서 구한 시간 복잡도는 모두 $O(n^2)$이다.
 
@@ -997,7 +129,7 @@ $$
 \end{aligned}
 $$
 
-![대표적인 시간 복잡도 유형](time_complexity.assets/time_complexity_common_types.png)
+![대표적인 시간 복잡도 유형](time_complexity.assets/time_complexity_common_types.svg)
 
 ### 상수 시간 $O(1)$
 
@@ -1035,7 +167,7 @@ $$
 
 아래 그림은 상수 시간, 선형 시간, 제곱 시간의 세 가지 시간 복잡도를 비교한다.
 
-![상수 시간, 선형 시간, 제곱 시간의 시간 복잡도](time_complexity.assets/time_complexity_constant_linear_quadratic.png)
+![상수 시간, 선형 시간, 제곱 시간의 시간 복잡도](time_complexity.assets/time_complexity_constant_linear_quadratic.svg)
 
 버블 정렬을 예로 들면, 바깥쪽 반복문은 $n - 1$번 실행되고 안쪽 반복문은 $n-1$, $n-2$, $\dots$, $2$, $1$번, 평균 $n / 2$번 실행된다. 따라서 시간 복잡도는 $O((n - 1) n / 2) = O(n^2)$이다.
 
@@ -1053,7 +185,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{exponential}
 ```
 
-![지수 시간 복잡도](time_complexity.assets/time_complexity_exponential.png)
+![지수 시간 복잡도](time_complexity.assets/time_complexity_exponential.svg)
 
 실제 알고리즘에서 지수 시간은 재귀 함수에 자주 나타난다. 예를 들어 다음 코드는 재귀적으로 둘로 나뉘며, $n$번 나뉜 뒤 멈춘다.
 
@@ -1073,7 +205,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{logarithmic}
 ```
 
-![로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic.png)
+![로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic.svg)
 
 지수 시간처럼 로그 시간도 재귀 함수에 자주 나타난다. 다음 코드는 높이가 $\log_2 n$인 재귀 트리를 만든다.
 
@@ -1103,7 +235,7 @@ $$
 
 아래 그림은 선형 로그 시간이 만들어지는 방식을 보여 준다. 이진 트리의 각 층에서 수행하는 전체 연산 횟수는 $n$이고, 층수는 $\log_2 n + 1$이므로 시간 복잡도는 $O(n \log n)$이다.
 
-![선형 로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic_linear.png)
+![선형 로그 시간 복잡도](time_complexity.assets/time_complexity_logarithmic_linear.svg)
 
 퀵 정렬, 병합 정렬, 힙 정렬 등 널리 쓰이는 정렬 알고리즘의 시간 복잡도는 보통 $O(n \log n)$이다.
 
@@ -1121,7 +253,7 @@ $$
 [file]{time_complexity}-[class]{}-[func]{factorial_recur}
 ```
 
-![팩토리얼 시간 복잡도](time_complexity.assets/time_complexity_factorial.png)
+![팩토리얼 시간 복잡도](time_complexity.assets/time_complexity_factorial.svg)
 
 $n \geq 4$이면 항상 $n! > 2^n$이므로 팩토리얼 시간은 지수 시간보다 더 빠르게 증가한다. 따라서 $n$이 클 때는 이 역시 감당하기 어렵다.
 

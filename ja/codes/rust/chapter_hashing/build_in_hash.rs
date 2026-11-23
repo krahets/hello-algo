@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("ノードオブジェクト {:?} のハッシュ値は{}", node, hash);
+    println!("ノード {:?} の値のハッシュ値は {}", node, hash);
 }

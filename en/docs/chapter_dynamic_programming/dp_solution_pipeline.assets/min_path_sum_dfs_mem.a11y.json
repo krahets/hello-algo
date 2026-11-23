@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "title": "Memoized recursion for minimum path sum",
+  "summary": "On the second request for dp[1, 0], return the cached valid path sum directly without expanding its children, distinct from returning positive infinity out of bounds.",
+  "context": [
+    "Moving only right or down from [0, 0] in a nonnegative grid, dp[i, j] denotes the minimum path sum to row i, column j (zero-based). Also rooted at dp[2, 1], this figure shows how adding memoization table mem prunes overlapping subproblems without concrete grid weights. Recursion looks backward to the previous row and previous column, opposite to walking down and right.",
+    "Each valid interior state takes the smaller return value of its two predecessors plus the current cell's cost: dp[i, j] = min(dp[i - 1, j], dp[i, j - 1]) + grid[i, j]. Start [0, 0] returns grid[0, 0], and negative out-of-bounds indices return positive infinity."
+  ],
+  "description": [
+    "In the recursion tree, the left branch queries the previous row (written \"Up\" in path notation) and the right branch queries the previous column (written \"Left\"); these direction words refer to predecessor directions in the grid rather than left/right positions in the tree drawing.",
+    "From root dp[2, 1] through dp[1, 1] to dp[1, 0] is path \"Up → Left\", and through dp[2, 0] to dp[1, 0] is path \"Left → Up\". Both paths request the same subproblem.",
+    "Solving the dp[1, 1] branch first: on the first visit to dp[1, 0], wait for both predecessor calls to return, compute the cell's minimum path sum, store it in mem[1][0], and return to dp[1, 1]. When solving the dp[2, 0] branch afterward, requesting dp[1, 0] again hits \"Prune: result already cached\" and returns the cached value directly without calling dp[0, 0] or dp[1, -1]. The other child of dp[2, 0], dp[2, -1] (path \"Left → Left\"), is out of bounds and returns positive infinity, whereas the cached value is a valid finite path sum participating in the minimum.",
+    "This search touches six valid states across rows 0 to 2 and columns 0 to 1: [0, 0], [0, 1], [1, 0], [1, 1], [2, 0], and [2, 1]. Both dp[0, 1] and the first evaluation of dp[1, 0] call start state dp[0, 0] once along paths \"Up → Up → Left\" and \"Up → Left → Up\". Because [0, 0] immediately returns grid[0, 0] without reading or writing mem, both start leaves remain in the tree. The table below lists every call in preorder (node, then Up, then Left); this figure omits a separate grid or dp table."
+  ],
+  "frames": [
+    {
+      "id": "source-381",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs_mem.png",
+      "title": "Cache hit reuses dp[1, 0] directly, distinct from out-of-bounds pruning",
+      "explanation": "Skipping the two children under the second dp[1, 0] reduces total call nodes from 13 in the brute-force tree to 11. Counted across the table, 2 start nodes dp[0, 0] and 3 out-of-bounds nodes—dp[-1, 1], dp[1, -1], and dp[2, -1]—remain."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Complete recursion tree; paths start at the root, and Up/Left denote predecessor lookups",
+      "headers": [
+        "Call path",
+        "State",
+        "Action or return",
+        "Child nodes"
+      ],
+      "rows": [
+        [
+          "Root",
+          "dp[2,1]",
+          "Take min of two predecessors, add grid[2, 1], and store in mem",
+          "Up: dp[1, 1]; Left: dp[2, 0]"
+        ],
+        [
+          "Up",
+          "dp[1,1]",
+          "Take min of two predecessors, add grid[1, 1], and store in mem",
+          "Up: dp[0, 1]; Left: dp[1, 0]"
+        ],
+        [
+          "Up → Up",
+          "dp[0,1]",
+          "Take min of two predecessors, add grid[0, 1], and store in mem",
+          "Up: dp[-1, 1]; Left: dp[0, 0]"
+        ],
+        [
+          "Up → Up → Up",
+          "dp[-1,1]",
+          "Out of bounds, return +∞",
+          "Not expanded"
+        ],
+        [
+          "Up → Up → Left",
+          "dp[0,0]",
+          "Start cell, return grid[0, 0]",
+          "Not expanded"
+        ],
+        [
+          "Up → Left",
+          "dp[1,0]",
+          "Take min of two predecessors, add grid[1, 0], and store in mem",
+          "Up: dp[0, 0]; Left: dp[1, -1]"
+        ],
+        [
+          "Up → Left → Up",
+          "dp[0,0]",
+          "Start cell, return grid[0, 0]",
+          "Not expanded"
+        ],
+        [
+          "Up → Left → Left",
+          "dp[1,-1]",
+          "Out of bounds, return +∞",
+          "Not expanded"
+        ],
+        [
+          "Left",
+          "dp[2,0]",
+          "Take min of two predecessors, add grid[2, 0], and store in mem",
+          "Up: dp[1, 0]; Left: dp[2, -1]"
+        ],
+        [
+          "Left → Up",
+          "dp[1,0]",
+          "Cache hit, return solved dp[1, 0]",
+          "Not expanded"
+        ],
+        [
+          "Left → Left",
+          "dp[2,-1]",
+          "Out of bounds, return +∞",
+          "Not expanded"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

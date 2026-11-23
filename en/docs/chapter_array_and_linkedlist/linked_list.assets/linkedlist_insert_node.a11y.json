@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "title": "Inserting a node into a linked list",
+  "summary": "To insert a new node P between adjacent nodes n0 and n1, update only two references in order: P.next and then n0.next.",
+  "context": [
+    "Predecessor node n0 has value 1 and successor node n1 has value 3; initially n0.next points to n1, and the ellipsis to the right of n1 represents the rest of the list. Node P to be inserted has value 0 and is not yet linked into the list. Here next denotes a node's successor pointer (reference)."
+  ],
+  "description": [],
+  "result": "All node values and all links after n1 remain unchanged. Given the predecessor n0, updating the two references takes O(1) time without shifting any subsequent nodes.",
+  "frames": [
+    {
+      "id": "source-51",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_insert_node.png",
+      "title": "Inserting a node into a linked list",
+      "explanation": "Linking the new node to the original successor before pointing the predecessor to the new node avoids losing the rest of the list. The code first saves n0.next in n1 and then performs the two assignments in the order shown. Traversal from n0 passes through P only after the second assignment completes."
+    }
+  ],
+  "animations": {
+    "flow-linked-insert": {
+      "kind": "prose",
+      "prose": {
+        "title": "Inserting a node into a linked list",
+        "summary": "To insert a new node P between adjacent nodes n0 and n1, update only two references in order: P.next and then n0.next.",
+        "context": [
+          "Predecessor node n0 has value 1 and successor node n1 has value 3; initially n0.next points to n1, and the ellipsis to the right of n1 represents the rest of the list. Node P to be inserted has value 0 and is not yet linked into the list. Here next denotes a node's successor pointer (reference)."
+        ],
+        "description": [],
+        "result": "All node values and all links after n1 remain unchanged. Given the predecessor n0, updating the two references takes O(1) time without shifting any subsequent nodes.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Initial links",
+            "explanation": "The initial chain is n0 (1) → n1 (3) → …, with n0.next pointing to n1. Node P (0) to be inserted stands separate outside the list, and the figure does not draw an initial target for P.next.",
+            "key_state": "Initial state: n0.next = n1, while node P (value 0) stands separate and unlinked.",
+            "announcement": "Show initial linked list n0 (1) → n1 (3) and node P (0) to be inserted."
+          },
+          {
+            "id": "step-2",
+            "title": "Link P to its successor",
+            "explanation": "Execute P.next = n1. The next pointers of n0 (value 1) and P (value 0) now both point to n1 (value 3), while links after n1 remain unchanged. Starting from n0 still leads directly to n1 without passing through P yet.",
+            "key_state": "Executed P.next = n1 while n0.next still points to n1 (both point to n1); traversal from n0 does not yet pass through P.",
+            "announcement": "Execute P.next = n1 so new node P points to successor n1 first."
+          },
+          {
+            "id": "step-3",
+            "title": "Link P into the list",
+            "explanation": "Execute n0.next = P while keeping P.next = n1. The chain becomes n0 (1) → P (0) → n1 (3) → …, so starting from n0 now visits P before continuing to the rest of the list, completing the insertion.",
+            "key_state": "Executed n0.next = P with P.next = n1; the final list is n0 (1) → P (0) → n1 (3) → ….",
+            "announcement": "Execute n0.next = P to complete insertion; the list becomes n0 (1) → P (0) → n1 (3) → subsequent nodes."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Links during node insertion",
+      "headers": [
+        "Stage",
+        "n0.next",
+        "P.next",
+        "Nodes visited starting from n0"
+      ],
+      "rows": [
+        [
+          "Initial",
+          "n1",
+          "Target not drawn",
+          "n0 → n1 → …"
+        ],
+        [
+          "Link P to successor",
+          "n1",
+          "n1",
+          "n0 → n1 → …"
+        ],
+        [
+          "Insertion complete",
+          "P",
+          "n1",
+          "n0 → P → n1 → …"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -11,19 +11,19 @@
 3. 병음의 첫 글자가 $r$인 페이지를 찾을 때까지 단계 `1.`과 단계 `2.`를 반복한다.
 
 === "<1>"
-    ![사전에서 단어를 찾는 단계](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![사전에서 단어를 찾는 단계](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![사전에서 단어 찾기: 2단계](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![사전에서 단어 찾기: 2단계](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![사전에서 단어 찾기: 3단계](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![사전에서 단어 찾기: 3단계](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![사전에서 단어 찾기: 4단계](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![사전에서 단어 찾기: 4단계](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![사전에서 단어 찾기: 5단계](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![사전에서 단어 찾기: 5단계](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 초등학생도 익히는 사전 찾기는 사실 유명한 ‘이진 탐색’ 알고리즘이다. 자료 구조의 관점에서 사전은 정렬된 ‘배열’로 볼 수 있고, 알고리즘의 관점에서 앞서 살펴본 사전 찾기의 일련의 동작은 ‘이진 탐색’으로 볼 수 있다.
 
@@ -33,7 +33,7 @@
 2. 정렬되지 않은 부분에서 카드 한 장을 꺼내 정렬된 부분의 올바른 위치에 끼워 넣는다. 그러면 맨 왼쪽 카드 2장이 정렬된 상태가 된다.
 3. 단계 `2.`를 반복하여 매번 정렬되지 않은 부분의 카드 한 장을 정렬된 부분에 끼워 넣는다. 모든 카드가 정렬될 때까지 계속한다.
 
-![카드를 정렬하는 단계](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![카드를 정렬하는 단계](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
 
 이러한 카드 정리 방법은 본질적으로 ‘삽입 정렬’ 알고리즘이며, 작은 데이터 집합을 처리할 때 매우 효율적이다. 많은 프로그래밍 언어의 정렬 라이브러리 함수에서도 삽입 정렬이 사용된다.
 
@@ -45,7 +45,7 @@
 4. 남은 선택지 중 가장 큰 $1$위안을 꺼내면 $1 - 1 = 0$위안이 남는다.
 5. 거스름돈을 모두 주었다. 그 구성은 $20 + 10 + 1 = 31$위안이다.
 
-![거스름돈을 주는 과정](algorithms_are_everywhere.assets/greedy_change.png)
+![거스름돈을 주는 과정](algorithms_are_everywhere.assets/greedy_change.svg)
 
 위 과정에서는 각 단계마다 현재 가장 좋아 보이는 선택, 즉 가능한 한 액면가가 큰 화폐를 고른다. 그 결과 거스름돈을 줄 수 있는 방법을 얻는다. 자료 구조와 알고리즘의 관점에서 이 방법은 본질적으로 ‘탐욕’ 알고리즘이다.
 

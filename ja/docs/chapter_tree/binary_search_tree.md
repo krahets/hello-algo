@@ -5,7 +5,7 @@
 1. 根について、左の部分木のすべての値 $<$ 根の値 $<$ 右の部分木のすべての値が成り立ちます。
 2. どのノードの左右の部分木も二分探索木であり、同じく条件 `1.` を満たします。
 
-![二分探索木](binary_search_tree.assets/binary_search_tree.png)
+![二分探索木](binary_search_tree.assets/binary_search_tree.svg)
 
 ## 二分探索木の操作
 
@@ -20,16 +20,16 @@
 - `cur.val = num` なら、見つかったのでループを抜け、そのノードを返します。
 
 === "<1>"
-    ![二分探索木でノードを探す例](binary_search_tree.assets/bst_search_step1.png)
+    ![二分探索木でノードを探す例](binary_search_tree.assets/bst_search_step1.svg)
 
 === "<2>"
-    ![二分探索木での探索の手順 2](binary_search_tree.assets/bst_search_step2.png)
+    ![二分探索木での探索の手順 2](binary_search_tree.assets/bst_search_step2.svg)
 
 === "<3>"
-    ![二分探索木での探索の手順 3](binary_search_tree.assets/bst_search_step3.png)
+    ![二分探索木での探索の手順 3](binary_search_tree.assets/bst_search_step3.svg)
 
 === "<4>"
-    ![二分探索木での探索の手順 4](binary_search_tree.assets/bst_search_step4.png)
+    ![二分探索木での探索の手順 4](binary_search_tree.assets/bst_search_step4.svg)
 
 二分探索木の探索は、二分探索と同じく、各反復で候補の半分を除外する仕組みです。反復回数は最大で木の高さとなり、木が平衡なら $O(\log n)$ 時間です。コード例を示します。
 
@@ -44,7 +44,7 @@
 1. **挿入位置を探す**：探索と同じく根から出発し、現在の値と `num` を比較しながら下へ進みます。葉を越えて `None` に達したらループを抜けます。
 2. **その位置に挿入する**：値 `num` のノードを初期化し、`None` の位置へ置きます。
 
-![二分探索木へのノードの挿入](binary_search_tree.assets/bst_insert.png)
+![二分探索木へのノードの挿入](binary_search_tree.assets/bst_insert.svg)
 
 実装では、次の二点に注意します。
 
@@ -63,11 +63,11 @@
 
 下図のように、削除するノードの次数が $0$ なら葉なので、直接削除できます。
 
-![二分探索木のノードの削除（次数 0）](binary_search_tree.assets/bst_remove_case1.png)
+![二分探索木のノードの削除（次数 0）](binary_search_tree.assets/bst_remove_case1.svg)
 
 下図のように、次数が $1$ なら、そのノードを子に置き換えれば済みます。
 
-![二分探索木のノードの削除（次数 1）](binary_search_tree.assets/bst_remove_case2.png)
+![二分探索木のノードの削除（次数 1）](binary_search_tree.assets/bst_remove_case2.svg)
 
 次数が $2$ の場合は直接削除できず、別のノードで置き換える必要があります。「左の部分木 $<$ 根 $<$ 右の部分木」を保つため、**右の部分木の最小ノードか、左の部分木の最大ノードを使えます**。
 
@@ -77,16 +77,16 @@
 2. 削除するノードの値を `tmp` の値で上書きし、木から `tmp` を再帰的に削除します。
 
 === "<1>"
-    ![二分探索木のノードの削除（次数 2）](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![二分探索木のノードの削除（次数 2）](binary_search_tree.assets/bst_remove_case3_step1.svg)
 
 === "<2>"
-    ![次数 2 のノードの削除の手順 2](binary_search_tree.assets/bst_remove_case3_step2.png)
+    ![次数 2 のノードの削除の手順 2](binary_search_tree.assets/bst_remove_case3_step2.svg)
 
 === "<3>"
-    ![次数 2 のノードの削除の手順 3](binary_search_tree.assets/bst_remove_case3_step3.png)
+    ![次数 2 のノードの削除の手順 3](binary_search_tree.assets/bst_remove_case3_step3.svg)
 
 === "<4>"
-    ![次数 2 のノードの削除の手順 4](binary_search_tree.assets/bst_remove_case3_step4.png)
+    ![次数 2 のノードの削除の手順 4](binary_search_tree.assets/bst_remove_case3_step4.svg)
 
 削除も $O(\log n)$ 時間です。削除対象の探索に $O(\log n)$、通りがけ順の後続ノードの取得に $O(\log n)$ 時間かかります。コード例を示します。
 
@@ -102,7 +102,7 @@
 
 この性質を利用すれば、追加のソートなしに $O(n)$ 時間で整列済みのデータを取得でき、非常に効率的です。
 
-![二分探索木の通りがけ順走査の列](binary_search_tree.assets/bst_inorder_traversal.png)
+![二分探索木の通りがけ順走査の列](binary_search_tree.assets/bst_inorder_traversal.svg)
 
 ## 二分探索木の効率
 
@@ -120,7 +120,7 @@
 
 ただし、挿入と削除を続けると、下図のように連結リストへ退化する可能性があります。その場合、各操作の時間計算量も $O(n)$ に悪化します。
 
-![二分探索木の退化](binary_search_tree.assets/bst_degradation.png)
+![二分探索木の退化](binary_search_tree.assets/bst_degradation.svg)
 
 ## 二分探索木の主な用途
 

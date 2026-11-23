@@ -36,7 +36,7 @@
 
 下図に、配列内の要素 $6$ を二分探索する際の分割統治の流れを示します。
 
-![二分探索における分割統治の流れ](binary_search_recur.assets/binary_search_recur.png)
+![二分探索における分割統治の流れ](binary_search_recur.assets/binary_search_recur.svg)
 
 実装では、問題 $f(i, j)$ を解く再帰関数 `dfs()` を定義します。
 

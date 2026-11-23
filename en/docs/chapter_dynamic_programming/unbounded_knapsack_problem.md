@@ -8,7 +8,7 @@ We will now solve another common knapsack variant, unbounded knapsack, and then 
 
     Given $n$ items, where item $i$ has weight $wgt[i-1]$ and value $val[i-1]$, and a knapsack of capacity $cap$, **each item may be chosen repeatedly**. What is the maximum value that fits within the capacity? An example is shown in the figure below.
 
-![Example input for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_example.png)
+![Example input for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_example.svg)
 
 ### Dynamic programming approach
 
@@ -43,22 +43,22 @@ The current state depends on states to its left and above, **so after space opti
 This is the opposite of 0-1 knapsack. Use the figure below to understand the difference.
 
 === "<1>"
-    ![Space-optimized dynamic programming for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png)
+    ![Space-optimized dynamic programming for unbounded knapsack](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png)
+    ![unbounded_knapsack_dp_comp_step2](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png)
+    ![unbounded_knapsack_dp_comp_step3](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png)
+    ![unbounded_knapsack_dp_comp_step4](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png)
+    ![unbounded_knapsack_dp_comp_step5](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png)
+    ![unbounded_knapsack_dp_comp_step6](unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.svg)
 
 The implementation simply removes the first dimension of `dp`:
 
@@ -74,7 +74,7 @@ Knapsack represents a broad family of dynamic programming problems, with many va
 
     Given $n$ coin denominations, where denomination $i$ has value $coins[i - 1]$, and a target amount $amt$, **each denomination may be used repeatedly**. What is the minimum number of coins needed to make the target? Return $-1$ if it cannot be made. An example is shown in the figure below.
 
-![Example input for coin change](unbounded_knapsack_problem.assets/coin_change_example.png)
+![Example input for coin change](unbounded_knapsack_problem.assets/coin_change_example.svg)
 
 ### Dynamic programming approach
 
@@ -120,49 +120,49 @@ Instead, use $amt + 1$ to represent an infeasible solution, since making $amt$ r
 The figure below shows dynamic programming for coin change, which closely resembles unbounded knapsack.
 
 === "<1>"
-    ![Dynamic programming for coin change](unbounded_knapsack_problem.assets/coin_change_dp_step1.png)
+    ![Dynamic programming for coin change](unbounded_knapsack_problem.assets/coin_change_dp_step1.svg)
 
 === "<2>"
-    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.png)
+    ![coin_change_dp_step2](unbounded_knapsack_problem.assets/coin_change_dp_step2.svg)
 
 === "<3>"
-    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.png)
+    ![coin_change_dp_step3](unbounded_knapsack_problem.assets/coin_change_dp_step3.svg)
 
 === "<4>"
-    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.png)
+    ![coin_change_dp_step4](unbounded_knapsack_problem.assets/coin_change_dp_step4.svg)
 
 === "<5>"
-    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.png)
+    ![coin_change_dp_step5](unbounded_knapsack_problem.assets/coin_change_dp_step5.svg)
 
 === "<6>"
-    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.png)
+    ![coin_change_dp_step6](unbounded_knapsack_problem.assets/coin_change_dp_step6.svg)
 
 === "<7>"
-    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.png)
+    ![coin_change_dp_step7](unbounded_knapsack_problem.assets/coin_change_dp_step7.svg)
 
 === "<8>"
-    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.png)
+    ![coin_change_dp_step8](unbounded_knapsack_problem.assets/coin_change_dp_step8.svg)
 
 === "<9>"
-    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.png)
+    ![coin_change_dp_step9](unbounded_knapsack_problem.assets/coin_change_dp_step9.svg)
 
 === "<10>"
-    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.png)
+    ![coin_change_dp_step10](unbounded_knapsack_problem.assets/coin_change_dp_step10.svg)
 
 === "<11>"
-    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.png)
+    ![coin_change_dp_step11](unbounded_knapsack_problem.assets/coin_change_dp_step11.svg)
 
 === "<12>"
-    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.png)
+    ![coin_change_dp_step12](unbounded_knapsack_problem.assets/coin_change_dp_step12.svg)
 
 === "<13>"
-    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.png)
+    ![coin_change_dp_step13](unbounded_knapsack_problem.assets/coin_change_dp_step13.svg)
 
 === "<14>"
-    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.png)
+    ![coin_change_dp_step14](unbounded_knapsack_problem.assets/coin_change_dp_step14.svg)
 
 === "<15>"
-    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.png)
+    ![coin_change_dp_step15](unbounded_knapsack_problem.assets/coin_change_dp_step15.svg)
 
 ### Space optimization
 
@@ -178,7 +178,7 @@ Space optimization is the same as for unbounded knapsack:
 
     Given $n$ coin denominations, where denomination $i$ has value $coins[i - 1]$, and a target amount $amt$, each denomination may be used repeatedly. **How many combinations of coins make the target amount**? An example is shown in the figure below.
 
-![Example input for coin change II](unbounded_knapsack_problem.assets/coin_change_ii_example.png)
+![Example input for coin change II](unbounded_knapsack_problem.assets/coin_change_ii_example.svg)
 
 ### Dynamic programming approach
 

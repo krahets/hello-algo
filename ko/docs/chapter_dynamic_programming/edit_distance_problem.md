@@ -10,7 +10,7 @@
 
 아래 그림과 같이 `kitten`을 `sitting`으로 바꾸려면 교체 2회와 추가 1회로 총 3회 편집해야 한다. `hello`를 `algo`로 바꾸려면 교체 2회와 삭제 1회로 총 3회가 필요하다.
 
-![편집 거리 예시 데이터](edit_distance_problem.assets/edit_distance_example.png)
+![편집 거리 예시 데이터](edit_distance_problem.assets/edit_distance_example.svg)
 
 **편집 거리 문제는 의사 결정 트리 모형으로 자연스럽게 설명할 수 있다**. 문자열은 트리 노드에, 한 번의 결정(편집 연산)은 간선 하나에 대응한다.
 
@@ -18,7 +18,7 @@
 
 의사 결정 트리의 관점에서 이 문제의 목표는 노드 `hello`와 노드 `algo` 사이의 최단 경로를 구하는 것이다.
 
-![의사 결정 트리로 표현한 편집 거리 문제](edit_distance_problem.assets/edit_distance_decision_tree.png)
+![의사 결정 트리로 표현한 편집 거리 문제](edit_distance_problem.assets/edit_distance_decision_tree.svg)
 
 ### 동적 계획법 접근
 
@@ -45,7 +45,7 @@
 2. $s[i-1]$을 삭제하면 부분 문제 $dp[i-1, j]$가 남는다.
 3. $s[i-1]$을 $t[j-1]$로 바꾸면 부분 문제 $dp[i-1, j-1]$이 남는다.
 
-![편집 거리의 상태 전이](edit_distance_problem.assets/edit_distance_state_transfer.png)
+![편집 거리의 상태 전이](edit_distance_problem.assets/edit_distance_state_transfer.svg)
 
 위 분석으로 최적 부분 구조를 얻는다. $dp[i, j]$의 최소 편집 횟수는 $dp[i, j-1]$, $dp[i-1, j]$, $dp[i-1, j-1]$ 중 가장 작은 편집 횟수에 이번 편집 횟수 $1$을 더한 값이다. 상태 전이 식은 다음과 같다.
 
@@ -74,49 +74,49 @@ $$
 아래 그림과 같이 편집 거리의 상태 전이는 배낭 문제와 매우 비슷하며, 모두 2차원 격자를 채우는 과정으로 볼 수 있다.
 
 === "<1>"
-    ![편집 거리의 동적 계획법 과정](edit_distance_problem.assets/edit_distance_dp_step1.png)
+    ![편집 거리의 동적 계획법 과정](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![편집 거리 동적 계획법 2단계](edit_distance_problem.assets/edit_distance_dp_step2.png)
+    ![편집 거리 동적 계획법 2단계](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![편집 거리 동적 계획법 3단계](edit_distance_problem.assets/edit_distance_dp_step3.png)
+    ![편집 거리 동적 계획법 3단계](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![편집 거리 동적 계획법 4단계](edit_distance_problem.assets/edit_distance_dp_step4.png)
+    ![편집 거리 동적 계획법 4단계](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![편집 거리 동적 계획법 5단계](edit_distance_problem.assets/edit_distance_dp_step5.png)
+    ![편집 거리 동적 계획법 5단계](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![편집 거리 동적 계획법 6단계](edit_distance_problem.assets/edit_distance_dp_step6.png)
+    ![편집 거리 동적 계획법 6단계](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![편집 거리 동적 계획법 7단계](edit_distance_problem.assets/edit_distance_dp_step7.png)
+    ![편집 거리 동적 계획법 7단계](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![편집 거리 동적 계획법 8단계](edit_distance_problem.assets/edit_distance_dp_step8.png)
+    ![편집 거리 동적 계획법 8단계](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![편집 거리 동적 계획법 9단계](edit_distance_problem.assets/edit_distance_dp_step9.png)
+    ![편집 거리 동적 계획법 9단계](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![편집 거리 동적 계획법 10단계](edit_distance_problem.assets/edit_distance_dp_step10.png)
+    ![편집 거리 동적 계획법 10단계](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![편집 거리 동적 계획법 11단계](edit_distance_problem.assets/edit_distance_dp_step11.png)
+    ![편집 거리 동적 계획법 11단계](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![편집 거리 동적 계획법 12단계](edit_distance_problem.assets/edit_distance_dp_step12.png)
+    ![편집 거리 동적 계획법 12단계](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![편집 거리 동적 계획법 13단계](edit_distance_problem.assets/edit_distance_dp_step13.png)
+    ![편집 거리 동적 계획법 13단계](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![편집 거리 동적 계획법 14단계](edit_distance_problem.assets/edit_distance_dp_step14.png)
+    ![편집 거리 동적 계획법 14단계](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![편집 거리 동적 계획법 15단계](edit_distance_problem.assets/edit_distance_dp_step15.png)
+    ![편집 거리 동적 계획법 15단계](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### 공간 최적화
 

@@ -35,7 +35,7 @@ class LinkedListDeque {
         size() == 0
     }
 
-    /* 큐 삽입 연산 */
+    /* 원소 삽입 연산 */
     private func push(num: Int, isFront: Bool) {
         let node = ListNode(val: num)
         // 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
@@ -70,7 +70,7 @@ class LinkedListDeque {
         push(num: num, isFront: false)
     }
 
-    /* 큐에서 꺼내는 연산 */
+    /* 원소를 꺼내는 연산 */
     private func pop(isFront: Bool) -> Int {
         if isEmpty() {
             fatalError("덱이 비어 있다")
@@ -159,13 +159,13 @@ enum _LinkedListDeque {
         let peekLast = deque.peekLast()
         print("맨 뒤 원소 peekLast = \(peekLast)")
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.pushLast(num: 4)
         print("맨 뒤에 원소 4를 삽입한 후 deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
         print("맨 앞에 원소 1을 삽입한 후 deque = \(deque.toArray())")
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         let popLast = deque.popLast()
         print("맨 뒤에서 꺼낸 원소 = \(popLast), 꺼낸 후 deque = \(deque.toArray())")
         let popFirst = deque.popFirst()

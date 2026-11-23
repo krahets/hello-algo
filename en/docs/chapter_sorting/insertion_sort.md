@@ -6,7 +6,7 @@ Choose a base element from the unsorted section, compare it with the elements in
 
 The figure below shows how to insert an element into an array. Let the base element be `base`. Shift all elements between the target index and `base` one position to the right, then assign `base` to the target index.
 
-![A single insertion operation](insertion_sort.assets/insertion_operation.png)
+![A single insertion operation](insertion_sort.assets/insertion_operation.svg)
 
 ## Algorithm steps
 
@@ -17,7 +17,7 @@ The overall insertion sort process is shown below.
 3. Select the third element as `base` and insert it into the correct position. **The first three elements are now sorted**.
 4. Continue in this way. In the final round, select the last element as `base` and insert it into the correct position. **All elements are now sorted**.
 
-![The insertion sort process](insertion_sort.assets/insertion_sort_overview.png)
+![The insertion sort process](insertion_sort.assets/insertion_sort_overview.svg)
 
 An implementation follows:
 

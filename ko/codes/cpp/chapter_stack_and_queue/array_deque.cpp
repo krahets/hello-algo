@@ -129,7 +129,7 @@ int main() {
     int peekLast = deque->peekLast();
     cout << "맨 뒤 원소 peekLast = " << peekLast << endl;
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque->pushLast(4);
     cout << "원소 4를 맨 뒤에 삽입한 후 deque = ";
     printVector(deque->toVector());
@@ -137,7 +137,7 @@ int main() {
     cout << "원소 1을 맨 앞에 삽입한 후 deque = ";
     printVector(deque->toVector());
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     int popLast = deque->popLast();
     cout << "맨 뒤에서 꺼낸 원소 = " << popLast << ", 맨 뒤에서 꺼낸 후 deque = ";
     printVector(deque->toVector());

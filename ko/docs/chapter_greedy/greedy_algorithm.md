@@ -15,7 +15,7 @@
 
 이 문제에서 사용하는 탐욕 전략은 아래 그림과 같다. 주어진 목표 금액에 대해 **그 금액을 넘지 않으면서 가장 가까운 액면가의 동전을 탐욕적으로 고르고**, 목표 금액을 만들 때까지 반복한다.
 
-![동전 교환의 탐욕 전략](greedy_algorithm.assets/coin_change_greedy_strategy.png)
+![동전 교환의 탐욕 전략](greedy_algorithm.assets/coin_change_greedy_strategy.svg)
 
 구현 코드는 다음과 같다.
 
@@ -35,7 +35,7 @@
 - **반례 $coins = [1, 20, 50]$**: $amt = 60$이면 탐욕 알고리즘은 $50 + 1 \times 10$으로 동전 $11$ 개를 고른다. 하지만 동적 계획법은 $20 + 20 + 20$이라는 최적해를 찾아 $3$ 개만 사용한다.
 - **반례 $coins = [1, 49, 50]$**: $amt = 98$이면 탐욕 알고리즘은 $50 + 1 \times 48$로 동전 $49$ 개를 고른다. 하지만 동적 계획법은 $49 + 49$라는 최적해를 찾아 $2$ 개만 사용한다.
 
-![탐욕 알고리즘이 최적해를 찾지 못하는 예](greedy_algorithm.assets/coin_change_greedy_vs_dp.png)
+![탐욕 알고리즘이 최적해를 찾지 못하는 예](greedy_algorithm.assets/coin_change_greedy_vs_dp.svg)
 
 즉, 동전 교환에서 탐욕 알고리즘은 전역 최적해를 보장하지 못하고 매우 나쁜 해를 찾을 수도 있다. 이 문제는 동적 계획법으로 푸는 편이 더 적합하다.
 

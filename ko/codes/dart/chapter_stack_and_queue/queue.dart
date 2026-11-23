@@ -11,7 +11,7 @@ void main() {
   // Dart에서는 일반적으로 덱 클래스 Queue를 큐로 사용한다
   final Queue<int> queue = Queue();
 
-  /* 큐에 원소 삽입 */
+  /* 원소 삽입 */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -23,7 +23,7 @@ void main() {
   final int peek = queue.first;
   print("맨 앞 원소 peek = $peek");
 
-  /* 큐에서 원소 꺼내기 */
+  /* 원소 꺼내기 */
   final int pop = queue.removeFirst();
   print("큐에서 꺼낸 원소 pop = $pop , 꺼낸 후 queue = $queue");
 

@@ -5,7 +5,7 @@ A <u>binary search tree</u> satisfies the following conditions, as shown below.
 1. Every value in the left subtree is $<$ the root value, which is $<$ every value in the right subtree.
 2. The left and right subtrees of every node are also binary search trees and satisfy condition `1.`.
 
-![A binary search tree](binary_search_tree.assets/binary_search_tree.png)
+![A binary search tree](binary_search_tree.assets/binary_search_tree.svg)
 
 ## Binary search tree operations
 
@@ -20,16 +20,16 @@ To find a target value `num`, use the tree's ordering property. As shown below, 
 - If `cur.val = num`, the target has been found; exit the loop and return the node.
 
 === "<1>"
-    ![Finding a node in a binary search tree](binary_search_tree.assets/bst_search_step1.png)
+    ![Finding a node in a binary search tree](binary_search_tree.assets/bst_search_step1.svg)
 
 === "<2>"
-    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png)
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.svg)
 
 === "<3>"
-    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.png)
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.svg)
 
 === "<4>"
-    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.png)
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.svg)
 
 Searching a binary search tree follows the same principle as binary search: each round eliminates half the possibilities. The number of iterations is at most the tree's height, giving $O(\log n)$ time when the tree is balanced. An implementation follows:
 
@@ -44,7 +44,7 @@ To insert `num` while preserving the ordering “left subtree < root < right sub
 1. **Find the insertion position**: as in a search, start at the root and move down according to comparisons with `num`. Stop when the traversal passes a leaf and reaches `None`.
 2. **Insert at that position**: create a node containing `num` and place it at the `None` position.
 
-![Inserting a node into a binary search tree](binary_search_tree.assets/bst_insert.png)
+![Inserting a node into a binary search tree](binary_search_tree.assets/bst_insert.svg)
 
 Keep two details in mind when implementing this.
 
@@ -63,11 +63,11 @@ First locate the target node, then remove it while preserving “left subtree < 
 
 As shown below, a node of degree $0$ is a leaf and can be removed directly.
 
-![Deleting a node of degree 0](binary_search_tree.assets/bst_remove_case1.png)
+![Deleting a node of degree 0](binary_search_tree.assets/bst_remove_case1.svg)
 
 As shown below, replace a node of degree $1$ with its only child.
 
-![Deleting a node of degree 1](binary_search_tree.assets/bst_remove_case2.png)
+![Deleting a node of degree 1](binary_search_tree.assets/bst_remove_case2.svg)
 
 A node of degree $2$ cannot simply be removed; another node must replace it. To preserve “left subtree $<$ root $<$ right subtree,” **use either the smallest node in the right subtree or the largest node in the left subtree**.
 
@@ -77,16 +77,16 @@ Suppose we choose the smallest node in the right subtree, the next node in inord
 2. Replace the target node's value with `tmp`'s value, then recursively delete `tmp` from the tree.
 
 === "<1>"
-    ![Deleting a node of degree 2](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![Deleting a node of degree 2](binary_search_tree.assets/bst_remove_case3_step1.svg)
 
 === "<2>"
-    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.svg)
 
 === "<3>"
-    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.png)
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.svg)
 
 === "<4>"
-    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png)
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.svg)
 
 Deletion also takes $O(\log n)$ time: locating the target takes $O(\log n)$, and finding its inorder successor takes $O(\log n)$. An implementation follows:
 
@@ -102,7 +102,7 @@ Thus, inorder traversal always visits the next smallest node, giving an importan
 
 This lets us retrieve sorted data from the tree in just $O(n)$ time, with no additional sorting.
 
-![Inorder traversal of a binary search tree](binary_search_tree.assets/bst_inorder_traversal.png)
+![Inorder traversal of a binary search tree](binary_search_tree.assets/bst_inorder_traversal.svg)
 
 ## Efficiency
 
@@ -120,7 +120,7 @@ Ideally, the tree is balanced, allowing any node to be found within $\log n$ ite
 
 However, repeated insertions and deletions may cause it to degenerate into a linked list, as shown below. The time complexity of its operations then degrades to $O(n)$.
 
-![Degeneration of a binary search tree](binary_search_tree.assets/bst_degradation.png)
+![Degeneration of a binary search tree](binary_search_tree.assets/bst_degradation.svg)
 
 ## Common applications
 

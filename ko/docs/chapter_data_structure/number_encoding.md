@@ -16,7 +16,7 @@
 
 아래 그림은 부호와 크기, 1의 보수, 2의 보수를 서로 변환하는 방법을 보여 준다.
 
-![부호와 크기, 1의 보수, 2의 보수의 상호 변환](number_encoding.assets/1s_2s_complement.png)
+![부호와 크기, 1의 보수, 2의 보수의 상호 변환](number_encoding.assets/1s_2s_complement.svg)
 
 <u>부호와 크기(sign-magnitude)</u> 표현은 가장 직관적이지만 한계가 있다. 우선 **음수의 부호와 크기 표현은 연산에 그대로 사용할 수 없다**. 예를 들어 이 표현으로 $1 + (-2)$를 계산하면 결과가 $-3$이 되어 명백히 틀린다.
 
@@ -123,7 +123,7 @@ $$
 \end{aligned}
 $$
 
-![IEEE 754 표준에 따른 float 계산 예](number_encoding.assets/ieee_754_float.png)
+![IEEE 754 표준에 따른 float 계산 예](number_encoding.assets/ieee_754_float.svg)
 
 위 그림에서 예로 든 데이터가 $\mathrm{S} = 0$, $\mathrm{E} = 124$, $\mathrm{N} = 2^{-2} + 2^{-3} = 0.375$이면 다음과 같다.
 

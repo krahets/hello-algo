@@ -4,7 +4,7 @@
 
     Given $n$ items, where item $i$ has weight $wgt[i-1]$ and value $val[i-1]$, and a knapsack with capacity $cap$, each item may be selected only once. **However, you may take a fraction of an item, with its value proportional to the weight taken**. What is the maximum total value that fits within the knapsack's capacity? An example is shown in the figure below.
 
-![Example input for the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_example.png)
+![Example input for the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_example.svg)
 
 The fractional knapsack problem is very similar to the 0-1 knapsack problem. The state consists of the current item $i$ and capacity $c$, and the goal is to maximize value within the knapsack's capacity.
 
@@ -13,7 +13,7 @@ The difference is that we may take only part of an item. As shown in the figure 
 1. For item $i$, the value per unit weight is $val[i-1] / wgt[i-1]$, which we call its unit value.
 2. If we take a portion of item $i$ weighing $w$, the value added to the knapsack is $w \times val[i-1] / wgt[i-1]$.
 
-![Value per unit weight of each item](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png)
+![Value per unit weight of each item](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg)
 
 ### Choosing a greedy strategy
 
@@ -23,7 +23,7 @@ Maximizing the total value in the knapsack **essentially means maximizing the va
 2. Iterate through the items, **greedily choosing the item with the highest unit value at each step**.
 3. If the remaining capacity is insufficient, take just enough of the current item to fill the knapsack.
 
-![Greedy strategy for the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png)
+![Greedy strategy for the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg)
 
 ### Code implementation
 
@@ -49,4 +49,4 @@ We can construct the same contradiction for other items in the solution. Thus, *
 
 As shown in the figure below, if we plot item weight on the horizontal axis and unit value on the vertical axis, the fractional knapsack problem becomes a problem of maximizing the area within a limited horizontal interval. This analogy provides a geometric view of why the greedy strategy works.
 
-![Geometric representation of the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.png)
+![Geometric representation of the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg)

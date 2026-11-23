@@ -11,19 +11,19 @@ Before we formally explore algorithms, here is an interesting fact: **you have a
 3. Repeat steps `1.` and `2.` until you find the pages whose pinyin entries begin with $r$.
 
 === "<1>"
-    ![Steps for looking up a word in a dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![Steps for looking up a word in a dictionary](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 This dictionary skill, learned in elementary school, is actually the well-known “binary search” algorithm. From a data structure perspective, we can view the dictionary as a sorted “array”; from an algorithm perspective, the sequence of lookup operations above is “binary search.”
 
@@ -33,7 +33,7 @@ This dictionary skill, learned in elementary school, is actually the well-known 
 2. Take a card from the unsorted section and insert it into the correct position in the sorted section. The two leftmost cards are now sorted.
 3. Repeat step `2.`, inserting one card from the unsorted section into the sorted section each round, until all the cards are sorted.
 
-![Steps for sorting playing cards](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![Steps for sorting playing cards](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
 
 This method of arranging playing cards is essentially “insertion sort,” an algorithm that is very efficient for small datasets. Insertion sort appears in the library sorting functions of many programming languages.
 
@@ -45,7 +45,7 @@ This method of arranging playing cards is essentially “insertion sort,” an a
 4. Take the largest denomination that fits the remaining amount, $1$ yuan, leaving $1 - 1 = 0$ yuan.
 5. The change is complete: $20 + 10 + 1 = 31$ yuan.
 
-![The process of making change](algorithms_are_everywhere.assets/greedy_change.png)
+![The process of making change](algorithms_are_everywhere.assets/greedy_change.svg)
 
 At each step above, we make the choice that looks best at the moment—using the largest possible denomination—and eventually obtain a valid way to make change. In terms of data structures and algorithms, this is a “greedy” algorithm.
 

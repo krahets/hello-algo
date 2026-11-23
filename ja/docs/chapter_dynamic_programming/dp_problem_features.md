@@ -18,7 +18,7 @@
 
 下図のように、$1$、$2$、$3$ 段目のコストがそれぞれ $1$、$10$、$1$ なら、地面から $3$ 段目まで上る最小コストは $2$ です。
 
-![3 段目まで上る最小コスト](dp_problem_features.assets/min_cost_cs_example.png)
+![3 段目まで上る最小コスト](dp_problem_features.assets/min_cost_cs_example.svg)
 
 $i$ 段目までの累積コストを $dp[i]$ とします。$i$ 段目には $i - 1$ 段目か $i - 2$ 段目からしか来られないため、$dp[i]$ は $dp[i - 1] + cost[i]$ または $dp[i - 2] + cost[i]$ です。コストをできるだけ小さくするには、二つのうち小さい方を選びます。
 
@@ -40,7 +40,7 @@ $$
 
 下図に、上のコードによる動的計画法の流れを示します。
 
-![最小コストで階段を上る動的計画法の流れ](dp_problem_features.assets/min_cost_cs_dp.png)
+![最小コストで階段を上る動的計画法の流れ](dp_problem_features.assets/min_cost_cs_dp.svg)
 
 この問題も、一次元を零次元に圧縮する空間最適化により、空間計算量を $O(n)$ から $O(1)$ に下げられます。
 
@@ -62,7 +62,7 @@ $$
 
 下図のように、$3$ 段目まで上る有効な方法は $2$ 通りだけになります。$1$ 段ずつ 3 回続けて上る方法は制約を満たさないため、除外されます。
 
-![制約付きで 3 段目まで上る方法の数](dp_problem_features.assets/climbing_stairs_constraint_example.png)
+![制約付きで 3 段目まで上る方法の数](dp_problem_features.assets/climbing_stairs_constraint_example.svg)
 
 この問題では、前回 $1$ 段上ったなら、次は必ず $2$ 段上る必要があります。つまり、**次の選択は現在の状態（現在の段数）だけでは決まらず、一つ前の状態（前回いた段数）にも依存します**。
 
@@ -82,7 +82,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![制約を考慮した漸化式](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png)
+![制約を考慮した漸化式](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg)
 
 最後に $dp[n, 1] + dp[n, 2]$ を返します。この和が、$n$ 段目まで上る方法の総数です。
 

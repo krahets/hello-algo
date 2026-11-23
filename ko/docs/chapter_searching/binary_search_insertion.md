@@ -8,7 +8,7 @@
 
     중복 원소가 없는 길이 $n$의 정렬된 배열 `nums`와 원소 `target`이 주어진다. 정렬 상태를 유지하면서 `target`을 배열 `nums`에 삽입하려고 한다. 이미 `target`이 있으면 그 왼쪽에 삽입한다. 삽입 후 `target`의 배열 인덱스를 반환하라. 예시는 아래 그림과 같다.
 
-![이진 탐색으로 삽입 위치를 찾는 예시 데이터](binary_search_insertion.assets/binary_search_insertion_example.png)
+![이진 탐색으로 삽입 위치를 찾는 예시 데이터](binary_search_insertion.assets/binary_search_insertion_example.svg)
 
 앞 절의 이진 탐색 코드를 재사용하려면 다음 두 질문에 답해야 한다.
 
@@ -39,7 +39,7 @@
 1. 이진 탐색으로 임의의 `target`의 인덱스를 구하고 이를 $k$라고 한다.
 2. 인덱스 $k$부터 왼쪽으로 선형 순회하여 가장 왼쪽 `target`을 찾으면 반환한다.
 
-![선형 탐색으로 중복 원소의 삽입 위치 찾기](binary_search_insertion.assets/binary_search_insertion_naive.png)
+![선형 탐색으로 중복 원소의 삽입 위치 찾기](binary_search_insertion.assets/binary_search_insertion_naive.svg)
 
 이 방법도 가능하지만 선형 탐색이 포함되어 시간 복잡도가 $O(n)$이다. 배열에 중복된 `target`이 많으면 매우 비효율적이다.
 
@@ -51,28 +51,28 @@
 반복이 끝나면 $i$는 가장 왼쪽 `target`을, $j$는 `target`보다 작은 가장 오른쪽 원소를 가리킨다. **따라서 인덱스 $i$가 삽입 위치다**.
 
 === "<1>"
-    ![이진 탐색으로 중복 원소의 삽입 위치를 찾는 단계](binary_search_insertion.assets/binary_search_insertion_step1.png)
+    ![이진 탐색으로 중복 원소의 삽입 위치를 찾는 단계](binary_search_insertion.assets/binary_search_insertion_step1.svg)
 
 === "<2>"
-    ![삽입 위치 이진 탐색 2단계](binary_search_insertion.assets/binary_search_insertion_step2.png)
+    ![삽입 위치 이진 탐색 2단계](binary_search_insertion.assets/binary_search_insertion_step2.svg)
 
 === "<3>"
-    ![삽입 위치 이진 탐색 3단계](binary_search_insertion.assets/binary_search_insertion_step3.png)
+    ![삽입 위치 이진 탐색 3단계](binary_search_insertion.assets/binary_search_insertion_step3.svg)
 
 === "<4>"
-    ![삽입 위치 이진 탐색 4단계](binary_search_insertion.assets/binary_search_insertion_step4.png)
+    ![삽입 위치 이진 탐색 4단계](binary_search_insertion.assets/binary_search_insertion_step4.svg)
 
 === "<5>"
-    ![삽입 위치 이진 탐색 5단계](binary_search_insertion.assets/binary_search_insertion_step5.png)
+    ![삽입 위치 이진 탐색 5단계](binary_search_insertion.assets/binary_search_insertion_step5.svg)
 
 === "<6>"
-    ![삽입 위치 이진 탐색 6단계](binary_search_insertion.assets/binary_search_insertion_step6.png)
+    ![삽입 위치 이진 탐색 6단계](binary_search_insertion.assets/binary_search_insertion_step6.svg)
 
 === "<7>"
-    ![삽입 위치 이진 탐색 7단계](binary_search_insertion.assets/binary_search_insertion_step7.png)
+    ![삽입 위치 이진 탐색 7단계](binary_search_insertion.assets/binary_search_insertion_step7.svg)
 
 === "<8>"
-    ![삽입 위치 이진 탐색 8단계](binary_search_insertion.assets/binary_search_insertion_step8.png)
+    ![삽입 위치 이진 탐색 8단계](binary_search_insertion.assets/binary_search_insertion_step8.svg)
 
 아래 코드를 보면 `nums[m] > target`과 `nums[m] == target` 분기에서 수행하는 연산이 같으므로 두 분기를 합칠 수 있다.
 

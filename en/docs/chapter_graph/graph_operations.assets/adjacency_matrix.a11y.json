@@ -1,0 +1,378 @@
+{
+  "schema_version": 2,
+  "title": "Adding and removing edges and vertices in an adjacency matrix",
+  "summary": "Demonstrate adding and removing edges and vertices in an adjacency matrix, distinguishing cell updates from full row and column insertions or deletions.",
+  "context": [
+    "The order of vertex list V maps to row and column indices of the matrix, and the table headers show both index and vertex ID. An entry of 1 at M[i,j] indicates an edge between V[i] and V[j], whereas 0 indicates no edge."
+  ],
+  "description": [
+    "An undirected edge connects two vertices, so adding or removing an edge updates both symmetric positions M[i,j] and M[j,i] together. Each frame's state table lists the complete matrix after that step finishes.",
+    "Adding a vertex appends a row and a column of all 0s at the end of the matrix; removing a vertex deletes its entire row and column, decrementing the matrix indices of subsequent vertices while leaving each vertex's own identity and name unchanged."
+  ],
+  "frames": [
+    {
+      "id": "source-179",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_matrix_step1_initialization.png",
+      "title": "Initialize the five-vertex graph",
+      "explanation": "Initially, V = [1, 3, 2, 5, 4] corresponds to indices 0 through 4, forming a 5×5 matrix. The 6 undirected edges 1—3, 1—5, 2—3, 2—5, 2—4, and 4—5 each appear as a symmetric pair of 1s; edge 1—2 does not yet exist.",
+      "key_state": "Initial state: V = [1, 3, 2, 5, 4] at indices 0 through 4, 5×5 matrix with 6 edges; M[0,2] and M[2,0] are 0, with no edge 1—2 yet.",
+      "announcement": "Initial state: V = [1, 3, 2, 5, 4] at indices 0 through 4, 5×5 matrix with 6 edges; M[0,2] and M[2,0] are 0, with no edge 1—2 yet.",
+      "state_tables": [
+        {
+          "caption": "Adjacency matrix step 1: Complete initial state",
+          "headers": [
+            "Row: index / vertex",
+            "Column 0 / vertex 1",
+            "Column 1 / vertex 3",
+            "Column 2 / vertex 2",
+            "Column 3 / vertex 5",
+            "Column 4 / vertex 4"
+          ],
+          "rows": [
+            [
+              "0／1",
+              "0",
+              "1",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1／3",
+              "1",
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "2／2",
+              "0",
+              "1",
+              "0",
+              "1",
+              "1"
+            ],
+            [
+              "3／5",
+              "1",
+              "0",
+              "1",
+              "0",
+              "1"
+            ],
+            [
+              "4／4",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-180",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_matrix_step2_add_edge.png",
+      "title": "Add edge 1—2",
+      "explanation": "Vertices 1 and 2 correspond to indices 0 and 2. Adding edge 1—2 changes M[0,2] and M[2,0] from 0 to 1 while leaving all other cells unchanged; the matrix remains 5×5 with 7 edges in total.",
+      "key_state": "State after adding 1—2: V = [1, 3, 2, 5, 4], 5×5 matrix with 7 edges; M[0,2] and M[2,0] are 1.",
+      "announcement": "Vertices 1 and 2 correspond to indices 0 and 2. Adding edge 1—2 changes M[0,2] and M[2,0] from 0 to 1 while leaving all other cells unchanged; the matrix remains 5×5 with 7 edges in total.",
+      "state_tables": [
+        {
+          "caption": "Adjacency matrix step 2: Complete state after adding edge 1—2",
+          "headers": [
+            "Row: index / vertex",
+            "Column 0 / vertex 1",
+            "Column 1 / vertex 3",
+            "Column 2 / vertex 2",
+            "Column 3 / vertex 5",
+            "Column 4 / vertex 4"
+          ],
+          "rows": [
+            [
+              "0／1",
+              "0",
+              "1",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "1／3",
+              "1",
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "2／2",
+              "1",
+              "1",
+              "0",
+              "1",
+              "1"
+            ],
+            [
+              "3／5",
+              "1",
+              "0",
+              "1",
+              "0",
+              "1"
+            ],
+            [
+              "4／4",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-181",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_matrix_step3_remove_edge.png",
+      "title": "Remove edge 1—3",
+      "explanation": "Vertices 1 and 3 correspond to indices 0 and 1. Removing edge 1—3 changes M[0,1] and M[1,0] from 1 to 0 while leaving all other cells unchanged; the matrix remains 5×5, retaining 6 edges including 1—2.",
+      "key_state": "State after removing 1—3: V = [1, 3, 2, 5, 4], 5×5 matrix with 6 edges; M[0,1] and M[1,0] are 0, while 1—2 remains.",
+      "announcement": "Vertices 1 and 3 correspond to indices 0 and 1. Removing edge 1—3 changes M[0,1] and M[1,0] from 1 to 0 while leaving all other cells unchanged; the matrix remains 5×5, retaining 6 edges including 1—2.",
+      "state_tables": [
+        {
+          "caption": "Adjacency matrix step 3: Complete state after removing edge 1—3",
+          "headers": [
+            "Row: index / vertex",
+            "Column 0 / vertex 1",
+            "Column 1 / vertex 3",
+            "Column 2 / vertex 2",
+            "Column 3 / vertex 5",
+            "Column 4 / vertex 4"
+          ],
+          "rows": [
+            [
+              "0／1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "1／3",
+              "0",
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "2／2",
+              "1",
+              "1",
+              "0",
+              "1",
+              "1"
+            ],
+            [
+              "3／5",
+              "1",
+              "0",
+              "1",
+              "0",
+              "1"
+            ],
+            [
+              "4／4",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-182",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_matrix_step4_add_vertex.png",
+      "title": "Add isolated vertex 6",
+      "explanation": "Append isolated vertex 6 to V, giving V = [1, 3, 2, 5, 4, 6] at new index 5. The matrix expands to 6×6 with the new row and column filled with 0s and all other cells unchanged; the edge count stays 6.",
+      "key_state": "State after adding isolated vertex 6: V = [1, 3, 2, 5, 4, 6], 6×6 matrix with 6 edges; vertex 6 is at index 5 with its row and column all 0.",
+      "announcement": "Append isolated vertex 6 to V, giving V = [1, 3, 2, 5, 4, 6] at new index 5. The matrix expands to 6×6 with the new row and column filled with 0s and all other cells unchanged; the edge count stays 6.",
+      "state_tables": [
+        {
+          "caption": "Adjacency matrix step 4: Complete state after adding isolated vertex 6",
+          "headers": [
+            "Row: index / vertex",
+            "Column 0 / vertex 1",
+            "Column 1 / vertex 3",
+            "Column 2 / vertex 2",
+            "Column 3 / vertex 5",
+            "Column 4 / vertex 4",
+            "Column 5 / vertex 6"
+          ],
+          "rows": [
+            [
+              "0／1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1／3",
+              "0",
+              "0",
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "2／2",
+              "1",
+              "1",
+              "0",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "3／5",
+              "1",
+              "0",
+              "1",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "4／4",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "5／6",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-183",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_matrix_step5_remove_vertex.png",
+      "title": "Remove vertex 3",
+      "explanation": "Delete the entire row and column for vertex 3 (former index 1), simultaneously removing its sole remaining incident edge 2—3; edge 1—3 was already removed in step 3. V becomes [1, 2, 5, 4, 6] at indices 0 through 4, shrinking the matrix to 5×5 with 5 edges in total. The indices of vertices 2, 5, 4, 6 each decrease by 1 without renaming any vertex—for example, vertex 2 shifts from index 2 to 1. Vertex 6 is now at index 4 with all 0s in its row and column, remaining isolated.",
+      "key_state": "State after removing vertex 3: V = [1, 2, 5, 4, 6] at indices 0 through 4, 5×5 matrix with 5 edges; vertex 2 is now at index 1 with its identity unchanged, and vertex 6 is at index 4 with its row and column all 0.",
+      "announcement": "Delete former index 1's row and column for vertex 3 along with incident edge 2—3. V = [1, 2, 5, 4, 6], shrinking the matrix to 5×5 with 5 edges; vertex 2 moves to index 1 without changing names, and 6 stays isolated.",
+      "state_tables": [
+        {
+          "caption": "Adjacency matrix step 5: Complete state after removing vertex 3",
+          "headers": [
+            "Row: index / vertex",
+            "Column 0 / vertex 1",
+            "Column 1 / vertex 2",
+            "Column 2 / vertex 5",
+            "Column 3 / vertex 4",
+            "Column 4 / vertex 6"
+          ],
+          "rows": [
+            [
+              "0／1",
+              "0",
+              "1",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "1／2",
+              "1",
+              "0",
+              "1",
+              "1",
+              "0"
+            ],
+            [
+              "2／5",
+              "1",
+              "1",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "3／4",
+              "0",
+              "1",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "4／6",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "tables": [],
+  "animations": {
+    "graph-adjacency-matrix": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-179"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-180"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-181"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-182"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-183"
+        }
+      ]
+    }
+  },
+  "input_tables": []
+}

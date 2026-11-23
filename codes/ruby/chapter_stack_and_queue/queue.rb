@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Driver Code ###
 if __FILE__ == $0
   # 初始化队列
-  # Ruby 内置的队列（Thread::Queue) 没有 peek 和遍历方法，可以把 Array 当作队列来使用
+  # Ruby 内置的队列（Thread::Queue）没有 peek 和遍历方法，可以把 Array 当作队列来使用
   queue = []
 
   # 元素入队
@@ -23,7 +23,7 @@ if __FILE__ == $0
   puts "队首元素 peek = #{peek}"
 
   # 元素出队
-  # 清注意，由于是数组，Array#shift 方法时间复杂度为 O(n)
+  # 请注意，由于是数组，Array#shift 方法的时间复杂度为 O(n)
   pop = queue.shift
   puts "出队元素 pop = #{pop}"
   puts "出队后 queue = #{queue}"

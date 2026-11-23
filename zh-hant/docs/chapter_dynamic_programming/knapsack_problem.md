@@ -10,7 +10,7 @@
 
 觀察下圖，由於物品編號 $i$ 從 $1$ 開始計數，陣列索引從 $0$ 開始計數，因此物品 $i$ 對應重量 $wgt[i-1]$ 和價值 $val[i-1]$ 。
 
-![0-1 背包的示例資料](knapsack_problem.assets/knapsack_example.png)
+![0-1 背包的示例資料](knapsack_problem.assets/knapsack_example.svg)
 
 我們可以將 0-1 背包問題看作一個由 $n$ 輪決策組成的過程，對於每個物體都有不放入和放入兩種決策，因此該問題滿足決策樹模型。
 
@@ -64,7 +64,7 @@ $$
 
 觀察遞迴樹，容易發現其中存在重疊子問題，例如 $dp[1, 10]$ 等。而當物品較多、背包容量較大，尤其是相同重量的物品較多時，重疊子問題的數量將會大幅增多。
 
-![0-1 背包問題的暴力搜尋遞迴樹](knapsack_problem.assets/knapsack_dfs.png)
+![0-1 背包問題的暴力搜尋遞迴樹](knapsack_problem.assets/knapsack_dfs.svg)
 
 ### 方法二：記憶化搜尋
 
@@ -78,7 +78,7 @@ $$
 
 下圖展示了在記憶化搜尋中被剪掉的搜尋分支。
 
-![0-1 背包問題的記憶化搜尋遞迴樹](knapsack_problem.assets/knapsack_dfs_mem.png)
+![0-1 背包問題的記憶化搜尋遞迴樹](knapsack_problem.assets/knapsack_dfs_mem.svg)
 
 ### 方法三：動態規劃
 
@@ -91,46 +91,46 @@ $$
 如下圖所示，時間複雜度和空間複雜度都由陣列 `dp` 大小決定，即 $O(n \times cap)$ 。
 
 === "<1>"
-    ![0-1 背包問題的動態規劃過程](knapsack_problem.assets/knapsack_dp_step1.png)
+    ![0-1 背包問題的動態規劃過程](knapsack_problem.assets/knapsack_dp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.png)
+    ![knapsack_dp_step2](knapsack_problem.assets/knapsack_dp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.png)
+    ![knapsack_dp_step3](knapsack_problem.assets/knapsack_dp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.png)
+    ![knapsack_dp_step4](knapsack_problem.assets/knapsack_dp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.png)
+    ![knapsack_dp_step5](knapsack_problem.assets/knapsack_dp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.png)
+    ![knapsack_dp_step6](knapsack_problem.assets/knapsack_dp_step6.svg)
 
 === "<7>"
-    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.png)
+    ![knapsack_dp_step7](knapsack_problem.assets/knapsack_dp_step7.svg)
 
 === "<8>"
-    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.png)
+    ![knapsack_dp_step8](knapsack_problem.assets/knapsack_dp_step8.svg)
 
 === "<9>"
-    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.png)
+    ![knapsack_dp_step9](knapsack_problem.assets/knapsack_dp_step9.svg)
 
 === "<10>"
-    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.png)
+    ![knapsack_dp_step10](knapsack_problem.assets/knapsack_dp_step10.svg)
 
 === "<11>"
-    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.png)
+    ![knapsack_dp_step11](knapsack_problem.assets/knapsack_dp_step11.svg)
 
 === "<12>"
-    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.png)
+    ![knapsack_dp_step12](knapsack_problem.assets/knapsack_dp_step12.svg)
 
 === "<13>"
-    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.png)
+    ![knapsack_dp_step13](knapsack_problem.assets/knapsack_dp_step13.svg)
 
 === "<14>"
-    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.png)
+    ![knapsack_dp_step14](knapsack_problem.assets/knapsack_dp_step14.svg)
 
 ### 空間最佳化
 
@@ -144,22 +144,22 @@ $$
 下圖展示了在單個陣列下從第 $i = 1$ 行轉換至第 $i = 2$ 行的過程。請思考正序走訪和倒序走訪的區別。
 
 === "<1>"
-    ![0-1 背包的空間最佳化後的動態規劃過程](knapsack_problem.assets/knapsack_dp_comp_step1.png)
+    ![0-1 背包的空間最佳化後的動態規劃過程](knapsack_problem.assets/knapsack_dp_comp_step1.svg)
 
 === "<2>"
-    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.png)
+    ![knapsack_dp_comp_step2](knapsack_problem.assets/knapsack_dp_comp_step2.svg)
 
 === "<3>"
-    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.png)
+    ![knapsack_dp_comp_step3](knapsack_problem.assets/knapsack_dp_comp_step3.svg)
 
 === "<4>"
-    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.png)
+    ![knapsack_dp_comp_step4](knapsack_problem.assets/knapsack_dp_comp_step4.svg)
 
 === "<5>"
-    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.png)
+    ![knapsack_dp_comp_step5](knapsack_problem.assets/knapsack_dp_comp_step5.svg)
 
 === "<6>"
-    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.png)
+    ![knapsack_dp_comp_step6](knapsack_problem.assets/knapsack_dp_comp_step6.svg)
 
 在程式碼實現中，我們僅需將陣列 `dp` 的第一維 $i$ 直接刪除，並且把內迴圈更改為倒序走訪即可：
 

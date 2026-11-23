@@ -8,7 +8,7 @@
     
     용량이 최대가 되도록 두 칸막이를 골라 최대 용량을 반환하라. 예시는 아래 그림과 같다.
 
-![최대 용량 문제 예시 데이터](max_capacity_problem.assets/max_capacity_example.png)
+![최대 용량 문제 예시 데이터](max_capacity_problem.assets/max_capacity_example.svg)
 
 임의의 두 칸막이로 용기를 만들므로 **이 문제의 상태는 두 칸막이의 인덱스 $[i, j]$다**.
 
@@ -24,17 +24,17 @@ $$
 
 더 효율적인 풀이도 있다. 아래 그림처럼 인덱스 $i < j$이고 높이 $ht[i] < ht[j]$인 상태 $[i, j]$를 고르자. 즉, $i$는 낮은 칸막이, $j$는 높은 칸막이다.
 
-![초기 상태](max_capacity_problem.assets/max_capacity_initial_state.png)
+![초기 상태](max_capacity_problem.assets/max_capacity_initial_state.svg)
 
 아래 그림과 같이 **높은 칸막이 $j$를 낮은 칸막이 $i$ 쪽으로 옮기면 용량은 반드시 작아진다**.
 
 $j$를 옮기면 너비 $j-i$는 확실히 줄어든다. 높이는 낮은 칸막이로 결정되므로 그대로이거나($i$가 계속 더 낮음), 더 낮아질 수만 있다(이동한 $j$가 더 낮아짐).
 
-![높은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_long_board.png)
+![높은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_long_board.svg)
 
 반대로 생각하면 **낮은 칸막이 $i$를 안쪽으로 옮겨야만 용량이 커질 가능성이 있다**. 너비는 반드시 줄지만 **높이는 커질 수도 있기 때문이다**(이동한 $i$가 더 높을 수 있다). 아래 그림에서는 낮은 칸막이를 옮긴 뒤 넓이가 커진다.
 
-![낮은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_short_board.png)
+![낮은 칸막이를 안쪽으로 옮긴 상태](max_capacity_problem.assets/max_capacity_moving_short_board.svg)
 
 따라서 두 포인터를 용기의 양 끝에 놓고, 매번 낮은 칸막이 쪽 포인터를 안쪽으로 옮겨 두 포인터가 만날 때까지 진행하는 탐욕 전략을 도출할 수 있다.
 
@@ -46,31 +46,31 @@ $j$를 옮기면 너비 $j-i$는 확실히 줄어든다. 높이는 낮은 칸막
 4. $i$와 $j$가 만날 때까지 `2.` 단계와 `3.` 단계를 반복한다.
 
 === "<1>"
-    ![최대 용량 문제의 탐욕 과정](max_capacity_problem.assets/max_capacity_greedy_step1.png)
+    ![최대 용량 문제의 탐욕 과정](max_capacity_problem.assets/max_capacity_greedy_step1.svg)
 
 === "<2>"
-    ![최대 용량 탐욕 과정 2단계](max_capacity_problem.assets/max_capacity_greedy_step2.png)
+    ![최대 용량 탐욕 과정 2단계](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
 
 === "<3>"
-    ![최대 용량 탐욕 과정 3단계](max_capacity_problem.assets/max_capacity_greedy_step3.png)
+    ![최대 용량 탐욕 과정 3단계](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
 
 === "<4>"
-    ![최대 용량 탐욕 과정 4단계](max_capacity_problem.assets/max_capacity_greedy_step4.png)
+    ![최대 용량 탐욕 과정 4단계](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
 
 === "<5>"
-    ![최대 용량 탐욕 과정 5단계](max_capacity_problem.assets/max_capacity_greedy_step5.png)
+    ![최대 용량 탐욕 과정 5단계](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
 
 === "<6>"
-    ![최대 용량 탐욕 과정 6단계](max_capacity_problem.assets/max_capacity_greedy_step6.png)
+    ![최대 용량 탐욕 과정 6단계](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
 
 === "<7>"
-    ![최대 용량 탐욕 과정 7단계](max_capacity_problem.assets/max_capacity_greedy_step7.png)
+    ![최대 용량 탐욕 과정 7단계](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
 
 === "<8>"
-    ![최대 용량 탐욕 과정 8단계](max_capacity_problem.assets/max_capacity_greedy_step8.png)
+    ![최대 용량 탐욕 과정 8단계](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
 
 === "<9>"
-    ![최대 용량 탐욕 과정 9단계](max_capacity_problem.assets/max_capacity_greedy_step9.png)
+    ![최대 용량 탐욕 과정 9단계](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
 
 ### 코드 구현
 
@@ -92,7 +92,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![낮은 칸막이를 옮겨 건너뛴 상태들](max_capacity_problem.assets/max_capacity_skipped_states.png)
+![낮은 칸막이를 옮겨 건너뛴 상태들](max_capacity_problem.assets/max_capacity_skipped_states.svg)
 
 **건너뛴 상태들은 사실 높은 칸막이 $j$를 안쪽으로 옮긴 모든 상태다**. 앞에서 높은 칸막이를 안쪽으로 옮기면 용량이 반드시 줄어듦을 보였다. 따라서 건너뛴 상태는 최적해가 될 수 없으며, **이를 건너뛰어도 최적해를 놓치지 않는다**.
 

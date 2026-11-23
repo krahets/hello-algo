@@ -51,7 +51,6 @@ func TestDeque(t *testing.T) {
 
 func TestArrayDeque(t *testing.T) {
 	/* 両端キューを初期化する */
-	// Go では list を両端キューとして使う
 	deque := newArrayDeque(16)
 
 	/* 要素をエンキューする */
@@ -102,7 +101,7 @@ func TestLinkedListDeque(t *testing.T) {
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("キュー deque = ")
+	fmt.Print("両端キュー deque = ")
 	PrintList(deque.toList())
 
 	// キューの先頭要素にアクセス
