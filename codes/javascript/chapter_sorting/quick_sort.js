@@ -100,7 +100,7 @@ class QuickSortMedian {
     }
 }
 
-/* 快速排序类（尾递归优化） */
+/* 快速排序类（递归深度优化） */
 class QuickSortTailCall {
     /* 元素交换 */
     swap(nums, i, j) {
@@ -123,7 +123,7 @@ class QuickSortTailCall {
         return i; // 返回基准数的索引
     }
 
-    /* 快速排序（尾递归优化） */
+    /* 快速排序（递归深度优化） */
     quickSort(nums, left, right) {
         // 子数组长度为 1 时终止
         while (left < right) {
@@ -154,8 +154,8 @@ const quickSortMedian = new QuickSortMedian();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
 console.log('快速排序（中位基准数优化）完成后 nums =', nums1);
 
-/* 快速排序（尾递归优化） */
+/* 快速排序（递归深度优化） */
 const nums2 = [2, 4, 1, 0, 3, 5];
 const quickSortTailCall = new QuickSortTailCall();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-console.log('快速排序（尾递归优化）完成后 nums =', nums2);
+console.log('快速排序（递归深度优化）完成后 nums =', nums2);

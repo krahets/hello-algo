@@ -1,0 +1,6319 @@
+{
+  "chapter_appendix": {},
+  "chapter_array_and_linkedlist": {
+    "[file]{array}-[class]{}-[func]{random_access}": {
+      "python": [
+        "[class]{}-[func]{random_access}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "java": [
+        "[class]{array}-[func]{randomAccess}"
+      ],
+      "csharp": [
+        "[class]{array}-[func]{RandomAccess}"
+      ],
+      "go": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "swift": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "dart": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "rust": [
+        "[class]{}-[func]{random_access}"
+      ],
+      "c": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{randomAccess}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{random_access}"
+      ],
+      "zig": [
+        "[class]{}-[func]{randomAccess}"
+      ]
+    },
+    "[file]{array}-[class]{}-[func]{insert}": {
+      "python": [
+        "[class]{}-[func]{insert}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{insert}"
+      ],
+      "java": [
+        "[class]{array}-[func]{insert}"
+      ],
+      "csharp": [
+        "[class]{array}-[func]{Insert}"
+      ],
+      "go": [
+        "[class]{}-[func]{insert}"
+      ],
+      "swift": [
+        "[class]{}-[func]{insert}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{insert}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{insert}"
+      ],
+      "dart": [
+        "[class]{}-[func]{insert}"
+      ],
+      "rust": [
+        "[class]{}-[func]{insert}"
+      ],
+      "c": [
+        "[class]{}-[func]{insert}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{insert}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{insert}"
+      ],
+      "zig": [
+        "[class]{}-[func]{insert}"
+      ]
+    },
+    "[file]{array}-[class]{}-[func]{remove}": {
+      "python": [
+        "[class]{}-[func]{remove}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{remove}"
+      ],
+      "java": [
+        "[class]{array}-[func]{remove}"
+      ],
+      "csharp": [
+        "[class]{array}-[func]{Remove}"
+      ],
+      "go": [
+        "[class]{}-[func]{remove}"
+      ],
+      "swift": [
+        "[class]{}-[func]{remove}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{remove}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{remove}"
+      ],
+      "dart": [
+        "[class]{}-[func]{remove}"
+      ],
+      "rust": [
+        "[class]{}-[func]{remove}"
+      ],
+      "c": [
+        "[class]{}-[func]{removeItem}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{remove}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{remove}"
+      ],
+      "zig": [
+        "[class]{}-[func]{remove}"
+      ]
+    },
+    "[file]{array}-[class]{}-[func]{traverse}": {
+      "python": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "java": [
+        "[class]{array}-[func]{traverse}"
+      ],
+      "csharp": [
+        "[class]{array}-[func]{Traverse}"
+      ],
+      "go": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "swift": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "dart": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "rust": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "c": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{traverse}"
+      ],
+      "zig": [
+        "[class]{}-[func]{traverse}"
+      ]
+    },
+    "[file]{array}-[class]{}-[func]{find}": {
+      "python": [
+        "[class]{}-[func]{find}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{find}"
+      ],
+      "java": [
+        "[class]{array}-[func]{find}"
+      ],
+      "csharp": [
+        "[class]{array}-[func]{Find}"
+      ],
+      "go": [
+        "[class]{}-[func]{find}"
+      ],
+      "swift": [
+        "[class]{}-[func]{find}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{find}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{find}"
+      ],
+      "dart": [
+        "[class]{}-[func]{find}"
+      ],
+      "rust": [
+        "[class]{}-[func]{find}"
+      ],
+      "c": [
+        "[class]{}-[func]{find}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{find}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{find}"
+      ],
+      "zig": [
+        "[class]{}-[func]{find}"
+      ]
+    },
+    "[file]{array}-[class]{}-[func]{extend}": {
+      "python": [
+        "[class]{}-[func]{extend}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{extend}"
+      ],
+      "java": [
+        "[class]{array}-[func]{extend}"
+      ],
+      "csharp": [
+        "[class]{array}-[func]{Extend}"
+      ],
+      "go": [
+        "[class]{}-[func]{extend}"
+      ],
+      "swift": [
+        "[class]{}-[func]{extend}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{extend}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{extend}"
+      ],
+      "dart": [
+        "[class]{}-[func]{extend}"
+      ],
+      "rust": [
+        "[class]{}-[func]{extend}"
+      ],
+      "c": [
+        "[class]{}-[func]{extend}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{extend}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{extend}"
+      ],
+      "zig": [
+        "[class]{}-[func]{extend}"
+      ]
+    },
+    "[file]{linked_list}-[class]{}-[func]{insert}": {
+      "python": [
+        "[class]{}-[func]{insert}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{insert}"
+      ],
+      "java": [
+        "[class]{linked_list}-[func]{insert}"
+      ],
+      "csharp": [
+        "[class]{linked_list}-[func]{Insert}"
+      ],
+      "go": [
+        "[class]{}-[func]{insertNode}"
+      ],
+      "swift": [
+        "[class]{}-[func]{insert}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{insert}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{insert}"
+      ],
+      "dart": [
+        "[class]{}-[func]{insert}"
+      ],
+      "rust": [
+        "[class]{}-[func]{insert}"
+      ],
+      "c": [
+        "[class]{}-[func]{insert}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{insert}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{insert}"
+      ],
+      "zig": [
+        "[class]{}-[func]{insert}"
+      ]
+    },
+    "[file]{linked_list}-[class]{}-[func]{remove}": {
+      "python": [
+        "[class]{}-[func]{remove}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{remove}"
+      ],
+      "java": [
+        "[class]{linked_list}-[func]{remove}"
+      ],
+      "csharp": [
+        "[class]{linked_list}-[func]{Remove}"
+      ],
+      "go": [
+        "[class]{}-[func]{removeItem}"
+      ],
+      "swift": [
+        "[class]{}-[func]{remove}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{remove}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{remove}"
+      ],
+      "dart": [
+        "[class]{}-[func]{remove}"
+      ],
+      "rust": [
+        "[class]{}-[func]{remove}"
+      ],
+      "c": [
+        "[class]{}-[func]{removeItem}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{remove}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{remove}"
+      ],
+      "zig": [
+        "[class]{}-[func]{remove}"
+      ]
+    },
+    "[file]{linked_list}-[class]{}-[func]{access}": {
+      "python": [
+        "[class]{}-[func]{access}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{access}"
+      ],
+      "java": [
+        "[class]{linked_list}-[func]{access}"
+      ],
+      "csharp": [
+        "[class]{linked_list}-[func]{Access}"
+      ],
+      "go": [
+        "[class]{}-[func]{access}"
+      ],
+      "swift": [
+        "[class]{}-[func]{access}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{access}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{access}"
+      ],
+      "dart": [
+        "[class]{}-[func]{access}"
+      ],
+      "rust": [
+        "[class]{}-[func]{access}"
+      ],
+      "c": [
+        "[class]{}-[func]{access}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{access}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{access}"
+      ],
+      "zig": [
+        "[class]{}-[func]{access}"
+      ]
+    },
+    "[file]{linked_list}-[class]{}-[func]{find}": {
+      "python": [
+        "[class]{}-[func]{find}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{find}"
+      ],
+      "java": [
+        "[class]{linked_list}-[func]{find}"
+      ],
+      "csharp": [
+        "[class]{linked_list}-[func]{Find}"
+      ],
+      "go": [
+        "[class]{}-[func]{findNode}"
+      ],
+      "swift": [
+        "[class]{}-[func]{find}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{find}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{find}"
+      ],
+      "dart": [
+        "[class]{}-[func]{find}"
+      ],
+      "rust": [
+        "[class]{}-[func]{find}"
+      ],
+      "c": [
+        "[class]{}-[func]{find}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{find}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{find}"
+      ],
+      "zig": [
+        "[class]{}-[func]{find}"
+      ]
+    },
+    "[file]{my_list}-[class]{my_list}-[func]{}": {
+      "python": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "java": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "go": [
+        "[class]{myList}-[func]{}"
+      ],
+      "swift": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "dart": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "rust": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "c": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{MyList}-[func]{}"
+      ],
+      "zig": [
+        "[class]{MyList}-[func]{}"
+      ]
+    }
+  },
+  "chapter_backtracking": {
+    "[file]{preorder_traversal_i_compact}-[class]{}-[func]{pre_order}": {
+      "python": [
+        "[class]{}-[func]{pre_order}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "java": [
+        "[class]{preorder_traversal_i_compact}-[func]{preOrder}"
+      ],
+      "csharp": [
+        "[class]{preorder_traversal_i_compact}-[func]{PreOrder}"
+      ],
+      "go": [
+        "[class]{}-[func]{preOrderI}"
+      ],
+      "swift": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "dart": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "rust": [
+        "[class]{}-[func]{pre_order}"
+      ],
+      "c": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{pre_order}"
+      ]
+    },
+    "[file]{preorder_traversal_ii_compact}-[class]{}-[func]{pre_order}": {
+      "python": [
+        "[class]{}-[func]{pre_order}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "java": [
+        "[class]{preorder_traversal_ii_compact}-[func]{preOrder}"
+      ],
+      "csharp": [
+        "[class]{preorder_traversal_ii_compact}-[func]{PreOrder}"
+      ],
+      "go": [
+        "[class]{}-[func]{preOrderII}"
+      ],
+      "swift": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "dart": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "rust": [
+        "[class]{}-[func]{pre_order}"
+      ],
+      "c": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{pre_order}"
+      ]
+    },
+    "[file]{preorder_traversal_iii_compact}-[class]{}-[func]{pre_order}": {
+      "python": [
+        "[class]{}-[func]{pre_order}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "java": [
+        "[class]{preorder_traversal_iii_compact}-[func]{preOrder}"
+      ],
+      "csharp": [
+        "[class]{preorder_traversal_iii_compact}-[func]{PreOrder}"
+      ],
+      "go": [
+        "[class]{}-[func]{preOrderIII}"
+      ],
+      "swift": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "dart": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "rust": [
+        "[class]{}-[func]{pre_order}"
+      ],
+      "c": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{preOrder}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{pre_order}"
+      ]
+    },
+    "[file]{preorder_traversal_iii_template}-[class]{}-[func]{backtrack}": {
+      "python": [
+        "[class]{}-[func]{is_solution}",
+        "[class]{}-[func]{record_solution}",
+        "[class]{}-[func]{is_valid}",
+        "[class]{}-[func]{make_choice}",
+        "[class]{}-[func]{undo_choice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "java": [
+        "[class]{preorder_traversal_iii_template}-[func]{isSolution}",
+        "[class]{preorder_traversal_iii_template}-[func]{recordSolution}",
+        "[class]{preorder_traversal_iii_template}-[func]{isValid}",
+        "[class]{preorder_traversal_iii_template}-[func]{makeChoice}",
+        "[class]{preorder_traversal_iii_template}-[func]{undoChoice}",
+        "[class]{preorder_traversal_iii_template}-[func]{backtrack}"
+      ],
+      "csharp": [
+        "[class]{preorder_traversal_iii_template}-[func]{IsSolution}",
+        "[class]{preorder_traversal_iii_template}-[func]{RecordSolution}",
+        "[class]{preorder_traversal_iii_template}-[func]{IsValid}",
+        "[class]{preorder_traversal_iii_template}-[func]{MakeChoice}",
+        "[class]{preorder_traversal_iii_template}-[func]{UndoChoice}",
+        "[class]{preorder_traversal_iii_template}-[func]{Backtrack}"
+      ],
+      "go": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrackIII}"
+      ],
+      "swift": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "dart": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "rust": [
+        "[class]{}-[func]{is_solution}",
+        "[class]{}-[func]{record_solution}",
+        "[class]{}-[func]{is_valid}",
+        "[class]{}-[func]{make_choice}",
+        "[class]{}-[func]{undo_choice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "c": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{isSolution}",
+        "[class]{}-[func]{recordSolution}",
+        "[class]{}-[func]{isValid}",
+        "[class]{}-[func]{makeChoice}",
+        "[class]{}-[func]{undoChoice}",
+        "[class]{}-[func]{backtrack}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{is_solution}",
+        "[class]{}-[func]{record_solution}",
+        "[class]{}-[func]{is_valid}",
+        "[class]{}-[func]{make_choice}",
+        "[class]{}-[func]{undo_choice}",
+        "[class]{}-[func]{backtrack}"
+      ]
+    },
+    "[file]{n_queens}-[class]{}-[func]{n_queens}": {
+      "python": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{n_queens}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "java": [
+        "[class]{n_queens}-[func]{backtrack}",
+        "[class]{n_queens}-[func]{nQueens}"
+      ],
+      "csharp": [
+        "[class]{n_queens}-[func]{Backtrack}",
+        "[class]{n_queens}-[func]{NQueens}"
+      ],
+      "go": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "swift": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "dart": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "rust": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{n_queens}"
+      ],
+      "c": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{nQueens}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{n_queens}"
+      ]
+    },
+    "[file]{permutations_i}-[class]{}-[func]{permutations_i}": {
+      "python": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutations_i}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "java": [
+        "[class]{permutations_i}-[func]{backtrack}",
+        "[class]{permutations_i}-[func]{permutationsI}"
+      ],
+      "csharp": [
+        "[class]{permutations_i}-[func]{Backtrack}",
+        "[class]{permutations_i}-[func]{PermutationsI}"
+      ],
+      "go": [
+        "[class]{}-[func]{backtrackI}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "swift": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "dart": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "rust": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutations_i}"
+      ],
+      "c": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsI}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutations_i}"
+      ]
+    },
+    "[file]{permutations_ii}-[class]{}-[func]{permutations_ii}": {
+      "python": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutations_ii}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "java": [
+        "[class]{permutations_ii}-[func]{backtrack}",
+        "[class]{permutations_ii}-[func]{permutationsII}"
+      ],
+      "csharp": [
+        "[class]{permutations_ii}-[func]{Backtrack}",
+        "[class]{permutations_ii}-[func]{PermutationsII}"
+      ],
+      "go": [
+        "[class]{}-[func]{backtrackII}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "swift": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "dart": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "rust": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutations_ii}"
+      ],
+      "c": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutationsII}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{permutations_ii}"
+      ]
+    },
+    "[file]{subset_sum_i_naive}-[class]{}-[func]{subset_sum_i_naive}": {
+      "python": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_i_naive}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "java": [
+        "[class]{subset_sum_i_naive}-[func]{backtrack}",
+        "[class]{subset_sum_i_naive}-[func]{subsetSumINaive}"
+      ],
+      "csharp": [
+        "[class]{subset_sum_i_naive}-[func]{Backtrack}",
+        "[class]{subset_sum_i_naive}-[func]{SubsetSumINaive}"
+      ],
+      "go": [
+        "[class]{}-[func]{backtrackSubsetSumINaive}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "swift": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "dart": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "rust": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_i_naive}"
+      ],
+      "c": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumINaive}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_i_naive}"
+      ]
+    },
+    "[file]{subset_sum_i}-[class]{}-[func]{subset_sum_i}": {
+      "python": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_i}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "java": [
+        "[class]{subset_sum_i}-[func]{backtrack}",
+        "[class]{subset_sum_i}-[func]{subsetSumI}"
+      ],
+      "csharp": [
+        "[class]{subset_sum_i}-[func]{Backtrack}",
+        "[class]{subset_sum_i}-[func]{SubsetSumI}"
+      ],
+      "go": [
+        "[class]{}-[func]{backtrackSubsetSumI}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "swift": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "dart": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "rust": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_i}"
+      ],
+      "c": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumI}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_i}"
+      ]
+    },
+    "[file]{subset_sum_ii}-[class]{}-[func]{subset_sum_ii}": {
+      "python": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_ii}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "java": [
+        "[class]{subset_sum_ii}-[func]{backtrack}",
+        "[class]{subset_sum_ii}-[func]{subsetSumII}"
+      ],
+      "csharp": [
+        "[class]{subset_sum_ii}-[func]{Backtrack}",
+        "[class]{subset_sum_ii}-[func]{SubsetSumII}"
+      ],
+      "go": [
+        "[class]{}-[func]{backtrackSubsetSumII}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "swift": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "dart": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "rust": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_ii}"
+      ],
+      "c": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subsetSumII}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{subset_sum_ii}"
+      ]
+    }
+  },
+  "chapter_computational_complexity": {
+    "[file]{complexity_exercises}-[class]{}-[func]{sum_iter}": {
+      "python": [
+        "[class]{}-[func]{sum_iter}",
+        "[class]{}-[func]{sum_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "java": [
+        "[class]{complexity_exercises}-[func]{sumIter}",
+        "[class]{complexity_exercises}-[func]{sumRecur}"
+      ],
+      "csharp": [
+        "[class]{complexity_exercises}-[func]{SumIter}",
+        "[class]{complexity_exercises}-[func]{SumRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{sum_iter}",
+        "[class]{}-[func]{sum_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{sumIter}",
+        "[class]{}-[func]{sumRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{sum_iter}",
+        "[class]{}-[func]{sum_recur}"
+      ]
+    },
+    "[file]{complexity_exercises}-[class]{}-[func]{linear_loop}": {
+      "python": [
+        "[class]{}-[func]{linear_loop}",
+        "[class]{}-[func]{quadratic_loop}",
+        "[class]{}-[func]{logarithmic_loop}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "java": [
+        "[class]{complexity_exercises}-[func]{linearLoop}",
+        "[class]{complexity_exercises}-[func]{quadraticLoop}",
+        "[class]{complexity_exercises}-[func]{logarithmicLoop}"
+      ],
+      "csharp": [
+        "[class]{complexity_exercises}-[func]{LinearLoop}",
+        "[class]{complexity_exercises}-[func]{QuadraticLoop}",
+        "[class]{complexity_exercises}-[func]{LogarithmicLoop}"
+      ],
+      "go": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "swift": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "dart": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "rust": [
+        "[class]{}-[func]{linear_loop}",
+        "[class]{}-[func]{quadratic_loop}",
+        "[class]{}-[func]{logarithmic_loop}"
+      ],
+      "c": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{linearLoop}",
+        "[class]{}-[func]{quadraticLoop}",
+        "[class]{}-[func]{logarithmicLoop}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{linear_loop}",
+        "[class]{}-[func]{quadratic_loop}",
+        "[class]{}-[func]{logarithmic_loop}"
+      ]
+    },
+    "[file]{iteration}-[class]{}-[func]{for_loop}": {
+      "python": [
+        "[class]{}-[func]{for_loop}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "java": [
+        "[class]{iteration}-[func]{forLoop}"
+      ],
+      "csharp": [
+        "[class]{iteration}-[func]{ForLoop}"
+      ],
+      "go": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "swift": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "dart": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "rust": [
+        "[class]{}-[func]{for_loop}"
+      ],
+      "c": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{forLoop}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{for_loop}"
+      ],
+      "zig": [
+        "[class]{}-[func]{forLoop}"
+      ]
+    },
+    "[file]{iteration}-[class]{}-[func]{while_loop}": {
+      "python": [
+        "[class]{}-[func]{while_loop}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "java": [
+        "[class]{iteration}-[func]{whileLoop}"
+      ],
+      "csharp": [
+        "[class]{iteration}-[func]{WhileLoop}"
+      ],
+      "go": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "swift": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "dart": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "rust": [
+        "[class]{}-[func]{while_loop}"
+      ],
+      "c": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{whileLoop}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{while_loop}"
+      ],
+      "zig": [
+        "[class]{}-[func]{whileLoop}"
+      ]
+    },
+    "[file]{iteration}-[class]{}-[func]{while_loop_ii}": {
+      "python": [
+        "[class]{}-[func]{while_loop_ii}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "java": [
+        "[class]{iteration}-[func]{whileLoopII}"
+      ],
+      "csharp": [
+        "[class]{iteration}-[func]{WhileLoopII}"
+      ],
+      "go": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "swift": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "dart": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "rust": [
+        "[class]{}-[func]{while_loop_ii}"
+      ],
+      "c": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{whileLoopII}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{while_loop_ii}"
+      ],
+      "zig": [
+        "[class]{}-[func]{whileLoopII}"
+      ]
+    },
+    "[file]{iteration}-[class]{}-[func]{nested_for_loop}": {
+      "python": [
+        "[class]{}-[func]{nested_for_loop}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "java": [
+        "[class]{iteration}-[func]{nestedForLoop}"
+      ],
+      "csharp": [
+        "[class]{iteration}-[func]{NestedForLoop}"
+      ],
+      "go": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "swift": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "dart": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "rust": [
+        "[class]{}-[func]{nested_for_loop}"
+      ],
+      "c": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{nestedForLoop}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{nested_for_loop}"
+      ],
+      "zig": [
+        "[class]{}-[func]{nestedForLoop}"
+      ]
+    },
+    "[file]{recursion}-[class]{}-[func]{recur}": {
+      "python": [
+        "[class]{}-[func]{recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{recur}"
+      ],
+      "java": [
+        "[class]{recursion}-[func]{recur}"
+      ],
+      "csharp": [
+        "[class]{recursion}-[func]{Recur}"
+      ],
+      "go": [
+        "[class]{}-[func]{recur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{recur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{recur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{recur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{recur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{recur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{recur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{recur}"
+      ]
+    },
+    "[file]{recursion}-[class]{}-[func]{tail_recur}": {
+      "python": [
+        "[class]{}-[func]{tail_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "java": [
+        "[class]{recursion}-[func]{tailRecur}"
+      ],
+      "csharp": [
+        "[class]{recursion}-[func]{TailRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{tail_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{tailRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{tail_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{tailRecur}"
+      ]
+    },
+    "[file]{recursion}-[class]{}-[func]{fib}": {
+      "python": [
+        "[class]{}-[func]{fib}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{fib}"
+      ],
+      "java": [
+        "[class]{recursion}-[func]{fib}"
+      ],
+      "csharp": [
+        "[class]{recursion}-[func]{Fib}"
+      ],
+      "go": [
+        "[class]{}-[func]{fib}"
+      ],
+      "swift": [
+        "[class]{}-[func]{fib}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{fib}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{fib}"
+      ],
+      "dart": [
+        "[class]{}-[func]{fib}"
+      ],
+      "rust": [
+        "[class]{}-[func]{fib}"
+      ],
+      "c": [
+        "[class]{}-[func]{fib}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{fib}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{fib}"
+      ],
+      "zig": [
+        "[class]{}-[func]{fib}"
+      ]
+    },
+    "[file]{recursion}-[class]{}-[func]{for_loop_recur}": {
+      "python": [
+        "[class]{}-[func]{for_loop_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "java": [
+        "[class]{recursion}-[func]{forLoopRecur}"
+      ],
+      "csharp": [
+        "[class]{recursion}-[func]{ForLoopRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{for_loop_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{forLoopRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{for_loop_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{forLoopRecur}"
+      ]
+    },
+    "[file]{space_complexity}-[class]{}-[func]{constant}": {
+      "python": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{constant}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{func}",
+        "[class]{}-[func]{constant}"
+      ],
+      "java": [
+        "[class]{space_complexity}-[func]{function}",
+        "[class]{space_complexity}-[func]{constant}"
+      ],
+      "csharp": [
+        "[class]{space_complexity}-[func]{Function}",
+        "[class]{space_complexity}-[func]{Constant}"
+      ],
+      "go": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{spaceConstant}"
+      ],
+      "swift": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{constant}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{constFunc}",
+        "[class]{}-[func]{constant}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{constFunc}",
+        "[class]{}-[func]{constant}"
+      ],
+      "dart": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{constant}"
+      ],
+      "rust": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{constant}"
+      ],
+      "c": [
+        "[class]{}-[func]{func}",
+        "[class]{}-[func]{constant}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{constant}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{constant}"
+      ],
+      "zig": [
+        "[class]{}-[func]{function}",
+        "[class]{}-[func]{constant}"
+      ]
+    },
+    "[file]{space_complexity}-[class]{}-[func]{linear}": {
+      "python": [
+        "[class]{}-[func]{linear}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{linear}"
+      ],
+      "java": [
+        "[class]{space_complexity}-[func]{linear}"
+      ],
+      "csharp": [
+        "[class]{space_complexity}-[func]{Linear}"
+      ],
+      "go": [
+        "[class]{}-[func]{spaceLinear}"
+      ],
+      "swift": [
+        "[class]{}-[func]{linear}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{linear}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{linear}"
+      ],
+      "dart": [
+        "[class]{}-[func]{linear}"
+      ],
+      "rust": [
+        "[class]{}-[func]{linear}"
+      ],
+      "c": [
+        "[class]{HashTable}-[func]{}",
+        "[class]{}-[func]{linear}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{linear}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{linear}"
+      ],
+      "zig": [
+        "[class]{}-[func]{linear}"
+      ]
+    },
+    "[file]{space_complexity}-[class]{}-[func]{linear_recur}": {
+      "python": [
+        "[class]{}-[func]{linear_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{linearRecur}"
+      ],
+      "java": [
+        "[class]{space_complexity}-[func]{linearRecur}"
+      ],
+      "csharp": [
+        "[class]{space_complexity}-[func]{LinearRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{spaceLinearRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{linearRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{linearRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{linearRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{linearRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{linear_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{linearRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{linearRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{linear_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{linearRecur}"
+      ]
+    },
+    "[file]{space_complexity}-[class]{}-[func]{quadratic}": {
+      "python": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "java": [
+        "[class]{space_complexity}-[func]{quadratic}"
+      ],
+      "csharp": [
+        "[class]{space_complexity}-[func]{Quadratic}"
+      ],
+      "go": [
+        "[class]{}-[func]{spaceQuadratic}"
+      ],
+      "swift": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "dart": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "rust": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "c": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "zig": [
+        "[class]{}-[func]{quadratic}"
+      ]
+    },
+    "[file]{space_complexity}-[class]{}-[func]{quadratic_recur}": {
+      "python": [
+        "[class]{}-[func]{quadratic_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{quadraticRecur}"
+      ],
+      "java": [
+        "[class]{space_complexity}-[func]{quadraticRecur}"
+      ],
+      "csharp": [
+        "[class]{space_complexity}-[func]{QuadraticRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{spaceQuadraticRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{quadraticRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{quadraticRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{quadraticRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{quadraticRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{quadratic_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{quadraticRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{quadraticRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{quadratic_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{quadraticRecur}"
+      ]
+    },
+    "[file]{space_complexity}-[class]{}-[func]{build_tree}": {
+      "python": [
+        "[class]{}-[func]{build_tree}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "java": [
+        "[class]{space_complexity}-[func]{buildTree}"
+      ],
+      "csharp": [
+        "[class]{space_complexity}-[func]{BuildTree}"
+      ],
+      "go": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "swift": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "dart": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "rust": [
+        "[class]{}-[func]{build_tree}"
+      ],
+      "c": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{buildTree}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{build_tree}"
+      ],
+      "zig": [
+        "[class]{}-[func]{buildTree}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{constant}": {
+      "python": [
+        "[class]{}-[func]{constant}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{constant}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{constant}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{Constant}"
+      ],
+      "go": [
+        "[class]{}-[func]{constant}"
+      ],
+      "swift": [
+        "[class]{}-[func]{constant}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{constant}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{constant}"
+      ],
+      "dart": [
+        "[class]{}-[func]{constant}"
+      ],
+      "rust": [
+        "[class]{}-[func]{constant}"
+      ],
+      "c": [
+        "[class]{}-[func]{constant}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{constant}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{constant}"
+      ],
+      "zig": [
+        "[class]{}-[func]{constant}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{linear}": {
+      "python": [
+        "[class]{}-[func]{linear}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{linear}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{linear}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{Linear}"
+      ],
+      "go": [
+        "[class]{}-[func]{linear}"
+      ],
+      "swift": [
+        "[class]{}-[func]{linear}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{linear}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{linear}"
+      ],
+      "dart": [
+        "[class]{}-[func]{linear}"
+      ],
+      "rust": [
+        "[class]{}-[func]{linear}"
+      ],
+      "c": [
+        "[class]{}-[func]{linear}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{linear}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{linear}"
+      ],
+      "zig": [
+        "[class]{}-[func]{linear}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{array_traversal}": {
+      "python": [
+        "[class]{}-[func]{array_traversal}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{arrayTraversal}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{ArrayTraversal}"
+      ],
+      "go": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "swift": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "dart": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "rust": [
+        "[class]{}-[func]{array_traversal}"
+      ],
+      "c": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{arrayTraversal}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{array_traversal}"
+      ],
+      "zig": [
+        "[class]{}-[func]{arrayTraversal}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{quadratic}": {
+      "python": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{quadratic}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{Quadratic}"
+      ],
+      "go": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "swift": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "dart": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "rust": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "c": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{quadratic}"
+      ],
+      "zig": [
+        "[class]{}-[func]{quadratic}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{bubble_sort}": {
+      "python": [
+        "[class]{}-[func]{bubble_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{bubbleSort}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{BubbleSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{bubble_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{bubble_sort}"
+      ],
+      "zig": [
+        "[class]{}-[func]{bubbleSort}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{exponential}": {
+      "python": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{exponential}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{Exponential}"
+      ],
+      "go": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "swift": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "dart": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "rust": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "c": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{exponential}"
+      ],
+      "zig": [
+        "[class]{}-[func]{exponential}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{exp_recur}": {
+      "python": [
+        "[class]{}-[func]{exp_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{expRecur}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{ExpRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{exp_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{expRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{exp_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{expRecur}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{logarithmic}": {
+      "python": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{logarithmic}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{Logarithmic}"
+      ],
+      "go": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "swift": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "dart": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "rust": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "c": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{logarithmic}"
+      ],
+      "zig": [
+        "[class]{}-[func]{logarithmic}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{log_recur}": {
+      "python": [
+        "[class]{}-[func]{log_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{logRecur}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{LogRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{log_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{logRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{log_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{logRecur}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{linear_log_recur}": {
+      "python": [
+        "[class]{}-[func]{linear_log_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{linearLogRecur}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{LinearLogRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{linear_log_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{linearLogRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{linear_log_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{linearLogRecur}"
+      ]
+    },
+    "[file]{time_complexity}-[class]{}-[func]{factorial_recur}": {
+      "python": [
+        "[class]{}-[func]{factorial_recur}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "java": [
+        "[class]{time_complexity}-[func]{factorialRecur}"
+      ],
+      "csharp": [
+        "[class]{time_complexity}-[func]{FactorialRecur}"
+      ],
+      "go": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "swift": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "dart": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "rust": [
+        "[class]{}-[func]{factorial_recur}"
+      ],
+      "c": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{factorialRecur}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{factorial_recur}"
+      ],
+      "zig": [
+        "[class]{}-[func]{factorialRecur}"
+      ]
+    },
+    "[file]{worst_best_time_complexity}-[class]{}-[func]{find_one}": {
+      "python": [
+        "[class]{}-[func]{random_numbers}",
+        "[class]{}-[func]{find_one}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "java": [
+        "[class]{worst_best_time_complexity}-[func]{randomNumbers}",
+        "[class]{worst_best_time_complexity}-[func]{findOne}"
+      ],
+      "csharp": [
+        "[class]{worst_best_time_complexity}-[func]{RandomNumbers}",
+        "[class]{worst_best_time_complexity}-[func]{FindOne}"
+      ],
+      "go": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "swift": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "dart": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "rust": [
+        "[class]{}-[func]{random_numbers}",
+        "[class]{}-[func]{find_one}"
+      ],
+      "c": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{random_numbers}",
+        "[class]{}-[func]{find_one}"
+      ],
+      "zig": [
+        "[class]{}-[func]{randomNumbers}",
+        "[class]{}-[func]{findOne}"
+      ]
+    }
+  },
+  "chapter_data_structure": {},
+  "chapter_divide_and_conquer": {
+    "[file]{fast_power}-[class]{}-[func]{fast_pow}": {
+      "python": [
+        "[class]{}-[func]{fast_pow}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "java": [
+        "[class]{fast_power}-[func]{fastPow}"
+      ],
+      "csharp": [
+        "[class]{fast_power}-[func]{FastPow}"
+      ],
+      "go": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "swift": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "dart": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "rust": [
+        "[class]{}-[func]{fast_pow}"
+      ],
+      "c": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{fastPow}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{fast_pow}"
+      ]
+    },
+    "[file]{binary_search_recur}-[class]{}-[func]{binary_search}": {
+      "python": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binary_search}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "java": [
+        "[class]{binary_search_recur}-[func]{dfs}",
+        "[class]{binary_search_recur}-[func]{binarySearch}"
+      ],
+      "csharp": [
+        "[class]{binary_search_recur}-[func]{DFS}",
+        "[class]{binary_search_recur}-[func]{BinarySearch}"
+      ],
+      "go": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "swift": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "dart": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "rust": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binary_search}"
+      ],
+      "c": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{binary_search}"
+      ]
+    },
+    "[file]{build_tree}-[class]{}-[func]{build_tree}": {
+      "python": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{build_tree}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "java": [
+        "[class]{build_tree}-[func]{dfs}",
+        "[class]{build_tree}-[func]{buildTree}"
+      ],
+      "csharp": [
+        "[class]{build_tree}-[func]{DFS}",
+        "[class]{build_tree}-[func]{BuildTree}"
+      ],
+      "go": [
+        "[class]{}-[func]{dfsBuildTree}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "swift": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "dart": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "rust": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{build_tree}"
+      ],
+      "c": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{buildTree}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{build_tree}"
+      ]
+    },
+    "[file]{hanota}-[class]{}-[func]{solve_hanota}": {
+      "python": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solve_hanota}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "java": [
+        "[class]{hanota}-[func]{move}",
+        "[class]{hanota}-[func]{dfs}",
+        "[class]{hanota}-[func]{solveHanota}"
+      ],
+      "csharp": [
+        "[class]{hanota}-[func]{Move}",
+        "[class]{hanota}-[func]{DFS}",
+        "[class]{hanota}-[func]{SolveHanota}"
+      ],
+      "go": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfsHanota}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "swift": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "dart": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "rust": [
+        "[class]{}-[func]{move_pan}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solve_hanota}"
+      ],
+      "c": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solveHanota}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{move}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{solve_hanota}"
+      ]
+    }
+  },
+  "chapter_dynamic_programming": {
+    "[file]{min_cost_climbing_stairs_dp}-[class]{}-[func]{min_cost_climbing_stairs_dp}": {
+      "python": [
+        "[class]{}-[func]{min_cost_climbing_stairs_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "java": [
+        "[class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDP}"
+      ],
+      "csharp": [
+        "[class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{min_cost_climbing_stairs_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{minCostClimbingStairsDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{min_cost_climbing_stairs_dp}"
+      ]
+    },
+    "[file]{min_cost_climbing_stairs_dp}-[class]{}-[func]{min_cost_climbing_stairs_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{min_cost_climbing_stairs_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "java": [
+        "[class]{min_cost_climbing_stairs_dp}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "csharp": [
+        "[class]{min_cost_climbing_stairs_dp}-[func]{MinCostClimbingStairsDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{min_cost_climbing_stairs_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{minCostClimbingStairsDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{min_cost_climbing_stairs_dp_comp}"
+      ]
+    },
+    "[file]{climbing_stairs_constraint_dp}-[class]{}-[func]{climbing_stairs_constraint_dp}": {
+      "python": [
+        "[class]{}-[func]{climbing_stairs_constraint_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "java": [
+        "[class]{climbing_stairs_constraint_dp}-[func]{climbingStairsConstraintDP}"
+      ],
+      "csharp": [
+        "[class]{climbing_stairs_constraint_dp}-[func]{ClimbingStairsConstraintDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{climbing_stairs_constraint_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{climbingStairsConstraintDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{climbing_stairs_constraint_dp}"
+      ]
+    },
+    "[file]{min_path_sum}-[class]{}-[func]{min_path_sum_dfs}": {
+      "python": [
+        "[class]{}-[func]{min_path_sum_dfs}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "java": [
+        "[class]{min_path_sum}-[func]{minPathSumDFS}"
+      ],
+      "csharp": [
+        "[class]{min_path_sum}-[func]{MinPathSumDFS}"
+      ],
+      "go": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "swift": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "dart": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "rust": [
+        "[class]{}-[func]{min_path_sum_dfs}"
+      ],
+      "c": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{minPathSumDFS}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{min_path_sum_dfs}"
+      ]
+    },
+    "[file]{min_path_sum}-[class]{}-[func]{min_path_sum_dfs_mem}": {
+      "python": [
+        "[class]{}-[func]{min_path_sum_dfs_mem}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "java": [
+        "[class]{min_path_sum}-[func]{minPathSumDFSMem}"
+      ],
+      "csharp": [
+        "[class]{min_path_sum}-[func]{MinPathSumDFSMem}"
+      ],
+      "go": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "swift": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "dart": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "rust": [
+        "[class]{}-[func]{min_path_sum_dfs_mem}"
+      ],
+      "c": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{minPathSumDFSMem}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{min_path_sum_dfs_mem}"
+      ]
+    },
+    "[file]{min_path_sum}-[class]{}-[func]{min_path_sum_dp}": {
+      "python": [
+        "[class]{}-[func]{min_path_sum_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "java": [
+        "[class]{min_path_sum}-[func]{minPathSumDP}"
+      ],
+      "csharp": [
+        "[class]{min_path_sum}-[func]{MinPathSumDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{min_path_sum_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{minPathSumDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{min_path_sum_dp}"
+      ]
+    },
+    "[file]{min_path_sum}-[class]{}-[func]{min_path_sum_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{min_path_sum_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "java": [
+        "[class]{min_path_sum}-[func]{minPathSumDPComp}"
+      ],
+      "csharp": [
+        "[class]{min_path_sum}-[func]{MinPathSumDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{min_path_sum_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{minPathSumDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{min_path_sum_dp_comp}"
+      ]
+    },
+    "[file]{edit_distance}-[class]{}-[func]{edit_distance_dp}": {
+      "python": [
+        "[class]{}-[func]{edit_distance_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "java": [
+        "[class]{edit_distance}-[func]{editDistanceDP}"
+      ],
+      "csharp": [
+        "[class]{edit_distance}-[func]{EditDistanceDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{edit_distance_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{editDistanceDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{edit_distance_dp}"
+      ]
+    },
+    "[file]{edit_distance}-[class]{}-[func]{edit_distance_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{edit_distance_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "java": [
+        "[class]{edit_distance}-[func]{editDistanceDPComp}"
+      ],
+      "csharp": [
+        "[class]{edit_distance}-[func]{EditDistanceDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{edit_distance_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{editDistanceDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{edit_distance_dp_comp}"
+      ]
+    },
+    "[file]{climbing_stairs_backtrack}-[class]{}-[func]{climbing_stairs_backtrack}": {
+      "python": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbing_stairs_backtrack}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "java": [
+        "[class]{climbing_stairs_backtrack}-[func]{backtrack}",
+        "[class]{climbing_stairs_backtrack}-[func]{climbingStairsBacktrack}"
+      ],
+      "csharp": [
+        "[class]{climbing_stairs_backtrack}-[func]{Backtrack}",
+        "[class]{climbing_stairs_backtrack}-[func]{ClimbingStairsBacktrack}"
+      ],
+      "go": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "swift": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "dart": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "rust": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbing_stairs_backtrack}"
+      ],
+      "c": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbingStairsBacktrack}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{backtrack}",
+        "[class]{}-[func]{climbing_stairs_backtrack}"
+      ]
+    },
+    "[file]{climbing_stairs_dfs}-[class]{}-[func]{climbing_stairs_dfs}": {
+      "python": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbing_stairs_dfs}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "java": [
+        "[class]{climbing_stairs_dfs}-[func]{dfs}",
+        "[class]{climbing_stairs_dfs}-[func]{climbingStairsDFS}"
+      ],
+      "csharp": [
+        "[class]{climbing_stairs_dfs}-[func]{DFS}",
+        "[class]{climbing_stairs_dfs}-[func]{ClimbingStairsDFS}"
+      ],
+      "go": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "swift": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "dart": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "rust": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbing_stairs_dfs}"
+      ],
+      "c": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFS}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbing_stairs_dfs}"
+      ]
+    },
+    "[file]{climbing_stairs_dfs_mem}-[class]{}-[func]{climbing_stairs_dfs_mem}": {
+      "python": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbing_stairs_dfs_mem}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "java": [
+        "[class]{climbing_stairs_dfs_mem}-[func]{dfs}",
+        "[class]{climbing_stairs_dfs_mem}-[func]{climbingStairsDFSMem}"
+      ],
+      "csharp": [
+        "[class]{climbing_stairs_dfs_mem}-[func]{DFS}",
+        "[class]{climbing_stairs_dfs_mem}-[func]{ClimbingStairsDFSMem}"
+      ],
+      "go": [
+        "[class]{}-[func]{dfsMem}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "swift": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "dart": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "rust": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbing_stairs_dfs_mem}"
+      ],
+      "c": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbingStairsDFSMem}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{climbing_stairs_dfs_mem}"
+      ]
+    },
+    "[file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp}": {
+      "python": [
+        "[class]{}-[func]{climbing_stairs_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "java": [
+        "[class]{climbing_stairs_dp}-[func]{climbingStairsDP}"
+      ],
+      "csharp": [
+        "[class]{climbing_stairs_dp}-[func]{ClimbingStairsDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{climbing_stairs_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{climbingStairsDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{climbing_stairs_dp}"
+      ]
+    },
+    "[file]{climbing_stairs_dp}-[class]{}-[func]{climbing_stairs_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{climbing_stairs_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "java": [
+        "[class]{climbing_stairs_dp}-[func]{climbingStairsDPComp}"
+      ],
+      "csharp": [
+        "[class]{climbing_stairs_dp}-[func]{ClimbingStairsDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{climbing_stairs_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{climbingStairsDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{climbing_stairs_dp_comp}"
+      ]
+    },
+    "[file]{knapsack}-[class]{}-[func]{knapsack_dfs}": {
+      "python": [
+        "[class]{}-[func]{knapsack_dfs}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "java": [
+        "[class]{knapsack}-[func]{knapsackDFS}"
+      ],
+      "csharp": [
+        "[class]{knapsack}-[func]{KnapsackDFS}"
+      ],
+      "go": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "swift": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "dart": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "rust": [
+        "[class]{}-[func]{knapsack_dfs}"
+      ],
+      "c": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{knapsackDFS}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{knapsack_dfs}"
+      ]
+    },
+    "[file]{knapsack}-[class]{}-[func]{knapsack_dfs_mem}": {
+      "python": [
+        "[class]{}-[func]{knapsack_dfs_mem}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "java": [
+        "[class]{knapsack}-[func]{knapsackDFSMem}"
+      ],
+      "csharp": [
+        "[class]{knapsack}-[func]{KnapsackDFSMem}"
+      ],
+      "go": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "swift": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "dart": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "rust": [
+        "[class]{}-[func]{knapsack_dfs_mem}"
+      ],
+      "c": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{knapsackDFSMem}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{knapsack_dfs_mem}"
+      ]
+    },
+    "[file]{knapsack}-[class]{}-[func]{knapsack_dp}": {
+      "python": [
+        "[class]{}-[func]{knapsack_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "java": [
+        "[class]{knapsack}-[func]{knapsackDP}"
+      ],
+      "csharp": [
+        "[class]{knapsack}-[func]{KnapsackDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{knapsack_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{knapsackDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{knapsack_dp}"
+      ]
+    },
+    "[file]{knapsack}-[class]{}-[func]{knapsack_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{knapsack_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "java": [
+        "[class]{knapsack}-[func]{knapsackDPComp}"
+      ],
+      "csharp": [
+        "[class]{knapsack}-[func]{KnapsackDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{knapsack_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{knapsackDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{knapsack_dp_comp}"
+      ]
+    },
+    "[file]{unbounded_knapsack}-[class]{}-[func]{unbounded_knapsack_dp}": {
+      "python": [
+        "[class]{}-[func]{unbounded_knapsack_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "java": [
+        "[class]{unbounded_knapsack}-[func]{unboundedKnapsackDP}"
+      ],
+      "csharp": [
+        "[class]{unbounded_knapsack}-[func]{UnboundedKnapsackDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{unbounded_knapsack_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{unboundedKnapsackDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{unbounded_knapsack_dp}"
+      ]
+    },
+    "[file]{unbounded_knapsack}-[class]{}-[func]{unbounded_knapsack_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{unbounded_knapsack_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "java": [
+        "[class]{unbounded_knapsack}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "csharp": [
+        "[class]{unbounded_knapsack}-[func]{UnboundedKnapsackDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{unbounded_knapsack_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{unboundedKnapsackDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{unbounded_knapsack_dp_comp}"
+      ]
+    },
+    "[file]{coin_change}-[class]{}-[func]{coin_change_dp}": {
+      "python": [
+        "[class]{}-[func]{coin_change_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "java": [
+        "[class]{coin_change}-[func]{coinChangeDP}"
+      ],
+      "csharp": [
+        "[class]{coin_change}-[func]{CoinChangeDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{coin_change_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{coinChangeDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{coin_change_dp}"
+      ]
+    },
+    "[file]{coin_change}-[class]{}-[func]{coin_change_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{coin_change_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "java": [
+        "[class]{coin_change}-[func]{coinChangeDPComp}"
+      ],
+      "csharp": [
+        "[class]{coin_change}-[func]{CoinChangeDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{coin_change_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{coinChangeDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{coin_change_dp_comp}"
+      ]
+    },
+    "[file]{coin_change_ii}-[class]{}-[func]{coin_change_ii_dp}": {
+      "python": [
+        "[class]{}-[func]{coin_change_ii_dp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "java": [
+        "[class]{coin_change_ii}-[func]{coinChangeIIDP}"
+      ],
+      "csharp": [
+        "[class]{coin_change_ii}-[func]{CoinChangeIIDP}"
+      ],
+      "go": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "swift": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "dart": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "rust": [
+        "[class]{}-[func]{coin_change_ii_dp}"
+      ],
+      "c": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{coinChangeIIDP}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{coin_change_ii_dp}"
+      ]
+    },
+    "[file]{coin_change_ii}-[class]{}-[func]{coin_change_ii_dp_comp}": {
+      "python": [
+        "[class]{}-[func]{coin_change_ii_dp_comp}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "java": [
+        "[class]{coin_change_ii}-[func]{coinChangeIIDPComp}"
+      ],
+      "csharp": [
+        "[class]{coin_change_ii}-[func]{CoinChangeIIDPComp}"
+      ],
+      "go": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "swift": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "dart": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "rust": [
+        "[class]{}-[func]{coin_change_ii_dp_comp}"
+      ],
+      "c": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{coinChangeIIDPComp}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{coin_change_ii_dp_comp}"
+      ]
+    }
+  },
+  "chapter_graph": {
+    "[file]{graph_adjacency_matrix}-[class]{graph_adj_mat}-[func]{}": {
+      "python": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "java": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "go": [
+        "[class]{graphAdjMat}-[func]{}"
+      ],
+      "swift": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "dart": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "rust": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "c": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{GraphAdjMat}-[func]{}"
+      ]
+    },
+    "[file]{graph_adjacency_list}-[class]{graph_adj_list}-[func]{}": {
+      "python": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "java": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "go": [
+        "[class]{graphAdjList}-[func]{}"
+      ],
+      "swift": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "dart": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "rust": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "c": [
+        "[class]{AdjListNode}-[func]{}",
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{GraphAdjList}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{GraphAdjList}-[func]{}"
+      ]
+    },
+    "[file]{graph_bfs}-[class]{}-[func]{graph_bfs}": {
+      "python": [
+        "[class]{}-[func]{graph_bfs}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "java": [
+        "[class]{graph_bfs}-[func]{graphBFS}"
+      ],
+      "csharp": [
+        "[class]{graph_bfs}-[func]{GraphBFS}"
+      ],
+      "go": [
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "swift": [
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "dart": [
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "rust": [
+        "[class]{}-[func]{graph_bfs}"
+      ],
+      "c": [
+        "[class]{Queue}-[func]{}",
+        "[class]{}-[func]{isVisited}",
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{graphBFS}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{graph_bfs}"
+      ]
+    },
+    "[file]{graph_dfs}-[class]{}-[func]{graph_dfs}": {
+      "python": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graph_dfs}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "java": [
+        "[class]{graph_dfs}-[func]{dfs}",
+        "[class]{graph_dfs}-[func]{graphDFS}"
+      ],
+      "csharp": [
+        "[class]{graph_dfs}-[func]{DFS}",
+        "[class]{graph_dfs}-[func]{GraphDFS}"
+      ],
+      "go": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "swift": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "dart": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "rust": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graph_dfs}"
+      ],
+      "c": [
+        "[class]{}-[func]{isVisited}",
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graphDFS}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{dfs}",
+        "[class]{}-[func]{graph_dfs}"
+      ]
+    }
+  },
+  "chapter_greedy": {
+    "[file]{fractional_knapsack}-[class]{}-[func]{fractional_knapsack}": {
+      "python": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractional_knapsack}"
+      ],
+      "cpp": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "java": [
+        "[class]{Item}-[func]{}",
+        "[class]{fractional_knapsack}-[func]{fractionalKnapsack}"
+      ],
+      "csharp": [
+        "[class]{Item}-[func]{}",
+        "[class]{fractional_knapsack}-[func]{FractionalKnapsack}"
+      ],
+      "go": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "swift": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "javascript": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "typescript": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "dart": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "rust": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractional_knapsack}"
+      ],
+      "c": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "kotlin": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractionalKnapsack}"
+      ],
+      "ruby": [
+        "[class]{Item}-[func]{}",
+        "[class]{}-[func]{fractional_knapsack}"
+      ]
+    },
+    "[file]{coin_change_greedy}-[class]{}-[func]{coin_change_greedy}": {
+      "python": [
+        "[class]{}-[func]{coin_change_greedy}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "java": [
+        "[class]{coin_change_greedy}-[func]{coinChangeGreedy}"
+      ],
+      "csharp": [
+        "[class]{coin_change_greedy}-[func]{CoinChangeGreedy}"
+      ],
+      "go": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "swift": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "dart": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "rust": [
+        "[class]{}-[func]{coin_change_greedy}"
+      ],
+      "c": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{coinChangeGreedy}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{coin_change_greedy}"
+      ]
+    },
+    "[file]{max_capacity}-[class]{}-[func]{max_capacity}": {
+      "python": [
+        "[class]{}-[func]{max_capacity}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "java": [
+        "[class]{max_capacity}-[func]{maxCapacity}"
+      ],
+      "csharp": [
+        "[class]{max_capacity}-[func]{MaxCapacity}"
+      ],
+      "go": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "swift": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "dart": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "rust": [
+        "[class]{}-[func]{max_capacity}"
+      ],
+      "c": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{maxCapacity}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{max_capacity}"
+      ]
+    },
+    "[file]{max_product_cutting}-[class]{}-[func]{max_product_cutting}": {
+      "python": [
+        "[class]{}-[func]{max_product_cutting}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "java": [
+        "[class]{max_product_cutting}-[func]{maxProductCutting}"
+      ],
+      "csharp": [
+        "[class]{max_product_cutting}-[func]{MaxProductCutting}"
+      ],
+      "go": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "swift": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "dart": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "rust": [
+        "[class]{}-[func]{max_product_cutting}"
+      ],
+      "c": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{maxProductCutting}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{max_product_cutting}"
+      ]
+    }
+  },
+  "chapter_hashing": {
+    "[file]{simple_hash}-[class]{}-[func]{rot_hash}": {
+      "python": [
+        "[class]{}-[func]{add_hash}",
+        "[class]{}-[func]{mul_hash}",
+        "[class]{}-[func]{xor_hash}",
+        "[class]{}-[func]{rot_hash}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "java": [
+        "[class]{simple_hash}-[func]{addHash}",
+        "[class]{simple_hash}-[func]{mulHash}",
+        "[class]{simple_hash}-[func]{xorHash}",
+        "[class]{simple_hash}-[func]{rotHash}"
+      ],
+      "csharp": [
+        "[class]{simple_hash}-[func]{AddHash}",
+        "[class]{simple_hash}-[func]{MulHash}",
+        "[class]{simple_hash}-[func]{XorHash}",
+        "[class]{simple_hash}-[func]{RotHash}"
+      ],
+      "go": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "swift": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "dart": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "rust": [
+        "[class]{}-[func]{add_hash}",
+        "[class]{}-[func]{mul_hash}",
+        "[class]{}-[func]{xor_hash}",
+        "[class]{}-[func]{rot_hash}"
+      ],
+      "c": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{addHash}",
+        "[class]{}-[func]{mulHash}",
+        "[class]{}-[func]{xorHash}",
+        "[class]{}-[func]{rotHash}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{add_hash}",
+        "[class]{}-[func]{mul_hash}",
+        "[class]{}-[func]{xor_hash}",
+        "[class]{}-[func]{rot_hash}"
+      ]
+    },
+    "[file]{hash_map_chaining}-[class]{hash_map_chaining}-[func]{}": {
+      "python": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "java": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "go": [
+        "[class]{hashMapChaining}-[func]{}"
+      ],
+      "swift": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "dart": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "rust": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "c": [
+        "[class]{Node}-[func]{}",
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{HashMapChaining}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{HashMapChaining}-[func]{}"
+      ]
+    },
+    "[file]{hash_map_open_addressing}-[class]{hash_map_open_addressing}-[func]{}": {
+      "python": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "java": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "go": [
+        "[class]{hashMapOpenAddressing}-[func]{}"
+      ],
+      "swift": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "dart": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "rust": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "c": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{HashMapOpenAddressing}-[func]{}"
+      ]
+    },
+    "[file]{array_hash_map}-[class]{array_hash_map}-[func]{}": {
+      "python": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "java": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "go": [
+        "[class]{pair}-[func]{}",
+        "[class]{arrayHashMap}-[func]{}"
+      ],
+      "swift": [
+        "[file]{utils/Pair.swift}-[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "dart": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "rust": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "c": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{Pair}-[func]{}",
+        "[class]{ArrayHashMap}-[func]{}"
+      ]
+    }
+  },
+  "chapter_heap": {
+    "[file]{my_heap}-[class]{max_heap}-[func]{__init__}": {
+      "python": [
+        "[class]{MaxHeap}-[func]{__init__}"
+      ],
+      "cpp": [
+        "[class]{MaxHeap}-[func]{MaxHeap}"
+      ],
+      "java": [
+        "[class]{MaxHeap}-[func]{MaxHeap}"
+      ],
+      "csharp": [
+        "[class]{MaxHeap}-[func]{MaxHeap}"
+      ],
+      "go": [
+        "[class]{maxHeap}-[func]{newMaxHeap}"
+      ],
+      "swift": [
+        "[class]{MaxHeap}-[func]{init}"
+      ],
+      "javascript": [
+        "[class]{MaxHeap}-[func]{constructor}"
+      ],
+      "typescript": [
+        "[class]{MaxHeap}-[func]{constructor}"
+      ],
+      "dart": [
+        "[class]{MaxHeap}-[func]{MaxHeap}"
+      ],
+      "rust": [
+        "[class]{MaxHeap}-[func]{new}"
+      ],
+      "c": [
+        "[class]{MaxHeap}-[func]{newMaxHeap}"
+      ],
+      "kotlin": [
+        "[class]{MaxHeap}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{MaxHeap}-[func]{initialize}"
+      ]
+    },
+    "[file]{my_heap}-[class]{max_heap}-[func]{parent}": {
+      "python": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "cpp": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "java": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "csharp": [
+        "[class]{MaxHeap}-[func]{Left}",
+        "[class]{MaxHeap}-[func]{Right}",
+        "[class]{MaxHeap}-[func]{Parent}"
+      ],
+      "go": [
+        "[class]{maxHeap}-[func]{left}",
+        "[class]{maxHeap}-[func]{right}",
+        "[class]{maxHeap}-[func]{parent}"
+      ],
+      "swift": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "javascript": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "typescript": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "dart": [
+        "[class]{MaxHeap}-[func]{_left}",
+        "[class]{MaxHeap}-[func]{_right}",
+        "[class]{MaxHeap}-[func]{_parent}"
+      ],
+      "rust": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "c": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "kotlin": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ],
+      "ruby": [
+        "[class]{MaxHeap}-[func]{left}",
+        "[class]{MaxHeap}-[func]{right}",
+        "[class]{MaxHeap}-[func]{parent}"
+      ]
+    },
+    "[file]{my_heap}-[class]{max_heap}-[func]{peek}": {
+      "python": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "cpp": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "java": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "csharp": [
+        "[class]{MaxHeap}-[func]{Peek}"
+      ],
+      "go": [
+        "[class]{maxHeap}-[func]{peek}"
+      ],
+      "swift": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "javascript": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "typescript": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "dart": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "rust": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "c": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "kotlin": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ],
+      "ruby": [
+        "[class]{MaxHeap}-[func]{peek}"
+      ]
+    },
+    "[file]{my_heap}-[class]{max_heap}-[func]{sift_up}": {
+      "python": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{sift_up}"
+      ],
+      "cpp": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "java": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "csharp": [
+        "[class]{MaxHeap}-[func]{Push}",
+        "[class]{MaxHeap}-[func]{SiftUp}"
+      ],
+      "go": [
+        "[class]{maxHeap}-[func]{push}",
+        "[class]{maxHeap}-[func]{siftUp}"
+      ],
+      "swift": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "javascript": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "typescript": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "dart": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "rust": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{sift_up}"
+      ],
+      "c": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "kotlin": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{siftUp}"
+      ],
+      "ruby": [
+        "[class]{MaxHeap}-[func]{push}",
+        "[class]{MaxHeap}-[func]{sift_up}"
+      ]
+    },
+    "[file]{my_heap}-[class]{max_heap}-[func]{sift_down}": {
+      "python": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{sift_down}"
+      ],
+      "cpp": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "java": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "csharp": [
+        "[class]{MaxHeap}-[func]{Pop}",
+        "[class]{MaxHeap}-[func]{SiftDown}"
+      ],
+      "go": [
+        "[class]{maxHeap}-[func]{pop}",
+        "[class]{maxHeap}-[func]{siftDown}"
+      ],
+      "swift": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "javascript": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "typescript": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "dart": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "rust": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{sift_down}"
+      ],
+      "c": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "kotlin": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{siftDown}"
+      ],
+      "ruby": [
+        "[class]{MaxHeap}-[func]{pop}",
+        "[class]{MaxHeap}-[func]{sift_down}"
+      ]
+    },
+    "[file]{top_k}-[class]{}-[func]{top_k_heap}": {
+      "python": [
+        "[class]{}-[func]{top_k_heap}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "java": [
+        "[class]{top_k}-[func]{topKHeap}"
+      ],
+      "csharp": [
+        "[class]{top_k}-[func]{TopKHeap}"
+      ],
+      "go": [
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "swift": [
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{pushMinHeap}",
+        "[class]{}-[func]{popMinHeap}",
+        "[class]{}-[func]{peekMinHeap}",
+        "[class]{}-[func]{getMinHeap}",
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{pushMinHeap}",
+        "[class]{}-[func]{popMinHeap}",
+        "[class]{}-[func]{peekMinHeap}",
+        "[class]{}-[func]{getMinHeap}",
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "dart": [
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "rust": [
+        "[class]{}-[func]{top_k_heap}"
+      ],
+      "c": [
+        "[class]{}-[func]{pushMinHeap}",
+        "[class]{}-[func]{popMinHeap}",
+        "[class]{}-[func]{peekMinHeap}",
+        "[class]{}-[func]{getMinHeap}",
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{topKHeap}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{top_k_heap}"
+      ]
+    }
+  },
+  "chapter_introduction": {},
+  "chapter_preface": {},
+  "chapter_reference": {},
+  "chapter_searching": {
+    "[file]{binary_search}-[class]{}-[func]{binary_search}": {
+      "python": [
+        "[class]{}-[func]{binary_search}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "java": [
+        "[class]{binary_search}-[func]{binarySearch}"
+      ],
+      "csharp": [
+        "[class]{binary_search}-[func]{BinarySearch}"
+      ],
+      "go": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "swift": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "dart": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "rust": [
+        "[class]{}-[func]{binary_search}"
+      ],
+      "c": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{binarySearch}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{binary_search}"
+      ]
+    },
+    "[file]{binary_search}-[class]{}-[func]{binary_search_lcro}": {
+      "python": [
+        "[class]{}-[func]{binary_search_lcro}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "java": [
+        "[class]{binary_search}-[func]{binarySearchLCRO}"
+      ],
+      "csharp": [
+        "[class]{binary_search}-[func]{BinarySearchLCRO}"
+      ],
+      "go": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "swift": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "dart": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "rust": [
+        "[class]{}-[func]{binary_search_lcro}"
+      ],
+      "c": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{binarySearchLCRO}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{binary_search_lcro}"
+      ]
+    },
+    "[file]{binary_search_edge}-[class]{}-[func]{binary_search_left_edge}": {
+      "python": [
+        "[class]{}-[func]{binary_search_left_edge}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "java": [
+        "[class]{binary_search_edge}-[func]{binarySearchLeftEdge}"
+      ],
+      "csharp": [
+        "[class]{binary_search_edge}-[func]{BinarySearchLeftEdge}"
+      ],
+      "go": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "swift": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "dart": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "rust": [
+        "[class]{}-[func]{binary_search_left_edge}"
+      ],
+      "c": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{binarySearchLeftEdge}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{binary_search_left_edge}"
+      ]
+    },
+    "[file]{binary_search_edge}-[class]{}-[func]{binary_search_right_edge}": {
+      "python": [
+        "[class]{}-[func]{binary_search_right_edge}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "java": [
+        "[class]{binary_search_edge}-[func]{binarySearchRightEdge}"
+      ],
+      "csharp": [
+        "[class]{binary_search_edge}-[func]{BinarySearchRightEdge}"
+      ],
+      "go": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "swift": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "dart": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "rust": [
+        "[class]{}-[func]{binary_search_right_edge}"
+      ],
+      "c": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{binarySearchRightEdge}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{binary_search_right_edge}"
+      ]
+    },
+    "[file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion_simple}": {
+      "python": [
+        "[class]{}-[func]{binary_search_insertion_simple}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "java": [
+        "[class]{binary_search_insertion}-[func]{binarySearchInsertionSimple}"
+      ],
+      "csharp": [
+        "[class]{binary_search_insertion}-[func]{BinarySearchInsertionSimple}"
+      ],
+      "go": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "swift": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "dart": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "rust": [
+        "[class]{}-[func]{binary_search_insertion_simple}"
+      ],
+      "c": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{binarySearchInsertionSimple}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{binary_search_insertion_simple}"
+      ]
+    },
+    "[file]{binary_search_insertion}-[class]{}-[func]{binary_search_insertion}": {
+      "python": [
+        "[class]{}-[func]{binary_search_insertion}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "java": [
+        "[class]{binary_search_insertion}-[func]{binarySearchInsertion}"
+      ],
+      "csharp": [
+        "[class]{binary_search_insertion}-[func]{BinarySearchInsertion}"
+      ],
+      "go": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "swift": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "dart": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "rust": [
+        "[class]{}-[func]{binary_search_insertion}"
+      ],
+      "c": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{binarySearchInsertion}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{binary_search_insertion}"
+      ]
+    },
+    "[file]{two_sum}-[class]{}-[func]{two_sum_brute_force}": {
+      "python": [
+        "[class]{}-[func]{two_sum_brute_force}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "java": [
+        "[class]{two_sum}-[func]{twoSumBruteForce}"
+      ],
+      "csharp": [
+        "[class]{two_sum}-[func]{TwoSumBruteForce}"
+      ],
+      "go": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "swift": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "dart": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "rust": [
+        "[class]{}-[func]{two_sum_brute_force}"
+      ],
+      "c": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{twoSumBruteForce}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{two_sum_brute_force}"
+      ]
+    },
+    "[file]{two_sum}-[class]{}-[func]{two_sum_hash_table}": {
+      "python": [
+        "[class]{}-[func]{two_sum_hash_table}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "java": [
+        "[class]{two_sum}-[func]{twoSumHashTable}"
+      ],
+      "csharp": [
+        "[class]{two_sum}-[func]{TwoSumHashTable}"
+      ],
+      "go": [
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "swift": [
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "dart": [
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "rust": [
+        "[class]{}-[func]{two_sum_hash_table}"
+      ],
+      "c": [
+        "[class]{HashTable}-[func]{}",
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{twoSumHashTable}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{two_sum_hash_table}"
+      ]
+    }
+  },
+  "chapter_sorting": {
+    "[file]{bubble_sort}-[class]{}-[func]{bubble_sort}": {
+      "python": [
+        "[class]{}-[func]{bubble_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "java": [
+        "[class]{bubble_sort}-[func]{bubbleSort}"
+      ],
+      "csharp": [
+        "[class]{bubble_sort}-[func]{BubbleSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{bubble_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{bubbleSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{bubble_sort}"
+      ]
+    },
+    "[file]{bubble_sort}-[class]{}-[func]{bubble_sort_with_flag}": {
+      "python": [
+        "[class]{}-[func]{bubble_sort_with_flag}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "java": [
+        "[class]{bubble_sort}-[func]{bubbleSortWithFlag}"
+      ],
+      "csharp": [
+        "[class]{bubble_sort}-[func]{BubbleSortWithFlag}"
+      ],
+      "go": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "swift": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "dart": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "rust": [
+        "[class]{}-[func]{bubble_sort_with_flag}"
+      ],
+      "c": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{bubbleSortWithFlag}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{bubble_sort_with_flag}"
+      ]
+    },
+    "[file]{bucket_sort}-[class]{}-[func]{bucket_sort}": {
+      "python": [
+        "[class]{}-[func]{bucket_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "java": [
+        "[class]{bucket_sort}-[func]{bucketSort}"
+      ],
+      "csharp": [
+        "[class]{bucket_sort}-[func]{BucketSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{bucket_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{bucketSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{bucket_sort}"
+      ]
+    },
+    "[file]{counting_sort}-[class]{}-[func]{counting_sort_naive}": {
+      "python": [
+        "[class]{}-[func]{counting_sort_naive}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "java": [
+        "[class]{counting_sort}-[func]{countingSortNaive}"
+      ],
+      "csharp": [
+        "[class]{counting_sort}-[func]{CountingSortNaive}"
+      ],
+      "go": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "swift": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "dart": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "rust": [
+        "[class]{}-[func]{counting_sort_naive}"
+      ],
+      "c": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{countingSortNaive}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{counting_sort_naive}"
+      ]
+    },
+    "[file]{counting_sort}-[class]{}-[func]{counting_sort}": {
+      "python": [
+        "[class]{}-[func]{counting_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "java": [
+        "[class]{counting_sort}-[func]{countingSort}"
+      ],
+      "csharp": [
+        "[class]{counting_sort}-[func]{CountingSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{counting_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{countingSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{counting_sort}"
+      ]
+    },
+    "[file]{heap_sort}-[class]{}-[func]{heap_sort}": {
+      "python": [
+        "[class]{}-[func]{sift_down}",
+        "[class]{}-[func]{heap_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "java": [
+        "[class]{heap_sort}-[func]{siftDown}",
+        "[class]{heap_sort}-[func]{heapSort}"
+      ],
+      "csharp": [
+        "[class]{heap_sort}-[func]{SiftDown}",
+        "[class]{heap_sort}-[func]{HeapSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{sift_down}",
+        "[class]{}-[func]{heap_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{siftDown}",
+        "[class]{}-[func]{heapSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{sift_down}",
+        "[class]{}-[func]{heap_sort}"
+      ]
+    },
+    "[file]{insertion_sort}-[class]{}-[func]{insertion_sort}": {
+      "python": [
+        "[class]{}-[func]{insertion_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "java": [
+        "[class]{insertion_sort}-[func]{insertionSort}"
+      ],
+      "csharp": [
+        "[class]{insertion_sort}-[func]{InsertionSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{insertion_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{insertionSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{insertion_sort}"
+      ]
+    },
+    "[file]{merge_sort}-[class]{}-[func]{merge_sort}": {
+      "python": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{merge_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "java": [
+        "[class]{merge_sort}-[func]{merge}",
+        "[class]{merge_sort}-[func]{mergeSort}"
+      ],
+      "csharp": [
+        "[class]{merge_sort}-[func]{Merge}",
+        "[class]{merge_sort}-[func]{MergeSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{merge_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{mergeSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{merge}",
+        "[class]{}-[func]{merge_sort}"
+      ]
+    },
+    "[file]{quick_sort}-[class]{quick_sort}-[func]{partition}": {
+      "python": [
+        "[class]{QuickSort}-[func]{partition}"
+      ],
+      "cpp": [
+        "[class]{QuickSort}-[func]{partition}"
+      ],
+      "java": [
+        "[class]{QuickSort}-[func]{swap}",
+        "[class]{QuickSort}-[func]{partition}"
+      ],
+      "csharp": [
+        "[class]{quickSort}-[func]{Swap}",
+        "[class]{quickSort}-[func]{Partition}"
+      ],
+      "go": [
+        "[class]{quickSort}-[func]{partition}"
+      ],
+      "swift": [
+        "[class]{}-[func]{partition}"
+      ],
+      "javascript": [
+        "[class]{QuickSort}-[func]{swap}",
+        "[class]{QuickSort}-[func]{partition}"
+      ],
+      "typescript": [
+        "[class]{QuickSort}-[func]{swap}",
+        "[class]{QuickSort}-[func]{partition}"
+      ],
+      "dart": [
+        "[class]{QuickSort}-[func]{_swap}",
+        "[class]{QuickSort}-[func]{_partition}"
+      ],
+      "rust": [
+        "[class]{QuickSort}-[func]{partition}"
+      ],
+      "c": [
+        "[class]{}-[func]{swap}",
+        "[class]{}-[func]{partition}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{swap}",
+        "[class]{}-[func]{partition}"
+      ],
+      "ruby": [
+        "[class]{QuickSort}-[func]{partition}"
+      ]
+    },
+    "[file]{quick_sort}-[class]{quick_sort}-[func]{quick_sort}": {
+      "python": [
+        "[class]{QuickSort}-[func]{quick_sort}"
+      ],
+      "cpp": [
+        "[class]{QuickSort}-[func]{quickSort}"
+      ],
+      "java": [
+        "[class]{QuickSort}-[func]{quickSort}"
+      ],
+      "csharp": [
+        "[class]{quickSort}-[func]{QuickSort}"
+      ],
+      "go": [
+        "[class]{quickSort}-[func]{quickSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{quickSort}"
+      ],
+      "javascript": [
+        "[class]{QuickSort}-[func]{quickSort}"
+      ],
+      "typescript": [
+        "[class]{QuickSort}-[func]{quickSort}"
+      ],
+      "dart": [
+        "[class]{QuickSort}-[func]{quickSort}"
+      ],
+      "rust": [
+        "[class]{QuickSort}-[func]{quick_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{quickSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{quickSort}"
+      ],
+      "ruby": [
+        "[class]{QuickSort}-[func]{quick_sort}"
+      ]
+    },
+    "[file]{quick_sort}-[class]{quick_sort_median}-[func]{partition}": {
+      "python": [
+        "[class]{QuickSortMedian}-[func]{median_three}",
+        "[class]{QuickSortMedian}-[func]{partition}"
+      ],
+      "cpp": [
+        "[class]{QuickSortMedian}-[func]{medianThree}",
+        "[class]{QuickSortMedian}-[func]{partition}"
+      ],
+      "java": [
+        "[class]{QuickSortMedian}-[func]{medianThree}",
+        "[class]{QuickSortMedian}-[func]{partition}"
+      ],
+      "csharp": [
+        "[class]{QuickSortMedian}-[func]{MedianThree}",
+        "[class]{QuickSortMedian}-[func]{Partition}"
+      ],
+      "go": [
+        "[class]{quickSortMedian}-[func]{medianThree}",
+        "[class]{quickSortMedian}-[func]{partition}"
+      ],
+      "swift": [
+        "[class]{}-[func]{medianThree}",
+        "[class]{}-[func]{partitionMedian}"
+      ],
+      "javascript": [
+        "[class]{QuickSortMedian}-[func]{medianThree}",
+        "[class]{QuickSortMedian}-[func]{partition}"
+      ],
+      "typescript": [
+        "[class]{QuickSortMedian}-[func]{medianThree}",
+        "[class]{QuickSortMedian}-[func]{partition}"
+      ],
+      "dart": [
+        "[class]{QuickSortMedian}-[func]{_medianThree}",
+        "[class]{QuickSortMedian}-[func]{_partition}"
+      ],
+      "rust": [
+        "[class]{QuickSortMedian}-[func]{median_three}",
+        "[class]{QuickSortMedian}-[func]{partition}"
+      ],
+      "c": [
+        "[class]{}-[func]{medianThree}",
+        "[class]{}-[func]{partitionMedian}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{medianThree}",
+        "[class]{}-[func]{partitionMedian}"
+      ],
+      "ruby": [
+        "[class]{QuickSortMedian}-[func]{median_three}",
+        "[class]{QuickSortMedian}-[func]{partition}"
+      ]
+    },
+    "[file]{quick_sort}-[class]{quick_sort_tail_call}-[func]{quick_sort}": {
+      "python": [
+        "[class]{QuickSortTailCall}-[func]{quick_sort}"
+      ],
+      "cpp": [
+        "[class]{QuickSortTailCall}-[func]{quickSort}"
+      ],
+      "java": [
+        "[class]{QuickSortTailCall}-[func]{quickSort}"
+      ],
+      "csharp": [
+        "[class]{QuickSortTailCall}-[func]{QuickSort}"
+      ],
+      "go": [
+        "[class]{quickSortTailCall}-[func]{quickSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{quickSortTailCall}"
+      ],
+      "javascript": [
+        "[class]{QuickSortTailCall}-[func]{quickSort}"
+      ],
+      "typescript": [
+        "[class]{QuickSortTailCall}-[func]{quickSort}"
+      ],
+      "dart": [
+        "[class]{QuickSortTailCall}-[func]{quickSort}"
+      ],
+      "rust": [
+        "[class]{QuickSortTailCall}-[func]{quick_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{quickSortTailCall}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{quickSortTailCall}"
+      ],
+      "ruby": [
+        "[class]{QuickSortTailCall}-[func]{quick_sort}"
+      ]
+    },
+    "[file]{radix_sort}-[class]{}-[func]{radix_sort}": {
+      "python": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{counting_sort_digit}",
+        "[class]{}-[func]{radix_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "java": [
+        "[class]{radix_sort}-[func]{digit}",
+        "[class]{radix_sort}-[func]{countingSortDigit}",
+        "[class]{radix_sort}-[func]{radixSort}"
+      ],
+      "csharp": [
+        "[class]{radix_sort}-[func]{Digit}",
+        "[class]{radix_sort}-[func]{CountingSortDigit}",
+        "[class]{radix_sort}-[func]{RadixSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{counting_sort_digit}",
+        "[class]{}-[func]{radix_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{countingSortDigit}",
+        "[class]{}-[func]{radixSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{digit}",
+        "[class]{}-[func]{counting_sort_digit}",
+        "[class]{}-[func]{radix_sort}"
+      ]
+    },
+    "[file]{selection_sort}-[class]{}-[func]{selection_sort}": {
+      "python": [
+        "[class]{}-[func]{selection_sort}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "java": [
+        "[class]{selection_sort}-[func]{selectionSort}"
+      ],
+      "csharp": [
+        "[class]{selection_sort}-[func]{SelectionSort}"
+      ],
+      "go": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "swift": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "dart": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "rust": [
+        "[class]{}-[func]{selection_sort}"
+      ],
+      "c": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{selectionSort}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{selection_sort}"
+      ]
+    }
+  },
+  "chapter_stack_and_queue": {
+    "[file]{linkedlist_deque}-[class]{linked_list_deque}-[func]{}": {
+      "python": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{DoublyListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "java": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "go": [
+        "[class]{linkedListDeque}-[func]{}"
+      ],
+      "swift": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "dart": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "rust": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "c": [
+        "[class]{DoublyListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{ListNode}-[func]{}",
+        "[class]{LinkedListDeque}-[func]{}"
+      ]
+    },
+    "[file]{array_deque}-[class]{array_deque}-[func]{}": {
+      "python": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "java": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "go": [
+        "[class]{arrayDeque}-[func]{}"
+      ],
+      "swift": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "dart": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "rust": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "c": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{ArrayDeque}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{ArrayDeque}-[func]{}"
+      ]
+    },
+    "[file]{linkedlist_queue}-[class]{linked_list_queue}-[func]{}": {
+      "python": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "java": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "go": [
+        "[class]{linkedListQueue}-[func]{}"
+      ],
+      "swift": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "dart": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "rust": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "c": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{LinkedListQueue}-[func]{}"
+      ]
+    },
+    "[file]{array_queue}-[class]{array_queue}-[func]{}": {
+      "python": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "java": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "go": [
+        "[class]{arrayQueue}-[func]{}"
+      ],
+      "swift": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "dart": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "rust": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "c": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{ArrayQueue}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{ArrayQueue}-[func]{}"
+      ]
+    },
+    "[file]{linkedlist_stack}-[class]{linked_list_stack}-[func]{}": {
+      "python": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "java": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "go": [
+        "[class]{linkedListStack}-[func]{}"
+      ],
+      "swift": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "dart": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "rust": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "c": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{LinkedListStack}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{LinkedListStack}-[func]{}"
+      ]
+    },
+    "[file]{array_stack}-[class]{array_stack}-[func]{}": {
+      "python": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "java": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "go": [
+        "[class]{arrayStack}-[func]{}"
+      ],
+      "swift": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "dart": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "rust": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "c": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{ArrayStack}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{ArrayStack}-[func]{}"
+      ]
+    }
+  },
+  "chapter_tree": {
+    "[file]{array_binary_tree}-[class]{array_binary_tree}-[func]{}": {
+      "python": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "cpp": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "java": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "csharp": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "go": [
+        "[class]{arrayBinaryTree}-[func]{}"
+      ],
+      "swift": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "javascript": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "typescript": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "dart": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "rust": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "c": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "kotlin": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ],
+      "ruby": [
+        "[class]{ArrayBinaryTree}-[func]{}"
+      ]
+    },
+    "[file]{avl_tree}-[class]{avl_tree}-[func]{update_height}": {
+      "python": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{update_height}"
+      ],
+      "cpp": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{updateHeight}"
+      ],
+      "java": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{updateHeight}"
+      ],
+      "csharp": [
+        "[class]{AVLTree}-[func]{Height}",
+        "[class]{AVLTree}-[func]{UpdateHeight}"
+      ],
+      "go": [
+        "[class]{aVLTree}-[func]{height}",
+        "[class]{aVLTree}-[func]{updateHeight}"
+      ],
+      "swift": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{updateHeight}"
+      ],
+      "javascript": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{updateHeight}"
+      ],
+      "typescript": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{updateHeight}"
+      ],
+      "dart": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{updateHeight}"
+      ],
+      "rust": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{update_height}"
+      ],
+      "c": [
+        "[class]{}-[func]{height}",
+        "[class]{}-[func]{updateHeight}"
+      ],
+      "kotlin": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{updateHeight}"
+      ],
+      "ruby": [
+        "[class]{AVLTree}-[func]{height}",
+        "[class]{AVLTree}-[func]{update_height}"
+      ]
+    },
+    "[file]{avl_tree}-[class]{avl_tree}-[func]{balance_factor}": {
+      "python": [
+        "[class]{AVLTree}-[func]{balance_factor}"
+      ],
+      "cpp": [
+        "[class]{AVLTree}-[func]{balanceFactor}"
+      ],
+      "java": [
+        "[class]{AVLTree}-[func]{balanceFactor}"
+      ],
+      "csharp": [
+        "[class]{AVLTree}-[func]{BalanceFactor}"
+      ],
+      "go": [
+        "[class]{aVLTree}-[func]{balanceFactor}"
+      ],
+      "swift": [
+        "[class]{AVLTree}-[func]{balanceFactor}"
+      ],
+      "javascript": [
+        "[class]{AVLTree}-[func]{balanceFactor}"
+      ],
+      "typescript": [
+        "[class]{AVLTree}-[func]{balanceFactor}"
+      ],
+      "dart": [
+        "[class]{AVLTree}-[func]{balanceFactor}"
+      ],
+      "rust": [
+        "[class]{AVLTree}-[func]{balance_factor}"
+      ],
+      "c": [
+        "[class]{}-[func]{balanceFactor}"
+      ],
+      "kotlin": [
+        "[class]{AVLTree}-[func]{balanceFactor}"
+      ],
+      "ruby": [
+        "[class]{AVLTree}-[func]{balance_factor}"
+      ]
+    },
+    "[file]{avl_tree}-[class]{avl_tree}-[func]{right_rotate}": {
+      "python": [
+        "[class]{AVLTree}-[func]{right_rotate}"
+      ],
+      "cpp": [
+        "[class]{AVLTree}-[func]{rightRotate}"
+      ],
+      "java": [
+        "[class]{AVLTree}-[func]{rightRotate}"
+      ],
+      "csharp": [
+        "[class]{AVLTree}-[func]{RightRotate}"
+      ],
+      "go": [
+        "[class]{aVLTree}-[func]{rightRotate}"
+      ],
+      "swift": [
+        "[class]{AVLTree}-[func]{rightRotate}"
+      ],
+      "javascript": [
+        "[class]{AVLTree}-[func]{rightRotate}"
+      ],
+      "typescript": [
+        "[class]{AVLTree}-[func]{rightRotate}"
+      ],
+      "dart": [
+        "[class]{AVLTree}-[func]{rightRotate}"
+      ],
+      "rust": [
+        "[class]{AVLTree}-[func]{right_rotate}"
+      ],
+      "c": [
+        "[class]{}-[func]{rightRotate}"
+      ],
+      "kotlin": [
+        "[class]{AVLTree}-[func]{rightRotate}"
+      ],
+      "ruby": [
+        "[class]{AVLTree}-[func]{right_rotate}"
+      ]
+    },
+    "[file]{avl_tree}-[class]{avl_tree}-[func]{left_rotate}": {
+      "python": [
+        "[class]{AVLTree}-[func]{left_rotate}"
+      ],
+      "cpp": [
+        "[class]{AVLTree}-[func]{leftRotate}"
+      ],
+      "java": [
+        "[class]{AVLTree}-[func]{leftRotate}"
+      ],
+      "csharp": [
+        "[class]{AVLTree}-[func]{LeftRotate}"
+      ],
+      "go": [
+        "[class]{aVLTree}-[func]{leftRotate}"
+      ],
+      "swift": [
+        "[class]{AVLTree}-[func]{leftRotate}"
+      ],
+      "javascript": [
+        "[class]{AVLTree}-[func]{leftRotate}"
+      ],
+      "typescript": [
+        "[class]{AVLTree}-[func]{leftRotate}"
+      ],
+      "dart": [
+        "[class]{AVLTree}-[func]{leftRotate}"
+      ],
+      "rust": [
+        "[class]{AVLTree}-[func]{left_rotate}"
+      ],
+      "c": [
+        "[class]{}-[func]{leftRotate}"
+      ],
+      "kotlin": [
+        "[class]{AVLTree}-[func]{leftRotate}"
+      ],
+      "ruby": [
+        "[class]{AVLTree}-[func]{left_rotate}"
+      ]
+    },
+    "[file]{avl_tree}-[class]{avl_tree}-[func]{rotate}": {
+      "python": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "cpp": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "java": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "csharp": [
+        "[class]{AVLTree}-[func]{Rotate}"
+      ],
+      "go": [
+        "[class]{aVLTree}-[func]{rotate}"
+      ],
+      "swift": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "javascript": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "typescript": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "dart": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "rust": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "c": [
+        "[class]{}-[func]{rotate}"
+      ],
+      "kotlin": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ],
+      "ruby": [
+        "[class]{AVLTree}-[func]{rotate}"
+      ]
+    },
+    "[file]{avl_tree}-[class]{avl_tree}-[func]{insert_helper}": {
+      "python": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insert_helper}"
+      ],
+      "cpp": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insertHelper}"
+      ],
+      "java": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insertHelper}"
+      ],
+      "csharp": [
+        "[class]{AVLTree}-[func]{Insert}",
+        "[class]{AVLTree}-[func]{InsertHelper}"
+      ],
+      "go": [
+        "[class]{aVLTree}-[func]{insert}",
+        "[class]{aVLTree}-[func]{insertHelper}"
+      ],
+      "swift": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insertHelper}"
+      ],
+      "javascript": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insertHelper}"
+      ],
+      "typescript": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insertHelper}"
+      ],
+      "dart": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insertHelper}"
+      ],
+      "rust": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insert_helper}"
+      ],
+      "c": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{}-[func]{insertHelper}"
+      ],
+      "kotlin": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insertHelper}"
+      ],
+      "ruby": [
+        "[class]{AVLTree}-[func]{insert}",
+        "[class]{AVLTree}-[func]{insert_helper}"
+      ]
+    },
+    "[file]{avl_tree}-[class]{avl_tree}-[func]{remove_helper}": {
+      "python": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{remove_helper}"
+      ],
+      "cpp": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{removeHelper}"
+      ],
+      "java": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{removeHelper}"
+      ],
+      "csharp": [
+        "[class]{AVLTree}-[func]{Remove}",
+        "[class]{AVLTree}-[func]{RemoveHelper}"
+      ],
+      "go": [
+        "[class]{aVLTree}-[func]{remove}",
+        "[class]{aVLTree}-[func]{removeHelper}"
+      ],
+      "swift": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{removeHelper}"
+      ],
+      "javascript": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{removeHelper}"
+      ],
+      "typescript": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{removeHelper}"
+      ],
+      "dart": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{removeHelper}"
+      ],
+      "rust": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{remove_helper}"
+      ],
+      "c": [
+        "[class]{AVLTree}-[func]{removeItem}",
+        "[class]{}-[func]{removeHelper}"
+      ],
+      "kotlin": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{removeHelper}"
+      ],
+      "ruby": [
+        "[class]{AVLTree}-[func]{remove}",
+        "[class]{AVLTree}-[func]{remove_helper}"
+      ]
+    },
+    "[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{search}": {
+      "python": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "cpp": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "java": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "csharp": [
+        "[class]{BinarySearchTree}-[func]{Search}"
+      ],
+      "go": [
+        "[class]{binarySearchTree}-[func]{search}"
+      ],
+      "swift": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "javascript": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "typescript": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "dart": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "rust": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "c": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "kotlin": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ],
+      "ruby": [
+        "[class]{BinarySearchTree}-[func]{search}"
+      ]
+    },
+    "[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{insert}": {
+      "python": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "cpp": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "java": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "csharp": [
+        "[class]{BinarySearchTree}-[func]{Insert}"
+      ],
+      "go": [
+        "[class]{binarySearchTree}-[func]{insert}"
+      ],
+      "swift": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "javascript": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "typescript": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "dart": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "rust": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "c": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "kotlin": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ],
+      "ruby": [
+        "[class]{BinarySearchTree}-[func]{insert}"
+      ]
+    },
+    "[file]{binary_search_tree}-[class]{binary_search_tree}-[func]{remove}": {
+      "python": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "cpp": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "java": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "csharp": [
+        "[class]{BinarySearchTree}-[func]{Remove}"
+      ],
+      "go": [
+        "[class]{binarySearchTree}-[func]{remove}"
+      ],
+      "swift": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "javascript": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "typescript": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "dart": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "rust": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "c": [
+        "[class]{BinarySearchTree}-[func]{removeItem}"
+      ],
+      "kotlin": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ],
+      "ruby": [
+        "[class]{BinarySearchTree}-[func]{remove}"
+      ]
+    },
+    "[file]{binary_tree_bfs}-[class]{}-[func]{level_order}": {
+      "python": [
+        "[class]{}-[func]{level_order}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "java": [
+        "[class]{binary_tree_bfs}-[func]{levelOrder}"
+      ],
+      "csharp": [
+        "[class]{binary_tree_bfs}-[func]{LevelOrder}"
+      ],
+      "go": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "swift": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "dart": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "rust": [
+        "[class]{}-[func]{level_order}"
+      ],
+      "c": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{levelOrder}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{level_order}"
+      ]
+    },
+    "[file]{binary_tree_dfs}-[class]{}-[func]{post_order}": {
+      "python": [
+        "[class]{}-[func]{pre_order}",
+        "[class]{}-[func]{in_order}",
+        "[class]{}-[func]{post_order}"
+      ],
+      "cpp": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "java": [
+        "[class]{binary_tree_dfs}-[func]{preOrder}",
+        "[class]{binary_tree_dfs}-[func]{inOrder}",
+        "[class]{binary_tree_dfs}-[func]{postOrder}"
+      ],
+      "csharp": [
+        "[class]{binary_tree_dfs}-[func]{PreOrder}",
+        "[class]{binary_tree_dfs}-[func]{InOrder}",
+        "[class]{binary_tree_dfs}-[func]{PostOrder}"
+      ],
+      "go": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "swift": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "javascript": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "typescript": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "dart": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "rust": [
+        "[class]{}-[func]{pre_order}",
+        "[class]{}-[func]{in_order}",
+        "[class]{}-[func]{post_order}"
+      ],
+      "c": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "kotlin": [
+        "[class]{}-[func]{preOrder}",
+        "[class]{}-[func]{inOrder}",
+        "[class]{}-[func]{postOrder}"
+      ],
+      "ruby": [
+        "[class]{}-[func]{pre_order}",
+        "[class]{}-[func]{in_order}",
+        "[class]{}-[func]{post_order}"
+      ]
+    }
+  }
+}

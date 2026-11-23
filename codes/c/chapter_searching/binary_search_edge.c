@@ -14,7 +14,7 @@ int binarySearchInsertion(int *nums, int numSize, int target) {
         if (nums[m] < target) {
             i = m + 1; // target 在区间 [m+1, j] 中
         } else {
-            j = m - 1; // 首个小于 target 的元素在区间 [i, m-1] 中
+            j = m - 1; // 最右一个小于 target 的元素在区间 [i, m-1] 中
         }
     }
     // 返回插入点 i

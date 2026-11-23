@@ -11,19 +11,19 @@
 3. 不斷重複步驟 `1.` 和步驟 `2.` ，直至找到拼音首字母為 $r$ 的頁碼為止。
 
 === "<1>"
-    ![查字典步驟](algorithms_are_everywhere.assets/binary_search_dictionary_step1.png)
+    ![查字典步驟](algorithms_are_everywhere.assets/binary_search_dictionary_step1.svg)
 
 === "<2>"
-    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.png)
+    ![binary_search_dictionary_step2](algorithms_are_everywhere.assets/binary_search_dictionary_step2.svg)
 
 === "<3>"
-    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.png)
+    ![binary_search_dictionary_step3](algorithms_are_everywhere.assets/binary_search_dictionary_step3.svg)
 
 === "<4>"
-    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.png)
+    ![binary_search_dictionary_step4](algorithms_are_everywhere.assets/binary_search_dictionary_step4.svg)
 
 === "<5>"
-    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.png)
+    ![binary_search_dictionary_step5](algorithms_are_everywhere.assets/binary_search_dictionary_step5.svg)
 
 查字典這個小學生必備技能，實際上就是著名的“二分搜尋”演算法。從資料結構的角度，我們可以把字典視為一個已排序的“陣列”；從演算法的角度，我們可以將上述查字典的一系列操作看作“二分搜尋”。
 
@@ -33,7 +33,7 @@
 2. 在無序部分抽出一張撲克牌，插入至有序部分的正確位置；完成後最左 2 張撲克已經有序。
 3. 不斷迴圈步驟 `2.` ，每一輪將一張撲克牌從無序部分插入至有序部分，直至所有撲克牌都有序。
 
-![撲克排序步驟](algorithms_are_everywhere.assets/playing_cards_sorting.png)
+![撲克排序步驟](algorithms_are_everywhere.assets/playing_cards_sorting.svg)
 
 上述整理撲克牌的方法本質上是“插入排序”演算法，它在處理小型資料集時非常高效。許多程式語言的排序庫函式中都有插入排序的身影。
 
@@ -45,7 +45,7 @@
 4. 從剩餘可選項中拿出最大的 $1$ 元，剩餘 $1 - 1 = 0$ 元。
 5. 完成找零，方案為 $20 + 10 + 1 = 31$ 元。
 
-![貨幣找零過程](algorithms_are_everywhere.assets/greedy_change.png)
+![貨幣找零過程](algorithms_are_everywhere.assets/greedy_change.svg)
 
 在以上步驟中，我們每一步都採取當前看來最好的選擇（儘可能用大面額的貨幣），最終得到了可行的找零方案。從資料結構與演算法的角度看，這種方法本質上是“貪婪”演算法。
 

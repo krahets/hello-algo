@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "title": "Left-then-right rotation in an AVL tree",
+  "summary": "For the zigzag path 3 → 1 → 2 that bends left and then right, first perform a left rotation on child (1) and then a right rotation on node (3), making 2 the new local root.",
+  "context": [
+    "The outer root node is 4, with right child 5 and left child at the unbalanced node 3; node 3 has only left child 1, and node 1 has only right child 2. The figure labels unbalanced node 3 as node and its left child 1 as child.",
+    "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown.",
+    "By this definition, node (3) has balance factor 2, child (1) has −1, and outer root 4 also has balance factor 2. Rebalancing starts at the lowest unbalanced node, 3, which automatically restores balance at the outer root as well."
+  ],
+  "description": [
+    "From left to right, the static figure shows three subfigures: before rotation, after the first rotation, and after the second rotation.",
+    "First rotation: perform a left rotation on child (node 1). Node 2 rises to become the root of this small subtree, node 1 moves down as the left child of 2, and node 3's left child becomes 2 accordingly. As shown in the middle subfigure, the bent path is straightened into the uniformly left-leaning path 3 → 2 → 1.",
+    "Second rotation: perform a right rotation on the originally unbalanced node, labeled node (3). Node 2 continues upward to become the root of the local subtree, node 3 moves down as the right child of 2, and node 1 remains the left child of 2. Outer parent node 4 updates its left child to 2 while keeping right child 5 unchanged."
+  ],
+  "result": "After the two rotations, the entire tree is balanced again, and its inorder traversal sequence remains [1, 2, 3, 4, 5].",
+  "frames": [
+    {
+      "id": "source-137",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_left_right_rotate.png",
+      "title": "Left-then-right rotation in an AVL tree",
+      "explanation": "For this left-right bent shape, applying a single right rotation directly to node 3 would still leave a new imbalance; only by first rotating left to convert the local shape into a same-side left-left slant, and then rotating right, are nodes 1, 2, and 3 distributed evenly on both sides."
+    }
+  ],
+  "animations": {
+    "avl-left-right": {
+      "kind": "prose",
+      "prose": {
+        "title": "Left-then-right rotation in an AVL tree",
+        "summary": "For the zigzag path 3 → 1 → 2 that bends left and then right, first perform a left rotation on child (1) and then a right rotation on node (3), making 2 the new local root.",
+        "context": [
+          "The outer root node is 4, with right child 5 and left child at the unbalanced node 3; node 3 has only left child 1, and node 1 has only right child 2. The figure labels unbalanced node 3 as node and its left child 1 as child.",
+          "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown.",
+          "By this definition, node (3) has balance factor 2, child (1) has −1, and outer root 4 also has balance factor 2. Rebalancing starts at the lowest unbalanced node, 3, which automatically restores balance at the outer root as well."
+        ],
+        "description": [
+          "From left to right, the static figure shows three subfigures: before rotation, after the first rotation, and after the second rotation.",
+          "First rotation: perform a left rotation on child (node 1). Node 2 rises to become the root of this small subtree, node 1 moves down as the left child of 2, and node 3's left child becomes 2 accordingly. As shown in the middle subfigure, the bent path is straightened into the uniformly left-leaning path 3 → 2 → 1.",
+          "Second rotation: perform a right rotation on the originally unbalanced node, labeled node (3). Node 2 continues upward to become the root of the local subtree, node 3 moves down as the right child of 2, and node 1 remains the left child of 2. Outer parent node 4 updates its left child to 2 while keeping right child 5 unchanged."
+        ],
+        "result": "After the two rotations, the entire tree is balanced again, and its inorder traversal sequence remains [1, 2, 3, 4, 5].",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Identify the left-right imbalance at node 3",
+            "explanation": "Before rotation: outer root 4 connects to left 3 and right leaf node 5; 3 connects only to left 1, and 1 connects only to right leaf node 2. Orange node points to 3 with balance factor 2, blue child points to 1 with balance factor −1, and green grandchild is 2. The callout \"Perform a left rotation on child\" indicates resolving the left-right bend first.",
+            "key_state": "Initially, root 4 connects to left 3 and right 5; 3 connects to left 1, and 1 connects to right 2; node=3, child=1, ready to rotate 1 left first.",
+            "announcement": "Locate the left-right zigzag imbalance at node 3 and prepare a left rotation on left child 1 first."
+          },
+          {
+            "id": "step-2",
+            "title": "Complete the left rotation on node 1",
+            "explanation": "After rotating child (1) left, outer root 4 still connects to left 3 and right leaf node 5; 3 connects only to left 2, and 2 connects only to left leaf node 1. Green 2 rises and blue 1 moves down, turning the local subtree into the left chain 3→2→1. The callout changes to \"Perform a right rotation on node\", with a curved arrow indicating a right rotation on 3.",
+            "key_state": "After rotating 1 left, root 4 connects to left 3 and right 5; 3 connects to left 2, and 2 connects to left 1; next, rotate 3 right.",
+            "announcement": "Left rotation on node 1 complete: node 2 rises to become the left child of 3, ready for a right rotation on node 3."
+          },
+          {
+            "id": "step-3",
+            "title": "Complete the right rotation on node 3",
+            "explanation": "Next, rotate node (3) right: green 2 becomes the left child of outer root 4, while 4's right child remains 5; 2 connects to blue 1 on the left and orange 3 on the right, with 1, 3, and 5 all leaf nodes. Beside 2, the label \"Balance restored\" marks completion of the double rotation.",
+            "key_state": "After rotating 3 right, root 4 connects to left 2 and right 5; 2 connects to left 1 and right 3, balancing the whole tree.",
+            "announcement": "Perform a right rotation on node 3; node 2 takes over as subtree root, restoring balance to the entire tree."
+          }
+        ]
+      }
+    }
+  }
+}

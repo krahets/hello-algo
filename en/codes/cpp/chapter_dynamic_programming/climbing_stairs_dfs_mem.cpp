@@ -8,10 +8,10 @@
 
 /* Memoized search */
 int dfs(int i, vector<int> &mem) {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if (i == 1 || i == 2)
         return i;
-    // If there is a record for dp[i], return it
+    // If dp[i] has been recorded, return it directly
     if (mem[i] != -1)
         return mem[i];
     // dp[i] = dp[i-1] + dp[i-2]
@@ -21,19 +21,19 @@ int dfs(int i, vector<int> &mem) {
     return count;
 }
 
-/* Climbing stairs: Memoized search */
+/* Climbing stairs: memoized search */
 int climbingStairsDFSMem(int n) {
-    // mem[i] records the total number of solutions for climbing to the ith step, -1 means no record
+    // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
     vector<int> mem(n + 1, -1);
     return dfs(n, mem);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 9;
 
     int res = climbingStairsDFSMem(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs: " << res << " ways" << endl;
 
     return 0;
 }

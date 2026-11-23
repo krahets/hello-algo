@@ -1,0 +1,105 @@
+{
+  "schema_version": 2,
+  "title": "一轮冒泡操作",
+  "summary": "从左向右比较相邻元素，一轮把最大值 5 移到数组最右端。",
+  "context": [
+    "输入数组为 nums = [4, 1, 3, 1, 5, 2]，索引从 0 到 5。单轮冒泡从最左端开始向右遍历，每次比较相邻两个元素：若“左边元素 > 右边元素”则交换二者，若“左边元素 ≤ 右边元素”则维持不变。",
+    "画面将数组元素形象地画成一排圆球“泡泡”，元素数值越大则泡泡体积越大；数组左端对应“水底”，右端对应“水面”。每步用浅绿色方框圈出当前比较的相邻位置对，浅框内位于泡泡上、下方的交换弧线表示该对刚刚完成了交换。"
+  ],
+  "description": [
+    "第 2 至 6 步依次比较五对相邻位置，展示本次比较或交换后的结果；第 7 步总结本轮的已排序位置与剩余区间。"
+  ],
+  "frames": [
+    {
+      "id": "source-253",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step1.png",
+      "title": "将数组表示为一排泡泡",
+      "explanation": "下方数组 nums = [4, 1, 3, 1, 5, 2] 与上方六个泡泡一一对应，索引为 0 至 5；图中说明元素大小与泡泡体积成正比。尚未开始比较，全部六项待本轮扫描。",
+      "key_state": "初始状态：nums = [4, 1, 3, 1, 5, 2]，六个泡泡按原顺序排列。",
+      "announcement": "将六个待排序元素 [4, 1, 3, 1, 5, 2] 表示为六个泡泡，准备从左向右比较。"
+    },
+    {
+      "id": "source-254",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step2.png",
+      "title": "比较并交换索引 0、1",
+      "explanation": "本步比较索引 0、1：4 > 1，因此交换两者，4 移至索引 1。浅绿框内的值变为 [1, 4]，交换弧线表示交换已完成；当前 nums = [1, 4, 3, 1, 5, 2]，本轮已扫描至索引 1。",
+      "key_state": "索引 0、1 交换完成：4 与 1 互换，数组变为 [1, 4, 3, 1, 5, 2]。",
+      "announcement": "索引 0 的 4 大于索引 1 的 1，交换二者后 4 移至索引 1。"
+    },
+    {
+      "id": "source-255",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step3.png",
+      "title": "比较并交换索引 1、2",
+      "explanation": "本步比较索引 1、2：4 > 3，因此交换两者，4 移至索引 2。浅绿框内的值变为 [3, 4]；当前 nums = [1, 3, 4, 1, 5, 2]，本轮已扫描至索引 2。",
+      "key_state": "索引 1、2 交换完成：4 与 3 互换，数组变为 [1, 3, 4, 1, 5, 2]。",
+      "announcement": "索引 1 的 4 大于索引 2 的 3，交换二者后 4 移至索引 2。"
+    },
+    {
+      "id": "source-256",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step4.png",
+      "title": "比较并交换索引 2、3",
+      "explanation": "本步比较索引 2、3：4 大于右侧的 1（原数组中的第二个 1），因此交换两者，4 移至索引 3。浅绿框内的值变为 [1, 4]；当前 nums = [1, 3, 1, 4, 5, 2]，本轮已扫描至索引 3。",
+      "key_state": "索引 2、3 交换完成：4 与第二个 1 互换，数组变为 [1, 3, 1, 4, 5, 2]。",
+      "announcement": "索引 2 的 4 大于索引 3 的 1，交换二者后 4 移至索引 3。"
+    },
+    {
+      "id": "source-257",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step5.png",
+      "title": "比较索引 3、4，保持不变",
+      "explanation": "本步比较索引 3、4：4 ≤ 5，因此维持不变。浅框内为 [4, 5]，没有交换弧线；当前 nums = [1, 3, 1, 4, 5, 2]，本轮已扫描至索引 4。下一步由 5 与右侧元素比较。",
+      "key_state": "索引 3、4 的 4 ≤ 5，不发生交换，数组保持 [1, 3, 1, 4, 5, 2]。",
+      "announcement": "索引 3 的 4 小于等于索引 4 的 5，维持原位不交换。"
+    },
+    {
+      "id": "source-258",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step6.png",
+      "title": "比较并交换索引 4、5",
+      "explanation": "本步比较索引 4、5：5 > 2，因此交换两者。浅绿框内的值变为 [2, 5]，最大值 5 到达索引 5；当前 nums = [1, 3, 1, 4, 2, 5]，五对相邻位置已全部比较完。",
+      "key_state": "索引 4、5 交换完成：5 与 2 互换，最大值 5 到达索引 5；数组为 [1, 3, 1, 4, 2, 5]。",
+      "announcement": "索引 4 的 5 大于索引 5 的 2，交换二者后最大元素 5 移至最右端。"
+    },
+    {
+      "id": "source-259",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step7.png",
+      "title": "最大值 5 就位",
+      "explanation": "本轮结束，当前 nums = [1, 3, 1, 4, 2, 5]。索引 5 的最大泡泡 5 到达竖直“水面”标线右侧并变灰，表示最终位置已固定。下方花括号标出左侧“水底”方向剩余区间 [0, 4]，其中 [1, 3, 1, 4, 2] 尚待后续轮次排序。",
+      "key_state": "本轮冒泡完成：最大值 5 在索引 5 就位，剩余未排序区间 [0, 4] 为 [1, 3, 1, 4, 2]。",
+      "announcement": "第一轮冒泡结束，最大元素 5 在最右端就位，剩余前五个元素待排序。"
+    }
+  ],
+  "animations": {
+    "bubble-pass": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-253"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-254"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-255"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-256"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-257"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-258"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-259"
+        }
+      ]
+    }
+  }
+}

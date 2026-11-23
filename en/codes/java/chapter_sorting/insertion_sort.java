@@ -11,15 +11,15 @@ import java.util.*;
 public class insertion_sort {
     /* Insertion sort */
     static void insertionSort(int[] nums) {
-        // Outer loop: sorted range is [0, i-1]
+        // Outer loop: the sorted range is [0, i-1]
         for (int i = 1; i < nums.length; i++) {
             int base = nums[i], j = i - 1;
-            // Inner loop: insert base into the correct position within the sorted range [0, i-1]
+            // Inner loop: insert base at the correct position in the sorted range [0, i-1]
             while (j >= 0 && nums[j] > base) {
-                nums[j + 1] = nums[j]; // Move nums[j] to the right by one position
+                nums[j + 1] = nums[j]; // Shift nums[j] one position to the right
                 j--;
             }
-            nums[j + 1] = base;        // Assign base to the correct position
+            nums[j + 1] = base;        // Place base at the correct position
         }
     }
 

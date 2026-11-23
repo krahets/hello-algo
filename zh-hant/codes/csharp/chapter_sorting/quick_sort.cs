@@ -89,7 +89,7 @@ class QuickSortMedian {
     }
 }
 
-/* 快速排序類別（尾遞迴最佳化） */
+/* 快速排序類別（遞迴深度最佳化） */
 class QuickSortTailCall {
     /* 元素交換 */
     static void Swap(int[] nums, int i, int j) {
@@ -111,7 +111,7 @@ class QuickSortTailCall {
         return i; // 返回基準數的索引
     }
 
-    /* 快速排序（尾遞迴最佳化） */
+    /* 快速排序（遞迴深度最佳化） */
     public static void QuickSort(int[] nums, int left, int right) {
         // 子陣列長度為 1 時終止
         while (left < right) {
@@ -142,9 +142,9 @@ public class quick_sort {
         QuickSortMedian.QuickSort(nums1, 0, nums1.Length - 1);
         Console.WriteLine("快速排序（中位基準數最佳化）完成後 nums1 = " + string.Join(",", nums1));
 
-        /* 快速排序（尾遞迴最佳化） */
+        /* 快速排序（遞迴深度最佳化） */
         int[] nums2 = [2, 4, 1, 0, 3, 5];
         QuickSortTailCall.QuickSort(nums2, 0, nums2.Length - 1);
-        Console.WriteLine("快速排序（尾遞迴最佳化）完成後 nums2 = " + string.Join(",", nums2));
+        Console.WriteLine("快速排序（遞迴深度最佳化）完成後 nums2 = " + string.Join(",", nums2));
     }
 }

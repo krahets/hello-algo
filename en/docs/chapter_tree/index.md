@@ -1,9 +1,9 @@
-# Tree
+# Trees
 
-![Tree](../assets/covers/chapter_tree.jpg)
+![Trees](../assets/covers/chapter_tree.jpg)
 
 !!! abstract
 
-    The towering tree exudes a vibrant essence, boasting profound roots and abundant foliage, yet its branches are sparsely scattered, creating an ethereal aura.
+    A towering tree brims with life, its roots deep, its leaves lush, and its branches spreading wide.
     
-    It shows us the vivid form of divide-and-conquer in data.
+    It gives vivid form to the idea of dividing data to conquer a problem.

@@ -1,81 +1,86 @@
 # Summary
 
-### Key review
+### Key takeaways
 
-- Arrays and linked lists are two basic data structures, representing two storage methods in computer memory: contiguous space storage and non-contiguous space storage. Their characteristics complement each other.
-- Arrays support random access and use less memory; however, they are inefficient in inserting and deleting elements and have a fixed length after initialization.
-- Linked lists implement efficient node insertion and deletion through changing references (pointers) and can flexibly adjust their length; however, they have lower node access efficiency and consume more memory.
-- Common types of linked lists include singly linked lists, circular linked lists, and doubly linked lists, each with its own application scenarios.
-- Lists are ordered collections of elements that support addition, deletion, and modification, typically implemented based on dynamic arrays, retaining the advantages of arrays while allowing flexible length adjustment.
-- The advent of lists significantly enhanced the practicality of arrays but may lead to some memory space wastage.
-- During program execution, data is mainly stored in memory. Arrays provide higher memory space efficiency, while linked lists are more flexible in memory usage.
-- Caches provide fast data access to CPUs through mechanisms like cache lines, prefetching, spatial locality, and temporal locality, significantly enhancing program execution efficiency.
-- Due to higher cache hit rates, arrays are generally more efficient than linked lists. When choosing a data structure, the appropriate choice should be made based on specific needs and scenarios.
+- Arrays and linked lists are fundamental structures representing contiguous and scattered memory storage. Their strengths are complementary.
+- Arrays support random access and use less memory, but insertion and deletion are slow, and their length is fixed after initialization.
+- Linked lists efficiently insert and remove nodes by changing references (pointers), and their length is flexible. However, accessing nodes is slow and they use more memory. Common forms include singly linked, circular, and doubly linked lists.
+- A list is an ordered collection supporting insertion, removal, access, and modification. It is usually implemented as a dynamic array, retaining array advantages while allowing its length to change.
+- Lists make arrays much more practical, though they may waste some memory.
+- During execution, data is mainly stored in RAM. Arrays use memory more efficiently, while linked lists offer more flexible allocation.
+- Cache lines, prefetching, spatial locality, and temporal locality provide fast CPU access to data, substantially improving execution speed.
+- Arrays usually outperform linked lists because of higher cache hit rates. Choose a structure according to the actual requirements and setting.
 
 ### Q & A
 
-**Q**: Does storing arrays on the stack versus the heap affect time and space efficiency?
+**Q**: Does storing an array on the stack or heap affect time and space efficiency?
 
-Arrays stored on both the stack and heap are stored in contiguous memory spaces, and data operation efficiency is essentially the same. However, stacks and heaps have their own characteristics, leading to the following differences.
+Both use contiguous memory, so data operations have essentially the same efficiency. However, the stack and heap differ in these ways.
 
-1. Allocation and release efficiency: The stack is a smaller memory block, allocated automatically by the compiler; the heap memory is relatively larger and can be dynamically allocated in the code, more prone to fragmentation. Therefore, allocation and release operations on the heap are generally slower than on the stack.
-2. Size limitation: Stack memory is relatively small, while the heap size is generally limited by available memory. Therefore, the heap is more suitable for storing large arrays.
-3. Flexibility: The size of arrays on the stack needs to be determined at compile-time, while the size of arrays on the heap can be dynamically determined at runtime.
+1. Allocation and deallocation: Stack memory is relatively small and allocated automatically by the compiler. The heap is larger, supports dynamic allocation in code, and is more prone to fragmentation. Heap allocation and deallocation are therefore usually slower.
+2. Size limits: Stack space is relatively small, while the heap is generally limited by available memory, making it better suited to large arrays.
+3. Flexibility: Stack array sizes must be known at compile time, while heap array sizes can be determined at runtime.
 
-**Q**: Why do arrays require elements of the same type, while linked lists do not emphasize same-type elements?
+**Q**: Why must array elements have the same type, while this requirement is not emphasized for linked lists?
 
-Linked lists consist of nodes connected by references (pointers), and each node can store data of different types, such as int, double, string, object, etc.
+Linked lists consist of nodes connected by references (pointers). Different nodes can hold different types, such as `int`, `double`, `string`, and `object`.
 
-In contrast, array elements must be of the same type, allowing the calculation of offsets to access the corresponding element positions. For example, an array containing both int and long types, with single elements occupying 4 bytes and 8 bytes respectively, cannot use the following formula to calculate offsets, as the array contains elements of two different lengths.
+Array elements must have the same type so that their positions can be calculated from offsets. If an array contained both `int` and `long`, occupying 4 and 8 bytes respectively, the following formula would not work because there would be two element sizes.
 
 ```shell
-# Element memory address = array memory address + element length * element index
+# Element address = array address (first element's address) + element size * element index
 ```
 
-**Q**: After deleting a node, is it necessary to set `P.next` to `None`?
+**Q**: After removing node `P`, must we set `P.next` to `None`?
 
-Not modifying `P.next` is also acceptable. From the perspective of the linked list, traversing from the head node to the tail node will no longer encounter `P`. This means that node `P` has been effectively removed from the list, and where `P` points no longer affects the list.
+Leaving `P.next` unchanged is acceptable. A traversal from the list's head to its tail no longer encounters `P`, so it has been removed. Whatever `P` points to no longer affects the list.
 
-From a garbage collection perspective, for languages with automatic garbage collection mechanisms like Java, Python, and Go, whether node `P` is collected depends on whether there are still references pointing to it, not on the value of `P.next`. In languages like C and C++, we need to manually free the node's memory.
+For algorithm exercises, leaving it connected is fine as long as the logic is correct. For a standard library, disconnecting it is safer and clearer: if the removed node is not reclaimed properly, its reference may prevent its successor from being reclaimed.
 
-**Q**: In linked lists, the time complexity for insertion and deletion operations is `O(1)`. But searching for the element before insertion or deletion takes `O(n)` time, so why isn't the time complexity `O(n)`?
+**Q**: Insertion and deletion in a linked list take $O(1)$ time, but locating the element first takes $O(n)$. Why is the overall complexity not $O(n)$?
 
-If an element is searched first and then deleted, the time complexity is indeed `O(n)`. However, the `O(1)` advantage of linked lists in insertion and deletion can be realized in other applications. For example, in the implementation of double-ended queues using linked lists, we maintain pointers always pointing to the head and tail nodes, making each insertion and deletion operation `O(1)`.
+Finding an element and then deleting it does take $O(n)$ time. However, $O(1)$ insertion and deletion are useful in other settings. A deque, for example, can use a linked list with pointers maintained at the head and tail, giving $O(1)$ operations.
 
-**Q**: In the figure "Linked List Definition and Storage Method", do the light blue storage nodes occupy a single memory address, or do they share half with the node value?
+**Q**: In the linked list storage diagram, does the light-blue pointer occupy a separate memory location, or share half the node's space with its value?
 
-The figure is just a qualitative representation; quantitative analysis depends on specific situations.
+The diagram is qualitative. Exact sizes depend on the circumstances.
 
-- Different types of node values occupy different amounts of space, such as int, long, double, and object instances.
-- The memory space occupied by pointer variables depends on the operating system and compilation environment used, usually 8 bytes or 4 bytes.
+- Node values of different types, such as `int`, `long`, `double`, and objects, occupy different amounts of space.
+- A pointer's size depends on the operating system and compilation environment, and is usually 8 or 4 bytes.
 
-**Q**: Is adding elements to the end of a list always `O(1)`?
+**Q**: Does appending to a list always take $O(1)$ time?
 
-If adding an element exceeds the list length, the list needs to be expanded first. The system will request a new memory block and move all elements of the original list over, in which case the time complexity becomes `O(n)`.
+If appending exceeds the available capacity, the list must first expand. The system allocates new memory and copies all existing elements, making that operation $O(n)$.
 
-**Q**: The statement "The emergence of lists greatly improves the practicality of arrays, but may lead to some memory space wastage" - does this refer to the memory occupied by additional variables like capacity, length, and expansion multiplier?
+**Q**: When lists waste memory, does this mean the extra variables for capacity, length, and growth factor?
 
-The space wastage here mainly refers to two aspects: on the one hand, lists are set with an initial length, which we may not always need; on the other hand, to prevent frequent expansion, expansion usually multiplies by a coefficient, such as $\times 1.5$. This results in many empty slots, which we typically cannot fully fill.
+The main waste has two sources. First, the initial allocation may exceed what we need. Second, to avoid frequent resizing, capacity usually grows by a factor such as $\times 1.5$, leaving empty slots that may never all be filled.
 
-**Q**: In Python, after initializing `n = [1, 2, 3]`, the addresses of these 3 elements are contiguous, but initializing `m = [2, 1, 3]` shows that each element's `id` is not consecutive but identical to those in `n`. If the addresses of these elements are not contiguous, is `m` still an array?
+**Q**: In Python, after `n = [1, 2, 3]`, the three elements seem to have consecutive addresses. But in `m = [2, 1, 3]`, their IDs are not consecutive and match those in `n`. Is `m` still an array?
 
-If we replace list elements with linked list nodes `n = [n1, n2, n3, n4, n5]`, these 5 node objects are also typically dispersed throughout memory. However, given a list index, we can still access the node's memory address in `O(1)` time, thereby accessing the corresponding node. This is because the array stores references to the nodes, not the nodes themselves.
+Consider storing linked list nodes instead: `n = [n1, n2, n3, n4, n5]`. These five objects are usually scattered in memory, yet an index still gives a node's address in $O(1)$ time. The array stores references to the nodes, not the nodes themselves.
 
-Unlike many languages, in Python, numbers are also wrapped as objects, and lists store references to these numbers, not the numbers themselves. Therefore, we find that the same number in two arrays has the same `id`, and these numbers' memory addresses need not be contiguous.
+Unlike many languages, Python also wraps numbers in objects. A list stores references to those objects rather than the numbers themselves. Thus, the same numbers in the two arrays can have the same IDs, and their addresses need not be contiguous.
 
-**Q**: The `std::list` in C++ STL has already implemented a doubly linked list, but it seems that some algorithm books don't directly use it. Is there any limitation?
+**Q**: C++ STL's `std::list` already implements a doubly linked list. Why do algorithm books rarely use it directly? Does it have limitations?
 
-On the one hand, we often prefer to use arrays to implement algorithms, only using linked lists when necessary, mainly for two reasons.
+First, we often favor arrays and use linked lists only when needed, mainly for two reasons.
 
-- Space overhead: Since each element requires two additional pointers (one for the previous element and one for the next), `std::list` usually occupies more space than `std::vector`.
-- Cache unfriendly: As the data is not stored continuously, `std::list` has a lower cache utilization rate. Generally, `std::vector` performs better.
+- Space overhead: Each element needs two extra pointers, to its predecessor and successor, so `std::list` usually consumes more space than `std::vector`.
+- Poor cache locality: Its data is not contiguous, making cache use less efficient. In general, `std::vector` performs better.
 
-On the other hand, linked lists are primarily necessary for binary trees and graphs. Stacks and queues are often implemented using the programming language's `stack` and `queue` classes, rather than linked lists.
+Second, linked structures are mainly needed for binary trees and graphs. For stacks and queues, we usually use the language's provided `stack` and `queue` rather than a linked list directly.
 
-**Q**: Does initializing a list `res = [0] * self.size()` result in each element of `res` referencing the same address?
+**Q**: Does `res = [[0]] * n` create a two-dimensional list with independent `[0]` entries?
 
-No. However, this issue arises with two-dimensional arrays, for example, initializing a two-dimensional list `res = [[0]] * self.size()` would reference the same list `[0]` multiple times.
+No. Every `[0]` is a reference to the same object. Modifying an element through one reference changes the corresponding element seen through all the others.
 
-**Q**: In deleting a node, is it necessary to break the reference to its successor node?
+To create independent `[0]` lists, use `res = [[0] for _ in range(n)]`. This initializes $n$ separate list objects.
 
-From the perspective of data structures and algorithms (problem-solving), it's okay not to break the link, as long as the program's logic is correct. From the perspective of standard libraries, breaking the link is safer and more logically clear. If the link is not broken, and the deleted node is not properly recycled, it could affect the recycling of the successor node's memory.
+**Q**: Does `res = [0] * n` create independent integer zeros?
+
+All zeros in the list refer to the same object. Python caches small integers, usually -5 through 256, to maximize reuse and improve performance.
+
+Even so, each list entry can be changed independently because Python integers are immutable. Assigning a new value switches the entry to a different object reference instead of modifying the original object.
+
+When an element is mutable, such as a list, dictionary, or class instance, modifying the object itself is visible through every reference to it.

@@ -36,6 +36,5 @@ void main() {
   print("\n單獨走訪鍵 Key");
   map.keys.forEach((key) => print(key));
   print("\n單獨走訪值 Value");
-  map.forEach((key, value) => print("$value"));
   map.values.forEach((value) => print(value));
 }

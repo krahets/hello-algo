@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "title": "双方向連結リストによる両端キューの実装",
+  "summary": "先頭と末尾のノード、および双方向の参照を管理し、中間のノードを動かさずに両端で追加と削除を行います。",
+  "context": [
+    "左は外部から見た両端キュー、右は縦に並べた双方向連結リストです。どちらも上が先頭、下が末尾で、リストの先頭・末尾ノードがキューの先頭・末尾に対応します。隣り合うノードは、下向きの next と上向きの prev でつながっています。"
+  ],
+  "description": [
+    "5 枚の図で、初期状態、末尾に 4 を追加、先頭に 1 を追加、末尾から 4 を取り出す、先頭から 1 を取り出す、という流れを示します。新しい 4 は青緑、1 はオレンジで、元からある 3、2、5 は同じ位置に残ります。"
+  ],
+  "result": "先頭と末尾への参照を保持すると、末尾から取り出すときは末尾ノードの prev をたどるだけで新しい末尾が分かります。先頭から走査する必要はありません。両端での追加と取り出しはいずれも端の参照だけを書き換えるので O(1) です。",
+  "frames": [
+    {
+      "id": "source-71",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step1.png",
+      "title": "両端キューの初期状態",
+      "explanation": "初期リストは 3 ⇄ 2 ⇄ 5 で、先頭ノードは 3、末尾ノードは 5 です。左のキューは [3, 2, 5] で、戻り値はありません。",
+      "key_state": "先頭は 3、末尾は 5 で、現在は [3, 2, 5] です。",
+      "announcement": "初期リストは 3 ⇄ 2 ⇄ 5 で、先頭は 3、末尾は 5 です。"
+    },
+    {
+      "id": "source-72",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step2_push_last.png",
+      "title": "末尾に 4 を追加",
+      "explanation": "push_last(4) で 5 の下に新しいノード 4 をつなぎ、5.next が 4、4.prev が 5 を指すようにします。リストは 3 ⇄ 2 ⇄ 5 ⇄ 4、先頭は 3 のまま、末尾は 4 です。戻り値はありません。",
+      "key_state": "先頭は 3、末尾は 4 で、現在は [3, 2, 5, 4] です。",
+      "announcement": "5 と 4 を双方向につなぎ、末尾の参照を 4 に更新しました。"
+    },
+    {
+      "id": "source-73",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step3_push_first.png",
+      "title": "先頭に 1 を追加",
+      "explanation": "push_first(1) で 3 の上に新しいノード 1 をつなぎ、1.next が 3、3.prev が 1 を指すようにします。リストは 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4、先頭は 1 になり、末尾は 4 のままです。戻り値はありません。",
+      "key_state": "先頭は 1、末尾は 4 で、現在は [1, 3, 2, 5, 4] です。",
+      "announcement": "1 と 3 を双方向につなぎ、先頭の参照を 1 に更新しました。"
+    },
+    {
+      "id": "source-74",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step4_pop_last.png",
+      "title": "末尾から 4 を取り出す",
+      "explanation": "pop_last() で 4.prev をたどって直接 5 を見つけ、末尾の参照を 5 に変えます。5 と 4 の双方向のリンクを外し、4 を返します。リストは 1 ⇄ 3 ⇄ 2 ⇄ 5、先頭は 1、末尾は 5 です。",
+      "key_state": "先頭は 1、末尾は 5、現在は [1, 3, 2, 5] で、戻り値は 4 です。",
+      "announcement": "4.prev で 5 を見つけて末尾の参照を更新し、ノード 4 を切り離して 4 を返しました。"
+    },
+    {
+      "id": "source-75",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step5_pop_first.png",
+      "title": "先頭から 1 を取り出す",
+      "explanation": "pop_first() で 1.next をたどって 3 を見つけ、先頭の参照を 3 に変えます。1 と 3 の双方向のリンクを外し、1 を返します。リストは 3 ⇄ 2 ⇄ 5 に戻り、先頭は 3、末尾は 5 です。",
+      "key_state": "先頭は 3、末尾は 5、現在は [3, 2, 5] で、戻り値は 1 です。",
+      "announcement": "1.next で 3 を見つけて先頭の参照を更新し、ノード 1 を切り離して 1 を返しました。"
+    }
+  ],
+  "animations": {
+    "linkedlist-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-71"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-72"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-73"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-74"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-75"
+        }
+      ]
+    }
+  }
+}

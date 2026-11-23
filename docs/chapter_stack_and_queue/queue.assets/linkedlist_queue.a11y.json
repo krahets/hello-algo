@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "基于链表实现队列的入队与出队",
+  "summary": "以单向链表的头节点作为队首、尾节点作为队尾，演示尾部入队和头部出队。",
+  "context": [
+    "左侧是对外队列，右侧是竖直单向链表，中间标注“底层实现是链表，对外表现为队列”。两者均从上到下按队首到队尾排列，链表的 next 箭头向下；头节点对应队首，尾节点对应队尾。"
+  ],
+  "description": [
+    "规定只在链表尾部添加节点、头部删除节点。初始画面中，队首旁的箭头向上移出队列，队尾旁的箭头从下方朝上进入队列。"
+  ],
+  "result": "维护头尾节点引用后，尾部入队与头部出队都只需修改局部引用，时间复杂度均为 O(1)。",
+  "frames": [
+    {
+      "id": "source-64",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step1.png",
+      "title": "初始队列：头出尾入",
+      "explanation": "初始链表为 1 → 3 → 2 → 5，对应队列 [1, 3, 2, 5]，共 4 个元素。头节点和队首为 1，尾节点和队尾为 5。",
+      "key_state": "初始队列（队首到队尾）[1, 3, 2, 5]；链表（头到尾）1 → 3 → 2 → 5，头节点 1 为队首，尾节点 5 为队尾。",
+      "announcement": "初始队列包含 4 个元素 [1, 3, 2, 5]，链表头节点 1 为队首，尾节点 5 为队尾。"
+    },
+    {
+      "id": "source-65",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step2_push.png",
+      "title": "在链表尾部入队 4",
+      "explanation": "执行 push(4)，右侧标注“将节点 4 添加至链表尾部”。青色的新节点 4 接在原尾节点 5 下方，尾节点标记下移到 4。当前链表为 1 → 3 → 2 → 5 → 4，与队首到队尾顺序一致，共 5 个元素；头节点和队首仍为 1，尾节点和队尾为 4。",
+      "key_state": "push(4) 后：队列 [1, 3, 2, 5, 4]；链表 1 → 3 → 2 → 5 → 4，队首仍为 1，新尾节点 4 为队尾。",
+      "announcement": "执行 push(4)，将节点 4 接到链表尾部，尾节点和队尾更新为 4。"
+    },
+    {
+      "id": "source-66",
+      "book_path": "chapter_stack_and_queue/queue.assets/linkedlist_queue_step3_pop.png",
+      "title": "在链表头部出队 1",
+      "explanation": "执行 pop()，右侧标注“删除头节点”。取出并返回 1，头节点标记下移到其后继 3。当前链表为 3 → 2 → 5 → 4，与队首到队尾顺序一致，共 4 个元素；头节点和队首为 3，尾节点和队尾仍为青色的 4。",
+      "key_state": "pop() 删除头节点 1 后：队列 [3, 2, 5, 4]；链表 3 → 2 → 5 → 4，头节点 3 为新队首，尾节点仍为 4。",
+      "announcement": "执行 pop() 删除链表头节点 1，头节点和队首变为 3，队列剩下 [3, 2, 5, 4]。"
+    }
+  ],
+  "animations": {
+    "linkedlist-queue": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-64"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-65"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-66"
+        }
+      ]
+    }
+  }
+}

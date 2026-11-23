@@ -20,7 +20,7 @@ VS Code 拥有强大的扩展包生态系统，支持大多数编程语言的运
 
 ### C/C++ 环境
 
-1. Windows 系统需要安装 [MinGW](https://sourceforge.net/projects/mingw-w64/files/)（[配置教程](https://blog.csdn.net/qq_33698226/article/details/129031241)）；MacOS 自带 Clang ，无须安装。
+1. Windows 系统需要安装 [MinGW](https://sourceforge.net/projects/mingw-w64/files/)（[配置教程](https://blog.csdn.net/qq_33698226/article/details/129031241)）；macOS 自带 Clang ，无须安装。
 2. 在 VS Code 的插件市场中搜索 `c++` ，安装 C/C++ Extension Pack 。
 3. （可选）打开 Settings 页面，搜索 `Clang_format_fallback Style` 代码格式化选项，设置为 `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }` 。
 
@@ -31,7 +31,7 @@ VS Code 拥有强大的扩展包生态系统，支持大多数编程语言的运
 
 ### C# 环境
 
-1. 下载并安装 [.Net 8.0](https://dotnet.microsoft.com/en-us/download) 。
+1. 下载并安装 [.NET 8.0](https://dotnet.microsoft.com/en-us/download) 。
 2. 在 VS Code 的插件市场中搜索 `C# Dev Kit` ，安装 C# Dev Kit （[配置教程](https://code.visualstudio.com/docs/csharp/get-started)）。
 3. 也可使用 Visual Studio（[安装教程](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)）。
 

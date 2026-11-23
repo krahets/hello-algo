@@ -64,23 +64,26 @@ class LinkedListDeque:
         """出队操作"""
         if self.is_empty():
             raise IndexError("双向队列为空")
+        # 队列长度为 1 时, 头尾指向同一节点
+        if self._size == 1:
+            val: int = self._front.val
+            self._front = None
+            self._rear = None
         # 队首出队操作
-        if is_front:
+        elif is_front:
             val: int = self._front.val  # 暂存头节点值
             # 删除头节点
             fnext: ListNode | None = self._front.next
-            if fnext is not None:
-                fnext.prev = None
-                self._front.next = None
+            fnext.prev = None
+            self._front.next = None
             self._front = fnext  # 更新头节点
         # 队尾出队操作
         else:
             val: int = self._rear.val  # 暂存尾节点值
             # 删除尾节点
             rprev: ListNode | None = self._rear.prev
-            if rprev is not None:
-                rprev.next = None
-                self._rear.prev = None
+            rprev.next = None
+            self._rear.prev = None
             self._rear = rprev  # 更新尾节点
         self._size -= 1  # 更新队列长度
         return val

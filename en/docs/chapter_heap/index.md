@@ -1,9 +1,9 @@
-# Heap
+# Heaps
 
-![Heap](../assets/covers/chapter_heap.jpg)
+![Heaps](../assets/covers/chapter_heap.jpg)
 
 !!! abstract
 
-    Heaps resemble mountains and their jagged peaks, layered and undulating, each with its unique form.
-
-    Each mountain peak rises and falls in scattered heights, yet the tallest always captures attention first.
+    Heaps resemble mountain ranges, rising in layers of varied shapes.
+    
+    The peaks stand at different heights, yet the highest always catches the eye first.

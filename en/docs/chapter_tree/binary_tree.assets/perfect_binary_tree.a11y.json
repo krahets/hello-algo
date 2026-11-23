@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "Perfect binary tree: every level is completely filled",
+  "summary": "In a perfect binary tree every level is full and all leaves are on the bottom level.",
+  "context": [],
+  "description": [
+    "The nodes in the four-level tree on the left have no value labels. Their number doubles each level: 1 root on the first level, 2 nodes on the second, 4 on the third, and 8 leaves on the fourth. The gray note below reads “Every level is completely filled.”",
+    "Every internal node has both a left and a right child. All 8 leaves line up on the bottom, fourth level. The title on the right reads “Perfect binary tree.”"
+  ],
+  "frames": [
+    {
+      "id": "source-92",
+      "book_path": "chapter_tree/binary_tree.assets/perfect_binary_tree.png",
+      "title": "Perfect binary tree: every level is completely filled",
+      "explanation": "Counting gives four levels, 15 nodes, and a height of 3 edges. In general a perfect binary tree of height h has 2 to the power (h+1), minus 1, nodes."
+    }
+  ]
+}

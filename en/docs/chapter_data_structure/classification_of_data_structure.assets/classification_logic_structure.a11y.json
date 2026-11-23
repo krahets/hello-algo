@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "title": "Logical relationships in data structures",
+  "summary": "Compare four kinds of logical relationships: sequential order, parent-child hierarchy, network connections, and key-value mapping.",
+  "context": [],
+  "description": [
+    "The left column of the figure groups linear data structures, and the right column groups nonlinear data structures; the hash table spans across the bottom beneath both columns to illustrate key-value mapping separately."
+  ],
+  "frames": [
+    {
+      "id": "source-38",
+      "book_path": "chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png",
+      "title": "Logical relationships in data structures",
+      "explanation": "Linear structures maintain a sequential order while differing in where operations are permitted; trees and heaps organize parent-child hierarchies, and graphs allow a vertex to connect to multiple neighbors. What is compared here is logical structure rather than underlying physical storage: the same logical relationship can be implemented in different ways, and a hash table can combine arrays, linked lists, or trees."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Examples and connections for each data structure",
+      "headers": [
+        "Structure",
+        "Column in figure",
+        "Elements and relationships shown"
+      ],
+      "rows": [
+        [
+          "Array",
+          "Linear",
+          "Arranged in order 1, 3, 2, 5, 4"
+        ],
+        [
+          "Linked list",
+          "Linear",
+          "1→3→2→5→4"
+        ],
+        [
+          "Stack",
+          "Linear",
+          "1, 3, 2, 5, 4 from the open end to the closed end; both push and pop occur at the open end"
+        ],
+        [
+          "Queue",
+          "Linear",
+          "1, 3, 2, 5, 4 from the dequeue end to the enqueue end; push (enqueue) and pop (dequeue) occur at opposite ends"
+        ],
+        [
+          "Tree",
+          "Nonlinear",
+          "Root 1 with left child 2 and right child 3; 2 has left 4 and right 5; 3 has left 6 and right 7; 7 nodes across three levels"
+        ],
+        [
+          "Graph",
+          "Nonlinear",
+          "5 vertices 1 through 5; 7 undirected edges: 1—2, 1—3, 2—3, 2—4, 2—5, 3—5, 4—5"
+        ],
+        [
+          "Heap",
+          "Nonlinear",
+          "Root 1 with left child 3 and right child 2; 3 has left 5 and right 4; 5 nodes across three levels"
+        ],
+        [
+          "Hash table",
+          "Full-width row across both columns",
+          "Keys a, b, and c map to values 1, 2, and 3, respectively"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

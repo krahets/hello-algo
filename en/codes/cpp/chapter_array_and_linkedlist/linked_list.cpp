@@ -25,7 +25,7 @@ void remove(ListNode *n0) {
     delete P;
 }
 
-/* Access the node at `index` in the linked list */
+/* Access the node at index `index` in the linked list */
 ListNode *access(ListNode *head, int index) {
     for (int i = 0; i < index; i++) {
         if (head == nullptr)
@@ -35,7 +35,7 @@ ListNode *access(ListNode *head, int index) {
     return head;
 }
 
-/* Search for the first node with value target in the linked list */
+/* Find the first node with value target in the linked list */
 int find(ListNode *head, int target) {
     int index = 0;
     while (head != nullptr) {
@@ -47,16 +47,16 @@ int find(ListNode *head, int target) {
     return -1;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize linked list */
-    // Initialize each node
+    /* Initialize the linked list */
+    // Initialize the individual nodes
     ListNode *n0 = new ListNode(1);
     ListNode *n1 = new ListNode(3);
     ListNode *n2 = new ListNode(2);
     ListNode *n3 = new ListNode(5);
     ListNode *n4 = new ListNode(4);
-    // Build references between nodes
+    // Set up references between the nodes
     n0->next = n1;
     n1->next = n2;
     n2->next = n3;
@@ -64,23 +64,23 @@ int main() {
     cout << "The initialized linked list is" << endl;
     printLinkedList(n0);
 
-    /* Insert node */
+    /* Insert a node */
     insert(n0, new ListNode(0));
-    cout << "Linked list after inserting the node is" << endl;
+    cout << "The linked list after inserting a node is" << endl;
     printLinkedList(n0);
 
-    /* Remove node */
+    /* Remove a node */
     remove(n0);
-    cout << "Linked list after removing the node is" << endl;
+    cout << "The linked list after removing a node is" << endl;
     printLinkedList(n0);
 
-    /* Access node */
+    /* Access a node */
     ListNode *node = access(n0, 3);
-    cout << "The value of the node at index 3 in the linked list = " << node->val << endl;
+    cout << "Value of the node at index 3 in the linked list = " << node->val << endl;
 
-    /* Search node */
+    /* Find a node */
     int index = find(n0, 2);
-    cout << "The index of the node with value 2 in the linked list = " << index << endl;
+    cout << "Index of the linked list node with value 2 = " << index << endl;
 
     // Free memory
     freeMemoryLinkedList(n0);

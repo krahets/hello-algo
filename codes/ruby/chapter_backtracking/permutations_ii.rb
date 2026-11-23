@@ -4,6 +4,8 @@ Created Time: 2024-05-22
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
+require 'set'
+
 ### 回溯算法：全排列 II ###
 def backtrack(state, choices, selected, res)
   # 当状态长度等于元素数量时，记录解

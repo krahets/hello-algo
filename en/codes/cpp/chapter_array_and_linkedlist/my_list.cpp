@@ -9,10 +9,10 @@
 /* List class */
 class MyList {
   private:
-    int *arr;             // Array (stores list elements)
+    int *arr;             // Array (stores the list elements)
     int arrCapacity = 10; // List capacity
     int arrSize = 0;      // List length (current number of elements)
-    int extendRatio = 2;   // Multiple for each list expansion
+    int extendRatio = 2;   // Factor by which the list capacity grows each time
 
   public:
     /* Constructor */
@@ -25,34 +25,34 @@ class MyList {
         delete[] arr;
     }
 
-    /* Get list length (current number of elements)*/
+    /* Get the list length (current number of elements)*/
     int size() {
         return arrSize;
     }
 
-    /* Get list capacity */
+    /* Get the list capacity */
     int capacity() {
         return arrCapacity;
     }
 
-    /* Access element */
+    /* Access an element */
     int get(int index) {
-        // If the index is out of bounds, throw an exception, as below
+        // Raise an exception if the index is out of bounds; the same applies below
         if (index < 0 || index >= size())
             throw out_of_range("Index out of bounds");
         return arr[index];
     }
 
-    /* Update element */
+    /* Update an element */
     void set(int index, int num) {
         if (index < 0 || index >= size())
             throw out_of_range("Index out of bounds");
         arr[index] = num;
     }
 
-    /* Add element at the end */
+    /* Append an element at the end */
     void add(int num) {
-        // When the number of elements exceeds capacity, trigger the expansion mechanism
+        // Grow the capacity when adding an element would exceed it
         if (size() == capacity())
             extendCapacity();
         arr[size()] = num;
@@ -60,14 +60,14 @@ class MyList {
         arrSize++;
     }
 
-    /* Insert element in the middle */
+    /* Insert an element in the middle */
     void insert(int index, int num) {
         if (index < 0 || index >= size())
             throw out_of_range("Index out of bounds");
-        // When the number of elements exceeds capacity, trigger the expansion mechanism
+        // Grow the capacity when adding an element would exceed it
         if (size() == capacity())
             extendCapacity();
-        // Move all elements after `index` one position backward
+        // Shift all elements at and after index `index` one position to the right
         for (int j = size() - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
@@ -76,12 +76,12 @@ class MyList {
         arrSize++;
     }
 
-    /* Remove element */
+    /* Remove an element */
     int remove(int index) {
         if (index < 0 || index >= size())
             throw out_of_range("Index out of bounds");
         int num = arr[index];
-        // Move all elements after `index` one position forward
+        // Shift all elements after index `index` one position to the left
         for (int j = index; j < size() - 1; j++) {
             arr[j] = arr[j + 1];
         }
@@ -91,9 +91,9 @@ class MyList {
         return num;
     }
 
-    /* Extend list */
+    /* Grow the list capacity */
     void extendCapacity() {
-        // Create a new array with a length multiple of the original array by extendRatio
+        // Create a new array with extendRatio times the original array's length
         int newCapacity = capacity() * extendRatio;
         int *tmp = arr;
         arr = new int[newCapacity];
@@ -106,9 +106,9 @@ class MyList {
         arrCapacity = newCapacity;
     }
 
-    /* Convert the list to a Vector for printing */
+    /* Convert the list to a vector for printing */
     vector<int> toVector() {
-        // Only convert elements within valid length range
+        // Convert only the list elements within the occupied range
         vector<int> vec(size());
         for (int i = 0; i < size(); i++) {
             vec[i] = arr[i];
@@ -117,11 +117,11 @@ class MyList {
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize list */
+    /* Initialize the list */
     MyList *nums = new MyList();
-    /* Add element at the end */
+    /* Append an element at the end */
     nums->add(1);
     nums->add(3);
     nums->add(2);
@@ -130,39 +130,39 @@ int main() {
     cout << "List nums = ";
     vector<int> vec = nums->toVector();
     printVector(vec);
-    cout << "Capacity = " << nums->capacity() << ", length = " << nums->size() << endl;
+    cout << "Capacity = " << nums->capacity() << " , size = " << nums->size() << endl;
 
-    /* Insert element in the middle */
+    /* Insert an element in the middle */
     nums->insert(3, 6);
-    cout << "Insert the number 6 at index 3, resulting in nums = ";
+    cout << "Insert the number 6 at index 3, giving nums = ";
     vec = nums->toVector();
     printVector(vec);
 
-    /* Remove element */
+    /* Remove an element */
     nums->remove(3);
-    cout << "Remove the element at index 3, resulting in nums = ";
+    cout << "Remove the element at index 3, giving nums = ";
     vec = nums->toVector();
     printVector(vec);
 
-    /* Access element */
+    /* Access an element */
     int num = nums->get(1);
-    cout << "Access the element at index 1, obtained num = " << num << endl;
+    cout << "Access the element at index 1, giving num = " << num << endl;
 
-    /* Update element */
+    /* Update an element */
     nums->set(1, 0);
-    cout << "Update the element at index 1 to 0, resulting in nums = ";
+    cout << "Update the element at index 1 to 0, giving nums = ";
     vec = nums->toVector();
     printVector(vec);
 
-    /* Test expansion mechanism */
+    /* Test capacity growth */
     for (int i = 0; i < 10; i++) {
-        // At i = 5, the list length will exceed the list capacity, triggering the expansion mechanism at this time
+        // When i = 5, the list length would exceed its capacity, triggering capacity growth
         nums->add(i);
     }
-    cout << "After extending, list nums = ";
+    cout << "List after capacity growth, nums = ";
     vec = nums->toVector();
     printVector(vec);
-    cout << "Capacity = " << nums->capacity() << ", length = " << nums->size() << endl;
+    cout << "Capacity = " << nums->capacity() << " , size = " << nums->size() << endl;
 
     // Free memory
     delete nums;

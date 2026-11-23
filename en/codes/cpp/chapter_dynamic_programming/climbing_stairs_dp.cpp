@@ -6,23 +6,23 @@
 
 #include "../utils/common.hpp"
 
-/* Climbing stairs: Dynamic programming */
+/* Climbing stairs: dynamic programming */
 int climbingStairsDP(int n) {
     if (n == 1 || n == 2)
         return n;
-    // Initialize dp table, used to store subproblem solutions
+    // Initialize the dp table to store subproblem solutions
     vector<int> dp(n + 1);
-    // Initial state: preset the smallest subproblem solution
+    // Initial states: set the solutions to the smallest subproblems
     dp[1] = 1;
     dp[2] = 2;
-    // State transition: gradually solve larger subproblems from smaller ones
+    // State transitions: solve progressively larger subproblems using smaller ones
     for (int i = 3; i <= n; i++) {
         dp[i] = dp[i - 1] + dp[i - 2];
     }
     return dp[n];
 }
 
-/* Climbing stairs: Space-optimized dynamic programming */
+/* Climbing stairs: space-optimized dynamic programming */
 int climbingStairsDPComp(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -35,15 +35,15 @@ int climbingStairsDPComp(int n) {
     return b;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs: " << res << " ways" << endl;
 
     res = climbingStairsDPComp(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs: " << res << " ways" << endl;
 
     return 0;
 }

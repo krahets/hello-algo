@@ -1,0 +1,130 @@
+# https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager により生成
+# https://www.toptal.com/developers/gitignore?templates=objective-c,swift,swiftpackagemanager で編集
+
+### Objective-C ###
+# Xcode
+#
+# gitignore の貢献者へ：Global/Xcode.gitignore、Objective-C.gitignore、Swift.gitignore も忘れずに更新すること
+
+## ユーザー設定
+xcuserdata/
+
+## Xcode 8 以前との互換性（Xcode 9 以降では無視する必要はない）
+*.xcscmblueprint
+*.xccheckout
+
+## Xcode 3 以前との互換性（Xcode 4 以降では無視する必要はない）
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Obj-C/Swift 固有
+*.hmap
+
+## アプリのパッケージ化
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+# Pods ディレクトリを .gitignore に追加することは推奨しない。ただし、
+# 最終的には自身で判断すること。利点と欠点は次に記載されている：
+# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+# Pods/
+# Xcode ワークスペースのソースコードを管理対象に含めたくない場合、この行を追加する
+# *.xcworkspace
+
+# Carthage
+# Carthage の依存関係のソースコードを管理対象に含めたくない場合、この行を追加する。
+# Carthage/Checkouts
+
+Carthage/Build/
+
+# fastlane
+# スクリーンショットは Git リポジトリに保存しないことを推奨する。
+# 代わりに、必要になるたびに fastlane でスクリーンショットを再生成する。
+# 推奨設定の詳細は次を参照：
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# コードインジェクション
+# 新しいコードインジェクションツールを使うと、/iOSInjectionProject フォルダが生成される
+# https://github.com/johnno1962/injectionforxcode
+
+iOSInjectionProject/
+
+### Objective-C のパッチ ###
+
+### Swift ###
+# Xcode
+# gitignore の貢献者へ：Global/Xcode.gitignore、Objective-C.gitignore、Swift.gitignore も忘れずに更新すること
+
+
+
+
+
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+# Swift Package Manager の依存関係のソースコードを管理対象に含めたくない場合、この行を追加する。
+# Packages/
+# Package.pins
+# Package.resolved
+# *.xcodeproj
+# Xcode は .xcworkspacedata ファイルと xcuserdata を含むこのディレクトリを自動生成するため、
+# プロジェクトにパッケージ設定ファイルを追加していない限り、これは不要である
+# .swiftpm
+
+.build/
+
+# CocoaPods
+# Pods ディレクトリを .gitignore に追加することは推奨しない。ただし、
+# 最終的には自身で判断すること。利点と欠点は次に記載されている：
+# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+# Pods/
+# Xcode ワークスペースのソースコードを管理対象に含めたくない場合、この行を追加する
+# *.xcworkspace
+
+# Carthage
+# Carthage の依存関係のソースコードを管理対象に含めたくない場合、この行を追加する。
+# Carthage/Checkouts
+
+
+# Accio による依存関係の管理
+Dependencies/
+.accio/
+
+# fastlane
+# スクリーンショットは Git リポジトリに保存しないことを推奨する。
+# 代わりに、必要になるたびに fastlane でスクリーンショットを再生成する。
+# 推奨設定の詳細は次を参照：
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+
+# コードインジェクション
+# 新しいコードインジェクションツールを使うと、/iOSInjectionProject フォルダが生成される
+# https://github.com/johnno1962/injectionforxcode
+
+
+### SwiftPackageManager ###
+Packages
+xcuserdata
+*.xcodeproj
+
+
+# https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager の終わり

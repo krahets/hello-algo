@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "title": "Queens cannot share a row, column, or diagonal",
+  "summary": "The left board shows the 11 squares blocked along the row, column, and two diagonals of a single queen, while the right board shows a valid 4-queens solution satisfying all constraints.",
+  "context": [
+    "In chess, a queen attacks pieces at any distance along its horizontal row, vertical column, main diagonal, and antidiagonal. On the 4×4 boards here, rows from top to bottom and columns from left to right are numbered starting at 1 (1-based coordinates)."
+  ],
+  "description": [
+    "The left board places a queen at row 2, column 2 ((2, 2)); no other square in the same row, column, or either diagonal may hold another queen, ruling out 11 squares across the four directions.",
+    "The right board shows a valid arrangement. The two tables below list the squares blocked by the queen on the left board and the column chosen in each row on the right board."
+  ],
+  "frames": [
+    {
+      "id": "source-364",
+      "book_path": "chapter_backtracking/n_queens_problem.assets/n_queens_constraints.png",
+      "title": "Queens cannot share a row, column, or diagonal",
+      "explanation": "A valid arrangement must satisfy all four constraints simultaneously: distinct rows, distinct columns, distinct main diagonals, and distinct antidiagonals; placing one queen per row avoids row conflicts automatically, leaving column and both diagonal constraints to check."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Blocked squares for queen at (2,2): 1-based coordinates",
+      "headers": [
+        "Direction",
+        "Attacked squares",
+        "Square count"
+      ],
+      "rows": [
+        [
+          "Same row",
+          "(2,1), (2,3), (2,4)",
+          "3"
+        ],
+        [
+          "Same column",
+          "(1,2), (3,2), (4,2)",
+          "3"
+        ],
+        [
+          "Main diagonal (top-left to bottom-right)",
+          "(1,1), (3,3), (4,4)",
+          "3"
+        ],
+        [
+          "Antidiagonal (top-right to bottom-left)",
+          "(1,3), (3,1)",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Valid arrangement on the right board",
+      "headers": [
+        "Row",
+        "Queen's column"
+      ],
+      "rows": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "4"
+        ],
+        [
+          "3",
+          "1"
+        ],
+        [
+          "4",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

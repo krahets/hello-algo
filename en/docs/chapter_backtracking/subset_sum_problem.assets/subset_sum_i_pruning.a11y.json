@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "title": "Avoiding duplicate combinations with nondecreasing choice indices",
+  "summary": "Restrict the next round to choose only from the current index i onward (start = i in the code below), pruning reverse-order duplicate branches that look back to earlier indices.",
+  "context": [
+    "The candidate array is choices = [3, 4, 5] (indices 0, 1, 2), where elements may be chosen repeatedly and subsets ignore element order. This figure expands only the first two rounds of choices to compare selection order against duplicate subsets, without expanding a third round or checking the target sum."
+  ],
+  "description": [
+    "Combinations ignore element order: picking a larger index first and then going back to a smaller index necessarily duplicates the path that picks the smaller index first and then the larger index. Thus, after choosing 4 we never go back to 3, and after choosing 5 we never go back to 3 or 4.",
+    "Because this problem allows choosing the same element repeatedly (such as [3, 3, …], [4, 4, …], and [5, 5, …]), selecting index i in the current round must set the next round's starting index to start = i rather than i + 1 so the branch that chooses the current element again is preserved. Trailing ellipses in the figure indicate unexpanded continuations; this figure compares only selection order without checking whether the target sum is reached or exceeded.",
+    "The three pruned branches are marked with grayed-out boxes, dashed lines, and scissors, and gray arcs along the bottom pair them with the kept prefixes in reverse order. The table below lists all nine two-element prefixes and the three duplicate pairs."
+  ],
+  "frames": [
+    {
+      "id": "source-359",
+      "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_i_pruning.png",
+      "title": "Avoiding duplicate combinations with nondecreasing choice indices",
+      "explanation": "Among the nine prefixes across the first two rounds, the six prefixes with nondecreasing indices are kept, while the three branches that go back to an earlier index are pruned."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Nine two-element prefixes and three duplicate pairs",
+      "headers": [
+        "Two-element prefix",
+        "Disposition",
+        "Reverse-order paired prefix",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "[3,3,…]",
+          "Kept",
+          "No reverse-order counterpart",
+          "Indices are nondecreasing"
+        ],
+        [
+          "[3,4,…]",
+          "Kept",
+          "[4,3,…]",
+          "Indices are nondecreasing"
+        ],
+        [
+          "[3,5,…]",
+          "Kept",
+          "[5,3,…]",
+          "Indices are nondecreasing"
+        ],
+        [
+          "[4,3,…]",
+          "Skip earlier index",
+          "[3,4,…]",
+          "Produces a duplicate combination with the kept prefix"
+        ],
+        [
+          "[4,4,…]",
+          "Kept",
+          "No reverse-order counterpart",
+          "Indices are nondecreasing"
+        ],
+        [
+          "[4,5,…]",
+          "Kept",
+          "[5,4,…]",
+          "Indices are nondecreasing"
+        ],
+        [
+          "[5,3,…]",
+          "Skip earlier index",
+          "[3,5,…]",
+          "Produces a duplicate combination with the kept prefix"
+        ],
+        [
+          "[5,4,…]",
+          "Skip earlier index",
+          "[4,5,…]",
+          "Produces a duplicate combination with the kept prefix"
+        ],
+        [
+          "[5,5,…]",
+          "Kept",
+          "No reverse-order counterpart",
+          "Indices are nondecreasing"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

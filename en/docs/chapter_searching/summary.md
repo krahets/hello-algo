@@ -1,8 +1,10 @@
 # Summary
 
-- Binary search depends on the order of data and performs the search by iteratively halving the search interval. It requires the input data to be sorted and is only applicable to arrays or array-based data structures.
-- Brute force search may be required to locate an entry in an unordered dataset. Different search algorithms can be applied based on the data structure: Linear search is suitable for arrays and linked lists, while breadth-first search (BFS) and depth-first search (DFS) are suitable for graphs and trees. These algorithms are highly versatile, requiring no preprocessing of data, but they have a higher time complexity of $O(n)$.
-- Hash search, tree search, and binary search are efficient search methods that can quickly locate target elements within specific data structures. These algorithms are highly efficient, with time complexities reaching $O(\log n)$ or even $O(1)$, but they usually require extra space to accommodate additional data structures.
-- In practice, we need to analyze factors such as data volume, search performance requirements, data query and update frequencies, etc., to choose an appropriate search method.
-- Linear search is ideal for small or frequently updated (volatile) data. Binary search works well for large and sorted data. Hash search is suitable for data that requires high query efficiency and does not need range queries. Tree search is best suited for large dynamic data that require maintaining order and need to support range queries.
-- Replacing linear search with hash search is a common strategy to optimize runtime performance, reducing the time complexity from $O(n)$ to $O(1)$.
+### Key takeaways
+
+- Binary search relies on sorted data and repeatedly halves the search interval. It requires ordered input and applies only to arrays or data structures based on arrays.
+- Brute-force search locates data by traversing a data structure. Linear search suits arrays and linked lists; breadth-first and depth-first search suit graphs and trees. These algorithms are broadly applicable and require no preprocessing, but their $O(n)$ time complexity is relatively high.
+- Hash lookup, tree search, and binary search efficiently locate targets in particular data structures. Their time complexities can be $O(\log n)$ or even $O(1)$, but they usually rely on additional data structures.
+- In practice, choose a search method by considering dataset size, required search performance, query frequency, update frequency, and related factors.
+- Linear search suits small or frequently updated datasets; binary search suits large, sorted datasets; hash lookup suits fast queries without range-query requirements; tree search suits large, dynamic datasets that need ordering and range queries.
+- Replacing linear search with hash lookup is a common optimization that reduces lookup time from $O(n)$ to $O(1)$.

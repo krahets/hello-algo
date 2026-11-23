@@ -2,7 +2,7 @@
 
 <u>陣列（array）</u>是一種線性資料結構，其將相同型別的元素儲存在連續的記憶體空間中。我們將元素在陣列中的位置稱為該元素的<u>索引（index）</u>。下圖展示了陣列的主要概念和儲存方式。
 
-![陣列定義與儲存方式](array.assets/array_definition.png)
+![陣列定義與儲存方式](array.assets/array_definition.svg)
 
 ## 陣列常用操作
 
@@ -10,139 +10,19 @@
 
 我們可以根據需求選用陣列的兩種初始化方式：無初始值、給定初始值。在未指定初始值的情況下，大多數程式語言會將陣列元素初始化為 $0$ ：
 
-=== "Python"
-
-    ```python title="array.py"
-    # 初始化陣列
-    arr: list[int] = [0] * 5  # [ 0, 0, 0, 0, 0 ]
-    nums: list[int] = [1, 3, 2, 5, 4]  
-    ```
-
-=== "C++"
-
-    ```cpp title="array.cpp"
-    /* 初始化陣列 */
-    // 儲存在堆疊上
-    int arr[5];
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    // 儲存在堆積上（需要手動釋放空間）
-    int* arr1 = new int[5];
-    int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Java"
-
-    ```java title="array.java"
-    /* 初始化陣列 */
-    int[] arr = new int[5]; // { 0, 0, 0, 0, 0 }
-    int[] nums = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "C#"
-
-    ```csharp title="array.cs"
-    /* 初始化陣列 */
-    int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
-    int[] nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "Go"
-
-    ```go title="array.go"
-    /* 初始化陣列 */
-    var arr [5]int
-    // 在 Go 中，指定長度時（[5]int）為陣列，不指定長度時（[]int）為切片
-    // 由於 Go 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
-    // 為了方便實現擴容 extend() 方法，以下將切片（Slice）看作陣列（Array）
-    nums := []int{1, 3, 2, 5, 4}
-    ```
-
-=== "Swift"
-
-    ```swift title="array.swift"
-    /* 初始化陣列 */
-    let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-    let nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "JS"
-
-    ```javascript title="array.js"
-    /* 初始化陣列 */
-    var arr = new Array(5).fill(0);
-    var nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "TS"
-
-    ```typescript title="array.ts"
-    /* 初始化陣列 */
-    let arr: number[] = new Array(5).fill(0);
-    let nums: number[] = [1, 3, 2, 5, 4];
-    ```
-
-=== "Dart"
-
-    ```dart title="array.dart"
-    /* 初始化陣列 */
-    List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
-    List<int> nums = [1, 3, 2, 5, 4];
-    ```
-
-=== "Rust"
-
-    ```rust title="array.rs"
-    /* 初始化陣列 */
-    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
-    let slice: &[i32] = &[0; 5];
-    // 在 Rust 中，指定長度時（[i32; 5]）為陣列，不指定長度時（&[i32]）為切片
-    // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
-    // Vector 是 Rust 一般情況下用作動態陣列的型別
-    // 為了方便實現擴容 extend() 方法，以下將 vector 看作陣列（array）
-    let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
-    ```
-
-=== "C"
-
-    ```c title="array.c"
-    /* 初始化陣列 */
-    int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-    int nums[5] = { 1, 3, 2, 5, 4 };
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title="array.kt"
-    /* 初始化陣列 */
-    var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
-    var nums = intArrayOf(1, 3, 2, 5, 4)
-    ```
-
-=== "Ruby"
-
-    ```ruby title="array.rb"
-    # 初始化陣列
-    arr = Array.new(5, 0)
-    nums = [1, 3, 2, 5, 4]
-    ```
-
-=== "Zig"
-
-    ```zig title="array.zig"
-    // 初始化陣列
-    var arr = [_]i32{0} ** 5; // { 0, 0, 0, 0, 0 }
-    var nums = [_]i32{ 1, 3, 2, 5, 4 };
-    ```
+```snippet
+init_array
+```
 
 ??? pythontutor "視覺化執行"
 
-    https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%99%A3%E5%88%97%0Aarr%20%3D%20%5B0%5D%20%2A%205%20%20%23%20%5B%200%2C%200%2C%200%2C%200%2C%200%20%5D%0Anums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    @tutor init_array_tutor
 
 ### 訪問元素
 
 陣列元素被儲存在連續的記憶體空間中，這意味著計算陣列元素的記憶體位址非常容易。給定陣列記憶體位址（首元素記憶體位址）和某個元素的索引，我們可以使用下圖所示的公式計算得到該元素的記憶體位址，從而直接訪問該元素。
 
-![陣列元素的記憶體位址計算](array.assets/array_memory_location_calculation.png)
+![陣列元素的記憶體位址計算](array.assets/array_memory_location_calculation.svg)
 
 觀察上圖，我們發現陣列首個元素的索引為 $0$ ，這似乎有些反直覺，因為從 $1$ 開始計數會更自然。但從位址計算公式的角度看，**索引本質上是記憶體位址的偏移量**。首個元素的位址偏移量是 $0$ ，因此它的索引為 $0$ 是合理的。
 
@@ -156,7 +36,7 @@
 
 陣列元素在記憶體中是“緊挨著的”，它們之間沒有空間再存放任何資料。如下圖所示，如果想在陣列中間插入一個元素，則需要將該元素之後的所有元素都向後移動一位，之後再把元素賦值給該索引。
 
-![陣列插入元素示例](array.assets/array_insert_element.png)
+![陣列插入元素示例](array.assets/array_insert_element.svg)
 
 值得注意的是，由於陣列的長度是固定的，因此插入一個元素必定會導致陣列尾部元素“丟失”。我們將這個問題的解決方案留在“串列”章節中討論。
 
@@ -168,7 +48,7 @@
 
 同理，如下圖所示，若想刪除索引 $i$ 處的元素，則需要把索引 $i$ 之後的元素都向前移動一位。
 
-![陣列刪除元素示例](array.assets/array_remove_element.png)
+![陣列刪除元素示例](array.assets/array_remove_element.svg)
 
 請注意，刪除元素完成後，原先末尾的元素變得“無意義”了，所以我們無須特意去修改它。
 

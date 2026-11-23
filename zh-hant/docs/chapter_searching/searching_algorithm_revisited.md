@@ -40,7 +40,7 @@
 
 給定大小為 $n$ 的一組資料，我們可以使用線性搜尋、二分搜尋、樹查詢、雜湊查詢等多種方法從中搜索目標元素。各個方法的工作原理如下圖所示。
 
-![多種搜尋策略](searching_algorithm_revisited.assets/searching_algorithms.png)
+![多種搜尋策略](searching_algorithm_revisited.assets/searching_algorithms.svg)
 
 上述幾種方法的操作效率與特性如下表所示。
 
@@ -55,7 +55,7 @@
 | 資料預處理   | /        | 排序 $O(n \log n)$ | 建樹 $O(n \log n)$ | 建雜湊表 $O(n)$ |
 | 資料是否有序 | 無序     | 有序               | 有序               | 無序            |
 
-搜尋演算法的選擇還取決於資料體量、搜尋效能要求、資料查詢與更新頻率等。
+搜尋演算法的選擇還取決規模、搜尋效能要求、資料查詢與更新頻率等。
 
 **線性搜尋**
 

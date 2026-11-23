@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "title": "AVL right rotation",
+  "summary": "Rotate the first unbalanced node right. Rearrange the links within its subtree, then attach the new subtree root to its parent.",
+  "context": [
+    "Root 4 has left child 3 and right child 5; 3 has only a left child, 1, and 1 only a left child, 0. Nodes 0 and 5 are leaves.",
+    "The balance factor is left subtree height minus right subtree height. Height is measured in edges: a leaf has height 0 and an empty subtree −1. Scanning upward, 3 is the first unbalanced node. Call it node and its left child 1 child."
+  ],
+  "description": [
+    "Here the right subtree of child (1) is empty. The code first saves grand_child = child.right, then sets child.right = node and finally node.left = grand_child. The old reference must be saved before it is overwritten."
+  ],
+  "result": "The subtree height decreases by 1. The entire tree regains AVL balance while preserving binary search tree order.",
+  "frames": [
+    {
+      "id": "source-130",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
+      "title": "Find the first unbalanced node, 3",
+      "explanation": "Root 4 has left child 3 and right child 5; 3 has only a left child, 1, and 1 only a left child, 0. Nodes 0 and 5 are leaves. The factors printed below nodes are 0 for nodes 0 and 5, 1 for node 1, and 2 for nodes 3 and 4. Moving up the left branch, 3 is the first unbalanced node, so repair its subtree first.",
+      "key_state": "Root 4 has left child 3 and right child 5; 3 has only a left child, 1, and 1 only a left child, 0. Nodes 3 and 4 both have factor 2. The bottom-up check handles 3 first.",
+      "announcement": "Check balance factors from the bottom up to locate the first unbalanced node, 3."
+    },
+    {
+      "id": "source-131",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
+      "title": "Mark the two nodes involved in the rotation",
+      "explanation": "Mark node=3 and child=1 before rotating. Root 4 has left child 3 and right child 5; 3 has only a left child, 1, and 1 only a left child, 0. Since child.right is empty, the saved grand_child is empty and node.left must also be empty after rotation.",
+      "key_state": "Before rotation: Root 4 has left child 3 and right child 5; 3 has only a left child, 1, and 1 only a left child, 0. Here node=3, child=1, and child.right is empty.",
+      "announcement": "Mark the unbalanced subtree root node = 3 and its left child, child = 1."
+    },
+    {
+      "id": "source-132",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
+      "title": "Form the local subtree rooted at 1",
+      "explanation": "Save the old right link of child (empty), then set child.right = node and node.left = grand_child. The new local root 1 has left leaf 0 and right leaf 3. For now parent 4 has only its right child 5; it has not yet reconnected to 1. The dashed outline at the old 3 and its dashed edge to 1 show the old layout, not current links. The full rotation is still in progress.",
+      "key_state": "Local root 1 has left child 0 and right child 3. Parent 4 has only right child 5 and is not yet linked to new root 1.",
+      "announcement": "Node 3 becomes the right child of 1. The new subtree exists but has not yet been linked back to parent 4."
+    },
+    {
+      "id": "source-133",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
+      "title": "Reconnect the new subtree root to its parent",
+      "explanation": "Point 4.left to new subtree root 1. Root 4 now has left child 1 and right child 5; 1 has left child 0 and right child 3. Nodes 0, 3, and 5 are leaves. The subtree height falls by 1 and the balance factor at root 4 changes from 2 to 1. Inorder traversal still gives [0, 1, 3, 4, 5].",
+      "key_state": "After reconnection, root 4 has left child 1 and right child 5; 1 has left child 0 and right child 3. The inorder sequence is [0, 1, 3, 4, 5]. The entire tree is balanced.",
+      "announcement": "Point parent 4’s left link to new root 1, completing the right rotation and restoring balance throughout the tree."
+    }
+  ],
+  "animations": {
+    "avl-right-rotation": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-130"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-131"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-132"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-133"
+        }
+      ]
+    }
+  },
+  "tables": [],
+  "input_tables": []
+}

@@ -50,11 +50,11 @@ impl<T: Copy> LinkedListDeque<T> {
 
     /* 判斷雙向佇列是否為空 */
     pub fn is_empty(&self) -> bool {
-        return self.size() == 0;
+        return self.que_size == 0;
     }
 
     /* 入列操作 */
-    pub fn push(&mut self, num: T, is_front: bool) {
+    fn push(&mut self, num: T, is_front: bool) {
         let node = ListNode::new(num);
         // 佇列首入列操作
         if is_front {
@@ -102,7 +102,7 @@ impl<T: Copy> LinkedListDeque<T> {
     }
 
     /* 出列操作 */
-    pub fn pop(&mut self, is_front: bool) -> Option<T> {
+    fn pop(&mut self, is_front: bool) -> Option<T> {
         // 若佇列為空，直接返回 None
         if self.is_empty() {
             return None;
@@ -120,7 +120,7 @@ impl<T: Copy> LinkedListDeque<T> {
                     }
                 }
                 self.que_size -= 1; // 更新佇列長度
-                Rc::try_unwrap(old_front).ok().unwrap().into_inner().val
+                old_front.borrow().val
             })
         }
         // 佇列尾出列操作
@@ -136,7 +136,7 @@ impl<T: Copy> LinkedListDeque<T> {
                     }
                 }
                 self.que_size -= 1; // 更新佇列長度
-                Rc::try_unwrap(old_rear).ok().unwrap().into_inner().val
+                old_rear.borrow().val
             })
         }
     }
@@ -163,12 +163,16 @@ impl<T: Copy> LinkedListDeque<T> {
 
     /* 返回陣列用於列印 */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
-        if let Some(node) = head {
-            let mut nums = self.to_array(node.borrow().next.as_ref());
-            nums.insert(0, node.borrow().val);
-            return nums;
+        let mut res: Vec<T> = Vec::new();
+        fn recur<T: Copy>(cur: Option<&Rc<RefCell<ListNode<T>>>>, res: &mut Vec<T>) {
+            if let Some(cur) = cur {
+                res.push(cur.borrow().val);
+                recur(cur.borrow().next.as_ref(), res);
+            }
         }
-        return Vec::new();
+
+        recur(head, &mut res);
+        res
     }
 }
 

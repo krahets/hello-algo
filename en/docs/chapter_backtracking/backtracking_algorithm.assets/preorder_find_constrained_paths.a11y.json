@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "title": "Pruning with the constraint that paths exclude 3",
+  "summary": "When searching for root-to-7 paths that do not contain 3, return early at node 3 to prune its subtree, skipping node 6 and the right 7.",
+  "context": [
+    "The binary tree has seven nodes: root 1 has left and right children 7 and 3; the left node 7 has left and right children 4 and 5; node 3 has left and right children 6 and another 7; nodes 4, 5, 6, and the right 7 are all leaf nodes.",
+    "The problem asks for paths from the root to all nodes with value 7 such that no path contains a node with value 3. Any path extending downward past node 3 necessarily violates this constraint."
+  ],
+  "description": [
+    "The left subtree contains no 3, so preorder traversal records the valid path [1, 7] upon visiting the left node 7 and continues checking its children 4 and 5.",
+    "Reaching the root's right child 3 triggers the constraint, so the algorithm returns immediately before appending 3 to path and does not recurse into its children 6 and the right 7. The figure marks node 3 in red and uses a scissors icon with a faded subtree to show that this search branch is skipped; the tree nodes themselves are not deleted from the data structure."
+  ],
+  "frames": [
+    {
+      "id": "source-340",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_constrained_paths.png",
+      "title": "Return early at node 3 to prune the invalid search branch",
+      "explanation": "The only path satisfying the constraint is [1, 7]. Although the right leaf node 7 equals the target value 7, the path [1, 3, 7] from the root to it passes through the forbidden node 3 and is therefore ruled out during pruning."
+    }
+  ]
+}

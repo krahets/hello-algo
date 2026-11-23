@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "title": "State transitions for minimum climbing cost",
+  "summary": "Each state takes the smaller cumulative minimum cost of its two predecessors and adds cost[i], the cost of the current step.",
+  "context": [
+    "Each move climbs 1 or 2 steps, cost[i] is the nonnegative cost paid upon landing on step i, and starting on the ground is free. Let dp[i] denote the minimum cumulative cost to reach step i."
+  ],
+  "description": [
+    "Green blocks dp[1] through dp[9] run horizontally from left to right; odd-indexed cost labels sit above and even-indexed ones sit below, pointing into their respective dp blocks. States dp[1] and dp[2] receive only their own cost arrows; starting at dp[3], brackets and min markers combine the two preceding states into the next state, with a plus sign beside the incoming cost arrow for paying the current step's cost. Below the diagram appear the initial states and general recurrence dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i] without concrete cost numbers.",
+    "The final move onto step i must come from either step i - 1 or step i - 2. Because landing on step i pays cost[i] regardless of predecessor, compare predecessor costs dp[i - 1] and dp[i - 2] to pick the smaller cumulative cost and then add cost[i].",
+    "From the ground one can step directly onto step 1 or step 2, giving dp[1] = cost[1]. Because cost[1] is nonnegative, passing through step 1 on the way to step 2 can never cost less than stepping straight onto step 2, so dp[2] = cost[2]. The table below lists steps 1 through 9 individually for lookup; the \"Ground\" origin and \"no worse than via step 1\" notes are supplied from the problem rules rather than a separate ground node drawn in the figure."
+  ],
+  "frames": [
+    {
+      "id": "source-373",
+      "book_path": "chapter_dynamic_programming/dp_problem_features.assets/min_cost_cs_dp.png",
+      "title": "State transitions for minimum climbing cost",
+      "explanation": "Evaluating sequentially up to the target step yields the minimum cumulative cost in that step's dp entry."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Initial values and predecessor comparisons",
+      "headers": [
+        "State",
+        "Initial source or compared predecessors",
+        "Cost paid at step",
+        "Formula"
+      ],
+      "rows": [
+        [
+          "dp[1]",
+          "Ground",
+          "cost[1]",
+          "dp[1] = cost[1]"
+        ],
+        [
+          "dp[2]",
+          "Two-step jump directly from ground (no worse than via step 1)",
+          "cost[2]",
+          "dp[2] = cost[2]"
+        ],
+        [
+          "dp[3]",
+          "dp[2] or dp[1]",
+          "cost[3]",
+          "min(dp[2], dp[1]) + cost[3]"
+        ],
+        [
+          "dp[4]",
+          "dp[3] or dp[2]",
+          "cost[4]",
+          "min(dp[3], dp[2]) + cost[4]"
+        ],
+        [
+          "dp[5]",
+          "dp[4] or dp[3]",
+          "cost[5]",
+          "min(dp[4], dp[3]) + cost[5]"
+        ],
+        [
+          "dp[6]",
+          "dp[5] or dp[4]",
+          "cost[6]",
+          "min(dp[5], dp[4]) + cost[6]"
+        ],
+        [
+          "dp[7]",
+          "dp[6] or dp[5]",
+          "cost[7]",
+          "min(dp[6], dp[5]) + cost[7]"
+        ],
+        [
+          "dp[8]",
+          "dp[7] or dp[6]",
+          "cost[8]",
+          "min(dp[7], dp[6]) + cost[8]"
+        ],
+        [
+          "dp[9]",
+          "dp[8] or dp[7]",
+          "cost[9]",
+          "min(dp[8], dp[7]) + cost[9]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

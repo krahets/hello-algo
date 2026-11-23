@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "title": "Equal elements cause duplicate permutations",
+  "summary": "Expanding two elements of value 1 as separate candidates produces six paths representing only three distinct numeric permutations.",
+  "context": [
+    "The input array is choices = [1, 1, 2] at indices 0, 1, and 2. Below, \"first 1\" and \"second 1\" distinguish indices 0 and 1; the figure places a hat over the second 1 as an identity marker, though both have numeric value 1. Each index is used at most once along a path, yet preventing index reuse with selected alone still yields numerically identical permutations."
+  ],
+  "description": [
+    "At the top, state has three empty slots. Blue squares denote the first 1, cyan denotes the second 1, and purple denotes 2. Three rounds of choices fill the slots with values from unused indices, expanding into the six leaf nodes in the table below. Entries 3, 4, and 6 have orange borders pointing to \"Duplicate permutations to remove\". Leaf numbers run from left to right, and the kept-versus-duplicate pairings follow from the orange borders and numeric values."
+  ],
+  "frames": [
+    {
+      "id": "source-355",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_ii.png",
+      "title": "Equal elements cause duplicate permutations",
+      "explanation": "Once the element-identity markers are ignored, the six leaf nodes correspond to just three distinct numeric permutations: [1, 1, 2], [1, 2, 1], and [2, 1, 1]."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Six leaf nodes and duplicate pairings",
+      "headers": [
+        "Leaf number (left to right)",
+        "Permutation distinguishing element identities",
+        "Marking in figure and summary"
+      ],
+      "rows": [
+        [
+          "1",
+          "[first 1, second 1, 2]",
+          "No orange border, kept"
+        ],
+        [
+          "2",
+          "[first 1, 2, second 1]",
+          "No orange border, kept"
+        ],
+        [
+          "3",
+          "[second 1, first 1, 2]",
+          "Orange border, duplicates entry 1"
+        ],
+        [
+          "4",
+          "[second 1, 2, first 1]",
+          "Orange border, duplicates entry 2"
+        ],
+        [
+          "5",
+          "[2, first 1, second 1]",
+          "No orange border, kept"
+        ],
+        [
+          "6",
+          "[2, second 1, first 1]",
+          "Orange border, duplicates entry 5"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

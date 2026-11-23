@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "Binary search tree containing 1 through 15",
+  "summary": "At every node in a binary search tree, all values in its left subtree are smaller and all values in its right subtree are larger than the node’s value.",
+  "context": [],
+  "description": [
+    "The tree has four levels and 15 nodes with values 1 through 15. Each directed edge points from parent to child. Root 8 on the first level has left child 4 and right child 12.",
+    "On level two, 4 has left and right children 2 and 6, and 12 has children 10 and 14. Level three connects to the 8 leaves on level four. From left to right the children are 1 and 3 under 2, 5 and 7 under 6, 9 and 11 under 10, and 13 and 15 under 14."
+  ],
+  "frames": [
+    {
+      "id": "source-114",
+      "book_path": "chapter_tree/binary_search_tree.assets/binary_search_tree.png",
+      "title": "Binary search tree containing 1 through 15",
+      "explanation": "The same ordering holds recursively. At root 8 all values 1 through 7 on the left are smaller than 8, and all values 9 through 15 on the right are larger. At node 4, for example, the left subtree contains 1 through 3, all below 4. Its right subtree contains 5 through 7, all above 4 yet below root 8."
+    }
+  ]
+}

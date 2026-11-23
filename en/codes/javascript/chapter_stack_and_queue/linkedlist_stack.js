@@ -1,0 +1,88 @@
+/**
+ * File: linkedlist_stack.js
+ * Created Time: 2022-12-22
+ * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
+ */
+
+const { ListNode } = require('../modules/ListNode');
+
+/* Stack implemented with a linked list */
+class LinkedListStack {
+    #stackPeek; // Use the head node as the stack top
+    #stkSize = 0; // Stack size
+
+    constructor() {
+        this.#stackPeek = null;
+    }
+
+    /* Get the stack size */
+    get size() {
+        return this.#stkSize;
+    }
+
+    /* Check whether the stack is empty */
+    isEmpty() {
+        return this.size === 0;
+    }
+
+    /* Push */
+    push(num) {
+        const node = new ListNode(num);
+        node.next = this.#stackPeek;
+        this.#stackPeek = node;
+        this.#stkSize++;
+    }
+
+    /* Pop */
+    pop() {
+        const num = this.peek();
+        this.#stackPeek = this.#stackPeek.next;
+        this.#stkSize--;
+        return num;
+    }
+
+    /* Access the top element */
+    peek() {
+        if (!this.#stackPeek) throw new Error('Stack is empty');
+        return this.#stackPeek.val;
+    }
+
+    /* Convert the linked list to an Array and return it */
+    toArray() {
+        let node = this.#stackPeek;
+        const res = new Array(this.size);
+        for (let i = res.length - 1; i >= 0; i--) {
+            res[i] = node.val;
+            node = node.next;
+        }
+        return res;
+    }
+}
+
+/* Driver code */
+/* Initialize the stack */
+const stack = new LinkedListStack();
+
+/* Push elements onto the stack */
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.push(5);
+stack.push(4);
+console.log('Stack stack = ' + stack.toArray());
+
+/* Access the top element */
+const peek = stack.peek();
+console.log('Top element peek = ' + peek);
+
+/* Pop an element from the stack */
+const pop = stack.pop();
+console.log('Popped element pop = ' + pop + '; after popping, stack = ' + stack.toArray());
+
+/* Get the stack size */
+const size = stack.size;
+console.log('Stack size = ' + size);
+
+/* Check whether it is empty */
+const isEmpty = stack.isEmpty();
+console.log('Is the stack empty = ' + isEmpty);
