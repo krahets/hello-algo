@@ -1,23 +1,25 @@
 # Summary
 
-- Dynamic programming decomposes problems and improves computational efficiency by avoiding redundant computations through storing solutions of subproblems.
-- Without considering time, all dynamic programming problems can be solved using backtracking (brute force search), but the recursion tree has many overlapping subproblems, resulting in very low efficiency. By introducing a memorization list, it's possible to store solutions of all computed subproblems, ensuring that overlapping subproblems are only computed once.
-- Memorization search is a top-down recursive solution, whereas dynamic programming corresponds to a bottom-up iterative approach, akin to "filling out a table." Since the current state only depends on certain local states, we can eliminate one dimension of the dp table to reduce space complexity.
-- Decomposition of subproblems is a universal algorithmic approach, differing in characteristics among divide and conquer, dynamic programming, and backtracking.
-- Dynamic programming problems have three main characteristics: overlapping subproblems, optimal substructure, and no aftereffects.
-- If the optimal solution of the original problem can be constructed from the optimal solutions of its subproblems, it has an optimal substructure.
-- No aftereffects mean that the future development of a state depends only on the current state and not on all past states experienced. Many combinatorial optimization problems do not have this property and cannot be quickly solved using dynamic programming.
+### Key takeaways
 
-**Knapsack problem**
+- Dynamic programming decomposes problems and stores subproblem solutions to avoid repeated computation and improve efficiency.
+- Without a time limit, every dynamic programming problem can be solved by backtracking (brute-force search). However, the recursion tree contains many overlapping subproblems, making it very inefficient. Memoization stores computed solutions so that each overlapping subproblem is solved only once.
+- Memoized search is a top-down recursive approach, while the corresponding dynamic programming solution works bottom up, like filling a table. Since the current state depends only on certain nearby states, removing a dimension from the $dp$ table can reduce space complexity.
+- Decomposing a problem into subproblems is a general algorithmic idea with different characteristics in divide and conquer, dynamic programming, and backtracking.
+- Dynamic programming problems have three key properties: overlapping subproblems, optimal substructure, and the no-aftereffect property.
+- A problem has optimal substructure if its optimal solution can be constructed from optimal solutions to subproblems.
+- The no-aftereffect property means a state's future depends only on that state, not on the history leading to it. Many combinatorial optimization problems lack this property and cannot be solved quickly with dynamic programming.
 
-- The knapsack problem is one of the most typical dynamic programming problems, with variants including the 0-1 knapsack, unbounded knapsack, and multiple knapsacks.
-- The state definition of the 0-1 knapsack is the maximum value in a knapsack of capacity $c$ with the first $i$ items. Based on decisions not to include or to include an item in the knapsack, optimal substructures can be identified and state transition equations constructed. In space optimization, since each state depends on the state directly above and to the upper left, the list should be traversed in reverse order to avoid overwriting the upper left state.
-- In the unbounded knapsack problem, there is no limit on the number of each kind of item that can be chosen, thus the state transition for including items differs from the 0-1 knapsack. Since the state depends on the state directly above and to the left, space optimization should involve forward traversal.
-- The coin change problem is a variant of the unbounded knapsack problem, shifting from seeking the “maximum” value to seeking the “minimum” number of coins, thus the state transition equation should change $\max()$ to $\min()$. From pursuing “not exceeding” the capacity of the knapsack to seeking exactly the target amount, thus use $amt + 1$ to represent the invalid solution of “unable to make up the target amount.”
-- Coin Change Problem II shifts from seeking the “minimum number of coins” to seeking the “number of coin combinations,” changing the state transition equation accordingly from $\min()$ to summation operator.
+**Knapsack problems**
 
-**Edit distance problem**
+- Knapsack is one of the most typical dynamic programming problem families, with variants including 0-1, unbounded, and bounded knapsack.
+- In 0-1 knapsack, the state value is the maximum value obtainable from the first $i$ items within capacity $c$. The choices to exclude or include an item reveal optimal substructure and give the state transition equation. After space optimization, backward iteration is necessary because each state depends on entries above and to the upper left, which must not be overwritten prematurely.
+- Unbounded knapsack allows unlimited copies of each item, changing the transition for including an item. Because a state depends on entries directly above and to the left, space optimization requires forward iteration.
+- Coin change is a variant of unbounded knapsack. Minimizing the number of coins instead of maximizing value changes $\max()$ to $\min()$ in the transition. Requiring the target amount exactly, rather than staying within a capacity, calls for using $amt + 1$ to represent an infeasible solution.
+- Coin change II counts combinations instead of minimizing coin count, so the transition replaces $\min()$ with addition.
 
-- Edit distance (Levenshtein distance) measures the similarity between two strings, defined as the minimum number of editing steps needed to change one string into another, with editing operations including adding, deleting, or replacing.
-- The state definition for the edit distance problem is the minimum number of editing steps needed to change the first $i$ characters of $s$ into the first $j$ characters of $t$. When $s[i] \ne t[j]$, there are three decisions: add, delete, replace, each with their corresponding residual subproblems. From this, optimal substructures can be identified, and state transition equations built. When $s[i] = t[j]$, no editing of the current character is necessary.
-- In edit distance, the state depends on the state directly above, to the left, and to the upper left. Therefore, after space optimization, neither forward nor reverse traversal can correctly perform state transitions. To address this, we use a variable to temporarily store the upper left state, making it equivalent to the situation in the unbounded knapsack problem, allowing for forward traversal after space optimization.
+**Edit distance**
+
+- Edit distance (Levenshtein distance) measures similarity between strings. It is the minimum number of edits needed to turn one string into another, allowing insertion, deletion, and replacement.
+- The edit distance state is the minimum number of edits needed to transform the first $i$ characters of $s$ into the first $j$ characters of $t$. When $s[i-1] \ne t[j-1]$, insertion, deletion, and replacement each leave a corresponding subproblem, revealing optimal substructure and the state transition equation. When $s[i-1] = t[j-1]$, no edit is needed for those characters.
+- Edit distance depends on states above, to the left, and to the upper left, so neither forward nor backward iteration alone works after space optimization. A temporary variable preserves the upper-left state, reducing the situation to one like unbounded knapsack and allowing forward iteration.

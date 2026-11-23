@@ -1,0 +1,289 @@
+{
+  "schema_version": 2,
+  "title": "Depth-first traversal of a graph",
+  "summary": "Starting from the initial vertex, recursively descend along unvisited neighbors, backtrack to the previous vertex at dead ends, and continue exploring remaining branches.",
+  "context": [
+    "The connected undirected graph contains vertices 0 through 6 and 6 undirected edges: 0—1, 0—3, 1—2, 2—5, 4—5, and 5—6. Traversal starts at vertex 0; in this example, neighbors are inspected in the order 1 then 3 at vertex 0, and 4 then 6 at vertex 5."
+  ],
+  "description": [
+    "Solid gray lines represent original edges of the undirected graph; straight blue dashed lines represent recursive descent into unvisited neighbors, and curved orange dashed lines represent returning after a call finishes—neither adds new edges to the graph. Parenthesized numbers 1 through 14 in the overview denote the 7 descents and 7 returns (including entering and returning from the initial outer call), not vertex IDs.",
+    "The step sequence presents these 14 events in 11 steps: steps 1 through 8 correspond to events 1 through 8, step 9 combines events 9 through 11, step 10 corresponds to event 12, and step 11 combines events 13 and 14."
+  ],
+  "result": "List res records only first visits, and backtracking appends no vertices. Changing the order in which neighbors are inspected changes the resulting depth-first sequence; even after every vertex has been visited, all remaining recursive calls must still return.",
+  "frames": [
+    {
+      "id": "source-202",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step1.png",
+      "title": "Visit starting vertex 0",
+      "explanation": "In the step figures, res records vertices in first-visit order and visited deduplicates them; braces list set members without implying order. The initial call enters vertex 0 (event 1), records it in res and visited, and then inspects its neighbors in the order 1 then 3. Current recursion call path: 0; res = [0], visited = {0}; both neighbors 1 and 3 of 0 are unvisited.",
+      "key_state": "At starting vertex 0, call path 0; res = [0], visited = {0}.",
+      "announcement": "Visit starting vertex 0 and record it first in res = [0]."
+    },
+    {
+      "id": "source-203",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step2.png",
+      "title": "Descend from 0 to 1",
+      "explanation": "Vertex 0 has unvisited neighbors 1 and 3; this example first recursively enters 1 (event 2), recording newly visited 1 in res and visited, while leaving neighbor 3 to be explored after 1's branch returns. Current recursion call path: 0→1; res = [0, 1], visited = {0, 1}.",
+      "key_state": "Descend from 0 to 1, call path 0→1; res = [0, 1].",
+      "announcement": "Descend from 0 to 1; result updates to [0, 1]."
+    },
+    {
+      "id": "source-204",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step3.png",
+      "title": "Descend from 1 to 2",
+      "explanation": "At vertex 1, neighbor 0 is already in visited, so skip 0 and recursively enter unvisited neighbor 2 (event 3), recording 2 in res and visited. Current recursion call path: 0→1→2; res = [0, 1, 2], visited = {0, 1, 2}.",
+      "key_state": "Descend from 1 to 2, call path 0→1→2; res = [0, 1, 2].",
+      "announcement": "Descend from 1 to 2; result updates to [0, 1, 2]."
+    },
+    {
+      "id": "source-205",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step4.png",
+      "title": "Descend from 2 to 5",
+      "explanation": "At vertex 2, neighbor 1 is already visited, so the call continues recursively into unvisited neighbor 5 (event 4), recording 5 in res and visited. Current recursion call path: 0→1→2→5; res = [0, 1, 2, 5], visited = {0, 1, 2, 5}; vertex 5 still has unvisited neighbors 4 and 6.",
+      "key_state": "Descend from 2 to 5, call path 0→1→2→5; res = [0, 1, 2, 5].",
+      "announcement": "Descend from 2 to 5; result updates to [0, 1, 2, 5]."
+    },
+    {
+      "id": "source-206",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step5.png",
+      "title": "Descend from 5 to 4",
+      "explanation": "At vertex 5, neighbor 2 is already visited; between remaining unvisited neighbors 4 and 6, this example first recursively enters 4 (event 5), recording 4 in res and visited. Current recursion call path: 0→1→2→5→4; res = [0, 1, 2, 5, 4], visited = {0, 1, 2, 4, 5}; vertices 3 and 6 remain unvisited.",
+      "key_state": "Descend from 5 to 4, call path 0→1→2→5→4; res = [0, 1, 2, 5, 4].",
+      "announcement": "Descend from 5 to 4; result updates to [0, 1, 2, 5, 4]."
+    },
+    {
+      "id": "source-207",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step6.png",
+      "title": "Return from 4 to 5",
+      "explanation": "Vertex 4's only neighbor 5 is already visited, so the call on 4 finishes and returns to 5 (event 6). Returning to already visited 5 does not append it to res again. Current recursion call path: 0→1→2→5; res stays [0, 1, 2, 5, 4], visited stays {0, 1, 2, 4, 5}; neighbor 6 of 5 and neighbor 3 of 0 remain unvisited.",
+      "key_state": "Backtrack from 4 to 5, call path 0→1→2→5; no new visit, res stays [0, 1, 2, 5, 4].",
+      "announcement": "Return from 4 to 5 without re-recording visited vertices; result is unchanged."
+    },
+    {
+      "id": "source-208",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step7.png",
+      "title": "Descend from 5 to 6",
+      "explanation": "Back at vertex 5, inspect its remaining unvisited neighbor 6, recursively enter 6 (event 7), and record 6 in res and visited. Current recursion call path: 0→1→2→5→6; res = [0, 1, 2, 5, 4, 6], visited = {0, 1, 2, 4, 5, 6}; only vertex 3 in the entire graph remains unvisited.",
+      "key_state": "Descend from 5 to 6, call path 0→1→2→5→6; res = [0, 1, 2, 5, 4, 6].",
+      "announcement": "Descend from 5 to 6; result updates to [0, 1, 2, 5, 4, 6]."
+    },
+    {
+      "id": "source-209",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step8.png",
+      "title": "Return from 6 to 5",
+      "explanation": "Vertex 6's only neighbor 5 is already visited, so the call on 6 finishes and returns to 5 (event 8) with no new visit. Current recursion call path: 0→1→2→5; res = [0, 1, 2, 5, 4, 6], visited = {0, 1, 2, 4, 5, 6}; all neighbors 2, 4, and 6 of vertex 5 have now been processed.",
+      "key_state": "Backtrack from 6 to 5, call path 0→1→2→5; all neighbors of 5 are processed, res = [0, 1, 2, 5, 4, 6].",
+      "announcement": "Return from 6 to 5 with no new visit; result stays [0, 1, 2, 5, 4, 6]."
+    },
+    {
+      "id": "source-210",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step9.png",
+      "title": "Return consecutively to starting vertex 0",
+      "explanation": "With all neighbors of 5, 2, and 1 inspected, calls backtrack consecutively along 5→2→1→0: event 9 returns from 5 to 2, event 10 returns from 2 to 1, and event 11 returns from 1 to 0. Current recursion call path: 0; res = [0, 1, 2, 5, 4, 6], visited = {0, 1, 2, 4, 5, 6}; starting vertex 0 still has unvisited neighbor branch 3 to explore.",
+      "key_state": "Events 9 through 11: backtrack consecutively along 5→2→1→0 to starting vertex 0; res = [0, 1, 2, 5, 4, 6], and 0 still must explore branch 3.",
+      "announcement": "Events 9 through 11: return consecutively through 5, 2, and 1 to starting vertex 0 with result unchanged, ready to explore 0's remaining branch 3."
+    },
+    {
+      "id": "source-211",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step10.png",
+      "title": "Descend from 0 to 3",
+      "explanation": "Now that neighbor branch 1 of 0 has completely returned, enter unvisited neighbor 3 (event 12) and record 3 in res and visited. Current recursion call path: 0→3; res = [0, 1, 2, 5, 4, 6, 3], visited = {0, 1, 2, 3, 4, 5, 6}; all 7 vertices have been visited, with only the final call returns remaining.",
+      "key_state": "Event 12: descend from 0 to the last unvisited vertex 3, call path 0→3; res = [0, 1, 2, 5, 4, 6, 3].",
+      "announcement": "Event 12: descend from 0 to 3, recording the final vertex for result [0, 1, 2, 5, 4, 6, 3]."
+    },
+    {
+      "id": "source-212",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step11.png",
+      "title": "Finish all recursive calls",
+      "explanation": "Vertex 3's sole neighbor 0 is already visited, so 3 first returns to 0 (event 13); now all neighbors of starting vertex 0 have also been processed, and the outermost initial call returns as well (event 14), completing the depth-first traversal. The call stack is now empty; final res = [0, 1, 2, 5, 4, 6, 3], visited = {0, 1, 2, 3, 4, 5, 6}, and starting vertex 0 carries an orange return marker in the figure.",
+      "key_state": "Events 13 and 14: 3 returns to 0 and the initial call returns, ending all recursion; final res = [0, 1, 2, 5, 4, 6, 3].",
+      "announcement": "Events 13 and 14: 3 returns to 0 and the outermost call finishes, completing depth-first traversal."
+    },
+    {
+      "id": "source-201",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs.png",
+      "title": "Depth-first traversal overview",
+      "explanation": "After entering starting vertex 0, recursion descends sequentially through 1, 2, 5, and 4 (events 1 through 5); 4 returns to 5 (event 6), then the call at 5 visits 6, which returns to 5 (events 7 and 8). Next, calls return consecutively along 5→2→1→0 (events 9 through 11), branch into 0's remaining neighbor 3 (event 12), and finally return from 3 to 0 and finish the initial call (events 13 and 14). The complete first-visit sequence is [0, 1, 2, 5, 4, 6, 3]; the table below lists the events by their figure numbers, with return events adding no new visits.",
+      "key_state": "Complete first-visit order is [0, 1, 2, 5, 4, 6, 3], across 7 descent events and 7 return events; backtracking adds no results.",
+      "announcement": "Show an overview of all 14 descent and return events in depth-first traversal.",
+      "kind": "overview",
+      "state_tables": [
+        {
+          "caption": "Recursive descent and return events",
+          "headers": [
+            "Event number in figure",
+            "Action",
+            "New visit recorded"
+          ],
+          "rows": [
+            [
+              "1",
+              "Enter starting vertex 0",
+              "Adds 0"
+            ],
+            [
+              "2",
+              "From 0, recursively enter 1",
+              "Adds 1"
+            ],
+            [
+              "3",
+              "From 1, recursively enter 2",
+              "Adds 2"
+            ],
+            [
+              "4",
+              "From 2, recursively enter 5",
+              "Adds 5"
+            ],
+            [
+              "5",
+              "From 5, recursively enter 4",
+              "Adds 4"
+            ],
+            [
+              "6",
+              "Return from 4 to 5",
+              "None"
+            ],
+            [
+              "7",
+              "From 5, recursively enter 6",
+              "Adds 6"
+            ],
+            [
+              "8",
+              "Return from 6 to 5",
+              "None"
+            ],
+            [
+              "9",
+              "Return from 5 to 2",
+              "None"
+            ],
+            [
+              "10",
+              "Return from 2 to 1",
+              "None"
+            ],
+            [
+              "11",
+              "Return from 1 to 0",
+              "None"
+            ],
+            [
+              "12",
+              "From 0, recursively enter 3",
+              "Adds 3"
+            ],
+            [
+              "13",
+              "Return from 3 to 0",
+              "None"
+            ],
+            [
+              "14",
+              "Initial call returns",
+              "None"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "graph-dfs": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-202"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-203"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-204"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-205"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-206"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-207"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-208"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-209"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-210"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-211"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-212"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "Adjacency relationships in the original graph",
+      "headers": [
+        "Vertex",
+        "Neighbors"
+      ],
+      "rows": [
+        [
+          "0",
+          "1, 3"
+        ],
+        [
+          "1",
+          "0, 2"
+        ],
+        [
+          "2",
+          "1, 5"
+        ],
+        [
+          "3",
+          "0"
+        ],
+        [
+          "4",
+          "5"
+        ],
+        [
+          "5",
+          "2, 4, 6"
+        ],
+        [
+          "6",
+          "5"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

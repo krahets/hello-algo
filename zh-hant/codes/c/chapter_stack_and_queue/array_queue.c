@@ -10,7 +10,7 @@
 typedef struct {
     int *nums;       // 用於儲存佇列元素的陣列
     int front;       // 佇列首指標，指向佇列首元素
-    int queSize;     // 尾指標，指向佇列尾 + 1
+    int queSize;     // 當前佇列的元素數量
     int queCapacity; // 佇列容量
 } ArrayQueue;
 

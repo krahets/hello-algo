@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "title": "Recursively split crowded price buckets",
+  "summary": "Start with three broad price buckets. Recursively split the crowded buckets containing 65% and 35% of the data to get seven more evenly sized leaf buckets.",
+  "context": [
+    "Each percentage is a share of all products, not a share of that bucket’s parent. The figure supplies price-range labels and percentages but gives no total product count, currency unit, or complete convention for interval endpoints."
+  ],
+  "description": [
+    "Arrows from “Product data” show successive subdivisions. Buckets with no further splits remain leaves. The first level has three price buckets: <100 holds 65%, 100–500 holds 20%, and >500 holds 15%. Because the <100 bucket holds 65% of all products, split it into three child buckets.",
+    "At the second level, <100 splits into <10 with 18%, 10–50 with 35%, and 50–100 with 12%. Their shares sum to 18% + 35% + 12% = 65%. The 10–50 bucket still holds a high share (35%), so split it again into 10–20 with 13%, 20–35 with 12%, and 35–50 with 10%. Their sum is 13% + 12% + 10% = 35%.",
+    "“Data partitioning result” on the right lists the seven leaf buckets (see the table). Each holds between 10% and 20% of the data, more even than the initial 65%, 20%, and 15%. The intermediate 65% and 35% represent split parents and do not count again among the final buckets."
+  ],
+  "frames": [
+    {
+      "id": "source-297",
+      "book_path": "chapter_sorting/bucket_sort.assets/scatter_in_buckets_recursively.png",
+      "title": "Recursively split crowded price buckets",
+      "explanation": "The seven leaf percentages add to 100%. Each holds 10% to 20%, so the counts are more evenly distributed. An implementation must complete the illustrated ranges by specifying how to assign their endpoints."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Final seven leaf buckets",
+      "headers": [
+        "Price range shown",
+        "Share of all data"
+      ],
+      "rows": [
+        [
+          "<10",
+          "18%"
+        ],
+        [
+          "10–20",
+          "13%"
+        ],
+        [
+          "20–35",
+          "12%"
+        ],
+        [
+          "35–50",
+          "10%"
+        ],
+        [
+          "50–100",
+          "12%"
+        ],
+        [
+          "100–500",
+          "20%"
+        ],
+        [
+          ">500",
+          "15%"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "Level-by-level choices in permutations and factorial growth",
+  "summary": "Fixing one more position in a permutation leaves one fewer available element, so multiplying branching counts across levels yields the total number of permutations.",
+  "context": [
+    "All n elements are distinct. The gray root node at the top precedes any choice, and each dashed-box level below fixes the next position. The right brace labeled \"A total of n levels\" spans only the n choice levels beneath the root, excluding the root itself."
+  ],
+  "description": [
+    "The left column, \"Number of branches at each level\", shows how many child branches leave each node of the preceding level, while the right column, \"Number of nodes at each level\", gives the total nodes on that level. Intermediate levels are represented by ellipses; small values of n pass only through the choice levels actually needed, so the final row in the table may coincide with an earlier row."
+  ],
+  "frames": [
+    {
+      "id": "source-32",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_factorial.png",
+      "title": "Level-by-level choices in permutations and factorial growth",
+      "explanation": "At the bottom, n × (n - 1) × … × 1 = n! counts the green leaf nodes on the lowest level: each leaf corresponds to one complete permutation and contributes one base-case count to factorial_recur, so n! is not the total node count of the entire tree. Even including the root and all internal levels, the total node count stays strictly less than 3 times n!. Although each call in the code runs a loop, every loop iteration traverses exactly one edge to a child call, and the number of edges in the tree equals total nodes minus 1, keeping the overall work O(n!). This bound assumes constant work per edge and excludes copying full permutations."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Branching factors and node counts across permutation choice levels",
+      "headers": [
+        "Choice level",
+        "Branches per node from previous level",
+        "Total nodes on level"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1",
+          "n",
+          "n"
+        ],
+        [
+          "2",
+          "n−1",
+          "n(n−1)"
+        ],
+        [
+          "3",
+          "n−2",
+          "n(n−1)(n−2)"
+        ],
+        [
+          "Intermediate levels (if any)",
+          "Decreases by 1 each level",
+          "Continues multiplying"
+        ],
+        [
+          "n, final level",
+          "1",
+          "n!"
+        ]
+      ]
+    }
+  ]
+}

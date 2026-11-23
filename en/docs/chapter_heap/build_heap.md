@@ -1,27 +1,27 @@
-# Heap construction
+# Building a heap
 
-In certain cases, we need to construct a heap using all elements of a list. This process is known as **heap construction**.
+Sometimes we want to construct a heap from all the elements of a list. This process is called “building a heap.”
 
-## Implementing with heap insertion
+## Building through insertion
 
-We first create an empty heap and then iterate through the list, performing **heap insertion** on each element sequentially. This involves adding the element to the end of the heap and then applying a **bottom-up heapification** process.
+First create an empty heap, then traverse the list and insert each element: append it to the end of the heap, then sift it upward.
 
-Each time an element is inserted, the heap size increases by one. Since nodes are added to the binary tree in **top-to-bottom order**, the heap is constructed **top-down**.
+Each insertion increases the heap's length by one. Since nodes are added to the binary tree from the top down, this constructs the heap “top down.”
 
-Let the number of elements be $n$. Each insertion operation takes $O(\log{n})$ time, so the overall time complexity of this heap construction method is $O(n \log n)$.
+For $n$ elements, each insertion takes $O(\log{n})$ time, so this method takes $O(n \log n)$ overall.
 
-## Implementing via heapification traversal
+## Building by sifting nodes down
 
-In practice, we can implement a more efficient heap construction method in two steps:
+We can build a heap more efficiently in two steps.
 
-1. Insert all elements of the list into the heap without modification. At this stage, the heap properties are not yet satisfied.
-2. Traverse the heap in reverse order (i.e., the reverse of level-order traversal) and apply **top-down heapification** to each non-leaf node.
+1. Copy all list elements into the heap without changing their order. The heap property may not yet hold.
+2. Traverse the heap in reverse level order, sifting down each non-leaf node.
 
-**Once a node is heapified, the subtree rooted at that node becomes a valid sub-heap.** Since the traversal is performed in reverse order, the heap is constructed **bottom-up**.
+**After a node is sifted down, the subtree rooted at that node is a valid heap**. Since the traversal is reversed, the heap is built “bottom up.”
 
-The reason for using reverse traversal is that it ensures the subtree beneath the current node is already a valid sub-heap, making the heapification process effective.
+Reverse traversal ensures that the subtrees below the current node are already valid heaps, which is necessary for sifting down the current node to work correctly.
 
-It is important to note that **since leaf nodes have no children, they are inherently valid sub-heaps and do not require heapification**. As shown in the following code, the last non-leaf node is the parent of the last node; we begin the reverse traversal from this node and perform heapification.
+**Leaf nodes have no children and are already valid heaps, so they need no sifting**. As the code below shows, the last non-leaf node is the parent of the last node. Start there and traverse backward, sifting each node down:
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{__init__}
@@ -29,39 +29,39 @@ It is important to note that **since leaf nodes have no children, they are inher
 
 ## Complexity analysis
 
-Next, we attempt to derive the time complexity of this second heap construction method.
+Let us derive the time complexity of the second method.
 
-- Assuming the complete binary tree has $n$ nodes, the number of leaf nodes is $(n + 1) / 2$, where $/$ represents integer division. Therefore, the number of nodes that require heapification is $(n - 1) / 2$.
-- During **top-down heapification**, each node can be heapified at most down to a leaf node, meaning the maximum number of iterations is the height of the binary tree $\log n$.
+- A complete binary tree with $n$ nodes has $(n + 1) / 2$ leaves, where $/$ denotes integer division rounded down. Therefore, $n / 2$ nodes need sifting.
+- A node can move at most as far as a leaf during sifting, so the maximum number of iterations is the tree height, $\log n$.
 
-Multiplying these two terms, we obtain a time complexity of $O(n \log n)$ for the heap construction process. **However, this estimate is not entirely accurate, as it does not account for the fact that the lower levels of the binary tree contain considerably more nodes than the upper levels.**
+Multiplying these gives a time complexity of $O(n \log n)$. **However, this estimate is not tight, because it ignores the fact that there are far more nodes near the bottom of the tree than near the top**.
 
-To perform a more precise analysis, we simplify the calculation by assuming a **perfect binary tree** with $n$ nodes and height $h$. This assumption does not affect the correctness of the result.
+For a more accurate calculation, assume a perfect binary tree with $n$ nodes and height $h$. This simplifies the calculation without affecting the validity of the result.
 
-![Node counts at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.png)
+![Number of nodes at each level of a perfect binary tree](build_heap.assets/heapify_operations_count.svg)
 
-As shown in the figure above, the maximum number of iterations for a node to be **heapified top-down** is equal to its distance from the leaf nodes, which corresponds to its **height**. Therefore, by summing the product of “node count $\times$ node height” at each level, we obtain **the total number of heapification iterations for all nodes**.
+As shown above, the maximum number of sift-down iterations for a node equals its distance to a leaf, which is its height. Summing “number of nodes $\times$ node height” over all levels therefore gives **the total number of sifting iterations across all nodes**.
 
 $$
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
 $$
 
-To simplify the equation above, we need to apply high school sequence knowledge. First, we multiply $T(h)$ by $2$ to obtain:
+To simplify this expression, use a standard series technique. First multiply $T(h)$ by $2$:
 
 $$
 \begin{aligned}
 T(h) & = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{h-1}\times1 \newline
-2T(h) & = 2^1h + 2^2(h-1) + 2^3(h-2) + \dots + 2^h\times1 \newline
+2 T(h) & = 2^1h + 2^2(h-1) + 2^3(h-2) + \dots + 2^{h}\times1 \newline
 \end{aligned}
 $$
 
-By applying the method of staggered subtraction, we subtract $T(h)$ from $2T(h)$ to obtain:
+Subtract the first expression, $T(h)$, from the shifted expression, $2 T(h)$:
 
 $$
 2T(h) - T(h) = T(h) = -2^0h + 2^1 + 2^2 + \dots + 2^{h-1} + 2^h
 $$
 
-By examining the equation, we observe that $T(h)$ forms a geometric series, which can be directly summed using the geometric series formula, yielding a time complexity of:
+The powers of two in $T(h)$ form a geometric series. Applying the sum formula gives:
 
 $$
 \begin{aligned}
@@ -71,4 +71,4 @@ T(h) & = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 \end{aligned}
 $$
 
-Further, a perfect binary tree of height $h$ contains $n = 2^{h+1} - 1$ nodes, leading to a complexity of $O(2^h) = O(n)$. This derivation shows that **the time complexity of inserting a list and performing heapification is $O(n)$, making it highly efficient**.
+A perfect binary tree of height $h$ has $n = 2^{h+1} - 1$ nodes, so $O(2^h) = O(n)$. This shows that **building a heap from an input list takes $O(n)$ time and is highly efficient**.

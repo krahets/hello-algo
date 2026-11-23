@@ -11,20 +11,20 @@
 - **刪除頂點**：在鄰接矩陣中刪除一行一列。當刪除首行首列時達到最差情況，需要將 $(n-1)^2$ 個元素“向左上移動”，從而使用 $O(n^2)$ 時間。
 - **初始化**：傳入 $n$ 個頂點，初始化長度為 $n$ 的頂點串列 `vertices` ，使用 $O(n)$ 時間；初始化 $n \times n$ 大小的鄰接矩陣 `adjMat` ，使用 $O(n^2)$ 時間。
 
-=== "初始化鄰接矩陣"
-    ![鄰接矩陣的初始化、增刪邊、增刪頂點](graph_operations.assets/adjacency_matrix_step1_initialization.png)
+=== "<1>"
+    ![鄰接矩陣的初始化、增刪邊、增刪頂點](graph_operations.assets/adjacency_matrix_step1_initialization.svg)
 
-=== "新增邊"
-    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.png)
+=== "<2>"
+    ![adjacency_matrix_add_edge](graph_operations.assets/adjacency_matrix_step2_add_edge.svg)
 
-=== "刪除邊"
-    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.png)
+=== "<3>"
+    ![adjacency_matrix_remove_edge](graph_operations.assets/adjacency_matrix_step3_remove_edge.svg)
 
-=== "新增頂點"
-    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.png)
+=== "<4>"
+    ![adjacency_matrix_add_vertex](graph_operations.assets/adjacency_matrix_step4_add_vertex.svg)
 
-=== "刪除頂點"
-    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.png)
+=== "<5>"
+    ![adjacency_matrix_remove_vertex](graph_operations.assets/adjacency_matrix_step5_remove_vertex.svg)
 
 以下是基於鄰接矩陣表示圖的實現程式碼：
 
@@ -42,20 +42,20 @@
 - **刪除頂點**：需走訪整個鄰接表，刪除包含指定頂點的所有邊，使用 $O(n + m)$ 時間。
 - **初始化**：在鄰接表中建立 $n$ 個頂點和 $2m$ 條邊，使用 $O(n + m)$ 時間。
 
-=== "初始化鄰接表"
-    ![鄰接表的初始化、增刪邊、增刪頂點](graph_operations.assets/adjacency_list_step1_initialization.png)
+=== "<1>"
+    ![鄰接表的初始化、增刪邊、增刪頂點](graph_operations.assets/adjacency_list_step1_initialization.svg)
 
-=== "新增邊"
-    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.png)
+=== "<2>"
+    ![adjacency_list_add_edge](graph_operations.assets/adjacency_list_step2_add_edge.svg)
 
-=== "刪除邊"
-    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.png)
+=== "<3>"
+    ![adjacency_list_remove_edge](graph_operations.assets/adjacency_list_step3_remove_edge.svg)
 
-=== "新增頂點"
-    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.png)
+=== "<4>"
+    ![adjacency_list_add_vertex](graph_operations.assets/adjacency_list_step4_add_vertex.svg)
 
-=== "刪除頂點"
-    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.png)
+=== "<5>"
+    ![adjacency_list_remove_vertex](graph_operations.assets/adjacency_list_step5_remove_vertex.svg)
 
 以下是鄰接表的程式碼實現。對比上圖，實際程式碼有以下不同。
 
@@ -70,15 +70,15 @@
 
 ## 效率對比
 
-設圖中共有 $n$ 個頂點和 $m$ 條邊，下表對比了鄰接矩陣和鄰接表的時間效率和空間效率。
+設圖中共有 $n$ 個頂點和 $m$ 條邊，下表對比了鄰接矩陣和鄰接表的時間效率和空間效率。請注意，鄰接表（鏈結串列）對應本文實現，而鄰接表（雜湊表）專指將所有鏈結串列替換為雜湊表後的實現。
 
 <p align="center"> 表 <id> &nbsp; 鄰接矩陣與鄰接表對比 </p>
 
 |              | 鄰接矩陣 | 鄰接表（鏈結串列） | 鄰接表（雜湊表） |
 | ------------ | -------- | -------------- | ---------------- |
-| 判斷是否鄰接 | $O(1)$   | $O(m)$         | $O(1)$           |
+| 判斷是否鄰接 | $O(1)$   | $O(n)$         | $O(1)$           |
 | 新增邊       | $O(1)$   | $O(1)$         | $O(1)$           |
-| 刪除邊       | $O(1)$   | $O(m)$         | $O(1)$           |
+| 刪除邊       | $O(1)$   | $O(n)$         | $O(1)$           |
 | 新增頂點     | $O(n)$   | $O(1)$         | $O(1)$           |
 | 刪除頂點     | $O(n^2)$ | $O(n + m)$     | $O(n)$           |
 | 記憶體空間佔用 | $O(n^2)$ | $O(n + m)$     | $O(n + m)$       |

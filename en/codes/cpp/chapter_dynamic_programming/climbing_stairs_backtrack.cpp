@@ -9,35 +9,35 @@
 
 /* Backtracking */
 void backtrack(vector<int> &choices, int state, int n, vector<int> &res) {
-    // When climbing to the nth step, add 1 to the number of solutions
+    // When step n is reached, increase the number of ways by 1
     if (state == n)
         res[0]++;
-    // Traverse all choices
+    // Iterate over all choices
     for (auto &choice : choices) {
-        // Pruning: do not allow climbing beyond the nth step
+        // Prune: do not go beyond step n
         if (state + choice > n)
             continue;
-        // Attempt: make a choice, update the state
+        // Try: make a choice and update the state
         backtrack(choices, state + choice, n, res);
-        // Retract
+        // Backtrack
     }
 }
 
-/* Climbing stairs: Backtracking */
+/* Climbing stairs: backtracking */
 int climbingStairsBacktrack(int n) {
-    vector<int> choices = {1, 2}; // Can choose to climb up 1 step or 2 steps
-    int state = 0;                // Start climbing from the 0th step
-    vector<int> res = {0};        // Use res[0] to record the number of solutions
+    vector<int> choices = {1, 2}; // Choose to climb 1 or 2 steps
+    int state = 0;                // Start climbing from step 0
+    vector<int> res = {0};        // Use res[0] to record the number of ways
     backtrack(choices, state, n, res);
     return res[0];
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 9;
 
     int res = climbingStairsBacktrack(n);
-    cout << "There are " << res << " solutions to climb " << n << " stairs" << endl;
+    cout << "Climbing " << n << " stairs: " << res << " ways" << endl;
 
     return 0;
 }

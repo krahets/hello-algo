@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("節點物件 {:?} 的雜湊值為{}", node, hash);
+    println!("節點 {:?} 中節點值的雜湊值為 {}", node, hash);
 }

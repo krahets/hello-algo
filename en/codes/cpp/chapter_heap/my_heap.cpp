@@ -6,109 +6,109 @@
 
 #include "../utils/common.hpp"
 
-/* Max-heap */
+/* Max heap */
 class MaxHeap {
   private:
-    // Using a dynamic array to avoid the need for resizing
+    // Use a dynamic array so capacity growth is handled automatically
     vector<int> maxHeap;
 
-    /* Get index of left child node */
+    /* Get the left child index */
     int left(int i) {
         return 2 * i + 1;
     }
 
-    /* Get index of right child node */
+    /* Get the right child index */
     int right(int i) {
         return 2 * i + 2;
     }
 
-    /* Get index of parent node */
+    /* Get the parent index */
     int parent(int i) {
-        return (i - 1) / 2; // Integer division down
+        return (i - 1) / 2; // Integer division truncates toward zero
     }
 
-    /* Start heapifying node i, from bottom to top */
+    /* Sift up starting from node i */
     void siftUp(int i) {
         while (true) {
-            // Get parent node of node i
+            // Get the parent of node i
             int p = parent(i);
-            // When "crossing the root node" or "node does not need repair", end heapification
+            // Stop sifting when the root has been passed or the node needs no repair
             if (p < 0 || maxHeap[i] <= maxHeap[p])
                 break;
-            // Swap two nodes
+            // Swap the two nodes
             swap(maxHeap[i], maxHeap[p]);
-            // Loop upwards heapification
+            // Continue sifting up
             i = p;
         }
     }
 
-    /* Start heapifying node i, from top to bottom */
+    /* Sift down starting from node i */
     void siftDown(int i) {
         while (true) {
-            // Determine the largest node among i, l, r, noted as ma
+            // Find the node with the largest value among i, l, and r, and store its index in ma
             int l = left(i), r = right(i), ma = i;
             if (l < size() && maxHeap[l] > maxHeap[ma])
                 ma = l;
             if (r < size() && maxHeap[r] > maxHeap[ma])
                 ma = r;
-            // If node i is the largest or indices l, r are out of bounds, no further heapification needed, break
+            // Stop if node i is largest or both child indices l and r are out of bounds
             if (ma == i)
                 break;
             swap(maxHeap[i], maxHeap[ma]);
-            // Loop downwards heapification
+            // Continue sifting down
             i = ma;
         }
     }
 
   public:
-    /* Constructor, build heap based on input list */
+    /* Constructor: build a heap from the input list */
     MaxHeap(vector<int> nums) {
-        // Add all list elements into the heap
+        // Place the list elements in the heap without changing their order
         maxHeap = nums;
-        // Heapify all nodes except leaves
+        // Sift down from every non-leaf node
         for (int i = parent(size() - 1); i >= 0; i--) {
             siftDown(i);
         }
     }
 
-    /* Get heap size */
+    /* Get the heap size */
     int size() {
         return maxHeap.size();
     }
 
-    /* Determine if heap is empty */
+    /* Check whether the heap is empty */
     bool isEmpty() {
         return size() == 0;
     }
 
-    /* Access heap top element */
+    /* Access the top element of the heap */
     int peek() {
         return maxHeap[0];
     }
 
-    /* Push the element into heap */
+    /* Push an element onto the heap */
     void push(int val) {
-        // Add node
+        // Add a node
         maxHeap.push_back(val);
-        // Heapify from bottom to top
+        // Sift up
         siftUp(size() - 1);
     }
 
-    /* Element exits heap */
+    /* Pop an element from the heap */
     void pop() {
-        // Empty handling
+        // Handle an empty heap
         if (isEmpty()) {
             throw out_of_range("Heap is empty");
         }
-        // Swap the root node with the rightmost leaf node (swap the first element with the last element)
+        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
         swap(maxHeap[0], maxHeap[size() - 1]);
-        // Remove node
+        // Remove a node
         maxHeap.pop_back();
-        // Heapify from top to bottom
+        // Sift down
         siftDown(0);
     }
 
-    /* Print heap (binary tree)*/
+    /* Print the heap (binary tree)*/
     void print() {
         cout << "Array representation of the heap:";
         printVector(maxHeap);
@@ -119,37 +119,37 @@ class MaxHeap {
     }
 };
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize max-heap */
+    /* Initialize a max heap */
     vector<int> vec{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2};
     MaxHeap maxHeap(vec);
-    cout << "\nEnter list and build heap" << endl;
+    cout << "\nAfter building a heap from the input list:" << endl;
     maxHeap.print();
 
-    /* Access heap top element */
+    /* Get the top element of the heap */
     int peek = maxHeap.peek();
-    cout << "\nTop element of the heap is " << peek << endl;
+    cout << "\nTop element of the heap: " << peek << endl;
 
-    /* Push the element into heap */
+    /* Push an element onto the heap */
     int val = 7;
     maxHeap.push(val);
-    cout << "\nAfter element " << val << " is added to the heap" << endl;
+    cout << "\nAfter pushing element " << val << " onto the heap:" << endl;
     maxHeap.print();
 
-    /* Pop the element at the heap top */
+    /* Pop the top element from the heap */
     peek = maxHeap.peek();
     maxHeap.pop();
-    cout << "\nAfter the top element " << peek << " is removed from the heap" << endl;
+    cout << "\nAfter popping top element " << peek << " from the heap:" << endl;
     maxHeap.print();
 
-    /* Get heap size */
+    /* Get the heap size */
     int size = maxHeap.size();
-    cout << "\nNumber of elements in the heap is " << size << endl;
+    cout << "\nNumber of elements in the heap: " << size << endl;
 
-    /* Determine if heap is empty */
+    /* Check whether the heap is empty */
     bool isEmpty = maxHeap.isEmpty();
-    cout << "\nIs the heap empty " << isEmpty << endl;
+    cout << "\nIs the heap empty: " << isEmpty << endl;
 
     return 0;
 }

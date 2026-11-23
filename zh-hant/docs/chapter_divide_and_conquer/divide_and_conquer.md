@@ -10,7 +10,7 @@
 1. **分**：遞迴地將原陣列（原問題）劃分為兩個子陣列（子問題），直到子陣列只剩一個元素（最小子問題）。
 2. **治**：從底至頂地將有序的子陣列（子問題的解）進行合併，從而得到有序的原陣列（原問題的解）。
 
-![合併排序的分治策略](divide_and_conquer.assets/divide_and_conquer_merge_sort.png)
+![合併排序的分治策略](divide_and_conquer.assets/divide_and_conquer_merge_sort.svg)
 
 ## 如何判斷分治問題
 
@@ -40,7 +40,7 @@ $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 $$
 
-![劃分陣列前後的泡沫排序](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png)
+![劃分陣列前後的泡沫排序](divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg)
 
 接下來，我們計算以下不等式，其左邊和右邊分別為劃分前和劃分後的操作總數：
 
@@ -66,7 +66,7 @@ $$
 
 比如在下圖所示的“桶排序”中，我們將海量的資料平均分配到各個桶中，則可將所有桶的排序任務分散到各個計算單元，完成後再合併結果。
 
-![桶排序的平行計算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png)
+![桶排序的平行計算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg)
 
 ## 分治常見應用
 

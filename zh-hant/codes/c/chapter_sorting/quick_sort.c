@@ -89,9 +89,9 @@ void quickSortMedian(int nums[], int left, int right) {
     quickSortMedian(nums, pivot + 1, right);
 }
 
-// 以下為尾遞迴最佳化的快速排序
+// 以下為遞迴深度最佳化的快速排序
 
-/* 快速排序（尾遞迴最佳化） */
+/* 快速排序（遞迴深度最佳化） */
 void quickSortTailCall(int nums[], int left, int right) {
     // 子陣列長度為 1 時終止
     while (left < right) {
@@ -127,10 +127,10 @@ int main() {
     printf("快速排序（中位基準數最佳化）完成後 nums = ");
     printArray(nums1, size);
 
-    /* 快速排序（尾遞迴最佳化） */
+    /* 快速排序（遞迴深度最佳化） */
     int nums2[] = {2, 4, 1, 0, 3, 5};
     quickSortTailCall(nums2, 0, size - 1);
-    printf("快速排序（尾遞迴最佳化）完成後 nums = ");
+    printf("快速排序（遞迴深度最佳化）完成後 nums = ");
     printArray(nums1, size);
 
     return 0;

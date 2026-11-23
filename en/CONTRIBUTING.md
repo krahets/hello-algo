@@ -1,134 +1,28 @@
-# Contributing guidelines for Chinese-to-English
+# Contributing to the English edition
 
-We are working on translating "Hello Algo" from Chinese to English with the following approach:
+Help make *Hello Algo* accurate, clear, and enjoyable for readers learning data structures and algorithms. Corrections to explanations, terminology, code comments, examples, and links are welcome.
 
-1. **AI translation**: Carry out an initial pass of translations using large language models.
-2. **Human optimization**: Manually refine the machine-generated outputs to ensure authenticity and accuracy.
-3. **Pull request review**: The optimized translation will be double checked by the reviewers through GitHub pull request workflow.
-4. Repeat steps `2.` and `3.` for further improvements.
+For the general contribution workflow, see [Contributing](https://www.hello-algo.com/en/chapter_appendix/contribution/). You can use the edit button on a book page for a small correction, or fork the repository, make and test your changes locally, and submit a pull request.
 
-<img width="650" alt="translation_pipeline" src="https://github.com/user-attachments/assets/201930ef-723e-4179-b670-e5a084a8211e">
+## Translating and reviewing a chapter
 
-## Join us
+Use the current Simplified Chinese source as the authority for meaning. Read the complete passage and its examples before changing a sentence. The English should convey the full explanation in natural English, including qualifications and assumptions.
 
-We're seeking contributors who meet the following criteria.
+1. Translate the complete document, including headings, tables, figure captions, callouts, questions, and code comments. Preserve the algorithms, example data, formulas, links, and code references.
+2. Compare the English with the Chinese, checking technical meaning, completeness, terminology, and the steps in each example.
+3. Read the English on its own. Make it clear and natural for a beginner, then check any revisions against the Chinese again.
+4. Ask another reviewer to check the whole document in context. Resolve differences in interpretation before treating the translation as ready.
 
-- **Technical background**: Strong foundation in computer science, particularly in data structures and algorithms.
-- **Language skills**: Native proficiency in Chinese with professional-level English, or native English.
-- **Available time**: Dedicated to contributing to open-source projects with a willingness to engage in long-term translation efforts.
+Use clear American English and sentence case for headings. Prefer direct explanations to word-for-word renderings of Chinese sentence structure. Use the same term consistently, and distinguish concepts such as full, perfect, and complete binary trees by their definitions. See the [terminology table](https://www.hello-algo.com/en/chapter_appendix/terminology/) for reference.
 
-That is, our contributors are computer scientists, engineers, and students from different linguistic backgrounds, and their objectives have different focal points:
+If the Chinese source appears incorrect or ambiguous, describe the issue in the pull request. A translation should not silently change the algorithm or introduce a new technical claim. Likewise, keep example strings unchanged when they are program data, even if those strings contain Chinese characters.
 
-- **Native Chinese with professional working English**: Ensuring translation accuracy and consistency between CN and EN versions.
-- **Native English**: Enhance the authenticity and fluency of the English content to flow naturally and to be engaging.
+## Checking the result
 
-> [!note]
-> If you are interested in joining us, don't hesitate to contact me via krahetx@gmail.com or WeChat `krahets-jyd`.
-> 
-> We use this [Notion page](https://hello-algo.notion.site/chinese-to-english) to track progress and assign tasks. Please visit it for more details.
+Review the rendered page as well as the Markdown. Check that formulas, emphasis, tables, images, links, code tabs, and PythonTutor examples still work. Translate the comments and explanatory output inside PythonTutor examples without deleting explanations to shorten the links.
 
-## Translation process
+Figure and table numbers are generated during the build; keep their placeholders intact. Chapter exercise pages are also generated: changes to exercise wording belong in the source exercise data and translation inputs in the companion [workspace repository](https://github.com/krahets/hello-algo-workspace), rather than directly in the generated pages.
 
-> [!important]
-> Before diving in, ensure you're comfortable with the GitHub pull request workflow and have read the "Translation standards" and "Pseudo-code for translation" below.
+Keep a pull request focused on a complete document when possible; a small correction can be smaller. Explain what changed and how you checked it. Automated checks help find missing content and structural or code changes, but do not replace a careful language review.
 
-1. **Task assignment**: Self-assign a task in the Notion workspace.
-2. **Translation**: Optimize the translation on your local PC, referring to the “Translation Pseudo-Code” section below for more details.
-3. **Peer review**: Carefully review your changes before submitting a Pull Request (PR). The PR will be merged into the main branch after approval from two reviewers.
-
-## Translation standards
-
-> [!tip]
-> **The "Accuracy" and "Authenticity" are primarily handled by native Chinese speakers and native English speakers, respectively.**
->
-> In some instances, "Accuracy (consistency)" and "Authenticity" represent a trade-off, where optimizing one aspect could significantly affect the other. In such cases, please leave a comment in the pull request for discussion.
-
-**Accuracy**:
-
-- Maintain consistency in terminology across translations by referring to the [Terminology](https://www.hello-algo.com/chapter_appendix/terminology/) section.
-- Prioritize technical accuracy and maintain the tone and style of the Chinese version.
-- Always take into account the content and context of the Chinese version to ensure modifications are accurate and comprehensive.
-
-**Authenticity**:
-
-- Translations should flow naturally and fluently, adhering to English expression conventions.
-- Always consider the context of the content to harmonize the article.
-- Be aware of cultural differences between Chinese and English. For instance, Chinese "pinyin" does not exist in English.
-- If the optimized sentence could alter the original meaning, please add a comment for discussion.
-
-**Formatting**:
-
-- Figures and tables will be automatically numbered during deployment, so DO NOT manually number them.
-- Each PR should cover at least one complete document to ensure manageable review sizes, except for bug fixes.
-
-**Review**:
-
-- During the review, prioritize evaluating the changes, consulting the surrounding context as needed.
-- Learning from each other's perspectives can lead to better translations and more cohesive results.
-
-## Translation pseudo-code
-
-The following pseudo-code models the steps in a typical translation process.
-
-```python
-def optimize_translation(markdown_texts, lang_skill):
-    """Optimize the translation"""
-    for sentence in markdown_texts:
-        """Accuracy is handled primarily by native Chinese speakers"""
-        if lang_skill is "Native Chinese + Professional working English":
-            if is_accurate_Chinese_to_English(sentence):
-                continue
-            # Optimize the accuracy
-            result = refine_accuracy(sentence)
-
-        """
-        Authenticity is handled primarily by native English speakers
-        and secondarily by native Chinese speakers
-        """
-        if is_authentic_English(sentence):
-            continue
-        # Optimize the authenticity
-        result = refine_authenticity(sentence)
-        # Add comments in the PR if it may break consistency
-        if break_consistency(result):
-            add_comment(description)
-
-    pull_request = submit_pull_request(markdown_texts)
-    # The PR will be merged after approved by >= 2 reviewers
-    while count_approvals(pull_request) < 2:
-          continue
-    merge(pull_request)
-```
-
-The following pseudo-code is for the reviewers:
-
-```python
-def review_pull_requests(pull_request, lang_skill):
-    """Review the PR"""
-    # Loop through all the changes in the PR
-    while is_anything_left_to_review(pull_request):
-        change = get_next_change(pull_request)
-
-        """Accuracy is handled primarily by native Chinese speakers"""
-        if lang_skill is "Native Chinese + Professional working English":
-            # Check the accuracy(consistency) between CN and EN versions
-            if is_accurate_Chinese_to_English(change):
-                continue
-            # Optimize the accuracy(consistency)
-            result = refine_accuracy(change)
-            # Add comments in the PR
-            add_comment(result)
-
-        """
-        Authenticity is handled primarily by native English speakers
-        and secondarily by native Chinese speakers
-        """
-        if is_authentic_English(change):
-            continue
-        # Optimize the authenticity if it is not authentic English
-        result = refine_authenticity(change)
-        # Add comments in the PR
-        add_comment(result)
-
-    approve(pull_request)
-```
+If you find a problem in an image, open an [issue](https://github.com/krahets/hello-algo/issues) or leave a comment describing it so the image can be updated.

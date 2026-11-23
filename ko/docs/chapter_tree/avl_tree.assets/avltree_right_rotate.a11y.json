@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "title": "AVL 트리의 오른쪽 회전",
+  "summary": "처음 만난 불균형 노드에서 오른쪽 회전을 한다. 먼저 해당 서브트리의 부모와 자식 포인터를 다시 연결하고 새 서브트리 루트를 위쪽 부모에 연결한다.",
+  "context": [
+    "처음 루트는 4이고 왼쪽과 오른쪽 자식은 3과 5다. 3에는 왼쪽 자식 1만 있고 1에는 왼쪽 자식 0만 있다. 0과 5는 리프다.",
+    "균형 인수는 왼쪽 서브트리 높이에서 오른쪽 서브트리 높이를 뺀 값이다. 높이는 간선 수로 세며 리프 높이는 0, 빈 서브트리 높이는 −1이다. 아래에서 위로 살폈을 때 첫 불균형 노드는 3이다. 이를 node, 그 왼쪽 자식 1을 child라고 부른다."
+  ],
+  "description": [
+    "여기서 child(1)의 오른쪽 서브트리는 비어 있다. 코드는 먼저 grand_child = child.right로 저장한 뒤 child.right = node로 바꾸고 마지막에 node.left = grand_child를 수행한다. 기존 참조를 덮어쓰기 전에 저장해야 한다."
+  ],
+  "result": "이 서브트리의 높이가 1 줄면서 전체 트리가 AVL 균형 조건을 회복한다. 이진 탐색 트리의 대소 관계는 그대로다.",
+  "frames": [
+    {
+      "id": "source-130",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step1.png",
+      "title": "첫 불균형 노드 3 찾기",
+      "explanation": "처음 루트 4의 왼쪽은 3, 오른쪽은 5다. 3에는 왼쪽 자식 1만, 1에는 왼쪽 자식 0만 있고 0과 5는 리프다. 노드 아래에 적힌 균형 인수는 0과 5에서 0, 1에서 1, 3과 4에서 2다. 왼쪽 가지를 아래에서 위로 올라가면 처음 균형이 깨진 노드는 3이므로 3을 루트로 하는 서브트리부터 바로잡는다.",
+      "key_state": "처음 루트 4의 왼쪽은 3, 오른쪽은 5이고 3의 왼쪽은 1, 1의 왼쪽은 0이다. 3과 4의 균형 인수는 모두 2이므로 아래에서 위로 올라가며 3부터 처리한다.",
+      "announcement": "균형 인수를 아래에서 위로 확인해 첫 불균형 노드 3을 찾았다."
+    },
+    {
+      "id": "source-131",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step2.png",
+      "title": "회전할 두 노드 표시",
+      "explanation": "node=3, child=1을 표시했고 아직 회전하기 전이다. 루트 4의 왼쪽은 3, 오른쪽은 5이며 3에는 왼쪽 자식 1만, 1에는 왼쪽 자식 0만 있다. child.right가 비어 있으므로 저장한 grand_child도 비어 있고 회전 후 node.left도 비어 있어야 한다.",
+      "key_state": "회전 전이다. 루트 4의 왼쪽은 3, 오른쪽은 5이고 3의 왼쪽은 1, 1의 왼쪽은 0이다. node=3, child=1이며 child.right는 비어 있다.",
+      "announcement": "불균형 서브트리의 루트 node = 3과 왼쪽 자식 child = 1을 표시했다."
+    },
+    {
+      "id": "source-132",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step3.png",
+      "title": "1을 루트로 하는 서브트리 구성",
+      "explanation": "child의 원래 오른쪽 참조가 비어 있음을 저장한 다음 child.right = node, node.left = grand_child로 연결한다. 새 서브트리의 루트 1은 왼쪽에 0, 오른쪽에 3을 두며 둘 모두 리프다. 그림에서 부모 4는 지금 오른쪽의 5와만 연결되어 있고 새 루트 1에는 아직 연결되지 않았다. 옛 위치 3의 점선 원과 거기서 1로 가는 점선은 회전 전 비교 표시다. 현재 연결이 아니며 전체 회전은 아직 끝나지 않았다.",
+      "key_state": "서브트리 루트 1의 왼쪽은 0, 오른쪽은 3이다. 부모 4는 오른쪽 5에만 연결되어 있고 새 루트 1에는 아직 연결되지 않았다.",
+      "announcement": "3이 1의 오른쪽 자식이 되어 서브트리가 구성되었다. 아직 부모 4에 다시 연결하기 전이다."
+    },
+    {
+      "id": "source-133",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_right_rotate_step4.png",
+      "title": "새 서브트리 루트를 부모에 다시 연결",
+      "explanation": "4.left가 새 서브트리 루트 1을 가리키게 해 연결을 마친다. 루트 4의 왼쪽은 1, 오른쪽은 5다. 1의 왼쪽은 0, 오른쪽은 3이고 0, 3, 5는 리프다. 서브트리 높이가 1 줄어 루트 4의 균형 인수가 2에서 1로 바뀐다. 전체 중위 순회는 여전히 [0, 1, 3, 4, 5]다.",
+      "key_state": "다시 연결한 뒤 루트 4의 왼쪽은 1, 오른쪽은 5이고 1의 왼쪽은 0, 오른쪽은 3이다. 중위 순회는 [0, 1, 3, 4, 5]이고 전체 트리가 균형을 이룬다.",
+      "announcement": "부모 4의 왼쪽 포인터를 새 루트 1에 연결했다. 오른쪽 회전이 끝나고 전체 트리가 균형을 되찾았다."
+    }
+  ],
+  "animations": {
+    "avl-right-rotation": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-130"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-131"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-132"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-133"
+        }
+      ]
+    }
+  },
+  "tables": [],
+  "input_tables": []
+}

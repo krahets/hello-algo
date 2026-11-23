@@ -1,0 +1,289 @@
+{
+  "schema_version": 2,
+  "title": "图的深度优先遍历",
+  "summary": "从起点出发沿未访问邻居递归深入，无路可走时回溯到上一层顶点，继续探索剩余分支。",
+  "context": [
+    "无向连通图包含顶点 0 至 6，共 6 条无向边：0—1、0—3、1—2、2—5、4—5、5—6。遍历从起点 0 出发；本例在顶点 0 处按先 1 后 3 的次序检查邻居，在顶点 5 处按先 4 后 6 的次序检查邻居。"
+  ],
+  "description": [
+    "灰色实线是无向图原边；蓝色直虚线表示递归进入未访问邻居，橙色曲虚线表示调用结束后返回，均不是新增的图边。概览中的括号编号 1 至 14 表示 7 次进入与 7 次返回（包括起始调用进入和最外层调用返回），不是顶点编号。",
+    "过程图把这 14 个事件展示为 11 步：第 1 至 8 步对应事件 1 至 8，第 9 步合并事件 9 至 11，第 10 步对应事件 12，第 11 步合并事件 13 至 14。"
+  ],
+  "result": "res 只记录首次访问，回溯不追加顶点。改变邻居检查次序，所得深度优先序列也会改变；全部顶点已访问之后，还须结束剩余递归调用。",
+  "frames": [
+    {
+      "id": "source-202",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step1.png",
+      "title": "访问起点 0",
+      "explanation": "过程图用 res 按首次访问顺序记录顶点，visited 用于去重；花括号只列集合成员，不表示顺序。起始调用进入顶点 0（事件 1），先记入 res、visited，再按先 1 后 3 检查邻居。当前递归调用路径为 0；res = [0]，visited = {0}；0 的邻居 1、3 均未访问。",
+      "key_state": "当前在起点 0，递归路径 0；res = [0]，visited = {0}。",
+      "announcement": "访问起点 0，首次记入结果 res = [0]。"
+    },
+    {
+      "id": "source-203",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step2.png",
+      "title": "从 0 深入 1",
+      "explanation": "顶点 0 有未访问邻居 1 和 3，本例先递归进入 1（事件 2），将首次访问的 1 记入 res 和 visited；另一邻居 3 留待 1 的分支返回后再探索。当前递归调用路径为 0→1；res = [0, 1]，visited = {0, 1}。",
+      "key_state": "从 0 深入到 1，递归路径 0→1；res = [0, 1]。",
+      "announcement": "从 0 深入 1，结果更新为 [0, 1]。"
+    },
+    {
+      "id": "source-204",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step3.png",
+      "title": "从 1 深入 2",
+      "explanation": "顶点 1 的邻居 0 已在 visited 中，跳过 0，递归进入未访问的邻居 2（事件 3），将 2 记入 res 和 visited。当前递归调用路径为 0→1→2；res = [0, 1, 2]，visited = {0, 1, 2}。",
+      "key_state": "从 1 深入到 2，递归路径 0→1→2；res = [0, 1, 2]。",
+      "announcement": "从 1 深入 2，结果更新为 [0, 1, 2]。"
+    },
+    {
+      "id": "source-205",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step4.png",
+      "title": "从 2 深入 5",
+      "explanation": "顶点 2 的邻居 1 已访问，继续递归进入未访问的邻居 5（事件 4），将 5 记入 res 和 visited。当前递归调用路径为 0→1→2→5；res = [0, 1, 2, 5]，visited = {0, 1, 2, 5}；5 还有未访问邻居 4、6。",
+      "key_state": "从 2 深入到 5，递归路径 0→1→2→5；res = [0, 1, 2, 5]。",
+      "announcement": "从 2 深入 5，结果更新为 [0, 1, 2, 5]。"
+    },
+    {
+      "id": "source-206",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step5.png",
+      "title": "从 5 深入 4",
+      "explanation": "顶点 5 的邻居 2 已访问；在剩余未访问邻居 4、6 中，本例先递归进入 4（事件 5），将 4 记入 res 和 visited。当前递归调用路径为 0→1→2→5→4；res = [0, 1, 2, 5, 4]，visited = {0, 1, 2, 4, 5}；顶点 3、6 尚未访问。",
+      "key_state": "从 5 深入到 4，递归路径 0→1→2→5→4；res = [0, 1, 2, 5, 4]。",
+      "announcement": "从 5 深入 4，结果更新为 [0, 1, 2, 5, 4]。"
+    },
+    {
+      "id": "source-207",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step6.png",
+      "title": "从 4 返回 5",
+      "explanation": "顶点 4 的唯一邻居 5 已访问，结束对 4 的调用并返回 5（事件 6）。返回到已访问的 5 不会再次将它写入 res。当前递归调用路径为 0→1→2→5；res 仍为 [0, 1, 2, 5, 4]，visited 仍为 {0, 1, 2, 4, 5}；5 的邻居 6 与 0 的邻居 3 尚未访问。",
+      "key_state": "从 4 回溯到 5，递归路径 0→1→2→5；无新访问，res 保持 [0, 1, 2, 5, 4]。",
+      "announcement": "从 4 返回 5，不重复记录已访问顶点，结果保持不变。"
+    },
+    {
+      "id": "source-208",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step7.png",
+      "title": "从 5 深入 6",
+      "explanation": "回到顶点 5 后，继续检查其剩余未访问邻居 6，递归进入 6（事件 7）并将 6 记入 res 和 visited。当前递归调用路径为 0→1→2→5→6；res = [0, 1, 2, 5, 4, 6]，visited = {0, 1, 2, 4, 5, 6}；全图仅剩顶点 3 尚未访问。",
+      "key_state": "从 5 深入到 6，递归路径 0→1→2→5→6；res = [0, 1, 2, 5, 4, 6]。",
+      "announcement": "从 5 深入 6，结果更新为 [0, 1, 2, 5, 4, 6]。"
+    },
+    {
+      "id": "source-209",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step8.png",
+      "title": "从 6 返回 5",
+      "explanation": "顶点 6 的唯一邻居 5 已访问，结束对 6 的调用并返回 5（事件 8），没有新访问。当前递归调用路径为 0→1→2→5；res = [0, 1, 2, 5, 4, 6]，visited = {0, 1, 2, 4, 5, 6}；5 的全部邻居 2、4、6 均已处理完毕。",
+      "key_state": "从 6 回溯到 5，递归路径 0→1→2→5；5 的邻居均已处理，res = [0, 1, 2, 5, 4, 6]。",
+      "announcement": "从 6 返回 5，无新增访问，结果保持 [0, 1, 2, 5, 4, 6]。"
+    },
+    {
+      "id": "source-210",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step9.png",
+      "title": "连续返回起点 0",
+      "explanation": "5、2、1 的邻居均已检查完毕，沿 5→2→1→0 连续回溯：事件 9 是 5 返回 2，事件 10 是 2 返回 1，事件 11 是 1 返回 0。当前递归调用路径为 0；res = [0, 1, 2, 5, 4, 6]，visited = {0, 1, 2, 4, 5, 6}；起点 0 尚有未访问的邻居分支 3 待探索。",
+      "key_state": "事件 9 至 11：沿 5→2→1→0 连续回溯到起点 0；res = [0, 1, 2, 5, 4, 6]，0 仍需探索分支 3。",
+      "announcement": "事件 9 至 11：沿 5、2、1 连续返回起点 0，结果不变，准备探索 0 的剩余分支 3。"
+    },
+    {
+      "id": "source-211",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step10.png",
+      "title": "从 0 深入 3",
+      "explanation": "0 的邻居 1 分支已全部返回，接着进入未访问邻居 3（事件 12），将 3 记入 res 和 visited。当前递归调用路径为 0→3；res = [0, 1, 2, 5, 4, 6, 3]，visited = {0, 1, 2, 3, 4, 5, 6}；全部 7 个顶点均已访问，尚待执行最后的调用返回。",
+      "key_state": "事件 12：从 0 深入到最后一个未访问顶点 3，递归路径 0→3；res = [0, 1, 2, 5, 4, 6, 3]。",
+      "announcement": "事件 12：从 0 深入 3，记入最后一个顶点，结果为 [0, 1, 2, 5, 4, 6, 3]。"
+    },
+    {
+      "id": "source-212",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs_step11.png",
+      "title": "结束全部递归调用",
+      "explanation": "顶点 3 唯一的邻居 0 已访问，先从 3 返回 0（事件 13）；此时起点 0 的所有邻居也已处理完毕，最外层起始调用随之返回（事件 14），整场深度优先遍历正式结束。调用栈清空；最终 res = [0, 1, 2, 5, 4, 6, 3]，visited = {0, 1, 2, 3, 4, 5, 6}，图中起点 0 带有橙色返回标记。",
+      "key_state": "事件 13、14：3 返回 0 且起始调用返回，全部递归结束；最终 res = [0, 1, 2, 5, 4, 6, 3]。",
+      "announcement": "事件 13、14：3 返回 0 并结束最外层调用，深度优先遍历完成。"
+    },
+    {
+      "id": "source-201",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_dfs.png",
+      "title": "深度优先遍历概览",
+      "explanation": "进入起点 0 后依次深入 1、2、5、4（事件 1 至 5）；4 返回 5（事件 6），再从 5 深入 6 并返回（事件 7、8）。随后沿 5→2→1→0 连续返回（事件 9 至 11），转入 0 的剩余分支 3（事件 12），最后从 3 返回 0 并结束起始调用（事件 13、14）。完整首次访问序列为 [0, 1, 2, 5, 4, 6, 3]；下表按图中编号列出事件，返回事件不新增访问。",
+      "key_state": "完整首次访问次序为 [0, 1, 2, 5, 4, 6, 3]；共 7 次深入与 7 次返回事件，回溯不新增结果。",
+      "announcement": "展示深度优先遍历的 14 个深入与返回事件总览。",
+      "kind": "overview",
+      "state_tables": [
+        {
+          "caption": "递归进入与返回事件",
+          "headers": [
+            "图中事件编号",
+            "动作",
+            "是否新增访问"
+          ],
+          "rows": [
+            [
+              "1",
+              "进入起点0",
+              "新增0"
+            ],
+            [
+              "2",
+              "0递归进入1",
+              "新增1"
+            ],
+            [
+              "3",
+              "1递归进入2",
+              "新增2"
+            ],
+            [
+              "4",
+              "2递归进入5",
+              "新增5"
+            ],
+            [
+              "5",
+              "5递归进入4",
+              "新增4"
+            ],
+            [
+              "6",
+              "4返回5",
+              "不新增"
+            ],
+            [
+              "7",
+              "5递归进入6",
+              "新增6"
+            ],
+            [
+              "8",
+              "6返回5",
+              "不新增"
+            ],
+            [
+              "9",
+              "5返回2",
+              "不新增"
+            ],
+            [
+              "10",
+              "2返回1",
+              "不新增"
+            ],
+            [
+              "11",
+              "1返回0",
+              "不新增"
+            ],
+            [
+              "12",
+              "0递归进入3",
+              "新增3"
+            ],
+            [
+              "13",
+              "3返回0",
+              "不新增"
+            ],
+            [
+              "14",
+              "起始调用返回",
+              "不新增"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "graph-dfs": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-202"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-203"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-204"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-205"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-206"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-207"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-208"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-209"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-210"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-211"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-212"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "原图邻接关系",
+      "headers": [
+        "顶点",
+        "邻居"
+      ],
+      "rows": [
+        [
+          "0",
+          "1、3"
+        ],
+        [
+          "1",
+          "0、2"
+        ],
+        [
+          "2",
+          "1、5"
+        ],
+        [
+          "3",
+          "0"
+        ],
+        [
+          "4",
+          "5"
+        ],
+        [
+          "5",
+          "2、4、6"
+        ],
+        [
+          "6",
+          "5"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "title": "Which memory regions space complexity usually counts",
+  "summary": "Divide the memory involved in running an algorithm into three categories, with a brace marking the scope normally counted in space complexity.",
+  "context": [],
+  "description": [
+    "From left to right, three boxes connected by rightward arrows trace the flow of receiving input, storing intermediate state, and producing output. On the left, \"Input space\" contains \"Input data\"; in the middle, \"Auxiliary space\" lists \"Temporary data\", \"Stack frames\", and \"Instructions\"; on the right, \"Output space\" contains \"Output data\"."
+  ],
+  "frames": [
+    {
+      "id": "source-33",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_types.png",
+      "title": "Which memory regions space complexity usually counts",
+      "explanation": "The upper brace spans only auxiliary space and output space, labeled \"Scope usually included in space complexity\" and excluding input space. Under the chapter's convention, instruction space inside auxiliary space is typically omitted as well, focusing the count on temporary data, stack frames, and output data."
+    }
+  ]
+}

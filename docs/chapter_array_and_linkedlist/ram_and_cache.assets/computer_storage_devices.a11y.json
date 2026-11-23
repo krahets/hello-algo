@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "硬盘、内存和缓存之间的数据流通",
+  "summary": "处理器、缓存、内存和硬盘通过双向数据流协作。",
+  "context": [],
+  "description": [
+    "从左到右是 CPU、内存、硬盘。CPU 的绿色框内，左侧为处理器，右侧为缓存。处理器与缓存、缓存与内存、内存与硬盘这三对相邻部件之间，都有上下并排的两条水平箭头：上箭头向右，下箭头向左。",
+    "框上方还有两条折线箭头，跨过缓存，分别从处理器指向内存、从内存指向处理器。图用这些连接表示双向读写关系。"
+  ],
+  "frames": [
+    {
+      "id": "source-55",
+      "book_path": "chapter_array_and_linkedlist/ram_and_cache.assets/computer_storage_devices.png",
+      "title": "硬盘、内存和缓存之间的数据流通",
+      "explanation": "结合正文，硬盘长期保存数据，运行所需数据读入内存；CPU 内的缓存保存常访问的数据和指令，减少处理器访问较慢内存的次数。"
+    }
+  ]
+}

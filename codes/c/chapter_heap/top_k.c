@@ -34,7 +34,7 @@ int *getMinHeap(MaxHeap *maxHeap) {
     return res;
 }
 
-// 基于堆查找数组中最大的 k 个元素的函数
+/* 基于堆查找数组中最大的 k 个元素的函数 */
 int *topKHeap(int *nums, int sizeNums, int k) {
     // 初始化小顶堆
     // 请注意：我们将堆中所有元素取反，从而用大顶堆来模拟小顶堆

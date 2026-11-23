@@ -1,0 +1,68 @@
+{
+  "schema_version": 2,
+  "title": "Nodes and subtrees of a binary tree",
+  "summary": "The root and its branches illustrate the difference between a direct child node and a whole subtree containing that node and all its descendants.",
+  "context": [
+    "This perfect binary tree has 4 levels and 15 nodes, rooted at 1. Values run from 1 to 15 level by level, left to right. Nodes 8 through 15 are leaves with no children. The table lists left and right children for the 7 non-leaf nodes, 1 through 7."
+  ],
+  "description": [
+    "An orange area encloses the left subtree of root 1 and a blue area its right subtree. Each area includes the corresponding subtree root and all its descendants."
+  ],
+  "tables": [
+    {
+      "caption": "Left and right children of every non-leaf node in the figure",
+      "headers": [
+        "Parent node",
+        "Left child",
+        "Right child"
+      ],
+      "rows": [
+        [
+          "1",
+          "2",
+          "3"
+        ],
+        [
+          "2",
+          "4",
+          "5"
+        ],
+        [
+          "3",
+          "6",
+          "7"
+        ],
+        [
+          "4",
+          "8",
+          "9"
+        ],
+        [
+          "5",
+          "10",
+          "11"
+        ],
+        [
+          "6",
+          "12",
+          "13"
+        ],
+        [
+          "7",
+          "14",
+          "15"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "Parent, child, and subtree are relative to the node being considered. Node 1 is the parent of 2 and 3, and 2 is the parent of 4 and 5. The figure labels root 1 “Parent node” because it is the parent of 2 and 3. The root itself has no parent.",
+  "frames": [
+    {
+      "id": "source-89",
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_definition.png",
+      "title": "Nodes and subtrees of a binary tree",
+      "explanation": "For root 1 the left child is the single node 2 and the right child the single node 3. The left subtree rooted at 2 contains 7 nodes: 2, 4, 5, 8, 9, 10, and 11. The right subtree rooted at 3 also contains 7: 3, 6, 7, 12, 13, 14, and 15. A subtree includes its root and all descendants, extending beyond the direct child in this example."
+    }
+  ]
+}

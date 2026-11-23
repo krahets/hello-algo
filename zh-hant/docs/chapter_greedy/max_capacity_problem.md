@@ -8,7 +8,7 @@
     
     請在陣列中選擇兩個隔板，使得組成的容器的容量最大，返回最大容量。示例如下圖所示。
 
-![最大容量問題的示例資料](max_capacity_problem.assets/max_capacity_example.png)
+![最大容量問題的示例資料](max_capacity_problem.assets/max_capacity_example.svg)
 
 容器由任意兩個隔板圍成，**因此本題的狀態為兩個隔板的索引，記為 $[i, j]$** 。
 
@@ -24,17 +24,17 @@ $$
 
 這道題還有更高效率的解法。如下圖所示，現選取一個狀態 $[i, j]$ ，其滿足索引 $i < j$ 且高度 $ht[i] < ht[j]$ ，即 $i$ 為短板、$j$ 為長板。
 
-![初始狀態](max_capacity_problem.assets/max_capacity_initial_state.png)
+![初始狀態](max_capacity_problem.assets/max_capacity_initial_state.svg)
 
 如下圖所示，**若此時將長板 $j$ 向短板 $i$ 靠近，則容量一定變小**。
 
 這是因為在移動長板 $j$ 後，寬度 $j-i$ 肯定變小；而高度由短板決定，因此高度只可能不變（ $i$ 仍為短板）或變小（移動後的 $j$ 成為短板）。
 
-![向內移動長板後的狀態](max_capacity_problem.assets/max_capacity_moving_long_board.png)
+![向內移動長板後的狀態](max_capacity_problem.assets/max_capacity_moving_long_board.svg)
 
 反向思考，**我們只有向內收縮短板 $i$ ，才有可能使容量變大**。因為雖然寬度一定變小，**但高度可能會變大**（移動後的短板 $i$ 可能會變長）。例如在下圖中，移動短板後面積變大。
 
-![向內移動短板後的狀態](max_capacity_problem.assets/max_capacity_moving_short_board.png)
+![向內移動短板後的狀態](max_capacity_problem.assets/max_capacity_moving_short_board.svg)
 
 由此便可推出本題的貪婪策略：初始化兩指標，使其分列容器兩端，每輪向內收縮短板對應的指標，直至兩指標相遇。
 
@@ -46,31 +46,31 @@ $$
 4. 迴圈執行第 `2.` 步和第 `3.` 步，直至 $i$ 和 $j$ 相遇時結束。
 
 === "<1>"
-    ![最大容量問題的貪婪過程](max_capacity_problem.assets/max_capacity_greedy_step1.png)
+    ![最大容量問題的貪婪過程](max_capacity_problem.assets/max_capacity_greedy_step1.svg)
 
 === "<2>"
-    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.png)
+    ![max_capacity_greedy_step2](max_capacity_problem.assets/max_capacity_greedy_step2.svg)
 
 === "<3>"
-    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.png)
+    ![max_capacity_greedy_step3](max_capacity_problem.assets/max_capacity_greedy_step3.svg)
 
 === "<4>"
-    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.png)
+    ![max_capacity_greedy_step4](max_capacity_problem.assets/max_capacity_greedy_step4.svg)
 
 === "<5>"
-    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.png)
+    ![max_capacity_greedy_step5](max_capacity_problem.assets/max_capacity_greedy_step5.svg)
 
 === "<6>"
-    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.png)
+    ![max_capacity_greedy_step6](max_capacity_problem.assets/max_capacity_greedy_step6.svg)
 
 === "<7>"
-    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.png)
+    ![max_capacity_greedy_step7](max_capacity_problem.assets/max_capacity_greedy_step7.svg)
 
 === "<8>"
-    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.png)
+    ![max_capacity_greedy_step8](max_capacity_problem.assets/max_capacity_greedy_step8.svg)
 
 === "<9>"
-    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.png)
+    ![max_capacity_greedy_step9](max_capacity_problem.assets/max_capacity_greedy_step9.svg)
 
 ### 程式碼實現
 
@@ -92,7 +92,7 @@ $$
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 $$
 
-![移動短板導致被跳過的狀態](max_capacity_problem.assets/max_capacity_skipped_states.png)
+![移動短板導致被跳過的狀態](max_capacity_problem.assets/max_capacity_skipped_states.svg)
 
 觀察發現，**這些被跳過的狀態實際上就是將長板 $j$ 向內移動的所有狀態**。前面我們已經證明內移長板一定會導致容量變小。也就是說，被跳過的狀態都不可能是最優解，**跳過它們不會導致錯過最優解**。
 

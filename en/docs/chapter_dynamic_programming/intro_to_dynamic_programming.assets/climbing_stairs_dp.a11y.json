@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "title": "Iteratively computing ways to climb stairs from initial states",
+  "summary": "Starting from the initial states dp[1] = 1 and dp[2] = 2, repeatedly sum the two preceding entries from left to right up to dp[9].",
+  "context": [
+    "Each move climbs 1 or 2 steps, and dp[i] denotes the number of ways to reach step i. This figure shows bottom-up dynamic programming filling the table iteratively without a recursion call stack."
+  ],
+  "description": [
+    "First set dp[1] = 1 and dp[2] = 2, then compute dp[i] = dp[i - 1] + dp[i - 2] in order from dp[3] through dp[9]: each entry depends only on the preceding two entries, both of which have already been computed when needed.",
+    "Nine cells are arranged horizontally in the figure, labeled only with the state names dp[1] through dp[9], while the initial values dp[1] = 1, dp[2] = 2 and the state transition equation are written below. The values 3, 5, 8, 13, 21, 34, and finally 55 at dp[9] are derived from those initial values and the equation rather than printed inside the cells. The table below lists each state's initial value or dependency together with its derived value."
+  ],
+  "frames": [
+    {
+      "id": "source-371",
+      "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dp.png",
+      "title": "Iteratively computing ways to climb stairs from initial states",
+      "explanation": "Bottom-up iteration computes each state only once and stops upon reaching the target state; from the initial values and transition equation in the figure, the target state dp[9] evaluates to 55 ways."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Dependencies and values derived from the recurrence",
+      "headers": [
+        "State",
+        "Source",
+        "Value and basis"
+      ],
+      "rows": [
+        [
+          "dp[1]",
+          "Initial state",
+          "1 (initial value given in figure)"
+        ],
+        [
+          "dp[2]",
+          "Initial state",
+          "2 (initial value given in figure)"
+        ],
+        [
+          "dp[3]",
+          "dp[2] + dp[1]",
+          "3 (derived from equation)"
+        ],
+        [
+          "dp[4]",
+          "dp[3] + dp[2]",
+          "5 (derived from equation)"
+        ],
+        [
+          "dp[5]",
+          "dp[4] + dp[3]",
+          "8 (derived from equation)"
+        ],
+        [
+          "dp[6]",
+          "dp[5] + dp[4]",
+          "13 (derived from equation)"
+        ],
+        [
+          "dp[7]",
+          "dp[6] + dp[5]",
+          "21 (derived from equation)"
+        ],
+        [
+          "dp[8]",
+          "dp[7] + dp[6]",
+          "34 (derived from equation)"
+        ],
+        [
+          "dp[9]",
+          "dp[8] + dp[7]",
+          "55 (derived from equation)"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

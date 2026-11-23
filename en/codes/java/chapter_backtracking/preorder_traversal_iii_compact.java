@@ -13,35 +13,35 @@ public class preorder_traversal_iii_compact {
     static List<TreeNode> path;
     static List<List<TreeNode>> res;
 
-    /* Pre-order traversal: Example three */
+    /* Preorder traversal: example 3 */
     static void preOrder(TreeNode root) {
-        // Pruning
+        // Prune
         if (root == null || root.val == 3) {
             return;
         }
-        // Attempt
+        // Try
         path.add(root);
         if (root.val == 7) {
-            // Record solution
+            // Record the solution
             res.add(new ArrayList<>(path));
         }
         preOrder(root.left);
         preOrder(root.right);
-        // Retract
+        // Backtrack
         path.remove(path.size() - 1);
     }
 
     public static void main(String[] args) {
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 7, 3, 4, 5, 6, 7));
-        System.out.println("\nInitialize binary tree");
+        System.out.println("\nInitialize the binary tree");
         PrintUtil.printTree(root);
 
-        // Pre-order traversal
+        // Preorder traversal
         path = new ArrayList<>();
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\nOutput all root-to-node 7 paths, not including nodes with value 3");
+        System.out.println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

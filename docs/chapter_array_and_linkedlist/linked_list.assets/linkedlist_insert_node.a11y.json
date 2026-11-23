@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "title": "在链表中插入节点",
+  "summary": "在相邻节点 n0 与 n1 之间插入新节点 P，只需依次修改 P.next 与 n0.next 两次引用。",
+  "context": [
+    "前驱节点 n0 的值为 1，后继节点 n1 的值为 3，初始时 n0.next 指向 n1，n1 右侧的省略号表示后续链表；待插入节点 P 的值为 0，初始尚未接入链表。next 表示节点的后继指针（引用）。"
+  ],
+  "description": [],
+  "result": "各节点的数值及 n1 之后的连接保持不变。已知前驱 n0 时，两次引用修改只需 O(1) 时间，无须移动后续节点。",
+  "frames": [
+    {
+      "id": "source-51",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_insert_node.png",
+      "title": "在链表中插入节点",
+      "explanation": "先把新节点接到原后继，再让前驱指向新节点，可避免丢失后续链表。代码先用 n1 保存 n0.next，然后按图中的顺序执行两次赋值。只有第二次赋值完成后，从 n0 出发才会经过 P。"
+    }
+  ],
+  "animations": {
+    "flow-linked-insert": {
+      "kind": "prose",
+      "prose": {
+        "title": "在链表中插入节点",
+        "summary": "在相邻节点 n0 与 n1 之间插入新节点 P，只需依次修改 P.next 与 n0.next 两次引用。",
+        "context": [
+          "前驱节点 n0 的值为 1，后继节点 n1 的值为 3，初始时 n0.next 指向 n1，n1 右侧的省略号表示后续链表；待插入节点 P 的值为 0，初始尚未接入链表。next 表示节点的后继指针（引用）。"
+        ],
+        "description": [],
+        "result": "各节点的数值及 n1 之后的连接保持不变。已知前驱 n0 时，两次引用修改只需 O(1) 时间，无须移动后续节点。",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "初始连接",
+            "explanation": "初始连接为 n0（1）→ n1（3）→ …，n0.next 指向 n1。待插入的 P（0）独立在外，图中未画出 P.next 的初始指向。",
+            "key_state": "初始状态：n0.next = n1，节点 P（值 0）独立在外未接入。",
+            "announcement": "显示初始链表 n0（1）→ n1（3）与待插入节点 P（0）。"
+          },
+          {
+            "id": "step-2",
+            "title": "连接 P 的后继",
+            "explanation": "执行 P.next = n1。此时 n0（1）的 next 与 P（0）的 next 都指向 n1（3），n1 之后的连接不变。从 n0 出发仍直接到达 n1，还不经过 P。",
+            "key_state": "已执行 P.next = n1，且 n0.next 仍指向 n1（两者均指向 n1），从 n0 出发尚未经过 P。",
+            "announcement": "执行 P.next = n1，让新节点 P 先指向后继 n1。"
+          },
+          {
+            "id": "step-3",
+            "title": "把 P 接入链表",
+            "explanation": "执行 n0.next = P，并保留 P.next = n1。连接变为 n0（1）→ P（0）→ n1（3）→ …，从 n0 出发先经过 P，再到后续链表，插入完成。",
+            "key_state": "已执行 n0.next = P 且 P.next = n1；最终链表为 n0（1）→ P（0）→ n1（3）→ …。",
+            "announcement": "执行 n0.next = P，插入完成，链表变为 n0（1）→ P（0）→ n1（3）→ 后续节点。"
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "插入过程的连接",
+      "headers": [
+        "阶段",
+        "n0.next",
+        "P.next",
+        "从n0出发依次经过"
+      ],
+      "rows": [
+        [
+          "初始",
+          "n1",
+          "未画出指向",
+          "n0 → n1 → …"
+        ],
+        [
+          "连接P的后继",
+          "n1",
+          "n1",
+          "n0 → n1 → …"
+        ],
+        [
+          "完成插入",
+          "P",
+          "n1",
+          "n0 → P → n1 → …"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -9,10 +9,10 @@ package chapter_sorting;
 import java.util.Arrays;
 
 public class heap_sort {
-    /* Heap length is n, start heapifying node i, from top to bottom */
+    /* Sift down from node i in a heap of size n */
     public static void siftDown(int[] nums, int n, int i) {
         while (true) {
-            // Determine the largest node among i, l, r, noted as ma
+            // Find the node with the largest value among i, l, and r, and store its index in ma
             int l = 2 * i + 1;
             int r = 2 * i + 2;
             int ma = i;
@@ -20,31 +20,31 @@ public class heap_sort {
                 ma = l;
             if (r < n && nums[r] > nums[ma])
                 ma = r;
-            // If node i is the largest or indices l, r are out of bounds, no further heapification needed, break
+            // Stop if node i is largest or both child indices l and r are out of bounds
             if (ma == i)
                 break;
-            // Swap two nodes
+            // Swap the two nodes
             int temp = nums[i];
             nums[i] = nums[ma];
             nums[ma] = temp;
-            // Loop downwards heapification
+            // Continue sifting down
             i = ma;
         }
     }
 
     /* Heap sort */
     public static void heapSort(int[] nums) {
-        // Build heap operation: heapify all nodes except leaves
+        // Build the heap by sifting down from every non-leaf node
         for (int i = nums.length / 2 - 1; i >= 0; i--) {
             siftDown(nums, nums.length, i);
         }
-        // Extract the largest element from the heap and repeat for n-1 rounds
+        // Extract the largest element from the heap, repeating for n-1 rounds
         for (int i = nums.length - 1; i > 0; i--) {
-            // Swap the root node with the rightmost leaf node (swap the first element with the last element)
+            // Swap the root with the rightmost leaf on the last level (the first and last elements of the current heap)
             int tmp = nums[0];
             nums[0] = nums[i];
             nums[i] = tmp;
-            // Start heapifying the root node, from top to bottom
+            // Sift down starting at the root
             siftDown(nums, i, 0);
         }
     }

@@ -12,19 +12,19 @@ import java.util.*;
 public class TreeNode {
     public int val; // Node value
     public int height; // Node height
-    public TreeNode left; // Reference to the left child node
-    public TreeNode right; // Reference to the right child node
+    public TreeNode left; // Reference to the left child
+    public TreeNode right; // Reference to the right child
 
     /* Constructor */
     public TreeNode(int x) {
         val = x;
     }
 
-    // For serialization encoding rules, refer to:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
+    // For the serialization rules, see:
+    // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
     // Array representation of the binary tree:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // Linked list representation of the binary tree:
+    // Linked representation of the binary tree:
     //             /——— 15
     //         /——— 7
     //     /——— 3
@@ -36,7 +36,7 @@ public class TreeNode {
     //         \——— 4
     //             \——— 8
 
-    /* Deserialize a list into a binary tree: Recursively */
+    /* Deserialize a list into a binary tree: recursion */
     private static TreeNode listToTreeDFS(List<Integer> arr, int i) {
         if (i < 0 || i >= arr.size() || arr.get(i) == null) {
             return null;
@@ -52,7 +52,7 @@ public class TreeNode {
         return listToTreeDFS(arr, 0);
     }
 
-    /* Serialize a binary tree into a list: Recursively */
+    /* Serialize a binary tree into a list: recursion */
     private static void treeToListDFS(TreeNode root, int i, List<Integer> res) {
         if (root == null)
             return;

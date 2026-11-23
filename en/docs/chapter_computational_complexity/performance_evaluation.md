@@ -1,49 +1,49 @@
-# Algorithm efficiency assessment
+# Evaluating algorithm efficiency
 
-In algorithm design, we pursue the following two objectives in sequence.
+Algorithm design pursues two goals in sequence.
 
-1. **Finding a Solution to the Problem**: The algorithm should reliably find the correct solution within the specified range of inputs.
-2. **Seeking the Optimal Solution**: For the same problem, multiple solutions might exist, and we aim to find the most efficient algorithm possible.
+1. **Find a solution**: The algorithm must reliably produce correct results across the specified input range.
+2. **Find the best solution**: When several approaches exist, we want the most efficient algorithm possible.
 
-In other words, under the premise of being able to solve the problem, algorithm efficiency has become the main criterion for evaluating an algorithm, which includes the following two dimensions.
+Once correctness is established, efficiency becomes a primary measure of an algorithm's quality. It has two dimensions.
 
-- **Time efficiency**: The speed at which an algorithm runs.
-- **Space efficiency**: The size of the memory space occupied by an algorithm.
+- **Time efficiency**: How long the algorithm takes to run.
+- **Space efficiency**: How much memory it uses.
 
-In short, **our goal is to design data structures and algorithms that are both fast and memory-efficient**. Effectively assessing algorithm efficiency is crucial because only then can we compare various algorithms and guide the process of algorithm design and optimization.
+**Our goal is to design data structures and algorithms that are both fast and economical with memory**. Evaluating efficiency effectively lets us compare algorithms and guide their design and optimization.
 
-There are mainly two methods of efficiency assessment: actual testing and theoretical estimation.
+There are two main evaluation methods: practical testing and theoretical estimation.
 
-## Actual testing
+## Practical testing
 
-Suppose we have algorithms `A` and `B`, both capable of solving the same problem, and we need to compare their efficiencies. The most direct method is to use a computer to run these two algorithms, monitor and record their runtime and memory usage. This assessment method reflects the actual situation, but it has significant limitations.
+Suppose algorithms `A` and `B` solve the same problem. The most direct comparison is to run both on a computer and measure runtime and memory use. This reflects actual behavior, but has substantial limitations.
 
-On one hand, **it's difficult to eliminate interference from the testing environment**. Hardware configurations can affect algorithm performance. For example, an algorithm with a high degree of parallelism is better suited for running on multi-core CPUs, while an algorithm that involves intensive memory operations performs better with high-performance memory. The test results of an algorithm may vary across different machines. This means testing across multiple machines to calculate average efficiency becomes impractical.
+First, **it is difficult to remove the influence of the test environment**. Hardware affects performance: a highly parallel algorithm benefits from a multicore CPU, while a memory-intensive algorithm benefits from faster RAM. Results may differ across machines, so a fair average would require testing on many kinds of hardware, which is impractical.
 
-On the other hand, **conducting a full test is very resource-intensive**. Algorithm efficiency varies with input data size. For example, with smaller data volumes, algorithm `A` might run faster than `B`, but with larger data volumes, the test results may be the opposite. Therefore, to draw convincing conclusions, we need to test a wide range of input data sizes, which requires excessive computational resources.
+Second, **comprehensive testing consumes substantial resources**. Efficiency changes with input size. Algorithm `A` may be faster than `B` for small inputs, while the reverse holds for large inputs. A convincing conclusion requires testing many input sizes, consuming considerable computing resources.
 
 ## Theoretical estimation
 
-Due to the significant limitations of actual testing, we can consider evaluating algorithm efficiency solely through calculations. This estimation method is known as <u>asymptotic complexity analysis</u>, or simply <u>complexity analysis</u>.
+Given these limitations, we can estimate efficiency through calculation alone. This is called <u>asymptotic complexity analysis</u>, or simply <u>complexity analysis</u>.
 
-Complexity analysis reflects the relationship between the time and space resources required for algorithm execution and the size of the input data. **It describes the trend of growth in the time and space required by the algorithm as the size of the input data increases**. This definition might sound complex, but we can break it down into three key points to understand it better.
+Complexity analysis relates an algorithm's time and space requirements to its input size. **It describes how runtime and memory use grow as the input gets larger**. We can unpack this definition into three points.
 
-- "Time and space resources" correspond to <u>time complexity</u> and <u>space complexity</u>, respectively.
-- "As the size of input data increases" means that complexity reflects the relationship between algorithm efficiency and the volume of input data.
-- "The trend of growth in time and space" indicates that complexity analysis focuses not on the specific values of runtime or space occupied, but on the "rate" at which time or space increases.
+- Time and space resources correspond to <u>time complexity</u> and <u>space complexity</u>.
+- Growth in input size means complexity relates efficiency to the amount of input data.
+- Growth trends mean we study how quickly time or space increases, rather than its exact value.
 
-**Complexity analysis overcomes the disadvantages of actual testing methods**, reflected in the following aspects:
+**Complexity analysis overcomes limitations of practical testing** in several ways.
 
-- It does not require actually running the code, making it more environmentally friendly and energy efficient.
-- It is independent of the testing environment and applicable to all operating platforms.
-- It can reflect algorithm efficiency under different data volumes, especially in the performance of algorithms with large data volumes.
+- It does not require running code, saving energy and computing resources.
+- It is independent of the test environment, so its conclusions apply across platforms.
+- It reveals efficiency at different input sizes, especially for large inputs.
 
 !!! tip
 
-    If you're still confused about the concept of complexity, don't worry. We will cover it in detail in subsequent chapters.
+    If complexity still feels unclear, do not worry. The following sections will explain it in detail.
 
-Complexity analysis provides us with a "ruler" to evaluate the efficiency of an algorithm, enabling us to measure the time and space resources required to execute it and compare the efficiency of different algorithms.
+Complexity analysis gives us a yardstick for evaluating the time and space an algorithm needs and comparing different algorithms.
 
-Complexity is a mathematical concept that might be abstract and challenging for beginners. From this perspective, complexity analysis might not be the most suitable topic to introduce first. However, when discussing the characteristics of a particular data structure or algorithm, it's hard to avoid analyzing its speed and space usage.
+As a mathematical concept, complexity can be abstract and challenging for beginners. This makes it a difficult topic to introduce first. Yet discussing a data structure or algorithm's properties inevitably involves runtime and memory use.
 
-In summary, it is recommended to develop a basic understanding of complexity analysis before diving deep into data structures and algorithms, **so that you can perform complexity analysis on simple algorithms**.
+Before studying data structures and algorithms in depth, **build an initial understanding of complexity analysis so that you can analyze simple algorithms**.

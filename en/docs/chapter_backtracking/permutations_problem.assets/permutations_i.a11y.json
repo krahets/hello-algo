@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "title": "Recursive choice tree for permutations of distinct elements",
+  "summary": "Starting from an empty prefix, choose one unused element from [1, 2, 3] in each round and append it to state, producing 6 permutations after three rounds.",
+  "context": [
+    "The candidate array is choices = [1, 2, 3], whose three elements are distinct and may each be used only once per permutation. The root node is drawn as three blank slots representing the empty prefix [] before any element is chosen; the blank slots themselves are not element values."
+  ],
+  "description": [
+    "The figure expands all recursive branches simultaneously; in actual backtracking execution, after copying and saving state at a leaf node, the code pops the last element and marks it unselected again before trying sibling branches.",
+    "The choice tree has four levels, from the empty prefix at level 0 to the leaf nodes at level 3. The two tables below look up available next choices by prefix and list all six permutations by index."
+  ],
+  "frames": [
+    {
+      "id": "source-353",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_i.png",
+      "title": "Recursive choice tree for permutations of distinct elements",
+      "explanation": "Across the first, second, and third rounds, each node has 3, 2, and 1 available elements respectively, generating 3 × 2 × 1 = 6 leaf nodes corresponding to all 6 permutations of [1, 2, 3]."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Available next choices by prefix",
+      "headers": [
+        "Current prefix",
+        "Available elements",
+        "Next-level prefixes or leaf result"
+      ],
+      "rows": [
+        [
+          "[]",
+          "1, 2, 3",
+          "[1]; [2]; [3]"
+        ],
+        [
+          "[1]",
+          "2, 3",
+          "[1, 2]; [1, 3]"
+        ],
+        [
+          "[2]",
+          "1, 3",
+          "[2, 1]; [2, 3]"
+        ],
+        [
+          "[3]",
+          "1, 2",
+          "[3, 1]; [3, 2]"
+        ],
+        [
+          "[1, 2]",
+          "3",
+          "[1, 2, 3]"
+        ],
+        [
+          "[1, 3]",
+          "2",
+          "[1, 3, 2]"
+        ],
+        [
+          "[2, 1]",
+          "3",
+          "[2, 1, 3]"
+        ],
+        [
+          "[2, 3]",
+          "1",
+          "[2, 3, 1]"
+        ],
+        [
+          "[3, 1]",
+          "2",
+          "[3, 1, 2]"
+        ],
+        [
+          "[3, 2]",
+          "1",
+          "[3, 2, 1]"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "All six permutations",
+      "headers": [
+        "Result number",
+        "Complete permutation"
+      ],
+      "rows": [
+        [
+          "1",
+          "[1, 2, 3]"
+        ],
+        [
+          "2",
+          "[1, 3, 2]"
+        ],
+        [
+          "3",
+          "[2, 1, 3]"
+        ],
+        [
+          "4",
+          "[2, 3, 1]"
+        ],
+        [
+          "5",
+          "[3, 1, 2]"
+        ],
+        [
+          "6",
+          "[3, 2, 1]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

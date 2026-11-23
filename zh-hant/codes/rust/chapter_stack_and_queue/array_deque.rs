@@ -5,17 +5,17 @@
  */
 use hello_algo_rust::include::print_util;
 /* 基於環形陣列實現的雙向佇列 */
-struct ArrayDeque {
-    nums: Vec<i32>,  // 用於儲存雙向佇列元素的陣列
+struct ArrayDeque<T> {
+    nums: Vec<T>,    // 用於儲存雙向佇列元素的陣列
     front: usize,    // 佇列首指標，指向佇列首元素
     que_size: usize, // 雙向佇列長度
 }
 
-impl ArrayDeque {
+impl<T: Copy + Default> ArrayDeque<T> {
     /* 建構子 */
     pub fn new(capacity: usize) -> Self {
         Self {
-            nums: vec![0; capacity],
+            nums: vec![T::default(); capacity],
             front: 0,
             que_size: 0,
         }
@@ -41,11 +41,11 @@ impl ArrayDeque {
         // 透過取餘操作實現陣列首尾相連
         // 當 i 越過陣列尾部後，回到頭部
         // 當 i 越過陣列頭部後，回到尾部
-        return ((i + self.capacity() as i32) % self.capacity() as i32) as usize;
+        ((i + self.capacity() as i32) % self.capacity() as i32) as usize
     }
 
     /* 佇列首入列 */
-    pub fn push_first(&mut self, num: i32) {
+    pub fn push_first(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("雙向佇列已滿");
             return;
@@ -59,7 +59,7 @@ impl ArrayDeque {
     }
 
     /* 佇列尾入列 */
-    pub fn push_last(&mut self, num: i32) {
+    pub fn push_last(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("雙向佇列已滿");
             return;
@@ -72,7 +72,7 @@ impl ArrayDeque {
     }
 
     /* 佇列首出列 */
-    fn pop_first(&mut self) -> i32 {
+    fn pop_first(&mut self) -> T {
         let num = self.peek_first();
         // 佇列首指標向後移動一位
         self.front = self.index(self.front as i32 + 1);
@@ -81,14 +81,14 @@ impl ArrayDeque {
     }
 
     /* 佇列尾出列 */
-    fn pop_last(&mut self) -> i32 {
+    fn pop_last(&mut self) -> T {
         let num = self.peek_last();
         self.que_size -= 1;
         num
     }
 
     /* 訪問佇列首元素 */
-    fn peek_first(&self) -> i32 {
+    fn peek_first(&self) -> T {
         if self.is_empty() {
             panic!("雙向佇列為空")
         };
@@ -96,7 +96,7 @@ impl ArrayDeque {
     }
 
     /* 訪問佇列尾元素 */
-    fn peek_last(&self) -> i32 {
+    fn peek_last(&self) -> T {
         if self.is_empty() {
             panic!("雙向佇列為空")
         };
@@ -106,9 +106,9 @@ impl ArrayDeque {
     }
 
     /* 返回陣列用於列印 */
-    fn to_array(&self) -> Vec<i32> {
+    fn to_array(&self) -> Vec<T> {
         // 僅轉換有效長度範圍內的串列元素
-        let mut res = vec![0; self.que_size];
+        let mut res = vec![T::default(); self.que_size];
         let mut j = self.front;
         for i in 0..self.que_size {
             res[i] = self.nums[self.index(j as i32)];

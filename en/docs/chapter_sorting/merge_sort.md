@@ -1,73 +1,73 @@
 # Merge sort
 
-<u>Merge sort</u> is a sorting algorithm based on the divide-and-conquer strategy, involving the "divide" and "merge" phases shown in the figure below.
+<u>Merge sort</u> is a divide-and-conquer sorting algorithm with the “division” and “merging” phases shown below.
 
-1. **Divide phase**: Recursively split the array from the midpoint, transforming the sorting problem of a long array into that of shorter arrays.
-2. **Merge phase**: Stop dividing when the length of the sub-array is 1, start merging, and continuously combine two shorter ordered arrays into one longer ordered array until the process is complete.
+1. **Division**: recursively split the array at its midpoint, turning the problem of sorting a long array into problems of sorting shorter arrays.
+2. **Merging**: stop dividing when a subarray has length 1, then repeatedly merge two shorter sorted arrays into one longer sorted array until the process is complete.
 
-![The divide and merge phases of merge sort](merge_sort.assets/merge_sort_overview.png)
+![The division and merging phases of merge sort](merge_sort.assets/merge_sort_overview.svg)
 
-## Algorithm workflow
+## Algorithm steps
 
-As shown in the figure below, the "divide phase" recursively splits the array from the midpoint into two sub-arrays from top to bottom.
+As shown below, the division phase works from the top down, recursively splitting each array into two subarrays at its midpoint.
 
-1. Calculate the midpoint `mid`, recursively divide the left sub-array (interval `[left, mid]`) and the right sub-array (interval `[mid + 1, right]`).
-2. Continue with step `1.` recursively until the sub-array interval length is 1 to stop.
+1. Calculate the midpoint `mid`, then recursively divide the left subarray, `[left, mid]`, and the right subarray, `[mid + 1, right]`.
+2. Repeat step `1.` recursively until each subarray has length 1.
 
-The "merge phase" combines the left and right sub-arrays into a single ordered array from bottom to top. Note that merging starts with sub-arrays of length 1, and each sub-array is ordered during the merge phase.
+The merging phase works from the bottom up, combining the left and right subarrays into a sorted array. Merging begins with subarrays of length 1, so every subarray involved in this phase is already sorted.
 
 === "<1>"
-    ![Merge sort process](merge_sort.assets/merge_sort_step1.png)
+    ![Steps of merge sort](merge_sort.assets/merge_sort_step1.svg)
 
 === "<2>"
-    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.png)
+    ![merge_sort_step2](merge_sort.assets/merge_sort_step2.svg)
 
 === "<3>"
-    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.png)
+    ![merge_sort_step3](merge_sort.assets/merge_sort_step3.svg)
 
 === "<4>"
-    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.png)
+    ![merge_sort_step4](merge_sort.assets/merge_sort_step4.svg)
 
 === "<5>"
-    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.png)
+    ![merge_sort_step5](merge_sort.assets/merge_sort_step5.svg)
 
 === "<6>"
-    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.png)
+    ![merge_sort_step6](merge_sort.assets/merge_sort_step6.svg)
 
 === "<7>"
-    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.png)
+    ![merge_sort_step7](merge_sort.assets/merge_sort_step7.svg)
 
 === "<8>"
-    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.png)
+    ![merge_sort_step8](merge_sort.assets/merge_sort_step8.svg)
 
 === "<9>"
-    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.png)
+    ![merge_sort_step9](merge_sort.assets/merge_sort_step9.svg)
 
 === "<10>"
-    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.png)
+    ![merge_sort_step10](merge_sort.assets/merge_sort_step10.svg)
 
-It is observed that the order of recursion in merge sort is consistent with the post-order traversal of a binary tree.
+Merge sort follows the same recursive order as a postorder traversal of a binary tree.
 
-- **Post-order traversal**: First recursively traverse the left subtree, then the right subtree, and finally handle the root node.
-- **Merge sort**: First recursively handle the left sub-array, then the right sub-array, and finally perform the merge.
+- **Postorder traversal**: recurse into the left subtree, then the right subtree, and finally process the root.
+- **Merge sort**: recurse into the left subarray, then the right subarray, and finally merge them.
 
-The implementation of merge sort is shown in the following code. Note that the interval to be merged in `nums` is `[left, right]`, while the corresponding interval in `tmp` is `[0, right - left]`.
+The implementation follows. The interval to merge in `nums` is `[left, right]`, while its corresponding interval in `tmp` is `[0, right - left]`.
 
 ```src
 [file]{merge_sort}-[class]{}-[func]{merge_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm properties
 
-- **Time complexity of $O(n \log n)$, non-adaptive sort**: The division creates a recursion tree of height $\log n$, with each layer merging a total of $n$ operations, resulting in an overall time complexity of $O(n \log n)$.
-- **Space complexity of $O(n)$, non-in-place sort**: The recursion depth is $\log n$, using $O(\log n)$ stack frame space. The merging operation requires auxiliary arrays, using an additional space of $O(n)$.
-- **Stable sort**: During the merging process, the order of equal elements remains unchanged.
+- **Time complexity: $O(n \log n)$; not adaptive**. Division produces a recursion tree of height $\log n$. Merging performs a total of $n$ operations at each level, giving $O(n \log n)$ overall.
+- **Space complexity: $O(n)$; not in-place**. The recursion depth is $\log n$, requiring $O(\log n)$ space for stack frames. Merging uses an auxiliary array requiring $O(n)$ extra space.
+- **Stable**. Merging preserves the order of equal elements.
 
-## Linked List sorting
+## Sorting linked lists
 
-For linked lists, merge sort has significant advantages over other sorting algorithms, **optimizing the space complexity of the linked list sorting task to $O(1)$**.
+Merge sort has a significant advantage over other sorting algorithms for linked lists: **it can reduce the space complexity of sorting a linked list to $O(1)$**.
 
-- **Divide phase**: "Iteration" can be used instead of "recursion" to perform the linked list division work, thus saving the stack frame space used by recursion.
-- **Merge phase**: In linked lists, node addition and deletion operations can be achieved by changing references (pointers), so no extra lists need to be created during the merge phase (combining two short ordered lists into one long ordered list).
+- **Division**: use iteration instead of recursion to divide the list, eliminating the space needed for recursive stack frames.
+- **Merging**: inserting and deleting linked-list nodes requires only changing references or pointers. Merging two short sorted lists into a longer one therefore needs no additional list.
 
-Detailed implementation details are complex, and interested readers can consult related materials for learning.
+The implementation is fairly involved. Interested readers can consult further resources for details.

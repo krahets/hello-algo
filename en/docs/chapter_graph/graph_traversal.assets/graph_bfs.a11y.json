@@ -1,0 +1,243 @@
+{
+  "schema_version": 2,
+  "title": "Breadth-first traversal of a graph",
+  "summary": "Starting from top-left vertex 0, visit vertices layer by layer from near to far by the minimum number of edges from the start.",
+  "context": [
+    "The graph has 9 vertices numbered 0 through 8 in a three-by-three grid. The top row contains 0, 1, and 2, the middle row 3, 4, and 5, and the bottom row 6, 7, and 8. Its 12 undirected edges connect horizontal and vertical neighbors. There are no diagonal edges. The table below lists each vertex's neighbors."
+  ],
+  "description": [],
+  "result": "Within the same distance layer, visit order depends on the order in which neighbors are inspected, so the breadth-first traversal sequence is not unique.",
+  "frames": [
+    {
+      "id": "source-190",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step1.png",
+      "title": "Initialize the queue and set",
+      "explanation": "In the step figures, res records dequeued vertices, queue que holds vertices awaiting processing (written from front to rear), and set visited tracks discovered vertices. A vertex is added to visited immediately upon being enqueued rather than waiting until it is dequeued, so vertices still waiting in the queue are never enqueued twice. Blank cells on the left of the queue represent vacated slots from earlier dequeues rather than empty elements; neither the horizontal layout of visited nor braces below imply internal order in the set. Initially, enqueue 0 and mark it discovered: res = [], que = [0], visited = {0}, with no vertex dequeued yet.",
+      "key_state": "Only starting vertex 0 is in the queue; the discovered set is {0}, and the result is empty.",
+      "announcement": "Enqueue starting vertex 0 and mark it discovered to begin traversal."
+    },
+    {
+      "id": "source-191",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step2.png",
+      "title": "Process vertex 0",
+      "explanation": "Dequeue front vertex 0 and append it to res. Inspect 0's neighbors 1 and 3: neither has been discovered yet, so enqueue both at the rear of que and add them to visited. Current result res = [0]; pending queue que = [1, 3]; discovered set visited = {0, 1, 3}.",
+      "key_state": "Processed vertex 0; queue from front to rear is [1, 3]; result is [0].",
+      "announcement": "Dequeue vertex 0 and enqueue new neighbors 1 and 3."
+    },
+    {
+      "id": "source-192",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step3.png",
+      "title": "Process vertex 1",
+      "explanation": "Dequeue front vertex 1 and append it to res. Among 1's neighbors 0, 2, and 4, skip 0 because it is already in visited; enqueue undiscovered neighbors 2 and 4 in turn and add them to visited. Current result res = [0, 1]; pending queue que = [3, 2, 4]; discovered set visited = {0, 1, 3, 2, 4}.",
+      "key_state": "Processed vertex 1; queue from front to rear is [3, 2, 4]; result is [0, 1].",
+      "announcement": "Dequeue vertex 1 and enqueue new neighbors 2 and 4."
+    },
+    {
+      "id": "source-193",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step4.png",
+      "title": "Process vertex 3",
+      "explanation": "Dequeue front vertex 3 and append it to res. Among 3's neighbors 0, 4, and 6, skip both 0 and 4 because they are already in visited, and enqueue only new neighbor 6 while adding it to visited. Vertex 4 was already discovered and enqueued by vertex 1 in the previous step, so even though it is still waiting in the queue, it is not enqueued again. Current result res = [0, 1, 3]; pending queue que = [2, 4, 6]; discovered set visited = {0, 1, 3, 2, 4, 6}.",
+      "key_state": "Processed vertex 3; queue from front to rear is [2, 4, 6]; result is [0, 1, 3].",
+      "announcement": "Dequeue vertex 3 and enqueue new neighbor 6."
+    },
+    {
+      "id": "source-194",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step5.png",
+      "title": "Process vertex 2",
+      "explanation": "Dequeue front vertex 2 and append it to res. Among 2's neighbors 1 and 5, skip 1 because it is already in visited; enqueue new neighbor 5 and add it to visited. Current result res = [0, 1, 3, 2]; pending queue que = [4, 6, 5]; discovered set visited = {0, 1, 3, 2, 4, 6, 5}.",
+      "key_state": "Processed vertex 2; queue from front to rear is [4, 6, 5]; result is [0, 1, 3, 2].",
+      "announcement": "Dequeue vertex 2 and enqueue new neighbor 5."
+    },
+    {
+      "id": "source-195",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step6.png",
+      "title": "Process vertex 4",
+      "explanation": "Dequeue front vertex 4 and append it to res. Among 4's neighbors 1, 3, 5, and 7, skip 1, 3, and 5 because they are already in visited; enqueue new neighbor 7 and add it to visited. Current result res = [0, 1, 3, 2, 4]; pending queue que = [6, 5, 7]; discovered set visited = {0, 1, 3, 2, 4, 6, 5, 7}.",
+      "key_state": "Processed vertex 4; queue from front to rear is [6, 5, 7]; result is [0, 1, 3, 2, 4].",
+      "announcement": "Dequeue vertex 4 and enqueue new neighbor 7."
+    },
+    {
+      "id": "source-196",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step7.png",
+      "title": "Process vertex 6",
+      "explanation": "Dequeue front vertex 6 and append it to res. Both of its neighbors 3 and 7 are already in visited (with 7 discovered and enqueued by 4 in the previous step), so no new neighbors are enqueued in this round. Current result res = [0, 1, 3, 2, 4, 6]; pending queue que = [5, 7]; discovered set visited = {0, 1, 3, 2, 4, 6, 5, 7}.",
+      "key_state": "Processed vertex 6; queue from front to rear is [5, 7]; result is [0, 1, 3, 2, 4, 6].",
+      "announcement": "Dequeue vertex 6; all of its neighbors are already discovered, so no vertex is enqueued."
+    },
+    {
+      "id": "source-197",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step8.png",
+      "title": "Process vertex 5",
+      "explanation": "Dequeue front vertex 5 and append it to res. Among 5's neighbors 2, 4, and 8, skip 2 and 4 because they are already in visited; enqueue the final new neighbor 8 and add it to visited. All nine vertices have now been discovered, while 7 and 8 in the queue still await dequeuing. Current result res = [0, 1, 3, 2, 4, 6, 5]; pending queue que = [7, 8]; discovered set visited = {0, 1, 3, 2, 4, 6, 5, 7, 8}.",
+      "key_state": "Processed vertex 5; queue from front to rear is [7, 8]; result is [0, 1, 3, 2, 4, 6, 5].",
+      "announcement": "Dequeue vertex 5 and enqueue new neighbor 8."
+    },
+    {
+      "id": "source-198",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step9.png",
+      "title": "Process vertex 7",
+      "explanation": "Dequeue front vertex 7 and append it to res. All of its neighbors 4, 6, and 8 are already in visited, so no new neighbor is enqueued and only 8 remains in the queue. Current result res = [0, 1, 3, 2, 4, 6, 5, 7]; pending queue que = [8]; discovered set visited = {0, 1, 3, 2, 4, 6, 5, 7, 8}.",
+      "key_state": "Processed vertex 7; queue from front to rear is [8]; result is [0, 1, 3, 2, 4, 6, 5, 7].",
+      "announcement": "Dequeue vertex 7; all of its neighbors are already discovered, so no vertex is enqueued."
+    },
+    {
+      "id": "source-199",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step10.png",
+      "title": "Process vertex 8",
+      "explanation": "Dequeue front vertex 8 and append it to res. Both of its neighbors 5 and 7 are already in visited, so no new neighbor is enqueued and queue que is now empty. Current result res = [0, 1, 3, 2, 4, 6, 5, 7, 8]; pending queue que = []; discovered set visited = {0, 1, 3, 2, 4, 6, 5, 7, 8}.",
+      "key_state": "Processed vertex 8; queue from front to rear is []; result is [0, 1, 3, 2, 4, 6, 5, 7, 8].",
+      "announcement": "Dequeue vertex 8; all of its neighbors are already discovered, so no vertex is enqueued."
+    },
+    {
+      "id": "source-200",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step11.png",
+      "title": "Return the traversal result",
+      "explanation": "Queue que = [] is empty, so the loop terminates and returns res = [0, 1, 3, 2, 4, 6, 5, 7, 8]; visited contains all vertices 0 through 8.",
+      "key_state": "Queue is empty; return [0, 1, 3, 2, 4, 6, 5, 7, 8].",
+      "announcement": "Queue is empty; traversal is complete and returns the result."
+    },
+    {
+      "id": "source-189",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs.png",
+      "title": "Breadth-first traversal overview",
+      "explanation": "This overview figure summarizes only the visit order without drawing the queue or visited container. Blue dashed arrows indicate the order of visits rather than edges in the original graph; for example, neither 1→3 nor 6→5 follows an edge in the graph. Gray curved dashed lines separate layers by distance from the starting vertex. The table below lists the vertices in each layer. The complete visit sequence is [0, 1, 3, 2, 4, 6, 5, 7, 8].",
+      "key_state": "Traverse from 0 by distance layers {0}, {1, 3}, {2, 4, 6}, {5, 7}, and {8}.",
+      "announcement": "Show the near-to-far visit order starting from vertex 0.",
+      "kind": "overview",
+      "state_tables": [
+        {
+          "caption": "Distance layers from starting vertex 0",
+          "headers": [
+            "Minimum edges",
+            "Visit order in this example"
+          ],
+          "rows": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "1, 3"
+            ],
+            [
+              "2",
+              "2, 4, 6"
+            ],
+            [
+              "3",
+              "5, 7"
+            ],
+            [
+              "4",
+              "8"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "graph-bfs": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-190"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-191"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-192"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-193"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-194"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-195"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-196"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-197"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-198"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-199"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-200"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "Adjacency relationships in the original graph, with twelve undirected edges in total",
+      "headers": [
+        "Vertex",
+        "Adjacent vertices"
+      ],
+      "rows": [
+        [
+          "0",
+          "1, 3"
+        ],
+        [
+          "1",
+          "0, 2, 4"
+        ],
+        [
+          "2",
+          "1, 5"
+        ],
+        [
+          "3",
+          "0, 4, 6"
+        ],
+        [
+          "4",
+          "1, 3, 5, 7"
+        ],
+        [
+          "5",
+          "2, 4, 8"
+        ],
+        [
+          "6",
+          "3, 7"
+        ],
+        [
+          "7",
+          "4, 6, 8"
+        ],
+        [
+          "8",
+          "5, 7"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

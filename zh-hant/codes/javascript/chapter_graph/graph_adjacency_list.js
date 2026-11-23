@@ -46,7 +46,8 @@ class GraphAdjList {
         if (
             !this.adjList.has(vet1) ||
             !this.adjList.has(vet2) ||
-            vet1 === vet2
+            vet1 === vet2 ||
+            this.adjList.get(vet1).indexOf(vet2) === -1
         ) {
             throw new Error('Illegal Argument Exception');
         }

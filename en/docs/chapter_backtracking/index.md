@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Like explorers in a maze, we may encounter difficulties on our path forward.
-
-    The power of backtracking allows us to start over, keep trying, and eventually find the exit to the light.
+    Like explorers in a maze, we may encounter obstacles as we move forward.
+    
+    Backtracking lets us start again, try new paths, and eventually find our way out into the light.

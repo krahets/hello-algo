@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "三盘汉诺塔的分治",
+  "summary": "先将顶部两盘迁到 B，再把最大盘移到 C，最后把两盘从 B 迁到 C；三个阶段共含七次单盘移动。",
+  "context": [
+    "三根柱子从左到右为 A、B、C，目标是把 A 上的三张圆盘移到 C。每次只移动柱顶的一张盘，大盘不能压在小盘上方；下文各柱的圆盘按从下到上排列。",
+    "绿色为大盘，蓝色为中盘，橙色为小盘。青色实线轮廓圈住中盘和小盘，表示规模为 2 的子问题 f(2)，不表示可以同时搬动两张盘。"
+  ],
+  "description": [
+    "四幅画面展示起点和三个阶段终点；两个 f(2) 阶段各需三次合法的单盘移动，中间移动大盘一次，合计七次。播放器步号对应画面，不等于累计移动次数。"
+  ],
+  "frames": [
+    {
+      "id": "source-335",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step1.png",
+      "title": "将顶部两盘作为子问题",
+      "explanation": "初始 A=[大盘, 中盘, 小盘]，B=[]，C=[]，尚未移动。要取出底层大盘，先把A 顶部青色轮廓内的中盘和小盘迁往 B；在这个 f(2) 子问题中，B 是目标柱，C 是缓冲柱。",
+      "key_state": "尚未移动；A 从下到上为大盘、中盘、小盘，B、C 为空。",
+      "announcement": "将柱 A 顶部的两只圆盘视作规模为 2 的子问题。"
+    },
+    {
+      "id": "source-336",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step2.png",
+      "title": "完成两盘子问题：A 到 B",
+      "explanation": "第一个 f(2) 阶段以 A 为源柱、C 为缓冲柱、B 为目标柱，已完成：小盘 A→C、中盘 A→B、小盘 C→B，累计三次单盘移动。当前 A=[大盘]，B=[中盘, 小盘]，C=[]；青色轮廓随中盘和小盘移至 B。画面直接显示阶段终点，未展开内部三次移动。",
+      "key_state": "累计三次单盘移动；A 有大盘，B 从下到上为中盘、小盘，C 为空。",
+      "announcement": "借助柱 C，经过三次单盘移动，将 A 顶部的两张圆盘迁到 B。"
+    },
+    {
+      "id": "source-337",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step3.png",
+      "title": "将最大盘从 A 移至 C",
+      "explanation": "两张较小圆盘暂存在 B，A 上的大盘已无阻挡，C 为空，因此将大盘从 A 移到 C。当前 A=[]，B=[中盘, 小盘]，C=[大盘]，累计四次单盘移动；青色轮廓仍圈住 B 上的中盘和小盘。",
+      "key_state": "累计四次单盘移动；A 为空，B 从下到上为中盘、小盘，C 有大盘。",
+      "announcement": "将柱 A 剩余的最大盘直接移到柱 C。"
+    },
+    {
+      "id": "source-338",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f3_step4.png",
+      "title": "完成两盘子问题：B 到 C",
+      "explanation": "第二个 f(2) 阶段以 B 为源柱、A 为缓冲柱、C 为目标柱，执行小盘 B→A、中盘 B→C、小盘 A→C。当前 A=[]，B=[]，C=[大盘, 中盘, 小盘]，累计七次单盘移动，迁移完成；青色轮廓圈住 C 上的中盘和小盘。",
+      "key_state": "累计七次单盘移动；A、B 为空，C 从下到上为大盘、中盘、小盘，迁移完成。",
+      "announcement": "借助柱 A，再经过三次单盘移动，将 B 上的两张圆盘迁到 C；累计七次，迁移完成。"
+    }
+  ],
+  "animations": {
+    "hanota-f3": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-335"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-336"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-337"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-338"
+        }
+      ]
+    }
+  }
+}

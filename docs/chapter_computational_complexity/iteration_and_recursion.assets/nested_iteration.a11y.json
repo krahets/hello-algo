@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "双层嵌套循环",
+  "summary": "每轮外循环都重新运行完整的内循环，决定任务总次数。",
+  "context": [
+    "n 为正整数，i 控制外循环，j 控制内循环。"
+  ],
+  "description": [],
+  "result": "每个 i 都对应完整的 j = 1 至 n，因此任务总次数为 n × n = n²。",
+  "frames": [
+    {
+      "id": "source-20",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png",
+      "title": "双层嵌套循环",
+      "explanation": "先令 i = 1，判断 i ≤ n。为真时进入内循环，重置 j = 1，再判断 j ≤ n：为真则执行任务、令 j 加 1，并回到内层判断；为假则结束内循环，令 i 加 1，回到外层判断。若外层仍为真，下一轮再次从 j = 1 开始；直到外层条件为假，整个流程才结束。"
+    }
+  ]
+}

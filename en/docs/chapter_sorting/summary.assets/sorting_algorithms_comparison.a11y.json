@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "title": "Sorting algorithms compared",
+  "summary": "Compare the time complexity, space complexity, and four properties of nine common sorting algorithms. Their implementations and the characteristics of the data affect which one to use.",
+  "context": [
+    "The legend at the bottom defines n as the input size. For bucket sort, k counts buckets. For counting sort, m is the range of values. For radix sort, k is the maximum number of digits and b is the radix. Thus k stands for different quantities in different rows.",
+    "The four properties on the right are stability (whether equal elements retain their relative order), in-place operation (whether elements can be rearranged without an auxiliary array comparable to the input in size; the recursion stack still counts toward space complexity), adaptivity (whether existing order can reduce the work), and comparison-based sorting (whether the algorithm compares elements or uses key distributions or digit counts)."
+  ],
+  "description": [
+    "Braces on the left group the nine algorithms into traversal-based, divide-and-conquer, and linear sorting. The main table lists best-, average-, and worst-case time complexity and worst-case space complexity, followed by stability, in-place operation, adaptivity, and use of comparisons.",
+    "Light green means “Good,” light blue “Fair,” and grayish purple “Poor.” The table gives these ratings in parentheses. Radix sort has O(nk) time in all three cases, yet the figure rates the best and average cases “Good” and the worst “Poor.” These are the figure’s ratings; performance in practice depends on the circumstances.",
+    "Bubble sort’s O(n) best-case time and its adaptivity assume it stops after a pass with no swaps. Quick sort’s O(log n) worst-case space assumes an optimized implementation that recurses only on the shorter subarray and handles the longer one in a loop. Ordinary recursion without this stack-depth optimization can use O(n) stack space in the worst case.",
+    "Bucket sort is stable if the sort within each bucket is stable. Its O(n+k) best and average times require the total cost of sorting all buckets to stay linear. For instance, a uniform distribution and a bucket count growing with n can keep the expected number of elements per bucket constant. Uniform distribution alone is insufficient with too few buckets. If all elements land in one bucket and its internal sort is quadratic, the worst-case time is O(n²).",
+    "The O(n+m) time for counting sort depends on the value range m. The O(nk) time for radix sort assumes a fixed radix b. With variable b, each counting-sort pass takes O(n+b), giving O(k(n+b)) over k passes. All three linear sorts impose requirements on data types and ranges. Their group label O(n) is conditional."
+  ],
+  "frames": [
+    {
+      "id": "source-240",
+      "book_path": "chapter_sorting/summary.assets/sorting_algorithms_comparison.png",
+      "title": "Sorting algorithms compared",
+      "explanation": "Sorting algorithms involve trade-offs: none earns “Good” on every measure in the figure. Consider input size, existing order, range of values, available memory, and the need for stability."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Group labels in the figure",
+      "headers": [
+        "Group",
+        "Complexity shown",
+        "Algorithms"
+      ],
+      "rows": [
+        [
+          "Traversal-based sorting",
+          "O(n²)",
+          "Selection, bubble, insertion"
+        ],
+        [
+          "Divide-and-conquer sorting",
+          "O(n log n)",
+          "Quick sort, merge sort, heap sort"
+        ],
+        [
+          "Linear sorting",
+          "O(n)",
+          "Bucket, counting, radix"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Nine sorting algorithms: properties and ratings from the figure, under the conditions described above",
+      "headers": [
+        "Algorithms",
+        "Best-case time",
+        "Average-case time",
+        "Worst-case time",
+        "Worst-case space",
+        "Stability",
+        "In-place operation",
+        "Adaptivity",
+        "Comparison-based?"
+      ],
+      "rows": [
+        [
+          "Selection sort",
+          "O(n²) (Poor)",
+          "O(n²) (Poor)",
+          "O(n²) (Poor)",
+          "O(1) (Good)",
+          "Unstable (Poor)",
+          "In-place (Good)",
+          "Non-adaptive (Fair)",
+          "Comparison-based (Fair)"
+        ],
+        [
+          "Bubble sort",
+          "O(n) (Good)",
+          "O(n²) (Poor)",
+          "O(n²) (Poor)",
+          "O(1) (Good)",
+          "Stable (Good)",
+          "In-place (Good)",
+          "Adaptive (Good)",
+          "Comparison-based (Fair)"
+        ],
+        [
+          "Insertion sort",
+          "O(n) (Good)",
+          "O(n²) (Poor)",
+          "O(n²) (Poor)",
+          "O(1) (Good)",
+          "Stable (Good)",
+          "In-place (Good)",
+          "Adaptive (Good)",
+          "Comparison-based (Fair)"
+        ],
+        [
+          "Quick sort",
+          "O(n log n) (Good)",
+          "O(n log n) (Good)",
+          "O(n²) (Poor)",
+          "O(log n) (Good)",
+          "Unstable (Poor)",
+          "In-place (Good)",
+          "Non-adaptive (Fair)",
+          "Comparison-based (Fair)"
+        ],
+        [
+          "Merge sort",
+          "O(n log n) (Good)",
+          "O(n log n) (Good)",
+          "O(n log n) (Good)",
+          "O(n) (Poor)",
+          "Stable (Good)",
+          "Not in-place (Poor)",
+          "Non-adaptive (Fair)",
+          "Comparison-based (Fair)"
+        ],
+        [
+          "Heap sort",
+          "O(n log n) (Good)",
+          "O(n log n) (Good)",
+          "O(n log n) (Good)",
+          "O(1) (Good)",
+          "Unstable (Poor)",
+          "In-place (Good)",
+          "Non-adaptive (Fair)",
+          "Comparison-based (Fair)"
+        ],
+        [
+          "Bucket sort",
+          "O(n+k) (Good)",
+          "O(n+k) (Good)",
+          "O(n²) (Poor)",
+          "O(n+k) (Poor)",
+          "Stable (Good)",
+          "Not in-place (Poor)",
+          "Non-adaptive (Fair)",
+          "Non-comparison (Fair)"
+        ],
+        [
+          "Counting sort",
+          "O(n+m) (Good)",
+          "O(n+m) (Good)",
+          "O(n+m) (Good)",
+          "O(n+m) (Poor)",
+          "Stable (Good)",
+          "Not in-place (Poor)",
+          "Non-adaptive (Fair)",
+          "Non-comparison (Fair)"
+        ],
+        [
+          "Radix sort",
+          "O(nk) (Good)",
+          "O(nk) (Good)",
+          "O(nk) (Poor)",
+          "O(n+b) (Poor)",
+          "Stable (Good)",
+          "Not in-place (Poor)",
+          "Non-adaptive (Fair)",
+          "Non-comparison (Fair)"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

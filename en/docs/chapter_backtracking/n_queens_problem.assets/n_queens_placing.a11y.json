@@ -1,0 +1,147 @@
+{
+  "schema_version": 2,
+  "title": "Row-by-row trials and pruning conflicting boards",
+  "summary": "Following the branch that places the first-row queen in column 2, trace row-by-row trials and pruning across 16 candidate boards over four levels to reach the valid column sequence [2, 4, 1, 3].",
+  "context": [
+    "Because each row must hold exactly one queen, backtracking places queens row by row from row 1 through row 4 to avoid same-row conflicts automatically; at each level it tries columns 1 through 4 in order and prunes branches that share a column or diagonal with an already placed queen. Rows and columns here are numbered starting at 1."
+  ],
+  "description": [
+    "Only the branch with column 2 in the first row is expanded further in the figure, keeping columns 4, 1, and 3 in the next three rows. Continuations from columns 1, 3, and 4 in the first row are marked omitted, meaning they are simply not drawn rather than pruned; in fact, column 3 in the first row leads to the other valid solution [3, 1, 4, 2].",
+    "The table below lists each candidate square shown in the figure and how it is handled. When a square conflicts with multiple queens at once, the figure and table cite just one conflict—enough to justify pruning rather than listing every conflict. For example, (4,2) is shown conflicting with (3,1) on a main diagonal; checked against all placed queens, it also shares a column with (1,2) and an antidiagonal with (2,4). \"Valid\" in the table means only that the current placement causes no immediate conflict, not that the branch is guaranteed to complete a full solution."
+  ],
+  "frames": [
+    {
+      "id": "source-365",
+      "book_path": "chapter_backtracking/n_queens_problem.assets/n_queens_placing.png",
+      "title": "Row-by-row trials and pruning conflicting boards",
+      "explanation": "Dimmed candidates marked for pruning already violate a constraint, whereas first-row valid branches marked omitted are simply left unexpanded; the two mean different things."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Handling of each candidate square: 1-based coordinates",
+      "headers": [
+        "Candidate square",
+        "Placed queens",
+        "Conflicting queen cited in figure",
+        "Conflict type",
+        "Disposition"
+      ],
+      "rows": [
+        [
+          "(1,1)",
+          "None",
+          "None",
+          "No conflict",
+          "Valid; continuation omitted"
+        ],
+        [
+          "(1,2)",
+          "None",
+          "None",
+          "No conflict",
+          "Keep and continue"
+        ],
+        [
+          "(1,3)",
+          "None",
+          "None",
+          "No conflict",
+          "Valid; continuation omitted"
+        ],
+        [
+          "(1,4)",
+          "None",
+          "None",
+          "No conflict",
+          "Valid; continuation omitted"
+        ],
+        [
+          "(2,1)",
+          "(1,2)",
+          "(1,2)",
+          "Antidiagonal",
+          "Prune"
+        ],
+        [
+          "(2,2)",
+          "(1,2)",
+          "(1,2)",
+          "Same column",
+          "Prune"
+        ],
+        [
+          "(2,3)",
+          "(1,2)",
+          "(1,2)",
+          "Main diagonal",
+          "Prune"
+        ],
+        [
+          "(2,4)",
+          "(1,2)",
+          "None",
+          "No conflict",
+          "Keep and continue"
+        ],
+        [
+          "(3,1)",
+          "(1,2), (2,4)",
+          "None",
+          "No conflict",
+          "Keep and continue"
+        ],
+        [
+          "(3,2)",
+          "(1,2), (2,4)",
+          "(1,2)",
+          "Same column",
+          "Prune"
+        ],
+        [
+          "(3,3)",
+          "(1,2), (2,4)",
+          "(2,4)",
+          "Antidiagonal",
+          "Prune"
+        ],
+        [
+          "(3,4)",
+          "(1,2), (2,4)",
+          "(2,4)",
+          "Same column",
+          "Prune"
+        ],
+        [
+          "(4,1)",
+          "(1,2), (2,4), (3,1)",
+          "(3,1)",
+          "Same column",
+          "Prune"
+        ],
+        [
+          "(4,2)",
+          "(1,2), (2,4), (3,1)",
+          "(3,1)",
+          "Main diagonal",
+          "Prune"
+        ],
+        [
+          "(4,3)",
+          "(1,2), (2,4), (3,1)",
+          "None",
+          "No conflict",
+          "Keep and continue"
+        ],
+        [
+          "(4,4)",
+          "(1,2), (2,4), (3,1)",
+          "(2,4)",
+          "Same column",
+          "Prune"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

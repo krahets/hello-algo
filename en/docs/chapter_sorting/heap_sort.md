@@ -2,72 +2,72 @@
 
 !!! tip
 
-    Before reading this section, please ensure you have completed the "Heap" chapter.
+    Before reading this section, make sure you have completed the chapter on heaps.
 
-<u>Heap sort</u> is an efficient sorting algorithm based on the heap data structure. We can implement heap sort using the "heap creation" and "element extraction" operations we have already learned.
+<u>Heap sort</u> is an efficient sorting algorithm built on the heap data structure. We can implement it with the heap-building and removal operations we have already learned.
 
-1. Input the array and construct a min-heap, where the smallest element is at the top of the heap.
-2. Continuously perform the extraction operation, record the extracted elements sequentially to obtain a sorted list from smallest to largest.
+1. Build a min heap from the input array. The smallest element is now at the root.
+2. Repeatedly remove the root and record the removed elements to obtain an ascending sequence.
 
-Although the above method is feasible, it requires an additional array to store the popped elements, which is somewhat space-consuming. In practice, we usually use a more elegant implementation.
+Although this works, it requires an extra array to store the removed elements, wasting space. In practice, we usually use a more elegant implementation.
 
-## Algorithm flow
+## Algorithm steps
 
-Suppose the array length is $n$, the heap sort process is as follows.
+For an array of length $n$, heap sort proceeds as shown below.
 
-1. Input the array and establish a max-heap. After this step, the largest element is positioned at the top of the heap.
-2. Swap the top element of the heap (the first element) with the heap's bottom element (the last element). Following this swap, reduce the heap's length by $1$ and increase the sorted elements count by $1$.
-3. Starting from the heap top, perform the sift-down operation from top to bottom. After the sift-down, the heap's property is restored.
-4. Repeat steps `2.` and `3.` Loop for $n - 1$ rounds to complete the sorting of the array.
+1. Build a max heap from the input array. The largest element is now at the root.
+2. Swap the root, the first element, with the last element of the heap. Reduce the heap's length by $1$ and increase the number of sorted elements by $1$.
+3. Starting at the root, sift down to restore the heap property.
+4. Repeat steps `2.` and `3.`. After $n - 1$ rounds, the array is sorted.
 
 !!! tip
 
-    In fact, the element extraction operation also includes steps `2.` and `3.`, with an additional step to pop (remove) the extracted element from the heap.
+    In fact, removing the root of a heap also includes steps `2.` and `3.`, with the additional step of removing an element from the array.
 
 === "<1>"
-    ![Heap sort process](heap_sort.assets/heap_sort_step1.png)
+    ![Steps of heap sort](heap_sort.assets/heap_sort_step1.svg)
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png)
+    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.svg)
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.png)
+    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.svg)
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.png)
+    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.svg)
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.png)
+    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.svg)
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.png)
+    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.svg)
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.png)
+    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.svg)
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.png)
+    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.svg)
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.png)
+    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.svg)
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.png)
+    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.svg)
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.png)
+    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.svg)
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png)
+    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.svg)
 
-In the code implementation, we used the sift-down function `sift_down()` from the "Heap" chapter. It is important to note that since the heap's length decreases as the maximum element is extracted, we need to add a length parameter $n$ to the `sift_down()` function to specify the current effective length of the heap. The code is shown below:
+The implementation uses the same `sift_down()` function introduced in the heap chapter. Because the heap shrinks as maximum elements are extracted, add a length parameter $n$ to specify its current valid length. The code is as follows:
 
 ```src
 [file]{heap_sort}-[class]{}-[func]{heap_sort}
 ```
 
-## Algorithm characteristics
+## Algorithm properties
 
-- **Time complexity is $O(n \log n)$, non-adaptive sort**: The heap creation uses $O(n)$ time. Extracting the largest element from the heap takes $O(\log n)$ time, looping for $n - 1$ rounds.
-- **Space complexity is $O(1)$, in-place sort**: A few pointer variables use $O(1)$ space. The element swapping and heapifying operations are performed on the original array.
-- **Non-stable sort**: The relative positions of equal elements may change during the swapping of the heap's top and bottom elements.
+- **Time complexity: $O(n \log n)$; not adaptive**. Building the heap takes $O(n)$ time. Extracting its maximum takes $O(\log n)$ time and is repeated $n - 1$ times.
+- **Space complexity: $O(1)$; in-place**. A few pointer variables use $O(1)$ space. Swapping and sifting take place within the original array.
+- **Not stable**. Swapping the root with the last element of the heap may change the relative order of equal elements.
