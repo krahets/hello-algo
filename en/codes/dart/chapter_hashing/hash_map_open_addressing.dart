@@ -35,21 +35,20 @@ class HashMapOpenAddressing {
   int findBucket(int key) {
     int index = hashFunc(key);
     int firstTombstone = -1;
-    // Probe linearly until an empty bucket is reached
-    while (_buckets[index] != null) {
-      // If key is found, return its bucket index
-      if (_buckets[index]!.key == key) {
+    for (int i = 0; i < _capacity; i++) {
+      final bucket = _buckets[index];
+      if (bucket == null) break;
+      // Record the first tombstone encountered
+      if (identical(bucket, _TOMBSTONE)) {
+        if (firstTombstone == -1) firstTombstone = index;
+      } else if (bucket.key == key) {
         // If a tombstone was encountered earlier, move the key-value pair to that index
         if (firstTombstone != -1) {
-          _buckets[firstTombstone] = _buckets[index];
+          _buckets[firstTombstone] = bucket;
           _buckets[index] = _TOMBSTONE;
           return firstTombstone; // Return the bucket index after the move
         }
         return index; // Return the bucket index
-      }
-      // Record the first tombstone encountered
-      if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-        firstTombstone = index;
       }
       // Calculate the bucket index, wrapping to the beginning after the end
       index = (index + 1) % _capacity;

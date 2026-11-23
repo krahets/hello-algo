@@ -35,21 +35,20 @@ class HashMapOpenAddressing {
   int findBucket(int key) {
     int index = hashFunc(key);
     int firstTombstone = -1;
-    // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
-    while (_buckets[index] != null) {
-      // Если встретился key, вернуть соответствующий индекс корзины
-      if (_buckets[index]!.key == key) {
+    for (int i = 0; i < _capacity; i++) {
+      final bucket = _buckets[index];
+      if (bucket == null) break;
+      // Записать первую встретившуюся метку удаления
+      if (identical(bucket, _TOMBSTONE)) {
+        if (firstTombstone == -1) firstTombstone = index;
+      } else if (bucket.key == key) {
         // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
         if (firstTombstone != -1) {
-          _buckets[firstTombstone] = _buckets[index];
+          _buckets[firstTombstone] = bucket;
           _buckets[index] = _TOMBSTONE;
           return firstTombstone; // Вернуть индекс корзины после перемещения
         }
         return index; // Вернуть индекс корзины
-      }
-      // Записать первую встретившуюся метку удаления
-      if (firstTombstone == -1 && _buckets[index] == _TOMBSTONE) {
-        firstTombstone = index;
       }
       // Вычислить индекс корзины; при выходе за конец вернуться к началу
       index = (index + 1) % _capacity;
