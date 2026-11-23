@@ -40,7 +40,7 @@ comments: true
     deq: deque[int] = deque()
 
     # 元素入队
-    deq.append(2)      # 添加至队尾
+    deq.append(2)  # 添加至队尾
     deq.append(5)
     deq.append(4)
     deq.appendleft(3)  # 添加至队首
@@ -52,7 +52,7 @@ comments: true
 
     # 元素出队
     pop_front: int = deq.popleft()  # 队首元素出队
-    pop_rear: int = deq.pop()       # 队尾元素出队
+    pop_rear: int = deq.pop()  # 队尾元素出队
 
     # 获取双向队列的长度
     size: int = len(deq)
@@ -68,19 +68,19 @@ comments: true
     deque<int> deque;
 
     /* 元素入队 */
-    deque.push_back(2);   // 添加至队尾
+    deque.push_back(2); // 添加至队尾
     deque.push_back(5);
     deque.push_back(4);
-    deque.push_front(3);  // 添加至队首
+    deque.push_front(3); // 添加至队首
     deque.push_front(1);
 
     /* 访问元素 */
     int front = deque.front(); // 队首元素
-    int back = deque.back();   // 队尾元素
+    int back = deque.back(); // 队尾元素
 
     /* 元素出队 */
-    deque.pop_front();  // 队首元素出队
-    deque.pop_back();   // 队尾元素出队
+    deque.pop_front(); // 队首元素出队
+    deque.pop_back(); // 队尾元素出队
 
     /* 获取双向队列的长度 */
     int size = deque.size();
@@ -96,19 +96,19 @@ comments: true
     Deque<Integer> deque = new LinkedList<>();
 
     /* 元素入队 */
-    deque.offerLast(2);   // 添加至队尾
+    deque.offerLast(2); // 添加至队尾
     deque.offerLast(5);
     deque.offerLast(4);
-    deque.offerFirst(3);  // 添加至队首
+    deque.offerFirst(3); // 添加至队首
     deque.offerFirst(1);
 
     /* 访问元素 */
-    int peekFirst = deque.peekFirst();  // 队首元素
-    int peekLast = deque.peekLast();    // 队尾元素
+    int peekFirst = deque.peekFirst(); // 队首元素
+    int peekLast = deque.peekLast(); // 队尾元素
 
     /* 元素出队 */
-    int popFirst = deque.pollFirst();  // 队首元素出队
-    int popLast = deque.pollLast();    // 队尾元素出队
+    int popFirst = deque.pollFirst(); // 队首元素出队
+    int popLast = deque.pollLast(); // 队尾元素出队
 
     /* 获取双向队列的长度 */
     int size = deque.size();
@@ -121,7 +121,7 @@ comments: true
 
     ```csharp title="deque.cs"
     /* 初始化双向队列 */
-    // 在 C# 中，将链表 LinkedList 看作双向队列来使用
+    // 在 C# 中，将链表 LinkedList 当作双向队列来使用
     LinkedList<int> deque = new();
 
     /* 元素入队 */
@@ -132,8 +132,8 @@ comments: true
     deque.AddFirst(1);
 
     /* 访问元素 */
-    int peekFirst = deque.First.Value;  // 队首元素
-    int peekLast = deque.Last.Value;    // 队尾元素
+    int? peekFirst = deque.First?.Value;  // 队首元素
+    int? peekLast = deque.Last?.Value;    // 队尾元素
 
     /* 元素出队 */
     deque.RemoveFirst();  // 队首元素出队
@@ -154,19 +154,19 @@ comments: true
     deque := list.New()
 
     /* 元素入队 */
-    deque.PushBack(2)      // 添加至队尾
+    deque.PushBack(2) // 添加至队尾
     deque.PushBack(5)
     deque.PushBack(4)
-    deque.PushFront(3)     // 添加至队首
+    deque.PushFront(3) // 添加至队首
     deque.PushFront(1)
 
     /* 访问元素 */
     front := deque.Front() // 队首元素
-    rear := deque.Back()   // 队尾元素
+    rear := deque.Back() // 队尾元素
 
     /* 元素出队 */
-    deque.Remove(front)    // 队首元素出队
-    deque.Remove(rear)     // 队尾元素出队
+    deque.Remove(front) // 队首元素出队
+    deque.Remove(rear) // 队尾元素出队
 
     /* 获取双向队列的长度 */
     size := deque.Len()
@@ -194,7 +194,7 @@ comments: true
     let peekLast = deque.last! // 队尾元素
 
     /* 元素出队 */
-    // 使用 Array 模拟时 popFirst 的复杂度为 O(n)
+    // 使用 Array 模拟时 removeFirst 的复杂度为 O(n)
     let popFirst = deque.removeFirst() // 队首元素出队
     let popLast = deque.removeLast() // 队尾元素出队
 
@@ -272,59 +272,55 @@ comments: true
     ```dart title="deque.dart"
     /* 初始化双向队列 */
     // 在 Dart 中，Queue 被定义为双向队列
-    Queue<int> deque = Queue<int>();
+    final Queue<int> deque = Queue();
 
     /* 元素入队 */
-    deque.addLast(2);  // 添加至队尾
+    deque.addLast(2); // 添加至队尾
     deque.addLast(5);
     deque.addLast(4);
     deque.addFirst(3); // 添加至队首
     deque.addFirst(1);
 
     /* 访问元素 */
-    int peekFirst = deque.first; // 队首元素
-    int peekLast = deque.last;   // 队尾元素
+    final int peekFirst = deque.first; // 队首元素
+    final int peekLast = deque.last; // 队尾元素
 
     /* 元素出队 */
-    int popFirst = deque.removeFirst(); // 队首元素出队
-    int popLast = deque.removeLast();   // 队尾元素出队
+    final int popFirst = deque.removeFirst(); // 队首元素出队
+    final int popLast = deque.removeLast(); // 队尾元素出队
 
     /* 获取双向队列的长度 */
-    int size = deque.length;
+    final int size = deque.length;
 
     /* 判断双向队列是否为空 */
-    bool isEmpty = deque.isEmpty;
+    final bool isEmpty = deque.isEmpty;
     ```
 
 === "Rust"
 
     ```rust title="deque.rs"
-    /* 初始化双向队列 */
-    let mut deque: VecDeque<u32> = VecDeque::new();
+    // 初始化双向队列
+    let mut deque: VecDeque<i32> = VecDeque::new();
 
     /* 元素入队 */
-    deque.push_back(2);  // 添加至队尾
+    deque.push_back(2); // 添加至队尾
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3); // 添加至队首
     deque.push_front(1);
 
-    /* 访问元素 */
-    if let Some(front) = deque.front() { // 队首元素
-    }
-    if let Some(rear) = deque.back() {   // 队尾元素
-    }
+    // 访问元素
+    let peek_first = deque.front().unwrap(); // 队首元素
+    let peek_last = deque.back().unwrap(); // 队尾元素
 
-    /* 元素出队 */
-    if let Some(pop_front) = deque.pop_front() { // 队首元素出队
-    }
-    if let Some(pop_rear) = deque.pop_back() {   // 队尾元素出队
-    }
+    // 元素出队
+    let pop_first = deque.pop_front().unwrap(); // 队首元素出队
+    let pop_last = deque.pop_back().unwrap(); // 队尾元素出队
 
-    /* 获取双向队列的长度 */
+    // 获取双向队列的长度
     let size = deque.len();
 
-    /* 判断双向队列是否为空 */
+    // 判断双向队列是否为空
     let is_empty = deque.is_empty();
     ```
 
@@ -341,7 +337,7 @@ comments: true
     val deque = LinkedList<Int>()
 
     /* 元素入队 */
-    deque.offerLast(2)  // 添加至队尾
+    deque.offerLast(2) // 添加至队尾
     deque.offerLast(5)
     deque.offerLast(4)
     deque.offerFirst(3) // 添加至队首
@@ -349,11 +345,11 @@ comments: true
 
     /* 访问元素 */
     val peekFirst = deque.peekFirst() // 队首元素
-    val peekLast = deque.peekLast()   // 队尾元素
+    val peekLast = deque.peekLast() // 队尾元素
 
     /* 元素出队 */
     val popFirst = deque.pollFirst() // 队首元素出队
-    val popLast = deque.pollLast()   // 队尾元素出队
+    val popLast = deque.pollLast() // 队尾元素出队
 
     /* 获取双向队列的长度 */
     val size = deque.size
@@ -366,10 +362,10 @@ comments: true
 
     ```ruby title="deque.rb"
     # 初始化双向队列
-    # Ruby 没有内直的双端队列，只能把 Array 当作双端队列来使用
+    # Ruby 没有内置的双端队列，只能把 Array 当作双端队列来使用
     deque = []
 
-    # 元素如队
+    # 元素入队
     deque << 2
     deque << 5
     deque << 4
@@ -382,7 +378,7 @@ comments: true
     peek_last = deque.last
 
     # 元素出队
-    # 请注意，由于是数组， Array#shift 方法的时间复杂度为 O(n)
+    # 请注意，由于是数组，Array#shift 方法的时间复杂度为 O(n)
     pop_front = deque.shift
     pop_back = deque.pop
 
@@ -1329,8 +1325,8 @@ comments: true
     ```typescript title="linkedlist_deque.ts"
     /* 双向链表节点 */
     class ListNode {
-        prev: ListNode; // 前驱节点引用 (指针)
-        next: ListNode; // 后继节点引用 (指针)
+        prev: ListNode | null; // 前驱节点引用 (指针)
+        next: ListNode | null; // 后继节点引用 (指针)
         val: number; // 节点值
 
         constructor(val: number) {
@@ -2059,17 +2055,11 @@ comments: true
 === "Ruby"
 
     ```ruby title="linkedlist_deque.rb"
-    =begin
-    File: linkedlist_deque.rb
-    Created Time: 2024-04-06
-    Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
-    =end
-
-    ### 双向链表节点
+    ### 双向链表节点 ###
     class ListNode
       attr_accessor :val
       attr_accessor :next # 后继节点引用
-      attr_accessor :prev # 前躯节点引用
+      attr_accessor :prev # 前驱节点引用
 
       ### 构造方法 ###
       def initialize(val)
@@ -2162,7 +2152,7 @@ comments: true
         pop(true)
       end
 
-      ### 队首出队 ###
+      ### 队尾出队 ###
       def pop_last
         pop(false)
       end

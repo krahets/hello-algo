@@ -40,7 +40,7 @@ comments: true
 
     ```python title="hash_map.py"
     # 初始化哈希表
-    hmap: dict = {}
+    hmap = dict[int, str]()
 
     # 添加操作
     # 在哈希表中添加键值对 (key, value)
@@ -179,6 +179,7 @@ comments: true
     ```javascript title="hash_map.js"
     /* 初始化哈希表 */
     const map = new Map();
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map.set(12836, '小哈');
@@ -201,6 +202,7 @@ comments: true
     ```typescript title="hash_map.ts"
     /* 初始化哈希表 */
     const map = new Map<number, string>();
+
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
     map.set(12836, '小哈');
@@ -208,26 +210,21 @@ comments: true
     map.set(16750, '小算');
     map.set(13276, '小法');
     map.set(10583, '小鸭');
-    console.info('\n添加完成后，哈希表为\nKey -> Value');
-    console.info(map);
 
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
     let name = map.get(15937);
-    console.info('\n输入学号 15937 ，查询到姓名 ' + name);
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
     map.delete(10583);
-    console.info('\n删除 10583 后，哈希表为\nKey -> Value');
-    console.info(map);
     ```
 
 === "Dart"
 
     ```dart title="hash_map.dart"
     /* 初始化哈希表 */
-    Map<int, String> map = {};
+    final Map<int, String> map = {};
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
@@ -239,7 +236,7 @@ comments: true
 
     /* 查询操作 */
     // 向哈希表中输入键 key ，得到值 value
-    String? name = map[15937];
+    final String? name = map[15937];
 
     /* 删除操作 */
     // 在哈希表中删除键值对 (key, value)
@@ -251,24 +248,24 @@ comments: true
     ```rust title="hash_map.rs"
     use std::collections::HashMap;
 
-    /* 初始化哈希表 */
-    let mut map: HashMap<i32, String> = HashMap::new();
+    // 初始化哈希表
+    let mut map = HashMap::new();
 
-    /* 添加操作 */
+    // 添加操作
     // 在哈希表中添加键值对 (key, value)
-    map.insert(12836, "小哈".to_string());
-    map.insert(15937, "小啰".to_string());
-    map.insert(16750, "小算".to_string());
-    map.insert(13276, "小法".to_string());
-    map.insert(10583, "小鸭".to_string());
+    map.insert(12836, "小哈");
+    map.insert(15937, "小啰");
+    map.insert(16750, "小算");
+    map.insert(13276, "小法");
+    map.insert(10583, "小鸭");
 
-    /* 查询操作 */
+    // 查询操作
     // 向哈希表中输入键 key ，得到值 value
-    let _name: Option<&String> = map.get(&15937);
+    let name = map.get(&15937).copied().unwrap();
 
-    /* 删除操作 */
+    // 删除操作
     // 在哈希表中删除键值对 (key, value)
-    let _removed_value: Option<String> = map.remove(&10583);
+    _ = map.remove(&10583);
     ```
 
 === "C"
@@ -281,7 +278,7 @@ comments: true
 
     ```kotlin title="hash_map.kt"
     /* 初始化哈希表 */
-    val map = HashMap<Int,String>()
+    val map = HashMap<Int, String>()
 
     /* 添加操作 */
     // 在哈希表中添加键值对 (key, value)
@@ -337,12 +334,14 @@ comments: true
     # 遍历键值对 key->value
     for key, value in hmap.items():
         print(key, "->", value)
+
     # 单独遍历键 key
     for key in hmap.keys():
         print(key)
+
     # 单独遍历值 value
-    for value in hmap.values():
-        print(value)
+    for val in hmap.values():
+        print(val)
     ```
 
 === "C++"
@@ -350,12 +349,13 @@ comments: true
     ```cpp title="hash_map.cpp"
     /* 遍历哈希表 */
     // 遍历键值对 key->value
-    for (auto kv: map) {
+    for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << endl;
     }
+
     // 使用迭代器遍历 key->value
     for (auto iter = map.begin(); iter != map.end(); iter++) {
-        cout << iter->first << "->" << iter->second << endl;
+        cout << iter->first << " -> " << iter->second << endl;
     }
     ```
 
@@ -364,15 +364,17 @@ comments: true
     ```java title="hash_map.java"
     /* 遍历哈希表 */
     // 遍历键值对 key->value
-    for (Map.Entry <Integer, String> kv: map.entrySet()) {
+    for (Map.Entry<Integer, String> kv : map.entrySet()) {
         System.out.println(kv.getKey() + " -> " + kv.getValue());
     }
+
     // 单独遍历键 key
-    for (int key: map.keySet()) {
+    for (int key : map.keySet()) {
         System.out.println(key);
     }
+
     // 单独遍历值 value
-    for (String val: map.values()) {
+    for (String val : map.values()) {
         System.out.println(val);
     }
     ```
@@ -381,14 +383,16 @@ comments: true
 
     ```csharp title="hash_map.cs"
     /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
+    // 遍历键值对 key->value
     foreach (var kv in map) {
         Console.WriteLine(kv.Key + " -> " + kv.Value);
     }
+
     // 单独遍历键 key
     foreach (int key in map.Keys) {
         Console.WriteLine(key);
     }
+
     // 单独遍历值 value
     foreach (string val in map.Values) {
         Console.WriteLine(val);
@@ -403,10 +407,12 @@ comments: true
     for key, value := range hmap {
         fmt.Println(key, "->", value)
     }
+
     // 单独遍历键 key
     for key := range hmap {
         fmt.Println(key)
     }
+
     // 单独遍历值 value
     for _, value := range hmap {
         fmt.Println(value)
@@ -417,15 +423,17 @@ comments: true
 
     ```swift title="hash_map.swift"
     /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
+    // 遍历键值对 key->value
     for (key, value) in map {
         print("\(key) -> \(value)")
     }
-    // 单独遍历键 Key
+
+    // 单独遍历键 key
     for key in map.keys {
         print(key)
     }
-    // 单独遍历值 Value
+
+    // 单独遍历值 value
     for value in map.values {
         print(value)
     }
@@ -435,15 +443,17 @@ comments: true
 
     ```javascript title="hash_map.js"
     /* 遍历哈希表 */
-    console.info('\n遍历键值对 Key->Value');
+    // 遍历键值对 key->value
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-    console.info('\n单独遍历键 Key');
+
+    // 单独遍历键 key
     for (const k of map.keys()) {
         console.info(k);
     }
-    console.info('\n单独遍历值 Value');
+
+    // 单独遍历值 value
     for (const v of map.values()) {
         console.info(v);
     }
@@ -453,15 +463,17 @@ comments: true
 
     ```typescript title="hash_map.ts"
     /* 遍历哈希表 */
-    console.info('\n遍历键值对 Key->Value');
+    // 遍历键值对 key->value
     for (const [k, v] of map.entries()) {
         console.info(k + ' -> ' + v);
     }
-    console.info('\n单独遍历键 Key');
+
+    // 单独遍历键 key
     for (const k of map.keys()) {
         console.info(k);
     }
-    console.info('\n单独遍历值 Value');
+
+    // 单独遍历值 value
     for (const v of map.values()) {
         console.info(v);
     }
@@ -471,37 +483,31 @@ comments: true
 
     ```dart title="hash_map.dart"
     /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
-    map.forEach((key, value) {
-      print('$key -> $value');
-    });
+    // 遍历键值对 key->value
+    map.forEach((key, value) => print("$key -> $value"));
 
-    // 单独遍历键 Key
-    map.keys.forEach((key) {
-      print(key);
-    });
+    // 单独遍历键 key
+    map.keys.forEach((key) => print(key));
 
-    // 单独遍历值 Value
-    map.values.forEach((value) {
-      print(value);
-    });
+    // 单独遍历值 value
+    map.values.forEach((value) => print(value));
     ```
 
 === "Rust"
 
     ```rust title="hash_map.rs"
-    /* 遍历哈希表 */
-    // 遍历键值对 Key->Value
+    // 遍历哈希表
+    // 遍历键值对 key->value
     for (key, value) in &map {
         println!("{key} -> {value}");
     }
 
-    // 单独遍历键 Key
+    // 单独遍历键 key
     for key in map.keys() {
         println!("{key}");
     }
 
-    // 单独遍历值 Value
+    // 单独遍历值 value
     for value in map.values() {
         println!("{value}");
     }
@@ -521,10 +527,12 @@ comments: true
     for ((key, value) in map) {
         println("$key -> $value")
     }
+
     // 单独遍历键 key
     for (key in map.keys) {
         println(key)
     }
+
     // 单独遍历值 value
     for (_val in map.values) {
         println(_val)
@@ -547,8 +555,8 @@ comments: true
 
 ??? pythontutor "可视化运行"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="可视化运行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20value%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28value%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="可视化运行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20hmap%20%3D%20%7B%7D%0A%20%20%20%20%0A%20%20%20%20%23%20%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%0A%20%20%20%20%23%20%E5%9C%A8%E5%93%88%E5%B8%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%94%AE%E5%80%BC%E5%AF%B9%20%28key,%20value%29%0A%20%20%20%20hmap%5B12836%5D%20%3D%20%22%E5%B0%8F%E5%93%88%22%0A%20%20%20%20hmap%5B15937%5D%20%3D%20%22%E5%B0%8F%E5%95%B0%22%0A%20%20%20%20hmap%5B16750%5D%20%3D%20%22%E5%B0%8F%E7%AE%97%22%0A%20%20%20%20hmap%5B13276%5D%20%3D%20%22%E5%B0%8F%E6%B3%95%22%0A%20%20%20%20hmap%5B10583%5D%20%3D%20%22%E5%B0%8F%E9%B8%AD%22%0A%20%20%20%20%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E5%93%88%E5%B8%8C%E8%A1%A8%0A%20%20%20%20%23%20%E9%81%8D%E5%8E%86%E9%94%AE%E5%80%BC%E5%AF%B9%20key-%3Evalue%0A%20%20%20%20for%20key,%20value%20in%20hmap.items%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key,%20%22-%3E%22,%20value%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E9%94%AE%20key%0A%20%20%20%20for%20key%20in%20hmap.keys%28%29%3A%0A%20%20%20%20%20%20%20%20print%28key%29%0A%20%20%20%20%23%20%E5%8D%95%E7%8B%AC%E9%81%8D%E5%8E%86%E5%80%BC%20value%0A%20%20%20%20for%20val%20in%20hmap.values%28%29%3A%0A%20%20%20%20%20%20%20%20print%28val%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=8&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全屏观看 ></a></div>
 
 ## 6.1.2 &nbsp; 哈希表简单实现
 

@@ -162,7 +162,6 @@ comments: true
     /* 이진 트리 노드 구조체 */
     typedef struct TreeNode {
         int val;                // 노드 값
-        int height;             // 노드 높이
         struct TreeNode *left;  // 왼쪽 자식 노드 포인터
         struct TreeNode *right; // 오른쪽 자식 노드 포인터
     } TreeNode;
@@ -173,7 +172,6 @@ comments: true
 
         node = (TreeNode *)malloc(sizeof(TreeNode));
         node->val = val;
-        node->height = 0;
         node->left = NULL;
         node->right = NULL;
         return node;
@@ -250,7 +248,7 @@ comments: true
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # 노드 사이의 참조(포인터) 연결
+    # 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -262,12 +260,12 @@ comments: true
     ```cpp title="binary_tree.cpp"
     /* 이진 트리 초기화 */
     // 노드 초기화
-    TreeNode* n1 = new TreeNode(1);
-    TreeNode* n2 = new TreeNode(2);
-    TreeNode* n3 = new TreeNode(3);
-    TreeNode* n4 = new TreeNode(4);
-    TreeNode* n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    TreeNode *n1 = new TreeNode(1);
+    TreeNode *n2 = new TreeNode(2);
+    TreeNode *n3 = new TreeNode(3);
+    TreeNode *n4 = new TreeNode(4);
+    TreeNode *n5 = new TreeNode(5);
+    // 노드 사이의 참조(포인터)를 설정한다
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -277,13 +275,14 @@ comments: true
 === "Java"
 
     ```java title="binary_tree.java"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -300,7 +299,7 @@ comments: true
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -317,7 +316,7 @@ comments: true
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -327,13 +326,14 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -350,7 +350,7 @@ comments: true
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -367,7 +367,7 @@ comments: true
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -379,12 +379,12 @@ comments: true
     ```dart title="binary_tree.dart"
     /* 이진 트리 초기화 */
     // 노드 초기화
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    TreeNode n1 = TreeNode(1);
+    TreeNode n2 = TreeNode(2);
+    TreeNode n3 = TreeNode(3);
+    TreeNode n4 = TreeNode(4);
+    TreeNode n5 = TreeNode(5);
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -394,17 +394,18 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // 노드 사이의 참조(포인터) 연결
-    n1.borrow_mut().left = Some(n2.clone());
-    n1.borrow_mut().right = Some(n3);
-    n2.borrow_mut().left = Some(n4);
-    n2.borrow_mut().right = Some(n5);
+    // 노드 사이의 참조(포인터)를 설정한다
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().right = Some(Rc::clone(&n3));
+    n2.borrow_mut().left = Some(Rc::clone(&n4));
+    n2.borrow_mut().right = Some(Rc::clone(&n5));
     ```
 
 === "C"
@@ -417,7 +418,7 @@ comments: true
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -427,13 +428,14 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* 이진 트리 초기화 */
     // 노드 초기화
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // 노드 사이의 참조(포인터) 연결
+    // 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -450,7 +452,7 @@ comments: true
     n3 = TreeNode.new(3)
     n4 = TreeNode.new(4)
     n5 = TreeNode.new(5)
-    # 노드 사이의 참조(포인터) 연결
+    # 노드 사이의 참조(포인터)를 설정한다
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -474,11 +476,11 @@ comments: true
 
     ```python title="binary_tree.py"
     # 노드 삽입과 삭제
-    p = TreeNode(0)
-    # n1 -> n2 사이에 노드 P 삽입
-    n1.left = p
-    p.left = n2
-    # 노드 P 삭제
+    P = TreeNode(0)
+    # n1 -> n2 사이에 노드 P를 삽입한다
+    n1.left = P
+    P.left = n2
+    # 노드 P를 삭제한다
     n1.left = n2
     ```
 
@@ -486,24 +488,24 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* 노드 삽입과 삭제 */
-    TreeNode* P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    TreeNode *P = new TreeNode(0);
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1->left = P;
     P->left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1->left = n2;
-    // 메모리 해제
-    delete P;
+    delete P; // 메모리 해제
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
+    /* 노드 삽입과 삭제 */
     TreeNode P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -512,10 +514,10 @@ comments: true
     ```csharp title="binary_tree.cs"
     /* 노드 삽입과 삭제 */
     TreeNode P = new(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -523,22 +525,23 @@ comments: true
 
     ```go title="binary_tree.go"
     /* 노드 삽입과 삭제 */
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.Left = n2
     ```
 
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* 노드 삽입과 삭제 */
     let P = TreeNode(x: 0)
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P
     P.left = n2
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2
     ```
 
@@ -546,11 +549,11 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* 노드 삽입과 삭제 */
-    let P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    const P = new TreeNode(0);
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -559,10 +562,10 @@ comments: true
     ```typescript title="binary_tree.ts"
     /* 노드 삽입과 삭제 */
     const P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P;
     P.left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
@@ -570,23 +573,25 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* 노드 삽입과 삭제 */
-    TreeNode P = new TreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
-    n1.left = P;
-    P.left = n2;
-    // 노드 P 삭제
+    TreeNode p = TreeNode(0);
+    // n1 -> n2 사이에 노드 P를 삽입한다
+    n1.left = p;
+    p.left = n2;
+    // 노드 P를 삭제한다
     n1.left = n2;
     ```
 
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    /* 노드 삽입과 삭제 */
     let p = TreeNode::new(0);
-    // n1 -> n2 사이에 노드 P 삽입
-    n1.borrow_mut().left = Some(p.clone());
-    p.borrow_mut().left = Some(n2.clone());
-    // 노드 p 삭제
-    n1.borrow_mut().left = Some(n2);
+    // n1 -> n2 사이에 노드 P를 삽입한다
+    p.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(Rc::clone(&p));
+    // 노드 P를 삭제한다
+    drop(p);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
     ```
 
 === "C"
@@ -594,10 +599,10 @@ comments: true
     ```c title="binary_tree.c"
     /* 노드 삽입과 삭제 */
     TreeNode *P = newTreeNode(0);
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1->left = P;
     P->left = n2;
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1->left = n2;
     // 메모리 해제
     free(P);
@@ -606,11 +611,12 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* 노드 삽입과 삭제 */
     val P = TreeNode(0)
-    // n1 -> n2 사이에 노드 P 삽입
+    // n1 -> n2 사이에 노드 P를 삽입한다
     n1.left = P
     P.left = n2
-    // 노드 P 삭제
+    // 노드 P를 삭제한다
     n1.left = n2
     ```
 
@@ -619,7 +625,7 @@ comments: true
     ```ruby title="binary_tree.rb"
     # 노드 삽입과 삭제
     _p = TreeNode.new(0)
-    # n1 -> n2 사이에 노드 _p 삽입
+    # n1 -> n2 사이에 노드 _p를 삽입한다
     n1.left = _p
     _p.left = n2
     # 노드 삭제
@@ -628,8 +634,8 @@ comments: true
 
 ??? pythontutor "실행 시각화"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%9D%98%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%BD%EC%9E%85%EA%B3%BC%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20p%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%EC%82%AC%EC%9D%B4%EC%97%90%20%EB%85%B8%EB%93%9C%20P%20%EC%82%BD%EC%9E%85%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20P%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%9D%98%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%BD%EC%9E%85%EA%B3%BC%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20p%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%EC%82%AC%EC%9D%B4%EC%97%90%20%EB%85%B8%EB%93%9C%20P%20%EC%82%BD%EC%9E%85%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20P%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%9D%98%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%BD%EC%9E%85%EA%B3%BC%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%EC%82%AC%EC%9D%B4%EC%97%90%20%EB%85%B8%EB%93%9C%20P%20%EC%82%BD%EC%9E%85%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20P%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%EC%99%BC%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%EC%98%A4%EB%A5%B8%EC%AA%BD%20%EC%9E%90%EC%8B%9D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EC%9D%B4%EC%A7%84%20%ED%8A%B8%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%AC%EC%9D%B4%EC%9D%98%20%EC%B0%B8%EC%A1%B0%28%ED%8F%AC%EC%9D%B8%ED%84%B0%29%20%EC%97%B0%EA%B2%B0%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EC%82%BD%EC%9E%85%EA%B3%BC%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%EC%82%AC%EC%9D%B4%EC%97%90%20%EB%85%B8%EB%93%9C%20P%20%EC%82%BD%EC%9E%85%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20P%20%EC%82%AD%EC%A0%9C%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
 !!! tip "참고"
 

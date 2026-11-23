@@ -26,7 +26,7 @@ comments: true
     ```python title="list.py"
     # 初始化串列
     # 無初始值
-    nums1: list[int] = []
+    empty_nums: list[int] = []
     # 有初始值
     nums: list[int] = [1, 3, 2, 5, 4]
     ```
@@ -35,11 +35,10 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 初始化串列 */
-    // 需注意，C++ 中 vector 即是本文描述的 nums
     // 無初始值
-    vector<int> nums1;
+    vector<int> emptyNums;
     // 有初始值
-    vector<int> nums = { 1, 3, 2, 5, 4 };
+    vector<int> nums = {1, 3, 2, 5, 4};
     ```
 
 === "Java"
@@ -47,8 +46,8 @@ comments: true
     ```java title="list.java"
     /* 初始化串列 */
     // 無初始值
-    List<Integer> nums1 = new ArrayList<>();
-    // 有初始值（注意陣列的元素型別需為 int[] 的包裝類別 Integer[]）
+    List<Integer> emptyNums = new ArrayList<>();
+    // 有初始值（注意陣列型別需為 Integer[] 而非 int[]，因為串列元素只能是 int 的包裝類別 Integer）
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -58,7 +57,7 @@ comments: true
     ```csharp title="list.cs"
     /* 初始化串列 */
     // 無初始值
-    List<int> nums1 = [];
+    List<int> emptyNums = [];
     // 有初始值
     int[] numbers = [1, 3, 2, 5, 4];
     List<int> nums = [.. numbers];
@@ -69,7 +68,7 @@ comments: true
     ```go title="list_test.go"
     /* 初始化串列 */
     // 無初始值
-    nums1 := []int{}
+    emptyNums := []int{}
     // 有初始值
     nums := []int{1, 3, 2, 5, 4}
     ```
@@ -79,7 +78,7 @@ comments: true
     ```swift title="list.swift"
     /* 初始化串列 */
     // 無初始值
-    let nums1: [Int] = []
+    let emptyNums: [Int] = []
     // 有初始值
     var nums = [1, 3, 2, 5, 4]
     ```
@@ -89,7 +88,7 @@ comments: true
     ```javascript title="list.js"
     /* 初始化串列 */
     // 無初始值
-    const nums1 = [];
+    const emptyNums = [];
     // 有初始值
     const nums = [1, 3, 2, 5, 4];
     ```
@@ -99,7 +98,7 @@ comments: true
     ```typescript title="list.ts"
     /* 初始化串列 */
     // 無初始值
-    const nums1: number[] = [];
+    const emptyNums: number[] = [];
     // 有初始值
     const nums: number[] = [1, 3, 2, 5, 4];
     ```
@@ -109,7 +108,7 @@ comments: true
     ```dart title="list.dart"
     /* 初始化串列 */
     // 無初始值
-    List<int> nums1 = [];
+    List<int> emptyNums = [];
     // 有初始值
     List<int> nums = [1, 3, 2, 5, 4];
     ```
@@ -117,9 +116,9 @@ comments: true
 === "Rust"
 
     ```rust title="list.rs"
-    /* 初始化串列 */
+    // 初始化串列
     // 無初始值
-    let nums1: Vec<i32> = Vec::new();
+    let empty_nums: Vec<i32> = Vec::new();
     // 有初始值
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
@@ -135,10 +134,9 @@ comments: true
     ```kotlin title="list.kt"
     /* 初始化串列 */
     // 無初始值
-    var nums1 = listOf<Int>()
+    val emptyNums = mutableListOf<Int>()
     // 有初始值
-    var numbers = arrayOf(1, 3, 2, 5, 4)
-    var nums = numbers.toMutableList()
+    val nums = mutableListOf(1, 3, 2, 5, 4)
     ```
 
 === "Ruby"
@@ -146,15 +144,15 @@ comments: true
     ```ruby title="list.rb"
     # 初始化串列
     # 無初始值
-    nums1 = []
+    empty_nums = []
     # 有初始值
     nums = [1, 3, 2, 5, 4]
     ```
 
 ??? pythontutor "視覺化執行"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20%23%20%E7%84%A1%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
 ### 2. &nbsp; 訪問元素
 
@@ -164,50 +162,50 @@ comments: true
 
     ```python title="list.py"
     # 訪問元素
-    num: int = nums[1]  # 訪問索引 1 處的元素
+    x: int = nums[1]  # 訪問索引 1 處的元素
 
     # 更新元素
-    nums[1] = 0    # 將索引 1 處的元素更新為 0
+    nums[1] = 0  # 將索引 1 處的元素更新為 0
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 訪問元素 */
-    int num = nums[1];  // 訪問索引 1 處的元素
+    int num = nums[1]; // 訪問索引 1 處的元素
 
     /* 更新元素 */
-    nums[1] = 0;  // 將索引 1 處的元素更新為 0
+    nums[1] = 0; // 將索引 1 處的元素更新為 0
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 訪問元素 */
-    int num = nums.get(1);  // 訪問索引 1 處的元素
+    int num = nums.get(1); // 訪問索引 1 處的元素
 
     /* 更新元素 */
-    nums.set(1, 0);  // 將索引 1 處的元素更新為 0
+    nums.set(1, 0); // 將索引 1 處的元素更新為 0
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* 訪問元素 */
-    int num = nums[1];  // 訪問索引 1 處的元素
+    int num = nums[1]; // 訪問索引 1 處的元素
 
     /* 更新元素 */
-    nums[1] = 0;  // 將索引 1 處的元素更新為 0
+    nums[1] = 0; // 將索引 1 處的元素更新為 0
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* 訪問元素 */
-    num := nums[1]  // 訪問索引 1 處的元素
+    num := nums[1] // 訪問索引 1 處的元素
 
     /* 更新元素 */
-    nums[1] = 0     // 將索引 1 處的元素更新為 0
+    nums[1] = 0 // 將索引 1 處的元素更新為 0
     ```
 
 === "Swift"
@@ -224,39 +222,40 @@ comments: true
 
     ```javascript title="list.js"
     /* 訪問元素 */
-    const num = nums[1];  // 訪問索引 1 處的元素
+    const num = nums[1]; // 訪問索引 1 處的元素
 
     /* 更新元素 */
-    nums[1] = 0;  // 將索引 1 處的元素更新為 0
+    nums[1] = 0; // 將索引 1 處的元素更新為 0
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 訪問元素 */
-    const num: number = nums[1];  // 訪問索引 1 處的元素
+    const num: number = nums[1]; // 訪問索引 1 處的元素
 
     /* 更新元素 */
-    nums[1] = 0;  // 將索引 1 處的元素更新為 0
+    nums[1] = 0; // 將索引 1 處的元素更新為 0
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* 訪問元素 */
-    int num = nums[1];  // 訪問索引 1 處的元素
+    int _num = nums[1]; // 訪問索引 1 處的元素
 
     /* 更新元素 */
-    nums[1] = 0;  // 將索引 1 處的元素更新為 0
+    nums[1] = 0; // 將索引 1 處的元素更新為 0
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 訪問元素 */
-    let num: i32 = nums[1];  // 訪問索引 1 處的元素
-    /* 更新元素 */
-    nums[1] = 0;             // 將索引 1 處的元素更新為 0
+    // 訪問元素
+    let num = nums[1]; // 訪問索引 1 處的元素
+
+    // 更新元素
+    nums[1] = 0; // 將索引 1 處的元素更新為 0
     ```
 
 === "C"
@@ -269,9 +268,10 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 訪問元素 */
-    val num = nums[1]       // 訪問索引 1 處的元素
+    val num = nums[1] // 訪問索引 1 處的元素
+
     /* 更新元素 */
-    nums[1] = 0             // 將索引 1 處的元素更新為 0
+    nums[1] = 0 // 將索引 1 處的元素更新為 0
     ```
 
 === "Ruby"
@@ -279,14 +279,15 @@ comments: true
     ```ruby title="list.rb"
     # 訪問元素
     num = nums[1] # 訪問索引 1 處的元素
+
     # 更新元素
     nums[1] = 0 # 將索引 1 處的元素更新為 0
     ```
 
 ??? pythontutor "視覺化執行"
 
-    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%A8%AA%E5%95%8F%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%87%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E7%82%BA%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%E8%A8%AA%E5%95%8F%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%87%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E7%82%BA%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
+    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="視覺化執行" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E8%A8%AA%E5%95%8F%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%87%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E7%82%BA%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%B2%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%E8%A8%AA%E5%95%8F%E5%85%83%E7%B4%A0%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%E8%A8%AA%E5%95%8F%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%0A%0A%20%20%20%20%23%20%E6%9B%B4%E6%96%B0%E5%85%83%E7%B4%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%E5%B0%87%E7%B4%A2%E5%BC%95%201%20%E8%99%95%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%B4%E6%96%B0%E7%82%BA%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全螢幕觀看 ></a></div>
 
 ### 3. &nbsp; 插入與刪除元素
 
@@ -309,7 +310,7 @@ comments: true
     nums.insert(3, 6)  # 在索引 3 處插入數字 6
 
     # 刪除元素
-    nums.pop(3)        # 刪除索引 3 處的元素
+    nums.pop(3)  # 刪除索引 3 處的元素
     ```
 
 === "C++"
@@ -326,10 +327,10 @@ comments: true
     nums.push_back(4);
 
     /* 在中間插入元素 */
-    nums.insert(nums.begin() + 3, 6);  // 在索引 3 處插入數字 6
+    nums.insert(nums.begin() + 3, 6); // 在索引 3 處插入數字 6
 
     /* 刪除元素 */
-    nums.erase(nums.begin() + 3);      // 刪除索引 3 處的元素
+    nums.erase(nums.begin() + 3); // 刪除索引 3 處的元素
     ```
 
 === "Java"
@@ -346,10 +347,10 @@ comments: true
     nums.add(4);
 
     /* 在中間插入元素 */
-    nums.add(3, 6);  // 在索引 3 處插入數字 6
+    nums.add(3, 6); // 在索引 3 處插入數字 6
 
     /* 刪除元素 */
-    nums.remove(3);  // 刪除索引 3 處的元素
+    nums.remove(3); // 刪除索引 3 處的元素
     ```
 
 === "C#"
@@ -366,10 +367,10 @@ comments: true
     nums.Add(4);
 
     /* 在中間插入元素 */
-    nums.Insert(3, 6);  // 在索引 3 處插入數字 6
+    nums.Insert(3, 6); // 在索引 3 處插入數字 6
 
     /* 刪除元素 */
-    nums.RemoveAt(3);  // 刪除索引 3 處的元素
+    nums.RemoveAt(3); // 刪除索引 3 處的元素
     ```
 
 === "Go"
@@ -429,7 +430,7 @@ comments: true
     nums.splice(3, 0, 6); // 在索引 3 處插入數字 6
 
     /* 刪除元素 */
-    nums.splice(3, 1);  // 刪除索引 3 處的元素
+    nums.splice(3, 1); // 刪除索引 3 處的元素
     ```
 
 === "TS"
@@ -449,7 +450,7 @@ comments: true
     nums.splice(3, 0, 6); // 在索引 3 處插入數字 6
 
     /* 刪除元素 */
-    nums.splice(3, 1);  // 刪除索引 3 處的元素
+    nums.splice(3, 1); // 刪除索引 3 處的元素
     ```
 
 === "Dart"
@@ -475,21 +476,21 @@ comments: true
 === "Rust"
 
     ```rust title="list.rs"
-    /* 清空串列 */
+    // 清空串列
     nums.clear();
 
-    /* 在尾部新增元素 */
+    // 在尾部新增元素
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 在中間插入元素 */
-    nums.insert(3, 6);  // 在索引 3 處插入數字 6
+    // 在中間插入元素
+    nums.insert(3, 6); // 在索引 3 處插入數字 6
 
-    /* 刪除元素 */
-    nums.remove(3);    // 刪除索引 3 處的元素
+    // 刪除元素
+    nums.remove(3); // 刪除索引 3 處的元素
     ```
 
 === "C"
@@ -502,20 +503,20 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 清空串列 */
-    nums.clear();
+    nums.clear()
 
     /* 在尾部新增元素 */
-    nums.add(1);
-    nums.add(3);
-    nums.add(2);
-    nums.add(5);
-    nums.add(4);
+    nums.add(1)
+    nums.add(3)
+    nums.add(2)
+    nums.add(5)
+    nums.add(4)
 
     /* 在中間插入元素 */
-    nums.add(3, 6);    // 在索引 3 處插入數字 6
+    nums.add(3, 6) // 在索引 3 處插入數字 6
 
     /* 刪除元素 */
-    nums.removeAt(3);  // 刪除索引 3 處的元素
+    nums.removeAt(3) // 刪除索引 3 處的元素
     ```
 
 === "Ruby"
@@ -571,8 +572,8 @@ comments: true
 
     /* 直接走訪串列元素 */
     count = 0;
-    for (int num : nums) {
-        count += num;
+    for (int x : nums) {
+        count += x;
     }
     ```
 
@@ -586,8 +587,8 @@ comments: true
     }
 
     /* 直接走訪串列元素 */
-    for (int num : nums) {
-        count += num;
+    for (int x : nums) {
+        count += x;
     }
     ```
 
@@ -602,8 +603,8 @@ comments: true
 
     /* 直接走訪串列元素 */
     count = 0;
-    foreach (int num in nums) {
-        count += num;
+    foreach (int x in nums) {
+        count += x;
     }
     ```
 
@@ -618,8 +619,8 @@ comments: true
 
     /* 直接走訪串列元素 */
     count = 0
-    for _, num := range nums {
-        count += num
+    for _, x := range nums {
+        count += x
     }
     ```
 
@@ -634,8 +635,8 @@ comments: true
 
     /* 直接走訪串列元素 */
     count = 0
-    for num in nums {
-        count += num
+    for x in nums {
+        count += x
     }
     ```
 
@@ -650,8 +651,8 @@ comments: true
 
     /* 直接走訪串列元素 */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
@@ -666,8 +667,8 @@ comments: true
 
     /* 直接走訪串列元素 */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
@@ -677,13 +678,13 @@ comments: true
     /* 透過索引走訪串列 */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
-        count += nums[i];
+      count += nums[i];
     }
 
     /* 直接走訪串列元素 */
     count = 0;
-    for (var num in nums) {
-        count += num;
+    for (var x in nums) {
+      count += x;
     }
     ```
 
@@ -698,8 +699,8 @@ comments: true
 
     // 直接走訪串列元素
     _count = 0;
-    for num in &nums {
-        _count += num;
+    for x in &nums {
+        _count += x;
     }
     ```
 
@@ -719,8 +720,8 @@ comments: true
     }
 
     /* 直接走訪串列元素 */
-    for (num in nums) {
-        count += num
+    for (j in nums) {
+        count += j
     }
     ```
 
@@ -730,13 +731,13 @@ comments: true
     # 透過索引走訪串列
     count = 0
     for i in 0...nums.length
-        count += nums[i]
+      count += nums[i]
     end
 
     # 直接走訪串列元素
     count = 0
-    for num in nums
-        count += num
+    nums.each do |x|
+      count += x
     end
     ```
 
@@ -753,7 +754,7 @@ comments: true
 
     ```python title="list.py"
     # 拼接兩個串列
-    nums1: list[int] = [6, 8, 7, 10, 9]
+    nums1 = [6, 8, 7, 10, 9]
     nums += nums1  # 將串列 nums1 拼接到 nums 之後
     ```
 
@@ -761,7 +762,7 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 拼接兩個串列 */
-    vector<int> nums1 = { 6, 8, 7, 10, 9 };
+    vector<int> nums1 = {6, 8, 7, 10, 9};
     // 將串列 nums1 拼接到 nums 之後
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
@@ -771,7 +772,7 @@ comments: true
     ```java title="list.java"
     /* 拼接兩個串列 */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1);  // 將串列 nums1 拼接到 nums 之後
+    nums.addAll(nums1); // 將串列 nums1 拼接到 nums 之後
     ```
 
 === "C#"
@@ -779,7 +780,7 @@ comments: true
     ```csharp title="list.cs"
     /* 拼接兩個串列 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1);  // 將串列 nums1 拼接到 nums 之後
+    nums.AddRange(nums1); // 將串列 nums1 拼接到 nums 之後
     ```
 
 === "Go"
@@ -787,7 +788,7 @@ comments: true
     ```go title="list_test.go"
     /* 拼接兩個串列 */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...)  // 將串列 nums1 拼接到 nums 之後
+    nums = append(nums, nums1...) // 將串列 nums1 拼接到 nums 之後
     ```
 
 === "Swift"
@@ -803,7 +804,7 @@ comments: true
     ```javascript title="list.js"
     /* 拼接兩個串列 */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // 將串列 nums1 拼接到 nums 之後
+    nums.push(...nums1); // 將串列 nums1 拼接到 nums 之後
     ```
 
 === "TS"
@@ -811,7 +812,7 @@ comments: true
     ```typescript title="list.ts"
     /* 拼接兩個串列 */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // 將串列 nums1 拼接到 nums 之後
+    nums.push(...nums1); // 將串列 nums1 拼接到 nums 之後
     ```
 
 === "Dart"
@@ -819,15 +820,15 @@ comments: true
     ```dart title="list.dart"
     /* 拼接兩個串列 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1);  // 將串列 nums1 拼接到 nums 之後
+    nums.addAll(nums1); // 將串列 nums1 拼接到 nums 之後
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 拼接兩個串列 */
-    let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
-    nums.extend(nums1);
+    // 拼接兩個串列
+    let mut nums1 = vec![6, 8, 7, 10, 9];
+    nums.append(&mut nums1); // append 會移走 nums1 的元素，之後 nums1 為空
     ```
 
 === "C"
@@ -840,8 +841,8 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 拼接兩個串列 */
-    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-    nums.addAll(nums1)  // 將串列 nums1 拼接到 nums 之後
+    val nums1 = mutableListOf(6, 8, 7, 10, 9)
+    nums.addAll(nums1) // 將串列 nums1 拼接到 nums 之後
     ```
 
 === "Ruby"
@@ -872,14 +873,14 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 排序串列 */
-    sort(nums.begin(), nums.end());  // 排序後，串列元素從小到大排列
+    sort(nums.begin(), nums.end()); // 排序後，串列元素從小到大排列
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 排序串列 */
-    Collections.sort(nums);  // 排序後，串列元素從小到大排列
+    Collections.sort(nums); // 排序後，串列元素從小到大排列
     ```
 
 === "C#"
@@ -893,7 +894,7 @@ comments: true
 
     ```go title="list_test.go"
     /* 排序串列 */
-    sort.Ints(nums)  // 排序後，串列元素從小到大排列
+    sort.Ints(nums) // 排序後，串列元素從小到大排列
     ```
 
 === "Swift"
@@ -907,14 +908,14 @@ comments: true
 
     ```javascript title="list.js"
     /* 排序串列 */
-    nums.sort((a, b) => a - b);  // 排序後，串列元素從小到大排列
+    nums.sort((a, b) => a - b); // 排序後，串列元素從小到大排列
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 排序串列 */
-    nums.sort((a, b) => a - b);  // 排序後，串列元素從小到大排列
+    nums.sort((a, b) => a - b); // 排序後，串列元素從小到大排列
     ```
 
 === "Dart"
@@ -927,7 +928,7 @@ comments: true
 === "Rust"
 
     ```rust title="list.rs"
-    /* 排序串列 */
+    // 排序串列
     nums.sort(); // 排序後，串列元素從小到大排列
     ```
 

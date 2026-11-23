@@ -36,27 +36,27 @@ comments: true
     from collections import deque
 
     # 큐 초기화
-    # Python에서는 보통 덱 클래스 deque를 큐로 사용한다
-    # queue.Queue()는 전용 큐 클래스이지만 사용이 불편하므로 권하지 않는다
+    # Python에서는 일반적으로 덱 클래스 deque를 큐로 사용한다
+    # queue.Queue()는 전용 큐 클래스이지만 사용하기가 그다지 편리하지 않아 권장하지 않는다
     que: deque[int] = deque()
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     que.append(1)
     que.append(3)
     que.append(2)
     que.append(5)
     que.append(4)
 
-    # 큐의 맨 앞 원소에 접근
+    # 맨 앞 원소 접근
     front: int = que[0]
 
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop: int = que.popleft()
 
-    # 큐 길이 구하기
+    # 큐의 길이 반환
     size: int = len(que)
 
-    # 큐가 비어 있는지 확인
+    # 큐가 비어 있는지 판단
     is_empty: bool = len(que) == 0
     ```
 
@@ -66,23 +66,23 @@ comments: true
     /* 큐 초기화 */
     queue<int> queue;
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     int front = queue.front();
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     queue.pop();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     int size = queue.size();
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     bool empty = queue.empty();
     ```
 
@@ -92,23 +92,23 @@ comments: true
     /* 큐 초기화 */
     Queue<Integer> queue = new LinkedList<>();
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.offer(1);
     queue.offer(3);
     queue.offer(2);
     queue.offer(5);
     queue.offer(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     int peek = queue.peek();
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     int pop = queue.poll();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     int size = queue.size();
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     boolean isEmpty = queue.isEmpty();
     ```
 
@@ -118,23 +118,23 @@ comments: true
     /* 큐 초기화 */
     Queue<int> queue = new();
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.Enqueue(1);
     queue.Enqueue(3);
     queue.Enqueue(2);
     queue.Enqueue(5);
     queue.Enqueue(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     int peek = queue.Peek();
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     int pop = queue.Dequeue();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     int size = queue.Count;
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     bool isEmpty = queue.Count == 0;
     ```
 
@@ -145,24 +145,24 @@ comments: true
     // Go에서는 list를 큐로 사용한다
     queue := list.New()
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.PushBack(1)
     queue.PushBack(3)
     queue.PushBack(2)
     queue.PushBack(5)
     queue.PushBack(4)
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     peek := queue.Front()
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     pop := queue.Front()
     queue.Remove(pop)
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     size := queue.Len()
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     isEmpty := queue.Len() == 0
     ```
 
@@ -173,24 +173,24 @@ comments: true
     // Swift에는 내장 큐 클래스가 없으므로 Array를 큐로 사용할 수 있다
     var queue: [Int] = []
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.append(1)
     queue.append(3)
     queue.append(2)
     queue.append(5)
     queue.append(4)
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     let peek = queue.first!
 
-    /* 큐에서 원소 꺼내기 */
-    // 배열이므로 removeFirst의 복잡도는 O(n)이다
+    /* 원소 꺼내기 */
+    // Array로 구현할 때 removeFirst의 복잡도는 O(n)이다
     let pop = queue.removeFirst()
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     let size = queue.count
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     let isEmpty = queue.isEmpty
     ```
 
@@ -201,25 +201,25 @@ comments: true
     // JavaScript에는 내장 큐가 없으므로 Array를 큐로 사용할 수 있다
     const queue = [];
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     const peek = queue[0];
 
-    /* 큐에서 원소 꺼내기 */
-    // 기반이 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
+    /* 원소 꺼내기 */
+    // 내부 자료 구조가 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
     const pop = queue.shift();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     const size = queue.length;
 
-    /* 큐가 비어 있는지 확인 */
-    const empty = queue.length === 0;
+    /* 큐가 비어 있는지 판단 */
+    const isEmpty = queue.length === 0;
     ```
 
 === "TS"
@@ -229,81 +229,79 @@ comments: true
     // TypeScript에는 내장 큐가 없으므로 Array를 큐로 사용할 수 있다
     const queue: number[] = [];
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
     queue.push(5);
     queue.push(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     const peek = queue[0];
 
-    /* 큐에서 원소 꺼내기 */
-    // 기반이 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
+    /* 원소 꺼내기 */
+    // 내부 자료 구조가 배열이므로 shift() 메서드의 시간 복잡도는 O(n)이다
     const pop = queue.shift();
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     const size = queue.length;
 
-    /* 큐가 비어 있는지 확인 */
-    const empty = queue.length === 0;
+    /* 큐가 비어 있는지 판단 */
+    const isEmpty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
     /* 큐 초기화 */
-    // Dart의 Queue 클래스는 덱이며 일반 큐로도 사용할 수 있다
-    Queue<int> queue = Queue();
+    // Dart에서는 일반적으로 덱 클래스 Queue를 큐로 사용한다
+    final Queue<int> queue = Queue();
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.add(1);
     queue.add(3);
     queue.add(2);
     queue.add(5);
     queue.add(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
-    int peek = queue.first;
+    /* 맨 앞 원소 접근 */
+    final int peek = queue.first;
 
-    /* 큐에서 원소 꺼내기 */
-    int pop = queue.removeFirst();
+    /* 원소 꺼내기 */
+    final int pop = queue.removeFirst();
 
-    /* 큐 길이 구하기 */
-    int size = queue.length;
+    /* 큐의 길이 반환 */
+    final int size = queue.length;
 
-    /* 큐가 비어 있는지 확인 */
-    bool isEmpty = queue.isEmpty;
+    /* 큐가 비어 있는지 판단 */
+    final bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"
 
     ```rust title="queue.rs"
-    /* 덱 초기화 */
-    // Rust에서는 덱을 일반 큐로 사용한다
-    let mut deque: VecDeque<u32> = VecDeque::new();
+    // 큐 초기화
+    // Rust에서는 일반적으로 덱 VecDeque를 큐로 사용한다
+    let mut queue: VecDeque<i32> = VecDeque::new();
 
-    /* 큐에 원소 삽입 */
-    deque.push_back(1);
-    deque.push_back(3);
-    deque.push_back(2);
-    deque.push_back(5);
-    deque.push_back(4);
+    // 원소 삽입
+    queue.push_back(1);
+    queue.push_back(3);
+    queue.push_back(2);
+    queue.push_back(5);
+    queue.push_back(4);
 
-    /* 큐의 맨 앞 원소에 접근 */
-    if let Some(front) = deque.front() {
-    }
+    // 맨 앞 원소 접근
+    let peek = queue.front().unwrap();
 
-    /* 큐에서 원소 꺼내기 */
-    if let Some(pop) = deque.pop_front() {
-    }
+    // 원소 꺼내기
+    let pop = queue.pop_front().unwrap();
 
-    /* 큐 길이 구하기 */
-    let size = deque.len();
+    // 큐의 길이 반환
+    let size = queue.len();
 
-    /* 큐가 비어 있는지 확인 */
-    let is_empty = deque.is_empty();
+    // 큐가 비어 있는지 판단
+    let is_empty = queue.is_empty();
     ```
 
 === "C"
@@ -318,23 +316,23 @@ comments: true
     /* 큐 초기화 */
     val queue = LinkedList<Int>()
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
     queue.offer(5)
     queue.offer(4)
 
-    /* 큐의 맨 앞 원소에 접근 */
+    /* 맨 앞 원소 접근 */
     val peek = queue.peek()
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     val pop = queue.poll()
 
-    /* 큐 길이 구하기 */
+    /* 큐의 길이 반환 */
     val size = queue.size
 
-    /* 큐가 비어 있는지 확인 */
+    /* 큐가 비어 있는지 판단 */
     val isEmpty = queue.isEmpty()
     ```
 
@@ -342,27 +340,27 @@ comments: true
 
     ```ruby title="queue.rb"
     # 큐 초기화
-    # Ruby의 내장 큐(Thread::Queue)에는 peek와 순회 메서드가 없으므로 Array를 큐로 사용할 수 있다
+    # Ruby의 내장 큐(Thread::Queue)에는 peek 메서드와 순회 메서드가 없으므로 Array를 큐로 사용할 수 있다
     queue = []
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     queue.push(1)
     queue.push(3)
     queue.push(2)
     queue.push(5)
     queue.push(4)
 
-    # 큐 원소에 접근
+    # 큐 원소 접근
     peek = queue.first
 
-    # 큐에서 원소 꺼내기
-    # 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 주의
+    # 원소 꺼내기
+    # 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 유의한다
     pop = queue.shift
 
-    # 큐 길이 구하기
+    # 큐의 길이 반환
     size = queue.length
 
-    # 큐가 비어 있는지 확인
+    # 큐가 비어 있는지 판단
     is_empty = queue.empty?
     ```
 
@@ -413,7 +411,7 @@ comments: true
             return self._size == 0
 
         def push(self, num: int):
-            """큐에 삽입"""
+            """원소 삽입"""
             # 꼬리 노드 뒤에 num을 추가한다
             node = ListNode(num)
             # 큐가 비어 있으면 머리와 꼬리 노드가 모두 해당 노드를 가리키게 한다
@@ -427,7 +425,7 @@ comments: true
             self._size += 1
 
         def pop(self) -> int:
-            """큐에서 꺼내기"""
+            """원소 꺼내기"""
             num = self.peek()
             # 머리 노드를 삭제한다
             self._front = self._front.next
@@ -481,7 +479,7 @@ comments: true
             return queSize == 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         void push(int num) {
             // 꼬리 노드 뒤에 num을 추가한다
             ListNode *node = new ListNode(num);
@@ -498,7 +496,7 @@ comments: true
             queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         int pop() {
             int num = peek();
             // 머리 노드를 삭제한다
@@ -553,7 +551,7 @@ comments: true
             return size() == 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         public void push(int num) {
             // 꼬리 노드 뒤에 num을 추가한다
             ListNode node = new ListNode(num);
@@ -569,7 +567,7 @@ comments: true
             queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         public int pop() {
             int num = peek();
             // 머리 노드를 삭제한다
@@ -621,7 +619,7 @@ comments: true
             return Size() == 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         public void Push(int num) {
             // 꼬리 노드 뒤에 num을 추가한다
             ListNode node = new(num);
@@ -637,7 +635,7 @@ comments: true
             queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         public int Pop() {
             int num = Peek();
             // 머리 노드를 삭제한다
@@ -685,12 +683,12 @@ comments: true
         }
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     func (s *linkedListQueue) push(value any) {
         s.data.PushBack(value)
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     func (s *linkedListQueue) pop() any {
         if s.isEmpty() {
             return nil
@@ -748,7 +746,7 @@ comments: true
             size() == 0
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         func push(num: Int) {
             // 꼬리 노드 뒤에 num을 추가한다
             let node = ListNode(x: num)
@@ -765,7 +763,7 @@ comments: true
             _size += 1
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         @discardableResult
         func pop() -> Int {
             let num = peek()
@@ -820,7 +818,7 @@ comments: true
             return this.size === 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         push(num) {
             // 꼬리 노드 뒤에 num을 추가한다
             const node = new ListNode(num);
@@ -836,7 +834,7 @@ comments: true
             this.#queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         pop() {
             const num = this.peek();
             // 머리 노드를 삭제한다
@@ -888,7 +886,7 @@ comments: true
             return this.size === 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         push(num: number): void {
             // 꼬리 노드 뒤에 num을 추가한다
             const node = new ListNode(num);
@@ -904,7 +902,7 @@ comments: true
             this.queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         pop(): number {
             const num = this.peek();
             if (!this.front) throw new Error('큐가 비어 있다');
@@ -957,7 +955,7 @@ comments: true
         return _queSize == 0;
       }
 
-      /* 큐에 삽입 */
+      /* 원소 삽입 */
       void push(int _num) {
         // 꼬리 노드 뒤에 _num을 추가한다
         final node = ListNode(_num);
@@ -973,7 +971,7 @@ comments: true
         _queSize++;
       }
 
-      /* 큐에서 꺼내기 */
+      /* 원소 꺼내기 */
       int pop() {
         final int _num = peek();
         // 머리 노드를 삭제한다
@@ -1033,7 +1031,7 @@ comments: true
             return self.que_size == 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         pub fn push(&mut self, num: T) {
             // 꼬리 노드 뒤에 num을 추가한다
             let new_rear = ListNode::new(num);
@@ -1052,7 +1050,7 @@ comments: true
             self.que_size += 1;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         pub fn pop(&mut self) -> Option<T> {
             self.front.take().map(|old_front| {
                 match old_front.borrow_mut().next.take() {
@@ -1131,7 +1129,7 @@ comments: true
         return (size(queue) == 0);
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     void push(LinkedListQueue *queue, int num) {
         // 꼬리 노드 위치에 node를 추가한다
         ListNode *node = newListNode(num);
@@ -1154,7 +1152,7 @@ comments: true
         return queue->front->val;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     int pop(LinkedListQueue *queue) {
         int num = peek(queue);
         ListNode *tmp = queue->front;
@@ -1200,7 +1198,7 @@ comments: true
             return size() == 0
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         fun push(num: Int) {
             // 꼬리 노드 뒤에 num을 추가한다
             val node = ListNode(num)
@@ -1216,7 +1214,7 @@ comments: true
             queSize++
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         fun pop(): Int {
             val num = peek()
             // 머리 노드를 삭제한다
@@ -1264,7 +1262,7 @@ comments: true
         @front.nil?
       end
 
-      ### 큐에 삽입 ###
+      ### 원소 삽입 ###
       def push(num)
         # 꼬리 노드 뒤에 num을 추가한다
         node = ListNode.new(num)
@@ -1282,7 +1280,7 @@ comments: true
         @size += 1
       end
 
-      ### 큐에서 꺼내기 ###
+      ### 원소 꺼내기 ###
       def pop
         num = peek
         # 머리 노드를 삭제한다
@@ -1313,8 +1311,8 @@ comments: true
 
 ??? pythontutor "코드 시각화"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%8B%A4%EC%9D%8C%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20front%0A%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20rear%0A%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20self._size%0A%0A%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20%20%20return%20not%20self._front%0A%0A%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%97%90%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20num%EC%9D%84%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%9C%BC%EB%A9%B4%20%EB%A8%B8%EB%A6%AC%EC%99%80%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%EA%B0%80%20%EB%AA%A8%EB%91%90%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%A7%80%20%EC%95%8A%EC%9C%BC%EB%A9%B4%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EC%82%AD%EC%A0%9C%ED%95%9C%EB%8B%A4%0A%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20return%20num%0A%0A%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20%20%20return%20self._front.val%0A%0A%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EB%B3%80%ED%99%98%22%22%22%0A%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20return%20queue%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%20%23%20%ED%81%90%EC%97%90%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20%20queue.push%281%29%0A%20%20queue.push%283%29%0A%20%20queue.push%282%29%0A%20%20queue.push%285%29%0A%20%20queue.push%284%29%0A%20%20print%28%22%ED%81%90%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20peek%20%3D%20queue.peek%28%29%0A%20%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20front%20%3D%22,%20peek%29%0A%0A%20%20%23%20%ED%81%90%EC%97%90%EC%84%9C%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop_front%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%ED%9B%84%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20%20size%20%3D%20queue.size%28%29%0A%20%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%8B%A4%EC%9D%8C%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20front%0A%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20rear%0A%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20self._size%0A%0A%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20%20%20return%20not%20self._front%0A%0A%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%97%90%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20num%EC%9D%84%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%9C%BC%EB%A9%B4%20%EB%A8%B8%EB%A6%AC%EC%99%80%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%EA%B0%80%20%EB%AA%A8%EB%91%90%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%A7%80%20%EC%95%8A%EC%9C%BC%EB%A9%B4%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EC%82%AD%EC%A0%9C%ED%95%9C%EB%8B%A4%0A%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20return%20num%0A%0A%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20%20%20return%20self._front.val%0A%0A%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EB%B3%80%ED%99%98%22%22%22%0A%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20return%20queue%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%20%23%20%ED%81%90%EC%97%90%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20%20queue.push%281%29%0A%20%20queue.push%283%29%0A%20%20queue.push%282%29%0A%20%20queue.push%285%29%0A%20%20queue.push%284%29%0A%20%20print%28%22%ED%81%90%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20peek%20%3D%20queue.peek%28%29%0A%20%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20front%20%3D%22,%20peek%29%0A%0A%20%20%23%20%ED%81%90%EC%97%90%EC%84%9C%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop_front%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%ED%9B%84%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20%20size%20%3D%20queue.size%28%29%0A%20%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%8B%A4%EC%9D%8C%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20front%0A%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20rear%0A%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20self._size%0A%0A%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20%20%20return%20not%20self._front%0A%0A%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20num%EC%9D%84%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%9C%BC%EB%A9%B4%20%EB%A8%B8%EB%A6%AC%EC%99%80%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%EA%B0%80%20%EB%AA%A8%EB%91%90%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%A7%80%20%EC%95%8A%EC%9C%BC%EB%A9%B4%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EC%82%AD%EC%A0%9C%ED%95%9C%EB%8B%A4%0A%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20return%20num%0A%0A%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20%20%20return%20self._front.val%0A%0A%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EB%B3%80%ED%99%98%22%22%22%0A%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20return%20queue%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20%20queue.push%281%29%0A%20%20queue.push%283%29%0A%20%20queue.push%282%29%0A%20%20queue.push%285%29%0A%20%20queue.push%284%29%0A%20%20print%28%22%ED%81%90%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20peek%20%3D%20queue.peek%28%29%0A%20%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20front%20%3D%22,%20peek%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop_front%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%ED%9B%84%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20%20size%20%3D%20queue.size%28%29%0A%20%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%8B%A4%EC%9D%8C%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%0Aclass%20LinkedListQueue%3A%0A%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20%20def%20__init__%28self%29%3A%0A%20%20%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20%20%20self._front%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%20front%0A%20%20%20%20self._rear%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20rear%0A%20%20%20%20self._size%3A%20int%20%3D%200%0A%0A%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20self._size%0A%0A%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20%20%20return%20not%20self._front%0A%0A%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20%20%20%23%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20num%EC%9D%84%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20node%20%3D%20ListNode%28num%29%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%9C%BC%EB%A9%B4%20%EB%A8%B8%EB%A6%AC%EC%99%80%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%EA%B0%80%20%EB%AA%A8%EB%91%90%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20if%20self._front%20is%20None%3A%0A%20%20%20%20%20%20self._front%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EC%A7%80%20%EC%95%8A%EC%9C%BC%EB%A9%B4%20%ED%95%B4%EB%8B%B9%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EA%BC%AC%EB%A6%AC%20%EB%85%B8%EB%93%9C%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20self._rear.next%20%3D%20node%0A%20%20%20%20%20%20self._rear%20%3D%20node%0A%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20%20%20num%20%3D%20self.peek%28%29%0A%20%20%20%20%23%20%EB%A8%B8%EB%A6%AC%20%EB%85%B8%EB%93%9C%EB%A5%BC%20%EC%82%AD%EC%A0%9C%ED%95%9C%EB%8B%A4%0A%20%20%20%20self._front%20%3D%20self._front.next%0A%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20return%20num%0A%0A%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20%20%20return%20self._front.val%0A%0A%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A1%9C%20%EB%B3%80%ED%99%98%22%22%22%0A%20%20%20%20queue%20%3D%20%5B%5D%0A%20%20%20%20temp%20%3D%20self._front%0A%20%20%20%20while%20temp%3A%0A%20%20%20%20%20%20queue.append%28temp.val%29%0A%20%20%20%20%20%20temp%20%3D%20temp.next%0A%20%20%20%20return%20queue%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20queue%20%3D%20LinkedListQueue%28%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20%20queue.push%281%29%0A%20%20queue.push%283%29%0A%20%20queue.push%282%29%0A%20%20queue.push%285%29%0A%20%20queue.push%284%29%0A%20%20print%28%22%ED%81%90%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20peek%20%3D%20queue.peek%28%29%0A%20%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20front%20%3D%22,%20peek%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20%20pop_front%20%3D%20queue.pop%28%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop_front%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%ED%9B%84%20queue%20%3D%22,%20queue.to_list%28%29%29%0A%0A%20%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20%20size%20%3D%20queue.size%28%29%0A%20%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
 ### 2. &nbsp; 배열 기반 구현
 
@@ -1369,7 +1367,7 @@ comments: true
             return self._size == 0
 
         def push(self, num: int):
-            """큐에 삽입"""
+            """원소 삽입"""
             if self._size == self.capacity():
                 raise IndexError("큐가 가득 찼다")
             # 맨 뒤 인덱스 + 1을 가리키는 맨 뒤 포인터를 계산한다
@@ -1380,7 +1378,7 @@ comments: true
             self._size += 1
 
         def pop(self) -> int:
-            """큐에서 꺼내기"""
+            """원소 꺼내기"""
             num: int = self.peek()
             # 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
             self._front = (self._front + 1) % self.capacity()
@@ -1441,7 +1439,7 @@ comments: true
             return size() == 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         void push(int num) {
             if (queSize == queCapacity) {
                 cout << "큐가 가득 찼다" << endl;
@@ -1455,7 +1453,7 @@ comments: true
             queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         int pop() {
             int num = peek();
             // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -1512,7 +1510,7 @@ comments: true
             return queSize == 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         public void push(int num) {
             if (queSize == capacity()) {
                 System.out.println("큐가 가득 찼다");
@@ -1526,7 +1524,7 @@ comments: true
             queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         public int pop() {
             int num = peek();
             // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -1583,7 +1581,7 @@ comments: true
             return queSize == 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         public void Push(int num) {
             if (queSize == Capacity()) {
                 Console.WriteLine("큐가 가득 찼다");
@@ -1597,7 +1595,7 @@ comments: true
             queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         public int Pop() {
             int num = Peek();
             // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -1656,7 +1654,7 @@ comments: true
         return q.queSize == 0
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     func (q *arrayQueue) push(num int) {
         // rear == queCapacity이면 큐가 가득 찼음을 나타낸다
         if q.queSize == q.queCapacity {
@@ -1670,7 +1668,7 @@ comments: true
         q.queSize++
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     func (q *arrayQueue) pop() any {
         num := q.peek()
         if num == nil {
@@ -1733,7 +1731,7 @@ comments: true
             size() == 0
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         func push(num: Int) {
             if size() == capacity() {
                 print("큐가 가득 찼다")
@@ -1747,7 +1745,7 @@ comments: true
             _size += 1
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         @discardableResult
         func pop() -> Int {
             let num = peek()
@@ -1801,7 +1799,7 @@ comments: true
             return this.#queSize === 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         push(num) {
             if (this.size === this.capacity) {
                 console.log('큐가 가득 찼다');
@@ -1815,7 +1813,7 @@ comments: true
             this.#queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         pop() {
             const num = this.peek();
             // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -1871,7 +1869,7 @@ comments: true
             return this.queSize === 0;
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         push(num: number): void {
             if (this.size === this.capacity) {
                 console.log('큐가 가득 찼다');
@@ -1885,7 +1883,7 @@ comments: true
             this.queSize++;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         pop(): number {
             const num = this.peek();
             // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -1941,7 +1939,7 @@ comments: true
         return _queSize == 0;
       }
 
-      /* 큐에 삽입 */
+      /* 원소 삽입 */
       void push(int _num) {
         if (_queSize == capaCity()) {
           throw Exception("큐가 가득 찼다");
@@ -1954,7 +1952,7 @@ comments: true
         _queSize++;
       }
 
-      /* 큐에서 꺼내기 */
+      /* 원소 꺼내기 */
       int pop() {
         int _num = peek();
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -2020,7 +2018,7 @@ comments: true
             self.que_size == 0
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         fn push(&mut self, num: T) {
             if self.que_size == self.capacity() {
                 println!("큐가 가득 찼다");
@@ -2034,7 +2032,7 @@ comments: true
             self.que_size += 1;
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         fn pop(&mut self) -> T {
             let num = self.peek();
             // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -2113,7 +2111,7 @@ comments: true
         return queue->nums[queue->front];
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     void push(ArrayQueue *queue, int num) {
         if (size(queue) == capacity(queue)) {
             printf("큐가 가득 찼다\r\n");
@@ -2127,7 +2125,7 @@ comments: true
         queue->queSize++;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     int pop(ArrayQueue *queue) {
         int num = peek(queue);
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -2173,7 +2171,7 @@ comments: true
             return queSize == 0
         }
 
-        /* 큐에 삽입 */
+        /* 원소 삽입 */
         fun push(num: Int) {
             if (queSize == capacity()) {
                 println("큐가 가득 찼다")
@@ -2187,7 +2185,7 @@ comments: true
             queSize++
         }
 
-        /* 큐에서 꺼내기 */
+        /* 원소 꺼내기 */
         fun pop(): Int {
             val num = peek()
             // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -2243,7 +2241,7 @@ comments: true
         size.zero?
       end
 
-      ### 큐에 삽입 ###
+      ### 원소 삽입 ###
       def push(num)
         raise IndexError, '큐가 가득 찼다' if size == capacity
 
@@ -2255,7 +2253,7 @@ comments: true
         @size += 1
       end
 
-      ### 큐에서 꺼내기 ###
+      ### 원소 꺼내기 ###
       def pop
         num = peek
         # 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -2288,8 +2286,8 @@ comments: true
 
 ??? pythontutor "코드 시각화"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%22%22%22%EC%9B%90%ED%98%95%20%EB%B0%B0%EC%97%B4%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20%ED%81%90%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94%20%EB%B0%B0%EC%97%B4%0A%20%20self._front%3A%20int%20%3D%200%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%0A%20%20self._size%3A%20int%20%3D%200%20%20%23%20%ED%81%90%20%EA%B8%B8%EC%9D%B4%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%ED%81%90%EC%9D%98%20%EC%9A%A9%EB%9F%89%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20return%20len%28self._nums%29%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20return%20self._size%20%3D%3D%200%0A%0A%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%ED%81%90%EC%97%90%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EA%B0%80%EB%93%9D%20%EC%B0%BC%EB%8B%A4%22%29%0A%20%20%23%20%EB%A7%A8%20%EB%92%A4%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%2B%201%EC%9D%84%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EB%92%A4%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EA%B3%84%EC%82%B0%ED%95%9C%EB%8B%A4%0A%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%20%EC%97%B0%EC%82%B0%EC%9D%84%20%ED%86%B5%ED%95%B4%20rear%EA%B0%80%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%23%20num%EC%9D%84%20%EB%A7%A8%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EB%92%A4%EB%A1%9C%20%ED%95%9C%20%EC%B9%B8%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B3%A0,%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A8%EB%8B%A4%0A%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20if%20self.is_empty%28%29%3A%0A%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20return%20self._nums%5Bself._front%5D%0A%0A%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20j%3A%20int%20%3D%20self._front%0A%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20j%20%2B%3D%201%0A%20%20return%20res%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%23%20%ED%81%90%EC%97%90%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20queue.push%281%29%0A%20queue.push%283%29%0A%20queue.push%282%29%0A%20queue.push%285%29%0A%20queue.push%284%29%0A%0A%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20peek%20%3D%20queue.peek%28%29%0A%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20peek%20%3D%22,%20peek%29%0A%0A%20%23%20%ED%81%90%EC%97%90%EC%84%9C%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20pop%20%3D%20queue.pop%28%29%0A%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop%29%0A%0A%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20size%20%3D%20queue.size%28%29%0A%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20is_empty%20%3D%20queue.is_empty%28%29%0A%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%22%22%22%EC%9B%90%ED%98%95%20%EB%B0%B0%EC%97%B4%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20%ED%81%90%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94%20%EB%B0%B0%EC%97%B4%0A%20%20self._front%3A%20int%20%3D%200%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%0A%20%20self._size%3A%20int%20%3D%200%20%20%23%20%ED%81%90%20%EA%B8%B8%EC%9D%B4%0A%0A%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%ED%81%90%EC%9D%98%20%EC%9A%A9%EB%9F%89%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20return%20len%28self._nums%29%0A%0A%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20return%20self._size%0A%0A%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20return%20self._size%20%3D%3D%200%0A%0A%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%22%22%22%ED%81%90%EC%97%90%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EA%B0%80%EB%93%9D%20%EC%B0%BC%EB%8B%A4%22%29%0A%20%20%23%20%EB%A7%A8%20%EB%92%A4%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%2B%201%EC%9D%84%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EB%92%A4%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EA%B3%84%EC%82%B0%ED%95%9C%EB%8B%A4%0A%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%20%EC%97%B0%EC%82%B0%EC%9D%84%20%ED%86%B5%ED%95%B4%20rear%EA%B0%80%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%23%20num%EC%9D%84%20%EB%A7%A8%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20self._size%20%2B%3D%201%0A%0A%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EB%92%A4%EB%A1%9C%20%ED%95%9C%20%EC%B9%B8%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B3%A0,%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A8%EB%8B%A4%0A%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20self._size%20-%3D%201%0A%20%20return%20num%0A%0A%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20if%20self.is_empty%28%29%3A%0A%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20return%20self._nums%5Bself._front%5D%0A%0A%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20j%3A%20int%20%3D%20self._front%0A%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20j%20%2B%3D%201%0A%20%20return%20res%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%23%20%ED%81%90%EC%97%90%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20queue.push%281%29%0A%20queue.push%283%29%0A%20queue.push%282%29%0A%20queue.push%285%29%0A%20queue.push%284%29%0A%0A%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20peek%20%3D%20queue.peek%28%29%0A%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20peek%20%3D%22,%20peek%29%0A%0A%20%23%20%ED%81%90%EC%97%90%EC%84%9C%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20pop%20%3D%20queue.pop%28%29%0A%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop%29%0A%0A%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20size%20%3D%20queue.size%28%29%0A%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20is_empty%20%3D%20queue.is_empty%28%29%0A%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%20%22%22%22%EC%9B%90%ED%98%95%20%EB%B0%B0%EC%97%B4%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20%ED%81%90%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94%20%EB%B0%B0%EC%97%B4%0A%20%20%20%20self._front%3A%20int%20%3D%200%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%0A%20%20%20%20self._size%3A%20int%20%3D%200%20%20%23%20%ED%81%90%20%EA%B8%B8%EC%9D%B4%0A%0A%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EC%9A%A9%EB%9F%89%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20len%28self._nums%29%0A%0A%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20self._size%0A%0A%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20%20%20return%20self._size%20%3D%3D%200%0A%0A%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EA%B0%80%EB%93%9D%20%EC%B0%BC%EB%8B%A4%22%29%0A%20%20%20%20%23%20%EB%A7%A8%20%EB%92%A4%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%2B%201%EC%9D%84%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EB%92%A4%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EA%B3%84%EC%82%B0%ED%95%9C%EB%8B%A4%0A%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%20%EC%97%B0%EC%82%B0%EC%9D%84%20%ED%86%B5%ED%95%B4%20rear%EA%B0%80%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%20%20%23%20num%EC%9D%84%20%EB%A7%A8%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EB%92%A4%EB%A1%9C%20%ED%95%9C%20%EC%B9%B8%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B3%A0,%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A8%EB%8B%A4%0A%20%20%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20return%20num%0A%0A%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20%20%20return%20self._nums%5Bself._front%5D%0A%0A%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20%20%20j%3A%20int%20%3D%20self._front%0A%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20%20queue.push%281%29%0A%20%20queue.push%283%29%0A%20%20queue.push%282%29%0A%20%20queue.push%285%29%0A%20%20queue.push%284%29%0A%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20peek%20%3D%20queue.peek%28%29%0A%20%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20peek%20%3D%22,%20peek%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20%20pop%20%3D%20queue.pop%28%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop%29%0A%0A%20%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20%20size%20%3D%20queue.size%28%29%0A%20%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ArrayQueue%3A%0A%20%20%22%22%22%EC%9B%90%ED%98%95%20%EB%B0%B0%EC%97%B4%EB%A1%9C%20%EA%B5%AC%ED%98%84%ED%95%9C%20%ED%81%90%22%22%22%0A%0A%20%20def%20__init__%28self,%20size%3A%20int%29%3A%0A%20%20%20%20%22%22%22%EC%83%9D%EC%84%B1%EC%9E%90%22%22%22%0A%20%20%20%20self._nums%3A%20list%5Bint%5D%20%3D%20%5B0%5D%20%2A%20size%20%20%23%20%ED%81%90%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94%20%EB%B0%B0%EC%97%B4%0A%20%20%20%20self._front%3A%20int%20%3D%200%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%0A%20%20%20%20self._size%3A%20int%20%3D%200%20%20%23%20%ED%81%90%20%EA%B8%B8%EC%9D%B4%0A%0A%20%20def%20capacity%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EC%9A%A9%EB%9F%89%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20len%28self._nums%29%0A%0A%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20return%20self._size%0A%0A%20%20def%20is_empty%28self%29%20-%3E%20bool%3A%0A%20%20%20%20%22%22%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%22%22%22%0A%20%20%20%20return%20self._size%20%3D%3D%200%0A%0A%20%20def%20push%28self,%20num%3A%20int%29%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%22%22%22%0A%20%20%20%20if%20self._size%20%3D%3D%20self.capacity%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EA%B0%80%EB%93%9D%20%EC%B0%BC%EB%8B%A4%22%29%0A%20%20%20%20%23%20%EB%A7%A8%20%EB%92%A4%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%20%2B%201%EC%9D%84%20%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94%20%EB%A7%A8%20%EB%92%A4%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EA%B3%84%EC%82%B0%ED%95%9C%EB%8B%A4%0A%20%20%20%20%23%20%EB%82%98%EB%A8%B8%EC%A7%80%20%EC%97%B0%EC%82%B0%EC%9D%84%20%ED%86%B5%ED%95%B4%20rear%EA%B0%80%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A4%EA%B2%8C%20%ED%95%9C%EB%8B%A4%0A%20%20%20%20rear%3A%20int%20%3D%20%28self._front%20%2B%20self._size%29%20%25%20self.capacity%28%29%0A%20%20%20%20%23%20num%EC%9D%84%20%EB%A7%A8%20%EB%92%A4%EC%97%90%20%EC%B6%94%EA%B0%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20self._nums%5Brear%5D%20%3D%20num%0A%20%20%20%20self._size%20%2B%3D%201%0A%0A%20%20def%20pop%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%22%22%22%0A%20%20%20%20num%3A%20int%20%3D%20self.peek%28%29%0A%20%20%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%ED%8F%AC%EC%9D%B8%ED%84%B0%EB%A5%BC%20%EB%92%A4%EB%A1%9C%20%ED%95%9C%20%EC%B9%B8%20%EC%9D%B4%EB%8F%99%ED%95%98%EA%B3%A0,%20%EB%81%9D%EC%9D%84%20%EB%84%98%EC%96%B4%EA%B0%80%EB%A9%B4%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%B2%98%EC%9D%8C%EC%9C%BC%EB%A1%9C%20%EB%8F%8C%EC%95%84%EC%98%A8%EB%8B%A4%0A%20%20%20%20self._front%20%3D%20%28self._front%20%2B%201%29%20%25%20self.capacity%28%29%0A%20%20%20%20self._size%20-%3D%201%0A%20%20%20%20return%20num%0A%0A%20%20def%20peek%28self%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%22%22%22%0A%20%20%20%20if%20self.is_empty%28%29%3A%0A%20%20%20%20%20%20raise%20IndexError%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8B%A4%22%29%0A%20%20%20%20return%20self._nums%5Bself._front%5D%0A%0A%20%20def%20to_list%28self%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%EC%B6%9C%EB%A0%A5%EC%97%90%20%EC%82%AC%EC%9A%A9%ED%95%A0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%B0%98%ED%99%98%22%22%22%0A%20%20%20%20res%20%3D%20%5B0%5D%20%2A%20self.size%28%29%0A%20%20%20%20j%3A%20int%20%3D%20self._front%0A%20%20%20%20for%20i%20in%20range%28self.size%28%29%29%3A%0A%20%20%20%20%20%20res%5Bi%5D%20%3D%20self._nums%5B%28j%20%25%20self.capacity%28%29%29%5D%0A%20%20%20%20%20%20j%20%2B%3D%201%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%23%20%ED%81%90%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20queue%20%3D%20ArrayQueue%2810%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%82%BD%EC%9E%85%0A%20%20queue.push%281%29%0A%20%20queue.push%283%29%0A%20%20queue.push%282%29%0A%20%20queue.push%285%29%0A%20%20queue.push%284%29%0A%0A%20%20%23%20%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20peek%20%3D%20queue.peek%28%29%0A%20%20print%28%22%EB%A7%A8%20%EC%95%9E%20%EC%9B%90%EC%86%8C%20peek%20%3D%22,%20peek%29%0A%0A%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%BA%BC%EB%82%B4%EA%B8%B0%0A%20%20pop%20%3D%20queue.pop%28%29%0A%20%20print%28%22%ED%81%90%EC%97%90%EC%84%9C%20%EA%BA%BC%EB%82%B8%20%EC%9B%90%EC%86%8C%20pop%20%3D%22,%20pop%29%0A%0A%20%20%23%20%ED%81%90%EC%9D%98%20%EA%B8%B8%EC%9D%B4%20%EB%B0%98%ED%99%98%0A%20%20size%20%3D%20queue.size%28%29%0A%20%20print%28%22%ED%81%90%20%EA%B8%B8%EC%9D%B4%20size%20%3D%22,%20size%29%0A%0A%20%20%23%20%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EC%A7%80%20%ED%8C%90%EB%8B%A8%0A%20%20is_empty%20%3D%20queue.is_empty%28%29%0A%20%20print%28%22%ED%81%90%EA%B0%80%20%EB%B9%84%EC%96%B4%20%EC%9E%88%EB%8A%94%EA%B0%80%20%3D%22,%20is_empty%29&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
 위 큐 구현에는 여전히 길이를 바꿀 수 없다는 한계가 있다. 하지만 배열을 동적 배열로 바꾸어 용량 확장 방식을 도입하면 쉽게 해결할 수 있다. 관심 있는 독자는 직접 구현해 보자.
 

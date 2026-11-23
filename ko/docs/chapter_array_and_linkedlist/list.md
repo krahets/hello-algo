@@ -26,8 +26,8 @@ comments: true
     ```python title="list.py"
     # 리스트 초기화
     # 초깃값 없음
-    nums1: list[int] = []
-    # 초깃값 지정
+    empty_nums: list[int] = []
+    # 초깃값 있음
     nums: list[int] = [1, 3, 2, 5, 4]
     ```
 
@@ -35,11 +35,10 @@ comments: true
 
     ```cpp title="list.cpp"
     /* 리스트 초기화 */
-    // C++의 vector가 이 글에서 설명하는 nums에 해당한다
     // 초깃값 없음
-    vector<int> nums1;
-    // 초깃값 지정
-    vector<int> nums = { 1, 3, 2, 5, 4 };
+    vector<int> emptyNums;
+    // 초깃값 있음
+    vector<int> nums = {1, 3, 2, 5, 4};
     ```
 
 === "Java"
@@ -47,8 +46,8 @@ comments: true
     ```java title="list.java"
     /* 리스트 초기화 */
     // 초깃값 없음
-    List<Integer> nums1 = new ArrayList<>();
-    // 초깃값 지정(배열은 int[]의 래퍼형인 Integer[]여야 함)
+    List<Integer> emptyNums = new ArrayList<>();
+    // 초깃값 있음(리스트 원소는 int의 래퍼 클래스인 Integer만 사용할 수 있으므로 배열 타입은 int[]가 아닌 Integer[]여야 한다는 점에 유의한다)
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -58,8 +57,8 @@ comments: true
     ```csharp title="list.cs"
     /* 리스트 초기화 */
     // 초깃값 없음
-    List<int> nums1 = [];
-    // 초깃값 지정
+    List<int> emptyNums = [];
+    // 초깃값 있음
     int[] numbers = [1, 3, 2, 5, 4];
     List<int> nums = [.. numbers];
     ```
@@ -69,8 +68,8 @@ comments: true
     ```go title="list_test.go"
     /* 리스트 초기화 */
     // 초깃값 없음
-    nums1 := []int{}
-    // 초깃값 지정
+    emptyNums := []int{}
+    // 초깃값 있음
     nums := []int{1, 3, 2, 5, 4}
     ```
 
@@ -79,8 +78,8 @@ comments: true
     ```swift title="list.swift"
     /* 리스트 초기화 */
     // 초깃값 없음
-    let nums1: [Int] = []
-    // 초깃값 지정
+    let emptyNums: [Int] = []
+    // 초깃값 있음
     var nums = [1, 3, 2, 5, 4]
     ```
 
@@ -89,8 +88,8 @@ comments: true
     ```javascript title="list.js"
     /* 리스트 초기화 */
     // 초깃값 없음
-    const nums1 = [];
-    // 초깃값 지정
+    const emptyNums = [];
+    // 초깃값 있음
     const nums = [1, 3, 2, 5, 4];
     ```
 
@@ -99,8 +98,8 @@ comments: true
     ```typescript title="list.ts"
     /* 리스트 초기화 */
     // 초깃값 없음
-    const nums1: number[] = [];
-    // 초깃값 지정
+    const emptyNums: number[] = [];
+    // 초깃값 있음
     const nums: number[] = [1, 3, 2, 5, 4];
     ```
 
@@ -109,18 +108,18 @@ comments: true
     ```dart title="list.dart"
     /* 리스트 초기화 */
     // 초깃값 없음
-    List<int> nums1 = [];
-    // 초깃값 지정
+    List<int> emptyNums = [];
+    // 초깃값 있음
     List<int> nums = [1, 3, 2, 5, 4];
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 리스트 초기화 */
+    // 리스트 초기화
     // 초깃값 없음
-    let nums1: Vec<i32> = Vec::new();
-    // 초깃값 지정
+    let empty_nums: Vec<i32> = Vec::new();
+    // 초깃값 있음
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
@@ -135,10 +134,9 @@ comments: true
     ```kotlin title="list.kt"
     /* 리스트 초기화 */
     // 초깃값 없음
-    var nums1 = listOf<Int>()
-    // 초깃값 지정
-    var numbers = arrayOf(1, 3, 2, 5, 4)
-    var nums = numbers.toMutableList()
+    val emptyNums = mutableListOf<Int>()
+    // 초깃값 있음
+    val nums = mutableListOf(1, 3, 2, 5, 4)
     ```
 
 === "Ruby"
@@ -146,15 +144,15 @@ comments: true
     ```ruby title="list.rb"
     # 리스트 초기화
     # 초깃값 없음
-    nums1 = []
-    # 초깃값 지정
+    empty_nums = []
+    # 초깃값 있음
     nums = [1, 3, 2, 5, 4]
     ```
 
 ??? pythontutor "코드 시각화"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%97%86%EC%9D%8C%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EC%B4%88%EA%B9%83%EA%B0%92%20%EC%A7%80%EC%A0%95%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
 ### 2. &nbsp; 원소 접근
 
@@ -164,99 +162,100 @@ comments: true
 
     ```python title="list.py"
     # 원소 접근
-    num: int = nums[1]  # 인덱스 1의 원소에 접근
+    x: int = nums[1]  # 인덱스 1의 원소에 접근한다
 
     # 원소 갱신
-    nums[1] = 0    # 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0  # 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 원소 접근 */
-    int num = nums[1];  // 인덱스 1의 원소에 접근
+    int num = nums[1]; // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 원소 접근 */
-    int num = nums.get(1);  // 인덱스 1의 원소에 접근
+    int num = nums.get(1); // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums.set(1, 0);  // 인덱스 1의 원소를 0으로 갱신
+    nums.set(1, 0); // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* 원소 접근 */
-    int num = nums[1];  // 인덱스 1의 원소에 접근
+    int num = nums[1]; // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* 원소 접근 */
-    num := nums[1]  // 인덱스 1의 원소에 접근
+    num := nums[1] // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums[1] = 0     // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* 원소 접근 */
-    let num = nums[1] // 인덱스 1의 원소에 접근
+    let num = nums[1] // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* 원소 접근 */
-    const num = nums[1];  // 인덱스 1의 원소에 접근
+    const num = nums[1]; // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 원소 접근 */
-    const num: number = nums[1];  // 인덱스 1의 원소에 접근
+    const num: number = nums[1]; // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* 원소 접근 */
-    int num = nums[1];  // 인덱스 1의 원소에 접근
+    int _num = nums[1]; // 인덱스 1의 원소에 접근한다
 
     /* 원소 갱신 */
-    nums[1] = 0;  // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 원소 접근 */
-    let num: i32 = nums[1];  // 인덱스 1의 원소에 접근
-    /* 원소 갱신 */
-    nums[1] = 0;             // 인덱스 1의 원소를 0으로 갱신
+    // 원소 접근
+    let num = nums[1]; // 인덱스 1의 원소에 접근한다
+
+    // 원소 갱신
+    nums[1] = 0; // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "C"
@@ -269,24 +268,26 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 원소 접근 */
-    val num = nums[1]       // 인덱스 1의 원소에 접근
+    val num = nums[1] // 인덱스 1의 원소에 접근한다
+
     /* 원소 갱신 */
-    nums[1] = 0             // 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0 // 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # 원소 접근
-    num = nums[1] # 인덱스 1의 원소에 접근
+    num = nums[1] # 인덱스 1의 원소에 접근한다
+
     # 원소 갱신
-    nums[1] = 0 # 인덱스 1의 원소를 0으로 갱신
+    nums[1] = 0 # 인덱스 1의 원소를 0으로 갱신한다
     ```
 
 ??? pythontutor "코드 시각화"
 
-    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
+    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EC%A0%91%EA%B7%BC%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EC%97%90%20%EC%A0%91%EA%B7%BC%0A%0A%20%20%20%20%23%20%EC%9B%90%EC%86%8C%20%EA%B0%B1%EC%8B%A0%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20%EC%9D%B8%EB%8D%B1%EC%8A%A4%201%EC%9D%98%20%EC%9B%90%EC%86%8C%EB%A5%BC%200%EC%9C%BC%EB%A1%9C%20%EA%B0%B1%EC%8B%A0&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
 ### 3. &nbsp; 원소 삽입과 삭제
 
@@ -298,7 +299,7 @@ comments: true
     # 리스트 비우기
     nums.clear()
 
-    # 끝에 원소 추가
+    # 맨 뒤에 원소 추가
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -306,10 +307,10 @@ comments: true
     nums.append(4)
 
     # 중간에 원소 삽입
-    nums.insert(3, 6)  # 인덱스 3에 숫자 6 삽입
+    nums.insert(3, 6)  # 인덱스 3에 숫자 6을 삽입한다
 
     # 원소 삭제
-    nums.pop(3)        # 인덱스 3의 원소 삭제
+    nums.pop(3)  # 인덱스 3의 원소를 삭제한다
     ```
 
 === "C++"
@@ -318,7 +319,7 @@ comments: true
     /* 리스트 비우기 */
     nums.clear();
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -326,10 +327,10 @@ comments: true
     nums.push_back(4);
 
     /* 중간에 원소 삽입 */
-    nums.insert(nums.begin() + 3, 6);  // 인덱스 3에 숫자 6 삽입
+    nums.insert(nums.begin() + 3, 6); // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.erase(nums.begin() + 3);      // 인덱스 3의 원소 삭제
+    nums.erase(nums.begin() + 3); // 인덱스 3의 원소를 삭제한다
     ```
 
 === "Java"
@@ -338,7 +339,7 @@ comments: true
     /* 리스트 비우기 */
     nums.clear();
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -346,10 +347,10 @@ comments: true
     nums.add(4);
 
     /* 중간에 원소 삽입 */
-    nums.add(3, 6);  // 인덱스 3에 숫자 6 삽입
+    nums.add(3, 6); // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.remove(3);  // 인덱스 3의 원소 삭제
+    nums.remove(3); // 인덱스 3의 원소를 삭제한다
     ```
 
 === "C#"
@@ -358,7 +359,7 @@ comments: true
     /* 리스트 비우기 */
     nums.Clear();
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
@@ -366,10 +367,10 @@ comments: true
     nums.Add(4);
 
     /* 중간에 원소 삽입 */
-    nums.Insert(3, 6);  // 인덱스 3에 숫자 6 삽입
+    nums.Insert(3, 6); // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.RemoveAt(3);  // 인덱스 3의 원소 삭제
+    nums.RemoveAt(3); // 인덱스 3의 원소를 삭제한다
     ```
 
 === "Go"
@@ -378,7 +379,7 @@ comments: true
     /* 리스트 비우기 */
     nums = nil
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
@@ -386,10 +387,10 @@ comments: true
     nums = append(nums, 4)
 
     /* 중간에 원소 삽입 */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 인덱스 3에 숫자 6 삽입
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums = append(nums[:3], nums[4:]...) // 인덱스 3의 원소 삭제
+    nums = append(nums[:3], nums[4:]...) // 인덱스 3의 원소를 삭제한다
     ```
 
 === "Swift"
@@ -398,7 +399,7 @@ comments: true
     /* 리스트 비우기 */
     nums.removeAll()
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -406,10 +407,10 @@ comments: true
     nums.append(4)
 
     /* 중간에 원소 삽입 */
-    nums.insert(6, at: 3) // 인덱스 3에 숫자 6 삽입
+    nums.insert(6, at: 3) // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.remove(at: 3) // 인덱스 3의 원소 삭제
+    nums.remove(at: 3) // 인덱스 3의 원소를 삭제한다
     ```
 
 === "JS"
@@ -418,7 +419,7 @@ comments: true
     /* 리스트 비우기 */
     nums.length = 0;
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -426,10 +427,10 @@ comments: true
     nums.push(4);
 
     /* 중간에 원소 삽입 */
-    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6 삽입
+    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.splice(3, 1);  // 인덱스 3의 원소 삭제
+    nums.splice(3, 1); // 인덱스 3의 원소를 삭제한다
     ```
 
 === "TS"
@@ -438,7 +439,7 @@ comments: true
     /* 리스트 비우기 */
     nums.length = 0;
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -446,10 +447,10 @@ comments: true
     nums.push(4);
 
     /* 중간에 원소 삽입 */
-    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6 삽입
+    nums.splice(3, 0, 6); // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.splice(3, 1);  // 인덱스 3의 원소 삭제
+    nums.splice(3, 1); // 인덱스 3의 원소를 삭제한다
     ```
 
 === "Dart"
@@ -458,7 +459,7 @@ comments: true
     /* 리스트 비우기 */
     nums.clear();
 
-    /* 끝에 원소 추가 */
+    /* 맨 뒤에 원소 추가 */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -466,30 +467,30 @@ comments: true
     nums.add(4);
 
     /* 중간에 원소 삽입 */
-    nums.insert(3, 6); // 인덱스 3에 숫자 6 삽입
+    nums.insert(3, 6); // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.removeAt(3); // 인덱스 3의 원소 삭제
+    nums.removeAt(3); // 인덱스 3의 원소를 삭제한다
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 리스트 비우기 */
+    // 리스트 비우기
     nums.clear();
 
-    /* 끝에 원소 추가 */
+    // 맨 뒤에 원소 추가
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* 중간에 원소 삽입 */
-    nums.insert(3, 6);  // 인덱스 3에 숫자 6 삽입
+    // 중간에 원소 삽입
+    nums.insert(3, 6); // 인덱스 3에 숫자 6을 삽입한다
 
-    /* 원소 삭제 */
-    nums.remove(3);    // 인덱스 3의 원소 삭제
+    // 원소 삭제
+    nums.remove(3); // 인덱스 3의 원소를 삭제한다
     ```
 
 === "C"
@@ -502,20 +503,20 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 리스트 비우기 */
-    nums.clear();
+    nums.clear()
 
-    /* 끝에 원소 추가 */
-    nums.add(1);
-    nums.add(3);
-    nums.add(2);
-    nums.add(5);
-    nums.add(4);
+    /* 맨 뒤에 원소 추가 */
+    nums.add(1)
+    nums.add(3)
+    nums.add(2)
+    nums.add(5)
+    nums.add(4)
 
     /* 중간에 원소 삽입 */
-    nums.add(3, 6);    // 인덱스 3에 숫자 6 삽입
+    nums.add(3, 6) // 인덱스 3에 숫자 6을 삽입한다
 
     /* 원소 삭제 */
-    nums.removeAt(3);  // 인덱스 3의 원소 삭제
+    nums.removeAt(3) // 인덱스 3의 원소를 삭제한다
     ```
 
 === "Ruby"
@@ -524,7 +525,7 @@ comments: true
     # 리스트 비우기
     nums.clear
 
-    # 끝에 원소 추가
+    # 맨 뒤에 원소 추가
     nums << 1
     nums << 3
     nums << 2
@@ -532,10 +533,10 @@ comments: true
     nums << 4
 
     # 중간에 원소 삽입
-    nums.insert(3, 6) # 인덱스 3에 숫자 6 삽입
+    nums.insert(3, 6) # 인덱스 3에 숫자 6을 삽입한다
 
     # 원소 삭제
-    nums.delete_at(3) # 인덱스 3의 원소 삭제
+    nums.delete_at(3) # 인덱스 3의 원소를 삭제한다
     ```
 
 ??? pythontutor "코드 시각화"
@@ -550,12 +551,12 @@ comments: true
 === "Python"
 
     ```python title="list.py"
-    # 인덱스로 리스트 순회
+    # 인덱스를 통해 리스트를 순회한다
     count = 0
     for i in range(len(nums)):
         count += nums[i]
 
-    # 리스트 원소를 직접 순회
+    # 리스트의 원소를 직접 순회한다
     for num in nums:
         count += num
     ```
@@ -563,143 +564,143 @@ comments: true
 === "C++"
 
     ```cpp title="list.cpp"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
     }
 
-    /* 리스트 원소를 직접 순회 */
+    /* 리스트의 원소를 직접 순회한다 */
     count = 0;
-    for (int num : nums) {
-        count += num;
+    for (int x : nums) {
+        count += x;
     }
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums.get(i);
     }
 
-    /* 리스트 원소를 직접 순회 */
-    for (int num : nums) {
-        count += num;
+    /* 리스트의 원소를 직접 순회한다 */
+    for (int x : nums) {
+        count += x;
     }
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     int count = 0;
     for (int i = 0; i < nums.Count; i++) {
         count += nums[i];
     }
 
-    /* 리스트 원소를 직접 순회 */
+    /* 리스트의 원소를 직접 순회한다 */
     count = 0;
-    foreach (int num in nums) {
-        count += num;
+    foreach (int x in nums) {
+        count += x;
     }
     ```
 
 === "Go"
 
     ```go title="list_test.go"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     count := 0
     for i := 0; i < len(nums); i++ {
         count += nums[i]
     }
 
-    /* 리스트 원소를 직접 순회 */
+    /* 리스트의 원소를 직접 순회한다 */
     count = 0
-    for _, num := range nums {
-        count += num
+    for _, x := range nums {
+        count += x
     }
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     var count = 0
     for i in nums.indices {
         count += nums[i]
     }
 
-    /* 리스트 원소를 직접 순회 */
+    /* 리스트의 원소를 직접 순회한다 */
     count = 0
-    for num in nums {
-        count += num
+    for x in nums {
+        count += x
     }
     ```
 
 === "JS"
 
     ```javascript title="list.js"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* 리스트 원소를 직접 순회 */
+    /* 리스트의 원소를 직접 순회한다 */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     let count = 0;
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
 
-    /* 리스트 원소를 직접 순회 */
+    /* 리스트의 원소를 직접 순회한다 */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
-        count += nums[i];
+      count += nums[i];
     }
 
-    /* 리스트 원소를 직접 순회 */
+    /* 리스트의 원소를 직접 순회한다 */
     count = 0;
-    for (var num in nums) {
-        count += num;
+    for (var x in nums) {
+      count += x;
     }
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    // 인덱스로 리스트 순회
+    // 인덱스를 통해 리스트를 순회한다
     let mut _count = 0;
     for i in 0..nums.len() {
         _count += nums[i];
     }
 
-    // 리스트 원소를 직접 순회
+    // 리스트의 원소를 직접 순회한다
     _count = 0;
-    for num in &nums {
-        _count += num;
+    for x in &nums {
+        _count += x;
     }
     ```
 
@@ -712,31 +713,31 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* 인덱스로 리스트 순회 */
+    /* 인덱스를 통해 리스트를 순회한다 */
     var count = 0
     for (i in nums.indices) {
         count += nums[i]
     }
 
-    /* 리스트 원소를 직접 순회 */
-    for (num in nums) {
-        count += num
+    /* 리스트의 원소를 직접 순회한다 */
+    for (j in nums) {
+        count += j
     }
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # 인덱스로 리스트 순회
+    # 인덱스를 통해 리스트를 순회한다
     count = 0
     for i in 0...nums.length
-        count += nums[i]
+      count += nums[i]
     end
 
-    # 리스트 원소를 직접 순회
+    # 리스트의 원소를 직접 순회한다
     count = 0
-    for num in nums
-        count += num
+    nums.each do |x|
+      count += x
     end
     ```
 
@@ -753,16 +754,16 @@ comments: true
 
     ```python title="list.py"
     # 두 리스트 연결
-    nums1: list[int] = [6, 8, 7, 10, 9]
-    nums += nums1  # 리스트 nums1을 nums 뒤에 연결
+    nums1 = [6, 8, 7, 10, 9]
+    nums += nums1  # 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 두 리스트 연결 */
-    vector<int> nums1 = { 6, 8, 7, 10, 9 };
-    // 리스트 nums1을 nums 뒤에 연결
+    vector<int> nums1 = {6, 8, 7, 10, 9};
+    // 리스트 nums1을 nums 뒤에 연결한다
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
@@ -771,7 +772,7 @@ comments: true
     ```java title="list.java"
     /* 두 리스트 연결 */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1);  // 리스트 nums1을 nums 뒤에 연결
+    nums.addAll(nums1); // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "C#"
@@ -779,7 +780,7 @@ comments: true
     ```csharp title="list.cs"
     /* 두 리스트 연결 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1);  // 리스트 nums1을 nums 뒤에 연결
+    nums.AddRange(nums1); // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "Go"
@@ -787,7 +788,7 @@ comments: true
     ```go title="list_test.go"
     /* 두 리스트 연결 */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...)  // 리스트 nums1을 nums 뒤에 연결
+    nums = append(nums, nums1...) // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "Swift"
@@ -795,7 +796,7 @@ comments: true
     ```swift title="list.swift"
     /* 두 리스트 연결 */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // 리스트 nums1을 nums 뒤에 연결
+    nums.append(contentsOf: nums1) // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "JS"
@@ -803,7 +804,7 @@ comments: true
     ```javascript title="list.js"
     /* 두 리스트 연결 */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // 리스트 nums1을 nums 뒤에 연결
+    nums.push(...nums1); // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "TS"
@@ -811,7 +812,7 @@ comments: true
     ```typescript title="list.ts"
     /* 두 리스트 연결 */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // 리스트 nums1을 nums 뒤에 연결
+    nums.push(...nums1); // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "Dart"
@@ -819,15 +820,15 @@ comments: true
     ```dart title="list.dart"
     /* 두 리스트 연결 */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1);  // 리스트 nums1을 nums 뒤에 연결
+    nums.addAll(nums1); // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 두 리스트 연결 */
-    let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
-    nums.extend(nums1);
+    // 두 리스트 연결
+    let mut nums1 = vec![6, 8, 7, 10, 9];
+    nums.append(&mut nums1); // append는 nums1의 원소를 이동시키므로 이후 nums1은 비게 된다
     ```
 
 === "C"
@@ -840,8 +841,8 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 두 리스트 연결 */
-    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-    nums.addAll(nums1)  // 리스트 nums1을 nums 뒤에 연결
+    val nums1 = mutableListOf(6, 8, 7, 10, 9)
+    nums.addAll(nums1) // 리스트 nums1을 nums 뒤에 연결한다
     ```
 
 === "Ruby"
@@ -865,70 +866,70 @@ comments: true
 
     ```python title="list.py"
     # 리스트 정렬
-    nums.sort()  # 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums.sort()  # 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* 리스트 정렬 */
-    sort(nums.begin(), nums.end());  // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    sort(nums.begin(), nums.end()); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* 리스트 정렬 */
-    Collections.sort(nums);  // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    Collections.sort(nums); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* 리스트 정렬 */
-    nums.Sort(); // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums.Sort(); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* 리스트 정렬 */
-    sort.Ints(nums)  // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    sort.Ints(nums) // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* 리스트 정렬 */
-    nums.sort() // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums.sort() // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* 리스트 정렬 */
-    nums.sort((a, b) => a - b);  // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums.sort((a, b) => a - b); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* 리스트 정렬 */
-    nums.sort((a, b) => a - b);  // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums.sort((a, b) => a - b); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* 리스트 정렬 */
-    nums.sort(); // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums.sort(); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* 리스트 정렬 */
-    nums.sort(); // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    // 리스트 정렬
+    nums.sort(); // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "C"
@@ -941,14 +942,14 @@ comments: true
 
     ```kotlin title="list.kt"
     /* 리스트 정렬 */
-    nums.sort() // 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums.sort() // 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # 리스트 정렬
-    nums = nums.sort { |a, b| a <=> b } # 정렬 후 리스트 원소가 오름차순으로 배치됨
+    nums = nums.sort { |a, b| a <=> b } # 정렬 후 리스트 원소는 작은 값부터 큰 값 순서로 나열된다
     ```
 
 ??? pythontutor "코드 시각화"

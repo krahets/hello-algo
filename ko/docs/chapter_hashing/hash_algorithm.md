@@ -719,27 +719,33 @@ $$
     ```python title="built_in_hash.py"
     num = 3
     hash_num = hash(num)
-    # 정수 3의 해시값은 3
+    print(f"정수 {num} → 해시값: {hash_num}")
+    # 정수 3 → 해시값: 3
 
     bol = True
     hash_bol = hash(bol)
-    # 불리언 True의 해시값은 1
+    print(f"불리언 값 {bol} → 해시값: {hash_bol}")
+    # 불리언 값 True → 해시값: 1
 
     dec = 3.14159
     hash_dec = hash(dec)
-    # 소수 3.14159의 해시값은 326484311674566659
+    print(f"소수 {dec} → 해시값: {hash_dec}")
+    # 소수 3.14159 → 해시값: 326484311674566659
 
     str = "Hello 算法"
     hash_str = hash(str)
-    # 문자열 “Hello 算法”의 해시값은 4617003410720528961
+    print(f"문자열 ‘{str}’ → 해시값: {hash_str}")
+    # 문자열 ‘Hello 算法’ → 해시값: 4617003410720528961
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)
-    # 튜플 (12836, '小哈')의 해시값은 1029005403108185979
+    print(f"튜플 {tup} → 해시값: {hash_tup}")
+    # 튜플 (12836, '小哈') → 해시값: 1029005403108185979
 
     obj = ListNode(0)
     hash_obj = hash(obj)
-    # 노드 객체 <ListNode object at 0x1058fd810>의 해시값은 274267521
+    print(f"노드 객체 {obj} → 해시값: {hash_obj}")
+    # 노드 객체 <modules.list_node.ListNode object at 0x1058fd810> → 해시값: 274267521
     ```
 
 === "C++"
@@ -747,21 +753,25 @@ $$
     ```cpp title="built_in_hash.cpp"
     int num = 3;
     size_t hashNum = hash<int>()(num);
-    // 정수 3의 해시값은 3
+    cout << "정수 " << num << " → 해시값: " << hashNum << "\n";
+    // 정수 3 → 해시값: 3
 
     bool bol = true;
     size_t hashBol = hash<bool>()(bol);
-    // 불리언 1의 해시값은 1
+    cout << "불리언 값 " << bol << " → 해시값: " << hashBol << "\n";
+    // 불리언 값 1 → 해시값: 1
 
     double dec = 3.14159;
     size_t hashDec = hash<double>()(dec);
-    // 소수 3.14159의 해시값은 4614256650576692846
+    cout << "소수 " << dec << " → 해시값: " << hashDec << "\n";
+    // 소수 3.14159 → 해시값: 4614256650576692846
 
     string str = "Hello 算法";
     size_t hashStr = hash<string>()(str);
-    // 문자열 “Hello 算法”의 해시값은 15466937326284535026
+    cout << "문자열 ‘" << str << "’ → 해시값: " << hashStr << "\n";
+    // 문자열 ‘Hello 算法’ → 해시값: 15466937326284535026
 
-    // C++의 내장 std::hash()는 기본 자료형의 해시값 계산만 제공한다
+    // C++의 내장 std::hash()는 기본 데이터 타입과 일부 표준 라이브러리 타입(예: std::string)에 대한 해시값 계산만 제공한다
     // 배열과 객체의 해시값 계산은 직접 구현해야 한다
     ```
 
@@ -770,27 +780,33 @@ $$
     ```java title="built_in_hash.java"
     int num = 3;
     int hashNum = Integer.hashCode(num);
-    // 정수 3의 해시값은 3
+    System.out.println("정수 " + num + " → 해시값: " + hashNum);
+    // 정수 3 → 해시값: 3
 
     boolean bol = true;
     int hashBol = Boolean.hashCode(bol);
-    // 불리언 true의 해시값은 1231
+    System.out.println("불리언 값 " + bol + " → 해시값: " + hashBol);
+    // 불리언 값 true → 해시값: 1231
 
     double dec = 3.14159;
     int hashDec = Double.hashCode(dec);
-    // 소수 3.14159의 해시값은 -1340954729
+    System.out.println("소수 " + dec + " → 해시값: " + hashDec);
+    // 소수 3.14159 → 해시값: -1340954729
 
     String str = "Hello 算法";
     int hashStr = str.hashCode();
-    // 문자열 “Hello 算法”의 해시값은 -727081396
+    System.out.println("문자열 ‘" + str + "’ → 해시값: " + hashStr);
+    // 문자열 ‘Hello 算法’ → 해시값: -727081396
 
     Object[] arr = { 12836, "小哈" };
-    int hashTup = Arrays.hashCode(arr);
-    // 배열 [12836, 小哈]의 해시값은 1151158
+    int hashArr = Arrays.hashCode(arr);
+    System.out.println("배열 " + Arrays.toString(arr) + " → 해시값: " + hashArr);
+    // 배열 [12836, 小哈] → 해시값: 1151158
 
     ListNode obj = new ListNode(0);
     int hashObj = obj.hashCode();
-    // 노드 객체 utils.ListNode@7dc5e7b4의 해시값은 2110121908
+    System.out.println("노드 객체 " + obj + " → 해시값: " + hashObj);
+    // 노드 객체 utils.ListNode@7dc5e7b4 → 해시값: 2110121908
     ```
 
 === "C#"
@@ -798,27 +814,33 @@ $$
     ```csharp title="built_in_hash.cs"
     int num = 3;
     int hashNum = num.GetHashCode();
-    // 정수 3의 해시값은 3;
+    Console.WriteLine("정수 " + num + " → 해시값: " + hashNum);
+    // 정수 3 → 해시값: 3
 
     bool bol = true;
     int hashBol = bol.GetHashCode();
-    // 불리언 true의 해시값은 1;
+    Console.WriteLine("불리언 값 " + bol + " → 해시값: " + hashBol);
+    // 불리언 값 True → 해시값: 1
 
     double dec = 3.14159;
     int hashDec = dec.GetHashCode();
-    // 소수 3.14159의 해시값은 -1340954729;
+    Console.WriteLine("소수 " + dec + " → 해시값: " + hashDec);
+    // 소수 3.14159 → 해시값: -1340954729
 
     string str = "Hello 算法";
     int hashStr = str.GetHashCode();
-    // 문자열 “Hello 算法”의 해시값은 -586107568;
+    Console.WriteLine("문자열 ‘" + str + "’ → 해시값: " + hashStr);
+    // 문자열 ‘Hello 算法’ → 해시값: -586107568
 
     object[] arr = [12836, "小哈"];
-    int hashTup = arr.GetHashCode();
-    // 배열 [12836, 小哈]의 해시값은 42931033;
+    int hashArr = arr.GetHashCode();
+    Console.WriteLine("배열 [" + string.Join(", ", arr) + "] → 해시값: " + hashArr);
+    // 배열 [12836, 小哈] → 해시값: 42931033
 
     ListNode obj = new(0);
     int hashObj = obj.GetHashCode();
-    // 노드 객체 0의 해시값은 39053774;
+    Console.WriteLine("노드 객체 " + obj + " → 해시값: " + hashObj);
+    // 노드 객체 0 → 해시값: 39053774
     ```
 
 === "Go"
@@ -832,27 +854,33 @@ $$
     ```swift title="built_in_hash.swift"
     let num = 3
     let hashNum = num.hashValue
-    // 정수 3의 해시값은 9047044699613009734
+    print("정수 \(num) → 해시값: \(hashNum)")
+    // 정수 3 → 해시값: 9047044699613009734
 
     let bol = true
     let hashBol = bol.hashValue
-    // 불리언 true의 해시값은 -4431640247352757451
+    print("불리언 값 \(bol) → 해시값: \(hashBol)")
+    // 불리언 값 true → 해시값: -4431640247352757451
 
     let dec = 3.14159
     let hashDec = dec.hashValue
-    // 소수 3.14159의 해시값은 -2465384235396674631
+    print("소수 \(dec) → 해시값: \(hashDec)")
+    // 소수 3.14159 → 해시값: -2465384235396674631
 
     let str = "Hello 算法"
     let hashStr = str.hashValue
-    // 문자열 “Hello 算法”의 해시값은 -7850626797806988787
+    print("문자열 ‘\(str)’ → 해시값: \(hashStr)")
+    // 문자열 ‘Hello 算法’ → 해시값: -7850626797806988787
 
     let arr = [AnyHashable(12836), AnyHashable("小哈")]
-    let hashTup = arr.hashValue
-    // 배열 [AnyHashable(12836), AnyHashable("小哈")]의 해시값은 -2308633508154532996
+    let hashArr = arr.hashValue
+    print("배열 \(arr) → 해시값: \(hashArr)")
+    // 배열 [AnyHashable(12836), AnyHashable("小哈")] → 해시값: -2308633508154532996
 
     let obj = ListNode(x: 0)
     let hashObj = obj.hashValue
-    // 노드 객체 utils.ListNode의 해시값은 -2434780518035996159
+    print("노드 객체 \(obj) → 해시값: \(hashObj)")
+    // 노드 객체 utils.ListNode → 해시값: -2434780518035996159
     ```
 
 === "JS"
@@ -872,27 +900,33 @@ $$
     ```dart title="built_in_hash.dart"
     int num = 3;
     int hashNum = num.hashCode;
-    // 정수 3의 해시값은 34803
+    print("정수 $num → 해시값: $hashNum");
+    // 정수 3 → 해시값: 34803
 
     bool bol = true;
     int hashBol = bol.hashCode;
-    // 불리언 true의 해시값은 1231
+    print("불리언 값 $bol → 해시값: $hashBol");
+    // 불리언 값 true → 해시값: 1231
 
     double dec = 3.14159;
     int hashDec = dec.hashCode;
-    // 소수 3.14159의 해시값은 2570631074981783
+    print("소수 $dec → 해시값: $hashDec");
+    // 소수 3.14159 → 해시값: 2570631074981783
 
     String str = "Hello 算法";
     int hashStr = str.hashCode;
-    // 문자열 “Hello 算法”의 해시값은 468167534
+    print("문자열 ‘$str’ → 해시값: $hashStr");
+    // 문자열 ‘Hello 算法’ → 해시값: 468167534
 
     List arr = [12836, "小哈"];
     int hashArr = arr.hashCode;
-    // 배열 [12836, 小哈]의 해시값은 976512528
+    print("배열 $arr → 해시값: $hashArr");
+    // 배열 [12836, 小哈] → 해시값: 976512528
 
-    ListNode obj = new ListNode(0);
+    ListNode obj = ListNode(0);
     int hashObj = obj.hashCode;
-    // 노드 객체 Instance of 'ListNode'의 해시값은 1033450432
+    print("노드 객체 $obj → 해시값: $hashObj");
+    // 노드 객체 Instance of 'ListNode' → 해시값: 1033450432
     ```
 
 === "Rust"
@@ -905,37 +939,43 @@ $$
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
     let hash_num = num_hasher.finish();
-    // 정수 3의 해시값은 568126464209439262
+    println!("정수 {} → 해시값: {}", num, hash_num);
+    // 정수 3 → 해시값: 568126464209439262
 
     let bol = true;
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    // 불리언 true의 해시값은 4952851536318644461
+    println!("불리언 값 {} → 해시값: {}", bol, hash_bol);
+    // 불리언 값 true → 해시값: 4952851536318644461
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    // 소수 3.14159의 해시값은 2566941990314602357
+    println!("소수 {} → 해시값: {}", dec, hash_dec);
+    // 소수 3.14159 → 해시값: 2566941990314602357
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
-    // 문자열 “Hello 算法”의 해시값은 16092673739211250988
+    println!("문자열 ‘{}’ → 해시값: {}", str, hash_str);
+    // 문자열 ‘Hello 算法’ → 해시값: 16092673739211250988
 
-    let arr = (&12836, &"小哈");
+    let tup = (&12836, &"小哈");
     let mut tup_hasher = DefaultHasher::new();
-    arr.hash(&mut tup_hasher);
+    tup.hash(&mut tup_hasher);
     let hash_tup = tup_hasher.finish();
-    // 튜플 (12836, "小哈")의 해시값은 1885128010422702749
+    println!("튜플 {:?} → 해시값: {}", tup, hash_tup);
+    // 튜플 (12836, "小哈") → 해시값: 1885128010422702749
 
     let node = ListNode::new(42);
-    let mut hasher = DefaultHasher::new();
-    node.borrow().val.hash(&mut hasher);
-    let hash = hasher.finish();
-    // 노드 객체 RefCell { value: ListNode { val: 42, next: None } }의 해시값은 15387811073369036852
+    let mut node_hasher = DefaultHasher::new();
+    node.borrow().val.hash(&mut node_hasher);
+    let hash_node = node_hasher.finish();
+    println!("노드 {:?}의 값 → 해시값: {}", node, hash_node);
+    // 노드 RefCell { value: ListNode { val: 42, next: None } }의 값 → 해시값: 15387811073369036852
     ```
 
 === "C"
@@ -949,27 +989,33 @@ $$
     ```kotlin title="built_in_hash.kt"
     val num = 3
     val hashNum = num.hashCode()
-    // 정수 3의 해시값은 3
+    println("정수 $num → 해시값: $hashNum")
+    // 정수 3 → 해시값: 3
 
     val bol = true
     val hashBol = bol.hashCode()
-    // 불리언 true의 해시값은 1231
+    println("불리언 값 $bol → 해시값: $hashBol")
+    // 불리언 값 true → 해시값: 1231
 
     val dec = 3.14159
     val hashDec = dec.hashCode()
-    // 소수 3.14159의 해시값은 -1340954729
+    println("소수 $dec → 해시값: $hashDec")
+    // 소수 3.14159 → 해시값: -1340954729
 
     val str = "Hello 算法"
     val hashStr = str.hashCode()
-    // 문자열 “Hello 算法”의 해시값은 -727081396
+    println("문자열 ‘$str’ → 해시값: $hashStr")
+    // 문자열 ‘Hello 算法’ → 해시값: -727081396
 
     val arr = arrayOf<Any>(12836, "小哈")
-    val hashTup = arr.hashCode()
-    // 배열 [12836, 小哈]의 해시값은 189568618
+    val hashArr = arr.contentHashCode()
+    println("배열 ${arr.contentToString()} → 해시값: $hashArr")
+    // 배열 [12836, 小哈] → 해시값: 1151158
 
     val obj = ListNode(0)
     val hashObj = obj.hashCode()
-    // 노드 객체 utils.ListNode@1d81eb93의 해시값은 495053715
+    println("노드 객체 $obj → 해시값: $hashObj")
+    // 노드 객체 utils.ListNode@1d81eb93 → 해시값: 495053715
     ```
 
 === "Ruby"
@@ -977,33 +1023,39 @@ $$
     ```ruby title="built_in_hash.rb"
     num = 3
     hash_num = num.hash
-    # 정수 3의 해시값은 -4385856518450339636
+    puts "정수 #{num} → 해시값: #{hash_num}"
+    # 정수 3 → 해시값: -4385856518450339636
 
     bol = true
     hash_bol = bol.hash
-    # 불리언 true의 해시값은 -1617938112149317027
+    puts "불리언 값 #{bol} → 해시값: #{hash_bol}"
+    # 불리언 값 true → 해시값: -1617938112149317027
 
     dec = 3.14159
     hash_dec = dec.hash
-    # 소수 3.14159의 해시값은 -1479186995943067893
+    puts "소수 #{dec} → 해시값: #{hash_dec}"
+    # 소수 3.14159 → 해시값: -1479186995943067893
 
     str = "Hello 算法"
     hash_str = str.hash
-    # 문자열 “Hello 算法”의 해시값은 -4075943250025831763
+    puts "문자열 ‘#{str}’ → 해시값: #{hash_str}"
+    # 문자열 ‘Hello 算法’ → 해시값: -4075943250025831763
 
-    tup = [12836, '小哈']
-    hash_tup = tup.hash
-    # 튜플 (12836, '小哈')의 해시값은 1999544809202288822
+    arr = [12836, '小哈']
+    hash_arr = arr.hash
+    puts "배열 #{arr} → 해시값: #{hash_arr}"
+    # 배열 [12836, "小哈"] → 해시값: 1999544809202288822
 
     obj = ListNode.new(0)
     hash_obj = obj.hash
-    # 노드 객체 #<ListNode:0x000078133140ab70>의 해시값은 4302940560806366381
+    puts "노드 객체 #{obj} → 해시값: #{hash_obj}"
+    # 노드 객체 #<ListNode:0x000078133140ab70> → 해시값: 4302940560806366381
     ```
 
 ??? pythontutor "코드 시각화"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%ED%9B%84%EC%86%8D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%EC%A0%95%EC%88%98%203%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%EB%B6%88%EB%A6%AC%EC%96%B8%20True%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%EC%86%8C%EC%88%98%203.14159%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%ED%8A%9C%ED%94%8C%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%9D%EC%B2%B4%20%3CListNode%20object%20at%200x1058fd810%3E%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%20274267521&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%ED%9B%84%EC%86%8D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20%23%20%EC%A0%95%EC%88%98%203%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20%23%20%EB%B6%88%EB%A6%AC%EC%96%B8%20True%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20%23%20%EC%86%8C%EC%88%98%203.14159%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20%23%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%E2%80%9CHello%20%E7%AE%97%E6%B3%95%E2%80%9D%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20%23%20%ED%8A%9C%ED%94%8C%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%9D%EC%B2%B4%20%3CListNode%20object%20at%200x1058fd810%3E%EC%9D%98%20%ED%95%B4%EC%8B%9C%EA%B0%92%EC%9D%80%20274267521&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="코드 시각화" src="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%ED%9B%84%EC%86%8D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22%EC%A0%95%EC%88%98%20%7Bnum%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20%EC%A0%95%EC%88%98%203%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22%EB%B6%88%EB%A6%AC%EC%96%B8%20%EA%B0%92%20%7Bbol%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20%EB%B6%88%EB%A6%AC%EC%96%B8%20%EA%B0%92%20True%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22%EC%86%8C%EC%88%98%20%7Bdec%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20%EC%86%8C%EC%88%98%203.14159%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22%EB%AC%B8%EC%9E%90%EC%97%B4%20%E2%80%98%7Bstr%7D%E2%80%99%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%E2%80%98Hello%20%E7%AE%97%E6%B3%95%E2%80%99%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22%ED%8A%9C%ED%94%8C%20%7Btup%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20%ED%8A%9C%ED%94%8C%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22%EB%85%B8%EB%93%9C%20%EA%B0%9D%EC%B2%B4%20%7Bobj%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%9D%EC%B2%B4%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20274267521%0A&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8%20%EB%85%B8%EB%93%9C%20%ED%81%B4%EB%9E%98%EC%8A%A4%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%92%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%ED%9B%84%EC%86%8D%20%EB%85%B8%EB%93%9C%20%EC%B0%B8%EC%A1%B0%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22%EC%A0%95%EC%88%98%20%7Bnum%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20%EC%A0%95%EC%88%98%203%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22%EB%B6%88%EB%A6%AC%EC%96%B8%20%EA%B0%92%20%7Bbol%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20%EB%B6%88%EB%A6%AC%EC%96%B8%20%EA%B0%92%20True%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22%EC%86%8C%EC%88%98%20%7Bdec%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20%EC%86%8C%EC%88%98%203.14159%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22%EB%AC%B8%EC%9E%90%EC%97%B4%20%E2%80%98%7Bstr%7D%E2%80%99%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%E2%80%98Hello%20%E7%AE%97%E6%B3%95%E2%80%99%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836%2C%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22%ED%8A%9C%ED%94%8C%20%7Btup%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20%ED%8A%9C%ED%94%8C%20%2812836%2C%20%27%E5%B0%8F%E5%93%88%27%29%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22%EB%85%B8%EB%93%9C%20%EA%B0%9D%EC%B2%B4%20%7Bobj%7D%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20%EB%85%B8%EB%93%9C%20%EA%B0%9D%EC%B2%B4%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E2%86%92%20%ED%95%B4%EC%8B%9C%EA%B0%92%3A%20274267521%0A&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=19&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">전체 화면 ></a></div>
 
 많은 프로그래밍 언어에서는 **불변 객체만 해시 테이블의 `key`로 사용할 수 있다**. 리스트(동적 배열)를 `key`로 사용하면 내용이 바뀔 때 해시값도 달라져, 기존의 `value`를 조회할 수 없게 된다.
 

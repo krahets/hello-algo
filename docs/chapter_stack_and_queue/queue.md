@@ -184,7 +184,7 @@ comments: true
     let peek = queue.first!
 
     /* 元素出队 */
-    // 由于是数组，因此 removeFirst 的复杂度为 O(n)
+    // 使用 Array 模拟时 removeFirst 的复杂度为 O(n)
     let pop = queue.removeFirst()
 
     /* 获取队列的长度 */
@@ -219,7 +219,7 @@ comments: true
     const size = queue.length;
 
     /* 判断队列是否为空 */
-    const empty = queue.length === 0;
+    const isEmpty = queue.length === 0;
     ```
 
 === "TS"
@@ -247,15 +247,15 @@ comments: true
     const size = queue.length;
 
     /* 判断队列是否为空 */
-    const empty = queue.length === 0;
+    const isEmpty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
     /* 初始化队列 */
-    // 在 Dart 中，队列类 Queue 是双向队列，也可作为队列使用
-    Queue<int> queue = Queue();
+    // 在 Dart 中，一般将双向队列类 Queue 当作队列使用
+    final Queue<int> queue = Queue();
 
     /* 元素入队 */
     queue.add(1);
@@ -265,45 +265,43 @@ comments: true
     queue.add(4);
 
     /* 访问队首元素 */
-    int peek = queue.first;
+    final int peek = queue.first;
 
     /* 元素出队 */
-    int pop = queue.removeFirst();
+    final int pop = queue.removeFirst();
 
     /* 获取队列的长度 */
-    int size = queue.length;
+    final int size = queue.length;
 
     /* 判断队列是否为空 */
-    bool isEmpty = queue.isEmpty;
+    final bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"
 
     ```rust title="queue.rs"
-    /* 初始化双向队列 */
-    // 在 Rust 中使用双向队列作为普通队列来使用
-    let mut deque: VecDeque<u32> = VecDeque::new();
+    // 初始化队列
+    // 在 Rust 中，一般将双向队列 VecDeque 看作队列使用
+    let mut queue: VecDeque<i32> = VecDeque::new();
 
-    /* 元素入队 */
-    deque.push_back(1);
-    deque.push_back(3);
-    deque.push_back(2);
-    deque.push_back(5);
-    deque.push_back(4);
+    // 元素入队
+    queue.push_back(1);
+    queue.push_back(3);
+    queue.push_back(2);
+    queue.push_back(5);
+    queue.push_back(4);
 
-    /* 访问队首元素 */
-    if let Some(front) = deque.front() {
-    }
+    // 访问队首元素
+    let peek = queue.front().unwrap();
 
-    /* 元素出队 */
-    if let Some(pop) = deque.pop_front() {
-    }
+    // 元素出队
+    let pop = queue.pop_front().unwrap();
 
-    /* 获取队列的长度 */
-    let size = deque.len();
+    // 获取队列的长度
+    let size = queue.len();
 
-    /* 判断队列是否为空 */
-    let is_empty = deque.is_empty();
+    // 判断队列是否为空
+    let is_empty = queue.is_empty();
     ```
 
 === "C"
@@ -342,7 +340,7 @@ comments: true
 
     ```ruby title="queue.rb"
     # 初始化队列
-    # Ruby 内置的队列（Thread::Queue) 没有 peek 和遍历方法，可以把 Array 当作队列来使用
+    # Ruby 内置的队列（Thread::Queue）没有 peek 和遍历方法，可以把 Array 当作队列来使用
     queue = []
 
     # 元素入队
@@ -356,7 +354,7 @@ comments: true
     peek = queue.first
 
     # 元素出队
-    # 清注意，由于是数组，Array#shift 方法时间复杂度为 O(n)
+    # 请注意，由于是数组，Array#shift 方法的时间复杂度为 O(n)
     pop = queue.shift
 
     # 获取队列的长度

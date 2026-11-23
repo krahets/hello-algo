@@ -35,9 +35,9 @@ We can use a queue class already provided by the programming language:
     ```python title="queue.py"
     from collections import deque
 
-    # Initialize a queue
-    # In Python, we usually use the deque class as a queue
-    # Although queue.Queue() is a dedicated queue class, it is less convenient and is not recommended here
+    # Initialize the queue
+    # In Python, we generally use the deque class as a queue
+    # Although queue.Queue() is a dedicated queue class, it is less convenient to use and is therefore not recommended
     que: deque[int] = deque()
 
     # Enqueue elements
@@ -63,7 +63,7 @@ We can use a queue class already provided by the programming language:
 === "C++"
 
     ```cpp title="queue.cpp"
-    /* Initialize a queue */
+    /* Initialize the queue */
     queue<int> queue;
 
     /* Enqueue elements */
@@ -89,7 +89,7 @@ We can use a queue class already provided by the programming language:
 === "Java"
 
     ```java title="queue.java"
-    /* Initialize a queue */
+    /* Initialize the queue */
     Queue<Integer> queue = new LinkedList<>();
 
     /* Enqueue elements */
@@ -115,7 +115,7 @@ We can use a queue class already provided by the programming language:
 === "C#"
 
     ```csharp title="queue.cs"
-    /* Initialize a queue */
+    /* Initialize the queue */
     Queue<int> queue = new();
 
     /* Enqueue elements */
@@ -141,8 +141,8 @@ We can use a queue class already provided by the programming language:
 === "Go"
 
     ```go title="queue_test.go"
-    /* Initialize a queue */
-    // In Go, use a list as a queue
+    /* Initialize the queue */
+    // In Go, use list as a queue
     queue := list.New()
 
     /* Enqueue elements */
@@ -169,8 +169,8 @@ We can use a queue class already provided by the programming language:
 === "Swift"
 
     ```swift title="queue.swift"
-    /* Initialize a queue */
-    // Swift has no built-in queue class; use an Array as a queue
+    /* Initialize the queue */
+    // The Swift standard library has no built-in queue class; Array can be used as a queue
     var queue: [Int] = []
 
     /* Enqueue elements */
@@ -184,7 +184,7 @@ We can use a queue class already provided by the programming language:
     let peek = queue.first!
 
     /* Dequeue an element */
-    // Because this is an array, removeFirst takes O(n) time
+    // When using Array as a queue, removeFirst has O(n) time complexity
     let pop = queue.removeFirst()
 
     /* Get the queue size */
@@ -197,8 +197,8 @@ We can use a queue class already provided by the programming language:
 === "JS"
 
     ```javascript title="queue.js"
-    /* Initialize a queue */
-    // JavaScript has no built-in queue; use an Array as a queue
+    /* Initialize the queue */
+    // JavaScript has no built-in queue; an Array can be used as a queue
     const queue = [];
 
     /* Enqueue elements */
@@ -212,21 +212,21 @@ We can use a queue class already provided by the programming language:
     const peek = queue[0];
 
     /* Dequeue an element */
-    // The underlying structure is an array, so shift() takes O(n) time
+    // The underlying structure is an array, so shift() has O(n) time complexity
     const pop = queue.shift();
 
     /* Get the queue size */
     const size = queue.length;
 
     /* Check whether the queue is empty */
-    const empty = queue.length === 0;
+    const isEmpty = queue.length === 0;
     ```
 
 === "TS"
 
     ```typescript title="queue.ts"
-    /* Initialize a queue */
-    // TypeScript has no built-in queue; use an Array as a queue
+    /* Initialize the queue */
+    // TypeScript has no built-in queue; an Array can be used as a queue
     const queue: number[] = [];
 
     /* Enqueue elements */
@@ -240,22 +240,22 @@ We can use a queue class already provided by the programming language:
     const peek = queue[0];
 
     /* Dequeue an element */
-    // The underlying structure is an array, so shift() takes O(n) time
+    // The underlying structure is an array, so shift() has O(n) time complexity
     const pop = queue.shift();
 
     /* Get the queue size */
     const size = queue.length;
 
     /* Check whether the queue is empty */
-    const empty = queue.length === 0;
+    const isEmpty = queue.length === 0;
     ```
 
 === "Dart"
 
     ```dart title="queue.dart"
-    /* Initialize a queue */
-    // In Dart, Queue is a deque and can also be used as a queue
-    Queue<int> queue = Queue();
+    /* Initialize the queue */
+    // In Dart, the deque class Queue is commonly used as a queue
+    final Queue<int> queue = Queue();
 
     /* Enqueue elements */
     queue.add(1);
@@ -265,45 +265,43 @@ We can use a queue class already provided by the programming language:
     queue.add(4);
 
     /* Access the front element */
-    int peek = queue.first;
+    final int peek = queue.first;
 
     /* Dequeue an element */
-    int pop = queue.removeFirst();
+    final int pop = queue.removeFirst();
 
     /* Get the queue size */
-    int size = queue.length;
+    final int size = queue.length;
 
     /* Check whether the queue is empty */
-    bool isEmpty = queue.isEmpty;
+    final bool isEmpty = queue.isEmpty;
     ```
 
 === "Rust"
 
     ```rust title="queue.rs"
-    /* Initialize a deque */
-    // In Rust, use a deque as an ordinary queue
-    let mut deque: VecDeque<u32> = VecDeque::new();
+    // Initialize the queue
+    // In Rust, the deque VecDeque is commonly used as a queue
+    let mut queue: VecDeque<i32> = VecDeque::new();
 
-    /* Enqueue elements */
-    deque.push_back(1);
-    deque.push_back(3);
-    deque.push_back(2);
-    deque.push_back(5);
-    deque.push_back(4);
+    // Enqueue elements
+    queue.push_back(1);
+    queue.push_back(3);
+    queue.push_back(2);
+    queue.push_back(5);
+    queue.push_back(4);
 
-    /* Access the front element */
-    if let Some(front) = deque.front() {
-    }
+    // Access the front element
+    let peek = queue.front().unwrap();
 
-    /* Dequeue an element */
-    if let Some(pop) = deque.pop_front() {
-    }
+    // Dequeue an element
+    let pop = queue.pop_front().unwrap();
 
-    /* Get the queue size */
-    let size = deque.len();
+    // Get the queue size
+    let size = queue.len();
 
-    /* Check whether the queue is empty */
-    let is_empty = deque.is_empty();
+    // Check whether the queue is empty
+    let is_empty = queue.is_empty();
     ```
 
 === "C"
@@ -315,7 +313,7 @@ We can use a queue class already provided by the programming language:
 === "Kotlin"
 
     ```kotlin title="queue.kt"
-    /* Initialize a queue */
+    /* Initialize the queue */
     val queue = LinkedList<Int>()
 
     /* Enqueue elements */
@@ -341,8 +339,8 @@ We can use a queue class already provided by the programming language:
 === "Ruby"
 
     ```ruby title="queue.rb"
-    # Initialize a queue
-    # Ruby's built-in Thread::Queue has no peek or traversal methods; use an Array as a queue
+    # Initialize the queue
+    # The built-in Ruby queue (Thread::Queue) has no peek or traversal methods; use an Array as a queue
     queue = []
 
     # Enqueue elements
@@ -352,11 +350,11 @@ We can use a queue class already provided by the programming language:
     queue.push(5)
     queue.push(4)
 
-    # Access the front element of the queue
+    # Access a queue element
     peek = queue.first
 
     # Dequeue an element
-    # Note that this is an array, so Array#shift takes O(n) time
+    # Note that Array#shift has O(n) time complexity because the underlying structure is an array
     pop = queue.shift
 
     # Get the queue size

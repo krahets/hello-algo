@@ -162,7 +162,6 @@ comments: true
     /* 二分木のノード構造体 */
     typedef struct TreeNode {
         int val;                // ノードの値
-        int height;             // ノードの高さ
         struct TreeNode *left;  // 左の子へのポインタ
         struct TreeNode *right; // 右の子へのポインタ
     } TreeNode;
@@ -173,7 +172,6 @@ comments: true
 
         node = (TreeNode *)malloc(sizeof(TreeNode));
         node->val = val;
-        node->height = 0;
         node->left = NULL;
         node->right = NULL;
         return node;
@@ -243,14 +241,14 @@ comments: true
 === "Python"
 
     ```python title="binary_tree.py"
-    # 二分木を初期化
-    # ノードを初期化
+    # 二分木を初期化する
+    # ノードを初期化する
     n1 = TreeNode(val=1)
     n2 = TreeNode(val=2)
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # ノード間の参照（ポインタ）をつなぐ
+    # ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -260,14 +258,14 @@ comments: true
 === "C++"
 
     ```cpp title="binary_tree.cpp"
-    /* 二分木を初期化 */
-    // ノードを初期化
-    TreeNode* n1 = new TreeNode(1);
-    TreeNode* n2 = new TreeNode(2);
-    TreeNode* n3 = new TreeNode(3);
-    TreeNode* n4 = new TreeNode(4);
-    TreeNode* n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    /* 二分木を初期化する */
+    // ノードを初期化する
+    TreeNode *n1 = new TreeNode(1);
+    TreeNode *n2 = new TreeNode(2);
+    TreeNode *n3 = new TreeNode(3);
+    TreeNode *n4 = new TreeNode(4);
+    TreeNode *n5 = new TreeNode(5);
+    // ノード間の参照（ポインタ）を設定する
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -277,13 +275,14 @@ comments: true
 === "Java"
 
     ```java title="binary_tree.java"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     TreeNode n1 = new TreeNode(1);
     TreeNode n2 = new TreeNode(2);
     TreeNode n3 = new TreeNode(3);
     TreeNode n4 = new TreeNode(4);
     TreeNode n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -293,14 +292,14 @@ comments: true
 === "C#"
 
     ```csharp title="binary_tree.cs"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     TreeNode n1 = new(1);
     TreeNode n2 = new(2);
     TreeNode n3 = new(3);
     TreeNode n4 = new(4);
     TreeNode n5 = new(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -310,14 +309,14 @@ comments: true
 === "Go"
 
     ```go title="binary_tree.go"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     n1 := NewTreeNode(1)
     n2 := NewTreeNode(2)
     n3 := NewTreeNode(3)
     n4 := NewTreeNode(4)
     n5 := NewTreeNode(5)
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.Left = n2
     n1.Right = n3
     n2.Left = n4
@@ -327,13 +326,14 @@ comments: true
 === "Swift"
 
     ```swift title="binary_tree.swift"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = TreeNode(x: 1)
     let n2 = TreeNode(x: 2)
     let n3 = TreeNode(x: 3)
     let n4 = TreeNode(x: 4)
     let n5 = TreeNode(x: 5)
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -343,14 +343,14 @@ comments: true
 === "JS"
 
     ```javascript title="binary_tree.js"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -360,14 +360,14 @@ comments: true
 === "TS"
 
     ```typescript title="binary_tree.ts"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = new TreeNode(1),
         n2 = new TreeNode(2),
         n3 = new TreeNode(3),
         n4 = new TreeNode(4),
         n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -377,14 +377,14 @@ comments: true
 === "Dart"
 
     ```dart title="binary_tree.dart"
-    /* 二分木を初期化 */
-    // ノードを初期化
-    TreeNode n1 = new TreeNode(1);
-    TreeNode n2 = new TreeNode(2);
-    TreeNode n3 = new TreeNode(3);
-    TreeNode n4 = new TreeNode(4);
-    TreeNode n5 = new TreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    /* 二分木を初期化する */
+    // ノードを初期化する
+    TreeNode n1 = TreeNode(1);
+    TreeNode n2 = TreeNode(2);
+    TreeNode n3 = TreeNode(3);
+    TreeNode n4 = TreeNode(4);
+    TreeNode n5 = TreeNode(5);
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2;
     n1.right = n3;
     n2.left = n4;
@@ -394,30 +394,31 @@ comments: true
 === "Rust"
 
     ```rust title="binary_tree.rs"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     let n1 = TreeNode::new(1);
     let n2 = TreeNode::new(2);
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // ノード間の参照（ポインタ）をつなぐ
-    n1.borrow_mut().left = Some(n2.clone());
-    n1.borrow_mut().right = Some(n3);
-    n2.borrow_mut().left = Some(n4);
-    n2.borrow_mut().right = Some(n5);
+    // ノード間の参照（ポインタ）を設定する
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().right = Some(Rc::clone(&n3));
+    n2.borrow_mut().left = Some(Rc::clone(&n4));
+    n2.borrow_mut().right = Some(Rc::clone(&n5));
     ```
 
 === "C"
 
     ```c title="binary_tree.c"
-    /* 二分木を初期化 */
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     TreeNode *n1 = newTreeNode(1);
     TreeNode *n2 = newTreeNode(2);
     TreeNode *n3 = newTreeNode(3);
     TreeNode *n4 = newTreeNode(4);
     TreeNode *n5 = newTreeNode(5);
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1->left = n2;
     n1->right = n3;
     n2->left = n4;
@@ -427,13 +428,14 @@ comments: true
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
-    // ノードを初期化
+    /* 二分木を初期化する */
+    // ノードを初期化する
     val n1 = TreeNode(1)
     val n2 = TreeNode(2)
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // ノード間の参照（ポインタ）をつなぐ
+    // ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -443,14 +445,14 @@ comments: true
 === "Ruby"
 
     ```ruby title="binary_tree.rb"
-    # 二分木を初期化
-    # ノードを初期化
+    # 二分木を初期化する
+    # ノードを初期化する
     n1 = TreeNode.new(1)
     n2 = TreeNode.new(2)
     n3 = TreeNode.new(3)
     n4 = TreeNode.new(4)
     n5 = TreeNode.new(5)
-    # ノード間の参照（ポインタ）をつなぐ
+    # ノード間の参照（ポインタ）を設定する
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -474,11 +476,11 @@ comments: true
 
     ```python title="binary_tree.py"
     # ノードの挿入と削除
-    p = TreeNode(0)
-    # n1 -> n2 の間にノード P を挿入
-    n1.left = p
-    p.left = n2
-    # ノード P を削除
+    P = TreeNode(0)
+    # n1 -> n2 の間にノード P を挿入する
+    n1.left = P
+    P.left = n2
+    # ノード P を削除する
     n1.left = n2
     ```
 
@@ -486,24 +488,24 @@ comments: true
 
     ```cpp title="binary_tree.cpp"
     /* ノードの挿入と削除 */
-    TreeNode* P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    TreeNode *P = new TreeNode(0);
+    // n1 -> n2 の間にノード P を挿入する
     n1->left = P;
     P->left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1->left = n2;
-    // メモリを解放
-    delete P;
+    delete P; // メモリを解放する
     ```
 
 === "Java"
 
     ```java title="binary_tree.java"
+    /* ノードの挿入と削除 */
     TreeNode P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -512,10 +514,10 @@ comments: true
     ```csharp title="binary_tree.cs"
     /* ノードの挿入と削除 */
     TreeNode P = new(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -523,22 +525,23 @@ comments: true
 
     ```go title="binary_tree.go"
     /* ノードの挿入と削除 */
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     p := NewTreeNode(0)
     n1.Left = p
     p.Left = n2
-    // ノード P を削除
+    // ノード P を削除する
     n1.Left = n2
     ```
 
 === "Swift"
 
     ```swift title="binary_tree.swift"
+    /* ノードの挿入と削除 */
     let P = TreeNode(x: 0)
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P
     P.left = n2
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2
     ```
 
@@ -546,11 +549,11 @@ comments: true
 
     ```javascript title="binary_tree.js"
     /* ノードの挿入と削除 */
-    let P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    const P = new TreeNode(0);
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -559,10 +562,10 @@ comments: true
     ```typescript title="binary_tree.ts"
     /* ノードの挿入と削除 */
     const P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P;
     P.left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2;
     ```
 
@@ -570,23 +573,25 @@ comments: true
 
     ```dart title="binary_tree.dart"
     /* ノードの挿入と削除 */
-    TreeNode P = new TreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
-    n1.left = P;
-    P.left = n2;
-    // ノード P を削除
+    TreeNode p = TreeNode(0);
+    // n1 -> n2 の間にノード P を挿入する
+    n1.left = p;
+    p.left = n2;
+    // ノード P を削除する
     n1.left = n2;
     ```
 
 === "Rust"
 
     ```rust title="binary_tree.rs"
+    /* ノードの挿入と削除 */
     let p = TreeNode::new(0);
-    // n1 -> n2 の間にノード P を挿入
-    n1.borrow_mut().left = Some(p.clone());
-    p.borrow_mut().left = Some(n2.clone());
-    // ノード p を削除
-    n1.borrow_mut().left = Some(n2);
+    // n1 -> n2 の間にノード P を挿入する
+    p.borrow_mut().left = Some(Rc::clone(&n2));
+    n1.borrow_mut().left = Some(Rc::clone(&p));
+    // ノード P を削除する
+    drop(p);
+    n1.borrow_mut().left = Some(Rc::clone(&n2));
     ```
 
 === "C"
@@ -594,23 +599,24 @@ comments: true
     ```c title="binary_tree.c"
     /* ノードの挿入と削除 */
     TreeNode *P = newTreeNode(0);
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1->left = P;
     P->left = n2;
-    // ノード P を削除
+    // ノード P を削除する
     n1->left = n2;
-    // メモリを解放
+    // メモリを解放する
     free(P);
     ```
 
 === "Kotlin"
 
     ```kotlin title="binary_tree.kt"
+    /* ノードの挿入と削除 */
     val P = TreeNode(0)
-    // n1 -> n2 の間にノード P を挿入
+    // n1 -> n2 の間にノード P を挿入する
     n1.left = P
     P.left = n2
-    // ノード P を削除
+    // ノード P を削除する
     n1.left = n2
     ```
 
@@ -619,17 +625,17 @@ comments: true
     ```ruby title="binary_tree.rb"
     # ノードの挿入と削除
     _p = TreeNode.new(0)
-    # n1 -> n2 の間にノード _p を挿入
+    # n1 -> n2 の間にノード _p を挿入する
     n1.left = _p
     _p.left = n2
-    # ノードを削除
+    # ノードを削除する
     n1.left = n2
     ```
 
 ??? pythontutor "実行の可視化"
 
-    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n1%20%3D%20TreeNode(val%3D1)%0A%20%20%20%20n2%20%3D%20TreeNode(val%3D2)%0A%20%20%20%20n3%20%3D%20TreeNode(val%3D3)%0A%20%20%20%20n4%20%3D%20TreeNode(val%3D4)%0A%20%20%20%20n5%20%3D%20TreeNode(val%3D5)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%EF%BC%88%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%EF%BC%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E6%8C%BF%E5%85%A5%E3%81%A8%E5%89%8A%E9%99%A4%0A%20%20%20%20p%20%3D%20TreeNode(0)%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%E3%81%AE%E9%96%93%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n1%20%3D%20TreeNode(val%3D1)%0A%20%20%20%20n2%20%3D%20TreeNode(val%3D2)%0A%20%20%20%20n3%20%3D%20TreeNode(val%3D3)%0A%20%20%20%20n4%20%3D%20TreeNode(val%3D4)%0A%20%20%20%20n5%20%3D%20TreeNode(val%3D5)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%EF%BC%88%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%EF%BC%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E6%8C%BF%E5%85%A5%E3%81%A8%E5%89%8A%E9%99%A4%0A%20%20%20%20p%20%3D%20TreeNode(0)%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%E3%81%AE%E9%96%93%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
+    <div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" title="実行の可視化" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n1%20%3D%20TreeNode(val%3D1)%0A%20%20%20%20n2%20%3D%20TreeNode(val%3D2)%0A%20%20%20%20n3%20%3D%20TreeNode(val%3D3)%0A%20%20%20%20n4%20%3D%20TreeNode(val%3D4)%0A%20%20%20%20n5%20%3D%20TreeNode(val%3D5)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%EF%BC%88%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%EF%BC%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E6%8C%BF%E5%85%A5%E3%81%A8%E5%89%8A%E9%99%A4%0A%20%20%20%20P%20%3D%20TreeNode(0)%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%E3%81%AE%E9%96%93%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%9C%A8%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%9C%A8%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n1%20%3D%20TreeNode(val%3D1)%0A%20%20%20%20n2%20%3D%20TreeNode(val%3D2)%0A%20%20%20%20n3%20%3D%20TreeNode(val%3D3)%0A%20%20%20%20n4%20%3D%20TreeNode(val%3D4)%0A%20%20%20%20n5%20%3D%20TreeNode(val%3D5)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%EF%BC%88%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%EF%BC%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E6%8C%BF%E5%85%A5%E3%81%A8%E5%89%8A%E9%99%A4%0A%20%20%20%20P%20%3D%20TreeNode(0)%0A%20%20%20%20%23%20n1%20-%3E%20n2%20%E3%81%AE%E9%96%93%E3%81%AB%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E6%8C%BF%E5%85%A5%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20P%20%E3%82%92%E5%89%8A%E9%99%A4%0A%20%20%20%20n1.left%20%3D%20n2&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=37&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">全画面で表示 ></a></div>
 
 !!! tip "ヒント"
 

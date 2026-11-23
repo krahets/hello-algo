@@ -24,9 +24,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "Python"
 
     ```python title="list.py"
-    # Initialize lists
+    # Initialize the list
     # Without initial values
-    nums1: list[int] = []
+    empty_nums: list[int] = []
     # With initial values
     nums: list[int] = [1, 3, 2, 5, 4]
     ```
@@ -34,21 +34,20 @@ We usually initialize a list either without elements or with explicit initial va
 === "C++"
 
     ```cpp title="list.cpp"
-    /* Initialize lists */
-    // In C++, vector is the list type used for nums here
+    /* Initialize the list */
     // Without initial values
-    vector<int> nums1;
+    vector<int> emptyNums;
     // With initial values
-    vector<int> nums = { 1, 3, 2, 5, 4 };
+    vector<int> nums = {1, 3, 2, 5, 4};
     ```
 
 === "Java"
 
     ```java title="list.java"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    List<Integer> nums1 = new ArrayList<>();
-    // With initial values (use Integer[], the boxed counterpart of int[])
+    List<Integer> emptyNums = new ArrayList<>();
+    // With initial values (note that the array type must be Integer[] rather than int[], because list elements must use Integer, the wrapper class for int)
     Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
     List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
     ```
@@ -56,9 +55,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "C#"
 
     ```csharp title="list.cs"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    List<int> nums1 = [];
+    List<int> emptyNums = [];
     // With initial values
     int[] numbers = [1, 3, 2, 5, 4];
     List<int> nums = [.. numbers];
@@ -67,9 +66,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "Go"
 
     ```go title="list_test.go"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    nums1 := []int{}
+    emptyNums := []int{}
     // With initial values
     nums := []int{1, 3, 2, 5, 4}
     ```
@@ -77,9 +76,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "Swift"
 
     ```swift title="list.swift"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    let nums1: [Int] = []
+    let emptyNums: [Int] = []
     // With initial values
     var nums = [1, 3, 2, 5, 4]
     ```
@@ -87,9 +86,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "JS"
 
     ```javascript title="list.js"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    const nums1 = [];
+    const emptyNums = [];
     // With initial values
     const nums = [1, 3, 2, 5, 4];
     ```
@@ -97,9 +96,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "TS"
 
     ```typescript title="list.ts"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    const nums1: number[] = [];
+    const emptyNums: number[] = [];
     // With initial values
     const nums: number[] = [1, 3, 2, 5, 4];
     ```
@@ -107,9 +106,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "Dart"
 
     ```dart title="list.dart"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    List<int> nums1 = [];
+    List<int> emptyNums = [];
     // With initial values
     List<int> nums = [1, 3, 2, 5, 4];
     ```
@@ -117,9 +116,9 @@ We usually initialize a list either without elements or with explicit initial va
 === "Rust"
 
     ```rust title="list.rs"
-    /* Initialize lists */
+    // Initialize the list
     // Without initial values
-    let nums1: Vec<i32> = Vec::new();
+    let empty_nums: Vec<i32> = Vec::new();
     // With initial values
     let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
@@ -133,28 +132,27 @@ We usually initialize a list either without elements or with explicit initial va
 === "Kotlin"
 
     ```kotlin title="list.kt"
-    /* Initialize lists */
+    /* Initialize the list */
     // Without initial values
-    var nums1 = listOf<Int>()
+    val emptyNums = mutableListOf<Int>()
     // With initial values
-    var numbers = arrayOf(1, 3, 2, 5, 4)
-    var nums = numbers.toMutableList()
+    val nums = mutableListOf(1, 3, 2, 5, 4)
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
-    # Initialize lists
+    # Initialize the list
     # Without initial values
-    nums1 = []
+    empty_nums = []
     # With initial values
     nums = [1, 3, 2, 5, 4]
     ```
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20nums1%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 315px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=4&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ### 2. &nbsp; Accessing an element
 
@@ -164,50 +162,50 @@ Since the list is based on an array, accessing and updating an element are effic
 
     ```python title="list.py"
     # Access an element
-    num: int = nums[1]  # Access the element at index 1
+    x: int = nums[1]  # Access the element at index 1
 
     # Update an element
-    nums[1] = 0    # Set the element at index 1 to 0
+    nums[1] = 0  # Update the element at index 1 to 0
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* Access an element */
-    int num = nums[1];  // Access the element at index 1
+    int num = nums[1]; // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Set the element at index 1 to 0
+    nums[1] = 0; // Update the element at index 1 to 0
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* Access an element */
-    int num = nums.get(1);  // Access the element at index 1
+    int num = nums.get(1); // Access the element at index 1
 
     /* Update an element */
-    nums.set(1, 0);  // Set the element at index 1 to 0
+    nums.set(1, 0); // Update the element at index 1 to 0
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* Access an element */
-    int num = nums[1];  // Access the element at index 1
+    int num = nums[1]; // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Set the element at index 1 to 0
+    nums[1] = 0; // Update the element at index 1 to 0
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* Access an element */
-    num := nums[1]  // Access the element at index 1
+    num := nums[1] // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0     // Set the element at index 1 to 0
+    nums[1] = 0 // Update the element at index 1 to 0
     ```
 
 === "Swift"
@@ -217,46 +215,47 @@ Since the list is based on an array, accessing and updating an element are effic
     let num = nums[1] // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0 // Set the element at index 1 to 0
+    nums[1] = 0 // Update the element at index 1 to 0
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* Access an element */
-    const num = nums[1];  // Access the element at index 1
+    const num = nums[1]; // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Set the element at index 1 to 0
+    nums[1] = 0; // Update the element at index 1 to 0
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* Access an element */
-    const num: number = nums[1];  // Access the element at index 1
+    const num: number = nums[1]; // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Set the element at index 1 to 0
+    nums[1] = 0; // Update the element at index 1 to 0
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* Access an element */
-    int num = nums[1];  // Access the element at index 1
+    int _num = nums[1]; // Access the element at index 1
 
     /* Update an element */
-    nums[1] = 0;  // Set the element at index 1 to 0
+    nums[1] = 0; // Update the element at index 1 to 0
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Access an element */
-    let num: i32 = nums[1];  // Access the element at index 1
-    /* Update an element */
-    nums[1] = 0;             // Set the element at index 1 to 0
+    // Access an element
+    let num = nums[1]; // Access the element at index 1
+
+    // Update an element
+    nums[1] = 0; // Update the element at index 1 to 0
     ```
 
 === "C"
@@ -269,9 +268,10 @@ Since the list is based on an array, accessing and updating an element are effic
 
     ```kotlin title="list.kt"
     /* Access an element */
-    val num = nums[1]       // Access the element at index 1
+    val num = nums[1] // Access the element at index 1
+
     /* Update an element */
-    nums[1] = 0             // Set the element at index 1 to 0
+    nums[1] = 0 // Update the element at index 1 to 0
     ```
 
 === "Ruby"
@@ -279,14 +279,15 @@ Since the list is based on an array, accessing and updating an element are effic
     ```ruby title="list.rb"
     # Access an element
     num = nums[1] # Access the element at index 1
+
     # Update an element
-    nums[1] = 0 # Set the element at index 1 to 0
+    nums[1] = 0 # Update the element at index 1 to 0
     ```
 
 ??? pythontutor "Visualize execution"
 
-    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
-    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20num%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
+    <div style="height: 369px; width: 100%;"><iframe class="pythontutor-iframe" title="Visualize execution" src="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&codeDivHeight=472&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></div>
+    <div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&codeDivHeight=800&codeDivWidth=600&cumulative=false&curInstr=3&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false" target="_blank" rel="noopener noreferrer">View full screen ></a></div>
 
 ### 3. &nbsp; Inserting and removing elements
 
@@ -298,7 +299,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     # Clear the list
     nums.clear()
 
-    # Append elements
+    # Append an element at the end
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -306,10 +307,10 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.append(4)
 
     # Insert an element in the middle
-    nums.insert(3, 6)  # Insert 6 at index 3
+    nums.insert(3, 6)  # Insert the number 6 at index 3
 
     # Remove an element
-    nums.pop(3)        # Remove the element at index 3
+    nums.pop(3)  # Remove the element at index 3
     ```
 
 === "C++"
@@ -318,7 +319,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums.clear();
 
-    /* Append elements */
+    /* Append an element at the end */
     nums.push_back(1);
     nums.push_back(3);
     nums.push_back(2);
@@ -326,10 +327,10 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.push_back(4);
 
     /* Insert an element in the middle */
-    nums.insert(nums.begin() + 3, 6);  // Insert 6 at index 3
+    nums.insert(nums.begin() + 3, 6); // Insert the number 6 at index 3
 
     /* Remove an element */
-    nums.erase(nums.begin() + 3);      // Remove the element at index 3
+    nums.erase(nums.begin() + 3); // Remove the element at index 3
     ```
 
 === "Java"
@@ -338,7 +339,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums.clear();
 
-    /* Append elements */
+    /* Append at the end */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -346,10 +347,10 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.add(3, 6);  // Insert 6 at index 3
+    nums.add(3, 6); // Insert the number 6 at index 3
 
     /* Remove an element */
-    nums.remove(3);  // Remove the element at index 3
+    nums.remove(3); // Remove the element at index 3
     ```
 
 === "C#"
@@ -358,7 +359,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums.Clear();
 
-    /* Append elements */
+    /* Append at the end */
     nums.Add(1);
     nums.Add(3);
     nums.Add(2);
@@ -366,10 +367,10 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.Add(4);
 
     /* Insert an element in the middle */
-    nums.Insert(3, 6);  // Insert 6 at index 3
+    nums.Insert(3, 6); // Insert the number 6 at index 3
 
     /* Remove an element */
-    nums.RemoveAt(3);  // Remove the element at index 3
+    nums.RemoveAt(3); // Remove the element at index 3
     ```
 
 === "Go"
@@ -378,7 +379,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums = nil
 
-    /* Append elements */
+    /* Append at the end */
     nums = append(nums, 1)
     nums = append(nums, 3)
     nums = append(nums, 2)
@@ -386,7 +387,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums = append(nums, 4)
 
     /* Insert an element in the middle */
-    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert 6 at index 3
+    nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert the number 6 at index 3
 
     /* Remove an element */
     nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
@@ -398,7 +399,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums.removeAll()
 
-    /* Append elements */
+    /* Append at the end */
     nums.append(1)
     nums.append(3)
     nums.append(2)
@@ -406,7 +407,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.append(4)
 
     /* Insert an element in the middle */
-    nums.insert(6, at: 3) // Insert 6 at index 3
+    nums.insert(6, at: 3) // Insert the number 6 at index 3
 
     /* Remove an element */
     nums.remove(at: 3) // Remove the element at index 3
@@ -418,7 +419,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums.length = 0;
 
-    /* Append elements */
+    /* Append an element at the end */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -426,10 +427,10 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.splice(3, 0, 6); // Insert 6 at index 3
+    nums.splice(3, 0, 6); // Insert the number 6 at index 3
 
     /* Remove an element */
-    nums.splice(3, 1);  // Remove the element at index 3
+    nums.splice(3, 1); // Remove the element at index 3
     ```
 
 === "TS"
@@ -438,7 +439,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums.length = 0;
 
-    /* Append elements */
+    /* Append an element at the end */
     nums.push(1);
     nums.push(3);
     nums.push(2);
@@ -446,10 +447,10 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.push(4);
 
     /* Insert an element in the middle */
-    nums.splice(3, 0, 6); // Insert 6 at index 3
+    nums.splice(3, 0, 6); // Insert the number 6 at index 3
 
     /* Remove an element */
-    nums.splice(3, 1);  // Remove the element at index 3
+    nums.splice(3, 1); // Remove the element at index 3
     ```
 
 === "Dart"
@@ -458,7 +459,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     /* Clear the list */
     nums.clear();
 
-    /* Append elements */
+    /* Append an element at the end */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -466,7 +467,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums.add(4);
 
     /* Insert an element in the middle */
-    nums.insert(3, 6); // Insert 6 at index 3
+    nums.insert(3, 6); // Insert the number 6 at index 3
 
     /* Remove an element */
     nums.removeAt(3); // Remove the element at index 3
@@ -475,21 +476,21 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
 === "Rust"
 
     ```rust title="list.rs"
-    /* Clear the list */
+    // Clear the list
     nums.clear();
 
-    /* Append elements */
+    // Append an element at the end
     nums.push(1);
     nums.push(3);
     nums.push(2);
     nums.push(5);
     nums.push(4);
 
-    /* Insert an element in the middle */
-    nums.insert(3, 6);  // Insert 6 at index 3
+    // Insert an element in the middle
+    nums.insert(3, 6); // Insert the number 6 at index 3
 
-    /* Remove an element */
-    nums.remove(3);    // Remove the element at index 3
+    // Remove an element
+    nums.remove(3); // Remove the element at index 3
     ```
 
 === "C"
@@ -502,20 +503,20 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
 
     ```kotlin title="list.kt"
     /* Clear the list */
-    nums.clear();
+    nums.clear()
 
-    /* Append elements */
-    nums.add(1);
-    nums.add(3);
-    nums.add(2);
-    nums.add(5);
-    nums.add(4);
+    /* Append at the end */
+    nums.add(1)
+    nums.add(3)
+    nums.add(2)
+    nums.add(5)
+    nums.add(4)
 
     /* Insert an element in the middle */
-    nums.add(3, 6);    // Insert 6 at index 3
+    nums.add(3, 6) // Insert the number 6 at index 3
 
     /* Remove an element */
-    nums.removeAt(3);  // Remove the element at index 3
+    nums.removeAt(3) // Remove the element at index 3
     ```
 
 === "Ruby"
@@ -524,7 +525,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     # Clear the list
     nums.clear
 
-    # Append elements
+    # Append an element at the end
     nums << 1
     nums << 3
     nums << 2
@@ -532,7 +533,7 @@ Unlike a fixed array, a list can freely add and remove elements. Appending takes
     nums << 4
 
     # Insert an element in the middle
-    nums.insert(3, 6) # Insert 6 at index 3
+    nums.insert(3, 6) # Insert the number 6 at index 3
 
     # Remove an element
     nums.delete_at(3) # Remove the element at index 3
@@ -555,7 +556,7 @@ Like an array, a list can be traversed by index or by visiting its elements dire
     for i in range(len(nums)):
         count += nums[i]
 
-    # Traverse list elements directly
+    # Iterate directly over the list elements
     for num in nums:
         count += num
     ```
@@ -569,10 +570,10 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums[i];
     }
 
-    /* Traverse list elements directly */
+    /* Iterate directly over the list elements */
     count = 0;
-    for (int num : nums) {
-        count += num;
+    for (int x : nums) {
+        count += x;
     }
     ```
 
@@ -585,9 +586,9 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums.get(i);
     }
 
-    /* Traverse list elements directly */
-    for (int num : nums) {
-        count += num;
+    /* Iterate directly over the list elements */
+    for (int x : nums) {
+        count += x;
     }
     ```
 
@@ -600,10 +601,10 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums[i];
     }
 
-    /* Traverse list elements directly */
+    /* Iterate directly over the list elements */
     count = 0;
-    foreach (int num in nums) {
-        count += num;
+    foreach (int x in nums) {
+        count += x;
     }
     ```
 
@@ -616,10 +617,10 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums[i]
     }
 
-    /* Traverse list elements directly */
+    /* Iterate directly over the list elements */
     count = 0
-    for _, num := range nums {
-        count += num
+    for _, x := range nums {
+        count += x
     }
     ```
 
@@ -632,10 +633,10 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums[i]
     }
 
-    /* Traverse list elements directly */
+    /* Iterate directly over the list elements */
     count = 0
-    for num in nums {
-        count += num
+    for x in nums {
+        count += x
     }
     ```
 
@@ -648,10 +649,10 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums[i];
     }
 
-    /* Traverse list elements directly */
+    /* Iterate directly over the list elements */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
@@ -664,10 +665,10 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums[i];
     }
 
-    /* Traverse list elements directly */
+    /* Iterate directly over the list elements */
     count = 0;
-    for (const num of nums) {
-        count += num;
+    for (const x of nums) {
+        count += x;
     }
     ```
 
@@ -677,13 +678,13 @@ Like an array, a list can be traversed by index or by visiting its elements dire
     /* Traverse the list by index */
     int count = 0;
     for (var i = 0; i < nums.length; i++) {
-        count += nums[i];
+      count += nums[i];
     }
 
-    /* Traverse list elements directly */
+    /* Iterate directly over the list elements */
     count = 0;
-    for (var num in nums) {
-        count += num;
+    for (var x in nums) {
+      count += x;
     }
     ```
 
@@ -696,10 +697,10 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         _count += nums[i];
     }
 
-    // Traverse list elements directly
+    // Iterate directly over the list elements
     _count = 0;
-    for num in &nums {
-        _count += num;
+    for x in &nums {
+        _count += x;
     }
     ```
 
@@ -718,9 +719,9 @@ Like an array, a list can be traversed by index or by visiting its elements dire
         count += nums[i]
     }
 
-    /* Traverse list elements directly */
-    for (num in nums) {
-        count += num
+    /* Iterate directly over the list elements */
+    for (j in nums) {
+        count += j
     }
     ```
 
@@ -730,13 +731,13 @@ Like an array, a list can be traversed by index or by visiting its elements dire
     # Traverse the list by index
     count = 0
     for i in 0...nums.length
-        count += nums[i]
+      count += nums[i]
     end
 
-    # Traverse list elements directly
+    # Iterate directly over the list elements
     count = 0
-    for num in nums
-        count += num
+    nums.each do |x|
+      count += x
     end
     ```
 
@@ -753,16 +754,16 @@ Given another list `nums1`, we can append its elements to the end of the origina
 
     ```python title="list.py"
     # Concatenate two lists
-    nums1: list[int] = [6, 8, 7, 10, 9]
-    nums += nums1  # Append nums1 to nums
+    nums1 = [6, 8, 7, 10, 9]
+    nums += nums1  # Append list nums1 to nums
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* Concatenate two lists */
-    vector<int> nums1 = { 6, 8, 7, 10, 9 };
-    // Append nums1 to nums
+    vector<int> nums1 = {6, 8, 7, 10, 9};
+    // Append list nums1 to nums
     nums.insert(nums.end(), nums1.begin(), nums1.end());
     ```
 
@@ -771,7 +772,7 @@ Given another list `nums1`, we can append its elements to the end of the origina
     ```java title="list.java"
     /* Concatenate two lists */
     List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-    nums.addAll(nums1);  // Append nums1 to nums
+    nums.addAll(nums1); // Append list nums1 to nums
     ```
 
 === "C#"
@@ -779,7 +780,7 @@ Given another list `nums1`, we can append its elements to the end of the origina
     ```csharp title="list.cs"
     /* Concatenate two lists */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.AddRange(nums1);  // Append nums1 to nums
+    nums.AddRange(nums1); // Append list nums1 to nums
     ```
 
 === "Go"
@@ -787,7 +788,7 @@ Given another list `nums1`, we can append its elements to the end of the origina
     ```go title="list_test.go"
     /* Concatenate two lists */
     nums1 := []int{6, 8, 7, 10, 9}
-    nums = append(nums, nums1...)  // Append nums1 to nums
+    nums = append(nums, nums1...) // Append list nums1 to nums
     ```
 
 === "Swift"
@@ -795,7 +796,7 @@ Given another list `nums1`, we can append its elements to the end of the origina
     ```swift title="list.swift"
     /* Concatenate two lists */
     let nums1 = [6, 8, 7, 10, 9]
-    nums.append(contentsOf: nums1) // Append nums1 to nums
+    nums.append(contentsOf: nums1) // Append list nums1 to nums
     ```
 
 === "JS"
@@ -803,7 +804,7 @@ Given another list `nums1`, we can append its elements to the end of the origina
     ```javascript title="list.js"
     /* Concatenate two lists */
     const nums1 = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Append nums1 to nums
+    nums.push(...nums1); // Append list nums1 to nums
     ```
 
 === "TS"
@@ -811,7 +812,7 @@ Given another list `nums1`, we can append its elements to the end of the origina
     ```typescript title="list.ts"
     /* Concatenate two lists */
     const nums1: number[] = [6, 8, 7, 10, 9];
-    nums.push(...nums1);  // Append nums1 to nums
+    nums.push(...nums1); // Append list nums1 to nums
     ```
 
 === "Dart"
@@ -819,15 +820,15 @@ Given another list `nums1`, we can append its elements to the end of the origina
     ```dart title="list.dart"
     /* Concatenate two lists */
     List<int> nums1 = [6, 8, 7, 10, 9];
-    nums.addAll(nums1);  // Append nums1 to nums
+    nums.addAll(nums1); // Append list nums1 to nums
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Concatenate two lists */
-    let nums1: Vec<i32> = vec![6, 8, 7, 10, 9];
-    nums.extend(nums1);
+    // Concatenate two lists
+    let mut nums1 = vec![6, 8, 7, 10, 9];
+    nums.append(&mut nums1); // append moves the elements out of nums1, leaving nums1 empty
     ```
 
 === "C"
@@ -840,8 +841,8 @@ Given another list `nums1`, we can append its elements to the end of the origina
 
     ```kotlin title="list.kt"
     /* Concatenate two lists */
-    val nums1 = intArrayOf(6, 8, 7, 10, 9).toMutableList()
-    nums.addAll(nums1)  // Append nums1 to nums
+    val nums1 = mutableListOf(6, 8, 7, 10, 9)
+    nums.addAll(nums1) // Append list nums1 to nums
     ```
 
 === "Ruby"
@@ -865,70 +866,70 @@ Once the list is sorted, we can apply binary search and two-pointer algorithms, 
 
     ```python title="list.py"
     # Sort the list
-    nums.sort()  # After sorting, elements are in ascending order
+    nums.sort()  # After sorting, the list elements are in ascending order
     ```
 
 === "C++"
 
     ```cpp title="list.cpp"
     /* Sort the list */
-    sort(nums.begin(), nums.end());  // After sorting, elements are in ascending order
+    sort(nums.begin(), nums.end()); // After sorting, the list elements are in ascending order
     ```
 
 === "Java"
 
     ```java title="list.java"
     /* Sort the list */
-    Collections.sort(nums);  // After sorting, elements are in ascending order
+    Collections.sort(nums); // After sorting, the list elements are in ascending order
     ```
 
 === "C#"
 
     ```csharp title="list.cs"
     /* Sort the list */
-    nums.Sort(); // After sorting, elements are in ascending order
+    nums.Sort(); // After sorting, the list elements are in ascending order
     ```
 
 === "Go"
 
     ```go title="list_test.go"
     /* Sort the list */
-    sort.Ints(nums)  // After sorting, elements are in ascending order
+    sort.Ints(nums) // After sorting, the list elements are in ascending order
     ```
 
 === "Swift"
 
     ```swift title="list.swift"
     /* Sort the list */
-    nums.sort() // After sorting, elements are in ascending order
+    nums.sort() // After sorting, the list elements are in ascending order
     ```
 
 === "JS"
 
     ```javascript title="list.js"
     /* Sort the list */
-    nums.sort((a, b) => a - b);  // After sorting, elements are in ascending order
+    nums.sort((a, b) => a - b); // After sorting, the list elements are in ascending order
     ```
 
 === "TS"
 
     ```typescript title="list.ts"
     /* Sort the list */
-    nums.sort((a, b) => a - b);  // After sorting, elements are in ascending order
+    nums.sort((a, b) => a - b); // After sorting, the list elements are in ascending order
     ```
 
 === "Dart"
 
     ```dart title="list.dart"
     /* Sort the list */
-    nums.sort(); // After sorting, elements are in ascending order
+    nums.sort(); // After sorting, the list elements are in ascending order
     ```
 
 === "Rust"
 
     ```rust title="list.rs"
-    /* Sort the list */
-    nums.sort(); // After sorting, elements are in ascending order
+    // Sort the list
+    nums.sort(); // After sorting, the list elements are in ascending order
     ```
 
 === "C"
@@ -941,14 +942,14 @@ Once the list is sorted, we can apply binary search and two-pointer algorithms, 
 
     ```kotlin title="list.kt"
     /* Sort the list */
-    nums.sort() // After sorting, elements are in ascending order
+    nums.sort() // After sorting, the list elements are in ascending order
     ```
 
 === "Ruby"
 
     ```ruby title="list.rb"
     # Sort the list
-    nums = nums.sort { |a, b| a <=> b } # After sorting, elements are in ascending order
+    nums = nums.sort { |a, b| a <=> b } # After sorting, the list elements are in ascending order
     ```
 
 ??? pythontutor "Visualize execution"
