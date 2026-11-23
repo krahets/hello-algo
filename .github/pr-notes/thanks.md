@@ -1,1 +1,2 @@
 - Thanks to @DAPI177 for identifying typos in the Ruby deque and queue examples and their Chinese documentation ([#1994](https://github.com/krahets/hello-algo/pull/1994)).
+- Thanks to @yanedie for reviewing and refining the English explanation of recursive binary search ([#1663](https://github.com/krahets/hello-algo/pull/1663)).
