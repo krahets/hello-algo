@@ -4,6 +4,8 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
+import { pathToFileURL } from 'node:url';
+
 /* 二分查找插入点（无重复元素） */
 function binarySearchInsertionSimple(
     nums: Array<number>,
@@ -44,22 +46,24 @@ function binarySearchInsertion(nums: Array<number>, target: number): number {
 }
 
 /* Driver Code */
-// 无重复元素的数组
-let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-console.log('\n数组 nums = ' + nums);
-// 二分查找插入点
-for (const target of [6, 9]) {
-    const index = binarySearchInsertionSimple(nums, target);
-    console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
-}
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    // 无重复元素的数组
+    let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
+    console.log('\n数组 nums = ' + nums);
+    // 二分查找插入点
+    for (const target of [6, 9]) {
+        const index = binarySearchInsertionSimple(nums, target);
+        console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
+    }
 
-// 包含重复元素的数组
-nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-console.log('\n数组 nums = ' + nums);
-// 二分查找插入点
-for (const target of [2, 6, 20]) {
-    const index = binarySearchInsertion(nums, target);
-    console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
+    // 包含重复元素的数组
+    nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
+    console.log('\n数组 nums = ' + nums);
+    // 二分查找插入点
+    for (const target of [2, 6, 20]) {
+        const index = binarySearchInsertion(nums, target);
+        console.log('元素 ' + target + ' 的插入点的索引为 ' + index);
+    }
 }
 
 export { binarySearchInsertion };

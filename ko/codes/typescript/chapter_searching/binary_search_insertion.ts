@@ -4,6 +4,8 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
+import { pathToFileURL } from 'node:url';
+
 /* 삽입 위치의 이진 탐색(중복 원소 없음) */
 function binarySearchInsertionSimple(
     nums: Array<number>,
@@ -44,22 +46,24 @@ function binarySearchInsertion(nums: Array<number>, target: number): number {
 }
 
 /* 실행 코드 */
-// 중복 원소가 없는 배열
-let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-console.log('\n배열 nums = ' + nums);
-// 삽입 위치의 이진 탐색
-for (const target of [6, 9]) {
-    const index = binarySearchInsertionSimple(nums, target);
-    console.log('원소 ' + target + ' ; 삽입 위치의 인덱스: ' + index);
-}
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    // 중복 원소가 없는 배열
+    let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
+    console.log('\n배열 nums = ' + nums);
+    // 삽입 위치의 이진 탐색
+    for (const target of [6, 9]) {
+        const index = binarySearchInsertionSimple(nums, target);
+        console.log('원소 ' + target + ' ; 삽입 위치의 인덱스: ' + index);
+    }
 
-// 중복 원소를 포함하는 배열
-nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-console.log('\n배열 nums = ' + nums);
-// 삽입 위치의 이진 탐색
-for (const target of [2, 6, 20]) {
-    const index = binarySearchInsertion(nums, target);
-    console.log('원소 ' + target + ' ; 삽입 위치의 인덱스: ' + index);
+    // 중복 원소를 포함하는 배열
+    nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
+    console.log('\n배열 nums = ' + nums);
+    // 삽입 위치의 이진 탐색
+    for (const target of [2, 6, 20]) {
+        const index = binarySearchInsertion(nums, target);
+        console.log('원소 ' + target + ' ; 삽입 위치의 인덱스: ' + index);
+    }
 }
 
 export { binarySearchInsertion };

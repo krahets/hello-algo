@@ -4,6 +4,8 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
+import { pathToFileURL } from 'node:url';
+
 /* 二分探索による挿入位置の探索（重複要素がない場合） */
 function binarySearchInsertionSimple(
     nums: Array<number>,
@@ -44,22 +46,24 @@ function binarySearchInsertion(nums: Array<number>, target: number): number {
 }
 
 /* 実行用コード */
-// 重複要素のない配列
-let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
-console.log('\n配列 nums = ' + nums);
-// 二分探索による挿入位置の探索
-for (const target of [6, 9]) {
-    const index = binarySearchInsertionSimple(nums, target);
-    console.log('要素 ' + target + ' の挿入位置のインデックスは ' + index);
-}
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    // 重複要素のない配列
+    let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
+    console.log('\n配列 nums = ' + nums);
+    // 二分探索による挿入位置の探索
+    for (const target of [6, 9]) {
+        const index = binarySearchInsertionSimple(nums, target);
+        console.log('要素 ' + target + ' の挿入位置のインデックスは ' + index);
+    }
 
-// 重複要素を含む配列
-nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
-console.log('\n配列 nums = ' + nums);
-// 二分探索による挿入位置の探索
-for (const target of [2, 6, 20]) {
-    const index = binarySearchInsertion(nums, target);
-    console.log('要素 ' + target + ' の挿入位置のインデックスは ' + index);
+    // 重複要素を含む配列
+    nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
+    console.log('\n配列 nums = ' + nums);
+    // 二分探索による挿入位置の探索
+    for (const target of [2, 6, 20]) {
+        const index = binarySearchInsertion(nums, target);
+        console.log('要素 ' + target + ' の挿入位置のインデックスは ' + index);
+    }
 }
 
 export { binarySearchInsertion };
