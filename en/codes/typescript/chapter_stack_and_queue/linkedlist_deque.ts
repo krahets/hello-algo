@@ -6,8 +6,8 @@
 
 /* Doubly linked list node */
 class ListNode {
-    prev: ListNode; // Reference (pointer) to the previous node
-    next: ListNode; // Reference (pointer) to the next node
+    prev: ListNode | null; // Reference (pointer) to the previous node
+    next: ListNode | null; // Reference (pointer) to the next node
     val: number; // Node value
 
     constructor(val: number) {

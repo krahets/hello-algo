@@ -103,7 +103,7 @@ console.log('Is the queue empty = ' + isEmpty);
 for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    console.log('Round ' + i + ' : after enqueue + dequeue, queue =', queue.toArray());
+    console.log('After round ' + i + ' of enqueue + dequeue, queue =', queue.toArray());
 }
 
 export {};

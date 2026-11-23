@@ -160,7 +160,7 @@ stack.push(5);
 stack.push(4);
 
 /* 訪問堆疊頂元素 */
-const peek = stack[stack.length-1];
+const peek = stack[stack.length - 1];
 
 /* 元素出堆疊 */
 const pop = stack.pop();
@@ -169,7 +169,7 @@ const pop = stack.pop();
 const size = stack.length;
 
 /* 判斷是否為空 */
-const is_empty = stack.length === 0;
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
@@ -194,13 +194,13 @@ const pop = stack.pop();
 const size = stack.length;
 
 /* 判斷是否為空 */
-const is_empty = stack.length === 0;
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
 /* 初始化堆疊 */
 // Dart 沒有內建的堆疊類別，可以把 List 當作堆疊來使用
-List<int> stack = [];
+final List<int> stack = [];
 
 /* 元素入堆疊 */
 stack.add(1);
@@ -210,40 +210,40 @@ stack.add(5);
 stack.add(4);
 
 /* 訪問堆疊頂元素 */
-int peek = stack.last;
+final int peek = stack.last;
 
 /* 元素出堆疊 */
-int pop = stack.removeLast();
+final int pop = stack.removeLast();
 
 /* 獲取堆疊的長度 */
-int size = stack.length;
+final int size = stack.length;
 
 /* 判斷是否為空 */
-bool isEmpty = stack.isEmpty;
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-/* 初始化堆疊 */
-// 把 Vec 當作堆疊來使用
+// 初始化堆疊
+// 在 Rust 中，推薦將 Vec 當作堆疊來使用
 let mut stack: Vec<i32> = Vec::new();
 
-/* 元素入堆疊 */
+// 元素入堆疊
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* 訪問堆疊頂元素 */
-let top = stack.last().unwrap();
+// 訪問堆疊頂元素
+let peek = stack.last().unwrap();
 
-/* 元素出堆疊 */
+// 元素出堆疊
 let pop = stack.pop().unwrap();
 
-/* 獲取堆疊的長度 */
+// 獲取堆疊的長度
 let size = stack.len();
 
-/* 判斷是否為空 */
+// 判斷堆疊是否為空
 let is_empty = stack.is_empty();
 ```
 

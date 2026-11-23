@@ -27,7 +27,7 @@ enum Deque {
         print("キューの末尾要素 peekLast = \(peekLast)")
 
         /* 要素をデキューする */
-        // Array で再現する場合、popFirst の計算量は O(n)
+        // Array で再現する場合、removeFirst の計算量は O(n)
         let popFirst = deque.removeFirst()
         print("先頭からデキューした要素 popFirst = \(popFirst)、先頭からデキューした後 deque = \(deque)")
         let popLast = deque.removeLast()

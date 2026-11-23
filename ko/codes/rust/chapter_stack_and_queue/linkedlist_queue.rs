@@ -36,7 +36,7 @@ impl<T: Copy> LinkedListQueue<T> {
         return self.que_size == 0;
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     pub fn push(&mut self, num: T) {
         // 꼬리 노드 뒤에 num을 추가한다
         let new_rear = ListNode::new(num);
@@ -55,7 +55,7 @@ impl<T: Copy> LinkedListQueue<T> {
         self.que_size += 1;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     pub fn pop(&mut self) -> Option<T> {
         self.front.take().map(|old_front| {
             match old_front.borrow_mut().next.take() {
@@ -98,7 +98,7 @@ fn main() {
     /* 큐 초기화 */
     let mut queue = LinkedListQueue::new();
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -111,7 +111,7 @@ fn main() {
     let peek = queue.peek().unwrap().borrow().val;
     print!("\n맨 앞 원소 peek = {}", peek);
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     let pop = queue.pop().unwrap();
     print!("\n꺼낸 원소 pop = {}, 꺼낸 뒤 queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));

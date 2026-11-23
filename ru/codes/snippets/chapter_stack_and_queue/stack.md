@@ -1,26 +1,26 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-# Инициализация стека
-# В Python нет встроенного класса стека, поэтому можно использовать list как стек
+# Инициализировать стек
+# В Python нет встроенного класса стека, поэтому list можно использовать как стек
 stack: list[int] = []
 
-# Поместить элементы в стек
+# Помещение элемента в стек
 stack.append(1)
 stack.append(3)
 stack.append(2)
 stack.append(5)
 stack.append(4)
 
-# Просмотреть верхний элемент
+# Доступ к верхнему элементу стека
 peek: int = stack[-1]
 
-# Извлечь элемент
+# Извлечение элемента из стека
 pop: int = stack.pop()
 
-# Получить длину стека
+# Получение длины стека
 size: int = len(stack)
 
-# Проверить, пуст ли стек
+# Проверка на пустоту
 is_empty: bool = len(stack) == 0
 ```
 
@@ -28,23 +28,23 @@ is_empty: bool = len(stack) == 0
 /* Инициализация стека */
 stack<int> stack;
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* Просмотреть верхний элемент */
+/* Доступ к верхнему элементу стека */
 int top = stack.top();
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 stack.pop(); // Без возвращаемого значения
 
-/* Получить длину стека */
+/* Получение длины стека */
 int size = stack.size();
 
-/* Проверить, пуст ли стек */
+/* Проверка на пустоту */
 bool empty = stack.empty();
 ```
 
@@ -52,23 +52,23 @@ bool empty = stack.empty();
 /* Инициализация стека */
 Stack<Integer> stack = new Stack<>();
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* Просмотреть верхний элемент */
+/* Доступ к верхнему элементу стека */
 int peek = stack.peek();
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 int pop = stack.pop();
 
-/* Получить длину стека */
+/* Получение длины стека */
 int size = stack.size();
 
-/* Проверить, пуст ли стек */
+/* Проверка на пустоту */
 boolean isEmpty = stack.isEmpty();
 ```
 
@@ -76,23 +76,23 @@ boolean isEmpty = stack.isEmpty();
 /* Инициализация стека */
 Stack<int> stack = new();
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.Push(1);
 stack.Push(3);
 stack.Push(2);
 stack.Push(5);
 stack.Push(4);
 
-/* Просмотреть верхний элемент */
+/* Доступ к верхнему элементу стека */
 int peek = stack.Peek();
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 int pop = stack.Pop();
 
-/* Получить длину стека */
+/* Получение длины стека */
 int size = stack.Count;
 
-/* Проверить, пуст ли стек */
+/* Проверка на пустоту */
 bool isEmpty = stack.Count == 0;
 ```
 
@@ -101,149 +101,149 @@ bool isEmpty = stack.Count == 0;
 // В Go рекомендуется использовать Slice как стек
 var stack []int
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack = append(stack, 1)
 stack = append(stack, 3)
 stack = append(stack, 2)
 stack = append(stack, 5)
 stack = append(stack, 4)
 
-/* Просмотреть верхний элемент */
+/* Доступ к верхнему элементу стека */
 peek := stack[len(stack)-1]
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 pop := stack[len(stack)-1]
 stack = stack[:len(stack)-1]
 
-/* Получить длину стека */
+/* Получение длины стека */
 size := len(stack)
 
-/* Проверить, пуст ли стек */
+/* Проверка на пустоту */
 isEmpty := len(stack) == 0
 ```
 
 ```swift title="stack.swift"
 /* Инициализация стека */
-// В Swift нет встроенного класса стека, поэтому можно использовать Array как стек
+// В Swift нет встроенного класса стека, поэтому Array можно использовать как стек
 var stack: [Int] = []
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.append(1)
 stack.append(3)
 stack.append(2)
 stack.append(5)
 stack.append(4)
 
-/* Просмотреть верхний элемент */
+/* Доступ к верхнему элементу стека */
 let peek = stack.last!
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 let pop = stack.removeLast()
 
-/* Получить длину стека */
+/* Получение длины стека */
 let size = stack.count
 
-/* Проверить, пуст ли стек */
+/* Проверка на пустоту */
 let isEmpty = stack.isEmpty
 ```
 
 ```javascript title="stack.js"
 /* Инициализация стека */
-// В JavaScript нет встроенного класса стека, поэтому можно использовать Array как стек
+// В JavaScript нет встроенного класса стека, поэтому Array можно использовать как стек
 const stack = [];
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* Просмотреть верхний элемент */
-const peek = stack[stack.length-1];
+/* Доступ к верхнему элементу стека */
+const peek = stack[stack.length - 1];
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 const pop = stack.pop();
 
-/* Получить длину стека */
+/* Получение длины стека */
 const size = stack.length;
 
-/* Проверить, пуст ли стек */
-const is_empty = stack.length === 0;
+/* Проверка на пустоту */
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
 /* Инициализация стека */
-// В TypeScript нет встроенного класса стека, поэтому можно использовать Array как стек
+// В TypeScript нет встроенного класса стека, поэтому Array можно использовать как стек
 const stack: number[] = [];
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* Просмотреть верхний элемент */
+/* Доступ к верхнему элементу стека */
 const peek = stack[stack.length - 1];
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 const pop = stack.pop();
 
-/* Получить длину стека */
+/* Получение длины стека */
 const size = stack.length;
 
-/* Проверить, пуст ли стек */
-const is_empty = stack.length === 0;
+/* Проверка на пустоту */
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
 /* Инициализация стека */
-// В Dart нет встроенного класса стека, поэтому можно использовать List как стек
-List<int> stack = [];
+// В Dart нет встроенного класса стека, поэтому List можно использовать как стек
+final List<int> stack = [];
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.add(1);
 stack.add(3);
 stack.add(2);
 stack.add(5);
 stack.add(4);
 
-/* Просмотреть верхний элемент */
-int peek = stack.last;
+/* Доступ к верхнему элементу стека */
+final int peek = stack.last;
 
-/* Извлечь элемент */
-int pop = stack.removeLast();
+/* Извлечение элемента из стека */
+final int pop = stack.removeLast();
 
-/* Получить длину стека */
-int size = stack.length;
+/* Получение длины стека */
+final int size = stack.length;
 
-/* Проверить, пуст ли стек */
-bool isEmpty = stack.isEmpty;
+/* Проверка на пустоту */
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-/* Инициализация стека */
-// Используем Vec как стек
+// Инициализировать стек
+// В Rust рекомендуется использовать Vec как стек
 let mut stack: Vec<i32> = Vec::new();
 
-/* Поместить элементы в стек */
+// Помещение элемента в стек
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* Просмотреть верхний элемент */
-let top = stack.last().unwrap();
+// Доступ к верхнему элементу стека
+let peek = stack.last().unwrap();
 
-/* Извлечь элемент */
+// Извлечение элемента из стека
 let pop = stack.pop().unwrap();
 
-/* Получить длину стека */
+// Получение длины стека
 let size = stack.len();
 
-/* Проверить, пуст ли стек */
+// Проверка, пуст ли стек
 let is_empty = stack.is_empty();
 ```
 
@@ -255,48 +255,48 @@ let is_empty = stack.is_empty();
 /* Инициализация стека */
 val stack = Stack<Int>()
 
-/* Поместить элементы в стек */
+/* Помещение элемента в стек */
 stack.push(1)
 stack.push(3)
 stack.push(2)
 stack.push(5)
 stack.push(4)
 
-/* Просмотреть верхний элемент */
+/* Доступ к верхнему элементу стека */
 val peek = stack.peek()
 
-/* Извлечь элемент */
+/* Извлечение элемента из стека */
 val pop = stack.pop()
 
-/* Получить длину стека */
+/* Получение длины стека */
 val size = stack.size
 
-/* Проверить, пуст ли стек */
+/* Проверка на пустоту */
 val isEmpty = stack.isEmpty()
 ```
 
 ```ruby title="stack.rb"
-# Инициализация стека
-# В Ruby нет встроенного класса стека, поэтому можно использовать Array как стек
+# Инициализировать стек
+# В Ruby нет встроенного класса стека, поэтому Array можно использовать как стек
 stack = []
 
-# Поместить элементы в стек
+# Помещение элемента в стек
 stack << 1
 stack << 3
 stack << 2
 stack << 5
 stack << 4
 
-# Просмотреть верхний элемент
+# Доступ к верхнему элементу стека
 peek = stack.last
 
-# Извлечь элемент
+# Извлечение элемента из стека
 pop = stack.pop
 
-# Получить длину стека
+# Получение длины стека
 size = stack.length
 
-# Проверить, пуст ли стек
+# Проверка на пустоту
 is_empty = stack.empty?
 ```
 

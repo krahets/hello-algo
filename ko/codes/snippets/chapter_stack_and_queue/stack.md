@@ -11,16 +11,16 @@ stack.append(2)
 stack.append(5)
 stack.append(4)
 
-# 스택 맨 위 원소에 접근
+# 스택 맨 위 원소 접근
 peek: int = stack[-1]
 
 # 스택에서 원소 꺼내기
 pop: int = stack.pop()
 
-# 스택 길이 구하기
+# 스택의 길이 반환
 size: int = len(stack)
 
-# 비어 있는지 확인
+# 비어 있는지 판단
 is_empty: bool = len(stack) == 0
 ```
 
@@ -35,16 +35,16 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* 스택 맨 위 원소에 접근 */
+/* 스택 맨 위 원소 접근 */
 int top = stack.top();
 
 /* 스택에서 원소 꺼내기 */
 stack.pop(); // 반환값 없음
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 int size = stack.size();
 
-/* 비어 있는지 확인 */
+/* 비어 있는지 판단 */
 bool empty = stack.empty();
 ```
 
@@ -59,16 +59,16 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* 스택 맨 위 원소에 접근 */
+/* 스택 맨 위 원소 접근 */
 int peek = stack.peek();
 
 /* 스택에서 원소 꺼내기 */
 int pop = stack.pop();
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 int size = stack.size();
 
-/* 비어 있는지 확인 */
+/* 비어 있는지 판단 */
 boolean isEmpty = stack.isEmpty();
 ```
 
@@ -83,22 +83,22 @@ stack.Push(2);
 stack.Push(5);
 stack.Push(4);
 
-/* 스택 맨 위 원소에 접근 */
+/* 스택 맨 위 원소 접근 */
 int peek = stack.Peek();
 
 /* 스택에서 원소 꺼내기 */
 int pop = stack.Pop();
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 int size = stack.Count;
 
-/* 비어 있는지 확인 */
+/* 비어 있는지 판단 */
 bool isEmpty = stack.Count == 0;
 ```
 
 ```go title="stack_test.go"
 /* 스택 초기화 */
-// Go에서는 Slice를 스택으로 사용하는 것을 권한다
+// Go에서는 Slice를 스택으로 사용하는 것을 권장한다
 var stack []int
 
 /* 스택에 원소 삽입 */
@@ -108,17 +108,17 @@ stack = append(stack, 2)
 stack = append(stack, 5)
 stack = append(stack, 4)
 
-/* 스택 맨 위 원소에 접근 */
+/* 스택 맨 위 원소 접근 */
 peek := stack[len(stack)-1]
 
 /* 스택에서 원소 꺼내기 */
 pop := stack[len(stack)-1]
 stack = stack[:len(stack)-1]
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 size := len(stack)
 
-/* 비어 있는지 확인 */
+/* 비어 있는지 판단 */
 isEmpty := len(stack) == 0
 ```
 
@@ -134,16 +134,16 @@ stack.append(2)
 stack.append(5)
 stack.append(4)
 
-/* 스택 맨 위 원소에 접근 */
+/* 스택 맨 위 원소 접근 */
 let peek = stack.last!
 
 /* 스택에서 원소 꺼내기 */
 let pop = stack.removeLast()
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 let size = stack.count
 
-/* 비어 있는지 확인 */
+/* 비어 있는지 판단 */
 let isEmpty = stack.isEmpty
 ```
 
@@ -159,17 +159,17 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* 스택 맨 위 원소에 접근 */
-const peek = stack[stack.length-1];
+/* 스택 맨 위 원소 접근 */
+const peek = stack[stack.length - 1];
 
 /* 스택에서 원소 꺼내기 */
 const pop = stack.pop();
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 const size = stack.length;
 
-/* 비어 있는지 확인 */
-const is_empty = stack.length === 0;
+/* 비어 있는지 판단 */
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
@@ -184,23 +184,23 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* 스택 맨 위 원소에 접근 */
+/* 스택 맨 위 원소 접근 */
 const peek = stack[stack.length - 1];
 
 /* 스택에서 원소 꺼내기 */
 const pop = stack.pop();
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 const size = stack.length;
 
-/* 비어 있는지 확인 */
-const is_empty = stack.length === 0;
+/* 비어 있는지 판단 */
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
 /* 스택 초기화 */
 // Dart에는 내장 스택 클래스가 없으므로 List를 스택으로 사용할 수 있다
-List<int> stack = [];
+final List<int> stack = [];
 
 /* 스택에 원소 삽입 */
 stack.add(1);
@@ -209,41 +209,41 @@ stack.add(2);
 stack.add(5);
 stack.add(4);
 
-/* 스택 맨 위 원소에 접근 */
-int peek = stack.last;
+/* 스택 맨 위 원소 접근 */
+final int peek = stack.last;
 
 /* 스택에서 원소 꺼내기 */
-int pop = stack.removeLast();
+final int pop = stack.removeLast();
 
-/* 스택 길이 구하기 */
-int size = stack.length;
+/* 스택의 길이 반환 */
+final int size = stack.length;
 
-/* 비어 있는지 확인 */
-bool isEmpty = stack.isEmpty;
+/* 비어 있는지 판단 */
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-/* 스택 초기화 */
-// Vec를 스택으로 사용
+// 스택 초기화
+// Rust에서는 Vec를 스택으로 사용하는 것을 권장한다
 let mut stack: Vec<i32> = Vec::new();
 
-/* 스택에 원소 삽입 */
+// 스택에 원소 삽입
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* 스택 맨 위 원소에 접근 */
-let top = stack.last().unwrap();
+// 스택 맨 위 원소 접근
+let peek = stack.last().unwrap();
 
-/* 스택에서 원소 꺼내기 */
+// 스택에서 원소 꺼내기
 let pop = stack.pop().unwrap();
 
-/* 스택 길이 구하기 */
+// 스택의 길이 반환
 let size = stack.len();
 
-/* 비어 있는지 확인 */
+// 스택이 비어 있는지 판단
 let is_empty = stack.is_empty();
 ```
 
@@ -262,16 +262,16 @@ stack.push(2)
 stack.push(5)
 stack.push(4)
 
-/* 스택 맨 위 원소에 접근 */
+/* 스택 맨 위 원소 접근 */
 val peek = stack.peek()
 
 /* 스택에서 원소 꺼내기 */
 val pop = stack.pop()
 
-/* 스택 길이 구하기 */
+/* 스택의 길이 반환 */
 val size = stack.size
 
-/* 비어 있는지 확인 */
+/* 비어 있는지 판단 */
 val isEmpty = stack.isEmpty()
 ```
 
@@ -287,16 +287,16 @@ stack << 2
 stack << 5
 stack << 4
 
-# 스택 맨 위 원소에 접근
+# 스택 맨 위 원소 접근
 peek = stack.last
 
 # 스택에서 원소 꺼내기
 pop = stack.pop
 
-# 스택 길이 구하기
+# 스택의 길이 반환
 size = stack.length
 
-# 비어 있는지 확인
+# 비어 있는지 판단
 is_empty = stack.empty?
 ```
 

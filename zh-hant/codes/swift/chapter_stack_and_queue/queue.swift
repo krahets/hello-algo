@@ -25,7 +25,7 @@ enum Queue {
         print("佇列首元素 peek = \(peek)")
 
         /* 元素出列 */
-        // 使用 Array 模擬時 pop 的複雜度為 O(n)
+        // 使用 Array 模擬時 removeFirst 的複雜度為 O(n)
         let pop = queue.removeFirst()
         print("出列元素 pop = \(pop)，出列後 queue = \(queue)")
 

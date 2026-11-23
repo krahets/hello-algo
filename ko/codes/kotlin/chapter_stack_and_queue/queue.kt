@@ -13,7 +13,7 @@ fun main() {
     /* 큐 초기화 */
     val queue = LinkedList<Int>()
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
@@ -25,7 +25,7 @@ fun main() {
     val peek = queue.peek()
     println("맨 앞 원소 peek = $peek")
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     val pop = queue.poll()
     println("큐에서 꺼낸 원소 pop = $pop, 꺼낸 후 queue = $queue")
 

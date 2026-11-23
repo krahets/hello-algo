@@ -5,25 +5,25 @@ from collections import deque
 # 덱 초기화
 deq: deque[int] = deque()
 
-# 덱에 원소 삽입
-deq.append(2)      # 맨 뒤에 추가
+# 원소 삽입
+deq.append(2)  # 맨 뒤에 추가한다
 deq.append(5)
 deq.append(4)
-deq.appendleft(3)  # 맨 앞에 추가
+deq.appendleft(3)  # 맨 앞에 추가한다
 deq.appendleft(1)
 
 # 원소 접근
 front: int = deq[0]  # 맨 앞 원소
 rear: int = deq[-1]  # 맨 뒤 원소
 
-# 덱에서 원소 꺼내기
-pop_front: int = deq.popleft()  # 맨 앞 원소 꺼내기
-pop_rear: int = deq.pop()       # 맨 뒤 원소 꺼내기
+# 원소 꺼내기
+pop_front: int = deq.popleft()  # 맨 앞 원소를 꺼낸다
+pop_rear: int = deq.pop()  # 맨 뒤 원소를 꺼낸다
 
-# 덱 길이 구하기
+# 덱의 길이 반환
 size: int = len(deq)
 
-# 덱이 비어 있는지 확인
+# 덱이 비어 있는지 판단
 is_empty: bool = len(deq) == 0
 ```
 
@@ -31,25 +31,25 @@ is_empty: bool = len(deq) == 0
 /* 덱 초기화 */
 deque<int> deque;
 
-/* 덱에 원소 삽입 */
-deque.push_back(2);   // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.push_back(2); // 맨 뒤에 추가한다
 deque.push_back(5);
 deque.push_back(4);
-deque.push_front(3);  // 맨 앞에 추가
+deque.push_front(3); // 맨 앞에 추가한다
 deque.push_front(1);
 
 /* 원소 접근 */
 int front = deque.front(); // 맨 앞 원소
-int back = deque.back();   // 맨 뒤 원소
+int back = deque.back(); // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-deque.pop_front();  // 맨 앞 원소 꺼내기
-deque.pop_back();   // 맨 뒤 원소 꺼내기
+/* 원소 꺼내기 */
+deque.pop_front(); // 맨 앞 원소를 꺼낸다
+deque.pop_back(); // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 int size = deque.size();
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 bool empty = deque.empty();
 ```
 
@@ -57,25 +57,25 @@ bool empty = deque.empty();
 /* 덱 초기화 */
 Deque<Integer> deque = new LinkedList<>();
 
-/* 덱에 원소 삽입 */
-deque.offerLast(2);   // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.offerLast(2); // 맨 뒤에 추가한다
 deque.offerLast(5);
 deque.offerLast(4);
-deque.offerFirst(3);  // 맨 앞에 추가
+deque.offerFirst(3); // 맨 앞에 추가한다
 deque.offerFirst(1);
 
 /* 원소 접근 */
-int peekFirst = deque.peekFirst();  // 맨 앞 원소
-int peekLast = deque.peekLast();    // 맨 뒤 원소
+int peekFirst = deque.peekFirst(); // 맨 앞 원소
+int peekLast = deque.peekLast(); // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-int popFirst = deque.pollFirst();  // 맨 앞 원소 꺼내기
-int popLast = deque.pollLast();    // 맨 뒤 원소 꺼내기
+/* 원소 꺼내기 */
+int popFirst = deque.pollFirst(); // 맨 앞 원소를 꺼낸다
+int popLast = deque.pollLast(); // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 int size = deque.size();
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 boolean isEmpty = deque.isEmpty();
 ```
 
@@ -84,25 +84,25 @@ boolean isEmpty = deque.isEmpty();
 // C#에서는 연결 리스트 LinkedList를 덱으로 사용한다
 LinkedList<int> deque = new();
 
-/* 덱에 원소 삽입 */
-deque.AddLast(2);   // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.AddLast(2);   // 맨 뒤에 추가한다
 deque.AddLast(5);
 deque.AddLast(4);
-deque.AddFirst(3);  // 맨 앞에 추가
+deque.AddFirst(3);  // 맨 앞에 추가한다
 deque.AddFirst(1);
 
 /* 원소 접근 */
-int peekFirst = deque.First.Value;  // 맨 앞 원소
-int peekLast = deque.Last.Value;    // 맨 뒤 원소
+int? peekFirst = deque.First?.Value;  // 맨 앞 원소
+int? peekLast = deque.Last?.Value;    // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-deque.RemoveFirst();  // 맨 앞 원소 꺼내기
-deque.RemoveLast();   // 맨 뒤 원소 꺼내기
+/* 원소 꺼내기 */
+deque.RemoveFirst();  // 맨 앞 원소를 꺼낸다
+deque.RemoveLast();   // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 int size = deque.Count;
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 bool isEmpty = deque.Count == 0;
 ```
 
@@ -111,25 +111,25 @@ bool isEmpty = deque.Count == 0;
 // Go에서는 list를 덱으로 사용한다
 deque := list.New()
 
-/* 덱에 원소 삽입 */
-deque.PushBack(2)      // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.PushBack(2) // 맨 뒤에 추가한다
 deque.PushBack(5)
 deque.PushBack(4)
-deque.PushFront(3)     // 맨 앞에 추가
+deque.PushFront(3) // 맨 앞에 추가한다
 deque.PushFront(1)
 
 /* 원소 접근 */
 front := deque.Front() // 맨 앞 원소
-rear := deque.Back()   // 맨 뒤 원소
+rear := deque.Back() // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-deque.Remove(front)    // 맨 앞 원소 꺼내기
-deque.Remove(rear)     // 맨 뒤 원소 꺼내기
+/* 원소 꺼내기 */
+deque.Remove(front) // 맨 앞 원소를 꺼낸다
+deque.Remove(rear) // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 size := deque.Len()
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 isEmpty := deque.Len() == 0
 ```
 
@@ -138,39 +138,39 @@ isEmpty := deque.Len() == 0
 // Swift에는 내장 덱 클래스가 없으므로 Array를 덱으로 사용할 수 있다
 var deque: [Int] = []
 
-/* 덱에 원소 삽입 */
-deque.append(2) // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.append(2) // 맨 뒤에 추가한다
 deque.append(5)
 deque.append(4)
-deque.insert(3, at: 0) // 맨 앞에 추가
+deque.insert(3, at: 0) // 맨 앞에 추가한다
 deque.insert(1, at: 0)
 
 /* 원소 접근 */
 let peekFirst = deque.first! // 맨 앞 원소
 let peekLast = deque.last! // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-// Array로 구현하면 popFirst의 복잡도는 O(n)이다
-let popFirst = deque.removeFirst() // 맨 앞 원소 꺼내기
-let popLast = deque.removeLast() // 맨 뒤 원소 꺼내기
+/* 원소 꺼내기 */
+// Array로 구현할 때 removeFirst의 복잡도는 O(n)이다
+let popFirst = deque.removeFirst() // 맨 앞 원소를 꺼낸다
+let popLast = deque.removeLast() // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 let size = deque.count
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 let isEmpty = deque.isEmpty
 ```
 
 ```javascript title="deque.js"
 /* 덱 초기화 */
-// JavaScript에는 내장 덱이 없으므로 Array를 덱으로 사용해야 한다
+// JavaScript에는 내장 덱이 없으므로 Array를 덱으로 사용한다
 const deque = [];
 
-/* 덱에 원소 삽입 */
+/* 원소 삽입 */
 deque.push(2);
 deque.push(5);
 deque.push(4);
-// 배열이므로 unshift() 메서드의 시간 복잡도는 O(n)임에 주의
+// 배열이므로 unshift() 메서드의 시간 복잡도는 O(n)임에 유의한다
 deque.unshift(3);
 deque.unshift(1);
 
@@ -178,28 +178,28 @@ deque.unshift(1);
 const peekFirst = deque[0];
 const peekLast = deque[deque.length - 1];
 
-/* 덱에서 원소 꺼내기 */
-// 배열이므로 shift() 메서드의 시간 복잡도는 O(n)임에 주의
+/* 원소 꺼내기 */
+// 배열이므로 shift() 메서드의 시간 복잡도는 O(n)임에 유의한다
 const popFront = deque.shift();
 const popBack = deque.pop();
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 const size = deque.length;
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 const isEmpty = size === 0;
 ```
 
 ```typescript title="deque.ts"
 /* 덱 초기화 */
-// TypeScript에는 내장 덱이 없으므로 Array를 덱으로 사용해야 한다
+// TypeScript에는 내장 덱이 없으므로 Array를 덱으로 사용한다
 const deque: number[] = [];
 
-/* 덱에 원소 삽입 */
+/* 원소 삽입 */
 deque.push(2);
 deque.push(5);
 deque.push(4);
-// 배열이므로 unshift() 메서드의 시간 복잡도는 O(n)임에 주의
+// 배열이므로 unshift() 메서드의 시간 복잡도는 O(n)임에 유의한다
 deque.unshift(3);
 deque.unshift(1);
 
@@ -207,72 +207,68 @@ deque.unshift(1);
 const peekFirst: number = deque[0];
 const peekLast: number = deque[deque.length - 1];
 
-/* 덱에서 원소 꺼내기 */
-// 배열이므로 shift() 메서드의 시간 복잡도는 O(n)임에 주의
+/* 원소 꺼내기 */
+// 배열이므로 shift() 메서드의 시간 복잡도는 O(n)임에 유의한다
 const popFront: number = deque.shift() as number;
 const popBack: number = deque.pop() as number;
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 const size: number = deque.length;
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 const isEmpty: boolean = size === 0;
 ```
 
 ```dart title="deque.dart"
 /* 덱 초기화 */
-// Dart의 Queue는 덱으로 정의되어 있다
-Queue<int> deque = Queue<int>();
+// Dart에서는 Queue가 덱으로 정의되어 있다
+final Queue<int> deque = Queue();
 
-/* 덱에 원소 삽입 */
-deque.addLast(2);  // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.addLast(2); // 맨 뒤에 추가한다
 deque.addLast(5);
 deque.addLast(4);
-deque.addFirst(3); // 맨 앞에 추가
+deque.addFirst(3); // 맨 앞에 추가한다
 deque.addFirst(1);
 
 /* 원소 접근 */
-int peekFirst = deque.first; // 맨 앞 원소
-int peekLast = deque.last;   // 맨 뒤 원소
+final int peekFirst = deque.first; // 맨 앞 원소
+final int peekLast = deque.last; // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-int popFirst = deque.removeFirst(); // 맨 앞 원소 꺼내기
-int popLast = deque.removeLast();   // 맨 뒤 원소 꺼내기
+/* 원소 꺼내기 */
+final int popFirst = deque.removeFirst(); // 맨 앞 원소를 꺼낸다
+final int popLast = deque.removeLast(); // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
-int size = deque.length;
+/* 덱의 길이 반환 */
+final int size = deque.length;
 
-/* 덱이 비어 있는지 확인 */
-bool isEmpty = deque.isEmpty;
+/* 덱이 비어 있는지 판단 */
+final bool isEmpty = deque.isEmpty;
 ```
 
 ```rust title="deque.rs"
-/* 덱 초기화 */
-let mut deque: VecDeque<u32> = VecDeque::new();
+// 덱 초기화
+let mut deque: VecDeque<i32> = VecDeque::new();
 
-/* 덱에 원소 삽입 */
-deque.push_back(2);  // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.push_back(2); // 맨 뒤에 추가한다
 deque.push_back(5);
 deque.push_back(4);
-deque.push_front(3); // 맨 앞에 추가
+deque.push_front(3); // 맨 앞에 추가한다
 deque.push_front(1);
 
-/* 원소 접근 */
-if let Some(front) = deque.front() { // 맨 앞 원소
-}
-if let Some(rear) = deque.back() {   // 맨 뒤 원소
-}
+// 원소 접근
+let peek_first = deque.front().unwrap(); // 맨 앞 원소
+let peek_last = deque.back().unwrap(); // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-if let Some(pop_front) = deque.pop_front() { // 맨 앞 원소 꺼내기
-}
-if let Some(pop_rear) = deque.pop_back() {   // 맨 뒤 원소 꺼내기
-}
+// 원소 꺼내기
+let pop_first = deque.pop_front().unwrap(); // 맨 앞 원소를 꺼낸다
+let pop_last = deque.pop_back().unwrap(); // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
+// 덱의 길이 반환
 let size = deque.len();
 
-/* 덱이 비어 있는지 확인 */
+// 덱이 비어 있는지 판단
 let is_empty = deque.is_empty();
 ```
 
@@ -284,25 +280,25 @@ let is_empty = deque.is_empty();
 /* 덱 초기화 */
 val deque = LinkedList<Int>()
 
-/* 덱에 원소 삽입 */
-deque.offerLast(2)  // 맨 뒤에 추가
+/* 원소 삽입 */
+deque.offerLast(2) // 맨 뒤에 추가한다
 deque.offerLast(5)
 deque.offerLast(4)
-deque.offerFirst(3) // 맨 앞에 추가
+deque.offerFirst(3) // 맨 앞에 추가한다
 deque.offerFirst(1)
 
 /* 원소 접근 */
 val peekFirst = deque.peekFirst() // 맨 앞 원소
-val peekLast = deque.peekLast()   // 맨 뒤 원소
+val peekLast = deque.peekLast() // 맨 뒤 원소
 
-/* 덱에서 원소 꺼내기 */
-val popFirst = deque.pollFirst() // 맨 앞 원소 꺼내기
-val popLast = deque.pollLast()   // 맨 뒤 원소 꺼내기
+/* 원소 꺼내기 */
+val popFirst = deque.pollFirst() // 맨 앞 원소를 꺼낸다
+val popLast = deque.pollLast() // 맨 뒤 원소를 꺼낸다
 
-/* 덱 길이 구하기 */
+/* 덱의 길이 반환 */
 val size = deque.size
 
-/* 덱이 비어 있는지 확인 */
+/* 덱이 비어 있는지 판단 */
 val isEmpty = deque.isEmpty()
 ```
 
@@ -311,11 +307,11 @@ val isEmpty = deque.isEmpty()
 # Ruby에는 내장 덱이 없으므로 Array를 덱으로 사용해야 한다
 deque = []
 
-# 덱에 원소 삽입
+# 원소 삽입
 deque << 2
 deque << 5
 deque << 4
-# 배열이므로 Array#unshift 메서드의 시간 복잡도는 O(n)임에 주의
+# 배열이므로 Array#unshift 메서드의 시간 복잡도는 O(n)임에 유의한다
 deque.unshift(3)
 deque.unshift(1)
 
@@ -323,15 +319,15 @@ deque.unshift(1)
 peek_first = deque.first
 peek_last = deque.last
 
-# 덱에서 원소 꺼내기
-# 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 주의
+# 원소 꺼내기
+# 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 유의한다
 pop_front = deque.shift
 pop_back = deque.pop
 
-# 덱 길이 구하기
+# 덱의 길이 반환
 size = deque.length
 
-# 덱이 비어 있는지 확인
+# 덱이 비어 있는지 판단
 is_empty = size.zero?
 ```
 

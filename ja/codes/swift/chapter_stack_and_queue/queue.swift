@@ -25,7 +25,7 @@ enum Queue {
         print("キューの先頭要素 peek = \(peek)")
 
         /* 要素をデキューする */
-        // Array で再現する場合、pop の計算量は O(n)
+        // Array で再現する場合、removeFirst の計算量は O(n)
         let pop = queue.removeFirst()
         print("デキューした要素 pop = \(pop)、デキュー後 queue = \(queue)")
 

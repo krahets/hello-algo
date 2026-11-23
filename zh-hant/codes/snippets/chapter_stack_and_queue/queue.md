@@ -141,7 +141,7 @@ queue.append(4)
 let peek = queue.first!
 
 /* 元素出列 */
-// 由於是陣列，因此 removeFirst 的複雜度為 O(n)
+// 使用 Array 模擬時 removeFirst 的複雜度為 O(n)
 let pop = queue.removeFirst()
 
 /* 獲取佇列的長度 */
@@ -174,7 +174,7 @@ const pop = queue.shift();
 const size = queue.length;
 
 /* 判斷佇列是否為空 */
-const empty = queue.length === 0;
+const isEmpty = queue.length === 0;
 ```
 
 ```typescript title="queue.ts"
@@ -200,13 +200,13 @@ const pop = queue.shift();
 const size = queue.length;
 
 /* 判斷佇列是否為空 */
-const empty = queue.length === 0;
+const isEmpty = queue.length === 0;
 ```
 
 ```dart title="queue.dart"
 /* 初始化佇列 */
-// 在 Dart 中，佇列類別 Queue 是雙向佇列，也可作為佇列使用
-Queue<int> queue = Queue();
+// 在 Dart 中，一般將雙向佇列類別 Queue 當作佇列使用
+final Queue<int> queue = Queue();
 
 /* 元素入列 */
 queue.add(1);
@@ -216,43 +216,41 @@ queue.add(5);
 queue.add(4);
 
 /* 訪問佇列首元素 */
-int peek = queue.first;
+final int peek = queue.first;
 
 /* 元素出列 */
-int pop = queue.removeFirst();
+final int pop = queue.removeFirst();
 
 /* 獲取佇列的長度 */
-int size = queue.length;
+final int size = queue.length;
 
 /* 判斷佇列是否為空 */
-bool isEmpty = queue.isEmpty;
+final bool isEmpty = queue.isEmpty;
 ```
 
 ```rust title="queue.rs"
-/* 初始化雙向佇列 */
-// 在 Rust 中使用雙向佇列作為普通佇列來使用
-let mut deque: VecDeque<u32> = VecDeque::new();
+// 初始化佇列
+// 在 Rust 中，一般將雙向佇列 VecDeque 看作佇列使用
+let mut queue: VecDeque<i32> = VecDeque::new();
 
-/* 元素入列 */
-deque.push_back(1);
-deque.push_back(3);
-deque.push_back(2);
-deque.push_back(5);
-deque.push_back(4);
+// 元素入列
+queue.push_back(1);
+queue.push_back(3);
+queue.push_back(2);
+queue.push_back(5);
+queue.push_back(4);
 
-/* 訪問佇列首元素 */
-if let Some(front) = deque.front() {
-}
+// 訪問佇列首元素
+let peek = queue.front().unwrap();
 
-/* 元素出列 */
-if let Some(pop) = deque.pop_front() {
-}
+// 元素出列
+let pop = queue.pop_front().unwrap();
 
-/* 獲取佇列的長度 */
-let size = deque.len();
+// 獲取佇列的長度
+let size = queue.len();
 
-/* 判斷佇列是否為空 */
-let is_empty = deque.is_empty();
+// 判斷佇列是否為空
+let is_empty = queue.is_empty();
 ```
 
 ```c title="queue.c"
@@ -285,7 +283,7 @@ val isEmpty = queue.isEmpty()
 
 ```ruby title="queue.rb"
 # 初始化佇列
-# Ruby 內建的佇列（Thread::Queue) 沒有 peek 和走訪方法，可以把 Array 當作佇列來使用
+# Ruby 內建的佇列（Thread::Queue）沒有 peek 和走訪方法，可以把 Array 當作佇列來使用
 queue = []
 
 # 元素入列
@@ -299,7 +297,7 @@ queue.push(4)
 peek = queue.first
 
 # 元素出列
-# 清注意，由於是陣列，Array#shift 方法時間複雜度為 O(n)
+# 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
 pop = queue.shift
 
 # 獲取佇列的長度

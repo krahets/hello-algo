@@ -24,9 +24,9 @@ if __FILE__ == $0
   hash_str = str.hash
   puts "文字列 #{str} のハッシュ値は #{hash_str}"
 
-  tup = [12836, '小哈']
-  hash_tup = tup.hash
-  puts "タプル #{tup} のハッシュ値は #{hash_tup}"
+  arr = [12836, '小哈']
+  hash_arr = arr.hash
+  puts "配列 #{arr} のハッシュ値は #{hash_arr}"
 
   obj = ListNode.new(0)
   hash_obj = obj.hash

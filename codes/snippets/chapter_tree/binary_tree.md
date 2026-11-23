@@ -133,7 +133,6 @@ impl TreeNode {
 /* 二叉树节点结构体 */
 typedef struct TreeNode {
     int val;                // 节点值
-    int height;             // 节点高度
     struct TreeNode *left;  // 左子节点指针
     struct TreeNode *right; // 右子节点指针
 } TreeNode;
@@ -144,7 +143,6 @@ TreeNode *newTreeNode(int val) {
 
     node = (TreeNode *)malloc(sizeof(TreeNode));
     node->val = val;
-    node->height = 0;
     node->left = NULL;
     node->right = NULL;
     return node;
@@ -191,11 +189,11 @@ n2.right = n5
 ```cpp title="binary_tree.cpp"
 /* 初始化二叉树 */
 // 初始化节点
-TreeNode* n1 = new TreeNode(1);
-TreeNode* n2 = new TreeNode(2);
-TreeNode* n3 = new TreeNode(3);
-TreeNode* n4 = new TreeNode(4);
-TreeNode* n5 = new TreeNode(5);
+TreeNode *n1 = new TreeNode(1);
+TreeNode *n2 = new TreeNode(2);
+TreeNode *n3 = new TreeNode(3);
+TreeNode *n4 = new TreeNode(4);
+TreeNode *n5 = new TreeNode(5);
 // 构建节点之间的引用（指针）
 n1->left = n2;
 n1->right = n3;
@@ -204,6 +202,7 @@ n2->right = n5;
 ```
 
 ```java title="binary_tree.java"
+/* 初始化二叉树 */
 // 初始化节点
 TreeNode n1 = new TreeNode(1);
 TreeNode n2 = new TreeNode(2);
@@ -248,6 +247,7 @@ n2.Right = n5
 ```
 
 ```swift title="binary_tree.swift"
+/* 初始化二叉树 */
 // 初始化节点
 let n1 = TreeNode(x: 1)
 let n2 = TreeNode(x: 2)
@@ -294,11 +294,11 @@ n2.right = n5;
 ```dart title="binary_tree.dart"
 /* 初始化二叉树 */
 // 初始化节点
-TreeNode n1 = new TreeNode(1);
-TreeNode n2 = new TreeNode(2);
-TreeNode n3 = new TreeNode(3);
-TreeNode n4 = new TreeNode(4);
-TreeNode n5 = new TreeNode(5);
+TreeNode n1 = TreeNode(1);
+TreeNode n2 = TreeNode(2);
+TreeNode n3 = TreeNode(3);
+TreeNode n4 = TreeNode(4);
+TreeNode n5 = TreeNode(5);
 // 构建节点之间的引用（指针）
 n1.left = n2;
 n1.right = n3;
@@ -307,6 +307,7 @@ n2.right = n5;
 ```
 
 ```rust title="binary_tree.rs"
+/* 初始化二叉树 */
 // 初始化节点
 let n1 = TreeNode::new(1);
 let n2 = TreeNode::new(2);
@@ -314,10 +315,10 @@ let n3 = TreeNode::new(3);
 let n4 = TreeNode::new(4);
 let n5 = TreeNode::new(5);
 // 构建节点之间的引用（指针）
-n1.borrow_mut().left = Some(n2.clone());
-n1.borrow_mut().right = Some(n3);
-n2.borrow_mut().left = Some(n4);
-n2.borrow_mut().right = Some(n5);
+n1.borrow_mut().left = Some(Rc::clone(&n2));
+n1.borrow_mut().right = Some(Rc::clone(&n3));
+n2.borrow_mut().left = Some(Rc::clone(&n4));
+n2.borrow_mut().right = Some(Rc::clone(&n5));
 ```
 
 ```c title="binary_tree.c"
@@ -336,6 +337,7 @@ n2->right = n5;
 ```
 
 ```kotlin title="binary_tree.kt"
+/* 初始化二叉树 */
 // 初始化节点
 val n1 = TreeNode(1)
 val n2 = TreeNode(2)
@@ -370,27 +372,27 @@ https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%2
 <!-- [snippet]{insert_remove_node} -->
 ```python title="binary_tree.py"
 # 插入与删除节点
-p = TreeNode(0)
+P = TreeNode(0)
 # 在 n1 -> n2 中间插入节点 P
-n1.left = p
-p.left = n2
+n1.left = P
+P.left = n2
 # 删除节点 P
 n1.left = n2
 ```
 
 ```cpp title="binary_tree.cpp"
 /* 插入与删除节点 */
-TreeNode* P = new TreeNode(0);
+TreeNode *P = new TreeNode(0);
 // 在 n1 -> n2 中间插入节点 P
 n1->left = P;
 P->left = n2;
 // 删除节点 P
 n1->left = n2;
-// 释放内存
-delete P;
+delete P; // 释放内存
 ```
 
 ```java title="binary_tree.java"
+/* 插入与删除节点 */
 TreeNode P = new TreeNode(0);
 // 在 n1 -> n2 中间插入节点 P
 n1.left = P;
@@ -420,6 +422,7 @@ n1.Left = n2
 ```
 
 ```swift title="binary_tree.swift"
+/* 插入与删除节点 */
 let P = TreeNode(x: 0)
 // 在 n1 -> n2 中间插入节点 P
 n1.left = P
@@ -430,7 +433,7 @@ n1.left = n2
 
 ```javascript title="binary_tree.js"
 /* 插入与删除节点 */
-let P = new TreeNode(0);
+const P = new TreeNode(0);
 // 在 n1 -> n2 中间插入节点 P
 n1.left = P;
 P.left = n2;
@@ -450,21 +453,23 @@ n1.left = n2;
 
 ```dart title="binary_tree.dart"
 /* 插入与删除节点 */
-TreeNode P = new TreeNode(0);
+TreeNode p = TreeNode(0);
 // 在 n1 -> n2 中间插入节点 P
-n1.left = P;
-P.left = n2;
+n1.left = p;
+p.left = n2;
 // 删除节点 P
 n1.left = n2;
 ```
 
 ```rust title="binary_tree.rs"
+/* 插入与删除节点 */
 let p = TreeNode::new(0);
 // 在 n1 -> n2 中间插入节点 P
-n1.borrow_mut().left = Some(p.clone());
-p.borrow_mut().left = Some(n2.clone());
-// 删除节点 p
-n1.borrow_mut().left = Some(n2);
+p.borrow_mut().left = Some(Rc::clone(&n2));
+n1.borrow_mut().left = Some(Rc::clone(&p));
+// 删除节点 P
+drop(p);
+n1.borrow_mut().left = Some(Rc::clone(&n2));
 ```
 
 ```c title="binary_tree.c"
@@ -480,6 +485,7 @@ free(P);
 ```
 
 ```kotlin title="binary_tree.kt"
+/* 插入与删除节点 */
 val P = TreeNode(0)
 // 在 n1 -> n2 中间插入节点 P
 n1.left = P
@@ -499,4 +505,4 @@ n1.left = n2
 ```
 
 <!-- [tutor]{insert_remove_node_tutor} -->
-https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%0A%20%20%20%20p%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%E5%9C%A8%20n1%20-%3E%20n2%20%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20p%0A%20%20%20%20p.left%20%3D%20n2%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20n2&cumulative=false&curInstr=37&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%8F%89%E6%A0%91%E8%8A%82%E7%82%B9%E7%B1%BB%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E8%8A%82%E7%82%B9%E5%80%BC%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20%E5%B7%A6%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20%E5%8F%B3%E5%AD%90%E8%8A%82%E7%82%B9%E5%BC%95%E7%94%A8%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91%0A%20%20%20%20%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E8%8A%82%E7%82%B9%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20%E6%9E%84%E5%BB%BA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%88%E6%8C%87%E9%92%88%EF%BC%89%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20%E5%9C%A8%20n1%20-%3E%20n2%20%E4%B8%AD%E9%97%B4%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%20P%0A%20%20%20%20n1.left%20%3D%20n2&cumulative=false&curInstr=37&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

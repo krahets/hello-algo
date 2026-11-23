@@ -12,7 +12,7 @@ enum Deque {
         // Swift에는 내장 덱 클래스가 없으므로 Array를 덱으로 사용할 수 있다
         var deque: [Int] = []
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.append(2)
         deque.append(5)
         deque.append(4)
@@ -26,8 +26,8 @@ enum Deque {
         let peekLast = deque.last!
         print("맨 뒤 원소 peekLast = \(peekLast)")
 
-        /* 큐에서 원소 꺼내기 */
-        // Array로 구현할 때 popFirst의 시간 복잡도는 O(n)이다
+        /* 원소 꺼내기 */
+        // Array로 구현할 때 removeFirst의 복잡도는 O(n)이다
         let popFirst = deque.removeFirst()
         print("맨 앞에서 꺼낸 원소 popFirst = \(popFirst), 꺼낸 후 deque = \(deque)")
         let popLast = deque.removeLast()

@@ -6,7 +6,7 @@ from collections import deque
 deq: deque[int] = deque()
 
 # 元素入列
-deq.append(2)      # 新增至佇列尾
+deq.append(2)  # 新增至佇列尾
 deq.append(5)
 deq.append(4)
 deq.appendleft(3)  # 新增至佇列首
@@ -18,7 +18,7 @@ rear: int = deq[-1]  # 佇列尾元素
 
 # 元素出列
 pop_front: int = deq.popleft()  # 佇列首元素出列
-pop_rear: int = deq.pop()       # 佇列尾元素出列
+pop_rear: int = deq.pop()  # 佇列尾元素出列
 
 # 獲取雙向佇列的長度
 size: int = len(deq)
@@ -32,19 +32,19 @@ is_empty: bool = len(deq) == 0
 deque<int> deque;
 
 /* 元素入列 */
-deque.push_back(2);   // 新增至佇列尾
+deque.push_back(2); // 新增至佇列尾
 deque.push_back(5);
 deque.push_back(4);
-deque.push_front(3);  // 新增至佇列首
+deque.push_front(3); // 新增至佇列首
 deque.push_front(1);
 
 /* 訪問元素 */
 int front = deque.front(); // 佇列首元素
-int back = deque.back();   // 佇列尾元素
+int back = deque.back(); // 佇列尾元素
 
 /* 元素出列 */
-deque.pop_front();  // 佇列首元素出列
-deque.pop_back();   // 佇列尾元素出列
+deque.pop_front(); // 佇列首元素出列
+deque.pop_back(); // 佇列尾元素出列
 
 /* 獲取雙向佇列的長度 */
 int size = deque.size();
@@ -58,19 +58,19 @@ bool empty = deque.empty();
 Deque<Integer> deque = new LinkedList<>();
 
 /* 元素入列 */
-deque.offerLast(2);   // 新增至佇列尾
+deque.offerLast(2); // 新增至佇列尾
 deque.offerLast(5);
 deque.offerLast(4);
-deque.offerFirst(3);  // 新增至佇列首
+deque.offerFirst(3); // 新增至佇列首
 deque.offerFirst(1);
 
 /* 訪問元素 */
-int peekFirst = deque.peekFirst();  // 佇列首元素
-int peekLast = deque.peekLast();    // 佇列尾元素
+int peekFirst = deque.peekFirst(); // 佇列首元素
+int peekLast = deque.peekLast(); // 佇列尾元素
 
 /* 元素出列 */
-int popFirst = deque.pollFirst();  // 佇列首元素出列
-int popLast = deque.pollLast();    // 佇列尾元素出列
+int popFirst = deque.pollFirst(); // 佇列首元素出列
+int popLast = deque.pollLast(); // 佇列尾元素出列
 
 /* 獲取雙向佇列的長度 */
 int size = deque.size();
@@ -81,7 +81,7 @@ boolean isEmpty = deque.isEmpty();
 
 ```csharp title="deque.cs"
 /* 初始化雙向佇列 */
-// 在 C# 中，將鏈結串列 LinkedList 看作雙向佇列來使用
+// 在 C# 中，將鏈結串列 LinkedList 當作雙向佇列來使用
 LinkedList<int> deque = new();
 
 /* 元素入列 */
@@ -92,8 +92,8 @@ deque.AddFirst(3);  // 新增至佇列首
 deque.AddFirst(1);
 
 /* 訪問元素 */
-int peekFirst = deque.First.Value;  // 佇列首元素
-int peekLast = deque.Last.Value;    // 佇列尾元素
+int? peekFirst = deque.First?.Value;  // 佇列首元素
+int? peekLast = deque.Last?.Value;    // 佇列尾元素
 
 /* 元素出列 */
 deque.RemoveFirst();  // 佇列首元素出列
@@ -112,19 +112,19 @@ bool isEmpty = deque.Count == 0;
 deque := list.New()
 
 /* 元素入列 */
-deque.PushBack(2)      // 新增至佇列尾
+deque.PushBack(2) // 新增至佇列尾
 deque.PushBack(5)
 deque.PushBack(4)
-deque.PushFront(3)     // 新增至佇列首
+deque.PushFront(3) // 新增至佇列首
 deque.PushFront(1)
 
 /* 訪問元素 */
 front := deque.Front() // 佇列首元素
-rear := deque.Back()   // 佇列尾元素
+rear := deque.Back() // 佇列尾元素
 
 /* 元素出列 */
-deque.Remove(front)    // 佇列首元素出列
-deque.Remove(rear)     // 佇列尾元素出列
+deque.Remove(front) // 佇列首元素出列
+deque.Remove(rear) // 佇列尾元素出列
 
 /* 獲取雙向佇列的長度 */
 size := deque.Len()
@@ -150,7 +150,7 @@ let peekFirst = deque.first! // 佇列首元素
 let peekLast = deque.last! // 佇列尾元素
 
 /* 元素出列 */
-// 使用 Array 模擬時 popFirst 的複雜度為 O(n)
+// 使用 Array 模擬時 removeFirst 的複雜度為 O(n)
 let popFirst = deque.removeFirst() // 佇列首元素出列
 let popLast = deque.removeLast() // 佇列尾元素出列
 
@@ -222,57 +222,53 @@ const isEmpty: boolean = size === 0;
 ```dart title="deque.dart"
 /* 初始化雙向佇列 */
 // 在 Dart 中，Queue 被定義為雙向佇列
-Queue<int> deque = Queue<int>();
+final Queue<int> deque = Queue();
 
 /* 元素入列 */
-deque.addLast(2);  // 新增至佇列尾
+deque.addLast(2); // 新增至佇列尾
 deque.addLast(5);
 deque.addLast(4);
 deque.addFirst(3); // 新增至佇列首
 deque.addFirst(1);
 
 /* 訪問元素 */
-int peekFirst = deque.first; // 佇列首元素
-int peekLast = deque.last;   // 佇列尾元素
+final int peekFirst = deque.first; // 佇列首元素
+final int peekLast = deque.last; // 佇列尾元素
 
 /* 元素出列 */
-int popFirst = deque.removeFirst(); // 佇列首元素出列
-int popLast = deque.removeLast();   // 佇列尾元素出列
+final int popFirst = deque.removeFirst(); // 佇列首元素出列
+final int popLast = deque.removeLast(); // 佇列尾元素出列
 
 /* 獲取雙向佇列的長度 */
-int size = deque.length;
+final int size = deque.length;
 
 /* 判斷雙向佇列是否為空 */
-bool isEmpty = deque.isEmpty;
+final bool isEmpty = deque.isEmpty;
 ```
 
 ```rust title="deque.rs"
-/* 初始化雙向佇列 */
-let mut deque: VecDeque<u32> = VecDeque::new();
+// 初始化雙向佇列
+let mut deque: VecDeque<i32> = VecDeque::new();
 
 /* 元素入列 */
-deque.push_back(2);  // 新增至佇列尾
+deque.push_back(2); // 新增至佇列尾
 deque.push_back(5);
 deque.push_back(4);
 deque.push_front(3); // 新增至佇列首
 deque.push_front(1);
 
-/* 訪問元素 */
-if let Some(front) = deque.front() { // 佇列首元素
-}
-if let Some(rear) = deque.back() {   // 佇列尾元素
-}
+// 訪問元素
+let peek_first = deque.front().unwrap(); // 佇列首元素
+let peek_last = deque.back().unwrap(); // 佇列尾元素
 
-/* 元素出列 */
-if let Some(pop_front) = deque.pop_front() { // 佇列首元素出列
-}
-if let Some(pop_rear) = deque.pop_back() {   // 佇列尾元素出列
-}
+// 元素出列
+let pop_first = deque.pop_front().unwrap(); // 佇列首元素出列
+let pop_last = deque.pop_back().unwrap(); // 佇列尾元素出列
 
-/* 獲取雙向佇列的長度 */
+// 獲取雙向佇列的長度
 let size = deque.len();
 
-/* 判斷雙向佇列是否為空 */
+// 判斷雙向佇列是否為空
 let is_empty = deque.is_empty();
 ```
 
@@ -285,7 +281,7 @@ let is_empty = deque.is_empty();
 val deque = LinkedList<Int>()
 
 /* 元素入列 */
-deque.offerLast(2)  // 新增至佇列尾
+deque.offerLast(2) // 新增至佇列尾
 deque.offerLast(5)
 deque.offerLast(4)
 deque.offerFirst(3) // 新增至佇列首
@@ -293,11 +289,11 @@ deque.offerFirst(1)
 
 /* 訪問元素 */
 val peekFirst = deque.peekFirst() // 佇列首元素
-val peekLast = deque.peekLast()   // 佇列尾元素
+val peekLast = deque.peekLast() // 佇列尾元素
 
 /* 元素出列 */
 val popFirst = deque.pollFirst() // 佇列首元素出列
-val popLast = deque.pollLast()   // 佇列尾元素出列
+val popLast = deque.pollLast() // 佇列尾元素出列
 
 /* 獲取雙向佇列的長度 */
 val size = deque.size
@@ -308,10 +304,10 @@ val isEmpty = deque.isEmpty()
 
 ```ruby title="deque.rb"
 # 初始化雙向佇列
-# Ruby 沒有內直的雙端佇列，只能把 Array 當作雙端佇列來使用
+# Ruby 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
 deque = []
 
-# 元素如隊
+# 元素入列
 deque << 2
 deque << 5
 deque << 4
@@ -324,7 +320,7 @@ peek_first = deque.first
 peek_last = deque.last
 
 # 元素出列
-# 請注意，由於是陣列， Array#shift 方法的時間複雜度為 O(n)
+# 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
 pop_front = deque.shift
 pop_back = deque.pop
 

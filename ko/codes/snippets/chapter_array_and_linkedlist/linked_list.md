@@ -2,48 +2,53 @@
 ```python title=""
 class ListNode:
     """연결 리스트 노드 클래스"""
+
     def __init__(self, val: int):
-        self.val: int = val               # 노드 값
-        self.next: ListNode | None = None # 다음 노드를 가리키는 참조
+        self.val: int = val  # 노드 값
+        self.next: ListNode | None = None  # 다음 노드를 가리키는 참조
 ```
 
 ```cpp title=""
-/* 연결 리스트 노드 구조체 */
+/* 연결 리스트 노드 */
 struct ListNode {
-    int val;         // 노드 값
-    ListNode *next;  // 다음 노드를 가리키는 포인터
-    ListNode(int x) : val(x), next(nullptr) {}  // 생성자
+    int val;        // 노드 값
+    ListNode *next; // 다음 노드 포인터
+    ListNode(int x) : val(x), next(nullptr) {
+    }
 };
 ```
 
 ```java title=""
-/* 연결 리스트 노드 클래스 */
-class ListNode {
-    int val;        // 노드 값
-    ListNode next;  // 다음 노드를 가리키는 참조
-    ListNode(int x) { val = x; }  // 생성자
+/* 연결 리스트 노드 */
+public class ListNode {
+    public int val;       // 노드 값
+    public ListNode next; // 다음 노드를 가리키는 참조
+
+    public ListNode(int x) {
+        val = x;
+    }
 }
 ```
 
 ```csharp title=""
-/* 연결 리스트 노드 클래스 */
-class ListNode(int x) {  //생성자
-    public int val = x;     // 노드 값
-    public ListNode? next;  // 다음 노드를 가리키는 참조
+/* 연결 리스트 노드 */
+public class ListNode(int x) {
+    public int val = x;    // 노드 값
+    public ListNode? next; // 다음 노드를 가리키는 참조
 }
 ```
 
 ```go title=""
-/* 연결 리스트 노드 구조체 */
+// ListNode: 연결 리스트 노드
 type ListNode struct {
     Val  int       // 노드 값
-    Next *ListNode // 다음 노드를 가리키는 포인터
+    Next *ListNode // 다음 노드 포인터
 }
 
-// NewListNode 생성자: 새 연결 리스트 생성
-func NewListNode(val int) *ListNode {
+// NewListNode: 연결 리스트 노드 생성자
+func NewListNode(v int) *ListNode {
     return &ListNode{
-        Val:  val,
+        Val:  v,
         Next: nil,
     }
 }
@@ -62,44 +67,54 @@ class ListNode {
 ```
 
 ```javascript title=""
-/* 연결 리스트 노드 클래스 */
+/* 연결 리스트 노드 */
 class ListNode {
+    val; // 노드 값
+    next; // 다음 노드를 가리키는 참조(포인터)
     constructor(val, next) {
-        this.val = (val === undefined ? 0 : val);       // 노드 값
-        this.next = (next === undefined ? null : next); // 다음 노드를 가리키는 참조
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
     }
 }
 ```
 
 ```typescript title=""
-/* 연결 리스트 노드 클래스 */
+/* 연결 리스트 노드 */
 class ListNode {
-    val: number;
-    next: ListNode | null;
+    val: number; // 노드 값
+    next: ListNode | null; // 다음 노드를 가리키는 참조
     constructor(val?: number, next?: ListNode | null) {
-        this.val = val === undefined ? 0 : val;        // 노드 값
-        this.next = next === undefined ? null : next;  // 다음 노드를 가리키는 참조
+        this.val = val === undefined ? 0 : val;
+        this.next = next === undefined ? null : next;
     }
 }
 ```
 
 ```dart title=""
-/* 연결 리스트 노드 클래스 */
+/* 연결 리스트 노드 */
 class ListNode {
   int val; // 노드 값
   ListNode? next; // 다음 노드를 가리키는 참조
+
   ListNode(this.val, [this.next]); // 생성자
 }
 ```
 
 ```rust title=""
-use std::rc::Rc;
 use std::cell::RefCell;
-/* 연결 리스트 노드 클래스 */
+use std::rc::Rc;
+
+/* 연결 리스트 노드 */
 #[derive(Debug)]
-struct ListNode {
-    val: i32, // 노드 값
-    next: Option<Rc<RefCell<ListNode>>>, // 다음 노드를 가리키는 포인터
+pub struct ListNode<T> {
+    pub val: T, // 노드 값
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 다음 노드 포인터
+}
+
+impl<T> ListNode<T> {
+    pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+        Rc::new(RefCell::new(ListNode { val, next: None }))
+    }
 }
 ```
 
@@ -110,10 +125,10 @@ typedef struct ListNode {
     struct ListNode *next; // 다음 노드를 가리키는 포인터
 } ListNode;
 
-/* 생성자 */
+/* 생성자: 새 노드를 초기화한다 */
 ListNode *newListNode(int val) {
     ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
+    node = (ListNode *)malloc(sizeof(ListNode));
     node->val = val;
     node->next = NULL;
     return node;
@@ -121,16 +136,14 @@ ListNode *newListNode(int val) {
 ```
 
 ```kotlin title=""
-/* 연결 리스트 노드 클래스 */
-// 생성자
-class ListNode(x: Int) {
-    val _val: Int = x          // 노드 값
+/* 연결 리스트 노드 */
+class ListNode(var _val: Int) {
     var next: ListNode? = null // 다음 노드를 가리키는 참조
 }
 ```
 
 ```ruby title=""
-# 연결 리스트 노드 클래스
+### 연결 리스트 노드 클래스 ###
 class ListNode
   attr_accessor :val  # 노드 값
   attr_accessor :next # 다음 노드를 가리키는 참조
@@ -145,13 +158,13 @@ end
 <!-- [snippet]{init_linked_list} -->
 ```python title="linked_list.py"
 # 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-# 각 노드 초기화
+# 각 노드를 초기화한다
 n0 = ListNode(1)
 n1 = ListNode(3)
 n2 = ListNode(2)
 n3 = ListNode(5)
 n4 = ListNode(4)
-# 노드 사이의 참조 설정
+# 노드 사이의 참조를 설정한다
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -160,13 +173,13 @@ n3.next = n4
 
 ```cpp title="linked_list.cpp"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-ListNode* n0 = new ListNode(1);
-ListNode* n1 = new ListNode(3);
-ListNode* n2 = new ListNode(2);
-ListNode* n3 = new ListNode(5);
-ListNode* n4 = new ListNode(4);
-// 노드 사이의 참조 설정
+// 각 노드를 초기화한다
+ListNode *n0 = new ListNode(1);
+ListNode *n1 = new ListNode(3);
+ListNode *n2 = new ListNode(2);
+ListNode *n3 = new ListNode(5);
+ListNode *n4 = new ListNode(4);
+// 노드 사이의 참조를 설정한다
 n0->next = n1;
 n1->next = n2;
 n2->next = n3;
@@ -175,13 +188,13 @@ n3->next = n4;
 
 ```java title="linked_list.java"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 각 노드를 초기화한다
 ListNode n0 = new ListNode(1);
 ListNode n1 = new ListNode(3);
 ListNode n2 = new ListNode(2);
 ListNode n3 = new ListNode(5);
 ListNode n4 = new ListNode(4);
-// 노드 사이의 참조 설정
+// 노드 사이의 참조를 설정한다
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -189,14 +202,14 @@ n3.next = n4;
 ```
 
 ```csharp title="linked_list.cs"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
+// 각 노드를 초기화한다
 ListNode n0 = new(1);
 ListNode n1 = new(3);
 ListNode n2 = new(2);
 ListNode n3 = new(5);
 ListNode n4 = new(4);
-// 노드 사이의 참조 설정
+// 노드 사이의 참조를 설정한다
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -205,13 +218,14 @@ n3.next = n4;
 
 ```go title="linked_list.go"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 각 노드를 초기화한다
 n0 := NewListNode(1)
 n1 := NewListNode(3)
 n2 := NewListNode(2)
 n3 := NewListNode(5)
 n4 := NewListNode(4)
-// 노드 사이의 참조 설정
+
+// 노드 사이의 참조를 설정한다
 n0.Next = n1
 n1.Next = n2
 n2.Next = n3
@@ -220,13 +234,13 @@ n3.Next = n4
 
 ```swift title="linked_list.swift"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 각 노드를 초기화한다
 let n0 = ListNode(x: 1)
 let n1 = ListNode(x: 3)
 let n2 = ListNode(x: 2)
 let n3 = ListNode(x: 5)
 let n4 = ListNode(x: 4)
-// 노드 사이의 참조 설정
+// 노드 사이의 참조를 설정한다
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -235,13 +249,13 @@ n3.next = n4
 
 ```javascript title="linked_list.js"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 각 노드를 초기화한다
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// 노드 사이의 참조 설정
+// 노드 사이의 참조를 설정한다
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -250,13 +264,13 @@ n3.next = n4;
 
 ```typescript title="linked_list.ts"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 각 노드를 초기화한다
 const n0 = new ListNode(1);
 const n1 = new ListNode(3);
 const n2 = new ListNode(2);
 const n3 = new ListNode(5);
 const n4 = new ListNode(4);
-// 노드 사이의 참조 설정
+// 노드 사이의 참조를 설정한다
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -264,14 +278,14 @@ n3.next = n4;
 ```
 
 ```dart title="linked_list.dart"
-/* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
+// 각 노드를 초기화한다
 ListNode n0 = ListNode(1);
 ListNode n1 = ListNode(3);
 ListNode n2 = ListNode(2);
 ListNode n3 = ListNode(5);
 ListNode n4 = ListNode(4);
-// 노드 사이의 참조 설정
+// 노드 사이의 참조를 설정한다
 n0.next = n1;
 n1.next = n2;
 n2.next = n3;
@@ -280,14 +294,14 @@ n3.next = n4;
 
 ```rust title="linked_list.rs"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-let n0 = Rc::new(RefCell::new(ListNode { val: 1, next: None }));
-let n1 = Rc::new(RefCell::new(ListNode { val: 3, next: None }));
-let n2 = Rc::new(RefCell::new(ListNode { val: 2, next: None }));
-let n3 = Rc::new(RefCell::new(ListNode { val: 5, next: None }));
-let n4 = Rc::new(RefCell::new(ListNode { val: 4, next: None }));
+// 각 노드를 초기화한다
+let n0 = ListNode::new(1);
+let n1 = ListNode::new(3);
+let n2 = ListNode::new(2);
+let n3 = ListNode::new(5);
+let n4 = ListNode::new(4);
 
-// 노드 사이의 참조 설정
+// 노드 사이의 참조를 설정한다
 n0.borrow_mut().next = Some(n1.clone());
 n1.borrow_mut().next = Some(n2.clone());
 n2.borrow_mut().next = Some(n3.clone());
@@ -296,13 +310,13 @@ n3.borrow_mut().next = Some(n4.clone());
 
 ```c title="linked_list.c"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
-ListNode* n0 = newListNode(1);
-ListNode* n1 = newListNode(3);
-ListNode* n2 = newListNode(2);
-ListNode* n3 = newListNode(5);
-ListNode* n4 = newListNode(4);
-// 노드 사이의 참조 설정
+// 각 노드를 초기화한다
+ListNode *n0 = newListNode(1);
+ListNode *n1 = newListNode(3);
+ListNode *n2 = newListNode(2);
+ListNode *n3 = newListNode(5);
+ListNode *n4 = newListNode(4);
+// 노드 사이의 참조를 설정한다
 n0->next = n1;
 n1->next = n2;
 n2->next = n3;
@@ -311,28 +325,29 @@ n3->next = n4;
 
 ```kotlin title="linked_list.kt"
 /* 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화 */
-// 각 노드 초기화
+// 각 노드를 초기화한다
 val n0 = ListNode(1)
 val n1 = ListNode(3)
 val n2 = ListNode(2)
 val n3 = ListNode(5)
 val n4 = ListNode(4)
-// 노드 사이의 참조 설정
-n0.next = n1;
-n1.next = n2;
-n2.next = n3;
-n3.next = n4;
+
+// 노드 사이의 참조를 설정한다
+n0.next = n1
+n1.next = n2
+n2.next = n3
+n3.next = n4
 ```
 
 ```ruby title="linked_list.rb"
 # 연결 리스트 1 -> 3 -> 2 -> 5 -> 4 초기화
-# 각 노드 초기화
+# 각 노드를 초기화한다
 n0 = ListNode.new(1)
 n1 = ListNode.new(3)
 n2 = ListNode.new(2)
 n3 = ListNode.new(5)
 n4 = ListNode.new(4)
-# 노드 사이의 참조 설정
+# 노드 사이의 참조를 설정한다
 n0.next = n1
 n1.next = n2
 n2.next = n3
@@ -345,39 +360,46 @@ https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%2
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
 class ListNode:
-    """이중 연결 리스트 노드 클래스"""
+    """이중 연결 리스트 노드"""
+
     def __init__(self, val: int):
-        self.val: int = val                # 노드 값
-        self.next: ListNode | None = None  # 후속 노드를 가리키는 참조
-        self.prev: ListNode | None = None  # 선행 노드를 가리키는 참조
+        """생성자"""
+        self.val: int = val  # 노드 값
+        self.next: ListNode | None = None  # 다음 노드 참조
+        self.prev: ListNode | None = None  # 이전 노드 참조
 ```
 
 ```cpp title=""
-/* 이중 연결 리스트 노드 구조체 */
-struct ListNode {
-    int val;         // 노드 값
-    ListNode *next;  // 후속 노드를 가리키는 포인터
-    ListNode *prev;  // 선행 노드를 가리키는 포인터
-    ListNode(int x) : val(x), next(nullptr), prev(nullptr) {}  // 생성자
+/* 이중 연결 리스트 노드 */
+struct DoublyListNode {
+    int val;              // 노드 값
+    DoublyListNode *next; // 다음 노드 포인터
+    DoublyListNode *prev; // 이전 노드 포인터
+    DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
+    }
 };
 ```
 
 ```java title=""
-/* 이중 연결 리스트 노드 클래스 */
+/* 이중 연결 리스트 노드 */
 class ListNode {
-    int val;        // 노드 값
-    ListNode next;  // 후속 노드를 가리키는 참조
-    ListNode prev;  // 선행 노드를 가리키는 참조
-    ListNode(int x) { val = x; }  // 생성자
+    int val;       // 노드 값
+    ListNode next; // 다음 노드 참조
+    ListNode prev; // 이전 노드 참조
+
+    ListNode(int val) {
+        this.val = val;
+        prev = next = null;
+    }
 }
 ```
 
 ```csharp title=""
-/* 이중 연결 리스트 노드 클래스 */
-class ListNode(int x) {  // 생성자
-    public int val = x;     // 노드 값
-    public ListNode? next;  // 후속 노드를 가리키는 참조
-    public ListNode? prev;  // 선행 노드를 가리키는 참조
+/* 이중 연결 리스트 노드 */
+public class ListNode(int val) {
+    public int val = val;         // 노드 값
+    public ListNode? next = null; // 다음 노드 참조
+    public ListNode? prev = null; // 이전 노드 참조
 }
 ```
 
@@ -400,117 +422,119 @@ func NewDoublyListNode(val int) *DoublyListNode {
 ```
 
 ```swift title=""
-/* 이중 연결 리스트 노드 클래스 */
+/* 이중 연결 리스트 노드 */
 class ListNode {
     var val: Int // 노드 값
-    var next: ListNode? // 후속 노드를 가리키는 참조
-    var prev: ListNode? // 선행 노드를 가리키는 참조
+    var next: ListNode? // 다음 노드 참조
+    weak var prev: ListNode? // 이전 노드 참조
 
-    init(x: Int) { // 생성자
-        val = x
+    init(val: Int) {
+        self.val = val
     }
 }
 ```
 
 ```javascript title=""
-/* 이중 연결 리스트 노드 클래스 */
+/* 이중 연결 리스트 노드 */
 class ListNode {
-    constructor(val, next, prev) {
-        this.val = val  ===  undefined ? 0 : val;        // 노드 값
-        this.next = next  ===  undefined ? null : next;  // 후속 노드를 가리키는 참조
-        this.prev = prev  ===  undefined ? null : prev;  // 선행 노드를 가리키는 참조
+    prev; // 이전 노드 참조(포인터)
+    next; // 다음 노드 참조(포인터)
+    val; // 노드 값
+
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
     }
 }
 ```
 
 ```typescript title=""
-/* 이중 연결 리스트 노드 클래스 */
+/* 이중 연결 리스트 노드 */
 class ListNode {
-    val: number;
-    next: ListNode | null;
-    prev: ListNode | null;
-    constructor(val?: number, next?: ListNode | null, prev?: ListNode | null) {
-        this.val = val  ===  undefined ? 0 : val;        // 노드 값
-        this.next = next  ===  undefined ? null : next;  // 후속 노드를 가리키는 참조
-        this.prev = prev  ===  undefined ? null : prev;  // 선행 노드를 가리키는 참조
+    prev: ListNode | null; // 이전 노드 참조(포인터)
+    next: ListNode | null; // 다음 노드 참조(포인터)
+    val: number; // 노드 값
+
+    constructor(val: number) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
     }
 }
 ```
 
 ```dart title=""
-/* 이중 연결 리스트 노드 클래스 */
+/* 이중 연결 리스트 노드 */
 class ListNode {
-    int val;        // 노드 값
-    ListNode? next;  // 후속 노드를 가리키는 참조
-    ListNode? prev;  // 선행 노드를 가리키는 참조
-    ListNode(this.val, [this.next, this.prev]);  // 생성자
+  int val; // 노드 값
+  ListNode? next; // 다음 노드 참조
+  ListNode? prev; // 이전 노드 참조
+
+  ListNode(this.val, {this.next, this.prev});
 }
 ```
 
 ```rust title=""
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
-/* 이중 연결 리스트 노드 자료형 */
-#[derive(Debug)]
-struct ListNode {
-    val: i32, // 노드 값
-    next: Option<Rc<RefCell<ListNode>>>, // 후속 노드를 가리키는 포인터
-    prev: Option<Rc<RefCell<ListNode>>>, // 선행 노드를 가리키는 포인터
+/* 이중 연결 리스트 노드 */
+pub struct ListNode<T> {
+    pub val: T,                                 // 노드 값
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 다음 노드 포인터
+    pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 이전 노드 포인터
 }
 
-/* 생성자 */
-impl ListNode {
-    fn new(val: i32) -> Self {
-        ListNode {
+impl<T> ListNode<T> {
+    pub fn new(val: T) -> Rc<RefCell<ListNode<T>>> {
+        Rc::new(RefCell::new(ListNode {
             val,
             next: None,
             prev: None,
-        }
+        }))
     }
 }
 ```
 
 ```c title=""
-/* 이중 연결 리스트 노드 구조체 */
-typedef struct ListNode {
-    int val;               // 노드 값
-    struct ListNode *next; // 후속 노드를 가리키는 포인터
-    struct ListNode *prev; // 선행 노드를 가리키는 포인터
-} ListNode;
+/* 이중 연결 리스트 노드 */
+typedef struct DoublyListNode {
+    int val;                     // 노드 값
+    struct DoublyListNode *next; // 다음 노드 포인터
+    struct DoublyListNode *prev; // 이전 노드 포인터
+} DoublyListNode;
 
 /* 생성자 */
-ListNode *newListNode(int val) {
-    ListNode *node;
-    node = (ListNode *) malloc(sizeof(ListNode));
-    node->val = val;
-    node->next = NULL;
-    node->prev = NULL;
-    return node;
+DoublyListNode *newDoublyListNode(int num) {
+    DoublyListNode *new = (DoublyListNode *)malloc(sizeof(DoublyListNode));
+    new->val = num;
+    new->next = NULL;
+    new->prev = NULL;
+    return new;
 }
 ```
 
 ```kotlin title=""
-/* 이중 연결 리스트 노드 클래스 */
-// 생성자
-class ListNode(x: Int) {
-    val _val: Int = x           // 노드 값
-    var next: ListNode? = null  // 후속 노드를 가리키는 참조
-    var prev: ListNode? = null  // 선행 노드를 가리키는 참조
+/* 이중 연결 리스트 노드 */
+class ListNode(
+    var _val: Int // 노드 값
+) {
+    var next: ListNode? = null // 다음 노드 참조
+    var prev: ListNode? = null // 이전 노드 참조
 }
 ```
 
 ```ruby title=""
-# 이중 연결 리스트 노드 클래스
+### 이중 연결 리스트 노드 ###
 class ListNode
-  attr_accessor :val    # 노드 값
-  attr_accessor :next   # 후속 노드를 가리키는 참조
-  attr_accessor :prev   # 선행 노드를 가리키는 참조
+  attr_accessor :val  # 노드 값
+  attr_accessor :next # 다음 노드 참조
+  attr_accessor :prev # 이전 노드 참조
 
-  def initialize(val=0, next_node=nil, prev_node=nil)
+  ### 생성자 ###
+  def initialize(val)
     @val = val
-    @next = next_node
-    @prev = prev_node
   end
 end
 ```

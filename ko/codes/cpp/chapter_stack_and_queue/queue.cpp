@@ -11,7 +11,7 @@ int main() {
     /* 큐 초기화 */
     queue<int> queue;
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -24,7 +24,7 @@ int main() {
     int front = queue.front();
     cout << "맨 앞 원소 front = " << front << endl;
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     queue.pop();
     cout << "큐에서 꺼낸 원소 front = " << front << ", 큐에서 꺼낸 후 queue = ";
     printQueue(queue);

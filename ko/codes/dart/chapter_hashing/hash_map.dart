@@ -36,6 +36,5 @@ void main() {
   print("\n키 Key만 순회");
   map.keys.forEach((key) => print(key));
   print("\n값 Value만 순회");
-  map.forEach((key, value) => print("$value"));
   map.values.forEach((value) => print(value));
 }

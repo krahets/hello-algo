@@ -15,19 +15,19 @@ fn main() {
     let mut num_hasher = DefaultHasher::new();
     num.hash(&mut num_hasher);
     let hash_num = num_hasher.finish();
-    println!("정수 {}의 해시값: {}", num, hash_num);
+    println!("정수 {} → 해시값: {}", num, hash_num);
 
     let bol = true;
     let mut bol_hasher = DefaultHasher::new();
     bol.hash(&mut bol_hasher);
     let hash_bol = bol_hasher.finish();
-    println!("불리언 {}의 해시값: {}", bol, hash_bol);
+    println!("불리언 값 {} → 해시값: {}", bol, hash_bol);
 
     let dec: f32 = 3.14159;
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("소수 {}의 해시값: {}", dec, hash_dec);
+    println!("소수 {} → 해시값: {}", dec, hash_dec);
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
@@ -39,11 +39,11 @@ fn main() {
     let mut tup_hasher = DefaultHasher::new();
     arr.hash(&mut tup_hasher);
     let hash_tup = tup_hasher.finish();
-    println!("튜플 {:?}의 해시값: {}", arr, hash_tup);
+    println!("튜플 {:?} → 해시값: {}", arr, hash_tup);
 
     let node = ListNode::new(42);
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("노드 객체 {:?}의 해시값: {}", node, hash);
+    println!("노드 객체 {:?} → 해시값: {}", node, hash);
 }

@@ -160,7 +160,7 @@ stack.push(5);
 stack.push(4);
 
 /* 访问栈顶元素 */
-const peek = stack[stack.length-1];
+const peek = stack[stack.length - 1];
 
 /* 元素出栈 */
 const pop = stack.pop();
@@ -169,7 +169,7 @@ const pop = stack.pop();
 const size = stack.length;
 
 /* 判断是否为空 */
-const is_empty = stack.length === 0;
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
@@ -194,13 +194,13 @@ const pop = stack.pop();
 const size = stack.length;
 
 /* 判断是否为空 */
-const is_empty = stack.length === 0;
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
 /* 初始化栈 */
 // Dart 没有内置的栈类，可以把 List 当作栈来使用
-List<int> stack = [];
+final List<int> stack = [];
 
 /* 元素入栈 */
 stack.add(1);
@@ -210,40 +210,40 @@ stack.add(5);
 stack.add(4);
 
 /* 访问栈顶元素 */
-int peek = stack.last;
+final int peek = stack.last;
 
 /* 元素出栈 */
-int pop = stack.removeLast();
+final int pop = stack.removeLast();
 
 /* 获取栈的长度 */
-int size = stack.length;
+final int size = stack.length;
 
 /* 判断是否为空 */
-bool isEmpty = stack.isEmpty;
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-/* 初始化栈 */
-// 把 Vec 当作栈来使用
+// 初始化栈
+// 在 Rust 中，推荐将 Vec 当作栈来使用
 let mut stack: Vec<i32> = Vec::new();
 
-/* 元素入栈 */
+// 元素入栈
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* 访问栈顶元素 */
-let top = stack.last().unwrap();
+// 访问栈顶元素
+let peek = stack.last().unwrap();
 
-/* 元素出栈 */
+// 元素出栈
 let pop = stack.pop().unwrap();
 
-/* 获取栈的长度 */
+// 获取栈的长度
 let size = stack.len();
 
-/* 判断是否为空 */
+// 判断栈是否为空
 let is_empty = stack.is_empty();
 ```
 

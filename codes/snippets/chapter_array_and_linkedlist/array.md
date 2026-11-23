@@ -9,10 +9,10 @@ nums: list[int] = [1, 3, 2, 5, 4]
 /* 初始化数组 */
 // 存储在栈上
 int arr[5] = {};
-int nums[5] = { 1, 3, 2, 5, 4 };
+int nums[5] = {1, 3, 2, 5, 4};
 // 存储在堆上（需要手动释放空间）
-int* arr1 = new int[5] {};
-int* nums1 = new int[5] { 1, 3, 2, 5, 4 };
+int *arr1 = new int[5]{};
+int *nums1 = new int[5]{1, 3, 2, 5, 4};
 ```
 
 ```java title="array.java"
@@ -22,7 +22,7 @@ int[] nums = { 1, 3, 2, 5, 4 };
 ```
 
 ```csharp title="array.cs"
-/* 初始化数组 */
+// 初始化数组
 int[] arr = new int[5]; // [ 0, 0, 0, 0, 0 ]
 int[] nums = [1, 3, 2, 5, 4];
 ```
@@ -32,38 +32,37 @@ int[] nums = [1, 3, 2, 5, 4];
 var arr [5]int
 // 在 Go 中，指定长度时（[5]int）为数组，不指定长度时（[]int）为切片
 // 由于 Go 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
-// 为了方便实现扩容 extend() 方法，以下将切片（Slice）看作数组（Array）
+// 为了方便实现扩容 extend() 函数，以下将切片（Slice）看作数组（Array）
 nums := []int{1, 3, 2, 5, 4}
 ```
 
 ```swift title="array.swift"
 /* 初始化数组 */
 let arr = Array(repeating: 0, count: 5) // [0, 0, 0, 0, 0]
-let nums = [1, 3, 2, 5, 4]
+var nums = [1, 3, 2, 5, 4]
 ```
 
 ```javascript title="array.js"
 /* 初始化数组 */
-var arr = new Array(5).fill(0);
-var nums = [1, 3, 2, 5, 4];
+const arr = new Array(5).fill(0);
+let nums = [1, 3, 2, 5, 4];
 ```
 
 ```typescript title="array.ts"
 /* 初始化数组 */
-let arr: number[] = new Array(5).fill(0);
+const arr: number[] = new Array(5).fill(0);
 let nums: number[] = [1, 3, 2, 5, 4];
 ```
 
 ```dart title="array.dart"
 /* 初始化数组 */
-List<int> arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
+var arr = List.filled(5, 0); // [0, 0, 0, 0, 0]
 List<int> nums = [1, 3, 2, 5, 4];
 ```
 
 ```rust title="array.rs"
 /* 初始化数组 */
 let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
-let slice: &[i32] = &[0; 5];
 // 在 Rust 中，指定长度时（[i32; 5]）为数组，不指定长度时（&[i32]）为切片
 // 由于 Rust 的数组被设计为在编译期确定长度，因此只能使用常量来指定长度
 // Vector 是 Rust 一般情况下用作动态数组的类型
@@ -73,13 +72,13 @@ let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 
 ```c title="array.c"
 /* 初始化数组 */
-int arr[5] = { 0 }; // { 0, 0, 0, 0, 0 }
-int nums[5] = { 1, 3, 2, 5, 4 };
+int arr[5] = {0}; // { 0, 0, 0, 0, 0 }
+int nums[] = {1, 3, 2, 5, 4};
 ```
 
 ```kotlin title="array.kt"
 /* 初始化数组 */
-var arr = IntArray(5) // { 0, 0, 0, 0, 0 }
+val arr = IntArray(5) // { 0, 0, 0, 0, 0 }
 var nums = intArrayOf(1, 3, 2, 5, 4)
 ```
 

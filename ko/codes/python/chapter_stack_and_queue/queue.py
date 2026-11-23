@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # queue.Queue()는 전용 큐 클래스이지만 사용하기가 그다지 편리하지 않다
     que: deque[int] = deque()
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     que.append(1)
     que.append(3)
     que.append(2)
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     front: int = que[0]
     print("맨 앞 원소 front =", front)
 
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop: int = que.popleft()
     print("큐에서 꺼낸 원소 pop =", pop)
     print("큐에서 꺼낸 후 que =", que)

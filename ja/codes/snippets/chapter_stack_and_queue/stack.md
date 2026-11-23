@@ -1,249 +1,249 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
-# スタックを初期化
+# スタックを初期化する
 # Python には組み込みのスタッククラスがないため、list をスタックとして使える
 stack: list[int] = []
 
-# 要素をプッシュ
+# 要素をプッシュする
 stack.append(1)
 stack.append(3)
 stack.append(2)
 stack.append(5)
 stack.append(4)
 
-# スタックの先頭要素にアクセス
+# スタックの先頭要素にアクセスする
 peek: int = stack[-1]
 
-# 要素をポップ
+# 要素をポップする
 pop: int = stack.pop()
 
-# スタックの長さを取得
+# スタックの長さを取得する
 size: int = len(stack)
 
-# 空かどうかを判定
+# 空かどうかを判定する
 is_empty: bool = len(stack) == 0
 ```
 
 ```cpp title="stack.cpp"
-/* スタックを初期化 */
+/* スタックを初期化する */
 stack<int> stack;
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 int top = stack.top();
 
-/* 要素をポップ */
+/* 要素をポップする */
 stack.pop(); // 戻り値なし
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 int size = stack.size();
 
-/* 空かどうかを判定 */
+/* 空かどうかを判定する */
 bool empty = stack.empty();
 ```
 
 ```java title="stack.java"
-/* スタックを初期化 */
+/* スタックを初期化する */
 Stack<Integer> stack = new Stack<>();
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 int peek = stack.peek();
 
-/* 要素をポップ */
+/* 要素をポップする */
 int pop = stack.pop();
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 int size = stack.size();
 
-/* 空かどうかを判定 */
+/* 空かどうかを判定する */
 boolean isEmpty = stack.isEmpty();
 ```
 
 ```csharp title="stack.cs"
-/* スタックを初期化 */
+/* スタックを初期化する */
 Stack<int> stack = new();
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.Push(1);
 stack.Push(3);
 stack.Push(2);
 stack.Push(5);
 stack.Push(4);
 
-/* スタックの先頭要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 int peek = stack.Peek();
 
-/* 要素をポップ */
+/* 要素をポップする */
 int pop = stack.Pop();
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 int size = stack.Count;
 
-/* 空かどうかを判定 */
+/* 空かどうかを判定する */
 bool isEmpty = stack.Count == 0;
 ```
 
 ```go title="stack_test.go"
-/* スタックを初期化 */
-// Go では Slice をスタックとして使うことを推奨
+/* スタックを初期化する */
+// Go では Slice をスタックとして使うことを推奨する
 var stack []int
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack = append(stack, 1)
 stack = append(stack, 3)
 stack = append(stack, 2)
 stack = append(stack, 5)
 stack = append(stack, 4)
 
-/* スタックの先頭要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 peek := stack[len(stack)-1]
 
-/* 要素をポップ */
+/* 要素をポップする */
 pop := stack[len(stack)-1]
 stack = stack[:len(stack)-1]
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 size := len(stack)
 
-/* 空かどうかを判定 */
+/* 空かどうかを判定する */
 isEmpty := len(stack) == 0
 ```
 
 ```swift title="stack.swift"
-/* スタックを初期化 */
+/* スタックを初期化する */
 // Swift には組み込みのスタッククラスがないため、Array をスタックとして使える
 var stack: [Int] = []
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.append(1)
 stack.append(3)
 stack.append(2)
 stack.append(5)
 stack.append(4)
 
-/* スタックの先頭要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 let peek = stack.last!
 
-/* 要素をポップ */
+/* 要素をポップする */
 let pop = stack.removeLast()
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 let size = stack.count
 
-/* 空かどうかを判定 */
+/* 空かどうかを判定する */
 let isEmpty = stack.isEmpty
 ```
 
 ```javascript title="stack.js"
-/* スタックを初期化 */
+/* スタックを初期化する */
 // JavaScript には組み込みのスタッククラスがないため、Array をスタックとして使える
 const stack = [];
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセス */
-const peek = stack[stack.length-1];
+/* スタックの先頭要素にアクセスする */
+const peek = stack[stack.length - 1];
 
-/* 要素をポップ */
+/* 要素をポップする */
 const pop = stack.pop();
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 const size = stack.length;
 
-/* 空かどうかを判定 */
-const is_empty = stack.length === 0;
+/* 空かどうかを判定する */
+const isEmpty = stack.length === 0;
 ```
 
 ```typescript title="stack.ts"
-/* スタックを初期化 */
+/* スタックを初期化する */
 // TypeScript には組み込みのスタッククラスがないため、Array をスタックとして使える
 const stack: number[] = [];
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 const peek = stack[stack.length - 1];
 
-/* 要素をポップ */
+/* 要素をポップする */
 const pop = stack.pop();
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 const size = stack.length;
 
-/* 空かどうかを判定 */
-const is_empty = stack.length === 0;
+/* 空かどうかを判定する */
+const isEmpty = stack.length === 0;
 ```
 
 ```dart title="stack.dart"
-/* スタックを初期化 */
+/* スタックを初期化する */
 // Dart には組み込みのスタッククラスがないため、List をスタックとして使える
-List<int> stack = [];
+final List<int> stack = [];
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.add(1);
 stack.add(3);
 stack.add(2);
 stack.add(5);
 stack.add(4);
 
-/* スタックの先頭要素にアクセス */
-int peek = stack.last;
+/* スタックの先頭要素にアクセスする */
+final int peek = stack.last;
 
-/* 要素をポップ */
-int pop = stack.removeLast();
+/* 要素をポップする */
+final int pop = stack.removeLast();
 
-/* スタックの長さを取得 */
-int size = stack.length;
+/* スタックの長さを取得する */
+final int size = stack.length;
 
-/* 空かどうかを判定 */
-bool isEmpty = stack.isEmpty;
+/* 空かどうかを判定する */
+final bool isEmpty = stack.isEmpty;
 ```
 
 ```rust title="stack.rs"
-/* スタックを初期化 */
-// Vec をスタックとして使う
+// スタックを初期化する
+// Rust では Vec をスタックとして使うことを推奨する
 let mut stack: Vec<i32> = Vec::new();
 
-/* 要素をプッシュ */
+// 要素をプッシュする
 stack.push(1);
 stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセス */
-let top = stack.last().unwrap();
+// スタックの先頭要素にアクセスする
+let peek = stack.last().unwrap();
 
-/* 要素をポップ */
+// 要素をポップする
 let pop = stack.pop().unwrap();
 
-/* スタックの長さを取得 */
+// スタックの長さを取得する
 let size = stack.len();
 
-/* 空かどうかを判定 */
+// スタックが空かどうかを判定する
 let is_empty = stack.is_empty();
 ```
 
@@ -252,51 +252,51 @@ let is_empty = stack.is_empty();
 ```
 
 ```kotlin title="stack.kt"
-/* スタックを初期化 */
+/* スタックを初期化する */
 val stack = Stack<Int>()
 
-/* 要素をプッシュ */
+/* 要素をプッシュする */
 stack.push(1)
 stack.push(3)
 stack.push(2)
 stack.push(5)
 stack.push(4)
 
-/* スタックの先頭要素にアクセス */
+/* スタックの先頭要素にアクセスする */
 val peek = stack.peek()
 
-/* 要素をポップ */
+/* 要素をポップする */
 val pop = stack.pop()
 
-/* スタックの長さを取得 */
+/* スタックの長さを取得する */
 val size = stack.size
 
-/* 空かどうかを判定 */
+/* 空かどうかを判定する */
 val isEmpty = stack.isEmpty()
 ```
 
 ```ruby title="stack.rb"
-# スタックを初期化
+# スタックを初期化する
 # Ruby には組み込みのスタッククラスがないため、Array をスタックとして使える
 stack = []
 
-# 要素をプッシュ
+# 要素をプッシュする
 stack << 1
 stack << 3
 stack << 2
 stack << 5
 stack << 4
 
-# スタックの先頭要素にアクセス
+# スタックの先頭要素にアクセスする
 peek = stack.last
 
-# 要素をポップ
+# 要素をポップする
 pop = stack.pop
 
-# スタックの長さを取得
+# スタックの長さを取得する
 size = stack.length
 
-# 空かどうかを判定
+# 空かどうかを判定する
 is_empty = stack.empty?
 ```
 

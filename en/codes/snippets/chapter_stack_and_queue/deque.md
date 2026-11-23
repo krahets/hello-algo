@@ -2,23 +2,23 @@
 ```python title="deque.py"
 from collections import deque
 
-# Initialize a deque
+# Initialize the deque
 deq: deque[int] = deque()
 
 # Enqueue elements
-deq.append(2)      # Add at the rear
+deq.append(2)  # Add to the rear
 deq.append(5)
 deq.append(4)
-deq.appendleft(3)  # Add at the front
+deq.appendleft(3)  # Add to the front
 deq.appendleft(1)
 
-# Access elements
+# Access an element
 front: int = deq[0]  # Front element
 rear: int = deq[-1]  # Rear element
 
-# Dequeue elements
-pop_front: int = deq.popleft()  # Remove the front element
-pop_rear: int = deq.pop()       # Remove the rear element
+# Dequeue an element
+pop_front: int = deq.popleft()  # Dequeue the front element
+pop_rear: int = deq.pop()  # Dequeue the rear element
 
 # Get the deque size
 size: int = len(deq)
@@ -28,23 +28,23 @@ is_empty: bool = len(deq) == 0
 ```
 
 ```cpp title="deque.cpp"
-/* Initialize a deque */
+/* Initialize the deque */
 deque<int> deque;
 
 /* Enqueue elements */
-deque.push_back(2);   // Add at the rear
+deque.push_back(2); // Add to the rear
 deque.push_back(5);
 deque.push_back(4);
-deque.push_front(3);  // Add at the front
+deque.push_front(3); // Add to the front
 deque.push_front(1);
 
-/* Access elements */
+/* Access an element */
 int front = deque.front(); // Front element
-int back = deque.back();   // Rear element
+int back = deque.back(); // Rear element
 
-/* Dequeue elements */
-deque.pop_front();  // Remove the front element
-deque.pop_back();   // Remove the rear element
+/* Dequeue an element */
+deque.pop_front(); // Dequeue the front element
+deque.pop_back(); // Dequeue the rear element
 
 /* Get the deque size */
 int size = deque.size();
@@ -54,23 +54,23 @@ bool empty = deque.empty();
 ```
 
 ```java title="deque.java"
-/* Initialize a deque */
+/* Initialize the deque */
 Deque<Integer> deque = new LinkedList<>();
 
 /* Enqueue elements */
-deque.offerLast(2);   // Add at the rear
+deque.offerLast(2); // Add to the rear
 deque.offerLast(5);
 deque.offerLast(4);
-deque.offerFirst(3);  // Add at the front
+deque.offerFirst(3); // Add to the front
 deque.offerFirst(1);
 
-/* Access elements */
-int peekFirst = deque.peekFirst();  // Front element
-int peekLast = deque.peekLast();    // Rear element
+/* Access an element */
+int peekFirst = deque.peekFirst(); // Front element
+int peekLast = deque.peekLast(); // Rear element
 
-/* Dequeue elements */
-int popFirst = deque.pollFirst();  // Remove the front element
-int popLast = deque.pollLast();    // Remove the rear element
+/* Dequeue an element */
+int popFirst = deque.pollFirst(); // Dequeue the front element
+int popLast = deque.pollLast(); // Dequeue the rear element
 
 /* Get the deque size */
 int size = deque.size();
@@ -80,24 +80,24 @@ boolean isEmpty = deque.isEmpty();
 ```
 
 ```csharp title="deque.cs"
-/* Initialize a deque */
-// In C#, use a LinkedList as a deque
+/* Initialize the deque */
+// In C#, use the linked list LinkedList as a deque
 LinkedList<int> deque = new();
 
 /* Enqueue elements */
-deque.AddLast(2);   // Add at the rear
+deque.AddLast(2);   // Add to the rear
 deque.AddLast(5);
 deque.AddLast(4);
-deque.AddFirst(3);  // Add at the front
+deque.AddFirst(3);  // Add to the front
 deque.AddFirst(1);
 
-/* Access elements */
-int peekFirst = deque.First.Value;  // Front element
-int peekLast = deque.Last.Value;    // Rear element
+/* Access an element */
+int? peekFirst = deque.First?.Value;  // Front element
+int? peekLast = deque.Last?.Value;    // Rear element
 
-/* Dequeue elements */
-deque.RemoveFirst();  // Remove the front element
-deque.RemoveLast();   // Remove the rear element
+/* Dequeue an element */
+deque.RemoveFirst();  // Dequeue the front element
+deque.RemoveLast();   // Dequeue the rear element
 
 /* Get the deque size */
 int size = deque.Count;
@@ -107,24 +107,24 @@ bool isEmpty = deque.Count == 0;
 ```
 
 ```go title="deque_test.go"
-/* Initialize a deque */
-// In Go, use a list as a deque
+/* Initialize the deque */
+// In Go, list can be used as a deque
 deque := list.New()
 
 /* Enqueue elements */
-deque.PushBack(2)      // Add at the rear
+deque.PushBack(2) // Add to the rear
 deque.PushBack(5)
 deque.PushBack(4)
-deque.PushFront(3)     // Add at the front
+deque.PushFront(3) // Add to the front
 deque.PushFront(1)
 
-/* Access elements */
+/* Access an element */
 front := deque.Front() // Front element
-rear := deque.Back()   // Rear element
+rear := deque.Back() // Rear element
 
-/* Dequeue elements */
-deque.Remove(front)    // Remove the front element
-deque.Remove(rear)     // Remove the rear element
+/* Dequeue an element */
+deque.Remove(front) // Dequeue the front element
+deque.Remove(rear) // Dequeue the rear element
 
 /* Get the deque size */
 size := deque.Len()
@@ -134,25 +134,25 @@ isEmpty := deque.Len() == 0
 ```
 
 ```swift title="deque.swift"
-/* Initialize a deque */
-// Swift has no built-in deque class; use an Array as a deque
+/* Initialize the deque */
+// The Swift standard library has no built-in deque class; Array can be used as a deque
 var deque: [Int] = []
 
 /* Enqueue elements */
-deque.append(2) // Add at the rear
+deque.append(2) // Add to the rear
 deque.append(5)
 deque.append(4)
-deque.insert(3, at: 0) // Add at the front
+deque.insert(3, at: 0) // Add to the front
 deque.insert(1, at: 0)
 
-/* Access elements */
+/* Access an element */
 let peekFirst = deque.first! // Front element
 let peekLast = deque.last! // Rear element
 
-/* Dequeue elements */
-// When using an Array, popFirst takes O(n) time
-let popFirst = deque.removeFirst() // Remove the front element
-let popLast = deque.removeLast() // Remove the rear element
+/* Dequeue an element */
+// When using Array to simulate a deque, removeFirst has O(n) complexity
+let popFirst = deque.removeFirst() // Dequeue the front element
+let popLast = deque.removeLast() // Dequeue the rear element
 
 /* Get the deque size */
 let size = deque.count
@@ -162,24 +162,24 @@ let isEmpty = deque.isEmpty
 ```
 
 ```javascript title="deque.js"
-/* Initialize a deque */
-// JavaScript has no built-in deque; use an Array instead
+/* Initialize the deque */
+// JavaScript has no built-in deque; use an Array as a deque
 const deque = [];
 
 /* Enqueue elements */
 deque.push(2);
 deque.push(5);
 deque.push(4);
-// Note that this is an array, so unshift() takes O(n) time
+// Note: because this uses an array, unshift() has O(n) time complexity
 deque.unshift(3);
 deque.unshift(1);
 
-/* Access elements */
+/* Access an element */
 const peekFirst = deque[0];
 const peekLast = deque[deque.length - 1];
 
-/* Dequeue elements */
-// Note that this is an array, so shift() takes O(n) time
+/* Dequeue an element */
+// Note: because this uses an array, shift() has O(n) time complexity
 const popFront = deque.shift();
 const popBack = deque.pop();
 
@@ -191,24 +191,24 @@ const isEmpty = size === 0;
 ```
 
 ```typescript title="deque.ts"
-/* Initialize a deque */
-// TypeScript has no built-in deque; use an Array instead
+/* Initialize the deque */
+// TypeScript has no built-in deque; use an Array as a deque instead
 const deque: number[] = [];
 
 /* Enqueue elements */
 deque.push(2);
 deque.push(5);
 deque.push(4);
-// Note that this is an array, so unshift() takes O(n) time
+// Note: because this uses an array, unshift() has O(n) time complexity
 deque.unshift(3);
 deque.unshift(1);
 
-/* Access elements */
+/* Access an element */
 const peekFirst: number = deque[0];
 const peekLast: number = deque[deque.length - 1];
 
-/* Dequeue elements */
-// Note that this is an array, so shift() takes O(n) time
+/* Dequeue an element */
+// Note: because this uses an array, shift() has O(n) time complexity
 const popFront: number = deque.shift() as number;
 const popBack: number = deque.pop() as number;
 
@@ -220,59 +220,55 @@ const isEmpty: boolean = size === 0;
 ```
 
 ```dart title="deque.dart"
-/* Initialize a deque */
+/* Initialize the deque */
 // In Dart, Queue is defined as a deque
-Queue<int> deque = Queue<int>();
+final Queue<int> deque = Queue();
 
 /* Enqueue elements */
-deque.addLast(2);  // Add at the rear
+deque.addLast(2); // Add to the rear
 deque.addLast(5);
 deque.addLast(4);
-deque.addFirst(3); // Add at the front
+deque.addFirst(3); // Add to the front
 deque.addFirst(1);
 
-/* Access elements */
-int peekFirst = deque.first; // Front element
-int peekLast = deque.last;   // Rear element
+/* Access an element */
+final int peekFirst = deque.first; // Front element
+final int peekLast = deque.last; // Rear element
 
-/* Dequeue elements */
-int popFirst = deque.removeFirst(); // Remove the front element
-int popLast = deque.removeLast();   // Remove the rear element
+/* Dequeue an element */
+final int popFirst = deque.removeFirst(); // Dequeue the front element
+final int popLast = deque.removeLast(); // Dequeue the rear element
 
 /* Get the deque size */
-int size = deque.length;
+final int size = deque.length;
 
 /* Check whether the deque is empty */
-bool isEmpty = deque.isEmpty;
+final bool isEmpty = deque.isEmpty;
 ```
 
 ```rust title="deque.rs"
-/* Initialize a deque */
-let mut deque: VecDeque<u32> = VecDeque::new();
+// Initialize the deque
+let mut deque: VecDeque<i32> = VecDeque::new();
 
 /* Enqueue elements */
-deque.push_back(2);  // Add at the rear
+deque.push_back(2); // Add to the rear
 deque.push_back(5);
 deque.push_back(4);
-deque.push_front(3); // Add at the front
+deque.push_front(3); // Add to the front
 deque.push_front(1);
 
-/* Access elements */
-if let Some(front) = deque.front() { // Front element
-}
-if let Some(rear) = deque.back() {   // Rear element
-}
+// Access an element
+let peek_first = deque.front().unwrap(); // Front element
+let peek_last = deque.back().unwrap(); // Rear element
 
-/* Dequeue elements */
-if let Some(pop_front) = deque.pop_front() { // Remove the front element
-}
-if let Some(pop_rear) = deque.pop_back() {   // Remove the rear element
-}
+// Dequeue an element
+let pop_first = deque.pop_front().unwrap(); // Dequeue the front element
+let pop_last = deque.pop_back().unwrap(); // Dequeue the rear element
 
-/* Get the deque size */
+// Get the deque size
 let size = deque.len();
 
-/* Check whether the deque is empty */
+// Check whether the deque is empty
 let is_empty = deque.is_empty();
 ```
 
@@ -281,23 +277,23 @@ let is_empty = deque.is_empty();
 ```
 
 ```kotlin title="deque.kt"
-/* Initialize a deque */
+/* Initialize the deque */
 val deque = LinkedList<Int>()
 
 /* Enqueue elements */
-deque.offerLast(2)  // Add at the rear
+deque.offerLast(2) // Add to the rear
 deque.offerLast(5)
 deque.offerLast(4)
-deque.offerFirst(3) // Add at the front
+deque.offerFirst(3) // Add to the front
 deque.offerFirst(1)
 
-/* Access elements */
+/* Access an element */
 val peekFirst = deque.peekFirst() // Front element
-val peekLast = deque.peekLast()   // Rear element
+val peekLast = deque.peekLast() // Rear element
 
-/* Dequeue elements */
-val popFirst = deque.pollFirst() // Remove the front element
-val popLast = deque.pollLast()   // Remove the rear element
+/* Dequeue an element */
+val popFirst = deque.pollFirst() // Dequeue the front element
+val popLast = deque.pollLast() // Dequeue the rear element
 
 /* Get the deque size */
 val size = deque.size
@@ -307,24 +303,24 @@ val isEmpty = deque.isEmpty()
 ```
 
 ```ruby title="deque.rb"
-# Initialize a deque
-# Ruby has no built-in deque; use an Array instead
+# Initialize the deque
+# Ruby has no built-in deque class; use an Array as a deque
 deque = []
 
 # Enqueue elements
 deque << 2
 deque << 5
 deque << 4
-# Note that this is an array, so Array#unshift takes O(n) time
+# Note that Array#unshift has O(n) time complexity because the underlying structure is an array
 deque.unshift(3)
 deque.unshift(1)
 
-# Access elements
+# Access an element
 peek_first = deque.first
 peek_last = deque.last
 
-# Dequeue elements
-# Note that this is an array, so Array#shift takes O(n) time
+# Dequeue an element
+# Note that Array#shift has O(n) time complexity because the underlying structure is an array
 pop_front = deque.shift
 pop_back = deque.pop
 

@@ -27,7 +27,7 @@ class ArrayQueue:
         return self._size == 0
 
     def push(self, num: int):
-        """큐에 삽입"""
+        """원소 삽입"""
         if self._size == self.capacity():
             raise IndexError("큐가 가득 찼다")
         # 맨 뒤 인덱스 + 1을 가리키는 맨 뒤 포인터를 계산한다
@@ -38,7 +38,7 @@ class ArrayQueue:
         self._size += 1
 
     def pop(self) -> int:
-        """큐에서 꺼내기"""
+        """원소 꺼내기"""
         num: int = self.peek()
         # 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
         self._front = (self._front + 1) % self.capacity()
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     # 큐 초기화
     queue = ArrayQueue(10)
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     peek: int = queue.peek()
     print("맨 앞 원소 peek =", peek)
 
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop: int = queue.pop()
     print("큐에서 꺼낸 원소 pop =", pop)
     print("큐에서 꺼낸 후 queue =", queue.to_list())
@@ -95,4 +95,4 @@ if __name__ == "__main__":
     for i in range(10):
         queue.push(i)
         queue.pop()
-        print("반복", i, "회에서 삽입 + 꺼내기를 수행한 후 queue = ", queue.to_list())
+        print("반복", i, "회차에서 삽입 + 꺼내기를 수행한 후 queue = ", queue.to_list())

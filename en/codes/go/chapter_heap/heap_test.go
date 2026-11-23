@@ -14,14 +14,14 @@ import (
 )
 
 func testPush(h *intHeap, val int) {
-	// Call heap.Push, which uses heap.Interface to add an element
+	// Call a heap.Interface function to add an element
 	heap.Push(h, val)
 	fmt.Printf("\nAfter pushing %d onto the heap: \n", val)
 	PrintHeap(*h)
 }
 
 func testPop(h *intHeap) {
-	// Call heap.Pop, which uses heap.Interface to remove the top element
+	// Call a heap.Interface function to remove an element
 	val := heap.Pop(h)
 	fmt.Printf("\nAfter popping the top element %d from the heap: \n", val)
 	PrintHeap(*h)
@@ -91,8 +91,6 @@ func TestMyHeap(t *testing.T) {
 }
 
 func TestTopKHeap(t *testing.T) {
-	/* Initialize the heap */
-	// Prepare the input for heap-based top-k selection
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)

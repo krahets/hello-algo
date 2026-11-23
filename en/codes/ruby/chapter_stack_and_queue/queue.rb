@@ -23,7 +23,7 @@ if __FILE__ == $0
   puts "Front element peek = #{peek}"
 
   # Dequeue an element
-  # Front removal in a simple array takes O(n); Ruby implementations can optimize Array#shift
+  # Note that Array#shift has O(n) time complexity because the underlying structure is an array
   pop = queue.shift
   puts "Dequeued element pop = #{pop}"
   puts "After dequeueing, queue = #{queue}"

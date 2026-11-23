@@ -125,13 +125,13 @@ enum _ArrayDeque {
         let peekLast = deque.peekLast()
         print("맨 뒤 원소 peekLast = \(peekLast)")
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.pushLast(num: 4)
         print("맨 뒤에 원소 4를 삽입한 후 deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
         print("맨 앞에 원소 1을 삽입한 후 deque = \(deque.toArray())")
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         let popLast = deque.popLast()
         print("맨 뒤에서 꺼낸 원소 = \(popLast), 꺼낸 후 deque = \(deque.toArray())")
         let popFirst = deque.popFirst()
