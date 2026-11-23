@@ -13,7 +13,7 @@ pub fn main() {
     // 큐 초기화
     let mut queue: VecDeque<i32> = VecDeque::new();
 
-    // 큐에 원소 삽입
+    // 원소 삽입
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
@@ -26,7 +26,7 @@ pub fn main() {
     let peek = queue.front().unwrap();
     println!("\n맨 앞 원소 peek = {peek}");
 
-    // 큐에서 원소 꺼내기
+    // 원소 꺼내기
     let pop = queue.pop_front().unwrap();
     print!("꺼낸 원소 pop = {pop}, 꺼낸 뒤 queue = ");
     print_util::print_queue(&queue);

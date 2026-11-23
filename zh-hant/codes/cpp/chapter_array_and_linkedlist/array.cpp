@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* 擴展陣列長度 */
 int *extend(int *nums, int size, int enlarge) {
     // 初始化一個擴展長度後的陣列
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // 將原陣列中的所有元素複製到新陣列
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -69,7 +69,7 @@ int find(int *nums, int size, int target) {
 int main() {
     /* 初始化陣列 */
     int size = 5;
-    int *arr = new int[size];
+    int *arr = new int[size]{};
     cout << "陣列 arr = ";
     printArray(arr, size);
 

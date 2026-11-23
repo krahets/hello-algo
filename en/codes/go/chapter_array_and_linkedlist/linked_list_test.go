@@ -40,7 +40,7 @@ func TestLinkedList(t *testing.T) {
 
 	/* Access a node */
 	node := access(n0, 3)
-	fmt.Println("Node at index 3 in the linked list =", node)
+	fmt.Println("Value of the node at index 3 in the linked list =", node)
 
 	/* Find a node */
 	index := findNode(n0, 2)

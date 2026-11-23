@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "Enqueue and dequeue in an array-based queue",
+  "summary": "The index front identifies the first element, and size counts the elements. Enqueue writes just past the rear. Dequeue advances the front index. All other elements stay in place.",
+  "context": [
+    "The queue on the left and vertical array on the right are linked by the label “Implemented with an array. Exposes queue operations”. Both show the front at the top and the rear at the bottom. Moving down increases the index, equivalent to moving right in the chapter’s horizontal array."
+  ],
+  "description": [
+    "These three frames never wrap past the end of the array. The next free slot after the rear is rear = front + size, and the active interval is [front, rear - 1]. Dashed gray slots and ellipses at each end represent the remaining space. Leaving the active interval does not clear a slot's value to zero."
+  ],
+  "result": "Enqueue writes at rear and increases size by 1. Dequeue increases front by 1 and decreases size by 1. Neither operation shifts the remaining elements, so both take O(1) time.",
+  "frames": [
+    {
+      "id": "source-67",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step1.png",
+      "title": "Initial queue and its active range",
+      "explanation": "Initially the queue is [1, 3, 2, 5], with size = 4. The orange front points to 1. The cyan rear, calculated as front + 4, points to the first free slot below 5. A note explains that front marks the first element and rear is 1 past the last.",
+      "key_state": "Initial queue [1, 3, 2, 5], size = 4. The index front points to 1, and rear = front + size points to the free slot below 5.",
+      "announcement": "The array-based queue starts with [1, 3, 2, 5], size = 4. The index front points to first element 1 and rear to the free slot after last element 5."
+    },
+    {
+      "id": "source-68",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step2_push.png",
+      "title": "Enqueue 4 at rear",
+      "explanation": "Call push(4). The callout lists three steps: compute rear, add the element at rear, and increase size by 1. Using the old size = 4 locates the free slot below 5. Write the cyan 4 there, then increase size to 5. The queue is now [1, 3, 2, 5, 4], and front still points to 1. The rear arrow remains at the newly written 4. Recomputing rear with the new size would move it to the empty slot below 4.",
+      "key_state": "After push(4), the queue is [1, 3, 2, 5, 4], size = 5, and front points to 1. The rear marker still points to the 4 just written.",
+      "announcement": "Call push(4) to write 4 at rear and increase size to 5. The queue is now [1, 3, 2, 5, 4]."
+    },
+    {
+      "id": "source-69",
+      "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step3_pop.png",
+      "title": "Advance front and dequeue 1",
+      "explanation": "Call pop() to remove and return the former front element, 1. The callout says to increase front by 1 and decrease size by 1. The index front moves one slot down to 3, and size drops from 5 to 4. The remaining elements [3, 2, 5, 4] stay in their original slots. A dashed outline marks the former slot of 1 as outside the active range. There is no rear marker in this frame.",
+      "key_state": "Calling pop() returns 1. The index front moves down one slot to 3, size = 4, and the queue is [3, 2, 5, 4]. The former slot of 1 is outside the active range and has not been cleared. This frame has no rear marker.",
+      "announcement": "Call pop(). The index front moves down to 3 and size decreases to 4. Element 1 leaves the queue, and [3, 2, 5, 4] stay in place."
+    }
+  ],
+  "animations": {
+    "array-queue": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-67"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-68"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-69"
+        }
+      ]
+    }
+  }
+}

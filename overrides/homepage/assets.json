@@ -7,13 +7,6 @@
       "kind": "hero",
       "loading": "visible-layout"
     },
-    "links": {
-      "source": "docs/assets/hero/links.png",
-      "width": 1562,
-      "height": 1134,
-      "kind": "hero",
-      "loading": "visible-layout"
-    },
     "astronaut": {
       "source": "docs/assets/hero/astronaut.webp",
       "width": 515,
@@ -291,12 +284,6 @@
       "label_style": null
     },
     {
-      "id": "links",
-      "style": "position: absolute; width: auto; height: 78.751%; left: 10.545%; top: 7.326%;",
-      "href": null,
-      "label_style": null
-    },
-    {
       "id": "astronaut",
       "style": "height: 46.673%; left: 35.413%; top: 24.343%;",
       "href": "chapter_introduction/",
@@ -451,6 +438,7 @@
   "runtime": {
     "starfield.js": "overrides/javascripts/starfield.js",
     "hero-planets.js": "overrides/javascripts/hero-planets.js",
+    "hero-flow-links.js": "overrides/javascripts/hero-flow-links.js",
     "hero-surfaces.js": "overrides/javascripts/hero-surfaces.js",
     "hero-hourglass.js": "overrides/javascripts/hero-hourglass.js",
     "homepage-media.js": "overrides/javascripts/homepage-media.js",

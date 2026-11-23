@@ -13,7 +13,7 @@ public class deque {
         // C#에서는 연결 리스트 LinkedList를 덱으로 사용한다
         LinkedList<int> deque = new();
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.AddLast(2);   // 맨 뒤에 추가한다
         deque.AddLast(5);
         deque.AddLast(4);
@@ -27,7 +27,7 @@ public class deque {
         int? peekLast = deque.Last?.Value;    // 맨 뒤 원소
         Console.WriteLine("맨 뒤 원소 peekLast = " + peekLast);
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         deque.RemoveFirst();  // 맨 앞 원소를 꺼낸다
         Console.WriteLine("맨 앞 원소를 꺼낸 후 deque = " + string.Join(",", deque));
         deque.RemoveLast();   // 맨 뒤 원소를 꺼낸다

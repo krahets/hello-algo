@@ -9,7 +9,7 @@ package chapter_array_and_linkedlist
 import utils.ListNode
 import utils.printLinkedList
 
-/* Insert node p after node n0 in the linked list */
+/* Insert node P after node n0 in the linked list */
 fun insert(n0: ListNode?, p: ListNode?) {
     val n1 = n0?.next
     p?.next = n1

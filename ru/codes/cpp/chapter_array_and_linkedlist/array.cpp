@@ -18,7 +18,7 @@ int randomAccess(int *nums, int size) {
 /* Увеличение длины массива */
 int *extend(int *nums, int size, int enlarge) {
     // Инициализировать массив увеличенной длины
-    int *res = new int[size + enlarge];
+    int *res = new int[size + enlarge]{};
     // Скопировать все элементы исходного массива в новый массив
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
@@ -69,7 +69,7 @@ int find(int *nums, int size, int target) {
 int main() {
     /* Инициализация массива */
     int size = 5;
-    int *arr = new int[size];
+    int *arr = new int[size]{};
     cout << "Массив arr = ";
     printArray(arr, size);
 

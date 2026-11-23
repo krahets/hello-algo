@@ -1,0 +1,438 @@
+{
+  "schema_version": 2,
+  "title": "Inserting an element into a max heap",
+  "summary": "Append the new element at the end, then compare and swap upward along parent nodes to restore the max heap.",
+  "context": [
+    "This example starts with 12 elements, with 9 at root index 0, and inserts a new element 7. Another 7 already at index 4 stays put throughout; the role column in the tables distinguishes the two 7s.",
+    "The binary tree and the array represent the same underlying storage: the array lists nodes in level order from top to bottom and left to right within each level, indexed from 0. For any non-root index i, the parent index is floor((i − 1) / 2), and the left and right child indices are 2i + 1 and 2i + 2; an out-of-bounds index means that child does not exist. Equal values are distinguished by their indices."
+  ],
+  "description": [
+    "Insertion first appends the new element to the end of the level-order array to preserve the complete binary tree shape, then sifts upward along the parent path: swap with the parent only when the current node's value is strictly greater than its parent's value, and stop immediately once it is less than or equal to its parent or reaches the root. Here the newly inserted 7 moves along indices 12 → 5 → 2 in two swaps.",
+    "Each storage table caption includes the operation name and step number. A new table is listed only when the array changes; steps that only compare, stop, or clear highlights refer by full caption to the unchanged storage table. Every step still states the current element count, heap top, and action."
+  ],
+  "result": "The newly inserted 7 sifts up along indices 12 → 5 → 2 in two swaps, while the existing 7 remains at index 4 throughout.",
+  "frames": [
+    {
+      "id": "source-143",
+      "book_path": "chapter_heap/heap.assets/heap_push_step1.png",
+      "title": "Prepare to insert a new 7",
+      "explanation": "The heap currently stores 12 items, and the heap top is 9. The new 7 to be inserted is still outside the heap. The existing 7 is at index 4, the right child of index 1 (value 8); the two 7s are distinct elements.",
+      "key_state": "12 items, heap top 9. The new 7 is still outside the heap, while the existing 7 is at index 4.",
+      "announcement": "The new 7 to be inserted is still outside the heap, while the existing 7 is at index 4.",
+      "state_tables": [
+        {
+          "caption": "Insertion step 1: initial 12-item storage",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "9",
+              "—"
+            ],
+            [
+              "1",
+              "8",
+              "—"
+            ],
+            [
+              "2",
+              "6",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "Existing 7"
+            ],
+            [
+              "5",
+              "5",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-144",
+      "book_path": "chapter_heap/heap.assets/heap_push_step2.png",
+      "title": "Append 7 at the end",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. Append the new 7 at end index 12 as the right child of index 5 (value 5). The complete binary tree shape is preserved, but 7 exceeds its parent 5 and must sift up.",
+      "key_state": "13 items, heap top 9. The new 7 is appended at index 12 as the right child of index 5. The existing 7 remains at index 4.",
+      "announcement": "The new 7 is appended at index 12 as the right child of index 5.",
+      "state_tables": [
+        {
+          "caption": "Insertion step 2: 13-item storage after appending the new 7",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "9",
+              "—"
+            ],
+            [
+              "1",
+              "8",
+              "—"
+            ],
+            [
+              "2",
+              "6",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "Existing 7"
+            ],
+            [
+              "5",
+              "5",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ],
+            [
+              "12",
+              "7",
+              "Newly inserted 7"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-145",
+      "book_path": "chapter_heap/heap.assets/heap_push_step3.png",
+      "title": "Compare indices 12 and 5",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. Compare the new 7 at index 12 with 5 at parent index 5. Since 7 > 5, a swap is required; this step only compares without swapping yet. The array is unchanged; see table “Insertion step 2: 13-item storage after appending the new 7” for full storage.",
+      "key_state": "13 items, heap top 9. Comparing the new 7 at index 12 with parent 5 at index 5 (7 > 5, awaiting swap). The existing 7 remains at index 4.",
+      "announcement": "Comparing the new 7 at index 12 with parent 5 at index 5 (7 > 5, awaiting swap)."
+    },
+    {
+      "id": "source-146",
+      "book_path": "chapter_heap/heap.assets/heap_push_step4.png",
+      "title": "Swap indices 12 and 5",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. First sift-up swap: exchange the new 7 at index 12 with 5 at index 5. The new 7 reaches index 5 and 5 moves down to index 12; the existing 7 remains at index 4.",
+      "key_state": "13 items, heap top 9. Swap indices 12 and 5: the new 7 sifts up to index 5, and 5 moves down to index 12. The existing 7 remains at index 4.",
+      "announcement": "Swap indices 12 and 5: the new 7 sifts up to index 5, and 5 moves down to index 12.",
+      "state_tables": [
+        {
+          "caption": "Insertion step 4: storage after the first sift-up swap",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "9",
+              "—"
+            ],
+            [
+              "1",
+              "8",
+              "—"
+            ],
+            [
+              "2",
+              "6",
+              "—"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "Existing 7"
+            ],
+            [
+              "5",
+              "7",
+              "Newly inserted 7"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ],
+            [
+              "12",
+              "5",
+              "—"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-147",
+      "book_path": "chapter_heap/heap.assets/heap_push_step5.png",
+      "title": "Compare indices 5 and 2",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. Compare the new 7 at index 5 with 6 at parent index 2. Since 7 > 6, it must continue sifting up; this step has not swapped yet. The array is unchanged; see table “Insertion step 4: storage after the first sift-up swap” for full storage.",
+      "key_state": "13 items, heap top 9. Comparing the new 7 at index 5 with parent 6 at index 2 (7 > 6, awaiting swap). The existing 7 remains at index 4.",
+      "announcement": "Comparing the new 7 at index 5 with parent 6 at index 2 (7 > 6, awaiting swap)."
+    },
+    {
+      "id": "source-148",
+      "book_path": "chapter_heap/heap.assets/heap_push_step6.png",
+      "title": "Swap indices 5 and 2",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. Second sift-up swap: exchange the new 7 at index 5 with 6 at index 2. The new 7 reaches index 2 and 6 moves down to index 5; next, check against the root.",
+      "key_state": "13 items, heap top 9. Swap indices 5 and 2: the new 7 sifts up to index 2, and 6 moves down to index 5. The existing 7 remains at index 4.",
+      "announcement": "Swap indices 5 and 2: the new 7 sifts up to index 2, and 6 moves down to index 5.",
+      "state_tables": [
+        {
+          "caption": "Insertion step 6: storage after the second sift-up swap",
+          "headers": [
+            "Array index",
+            "Value",
+            "Role in this operation"
+          ],
+          "rows": [
+            [
+              "0",
+              "9",
+              "—"
+            ],
+            [
+              "1",
+              "8",
+              "—"
+            ],
+            [
+              "2",
+              "7",
+              "Newly inserted 7"
+            ],
+            [
+              "3",
+              "6",
+              "—"
+            ],
+            [
+              "4",
+              "7",
+              "Existing 7"
+            ],
+            [
+              "5",
+              "6",
+              "—"
+            ],
+            [
+              "6",
+              "2",
+              "—"
+            ],
+            [
+              "7",
+              "1",
+              "—"
+            ],
+            [
+              "8",
+              "4",
+              "—"
+            ],
+            [
+              "9",
+              "3",
+              "—"
+            ],
+            [
+              "10",
+              "6",
+              "—"
+            ],
+            [
+              "11",
+              "2",
+              "—"
+            ],
+            [
+              "12",
+              "5",
+              "—"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-149",
+      "book_path": "chapter_heap/heap.assets/heap_push_step7.png",
+      "title": "Compare index 2 with the root",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. Compare the new 7 at index 2 with its parent, 9 at root index 0. Since 9 > 7, the parent is already at least as large as its child, so no swap is needed. The array is unchanged; see table “Insertion step 6: storage after the second sift-up swap” for full storage.",
+      "key_state": "13 items, heap top 9. Comparing the new 7 at index 2 with root 9 at index 0 (9 > 7, no swap needed). The existing 7 remains at index 4.",
+      "announcement": "Comparing the new 7 at index 2 with root 9 at index 0 (9 > 7, no swap needed)."
+    },
+    {
+      "id": "source-150",
+      "book_path": "chapter_heap/heap.assets/heap_push_step8.png",
+      "title": "Stop sifting up",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. The new 7 stops sifting up at index 2 because root 9 is larger than 7; no further swap occurs. The array is unchanged; see table “Insertion step 6: storage after the second sift-up swap” for full storage.",
+      "key_state": "13 items, heap top 9. Root 9 exceeds the new 7, so sifting up stops at index 2. The existing 7 remains at index 4.",
+      "announcement": "Root 9 exceeds the new 7, so sifting up stops at index 2."
+    },
+    {
+      "id": "source-151",
+      "book_path": "chapter_heap/heap.assets/heap_push_step9.png",
+      "title": "Insertion complete",
+      "explanation": "The heap currently stores 13 items, and the heap top is 9. Comparison highlights are cleared and insertion is complete. The new 7 is at index 2, the existing 7 is at index 4, and end index 12 holds the displaced 5; all 13 items satisfy the max-heap property. The array is unchanged; see table “Insertion step 6: storage after the second sift-up swap” for full storage.",
+      "key_state": "13 items, heap top 9. All 13 elements satisfy the max-heap property, with the new 7 settled at index 2 and the existing 7 still at index 4.",
+      "announcement": "Insertion complete: 13 items in total, heap top 9, new 7 at index 2, and existing 7 at index 4."
+    }
+  ],
+  "animations": {
+    "heap-push": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-143"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-144"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-145"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-146"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-147"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-148"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-149"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-150"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-151"
+        }
+      ]
+    }
+  }
+}

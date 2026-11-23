@@ -9,7 +9,7 @@ use hello_algo_rust::include::print_util;
 /* Driver Code */
 pub fn main() {
     // 初始化堆疊
-    // 在 rust 中，推薦將 Vec 當作堆疊來使用
+    // 在 Rust 中，推薦將 Vec 當作堆疊來使用
     let mut stack: Vec<i32> = Vec::new();
 
     // 元素入堆疊

@@ -1,0 +1,206 @@
+{
+  "schema_version": 2,
+  "title": "Trying choices and backtracking: saving paths to 7",
+  "summary": "Append each node to path on entry and pop it on exit; copy and save path on each of the two matches with 7, leaving path empty when the search ends.",
+  "context": [
+    "The parent-child relationships of the fixed tree are shown in the table below. The left 7 is the left child of root 1, and the right 7 is the right child of node 3.",
+    "Traverse the entire tree in \"root → left → right\" preorder to find the paths from root node 1 to every node with value 7.",
+    "The state list path maintains the active path from the root to the current node in real time, and the result list res stores a copy of path each time a 7 is matched. The figure abbreviates path and res using node values, whereas the accompanying code stores node objects and list copies list(path); the left and right nodes with value 7 are distinct objects."
+  ],
+  "description": [
+    "Each forward \"trial\" entering a node appends it to the end of path; if the current node has value 7, a copy of path is appended to res; before \"backtracking\" out of a node, it is popped from the end of path to restore the path from before entering that node."
+  ],
+  "result": "Because res stores independent list copies of path taken at each match, popping during backtracking modifies only the active path without altering previously saved solutions.",
+  "frames": [
+    {
+      "id": "source-342",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step1.png",
+      "title": "Enter root 1",
+      "explanation": "Start at root node 1 and append 1 to path. Node value 1 is not the target 7, so path = [1] and res = []; both subtrees remain to be explored, and the search next enters the left 7.",
+      "key_state": "Entered root 1; path = [1], res = [].",
+      "announcement": "Enter root node 1 and append 1 to path."
+    },
+    {
+      "id": "source-343",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step2.png",
+      "title": "Match left 7 and save path",
+      "explanation": "Enter the left 7 from root 1, append 7, and match the target, saving a copy of the current path to res. Now path = [1, 7] and res = [[1, 7]]; continue exploring the left 7's children 4 and 5.",
+      "key_state": "Matched left 7; path = [1, 7], and after copying and saving, res = [[1, 7]].",
+      "announcement": "Visit the left node 7 and save path copy [1, 7] to res."
+    },
+    {
+      "id": "source-344",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step3.png",
+      "title": "Enter node 4",
+      "explanation": "Enter the left leaf node 4 of the left 7 and append 4 to path; it is not the target 7. Now path = [1, 7, 4] and res = [[1, 7]]; node 5 and the root's right subtree remain to be explored.",
+      "key_state": "Entered leaf node 4; path = [1, 7, 4], res = [[1, 7]].",
+      "announcement": "Enter left leaf node 4, updating path to [1, 7, 4]."
+    },
+    {
+      "id": "source-345",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step4.png",
+      "title": "Exit 4 and return to left 7",
+      "explanation": "Both empty subtrees of leaf node 4 have returned, so pop 4 from path and return to its parent, the left 7. Now path = [1, 7] and res = [[1, 7]]; node 4 is finished, and the right child 5 is explored next.",
+      "key_state": "Popped 4 and backtracked to left 7; path is restored to [1, 7], res = [[1, 7]].",
+      "announcement": "Backtrack from leaf node 4 and pop 4, restoring path to [1, 7]."
+    },
+    {
+      "id": "source-346",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step5.png",
+      "title": "Enter node 5",
+      "explanation": "Enter the right leaf node 5 of the left 7 and append 5 to path; the previously popped sibling node 4 does not linger. Now path = [1, 7, 5] and res = [[1, 7]]; all nodes in the left subtree have been visited, and the root's right subtree remains to be explored.",
+      "key_state": "Entered leaf node 5; path = [1, 7, 5], res = [[1, 7]].",
+      "announcement": "Enter right leaf node 5, updating path to [1, 7, 5]."
+    },
+    {
+      "id": "source-347",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step6.png",
+      "title": "Exit 5 and left 7",
+      "explanation": "After finishing node 5, first pop 5 to return to the left 7; since both of its subtrees are now complete, pop the left 7 as well to return to root 1. This frame combines those two backtracking steps. Now path = [1] and res = [[1, 7]]; next explore the root's right child 3.",
+      "key_state": "Popped 5 and left 7 in succession to return to root 1; path is restored to [1], while res remains [[1, 7]].",
+      "announcement": "Exit node 5 and left 7 in succession, restoring path to [1]."
+    },
+    {
+      "id": "source-348",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step7.png",
+      "title": "Enter node 3",
+      "explanation": "Enter the right child 3 of root 1 and append 3 to path; it is not the target 7. Now path = [1, 3] and res = [[1, 7]]; continue exploring node 3's left leaf 6 and right leaf 7.",
+      "key_state": "Entered right child 3; path = [1, 3], res = [[1, 7]].",
+      "announcement": "Enter the root's right child 3, updating path to [1, 3]."
+    },
+    {
+      "id": "source-349",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step8.png",
+      "title": "Enter node 6",
+      "explanation": "Enter the left leaf node 6 of node 3 and append 6 to path; it is not the target 7. Now path = [1, 3, 6] and res = [[1, 7]]; across the whole tree, only node 3's right child 7 remains unvisited.",
+      "key_state": "Entered leaf node 6; path = [1, 3, 6], res = [[1, 7]].",
+      "announcement": "Enter left leaf node 6, updating path to [1, 3, 6]."
+    },
+    {
+      "id": "source-350",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step9.png",
+      "title": "Exit 6 and return to 3",
+      "explanation": "Leaf node 6 is finished, so pop 6 from path and return to parent node 3. Now path = [1, 3] and res = [[1, 7]]; node 6 is complete, and the right 7 is explored next.",
+      "key_state": "Popped 6 and backtracked to node 3; path is restored to [1, 3], res = [[1, 7]].",
+      "announcement": "Backtrack from leaf node 6 and pop 6, restoring path to [1, 3]."
+    },
+    {
+      "id": "source-351",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step10.png",
+      "title": "Match right 7 and save path",
+      "explanation": "Enter the right leaf node 7 of node 3, append 7 to match the second target node, and save a copy of path to res. Now path = [1, 3, 7] and res = [[1, 7], [1, 3, 7]]; all nodes have been visited, leaving only the final cleanup backtracking.",
+      "key_state": "Matched right 7; path = [1, 3, 7], and after copying and saving, res = [[1, 7], [1, 3, 7]].",
+      "announcement": "Visit the right node 7 and save the second path copy [1, 3, 7] to res."
+    },
+    {
+      "id": "source-352",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/preorder_find_paths_step11.png",
+      "title": "Exit right 7, 3, and root 1",
+      "explanation": "After finishing the right 7, pop the right 7, parent node 3, and root 1 from path in order. This frame combines the three final backtracking steps, ending the search with path = [] and res = [[1, 7], [1, 3, 7]]; the saved copies remain intact.",
+      "key_state": "Popped right 7, 3, and root 1 in order to complete the three final backtracking steps; path = [], res = [[1, 7], [1, 3, 7]].",
+      "announcement": "Exit right 7, node 3, and root 1 in order; path is now empty and the search is complete."
+    }
+  ],
+  "animations": {
+    "preorder-find-paths": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-342"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-343"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-344"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-345"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-346"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-347"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-348"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-349"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-350"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-351"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-352"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "Fixed binary tree: distinguishing the two nodes with value 7",
+      "headers": [
+        "Node",
+        "Left child",
+        "Right child"
+      ],
+      "rows": [
+        [
+          "Root 1",
+          "Left 7",
+          "3"
+        ],
+        [
+          "Left 7",
+          "4",
+          "5"
+        ],
+        [
+          "3",
+          "6",
+          "Right 7"
+        ],
+        [
+          "4",
+          "None",
+          "None"
+        ],
+        [
+          "5",
+          "None",
+          "None"
+        ],
+        [
+          "6",
+          "None",
+          "None"
+        ],
+        [
+          "Right 7",
+          "None",
+          "None"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

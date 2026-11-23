@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "递归求和的递归深度",
+  "summary": "图突出递归求和在触底前积累的调用层数。",
+  "context": [
+    "n 为正整数；递归深度是同时未返回的最大调用层数。"
+  ],
+  "description": [
+    "左列标题为“向下‘递’”，调用链从 recur(n) → recur(n−1) → … → recur(4) → recur(3) → recur(2) → recur(1)，左侧大括号跨满整列并标注“递归深度 n”。底部“触发递归终止条件”的箭头指向右列“向上‘归’”；右列返回求和过程被淡化，突出左列的调用积累。"
+  ],
+  "frames": [
+    {
+      "id": "source-22",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_sum_depth.png",
+      "title": "递归求和的递归深度",
+      "explanation": "到达 recur(1) 时，外层调用都在等待子调用的结果，包括顶层在内共有 n 个栈帧同时存在。此后才从 1 开始返回，逐层加上本层参数并释放该层栈帧。最深处的调用数决定递归深度为 n，栈空间为 O(n)。"
+    }
+  ]
+}

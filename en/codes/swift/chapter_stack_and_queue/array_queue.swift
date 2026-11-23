@@ -107,7 +107,7 @@ enum _ArrayQueue {
         for i in 0 ..< 10 {
             queue.push(num: i)
             queue.pop()
-            print("After enqueueing and dequeueing in round \(i), queue = \(queue.toArray())")
+            print("After round \(i) of enqueue + dequeue, queue = \(queue.toArray())")
         }
     }
 }

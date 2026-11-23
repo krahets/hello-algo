@@ -36,6 +36,5 @@ void main() {
   print("\nキー Key だけを走査する");
   map.keys.forEach((key) => print(key));
   print("\n値 Value だけを走査する");
-  map.forEach((key, value) => print("$value"));
   map.values.forEach((value) => print(value));
 }

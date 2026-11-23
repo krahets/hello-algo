@@ -26,7 +26,7 @@ class ArrayQueue
     size.zero?
   end
 
-  ### 큐에 삽입 ###
+  ### 원소 삽입 ###
   def push(num)
     raise IndexError, '큐가 가득 찼다' if size == capacity
 
@@ -38,7 +38,7 @@ class ArrayQueue
     @size += 1
   end
 
-  ### 큐에서 꺼내기 ###
+  ### 원소 꺼내기 ###
   def pop
     num = peek
     # 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -73,7 +73,7 @@ if __FILE__ == $0
   # 큐 초기화
   queue = ArrayQueue.new(10)
 
-  # 큐에 원소 삽입
+  # 원소 삽입
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -85,7 +85,7 @@ if __FILE__ == $0
   peek = queue.peek
   puts "맨 앞 원소 peek = #{peek}"
 
-  # 큐에서 원소 꺼내기
+  # 원소 꺼내기
   pop = queue.pop
   puts "큐에서 꺼낸 원소 pop = #{pop}"
   puts "큐에서 꺼낸 후 queue = #{queue.to_array}"
@@ -102,6 +102,6 @@ if __FILE__ == $0
   for i in 0...10
     queue.push(i)
     queue.pop
-    puts "반복 #{i}회에서 삽입 + 꺼내기를 수행한 후 queue = #{queue.to_array}"
+    puts "반복 #{i} 회차에서 삽입 + 꺼내기를 수행한 후 queue = #{queue.to_array}"
   end
 end

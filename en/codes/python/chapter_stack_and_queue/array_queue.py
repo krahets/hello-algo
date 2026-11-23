@@ -95,4 +95,4 @@ if __name__ == "__main__":
     for i in range(10):
         queue.push(i)
         queue.pop()
-        print("Round", i, ": after enqueue + dequeue, queue = ", queue.to_list())
+        print("After round", i, "of enqueue + dequeue, queue = ", queue.to_list())

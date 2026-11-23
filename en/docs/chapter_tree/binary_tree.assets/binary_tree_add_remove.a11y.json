@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "Inserting and detaching a binary tree node",
+  "summary": "Change left-child links to insert or detach an intermediate node P while retaining the entire subtree rooted at 2.",
+  "context": [
+    "Root 1 (n1) initially has left child 2 (n2) and right leaf 3. Node 2 has left leaf 4 and right leaf 5. The node P to insert holds 0 and both child links are empty. Three panels show preparation, completed insertion, and completed removal, from left to right."
+  ],
+  "description": [],
+  "result": "Detaching P restores the original links and makes P unreachable from the root. That does not establish that the object’s memory was freed. The entire original left subtree is still present.",
+  "frames": [
+    {
+      "id": "source-91",
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_add_remove.png",
+      "title": "Inserting and detaching a binary tree node",
+      "explanation": "First save the reference to node 2 in n2. In the left panel P is separate from the tree. The middle panel executes n1.left = P and P.left = n2, making the left branch 1→P (0)→2. Node 2 keeps children 4 and 5, while P has no right child. The right panel executes n1.left = n2 to bypass P and restore the original tree. Root 1 keeps right child 3 throughout."
+    }
+  ],
+  "animations": {
+    "binary-tree-add-remove": {
+      "kind": "prose",
+      "prose": {
+        "title": "Inserting and detaching a binary tree node",
+        "summary": "Change left-child links to insert or detach an intermediate node P while retaining the entire subtree rooted at 2.",
+        "context": [
+          "Root 1 (n1) initially has left child 2 (n2) and right leaf 3. Node 2 has left leaf 4 and right leaf 5. The node P to insert holds 0 and both child links are empty. Three panels show preparation, completed insertion, and completed removal, from left to right."
+        ],
+        "description": [
+          "The steps below trace the reference changes in the three panels above."
+        ],
+        "result": "Detaching P restores the original links and makes P unreachable from the root. That does not establish that the object’s memory was freed. The entire original left subtree is still present.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Prepare to insert P",
+            "explanation": "Root 1 (n1) has left child 2 (n2) and right leaf 3. Node 2 has left leaf 4 and right leaf 5. P (value 0) is outside the tree with two empty links. Save node 2 in n2 before overwriting n1.left so the original left subtree can be reattached intact.",
+            "key_state": "Before insertion: Root 1 has left child 2 and right leaf 3; 2 has left leaf 4 and right leaf 5. P (0) is still outside the tree.",
+            "announcement": "Show the initial tree and the separate node P to insert."
+          },
+          {
+            "id": "step-2",
+            "title": "Insert P into the left link",
+            "explanation": "Execute n1.left = P, then P.left = n2. Root 1 now has left child P (0) and right leaf 3. P has left child 2 and no right child. Node 2 has left leaf 4 and right leaf 5. The reference saved in n2 restores the entire subtree rooted at 2, retaining every original node.",
+            "key_state": "After insertion, root 1 has P (0) on the left and 3 on the right. P has left child 2 and no right child; 2 has left child 4 and right child 5.",
+            "announcement": "Two assignments to left links insert P between nodes 1 and 2."
+          },
+          {
+            "id": "step-3",
+            "title": "Bypass P and reconnect the original subtree",
+            "explanation": "Execute n1.left = n2 to bypass P and restore the original tree. Root 1 has left child 2 and right leaf 3; 2 has left leaf 4 and right leaf 5. P can no longer be reached from the root. Its memory has not necessarily been freed.",
+            "key_state": "After removal: Root 1 has left child 2 and right leaf 3; 2 has left leaf 4 and right leaf 5. P is unreachable from the root.",
+            "announcement": "Execute n1.left = n2 to bypass P and restore the direct link from the root to node 2."
+          }
+        ]
+      }
+    }
+  }
+}

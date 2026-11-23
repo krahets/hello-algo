@@ -6,14 +6,22 @@
 *.swift linguist-language=Swift
 *.js linguist-language=JavaScript
 
-*.c linguist-language=Other
-*.h linguist-language=Other
-*.cs linguist-language=Other
-*.zig linguist-language=Other
-*.rs linguist-language=Other
-*.ts linguist-language=Other
-*.dart linguist-language=Other
-*.kt linguist-language=Other
+*.c linguist-language=C
+*.h linguist-language=C
+*.cs linguist-language=C#
+*.zig linguist-language=Zig
+*.rs linguist-language=Rust
+*.ts linguist-language=TypeScript
+*.dart linguist-language=Dart
+*.kt linguist-language=Kotlin
+
+# Count all programming languages in the Simplified Chinese code examples.
+# Reset to Linguist defaults so documentation and data stay excluded.
+* linguist-detectable=false
+/codes/** !linguist-detectable
+
+# Count Python examples across every natural-language edition.
+*.py linguist-detectable=true
 
 *.html linguist-detectable=false
 *.css linguist-detectable=false

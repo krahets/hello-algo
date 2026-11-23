@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "title": "사전 검색에서의 이진 탐색 과정",
+  "summary": "병음 알파벳 순서로 정렬된 사전에서 병음의 첫 글자가 r인 한자 하나를 찾는다. 총 5개 화면으로 이루어져 있으며 1단계에서는 초기 범위를 제시하고 2~5단계에서는 각각 한 번씩 페이지를 펼친다.",
+  "context": [],
+  "description": [
+    "각 프레임에는 왼쪽부터 오른쪽으로 a부터 z까지 알파벳 칸 26개가 나열되어 있다. 초록색은 아직 탐색 범위 안에 있음을, 청록색은 목표 r을, 연회색은 이미 제외되었음을 나타내며, 2~5번째 프레임에서는 아래에서 위를 가리키는 ‘중간 지점’ 포인터가 현재 펼쳐 본 첫 글자를 표시한다."
+  ],
+  "frames": [
+    {
+      "id": "source-10",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
+      "title": "1단계: 사전 검색 목표와 초기 범위 확인",
+      "explanation": "초기 탐색 범위는 a부터 z까지 알파벳 26개 전체를 포함하며 아직 페이지를 펼치기 전이다. 목표 r은 청록색이고 나머지 25개 알파벳은 초록색이다.",
+      "key_state": "초기 상태: 탐색 범위는 a부터 z까지 전체 알파벳이며 목표는 병음의 첫 글자가 r인 한자를 찾는 것이다.",
+      "announcement": "병음의 첫 글자가 r인 한자를 찾는 사전 검색 목표를 확인하며, 초기 탐색 범위는 순서대로 배열된 a부터 z까지 26개 알파벳 전체다."
+    },
+    {
+      "id": "source-11",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png",
+      "title": "2단계: 중간 글자 m을 펼치고 앞 절반 제외",
+      "explanation": "첫 번째로 사전 전체의 중간쯤 페이지를 펼치니 포인터가 m을 가리킨다. r은 m보다 뒤에 있으므로 a부터 m까지를 제외해 연회색으로 바꾸고, 남은 n부터 z까지는 색상을 유지하며 목표 r은 청록색이다.",
+      "key_state": "2단계: 중간 지점에서 m을 펼쳤으며 r이 m보다 뒤에 있으므로 a부터 m까지를 제외해 남은 범위는 n부터 z까지다.",
+      "announcement": "사전의 중간쯤을 펼쳐 첫 글자 m을 확인하고, r이 m보다 뒤에 있으므로 앞 절반인 a부터 m까지를 제외해 탐색 범위를 n부터 z까지로 좁힌다."
+    },
+    {
+      "id": "source-12",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png",
+      "title": "3단계: 남은 부분의 중간 글자 t를 펼치고 뒤 절반 제외",
+      "explanation": "남은 구간 n부터 z 안에서 중간 위치를 펼치니 포인터가 t를 가리킨다. r은 t보다 앞에 있으므로 t부터 z까지를 제외한다. 이제 왼쪽 a부터 m까지와 오른쪽 t부터 z까지가 모두 연회색이 되고 n부터 s까지만 색상을 유지하며 그중 r은 청록색이다.",
+      "key_state": "남은 구간 n부터 z의 중간 지점에서 t를 펼쳤으며 r이 t보다 앞에 있으므로 t부터 z까지를 제외한다. 현재 범위는 n부터 s까지이고 왼쪽 a부터 m과 오른쪽 t부터 z는 제외되었다.",
+      "announcement": "남은 부분의 중간을 펼쳐 첫 글자 t를 확인하고, r이 t보다 앞에 있으므로 뒤 절반인 t부터 z까지를 제외해 탐색 범위를 n부터 s까지로 좁힌다."
+    },
+    {
+      "id": "source-13",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png",
+      "title": "4단계: 남은 부분의 중간 글자 p를 펼치고 다시 앞 절반 제외",
+      "explanation": "남은 구간 n부터 s 안에서 중간 위치를 펼치니 포인터가 p를 가리킨다. r은 p보다 뒤에 있으므로 n부터 p까지를 제외한다. 이제 왼쪽 a부터 p까지와 오른쪽 t부터 z까지가 모두 연회색이 되고 q, r, s만 색상을 유지하며 q, s는 초록색, r은 청록색이다.",
+      "key_state": "남은 구간 n부터 s의 중간 지점에서 p를 펼쳤으며 r이 p보다 뒤에 있으므로 n부터 p까지를 제외한다. 현재 q, r, s만 남았으며 왼쪽 a부터 p와 오른쪽 t부터 z는 제외되었다.",
+      "announcement": "남은 부분의 중간을 펼쳐 첫 글자 p를 확인하고, r이 p보다 뒤에 있으므로 앞 절반인 n부터 p까지를 제외해 탐색 범위를 q, r, s로 좁힌다."
+    },
+    {
+      "id": "source-14",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
+      "title": "5단계: 중간 글자 r을 펼쳐 검색 완료",
+      "explanation": "남은 구간 q, r, s 안에서 중간 위치를 펼치니 포인터가 목표 r을 가리켜 병음의 첫 글자가 r인 한자를 찾았으므로 검색을 마친다. 이는 5단계이자 네 번째로 페이지를 펼친 결과다. 화면에는 이번 페이지를 펼치기 전의 범위를 나타내도록 초록색 q, s와 청록색 r이 그대로 남아 있고 a부터 p까지와 t부터 z까지는 여전히 연회색이다.",
+      "key_state": "검색 완료: 남은 구간 q, r, s의 중간 지점에서 목표 글자 r을 펼쳤다.",
+      "announcement": "남은 구간 q, r, s의 중간을 펼쳐 목표 첫 글자 r을 바로 찾았으므로 사전 검색을 마친다."
+    }
+  ],
+  "animations": {
+    "dictionary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-10"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-11"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-12"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-13"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-14"
+        }
+      ]
+    }
+  }
+}

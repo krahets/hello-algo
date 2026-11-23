@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "title": "Sorting rules for different kinds of data",
+  "summary": "Three rows compare the input and output when sorting integers in ascending order, English names lexicographically, and letter grades by a custom ranking from D to A+.",
+  "context": [
+    "Each row starts with an unsorted input on the left. A right-pointing arrow gives the sorting rule, and the result appears on the right. The figure compares inputs and outputs without showing the algorithm’s internal steps."
+  ],
+  "description": [
+    "Lexicographic order compares names character by character. Here the five names have different initials, so the first letter suffices. The custom grade ranking runs from low to high: D < C < B- < B < B+ < A < A+. It differs from ordinary ASCII lexicographic order. B-, B, and B+ are three distinct grades. The table gives the data for all three rows, from top to bottom."
+  ],
+  "frames": [
+    {
+      "id": "source-239",
+      "book_path": "chapter_sorting/sorting_algorithm.assets/sorting_examples.png",
+      "title": "Sorting rules for different kinds of data",
+      "explanation": "Sorting changes only the order of the elements. The comparison rule determines the result."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Sorting rules, inputs, and results for the three examples",
+      "headers": [
+        "Figure row and data type",
+        "Rule on the arrow",
+        "Unsorted input",
+        "Sorted result"
+      ],
+      "rows": [
+        [
+          "First row: 8 integers",
+          "Sort integers by numeric value",
+          "[7, 3, 2, 6, 0, 1, 5, 4]",
+          "[0, 1, 2, 3, 4, 5, 6, 7]"
+        ],
+        [
+          "Second row: 5 English names",
+          "Sort strings lexicographically",
+          "[Kobe, Durant, Curry, Lebron, Harden]",
+          "[Curry, Durant, Harden, Kobe, Lebron]"
+        ],
+        [
+          "Third row: 7 letter grades",
+          "Sort strings using custom rules",
+          "[B-, A+, B, B+, A, D, C]",
+          "[D, C, B-, B, B+, A, A+]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

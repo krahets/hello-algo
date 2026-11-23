@@ -10,7 +10,7 @@ if __FILE__ == $0
   # Ruby의 내장 큐(Thread::Queue)에는 peek 메서드와 순회 메서드가 없으므로 Array를 큐로 사용할 수 있다
   queue = []
 
-  # 큐에 원소 삽입
+  # 원소 삽입
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -22,7 +22,7 @@ if __FILE__ == $0
   peek = queue.first
   puts "맨 앞 원소 peek = #{peek}"
 
-  # 큐에서 원소 꺼내기
+  # 원소 꺼내기
   # 배열이므로 Array#shift 메서드의 시간 복잡도는 O(n)임에 유의한다
   pop = queue.shift
   puts "큐에서 꺼낸 원소 pop = #{pop}"

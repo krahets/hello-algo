@@ -1,0 +1,309 @@
+{
+  "schema_version": 2,
+  "title": "Insert a node into a binary search tree",
+  "summary": "Compare values while descending until an empty link is found. Use the saved parent pointer pre to attach the new leaf.",
+  "context": [
+    "The binary search trees in this book have no duplicate values. At every node, all values in its left subtree are smaller and all values in its right subtree are larger.",
+    "Insert 16 into a tree rooted at 8 containing values 1 through 15. Two panels show the tree before and after insertion. The table places their links side by side. “Empty” means there is no child, and “Not yet inserted” means the node did not yet exist."
+  ],
+  "description": [],
+  "result": "After insertion the tree contains 1 through 16 and preserves search tree order. Once cur becomes None it no longer identifies the parent. The pointer pre retains the last nonempty node.",
+  "frames": [
+    {
+      "id": "source-117",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_insert.png",
+      "title": "Insert a node into a binary search tree",
+      "explanation": "16 is greater than 8, 12, 14, and 15 in turn. Follow right links through those four nodes until cur reaches None. The last nonempty node 15 is saved in pre. Create node 16 and set pre.right to the new node, making it the right child of 15."
+    }
+  ],
+  "animations": {
+    "bst-insert": {
+      "kind": "prose",
+      "prose": {
+        "title": "Insert a node into a binary search tree",
+        "summary": "Compare values while descending until an empty link is found. Use the saved parent pointer pre to attach the new leaf.",
+        "context": [
+          "The binary search trees in this book have no duplicate values. At every node, all values in its left subtree are smaller and all values in its right subtree are larger.",
+          "Insert 16 into a tree rooted at 8 containing values 1 through 15. Two panels show the tree before and after insertion. The table places their links side by side. “Empty” means there is no child, and “Not yet inserted” means the node did not yet exist."
+        ],
+        "description": [
+          "Animation step 1 corresponds to the table’s two before-insertion columns, and the last step to its two after-insertion columns. Row headers identify nodes for lookup in either state."
+        ],
+        "result": "After insertion the tree contains 1 through 16 and preserves search tree order. Once cur becomes None it no longer identifies the parent. The pointer pre retains the last nonempty node.",
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Find the empty right-child position",
+            "explanation": "16 is greater than 8, 12, 14, and 15, so the search follows 8→12→14→15→None. Now cur is None and pre points to 15. Node 16 has not yet been inserted. For all links see the two before-insertion columns in “Binary search tree links before and after insertion.” Node 14 has left child 13 and right child 15; both child links of 15 are empty.",
+            "key_state": "With pre = 15 and cur = None, the empty right-child position of 15 has been found.",
+            "announcement": "Follow the right branch to the empty right-child position of node 15, where cur becomes None."
+          },
+          {
+            "id": "step-2",
+            "title": "Attach new leaf 16",
+            "explanation": "Create leaf 16 and set pre.right to the new node. Now pre points to 15. Node 14 still has left child 13 and right child 15. Node 15 has no left child and has 16 on its right. Both child links of 16 are empty; all other links are unchanged. See the two after-insertion columns in the same table. Since 16 exceeds all its ancestors on this path, search tree order holds.",
+            "key_state": "15.right points to new leaf 16. The tree contains values 1 through 16.",
+            "announcement": "Set parent 15’s right link to new leaf 16, completing insertion."
+          }
+        ],
+        "tables": [
+          {
+            "caption": "Binary search tree links before and after insertion",
+            "headers": [
+              "Node",
+              "Left child before insertion",
+              "Right child before insertion",
+              "Left child after insertion",
+              "Right child after insertion"
+            ],
+            "rows": [
+              [
+                "1",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "2",
+                "1",
+                "3",
+                "1",
+                "3"
+              ],
+              [
+                "3",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "4",
+                "2",
+                "6",
+                "2",
+                "6"
+              ],
+              [
+                "5",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "6",
+                "5",
+                "7",
+                "5",
+                "7"
+              ],
+              [
+                "7",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "8",
+                "4",
+                "12",
+                "4",
+                "12"
+              ],
+              [
+                "9",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "10",
+                "9",
+                "11",
+                "9",
+                "11"
+              ],
+              [
+                "11",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "12",
+                "10",
+                "14",
+                "10",
+                "14"
+              ],
+              [
+                "13",
+                "Empty",
+                "Empty",
+                "Empty",
+                "Empty"
+              ],
+              [
+                "14",
+                "13",
+                "15",
+                "13",
+                "15"
+              ],
+              [
+                "15",
+                "Empty",
+                "Empty",
+                "Empty",
+                "16"
+              ],
+              [
+                "16",
+                "Not yet inserted",
+                "Not yet inserted",
+                "Empty",
+                "Empty"
+              ]
+            ],
+            "row_header": 0
+          }
+        ],
+        "input_tables": [
+          0
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Binary search tree links before and after insertion",
+      "headers": [
+        "Node",
+        "Left child before insertion",
+        "Right child before insertion",
+        "Left child after insertion",
+        "Right child after insertion"
+      ],
+      "rows": [
+        [
+          "1",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "2",
+          "1",
+          "3",
+          "1",
+          "3"
+        ],
+        [
+          "3",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "4",
+          "2",
+          "6",
+          "2",
+          "6"
+        ],
+        [
+          "5",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "6",
+          "5",
+          "7",
+          "5",
+          "7"
+        ],
+        [
+          "7",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "8",
+          "4",
+          "12",
+          "4",
+          "12"
+        ],
+        [
+          "9",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "10",
+          "9",
+          "11",
+          "9",
+          "11"
+        ],
+        [
+          "11",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "12",
+          "10",
+          "14",
+          "10",
+          "14"
+        ],
+        [
+          "13",
+          "Empty",
+          "Empty",
+          "Empty",
+          "Empty"
+        ],
+        [
+          "14",
+          "13",
+          "15",
+          "13",
+          "15"
+        ],
+        [
+          "15",
+          "Empty",
+          "Empty",
+          "Empty",
+          "16"
+        ],
+        [
+          "16",
+          "Not yet inserted",
+          "Not yet inserted",
+          "Empty",
+          "Empty"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

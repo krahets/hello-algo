@@ -41,7 +41,7 @@ class ArrayQueue {
         return size() == 0;
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     void push(int num) {
         if (queSize == queCapacity) {
             cout << "큐가 가득 찼다" << endl;
@@ -55,7 +55,7 @@ class ArrayQueue {
         queSize++;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     int pop() {
         int num = peek();
         // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -88,7 +88,7 @@ int main() {
     int capacity = 10;
     ArrayQueue *queue = new ArrayQueue(capacity);
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -101,7 +101,7 @@ int main() {
     int peek = queue->peek();
     cout << "맨 앞 원소 peek = " << peek << endl;
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     peek = queue->pop();
     cout << "큐에서 꺼낸 원소 pop = " << peek << ", 큐에서 꺼낸 후 queue = ";
     printVector(queue->toVector());
@@ -118,7 +118,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "반복 " << i << " 회에서 삽입 + 꺼내기를 수행한 후 queue = ";
+        cout << "반복 " << i << " 회차에서 삽입 + 꺼내기를 수행한 후 queue = ";
         printVector(queue->toVector());
     }
 

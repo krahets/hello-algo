@@ -112,15 +112,12 @@ void removeItem(BinarySearchTree *bst, int num) {
         // 当子节点数量 = 0 / 1 时， child = nullptr / 该子节点
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // 删除节点 cur
-        if (cur != bst->root) {
-            if (pre->left == cur) {
-                pre->left = child;
-            } else {
-                pre->right = child;
-            }
-        } else {
-            // 若删除节点为根节点，则重新指定根节点
+        if (pre == NULL) {
             bst->root = child;
+        } else if (pre->left == cur) {
+            pre->left = child;
+        } else {
+            pre->right = child;
         }
         // 释放内存
         free(cur);

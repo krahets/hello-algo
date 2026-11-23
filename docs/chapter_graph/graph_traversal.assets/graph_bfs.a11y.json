@@ -1,0 +1,243 @@
+{
+  "schema_version": 2,
+  "title": "图的广度优先遍历",
+  "summary": "从左上角起点 0 出发，按到起点的最少边数由近及远逐层访问顶点。",
+  "context": [
+    "待遍历的无向图有 9 个顶点，编号为 0 至 8，按三行三列网格排列：三行依次为 0、1、2；3、4、5；6、7、8。图中只在水平或竖直相邻的顶点之间连接无向边，共 12 条边，没有对角边；各顶点的邻居列在邻接表中。"
+  ],
+  "description": [],
+  "result": "同一距离层内部的先后取决于邻居的检查次序，因此广度优先遍历序列并不唯一。",
+  "frames": [
+    {
+      "id": "source-190",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step1.png",
+      "title": "初始化队列和集合",
+      "explanation": "过程图用 res 记录已出队顶点，用队列 que 存放待处理顶点（从队首到队尾书写），用集合 visited 记录已发现顶点。顶点入队时立即记入 visited，无须等到出队，因此还在排队的顶点也不会重复入队。队列左侧空白格是出队后的旧槽位，不是空元素；visited 的横向排列及下文花括号都不表示集合内部有序。初始把 0 入队并记为已发现：res=[]，que=[0]，visited={0}，尚无顶点出队。",
+      "key_state": "队列只有起点 0；已发现集合为 {0}，结果为空。",
+      "announcement": "起点 0 入队并记为已发现，开始遍历。"
+    },
+    {
+      "id": "source-191",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step2.png",
+      "title": "处理顶点 0",
+      "explanation": "队首顶点 0 出队并追加到 res。检查 0 的邻居 1、3，两者均未发现，依次加入队列 que 队尾并记入 visited。当前结果 res=[0]；待处理队列 que=[1, 3]；已发现集合 visited={0, 1, 3}。",
+      "key_state": "已处理顶点 0；队首到队尾为 [1, 3]；结果为 [0]。",
+      "announcement": "顶点 0 出队，新邻居 1、3 入队。"
+    },
+    {
+      "id": "source-192",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step3.png",
+      "title": "处理顶点 1",
+      "explanation": "队首顶点 1 出队并追加到 res。在 1 的邻居 0、2、4 中，0 已在 visited 中故跳过；未发现的新邻居 2、4 依次入队并记入 visited。当前结果 res=[0, 1]；待处理队列 que=[3, 2, 4]；已发现集合 visited={0, 1, 3, 2, 4}。",
+      "key_state": "已处理顶点 1；队首到队尾为 [3, 2, 4]；结果为 [0, 1]。",
+      "announcement": "顶点 1 出队，新邻居 2、4 入队。"
+    },
+    {
+      "id": "source-193",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step4.png",
+      "title": "处理顶点 3",
+      "explanation": "队首顶点 3 出队并追加到 res。在 3 的邻居 0、4、6 中，0 和 4 均已在 visited 中而跳过，仅将新邻居 6 入队并记入 visited。其中顶点 4 在上一步已由顶点 1 发现并入队，虽仍在队列中等待出队，也不会重复加入。当前结果 res=[0, 1, 3]；待处理队列 que=[2, 4, 6]；已发现集合 visited={0, 1, 3, 2, 4, 6}。",
+      "key_state": "已处理顶点 3；队首到队尾为 [2, 4, 6]；结果为 [0, 1, 3]。",
+      "announcement": "顶点 3 出队，新邻居 6 入队。"
+    },
+    {
+      "id": "source-194",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step5.png",
+      "title": "处理顶点 2",
+      "explanation": "队首顶点 2 出队并追加到 res。在 2 的邻居 1、5 中，1 已在 visited 中故跳过；将新邻居 5 入队并记入 visited。当前结果 res=[0, 1, 3, 2]；待处理队列 que=[4, 6, 5]；已发现集合 visited={0, 1, 3, 2, 4, 6, 5}。",
+      "key_state": "已处理顶点 2；队首到队尾为 [4, 6, 5]；结果为 [0, 1, 3, 2]。",
+      "announcement": "顶点 2 出队，新邻居 5 入队。"
+    },
+    {
+      "id": "source-195",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step6.png",
+      "title": "处理顶点 4",
+      "explanation": "队首顶点 4 出队并追加到 res。在 4 的邻居 1、3、5、7 中，1、3、5 均已在 visited 中故跳过；将新邻居 7 入队并记入 visited。当前结果 res=[0, 1, 3, 2, 4]；待处理队列 que=[6, 5, 7]；已发现集合 visited={0, 1, 3, 2, 4, 6, 5, 7}。",
+      "key_state": "已处理顶点 4；队首到队尾为 [6, 5, 7]；结果为 [0, 1, 3, 2, 4]。",
+      "announcement": "顶点 4 出队，新邻居 7 入队。"
+    },
+    {
+      "id": "source-196",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step7.png",
+      "title": "处理顶点 6",
+      "explanation": "队首顶点 6 出队并追加到 res。它的邻居 3、7 均已在 visited 中（其中 7 已在上一步由 4 发现并入队），因此本轮没有新邻居入队。当前结果 res=[0, 1, 3, 2, 4, 6]；待处理队列 que=[5, 7]；已发现集合 visited={0, 1, 3, 2, 4, 6, 5, 7}。",
+      "key_state": "已处理顶点 6；队首到队尾为 [5, 7]；结果为 [0, 1, 3, 2, 4, 6]。",
+      "announcement": "顶点 6 出队，邻居均已发现，没有新增入队顶点。"
+    },
+    {
+      "id": "source-197",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step8.png",
+      "title": "处理顶点 5",
+      "explanation": "队首顶点 5 出队并追加到 res。在 5 的邻居 2、4、8 中，2、4 已在 visited 中故跳过；将最后一个新邻居 8 入队并记入 visited。至此九个顶点均已发现，但队列中的 7、8 仍待出队处理。当前结果 res=[0, 1, 3, 2, 4, 6, 5]；待处理队列 que=[7, 8]；已发现集合 visited={0, 1, 3, 2, 4, 6, 5, 7, 8}。",
+      "key_state": "已处理顶点 5；队首到队尾为 [7, 8]；结果为 [0, 1, 3, 2, 4, 6, 5]。",
+      "announcement": "顶点 5 出队，新邻居 8 入队。"
+    },
+    {
+      "id": "source-198",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step9.png",
+      "title": "处理顶点 7",
+      "explanation": "队首顶点 7 出队并追加到 res。它的邻居 4、6、8 均已在 visited 中，没有新邻居入队，队列中仅剩 8。当前结果 res=[0, 1, 3, 2, 4, 6, 5, 7]；待处理队列 que=[8]；已发现集合 visited={0, 1, 3, 2, 4, 6, 5, 7, 8}。",
+      "key_state": "已处理顶点 7；队首到队尾为 [8]；结果为 [0, 1, 3, 2, 4, 6, 5, 7]。",
+      "announcement": "顶点 7 出队，邻居均已发现，没有新增入队顶点。"
+    },
+    {
+      "id": "source-199",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step10.png",
+      "title": "处理顶点 8",
+      "explanation": "队首顶点 8 出队并追加到 res。它的邻居 5、7 均已在 visited 中，没有新邻居入队，队列 que 至此清空。当前结果 res=[0, 1, 3, 2, 4, 6, 5, 7, 8]；待处理队列 que=[]；已发现集合 visited={0, 1, 3, 2, 4, 6, 5, 7, 8}。",
+      "key_state": "已处理顶点 8；队首到队尾为 []；结果为 [0, 1, 3, 2, 4, 6, 5, 7, 8]。",
+      "announcement": "顶点 8 出队，邻居均已发现，没有新增入队顶点。"
+    },
+    {
+      "id": "source-200",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs_step11.png",
+      "title": "返回遍历结果",
+      "explanation": "队列 que=[]，循环结束并返回 res=[0, 1, 3, 2, 4, 6, 5, 7, 8]；visited 包含 0 至 8 全部顶点。",
+      "key_state": "队列已清空，返回 [0, 1, 3, 2, 4, 6, 5, 7, 8]。",
+      "announcement": "队列为空，遍历完成并返回结果。"
+    },
+    {
+      "id": "source-189",
+      "book_path": "chapter_graph/graph_traversal.assets/graph_bfs.png",
+      "title": "广度优先遍历概览",
+      "explanation": "本图只汇总访问次序，没有画队列或 visited 容器。蓝色虚线箭头表示访问先后，不是原图中的边；例如 1→3、6→5 之间并无原边。灰色曲虚线分隔距起点的不同层，具体成员见下表。完整访问序列为 [0, 1, 3, 2, 4, 6, 5, 7, 8]。",
+      "key_state": "从 0 起按距离层 {0}、{1, 3}、{2, 4, 6}、{5, 7}、{8} 遍历。",
+      "announcement": "展示从起点 0 由近及远的访问次序。",
+      "kind": "overview",
+      "state_tables": [
+        {
+          "caption": "距起点 0 的层次",
+          "headers": [
+            "最少边数",
+            "本例访问次序"
+          ],
+          "rows": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "1",
+              "1、3"
+            ],
+            [
+              "2",
+              "2、4、6"
+            ],
+            [
+              "3",
+              "5、7"
+            ],
+            [
+              "4",
+              "8"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "graph-bfs": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-190"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-191"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-192"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-193"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-194"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-195"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-196"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-197"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-198"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-199"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-200"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "原图的邻接关系，共十二条无向边",
+      "headers": [
+        "顶点",
+        "相邻顶点"
+      ],
+      "rows": [
+        [
+          "0",
+          "1、3"
+        ],
+        [
+          "1",
+          "0、2、4"
+        ],
+        [
+          "2",
+          "1、5"
+        ],
+        [
+          "3",
+          "0、4、6"
+        ],
+        [
+          "4",
+          "1、3、5、7"
+        ],
+        [
+          "5",
+          "2、4、8"
+        ],
+        [
+          "6",
+          "3、7"
+        ],
+        [
+          "7",
+          "4、6、8"
+        ],
+        [
+          "8",
+          "5、7"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

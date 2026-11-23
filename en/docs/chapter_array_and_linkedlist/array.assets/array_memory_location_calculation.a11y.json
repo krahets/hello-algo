@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "title": "Calculating an array element's memory address",
+  "summary": "Compute an element's location directly from the starting address, fixed element size, and index.",
+  "context": [],
+  "description": [
+    "The upper part arranges the array, indices, and memory addresses with the column at index 3 highlighted; the lower part gives the address formula and a worked substitution. Each element occupies 4 bytes; the upper address row uses two-digit notation (such as 00 and 12), while the formula below uses three-digit notation (000 and 012). Leading zeros are purely for alignment, and all numbers are decimal."
+  ],
+  "result": "With contiguous storage and equal-sized elements, a single multiplication and addition gives the address, supporting O(1) random access.",
+  "frames": [
+    {
+      "id": "source-47",
+      "book_path": "chapter_array_and_linkedlist/array.assets/array_memory_location_calculation.png",
+      "title": "Calculating an array element's memory address",
+      "explanation": "Element address = address of the first element + element size × index. Indexing starts at 0, so index 3 is the 4th element, with value 5; it is 3 elements past the first element, giving a byte offset of 4 × 3 = 12 and an address of 000 + 4 × 3 = 012. This locates the element by index rather than searching for an element whose value is 3."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Indices, values, and addresses shown in the figure",
+      "headers": [
+        "Index",
+        "Element value",
+        "Memory address"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "00"
+        ],
+        [
+          "1",
+          "3",
+          "04"
+        ],
+        [
+          "2",
+          "2",
+          "08"
+        ],
+        [
+          "3",
+          "5",
+          "12"
+        ],
+        [
+          "4",
+          "4",
+          "16"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

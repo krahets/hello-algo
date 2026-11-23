@@ -24,9 +24,9 @@ if __FILE__ == $0
   hash_str = str.hash
   puts "Хеш-значение строки #{str}: #{hash_str}"
 
-  tup = [12836, 'Сяо Ха']
-  hash_tup = tup.hash
-  puts "Хеш-значение кортежа #{tup}: #{hash_tup}"
+  arr = [12836, 'Сяо Ха']
+  hash_arr = arr.hash
+  puts "Хеш-значение массива #{arr}: #{hash_arr}"
 
   obj = ListNode.new(0)
   hash_obj = obj.hash

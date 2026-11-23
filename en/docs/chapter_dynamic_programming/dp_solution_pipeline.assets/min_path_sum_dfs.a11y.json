@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "title": "Redundant recursion in minimum path sum",
+  "summary": "When looking up predecessors from dp[2, 1], two call paths each reach dp[1, 0] and expand its subtree once, making the second expansion redundant.",
+  "context": [
+    "Moving only right or down from [0, 0] in a nonnegative grid, dp[i, j] denotes the minimum path sum to row i, column j (zero-based). Rooted at dp[2, 1], this figure shows the top-down brute-force recursion tree without concrete grid weights; note that recursion looks backward to the \"Previous row\" and \"Previous column\" predecessors, opposite to walking down and right.",
+    "Each valid interior state takes the smaller return value of its two predecessors plus the current cell's cost: dp[i, j] = min(dp[i - 1, j], dp[i, j - 1]) + grid[i, j]. Start [0, 0] returns grid[0, 0], and negative out-of-bounds indices return positive infinity."
+  ],
+  "description": [
+    "In the recursion tree, the left branch queries the previous row (written \"Up\" in path notation) and the right branch queries the previous column (written \"Left\"); these direction words refer to predecessor directions in the grid rather than left/right positions in the tree drawing.",
+    "From root dp[2, 1] through dp[1, 1] to dp[1, 0] is path \"Up → Left\", while through dp[2, 0] to dp[1, 0] is path \"Left → Up\". This illustrates the bottom-right callout \"Source of overlapping subproblems: both dp[i+1, j] and dp[i, j+1] depend on dp[i, j]\": here both dp[2, 0] and dp[1, 1] depend on dp[1, 0].",
+    "Because brute-force search does not save solved states, both occurrences of dp[1, 0] expand children dp[0, 0] and dp[1, -1]. Negative-index nodes carry \"Prune: index out of bounds\" and return positive infinity in the code, excluding invalid predecessors during minimum comparisons.",
+    "Below, a 4×4 symbolic dp table (rows and columns 0 to 3) shades the six valid states involved in this search—[0, 0], [0, 1], [1, 0], [1, 1], [2, 0], and [2, 1]—while leaving the other ten cells unshaded with their dp symbols. The table below lists the entire recursion tree in preorder (node, then Up, then Left), distinguishing repeated states by call path."
+  ],
+  "frames": [
+    {
+      "id": "source-380",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_dfs.png",
+      "title": "Two call paths expand subproblem dp[1, 0] twice",
+      "explanation": "Counted across the table, there are 13 call nodes in total: start state dp[0, 0] appears 3 times, and negative-index nodes appear 4 times—dp[-1, 1] once, dp[1, -1] twice, and dp[2, -1] once."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Complete recursion tree; paths start at the root, and Up/Left denote predecessor lookups",
+      "headers": [
+        "Call path",
+        "State",
+        "Action or return",
+        "Child nodes"
+      ],
+      "rows": [
+        [
+          "Root",
+          "dp[2,1]",
+          "Take min of two predecessors, plus grid[2, 1]",
+          "Up: dp[1, 1]; Left: dp[2, 0]"
+        ],
+        [
+          "Up",
+          "dp[1,1]",
+          "Take min of two predecessors, plus grid[1, 1]",
+          "Up: dp[0, 1]; Left: dp[1, 0]"
+        ],
+        [
+          "Up → Up",
+          "dp[0,1]",
+          "Take min of two predecessors, plus grid[0, 1]",
+          "Up: dp[-1, 1]; Left: dp[0, 0]"
+        ],
+        [
+          "Up → Up → Up",
+          "dp[-1,1]",
+          "Out of bounds, return +∞",
+          "Not expanded"
+        ],
+        [
+          "Up → Up → Left",
+          "dp[0,0]",
+          "Start cell, return grid[0, 0]",
+          "Not expanded"
+        ],
+        [
+          "Up → Left",
+          "dp[1,0]",
+          "Take min of two predecessors, plus grid[1, 0]",
+          "Up: dp[0, 0]; Left: dp[1, -1]"
+        ],
+        [
+          "Up → Left → Up",
+          "dp[0,0]",
+          "Start cell, return grid[0, 0]",
+          "Not expanded"
+        ],
+        [
+          "Up → Left → Left",
+          "dp[1,-1]",
+          "Out of bounds, return +∞",
+          "Not expanded"
+        ],
+        [
+          "Left",
+          "dp[2,0]",
+          "Take min of two predecessors, plus grid[2, 0]",
+          "Up: dp[1, 0]; Left: dp[2, -1]"
+        ],
+        [
+          "Left → Up",
+          "dp[1,0]",
+          "Take min of two predecessors, plus grid[1, 0]",
+          "Up: dp[0, 0]; Left: dp[1, -1]"
+        ],
+        [
+          "Left → Up → Up",
+          "dp[0,0]",
+          "Start cell, return grid[0, 0]",
+          "Not expanded"
+        ],
+        [
+          "Left → Up → Left",
+          "dp[1,-1]",
+          "Out of bounds, return +∞",
+          "Not expanded"
+        ],
+        [
+          "Left → Left",
+          "dp[2,-1]",
+          "Out of bounds, return +∞",
+          "Not expanded"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

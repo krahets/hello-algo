@@ -17,7 +17,7 @@ func (h *minHeap) Push(x any) {
 	*h = append(*h, x.(int))
 }
 
-// Pop: heap.Interface의 메서드로, 힙의 루트 원소를 꺼낸다
+// Pop: heap.Interface의 메서드로, 슬라이스의 마지막 원소를 꺼낸다(heap.Pop이 이미 힙의 루트 원소를 교환하여 맨 뒤로 옮겼다)
 func (h *minHeap) Pop() any {
 	// 꺼낼 원소는 맨 마지막에 저장되어 있다
 	last := (*h)[len(*h)-1]

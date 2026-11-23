@@ -1,0 +1,247 @@
+{
+  "schema_version": 2,
+  "title": "Adding and removing edges and vertices in an adjacency list",
+  "summary": "Demonstrate adding and removing edges and vertices in an adjacency list, observing which rows and neighbor lists change.",
+  "context": [
+    "Head nodes in the left column represent vertices, and rightward arrows in each row represent references in the neighbor linked list rather than directed edges in the graph. Each step's table preserves the full neighbor list in visual order; keep row position distinct from vertex identity."
+  ],
+  "description": [
+    "Because each undirected edge is recorded once in the linked list of each of its two endpoints, adding or removing an edge updates two rows together. Adding an isolated vertex simply appends an empty linked list; removing a vertex deletes its entire row and then traverses the remaining linked lists to remove neighbor entries pointing to it.",
+    "In this figure, new neighbors are inserted at the head of each linked list, whereas the chapter prose and code append at the end (using dynamic arrays in place of linked lists). Both orders represent the exact same undirected connections."
+  ],
+  "frames": [
+    {
+      "id": "source-184",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step1_initialization.png",
+      "title": "Initialize the five-vertex graph",
+      "explanation": "Initially, the vertices are arranged as [1, 3, 2, 5, 4] with 6 undirected edges: 1—3, 1—5, 2—3, 2—5, 2—4, and 4—5, with no edge 1—2 yet. Each row in the table below lists that vertex's neighbors.",
+      "key_state": "Initial state: vertices [1, 3, 2, 5, 4] and 6 edges; vertex 1 has neighbors 3 and 5, with no edge 1—2 yet.",
+      "announcement": "Initial state: vertices [1, 3, 2, 5, 4] and 6 edges; vertex 1 has neighbors 3 and 5, with no edge 1—2 yet.",
+      "state_tables": [
+        {
+          "caption": "Adjacency list step 1: Complete initial state",
+          "headers": [
+            "Vertex",
+            "Neighbors, in figure order"
+          ],
+          "rows": [
+            [
+              "1",
+              "3, 5"
+            ],
+            [
+              "3",
+              "1, 2"
+            ],
+            [
+              "2",
+              "3, 5, 4"
+            ],
+            [
+              "5",
+              "1, 2, 4"
+            ],
+            [
+              "4",
+              "2, 5"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-185",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step2_add_edge.png",
+      "title": "Add edge 1—2",
+      "explanation": "Add undirected edge 1—2 by inserting 2 at the head of vertex 1's linked list and 1 at the head of vertex 2's linked list, leaving all other rows unchanged. There are still 5 vertices while the edge count increases to 7; the full order of both updated rows is shown in the table below.",
+      "key_state": "State after adding 1—2: vertices [1, 3, 2, 5, 4] and 7 edges; vertex 1's neighbors are 2, 3, 5, and vertex 2's neighbors are 1, 3, 5, 4.",
+      "announcement": "Insert each endpoint at the head of the other's linked list (vertices 1 and 2) to add undirected edge 1—2, bringing the total to 7 edges.",
+      "state_tables": [
+        {
+          "caption": "Adjacency list step 2: Complete state after adding edge 1—2",
+          "headers": [
+            "Vertex",
+            "Neighbors, in figure order"
+          ],
+          "rows": [
+            [
+              "1",
+              "2, 3, 5"
+            ],
+            [
+              "3",
+              "1, 2"
+            ],
+            [
+              "2",
+              "1, 3, 5, 4"
+            ],
+            [
+              "5",
+              "1, 2, 4"
+            ],
+            [
+              "4",
+              "2, 5"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-186",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step3_remove_edge.png",
+      "title": "Remove edge 1—3",
+      "explanation": "Remove undirected edge 1—3 by deleting 3 from vertex 1's linked list and 1 from vertex 3's linked list. The graph now has 5 vertices and 6 edges; vertex 1's neighbors are 2 and 5, and vertex 3 connects only to 2.",
+      "key_state": "State after removing 1—3: vertices [1, 3, 2, 5, 4] and 6 edges; vertex 1's neighbors are 2 and 5, and vertex 3 connects only to 2.",
+      "announcement": "Delete each endpoint from the other's linked list (vertices 1 and 3) to remove edge 1—3, leaving 6 edges; vertex 3 now connects only to 2.",
+      "state_tables": [
+        {
+          "caption": "Adjacency list step 3: Complete state after removing edge 1—3",
+          "headers": [
+            "Vertex",
+            "Neighbors, in figure order"
+          ],
+          "rows": [
+            [
+              "1",
+              "2, 5"
+            ],
+            [
+              "3",
+              "2"
+            ],
+            [
+              "2",
+              "1, 3, 5, 4"
+            ],
+            [
+              "5",
+              "1, 2, 4"
+            ],
+            [
+              "4",
+              "2, 5"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-187",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step4_add_vertex.png",
+      "title": "Add isolated vertex 6",
+      "explanation": "Append an empty linked list for vertex 6 at the bottom, changing the vertex row order to [1, 3, 2, 5, 4, 6]. All other rows stay unchanged with 6 edges; 6 is an isolated vertex.",
+      "key_state": "State after adding isolated vertex 6: vertices [1, 3, 2, 5, 4, 6] and 6 edges; vertex 6's linked list is empty, and vertex 3 connects only to 2.",
+      "announcement": "Append an empty linked list for vertex 6 at the end, giving 6 vertices and 6 edges.",
+      "state_tables": [
+        {
+          "caption": "Adjacency list step 4: Complete state after adding isolated vertex 6",
+          "headers": [
+            "Vertex",
+            "Neighbors, in figure order"
+          ],
+          "rows": [
+            [
+              "1",
+              "2, 5"
+            ],
+            [
+              "3",
+              "2"
+            ],
+            [
+              "2",
+              "1, 3, 5, 4"
+            ],
+            [
+              "5",
+              "1, 2, 4"
+            ],
+            [
+              "4",
+              "2, 5"
+            ],
+            [
+              "6",
+              "Empty"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-188",
+      "book_path": "chapter_graph/graph_operations.assets/adjacency_list_step5_remove_vertex.png",
+      "title": "Remove vertex 3",
+      "explanation": "Delete vertex 3's entire row, then traverse the remaining linked lists to clean up neighbor entries pointing to 3. Since edge 1—3 was already removed in step 3, only 3 in vertex 2's linked list—the sole vertex still connected to 3—needs to be deleted. The remaining vertices are ordered [1, 2, 5, 4, 6], and shifting rows upward does not rename any vertex; vertex 2's neighbors are 1, 5, 4, vertex 6 remains isolated, and 5 edges remain in total.",
+      "key_state": "State after removing vertex 3: vertices [1, 2, 5, 4, 6] and 5 edges; 2 is still named vertex 2 with neighbors 1, 5, 4, and 6 has no neighbors.",
+      "announcement": "Delete vertex 3's row. Vertex 2 was its only remaining neighbor, so remove 3 from vertex 2's linked list. Remaining vertices [1, 2, 5, 4, 6] keep their names, 6 stays isolated, and 5 edges remain.",
+      "state_tables": [
+        {
+          "caption": "Adjacency list step 5: Complete state after removing vertex 3",
+          "headers": [
+            "Vertex",
+            "Neighbors, in figure order"
+          ],
+          "rows": [
+            [
+              "1",
+              "2, 5"
+            ],
+            [
+              "2",
+              "1, 5, 4"
+            ],
+            [
+              "5",
+              "1, 2, 4"
+            ],
+            [
+              "4",
+              "2, 5"
+            ],
+            [
+              "6",
+              "Empty"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "tables": [],
+  "animations": {
+    "adjacency-list": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-184"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-185"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-186"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-187"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-188"
+        }
+      ]
+    }
+  },
+  "input_tables": []
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "切分可使乘积不减",
+  "summary": "较大的整数因子可以继续切分，使乘积不减。",
+  "context": [
+    "在最大切分乘积问题中，考察一个整数因子 n 是否还应拆开：比较原因子 n 与拆成 2 和 n - 2 后的乘积。"
+  ],
+  "description": [
+    "画面上方为表示长度 n 的灰色长条；下方等长条在左侧切出一段绿色短条“2”，右侧剩余蓝色长条标注“n - 2”，分界处有竖直虚线对齐；图下方给出推导结论：“当 n ≥ 4 时，恒有 2(n - 2) ≥ n，因此最终切分方案只应存在 1, 2, 3 因子”。"
+  ],
+  "frames": [
+    {
+      "id": "source-480",
+      "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png",
+      "title": "切分可使乘积不减",
+      "explanation": "2(n - 2) - n = n - 4，所以 n = 4 时相等，n > 4 时严格增大。反复拆分大于等于 4 的因子不会损失乘积，因此存在一种只含 1、2、3 的最优方案；这不表示所有最优方案都不能保留 4。"
+    }
+  ]
+}

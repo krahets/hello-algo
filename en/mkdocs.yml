@@ -3,8 +3,6 @@ site_name: Hello Algo
 site_url: https://www.hello-algo.com/en/
 site_author: krahets
 site_description: A data structures and algorithms tutorial with animated illustrations and code you can run with one click
-docs_dir: ../build/en/docs
-site_dir: ../site/en
 # Repository
 repo_name: krahets/hello-algo
 repo_url: https://github.com/krahets/hello-algo
@@ -17,35 +15,10 @@ copyright: Copyright &copy; 2026 krahets<br>The website content is licensed unde
 # Configuration
 theme:
   name: material
-  custom_dir: ../build/overrides
   language: en
   font:
     text: Noto Sans
     code: JetBrains Mono
-  features:
-    # - announce.dismiss
-    - content.action.edit
-    # - content.action.view
-    - content.code.annotate
-    - content.code.copy
-    - content.tabs.link
-    - content.tooltips
-    # - header.autohide
-    # - navigation.expand
-    - navigation.indexes
-    # - navigation.instant
-    # - navigation.prune
-    # - navigation.sections
-    # - navigation.tabs
-    # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.footer
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
-    - toc.follow
-    # - toc.integrate
   palette:
     - scheme: default
       primary: white
@@ -100,17 +73,6 @@ extra:
 # Plugins
 plugins:
   - search
-  - glightbox:
-      touchNavigation: true
-      loop: false
-      effect: zoom
-      slide_effect: none
-      width: 100%
-      height: auto
-      zoomable: true
-      draggable: false
-      auto_caption: false
-      caption_position: bottom
 
 # Extensions
 markdown_extensions:
@@ -148,17 +110,6 @@ markdown_extensions:
   pymdownx.tasklist:
     custom_checkbox: true
   pymdownx.tilde: {}
-
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
-  # - javascripts/katex.js 
-  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
-  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-
-extra_css:
-  - stylesheets/extra.css
-  # - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
 # Page tree
 nav:

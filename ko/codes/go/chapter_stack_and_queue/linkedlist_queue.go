@@ -21,12 +21,12 @@ func newLinkedListQueue() *linkedListQueue {
 	}
 }
 
-/* 큐에 삽입 */
+/* 원소 삽입 */
 func (s *linkedListQueue) push(value any) {
 	s.data.PushBack(value)
 }
 
-/* 큐에서 꺼내기 */
+/* 원소 꺼내기 */
 func (s *linkedListQueue) pop() any {
 	if s.isEmpty() {
 		return nil

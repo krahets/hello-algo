@@ -17,7 +17,7 @@ export const planets = [
   {name:'graph',period:89,tilt:0.27,beltLevel:0.5,belt:[0.5,0.535,0.61,0.58,0.54,0.5,0.47,0.485,0.5],colors:['#464464','#786587','#be8d9d','#e3a493','#f2ce9b'],circle:[270,136,135],ring:[270,136,280,9,146],ringStyle:1},
   {name:'searching',period:58,tilt:0.12,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#4b526d','#a7788a','#63a5a0','#a6b28c','#eddb9e']},
   {name:'sorting',period:52,tilt:-0.5,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#3e3d57','#b57191','#eaa9ae','#f6df98','#fff0b5']},
-  {name:'divide_and_conquer',period:94,tilt:0.58,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#494a63','#b6777e','#e5a129','#f3c45c','#ffe6a1'],circle:[156,130,117],ring:[203,134,240,60,164],ringStyle:2,moon:[307,50,33]},
+  {name:'divide_and_conquer',period:94,tilt:0.58,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#494a63','#b6777e','#e5a129','#f3c45c','#ffe6a1'],circle:[156,130,117],ring:[203,134,224,62,152],ringStyle:2,moon:[307,50,33]},
   {name:'backtracking',period:81,tilt:-0.08,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#36475c','#727887','#eead30','#c58c4d','#f7d27b'],circle:[166,115,115],ring:[173,159,173,70,126],ringStyle:3},
   {name:'dynamic_programming',period:67,tilt:0.2,beltLevel:0.5,belt:[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],colors:['#36394f','#8c4b6d','#d36959','#ed9d46','#f5cb6e']},
   {name:'greedy',period:72,tilt:-0.57,beltLevel:0.5,belt:[0.5,0.4825,0.51,0.62,0.67,0.67,0.61,0.51,0.5],colors:['#234c60','#32878d','#72b1a7','#b9bd84','#e8ba66'],circle:[135,85,83],ring:[133,101,149,61,111],ringStyle:4},
@@ -134,7 +134,7 @@ export function createPlanet(image,d,paint) {
   if(d.ring){
     const [,y,outer,,inner]=d.ring;
     ring=new T.Mesh(new T.RingGeometry(inner,outer,256),new T.ShaderMaterial({side:T.DoubleSide,transparent:true,depthWrite:false,
-      uniforms:{inner:{value:inner},outer:{value:outer},style:{value:d.ringStyle},ink:{value:new T.Color(d.ringStyle===2?'#c3d3a7':d.ringStyle===4?'#66bcb3':d.ringStyle===3?'#f5b632':d.colors[d.ringStyle===1?2:4])},dark:{value:new T.Color(d.ringStyle===0?'#bca178':d.ringStyle===2?'#986e63':d.ringStyle===4?'#e5b66a':d.ringStyle===3?'#686c80':d.colors[1])}},vertexShader:vertex,
+      uniforms:{inner:{value:inner},outer:{value:outer},style:{value:d.ringStyle},ink:{value:new T.Color(d.ringStyle===0?'#c4b797':d.ringStyle===2?'#c3d3a7':d.ringStyle===4?'#66bcb3':d.ringStyle===3?'#f5b632':d.colors[d.ringStyle===1?2:4])},dark:{value:new T.Color(d.ringStyle===0?'#aa987b':d.ringStyle===2?'#b9c9a5':d.ringStyle===4?'#e5b66a':d.ringStyle===3?'#686c80':d.colors[1])}},vertexShader:vertex,
       fragmentShader:`varying vec3 p;uniform float inner;uniform float outer;uniform float style;uniform vec3 ink;uniform vec3 dark;
         // Integrate a stroke over its pixel footprint. Unresolved rings become faint
         // continuous coverage, rather than hard discard dots that shimmer in motion.
@@ -145,7 +145,7 @@ export function createPlanet(image,d,paint) {
           float pixel=max(fwidth(t),.0005);float alpha=1.;
           vec3 color=ink;
           if(style==0.){
-            // Broad cream ring: a small number of painterly layers, not a sine comb.
+            // Muted sand ring: preserve painted layers without overpowering the globe.
             color=mix(ink,dark,.22*stroke(t,.18,.06,pixel));
             color=mix(color,dark,.18*stroke(t,.45,.025,pixel));
             color=mix(color,dark,.12*stroke(t,.66,.04,pixel));
@@ -154,8 +154,17 @@ export function createPlanet(image,d,paint) {
           }else if(style==1.){
             color=mix(dark,ink,.45+.35*smoothstep(.15,.85,t));
           }else if(style==2.){
-            float first=stroke(t,.12,.027,pixel),middle=stroke(t,.46,.020,pixel),last=stroke(t,.86,.024,pixel);
-            alpha=max(first,max(middle,last));color=mix(ink,dark,.35*last);
+            // A painted main sweep with tapered companion arcs, rather than
+            // three equally weighted wire hoops. A single soft sage pigment
+            // keeps the ring coherent; the shared lighting supplies depth.
+            float a=atan(p.y,p.x),sage=smoothstep(-.35,.65,cos(a-.2));
+            float sweep=.55+.45*smoothstep(-.98,-.55,cos(a+.7));
+            float main=stroke(t,.46+.025*sin(a+.35),(.025+.065*sage)*sweep,pixel);
+            float inside=stroke(t,.12+.018*sin(a),.018+.023*sage,pixel);
+            float taper=smoothstep(-.85,-.3,cos(a-.6));
+            float outside=stroke(t,.87+.016*cos(a),(.012+.020*sage)*taper,pixel);
+            alpha=max(main,max(inside*.78,outside*.62));
+            color=ink;
           }else{
             // Individually drawn, tapered sweeps. The radial curves stay in the
             // equatorial plane; angular variation gives the original ink character.

@@ -14,15 +14,15 @@ from modules import ListNode
 if __name__ == "__main__":
     num = 3
     hash_num = hash(num)
-    print(f"Hash value of integer {num}: {hash_num}")
+    print(f"Integer {num} has hash value {hash_num}")
 
     bol = True
     hash_bol = hash(bol)
-    print(f"Hash value of Boolean {bol}: {hash_bol}")
+    print(f"Boolean {bol} has hash value {hash_bol}")
 
     dec = 3.14159
     hash_dec = hash(dec)
-    print(f"Hash value of floating-point number {dec}: {hash_dec}")
+    print(f"Floating-point number {dec} has hash value {hash_dec}")
 
     str = "Hello 算法"
     hash_str = hash(str)
@@ -30,8 +30,8 @@ if __name__ == "__main__":
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)
-    print(f"Hash of the hash value of tuple {tup}: {hash(hash_tup)}")
+    print(f"Tuple {tup} has hash value {hash_tup}")
 
     obj = ListNode(0)
     hash_obj = hash(obj)
-    print(f"Hash value of node object {obj}: {hash_obj}")
+    print(f"Node object {obj} has hash value {hash_obj}")
