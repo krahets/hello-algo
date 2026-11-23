@@ -376,7 +376,7 @@ void algorithm_C(int n) {
 
 ```kotlin title=""
 // アルゴリズム A の時間計算量：定数のオーダー
-fun algoritm_A(n: Int) {
+fun algorithm_A(n: Int) {
     println(0)
 }
 // アルゴリズム B の時間計算量：線形のオーダー

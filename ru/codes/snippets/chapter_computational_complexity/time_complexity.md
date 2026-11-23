@@ -376,7 +376,7 @@ void algorithm_C(int n) {
 
 ```kotlin title=""
 // Временная сложность алгоритма A: постоянная
-fun algoritm_A(n: Int) {
+fun algorithm_A(n: Int) {
     println(0)
 }
 // Временная сложность алгоритма B: линейная

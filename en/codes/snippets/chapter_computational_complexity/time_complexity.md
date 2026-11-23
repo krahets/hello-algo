@@ -376,7 +376,7 @@ void algorithm_C(int n) {
 
 ```kotlin title=""
 // Algorithm A: constant time complexity
-fun algoritm_A(n: Int) {
+fun algorithm_A(n: Int) {
     println(0)
 }
 // Algorithm B: linear time complexity

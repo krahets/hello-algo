@@ -376,7 +376,7 @@ void algorithm_C(int n) {
 
 ```kotlin title=""
 // 알고리즘 A의 시간 복잡도: 상수 시간
-fun algoritm_A(n: Int) {
+fun algorithm_A(n: Int) {
     println(0)
 }
 // 알고리즘 B의 시간 복잡도: 선형 시간
