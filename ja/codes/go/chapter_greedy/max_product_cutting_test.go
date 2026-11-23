@@ -11,7 +11,7 @@ import (
 
 func TestMaxProductCutting(t *testing.T) {
 	n := 58
-	// 貪欲法
+	// 貪欲アルゴリズム
 	res := maxProductCutting(n)
-	fmt.Println("最大分割積は", res)
+	fmt.Println("分割後の積の最大値は", res)
 }

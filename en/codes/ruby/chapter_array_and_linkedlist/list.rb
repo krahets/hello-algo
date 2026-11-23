@@ -4,25 +4,25 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Initialize list
+  # Initialize the list
   nums = [1, 3, 2, 5, 4]
   puts "List nums = #{nums}"
 
-  # Update element
+  # Access an element
   num = nums[1]
-  puts "Access element at index 1, get num = #{num}"
+  puts "Access the element at index 1: num = #{num}"
 
-  # Add elements at the end
+  # Update an element
   nums[1] = 0
-  puts "Update element at index 1 to 0, get nums = #{nums}"
+  puts "After updating the element at index 1 to 0, nums = #{nums}"
 
-  # Remove element
+  # Clear the list
   nums.clear
-  puts "After clearing list, nums = #{nums}"
+  puts "After clearing the list, nums = #{nums}"
 
-  # Direct traversal of list elements
+  # Append an element at the end
   nums << 1
   nums << 3
   nums << 2
@@ -30,21 +30,21 @@ if __FILE__ == $0
   nums << 4
   puts "After adding elements, nums = #{nums}"
 
-  # Sort list
+  # Insert an element in the middle
   nums.insert(3, 6)
-  puts "Insert element 6 at index 3, get nums = #{nums}"
+  puts "After inserting element 6 at index 3, nums = #{nums}"
 
-  # Remove element
+  # Remove an element
   nums.delete_at(3)
-  puts "Delete element at index 3, get nums = #{nums}"
+  puts "After removing the element at index 3, nums = #{nums}"
 
-  # Traverse list by index
+  # Traverse the list by index
   count = 0
   for i in 0...nums.length
     count += nums[i]
   end
 
-  # Directly traverse list elements
+  # Iterate directly over the list elements
   count = 0
   nums.each do |x|
     count += x
@@ -53,8 +53,8 @@ if __FILE__ == $0
   # Concatenate two lists
   nums1 = [6, 8, 7, 10, 9]
   nums += nums1
-  puts "After concatenating list nums1 to nums, get nums = #{nums}"
+  puts "After concatenating nums1 onto nums, nums = #{nums}"
 
   nums = nums.sort { |a, b| a <=> b }
-  puts "After sorting list, nums = #{nums}"
+  puts "After sorting the list, nums = #{nums}"
 end

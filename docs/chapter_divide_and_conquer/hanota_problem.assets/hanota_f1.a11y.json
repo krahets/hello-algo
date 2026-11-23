@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "title": "一张圆盘的汉诺塔（f(1)）",
+  "summary": "将柱 A 上的唯一圆盘直接移到目标柱 C，一次单盘移动即完成。",
+  "context": [
+    "三根柱子从左到右为 A、B、C。每次只能从柱顶移动一张圆盘，大盘不能放在小盘上方。f(1) 表示迁移一张圆盘，是递归分解的基本情况。"
+  ],
+  "description": [
+    "绿色圆角矩形表示唯一圆盘。两幅画面分别是移动前与移动后，实际只执行一次单盘移动。"
+  ],
+  "frames": [
+    {
+      "id": "source-329",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step1.png",
+      "title": "唯一圆盘位于柱 A",
+      "explanation": "初始时 A=[绿色圆盘]，B=[]，C=[]，尚未移动。圆盘上方没有阻挡，目标柱 C 为空，可以直接从 A 移至 C，无需使用缓冲柱 B。",
+      "key_state": "柱 A 有一张圆盘，柱 B 和柱 C 为空，尚未移动。",
+      "announcement": "展示单个圆盘位于柱 A 的初始状态。"
+    },
+    {
+      "id": "source-330",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step2.png",
+      "title": "把圆盘从柱 A 直接移到柱 C",
+      "explanation": "A 顶部的唯一绿色圆盘上方无阻挡，目标柱 C 为空，因此直接将圆盘从 A 移至 C，无需借助 B。当前 A=[]，B=[]，C=[绿色圆盘]；已完成一次单盘移动，任务结束。",
+      "key_state": "已完成一次单盘移动；圆盘在柱 C，柱 A 和柱 B 为空。",
+      "announcement": "将唯一圆盘从柱 A 直接移到柱 C。"
+    }
+  ],
+  "animations": {
+    "hanota-f1": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-329"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-330"
+        }
+      ]
+    }
+  }
+}

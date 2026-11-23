@@ -10,7 +10,7 @@ public class iteration {
     /* for loop */
     static int forLoop(int n) {
         int res = 0;
-        // Sum 1, 2, ..., n-1, n
+        // Sum 1, 2, ..., n-1, n in a loop
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -20,11 +20,11 @@ public class iteration {
     /* while loop */
     static int whileLoop(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 2, ..., n-1, n
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 2, ..., n-1, n in a loop
         while (i <= n) {
             res += i;
-            i++; // Update condition variable
+            i++; // Update the loop control variable
         }
         return res;
     }
@@ -32,23 +32,23 @@ public class iteration {
     /* while loop (two updates) */
     static int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // Initialize condition variable
-        // Sum 1, 4, 10, ...
+        int i = 1; // Initialize the loop control variable
+        // Sum 1, 4, 10, ... in a loop
         while (i <= n) {
             res += i;
-            // Update condition variable
+            // Update the loop control variable
             i++;
             i *= 2;
         }
         return res;
     }
 
-    /* Nested for loop */
+    /* Nested for loops */
     static String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
-        // Loop i = 1, 2, ..., n-1, n
+        // Loop over i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // Loop j = 1, 2, ..., n-1, n
+            // Loop over j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 res.append("(" + i + ", " + j + "), ");
             }
@@ -56,21 +56,21 @@ public class iteration {
         return res.toString();
     }
 
-    /* Driver Code */
+    /* Driver code */
     public static void main(String[] args) {
         int n = 5;
         int res;
 
         res = forLoop(n);
-        System.out.println("\nfor loop sum result res = " + res);
+        System.out.println("\nSum from the for loop: res = " + res);
 
         res = whileLoop(n);
-        System.out.println("\nwhile loop sum result res = " + res);
+        System.out.println("\nSum from the while loop: res = " + res);
 
         res = whileLoopII(n);
-        System.out.println("\nwhile loop (two updates) sum result res = " + res);
+        System.out.println("\nSum from the while loop (two updates): res = " + res);
 
         String resStr = nestedForLoop(n);
-        System.out.println("\nDouble for loop traversal result " + resStr);
+        System.out.println("\nTraversal result from the nested for loops: " + resStr);
     }
 }

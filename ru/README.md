@@ -22,7 +22,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="Python" />
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="Java" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=openjdk&logoColor=ED8B00" alt="Java" />
   <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="C++" />
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="C" />
   <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="C#" />
@@ -46,6 +46,8 @@
   <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
   ｜
   Русский
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ko/README.md">한국어</a>
 </p>
 
 ## О книге

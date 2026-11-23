@@ -14,7 +14,7 @@ extern "C" {
 /* Структура узла связного списка */
 typedef struct ListNode {
     int val;               // Значение узла
-    struct ListNode *next; // Ссылка на следующий узел
+    struct ListNode *next; // Указатель на следующий узел
 } ListNode;
 
 /* Конструктор, инициализирующий новый узел */

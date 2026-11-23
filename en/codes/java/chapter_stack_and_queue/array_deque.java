@@ -8,11 +8,11 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* Double-ended queue based on circular array implementation */
+/* Deque implemented with a circular array */
 class ArrayDeque {
-    private int[] nums; // Array for storing double-ended queue elements
-    private int front; // Front pointer, points to the front of the queue element
-    private int queSize; // Double-ended queue length
+    private int[] nums; // Array that stores the deque elements
+    private int front; // Front pointer, pointing to the first element
+    private int queSize; // Deque size
 
     /* Constructor */
     public ArrayDeque(int capacity) {
@@ -20,91 +20,91 @@ class ArrayDeque {
         front = queSize = 0;
     }
 
-    /* Get the capacity of the double-ended queue */
+    /* Get the deque capacity */
     public int capacity() {
         return nums.length;
     }
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     public int size() {
         return queSize;
     }
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     public boolean isEmpty() {
         return queSize == 0;
     }
 
-    /* Calculate circular array index */
+    /* Calculate an index in the circular array */
     private int index(int i) {
-        // Use modulo operation to wrap the array head and tail together
-        // When i passes the tail of the array, return to the head
-        // When i passes the head of the array, return to the tail
+        // Use modulo to connect the end of the array to its beginning
+        // When i passes the end of the array, wrap around to the beginning
+        // When i passes the beginning of the array, wrap around to the end
         return (i + capacity()) % capacity();
     }
 
-    /* Front of the queue enqueue */
+    /* Enqueue at the front */
     public void pushFirst(int num) {
         if (queSize == capacity()) {
-            System.out.println("Double-ended queue is full");
+            System.out.println("Deque is full");
             return;
         }
-        // Use modulo operation to wrap front around to the tail after passing the head of the array
-        // Add num to the front of the queue
+        // Move the front pointer one position to the left
+        // Use modulo to wrap front to the end when it passes the beginning of the array
         front = index(front - 1);
-        // Add num to front of queue
+        // Add num to the front
         nums[front] = num;
         queSize++;
     }
 
-    /* Rear of the queue enqueue */
+    /* Enqueue at the rear */
     public void pushLast(int num) {
         if (queSize == capacity()) {
-            System.out.println("Double-ended queue is full");
+            System.out.println("Deque is full");
             return;
         }
-        // Use modulo operation to wrap rear around to the head after passing the tail of the array
+        // Calculate the rear pointer, which points one position past the last element
         int rear = index(front + queSize);
-        // Front pointer moves one position backward
+        // Add num to the rear
         nums[rear] = num;
         queSize++;
     }
 
-    /* Rear of the queue dequeue */
+    /* Dequeue from the front */
     public int popFirst() {
         int num = peekFirst();
-        // Move front pointer backward by one position
+        // Advance the front pointer by one position
         front = index(front + 1);
         queSize--;
         return num;
     }
 
-    /* Access rear of the queue element */
+    /* Dequeue from the rear */
     public int popLast() {
         int num = peekLast();
         queSize--;
         return num;
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return nums[front];
     }
 
-    /* Driver Code */
+    /* Access the rear element */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
-        // Initialize double-ended queue
+        // Calculate the index of the last element
         int last = index(front + queSize - 1);
         return nums[last];
     }
 
-    /* Return array for printing */
+    /* Return an array for printing */
     public int[] toArray() {
-        // Elements enqueue
+        // Convert only the list elements within the occupied range
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[index(j)];
@@ -115,37 +115,37 @@ class ArrayDeque {
 
 public class array_deque {
     public static void main(String[] args) {
-        /* Get the length of the double-ended queue */
+        /* Initialize the deque */
         ArrayDeque deque = new ArrayDeque(10);
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.println("Double-ended queue deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("Deque deque = " + Arrays.toString(deque.toArray()));
 
-        /* Update element */
+        /* Access an element */
         int peekFirst = deque.peekFirst();
         System.out.println("Front element peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
         System.out.println("Rear element peekLast = " + peekLast);
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         deque.pushLast(4);
-        System.out.println("After element 4 enqueues at rear, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("After enqueuing element 4 at the rear, deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("After element 1 enqueues at front, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("After enqueuing element 1 at the front, deque = " + Arrays.toString(deque.toArray()));
 
-        /* Element dequeue */
+        /* Dequeue an element */
         int popLast = deque.popLast();
-        System.out.println("Rear dequeue element = " + popLast + ", after rear dequeue, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("Element dequeued from the rear = " + popLast + ", after dequeuing from the rear, deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
-        System.out.println("Front dequeue element = " + popFirst + ", after front dequeue, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("Element dequeued from the front = " + popFirst + ", after dequeuing from the front, deque = " + Arrays.toString(deque.toArray()));
 
-        /* Get the length of the double-ended queue */
+        /* Get the deque size */
         int size = deque.size();
-        System.out.println("Double-ended queue length size = " + size);
+        System.out.println("Deque size = " + size);
 
-        /* Check if the double-ended queue is empty */
+        /* Check whether the deque is empty */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Double-ended queue is empty = " + isEmpty);
+        System.out.println("Is the deque empty = " + isEmpty);
     }
 }

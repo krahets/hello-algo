@@ -7,23 +7,23 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Preorder traversal: Example 1 */
+/* Preorder traversal: example 1 */
 void preOrder(TreeNode? root, List<TreeNode> res) {
   if (root == null) {
     return;
   }
   if (root.val == 7) {
-    // Record solution
+    // Record the solution
     res.add(root);
   }
   preOrder(root.left, res);
   preOrder(root.right, res);
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\nInitialize binary tree");
+  print("\nInitialize the binary tree");
   printTree(root);
 
   // Preorder traversal

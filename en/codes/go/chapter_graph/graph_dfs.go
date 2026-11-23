@@ -10,13 +10,13 @@ import (
 
 /* Depth-first traversal helper function */
 func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex) {
-	// append operation returns a new reference, must reassign original reference to new slice's reference
+	// append returns an updated slice, which must be assigned back through the original slice pointer
 	*res = append(*res, vet)
 	visited[vet] = struct{}{}
-	// Traverse all adjacent vertices of this vertex
+	// Traverse all neighbors of this vertex
 	for _, adjVet := range g.adjList[vet] {
 		_, isExist := visited[adjVet]
-		// Recursively visit adjacent vertices
+		// Recursively visit the neighboring vertex
 		if !isExist {
 			dfs(g, visited, res, adjVet)
 		}
@@ -24,13 +24,13 @@ func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex
 }
 
 /* Depth-first traversal */
-// Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+// Represent the graph with an adjacency list to access all neighbors of a given vertex
 func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
 	// Vertex traversal sequence
 	res := make([]Vertex, 0)
-	// Hash set for recording vertices that have been visited
+	// Hash set recording visited vertices
 	visited := make(map[Vertex]struct{})
 	dfs(g, visited, &res, startVet)
-	// Return vertex traversal sequence
+	// Return the vertex traversal sequence
 	return res
 }

@@ -8,23 +8,23 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* 階段登りの最小コスト：動的計画法 */
+/* 階段を上る最小コスト：動的計画法 */
 fun minCostClimbingStairsDP(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
-    // 部分問題の解を保存するために dp テーブルを初期化
+    // 部分問題の解を格納する dp テーブルを初期化する
     val dp = IntArray(n + 1)
-    // 初期状態：最小部分問題の解をあらかじめ設定
+    // 初期状態：最小の部分問題の解を設定する
     dp[1] = cost[1]
     dp[2] = cost[2]
-    // 状態遷移：小さい部分問題から大きい部分問題へ順に解く
+    // 状態遷移：小さな部分問題から順に大きな部分問題を解く
     for (i in 3..n) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
 }
 
-/* 階段昇りの最小コスト：空間最適化後の動的計画法 */
+/* 階段を上る最小コスト：空間を最適化した動的計画法 */
 fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
@@ -38,14 +38,14 @@ fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     return b
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
     val cost = intArrayOf(0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1)
-    println("入力された階段コストのリストは ${cost.contentToString()}")
+    println("入力した階段のコストのリストは ${cost.contentToString()}")
 
     var res = minCostClimbingStairsDP(cost)
-    println("階段を上り切る最小コストは $res")
+    println("階段を上り終える最小コストは $res")
 
     res = minCostClimbingStairsDPComp(cost)
-    println("階段を上り切る最小コストは $res")
+    println("階段を上り終える最小コストは $res")
 }

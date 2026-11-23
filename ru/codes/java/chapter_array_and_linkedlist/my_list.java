@@ -38,7 +38,7 @@ class MyList {
         return arr[index];
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     public void set(int index, int num) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("индекс выходит за границы");
@@ -62,7 +62,7 @@ class MyList {
         // При превышении вместимости по числу элементов запускается расширение
         if (size == capacity())
             extendCapacity();
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for (int j = size - 1; j >= index; j--) {
             arr[j + 1] = arr[j];
         }
@@ -76,7 +76,7 @@ class MyList {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException("индекс выходит за границы");
         int num = arr[index];
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for (int j = index; j < size - 1; j++) {
             arr[j] = arr[j + 1];
         }
@@ -132,9 +132,9 @@ public class my_list {
         int num = nums.get(1);
         System.out.println("Элемент по индексу 1: num = " + num);
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         nums.set(1, 0);
-        System.out.println("После обновления элемента по индексу 1 до 0 nums = " + Arrays.toString(nums.toArray()));
+        System.out.println("После изменения значения элемента с индексом 1 на 0 nums = " + Arrays.toString(nums.toArray()));
 
         /* Проверка механизма расширения */
         for (int i = 0; i < 10; i++) {

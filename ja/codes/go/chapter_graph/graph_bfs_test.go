@@ -12,18 +12,18 @@ import (
 )
 
 func TestGraphBFS(t *testing.T) {
-	/* 無向グラフを初期化 */
+	/* 無向グラフを初期化する */
 	vets := ValsToVets([]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
 	edges := [][]Vertex{
 		{vets[0], vets[1]}, {vets[0], vets[3]}, {vets[1], vets[2]}, {vets[1], vets[4]},
 		{vets[2], vets[5]}, {vets[3], vets[4]}, {vets[3], vets[6]}, {vets[4], vets[5]},
 		{vets[4], vets[7]}, {vets[5], vets[8]}, {vets[6], vets[7]}, {vets[7], vets[8]}}
 	graph := newGraphAdjList(edges)
-	fmt.Println("初期化後、グラフは:")
+	fmt.Println("初期化後のグラフ：")
 	graph.print()
 
-	/* 幅優先探索 */
+	/* 幅優先走査 */
 	res := graphBFS(graph, vets[0])
-	fmt.Println("幅優先探索（BFS）の頂点列:")
+	fmt.Println("幅優先走査（BFS）の頂点の順序：")
 	PrintSlice(VetsToVals(res))
 }

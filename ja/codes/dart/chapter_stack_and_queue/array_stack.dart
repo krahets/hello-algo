@@ -4,19 +4,19 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 配列ベースのスタック */
+/* 配列で実装したスタック */
 class ArrayStack {
   late List<int> _stack;
   ArrayStack() {
     _stack = [];
   }
 
-  /* スタックの長さを取得 */
+  /* スタックの長さを取得する */
   int size() {
     return _stack.length;
   }
 
-  /* スタックが空かどうかを判定 */
+  /* スタックが空かどうかを判定する */
   bool isEmpty() {
     return _stack.isEmpty;
   }
@@ -34,7 +34,7 @@ class ArrayStack {
     return _stack.removeLast();
   }
 
-  /* スタックトップの要素にアクセス */
+  /* スタックの先頭要素にアクセスする */
   int peek() {
     if (isEmpty()) {
       throw Exception("スタックが空です");
@@ -46,12 +46,12 @@ class ArrayStack {
   List<int> toArray() => _stack;
 }
 
-/* Driver Code */
+/* 実行用コード */
 void main() {
-  /* スタックを初期化 */
+  /* スタックを初期化する */
   final ArrayStack stack = ArrayStack();
 
-  /* 要素をプッシュ */
+  /* 要素をプッシュする */
   stack.push(1);
   stack.push(3);
   stack.push(2);
@@ -59,19 +59,19 @@ void main() {
   stack.push(4);
   print("スタック stack = ${stack.toArray()}");
 
-  /* スタックトップの要素にアクセス */
+  /* スタックの先頭要素にアクセスする */
   final int peek = stack.peek();
-  print("スタックトップの要素 peek = $peek");
+  print("スタックの先頭要素 peek = $peek");
 
-  /* 要素をポップ */
+  /* 要素をポップする */
   final int pop = stack.pop();
-  print("ポップした要素 pop = $pop ，ポップ後の stack = ${stack.toArray()}");
+  print("ポップした要素 pop = $pop 、ポップ後 stack = ${stack.toArray()}");
 
-  /* スタックの長さを取得 */
+  /* スタックの長さを取得する */
   final int size = stack.size();
   print("スタックの長さ size = $size");
 
-  /* 空かどうかを判定 */
+  /* 空かどうかを判定する */
   final bool isEmpty = stack.isEmpty();
-  print("スタックが空かどうか = $isEmpty");
+  print("スタックは空か = $isEmpty");
 }

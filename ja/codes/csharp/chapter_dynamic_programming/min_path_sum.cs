@@ -13,14 +13,14 @@ public class min_path_sum {
         if (i == 0 && j == 0) {
             return grid[0][0];
         }
-        // 行または列のインデックスが範囲外なら、コスト +∞ を返す
+        // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
         if (i < 0 || j < 0) {
             return int.MaxValue;
         }
         // 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
         int up = MinPathSumDFS(grid, i - 1, j);
         int left = MinPathSumDFS(grid, i, j - 1);
-        // 左上隅から (i, j) までの最小経路コストを返す
+        // 左上から (i, j) までの最小経路コストを返す
         return Math.Min(left, up) + grid[i][j];
     }
 
@@ -30,15 +30,15 @@ public class min_path_sum {
         if (i == 0 && j == 0) {
             return grid[0][0];
         }
-        // 行または列のインデックスが範囲外なら、コスト +∞ を返す
+        // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
         if (i < 0 || j < 0) {
             return int.MaxValue;
         }
-        // 既に記録があればそのまま返す
+        // 記録済みなら、その値をそのまま返す
         if (mem[i][j] != -1) {
             return mem[i][j];
         }
-        // 左と上のセルからの最小経路コスト
+        // 左隣と上隣のセルまでの最小経路コスト
         int up = MinPathSumDFSMem(grid, mem, i - 1, j);
         int left = MinPathSumDFSMem(grid, mem, i, j - 1);
         // 左上から (i, j) までの最小経路コストを記録して返す
@@ -49,7 +49,7 @@ public class min_path_sum {
     /* 最小経路和：動的計画法 */
     int MinPathSumDP(int[][] grid) {
         int n = grid.Length, m = grid[0].Length;
-        // dp テーブルを初期化
+        // dp テーブルを初期化する
         int[,] dp = new int[n, m];
         dp[0, 0] = grid[0][0];
         // 状態遷移：先頭行
@@ -60,7 +60,7 @@ public class min_path_sum {
         for (int i = 1; i < n; i++) {
             dp[i, 0] = dp[i - 1, 0] + grid[i][0];
         }
-        // 状態遷移: 残りの行と列
+        // 状態遷移：残りの行と列
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < m; j++) {
                 dp[i, j] = Math.Min(dp[i, j - 1], dp[i - 1, j]) + grid[i][j];
@@ -69,10 +69,10 @@ public class min_path_sum {
         return dp[n - 1, m - 1];
     }
 
-    /* 最小経路和：空間最適化後の動的計画法 */
+    /* 最小経路和：空間を最適化した動的計画法 */
     int MinPathSumDPComp(int[][] grid) {
         int n = grid.Length, m = grid[0].Length;
-        // dp テーブルを初期化
+        // dp テーブルを初期化する
         int[] dp = new int[m];
         dp[0] = grid[0][0];
         // 状態遷移：先頭行
@@ -120,7 +120,7 @@ public class min_path_sum {
         res = MinPathSumDP(grid);
         Console.WriteLine("左上から右下までの最小経路和は " + res);
 
-        // 空間最適化後の動的計画法
+        // 空間を最適化した動的計画法
         res = MinPathSumDPComp(grid);
         Console.WriteLine("左上から右下までの最小経路和は " + res);
     }

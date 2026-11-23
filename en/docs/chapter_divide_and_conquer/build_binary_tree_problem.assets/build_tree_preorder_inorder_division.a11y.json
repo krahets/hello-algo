@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "title": "Using the root's inorder position to split left and right subtrees, then splitting preorder",
+  "summary": "The first preorder element, 3, identifies the root; inorder splits into left subtree [9] and right subtree [1,2,7], and those subtree sizes then split preorder.",
+  "context": [
+    "The input is preorder traversal preorder = [3, 9, 2, 1, 7] and inorder traversal inorder = [9, 3, 1, 2, 7], with all node values distinct."
+  ],
+  "description": [
+    "Preorder visits the root first, so the first element of preorder, 3, is the root.",
+    "Locate 3 in inorder: to its left is only [9] and to its right is [1,2,7], telling us that the left and right subtrees contain 1 node and 3 nodes, respectively.",
+    "Split preorder accordingly: the single element [9] right after root 3 belongs to the left subtree, and the remaining [2,1,7] belongs to the right subtree. Both traversals of the right subtree contain the same set of nodes, visited in different orders.",
+    "On the left side of the figure, the entire five-node tree is also drawn for reference. Below, the first table lists the traversal slices produced by this split, and the second table lists all parent-child links in the tree."
+  ],
+  "frames": [
+    {
+      "id": "source-314",
+      "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/build_tree_preorder_inorder_division.png",
+      "title": "Using the root's inorder position to split left and right subtrees, then splitting preorder",
+      "explanation": "This decomposes the original problem into two independent recursive subproblems for the left and right subtrees."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Traversal sequences of the left and right subproblems",
+      "headers": [
+        "Part",
+        "Node count",
+        "Preorder",
+        "Inorder"
+      ],
+      "rows": [
+        [
+          "Root",
+          "1",
+          "[3]",
+          "[3]"
+        ],
+        [
+          "Left subtree",
+          "1",
+          "[9]",
+          "[9]"
+        ],
+        [
+          "Right subtree",
+          "3",
+          "[2,1,7]",
+          "[1,2,7]"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "All parent-child links in the tree",
+      "headers": [
+        "Node",
+        "Left child",
+        "Right child"
+      ],
+      "rows": [
+        [
+          "3",
+          "9",
+          "2"
+        ],
+        [
+          "9",
+          "None",
+          "None"
+        ],
+        [
+          "2",
+          "1",
+          "7"
+        ],
+        [
+          "1",
+          "None",
+          "None"
+        ],
+        [
+          "7",
+          "None",
+          "None"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

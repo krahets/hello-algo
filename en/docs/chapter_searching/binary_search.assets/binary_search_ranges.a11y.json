@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "title": "Interval conventions in binary search",
+  "summary": "Whether right-boundary pointer j is included in the search interval directly determines the initial value of j, the loop termination condition, and how j is updated when narrowing leftward.",
+  "context": [
+    "An illustrative ascending array contains n = 10 elements indexed from 0 to 9; pointers i and j mark the left and right boundaries of the current search interval, and m denotes the current midpoint index. Bar heights only indicate monotonic increase without labeling specific element values."
+  ],
+  "description": [
+    "In both diagrams, a blue dashed box encloses all ten elements. On the left, for the “closed interval [i, j],” right pointer j points to the last bar and includes that position; on the right, for the “half-open interval [i, j)” (left-closed, right-open), j points just past the rightmost bar and excludes that position. Substituting n = 10 into the initialization formulas gives j = 9 on the left and j = 10 on the right.",
+    "When i = j, the closed interval still contains one element to check, whereas the half-open interval is already empty. When narrowing leftward, the right endpoint of a closed interval is included, so j = m - 1 is used to exclude m; the right endpoint of a half-open interval is already excluded, so j = m is assigned directly. The table below lists the four rules shown in the figure and adds the corresponding while-loop condition opposite to each termination condition."
+  ],
+  "frames": [
+    {
+      "id": "source-221",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_ranges.png",
+      "title": "Interval conventions in binary search",
+      "explanation": "The initialization, loop condition, and narrowing rules of each representation must be used together as a matching set; narrowing on both sides is symmetric in the closed-interval representation."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Corresponding rules for the two interval representations",
+      "headers": [
+        "Item",
+        "Closed interval [i, j]",
+        "Half-open interval [i, j)"
+      ],
+      "rows": [
+        [
+          "Initialization",
+          "i = 0, j = n - 1",
+          "i = 0, j = n"
+        ],
+        [
+          "Loop termination (added: loop condition)",
+          "i > j (while i ≤ j)",
+          "i ≥ j (while i < j)"
+        ],
+        [
+          "Midpoint value less than target",
+          "i = m + 1",
+          "i = m + 1"
+        ],
+        [
+          "Midpoint value greater than target",
+          "j = m − 1",
+          "j = m"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

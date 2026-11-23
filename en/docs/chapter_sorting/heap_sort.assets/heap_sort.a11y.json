@@ -1,0 +1,166 @@
+{
+  "schema_version": 2,
+  "title": "In-place heap sort: placing maximum values at the right end one by one",
+  "summary": "After building a max heap, repeatedly swap the root with the end of the active heap and shrink the heap range to sort the six elements into [1, 1, 2, 3, 4, 5].",
+  "context": [
+    "The figure starts from the state [5, 4, 3, 1, 1, 2] after heap construction and does not show the original pre-heap order. A max heap requires every parent node's value to be no less than its children's, so once heap order is restored, the root holds the maximum element of the active heap.",
+    "On the left, the binary tree above corresponds one-to-one in level order with the array below, indexed from 0; the left and right children of index i are at 2i+1 and 2i+2, and only indices within the current active range belong to the heap. Green nodes represent the active heap region, while gray nodes represent the sorted region on the right."
+  ],
+  "description": [
+    "Each extraction round first swaps the top element (root) with the last (rightmost) element of the active heap, moving the current maximum into the gray sorted suffix on the right; it then sifts down from top to bottom strictly within the shortened green active prefix.",
+    "Once a node turns gray and joins the sorted region, the tree edge leading to it in the binary tree on the left disappears, indicating that it no longer participates in subsequent heapify comparisons; however, the element remains stored in place in the array below—shrinking the active heap does not delete elements from the array."
+  ],
+  "frames": [
+    {
+      "id": "source-284",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step1.png",
+      "title": "Complete initial max-heap construction",
+      "explanation": "The active heap covers indices 0 through 5. The root is 5 at index 0, with left and right children 4 and 3; both children of node 4 are 1, and the left child of node 3 is the last heap element, 2. Currently nums = [5, 4, 3, 1, 1, 2], with no sorted suffix yet.",
+      "key_state": "Current nums = [5, 4, 3, 1, 1, 2]; active heap range [0, 5], sorted suffix [].",
+      "announcement": "Starting from the built six-element max heap, the maximum element 5 is at the root."
+    },
+    {
+      "id": "source-285",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step2.png",
+      "title": "Swap root 5 to the end of the array",
+      "explanation": "Swap the root element 5 at index 0 with the last heap element 2 at index 5, fixing the maximum element 5 at the final index 5 and marking it gray. Now the new root 2 is smaller than its left and right children 4 and 3, awaiting a sift-down pass to restore heap order. Currently nums = [2, 4, 3, 1, 1, 5]. The active heap range is [0, 4], and the sorted suffix is [5].",
+      "key_state": "Current nums = [2, 4, 3, 1, 1, 5]; active heap range [0, 4], sorted suffix [5].",
+      "announcement": "Swapped root 5 with last element 2, fixing 5 at the end and shrinking the active heap range."
+    },
+    {
+      "id": "source-286",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step3.png",
+      "title": "Sift down from the root to restore the five-element max heap",
+      "explanation": "Because root 2 is smaller than its larger child 4, heap order must be restored. Among the active root 2 and its left and right children 4 and 3, select the largest value 4 and swap it with root 2. After moving down to index 1, node 2 is no less than either of its two children 1, so no further sifting is needed and the five-element active heap regains the max-heap property. Currently nums = [4, 2, 3, 1, 1, 5]. The active heap range is [0, 4], and the sorted suffix is [5].",
+      "key_state": "Current nums = [4, 2, 3, 1, 1, 5]; active heap range [0, 4], sorted suffix [5].",
+      "announcement": "Swapped 4 to the root, restoring the five-element max heap."
+    },
+    {
+      "id": "source-287",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step4.png",
+      "title": "Swap root 4 to index 4",
+      "explanation": "Swap root 4 with element 1 at the end of the active heap (index 4), fixing 4 at index 4. Now the new root 1 is smaller than its left and right children 2 and 3. Currently nums = [1, 2, 3, 1, 4, 5]. The active heap range is [0, 3], and the sorted suffix is [4, 5].",
+      "key_state": "Current nums = [1, 2, 3, 1, 4, 5]; active heap range [0, 3], sorted suffix [4, 5].",
+      "announcement": "Swapped root 4 with active heap end 1; the sorted suffix expands to 4, 5."
+    },
+    {
+      "id": "source-288",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step5.png",
+      "title": "Sift down from the root to restore the four-element max heap",
+      "explanation": "Because root 1 is smaller than its larger child 3, heap order must be restored. Compare root 1 with its left and right children 2 and 3, and swap the largest—right child 3—with root 1; node 1 moves down to index 2 as a leaf node, restoring the max-heap property for the four-element active heap. Currently nums = [3, 2, 1, 1, 4, 5]. The active heap range is [0, 3], and the sorted suffix is [4, 5].",
+      "key_state": "Current nums = [3, 2, 1, 1, 4, 5]; active heap range [0, 3], sorted suffix [4, 5].",
+      "announcement": "Swapped 3 to the root, restoring the four-element max heap."
+    },
+    {
+      "id": "source-289",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step6.png",
+      "title": "Swap root 3 to index 3",
+      "explanation": "Swap root 3 with element 1 at the end of the active heap (index 3), fixing 3 at the left end of the sorted suffix. Now root 1 is smaller than its left child 2. Currently nums = [1, 2, 1, 3, 4, 5]. The active heap range is [0, 2], and the sorted suffix is [3, 4, 5].",
+      "key_state": "Current nums = [1, 2, 1, 3, 4, 5]; active heap range [0, 2], sorted suffix [3, 4, 5].",
+      "announcement": "Swapped root 3 with active heap end 1, fixing 3 at index 3."
+    },
+    {
+      "id": "source-290",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step7.png",
+      "title": "Sift down from the root to restore the three-element max heap",
+      "explanation": "Because root 1 is smaller than its larger child 2, heap order must be restored. Compare root 1 with its left and right children 2 and 1; left child 2 is the largest, so swap it with root 1 to restore the three-element active heap [2, 1, 1]. Currently nums = [2, 1, 1, 3, 4, 5]. The active heap range is [0, 2], and the sorted suffix is [3, 4, 5].",
+      "key_state": "Current nums = [2, 1, 1, 3, 4, 5]; active heap range [0, 2], sorted suffix [3, 4, 5].",
+      "announcement": "Swapped 2 to the root, restoring the three-element max heap."
+    },
+    {
+      "id": "source-291",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step8.png",
+      "title": "Swap root 2 to index 2",
+      "explanation": "Swap root 2 with element 1 at the end of the active heap (index 2), merging 2 into the sorted suffix. Both remaining elements have value 1. Currently nums = [1, 1, 2, 3, 4, 5]. The active heap range is [0, 1], and the sorted suffix is [2, 3, 4, 5].",
+      "key_state": "Current nums = [1, 1, 2, 3, 4, 5]; active heap range [0, 1], sorted suffix [2, 3, 4, 5].",
+      "announcement": "Swapped root 2 with active heap end 1; the sorted suffix expands to 2, 3, 4, 5."
+    },
+    {
+      "id": "source-292",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step9.png",
+      "title": "Both 1s are equal; sift-down check needs no swap",
+      "explanation": "Check the root, 1, against its left child, also 1, in the two-element active heap. The parent is at least as large as its child, so although the figure highlights this comparison path, no swap is needed and the array values remain unchanged. Currently nums = [1, 1, 2, 3, 4, 5]. The active heap range is [0, 1], and the sorted suffix is [2, 3, 4, 5].",
+      "key_state": "Current nums = [1, 1, 2, 3, 4, 5]; active heap range [0, 1], sorted suffix [2, 3, 4, 5]. Both 1s are equal, so the sift-down check performs no swap.",
+      "announcement": "Both the root and its left child are 1, satisfying the max-heap property and ending this sift-down pass."
+    },
+    {
+      "id": "source-293",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step10.png",
+      "title": "Perform the final swap between the root and active heap end",
+      "explanation": "Swap the elements at indices 0 and 1 in the two-element active heap; because both values are 1, the array values stay unchanged while the 1 at index 1 turns gray and joins the sorted suffix. Currently nums = [1, 1, 2, 3, 4, 5]. The active heap range is [0, 0], and the sorted suffix is [1, 2, 3, 4, 5].",
+      "key_state": "Current nums = [1, 1, 2, 3, 4, 5]; active heap range [0, 0], sorted suffix [1, 2, 3, 4, 5]. Swapped the two 1s at indices 0 and 1; values are unchanged and index 1 is fixed.",
+      "announcement": "Swapped the two equal 1s and shrank the active heap to a single element."
+    },
+    {
+      "id": "source-294",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step11.png",
+      "title": "Single-node active heap needs no sift-down repair",
+      "explanation": "Now the active heap contains only root node 1 at index 0, with no active children to compare against, so the top-down sift-down finishes immediately. The figure still highlights this root node in green while the five elements on the right remain gray. Currently nums = [1, 1, 2, 3, 4, 5]. The active heap range is [0, 0], and the sorted suffix is [1, 2, 3, 4, 5].",
+      "key_state": "Current nums = [1, 1, 2, 3, 4, 5]; active heap range [0, 0], sorted suffix [1, 2, 3, 4, 5]. The single node has no active children, so the sift-down check ends immediately.",
+      "announcement": "Checked the single-node active heap; no swap is needed."
+    },
+    {
+      "id": "source-295",
+      "book_path": "chapter_sorting/heap_sort.assets/heap_sort_step12.png",
+      "title": "Remaining single element is already in place; sorting complete",
+      "explanation": "The last remaining element 1 sits at index 0 and is the minimum of the entire array, requiring no further extraction; the figure marks it gray as well, placing all six elements in the sorted region. Currently nums = [1, 1, 2, 3, 4, 5]. The remaining active heap is empty, and all six elements are sorted.",
+      "key_state": "Sorting complete: nums = [1, 1, 2, 3, 4, 5], with all six elements in place.",
+      "announcement": "One remaining element needs no further processing; all six elements are sorted in ascending order."
+    }
+  ],
+  "animations": {
+    "heap-sort": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-284"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-285"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-286"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-287"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-288"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-289"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-290"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-291"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-292"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-293"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-294"
+        },
+        {
+          "id": "step-12",
+          "frame_id": "source-295"
+        }
+      ]
+    }
+  }
+}

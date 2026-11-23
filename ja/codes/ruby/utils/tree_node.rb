@@ -4,12 +4,12 @@ Created Time: 2024-03-30
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 二分木ノードクラス ###
+### 二分木のノードクラス ###
 class TreeNode
-  attr_accessor :val    # ノード値
+  attr_accessor :val    # ノードの値
   attr_accessor :height # ノードの高さ
-  attr_accessor :left   # 左子ノードへの参照
-  attr_accessor :right  # 右子ノードへの参照
+  attr_accessor :left   # 左の子ノードへの参照
+  attr_accessor :right  # 右の子ノードへの参照
 
   def initialize(val=0)
     @val = val
@@ -17,9 +17,9 @@ class TreeNode
   end
 end
 
-### リストを二分木にデシリアライズ：再帰 ###
+### リストをデシリアライズして二分木にする：再帰 ###
 def arr_to_tree_dfs(arr, i)
-  # 添字が配列長を超えるか、対応する要素が nil なら、nil を返す
+  # インデックスが配列の長さを超えるか、対応する要素が nil の場合、nil を返す
   return if i < 0 || i >= arr.length || arr[i].nil?
   # 現在のノードを構築する
   root = TreeNode.new(arr[i])
@@ -29,12 +29,12 @@ def arr_to_tree_dfs(arr, i)
   root
 end
 
-### リストを二分木にデシリアライズ ###
+### リストから二分木へデシリアライズ ###
 def arr_to_tree(arr)
   arr_to_tree_dfs(arr, 0)
 end
 
-### 二分木をリストにシリアライズ：再帰 ###
+### 二分木をシリアライズしてリストにする：再帰 ###
 def tree_to_arr_dfs(root, i, res)
   return if root.nil?
 
@@ -45,7 +45,7 @@ def tree_to_arr_dfs(root, i, res)
   tree_to_arr_dfs(root.right, 2 * i + 2, res)
 end
 
-### 二分木をリストにシリアライズ ###
+### 二分木をシリアライズしてリストにする ###
 def tree_to_arr(root)
   res = []
   tree_to_arr_dfs(root, 0, res)

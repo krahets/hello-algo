@@ -6,14 +6,14 @@
 
 package chapter_computational_complexity.worst_best_time_complexity
 
-/* Generate an array with elements { 1, 2, ..., n }, order shuffled */
+/* Generate an array containing { 1, 2, ..., n } in shuffled order */
 fun randomNumbers(n: Int): Array<Int?> {
     val nums = IntArray(n)
-    // Generate array nums = { 1, 2, 3, ..., n }
+    // Generate the array nums = { 1, 2, 3, ..., n }
     for (i in 0..<n) {
         nums[i] = i + 1
     }
-    // Randomly shuffle array elements
+    // Randomly shuffle the array elements
     nums.shuffle()
     val res = arrayOfNulls<Int>(n)
     for (i in 0..<n) {
@@ -22,24 +22,24 @@ fun randomNumbers(n: Int): Array<Int?> {
     return res
 }
 
-/* Find the index of number 1 in array nums */
+/* Find the index of the number 1 in array nums */
 fun findOne(nums: Array<Int?>): Int {
     for (i in nums.indices) {
-        // When element 1 is at the head of the array, best time complexity O(1) is achieved
-        // When element 1 is at the tail of the array, worst time complexity O(n) is achieved
+        // When 1 is at the start of the array, the best-case time complexity is O(1)
+        // When 1 is at the end of the array, the worst-case time complexity is O(n)
         if (nums[i] == 1)
             return i
     }
     return -1
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     for (i in 0..9) {
         val n = 100
         val nums = randomNumbers(n)
         val index = findOne(nums)
         println("\nArray [ 1, 2, ..., n ] after shuffling = ${nums.contentToString()}")
-        println("Index of number 1 is $index")
+        println("Index of the number 1: $index")
     }
 }

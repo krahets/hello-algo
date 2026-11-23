@@ -1,29 +1,29 @@
 <p align="center">
   <a href="https://www.hello-algo.com/">
-    <img src="/zh-hant/docs/index.assets/hello_algo_header.png" width="450"></a>
+    <img src="/docs/index.assets/hello_algo_header.png" width="450"></a>
 </p>
 
 <p align="center">
-  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com/?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E6%BC%94%E7%AE%97%E6%B3%95+!" alt="hello-algo-typing-svg" />
+  <img style="height: 60px;" src="https://readme-typing-svg.demolab.com?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=21C8B8&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E7%AE%97%E6%B3%95+!" alt="hello-algo-typing-svg" />
   </br>
   動畫圖解、一鍵執行的資料結構與演算法教程
 </p>
 
 <p align="center">
-  <a href="https://www.hello-algo.com/zh-hant/">
-    <img src="/zh-hant/docs/index.assets/btn_read_online_dark.svg" height="45"></a>
+  <a href="https://www.hello-algo.com/">
+    <img src="/docs/index.assets/btn_read_online_dark.svg" height="45"></a>
   <a href="https://github.com/krahets/hello-algo/releases">
-    <img src="/zh-hant/docs/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
+    <img src="/docs/index.assets/btn_download_pdf_epub_dark.svg" height="45"></a>
 </p>
 
 <p align="center">
-  <img src="/zh-hant/docs/index.assets/animation.gif" width="395">
-  <img src="/zh-hant/docs/index.assets/running_code.gif" width="395">
+  <img src="/docs/index.assets/animation.gif" width="395">
+  <img src="/docs/index.assets/running_code.gif" width="395">
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-snow?logo=python&logoColor=3776AB" alt="Python" />
-  <img src="https://img.shields.io/badge/Java-snow?logo=coffeescript&logoColor=FC4C02" alt="Java" />
+  <img src="https://img.shields.io/badge/Java-snow?logo=openjdk&logoColor=ED8B00" alt="Java" />
   <img src="https://img.shields.io/badge/C%2B%2B-snow?logo=c%2B%2B&logoColor=00599C" alt="C++" />
   <img src="https://img.shields.io/badge/C-snow?logo=c&logoColor=A8B9CC" alt="C" />
   <img src="https://img.shields.io/badge/C%23-snow?logo=csharp&logoColor=512BD4" alt="C#" />
@@ -38,15 +38,17 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/krahets/hello-algo">简体中文</a>
+  簡體中文
   ｜
-  繁體中文
+  <a href="https://github.com/krahets/hello-algo/blob/main/zh-hant/README.md">繁體中文</a>
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/en/README.md">English</a>
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/ja/README.md">日本語</a>
   ｜
   <a href="https://github.com/krahets/hello-algo/blob/main/ru/README.md">Русский</a>
+  ｜
+  <a href="https://github.com/krahets/hello-algo/blob/main/ko/README.md">한국어</a>
 </p>
 
 ## 關於本書
@@ -71,17 +73,13 @@
 
 ## 貢獻
 
-> [!Important]
->
-> 歡迎您於 [#1171](https://github.com/krahets/hello-algo/issues/1171) 為繁體中文版勘誤。
-
 本開源書仍在持續更新之中，歡迎您參與本專案，一同為讀者提供更優質的學習內容。
 
 - [內容修正](https://www.hello-algo.com/chapter_appendix/contribution/)：請您協助修正或在評論區指出語法錯誤、內容缺失、文字歧義、無效連結或程式碼 bug 等問題。
-- [程式碼轉譯](https://github.com/krahets/hello-algo/issues/15)：期待您貢獻各種語言程式碼，已支持 Python、Java、C++、Go、JavaScript 等 12 門程式語言。
+- [程式碼轉譯](https://github.com/krahets/hello-algo/issues/15)：期待您貢獻各種語言程式碼，已支持 Python、Java、C++、Go、JavaScript 等 13 門程式語言。
 - 翻譯審閱：歡迎您參與本專案的多語言翻譯與校對工作，幫助更多讀者用母語學習資料結構與演算法。
 
-歡迎您提出寶貴意見和建議，如有任何問題請提交 Issues 或微信聯繫 `krahets-jyd` 。
+歡迎您提出寶貴意見和建議，如有任何問題請提交 Issues 或微信關聯 `krahets-jyd` 。
 
 感謝本開源書的每一位撰稿人，是他們的無私奉獻讓這本書變得更好，他們是：
 

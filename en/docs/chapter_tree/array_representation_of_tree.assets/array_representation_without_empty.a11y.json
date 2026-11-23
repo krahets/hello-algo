@@ -1,0 +1,82 @@
+{
+  "schema_version": 2,
+  "title": "Level-order array omitting intermediate empty slots",
+  "summary": "When empty slots inside a tree are omitted, the compacted level-order array shifts indices out of alignment, allowing the same value sequence to match different tree shapes.",
+  "context": [
+    "In the table, \"Original tree position\" refers to the zero-based level-order position when empty slots are kept, with the root at position 0; \"Compacted array index\" refers to the array index after skipping empty slots. Only the original tree below is drawn in the figure.",
+    "The original tree has 10 nodes: root 1 (position 0) has left and right children 2 (position 1) and 3 (position 2); 2 has only left child 4 (position 3); 3 has left and right children 6 (position 5) and 7 (position 6); 4 has left and right children 8 (position 7) and 9 (position 8); 6 has only left child 12 (position 11); 7 has only right child 15 (position 14); and 8, 9, 12, and 15 are leaf nodes. The table below maps compacted array indices 0 through 9 to their original tree positions."
+  ],
+  "description": [],
+  "result": "Once intermediate empty slots are omitted, the same level-order value sequence can correspond to differently connected trees. This issue arises only when empty slots occur in the middle; in a complete binary tree, all empty slots lie at the end of level order, so omitting trailing empty slots preserves the index mapping.",
+  "frames": [
+    {
+      "id": "source-111",
+      "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_without_empty.png",
+      "title": "Level-order array omitting intermediate empty slots",
+      "explanation": "The original tree is missing nodes at positions 4, 9, 10, 12, and 13; skipping empty slots to compact the sequence directly into [1, 2, 3, 4, 6, 7, 8, 9, 12, 15] shifts node 6 forward from original position 5 to compacted index 4. Applying 2i+2 then misidentifies 6 at index 4 as the right child of node 2 at index 1, whereas in the original tree 2 has no right child and 6 is the left child of 3. Deriving a whole tree from the compacted array via the index formulas yields: 1 with left 2 and right 3; 2 with left 4 and right 6; 3 with left 7 and right 8; 4 with left 9 and right 12; 6 with only left 15; and all remaining nodes as leaves. That derived tree has different connections from the original tree despite sharing the same level-order value sequence; it is an analytical comparison and is not drawn separately in the figure."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Correspondence between compacted array indices and original tree positions",
+      "headers": [
+        "Compacted array index",
+        "Node value",
+        "Original tree position"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "2",
+          "1"
+        ],
+        [
+          "2",
+          "3",
+          "2"
+        ],
+        [
+          "3",
+          "4",
+          "3"
+        ],
+        [
+          "4",
+          "6",
+          "5"
+        ],
+        [
+          "5",
+          "7",
+          "6"
+        ],
+        [
+          "6",
+          "8",
+          "7"
+        ],
+        [
+          "7",
+          "9",
+          "8"
+        ],
+        [
+          "8",
+          "12",
+          "11"
+        ],
+        [
+          "9",
+          "15",
+          "14"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

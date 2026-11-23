@@ -14,58 +14,58 @@ import heapq
 
 
 def test_push(heap: list, val: int, flag: int = 1):
-    heapq.heappush(heap, flag * val)  # Element enters heap
-    print(f"\nAfter element {val} enters heap")
+    heapq.heappush(heap, flag * val)  # Push an element onto the heap
+    print(f"\nAfter pushing element {val} onto the heap:")
     print_heap([flag * val for val in heap])
 
 
 def test_pop(heap: list, flag: int = 1):
-    val = flag * heapq.heappop(heap)  # Top element exits heap
-    print(f"\nAfter top element {val} exits heap")
+    val = flag * heapq.heappop(heap)  # Pop the top element from the heap
+    print(f"\nAfter popping top element {val} from the heap:")
     print_heap([flag * val for val in heap])
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize min heap
+    # Initialize a min heap
     min_heap, flag = [], 1
-    # Initialize max heap
+    # Initialize a max heap
     max_heap, flag = [], -1
 
-    print("\nThe following test cases are for max heap")
-    # Python's heapq module implements min heap by default
-    # Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap
-    # In this example, flag = 1 corresponds to min heap, flag = -1 corresponds to max heap
+    print("\nThe following example uses a max heap")
+    # Python's heapq module implements a min heap by default
+    # Negate each element before pushing it onto the heap to reverse the ordering and implement a max heap
+    # In this example, flag = 1 represents a min heap and flag = -1 represents a max heap
 
-    # Elements enter heap
+    # Push an element onto the heap
     test_push(max_heap, 1, flag)
     test_push(max_heap, 3, flag)
     test_push(max_heap, 2, flag)
     test_push(max_heap, 5, flag)
     test_push(max_heap, 4, flag)
 
-    # Get top element
+    # Get the top element of the heap
     peek: int = flag * max_heap[0]
-    print(f"\nTop element is {peek}")
+    print(f"\nTop element of the heap: {peek}")
 
-    # Top element exits heap
+    # Pop the top element from the heap
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
     test_pop(max_heap, flag)
 
-    # Get heap size
+    # Get the heap size
     size: int = len(max_heap)
-    print(f"\nNumber of heap elements is {size}")
+    print(f"\nNumber of elements in the heap: {size}")
 
-    # Check if heap is empty
+    # Check whether the heap is empty
     is_empty: bool = not max_heap
-    print(f"\nIs heap empty {is_empty}")
+    print(f"\nIs the heap empty: {is_empty}")
 
-    # Input list and build heap
-    # Time complexity is O(n), not O(nlogn)
+    # Build a heap from an input list
+    # The time complexity is O(n), not O(nlogn)
     min_heap = [1, 3, 2, 5, 4]
     heapq.heapify(min_heap)
-    print("\nAfter inputting list and building min heap")
+    print("\nAfter building a min heap from the input list:")
     print_heap(min_heap)

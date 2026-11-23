@@ -11,15 +11,15 @@
 extern "C" {
 #endif
 
-/* ベクタ型を定義 */
+/* ベクトル型を定義する */
 typedef struct vector {
-    int size;     // 現在のベクタのサイズ
-    int capacity; // 現在のベクタの容量
-    int depth;    // 現在のベクタの深さ
-    void **data;  // データを指すポインタ配列
+    int size;     // 現在のベクトルのサイズ
+    int capacity; // 現在のベクトルの容量
+    int depth;    // 現在のベクトルの深さ
+    void **data;  // データを指すポインタの配列
 } vector;
 
-/* ベクタを構築 */
+/* ベクトルを構築する */
 vector *newVector() {
     vector *v = malloc(sizeof(vector));
     v->size = 0;
@@ -29,7 +29,7 @@ vector *newVector() {
     return v;
 }
 
-/* ベクタを構築し、サイズと要素のデフォルト値を指定する */
+/* サイズと要素の既定値を指定してベクトルを構築する */
 vector *_newVector(int size, void *elem, int elemSize) {
     vector *v = malloc(sizeof(vector));
     v->size = size;
@@ -44,7 +44,7 @@ vector *_newVector(int size, void *elem, int elemSize) {
     return v;
 }
 
-/* ベクタを破棄 */
+/* ベクトルを破棄する */
 void delVector(vector *v) {
     if (v) {
         if (v->depth == 0) {
@@ -63,7 +63,7 @@ void delVector(vector *v) {
     }
 }
 
-/* 要素をベクタの末尾に追加する（コピー方式） */
+/*  ベクトルの末尾に要素をコピーして追加する */
 void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;
@@ -74,7 +74,7 @@ void vectorPushback(vector *v, void *elem, int elemSize) {
     v->data[v->size++] = tmp;
 }
 
-/* ベクタの末尾から要素を取り出す */
+/* ベクトルの末尾から要素を取り出す */
 void vectorPopback(vector *v) {
     if (v->size != 0) {
         free(v->data[v->size - 1]);
@@ -82,7 +82,7 @@ void vectorPopback(vector *v) {
     }
 }
 
-/* ベクタをクリア */
+/* ベクトルを空にする */
 void vectorClear(vector *v) {
     delVector(v);
     v->size = 0;
@@ -91,35 +91,35 @@ void vectorClear(vector *v) {
     v->data = malloc(v->capacity * sizeof(void *));
 }
 
-/* ベクタのサイズを取得する */
+/* ベクトルのサイズを取得する */
 int vectorSize(vector *v) {
     return v->size;
 }
 
-/* ベクタの末尾要素を取得する */
+/* ベクトルの末尾要素を取得する */
 void *vectorBack(vector *v) {
     int n = v->size;
     return n > 0 ? v->data[n - 1] : NULL;
 }
 
-/* ベクタの先頭要素を取得する */
+/* ベクトルの先頭要素を取得する */
 void *vectorFront(vector *v) {
     return v->size > 0 ? v->data[0] : NULL;
 }
 
-/* ベクタの添字 `pos` の要素を取得する */
+/* ベクトルの添字 pos にある要素を取得する */
 void *vectorAt(vector *v, int pos) {
     if (pos < 0 || pos >= v->size) {
-        printf("vectorAt: out of range\n");
+        printf("vectorAt: 範囲外です\n");
         return NULL;
     }
     return v->data[pos];
 }
 
-/* ベクタの添字 `pos` の要素を設定する */
+/* ベクトルの添字 pos にある要素を設定する */
 void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     if (pos < 0 || pos >= v->size) {
-        printf("vectorSet: out of range\n");
+        printf("vectorSet: 範囲外です\n");
         return;
     }
     free(v->data[pos]);
@@ -128,19 +128,19 @@ void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     v->data[pos] = tmp;
 }
 
-/* ベクトルを拡張する */
+/* ベクトルの容量を拡張する */
 void vectorExpand(vector *v) {
     v->capacity *= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* ベクトルを縮小する */
+/* ベクトルの容量を縮小する */
 void vectorShrink(vector *v) {
     v->capacity /= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* ベクタの添字 pos に要素を挿入 */
+/* ベクトルの添字 pos の位置に要素を挿入する */
 void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         vectorExpand(v);
@@ -154,7 +154,7 @@ void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     v->size++;
 }
 
-/* ベクトルの添字 pos の要素を削除する */
+/* ベクトルの添字 pos にある要素を削除する */
 void vectorErase(vector *v, int pos) {
     if (v->size != 0) {
         free(v->data[pos]);
@@ -185,27 +185,27 @@ bool vectorFull(vector *v) {
 /* ベクトルが等しいかどうか */
 bool vectorEqual(vector *v1, vector *v2) {
     if (v1->size != v2->size) {
-        printf("size not equal\n");
+        printf("サイズが一致しません\n");
         return false;
     }
     for (int i = 0; i < v1->size; i++) {
         void *a = v1->data[i];
         void *b = v2->data[i];
         if (memcmp(a, b, sizeof(a)) != 0) {
-            printf("data %d not equal\n", i);
+            printf("データ %d が一致しません\n", i);
             return false;
         }
     }
     return true;
 }
 
-/* ベクタ内部をソート */
+/* ベクトルの要素をソートする */
 void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
     qsort(v->data, v->size, sizeof(void *), cmp);
 }
 
-/* 出力関数。出力対象の変数を表示する関数を渡す必要がある */
-/* 現在は深さ 1 の vector のみ出力をサポート */
+/* 表示関数。変数を表示する関数を渡す必要がある */
+/* 現在は深さ 1 の vector の表示にのみ対応する */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
@@ -235,7 +235,7 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     }
 }
 
-/* 現在は深さ 2 の vector のみ出力をサポート */
+/* 現在は深さ 2 の vector の表示にのみ対応する */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {

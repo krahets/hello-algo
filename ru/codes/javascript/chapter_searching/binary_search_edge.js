@@ -6,7 +6,7 @@
 
 const { binarySearchInsertion } = require('./binary_search_insertion.js');
 
-/* Бинарный поиск самого левого target */
+/* Двоичный поиск самого левого элемента target */
 function binarySearchLeftEdge(nums, target) {
     // Эквивалентно поиску точки вставки target
     const i = binarySearchInsertion(nums, target);
@@ -14,11 +14,11 @@ function binarySearchLeftEdge(nums, target) {
     if (i === nums.length || nums[i] !== target) {
         return -1;
     }
-    // Найти target и вернуть индекс i
+    // target найден, возвращается индекс i
     return i;
 }
 
-/* Бинарный поиск самого правого target */
+/* Двоичный поиск самого правого элемента target */
 function binarySearchRightEdge(nums, target) {
     // Преобразовать задачу в поиск самого левого target + 1
     const i = binarySearchInsertion(nums, target + 1);
@@ -28,7 +28,7 @@ function binarySearchRightEdge(nums, target) {
     if (j === -1 || nums[j] !== target) {
         return -1;
     }
-    // Найти target и вернуть индекс j
+    // target найден, возвращается индекс j
     return j;
 }
 
@@ -36,7 +36,7 @@ function binarySearchRightEdge(nums, target) {
 // Массив с повторяющимися элементами
 const nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 console.log('\nМассив nums = ' + nums);
-// Бинарный поиск левой и правой границы
+// Двоичный поиск левой и правой границы
 for (const target of [6, 7]) {
     let index = binarySearchLeftEdge(nums, target);
     console.log('Индекс самого левого элемента ' + target + ' равен ' + index);

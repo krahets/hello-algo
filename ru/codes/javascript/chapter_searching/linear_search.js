@@ -23,7 +23,7 @@ function linearSearchArray(nums, target) {
 function linearSearchLinkedList(head, target) {
     // Обойти связный список
     while (head) {
-        // Найти целевой узел и вернуть его
+        // Целевой узел найден, возвращается этот узел
         if (head.val === target) {
             return head;
         }

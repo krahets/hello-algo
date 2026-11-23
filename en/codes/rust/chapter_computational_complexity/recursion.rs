@@ -6,13 +6,13 @@
 
 /* Recursion */
 fn recur(n: i32) -> i32 {
-    // Termination condition
+    // Base case
     if n == 1 {
         return 1;
     }
-    // Recurse: recursive call
+    // Recurse: make a recursive call
     let res = recur(n - 1);
-    // Return: return result
+    // Unwind: return the result
     n + res
 }
 
@@ -21,14 +21,14 @@ fn for_loop_recur(n: i32) -> i32 {
     // Use an explicit stack to simulate the system call stack
     let mut stack = Vec::new();
     let mut res = 0;
-    // Recurse: recursive call
+    // Recurse: make a recursive call
     for i in (1..=n).rev() {
-        // Simulate "recurse" with "push"
+        // Simulate recursive calls by pushing onto the stack
         stack.push(i);
     }
-    // Return: return result
+    // Unwind: return the result
     while !stack.is_empty() {
-        // Simulate "return" with "pop"
+        // Simulate unwinding by popping from the stack
         res += stack.pop().unwrap();
     }
     // res = 1+2+3+...+n
@@ -37,40 +37,40 @@ fn for_loop_recur(n: i32) -> i32 {
 
 /* Tail recursion */
 fn tail_recur(n: i32, res: i32) -> i32 {
-    // Termination condition
+    // Base case
     if n == 0 {
         return res;
     }
-    // Tail recursive call
+    // Tail-recursive call
     tail_recur(n - 1, res + n)
 }
 
 /* Fibonacci sequence: recursion */
 fn fib(n: i32) -> i32 {
-    // Termination condition f(1) = 0, f(2) = 1
+    // Base cases: f(1) = 0, f(2) = 1
     if n == 1 || n == 2 {
         return n - 1;
     }
-    // Recursive call f(n) = f(n-1) + f(n-2)
+    // Recursive calls: f(n) = f(n-1) + f(n-2)
     let res = fib(n - 1) + fib(n - 2);
-    // Return result
+    // Return the result
     res
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
     let n = 5;
     let mut res;
 
     res = recur(n);
-    println!("\nRecursion sum result res = {res}");
+    println!("\nSum from the recursive function: res = {res}");
 
     res = for_loop_recur(n);
-    println!("\nUsing iteration to simulate recursion sum result res = {res}");
+    println!("\nSum from simulating recursion using iteration: res = {res}");
 
     res = tail_recur(n, 0);
-    println!("\nTail recursion sum result res = {res}");
+    println!("\nSum from the tail-recursive function: res = {res}");
 
     res = fib(n);
-    println!("\nThe {n}th Fibonacci number is {res}");
+    println!("\nTerm {n} of the Fibonacci sequence is {res}");
 }

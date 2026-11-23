@@ -1,0 +1,245 @@
+{
+  "schema_version": 2,
+  "title": "Recursive execution order of merge sort on four elements",
+  "summary": "First sort the left half [7,3] into [3,7], then process the right half [2,6], and finally merge them into [2,3,6,7].",
+  "context": [
+    "The input is [7,3,2,6], with indices 0 through 3. Recursion processes the left half, then the right half, then merges the two sorted results."
+  ],
+  "description": [
+    "Expanded subproblems and returned results remain visible as a history of calls. They represent different times in the computation. A subarray of length 1 returns immediately.",
+    "The “Merge sort calls and returns” table lists ten records in order of first appearance. At step N, the visible history comprises all records first shown in steps 1 through N. Returned results leave the input snapshots intact. A merge compares the first remaining element on each side, takes the smaller one, and appends the other side’s remaining elements once one side runs out. The ten steps count figure states rather than element comparisons."
+  ],
+  "frames": [
+    {
+      "id": "source-274",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step1.png",
+      "title": "Start sorting four elements",
+      "explanation": "Start the top-level merge sort on [7, 3, 2, 6]. Neither subproblem has been expanded. For the full visible history, see the step 1 record in “Merge sort calls and returns.”",
+      "key_state": "Top-level input [7, 3, 2, 6]. No subproblems expanded yet.",
+      "announcement": "Start the top-level merge sort with input [7, 3, 2, 6]."
+    },
+    {
+      "id": "source-275",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step2.png",
+      "title": "Recurse on the left half",
+      "explanation": "Recurse on the left half [7, 3] first. The right half [2, 6] is still unexpanded. For the full visible history, see records first shown in steps 1 through 2 in “Merge sort calls and returns.”",
+      "key_state": "Processing the left half [7, 3]. The right half [2, 6] has not been expanded.",
+      "announcement": "Enter the left half [7, 3]."
+    },
+    {
+      "id": "source-276",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step3.png",
+      "title": "Split off the single element 7 on the left",
+      "explanation": "Split [7, 3] and visit [7] first. Its length is 1, so it returns immediately. Neither [3] nor the right half has been expanded. For the full visible history, see records first shown in steps 1 through 3 in “Merge sort calls and returns.”",
+      "key_state": "On the left, [7] has returned. Neither [3] nor the right half has been expanded.",
+      "announcement": "Enter [7] and return it immediately."
+    },
+    {
+      "id": "source-277",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step4.png",
+      "title": "Split off the single element 3 on the left",
+      "explanation": "After [7] returns, visit [3], which also returns immediately. The two single-element results on the left are ready to merge. The right half is still unexpanded. For the full visible history, see records first shown in steps 1 through 4 in “Merge sort calls and returns.”",
+      "key_state": "On the left, [7] and [3] have both returned and await merging. The right half is unexpanded.",
+      "announcement": "Enter [3] and return it immediately."
+    },
+    {
+      "id": "source-278",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step5.png",
+      "title": "Merge the left half into [3,7]",
+      "explanation": "Compare the returned [7] and [3], merge them, and return [3, 7]. The right half is still unexpanded. The [7, 3] that remains visible is the input snapshot for that call. For the full visible history, see records first shown in steps 1 through 5 in “Merge sort calls and returns.”",
+      "key_state": "The left half has returned [3, 7]. The right half is unexpanded.",
+      "announcement": "Left merge complete. Return [3, 7]."
+    },
+    {
+      "id": "source-279",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step6.png",
+      "title": "Recurse on the right half",
+      "explanation": "The left half has returned the sorted [3, 7]. Enter the right half [2, 6]. Its two single-element subproblems have not been expanded. For the full visible history, see records first shown in steps 1 through 6 in “Merge sort calls and returns.”",
+      "key_state": "The left half returned [3, 7]. Enter [2, 6] on the right, with its singletons still unexpanded.",
+      "announcement": "Left half complete. Enter the right half [2, 6]."
+    },
+    {
+      "id": "source-280",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step7.png",
+      "title": "Split off the single element 2 on the right",
+      "explanation": "The sorted left half [3, 7] has returned. Split the right half [2, 6]. Visit [2] first and return it immediately. [6] is still unexpanded. For the full visible history, see records first shown in steps 1 through 7 in “Merge sort calls and returns.”",
+      "key_state": "The left half returned [3, 7]. On the right, [2] has returned and [6] is unexpanded.",
+      "announcement": "Enter [2] and return it immediately."
+    },
+    {
+      "id": "source-281",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step8.png",
+      "title": "Split off the single element 6 on the right",
+      "explanation": "After [2] returns on the right, visit [6] and return it immediately. Both singletons on the right are ready to merge. The left result remains [3, 7]. For the full visible history, see records first shown in steps 1 through 8 in “Merge sort calls and returns.”",
+      "key_state": "The left half returned [3, 7]. On the right both [2] and [6] have returned and await merging.",
+      "announcement": "Enter [6] and return it immediately."
+    },
+    {
+      "id": "source-282",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step9.png",
+      "title": "Merge the right half into [2,6]",
+      "explanation": "Merge the returned [2] and [6] into [2, 6]. The left and right results [3, 7] and [2, 6] are ready for the top-level merge. For the full visible history, see records first shown in steps 1 through 9 in “Merge sort calls and returns.”",
+      "key_state": "Left and right results [3, 7] and [2, 6] are ready for the top-level merge.",
+      "announcement": "Right merge complete. Return [2, 6]."
+    },
+    {
+      "id": "source-283",
+      "book_path": "chapter_sorting/merge_sort.assets/merge_sort_step10.png",
+      "title": "Merge the left and right halves",
+      "explanation": "At the top level compare the first remaining elements of [3, 7] and [2, 6]. Take 2, then 3, then 6. The right half is exhausted, so append 7 from the left. The final array is [2, 3, 6, 7]. All input snapshots and returned results remain visible. For the full visible history, see records first shown in steps 1 through 10 in “Merge sort calls and returns.”",
+      "key_state": "Top-level merge complete. The final array is [2, 3, 6, 7].",
+      "announcement": "Top-level merge complete. The final array is [2, 3, 6, 7]."
+    }
+  ],
+  "animations": {
+    "merge-sort": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-274"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-275"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-276"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-277"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-278"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-279"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-280"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-281"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-282"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-283"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "Fixed input",
+      "headers": [
+        "Index",
+        "Value"
+      ],
+      "rows": [
+        [
+          "0",
+          "7"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "2"
+        ],
+        [
+          "3",
+          "6"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Merge sort calls and returns",
+      "headers": [
+        "First shown at step",
+        "Subproblem or result",
+        "Array",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "1",
+          "Full input",
+          "[7, 3, 2, 6]",
+          "Input snapshot at division"
+        ],
+        [
+          "2",
+          "Left-half input",
+          "[7, 3]",
+          "Input snapshot at division"
+        ],
+        [
+          "3",
+          "Single element 7",
+          "[7]",
+          "Single element; return immediately"
+        ],
+        [
+          "4",
+          "Single element 3",
+          "[3]",
+          "Single element; return immediately"
+        ],
+        [
+          "5",
+          "Left-half return value",
+          "[3, 7]",
+          "Sorted merge result"
+        ],
+        [
+          "6",
+          "Right-half input",
+          "[2, 6]",
+          "Input snapshot at division"
+        ],
+        [
+          "7",
+          "Single element 2",
+          "[2]",
+          "Single element; return immediately"
+        ],
+        [
+          "8",
+          "Single element 6",
+          "[6]",
+          "Single element; return immediately"
+        ],
+        [
+          "9",
+          "Right-half return value",
+          "[2, 6]",
+          "Sorted merge result"
+        ],
+        [
+          "10",
+          "Top-level return value",
+          "[2, 3, 6, 7]",
+          "Sorted merge result"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0,
+    1
+  ]
+}

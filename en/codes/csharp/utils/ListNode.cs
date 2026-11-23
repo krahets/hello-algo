@@ -9,7 +9,7 @@ public class ListNode(int x) {
     public int val = x;
     public ListNode? next;
 
-    /* Deserialize array to linked list */
+    /* Deserialize an array into a linked list */
     public static ListNode? ArrToLinkedList(int[] arr) {
         ListNode dum = new(0);
         ListNode head = dum;

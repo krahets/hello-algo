@@ -4,42 +4,42 @@
 
 package chapter_heap
 
-// In Go, integer max heap can be built by implementing heap.Interface
-// Implementing heap.Interface requires also implementing sort.Interface
+// In Go, implement heap.Interface to build an integer max heap
+// Implementing heap.Interface also requires implementing sort.Interface
 type intHeap []any
 
-// Push function of heap.Interface, implements pushing element to heap
+// Push is a heap.Interface function that pushes an element onto the heap
 func (h *intHeap) Push(x any) {
-	// Push and Pop use pointer receiver as parameter
-	// Because they not only adjust the slice content, but also modify the slice length.
+	// Push and Pop use pointer receivers
+	// because they modify the slice length as well as its contents.
 	*h = append(*h, x.(int))
 }
 
-// Pop function of heap.Interface, implements popping heap top element
+// Pop is a heap.Interface function that pops the last element from the slice (heap.Pop has already swapped the top element of the heap to the end)
 func (h *intHeap) Pop() any {
-	// Element to be popped is stored at the end
+	// The element to remove is stored at the end
 	last := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return last
 }
 
-// Len function of sort.Interface
+// Len implements the sort.Interface length method
 func (h *intHeap) Len() int {
 	return len(*h)
 }
 
-// Less function of sort.Interface
+// Less implements the sort.Interface comparison method
 func (h *intHeap) Less(i, j int) bool {
-	// If implementing min heap, need to change to less than sign
+	// For a min heap, change the comparison to less than
 	return (*h)[i].(int) > (*h)[j].(int)
 }
 
-// Swap function of sort.Interface
+// Swap implements the sort.Interface swap method
 func (h *intHeap) Swap(i, j int) {
 	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
 }
 
-// Top gets heap top element
+// Top returns the top element of the heap
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }

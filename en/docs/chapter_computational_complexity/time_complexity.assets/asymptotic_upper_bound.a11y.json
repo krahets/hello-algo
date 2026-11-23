@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Asymptotic upper bound: inequality beyond a threshold",
+  "summary": "The two curves show how to read an asymptotic upper bound. Once the input size n exceeds the threshold, T(n) stays at or below c times f(n).",
+  "context": [
+    "The horizontal axis shows input size n with ticks from 0 to 14; the vertical axis shows function value with no numeric ticks. The blue curve is the operation count T(n), and the orange curve is a candidate function f(n) scaled by a positive constant c, written c·f(n); no explicit formulas are given."
+  ],
+  "description": [
+    "A vertical green dashed line at n₀ marks the intersection of the two curves between ticks 7 and 8. Across ticks 1 to 7, the blue curve fluctuates above the orange curve; past n₀, the orange curve stays strictly above the blue curve as both continue rising."
+  ],
+  "frames": [
+    {
+      "id": "source-26",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/asymptotic_upper_bound.png",
+      "title": "Asymptotic upper bound: inequality beyond a threshold",
+      "explanation": "The condition stated at the bottom is that there exist a positive constant c and a threshold n₀ such that T(n) ≤ c·f(n) for all n > n₀, written T(n) = O(f(n)), making f(n) an asymptotic upper bound on T(n). Having T(n) exceed c·f(n) before n₀ does not affect this conclusion, and the curves do not have to coincide at every input."
+    }
+  ]
+}

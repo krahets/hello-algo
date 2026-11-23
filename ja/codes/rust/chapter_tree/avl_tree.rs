@@ -23,9 +23,9 @@ impl AVLTree {
         Self { root: None }
     }
 
-    /* ノードの高さを取得 */
+    /* ノードの高さを取得する */
     fn height(node: OptionTreeNodeRc) -> i32 {
-        // 空ノードの高さは -1、葉ノードの高さは 0
+        // 空ノードの高さは -1 、葉ノードの高さは 0
         match node {
             Some(node) => node.borrow().height,
             None => -1,
@@ -37,12 +37,12 @@ impl AVLTree {
         if let Some(node) = node {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
-            // ノードの高さは最も高い部分木の高さ + 1 に等しい
+            // ノードの高さは、最も高い部分木の高さ + 1
             node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
 
-    /* 平衡係数を取得 */
+    /* 平衡係数を取得する */
     fn balance_factor(node: OptionTreeNodeRc) -> i32 {
         match node {
             // 空ノードの平衡係数は 0
@@ -54,13 +54,13 @@ impl AVLTree {
         }
     }
 
-    /* 右回転 */
+    /* 右回転操作 */
     fn right_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         match node {
             Some(node) => {
                 let child = node.borrow().left.clone().unwrap();
                 let grand_child = child.borrow().right.clone();
-                // child を支点として node を右回転させる
+                // child を中心に node を右回転する
                 child.borrow_mut().right = Some(node.clone());
                 node.borrow_mut().left = grand_child;
                 // ノードの高さを更新する
@@ -73,13 +73,13 @@ impl AVLTree {
         }
     }
 
-    /* 左回転 */
+    /* 左回転操作 */
     fn left_rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
         match node {
             Some(node) => {
                 let child = node.borrow().right.clone().unwrap();
                 let grand_child = child.borrow().left.clone();
-                // child を支点として node を左回転させる
+                // child を中心に node を左回転する
                 child.borrow_mut().left = Some(node.clone());
                 node.borrow_mut().right = grand_child;
                 // ノードの高さを更新する
@@ -92,9 +92,9 @@ impl AVLTree {
         }
     }
 
-    /* 回転操作を行い、この部分木の平衡を回復する */
+    /* 回転操作によって、この部分木の平衡を回復する */
     fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
-        // ノード node の平衡係数を取得
+        // ノード node の平衡係数を取得する
         let balance_factor = Self::balance_factor(node.clone());
         // 左に偏った木
         if balance_factor > 1 {
@@ -103,7 +103,7 @@ impl AVLTree {
                 // 右回転
                 Self::right_rotate(Some(node))
             } else {
-                // 左回転してから右回転
+                // 左回転してから右回転する
                 let left = node.borrow().left.clone();
                 node.borrow_mut().left = Self::left_rotate(left);
                 Self::right_rotate(Some(node))
@@ -116,18 +116,18 @@ impl AVLTree {
                 // 左回転
                 Self::left_rotate(Some(node))
             } else {
-                // 右回転してから左回転
+                // 右回転してから左回転する
                 let right = node.borrow().right.clone();
                 node.borrow_mut().right = Self::right_rotate(right);
                 Self::left_rotate(Some(node))
             }
         } else {
-            // 平衡木なので回転不要、そのまま返す
+            // 平衡な木なので、回転せずにそのまま返す
             node
         }
     }
 
-    /* ノードを挿入 */
+    /* ノードを挿入する */
     fn insert(&mut self, val: i32) {
         self.root = Self::insert_helper(self.root.clone(), val);
     }
@@ -136,7 +136,7 @@ impl AVLTree {
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 挿入位置を探索してノードを挿入 */
+                /* 1. 挿入位置を探してノードを挿入する */
                 match {
                     let node_val = node.borrow().val;
                     node_val
@@ -152,12 +152,12 @@ impl AVLTree {
                         node.borrow_mut().right = Self::insert_helper(right, val);
                     }
                     Ordering::Equal => {
-                        return Some(node); // 重複ノードは挿入せず、そのまま返す
+                        return Some(node); // 重複したノードは挿入せず、そのまま戻る
                     }
                 }
                 Self::update_height(Some(node.clone())); // ノードの高さを更新する
 
-                /* 2. 回転操作を行い、部分木の平衡を回復する */
+                /* 2. 回転操作によって、この部分木の平衡を回復する */
                 node = Self::rotate(Some(node)).unwrap();
                 // 部分木の根ノードを返す
                 Some(node)
@@ -166,7 +166,7 @@ impl AVLTree {
         }
     }
 
-    /* ノードを削除 */
+    /* ノードを削除する */
     fn remove(&self, val: i32) {
         Self::remove_helper(self.root.clone(), val);
     }
@@ -175,7 +175,7 @@ impl AVLTree {
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. ノードを探索して削除 */
+                /* 1. ノードを探して削除する */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);
@@ -189,15 +189,15 @@ impl AVLTree {
                         node.borrow().right.clone()
                     };
                     match child {
-                        // 子ノード数 = 0 の場合、node をそのまま削除して返す
+                        // 子ノード数 = 0 の場合、node を削除して戻る
                         None => {
                             return None;
                         }
-                        // 子ノード数 = 1 の場合、node をそのまま削除する
+                        // 子ノード数 = 1 の場合、node を削除する
                         Some(child) => node = child,
                     }
                 } else {
-                    // 子ノード数 = 2 の場合、中順走査の次のノードを削除し、そのノードで現在のノードを置き換える
+                    // 子ノード数 = 2 の場合、通りがけ順で次のノードを削除し、そのノードで現在のノードを置き換える
                     let mut temp = node.borrow().right.clone().unwrap();
                     loop {
                         let temp_left = temp.borrow().left.clone();
@@ -212,7 +212,7 @@ impl AVLTree {
                 }
                 Self::update_height(Some(node.clone())); // ノードの高さを更新する
 
-                /* 2. 回転操作を行い、部分木の平衡を回復する */
+                /* 2. 回転操作によって、この部分木の平衡を回復する */
                 node = Self::rotate(Some(node)).unwrap();
                 // 部分木の根ノードを返す
                 Some(node)
@@ -221,50 +221,50 @@ impl AVLTree {
         }
     }
 
-    /* ノードを探索 */
+    /* ノードを探索する */
     fn search(&self, val: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // ループで探索し、葉ノードを越えたら抜ける
+        // 繰り返し探索し、葉ノードを越えたら終了する
         while let Some(current) = cur.clone() {
             match current.borrow().val.cmp(&val) {
-                // 目標ノードは cur の右部分木にある
+                // 目的のノードは cur の右部分木にある
                 Ordering::Less => {
                     cur = current.borrow().right.clone();
                 }
-                // 目標ノードは cur の左部分木にある
+                // 目的のノードは cur の左部分木にある
                 Ordering::Greater => {
                     cur = current.borrow().left.clone();
                 }
-                // 目標ノードが見つかったらループを抜ける
+                // 目的のノードが見つかったので、ループを終了する
                 Ordering::Equal => {
                     break;
                 }
             }
         }
-        // 目標ノードを返す
+        // 目的のノードを返す
         cur
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
     fn test_insert(tree: &mut AVLTree, val: i32) {
         tree.insert(val);
-        println!("\nノード {} を挿入した後、AVL 木は", val);
+        println!("\nノード {} を挿入した後の AVL 木", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     fn test_remove(tree: &mut AVLTree, val: i32) {
         tree.remove(val);
-        println!("\nノード {} を削除した後、AVL 木は", val);
+        println!("\nノード {} を削除した後の AVL 木", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     /* 空の AVL 木を初期化する */
     let mut avl_tree = AVLTree::new();
 
-    /* ノードを挿入 */
-    // ノード挿入後に AVL 木がどのように平衡を保つかに注目してほしい
+    /* ノードを挿入する */
+    // ノード挿入後、AVL 木がどのように平衡を保つかに注目する
     test_insert(&mut avl_tree, 1);
     test_insert(&mut avl_tree, 2);
     test_insert(&mut avl_tree, 3);
@@ -276,16 +276,16 @@ fn main() {
     test_insert(&mut avl_tree, 10);
     test_insert(&mut avl_tree, 6);
 
-    /* 重複ノードを挿入する */
+    /* 重複したノードを挿入する */
     test_insert(&mut avl_tree, 7);
 
-    /* ノードを削除 */
-    // ノード削除後に AVL 木がどのように平衡を保つかに注目してほしい
+    /* ノードを削除する */
+    // ノード削除後、AVL 木がどのように平衡を保つかに注目する
     test_remove(&mut avl_tree, 8); // 次数 0 のノードを削除する
     test_remove(&mut avl_tree, 5); // 次数 1 のノードを削除する
     test_remove(&mut avl_tree, 4); // 次数 2 のノードを削除する
 
-    /* ノードを検索 */
+    /* ノードを探索する */
     let node = avl_tree.search(7);
     if let Some(node) = node {
         println!(

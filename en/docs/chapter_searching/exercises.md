@@ -1,96 +1,95 @@
 # Exercises
 
-## Concept Review
+## Check your understanding
 
-### How Binary Search Narrows the Search Interval
+### How binary search narrows the search interval
 
 Search for 16 in the sorted array `[2, 5, 8, 12, 16, 23, 38]`.
-Use the closed interval `[i, j]` and calculate the midpoint as
+Use a closed interval `[i, j]` and the midpoint
 $m=i+(j-i)/2$, rounded down.
 
-For each round, write `(i, j, m)`, the middle element, and how the interval is narrowed next,
+For each iteration, write `(i, j, m)`, the midpoint element, and how the interval is narrowed next,
 until the target is found.
 
-??? success "Answer"
+??? success "Reference answer"
 
     The search proceeds as follows:
 
-    | Round | `(i, j, m)` | Middle element | Next step |
+    | Iteration | `(i, j, m)` | Midpoint element | Next step |
     | --- | --- | --- | --- |
-    | 1 | `(0, 6, 3)` | 12 | `12 < 16`, set `i = 4` |
-    | 2 | `(4, 6, 5)` | 23 | `23 > 16`, set `j = 4` |
+    | 1 | `(0, 6, 3)` | 12 | `12 < 16`, so set `i = 4` |
+    | 2 | `(4, 6, 5)` | 23 | `23 > 16`, so set `j = 4` |
     | 3 | `(4, 4, 4)` | 16 | Target found; return index 4 |
 
-    Because the array is sorted, when the middle value is smaller than the target, the middle and everything to its left can be excluded.
-    When the middle value is greater than the target, the middle and everything to its right can be excluded.
+    Since the array is sorted, when the midpoint value is below the target, we can exclude the midpoint and everything to its left.
+    When it is above the target, we can exclude the midpoint and everything to its right.
 
-### Left and Right Boundaries of Duplicate Elements
+### Left and right boundaries of repeated elements
 
-Search for the number 2 in the array `[1, 2, 2, 2, 4, 6]`.
-A student uses binary search, returns immediately after finding the target at index 2, and says,
-"Index 2 is the left boundary of the number 2."
+Search for 2 in the array `[1, 2, 2, 2, 4, 6]`.
+A student uses binary search, finds the target at index 2, and immediately returns, saying:
+“Index 2 is the left boundary of the number 2.”
 
 <!-- numbered-subquestions -->
 
-1. Is the student's statement correct? What are the left and right boundaries of 2? Explain why.
-2. When searching for the left boundary, if the middle element equals the target, which side should be searched next?
-3. When searching for the right boundary, which side should be searched next? State only the direction; you do not need to write the complete search process.
+1. Is the student correct? What are the left and right boundaries of 2? Explain.
+2. When finding the left boundary, which side should we continue searching if the midpoint element equals the target?
+3. Which side should we continue searching when finding the right boundary? State only the direction; you do not need to give the full search process.
 
-??? success "Answer"
+??? success "Reference answer"
 
-    1. The student's statement is incorrect. Returning as soon as a 2 is found guarantees only that some occurrence of 2 was found, not the leftmost or rightmost one.
+    1. The student is incorrect. Returning immediately upon finding a 2 guarantees only that some occurrence has been found, not the leftmost or rightmost one.
         Here, the left boundary is index 1 and the right boundary is index 3.
 
-    2. When searching for the left boundary, continue searching on the left even if the middle element equals 2.
+    2. When finding the left boundary, continue searching to the left even if the midpoint element equals 2.
         For example, with a closed interval, set `j = m - 1`.
 
-    3. When searching for the right boundary, continue searching on the right after the middle element equals 2.
+    3. When finding the right boundary, continue searching to the right after the midpoint element equals 2.
         For example, set `i = m + 1`.
 
-### Choosing a Search Method for Different Data
+### Choosing a search method for different data
 
-For each situation below, choose an appropriate method from "linear search," "binary search," and "hash table," and explain why:
+Choose a suitable method from linear search, binary search, and a hash table for each situation, and explain:
 
 <!-- numbered-subquestions -->
 
-1. Repeatedly search among $10^7$ integers that are already sorted and never change, without building any additional data structure.
-2. Repeatedly test whether a key exists in a collection with frequent insertions and deletions. The collection need not remain sorted, and no range searches are needed.
-3. Search an unsorted array for a value only once.
+1. Repeatedly searching $10^7$ integers that are already sorted and will not change, without building an additional data structure.
+2. Repeatedly checking whether a key exists in a data set with frequent insertions and deletions, with no need to preserve order or perform range queries.
+3. Searching for a value only once in an unsorted array.
 
-??? success "Answer"
+??? success "Reference answer"
 
-    1. Binary search: the data is sorted and static, so searching takes $O(\log n)$ time without extra space.
-    2. Hash table: when the hash function distributes keys fairly evenly among the buckets, insertion, deletion, and lookup by key all take $O(1)$ time on average.
-    3. Scan directly from beginning to end. When searching only once, sorting the array or building a hash table still requires processing the entire array first,
-        so neither reduces the total work for this single task.
+    1. Binary search: the data is sorted and static, giving $O(\log n)$ time without an additional data structure.
+    2. A hash table: when the hash function distributes keys fairly evenly among buckets, insertion, deletion, and key lookup all have average time complexity $O(1)$.
+    3. Scan directly from beginning to end. For a single search, sorting or building a hash table would first require processing the entire array,
+        without reducing the total work for this task.
 
-        The choice depends on whether the data is sorted, whether an additional structure is allowed, how many searches are needed, and which operations must be supported.
+        The choice depends on whether the data is sorted, whether additional structures are allowed, how many queries there are, and which operations are needed.
 
-## Programming Exercises
+## Programming exercises
 
-### Binary Search in a Sorted Array
+### Binary search in a sorted array
 
-Given an integer array `nums` in strictly increasing order and a target value `target`, use binary search to find `target`. If it exists, return its array index; otherwise, return -1.
+Given an integer array `nums` in strictly increasing order and a target value `target`, find `target` using binary search. Return its array index if it exists, or -1 otherwise.
 
 ??? tip "Hints"
 
-    1. The initial interval is left = 0 and right = n - 1; it is nonempty while left <= right
-    2. Calculate the midpoint with mid = left + (right - left) // 2
-    3. If `nums[mid]` is less than `target`, move the left boundary to `mid + 1`; if `nums[mid]` is greater than `target`, move the right boundary to `mid - 1`; if they are equal, return immediately
+    1. The initial interval has left = 0 and right = n - 1; it is nonempty while left <= right.
+    2. Calculate the midpoint with mid = left + (right - left) // 2.
+    3. If `nums[mid]` is less than `target`, move the left boundary to `mid + 1`; if `nums[mid]` is greater than `target`, move the right boundary to `mid - 1`; return immediately if they are equal.
 
 [LeetCode](https://leetcode.com/problems/binary-search/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }
 
-### Insertion Point in a Sorted Array
+### Finding an insertion position in a sorted array
 
 You are given an integer array `nums` in strictly increasing order and a target value `target`.
 
-Return the index of `target` if it is already in the array. Otherwise, return the insertion point at which `target` can be inserted while keeping the array in strictly increasing order.
-The insertion point may be 0 or may equal the array's length. Use binary search.
+If `target` is already in the array, return its index. Otherwise, return the position at which `target` can be inserted while preserving strictly increasing order. The answer may be 0 or the array length. Use binary search.
 
 ??? tip "Hints"
 
-    1. The answer may be 0 or the array length n
-    2. With a closed interval, if `nums[mid]` is greater than or equal to `target`, set `right = mid - 1` and continue checking farther left; otherwise, set `left = mid + 1`
-    3. When the loop ends, left is the insertion point
+    1. The answer may be 0 or the array length n.
+    2. With a closed interval, if `nums[mid]` is greater than or equal to `target`, set `right = mid - 1` to keep checking farther left; otherwise, set `left = mid + 1`.
+    3. When the loop ends, left is the insertion position.
 
 [LeetCode](https://leetcode.com/problems/search-insert-position/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }

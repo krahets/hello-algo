@@ -6,25 +6,25 @@
 
 use hello_algo_rust::include::print_util;
 
-/* Stack based on array implementation */
+/* Stack implemented with an array */
 struct ArrayStack<T> {
     stack: Vec<T>,
 }
 
 impl<T> ArrayStack<T> {
-    /* Access top of the stack element */
+    /* Initialize the stack */
     fn new() -> ArrayStack<T> {
         ArrayStack::<T> {
             stack: Vec::<T>::new(),
         }
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     fn size(&self) -> usize {
         self.stack.len()
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     fn is_empty(&self) -> bool {
         self.size() == 0
     }
@@ -39,7 +39,7 @@ impl<T> ArrayStack<T> {
         self.stack.pop()
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     fn peek(&self) -> Option<&T> {
         if self.is_empty() {
             panic!("Stack is empty")
@@ -47,18 +47,18 @@ impl<T> ArrayStack<T> {
         self.stack.last()
     }
 
-    /* Return &Vec */
+    /* Return a reference to the vector */
     fn to_array(&self) -> &Vec<T> {
         &self.stack
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    // Access top of the stack element
+    // Initialize the stack
     let mut stack = ArrayStack::<i32>::new();
 
-    // Elements push onto stack
+    // Push elements onto the stack
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -67,20 +67,20 @@ fn main() {
     print!("Stack stack = ");
     print_util::print_array(stack.to_array());
 
-    // Return list for printing
+    //Access the top element
     let peek = stack.peek().unwrap();
     print!("\nTop element peek = {}", peek);
 
-    // Element pop from stack
+    // Pop an element from the stack
     let pop = stack.pop().unwrap();
-    print!("\nPop element pop = {pop}, after pop stack = ");
+    print!("\nPopped element pop = {pop}; after popping, stack = ");
     print_util::print_array(stack.to_array());
 
-    // Get the length of the stack
+    // Get the stack size
     let size = stack.size();
-    print!("\nStack length size = {size}");
+    print!("\nStack size = {size}");
 
-    // Check if empty
+    // Check whether it is empty
     let is_empty = stack.is_empty();
-    print!("\nIs stack empty = {is_empty}");
+    print!("\nIs the stack empty? {is_empty}");
 }

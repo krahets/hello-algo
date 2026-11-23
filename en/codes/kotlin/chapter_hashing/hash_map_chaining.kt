@@ -10,8 +10,8 @@ package chapter_hashing
 class HashMapChaining {
     var size: Int // Number of key-value pairs
     var capacity: Int // Hash table capacity
-    val loadThres: Double // Load factor threshold for triggering expansion
-    val extendRatio: Int // Expansion multiplier
+    val loadThres: Double // Load factor threshold that triggers capacity growth
+    val extendRatio: Int // Capacity growth factor
     var buckets: MutableList<MutableList<Pair>> // Bucket array
 
     /* Constructor */
@@ -36,34 +36,34 @@ class HashMapChaining {
         return (size / capacity).toDouble()
     }
 
-    /* Query operation */
+    /* Lookup operation */
     fun get(key: Int): String? {
         val index = hashFunc(key)
         val bucket = buckets[index]
-        // Traverse bucket, if key is found, return corresponding val
+        // Traverse the bucket; if key is found, return its corresponding val
         for (pair in bucket) {
             if (pair.key == key) return pair._val
         }
-        // If key is not found, return null
+        // Return null if key is not found
         return null
     }
 
-    /* Add operation */
+    /* Insert operation */
     fun put(key: Int, _val: String) {
-        // When load factor exceeds threshold, perform expansion
+        // Grow the capacity when the load factor exceeds the threshold
         if (loadFactor() > loadThres) {
             extend()
         }
         val index = hashFunc(key)
         val bucket = buckets[index]
-        // Traverse bucket, if specified key is encountered, update corresponding val and return
+        // Traverse the bucket; if the specified key is found, update its val and return
         for (pair in bucket) {
             if (pair.key == key) {
                 pair._val = _val
                 return
             }
         }
-        // If key does not exist, append key-value pair to the end
+        // If key is absent, append the key-value pair at the end
         val pair = Pair(key, _val)
         bucket.add(pair)
         size++
@@ -73,7 +73,7 @@ class HashMapChaining {
     fun remove(key: Int) {
         val index = hashFunc(key)
         val bucket = buckets[index]
-        // Traverse bucket and remove key-value pair from it
+        // Traverse the bucket and remove the key-value pair
         for (pair in bucket) {
             if (pair.key == key) {
                 bucket.remove(pair)
@@ -83,19 +83,19 @@ class HashMapChaining {
         }
     }
 
-    /* Expand hash table */
+    /* Grow the hash table capacity */
     fun extend() {
-        // Temporarily store the original hash table
+        // Keep a reference to the original hash table
         val bucketsTmp = buckets
-        // Initialize expanded new hash table
+        // Initialize a new hash table with the expanded capacity
         capacity *= extendRatio
-        // mutablelist has no fixed size
+        // A mutable list has no fixed size
         buckets = mutableListOf()
         for (i in 0..<capacity) {
             buckets.add(mutableListOf())
         }
         size = 0
-        // Move key-value pairs from original hash table to new hash table
+        // Move the key-value pairs from the original hash table to the new one
         for (bucket in bucketsTmp) {
             for (pair in bucket) {
                 put(pair.key, pair._val)
@@ -103,7 +103,7 @@ class HashMapChaining {
         }
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     fun print() {
         for (bucket in buckets) {
             val res = mutableListOf<String>()
@@ -117,29 +117,29 @@ class HashMapChaining {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
-    /* Initialize hash table */
+    /* Initialize the hash table */
     val map = HashMapChaining()
 
-    /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    map.put(12836, "Xiao Ha")
-    map.put(15937, "Xiao Luo")
-    map.put(16750, "Xiao Suan")
-    map.put(13276, "Xiao Fa")
-    map.put(10583, "Xiao Ya")
-    println("\nAfter adding is complete, hash table is\nKey -> Value")
+    /* Insert operation */
+    // Insert the key-value pair (key, value) into the hash table
+    map.put(12836, "小哈")
+    map.put(15937, "小啰")
+    map.put(16750, "小算")
+    map.put(13276, "小法")
+    map.put(10583, "小鸭")
+    println("\nHash table after insertion:\nKey -> Value")
     map.print()
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup operation */
+    // Look up key in the hash table to obtain value
     val name = map.get(13276)
-    println("\nInput student ID 13276, found name $name")
+    println("\nLook up student ID 13276 to obtain the name $name")
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from hash table
+    // Remove the key-value pair (key, value) from the hash table
     map.remove(12836)
-    println("\nAfter removing 12836, hash table is\nKey -> Value")
+    println("\nHash table after removing 12836:\nKey -> Value")
     map.print()
 }

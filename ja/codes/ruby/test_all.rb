@@ -11,13 +11,13 @@ files.each do |file|
   errors << stderr unless status.success?
 end
 
-puts "\x1b[34mTested #{files.count} files\x1b[m"
+puts "\x1b[34m#{files.count} 個のファイルをテストしました\x1b[m"
 
 unless errors.empty?
-  puts "\x1b[33mFound exception in #{errors.length} files\x1b[m"
+  puts "\x1b[33m#{errors.length} 個のファイルで例外が見つかりました\x1b[m"
   raise errors.join("\n\n")
 else
-  puts "\x1b[32mPASS\x1b[m"
+  puts "\x1b[32m合格\x1b[m"
 end
 
-puts "Testing finishes after #{((Time.now - start_time) * 1000).round} ms"
+puts "#{((Time.now - start_time) * 1000).round} ms でテストが終了しました"

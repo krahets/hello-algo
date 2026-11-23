@@ -8,33 +8,33 @@ use hello_algo_rust::include::print_util;
 
 /* Max heap */
 struct MaxHeap {
-    // Use vector instead of array to avoid capacity concerns
+    // Use a vector instead of a fixed-size array so that capacity grows automatically
     max_heap: Vec<i32>,
 }
 
 impl MaxHeap {
-    /* Constructor, build heap based on input list */
+    /* Constructor: build a heap from the input list */
     fn new(nums: Vec<i32>) -> Self {
-        // Add list elements to heap as is
+        // Place the list elements in the heap without changing their order
         let mut heap = MaxHeap { max_heap: nums };
-        // Heapify all nodes except leaf nodes
+        // Sift down from every non-leaf node
         for i in (0..=Self::parent(heap.size() - 1)).rev() {
             heap.sift_down(i);
         }
         heap
     }
 
-    /* Get index of left child node */
+    /* Get the left child index */
     fn left(i: usize) -> usize {
         2 * i + 1
     }
 
-    /* Get index of right child node */
+    /* Get the right child index */
     fn right(i: usize) -> usize {
         2 * i + 2
     }
 
-    /* Get index of parent node */
+    /* Get the parent index */
     fn parent(i: usize) -> usize {
         (i - 1) / 2 // Floor division
     }
@@ -44,69 +44,69 @@ impl MaxHeap {
         self.max_heap.swap(i, j);
     }
 
-    /* Get heap size */
+    /* Get the heap size */
     fn size(&self) -> usize {
         self.max_heap.len()
     }
 
-    /* Check if heap is empty */
+    /* Check whether the heap is empty */
     fn is_empty(&self) -> bool {
         self.max_heap.is_empty()
     }
 
-    /* Access top element */
+    /* Access the top element of the heap */
     fn peek(&self) -> Option<i32> {
         self.max_heap.first().copied()
     }
 
-    /* Element enters heap */
+    /* Push an element onto the heap */
     fn push(&mut self, val: i32) {
-        // Add node
+        // Add a node
         self.max_heap.push(val);
-        // Heapify from bottom to top
+        // Sift up
         self.sift_up(self.size() - 1);
     }
 
-    /* Starting from node i, heapify from bottom to top */
+    /* Sift up starting from node i */
     fn sift_up(&mut self, mut i: usize) {
         loop {
-            // Node i is already the heap root, end heapification
+            // Stop sifting up if node i is already the root
             if i == 0 {
                 break;
             }
-            // Get parent node of node i
+            // Get the parent of node i
             let p = Self::parent(i);
-            // When "node needs no repair", end heapification
+            // Stop sifting up when the node already satisfies the heap property
             if self.max_heap[i] <= self.max_heap[p] {
                 break;
             }
-            // Swap two nodes
+            // Swap the two nodes
             self.swap(i, p);
-            // Loop upward heapify
+            // Continue sifting up
             i = p;
         }
     }
 
-    /* Element exits heap */
+    /* Pop an element from the heap */
     fn pop(&mut self) -> i32 {
-        // Handle empty case
+        // Handle an empty heap
         if self.is_empty() {
-            panic!("index out of bounds");
+            panic!("Index out of bounds");
         }
-        // Delete node
+        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
         self.swap(0, self.size() - 1);
-        // Remove node
+        // Remove a node
         let val = self.max_heap.pop().unwrap();
-        // Return top element
+        // Sift down
         self.sift_down(0);
-        // Return heap top element
+        // Return the top element of the heap
         val
     }
 
-    /* Starting from node i, heapify from top to bottom */
+    /* Sift down starting from node i */
     fn sift_down(&mut self, mut i: usize) {
         loop {
-            // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
+            // Find the node with the largest value among i, l, and r, and store its index in ma
             let (l, r, mut ma) = (Self::left(i), Self::right(i), i);
             if l < self.size() && self.max_heap[l] > self.max_heap[ma] {
                 ma = l;
@@ -114,52 +114,52 @@ impl MaxHeap {
             if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
                 ma = r;
             }
-            // Swap two nodes
+            // Stop if node i is largest or both child indices l and r are out of bounds
             if ma == i {
                 break;
             }
-            // Swap two nodes
+            // Swap the two nodes
             self.swap(i, ma);
-            // Loop downwards heapification
+            // Continue sifting down
             i = ma;
         }
     }
 
-    /* Driver Code */
+    /* Print the heap (binary tree) */
     fn print(&self) {
         print_util::print_heap(self.max_heap.clone());
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    /* Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap */
+    /* Initialize a max heap */
     let mut max_heap = MaxHeap::new(vec![9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    println!("\nAfter inputting list and building heap");
+    println!("\nAfter building a heap from the input list:");
     max_heap.print();
 
-    /* Check if heap is empty */
+    /* Get the top element of the heap */
     let peek = max_heap.peek();
     if let Some(peek) = peek {
-        println!("\nHeap top element is {}", peek);
+        println!("\nTop element: {}", peek);
     }
 
-    /* Element enters heap */
+    /* Push an element onto the heap */
     let val = 7;
     max_heap.push(val);
-    println!("\nAfter element {} pushes to heap", val);
+    println!("\nAfter pushing element {} into the heap", val);
     max_heap.print();
 
-    /* Time complexity is O(n), not O(nlogn) */
+    /* Pop the top element from the heap */
     let peek = max_heap.pop();
-    println!("\nAfter heap top element {} pops from heap", peek);
+    println!("\nAfter removing the top element {} from the heap", peek);
     max_heap.print();
 
-    /* Get heap size */
+    /* Get the heap size */
     let size = max_heap.size();
-    println!("\nHeap size is {}", size);
+    println!("\nNumber of heap elements: {}", size);
 
-    /* Check if heap is empty */
+    /* Check whether the heap is empty */
     let is_empty = max_heap.is_empty();
-    println!("\nIs heap empty {}", is_empty);
+    println!("\nIs the heap empty? {}", is_empty);
 }

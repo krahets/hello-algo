@@ -4,10 +4,10 @@
  * Author: gyt95 (gytkwan@gmail.com)
  */
 
-/* Method 1: Brute force enumeration */
+/* Method 1: brute-force enumeration */
 function twoSumBruteForce(nums, target) {
     const n = nums.length;
-    // Two nested loops, time complexity is O(n^2)
+    // Two nested loops give a time complexity of O(n^2)
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] === target) {
@@ -18,11 +18,11 @@ function twoSumBruteForce(nums, target) {
     return [];
 }
 
-/* Method 2: Auxiliary hash table */
+/* Method 2: auxiliary hash table */
 function twoSumHashTable(nums, target) {
-    // Auxiliary hash table, space complexity is O(n)
+    // The auxiliary hash table uses O(n) space
     let m = {};
-    // Single loop, time complexity is O(n)
+    // A single loop gives a time complexity of O(n)
     for (let i = 0; i < nums.length; i++) {
         if (m[target - nums[i]] !== undefined) {
             return [m[target - nums[i]], i];
@@ -33,14 +33,14 @@ function twoSumHashTable(nums, target) {
     return [];
 }
 
-/* Driver Code */
+/* Driver code */
 // Method 1
 const nums = [2, 7, 11, 15],
     target = 13;
 
 let res = twoSumBruteForce(nums, target);
-console.log('Method 1 res = ', res);
+console.log('Method 1: res = ', res);
 
 // Method 2
 res = twoSumHashTable(nums, target);
-console.log('Method 2 res = ', res);
+console.log('Method 2: res = ', res);

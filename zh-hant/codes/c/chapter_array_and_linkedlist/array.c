@@ -75,7 +75,7 @@ int main() {
 
     /* 初始化陣列 */
     int size = 5;
-    int arr[5];
+    int arr[5] = {0};
     printf("陣列 arr = ");
     printArray(arr, size);
 

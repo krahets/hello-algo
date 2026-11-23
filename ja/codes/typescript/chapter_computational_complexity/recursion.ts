@@ -8,25 +8,25 @@
 function recur(n: number): number {
     // 終了条件
     if (n === 1) return 1;
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     const res = recur(n - 1);
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     return n + res;
 }
 
-/* 反復で再帰を模擬する */
+/* 反復を使って再帰を再現する */
 function forLoopRecur(n: number): number {
-    // 明示的なスタックを使ってシステムコールスタックを模擬する
+    // 明示的なスタックを使って、システムの呼び出しスタックを再現する 
     const stack: number[] = [];
     let res: number = 0;
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     for (let i = n; i > 0; i--) {
-        // 「スタックへのプッシュ」で「再帰」を模擬する
+        // 「プッシュ操作」で再帰の「往路」を再現する
         stack.push(i);
     }
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     while (stack.length) {
-        // 「スタックから取り出す操作」で「帰り」をシミュレート
+        // 「ポップ操作」で再帰の「復路」を再現する
         res += stack.pop();
     }
     // res = 1+2+3+...+n
@@ -45,24 +45,24 @@ function tailRecur(n: number, res: number): number {
 function fib(n: number): number {
     // 終了条件 f(1) = 0, f(2) = 1
     if (n === 1 || n === 2) return n - 1;
-    // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+    // 再帰呼び出し f(n) = f(n-1) + f(n-2)
     const res = fib(n - 1) + fib(n - 2);
     // 結果 f(n) を返す
     return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 const n = 5;
 let res: number;
 
 res = recur(n);
-console.log(`再帰関数の合計結果 res = ${res}`);
+console.log(`再帰関数で求めた和 res = ${res}`);
 
 res = forLoopRecur(n);
-console.log(`反復で再帰をシミュレートした合計結果 res = ${res}`);
+console.log(`反復で再帰を再現して求めた和 res = ${res}`);
 
 res = tailRecur(n, 0);
-console.log(`末尾再帰関数の合計結果 res = ${res}`);
+console.log(`末尾再帰関数で求めた和 res = ${res}`);
 
 res = fib(n);
 console.log(`フィボナッチ数列の第 ${n} 項は ${res}`);

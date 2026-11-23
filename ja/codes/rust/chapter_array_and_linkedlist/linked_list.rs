@@ -8,7 +8,7 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 連結リストでノード n0 の後ろにノード P を挿入する */
+/* 連結リストのノード n0 の直後にノード P を挿入する */
 #[allow(non_snake_case)]
 pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     let n1 = n0.borrow_mut().next.take();
@@ -16,7 +16,7 @@ pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     n0.borrow_mut().next = Some(P);
 }
 
-/* 連結リストでノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後のノードを削除する */
 #[allow(non_snake_case)]
 pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     // n0 -> P -> n1
@@ -27,7 +27,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* 連結リスト内で index 番目のノードにアクセス */
+/* 連結リストのインデックス index にあるノードにアクセスする */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
     fn dfs<T>(
         head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -47,7 +47,7 @@ pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCel
     dfs(Some(head).as_ref(), index)
 }
 
-/* 連結リストで値が target の最初のノードを探す */
+/* 連結リストから値が target である最初のノードを探索する */
 pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     fn find<T: PartialEq>(head: Option<&Rc<RefCell<ListNode<T>>>>, target: T, idx: i32) -> i32 {
         if let Some(node) = head {
@@ -63,38 +63,38 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     find(Some(head).as_ref(), target, 0)
 }
 
-/* Driver Code */
+/* 実行用コード */
 fn main() {
-    /* 連結リストを初期化 */
-    // 各ノードを初期化
+    /* 連結リストを初期化する */
+    // 各ノードを初期化する
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
-    // ノード間の参照を構築する
+    // ノード間の参照を設定する
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("初期化された連結リストは ");
+    print!("初期化した連結リスト ");
     print_util::print_linked_list(&n0);
 
-    /* ノードを挿入 */
+    /* ノードを挿入する */
     insert(&n0, ListNode::new(0));
-    print!("ノード挿入後の連結リストは ");
+    print!("ノードを挿入した後の連結リスト ");
     print_util::print_linked_list(&n0);
 
-    /* ノードを削除 */
+    /* ノードを削除する */
     remove(&n0);
-    print!("ノード削除後の連結リストは ");
+    print!("ノードを削除した後の連結リスト ");
     print_util::print_linked_list(&n0);
 
-    /* ノードにアクセス */
+    /* ノードにアクセスする */
     let node = access(n0.clone(), 3);
     println!("連結リストのインデックス 3 にあるノードの値 = {}", node.unwrap().borrow().val);
 
-    /* ノードを探索 */
+    /* ノードを探索する */
     let index = find(n0.clone(), 2);
-    println!("連結リスト内で値が 2 のノードのインデックス = {}", index);
+    println!("連結リスト内で値が 2 であるノードのインデックス = {}", index);
 }

@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 def dfs(nums: list[int], target: int, i: int, j: int) -> int:
-    """Бинарный поиск: задача f(i, j)"""
+    """Двоичный поиск: задача f(i, j)"""
     # Если интервал пуст, целевой элемент отсутствует, вернуть -1
     if i > j:
         return -1
@@ -24,7 +24,7 @@ def dfs(nums: list[int], target: int, i: int, j: int) -> int:
 
 
 def binary_search(nums: list[int], target: int) -> int:
-    """Бинарный поиск"""
+    """Двоичный поиск"""
     n = len(nums)
     # Решить задачу f(0, n-1)
     return dfs(nums, target, 0, n - 1)
@@ -35,6 +35,6 @@ if __name__ == "__main__":
     target = 6
     nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
-    # Бинарный поиск (двусторонне замкнутый интервал)
+    # Двоичный поиск (замкнутый интервал)
     index = binary_search(nums, target)
     print("Индекс целевого элемента 6 = ", index)

@@ -14,10 +14,10 @@ func TestQuickSort(t *testing.T) {
 	q := quickSort{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("After quick sort completes, nums = ", nums)
+	fmt.Println("After quick sort, nums = ", nums)
 }
 
-// Quick sort (recursion depth optimization)
+// Quick sort (median pivot optimization)
 func TestQuickSortMedian(t *testing.T) {
 	q := quickSortMedian{}
 	nums := []int{4, 1, 3, 1, 5, 2}

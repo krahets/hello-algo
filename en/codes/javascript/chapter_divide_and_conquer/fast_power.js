@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Exponentiation by squaring */
+/* Fast exponentiation */
 function fastPow(x, n) {
     if (n === 0) {
         return 1;
@@ -17,5 +17,5 @@ function fastPow(x, n) {
 }
 
 if (fastPow(7, 0) !== 1 || fastPow(3, 5) !== 243 || fastPow(2, 6) !== 64) {
-    throw new Error('fast power check failed');
+    throw new Error('Fast power check failed');
 }

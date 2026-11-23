@@ -1,0 +1,8 @@
+<!--
+    File: max_capacity.md
+    Created Time: 2024-01-05
+    Author: krahets (krahets@163.com)
+--->
+
+<!-- [file]{max_capacity}-[class]{}-[func]{max_capacity} -->
+https://pythontutor.com/render.html#code=def%20max_capacity%28ht%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22Maximum%20container%20capacity%3A%20greedy%20algorithm%22%22%22%0A%20%20%20%20%23%20Initialize%20i%20and%20j%20at%20opposite%20ends%20of%20the%20array%0A%20%20%20%20i,%20j%20%3D%200,%20len%28ht%29%20-%201%0A%20%20%20%20%23%20The%20initial%20maximum%20capacity%20is%200%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20Repeatedly%20make%20greedy%20choices%20until%20the%20two%20sides%20meet%0A%20%20%20%20while%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20%23%20Update%20the%20maximum%20capacity%0A%20%20%20%20%20%20%20%20cap%20%3D%20min%28ht%5Bi%5D,%20ht%5Bj%5D%29%20%2A%20%28j%20-%20i%29%0A%20%20%20%20%20%20%20%20res%20%3D%20max%28res,%20cap%29%0A%20%20%20%20%20%20%20%20%23%20Move%20the%20shorter%20side%20inward%0A%20%20%20%20%20%20%20%20if%20ht%5Bi%5D%20%3C%20ht%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20ht%20%3D%20%5B3,%208,%205,%202,%207,%207,%203,%204%5D%0A%0A%20%20%20%20%23%20Greedy%20algorithm%0A%20%20%20%20res%20%3D%20max_capacity%28ht%29%0A%20%20%20%20print%28f%22Maximum%20capacity%3A%20%7Bres%7D%22%29&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

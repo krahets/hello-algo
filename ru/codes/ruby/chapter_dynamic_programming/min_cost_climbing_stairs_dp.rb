@@ -17,7 +17,7 @@ def min_cost_climbing_stairs_dp(cost)
   dp[n]
 end
 
-# Минимальная стоимость подъема по лестнице: динамическое программирование с оптимизацией памяти
+### Минимальная стоимость подъема по лестнице: динамическое программирование с оптимизацией памяти ###
 def min_cost_climbing_stairs_dp_comp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2

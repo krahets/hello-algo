@@ -6,46 +6,46 @@
 
 @main
 enum List {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Initialize list */
+        /* Initialize the list */
         var nums = [1, 3, 2, 5, 4]
         print("List nums = \(nums)")
 
-        /* Update element */
+        /* Access an element */
         let num = nums[1]
-        print("Access element at index 1, get num = \(num)")
+        print("Access the element at index 1; num = \(num)")
 
-        /* Add elements at the end */
+        /* Update an element */
         nums[1] = 0
-        print("Update element at index 1 to 0, get nums = \(nums)")
+        print("After updating the element at index 1 to 0, nums = \(nums)")
 
-        /* Remove element */
+        /* Clear the list */
         nums.removeAll()
-        print("After clearing list, nums = \(nums)")
+        print("After clearing the list, nums = \(nums)")
 
-        /* Direct traversal of list elements */
+        /* Append at the end */
         nums.append(1)
         nums.append(3)
         nums.append(2)
         nums.append(5)
         nums.append(4)
-        print("After adding elements, nums = \(nums)")
+        print("After appending elements, nums = \(nums)")
 
-        /* Sort list */
+        /* Insert an element in the middle */
         nums.insert(6, at: 3)
-        print("Insert number 6 at index 3, get nums = \(nums)")
+        print("After inserting 6 at index 3, nums = \(nums)")
 
-        /* Remove element */
+        /* Remove an element */
         nums.remove(at: 3)
-        print("Delete element at index 3, get nums = \(nums)")
+        print("After removing the element at index 3, nums = \(nums)")
 
-        /* Traverse list by index */
+        /* Traverse the list by index */
         var count = 0
         for i in nums.indices {
             count += nums[i]
         }
-        /* Directly traverse list elements */
+        /* Iterate directly over the list elements */
         count = 0
         for x in nums {
             count += x
@@ -54,10 +54,10 @@ enum List {
         /* Concatenate two lists */
         let nums1 = [6, 8, 7, 10, 9]
         nums.append(contentsOf: nums1)
-        print("After concatenating list nums1 to nums, get nums = \(nums)")
+        print("After appending list nums1 to nums, nums = \(nums)")
 
-        /* Sort list */
+        /* Sort the list */
         nums.sort()
-        print("After sorting list, nums = \(nums)")
+        print("After sorting the list, nums = \(nums)")
     }
 }

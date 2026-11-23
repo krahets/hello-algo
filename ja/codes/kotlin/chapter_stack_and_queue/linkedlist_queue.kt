@@ -6,9 +6,9 @@
 
 package chapter_stack_and_queue
 
-/* 連結リストベースのキュー */
+/* 連結リストで実装したキュー */
 class LinkedListQueue(
-    // 先頭ノード front、末尾ノード rear
+    // 先頭ノード front 、末尾ノード rear
     private var front: ListNode? = null,
     private var rear: ListNode? = null,
     private var queSize: Int = 0
@@ -19,20 +19,20 @@ class LinkedListQueue(
         return queSize
     }
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     fun isEmpty(): Boolean {
         return size() == 0
     }
 
     /* エンキュー */
     fun push(num: Int) {
-        // 末尾ノードの後ろに num を追加
+        // 末尾ノードの後ろに num を追加する
         val node = ListNode(num)
-        // キューが空なら、先頭・末尾ノードをともにそのノードに設定
+        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
         if (front == null) {
             front = node
             rear = node
-            // キューが空でなければ、そのノードを末尾ノードの後ろに追加
+            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
         } else {
             rear?.next = node
             rear = node
@@ -43,13 +43,13 @@ class LinkedListQueue(
     /* デキュー */
     fun pop(): Int {
         val num = peek()
-        // 先頭ノードを削除
+        // 先頭ノードを削除する
         front = front?.next
         queSize--
         return num
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return front!!._val
@@ -67,12 +67,12 @@ class LinkedListQueue(
     }
 }
 
-/* Driver Code */
+/* 実行用コード */
 fun main() {
-    /* キューを初期化 */
+    /* キューを初期化する */
     val queue = LinkedListQueue()
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -80,11 +80,11 @@ fun main() {
     queue.push(4)
     println("キュー queue = ${queue.toArray().contentToString()}")
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     val peek = queue.peek()
-    println("先頭要素 peek = $peek")
+    println("キューの先頭要素 peek = $peek")
 
-    /* 要素をデキュー */
+    /* 要素をデキューする */
     val pop = queue.pop()
     println("デキューした要素 pop = $pop、デキュー後 queue = ${queue.toArray().contentToString()}")
 
@@ -92,7 +92,7 @@ fun main() {
     val size = queue.size()
     println("キューの長さ size = $size")
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     val isEmpty = queue.isEmpty()
-    println("キューが空かどうか = $isEmpty")
+    println("キューは空か = $isEmpty")
 }

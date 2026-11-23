@@ -25,7 +25,7 @@ enum Queue {
         print("Первый элемент peek = \(peek)")
 
         /* Извлечение элемента из очереди */
-        // При использовании Array для имитации pop имеет сложность O(n)
+        // При использовании Array для имитации removeFirst имеет сложность O(n)
         let pop = queue.removeFirst()
         print("Извлеченный элемент pop = \(pop), queue после извлечения = \(queue)")
 

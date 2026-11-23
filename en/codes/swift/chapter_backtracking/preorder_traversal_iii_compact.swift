@@ -9,16 +9,16 @@ import utils
 var path: [TreeNode] = []
 var res: [[TreeNode]] = []
 
-/* Preorder traversal: Example 3 */
+/* Preorder traversal: example 3 */
 func preOrder(root: TreeNode?) {
-    // Pruning
+    // Prune
     guard let root = root, root.val != 3 else {
         return
     }
-    // Attempt
+    // Try
     path.append(root)
     if root.val == 7 {
-        // Record solution
+        // Record the solution
         res.append(path)
     }
     preOrder(root: root.left)
@@ -29,10 +29,10 @@ func preOrder(root: TreeNode?) {
 
 @main
 enum PreorderTraversalIIICompact {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\nInitialize binary tree")
+        print("\nInitialize the binary tree")
         PrintUtil.printTree(root: root)
 
         // Preorder traversal
@@ -40,7 +40,7 @@ enum PreorderTraversalIIICompact {
         res = []
         preOrder(root: root)
 
-        print("\nOutput all paths from root node to node 7, paths do not include nodes with value 3")
+        print("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
         for path in res {
             var vals: [Int] = []
             for node in path {

@@ -10,7 +10,7 @@
 1. **分**：递归地将原数组（原问题）划分为两个子数组（子问题），直到子数组只剩一个元素（最小子问题）。
 2. **治**：从底至顶地将有序的子数组（子问题的解）进行合并，从而得到有序的原数组（原问题的解）。
 
-![归并排序的分治策略](divide_and_conquer.assets/divide_and_conquer_merge_sort.png)
+![归并排序的分治策略](divide_and_conquer.assets/divide_and_conquer_merge_sort.svg)
 
 ## 如何判断分治问题
 
@@ -40,7 +40,7 @@ $$
 O(n + (\frac{n}{2})^2 \times 2 + n) = O(\frac{n^2}{2} + 2n)
 $$
 
-![划分数组前后的冒泡排序](divide_and_conquer.assets/divide_and_conquer_bubble_sort.png)
+![划分数组前后的冒泡排序](divide_and_conquer.assets/divide_and_conquer_bubble_sort.svg)
 
 接下来，我们计算以下不等式，其左边和右边分别为划分前和划分后的操作总数：
 
@@ -66,7 +66,7 @@ $$
 
 比如在下图所示的“桶排序”中，我们将海量的数据平均分配到各个桶中，则可将所有桶的排序任务分散到各个计算单元，完成后再合并结果。
 
-![桶排序的并行计算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.png)
+![桶排序的并行计算](divide_and_conquer.assets/divide_and_conquer_parallel_computing.svg)
 
 ## 分治常见应用
 

@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Access top of the stack element */
+    /* Initialize the stack */
     stack<int> stack;
 
-    /* Elements push onto stack */
+    /* Push elements onto the stack */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -20,22 +20,22 @@ int main() {
     cout << "Stack stack = ";
     printStack(stack);
 
-    /* Return list for printing */
+    /* Access the top element */
     int top = stack.top();
-    cout << "Stack top element top = " << top << endl;
+    cout << "Top element top = " << top << endl;
 
-    /* Element pop from stack */
+    /* Pop an element from the stack */
     stack.pop(); // No return value
-    cout << "Pop element pop = " << top << ", after pop, stack = ";
+    cout << "Popped element pop = " << top << "; after popping, stack = ";
     printStack(stack);
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     int size = stack.size();
-    cout << "Stack length size = " << size << endl;
+    cout << "Stack size = " << size << endl;
 
-    /* Check if empty */
+    /* Check whether it is empty */
     bool empty = stack.empty();
-    cout << "Stack is empty = " << empty << endl;
+    cout << "Is the stack empty = " << empty << endl;
 
     return 0;
 }

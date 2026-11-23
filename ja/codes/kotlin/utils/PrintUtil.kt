@@ -10,7 +10,7 @@ import java.util.*
 
 class Trunk(var prev: Trunk?, var str: String)
 
-/* 行列を出力する（Array） */
+/* 行列を表示する（Array） */
 fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("[")
     for (row in matrix) {
@@ -19,7 +19,7 @@ fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("]")
 }
 
-/* 行列を出力する（List） */
+/* 行列を表示する（List） */
 fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("[")
     for (row in matrix) {
@@ -28,7 +28,7 @@ fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("]")
 }
 
-/* 連結リストを出力 */
+/* 連結リストを表示する */
 fun printLinkedList(h: ListNode?) {
     var head = h
     val list = mutableListOf<String>()
@@ -39,14 +39,14 @@ fun printLinkedList(h: ListNode?) {
     println(list.joinToString(separator = " -> "))
 }
 
-/* 二分木を出力 */
+/* 二分木を表示する */
 fun printTree(root: TreeNode?) {
     printTree(root, null, false)
 }
 
 /**
- * 二分木を出力
- * This tree printer is borrowed from TECHIE DELIGHT
+ * 二分木を表示する
+ * この木の表示処理は TECHIE DELIGHT から借用した
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
@@ -88,14 +88,14 @@ fun showTrunks(p: Trunk?) {
     print(p.str)
 }
 
-/* ハッシュテーブルを出力 */
+/* ハッシュテーブルを表示する */
 fun <K, V> printHashMap(map: Map<K, V>) {
     for ((key, value) in map) {
         println("${key.toString()} -> $value")
     }
 }
 
-/* ヒープを出力 */
+/* ヒープを表示する */
 fun printHeap(queue: Queue<Int>?) {
     val list = mutableListOf<Int?>()
     queue?.let { list.addAll(it) }

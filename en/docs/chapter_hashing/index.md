@@ -1,9 +1,9 @@
-# Hashing
+# Hash tables
 
-![Hashing](../assets/covers/chapter_hashing.jpg)
+![Hash tables](../assets/covers/chapter_hashing.jpg)
 
 !!! abstract
 
-    In the world of computing, a hash table is like a clever librarian.
-
-    It knows how to compute call numbers, allowing it to quickly locate the desired book.
+    In the world of computers, a hash table is like a knowledgeable librarian.
+    
+    Knowing how to calculate a call number lets the librarian find the desired book quickly.

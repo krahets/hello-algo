@@ -12,7 +12,7 @@ from modules import TreeNode, list_to_tree, print_tree
 
 
 def pre_order(root: TreeNode | None):
-    """先行順走査"""
+    """行きがけ順走査"""
     if root is None:
         return
     # 訪問順序：根ノード -> 左部分木 -> 右部分木
@@ -22,44 +22,44 @@ def pre_order(root: TreeNode | None):
 
 
 def in_order(root: TreeNode | None):
-    """中順走査"""
+    """通りがけ順走査"""
     if root is None:
         return
-    # 訪問優先順: 左部分木 -> 根ノード -> 右部分木
+    # 訪問順序：左部分木 -> 根ノード -> 右部分木
     in_order(root=root.left)
     res.append(root.val)
     in_order(root=root.right)
 
 
 def post_order(root: TreeNode | None):
-    """後順走査"""
+    """帰りがけ順走査"""
     if root is None:
         return
-    # 訪問優先順: 左部分木 -> 右部分木 -> 根ノード
+    # 訪問順序：左部分木 -> 右部分木 -> 根ノード
     post_order(root=root.left)
     post_order(root=root.right)
     res.append(root.val)
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
-    # 二分木を初期化
-    # ここでは、配列から直接二分木を生成する関数を利用する
+    # 二分木を初期化する
+    # ここでは配列から二分木を直接生成する関数を使う
     root = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7])
-    print("\n二分木を初期化\n")
+    print("\n二分木を初期化する\n")
     print_tree(root)
 
-    # 先行順走査
+    # 行きがけ順走査
     res = []
     pre_order(root)
-    print("\n先行順走査のノード出力シーケンス = ", res)
+    print("\n行きがけ順走査で表示するノードの順序 = ", res)
 
-    # 中順走査
+    # 通りがけ順走査
     res.clear()
     in_order(root)
-    print("\n中間順走査のノード出力シーケンス = ", res)
+    print("\n通りがけ順走査で表示するノードの順序 = ", res)
 
-    # 後順走査
+    # 帰りがけ順走査
     res.clear()
     post_order(root)
-    print("\n後行順走査のノード出力シーケンス = ", res)
+    print("\n帰りがけ順走査で表示するノードの順序 = ", res)

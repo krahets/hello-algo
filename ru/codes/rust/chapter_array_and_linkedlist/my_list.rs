@@ -47,7 +47,7 @@ impl MyList {
         return self.arr[index];
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     pub fn set(&mut self, index: usize, num: i32) {
         if index >= self.size {
             panic!("индекс выходит за границы")
@@ -75,7 +75,7 @@ impl MyList {
         if self.size == self.capacity() {
             self.extend_capacity();
         }
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for j in (index..self.size).rev() {
             self.arr[j + 1] = self.arr[j];
         }
@@ -90,7 +90,7 @@ impl MyList {
             panic!("индекс выходит за границы")
         };
         let num = self.arr[index];
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for j in index..self.size - 1 {
             self.arr[j] = self.arr[j + 1];
         }
@@ -148,9 +148,9 @@ fn main() {
     let num = nums.get(1);
     println!("\nЭлемент по индексу 1: num = {num}");
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     nums.set(1, 0);
-    print!("После обновления элемента по индексу 1 до 0 nums = ");
+    print!("После изменения значения элемента с индексом 1 на 0 nums = ");
     print_util::print_array(&nums.to_array());
 
     /* Проверка механизма расширения */

@@ -5,8 +5,8 @@
 package chapter_array_and_linkedlist
 
 /**
-We treat Go Slice as Array here. This reduces
-the learning cost and allows us to focus on data structures and algorithms.
+We treat Go slices as arrays in these examples. This simplifies the explanation
+and lets us focus on data structures and algorithms.
 */
 
 import (
@@ -14,37 +14,37 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* Driver code */
 func TestArray(t *testing.T) {
-	/* Initialize array */
+	/* Initialize the array */
 	var arr [5]int
 	fmt.Println("Array arr =", arr)
-	// In Go, specifying length ([5]int) creates an array, not specifying length ([]int) creates a slice
-	// Since Go arrays are designed to have their length determined at compile time, only constants can be used to specify the length
-	// For convenience in implementing the extend() function, slices are treated as arrays below
+	// In Go, a type with a specified length ([5]int) is an array; without a length ([]int), it is a slice
+	// Go array lengths are determined at compile time, so the length must be a constant
+	// To make the extend() function easier to implement, we treat slices as arrays below
 	nums := []int{1, 3, 2, 5, 4}
 	fmt.Println("Array nums =", nums)
 
-	/* Insert element */
+	/* Random access */
 	randomNum := randomAccess(nums)
-	fmt.Println("Get random element in nums", randomNum)
+	fmt.Println("Randomly selected element from nums:", randomNum)
 
-	/* Traverse array */
+	/* Extend the length */
 	nums = extend(nums, 3)
-	fmt.Println("Extend array length to 8, get nums =", nums)
+	fmt.Println("Extend the array length to 8, giving nums =", nums)
 
-	/* Insert element */
+	/* Insert an element */
 	insert(nums, 6, 3)
-	fmt.Println("Insert number 6 at index 3, get nums =", nums)
+	fmt.Println("Insert the number 6 at index 3, giving nums =", nums)
 
-	/* Remove element */
+	/* Remove an element */
 	remove(nums, 2)
-	fmt.Println("Remove element at index 2, get nums =", nums)
+	fmt.Println("Remove the element at index 2, giving nums =", nums)
 
-	/* Traverse array */
+	/* Traverse the array */
 	traverse(nums)
 
-	/* Find element */
+	/* Find an element */
 	index := find(nums, 3)
-	fmt.Println("Find element 3 in nums, get index =", index)
+	fmt.Println("Find element 3 in nums, giving index =", index)
 }

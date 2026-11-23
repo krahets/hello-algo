@@ -6,22 +6,22 @@
 
 #include "../utils/common.h"
 
-/* ハッシュテーブルのデフォルトサイズ */
+/* ハッシュテーブルの既定のサイズ */
 #define MAX_SIZE 100
 
-/* キーと値の組 int->string */
+/* キーと値のペア int->string */
 typedef struct {
     int key;
     char *val;
 } Pair;
 
-/* キーと値の組の集合 */
+/* キーと値のペアの集合 */
 typedef struct {
     void *set;
     int len;
 } MapSet;
 
-/* 配列ベースのハッシュテーブル */
+/* 配列で実装したハッシュテーブル */
 typedef struct {
     Pair *buckets[MAX_SIZE];
 } ArrayHashMap;
@@ -52,7 +52,7 @@ int hashFunc(int key) {
     return index;
 }
 
-/* 検索操作 */
+/* 取得操作 */
 const char *get(const ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     const Pair *Pair = hmap->buckets[index];
@@ -80,12 +80,12 @@ void removeItem(ArrayHashMap *hmap, const int key) {
     hmap->buckets[index] = NULL;
 }
 
-/* すべてのキーと値のペアを取得 */
+/* キーと値のペアをすべて取得する */
 void pairSet(ArrayHashMap *hmap, MapSet *set) {
     Pair *entries;
     int i = 0, index = 0;
     int total = 0;
-    /* 有効なキーと値のペア数を集計 */
+    /* 有効なキーと値のペアの数を数える */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -104,12 +104,12 @@ void pairSet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* すべてのキーを取得 */
+/* すべてのキーを取得する */
 void keySet(ArrayHashMap *hmap, MapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
-    /* 有効なキーと値のペア数を集計 */
+    /* 有効なキーと値のペアの数を数える */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -126,12 +126,12 @@ void keySet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* すべての値を取得 */
+/* すべての値を取得する */
 void valueSet(ArrayHashMap *hmap, MapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
-    /* 有効なキーと値のペア数を集計 */
+    /* 有効なキーと値のペアの数を数える */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -148,7 +148,7 @@ void valueSet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* ハッシュテーブルを出力 */
+/* ハッシュテーブルを表示する */
 void print(ArrayHashMap *hmap) {
     int i;
     MapSet set;
@@ -160,43 +160,43 @@ void print(ArrayHashMap *hmap) {
     free(set.set);
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* ハッシュテーブルを初期化 */
+    /* ハッシュテーブルを初期化する */
     ArrayHashMap *hmap = newArrayHashMap();
 
     /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加
-    put(hmap, 12836, "シャオハー");
-    put(hmap, 15937, "シャオルオ");
-    put(hmap, 16750, "シャオスワン");
-    put(hmap, 13276, "シャオファー");
-    put(hmap, 10583, "シャオヤー");
-    printf("\n追加完了後、ハッシュテーブルは\nKey -> Value\n");
+    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    put(hmap, 12836, "小哈");
+    put(hmap, 15937, "小啰");
+    put(hmap, 16750, "小算");
+    put(hmap, 13276, "小法");
+    put(hmap, 10583, "小鸭");
+    printf("\n追加後のハッシュテーブル\nKey -> Value\n");
     print(hmap);
 
-    /* 検索操作 */
-    // キー key をハッシュテーブルに渡し、値 value を取得
+    /* 取得操作 */
+    // ハッシュテーブルにキー key を渡し、値 value を取得する
     const char *name = get(hmap, 15937);
-    printf("\n学籍番号 15937 を入力すると、名前 %s が見つかりました\n", name);
+    printf("\n学生番号 15937 に対応する氏名は %s\n", name);
 
     /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除
+    // ハッシュテーブルからキーと値のペア (key, value) を削除する
     removeItem(hmap, 10583);
-    printf("\n10583 を削除した後、ハッシュテーブルは\nKey -> Value\n");
+    printf("\n10583 を削除した後のハッシュテーブル\nKey -> Value\n");
     print(hmap);
 
-    /* ハッシュテーブルを走査 */
+    /* ハッシュテーブルを走査する */
     int i;
 
-    printf("\nキーと値のペア Key->Value を走査\n");
+    printf("\nキーと値のペア Key->Value を走査する\n");
     print(hmap);
 
     MapSet set;
 
     keySet(hmap, &set);
     int *keys = (int *)set.set;
-    printf("\nキー Key のみを個別に走査\n");
+    printf("\nキー Key だけを走査する\n");
     for (i = 0; i < set.len; i++) {
         printf("%d\n", keys[i]);
     }
@@ -204,7 +204,7 @@ int main() {
 
     valueSet(hmap, &set);
     char **vals = (char **)set.set;
-    printf("\nValue のみを個別に走査\n");
+    printf("\nキー Value だけを走査する\n");
     for (i = 0; i < set.len; i++) {
         printf("%s\n", vals[i]);
     }

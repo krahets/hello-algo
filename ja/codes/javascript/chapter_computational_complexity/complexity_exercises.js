@@ -21,7 +21,7 @@ function sumRecur(n) {
     return n + sumRecur(n - 1);
 }
 
-/* 線形時間のループ */
+/* 線形オーダーのループ */
 function linearLoop(n) {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ function linearLoop(n) {
     return res;
 }
 
-/* 二次時間のループ */
+/* 二次オーダーのループ */
 function quadraticLoop(n) {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -41,7 +41,7 @@ function quadraticLoop(n) {
     return res;
 }
 
-/* 対数時間のループ */
+/* 対数オーダーのループ */
 function logarithmicLoop(n) {
     while (n > 1) {
         n = Math.floor(n / 2);
@@ -59,5 +59,5 @@ if (
     logarithmicLoop(4) !== 1 ||
     logarithmicLoop(5) !== 1
 ) {
-    throw new Error('complexity exercise check failed');
+    throw new Error('計算量の練習問題の検証に失敗しました');
 }

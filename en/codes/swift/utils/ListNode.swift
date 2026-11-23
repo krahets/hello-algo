@@ -6,7 +6,7 @@
 
 public class ListNode: Hashable {
     public var val: Int // Node value
-    public var next: ListNode? // Successor node reference
+    public var next: ListNode? // Reference to the next node
 
     public init(x: Int) {
         val = x

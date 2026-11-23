@@ -13,7 +13,7 @@
 
 在原始哈希表中，每个桶仅能存储一个键值对。<u>链式地址（separate chaining）</u>将单个元素转换为链表，将键值对作为链表节点，将所有发生冲突的键值对都存储在同一链表中。下图展示了一个链式地址哈希表的例子。
 
-![链式地址哈希表](hash_collision.assets/hash_table_chaining.png)
+![链式地址哈希表](hash_collision.assets/hash_table_chaining.svg)
 
 基于链式地址实现的哈希表的操作方法发生了以下变化。
 
@@ -52,13 +52,13 @@
 
 下图展示了开放寻址（线性探测）哈希表的键值对分布。根据此哈希函数，最后两位相同的 `key` 都会被映射到相同的桶。而通过线性探测，它们被依次存储在该桶以及之下的桶中。
 
-![开放寻址（线性探测）哈希表的键值对分布](hash_collision.assets/hash_table_linear_probing.png)
+![开放寻址（线性探测）哈希表的键值对分布](hash_collision.assets/hash_table_linear_probing.svg)
 
 然而，**线性探测容易产生“聚集现象”**。具体来说，数组中连续被占用的位置越长，这些连续位置发生哈希冲突的可能性越大，从而进一步促使该位置的聚堆生长，形成恶性循环，最终导致增删查改操作效率劣化。
 
 值得注意的是，**我们不能在开放寻址哈希表中直接删除元素**。这是因为删除元素会在数组内产生一个空桶 `None` ，而当查询元素时，线性探测到该空桶就会返回，因此在该空桶之下的元素都无法再被访问到，程序可能误判这些元素不存在，如下图所示。
 
-![在开放寻址中删除元素导致的查询问题](hash_collision.assets/hash_table_open_addressing_deletion.png)
+![在开放寻址中删除元素导致的查询问题](hash_collision.assets/hash_table_open_addressing_deletion.svg)
 
 为了解决该问题，我们可以采用<u>懒删除（lazy deletion）</u>机制：它不直接从哈希表中移除元素，**而是利用一个常量 `TOMBSTONE` 来标记这个桶**。在该机制下，`None` 和 `TOMBSTONE` 都代表空桶，都可以放置键值对。但不同的是，线性探测到 `TOMBSTONE` 时应该继续遍历，因为其之下可能还存在键值对。
 

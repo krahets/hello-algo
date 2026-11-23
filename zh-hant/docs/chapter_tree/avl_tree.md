@@ -4,11 +4,11 @@
 
 如下圖所示，經過兩次刪除節點操作，這棵二元搜尋樹便會退化為鏈結串列。
 
-![AVL 樹在刪除節點後發生退化](avl_tree.assets/avltree_degradation_from_removing_node.png)
+![AVL 樹在刪除節點後發生退化](avl_tree.assets/avltree_degradation_from_removing_node.svg)
 
 再例如，在下圖所示的完美二元樹中插入兩個節點後，樹將嚴重向左傾斜，查詢操作的時間複雜度也隨之劣化。
 
-![AVL 樹在插入節點後發生退化](avl_tree.assets/avltree_degradation_from_inserting_node.png)
+![AVL 樹在插入節點後發生退化](avl_tree.assets/avltree_degradation_from_inserting_node.svg)
 
 1962 年 G. M. Adelson-Velsky 和 E. M. Landis 在論文“An algorithm for the organization of information”中提出了 <u>AVL 樹</u>。論文中詳細描述了一系列操作，確保在持續新增和刪除節點後，AVL 樹不會退化，從而使得各種操作的時間複雜度保持在 $O(\log n)$ 級別。換句話說，在需要頻繁進行增刪查改操作的場景中，AVL 樹能始終保持高效的資料操作效能，具有很好的應用價值。
 
@@ -20,213 +20,9 @@ AVL 樹既是二元搜尋樹，也是平衡二元樹，同時滿足這兩類二�
 
 由於 AVL 樹的相關操作需要獲取節點高度，因此我們需要為節點類別新增 `height` 變數：
 
-=== "Python"
-
-    ```python title=""
-    class TreeNode:
-        """AVL 樹節點類別"""
-        def __init__(self, val: int):
-            self.val: int = val                 # 節點值
-            self.height: int = 0                # 節點高度
-            self.left: TreeNode | None = None   # 左子節點引用
-            self.right: TreeNode | None = None  # 右子節點引用
-    ```
-
-=== "C++"
-
-    ```cpp title=""
-    /* AVL 樹節點類別 */
-    struct TreeNode {
-        int val{};          // 節點值
-        int height = 0;     // 節點高度
-        TreeNode *left{};   // 左子節點
-        TreeNode *right{};  // 右子節點
-        TreeNode() = default;
-        explicit TreeNode(int x) : val(x){}
-    };
-    ```
-
-=== "Java"
-
-    ```java title=""
-    /* AVL 樹節點類別 */
-    class TreeNode {
-        public int val;        // 節點值
-        public int height;     // 節點高度
-        public TreeNode left;  // 左子節點
-        public TreeNode right; // 右子節點
-        public TreeNode(int x) { val = x; }
-    }
-    ```
-
-=== "C#"
-
-    ```csharp title=""
-    /* AVL 樹節點類別 */
-    class TreeNode(int? x) {
-        public int? val = x;    // 節點值
-        public int height;      // 節點高度
-        public TreeNode? left;  // 左子節點引用
-        public TreeNode? right; // 右子節點引用
-    }
-    ```
-
-=== "Go"
-
-    ```go title=""
-    /* AVL 樹節點結構體 */
-    type TreeNode struct {
-        Val    int       // 節點值
-        Height int       // 節點高度
-        Left   *TreeNode // 左子節點引用
-        Right  *TreeNode // 右子節點引用
-    }
-    ```
-
-=== "Swift"
-
-    ```swift title=""
-    /* AVL 樹節點類別 */
-    class TreeNode {
-        var val: Int // 節點值
-        var height: Int // 節點高度
-        var left: TreeNode? // 左子節點
-        var right: TreeNode? // 右子節點
-
-        init(x: Int) {
-            val = x
-            height = 0
-        }
-    }
-    ```
-
-=== "JS"
-
-    ```javascript title=""
-    /* AVL 樹節點類別 */
-    class TreeNode {
-        val; // 節點值
-        height; //節點高度
-        left; // 左子節點指標
-        right; // 右子節點指標
-        constructor(val, left, right, height) {
-            this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
-            this.left = left === undefined ? null : left;
-            this.right = right === undefined ? null : right;
-        }
-    }
-    ```
-
-=== "TS"
-
-    ```typescript title=""
-    /* AVL 樹節點類別 */
-    class TreeNode {
-        val: number;            // 節點值
-        height: number;         // 節點高度
-        left: TreeNode | null;  // 左子節點指標
-        right: TreeNode | null; // 右子節點指標
-        constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
-            this.val = val === undefined ? 0 : val;
-            this.height = height === undefined ? 0 : height;
-            this.left = left === undefined ? null : left;
-            this.right = right === undefined ? null : right;
-        }
-    }
-    ```
-
-=== "Dart"
-
-    ```dart title=""
-    /* AVL 樹節點類別 */
-    class TreeNode {
-      int val;         // 節點值
-      int height;      // 節點高度
-      TreeNode? left;  // 左子節點
-      TreeNode? right; // 右子節點
-      TreeNode(this.val, [this.height = 0, this.left, this.right]);
-    }
-    ```
-
-=== "Rust"
-
-    ```rust title=""
-    use std::rc::Rc;
-    use std::cell::RefCell;
-
-    /* AVL 樹節點結構體 */
-    struct TreeNode {
-        val: i32,                               // 節點值
-        height: i32,                            // 節點高度
-        left: Option<Rc<RefCell<TreeNode>>>,    // 左子節點
-        right: Option<Rc<RefCell<TreeNode>>>,   // 右子節點
-    }
-
-    impl TreeNode {
-        /* 建構子 */
-        fn new(val: i32) -> Rc<RefCell<Self>> {
-            Rc::new(RefCell::new(Self {
-                val,
-                height: 0,
-                left: None,
-                right: None
-            }))
-        }
-    }
-    ```
-
-=== "C"
-
-    ```c title=""
-    /* AVL 樹節點結構體 */
-    typedef struct TreeNode {
-        int val;
-        int height;
-        struct TreeNode *left;
-        struct TreeNode *right;
-    } TreeNode;
-
-    /* 建構子 */
-    TreeNode *newTreeNode(int val) {
-        TreeNode *node;
-
-        node = (TreeNode *)malloc(sizeof(TreeNode));
-        node->val = val;
-        node->height = 0;
-        node->left = NULL;
-        node->right = NULL;
-        return node;
-    }
-    ```
-
-=== "Kotlin"
-
-    ```kotlin title=""
-    /* AVL 樹節點類別 */
-    class TreeNode(val _val: Int) {  // 節點值
-        var height: Int = 0          // 節點高度
-        var left: TreeNode? = null   // 左子節點
-        var right: TreeNode? = null  // 右子節點
-    }
-    ```
-
-=== "Ruby"
-
-    ```ruby title=""
-    ### AVL 樹節點類別 ###
-    class TreeNode
-      attr_accessor :val    # 節點值
-      attr_accessor :height # 節點高度
-      attr_accessor :left   # 左子節點引用
-      attr_accessor :right  # 右子節點引用
-
-      def initialize(val)
-        @val = val
-        @height = 0
-      end
-    end
-    ```
+```snippet
+avl_tree_node
+```
 
 “節點高度”是指從該節點到它的最遠葉節點的距離，即所經過的“邊”的數量。需要特別注意的是，葉節點的高度為 $0$ ，而空節點的高度為 $-1$ 。我們將建立兩個工具函式，分別用於獲取和更新節點的高度：
 
@@ -257,20 +53,20 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 如下圖所示，節點下方為平衡因子。從底至頂看，二元樹中首個失衡節點是“節點 3”。我們關注以該失衡節點為根節點的子樹，將該節點記為 `node` ，其左子節點記為 `child` ，執行“右旋”操作。完成右旋後，子樹恢復平衡，並且仍然保持二元搜尋樹的性質。
 
 === "<1>"
-    ![右旋操作步驟](avl_tree.assets/avltree_right_rotate_step1.png)
+    ![右旋操作步驟](avl_tree.assets/avltree_right_rotate_step1.svg)
 
 === "<2>"
-    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.png)
+    ![avltree_right_rotate_step2](avl_tree.assets/avltree_right_rotate_step2.svg)
 
 === "<3>"
-    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.png)
+    ![avltree_right_rotate_step3](avl_tree.assets/avltree_right_rotate_step3.svg)
 
 === "<4>"
-    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.png)
+    ![avltree_right_rotate_step4](avl_tree.assets/avltree_right_rotate_step4.svg)
 
 如下圖所示，當節點 `child` 有右子節點（記為 `grand_child` ）時，需要在右旋中新增一步：將 `grand_child` 作為 `node` 的左子節點。
 
-![有 grand_child 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.png)
+![有 grand_child 的右旋操作](avl_tree.assets/avltree_right_rotate_with_grandchild.svg)
 
 “向右旋轉”是一種形象化的說法，實際上需要透過修改節點指標來實現，程式碼如下所示：
 
@@ -282,11 +78,11 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 
 相應地，如果考慮上述失衡二元樹的“映象”，則需要執行下圖所示的“左旋”操作。
 
-![左旋操作](avl_tree.assets/avltree_left_rotate.png)
+![左旋操作](avl_tree.assets/avltree_left_rotate.svg)
 
 同理，如下圖所示，當節點 `child` 有左子節點（記為 `grand_child` ）時，需要在左旋中新增一步：將 `grand_child` 作為 `node` 的右子節點。
 
-![有 grand_child 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.png)
+![有 grand_child 的左旋操作](avl_tree.assets/avltree_left_rotate_with_grandchild.svg)
 
 可以觀察到，**右旋和左旋操作在邏輯上是映象對稱的，它們分別解決的兩種失衡情況也是對稱的**。基於對稱性，我們只需將右旋的實現程式碼中的所有的 `left` 替換為 `right` ，將所有的 `right` 替換為 `left` ，即可得到左旋的實現程式碼：
 
@@ -298,19 +94,19 @@ AVL 樹的特點在於“旋轉”操作，它能夠在不影響二元樹的中�
 
 對於下圖中的失衡節點 3 ，僅使用左旋或右旋都無法使子樹恢復平衡。此時需要先對 `child` 執行“左旋”，再對 `node` 執行“右旋”。
 
-![先左旋後右旋](avl_tree.assets/avltree_left_right_rotate.png)
+![先左旋後右旋](avl_tree.assets/avltree_left_right_rotate.svg)
 
 ### 先右旋後左旋
 
 如下圖所示，對於上述失衡二元樹的映象情況，需要先對 `child` 執行“右旋”，再對 `node` 執行“左旋”。
 
-![先右旋後左旋](avl_tree.assets/avltree_right_left_rotate.png)
+![先右旋後左旋](avl_tree.assets/avltree_right_left_rotate.svg)
 
 ### 旋轉的選擇
 
 下圖展示的四種失衡情況與上述案例逐個對應，分別需要採用右旋、先左旋後右旋、先右旋後左旋、左旋的操作。
 
-![AVL 樹的四種旋轉情況](avl_tree.assets/avltree_rotation_cases.png)
+![AVL 樹的四種旋轉情況](avl_tree.assets/avltree_rotation_cases.svg)
 
 如下表所示，我們透過判斷失衡節點的平衡因子以及較高一側子節點的平衡因子的正負號，來確定失衡節點屬於上圖中的哪種情況。
 

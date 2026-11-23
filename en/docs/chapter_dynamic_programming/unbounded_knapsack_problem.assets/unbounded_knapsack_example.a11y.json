@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "title": "Unbounded knapsack example: items may be chosen repeatedly",
+  "summary": "Unbounded knapsack allows choosing items of the same kind repeatedly; the figure shows the optimal selection for capacity 50.",
+  "context": [
+    "Given 5 candidate items and knapsack capacity cap = 50, each item may be chosen any number of times provided the total weight does not exceed 50. This figure is a standalone capacity 50 example; the single-row update in Figure 14-23 below switches to capacity 4 and a different dataset of weights 1/2/3 that shares some fruit names but differs in IDs and weights."
+  ],
+  "description": [
+    "On the left, a table lists ID i, weight wgt[i-1], and value val[i-1], with a fruit icon identifying each row's item. The apple row is highlighted in light purple and the banana row in light orange, labeled \"×1\" and \"×2\" beside two arrows pointing to the knapsack on the right labeled \"Knapsack capacity cap = 50\". The table below combines the item data with the quantities selected in the figure; 0 for the remaining items means no arrow selects them.",
+    "At the bottom, the figure explicitly notes \"Maximum value: 290\" and uses fruit icons to show packing one apple and two bananas into the knapsack, using 50 units of capacity in total."
+  ],
+  "frames": [
+    {
+      "id": "source-417",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_example.png",
+      "title": "Unbounded knapsack example: items may be chosen repeatedly",
+      "explanation": "Checking the arithmetic from the input: total weight is 10 + 2 × 20 = 50 and total value is 50 + 2 × 120 = 290, matching the conclusion at the bottom of the figure. If each item could be chosen at most once, the optimal choice for the same input would be banana plus grapes, with weight 20 + 30 = 50 and value 120 + 150 = 270; this comparison is derived from the input rather than drawn in the figure. Allowing repeated selection of bananas raises the maximum value to 290."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Unbounded knapsack item data and illustrated selection for capacity 50",
+      "headers": [
+        "ID",
+        "Item",
+        "Weight",
+        "Value",
+        "Selected count in figure"
+      ],
+      "rows": [
+        [
+          "1",
+          "Apple",
+          "10",
+          "50",
+          "1"
+        ],
+        [
+          "2",
+          "Banana",
+          "20",
+          "120",
+          "2"
+        ],
+        [
+          "3",
+          "Grapes",
+          "30",
+          "150",
+          "0"
+        ],
+        [
+          "4",
+          "Pineapple",
+          "40",
+          "210",
+          "0"
+        ],
+        [
+          "5",
+          "Watermelon",
+          "50",
+          "240",
+          "0"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}
