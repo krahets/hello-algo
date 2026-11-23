@@ -12,7 +12,7 @@ public class binary_tree_dfs {
     /* Preorder traversal */
     void PreOrder(TreeNode? root) {
         if (root == null) return;
-        // Visit priority: root node -> left subtree -> right subtree
+        // Visit order: root -> left subtree -> right subtree
         list.Add(root.val!.Value);
         PreOrder(root.left);
         PreOrder(root.right);
@@ -21,7 +21,7 @@ public class binary_tree_dfs {
     /* Inorder traversal */
     void InOrder(TreeNode? root) {
         if (root == null) return;
-        // Visit priority: left subtree -> root node -> right subtree
+        // Visit order: left subtree -> root -> right subtree
         InOrder(root.left);
         list.Add(root.val!.Value);
         InOrder(root.right);
@@ -30,7 +30,7 @@ public class binary_tree_dfs {
     /* Postorder traversal */
     void PostOrder(TreeNode? root) {
         if (root == null) return;
-        // Visit priority: left subtree -> right subtree -> root node
+        // Visit order: left subtree -> right subtree -> root
         PostOrder(root.left);
         PostOrder(root.right);
         list.Add(root.val!.Value);
@@ -38,22 +38,22 @@ public class binary_tree_dfs {
 
     [Test]
     public void Test() {
-        /* Initialize binary tree */
-        // Here we use a function to generate a binary tree directly from an array
+        /* Initialize the binary tree */
+        // Use a helper function that builds a binary tree directly from an array
         TreeNode? root = TreeNode.ListToTree([1, 2, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\nInitialize binary tree\n");
+        Console.WriteLine("\nInitialize the binary tree\n");
         PrintUtil.PrintTree(root);
 
         list.Clear();
         PreOrder(root);
-        Console.WriteLine("\nPreorder traversal node print sequence = " + string.Join(",", list));
+        Console.WriteLine("\nNode sequence from preorder traversal = " + string.Join(",", list));
 
         list.Clear();
         InOrder(root);
-        Console.WriteLine("\nInorder traversal node print sequence = " + string.Join(",", list));
+        Console.WriteLine("\nNode sequence from inorder traversal = " + string.Join(",", list));
 
         list.Clear();
         PostOrder(root);
-        Console.WriteLine("\nPostorder traversal node print sequence = " + string.Join(",", list));
+        Console.WriteLine("\nNode sequence from postorder traversal = " + string.Join(",", list));
     }
 }

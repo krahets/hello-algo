@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "title": "Pruning already chosen elements in permutations",
+  "summary": "Along the choice path 1 → 3 → 2, use selected to prune element indices already used in the current permutation prefix.",
+  "context": [
+    "The input is choices = [1, 2, 3] (indices 0, 1, 2), with distinct elements, and each element may be used at most once in a permutation. Here state holds the current permutation prefix, while the Boolean array selected tracks by input index whether each element has already been chosen on the current path."
+  ],
+  "description": [
+    "The selected array only prevents reusing an index along the current recursive path: descending skips marked indices, and backtracking unmarks them on return, so choosing 1 does not disable 1 permanently—it remains available in other permutation branches.",
+    "The figure fully expands only the path [] → [1] → [1, 3] → [1, 3, 2]. Pruning marks denote repeated selections that are not entered, such as [1, 1] for choosing element 1 at index 0 again under prefix [1]; ellipses mark valid branches whose continuations are left unexpanded. The table below summarizes choice restrictions and both kinds of branches by prefix."
+  ],
+  "frames": [
+    {
+      "id": "source-354",
+      "book_path": "chapter_backtracking/permutations_problem.assets/permutations_i_pruning.png",
+      "title": "Pruning already chosen elements in permutations",
+      "explanation": "The highlighted path ultimately produces permutation [1, 3, 2]."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Choice restrictions along the highlighted path",
+      "headers": [
+        "Current prefix",
+        "Used indices (with values)",
+        "Remaining available values",
+        "Value chosen next in figure",
+        "Pruned and unexpanded branches"
+      ],
+      "rows": [
+        [
+          "[]",
+          "None",
+          "1, 2, 3",
+          "1",
+          "None pruned; [2] and [3] are valid, continuations unexpanded"
+        ],
+        [
+          "[1]",
+          "0 (value 1)",
+          "2, 3",
+          "3",
+          "Prune [1, 1]; [1, 2] is valid, continuation unexpanded"
+        ],
+        [
+          "[1, 3]",
+          "0 (value 1), 2 (value 3)",
+          "2",
+          "2",
+          "Prune [1, 3, 1] and [1, 3, 3]; no unexpanded branches"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

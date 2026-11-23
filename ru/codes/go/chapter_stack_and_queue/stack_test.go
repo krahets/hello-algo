@@ -45,7 +45,7 @@ func TestStack(t *testing.T) {
 }
 
 func TestArrayStack(t *testing.T) {
-	// Инициализировать стек, используя интерфейс
+	// Инициализировать стек
 	stack := newArrayStack()
 
 	// Помещение элемента в стек

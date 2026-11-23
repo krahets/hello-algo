@@ -23,7 +23,7 @@ fun sumRecur(n: Int): Int {
     return n + sumRecur(n - 1)
 }
 
-/* 線形時間のループ */
+/* 線形オーダーのループ */
 fun linearLoop(n: Int): Int {
     var res = 0
     for (i in 0 until n) {
@@ -32,7 +32,7 @@ fun linearLoop(n: Int): Int {
     return res
 }
 
-/* 二次時間のループ */
+/* 二次オーダーのループ */
 fun quadraticLoop(n: Int): Int {
     var res = 0
     for (i in 0 until n) {
@@ -43,7 +43,7 @@ fun quadraticLoop(n: Int): Int {
     return res
 }
 
-/* 対数時間のループ */
+/* 対数オーダーのループ */
 fun logarithmicLoop(n: Int): Int {
     var value = n
     while (value > 1) {

@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Method 2 (sorting): sort in ascending order, then return the rightmost k elements",
+  "summary": "Sort the entire array in ascending order first, then take the last k elements.",
+  "context": [
+    "In this example, k = 3, and the diagram has three rows from top to bottom: the input array, the sorted array, and the extracted slice. The top row shows nums = [1, 7, 6, 3, 2]."
+  ],
+  "description": [
+    "The first downward arrow is labeled “Sort the array,” turning the second row into [1, 2, 3, 6, 7]; the rightmost three elements 3, 6, and 7 are marked by blue borders and a brace underneath."
+  ],
+  "result": "With an O(n log n) sorting algorithm, total time is O(n log n); this approach also sorts the remaining elements that do not need to be returned.",
+  "frames": [
+    {
+      "id": "source-163",
+      "book_path": "chapter_heap/top_k.assets/top_k_sorting.png",
+      "title": "Method 2 (sorting): sort in ascending order, then return the rightmost k elements",
+      "explanation": "The second downward arrow is labeled “Return the rightmost k elements,” leaving only [3, 6, 7] on the third row while discarding the smaller elements 1 and 2. Because larger values sit on the right of an ascending array, taking the last k items suffices."
+    }
+  ]
+}

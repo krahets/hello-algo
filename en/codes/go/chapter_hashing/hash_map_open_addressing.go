@@ -12,10 +12,10 @@ import (
 type hashMapOpenAddressing struct {
 	size        int     // Number of key-value pairs
 	capacity    int     // Hash table capacity
-	loadThres   float64 // Load factor threshold for triggering expansion
-	extendRatio int     // Expansion multiplier
+	loadThres   float64 // Load factor threshold that triggers capacity growth
+	extendRatio int     // Capacity growth factor
 	buckets     []*pair // Bucket array
-	TOMBSTONE   *pair   // Removal marker
+	TOMBSTONE   *pair   // Tombstone marker
 }
 
 /* Constructor */
@@ -32,79 +32,79 @@ func newHashMapOpenAddressing() *hashMapOpenAddressing {
 
 /* Hash function */
 func (h *hashMapOpenAddressing) hashFunc(key int) int {
-	return key % h.capacity // Calculate hash value based on key
+	return key % h.capacity // Calculate the hash value from the key
 }
 
 /* Load factor */
 func (h *hashMapOpenAddressing) loadFactor() float64 {
-	return float64(h.size) / float64(h.capacity) // Calculate current load factor
+	return float64(h.size) / float64(h.capacity) // Calculate the current load factor
 }
 
-/* Search for bucket index corresponding to key */
+/* Find the bucket index for key */
 func (h *hashMapOpenAddressing) findBucket(key int) int {
-	index := h.hashFunc(key) // Get initial index
-	firstTombstone := -1     // Record position of first TOMBSTONE encountered
+	index := h.hashFunc(key) // Get the initial index
+	firstTombstone := -1     // Record the position of the first TOMBSTONE encountered
 	for h.buckets[index] != nil {
 		if h.buckets[index].key == key {
 			if firstTombstone != -1 {
-				// If a removal marker was encountered before, move the key-value pair to that index
+				// If a tombstone was encountered earlier, move the key-value pair to that index
 				h.buckets[firstTombstone] = h.buckets[index]
 				h.buckets[index] = h.TOMBSTONE
-				return firstTombstone // Return the moved bucket index
+				return firstTombstone // Return the bucket index after the move
 			}
-			return index // Return found index
+			return index // Return the index found
 		}
 		if firstTombstone == -1 && h.buckets[index] == h.TOMBSTONE {
-			firstTombstone = index // Record position of first deletion marker encountered
+			firstTombstone = index // Record the position of the first tombstone encountered
 		}
-		index = (index + 1) % h.capacity // Linear probing, wrap around to head if past tail
+		index = (index + 1) % h.capacity // Probe linearly, wrapping to the beginning after the end
 	}
-	// If key does not exist, return the index for insertion
+	// If key is absent, return the index for insertion
 	if firstTombstone != -1 {
 		return firstTombstone
 	}
 	return index
 }
 
-/* Query operation */
+/* Lookup operation */
 func (h *hashMapOpenAddressing) get(key int) string {
-	index := h.findBucket(key) // Search for bucket index corresponding to key
+	index := h.findBucket(key) // Find the bucket index for key
 	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-		return h.buckets[index].val // If key-value pair is found, return corresponding val
+		return h.buckets[index].val // If the key-value pair is found, return its val
 	}
-	return "" // Return "" if key-value pair does not exist
+	return "" // If the key-value pair is absent, return ""
 }
 
-/* Add operation */
+/* Insert operation */
 func (h *hashMapOpenAddressing) put(key int, val string) {
 	if h.loadFactor() > h.loadThres {
-		h.extend() // When load factor exceeds threshold, perform expansion
+		h.extend() // Grow the capacity when the load factor exceeds the threshold
 	}
-	index := h.findBucket(key) // Search for bucket index corresponding to key
+	index := h.findBucket(key) // Find the bucket index for key
 	if h.buckets[index] == nil || h.buckets[index] == h.TOMBSTONE {
-		h.buckets[index] = &pair{key, val} // If key-value pair does not exist, add the key-value pair
+		h.buckets[index] = &pair{key, val} // If the key-value pair is absent, insert it
 		h.size++
 	} else {
-		h.buckets[index].val = val // If key-value pair found, overwrite val
+		h.buckets[index].val = val // If the key-value pair is found, overwrite val
 	}
 }
 
 /* Remove operation */
 func (h *hashMapOpenAddressing) remove(key int) {
-	index := h.findBucket(key) // Search for bucket index corresponding to key
+	index := h.findBucket(key) // Find the bucket index for key
 	if h.buckets[index] != nil && h.buckets[index] != h.TOMBSTONE {
-		h.buckets[index] = h.TOMBSTONE // If key-value pair is found, overwrite it with removal marker
+		h.buckets[index] = h.TOMBSTONE // If the key-value pair is found, replace it with a tombstone
 		h.size--
 	}
 }
 
-/* Expand hash table */
+/* Grow the hash table capacity */
 func (h *hashMapOpenAddressing) extend() {
-	oldBuckets := h.buckets               // Temporarily store the original hash table
-	h.capacity *= h.extendRatio           // Update capacity
-	h.buckets = make([]*pair, h.capacity) // Initialize expanded new hash table
-	h.size = 0                            // Reset size
-	// Move key-value pairs from original hash table to new hash table
+	oldBuckets := h.buckets               // Keep a reference to the original hash table
+	h.capacity *= h.extendRatio           // Update the capacity
+	h.buckets = make([]*pair, h.capacity) // Initialize a new hash table with the expanded capacity
+	h.size = 0                            // Reset the size
+	// Move the key-value pairs from the original hash table to the new one
 	for _, pair := range oldBuckets {
 		if pair != nil && pair != h.TOMBSTONE {
 			h.put(pair.key, pair.val)
@@ -112,7 +112,7 @@ func (h *hashMapOpenAddressing) extend() {
 	}
 }
 
-/* Print hash table */
+/* Print the hash table */
 func (h *hashMapOpenAddressing) print() {
 	for _, pair := range h.buckets {
 		if pair == nil {

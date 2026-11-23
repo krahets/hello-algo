@@ -12,13 +12,13 @@ import (
 )
 
 func TestLevelOrder(t *testing.T) {
-	/* 二分木を初期化 */
-	// ここでは、配列から直接二分木を生成する関数を利用する
+	/* 二分木を初期化する */
+	// ここでは配列から二分木を直接生成する関数を使う
 	root := SliceToTree([]any{1, 2, 3, 4, 5, 6, 7})
-	fmt.Println("\n二分木を初期化: ")
+	fmt.Println("\n二分木を初期化する： ")
 	PrintTree(root)
 
 	// レベル順走査
 	nums := levelOrder(root)
-	fmt.Println("\nレベル順走査のノード出力シーケンス =", nums)
+	fmt.Println("\nレベル順走査で表示するノードの順序 =", nums)
 }

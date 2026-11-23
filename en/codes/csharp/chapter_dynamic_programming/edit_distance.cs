@@ -7,73 +7,73 @@
 namespace hello_algo.chapter_dynamic_programming;
 
 public class edit_distance {
-    /* Edit distance: Brute-force search */
+    /* Edit distance: brute-force search */
     int EditDistanceDFS(string s, string t, int i, int j) {
-        // If both s and t are empty, return 0
+        // If both prefixes of s and t are empty, return 0
         if (i == 0 && j == 0)
             return 0;
-        // If s is empty, return length of t
+        // If the prefix of s is empty, return the prefix length of t
         if (i == 0)
             return j;
-        // If t is empty, return length of s
+        // If the prefix of t is empty, return the prefix length of s
         if (j == 0)
             return i;
-        // If two characters are equal, skip both characters
+        // If the two characters are equal, skip both of them
         if (s[i - 1] == t[j - 1])
             return EditDistanceDFS(s, t, i - 1, j - 1);
-        // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+        // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
         int insert = EditDistanceDFS(s, t, i, j - 1);
         int delete = EditDistanceDFS(s, t, i - 1, j);
         int replace = EditDistanceDFS(s, t, i - 1, j - 1);
-        // Return minimum edit steps
+        // Return the minimum number of edits
         return Math.Min(Math.Min(insert, delete), replace) + 1;
     }
 
-    /* Edit distance: Memoization search */
+    /* Edit distance: memoized search */
     int EditDistanceDFSMem(string s, string t, int[][] mem, int i, int j) {
-        // If both s and t are empty, return 0
+        // If both prefixes of s and t are empty, return 0
         if (i == 0 && j == 0)
             return 0;
-        // If s is empty, return length of t
+        // If the prefix of s is empty, return the prefix length of t
         if (i == 0)
             return j;
-        // If t is empty, return length of s
+        // If the prefix of t is empty, return the prefix length of s
         if (j == 0)
             return i;
-        // If there's a record, return it directly
+        // If a result has already been recorded, return it directly
         if (mem[i][j] != -1)
             return mem[i][j];
-        // If two characters are equal, skip both characters
+        // If the two characters are equal, skip both of them
         if (s[i - 1] == t[j - 1])
             return EditDistanceDFSMem(s, t, mem, i - 1, j - 1);
-        // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+        // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
         int insert = EditDistanceDFSMem(s, t, mem, i, j - 1);
         int delete = EditDistanceDFSMem(s, t, mem, i - 1, j);
         int replace = EditDistanceDFSMem(s, t, mem, i - 1, j - 1);
-        // Record and return minimum edit steps
+        // Record and return the minimum number of edits
         mem[i][j] = Math.Min(Math.Min(insert, delete), replace) + 1;
         return mem[i][j];
     }
 
-    /* Edit distance: Dynamic programming */
+    /* Edit distance: dynamic programming */
     int EditDistanceDP(string s, string t) {
         int n = s.Length, m = t.Length;
         int[,] dp = new int[n + 1, m + 1];
-        // State transition: first row and first column
+        // State transitions: first row and first column
         for (int i = 1; i <= n; i++) {
             dp[i, 0] = i;
         }
         for (int j = 1; j <= m; j++) {
             dp[0, j] = j;
         }
-        // State transition: rest of the rows and columns
+        // State transitions: remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[i, j] = dp[i - 1, j - 1];
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[i, j] = Math.Min(Math.Min(dp[i, j - 1], dp[i - 1, j]), dp[i - 1, j - 1]) + 1;
                 }
             }
@@ -81,30 +81,30 @@ public class edit_distance {
         return dp[n, m];
     }
 
-    /* Edit distance: Space-optimized dynamic programming */
+    /* Edit distance: space-optimized dynamic programming */
     int EditDistanceDPComp(string s, string t) {
         int n = s.Length, m = t.Length;
         int[] dp = new int[m + 1];
-        // State transition: first row
+        // State transitions: first row
         for (int j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transition: rest of the rows
+        // State transitions: remaining rows
         for (int i = 1; i <= n; i++) {
-            // State transition: first column
+            // State transitions: first column
             int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
             dp[0] = i;
-            // State transition: rest of the columns
+            // State transitions: remaining columns
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s[i - 1] == t[j - 1]) {
-                    // If two characters are equal, skip both characters
+                    // If the two characters are equal, skip both of them
                     dp[j] = leftup;
                 } else {
-                    // Minimum edit steps = minimum edit steps of insert, delete, replace + 1
+                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
                     dp[j] = Math.Min(Math.Min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // Update for next round's dp[i-1, j-1]
+                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m];
@@ -118,9 +118,9 @@ public class edit_distance {
 
         // Brute-force search
         int res = EditDistanceDFS(s, t, n, m);
-        Console.WriteLine("Change " + s + " to " + t + " requires a minimum of " + res + " edits");
+        Console.WriteLine("Changing " + s + " to " + t + " requires at least " + res + " edits");
 
-        // Memoization search
+        // Memoized search
         int[][] mem = new int[n + 1][];
         for (int i = 0; i <= n; i++) {
             mem[i] = new int[m + 1];
@@ -128,14 +128,14 @@ public class edit_distance {
         }
 
         res = EditDistanceDFSMem(s, t, mem, n, m);
-        Console.WriteLine("Change " + s + " to " + t + " requires a minimum of " + res + " edits");
+        Console.WriteLine("Changing " + s + " to " + t + " requires at least " + res + " edits");
 
         // Dynamic programming
         res = EditDistanceDP(s, t);
-        Console.WriteLine("Change " + s + " to " + t + " requires a minimum of " + res + " edits");
+        Console.WriteLine("Changing " + s + " to " + t + " requires at least " + res + " edits");
 
         // Space-optimized dynamic programming
         res = EditDistanceDPComp(s, t);
-        Console.WriteLine("Change " + s + " to " + t + " requires a minimum of " + res + " edits");
+        Console.WriteLine("Changing " + s + " to " + t + " requires at least " + res + " edits");
     }
 }

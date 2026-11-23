@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "title": "円盤 1 枚のハノイの塔（f(1)）",
+  "summary": "柱 A にある唯一の円盤をそのまま目的の柱 C へ移し、1 回の移動で完了します。",
+  "context": [
+    "3 本の柱は左から順に A、B、C です。一度に柱の一番上から 1 枚だけ動かすことができ、大きな円盤を小さな円盤の上に置くことはできません。f(1) は円盤 1 枚の移動を表し、再帰分解の基本ケースです。"
+  ],
+  "description": [
+    "緑の角丸長方形が唯一の円盤を表します。2 枚の図は移動前と移動後を示しており、実行される移動は 1 回だけです。"
+  ],
+  "frames": [
+    {
+      "id": "source-329",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step1.png",
+      "title": "唯一の円盤が柱 A にある状態",
+      "explanation": "初期状態は A=[緑の円盤]、B=[]、C=[] で、まだ移動していません。円盤の上に邪魔なものはなく、目的の柱 C も空なので、補助の柱 B を使わずにそのまま A から C へ移せます。",
+      "key_state": "柱 A に円盤が 1 枚あり、柱 B と柱 C は空で、まだ移動していません。",
+      "announcement": "1 枚の円盤が柱 A にある初期状態を示します。"
+    },
+    {
+      "id": "source-330",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step2.png",
+      "title": "円盤を柱 A から柱 C へ直接移動",
+      "explanation": "A の一番上にある唯一の緑の円盤の上に邪魔はなく、目的の柱 C も空なので、B を使わずにそのまま円盤を A から C へ移します。現在は A=[]、B=[]、C=[緑の円盤] となり、1 回の移動で処理が完了しました。",
+      "key_state": "1 回の移動が完了しました。円盤は柱 C にあり、柱 A と柱 B は空です。",
+      "announcement": "唯一の円盤を柱 A から柱 C へ直接移しました。"
+    }
+  ],
+  "animations": {
+    "hanota-f1": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-329"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-330"
+        }
+      ]
+    }
+  }
+}

@@ -6,54 +6,54 @@
 
 #include "../utils/common.h"
 
-/* 二分探索（両閉区間） */
+/* 二分探索（閉区間） */
 int binarySearch(int *nums, int len, int target) {
-    // 両閉区間 [0, n-1] を初期化する。つまり i, j はそれぞれ配列の先頭要素と末尾要素を指す
+    // 閉区間 [0, n-1] を初期化する。i, j は配列の先頭要素と末尾要素をそれぞれ指す
     int i = 0, j = len - 1;
-    // ループし、探索区間が空になったら終了する（i > j で空）
+    // 探索区間が空になるまで繰り返す（i > j のとき空になる）
     while (i <= j) {
-        int m = i + (j - i) / 2; // 中点インデックス m を計算
-        if (nums[m] < target)    // この場合、target は区間 [m+1, j] にある
+        int m = i + (j - i) / 2; // 中央のインデックス m を計算する
+        if (nums[m] < target)    // この場合、target は区間 [m+1, j] に存在する
             i = m + 1;
-        else if (nums[m] > target) // この場合、target は区間 [i, m-1] にある
+        else if (nums[m] > target) // この場合、target は区間 [i, m-1] に存在する
             j = m - 1;
-        else // 目標要素が見つかったらそのインデックスを返す
+        else // 目的の要素が見つかったので、そのインデックスを返す
             return m;
     }
-    // 目標要素が見つからなければ -1 を返す
+    // 目的の要素が見つからなかったので、-1 を返す
     return -1;
 }
 
 /* 二分探索（左閉右開区間） */
 int binarySearchLCRO(int *nums, int len, int target) {
-    // 左閉右開区間 [0, n) を初期化する。つまり i, j はそれぞれ配列の先頭要素と末尾要素+1を指す
+    // 左閉右開区間 [0, n) を初期化する。i, j は配列の先頭要素と末尾要素の次をそれぞれ指す
     int i = 0, j = len;
-    // ループし、探索区間が空になったら終了する（i = j で空）
+    // 探索区間が空になるまで繰り返す（i = j のとき空になる）
     while (i < j) {
-        int m = i + (j - i) / 2; // 中点インデックス m を計算
-        if (nums[m] < target)    // この場合、target は区間 [m+1, j) にある
+        int m = i + (j - i) / 2; // 中央のインデックス m を計算する
+        if (nums[m] < target)    // この場合、target は区間 [m+1, j) に存在する
             i = m + 1;
-        else if (nums[m] > target) // この場合、target は区間 [i, m) にある
+        else if (nums[m] > target) // この場合、target は区間 [i, m) に存在する
             j = m;
-        else // 目標要素が見つかったらそのインデックスを返す
+        else // 目的の要素が見つかったので、そのインデックスを返す
             return m;
     }
-    // 目標要素が見つからなければ -1 を返す
+    // 目的の要素が見つからなかったので、-1 を返す
     return -1;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     int target = 6;
     int nums[10] = {1, 3, 6, 8, 12, 15, 23, 26, 31, 35};
 
-    /* 二分探索（両閉区間） */
+    /* 二分探索（閉区間） */
     int index = binarySearch(nums, 10, target);
-    printf("対象要素 6 のインデックス = %d\n", index);
+    printf("目的の要素 6 のインデックス = %d\n", index);
 
     /* 二分探索（左閉右開区間） */
     index = binarySearchLCRO(nums, 10, target);
-    printf("対象要素 6 のインデックス = %d\n", index);
+    printf("目的の要素 6 のインデックス = %d\n", index);
 
     return 0;
 }

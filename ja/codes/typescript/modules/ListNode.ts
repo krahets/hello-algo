@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 連結リストノード */
+/* 連結リストのノード */
 class ListNode {
     val: number;
     next: ListNode | null;
@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-/* 配列をデシリアライズして連結リストに変換する */
+/* 配列をデシリアライズして連結リストにする */
 function arrToLinkedList(arr: number[]): ListNode | null {
     const dum: ListNode = new ListNode(0);
     let head = dum;

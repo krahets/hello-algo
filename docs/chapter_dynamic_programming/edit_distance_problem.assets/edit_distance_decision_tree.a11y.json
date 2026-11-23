@@ -1,0 +1,48 @@
+{
+  "schema_version": 2,
+  "title": "编辑距离的决策树",
+  "summary": "将字符串作为节点、单次编辑作为有向边，在决策树中寻找从 hello 到 algo 的最短路径；图中展示一条三步转换路径，其他分支未展开。",
+  "context": [
+    "在决策树模型下，每个节点代表一个字符串状态，从节点发出的每条有向边代表一轮决策（一次插入、删除或替换操作）。求解字符串 s = hello 到 t = algo 的编辑距离，等价于在这棵决策树中寻找从根节点 hello 到目标节点 algo 的最短路径。"
+  ],
+  "description": [
+    "画面自上而下展开左侧一条含 4 个字符串节点、3 条有向边的路径，顶层为 s = hello，底层为 t = algo。下表依次列出各条边及操作；图中第一条边只写“将 l 替换为 g”，“后一个 l”是对照两个节点字符串后补充的定位说明。",
+    "在前三层的每个展开节点（hello、helgo、halgo）右侧，还各画出 3 条指向省略号“…”的分支箭头，表示在不限制操作的情况下每个字符串都可以派生出许多其他编辑选择；这些省略分支并未写出具体字符串，本图旨在直观说明决策树最短路径视角，而非穷举整棵搜索树。"
+  ],
+  "frames": [
+    {
+      "id": "source-442",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_decision_tree.png",
+      "title": "hello 到 algo 的三步编辑路径",
+      "explanation": "这条路径用 3 次编辑从 hello 到达 algo，达到本节图 14-27 例题给出的编辑距离 3。单看这一条展开路径，只能确认 3 次编辑可行，不能据此排除更短路径。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "展开路径上的编辑",
+      "headers": [
+        "起点字符串",
+        "操作",
+        "得到的字符串"
+      ],
+      "rows": [
+        [
+          "hello",
+          "将后一个 l 替换为 g",
+          "helgo"
+        ],
+        [
+          "helgo",
+          "将 e 替换为 a",
+          "halgo"
+        ],
+        [
+          "halgo",
+          "删除开头的 h",
+          "algo"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "title": "Inserting an element: temporary storage, right shift, and write-back",
+  "summary": "First save the trailing 3, then copy 5 and 4 one position to the right, and finally write 3 to index 3.",
+  "context": [
+    "The input array is nums = [1, 1, 2, 4, 5, 3] (indices 0 through 5), where the first five elements on the left, [1, 1, 2, 4, 5], are already sorted, and the task is to \"Insert element 3 into its correct position in the sorted region of nums\" (index 3, between elements 2 and 4)."
+  ],
+  "description": [
+    "First store the trailing 3 temporarily in base so it will not be overwritten during shifting. Copy the elements greater than 3—namely 5 and then 4—one position to the right; these assignments temporarily leave two 5s or two 4s in the array.",
+    "Stop shifting right once comparison reaches value 2 at index 2, and write base to index 3. In the figure, the left side keeps a fixed snapshot of the input while the four rows on the right show the successive changes; the four rows in the table below correspond to those four states on the right, with row 1 still showing the initial array."
+  ],
+  "frames": [
+    {
+      "id": "source-261",
+      "book_path": "chapter_sorting/insertion_sort.assets/insertion_operation.png",
+      "title": "Inserting an element: temporary storage, right shift, and write-back",
+      "explanation": "The two right shifts are copy assignments; the element 3 to be inserted is held in base throughout and finally written back into the vacated insertion position."
+    }
+  ],
+  "animations": {
+    "insertion-operation": {
+      "kind": "prose",
+      "prose": {
+        "title": "Inserting an element: temporary storage, right shift, and write-back",
+        "summary": "Four steps show temporary storage, two right-shift copies, and write-back; each step's table lists the actual contents of nums at that moment.",
+        "context": [],
+        "description": [],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Temporarily store the trailing 3",
+            "explanation": "First save element 3 at the final index 5—the element to be inserted—into variable base = 3 so it will not be lost when overwritten by subsequent right shifts; the array contents have not changed yet.",
+            "key_state": "3 is stored in base; nums is still [1, 1, 2, 4, 5, 3].",
+            "announcement": "Stored element 3 in base for insertion.",
+            "state_tables": [
+              {
+                "caption": "Single insertion step 1: current array",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "1"
+                  ],
+                  [
+                    "2",
+                    "2"
+                  ],
+                  [
+                    "3",
+                    "4"
+                  ],
+                  [
+                    "4",
+                    "5"
+                  ],
+                  [
+                    "5",
+                    "3"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-2",
+            "title": "Copy 5 to index 5",
+            "explanation": "Compare 5 at index 4: because 5 is greater than base (3), execute the assignment nums[5] = nums[4] to copy 5 right to index 5, temporarily leaving two 5s in the array; the original trailing 3 is preserved in base and not lost.",
+            "key_state": "5 is copied to index 5, so nums = [1, 1, 2, 4, 5, 5], with both indices 4 and 5 holding 5; base remains 3.",
+            "announcement": "Copied 5 to index 5; 3 remains stored in base.",
+            "state_tables": [
+              {
+                "caption": "Single insertion step 2: current array",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "1"
+                  ],
+                  [
+                    "2",
+                    "2"
+                  ],
+                  [
+                    "3",
+                    "4"
+                  ],
+                  [
+                    "4",
+                    "5"
+                  ],
+                  [
+                    "5",
+                    "5"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-3",
+            "title": "Copy 4 to index 4",
+            "explanation": "Continue left to compare 4 at index 3: because 4 is also greater than base (3), execute the assignment nums[4] = nums[3] to copy 4 right to index 4, overwriting the extra 5 and temporarily leaving two 4s in the array; base remains 3.",
+            "key_state": "4 is copied to index 4, so nums = [1, 1, 2, 4, 4, 5], with both indices 3 and 4 holding 4; base remains 3.",
+            "announcement": "Copied 4 to index 4; 3 remains stored in base.",
+            "state_tables": [
+              {
+                "caption": "Single insertion step 3: current array",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "1"
+                  ],
+                  [
+                    "2",
+                    "2"
+                  ],
+                  [
+                    "3",
+                    "4"
+                  ],
+                  [
+                    "4",
+                    "4"
+                  ],
+                  [
+                    "5",
+                    "5"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-4",
+            "title": "Write 3 to index 3",
+            "explanation": "Continue left to compare 2 at index 2: because 2 is not greater than base (3), stop shifting right and execute nums[3] = base to write the stored 3 to index 3, replacing the duplicate 4 and completing this insertion. All six elements are now in ascending order, and the two existing 1s remain unchanged.",
+            "key_state": "3 from base is written to index 3, so nums = [1, 1, 2, 3, 4, 5], completing this insertion.",
+            "announcement": "Wrote 3 to index 3; insertion complete.",
+            "state_tables": [
+              {
+                "caption": "Single insertion step 4: current array",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "1"
+                  ],
+                  [
+                    "1",
+                    "1"
+                  ],
+                  [
+                    "2",
+                    "2"
+                  ],
+                  [
+                    "3",
+                    "3"
+                  ],
+                  [
+                    "4",
+                    "4"
+                  ],
+                  [
+                    "5",
+                    "5"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Array changes during a single insertion",
+      "headers": [
+        "Action",
+        "Array",
+        "base"
+      ],
+      "rows": [
+        [
+          "Temporarily store the trailing 3 (base = nums[5])",
+          "[1, 1, 2, 4, 5, 3]",
+          "3"
+        ],
+        [
+          "Copy 5 to index 5 (nums[5] = nums[4])",
+          "[1, 1, 2, 4, 5, 5]",
+          "3"
+        ],
+        [
+          "Copy 4 to index 4 (nums[4] = nums[3])",
+          "[1, 1, 2, 4, 4, 5]",
+          "3"
+        ],
+        [
+          "Write 3 to index 3 (nums[3] = base)",
+          "[1, 1, 2, 3, 4, 5]",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

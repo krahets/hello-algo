@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "title": "The relationship between data structures and algorithms",
+  "summary": "A two-tier diagram shows the processing flow of an algorithm on top and how data structures support the entire flow from underneath.",
+  "context": [],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-17",
+      "book_path": "chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png",
+      "title": "The relationship between data structures and algorithms",
+      "explanation": "Across the top from left to right are “Input” → “Algorithm” → “Output,” with a callout above “Algorithm” stating “A sequence of instructions that transforms input into output.” Across the bottom is “Data structure,” annotated with “Structured data storage and the operations on that data.” Three upward arrows point from “Data structure” to “Input,” “Algorithm,” and “Output,” showing that data structures support all three stages rather than merely storing the input beforehand."
+    }
+  ]
+}

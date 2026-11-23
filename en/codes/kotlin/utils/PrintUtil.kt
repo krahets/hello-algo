@@ -10,7 +10,7 @@ import java.util.*
 
 class Trunk(var prev: Trunk?, var str: String)
 
-/* Print matrix (Array) */
+/* Print a matrix (array) */
 fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("[")
     for (row in matrix) {
@@ -19,7 +19,7 @@ fun <T> printMatrix(matrix: Array<Array<T>>) {
     println("]")
 }
 
-/* Print matrix (List) */
+/* Print a matrix (list) */
 fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("[")
     for (row in matrix) {
@@ -28,7 +28,7 @@ fun <T> printMatrix(matrix: MutableList<MutableList<T>>) {
     println("]")
 }
 
-/* Print linked list */
+/* Print a linked list */
 fun printLinkedList(h: ListNode?) {
     var head = h
     val list = mutableListOf<String>()
@@ -39,13 +39,13 @@ fun printLinkedList(h: ListNode?) {
     println(list.joinToString(separator = " -> "))
 }
 
-/* Print binary tree */
+/* Print a binary tree */
 fun printTree(root: TreeNode?) {
     printTree(root, null, false)
 }
 
 /**
- * Print binary tree
+ * Print a binary tree
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
@@ -88,20 +88,20 @@ fun showTrunks(p: Trunk?) {
     print(p.str)
 }
 
-/* Print hash table */
+/* Print the hash table */
 fun <K, V> printHashMap(map: Map<K, V>) {
     for ((key, value) in map) {
         println("${key.toString()} -> $value")
     }
 }
 
-/* Print heap */
+/* Print a heap */
 fun printHeap(queue: Queue<Int>?) {
     val list = mutableListOf<Int?>()
     queue?.let { list.addAll(it) }
-    print("Heap array representation:")
+    print("Array representation of the heap:")
     println(list)
-    println("Heap tree representation:")
+    println("Tree representation of the heap:")
     val root = TreeNode.listToTree(list)
     printTree(root)
 }

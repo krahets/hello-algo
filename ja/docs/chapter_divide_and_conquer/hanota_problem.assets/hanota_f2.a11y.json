@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "補助の柱 B を使った円盤 2 枚の移動",
+  "summary": "まず小さい円盤を柱 B に預け、次に大きい円盤を柱 C に移し、最後に小さい円盤を大きい円盤の上に重ねて、計 3 回の移動で完了します。",
+  "context": [
+    "3 本の柱は左から順に A、B、C で、A にある 2 枚の円盤を C へ移すのが目標です。毎回柱の一番上の 1 枚だけを動かし、大きい円盤を小さい円盤の上に置くことはできません。以下では各柱の円盤を下から上の順に表記します。",
+    "緑が大きい円盤、青が小さい円盤を表します。"
+  ],
+  "description": [
+    "4 枚の図は初期状態と 3 回の移動後の状態を示します。ステップ番号には初期状態の図も含まれるため、ステップ 2、3、4 がそれぞれ 1、2、3 回目の移動に対応します。後半の 3 枚の下部には完了した移動手順が並び、現在の手順が薄い灰色の背景で強調されます。"
+  ],
+  "frames": [
+    {
+      "id": "source-331",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step1.png",
+      "title": "2 枚の円盤が柱 A に重なった状態",
+      "explanation": "初期状態は A=[大きい円盤, 小さい円盤]、B=[]、C=[] で、まだ移動していません。青の小さい円盤が緑の大きい円盤の上にあるため、大きい円盤を取り出すにはまず小さい円盤を補助の柱 B へ移す必要があります。",
+      "key_state": "まだ移動していません。A は下から大きい円盤、小さい円盤の順で、B と C は空です。",
+      "announcement": "大小 2 枚の円盤が柱 A に重なった初期状態を示します。"
+    },
+    {
+      "id": "source-332",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step2.png",
+      "title": "まず小さい円盤を柱 A から柱 B へ移動",
+      "explanation": "1 回目の移動：青の小さい円盤を A から空の B へ移し、緑の大きい円盤を一番上に出します。現在は A=[大きい円盤]、B=[小さい円盤]、C=[] です。",
+      "key_state": "1 回目の移動が完了しました。A に大きい円盤、B に小さい円盤があり、C は空です。",
+      "announcement": "1 回目の移動：小さい円盤を柱 A から補助の柱 B へ移しました。"
+    },
+    {
+      "id": "source-333",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step3.png",
+      "title": "次に大きい円盤を柱 A から柱 C へ移動",
+      "explanation": "2 回目の移動：A の緑の大きい円盤の上に邪魔がなくなり、C も空なので、大きい円盤を A から C へ移します。現在は A=[]、B=[小さい円盤]、C=[大きい円盤] で、小さい円盤は B に残っています。",
+      "key_state": "2 回目の移動が完了しました。A は空で、B に小さい円盤、C に大きい円盤があります。",
+      "announcement": "2 回目の移動：大きい円盤を柱 A から目的の柱 C へ移しました。"
+    },
+    {
+      "id": "source-334",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f2_step4.png",
+      "title": "最後に小さい円盤を柱 B から柱 C へ移動",
+      "explanation": "3 回目の移動：B にある青の小さい円盤を C の緑の大きい円盤の上に載せます。小さい円盤を上にする規則を満たしており、現在は A=[]、B=[]、C=[大きい円盤, 小さい円盤] となって 2 枚の移動が完了しました。",
+      "key_state": "3 回目の移動が完了しました。A と B は空で、C は下から大きい円盤、小さい円盤の順です。",
+      "announcement": "3 回目の移動：小さい円盤を柱 B から柱 C の大きい円盤の上へ移し、移動が完了しました。"
+    }
+  ],
+  "animations": {
+    "hanota-f2": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-331"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-332"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-333"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-334"
+        }
+      ]
+    }
+  }
+}

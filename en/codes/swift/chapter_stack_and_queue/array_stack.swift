@@ -4,21 +4,21 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Stack based on array implementation */
+/* Stack implemented with an array */
 class ArrayStack {
     private var stack: [Int]
 
     init() {
-        // Initialize list (dynamic array)
+        // Initialize the list (dynamic array)
         stack = []
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     func size() -> Int {
         stack.count
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     func isEmpty() -> Bool {
         stack.isEmpty
     }
@@ -37,7 +37,7 @@ class ArrayStack {
         return stack.removeLast()
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     func peek() -> Int {
         if isEmpty() {
             fatalError("Stack is empty")
@@ -45,7 +45,7 @@ class ArrayStack {
         return stack.last!
     }
 
-    /* Convert List to Array and return */
+    /* Return the stack elements as an array */
     func toArray() -> [Int] {
         stack
     }
@@ -53,12 +53,12 @@ class ArrayStack {
 
 @main
 enum _ArrayStack {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Access top of the stack element */
+        /* Initialize the stack */
         let stack = ArrayStack()
 
-        /* Elements push onto stack */
+        /* Push elements onto the stack */
         stack.push(num: 1)
         stack.push(num: 3)
         stack.push(num: 2)
@@ -66,20 +66,20 @@ enum _ArrayStack {
         stack.push(num: 4)
         print("Stack stack = \(stack.toArray())")
 
-        /* Return list for printing */
+        /* Access the top element */
         let peek = stack.peek()
         print("Top element peek = \(peek)")
 
-        /* Element pop from stack */
+        /* Pop an element from the stack */
         let pop = stack.pop()
-        print("Pop element pop = \(pop), after pop stack = \(stack.toArray())")
+        print("Popped element pop = \(pop); after popping, stack = \(stack.toArray())")
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         let size = stack.size()
-        print("Stack length size = \(size)")
+        print("Stack size = \(size)")
 
-        /* Check if empty */
+        /* Check whether it is empty */
         let isEmpty = stack.isEmpty()
-        print("Is stack empty = \(isEmpty)")
+        print("Is the stack empty? \(isEmpty)")
     }
 }

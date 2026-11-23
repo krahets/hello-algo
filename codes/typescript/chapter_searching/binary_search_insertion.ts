@@ -4,6 +4,8 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
+import { pathToFileURL } from 'node:url';
+
 /* 二分查找插入点（无重复元素） */
 function binarySearchInsertionSimple(
     nums: Array<number>,
@@ -44,7 +46,7 @@ function binarySearchInsertion(nums: Array<number>, target: number): number {
 }
 
 /* Driver Code */
-if (import.meta.url.endsWith(process.argv[1])) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
     // 无重复元素的数组
     let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35];
     console.log('\n数组 nums = ' + nums);

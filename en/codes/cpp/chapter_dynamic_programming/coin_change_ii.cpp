@@ -6,23 +6,23 @@
 
 #include "../utils/common.hpp"
 
-/* Coin change II: Dynamic programming */
+/* Coin change II: dynamic programming */
 int coinChangeIIDP(vector<int> &coins, int amt) {
     int n = coins.size();
-    // Initialize dp table
+    // Initialize the dp table
     vector<vector<int>> dp(n + 1, vector<int>(amt + 1, 0));
-    // Initialize first column
+    // Initialize the first column
     for (int i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // Sum of the two options: not selecting and selecting coin i
+                // Add the numbers of ways without and with coin i
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -30,20 +30,20 @@ int coinChangeIIDP(vector<int> &coins, int amt) {
     return dp[n][amt];
 }
 
-/* Coin change II: Space-optimized dynamic programming */
+/* Coin change II: space-optimized dynamic programming */
 int coinChangeIIDPComp(vector<int> &coins, int amt) {
     int n = coins.size();
-    // Initialize dp table
+    // Initialize the dp table
     vector<int> dp(amt + 1, 0);
     dp[0] = 1;
-    // State transition
+    // State transitions
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[a] = dp[a];
             } else {
-                // Sum of the two options: not selecting and selecting coin i
+                // Add the numbers of ways without and with coin i
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -58,11 +58,11 @@ int main() {
 
     // Dynamic programming
     int res = coinChangeIIDP(coins, amt);
-    cout << "Number of coin combinations to make target amount is " << res << endl;
+    cout << "Number of coin combinations that make the target amount: " << res << endl;
 
     // Space-optimized dynamic programming
     res = coinChangeIIDPComp(coins, amt);
-    cout << "Number of coin combinations to make target amount is " << res << endl;
+    cout << "Number of coin combinations that make the target amount: " << res << endl;
 
     return 0;
 }

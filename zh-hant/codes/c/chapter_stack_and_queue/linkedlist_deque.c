@@ -182,7 +182,7 @@ int main() {
     int peekFirstNum = peekFirst(deque);
     printf("佇列首元素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("佇列首元素 peekLast = %d\r\n", peekLastNum);
+    printf("佇列尾元素 peekLast = %d\r\n", peekLastNum);
 
     /* 元素入列 */
     pushLast(deque, 4);

@@ -4,25 +4,25 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* Coin change II: Dynamic programming */
+/* Coin change II: dynamic programming */
 function coinChangeIIDP(coins: Array<number>, amt: number): number {
     const n = coins.length;
-    // Initialize dp table
+    // Initialize the dp table
     const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: amt + 1 }, () => 0)
     );
-    // Initialize first column
+    // Initialize the first column
     for (let i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
-    // State transition
+    // State transitions
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // Sum of the two options: not selecting and selecting coin i
+                // Add the numbers of ways without and with coin i
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -30,20 +30,20 @@ function coinChangeIIDP(coins: Array<number>, amt: number): number {
     return dp[n][amt];
 }
 
-/* Coin change II: Space-optimized dynamic programming */
+/* Coin change II: space-optimized dynamic programming */
 function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
     const n = coins.length;
-    // Initialize dp table
+    // Initialize the dp table
     const dp = Array.from({ length: amt + 1 }, () => 0);
     dp[0] = 1;
-    // State transition
+    // State transitions
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If exceeds target amount, don't select coin i
+                // If the coin exceeds the target amount, do not choose coin i
                 dp[a] = dp[a];
             } else {
-                // Sum of the two options: not selecting and selecting coin i
+                // Add the numbers of ways without and with coin i
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -51,16 +51,16 @@ function coinChangeIIDPComp(coins: Array<number>, amt: number): number {
     return dp[amt];
 }
 
-/* Driver Code */
+/* Driver code */
 const coins = [1, 2, 5];
 const amt = 5;
 
 // Dynamic programming
 let res = coinChangeIIDP(coins, amt);
-console.log(`Number of coin combinations to make target amount is ${res}`);
+console.log(`Number of coin combinations that make the target amount: ${res}`);
 
 // Space-optimized dynamic programming
 res = coinChangeIIDPComp(coins, amt);
-console.log(`Number of coin combinations to make target amount is ${res}`);
+console.log(`Number of coin combinations that make the target amount: ${res}`);
 
 export {};

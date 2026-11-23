@@ -6,7 +6,7 @@
 
 #include <assert.h>
 
-/* Exponentiation by squaring */
+/* Fast exponentiation */
 int fastPow(int x, int n) {
     if (n == 0) {
         return 1;

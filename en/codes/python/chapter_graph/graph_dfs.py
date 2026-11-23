@@ -14,30 +14,30 @@ from graph_adjacency_list import GraphAdjList
 
 def dfs(graph: GraphAdjList, visited: set[Vertex], res: list[Vertex], vet: Vertex):
     """Depth-first traversal helper function"""
-    res.append(vet)  # Record visited vertex
+    res.append(vet)  # Record the visited vertex
     visited.add(vet)  # Mark this vertex as visited
-    # Traverse all adjacent vertices of this vertex
+    # Traverse all neighbors of this vertex
     for adjVet in graph.adj_list[vet]:
         if adjVet in visited:
-            continue  # Skip vertices that have been visited
-        # Recursively visit adjacent vertices
+            continue  # Skip vertices that have already been visited
+        # Recursively visit the neighboring vertex
         dfs(graph, visited, res, adjVet)
 
 
 def graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> list[Vertex]:
     """Depth-first traversal"""
-    # Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+    # Represent the graph with an adjacency list to access all neighbors of a given vertex
     # Vertex traversal sequence
     res = []
-    # Hash set for recording vertices that have been visited
+    # Hash set recording visited vertices
     visited = set[Vertex]()
     dfs(graph, visited, res, start_vet)
     return res
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize undirected graph
+    # Initialize the undirected graph
     v = vals_to_vets([0, 1, 2, 3, 4, 5, 6])
     edges = [
         [v[0], v[1]],
@@ -48,10 +48,10 @@ if __name__ == "__main__":
         [v[5], v[6]],
     ]
     graph = GraphAdjList(edges)
-    print("\nAfter initialization, the graph is")
+    print("\nGraph after initialization:")
     graph.print()
 
     # Depth-first traversal
     res = graph_dfs(graph, v[0])
-    print("\nDepth-first traversal (DFS) vertex sequence is")
+    print("\nVertex sequence from depth-first traversal (DFS):")
     print(vets_to_vals(res))

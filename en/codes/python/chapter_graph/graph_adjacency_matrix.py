@@ -12,19 +12,19 @@ from modules import Vertex, print_matrix
 
 
 class GraphAdjMat:
-    """Undirected graph class based on adjacency matrix"""
+    """Undirected graph class implemented with an adjacency matrix"""
 
     def __init__(self, vertices: list[int], edges: list[list[int]]):
         """Constructor"""
-        # Vertex list, where the element represents the "vertex value" and the index represents the "vertex index"
+        # Vertex list: elements are vertex values, and indices are vertex indices
         self.vertices: list[int] = []
-        # Adjacency matrix, where the row and column indices correspond to the "vertex index"
+        # Adjacency matrix: row and column indices correspond to vertex indices
         self.adj_mat: list[list[int]] = []
-        # Add vertices
+        # Add a vertex
         for val in vertices:
             self.add_vertex(val)
-        # Add edges
-        # Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+        # Add an edge
+        # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
         for e in edges:
             self.add_edge(e[0], e[1])
 
@@ -33,9 +33,9 @@ class GraphAdjMat:
         return len(self.vertices)
 
     def add_vertex(self, val: int):
-        """Add vertex"""
+        """Add a vertex"""
         n = self.size()
-        # Add the value of the new vertex to the vertex list
+        # Append the new vertex value to the vertex list
         self.vertices.append(val)
         # Add a row to the adjacency matrix
         new_row = [0] * n
@@ -45,72 +45,72 @@ class GraphAdjMat:
             row.append(0)
 
     def remove_vertex(self, index: int):
-        """Remove vertex"""
+        """Remove a vertex"""
         if index >= self.size():
             raise IndexError()
-        # Remove the vertex at index from the vertex list
+        # Remove the vertex at index `index` from the vertex list
         self.vertices.pop(index)
-        # Remove the row at index from the adjacency matrix
+        # Remove row `index` from the adjacency matrix
         self.adj_mat.pop(index)
-        # Remove the column at index from the adjacency matrix
+        # Remove column `index` from the adjacency matrix
         for row in self.adj_mat:
             row.pop(index)
 
     def add_edge(self, i: int, j: int):
-        """Add edge"""
-        # Parameters i, j correspond to the vertices element indices
-        # Handle index out of bounds and equality
+        """Add an edge"""
+        # Parameters i and j are element indices in vertices
+        # Handle out-of-bounds or equal indices
         if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
             raise IndexError()
-        # In an undirected graph, the adjacency matrix is symmetric about the main diagonal, i.e., (i, j) == (j, i)
+        # For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
         self.adj_mat[i][j] = 1
         self.adj_mat[j][i] = 1
 
     def remove_edge(self, i: int, j: int):
-        """Remove edge"""
-        # Parameters i, j correspond to the vertices element indices
-        # Handle index out of bounds and equality
+        """Remove an edge"""
+        # Parameters i and j are element indices in vertices
+        # Handle out-of-bounds or equal indices
         if i < 0 or j < 0 or i >= self.size() or j >= self.size() or i == j:
             raise IndexError()
         self.adj_mat[i][j] = 0
         self.adj_mat[j][i] = 0
 
     def print(self):
-        """Print adjacency matrix"""
+        """Print the adjacency matrix"""
         print("Vertex list =", self.vertices)
         print("Adjacency matrix =")
         print_matrix(self.adj_mat)
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize undirected graph
-    # Note that the edges elements represent vertex indices, i.e., corresponding to the vertices element indices
+    # Initialize the undirected graph
+    # Note that the entries in edges are vertex indices, corresponding to element indices in vertices
     vertices = [1, 3, 2, 5, 4]
     edges = [[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]]
     graph = GraphAdjMat(vertices, edges)
-    print("\nAfter initialization, the graph is")
+    print("\nGraph after initialization:")
     graph.print()
 
-    # Add edge
-    # Vertices 1, 2 have indices 0, 2 respectively
+    # Add an edge
+    # Vertices 1 and 2 have indices 0 and 2, respectively
     graph.add_edge(0, 2)
-    print("\nAfter adding edge 1-2, the graph is")
+    print("\nGraph after adding edge 1-2:")
     graph.print()
 
-    # Remove edge
-    # Vertices 1, 3 have indices 0, 1 respectively
+    # Remove an edge
+    # Vertices 1 and 3 have indices 0 and 1, respectively
     graph.remove_edge(0, 1)
-    print("\nAfter removing edge 1-3, the graph is")
+    print("\nGraph after removing edge 1-3:")
     graph.print()
 
-    # Add vertex
+    # Add a vertex
     graph.add_vertex(6)
-    print("\nAfter adding vertex 6, the graph is")
+    print("\nGraph after adding vertex 6:")
     graph.print()
 
-    # Remove vertex
+    # Remove a vertex
     # Vertex 3 has index 1
     graph.remove_vertex(1)
-    print("\nAfter removing vertex 3, the graph is")
+    print("\nGraph after removing vertex 3:")
     graph.print()

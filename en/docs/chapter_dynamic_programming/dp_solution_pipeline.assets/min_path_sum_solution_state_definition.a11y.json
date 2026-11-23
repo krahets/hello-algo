@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "title": "Defining grid coordinates as two-dimensional dp states",
+  "summary": "Define each state by row and column coordinates [i, j] and build a matching 4×4 two-dimensional dp table for the minimum path sum subproblems from the start to every cell.",
+  "context": [
+    "Given the 4×4 nonnegative cost grid (full values for indices 0 to 3 in the table) where a path starts at top-left [0, 0], moves one cell right or down at a time, and includes the cost of both endpoints, this figure contrasts the original grid with the state definition of the dp table."
+  ],
+  "description": [
+    "First distinguish the meanings of the two 4×4 matrices: grid[i, j] records only the single-cell cost of stepping onto cell [i, j], whereas dp[i, j] records the cumulative minimum path sum from top-left start [0, 0] to [i, j] (inclusive). For example, grid[1, 1] = 2 is only that cell's own cost and must not be confused with cumulative path sum dp[1, 1], which also includes the path cost of reaching [1, 1] from the start.",
+    "Beside grid, row indices i, i + 1 and column indices j, j + 1 illustrate the per-step move decision from current cell [1, 1] (cost 2): moving one cell right increments the column index by 1 to [1, 2] ([i, j + 1], cost 4), and moving one cell down increments the row index by 1 to [2, 1] ([i + 1, j], cost 3). Because each move changes either the row or column coordinate by 1, two-dimensional indices [i, j] define the state.",
+    "On the right, the dp table is a 4×4 matrix of the same dimensions as grid (rows and columns 0 to 3), with cells labeled dp[0, 0] through dp[3, 3] representing the minimum path sum subproblem to each cell. This figure establishes only the state definition and coordinate mapping without yet computing numeric path sums."
+  ],
+  "frames": [
+    {
+      "id": "source-377",
+      "book_path": "chapter_dynamic_programming/dp_solution_pipeline.assets/min_path_sum_solution_state_definition.png",
+      "title": "Correspondence between single-cell costs in grid and cumulative states dp[i, j]",
+      "explanation": "At the bottom, four modeling elements are summarized in order: the decision at each step moves one cell right or down; the state is the current cell's row and column indices [i, j]; the subproblem is the minimum path sum from top-left [0, 0] to [i, j]; and the dp table is the two-dimensional matrix storing all subproblem solutions."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "State definition: input grid (zero-based row and column indices)",
+      "headers": [
+        "Row index",
+        "Column 0",
+        "Column 1",
+        "Column 2",
+        "Column 3"
+      ],
+      "rows": [
+        [
+          "0",
+          "1",
+          "3",
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "2",
+          "2",
+          "4",
+          "2"
+        ],
+        [
+          "2",
+          "5",
+          "3",
+          "2",
+          "1"
+        ],
+        [
+          "3",
+          "4",
+          "3",
+          "5",
+          "2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

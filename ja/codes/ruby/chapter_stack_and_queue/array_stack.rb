@@ -11,12 +11,12 @@ class ArrayStack
     @stack = []
   end
 
-  ### スタックの長さを取得 ###
+  ### スタックの長さを取得する ###
   def size
     @stack.length
   end
 
-  ### スタックが空か判定 ###
+  ### スタックが空かどうかを判定する ###
   def is_empty?
     @stack.empty?
   end
@@ -28,14 +28,14 @@ class ArrayStack
 
   ### ポップ ###
   def pop
-    raise IndexError, 'スタックは空です' if is_empty?
+    raise IndexError, 'スタックが空です' if is_empty?
 
     @stack.pop
   end
 
-  ### スタックトップ要素を参照 ###
+  ### スタックの先頭要素にアクセスする ###
   def peek
-    raise IndexError, 'スタックは空です' if is_empty?
+    raise IndexError, 'スタックが空です' if is_empty?
 
     @stack.last
   end
@@ -46,12 +46,12 @@ class ArrayStack
   end
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
-  # スタックを初期化
+  # スタックを初期化する
   stack = ArrayStack.new
 
-  # 要素をプッシュ
+  # 要素をプッシュする
   stack.push(1)
   stack.push(3)
   stack.push(2)
@@ -59,20 +59,20 @@ if __FILE__ == $0
   stack.push(4)
   puts "スタック stack = #{stack.to_array}"
 
-  # スタックトップの要素にアクセス
+  # スタックの先頭要素にアクセスする
   peek = stack.peek
-  puts "スタックトップ要素 peek = #{peek}"
+  puts "スタックの先頭要素 peek = #{peek}"
 
-  # 要素をポップ
+  # 要素をポップする
   pop = stack.pop
   puts "ポップした要素 pop = #{pop}"
   puts "ポップ後 stack = #{stack.to_array}"
 
-  # スタックの長さを取得
+  # スタックの長さを取得する
   size = stack.size
   puts "スタックの長さ size = #{size}"
 
-  # 空かどうかを判定
+  # 空かどうかを判定する
   is_empty = stack.is_empty?
-  puts "スタックが空かどうか = #{is_empty}"
+  puts "スタックは空か = #{is_empty}"
 end

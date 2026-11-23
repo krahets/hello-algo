@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-/* List class */
+/* List structure */
 typedef struct {
-    int *arr;        // Array (stores list elements)
+    int *arr;        // Array (stores the list elements)
     int capacity;    // List capacity
     int size;        // List size
-    int extendRatio; // List expansion multiplier
+    int extendRatio; // List capacity growth factor
 } MyList;
 
 void extendCapacity(MyList *nums);
@@ -32,43 +32,43 @@ void delMyList(MyList *nums) {
     free(nums);
 }
 
-/* Get list length */
+/* Get the list size */
 int size(MyList *nums) {
     return nums->size;
 }
 
-/* Get list capacity */
+/* Get the list capacity */
 int capacity(MyList *nums) {
     return nums->capacity;
 }
 
-/* Update element */
+/* Access an element */
 int get(MyList *nums, int index) {
     assert(index >= 0 && index < nums->size);
     return nums->arr[index];
 }
 
-/* Add elements at the end */
+/* Update an element */
 void set(MyList *nums, int index, int num) {
     assert(index >= 0 && index < nums->size);
     nums->arr[index] = num;
 }
 
-/* Direct traversal of list elements */
+/* Append an element at the end */
 void add(MyList *nums, int num) {
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // Expand capacity
+        extendCapacity(nums); // Grow the capacity
     }
     nums->arr[size(nums)] = num;
     nums->size++;
 }
 
-/* Sort list */
+/* Insert an element in the middle */
 void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
-    // When the number of elements exceeds capacity, trigger the extension mechanism
+    // Grow the capacity when adding an element would exceed it
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // Expand capacity
+        extendCapacity(nums); // Grow the capacity
     }
     for (int i = size(nums); i > index; --i) {
         nums->arr[i] = nums->arr[i - 1];
@@ -77,8 +77,8 @@ void insert(MyList *nums, int index, int num) {
     nums->size++;
 }
 
-/* Remove element */
-// Note: stdio.h occupies the remove keyword
+/* Remove an element */
+// Note: stdio.h already declares a function named remove
 int removeItem(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
@@ -89,35 +89,35 @@ int removeItem(MyList *nums, int index) {
     return num;
 }
 
-/* Driver Code */
+/* Grow the list capacity */
 void extendCapacity(MyList *nums) {
-    // Allocate space first
+    // Allocate new space first
     int newCapacity = capacity(nums) * nums->extendRatio;
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
     int *temp = nums->arr;
 
-    // Copy old data to new data
+    // Copy the old data into the new array
     for (int i = 0; i < size(nums); i++)
         extend[i] = nums->arr[i];
 
-    // Free old data
+    // Free the old array
     free(temp);
 
-    // Update new data
+    // Update the array pointer and capacity
     nums->arr = extend;
     nums->capacity = newCapacity;
 }
 
-/* Convert list to Array for printing */
+/* Convert the list to an array for printing */
 int *toArray(MyList *nums) {
     return nums->arr;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize list */
+    /* Initialize the list */
     MyList *nums = newMyList();
-    /* Direct traversal of list elements */
+    /* Append an element at the end */
     add(nums, 1);
     add(nums, 3);
     add(nums, 2);
@@ -125,38 +125,38 @@ int main() {
     add(nums, 4);
     printf("List nums = ");
     printArray(toArray(nums), size(nums));
-    printf("Capacity = %d, Length = %d\n", capacity(nums), size(nums));
+    printf("Capacity = %d, size = %d\n", capacity(nums), size(nums));
 
-    /* Sort list */
+    /* Insert an element in the middle */
     insert(nums, 3, 6);
-    printf("Insert number 6 at index 3, resulting in nums = ");
+    printf("Insert the number 6 at index 3, giving nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* Remove element */
+    /* Remove an element */
     removeItem(nums, 3);
-    printf("Remove element at index 3, resulting in nums = ");
+    printf("Remove the element at index 3, giving nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* Update element */
+    /* Access an element */
     int num = get(nums, 1);
-    printf("Access element at index 1, get num = %d\n", num);
+    printf("Access the element at index 1; num = %d\n", num);
 
-    /* Add elements at the end */
+    /* Update an element */
     set(nums, 1, 0);
-    printf("Update element at index 1 to 0, resulting in nums = ");
+    printf("Update the element at index 1 to 0, giving nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* Test capacity expansion mechanism */
+    /* Test capacity growth */
     for (int i = 0; i < 10; i++) {
-        // At i = 5, the list length will exceed the list capacity, triggering the expansion mechanism
+        // When i = 5, the list length would exceed its capacity, triggering capacity growth
         add(nums, i);
     }
 
-    printf("List nums after expansion = ");
+    printf("List after capacity growth, nums = ");
     printArray(toArray(nums), size(nums));
-    printf("Capacity = %d, Length = %d\n", capacity(nums), size(nums));
+    printf("Capacity = %d, size = %d\n", capacity(nums), size(nums));
 
-    /* Free allocated memory */
+    /* Free the allocated memory */
     delMyList(nums);
 
     return 0;

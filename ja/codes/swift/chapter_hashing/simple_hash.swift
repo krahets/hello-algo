@@ -28,7 +28,7 @@ func mulHash(key: String) -> Int {
     return hash
 }
 
-/* XOR ハッシュ */
+/* 排他的論理和ハッシュ */
 func xorHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -54,20 +54,20 @@ func rotHash(key: String) -> Int {
 
 @main
 enum SimpleHash {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
-        let key = "Hello アルゴリズム"
+        let key = "Hello 算法"
 
         var hash = addHash(key: key)
-        print("加算ハッシュ値は \(hash)")
+        print("加算ハッシュの値は \(hash)")
 
         hash = mulHash(key: key)
-        print("乗算ハッシュ値は \(hash)")
+        print("乗算ハッシュの値は \(hash)")
 
         hash = xorHash(key: key)
-        print("XORハッシュ値は \(hash)")
+        print("排他的論理和ハッシュの値は \(hash)")
 
         hash = rotHash(key: key)
-        print("回転ハッシュ値は \(hash)")
+        print("回転ハッシュの値は \(hash)")
     }
 }

@@ -1,66 +1,66 @@
 # Summary
 
-### Key Review
+### Key takeaways
 
-- Data structures can be classified from two perspectives: logical structure and physical structure. Logical structure describes the logical relationships between data elements, while physical structure describes how data is stored in computer memory.
-- Common logical structures include linear, tree-like, and network structures. We typically classify data structures as linear (arrays, linked lists, stacks, queues) and non-linear (trees, graphs, heaps) based on their logical structure. The implementation of hash tables may involve both linear and non-linear data structures.
-- When a program runs, data is stored in computer memory. Each memory space has a corresponding memory address, and the program accesses data through these memory addresses.
-- Physical structures are primarily divided into contiguous space storage (arrays) and dispersed space storage (linked lists). All data structures are implemented using arrays, linked lists, or a combination of both.
-- Basic data types in computers include integers `byte`, `short`, `int`, `long`, floating-point numbers `float`, `double`, characters `char`, and booleans `bool`. Their value ranges depend on the size of space they occupy and their representation method.
-- Sign-magnitude, 1's complement, and 2's complement are three methods for encoding numbers in computers, and they can be converted into each other. The most significant bit of sign-magnitude is the sign bit, and the remaining bits represent the value of the number.
-- Integers are stored in computers in 2's complement form. Under 2's complement representation, computers can treat the addition of positive and negative numbers uniformly, without needing to design special hardware circuits for subtraction, and there is no ambiguity of positive and negative zero.
-- The encoding of floating-point numbers consists of 1 sign bit, 8 exponent bits, and 23 fraction bits. Due to the exponent bits, the range of floating-point numbers is much larger than that of integers, at the cost of sacrificing precision.
-- ASCII is the earliest English character set, with a length of 1 byte, containing a total of 128 characters. GBK is a commonly used Chinese character set, containing over 20,000 Chinese characters. Unicode is committed to providing a complete character set standard, collecting characters from various languages around the world, thereby solving the garbled text problem caused by inconsistent character encoding methods.
-- UTF-8 is the most popular Unicode encoding method and has excellent compatibility. It is a variable-length encoding method with good scalability, effectively improving storage space efficiency. UTF-16 and UTF-32 are common Unicode encoding methods. When encoding Chinese characters, UTF-16 occupies less space than UTF-8. Programming languages such as Java and C# use UTF-16 encoding by default.
+- Data structures can be classified by logical and physical structure. Logical structure describes relationships between data elements, while physical structure describes how data is stored in memory.
+- Common logical structures are linear, tree, and network structures. We usually classify data structures as linear (arrays, linked lists, stacks, queues) or nonlinear (trees, graphs, heaps). A hash table implementation may contain both linear and nonlinear structures.
+- During execution, data resides in computer memory. Each location has a memory address, which programs use to access its data.
+- The two main physical structures are contiguous storage (arrays) and scattered storage (linked lists). All data structures are implemented using arrays, linked lists, or both.
+- Basic data types include integers (`byte`, `short`, `int`, `long`), floating-point numbers (`float`, `double`), characters (`char`), and Booleans (`bool`). Their value ranges depend on storage size and representation.
+- Sign-magnitude, one's complement, and two's complement are three ways to encode numbers, and can be converted into one another. In sign-magnitude representation, the highest bit is the sign and the remaining bits give the magnitude.
+- Integers are stored in two's complement. This lets the computer handle positive and negative addition uniformly, avoids separate hardware circuitry for subtraction, and eliminates the ambiguity of positive and negative zero.
+- A floating-point encoding consists of 1 sign bit, 8 exponent bits, and 23 fraction bits. The exponent provides a much wider range than integers, at the cost of precision.
+- ASCII was the earliest English character set. It uses 1 byte and contains 128 characters. GBK is a common Chinese character set with over 20,000 Chinese characters. Unicode aims to provide a comprehensive character standard for the world's languages, avoiding garbled text caused by incompatible encodings.
+- UTF-8 is the most popular Unicode encoding and is widely compatible. Its variable length makes it extensible and space-efficient. UTF-16 and UTF-32 use fixed lengths. For Chinese text, UTF-16 uses less space than UTF-8. Languages such as Java and C# use UTF-16 by default.
 
 ### Q & A
 
-**Q**: Why do hash tables contain both linear and non-linear data structures?
+**Q**: Why can a hash table contain both linear and nonlinear data structures?
 
-The underlying structure of a hash table is an array. To resolve hash collisions, we may use "chaining" (discussed in the subsequent "Hash Collision" section): each bucket in the array points to a linked list, which may be converted to a tree (usually a red-black tree) when the list length exceeds a certain threshold.
+A hash table is built on an array. To handle hash collisions, it may use separate chaining, discussed later in the Hash collisions section: each array bucket points to a linked list, which may be converted to a tree (usually a red-black tree) if it grows beyond a threshold.
 
-From a storage perspective, the underlying structure of a hash table is an array, where each bucket slot may contain a value, a linked list, or a tree. Therefore, hash tables may contain both linear data structures (arrays, linked lists) and non-linear data structures (trees).
+From a storage perspective, each bucket in the underlying array may contain a value, a linked list, or a tree. A hash table may therefore contain both linear structures (arrays and linked lists) and nonlinear structures (trees).
 
-**Q**: Is the length of the `char` type 1 byte?
+**Q**: Does `char` occupy 1 byte?
 
-The length of the `char` type is determined by the encoding method used by the programming language. For example, Java, JavaScript, TypeScript, and C# all use UTF-16 encoding (to store Unicode code points), so the `char` type has a length of 2 bytes.
+The size of `char` depends on the programming language's encoding. For example, Java, JavaScript, TypeScript, and C# use UTF-16 to store Unicode code points, so their `char` type occupies 2 bytes.
 
-**Q**: Is there ambiguity in referring to array-based data structures as "static data structures"? Stacks can also perform "dynamic" operations such as push and pop.
+**Q**: Is calling array-based structures static misleading? A stack supports dynamic operations such as pushing and popping.
 
-Stacks can indeed implement dynamic data operations, but the data structure is still "static" (fixed length). Although array-based data structures can dynamically add or remove elements, their capacity is fixed. If the data volume exceeds the pre-allocated size, a new larger array needs to be created, and the contents of the old array must be copied to the new array.
+A stack does support dynamic data operations, but its underlying structure remains static in length. Although array-based structures can add and remove elements dynamically, their capacity is fixed. When the data exceeds the allocated capacity, a larger array must be created and the old contents copied into it.
 
-**Q**: When constructing a stack (queue), its size is not specified. Why are they "static data structures"?
+**Q**: When we create a stack or queue without specifying its size, why is it still called a static data structure?
 
-In high-level programming languages, we do not need to manually specify the initial capacity of a stack (queue); the class handles this automatically. For example, the initial capacity of Java's `ArrayList` is typically 10. Additionally, the expansion operation is also automatically implemented. See the subsequent "List" section for details.
+In high-level languages, the class automatically chooses an initial capacity for a stack or queue. For example, Java's `ArrayList` typically starts with a capacity of 10. Resizing is also automatic; see the later section on lists.
 
-**Q**: The method of converting sign-magnitude to 2's complement is "first negate then add 1". So converting 2's complement to sign-magnitude should be the inverse operation "first subtract 1 then negate". However, 2's complement can also be converted to sign-magnitude through "first negate then add 1". Why is this?
+**Q**: Converting sign-magnitude to two's complement uses "invert, then add 1". Its inverse should be "subtract 1, then invert", so why does "invert, then add 1" also work in the reverse direction?
 
-This is because the mutual conversion between sign-magnitude and 2's complement is actually the process of computing the "complement". Let us first define the complement: assuming $a + b = c$, then we say that $a$ is the complement of $b$ to $c$, and conversely, $b$ is the complement of $a$ to $c$.
+These conversions are really computations of a complement. If $a + b = c$, we call $a$ the complement of $b$ with respect to $c$, and conversely $b$ the complement of $a$ with respect to $c$.
 
-Given an $n = 4$ bit binary number $0010$, if we treat this number as sign-magnitude (ignoring the sign bit), then its 2's complement can be obtained through "first negate then add 1":
+Consider the $n = 4$-bit binary number $0010$. Treating it as sign-magnitude and disregarding the sign bit, we obtain its two's complement by inverting and adding 1:
 
 $$
 0010 \rightarrow 1101 \rightarrow 1110
 $$
 
-We find that the sum of sign-magnitude and 2's complement is $0010 + 1110 = 10000$, which means the 2's complement $1110$ is the "complement" of sign-magnitude $0010$ to $10000$. **This means the above "first negate then add 1" is actually the process of computing the complement to $10000$**.
+The two representations sum to $0010 + 1110 = 10000$. Thus, $1110$ is the complement of $0010$ with respect to $10000$. **The "invert, then add 1" operation computes the complement with respect to $10000$**.
 
-So, what is the "complement" of 2's complement $1110$ to $10000$? We can still use "first negate then add 1" to obtain it:
+What is the complement of $1110$ with respect to $10000$? We can again invert and add 1:
 
 $$
 1110 \rightarrow 0001 \rightarrow 0010
 $$
 
-In other words, sign-magnitude and 2's complement are each other's "complement" to $10000$, so "sign-magnitude to 2's complement" and "2's complement to sign-magnitude" can be implemented using the same operation (first negate then add 1).
+The two representations are complements of each other with respect to $10000$, so conversion in either direction can use the same operation: invert, then add 1.
 
-Of course, we can also use the inverse operation to find the sign-magnitude of 2's complement $1110$, that is, "first subtract 1 then negate":
+Of course, we can also recover the sign-magnitude form of $1110$ by the inverse operation: subtract 1, then invert.
 
 $$
 1110 \rightarrow 1101 \rightarrow 0010
 $$
 
-In summary, both "first negate then add 1" and "first subtract 1 then negate" are computing the complement to $10000$, and they are equivalent.
+Both "invert, then add 1" and "subtract 1, then invert" compute the complement with respect to $10000$, so they are equivalent.
 
-Essentially, the "negate" operation is actually finding the complement to $1111$ (because "sign-magnitude + 1's complement = 1111" always holds); and adding 1 to the 1's complement yields the 2's complement, which is the complement to $10000$.
+In essence, inverting computes the complement with respect to $1111$, since `sign-magnitude + one's complement = 1111`. Adding 1 to the one's complement then gives the complement with respect to $10000$.
 
-The above uses $n = 4$ as an example, and it can be generalized to binary numbers of any number of bits.
+The example uses $n = 4$, but the reasoning extends to binary numbers of any bit width.

@@ -4,7 +4,7 @@
 
 const std = @import("std");
 
-// 連結リストノード
+// 連結リストのノード
 pub fn ListNode(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -12,7 +12,7 @@ pub fn ListNode(comptime T: type) type {
         val: T = 0,
         next: ?*Self = null,
 
-        // Initialize a list node with specific value
+        // 指定された値で連結リストのノードを初期化する
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.next = null;
@@ -20,7 +20,7 @@ pub fn ListNode(comptime T: type) type {
     };
 }
 
-// リストを連結リストにデシリアライズする
+// リストをデシリアライズして連結リストにする
 pub fn listToLinkedList(comptime T: type, allocator: std.mem.Allocator, list: std.ArrayList(T)) !?*ListNode(T) {
     var dum = try allocator.create(ListNode(T));
     dum.init(0);
@@ -34,7 +34,7 @@ pub fn listToLinkedList(comptime T: type, allocator: std.mem.Allocator, list: st
     return dum.next;
 }
 
-// 配列をデシリアライズして連結リストに変換する
+// 配列をデシリアライズして連結リストにする
 pub fn arrToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*ListNode(T) {
     var dum = try mem_allocator.create(ListNode(T));
     dum.init(0);

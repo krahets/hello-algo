@@ -4,9 +4,9 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 連結リストノードクラス ###
+### 連結リストのノードクラス ###
 class ListNode
-  attr_accessor :val  # ノード値
+  attr_accessor :val  # ノードの値
   attr_accessor :next # 次のノードへの参照
 
   def initialize(val=0, next_node=nil)
@@ -15,7 +15,7 @@ class ListNode
   end
 end
 
-### リストを連結リストにデシリアライズ ###
+### リストをデシリアライズして連結リストにする ###
 def arr_to_linked_list(arr)
   head = current = ListNode.new(arr[0])
 
@@ -27,7 +27,7 @@ def arr_to_linked_list(arr)
   head
 end
 
-### 連結リストをリストにシリアライズ ###
+### 連結リストをシリアライズしてリストにする ###
 def linked_list_to_arr(head)
   arr = []
 

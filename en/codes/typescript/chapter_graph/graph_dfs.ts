@@ -14,31 +14,31 @@ function dfs(
     res: Vertex[],
     vet: Vertex
 ): void {
-    res.push(vet); // Record visited vertex
+    res.push(vet); // Record the visited vertex
     visited.add(vet); // Mark this vertex as visited
-    // Traverse all adjacent vertices of this vertex
+    // Traverse all neighbors of this vertex
     for (const adjVet of graph.adjList.get(vet)) {
         if (visited.has(adjVet)) {
-            continue; // Skip vertices that have been visited
+            continue; // Skip vertices that have already been visited
         }
-        // Recursively visit adjacent vertices
+        // Recursively visit the neighboring vertex
         dfs(graph, visited, res, adjVet);
     }
 }
 
 /* Depth-first traversal */
-// Use adjacency list to represent the graph, in order to obtain all adjacent vertices of a specified vertex
+// Represent the graph with an adjacency list to access all neighbors of a given vertex
 function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
     // Vertex traversal sequence
     const res: Vertex[] = [];
-    // Hash set for recording vertices that have been visited
+    // Hash set recording visited vertices
     const visited: Set<Vertex> = new Set();
     dfs(graph, visited, res, startVet);
     return res;
 }
 
-/* Driver Code */
-/* Add edge */
+/* Driver code */
+/* Initialize the undirected graph */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
 const edges = [
     [v[0], v[1]],
@@ -49,10 +49,10 @@ const edges = [
     [v[5], v[6]],
 ];
 const graph = new GraphAdjList(edges);
-console.log('\nAfter initialization, graph is');
+console.log('\nGraph after initialization:');
 graph.print();
 
 /* Depth-first traversal */
 const res = graphDFS(graph, v[0]);
-console.log('\nDepth-first traversal (DFS) vertex sequence is');
+console.log('\nVertex sequence from depth-first traversal (DFS):');
 console.log(Vertex.vetsToVals(res));

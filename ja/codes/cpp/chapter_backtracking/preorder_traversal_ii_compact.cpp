@@ -9,33 +9,33 @@
 vector<TreeNode *> path;
 vector<vector<TreeNode *>> res;
 
-/* 前順走査：例題 2 */
+/* 行きがけ順走査：例題 2 */
 void preOrder(TreeNode *root) {
     if (root == nullptr) {
         return;
     }
-    // 試す
+    // 試行
     path.push_back(root);
     if (root->val == 7) {
-        // 解を記録
+        // 解を記録する
         res.push_back(path);
     }
     preOrder(root->left);
     preOrder(root->right);
-    // バックトラック
+    // 復元
     path.pop_back();
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\n二分木を初期化" << endl;
+    cout << "\n二分木を初期化する" << endl;
     printTree(root);
 
-    // 先行順走査
+    // 行きがけ順走査
     preOrder(root);
 
-    cout << "\n根ノードからノード 7 までのすべての経路を出力" << endl;
+    cout << "\n根ノードからノード 7 までのすべての経路を出力する" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

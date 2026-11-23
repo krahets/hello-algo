@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "二重の入れ子ループ",
+  "summary": "外側のループの各回で内側のループ全体をはじめから実行し、処理の総回数が決まります。",
+  "context": [
+    "n は正の整数で、i が外側のループ、j が内側のループを制御します。"
+  ],
+  "description": [],
+  "result": "各 i に対して j = 1 から n までのすべてが対応するため、処理の総回数は n × n = n² です。",
+  "frames": [
+    {
+      "id": "source-20",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png",
+      "title": "二重の入れ子ループ",
+      "explanation": "まず i = 1 とし、i ≤ n を判定します。真のときは内側のループに入り、j = 1 に戻してから j ≤ n を判定します。真なら処理を実行して j に 1 を加え、内側の判定に戻ります。偽なら内側のループを終えて i に 1 を加え、外側の判定に戻ります。外側がまだ真であれば次の回でも再び j = 1 から始まり、外側の条件が偽になった時点で全体の流れが終了します。"
+    }
+  ]
+}

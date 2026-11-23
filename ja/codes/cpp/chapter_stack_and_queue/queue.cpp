@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    /* キューを初期化 */
+    /* キューを初期化する */
     queue<int> queue;
 
-    /* 要素をエンキュー */
+    /* 要素をエンキューする */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -20,22 +20,22 @@ int main() {
     cout << "キュー queue = ";
     printQueue(queue);
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     int front = queue.front();
-    cout << "先頭要素 front = " << front << endl;
+    cout << "キューの先頭要素 front = " << front << endl;
 
-    /* 要素をデキュー */
+    /* 要素をデキューする */
     queue.pop();
-    cout << "取り出した要素 front = " << front << "、取り出し後の queue = ";
+    cout << "デキューした要素 front = " << front << "、デキュー後 queue = ";
     printQueue(queue);
 
     /* キューの長さを取得 */
     int size = queue.size();
     cout << "キューの長さ size = " << size << endl;
 
-    /* キューが空かどうかを判定 */
+    /* キューが空か判定 */
     bool empty = queue.empty();
-    cout << "キューが空かどうか = " << empty << endl;
+    cout << "キューは空か = " << empty << endl;
 
     return 0;
 }

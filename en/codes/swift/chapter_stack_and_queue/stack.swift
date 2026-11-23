@@ -6,13 +6,13 @@
 
 @main
 enum Stack {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Access top of the stack element */
-        // Swift has no built-in stack class, can use Array as stack
+        /* Initialize the stack */
+        // The Swift standard library has no built-in stack class; Array can be used as a stack
         var stack: [Int] = []
 
-        /* Elements push onto stack */
+        /* Push elements onto the stack */
         stack.append(1)
         stack.append(3)
         stack.append(2)
@@ -20,20 +20,20 @@ enum Stack {
         stack.append(4)
         print("Stack stack = \(stack)")
 
-        /* Return list for printing */
+        /* Access the top element */
         let peek = stack.last!
         print("Top element peek = \(peek)")
 
-        /* Element pop from stack */
+        /* Pop an element from the stack */
         let pop = stack.removeLast()
-        print("Pop element pop = \(pop), after pop stack = \(stack)")
+        print("Popped element pop = \(pop); after popping, stack = \(stack)")
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         let size = stack.count
-        print("Stack length size = \(size)")
+        print("Stack size = \(size)")
 
-        /* Check if empty */
+        /* Check whether it is empty */
         let isEmpty = stack.isEmpty
-        print("Is stack empty = \(isEmpty)")
+        print("Is the stack empty? \(isEmpty)")
     }
 }

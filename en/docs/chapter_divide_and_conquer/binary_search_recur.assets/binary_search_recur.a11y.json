@@ -1,0 +1,141 @@
+{
+  "schema_version": 2,
+  "title": "Recursive binary search",
+  "summary": "Recursively search ten sorted elements for 6, shrinking the search interval from [0, 9] to [0, 3] and then [2, 3], finally returning index 2.",
+  "context": [
+    "The input consists of ten elements in increasing order at indices 0 through 9, with target 6; the full array is listed in the \"Fixed sorted input\" table. Here f(i, j) denotes searching the closed interval [i, j], with midpoint index m equal to floor((i + j) / 2)."
+  ],
+  "description": [
+    "After comparing the midpoint value against the target at each step, recursion enters only the single subinterval that could still contain the target. Excluded positions remain in the original array; once the target is hit, its index is returned directly without any merge step. The two tables below list the full input and the three calls."
+  ],
+  "frames": [
+    {
+      "id": "source-312",
+      "book_path": "chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png",
+      "title": "Recursive binary search",
+      "explanation": "The note at the bottom reads \"The final result is index 2 for element 6\". Counting by the closed intervals in the table, the number of candidates drops from 10 to 4 to 2, and the third call hits the target and returns immediately."
+    }
+  ],
+  "animations": {
+    "flow-recursive-search": {
+      "kind": "prose",
+      "prose": {
+        "title": "Recursive binary search",
+        "summary": "Three states step through the three recursive calls in order, showing each call's current interval, midpoint, and next call or return value.",
+        "context": [
+          "The target value is 6 and the input array never changes, so element values can be looked up in the \"Fixed sorted input\" table above; the parameters of all three calls can also be looked up by call in the \"Three recursive calls\" table."
+        ],
+        "description": [],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Inspect midpoint value 12",
+            "explanation": "On the initial closed interval [0, 9], compute midpoint m = floor((0 + 9) / 2) = 4, where the element at index 4 is 12. Since 12 > 6, the target can only lie in the left half; exclude indices 4 through 9 and recursively call f(0, 3).",
+            "key_state": "f(0, 9): midpoint m = 4 (value 12 > 6), recurse into left subinterval f(0, 3).",
+            "announcement": "Call f(0, 9); midpoint m = 4 has value 12, which is greater than target 6, so exclude indices 4 through 9 and recurse into f(0, 3)."
+          },
+          {
+            "id": "step-2",
+            "title": "Inspect midpoint value 3",
+            "explanation": "On the closed interval [0, 3], compute midpoint m = floor((0 + 3) / 2) = 1, where the element at index 1 is 3. Since 3 < 6, the target can only lie in the right half; exclude indices 0 and 1 and recursively call f(2, 3).",
+            "key_state": "f(0, 3): midpoint m = 1 (value 3 < 6), recurse into right subinterval f(2, 3).",
+            "announcement": "Call f(0, 3); midpoint m = 1 has value 3, which is less than target 6, so exclude indices 0 and 1 and recurse into f(2, 3)."
+          },
+          {
+            "id": "step-3",
+            "title": "Hit target value 6",
+            "explanation": "On the closed interval [2, 3], compute midpoint m = floor((2 + 3) / 2) = 2, where the element at index 2 is 6, matching the target value; return index 2 directly up the call chain with no combine step needed.",
+            "key_state": "f(2, 3): midpoint m = 2 (value 6 = 6), target found and index 2 returned.",
+            "announcement": "Call f(2, 3); midpoint index 2 has value 6, hitting the target and returning index 2 directly."
+          }
+        ]
+      }
+    }
+  },
+  "tables": [
+    {
+      "caption": "Fixed sorted input",
+      "headers": [
+        "Index",
+        "Value"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "8"
+        ],
+        [
+          "4",
+          "12"
+        ],
+        [
+          "5",
+          "15"
+        ],
+        [
+          "6",
+          "23"
+        ],
+        [
+          "7",
+          "26"
+        ],
+        [
+          "8",
+          "31"
+        ],
+        [
+          "9",
+          "35"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Three recursive calls",
+      "headers": [
+        "Call (closed interval)",
+        "Midpoint index m",
+        "Midpoint value",
+        "Comparison",
+        "Next action"
+      ],
+      "rows": [
+        [
+          "f(0, 9)",
+          "4",
+          "12",
+          "12 > 6",
+          "Recursive call f(0, 3)"
+        ],
+        [
+          "f(0, 3)",
+          "1",
+          "3",
+          "3 < 6",
+          "Recursive call f(2, 3)"
+        ],
+        [
+          "f(2, 3)",
+          "2",
+          "6",
+          "6 = 6",
+          "Return index 2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

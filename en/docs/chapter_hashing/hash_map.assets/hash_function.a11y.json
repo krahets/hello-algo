@@ -1,0 +1,89 @@
+{
+  "schema_version": 2,
+  "title": "Hash function mapping an input key to a bucket array index",
+  "summary": "First compute the bucket index from key, then read the value stored in that bucket.",
+  "context": [
+    "From left to right, the diagram has four parts: the \"Input key\" column, the \"Hash function key % 100\" computation box, the \"Index\" and \"Array (Each bucket stores one key-value pair)\" columns, and the \"Output value\" column on the far right.",
+    "The chapter sets the underlying array capacity to 100; the hash function in the figure is index = key % 100, which takes the last two digits of each five-digit student ID as the bucket index."
+  ],
+  "description": [
+    "The array shows five non-empty buckets in ascending index order, with ellipses omitting the rest; see the \"Buckets shown in the array\" table for the complete contents, and the \"Highlighted lookup paths in the figure\" table for the input order, colors, bucket indices, and output positions.",
+    "Because the inputs are not listed in bucket-index order, the three color-coded lookup curves cross inside the computation box, yet each path still connects its own input, target bucket, and output. Buckets 37 and 83 are not queried in this example."
+  ],
+  "tables": [
+    {
+      "caption": "Buckets shown in the array",
+      "headers": [
+        "Bucket index",
+        "Student ID key",
+        "Name value"
+      ],
+      "rows": [
+        [
+          "36",
+          "12836",
+          "小哈"
+        ],
+        [
+          "37",
+          "15937",
+          "小啰"
+        ],
+        [
+          "50",
+          "16750",
+          "小算"
+        ],
+        [
+          "76",
+          "13276",
+          "小法"
+        ],
+        [
+          "83",
+          "10583",
+          "小鸭"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "Highlighted lookup paths in the figure",
+      "headers": [
+        "Input student ID",
+        "Input position and color",
+        "Bucket index (modulo result)",
+        "Output name and position"
+      ],
+      "rows": [
+        [
+          "13276",
+          "Top, orange",
+          "76",
+          "小法, bottom orange box"
+        ],
+        [
+          "12836",
+          "Middle, blue",
+          "36",
+          "小哈, top blue box"
+        ],
+        [
+          "16750",
+          "Bottom, green",
+          "50",
+          "小算, middle green box"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "frames": [
+    {
+      "id": "source-82",
+      "book_path": "chapter_hashing/hash_map.assets/hash_function.png",
+      "title": "Three lookup paths locating bucket indices via key % 100",
+      "explanation": "Each bucket index in the table can also be verified directly from the formula, such as 13276 % 100 = 76. All three paths follow the same two-step lookup: compute the index first, then access the bucket at that index."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Ways to reach step 3 when two consecutive 1-step moves are forbidden",
+  "summary": "Adding the constraint against two consecutive 1-step moves discards 0→1→2→3, leaving 2 valid ways to reach step 3.",
+  "context": [
+    "Starting from ground level 0, each move may still climb 1 or 2 steps toward target step 3, under the added constraint that two consecutive moves may not both climb 1 step."
+  ],
+  "description": [
+    "The staircase labels steps 0 through 6 with target step 3 shaded green. Route 0→1→2→3 is drawn as a gray dotted curve with the callout above \"Because two consecutive one-step moves are forbidden, the route 0 → 1 → 2 → 3 is discarded\"; the solid blue curve 0→2→3 and solid orange curve 0→1→3 remain highlighted, and the bottom caption reads \"There are 2 ways to reach step 3: 0 → 2 → 3, 0 → 1 → 3\"."
+  ],
+  "frames": [
+    {
+      "id": "source-374",
+      "book_path": "chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_example.png",
+      "title": "Ways to reach step 3 when two consecutive 1-step moves are forbidden",
+      "explanation": "Route 0→1→2→3 takes three consecutive 1-step moves, violating the ban on two consecutive 1-step moves in its very first two moves, so it is grayed out and discarded. Blue route 0→2→3 climbs 2 steps then 1 step, and orange route 0→1→3 climbs 1 step then 2 steps; neither contains adjacent 1-step moves, so both remain valid."
+    }
+  ]
+}

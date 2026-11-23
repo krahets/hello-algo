@@ -14,54 +14,54 @@ def function
   0
 end
 
-### Constant time ###
+### Constant complexity ###
 def constant(n)
-  # Constants, variables, objects occupy O(1) space
+  # Constants, variables, and objects occupy O(1) space
   a = 0
   nums = [0] * 10000
   node = ListNode.new
 
   # Variables in the loop occupy O(1) space
   (0...n).each { c = 0 }
-  # Functions in the loop occupy O(1) space
+  # Function calls in the loop occupy O(1) space
   (0...n).each { function }
 end
 
-### Linear time ###
+### Linear complexity ###
 def linear(n)
   # A list of length n occupies O(n) space
   nums = Array.new(n, 0)
 
-  # A hash table of length n occupies O(n) space
+  # A hash table with n entries occupies O(n) space
   hmap = {}
   for i in 0...n
     hmap[i] = i.to_s
   end
 end
 
-### Linear space (recursive) ###
+### Linear complexity (recursive implementation)###
 def linear_recur(n)
-  puts "Recursion n = #{n}"
+  puts "Recursion: n = #{n}"
   return if n == 1
   linear_recur(n - 1)
 end
 
-### Quadratic time ###
+### Quadratic complexity ###
 def quadratic(n)
-  # 2D list uses O(n^2) space
+  # The two-dimensional list occupies O(n^2) space
   Array.new(n) { Array.new(n, 0) }
 end
 
-### Quadratic space (recursive) ###
+### Quadratic complexity (recursive implementation)###
 def quadratic_recur(n)
   return 0 unless n > 0
 
-  # Array nums has length n, n-1, ..., 2, 1
+  # The lengths of array nums are n, n-1, ..., 2, 1
   nums = Array.new(n, 0)
   quadratic_recur(n - 1)
 end
 
-### Exponential space (build full binary tree) ###
+### Exponential complexity (building a perfect binary tree)###
 def build_tree(n)
   return if n == 0
 
@@ -71,22 +71,22 @@ def build_tree(n)
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   n = 5
 
-  # Constant order
+  # Constant complexity
   constant(n)
 
-  # Linear order
+  # Linear complexity
   linear(n)
   linear_recur(n)
 
-  # Exponential order
+  # Quadratic complexity
   quadratic(n)
   quadratic_recur(n)
 
-  # Exponential order
+  # Exponential complexity
   root = build_tree(n)
   print_tree(root)
 end

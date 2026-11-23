@@ -1,0 +1,355 @@
+{
+  "schema_version": 2,
+  "title": "Stable radix sort from the least to the most significant digit",
+  "summary": "Ten eight-digit integers are stably sorted at each position, from digit 1 (ones) to digit 8 (ten millions). The final order is ascending by the entire number.",
+  "context": [
+    "The input array nums contains ten eight-digit decimal integers, such as student IDs. The table gives all values. Digit index k starts at 1 for the rightmost digit (ones). Digit 2 is the tens place, and so on up to 8, the leftmost digit (ten millions)."
+  ],
+  "description": [
+    "Read each of the four data columns independently from top to bottom, at array indices 0 through 9: input, after sorting by ones, after sorting by tens, and final output. A row gives the contents of the same position at different times, not the path of one particular integer. All five passes for digits 3 through 7 run even though their intermediate states are omitted.",
+    "Each pass uses stable counting sort on the current digit. Equal digits preserve the relative order from the previous pass. For example, 35663510 and 88906420 both have 0 in position 1 (ones) and remain in their original order after that pass. At position 2 (tens), 81883077 and 30524779 both have 7. The first number, with ones digit 7, therefore stays ahead of the second, with ones digit 9.",
+    "A more significant digit takes precedence over the order established by less significant digits. Stability preserves that earlier order whenever the more significant digits match. Each pass moves the entire eight-digit integers, keeping the digits within each integer intact."
+  ],
+  "frames": [
+    {
+      "id": "source-308",
+      "book_path": "chapter_sorting/radix_sort.assets/radix_sort_overview.png",
+      "title": "Stable radix sort from the least to the most significant digit",
+      "explanation": "Working from low to high digits with a stable sort on each pass produces ascending order by full value."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Array at each stage: read each column independently",
+      "headers": [
+        "Current position (index)",
+        "Input order",
+        "After sorting by ones",
+        "After sorting by tens",
+        "Final result"
+      ],
+      "rows": [
+        [
+          "0",
+          "10546151",
+          "35663510",
+          "35663510",
+          "10546151"
+        ],
+        [
+          "1",
+          "35663510",
+          "88906420",
+          "88906420",
+          "30524779"
+        ],
+        [
+          "2",
+          "42865989",
+          "10546151",
+          "82060337",
+          "34862445"
+        ],
+        [
+          "3",
+          "34862445",
+          "72429244",
+          "72429244",
+          "35663510"
+        ],
+        [
+          "4",
+          "81883077",
+          "34862445",
+          "34862445",
+          "42865989"
+        ],
+        [
+          "5",
+          "88906420",
+          "63832996",
+          "10546151",
+          "63832996"
+        ],
+        [
+          "6",
+          "72429244",
+          "81883077",
+          "81883077",
+          "72429244"
+        ],
+        [
+          "7",
+          "30524779",
+          "82060337",
+          "30524779",
+          "81883077"
+        ],
+        [
+          "8",
+          "82060337",
+          "42865989",
+          "42865989",
+          "82060337"
+        ],
+        [
+          "9",
+          "63832996",
+          "30524779",
+          "63832996",
+          "88906420"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "animations": {
+    "radix-sort-overview": {
+      "kind": "prose",
+      "prose": {
+        "title": "Stable radix sort from the least to the most significant digit",
+        "summary": "The four states show the input, the order after ones, the order after tens, and the result after all eight digits. Passes for digits 3 through 7 run but are not individually pictured.",
+        "context": [],
+        "description": [],
+        "steps": [
+          {
+            "id": "step-1",
+            "title": "Digit sorting has not started",
+            "explanation": "The ten eight-digit integers are still in input order. Sorting is about to start at the rightmost digit, position 1 (ones).",
+            "key_state": "Input order, ready to start stable sorting at digit 1 (ones).",
+            "announcement": "Initial state: ten eight-digit integers in input order, ready to sort by ones.",
+            "state_tables": [
+              {
+                "caption": "Radix sort, step 1: input array",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "10546151"
+                  ],
+                  [
+                    "1",
+                    "35663510"
+                  ],
+                  [
+                    "2",
+                    "42865989"
+                  ],
+                  [
+                    "3",
+                    "34862445"
+                  ],
+                  [
+                    "4",
+                    "81883077"
+                  ],
+                  [
+                    "5",
+                    "88906420"
+                  ],
+                  [
+                    "6",
+                    "72429244"
+                  ],
+                  [
+                    "7",
+                    "30524779"
+                  ],
+                  [
+                    "8",
+                    "82060337"
+                  ],
+                  [
+                    "9",
+                    "63832996"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-2",
+            "title": "Ones pass complete",
+            "explanation": "Stable sorting by digit 1 (ones) has moved whole eight-digit integers into order by their ones digits. Both 35663510 and 88906420 end in 0, so the former still precedes the latter.",
+            "key_state": "Stable sorting by digit 1 (ones) is complete. Numbers with equal ones digits retain their input order.",
+            "announcement": "Ones pass complete. Both 35663510 and 88906420 end in 0, and 35663510 still comes first.",
+            "state_tables": [
+              {
+                "caption": "Radix sort, step 2: array after sorting by ones",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "35663510"
+                  ],
+                  [
+                    "1",
+                    "88906420"
+                  ],
+                  [
+                    "2",
+                    "10546151"
+                  ],
+                  [
+                    "3",
+                    "72429244"
+                  ],
+                  [
+                    "4",
+                    "34862445"
+                  ],
+                  [
+                    "5",
+                    "63832996"
+                  ],
+                  [
+                    "6",
+                    "81883077"
+                  ],
+                  [
+                    "7",
+                    "82060337"
+                  ],
+                  [
+                    "8",
+                    "42865989"
+                  ],
+                  [
+                    "9",
+                    "30524779"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-3",
+            "title": "Tens pass complete",
+            "explanation": "Starting from the ones-sorted array, stable sorting by digit 2 (tens) puts the last two digits together in ascending order. Both 81883077 (ones digit 7) and 30524779 (ones digit 9) have tens digit 7, so 81883077 still comes first. Digits 3 through 8 remain.",
+            "key_state": "Stable sorting by digit 2 (tens) is complete. The lowest two digits together are in ascending order.",
+            "announcement": "Tens pass complete. The last two digits together are sorted; among numbers with tens digit 7, 81883077 still precedes 30524779.",
+            "state_tables": [
+              {
+                "caption": "Radix sort, step 3: array after sorting by tens",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "35663510"
+                  ],
+                  [
+                    "1",
+                    "88906420"
+                  ],
+                  [
+                    "2",
+                    "82060337"
+                  ],
+                  [
+                    "3",
+                    "72429244"
+                  ],
+                  [
+                    "4",
+                    "34862445"
+                  ],
+                  [
+                    "5",
+                    "10546151"
+                  ],
+                  [
+                    "6",
+                    "81883077"
+                  ],
+                  [
+                    "7",
+                    "30524779"
+                  ],
+                  [
+                    "8",
+                    "42865989"
+                  ],
+                  [
+                    "9",
+                    "63832996"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          },
+          {
+            "id": "step-4",
+            "title": "All eight digit passes complete",
+            "explanation": "After the omitted stable passes for digits 3 through 7, the stable pass for digit 8 (ten millions) finishes. The ten eight-digit integers are now in ascending order by their full value.",
+            "key_state": "Digits 1 through 8 are complete. Output the array in ascending order.",
+            "announcement": "Finish the stable passes for digits 3 through 7 and then the highest digit, 8, to produce the full sorted array.",
+            "state_tables": [
+              {
+                "caption": "Radix sort, step 4: array after all eight digit passes",
+                "headers": [
+                  "Index",
+                  "Value"
+                ],
+                "rows": [
+                  [
+                    "0",
+                    "10546151"
+                  ],
+                  [
+                    "1",
+                    "30524779"
+                  ],
+                  [
+                    "2",
+                    "34862445"
+                  ],
+                  [
+                    "3",
+                    "35663510"
+                  ],
+                  [
+                    "4",
+                    "42865989"
+                  ],
+                  [
+                    "5",
+                    "63832996"
+                  ],
+                  [
+                    "6",
+                    "72429244"
+                  ],
+                  [
+                    "7",
+                    "81883077"
+                  ],
+                  [
+                    "8",
+                    "82060337"
+                  ],
+                  [
+                    "9",
+                    "88906420"
+                  ]
+                ],
+                "row_header": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

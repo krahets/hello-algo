@@ -5,15 +5,12 @@ INHERIT: ../mkdocs.yml
 site_name: Hello Algo
 site_url: https://www.hello-algo.com/ru/
 site_description: "Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом"
-docs_dir: ../build/ru/docs
-site_dir: ../site/ru
 # Repository
 edit_uri: tree/main/ru/docs
 version: 1.3.0
 
 # Configuration
 theme:
-  custom_dir: ../build/overrides
   language: ru
   font:
     text: PT Sans
@@ -126,7 +123,7 @@ nav:
     - 10.1 Двоичный поиск: chapter_searching/binary_search.md
     - 10.2 Двоичный поиск точки вставки: chapter_searching/binary_search_insertion.md
     - 10.3 Двоичный поиск границ: chapter_searching/binary_search_edge.md
-    - 10.4 Стратегии оптимизации хеширования: chapter_searching/replace_linear_by_hashing.md
+    - 10.4 Стратегии оптимизации с помощью хеширования: chapter_searching/replace_linear_by_hashing.md
     - 10.5 Переосмысление алгоритмов поиска: chapter_searching/searching_algorithm_revisited.md
     - 10.6 Резюме: chapter_searching/summary.md
     - 10.7 Упражнения: chapter_searching/exercises.md

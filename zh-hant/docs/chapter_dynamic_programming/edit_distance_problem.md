@@ -10,7 +10,7 @@
 
 如下圖所示，將 `kitten` 轉換為 `sitting` 需要編輯 3 步，包括 2 次替換操作與 1 次新增操作；將 `hello` 轉換為 `algo` 需要 3 步，包括 2 次替換操作和 1 次刪除操作。
 
-![編輯距離的示例資料](edit_distance_problem.assets/edit_distance_example.png)
+![編輯距離的示例資料](edit_distance_problem.assets/edit_distance_example.svg)
 
 **編輯距離問題可以很自然地用決策樹模型來解釋**。字串對應樹節點，一輪決策（一次編輯操作）對應樹的一條邊。
 
@@ -18,7 +18,7 @@
 
 從決策樹的角度看，本題的目標是求解節點 `hello` 和節點 `algo` 之間的最短路徑。
 
-![基於決策樹模型表示編輯距離問題](edit_distance_problem.assets/edit_distance_decision_tree.png)
+![基於決策樹模型表示編輯距離問題](edit_distance_problem.assets/edit_distance_decision_tree.svg)
 
 ### 動態規劃思路
 
@@ -45,7 +45,7 @@
 2. 刪除 $s[i-1]$ ，則剩餘子問題 $dp[i-1, j]$ 。
 3. 將 $s[i-1]$ 替換為 $t[j-1]$ ，則剩餘子問題 $dp[i-1, j-1]$ 。
 
-![編輯距離的狀態轉移](edit_distance_problem.assets/edit_distance_state_transfer.png)
+![編輯距離的狀態轉移](edit_distance_problem.assets/edit_distance_state_transfer.svg)
 
 根據以上分析，可得最優子結構：$dp[i, j]$ 的最少編輯步數等於 $dp[i, j-1]$、$dp[i-1, j]$、$dp[i-1, j-1]$ 三者中的最少編輯步數，再加上本次的編輯步數 $1$ 。對應的狀態轉移方程為：
 
@@ -74,49 +74,49 @@ $$
 如下圖所示，編輯距離問題的狀態轉移過程與背包問題非常類似，都可以看作填寫一個二維網格的過程。
 
 === "<1>"
-    ![編輯距離的動態規劃過程](edit_distance_problem.assets/edit_distance_dp_step1.png)
+    ![編輯距離的動態規劃過程](edit_distance_problem.assets/edit_distance_dp_step1.svg)
 
 === "<2>"
-    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.png)
+    ![edit_distance_dp_step2](edit_distance_problem.assets/edit_distance_dp_step2.svg)
 
 === "<3>"
-    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.png)
+    ![edit_distance_dp_step3](edit_distance_problem.assets/edit_distance_dp_step3.svg)
 
 === "<4>"
-    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.png)
+    ![edit_distance_dp_step4](edit_distance_problem.assets/edit_distance_dp_step4.svg)
 
 === "<5>"
-    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.png)
+    ![edit_distance_dp_step5](edit_distance_problem.assets/edit_distance_dp_step5.svg)
 
 === "<6>"
-    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.png)
+    ![edit_distance_dp_step6](edit_distance_problem.assets/edit_distance_dp_step6.svg)
 
 === "<7>"
-    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.png)
+    ![edit_distance_dp_step7](edit_distance_problem.assets/edit_distance_dp_step7.svg)
 
 === "<8>"
-    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.png)
+    ![edit_distance_dp_step8](edit_distance_problem.assets/edit_distance_dp_step8.svg)
 
 === "<9>"
-    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.png)
+    ![edit_distance_dp_step9](edit_distance_problem.assets/edit_distance_dp_step9.svg)
 
 === "<10>"
-    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.png)
+    ![edit_distance_dp_step10](edit_distance_problem.assets/edit_distance_dp_step10.svg)
 
 === "<11>"
-    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.png)
+    ![edit_distance_dp_step11](edit_distance_problem.assets/edit_distance_dp_step11.svg)
 
 === "<12>"
-    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.png)
+    ![edit_distance_dp_step12](edit_distance_problem.assets/edit_distance_dp_step12.svg)
 
 === "<13>"
-    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.png)
+    ![edit_distance_dp_step13](edit_distance_problem.assets/edit_distance_dp_step13.svg)
 
 === "<14>"
-    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.png)
+    ![edit_distance_dp_step14](edit_distance_problem.assets/edit_distance_dp_step14.svg)
 
 === "<15>"
-    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.png)
+    ![edit_distance_dp_step15](edit_distance_problem.assets/edit_distance_dp_step15.svg)
 
 ### 空間最佳化
 

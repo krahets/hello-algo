@@ -14,26 +14,26 @@ class AVLTree
     @root = nil
   end
 
-  ### 二分木の根ノードを取得 ###
+  ### 二分木の根ノードを取得する ###
   def get_root
     @root
   end
 
-  ### ノードの高さを取得 ###
+  ### ノードの高さを取得する ###
   def height(node)
-    # 空ノードの高さは -1、葉ノードの高さは 0
+    # 空ノードの高さは -1 、葉ノードの高さは 0
     return node.height unless node.nil?
 
     -1
   end
 
-  ### ノードの高さを更新 ###
+  ### ノードの高さを更新する ###
   def update_height(node)
-    # ノードの高さは最も高い部分木の高さ + 1 に等しい
+    # ノードの高さは、最も高い部分木の高さ + 1
     node.height = [height(node.left), height(node.right)].max + 1
   end
 
-  ### 平衡係数を取得 ###
+  ### 平衡係数を取得する ###
   def balance_factor(node)
     # 空ノードの平衡係数は 0
     return 0 if node.nil?
@@ -46,7 +46,7 @@ class AVLTree
   def right_rotate(node)
     child = node.left
     grand_child = child.right
-    # child を支点として node を右回転させる
+    # child を中心に node を右回転する
     child.right = node
     node.left = grand_child
     # ノードの高さを更新する
@@ -60,7 +60,7 @@ class AVLTree
   def left_rotate(node)
     child = node.right
     grand_child = child.left
-    # child を支点として node を左回転させる
+    # child を中心に node を左回転する
     child.left = node
     node.right = grand_child
     # ノードの高さを更新する
@@ -70,17 +70,17 @@ class AVLTree
     child
   end
 
-  ### 回転操作を行い、この部分木の平衡を回復する ###
+  ### 回転操作によって、この部分木の平衡を回復する ###
   def rotate(node)
-    # ノード node の平衡係数を取得
+    # ノード node の平衡係数を取得する
     balance_factor = balance_factor(node)
-    # 左部分木をたどる
+    # 左に偏った木
     if balance_factor > 1
       if balance_factor(node.left) >= 0
         # 右回転
         return right_rotate(node)
       else
-        # 左回転してから右回転
+        # 左回転してから右回転する
         node.left = left_rotate(node.left)
         return right_rotate(node)
       end
@@ -90,47 +90,47 @@ class AVLTree
         # 左回転
         return left_rotate(node)
       else
-        # 右回転してから左回転
+        # 右回転してから左回転する
         node.right = right_rotate(node.right)
         return left_rotate(node)
       end
     end
-    # 平衡木なので回転不要、そのまま返す
+    # 平衡な木なので、回転せずにそのまま返す
     node
   end
 
-  ### ノードを挿入 ###
+  ### ノードを挿入する ###
   def insert(val)
     @root = insert_helper(@root, val)
   end
 
-  # ## ノードを再帰的に挿入（補助メソッド）###
+  ### ノードを再帰的に挿入する（補助メソッド）###
   def insert_helper(node, val)
     return TreeNode.new(val) if node.nil?
-    # 1. 挿入位置を探索してノードを挿入
+    # 1. 挿入位置を探してノードを挿入する
     if val < node.val
       node.left = insert_helper(node.left, val)
     elsif val > node.val
       node.right = insert_helper(node.right, val)
     else
-      # 重複ノードは挿入せず、そのまま返す
+      # 重複したノードは挿入せず、そのまま戻る
       return node
     end
     # ノードの高さを更新する
     update_height(node)
-    # 2. 回転操作を行い、部分木の平衡を回復する
+    # 2. 回転操作によって、この部分木の平衡を回復する
     rotate(node)
   end
 
-  ### ノードを削除 ###
+  ### ノードを削除する ###
   def remove(val)
     @root = remove_helper(@root, val)
   end
 
-  # ## ノードを再帰的に削除（補助メソッド）###
+  ### ノードを再帰的に削除する（補助メソッド）###
   def remove_helper(node, val)
     return if node.nil?
-    # 1. ノードを探索して削除
+    # 1. ノードを探して削除する
     if val < node.val
       node.left = remove_helper(node.left, val)
     elsif val > node.val
@@ -138,12 +138,12 @@ class AVLTree
     else
       if node.left.nil? || node.right.nil?
         child = node.left || node.right
-        # 子ノード数 = 0 の場合、node をそのまま削除して返す
+        # 子ノード数 = 0 の場合、node を削除して戻る
         return if child.nil?
-        # 子ノード数 = 1 の場合、node をそのまま削除する
+        # 子ノード数 = 1 の場合、node を削除する
         node = child
       else
-        # 子ノード数 = 2 の場合、中順走査の次のノードを削除し、そのノードで現在のノードを置き換える
+        # 子ノード数 = 2 の場合、通りがけ順で次のノードを削除し、そのノードで現在のノードを置き換える
         temp = node.right
         while !temp.left.nil?
           temp = temp.left
@@ -154,42 +154,42 @@ class AVLTree
     end
     # ノードの高さを更新する
     update_height(node)
-    # 2. 回転操作を行い、部分木の平衡を回復する
+    # 2. 回転操作によって、この部分木の平衡を回復する
     rotate(node)
   end
 
-  ### ノードを検索 ###
+  ### ノードを探索する ###
   def search(val)
     cur = @root
-    # ループで探索し、葉ノードを越えたら抜ける
+    # 繰り返し探索し、葉ノードを越えたら終了する
     while !cur.nil?
-      # 目標ノードは cur の右部分木にある
+      # 目的のノードは cur の右部分木にある
       if cur.val < val
         cur = cur.right
-      # 目標ノードは cur の左部分木にある
+      # 目的のノードは cur の左部分木にある
       elsif cur.val > val
         cur = cur.left
-      # 目標ノードが見つかったらループを抜ける
+      # 目的のノードが見つかったので、ループを終了する
       else
         break
       end
     end
-    # 目標ノードを返す
+    # 目的のノードを返す
     cur
   end
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   def test_insert(tree, val)
     tree.insert(val)
-    puts "\nノード #{val} を挿入した後、AVL 木は"
+    puts "\nノード #{val} を挿入した後の AVL 木"
     print_tree(tree.get_root)
   end
 
   def test_remove(tree, val)
     tree.remove(val)
-    puts "\nノード #{val} を削除した後、AVL 木は"
+    puts "\nノード #{val} を削除した後の AVL 木"
     print_tree(tree.get_root)
   end
 
@@ -197,16 +197,16 @@ if __FILE__ == $0
   avl_tree = AVLTree.new
 
   # ノードを挿入する
-  # ノード挿入後に AVL 木がどのように平衡を保つかに注目
+  # ノード挿入後、AVL 木がどのように平衡を保つかに注目する
   for val in [1, 2, 3, 4, 5, 8, 7, 9, 10, 6]
     test_insert(avl_tree, val)
   end
 
-  # 重複ノードを挿入する
+  # 重複したノードを挿入する
   test_insert(avl_tree, 7)
 
   # ノードを削除する
-  # ノード削除後に AVL 木がどのように平衡を保つかに注目
+  # ノード削除後、AVL 木がどのように平衡を保つかに注目する
   test_remove(avl_tree, 8) # 次数 0 のノードを削除する
   test_remove(avl_tree, 5) # 次数 1 のノードを削除する
   test_remove(avl_tree, 4) # 次数 2 のノードを削除する

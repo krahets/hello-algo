@@ -6,13 +6,13 @@ Author: timi (xisunyy@163.com), krahets (krahets@163.com)
 
 
 def merge(nums: list[int], left: int, mid: int, right: int):
-    """Merge left subarray and right subarray"""
-    # Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-    # Create a temporary array tmp to store the merged results
+    """Merge the left and right subarrays"""
+    # The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+    # Create a temporary array tmp to store the merged result
     tmp = [0] * (right - left + 1)
-    # Initialize the start indices of the left and right subarrays
+    # Initialize the starting indices of the left and right subarrays
     i, j, k = left, mid + 1, 0
-    # While both subarrays still have elements, compare and copy the smaller element into the temporary array
+    # While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
     while i <= mid and j <= right:
         if nums[i] <= nums[j]:
             tmp[k] = nums[i]
@@ -30,25 +30,25 @@ def merge(nums: list[int], left: int, mid: int, right: int):
         tmp[k] = nums[j]
         j += 1
         k += 1
-    # Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+    # Copy the elements of temporary array tmp back into the corresponding range of the original array nums
     for k in range(0, len(tmp)):
         nums[left + k] = tmp[k]
 
 
 def merge_sort(nums: list[int], left: int, right: int):
     """Merge sort"""
-    # Termination condition
+    # Base case
     if left >= right:
-        return  # Terminate recursion when subarray length is 1
-    # Divide and conquer stage
-    mid = (left + right) // 2  # Calculate midpoint
-    merge_sort(nums, left, mid)  # Recursively process the left subarray
-    merge_sort(nums, mid + 1, right)  # Recursively process the right subarray
-    # Merge stage
+        return  # Stop recursing when the subarray has at most one element
+    # Divide phase
+    mid = (left + right) // 2 # Calculate the midpoint
+    merge_sort(nums, left, mid)  # Recurse on the left subarray
+    merge_sort(nums, mid + 1, right)  # Recurse on the right subarray
+    # Merge phase
     merge(nums, left, mid, right)
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
     nums = [7, 3, 2, 6, 0, 1, 5, 4]
     merge_sort(nums, 0, len(nums) - 1)

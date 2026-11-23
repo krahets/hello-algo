@@ -8,35 +8,35 @@ package utils;
 
 import java.util.*;
 
-/* 二分木ノードクラス */
+/* 二分木のノードクラス */
 public class TreeNode {
-    public int val; // ノード値
+    public int val; // ノードの値
     public int height; // ノードの高さ
-    public TreeNode left; // 左子ノードへの参照
-    public TreeNode right; // 右子ノードへの参照
+    public TreeNode left; // 左の子ノードへの参照
+    public TreeNode right; // 右の子ノードへの参照
 
     /* コンストラクタ */
     public TreeNode(int x) {
         val = x;
     }
 
-    // シリアライズの符号化規則は以下を参照:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // 二分木の配列表現:
+    // シリアライズの符号化規則は次を参照：
+    // https://www.hello-algo.com/ja/chapter_tree/array_representation_of_tree/
+    // 二分木の配列表現：
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // 二分木の連結リスト表現:
-    // /——— 15
-    // /——— 7
-    // /——— 3
-    // |    \——— 6
-    // |        \——— 12
+    // 二分木の連結リスト表現：
+    //             /——— 15
+    //         /——— 7
+    //     /——— 3
+    //    |    \——— 6
+    //    |        \——— 12
     // ——— 1
-    // \——— 2
-    // |    /——— 9
-    // \——— 4
-    // \——— 8
+    //     \——— 2
+    //        |    /——— 9
+    //         \——— 4
+    //             \——— 8
 
-    /* リストを二分木にデシリアライズする: 再帰 */
+    /* リストから二分木へデシリアライズ：再帰 */
     private static TreeNode listToTreeDFS(List<Integer> arr, int i) {
         if (i < 0 || i >= arr.size() || arr.get(i) == null) {
             return null;
@@ -47,12 +47,12 @@ public class TreeNode {
         return root;
     }
 
-    /* リストを二分木にデシリアライズする */
+    /* リストから二分木へデシリアライズ */
     public static TreeNode listToTree(List<Integer> arr) {
         return listToTreeDFS(arr, 0);
     }
 
-    /* 二分木をリストにシリアライズする: 再帰 */
+    /* 二分木をシリアライズしてリストにする：再帰 */
     private static void treeToListDFS(TreeNode root, int i, List<Integer> res) {
         if (root == null)
             return;
@@ -64,7 +64,7 @@ public class TreeNode {
         treeToListDFS(root.right, 2 * i + 2, res);
     }
 
-    /* 二分木をリストにシリアライズする */
+    /* 二分木をシリアライズしてリストにする */
     public static List<Integer> treeToList(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         treeToListDFS(root, 0, res);

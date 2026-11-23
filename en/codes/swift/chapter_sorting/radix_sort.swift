@@ -4,34 +4,34 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Get the k-th digit of element num, where exp = 10^(k-1) */
+/* Get the k-th digit of num, where exp = 10^(k-1) */
 func digit(num: Int, exp: Int) -> Int {
-    // Passing exp instead of k can avoid repeated expensive exponentiation here
+    // Passing exp instead of k avoids repeatedly performing expensive exponentiation here
     (num / exp) % 10
 }
 
-/* Counting sort (based on nums k-th digit) */
+/* Counting sort (sort nums by the k-th digit) */
 func countingSortDigit(nums: inout [Int], exp: Int) {
-    // Decimal digit range is 0~9, therefore need a bucket array of length 10
+    // Decimal digits range from 0 to 9, so the bucket array needs length 10
     var counter = Array(repeating: 0, count: 10)
-    // Count the occurrence of digits 0~9
+    // Count the occurrences of each digit from 0 to 9
     for i in nums.indices {
-        let d = digit(num: nums[i], exp: exp) // Get the k-th digit of nums[i], noted as d
-        counter[d] += 1 // Count the occurrence of digit d
+        let d = digit(num: nums[i], exp: exp) // Get the k-th digit of nums[i] and store it in d
+        counter[d] += 1 // Count the occurrences of digit d
     }
-    // Calculate prefix sum, converting "occurrence count" into "array index"
+    // Compute prefix sums to convert occurrence counts into array positions
     for i in 1 ..< 10 {
         counter[i] += counter[i - 1]
     }
-    // Traverse in reverse, based on bucket statistics, place each element into res
+    // Traverse in reverse and place each element into res according to the bucket counts
     var res = Array(repeating: 0, count: nums.count)
     for i in nums.indices.reversed() {
         let d = digit(num: nums[i], exp: exp)
-        let j = counter[d] - 1 // Get the index j for d in the array
+        let j = counter[d] - 1 // Get the destination index j for digit d in the array
         res[j] = nums[i] // Place the current element at index j
-        counter[d] -= 1 // Decrease the count of d by 1
+        counter[d] -= 1 // Decrease the count for d by 1
     }
-    // Use result to overwrite the original array nums
+    // Overwrite the original array nums with the result
     for i in nums.indices {
         nums[i] = res[i]
     }
@@ -39,26 +39,26 @@ func countingSortDigit(nums: inout [Int], exp: Int) {
 
 /* Radix sort */
 func radixSort(nums: inout [Int]) {
-    // Get the maximum element of the array, used to determine the maximum number of digits
+    // Get the largest array element to determine the maximum number of digits
     var m = Int.min
     for num in nums {
         if num > m {
             m = num
         }
     }
-    // Traverse from the lowest to the highest digit
+    // Process digits from least significant to most significant
     for exp in sequence(first: 1, next: { m >= ($0 * 10) ? $0 * 10 : nil }) {
-        // Perform counting sort on the k-th digit of array elements
+        // Apply counting sort to the k-th digit of the array elements
         // k = 1 -> exp = 1
         // k = 2 -> exp = 10
-        // i.e., exp = 10^(k-1)
+        // That is, exp = 10^(k-1)
         countingSortDigit(nums: &nums, exp: exp)
     }
 }
 
 @main
 enum RadixSort {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         // Radix sort
         var nums = [

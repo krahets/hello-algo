@@ -18,7 +18,7 @@
 
 如下圖所示，若第 $1$、$2$、$3$ 階的代價分別為 $1$、$10$、$1$ ，則從地面爬到第 $3$ 階的最小代價為 $2$ 。
 
-![爬到第 3 階的最小代價](dp_problem_features.assets/min_cost_cs_example.png)
+![爬到第 3 階的最小代價](dp_problem_features.assets/min_cost_cs_example.svg)
 
 設 $dp[i]$ 為爬到第 $i$ 階累計付出的代價，由於第 $i$ 階只可能從 $i - 1$ 階或 $i - 2$ 階走來，因此 $dp[i]$ 只可能等於 $dp[i - 1] + cost[i]$ 或 $dp[i - 2] + cost[i]$ 。為了儘可能減少代價，我們應該選擇兩者中較小的那一個：
 
@@ -40,7 +40,7 @@ $$
 
 下圖展示了以上程式碼的動態規劃過程。
 
-![爬樓梯最小代價的動態規劃過程](dp_problem_features.assets/min_cost_cs_dp.png)
+![爬樓梯最小代價的動態規劃過程](dp_problem_features.assets/min_cost_cs_dp.svg)
 
 本題也可以進行空間最佳化，將一維壓縮至零維，使得空間複雜度從 $O(n)$ 降至 $O(1)$ ：
 
@@ -62,7 +62,7 @@ $$
 
 如下圖所示，爬上第 $3$ 階僅剩 $2$ 種可行方案，其中連續三次跳 $1$ 階的方案不滿足約束條件，因此被捨棄。
 
-![帶約束爬到第 3 階的方案數量](dp_problem_features.assets/climbing_stairs_constraint_example.png)
+![帶約束爬到第 3 階的方案數量](dp_problem_features.assets/climbing_stairs_constraint_example.svg)
 
 在該問題中，如果上一輪是跳 $1$ 階上來的，那麼下一輪就必須跳 $2$ 階。這意味著，**下一步選擇不能由當前狀態（當前所在樓梯階數）獨立決定，還和前一個狀態（上一輪所在樓梯階數）有關**。
 
@@ -82,7 +82,7 @@ dp[i, 2] = dp[i-2, 1] + dp[i-2, 2]
 \end{cases}
 $$
 
-![考慮約束下的遞推關係](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png)
+![考慮約束下的遞推關係](dp_problem_features.assets/climbing_stairs_constraint_state_transfer.svg)
 
 最終，返回 $dp[n, 1] + dp[n, 2]$ 即可，兩者之和代表爬到第 $n$ 階的方案總數：
 

@@ -6,7 +6,7 @@
 
 import utils
 
-/* Binary tree class represented by array */
+/* Binary tree class using an array representation */
 class ArrayBinaryTree {
     private var tree: [Int?]
 
@@ -15,31 +15,31 @@ class ArrayBinaryTree {
         tree = arr
     }
 
-    /* List capacity */
+    /* Length of the backing array */
     func size() -> Int {
         tree.count
     }
 
-    /* Get value of node at index i */
+    /* Get the value of the node at index i */
     func val(i: Int) -> Int? {
-        // If index out of bounds, return null to represent empty position
+        // If the index is out of bounds, return nil to represent an empty position
         if i < 0 || i >= size() {
             return nil
         }
         return tree[i]
     }
 
-    /* Get index of left child node of node at index i */
+    /* Get the left child index of the node at index i */
     func left(i: Int) -> Int {
         2 * i + 1
     }
 
-    /* Get index of right child node of node at index i */
+    /* Get the right child index of the node at index i */
     func right(i: Int) -> Int {
         2 * i + 2
     }
 
-    /* Get index of parent node of node at index i */
+    /* Get the parent index of the node at index i */
     func parent(i: Int) -> Int {
         (i - 1) / 2
     }
@@ -47,7 +47,7 @@ class ArrayBinaryTree {
     /* Level-order traversal */
     func levelOrder() -> [Int] {
         var res: [Int] = []
-        // Traverse array directly
+        // Traverse the array directly
         for i in 0 ..< size() {
             if let val = val(i: i) {
                 res.append(val)
@@ -58,7 +58,7 @@ class ArrayBinaryTree {
 
     /* Depth-first traversal */
     private func dfs(i: Int, order: String, res: inout [Int]) {
-        // If empty position, return
+        // Return if this position is empty
         guard let val = val(i: i) else {
             return
         }
@@ -102,40 +102,40 @@ class ArrayBinaryTree {
 
 @main
 enum _ArrayBinaryTree {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        // Initialize binary tree
-        // Here we use a function to generate a binary tree directly from an array
+        // Initialize the binary tree
+        // Use a helper function that builds a binary tree directly from an array
         let arr = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
 
         let root = TreeNode.listToTree(arr: arr)
-        print("\nInitialize binary tree\n")
-        print("Array representation of binary tree:")
+        print("\nInitialize the binary tree\n")
+        print("Array representation of the binary tree:")
         print(arr)
-        print("Linked list representation of binary tree:")
+        print("Linked representation of the binary tree:")
         PrintUtil.printTree(root: root)
 
-        // Binary tree class represented by array
+        // Binary tree class using an array representation
         let abt = ArrayBinaryTree(arr: arr)
 
-        // Access node
+        // Access a node
         let i = 1
         let l = abt.left(i: i)
         let r = abt.right(i: i)
         let p = abt.parent(i: i)
-        print("\nCurrent node index is \(i), value is \(abt.val(i: i) as Any)")
-        print("Its left child index is \(l), value is \(abt.val(i: l) as Any)")
-        print("Its right child index is \(r), value is \(abt.val(i: r) as Any)")
-        print("Its parent node index is \(p), value is \(abt.val(i: p) as Any)")
+        print("\nCurrent node: index = \(i), value = \(abt.val(i: i) as Any)")
+        print("Left child: index = \(l), value = \(abt.val(i: l) as Any)")
+        print("Right child: index = \(r), value = \(abt.val(i: r) as Any)")
+        print("Parent: index = \(p), value = \(abt.val(i: p) as Any)")
 
-        // Traverse tree
+        // Traverse the tree
         var res = abt.levelOrder()
-        print("\nLevel-order traversal is: \(res)")
+        print("\nLevel-order traversal: \(res)")
         res = abt.preOrder()
-        print("Pre-order traversal is: \(res)")
+        print("Preorder traversal: \(res)")
         res = abt.inOrder()
-        print("In-order traversal is: \(res)")
+        print("Inorder traversal: \(res)")
         res = abt.postOrder()
-        print("Post-order traversal is: \(res)")
+        print("Postorder traversal: \(res)")
     }
 }

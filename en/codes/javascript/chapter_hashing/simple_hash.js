@@ -34,27 +34,27 @@ function xorHash(key) {
     return hash % MODULUS;
 }
 
-/* Rotational hash */
+/* Rotating hash */
 function rotHash(key) {
-    let hash = 0n;
-    const MODULUS = 1000000007n;
+    let hash = 0;
+    const MODULUS = 1000000007;
     for (const c of key) {
-        hash = ((hash << 4n) ^ (hash >> 28n) ^ BigInt(c.charCodeAt(0))) % MODULUS;
+        hash = ((hash << 4) ^ (hash >> 28) ^ c.charCodeAt(0)) % MODULUS;
     }
-    return Number(hash);
+    return hash;
 }
 
-/* Driver Code */
-const key = 'Hello Algo';
+/* Driver code */
+const key = 'Hello 算法';
 
 let hash = addHash(key);
-console.log('Additive hash value is ' + hash);
+console.log('Additive hash value: ' + hash);
 
 hash = mulHash(key);
-console.log('Multiplicative hash value is ' + hash);
+console.log('Multiplicative hash value: ' + hash);
 
 hash = xorHash(key);
-console.log('XOR hash value is ' + hash);
+console.log('XOR hash value: ' + hash);
 
 hash = rotHash(key);
-console.log('Rotational hash value is ' + hash);
+console.log('Rotating hash value: ' + hash);

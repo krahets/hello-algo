@@ -9,11 +9,11 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* Stack based on linked list implementation */
+/* Stack implemented with a linked list */
 #[allow(dead_code)]
 pub struct LinkedListStack<T> {
-    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Use head node as stack top
-    stk_size: usize,                              // Stack length
+    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // Use the head node as the stack top
+    stk_size: usize,                              // Stack size
 }
 
 impl<T: Copy> LinkedListStack<T> {
@@ -24,12 +24,12 @@ impl<T: Copy> LinkedListStack<T> {
         }
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     pub fn size(&self) -> usize {
         return self.stk_size;
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     pub fn is_empty(&self) -> bool {
         return self.size() == 0;
     }
@@ -52,12 +52,12 @@ impl<T: Copy> LinkedListStack<T> {
         })
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.stack_peek.as_ref()
     }
 
-    /* Convert List to Array and return */
+    /* Convert the linked list to a vector and return it */
     pub fn to_array(&self) -> Vec<T> {
         fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
             if let Some(node) = head {
@@ -72,12 +72,12 @@ impl<T: Copy> LinkedListStack<T> {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    /* Access top of the stack element */
+    /* Initialize the stack */
     let mut stack = LinkedListStack::new();
 
-    /* Elements push onto stack */
+    /* Push elements onto the stack */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -86,20 +86,20 @@ fn main() {
     print!("Stack stack = ");
     print_util::print_array(&stack.to_array());
 
-    /* Return list for printing */
+    /* Access the top element */
     let peek = stack.peek().unwrap().borrow().val;
     print!("\nTop element peek = {}", peek);
 
-    /* Element pop from stack */
+    /* Pop an element from the stack */
     let pop = stack.pop().unwrap();
-    print!("\nPop element pop = {}, after pop stack = ", pop);
+    print!("\nPopped element pop = {}; after popping, stack = ", pop);
     print_util::print_array(&stack.to_array());
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     let size = stack.size();
-    print!("\nStack length size = {}", size);
+    print!("\nStack size = {}", size);
 
-    /* Check if empty */
+    /* Check whether it is empty */
     let is_empty = stack.is_empty();
-    print!("\nIs stack empty = {}", is_empty);
+    print!("\nIs the stack empty? {}", is_empty);
 }

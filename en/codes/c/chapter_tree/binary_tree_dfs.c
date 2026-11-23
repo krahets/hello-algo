@@ -8,14 +8,14 @@
 
 #define MAX_SIZE 100
 
-// Auxiliary array for storing traversal sequence
+// Auxiliary array for storing the traversal sequence
 int arr[MAX_SIZE];
 
 /* Preorder traversal */
 void preOrder(TreeNode *root, int *size) {
     if (root == NULL)
         return;
-    // Visit priority: root node -> left subtree -> right subtree
+    // Visit order: root -> left subtree -> right subtree
     arr[(*size)++] = root->val;
     preOrder(root->left, size);
     preOrder(root->right, size);
@@ -25,7 +25,7 @@ void preOrder(TreeNode *root, int *size) {
 void inOrder(TreeNode *root, int *size) {
     if (root == NULL)
         return;
-    // Visit priority: left subtree -> root node -> right subtree
+    // Visit order: left subtree -> root -> right subtree
     inOrder(root->left, size);
     arr[(*size)++] = root->val;
     inOrder(root->right, size);
@@ -35,39 +35,39 @@ void inOrder(TreeNode *root, int *size) {
 void postOrder(TreeNode *root, int *size) {
     if (root == NULL)
         return;
-    // Visit priority: left subtree -> right subtree -> root node
+    // Visit order: left subtree -> right subtree -> root
     postOrder(root->left, size);
     postOrder(root->right, size);
     arr[(*size)++] = root->val;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize binary tree */
-    // Here we use a function to generate a binary tree directly from an array
+    /* Initialize the binary tree */
+    // Use a helper function that builds a binary tree directly from an array
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
-    printf("Initialize binary tree\n");
+    printf("Initialize the binary tree\n");
     printTree(root);
 
     /* Preorder traversal */
-    // Initialize auxiliary array
+    // Initialize the auxiliary array's element count
     size = 0;
     preOrder(root, &size);
-    printf("Pre-order traversal node print sequence = ");
+    printf("Node sequence from preorder traversal = ");
     printArray(arr, size);
 
     /* Inorder traversal */
     size = 0;
     inOrder(root, &size);
-    printf("In-order traversal node print sequence = ");
+    printf("Node sequence from inorder traversal = ");
     printArray(arr, size);
 
     /* Postorder traversal */
     size = 0;
     postOrder(root, &size);
-    printf("Post-order traversal node print sequence = ");
+    printf("Node sequence from postorder traversal = ");
     printArray(arr, size);
 
     freeMemoryTree(root);

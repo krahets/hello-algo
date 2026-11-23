@@ -13,7 +13,7 @@
 
 在原始雜湊表中，每個桶僅能儲存一個鍵值對。<u>鏈式位址（separate chaining）</u>將單個元素轉換為鏈結串列，將鍵值對作為鏈結串列節點，將所有發生衝突的鍵值對都儲存在同一鏈結串列中。下圖展示了一個鏈式位址雜湊表的例子。
 
-![鏈式位址雜湊表](hash_collision.assets/hash_table_chaining.png)
+![鏈式位址雜湊表](hash_collision.assets/hash_table_chaining.svg)
 
 基於鏈式位址實現的雜湊表的操作方法發生了以下變化。
 
@@ -52,13 +52,13 @@
 
 下圖展示了開放定址（線性探查）雜湊表的鍵值對分佈。根據此雜湊函式，最後兩位相同的 `key` 都會被對映到相同的桶。而透過線性探查，它們被依次儲存在該桶以及之下的桶中。
 
-![開放定址（線性探查）雜湊表的鍵值對分佈](hash_collision.assets/hash_table_linear_probing.png)
+![開放定址（線性探查）雜湊表的鍵值對分佈](hash_collision.assets/hash_table_linear_probing.svg)
 
 然而，**線性探查容易產生“聚集現象”**。具體來說，陣列中連續被佔用的位置越長，這些連續位置發生雜湊衝突的可能性越大，從而進一步促使該位置的聚堆積生長，形成惡性迴圈，最終導致增刪查改操作效率劣化。
 
 值得注意的是，**我們不能在開放定址雜湊表中直接刪除元素**。這是因為刪除元素會在陣列內產生一個空桶 `None` ，而當查詢元素時，線性探查到該空桶就會返回，因此在該空桶之下的元素都無法再被訪問到，程式可能誤判這些元素不存在，如下圖所示。
 
-![在開放定址中刪除元素導致的查詢問題](hash_collision.assets/hash_table_open_addressing_deletion.png)
+![在開放定址中刪除元素導致的查詢問題](hash_collision.assets/hash_table_open_addressing_deletion.svg)
 
 為了解決該問題，我們可以採用<u>懶刪除（lazy deletion）</u>機制：它不直接從雜湊表中移除元素，**而是利用一個常數 `TOMBSTONE` 來標記這個桶**。在該機制下，`None` 和 `TOMBSTONE` 都代表空桶，都可以放置鍵值對。但不同的是，線性探查到 `TOMBSTONE` 時應該繼續走訪，因為其之下可能還存在鍵值對。
 

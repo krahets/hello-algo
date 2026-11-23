@@ -100,7 +100,8 @@ function logRecur(n) {
 /* Линейно-логарифмическая сложность */
 function linearLogRecur(n) {
     if (n <= 1) return 1;
-    let count = linearLogRecur(Math.floor(n / 2)) + linearLogRecur(Math.floor(n / 2));
+    const half = Math.floor(n / 2);
+    let count = linearLogRecur(half) + linearLogRecur(half);
     for (let i = 0; i < n; i++) {
         count++;
     }

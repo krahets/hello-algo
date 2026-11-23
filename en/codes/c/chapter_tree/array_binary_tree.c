@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Binary tree structure in array representation */
+/* Binary tree structure represented by an array */
 typedef struct {
     int *tree;
     int size;
@@ -27,30 +27,30 @@ void delArrayBinaryTree(ArrayBinaryTree *abt) {
     free(abt);
 }
 
-/* List capacity */
+/* Array length */
 int size(ArrayBinaryTree *abt) {
     return abt->size;
 }
 
-/* Get value of node at index i */
+/* Get the value of the node at index i */
 int val(ArrayBinaryTree *abt, int i) {
-    // Return INT_MAX if index out of bounds, representing empty position
+    // If the index is out of bounds, return INT_MAX to represent an empty position
     if (i < 0 || i >= size(abt))
         return INT_MAX;
     return abt->tree[i];
 }
 
-/* Get index of left child node of node at index i */
+/* Get the left child index of the node at index i */
 int left(int i) {
     return 2 * i + 1;
 }
 
-/* Get index of right child node of node at index i */
+/* Get the right child index of the node at index i */
 int right(int i) {
     return 2 * i + 2;
 }
 
-/* Get index of parent node of node at index i */
+/* Get the parent index of the node at index i */
 int parent(int i) {
     return (i - 1) / 2;
 }
@@ -59,7 +59,7 @@ int parent(int i) {
 int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
     int *res = (int *)malloc(sizeof(int) * size(abt));
     int index = 0;
-    // Traverse array directly
+    // Traverse the array directly
     for (int i = 0; i < size(abt); i++) {
         if (val(abt, i) != INT_MAX)
             res[index++] = val(abt, i);
@@ -70,7 +70,7 @@ int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
 
 /* Depth-first traversal */
 void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
-    // If empty position, return
+    // Return if this position is empty
     if (val(abt, i) == INT_MAX)
         return;
     // Preorder traversal
@@ -113,30 +113,30 @@ int *postOrder(ArrayBinaryTree *abt, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    // Initialize binary tree
-    // Use INT_MAX to represent NULL
+    // Initialize the binary tree
+    // Use INT_MAX to represent an empty position (NULL)
     int arr[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     int arrSize = sizeof(arr) / sizeof(arr[0]);
     TreeNode *root = arrayToTree(arr, arrSize);
-    printf("\nInitialize binary tree\n");
-    printf("Array representation of binary tree:\n");
+    printf("\nInitialize the binary tree\n");
+    printf("Array representation of the binary tree:\n");
     printArray(arr, arrSize);
-    printf("Linked list representation of binary tree:\n");
+    printf("Linked representation of the binary tree:\n");
     printTree(root);
 
     ArrayBinaryTree *abt = newArrayBinaryTree(arr, arrSize);
 
-    // Access node
+    // Access a node
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
-    printf("\nCurrent node index is %d, value is %d\n", i, val(abt, i));
-    printf("Its left child index is %d, value is %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
-    printf("Its right child index is %d, value is %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
-    printf("Its parent node index is %d, value is %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
+    printf("\nCurrent node: index %d, value %d\n", i, val(abt, i));
+    printf("Its left child: index %d, value %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
+    printf("Its right child: index %d, value %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
+    printf("Its parent: index %d, value %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
 
-    // Traverse tree
+    // Traverse the tree
     int returnSize;
     int *res;
 
@@ -146,17 +146,17 @@ int main() {
     free(res);
 
     res = preOrder(abt, &returnSize);
-    printf("Pre-order traversal: ");
+    printf("Preorder traversal: ");
     printArray(res, returnSize);
     free(res);
 
     res = inOrder(abt, &returnSize);
-    printf("In-order traversal: ");
+    printf("Inorder traversal: ");
     printArray(res, returnSize);
     free(res);
 
     res = postOrder(abt, &returnSize);
-    printf("Post-order traversal: ");
+    printf("Postorder traversal: ");
     printArray(res, returnSize);
     free(res);
 

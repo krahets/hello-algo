@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "title": "Edit distance: two three-step transformation examples",
+  "summary": "The alignments show how kitten becomes sitting and how hello becomes algo. Each transformation takes at least 3 edits, and the examples achieve that minimum.",
+  "context": [
+    "Each edit may insert, delete, or replace one character."
+  ],
+  "description": [
+    "The figure places two character-by-character alignment diagrams side by side; from top to bottom, each shows the source string row, an intermediate edited row, and the target string row. In both diagrams, arrows indicate the edit type and positional correspondence at each character without prescribing a unique order for the three edits.",
+    "On the left, source string s = kitten is transformed into target string t = sitting: the first letter k is replaced with s (blue), the 5th letter e is replaced with i (blue), and the letter g is inserted at the end (purple); the other 4 unchanged letters i, t, t, and n remain as they are, with vertical dashed lines aligning the intermediate row to the target row. The intermediate row reads s, i, t, t, i, n, g, with the replacements s and i in blue and the inserted g in purple, already matching the target string. Counting characters, the length changes from 6 to 7.",
+    "On the right, source string s = hello is transformed into target string t = algo: the first letter h is deleted (shown faded in light orange in the intermediate row and not carried down into the target string), the 2nd letter e is replaced with a (blue), and the second of the two consecutive l letters is replaced with g (blue), while the first l and the final o remain unchanged, with vertical dashed lines aligning the intermediate row to the target row. The intermediate row keeps the faded h followed by a, l, g, o, whereas the target row keeps only a, l, g, o. Counting characters, the length changes from 5 to 4."
+  ],
+  "frames": [
+    {
+      "id": "source-441",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_example.png",
+      "title": "Character-by-character alignment for two three-step edit examples",
+      "explanation": "The drawing does not label the total edit count directly; the count of 3 in the table comes from adding two replacements and one insertion or deletion in each example, matching the minimum number of edits stated in the text."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Edits in the two examples",
+      "headers": [
+        "Source",
+        "Target",
+        "Replacements",
+        "Insertion or deletion",
+        "Edits"
+      ],
+      "rows": [
+        [
+          "kitten",
+          "sitting",
+          "k → s; e → i",
+          "Insert g at end",
+          "3"
+        ],
+        [
+          "hello",
+          "algo",
+          "e → a; second l → g",
+          "Delete leading h",
+          "3"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

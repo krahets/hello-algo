@@ -25,40 +25,40 @@
     На самом деле операция извлечения из кучи тоже включает шаг `2.` и шаг `3.` , только дополнительно содержит действие по удалению элемента.
 
 === "<1>"
-    ![Шаги пирамидальной сортировки](heap_sort.assets/heap_sort_step1.png)
+    ![Шаги пирамидальной сортировки](heap_sort.assets/heap_sort_step1.svg)
 
 === "<2>"
-    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.png)
+    ![heap_sort_step2](heap_sort.assets/heap_sort_step2.svg)
 
 === "<3>"
-    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.png)
+    ![heap_sort_step3](heap_sort.assets/heap_sort_step3.svg)
 
 === "<4>"
-    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.png)
+    ![heap_sort_step4](heap_sort.assets/heap_sort_step4.svg)
 
 === "<5>"
-    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.png)
+    ![heap_sort_step5](heap_sort.assets/heap_sort_step5.svg)
 
 === "<6>"
-    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.png)
+    ![heap_sort_step6](heap_sort.assets/heap_sort_step6.svg)
 
 === "<7>"
-    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.png)
+    ![heap_sort_step7](heap_sort.assets/heap_sort_step7.svg)
 
 === "<8>"
-    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.png)
+    ![heap_sort_step8](heap_sort.assets/heap_sort_step8.svg)
 
 === "<9>"
-    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.png)
+    ![heap_sort_step9](heap_sort.assets/heap_sort_step9.svg)
 
 === "<10>"
-    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.png)
+    ![heap_sort_step10](heap_sort.assets/heap_sort_step10.svg)
 
 === "<11>"
-    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.png)
+    ![heap_sort_step11](heap_sort.assets/heap_sort_step11.svg)
 
 === "<12>"
-    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.png)
+    ![heap_sort_step12](heap_sort.assets/heap_sort_step12.svg)
 
 В коде используется та же функция просеивания сверху вниз `sift_down()`, что и в главе «Куча». Важно помнить, что длина кучи уменьшается по мере извлечения максимального элемента, поэтому функции `sift_down()` нужно передавать параметр длины $n$ , чтобы указать текущую действительную длину кучи. Код приведен ниже:
 

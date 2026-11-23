@@ -36,7 +36,7 @@ class MyList {
         return arr[index]
     }
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     fun set(index: Int, num: Int) {
         if (index < 0 || index >= size)
             throw IndexOutOfBoundsException("индекс выходит за границы")
@@ -60,7 +60,7 @@ class MyList {
         // При превышении вместимости по числу элементов запускается расширение
         if (size == capacity())
             extendCapacity()
-        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию назад
+        // Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
         for (j in size - 1 downTo index)
             arr[j + 1] = arr[j]
         arr[index] = num
@@ -73,7 +73,7 @@ class MyList {
         if (index < 0 || index >= size)
             throw IndexOutOfBoundsException("индекс выходит за границы")
         val num = arr[index]
-        // Сдвинуть все элементы после индекса index на одну позицию вперед
+        // Сдвинуть все элементы после индекса index на одну позицию влево
         for (j in index..<size - 1)
             arr[j] = arr[j + 1]
         // Обновить число элементов
@@ -126,9 +126,9 @@ fun main() {
     val num = nums.get(1)
     println("Элемент по индексу 1: num = $num")
 
-    /* Обновление элемента */
+    /* Изменение элемента */
     nums.set(1, 0)
-    println("После обновления элемента по индексу 1 до 0 nums = ${nums.toArray().contentToString()}")
+    println("После изменения значения элемента с индексом 1 на 0 nums = ${nums.toArray().contentToString()}")
 
     /* Проверка механизма расширения */
     for (i in 0..9) {

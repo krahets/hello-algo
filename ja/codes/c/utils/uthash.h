@@ -31,8 +31,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>   /* exit */
 
 #if defined(HASH_DEFINE_OWN_STDINT) && HASH_DEFINE_OWN_STDINT
-/* This codepath is provided for backward compatibility, but I plan to remove it. */
-#warning "HASH_DEFINE_OWN_STDINT is deprecated; please use HASH_NO_STDINT instead"
+/* このコード経路は後方互換性のために用意しているが、将来削除する予定である。 */
+#warning "HASH_DEFINE_OWN_STDINT は非推奨です。代わりに HASH_NO_STDINT を使用してください"
 typedef unsigned int uint32_t;
 typedef unsigned char uint8_t;
 #elif defined(HASH_NO_STDINT) && HASH_NO_STDINT
@@ -40,22 +40,22 @@ typedef unsigned char uint8_t;
 #include <stdint.h>   /* uint8_t, uint32_t */
 #endif
 
-/* These macros use decltype or the earlier __typeof GNU extension.
-   As decltype is only available in newer compilers (VS2010 or gcc 4.3+
-   when compiling c++ source) this code uses whatever method is needed
-   or, for VS2008 where neither is available, uses casting workarounds. */
+/* これらのマクロは decltype または従来の GNU 拡張 __typeof を使う。
+   decltype は比較的新しいコンパイラ（VS2010 または gcc 4.3 以降で
+   C++ ソースをコンパイルする場合）でしか利用できないため、必要に応じて方式を選ぶ。
+   どちらも利用できない VS2008 では、キャストによる回避策を使う。 */
 #if !defined(DECLTYPE) && !defined(NO_DECLTYPE)
-#if defined(_MSC_VER)   /* MS compiler */
-#if _MSC_VER >= 1600 && defined(__cplusplus)  /* VS2010 or newer in C++ mode */
+#if defined(_MSC_VER)   /* MS コンパイラ */
+#if _MSC_VER >= 1600 && defined(__cplusplus)  /* C++ モードの VS2010 以降 */
 #define DECLTYPE(x) (decltype(x))
-#else                   /* VS2008 or older (or VS2010 in C mode) */
+#else                   /* VS2008 以前（または C モードの VS2010） */
 #define NO_DECLTYPE
 #endif
-#elif defined(__MCST__)  /* Elbrus C Compiler */
+#elif defined(__MCST__)  /* Elbrus C コンパイラ */
 #define DECLTYPE(x) (__typeof(x))
 #elif defined(__BORLANDC__) || defined(__ICCARM__) || defined(__LCC__) || defined(__WATCOMC__)
 #define NO_DECLTYPE
-#else                   /* GNU, Sun and other compilers */
+#else                   /* GNU、Sun、その他のコンパイラ */
 #define DECLTYPE(x) (__typeof(x))
 #endif
 #endif
@@ -75,10 +75,10 @@ do {                                                                            
 #endif
 
 #ifndef uthash_malloc
-#define uthash_malloc(sz) malloc(sz)      /* malloc fcn                      */
+#define uthash_malloc(sz) malloc(sz)      /* malloc 関数                      */
 #endif
 #ifndef uthash_free
-#define uthash_free(ptr,sz) free(ptr)     /* free fcn                        */
+#define uthash_free(ptr,sz) free(ptr)     /* free 関数                        */
 #endif
 #ifndef uthash_bzero
 #define uthash_bzero(a,n) memset(a,'\0',n)
@@ -96,10 +96,10 @@ do {                                                                            
 #endif
 
 #ifndef uthash_noexpand_fyi
-#define uthash_noexpand_fyi(tbl)          /* can be defined to log noexpand  */
+#define uthash_noexpand_fyi(tbl)          /* noexpand をログに記録するよう定義できる  */
 #endif
 #ifndef uthash_expand_fyi
-#define uthash_expand_fyi(tbl)            /* can be defined to log expands   */
+#define uthash_expand_fyi(tbl)            /* 拡張をログに記録するよう定義できる   */
 #endif
 
 #ifndef HASH_NONFATAL_OOM
@@ -107,35 +107,35 @@ do {                                                                            
 #endif
 
 #if HASH_NONFATAL_OOM
-/* malloc failures can be recovered from */
+/* malloc の失敗から回復できる */
 
 #ifndef uthash_nonfatal_oom
-#define uthash_nonfatal_oom(obj) do {} while (0)    /* non-fatal OOM error */
+#define uthash_nonfatal_oom(obj) do {} while (0)    /* 致命的ではないメモリ不足エラー */
 #endif
 
 #define HASH_RECORD_OOM(oomed) do { (oomed) = 1; } while (0)
 #define IF_HASH_NONFATAL_OOM(x) x
 
 #else
-/* malloc failures result in lost memory, hash tables are unusable */
+/* malloc が失敗するとメモリが失われ、ハッシュテーブルは使用不能になる */
 
 #ifndef uthash_fatal
-#define uthash_fatal(msg) exit(-1)        /* fatal OOM error */
+#define uthash_fatal(msg) exit(-1)        /* 致命的なメモリ不足エラー */
 #endif
 
-#define HASH_RECORD_OOM(oomed) uthash_fatal("out of memory")
+#define HASH_RECORD_OOM(oomed) uthash_fatal("メモリ不足")
 #define IF_HASH_NONFATAL_OOM(x)
 
 #endif
 
-/* initial number of buckets */
-#define HASH_INITIAL_NUM_BUCKETS 32U     /* initial number of buckets        */
-#define HASH_INITIAL_NUM_BUCKETS_LOG2 5U /* lg2 of initial number of buckets */
-#define HASH_BKT_CAPACITY_THRESH 10U     /* expand when bucket count reaches */
+/* バケットの初期個数 */
+#define HASH_INITIAL_NUM_BUCKETS 32U     /* バケットの初期個数        */
+#define HASH_INITIAL_NUM_BUCKETS_LOG2 5U /* バケットの初期個数の底 2 の対数 */
+#define HASH_BKT_CAPACITY_THRESH 10U     /* バケット内の要素数がこの値に達したら拡張する */
 
-/* calculate the element whose hash handle address is hhp */
+/* ハッシュハンドルのアドレスが hhp である要素を計算する */
 #define ELMT_FROM_HH(tbl,hhp) ((void*)(((char*)(hhp)) - ((tbl)->hho)))
-/* calculate the hash handle from element address elp */
+/* 要素のアドレス elp からハッシュハンドルを計算する */
 #define HH_FROM_ELMT(tbl,elp) ((UT_hash_handle*)(void*)(((char*)(elp)) + ((tbl)->hho)))
 
 #define HASH_ROLLBACK_BKT(hh, head, itemptrhh)                                   \
@@ -435,17 +435,17 @@ do {                                                                            
   bkt = ((hashv) & ((num_bkts) - 1U));                                           \
 } while (0)
 
-/* delete "delptr" from the hash table.
- * "the usual" patch-up process for the app-order doubly-linked-list.
- * The use of _hd_hh_del below deserves special explanation.
- * These used to be expressed using (delptr) but that led to a bug
- * if someone used the same symbol for the head and deletee, like
+/* ハッシュテーブルから "delptr" を削除する。
+ * アプリケーション順の双方向連結リストに対する「通常の」つなぎ直し処理。
+ * 以下の _hd_hh_del の使い方には説明が必要である。
+ * 以前は (delptr) で記述していたが、次のように先頭と削除対象に
+ * 同じシンボルを使うと、バグが発生していた。
  *  HASH_DELETE(hh,users,users);
- * We want that to work, but by changing the head (users) below
- * we were forfeiting our ability to further refer to the deletee (users)
- * in the patch-up process. Solution: use scratch space to
- * copy the deletee pointer, then the latter references are via that
- * scratch pointer rather than through the repointed (users) symbol.
+ * これを動作させたいが、以下で先頭 (users) を変更すると、
+ * つなぎ直し処理の途中で削除対象 (users) を参照する手段が
+ * 失われていた。解決策は、一時領域に
+ * 削除対象のポインタをコピーし、それ以降はその一時ポインタを介して
+ * 参照することである。参照先が変わった (users) シンボルは使わない。
  */
 #define HASH_DELETE(hh,head,delptr)                                              \
     HASH_DELETE_HH(hh, head, &(delptr)->hh)
@@ -479,7 +479,7 @@ do {                                                                            
   HASH_FSCK(hh, head, "HASH_DELETE_HH");                                         \
 } while (0)
 
-/* convenience forms of HASH_FIND/HASH_ADD/HASH_DEL */
+/* HASH_FIND/HASH_ADD/HASH_DEL の便利な形式 */
 #define HASH_FIND_STR(head,findstr,out)                                          \
 do {                                                                             \
     unsigned _uthash_hfstr_keylen = (unsigned)uthash_strlen(findstr);            \
@@ -510,8 +510,8 @@ do {                                                                            
 #define HASH_DEL(head,delptr)                                                    \
     HASH_DELETE(hh,head,delptr)
 
-/* HASH_FSCK checks hash integrity on every add/delete when HASH_DEBUG is defined.
- * This is for uthash developer only; it compiles away if HASH_DEBUG isn't defined.
+/* HASH_DEBUG が定義されている場合、HASH_FSCK は追加・削除のたびにハッシュの整合性を確認する。
+ * これは uthash 開発者専用であり、HASH_DEBUG が未定義ならコンパイル時に除去される。
  */
 #ifdef HASH_DEBUG
 #include <stdio.h>   /* fprintf, stderr */
@@ -529,7 +529,7 @@ do {                                                                            
       _prev = NULL;                                                              \
       while (_thh) {                                                             \
         if (_prev != (char*)(_thh->hh_prev)) {                                   \
-          HASH_OOPS("%s: invalid hh_prev %p, actual %p\n",                       \
+          HASH_OOPS("%s: hh_prev %p が不正、実際は %p\n",                       \
               (where), (void*)_thh->hh_prev, (void*)_prev);                      \
         }                                                                        \
         _bkt_count++;                                                            \
@@ -538,12 +538,12 @@ do {                                                                            
       }                                                                          \
       _count += _bkt_count;                                                      \
       if ((head)->hh.tbl->buckets[_bkt_i].count !=  _bkt_count) {                \
-        HASH_OOPS("%s: invalid bucket count %u, actual %u\n",                    \
+        HASH_OOPS("%s: バケット内の要素数 %u が不正、実際は %u\n",                    \
             (where), (head)->hh.tbl->buckets[_bkt_i].count, _bkt_count);         \
       }                                                                          \
     }                                                                            \
     if (_count != (head)->hh.tbl->num_items) {                                   \
-      HASH_OOPS("%s: invalid hh item count %u, actual %u\n",                     \
+      HASH_OOPS("%s: hh の要素数 %u が不正、実際は %u\n",                     \
           (where), (head)->hh.tbl->num_items, _count);                           \
     }                                                                            \
     _count = 0;                                                                  \
@@ -552,14 +552,14 @@ do {                                                                            
     while (_thh) {                                                               \
       _count++;                                                                  \
       if (_prev != (char*)_thh->prev) {                                          \
-        HASH_OOPS("%s: invalid prev %p, actual %p\n",                            \
+        HASH_OOPS("%s: prev %p が不正、実際は %p\n",                            \
             (where), (void*)_thh->prev, (void*)_prev);                           \
       }                                                                          \
       _prev = (char*)ELMT_FROM_HH((head)->hh.tbl, _thh);                         \
       _thh = (_thh->next ? HH_FROM_ELMT((head)->hh.tbl, _thh->next) : NULL);     \
     }                                                                            \
     if (_count != (head)->hh.tbl->num_items) {                                   \
-      HASH_OOPS("%s: invalid app item count %u, actual %u\n",                    \
+      HASH_OOPS("%s: アプリケーションの要素数 %u が不正、実際は %u\n",                    \
           (where), (head)->hh.tbl->num_items, _count);                           \
     }                                                                            \
   }                                                                              \
@@ -568,9 +568,9 @@ do {                                                                            
 #define HASH_FSCK(hh,head,where)
 #endif
 
-/* When compiled with -DHASH_EMIT_KEYS, length-prefixed keys are emitted to
- * the descriptor to which this macro is defined for tuning the hash function.
- * The app can #include <unistd.h> to get the prototype for write(2). */
+/* -DHASH_EMIT_KEYS でコンパイルすると、長さを先頭に付けたキーを、
+ * このマクロで指定した記述子へ出力する。ハッシュ関数の調整に使う。
+ * アプリケーションは #include <unistd.h> により write(2) のプロトタイプを取得できる。 */
 #ifdef HASH_EMIT_KEYS
 #define HASH_EMIT_KEY(hh,head,keyptr,fieldlen)                                   \
 do {                                                                             \
@@ -582,7 +582,7 @@ do {                                                                            
 #define HASH_EMIT_KEY(hh,head,keyptr,fieldlen)
 #endif
 
-/* The Bernstein hash function, used in Perl prior to v5.6. Note (x<<5+x)=x*33. */
+/* Perl v5.6 より前で使われていた Bernstein ハッシュ関数。(x<<5+x)=x*33 に注意。 */
 #define HASH_BER(key,keylen,hashv)                                               \
 do {                                                                             \
   unsigned _hb_keylen = (unsigned)keylen;                                        \
@@ -594,9 +594,9 @@ do {                                                                            
 } while (0)
 
 
-/* SAX/FNV/OAT/JEN hash functions are macro variants of those listed at
+/* SAX/FNV/OAT/JEN ハッシュ関数は、次に掲載された関数のマクロ版である
  * http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
- * (archive link: https://archive.is/Ivcan )
+ * （アーカイブのリンク：https://archive.is/Ivcan ）
  */
 #define HASH_SAX(key,keylen,hashv)                                               \
 do {                                                                             \
@@ -607,7 +607,7 @@ do {                                                                            
     hashv ^= (hashv << 5) + (hashv >> 2) + _hs_key[_sx_i];                       \
   }                                                                              \
 } while (0)
-/* FNV-1a variation */
+/* FNV-1a の派生形 */
 #define HASH_FNV(key,keylen,hashv)                                               \
 do {                                                                             \
   unsigned _fn_i;                                                                \
@@ -688,7 +688,7 @@ do {                                                                            
   HASH_JEN_MIX(_hj_i, _hj_j, hashv);                                             \
 } while (0)
 
-/* The Paul Hsieh hash function */
+/* Paul Hsieh のハッシュ関数 */
 #undef get16bits
 #if (defined(__GNUC__) && defined(__i386__)) || defined(__WATCOMC__)             \
   || defined(_MSC_VER) || defined (__BORLANDC__) || defined (__TURBOC__)
@@ -708,7 +708,7 @@ do {                                                                            
   _sfh_len >>= 2;                                                                \
   hashv = 0xcafebabeu;                                                           \
                                                                                  \
-  /* Main loop */                                                                \
+  /* メインループ */                                                                \
   for (;_sfh_len > 0U; _sfh_len--) {                                             \
     hashv    += get16bits (_sfh_key);                                            \
     _sfh_tmp  = ((uint32_t)(get16bits (_sfh_key+2)) << 11) ^ hashv;              \
@@ -717,7 +717,7 @@ do {                                                                            
     hashv    += hashv >> 11;                                                     \
   }                                                                              \
                                                                                  \
-  /* Handle end cases */                                                         \
+  /* 末尾のケースを処理する */                                                         \
   switch (_sfh_rem) {                                                            \
     case 3: hashv += get16bits (_sfh_key);                                       \
             hashv ^= hashv << 16;                                                \
@@ -735,7 +735,7 @@ do {                                                                            
     default: ;                                                                   \
   }                                                                              \
                                                                                  \
-  /* Force "avalanching" of final 127 bits */                                    \
+  /* 最後の 127 ビットに「雪崩効果」を強制的に起こす */                                    \
   hashv ^= hashv << 3;                                                           \
   hashv += hashv >> 5;                                                           \
   hashv ^= hashv << 4;                                                           \
@@ -744,7 +744,7 @@ do {                                                                            
   hashv += hashv >> 6;                                                           \
 } while (0)
 
-/* iterate over items in a known bucket to find desired item */
+/* 既知のバケット内の要素を走査し、目的の要素を探す */
 #define HASH_FIND_IN_BKT(tbl,hh,head,keyptr,keylen_in,hashval,out)               \
 do {                                                                             \
   if ((head).hh_head != NULL) {                                                  \
@@ -766,7 +766,7 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* add an item to a bucket  */
+/* バケットに要素を追加する  */
 #define HASH_ADD_TO_BKT(head,hh,addhh,oomed)                                     \
 do {                                                                             \
   UT_hash_bucket *_ha_head = &(head);                                            \
@@ -788,7 +788,7 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* remove an item from a given bucket */
+/* 指定したバケットから要素を削除する */
 #define HASH_DEL_IN_BKT(head,delhh)                                              \
 do {                                                                             \
   UT_hash_bucket *_hd_head = &(head);                                            \
@@ -804,31 +804,31 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* Bucket expansion has the effect of doubling the number of buckets
- * and redistributing the items into the new buckets. Ideally the
- * items will distribute more or less evenly into the new buckets
- * (the extent to which this is true is a measure of the quality of
- * the hash function as it applies to the key domain).
+/* バケットの拡張では、バケット数を倍にし、
+ * 要素を新しいバケットに再配置する。理想的には、
+ * 要素は新しいバケットにほぼ均等に分散する
+ * （この均等さは、キーの領域に対する
+ * ハッシュ関数の品質の尺度となる）。
  *
- * With the items distributed into more buckets, the chain length
- * (item count) in each bucket is reduced. Thus by expanding buckets
- * the hash keeps a bound on the chain length. This bounded chain
- * length is the essence of how a hash provides constant time lookup.
+ * 要素をより多くのバケットに分散すると、各バケットのチェインの長さ
+ * （要素数）が短くなる。このようにバケットを拡張することで、
+ * ハッシュはチェインの長さに上限を保つ。この長さの制限こそが、
+ * ハッシュが定数時間で探索できる仕組みの要点である。
  *
- * The calculation of tbl->ideal_chain_maxlen below deserves some
- * explanation. First, keep in mind that we're calculating the ideal
- * maximum chain length based on the *new* (doubled) bucket count.
- * In fractions this is just n/b (n=number of items,b=new num buckets).
- * Since the ideal chain length is an integer, we want to calculate
- * ceil(n/b). We don't depend on floating point arithmetic in this
- * hash, so to calculate ceil(n/b) with integers we could write
+ * 以下の tbl->ideal_chain_maxlen の計算には
+ * 説明が必要である。まず、理想的な最大チェイン長を、
+ * *新しい*（倍増後の）バケット数に基づいて計算することに注意する。
+ * 分数で表すと n/b となる（n=要素数、b=新しいバケット数）。
+ * 理想チェイン長は整数なので、求めたい値は
+ * ceil(n/b) である。このハッシュは浮動小数点演算に依存しないため、
+ * 整数で ceil(n/b) を計算するには次のように書ける
  *
  *      ceil(n/b) = (n/b) + ((n%b)?1:0)
  *
- * and in fact a previous version of this hash did just that.
- * But now we have improved things a bit by recognizing that b is
- * always a power of two. We keep its base 2 log handy (call it lb),
- * so now we can write this with a bit shift and logical AND:
+ * 実際に、このハッシュの以前の版はそうしていた。
+ * 現在は、b が常に 2 のべき乗であることを利用して
+ * 改良している。底 2 の対数（lb とする）を保持しているので、
+ * ビットシフトと論理 AND により次のように書ける：
  *
  *      ceil(n/b) = (n>>lb) + ( (n & (b-1)) ? 1:0)
  *
@@ -886,9 +886,9 @@ do {                                                                            
 } while (0)
 
 
-/* This is an adaptation of Simon Tatham's O(n log(n)) mergesort */
-/* Note that HASH_SORT assumes the hash handle name to be hh.
- * HASH_SRT was added to allow the hash handle name to be passed in. */
+/* これは Simon Tatham の O(n log(n)) マージソートを改変したものである */
+/* HASH_SORT はハッシュハンドルの名前を hh と仮定することに注意。
+ * ハッシュハンドルの名前を渡せるように HASH_SRT が追加された。 */
 #define HASH_SORT(head,cmpfcn) HASH_SRT(hh,head,cmpfcn)
 #define HASH_SRT(hh,head,cmpfcn)                                                 \
 do {                                                                             \
@@ -974,11 +974,11 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* This function selects items from one hash into another hash.
- * The end result is that the selected items have dual presence
- * in both hashes. There is no copy of the items made; rather
- * they are added into the new hash through a secondary hash
- * hash handle that must be present in the structure. */
+/* この関数は、あるハッシュから要素を選んで別のハッシュに入れる。
+ * 結果として、選ばれた要素は
+ * 両方のハッシュに存在する。要素のコピーは作らず、
+ * 構造体に必要な第 2 のハッシュハンドルを介して、
+ * 新しいハッシュに追加する。 */
 #define HASH_SELECT(hh_dst, dst, hh_src, src, cond)                              \
 do {                                                                             \
   unsigned _src_bkt, _dst_bkt;                                                   \
@@ -1065,7 +1065,7 @@ for(((el)=(head)), ((tmp)=DECLTYPE(el)((head!=NULL)?(head)->hh.next:NULL));     
   (el) != NULL; ((el)=(tmp)), ((tmp)=DECLTYPE(el)((tmp!=NULL)?(tmp)->hh.next:NULL)))
 #endif
 
-/* obtain a count of items in the hash */
+/* ハッシュ内の要素数を取得する */
 #define HASH_COUNT(head) HASH_CNT(hh,head)
 #define HASH_CNT(hh,head) ((head != NULL)?((head)->hh.tbl->num_items):0U)
 
@@ -1073,23 +1073,23 @@ typedef struct UT_hash_bucket {
    struct UT_hash_handle *hh_head;
    unsigned count;
 
-   /* expand_mult is normally set to 0. In this situation, the max chain length
-    * threshold is enforced at its default value, HASH_BKT_CAPACITY_THRESH. (If
-    * the bucket's chain exceeds this length, bucket expansion is triggered).
-    * However, setting expand_mult to a non-zero value delays bucket expansion
-    * (that would be triggered by additions to this particular bucket)
-    * until its chain length reaches a *multiple* of HASH_BKT_CAPACITY_THRESH.
-    * (The multiplier is simply expand_mult+1). The whole idea of this
-    * multiplier is to reduce bucket expansions, since they are expensive, in
-    * situations where we know that a particular bucket tends to be overused.
-    * It is better to let its chain length grow to a longer yet-still-bounded
-    * value, than to do an O(n) bucket expansion too often.
+   /* expand_mult は通常 0 に設定する。この場合、最大チェイン長の
+    * しきい値には既定値 HASH_BKT_CAPACITY_THRESH を適用する（
+    * バケットのチェインがこの長さを超えると、バケットの拡張が起こる）。
+    * 一方、expand_mult にゼロ以外の値を設定すると、このバケットへの追加によって
+    * 起こるはずのバケットの拡張を、
+    * チェインの長さが HASH_BKT_CAPACITY_THRESH の*倍数*に達するまで遅らせる。
+    * （倍率は単に expand_mult+1 である）。この倍率を設ける目的は、
+    * 特定のバケットが頻繁に使われることが分かっている場合に、
+    * 高コストなバケットの拡張を減らすことである。
+    * O(n) のバケットの拡張を頻繁に行うよりも、上限を保ちながら
+    * チェインを長くするほうがよい。
     */
    unsigned expand_mult;
 
 } UT_hash_bucket;
 
-/* random signature used only to find hash tables in external analysis */
+/* 外部解析でハッシュテーブルを見つけるためだけに使うランダムな署名 */
 #define HASH_SIGNATURE 0xa0111fe1u
 #define HASH_BLOOM_SIGNATURE 0xb12220f2u
 
@@ -1097,29 +1097,29 @@ typedef struct UT_hash_table {
    UT_hash_bucket *buckets;
    unsigned num_buckets, log2_num_buckets;
    unsigned num_items;
-   struct UT_hash_handle *tail; /* tail hh in app order, for fast append    */
-   ptrdiff_t hho; /* hash handle offset (byte pos of hash handle in element */
+   struct UT_hash_handle *tail; /* 高速に追加するための、アプリケーション順での末尾の hh    */
+   ptrdiff_t hho; /* ハッシュハンドルのオフセット（要素内でのハッシュハンドルのバイト位置 */
 
-   /* in an ideal situation (all buckets used equally), no bucket would have
-    * more than ceil(#items/#buckets) items. that's the ideal chain length. */
+   /* 理想的な状況（すべてのバケットを均等に使用）では、各バケットの要素数は
+    * ceil(#items/#buckets) を超えない。これが理想チェイン長である。 */
    unsigned ideal_chain_maxlen;
 
-   /* nonideal_items is the number of items in the hash whose chain position
-    * exceeds the ideal chain maxlen. these items pay the penalty for an uneven
-    * hash distribution; reaching them in a chain traversal takes >ideal steps */
+   /* nonideal_items は、ハッシュ内でチェイン上の位置が
+    * 理想最大チェイン長を超える要素の数である。これらの要素は不均一な
+    * ハッシュ分布の影響を受け、チェインをたどって到達するのに理想値より多くのステップを要する */
    unsigned nonideal_items;
 
-   /* ineffective expands occur when a bucket doubling was performed, but
-    * afterward, more than half the items in the hash had nonideal chain
-    * positions. If this happens on two consecutive expansions we inhibit any
-    * further expansion, as it's not helping; this happens when the hash
-    * function isn't a good fit for the key domain. When expansion is inhibited
-    * the hash will still work, albeit no longer in constant time. */
+   /* バケット数を倍にしたにもかかわらず、
+    * その後も半数を超える要素のチェイン上の位置が理想範囲を超える場合、
+    * その拡張は効果がない。これが 2 回連続で発生した場合、
+    * 役に立たないため、それ以上の拡張を抑止する。これはハッシュ
+    * 関数がキーの領域に適していない場合に起きる。拡張を抑止しても、
+    * ハッシュは引き続き動作するが、時間は定数ではなくなる。 */
    unsigned ineff_expands, noexpand;
 
-   uint32_t signature; /* used only to find hash tables in external analysis */
+   uint32_t signature; /* 外部解析でハッシュテーブルを見つけるためだけに使う */
 #ifdef HASH_BLOOM
-   uint32_t bloom_sig; /* used only to test bloom exists in external analysis */
+   uint32_t bloom_sig; /* 外部解析で bloom の存在を確認するためだけに使う */
    uint8_t *bloom_bv;
    uint8_t bloom_nbits;
 #endif
@@ -1128,13 +1128,13 @@ typedef struct UT_hash_table {
 
 typedef struct UT_hash_handle {
    struct UT_hash_table *tbl;
-   void *prev;                       /* prev element in app order      */
-   void *next;                       /* next element in app order      */
-   struct UT_hash_handle *hh_prev;   /* previous hh in bucket order    */
-   struct UT_hash_handle *hh_next;   /* next hh in bucket order        */
-   const void *key;                  /* ptr to enclosing struct's key  */
-   unsigned keylen;                  /* enclosing struct's key len     */
-   unsigned hashv;                   /* result of hash-fcn(key)        */
+   void *prev;                       /* アプリケーション順での前の要素      */
+   void *next;                       /* アプリケーション順での次の要素      */
+   struct UT_hash_handle *hh_prev;   /* バケット順での前の hh    */
+   struct UT_hash_handle *hh_next;   /* バケット順での次の hh        */
+   const void *key;                  /* このハンドルを含む構造体のキーへのポインタ  */
+   unsigned keylen;                  /* このハンドルを含む構造体のキーの長さ     */
+   unsigned hashv;                   /* hash-fcn(key) の結果        */
 } UT_hash_handle;
 
 #endif /* UTHASH_H */

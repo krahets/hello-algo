@@ -6,13 +6,13 @@
 
 use hello_algo_rust::include::print_util;
 
-/* List class */
+/* List type */
 #[allow(dead_code)]
 struct MyList {
-    arr: Vec<i32>,       // Array (stores list elements)
+    arr: Vec<i32>,       // Array (stores the list elements)
     capacity: usize,     // List capacity
     size: usize,         // List length (current number of elements)
-    extend_ratio: usize, // Multiple by which the list capacity is extended each time
+    extend_ratio: usize, // Factor by which the list capacity grows each time
 }
 
 #[allow(unused, unused_comparisons)]
@@ -28,26 +28,26 @@ impl MyList {
         }
     }
 
-    /* Get list length (current number of elements) */
+    /* Get the list length (current number of elements)*/
     pub fn size(&self) -> usize {
         return self.size;
     }
 
-    /* Get list capacity */
+    /* Get the list capacity */
     pub fn capacity(&self) -> usize {
         return self.capacity;
     }
 
-    /* Update element */
+    /* Access an element */
     pub fn get(&self, index: usize) -> i32 {
-        // If the index is out of bounds, throw an exception, as below
+        // Panic if the index is out of bounds; the same applies below
         if index >= self.size {
             panic!("Index out of bounds")
         };
         return self.arr[index];
     }
 
-    /* Add elements at the end */
+    /* Update an element */
     pub fn set(&mut self, index: usize, num: i32) {
         if index >= self.size {
             panic!("Index out of bounds")
@@ -55,9 +55,9 @@ impl MyList {
         self.arr[index] = num;
     }
 
-    /* Direct traversal of list elements */
+    /* Append an element at the end */
     pub fn add(&mut self, num: i32) {
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if self.size == self.capacity() {
             self.extend_capacity();
         }
@@ -66,16 +66,16 @@ impl MyList {
         self.size += 1;
     }
 
-    /* Sort list */
+    /* Insert an element in the middle */
     pub fn insert(&mut self, index: usize, num: i32) {
         if index >= self.size() {
             panic!("Index out of bounds")
         };
-        // When the number of elements exceeds capacity, trigger the extension mechanism
+        // Grow the capacity when adding an element would exceed it
         if self.size == self.capacity() {
             self.extend_capacity();
         }
-        // Move all elements after index index forward by one position
+        // Shift all elements at and after index `index` one position to the right
         for j in (index..self.size).rev() {
             self.arr[j + 1] = self.arr[j];
         }
@@ -84,13 +84,13 @@ impl MyList {
         self.size += 1;
     }
 
-    /* Remove element */
+    /* Remove an element */
     pub fn remove(&mut self, index: usize) -> i32 {
         if index >= self.size() {
             panic!("Index out of bounds")
         };
         let num = self.arr[index];
-        // Create a new array with length _extend_ratio times the original array, and copy the original array to the new array
+        // Shift all elements after index `index` one position to the left
         for j in index..self.size - 1 {
             self.arr[j] = self.arr[j + 1];
         }
@@ -100,18 +100,18 @@ impl MyList {
         return num;
     }
 
-    /* Driver Code */
+    /* Grow the list capacity */
     pub fn extend_capacity(&mut self) {
-        // Create new array with length extend_ratio times original, copy original array to new array
+        // Grow the backing vector to extend_ratio times its original length, preserving its elements
         let new_capacity = self.capacity * self.extend_ratio;
         self.arr.resize(new_capacity, 0);
-        // Add elements at the end
+        // Update the list capacity
         self.capacity = new_capacity;
     }
 
-    /* Convert list to array */
+    /* Copy the list elements into a vector */
     pub fn to_array(&self) -> Vec<i32> {
-        // Elements enqueue
+        // Convert only the list elements within the occupied range
         let mut arr = Vec::new();
         for i in 0..self.size {
             arr.push(self.get(i));
@@ -120,11 +120,11 @@ impl MyList {
     }
 }
 
-/* Driver Code */
+/* Driver code */
 fn main() {
-    /* Initialize list */
+    /* Initialize the list */
     let mut nums = MyList::new(10);
-    /* Direct traversal of list elements */
+    /* Append an element at the end */
     nums.add(1);
     nums.add(3);
     nums.add(2);
@@ -132,33 +132,33 @@ fn main() {
     nums.add(4);
     print!("List nums = ");
     print_util::print_array(&nums.to_array());
-    print!(", capacity = {}, length = {}", nums.capacity(), nums.size());
+    print!(" , capacity = {}, size = {}", nums.capacity(), nums.size());
 
-    /* Sort list */
+    /* Insert an element in the middle */
     nums.insert(3, 6);
-    print!("\nInsert number 6 at index 3, get nums = ");
+    print!("\nInsert the number 6 at index 3, giving nums = ");
     print_util::print_array(&nums.to_array());
 
-    /* Remove element */
+    /* Remove an element */
     nums.remove(3);
-    print!("\nDelete element at index 3, get nums = ");
+    print!("\nRemove the element at index 3, giving nums = ");
     print_util::print_array(&nums.to_array());
 
-    /* Update element */
+    /* Access an element */
     let num = nums.get(1);
-    println!("\nAccess element at index 1, get num = {num}");
+    println!("\nAccessing the element at index 1 gives num = {num}");
 
-    /* Add elements at the end */
+    /* Update an element */
     nums.set(1, 0);
-    print!("Update element at index 1 to 0, resulting in nums = ");
+    print!("Update the element at index 1 to 0, giving nums = ");
     print_util::print_array(&nums.to_array());
 
-    /* Test capacity expansion mechanism */
+    /* Test capacity growth */
     for i in 0..10 {
-        // At i = 5, the list length will exceed the list capacity, triggering the expansion mechanism
+        // When i = 5, the list length would exceed its capacity, triggering capacity growth
         nums.add(i);
     }
-    print!("\nAfter expanding list, nums = ");
+    print!("\nAfter expanding capacity, list nums = ");
     print_util::print_array(&nums.to_array());
-    print!(", capacity = {}, length = {}", nums.capacity(), nums.size());
+    print!(" , capacity = {}, size = {}", nums.capacity(), nums.size());
 }

@@ -1,0 +1,105 @@
+{
+  "schema_version": 2,
+  "title": "One bubble sort pass",
+  "summary": "Compare adjacent elements from left to right to move the maximum, 5, to the far right in one pass.",
+  "context": [
+    "The input is nums = [4, 1, 3, 1, 5, 2], indexed from 0 to 5. Scan adjacent pairs from left to right. Swap when the left element > the right element, and leave them unchanged when the left element ≤ the right element.",
+    "A row of bubbles represents the elements. Larger values have larger bubbles. The array’s left end is the bottom of the water and its right end the surface. A pale green box marks the pair being compared; arcs above and below those bubbles mark a swap just completed."
+  ],
+  "description": [
+    "Steps 2 through 6 show the results of comparing or swapping five adjacent pairs. Step 7 identifies the settled position and the remaining range."
+  ],
+  "frames": [
+    {
+      "id": "source-253",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step1.png",
+      "title": "Represent the array as a row of bubbles",
+      "explanation": "Each entry of nums = [4, 1, 3, 1, 5, 2] below corresponds to one of the six bubbles above, at indices 0 through 5. Bubble size is proportional to value. No comparisons yet; all six elements await scanning.",
+      "key_state": "Initial nums = [4, 1, 3, 1, 5, 2]. The six bubbles remain in input order.",
+      "announcement": "Represent the six elements [4, 1, 3, 1, 5, 2] as bubbles, ready to compare from left to right."
+    },
+    {
+      "id": "source-254",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step2.png",
+      "title": "Compare and swap indices 0 and 1",
+      "explanation": "At indices 0 and 1, 4 > 1. Swap the pair. The pale green box now contains [1, 4]. The arcs mark the completed swap. 4 moves to index 1. Now nums = [1, 4, 3, 1, 5, 2]. The scan has reached index 1.",
+      "key_state": "Indices 0 and 1 swapped: 4 and 1 trade places. Array: [1, 4, 3, 1, 5, 2].",
+      "announcement": "4 at index 0 is greater than 1 at index 1. Swapping moves 4 to index 1."
+    },
+    {
+      "id": "source-255",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step3.png",
+      "title": "Compare and swap indices 1 and 2",
+      "explanation": "At indices 1 and 2, 4 > 3. Swap the pair. The pale green box now contains [3, 4]. 4 moves to index 2. Now nums = [1, 3, 4, 1, 5, 2]. The scan has reached index 2.",
+      "key_state": "Indices 1 and 2 swapped: 4 and 3 trade places. Array: [1, 3, 4, 1, 5, 2].",
+      "announcement": "4 at index 1 is greater than 3 at index 2. Swapping moves 4 to index 2."
+    },
+    {
+      "id": "source-256",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step4.png",
+      "title": "Compare and swap indices 2 and 3",
+      "explanation": "At indices 2 and 3, 4 > 1 (the second 1 in the input). Swap the pair. The pale green box now contains [1, 4]. 4 moves to index 3. Now nums = [1, 3, 1, 4, 5, 2]. The scan has reached index 3.",
+      "key_state": "Indices 2 and 3 swapped: 4 and the second 1 trade places. Array: [1, 3, 1, 4, 5, 2].",
+      "announcement": "4 at index 2 is greater than 1 at index 3. Swapping moves 4 to index 3."
+    },
+    {
+      "id": "source-257",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step5.png",
+      "title": "Compare indices 3 and 4 without swapping",
+      "explanation": "At indices 3 and 4, 4 ≤ 5, so the pair stays in place. The box contains [4, 5] without swap arcs. Now nums = [1, 3, 1, 4, 5, 2]. The scan has reached index 4. Next compare 5 with the element to its right.",
+      "key_state": "At indices 3 and 4, 4 ≤ 5. No swap; the array stays [1, 3, 1, 4, 5, 2].",
+      "announcement": "4 at index 3 is less than or equal to 5 at index 4. Leave both in place."
+    },
+    {
+      "id": "source-258",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step6.png",
+      "title": "Compare and swap indices 4 and 5",
+      "explanation": "At indices 4 and 5, 5 > 2. Swap the pair. The pale green box now contains [2, 5]. The maximum 5 has reached index 5. Now nums = [1, 3, 1, 4, 2, 5]. All five adjacent pairs have been compared.",
+      "key_state": "Indices 4 and 5 swapped: 5 and 2 trade places. The maximum 5 has reached index 5. Array: [1, 3, 1, 4, 2, 5].",
+      "announcement": "5 at index 4 is greater than 2 at index 5. Swapping moves the maximum 5 to the far right."
+    },
+    {
+      "id": "source-259",
+      "book_path": "chapter_sorting/bubble_sort.assets/bubble_operation_step7.png",
+      "title": "Maximum 5 in place",
+      "explanation": "Pass complete. Now nums = [1, 3, 1, 4, 2, 5]. The largest bubble, 5 at index 5, lies to the right of the vertical surface line and turns gray to mark its final position. A brace below marks the remaining range [0, 4] toward the bottom on the left. Its values [1, 3, 1, 4, 2] await later passes.",
+      "key_state": "Pass complete: maximum 5 is settled at index 5; the remaining range [0, 4] contains [1, 3, 1, 4, 2].",
+      "announcement": "The first pass ends with maximum 5 in place at the far right. The first five elements remain to be sorted."
+    }
+  ],
+  "animations": {
+    "bubble-pass": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-253"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-254"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-255"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-256"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-257"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-258"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-259"
+        }
+      ]
+    }
+  }
+}

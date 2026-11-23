@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "title": "Four AVL imbalance patterns and their rotations",
+  "summary": "Four local tree shapes before rotation show when to repair an imbalance with a single or a double rotation.",
+  "context": [
+    "In all four panels orange node 3 is the unbalanced node to repair. Blue marks the child on its taller side, green the direction in which that subtree extends. A gray rounded rectangle encloses the local subtree to rotate.",
+    "The balance factor f is left subtree height minus right subtree height. Each row of the table gives f for unbalanced node 3 and for its child on the taller side to explain the choice of rotation."
+  ],
+  "description": [
+    "The four pre-rotation cases run from left to right. In the first two, the outer root is 4, its right child is 5, and its left subtree is rooted at the unbalanced 3. In the last two, the outer root is 2 with left child 1 and an unbalanced subtree rooted at 3 on the right. The table gives each local structure and the rotation named below it. Names such as “left–left” summarize the directions of the two branches. Node values, links, and rotation names come from the drawing. The balance factors are calculated using leaf height 0 and empty subtree height −1."
+  ],
+  "result": "A straight path needs one rotation. A bent path needs a rotation at the child followed by one at the unbalanced node. The inorder sequence stays the same.",
+  "frames": [
+    {
+      "id": "source-139",
+      "book_path": "chapter_tree/avl_tree.assets/avltree_rotation_cases.png",
+      "title": "Four AVL imbalance patterns and their rotations",
+      "explanation": "The general rule in the text: if the unbalanced node has f > 1, check its left child. If that child has f ≥ 0, rotate the node right; if f < 0, rotate the left child left and then the node right. If the unbalanced node has f < −1, check its right child. If that child has f ≤ 0, rotate the node left; if f > 0, rotate the right child right and then the node left. A child with f = 0 is covered too, for example after deletion."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Imbalance paths and repairs from left to right",
+      "headers": [
+        "Case",
+        "Path within the unbalanced subtree",
+        "Factor f of node 3 (calculated)",
+        "Factor f of the taller-side child (calculated)",
+        "Rotation targets and order"
+      ],
+      "rows": [
+        [
+          "Left–left",
+          "1 is the left child of 3, and 0 the left child of 1",
+          "2",
+          "1",
+          "Rotate 3 right"
+        ],
+        [
+          "Left–right",
+          "1 is the left child of 3, and 2 the right child of 1",
+          "2",
+          "−1",
+          "Rotate 1 left, then 3 right"
+        ],
+        [
+          "Right–left",
+          "5 is the right child of 3, and 4 the left child of 5",
+          "−2",
+          "1",
+          "Rotate 5 right, then 3 left"
+        ],
+        [
+          "Right–right",
+          "5 is the right child of 3, and 6 the right child of 5",
+          "−2",
+          "−1",
+          "Rotate 3 left"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

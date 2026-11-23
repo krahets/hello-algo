@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "Understanding divide and conquer through merge sort",
+  "summary": "Recursively split an eight-element sorting problem down to single-element base subproblems, then merge sorted results bottom-up into the ascending array from 0 to 7.",
+  "context": [
+    "The input array is [7, 3, 2, 6, 0, 1, 5, 4]; the upper half of the figure shows \"Divide (division phase)\" and the lower half shows \"Conquer (merge phase)\"."
+  ],
+  "description": [
+    "Repeatedly split each subarray in half until every subproblem contains just one element. The left and right halves are disjoint and can be solved independently; a single element is already sorted without comparison.",
+    "While returning, merge each adjacent pair of sorted subarrays. At each step compare the frontmost remaining elements of the two halves and take the smaller one, appending any leftover elements once one half is exhausted. Merging level by level solves the full eight-element problem.",
+    "The upper half reaches eight singletons after three levels of splitting, and the lower half produces the sorted array after three levels of merging; the table below lists all seven rows of subarrays from top to bottom."
+  ],
+  "frames": [
+    {
+      "id": "source-309",
+      "book_path": "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_merge_sort.png",
+      "title": "Understanding divide and conquer through merge sort",
+      "explanation": "Because each subproblem is still array sorting, the left and right subarrays are independent, and two sorted subarrays merge efficiently into one sorted array, merge sort exemplifies decomposability, subproblem independence, and combinable solutions in divide and conquer."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Splitting and merging levels",
+      "headers": [
+        "Phase",
+        "Length per subarray",
+        "Subarrays (left to right)"
+      ],
+      "rows": [
+        [
+          "Original problem",
+          "8",
+          "[7,3,2,6,0,1,5,4]"
+        ],
+        [
+          "Split into two subproblems",
+          "4",
+          "[7, 3, 2, 6]; [0, 1, 5, 4]"
+        ],
+        [
+          "Split further",
+          "2",
+          "[7, 3]; [2, 6]; [0, 1]; [5, 4]"
+        ],
+        [
+          "Smallest subproblem",
+          "1",
+          "[7]; [3]; [2]; [6]; [0]; [1]; [5]; [4]"
+        ],
+        [
+          "Merge into four sorted results",
+          "2",
+          "[3, 7]; [2, 6]; [0, 1]; [4, 5]"
+        ],
+        [
+          "Merge into two sorted results",
+          "4",
+          "[2, 3, 6, 7]; [0, 1, 4, 5]"
+        ],
+        [
+          "Merge into the solution to the original problem",
+          "8",
+          "[0,1,2,3,4,5,6,7]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

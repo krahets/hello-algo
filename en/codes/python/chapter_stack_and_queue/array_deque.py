@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 class ArrayDeque:
-    """Double-ended queue based on circular array implementation"""
+    """Deque implemented with a circular array"""
 
     def __init__(self, capacity: int):
         """Constructor"""
@@ -15,115 +15,115 @@ class ArrayDeque:
         self._size: int = 0
 
     def capacity(self) -> int:
-        """Get the capacity of the double-ended queue"""
+        """Get the deque capacity"""
         return len(self._nums)
 
     def size(self) -> int:
-        """Get the length of the double-ended queue"""
+        """Get the deque size"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Check if the double-ended queue is empty"""
+        """Check whether the deque is empty"""
         return self._size == 0
 
     def index(self, i: int) -> int:
-        """Calculate circular array index"""
-        # Use modulo operation to wrap the array head and tail together
-        # When i passes the tail of the array, return to the head
-        # When i passes the head of the array, return to the tail
+        """Calculate an index in the circular array"""
+        # Use modulo to connect the end of the array to its beginning
+        # When i passes the end of the array, wrap around to the beginning
+        # When i passes the beginning of the array, wrap around to the end
         return (i + self.capacity()) % self.capacity()
 
     def push_first(self, num: int):
-        """Front of the queue enqueue"""
+        """Enqueue at the front"""
         if self._size == self.capacity():
-            print("Double-ended queue is full")
+            print("Deque is full")
             return
-        # Front pointer moves one position to the left
-        # Use modulo operation to wrap front around to the tail after passing the head of the array
+        # Move the front pointer one position to the left
+        # Use modulo to wrap front to the end when it passes the beginning of the array
         self._front = self.index(self._front - 1)
-        # Add num to the front of the queue
+        # Add num to the front
         self._nums[self._front] = num
         self._size += 1
 
     def push_last(self, num: int):
-        """Rear of the queue enqueue"""
+        """Enqueue at the rear"""
         if self._size == self.capacity():
-            print("Double-ended queue is full")
+            print("Deque is full")
             return
-        # Calculate rear pointer, points to rear index + 1
+        # Calculate the rear pointer, which points one position past the last element
         rear = self.index(self._front + self._size)
-        # Add num to the rear of the queue
+        # Add num to the rear
         self._nums[rear] = num
         self._size += 1
 
     def pop_first(self) -> int:
-        """Front of the queue dequeue"""
+        """Dequeue from the front"""
         num = self.peek_first()
-        # Front pointer moves one position backward
+        # Advance the front pointer by one position
         self._front = self.index(self._front + 1)
         self._size -= 1
         return num
 
     def pop_last(self) -> int:
-        """Rear of the queue dequeue"""
+        """Dequeue from the rear"""
         num = self.peek_last()
         self._size -= 1
         return num
 
     def peek_first(self) -> int:
-        """Access front of the queue element"""
+        """Access the front element"""
         if self.is_empty():
-            raise IndexError("Double-ended queue is empty")
+            raise IndexError("Deque is empty")
         return self._nums[self._front]
 
     def peek_last(self) -> int:
-        """Access rear of the queue element"""
+        """Access the rear element"""
         if self.is_empty():
-            raise IndexError("Double-ended queue is empty")
-        # Calculate tail element index
+            raise IndexError("Deque is empty")
+        # Calculate the index of the last element
         last = self.index(self._front + self._size - 1)
         return self._nums[last]
 
     def to_array(self) -> list[int]:
-        """Return array for printing"""
-        # Only convert list elements within the valid length range
+        """Return an array for printing"""
+        # Convert only the list elements within the occupied range
         res = []
         for i in range(self._size):
             res.append(self._nums[self.index(self._front + i)])
         return res
 
 
-"""Driver Code"""
+"""Driver code"""
 if __name__ == "__main__":
-    # Initialize double-ended queue
+    # Initialize the deque
     deque = ArrayDeque(10)
     deque.push_last(3)
     deque.push_last(2)
     deque.push_last(5)
-    print("double-ended queue deque =", deque.to_array())
+    print("Deque deque =", deque.to_array())
 
-    # Access elements
+    # Access an element
     peek_first: int = deque.peek_first()
-    print("Front of the queue element peek_first =", peek_first)
+    print("Front element peek_first =", peek_first)
     peek_last: int = deque.peek_last()
-    print("Rear of the queue element peek_last =", peek_last)
+    print("Rear element peek_last =", peek_last)
 
-    # Elements enqueue
+    # Enqueue elements
     deque.push_last(4)
-    print("Element 4 rear enqueue after deque =", deque.to_array())
+    print("After enqueuing element 4 at the rear, deque =", deque.to_array())
     deque.push_first(1)
-    print("Element 1 front enqueue after deque =", deque.to_array())
+    print("After enqueuing element 1 at the front, deque =", deque.to_array())
 
-    # Elements dequeue
+    # Dequeue an element
     pop_last: int = deque.pop_last()
-    print("Rear dequeued element =", pop_last, ", rear dequeue after deque =", deque.to_array())
+    print("Element dequeued from the rear =", pop_last, ", after dequeuing from the rear, deque =", deque.to_array())
     pop_first: int = deque.pop_first()
-    print("Front dequeued element =", pop_first, ", front dequeue after deque =", deque.to_array())
+    print("Element dequeued from the front =", pop_first, ", after dequeuing from the front, deque =", deque.to_array())
 
-    # Get the length of the double-ended queue
+    # Get the deque size
     size: int = deque.size()
-    print("Length of the double-ended queue size =", size)
+    print("Deque size =", size)
 
-    # Check if the double-ended queue is empty
+    # Check whether the deque is empty
     is_empty: bool = deque.is_empty()
-    print("Is the double-ended queue empty =", is_empty)
+    print("Is the deque empty =", is_empty)

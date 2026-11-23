@@ -6,17 +6,17 @@
 
 #include "../utils/common.hpp"
 
-/* Find the largest k elements in array based on heap */
+/* Use a heap to find the k largest elements in an array */
 priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k) {
-    // Python's heapq module implements min heap by default
+    // Initialize a min heap
     priority_queue<int, vector<int>, greater<int>> heap;
-    // Enter the first k elements of array into heap
+    // Push the first k array elements onto the heap
     for (int i = 0; i < k; i++) {
         heap.push(nums[i]);
     }
-    // Starting from the (k+1)th element, maintain heap length as k
+    // Starting with element k+1, keep the heap size at k
     for (int i = k; i < nums.size(); i++) {
-        // If current element is greater than top element, top element exits heap, current element enters heap
+        // If the current element is larger than the heap top, pop the top element and push the current element
         if (nums[i] > heap.top()) {
             heap.pop();
             heap.push(nums[i]);
@@ -25,7 +25,7 @@ priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k
     return heap;
 }
 
-// Driver Code
+// Driver code
 int main() {
     vector<int> nums = {1, 7, 6, 3, 2};
     int k = 3;

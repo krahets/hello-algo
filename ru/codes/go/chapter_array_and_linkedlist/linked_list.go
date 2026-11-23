@@ -8,14 +8,14 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Вставить узел P после узла n0 в связном списке */
+/* Вставка узла P в связный список после узла n0 */
 func insertNode(n0 *ListNode, P *ListNode) {
 	n1 := n0.Next
 	P.Next = n1
 	n0.Next = P
 }
 
-/* Удалить первый узел после узла n0 в связном списке */
+/* Удаление первого узла после узла n0 из связного списка */
 func removeItem(n0 *ListNode) {
 	if n0.Next == nil {
 		return
@@ -26,7 +26,7 @@ func removeItem(n0 *ListNode) {
 	n0.Next = n1
 }
 
-/* Доступ к узлу связного списка по индексу index */
+/* Доступ к узлу с индексом index в связном списке */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		if head == nil {
@@ -37,7 +37,7 @@ func access(head *ListNode, index int) *ListNode {
 	return head
 }
 
-/* Найти в связном списке первый узел со значением target */
+/* Поиск первого узла со значением target в связном списке */
 func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {

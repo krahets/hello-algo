@@ -9,14 +9,14 @@ package chapter_array_and_linkedlist;
 import utils.*;
 
 public class linked_list {
-    /* Вставить узел P после узла n0 в связном списке */
+    /* Вставка узла P в связный список после узла n0 */
     static void insert(ListNode n0, ListNode P) {
         ListNode n1 = n0.next;
         P.next = n1;
         n0.next = P;
     }
 
-    /* Удалить первый узел после узла n0 в связном списке */
+    /* Удаление первого узла после узла n0 из связного списка */
     static void remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -26,7 +26,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* Доступ к узлу связного списка по индексу index */
+    /* Доступ к узлу с индексом index в связном списке */
     static ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -36,7 +36,7 @@ public class linked_list {
         return head;
     }
 
-    /* Найти в связном списке первый узел со значением target */
+    /* Поиск первого узла со значением target в связном списке */
     static int find(ListNode head, int target) {
         int index = 0;
         while (head != null) {

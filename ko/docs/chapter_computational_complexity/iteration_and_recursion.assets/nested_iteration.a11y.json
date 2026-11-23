@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "이중 중첩 반복문",
+  "summary": "바깥 반복문이 한 차례 돌 때마다 안쪽 반복문 전체를 처음부터 다시 실행하여 전체 작업 횟수를 결정한다.",
+  "context": [
+    "n은 양의 정수이며 i는 바깥 반복문을, j는 안쪽 반복문을 제어한다."
+  ],
+  "description": [],
+  "result": "각 i마다 j = 1부터 n까지의 전체 과정이 대응하므로 전체 작업 횟수는 n × n = n²이다.",
+  "frames": [
+    {
+      "id": "source-20",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png",
+      "title": "이중 중첩 반복문",
+      "explanation": "먼저 i = 1로 두고 i ≤ n인지 판정한다. 참이면 안쪽 반복문으로 들어가 j = 1로 다시 설정한 뒤 j ≤ n인지 판정한다. 안쪽 조건이 참이면 작업을 실행하고 j에 1을 더한 뒤 안쪽 판정으로 돌아가고, 거짓이면 안쪽 반복문을 끝내고 i에 1을 더한 뒤 바깥 판정으로 돌아간다. 바깥 조건이 여전히 참이면 다음 차례에서도 다시 j = 1부터 시작하며, 바깥 조건이 거짓이 되어야 비로소 전체 흐름이 종료된다."
+    }
+  ]
+}

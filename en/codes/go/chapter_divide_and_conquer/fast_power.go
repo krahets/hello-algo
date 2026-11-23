@@ -4,7 +4,7 @@
 
 package chapter_divide_and_conquer
 
-/* Exponentiation by squaring */
+/* Fast exponentiation */
 func fastPow(x, n int) int {
 	if n == 0 {
 		return 1

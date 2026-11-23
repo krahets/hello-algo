@@ -4,12 +4,12 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* Driver Code */
-/* Access front of the queue element */
-// TypeScript has no built-in queue, can use Array as queue
+/* Driver code */
+/* Initialize the queue */
+// TypeScript has no built-in queue; an Array can be used as a queue
 const queue: number[] = [];
 
-/* Elements enqueue */
+/* Enqueue elements */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -17,21 +17,21 @@ queue.push(5);
 queue.push(4);
 console.log('Queue queue =', queue);
 
-/* Return list for printing */
+/* Access the front element */
 const peek = queue[0];
 console.log('Front element peek =', peek);
 
-/* Element dequeue */
-// Underlying is array, so shift() method has O(n) time complexity
+/* Dequeue an element */
+// The underlying structure is an array, so shift() has O(n) time complexity
 const pop = queue.shift();
-console.log('Dequeue element pop =', pop, ', after dequeue, queue = ', queue);
+console.log('Dequeued element pop =', pop, '; after dequeuing, queue = ', queue);
 
-/* Get the length of the queue */
+/* Get the queue size */
 const size = queue.length;
-console.log('Queue length size =', size);
+console.log('Queue size =', size);
 
-/* Check if the queue is empty */
+/* Check whether the queue is empty */
 const isEmpty = queue.length === 0;
-console.log('Queue is empty = ', isEmpty);
+console.log('Is the queue empty = ', isEmpty);
 
 export {};

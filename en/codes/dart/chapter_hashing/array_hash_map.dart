@@ -11,12 +11,12 @@ class Pair {
   Pair(this.key, this.val);
 }
 
-/* Hash table based on array implementation */
+/* Hash table implemented with an array */
 class ArrayHashMap {
   late List<Pair?> _buckets;
 
   ArrayHashMap() {
-    // Initialize array with 100 buckets
+    // Initialize an array containing 100 buckets
     _buckets = List.filled(100, null);
   }
 
@@ -26,7 +26,7 @@ class ArrayHashMap {
     return index;
   }
 
-  /* Query operation */
+  /* Lookup operation */
   String? get(int key) {
     final int index = _hashFunc(key);
     final Pair? pair = _buckets[index];
@@ -36,7 +36,7 @@ class ArrayHashMap {
     return pair.val;
   }
 
-  /* Add operation */
+  /* Insert operation */
   void put(int key, String val) {
     final Pair pair = Pair(key, val);
     final int index = _hashFunc(key);
@@ -82,7 +82,7 @@ class ArrayHashMap {
     return valueSet;
   }
 
-  /* Print hash table */
+  /* Print the hash table */
   void printHashMap() {
     for (final Pair kv in pairSet()) {
       print("${kv.key} -> ${kv.val}");
@@ -90,37 +90,37 @@ class ArrayHashMap {
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Initialize hash table */
+  /* Initialize the hash table */
   final ArrayHashMap map = ArrayHashMap();
 
-  /* Add operation */
-  // Add key-value pair (key, value) to the hash table
-  map.put(12836, "Xiao Ha");
-  map.put(15937, "Xiao Luo");
-  map.put(16750, "Xiao Suan");
-  map.put(13276, "Xiao Fa");
-  map.put(10583, "Xiao Ya");
-  print("\nAfter adding is complete, hash table is\nKey -> Value");
+  /* Insert operation */
+  // Insert the key-value pair (key, value) into the hash table
+  map.put(12836, "小哈");
+  map.put(15937, "小啰");
+  map.put(16750, "小算");
+  map.put(13276, "小法");
+  map.put(10583, "小鸭");
+  print("\nHash table after insertion:\nKey -> Value");
   map.printHashMap();
 
-  /* Query operation */
-  // Input key into hash table to get value
+  /* Lookup operation */
+  // Look up key in the hash table to obtain value
   String? name = map.get(15937);
-  print("\nInput student ID 15937, found name $name");
+  print("\nLook up student ID 15937: name = $name");
 
   /* Remove operation */
-  // Remove key-value pair (key, value) from hash table
+  // Remove the key-value pair (key, value) from the hash table
   map.remove(10583);
-  print("\nAfter removing 10583, hash table is\nKey -> Value");
+  print("\nHash table after removing 10583:\nKey -> Value");
   map.printHashMap();
 
-  /* Traverse hash table */
-  print("\nTraverse key-value pairs Key->Value");
+  /* Traverse the hash table */
+  print("\nTraverse key-value pairs: Key->Value");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\nTraverse keys only Key");
+  print("\nTraverse keys only: Key");
   map.keySet().forEach((key) => print("$key"));
-  print("\nTraverse values only Value");
+  print("\nTraverse values only: Value");
   map.values().forEach((val) => print("$val"));
 }

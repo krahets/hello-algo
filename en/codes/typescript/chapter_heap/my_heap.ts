@@ -9,27 +9,27 @@ import { printHeap } from '../modules/PrintUtil';
 /* Max heap class */
 class MaxHeap {
     private maxHeap: number[];
-    /* Constructor, build empty heap or build heap from input list */
+    /* Constructor: create an empty heap or build a heap from the input list */
     constructor(nums?: number[]) {
-        // Add list elements to heap as is
+        // Place the list elements in the heap without changing their order
         this.maxHeap = nums === undefined ? [] : [...nums];
-        // Heapify all nodes except leaf nodes
+        // Sift down from every non-leaf node
         for (let i = this.parent(this.size() - 1); i >= 0; i--) {
             this.siftDown(i);
         }
     }
 
-    /* Get index of left child node */
+    /* Get the left child index */
     private left(i: number): number {
         return 2 * i + 1;
     }
 
-    /* Get index of right child node */
+    /* Get the right child index */
     private right(i: number): number {
         return 2 * i + 2;
     }
 
-    /* Get index of parent node */
+    /* Get the parent index */
     private parent(i: number): number {
         return Math.floor((i - 1) / 2); // Floor division
     }
@@ -41,115 +41,115 @@ class MaxHeap {
         this.maxHeap[j] = tmp;
     }
 
-    /* Get heap size */
+    /* Get the heap size */
     public size(): number {
         return this.maxHeap.length;
     }
 
-    /* Check if heap is empty */
+    /* Check whether the heap is empty */
     public isEmpty(): boolean {
         return this.size() === 0;
     }
 
-    /* Access top element */
+    /* Access the top element of the heap */
     public peek(): number {
         return this.maxHeap[0];
     }
 
-    /* Element enters heap */
+    /* Push an element onto the heap */
     public push(val: number): void {
-        // Add node
+        // Add a node
         this.maxHeap.push(val);
-        // Heapify from bottom to top
+        // Sift up
         this.siftUp(this.size() - 1);
     }
 
-    /* Starting from node i, heapify from bottom to top */
+    /* Sift up starting from node i */
     private siftUp(i: number): void {
         while (true) {
-            // Get parent node of node i
+            // Get the parent of node i
             const p = this.parent(i);
-            // When "crossing root node" or "node needs no repair", end heapify
+            // Stop sifting when the root has been passed or the node needs no repair
             if (p < 0 || this.maxHeap[i] <= this.maxHeap[p]) break;
-            // Swap two nodes
+            // Swap the two nodes
             this.swap(i, p);
-            // Loop upward heapify
+            // Continue sifting up
             i = p;
         }
     }
 
-    /* Element exits heap */
+    /* Pop an element from the heap */
     public pop(): number {
-        // Handle empty case
-        if (this.isEmpty()) throw new RangeError('Heap is empty.');
-        // Delete node
+        // Handle an empty heap
+        if (this.isEmpty()) throw new RangeError('Heap is empty');
+        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
         this.swap(0, this.size() - 1);
-        // Remove node
+        // Remove a node
         const val = this.maxHeap.pop();
-        // Return top element
+        // Sift down
         this.siftDown(0);
-        // Return heap top element
+        // Return the top element of the heap
         return val;
     }
 
-    /* Starting from node i, heapify from top to bottom */
+    /* Sift down starting from node i */
     private siftDown(i: number): void {
         while (true) {
-            // If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
+            // Find the node with the largest value among i, l, and r, and store its index in ma
             const l = this.left(i),
                 r = this.right(i);
             let ma = i;
             if (l < this.size() && this.maxHeap[l] > this.maxHeap[ma]) ma = l;
             if (r < this.size() && this.maxHeap[r] > this.maxHeap[ma]) ma = r;
-            // Swap two nodes
+            // Stop if node i is largest or both child indices l and r are out of bounds
             if (ma === i) break;
-            // Swap two nodes
+            // Swap the two nodes
             this.swap(i, ma);
-            // Loop downwards heapification
+            // Continue sifting down
             i = ma;
         }
     }
 
-    /* Driver Code */
+    /* Print the heap (binary tree) */
     public print(): void {
         printHeap(this.maxHeap);
     }
 
-    /* Extract elements from heap */
+    /* Get the elements in the heap */
     public getMaxHeap(): number[] {
         return this.maxHeap;
     }
 }
 
-/* Driver Code */
+/* Driver code */
 if (import.meta.url.endsWith(process.argv[1])) {
-    /* Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap */
+    /* Initialize a max heap */
     const maxHeap = new MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    console.log('\nAfter inputting list and building heap');
+    console.log('\nAfter building a heap from the input list:');
     maxHeap.print();
 
-    /* Check if heap is empty */
+    /* Get the top element of the heap */
     let peek = maxHeap.peek();
-    console.log(`\nHeap top element is ${peek}`);
+    console.log(`\nHeap top: ${peek}`);
 
-    /* Element enters heap */
+    /* Push an element onto the heap */
     const val = 7;
     maxHeap.push(val);
-    console.log(`\nAfter element ${val} pushes to heap`);
+    console.log(`\nAfter pushing ${val} into the heap:`);
     maxHeap.print();
 
-    /* Time complexity is O(n), not O(nlogn) */
+    /* Pop the top element from the heap */
     peek = maxHeap.pop();
-    console.log(`\nAfter heap top element ${peek} pops from heap`);
+    console.log(`\nAfter popping the heap top ${peek}:`);
     maxHeap.print();
 
-    /* Get heap size */
+    /* Get the heap size */
     const size = maxHeap.size();
-    console.log(`\nHeap size is ${size}`);
+    console.log(`\nNumber of elements in the heap: ${size}`);
 
-    /* Check if heap is empty */
+    /* Check whether the heap is empty */
     const isEmpty = maxHeap.isEmpty();
-    console.log(`\nIs heap empty ${isEmpty}`);
+    console.log(`\nIs the heap empty? ${isEmpty}`);
 }
 
 export { MaxHeap };

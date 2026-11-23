@@ -1,0 +1,47 @@
+{
+  "schema_version": 2,
+  "title": "Space required to store an n-level perfect binary tree",
+  "summary": "Storing an entire n-level perfect binary tree requires counting every retained node, not just the recursive call stack.",
+  "context": [
+    "Here n is a positive integer, and the figure corresponds to the tree constructed and retained by build_tree. Each circle represents one node occupying constant space, connected by arrows to its left and right children; the brace on the right reads \"A total of n levels\"."
+  ],
+  "description": [
+    "The figure draws the first 3 levels and then extends 8 arrows from the 4 nodes on level 3 into ellipses to indicate further levels. The right column, \"Total nodes at each level\", writes powers 2⁰, 2¹, 2², …, 2ⁿ⁻¹. The table below supplies level numbers, decimal counts for the opening levels, and spoken forms of the powers."
+  ],
+  "frames": [
+    {
+      "id": "source-37",
+      "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_exponential.png",
+      "title": "Space required to store an n-level perfect binary tree",
+      "explanation": "At the bottom, summing across levels gives 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1—that is, one less than 2 to the power n. Because new nodes remain linked into the tree via left and right pointers instead of being destroyed when the calls that created them return, all of these nodes occupy memory simultaneously. Even though the recursive call stack is only O(n) deep, the tree as a whole still requires O(2ⁿ) space, which is the conclusion pointed to at the bottom."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Node count at each level of the perfect binary tree",
+      "headers": [
+        "Level (root is level 1)",
+        "Total nodes"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "1",
+          "2⁰ = 1"
+        ],
+        [
+          "2",
+          "2¹ = 2"
+        ],
+        [
+          "3",
+          "2² = 4"
+        ],
+        [
+          "n",
+          "2ⁿ⁻¹, that is, 2 raised to the exponent (n minus 1)"
+        ]
+      ]
+    }
+  ]
+}

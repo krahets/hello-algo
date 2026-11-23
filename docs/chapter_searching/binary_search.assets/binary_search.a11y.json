@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "title": "二分查找",
+  "summary": "在升序数组中查找目标值 6，每轮比较中点元素后排除不可能包含目标的一半区间。",
+  "context": [
+    "输入为含 10 个互异元素的升序数组，索引从 0 到 9，查找目标值 target = 6；各索引对应的元素见输入表。",
+    "指针 i、j 分别表示当前搜索闭区间 [i, j] 的左、右边界（两端点均包含在搜索范围内）；m 表示区间中点索引，按 (i + j) / 2 向下取整计算。每轮先计算中点 m，再比较 nums[m] 与目标值。"
+  ],
+  "description": [
+    "共 7 个画面：先初始化，再演示 3 轮比较。每轮将“计算中点”和“比较后缩小区间或命中”分开展示；虚线框表示当前搜索区间。"
+  ],
+  "result": "依次比较中点元素 12、3、6，第三次比较命中目标，返回的是索引 2，而不是元素值 6。",
+  "frames": [
+    {
+      "id": "source-214",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step1.png",
+      "title": "初始化搜索区间",
+      "explanation": "令 i = 0、j = 9，搜索闭区间 [0, 9] 覆盖全部 10 个元素，左右端点的值分别为 1、35；此时尚未计算中点 m。",
+      "key_state": "i = 0，j = 9；搜索闭区间 [0, 9]，尚无中点 m。",
+      "announcement": "初始化左边界 i 为索引 0、右边界 j 为索引 9，搜索整个数组。"
+    },
+    {
+      "id": "source-215",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step2.png",
+      "title": "第 1 轮：计算中点 m = 4",
+      "explanation": "在闭区间 [0, 9]（i = 0、j = 9）内，m = (0 + 9) / 2 向下取整得 4，指向元素 12。下一步将它与目标 6 比较。",
+      "key_state": "i = 0，j = 9，m = 4；中点值为 12。下一步与目标 6 比较。",
+      "announcement": "计算出中点 m 为索引 4，对应值为 12，准备与目标值 6 比较。"
+    },
+    {
+      "id": "source-216",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step3.png",
+      "title": "第 1 轮：12 大于 6，右边界移到 3",
+      "explanation": "在原区间 [0, 9] 中，中点 m = 4 的值 12 大于目标 6。数组升序，所以索引 4 及其右侧都不可能命中；令 j = m - 1 = 3。现在 i = 0、j = 3，区间为 [0, 3]，剩余 [1, 3, 6, 8]；旧指针 m 仍指向区间外的索引 4（值 12），尚未重新计算。",
+      "key_state": "因 m = 4 的值 12 大于目标 6，区间由 [0, 9] 缩为 [0, 3]：i = 0，j = 3，剩余 [1, 3, 6, 8]；旧 m = 4 仍在区间外。",
+      "announcement": "中点值 12 大于目标值 6，右边界 j 移至索引 3，保留索引 0 至 3。"
+    },
+    {
+      "id": "source-217",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step4.png",
+      "title": "第 2 轮：计算中点 m = 1",
+      "explanation": "在闭区间 [0, 3]（i = 0、j = 3）内，m = (0 + 3) / 2 向下取整得 1，指向元素 3。下一步将它与目标 6 比较。",
+      "key_state": "i = 0，j = 3，m = 1；中点值为 3。下一步与目标 6 比较。",
+      "announcement": "在区间 [0, 3] 内重新计算出中点 m 为索引 1，对应值为 3。"
+    },
+    {
+      "id": "source-218",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step5.png",
+      "title": "第 2 轮：3 小于 6，左边界移到 2",
+      "explanation": "在原区间 [0, 3] 中，中点 m = 1 的值 3 小于目标 6。数组升序，所以索引 1 及其左侧都不可能命中；令 i = m + 1 = 2。现在 i = 2、j = 3，区间为 [2, 3]，剩余 [6, 8]；旧指针 m 仍指向区间外的索引 1（值 3），尚未重新计算。",
+      "key_state": "因 m = 1 的值 3 小于目标 6，区间由 [0, 3] 缩为 [2, 3]：i = 2，j = 3，剩余 [6, 8]；旧 m = 1 仍在区间外。",
+      "announcement": "中点值 3 小于目标值 6，左边界 i 移至索引 2，区间内仅剩 6 和 8。"
+    },
+    {
+      "id": "source-219",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step6.png",
+      "title": "第 3 轮：计算中点 m = 2",
+      "explanation": "在闭区间 [2, 3]（i = 2、j = 3）内，m = (2 + 3) / 2 向下取整得 2，与左边界 i 重合，指向元素 6。下一步将它与目标 6 比较。",
+      "key_state": "i 与 m 重合于索引 2，j = 3；中点值为 6。下一步与目标 6 比较。",
+      "announcement": "重新计算出中点 m 为索引 2，与左边界 i 重合，对应值为 6。"
+    },
+    {
+      "id": "source-220",
+      "book_path": "chapter_searching/binary_search.assets/binary_search_step7.png",
+      "title": "第 3 轮：命中目标，返回索引 2",
+      "explanation": "中点 m = 2 的值 6 等于目标 6，查找结束。最终画面只保留指向索引 2 的中点指针 m，边界指针 i、j 和区间虚线框均已隐藏。",
+      "key_state": "命中目标值 6；仅显示 m = 2，返回索引 2。",
+      "announcement": "中点值等于目标值 6，查找成功，返回索引 2。"
+    }
+  ],
+  "animations": {
+    "binary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-214"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-215"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-216"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-217"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-218"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-219"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-220"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "升序输入数组",
+      "headers": [
+        "索引",
+        "元素值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "8"
+        ],
+        [
+          "4",
+          "12"
+        ],
+        [
+          "5",
+          "15"
+        ],
+        [
+          "6",
+          "23"
+        ],
+        [
+          "7",
+          "26"
+        ],
+        [
+          "8",
+          "31"
+        ],
+        [
+          "9",
+          "35"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

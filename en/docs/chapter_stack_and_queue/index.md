@@ -1,9 +1,9 @@
-# Stacks and Queues
+# Stacks and queues
 
-![Stacks and Queues](../assets/covers/chapter_stack_and_queue.jpg)
+![Stacks and queues](../assets/covers/chapter_stack_and_queue.jpg)
 
 !!! abstract
 
-    A stack is like cats piled on top of one another, while a queue is like cats lining up.
-
-    They represent the logical relationships of LIFO (Last In, First Out) and FIFO (First In, First Out), respectively.
+    A stack is like cats piled on top of one another; a queue is like cats standing in line.
+    
+    They represent last-in, first-out and first-in, first-out order, respectively.

@@ -16,33 +16,33 @@ class Item {
     }
 };
 
-/* Fractional knapsack: Greedy algorithm */
+/* Fractional knapsack: greedy algorithm */
 double fractionalKnapsack(vector<int> &wgt, vector<int> &val, int cap) {
-    // Create item list with two attributes: weight, value
+    // Create a list of items, each with two attributes: weight and value
     vector<Item> items;
     for (int i = 0; i < wgt.size(); i++) {
         items.push_back(Item(wgt[i], val[i]));
     }
-    // Sort by unit value item.v / item.w from high to low
+    // Sort by value per unit weight, item.v / item.w, in descending order
     sort(items.begin(), items.end(), [](Item &a, Item &b) { return (double)a.v / a.w > (double)b.v / b.w; });
-    // Loop for greedy selection
+    // Repeatedly make greedy choices
     double res = 0;
     for (auto &item : items) {
         if (item.w <= cap) {
-            // If remaining capacity is sufficient, put the entire current item into the knapsack
+            // If enough capacity remains, put the entire current item in the knapsack
             res += item.v;
             cap -= item.w;
         } else {
-            // If remaining capacity is insufficient, put part of the current item into the knapsack
+            // If the remaining capacity is insufficient, put part of the current item in the knapsack
             res += (double)item.v / item.w * cap;
-            // No remaining capacity, so break out of the loop
+            // No capacity remains, so exit the loop
             break;
         }
     }
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     vector<int> wgt = {10, 20, 30, 40, 50};
     vector<int> val = {50, 120, 150, 210, 240};
@@ -50,7 +50,7 @@ int main() {
 
     // Greedy algorithm
     double res = fractionalKnapsack(wgt, val, cap);
-    cout << "Maximum item value not exceeding knapsack capacity is " << res << endl;
+    cout << "Maximum total item value within the knapsack capacity: " << res << endl;
 
     return 0;
 }

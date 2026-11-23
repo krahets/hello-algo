@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "title": "Binary search when looking up a character in a dictionary",
+  "summary": "In a dictionary ordered alphabetically by pinyin, look up any character whose pinyin starts with r. Across 5 frames, Step 1 sets the initial search range and Steps 2 through 5 each open to the midpoint once.",
+  "context": [],
+  "description": [
+    "Each frame arranges all 26 letter blocks from a to z left to right. Green marks letters still within the active search range, cyan highlights target letter r, and light gray marks discarded letters; in Steps 2 through 5, an upward pointer labeled “Midpoint” underneath marks the letter opened on that step."
+  ],
+  "frames": [
+    {
+      "id": "source-10",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
+      "title": "State the lookup goal and initial range",
+      "explanation": "The initial search range covers all 26 letters from a to z before opening to any page. Target r is cyan, and the other 25 letters are green.",
+      "key_state": "Initial state: the search range covers all letters from a to z, with the goal of finding a character whose pinyin starts with r.",
+      "announcement": "State the lookup goal—finding a character whose pinyin starts with r—across the full alphabetically ordered initial range of all 26 letters from a to z."
+    },
+    {
+      "id": "source-11",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png",
+      "title": "Open to midpoint letter m and discard the first half",
+      "explanation": "First open the dictionary near its midpoint, where the pointer lands on m. Since r comes after m, discard a through m so they turn light gray; the remaining letters n through z stay colored, with target r in cyan.",
+      "key_state": "Opening at the midpoint lands on m; since r comes after m, discard a through m, leaving range n through z.",
+      "announcement": "Open the dictionary near its midpoint to find initial letter m; since r comes after m, discard the first half a through m and narrow the search range to n through z."
+    },
+    {
+      "id": "source-12",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png",
+      "title": "Open to midpoint letter t of the remaining section and discard the second half",
+      "explanation": "Open the remaining range n through z at its midpoint, where the pointer lands on t. Since r comes before t, discard t through z. Now both a through m on the left and t through z on the right are light gray, leaving only n through s colored, with r in cyan.",
+      "key_state": "Opening at the midpoint of remaining range n through z lands on t; since r comes before t, discard t through z. The active range is now n through s, with a through m on the left and t through z on the right discarded.",
+      "announcement": "Open the remaining section at its midpoint to find initial letter t; since r comes before t, discard the second half t through z and narrow the search range to n through s."
+    },
+    {
+      "id": "source-13",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png",
+      "title": "Open to midpoint letter p of the remaining section and discard the first half again",
+      "explanation": "Open the remaining range n through s at its midpoint, where the pointer lands on p. Since r comes after p, discard n through p. Now a through p on the left and t through z on the right are light gray, leaving only q, r, and s colored: q and s in green, and r in cyan.",
+      "key_state": "Opening at the midpoint of remaining range n through s lands on p; since r comes after p, discard n through p. Only q, r, and s remain active, with a through p on the left and t through z on the right discarded.",
+      "announcement": "Open the remaining section at its midpoint to find initial letter p; since r comes after p, discard the first half n through p, leaving only q, r, and s in the search range."
+    },
+    {
+      "id": "source-14",
+      "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
+      "title": "Open to midpoint letter r and complete the lookup",
+      "explanation": "Open the remaining range q, r, and s at its midpoint, where the pointer lands directly on target r—finding a character whose pinyin starts with r and completing the task. This is Step 5, and the 4th midpoint check. The diagram keeps q and s in green and r in cyan to show the range just before this check, while a through p and t through z remain light gray.",
+      "key_state": "Lookup complete: opening at the midpoint of remaining range q, r, and s lands on target letter r.",
+      "announcement": "Open at the midpoint of remaining range q, r, and s to hit target initial letter r directly, completing the dictionary lookup."
+    }
+  ],
+  "animations": {
+    "dictionary-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-10"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-11"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-12"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-13"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-14"
+        }
+      ]
+    }
+  }
+}

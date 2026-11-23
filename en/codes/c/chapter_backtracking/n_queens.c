@@ -8,10 +8,10 @@
 
 #define MAX_SIZE 100
 
-/* Backtracking algorithm: N queens */
+/* Backtracking: n-queens */
 void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int *resSize, bool cols[MAX_SIZE],
                bool diags1[2 * MAX_SIZE - 1], bool diags2[2 * MAX_SIZE - 1]) {
-    // When all rows are placed, record the solution
+    // Record a solution when a queen has been placed in every row
     if (row == n) {
         res[*resSize] = (char **)malloc(sizeof(char *) * n);
         for (int i = 0; i < n; ++i) {
@@ -21,38 +21,38 @@ void backtrack(int row, int n, char state[MAX_SIZE][MAX_SIZE], char ***res, int 
         (*resSize)++;
         return;
     }
-    // Traverse all columns
+    // Iterate over all columns
     for (int col = 0; col < n; col++) {
-        // Calculate the main diagonal and anti-diagonal corresponding to this cell
+        // Calculate the main-diagonal and anti-diagonal indices for this square
         int diag1 = row - col + n - 1;
         int diag2 = row + col;
-        // Pruning: do not allow queens to exist in the column, main diagonal, and anti-diagonal of this cell
+        // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // Attempt: place the queen in this cell
+            // Try: place a queen on this square
             state[row][col] = 'Q';
             cols[col] = diags1[diag1] = diags2[diag2] = true;
-            // Place the next row
+            // Place a queen in the next row
             backtrack(row + 1, n, state, res, resSize, cols, diags1, diags2);
-            // Backtrack: restore this cell to an empty cell
+            // Backtrack: restore this square to empty
             state[row][col] = '#';
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
     }
 }
 
-/* Solve N queens */
+/* Solve the n-queens problem */
 char ***nQueens(int n, int *returnSize) {
     char state[MAX_SIZE][MAX_SIZE];
-    // Initialize an n*n chessboard, where 'Q' represents a queen and '#' represents an empty cell
+    // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             state[i][j] = '#';
         }
         state[i][n] = '\0';
     }
-    bool cols[MAX_SIZE] = {false};           // Record whether there is a queen in the column
-    bool diags1[2 * MAX_SIZE - 1] = {false}; // Record whether there is a queen on the main diagonal
-    bool diags2[2 * MAX_SIZE - 1] = {false}; // Record whether there is a queen on the anti-diagonal
+    bool cols[MAX_SIZE] = {false};           // Track whether a column contains a queen
+    bool diags1[2 * MAX_SIZE - 1] = {false}; // Track whether a main diagonal contains a queen
+    bool diags2[2 * MAX_SIZE - 1] = {false}; // Track whether an anti-diagonal contains a queen
 
     char ***res = (char ***)malloc(sizeof(char **) * MAX_SIZE);
     *returnSize = 0;
@@ -60,14 +60,14 @@ char ***nQueens(int n, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 4;
     int returnSize;
     char ***res = nQueens(n, &returnSize);
 
-    printf("Input board size is %d\n", n);
-    printf("Total queen placement solutions: %d\n", returnSize);
+    printf("Board width and height: %d\n", n);
+    printf("Number of queen placement solutions: %d\n", returnSize);
     for (int i = 0; i < returnSize; ++i) {
         for (int j = 0; j < n; ++j) {
             printf("[");

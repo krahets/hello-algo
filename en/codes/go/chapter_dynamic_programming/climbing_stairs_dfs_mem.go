@@ -4,13 +4,13 @@
 
 package chapter_dynamic_programming
 
-/* Memoization search */
+/* Memoized search */
 func dfsMem(i int, mem []int) int {
-	// Known dp[1] and dp[2], return them
+	// The values of dp[1] and dp[2] are known; return them
 	if i == 1 || i == 2 {
 		return i
 	}
-	// If record dp[i] exists, return it directly
+	// If dp[i] has been recorded, return it directly
 	if mem[i] != -1 {
 		return mem[i]
 	}
@@ -21,9 +21,9 @@ func dfsMem(i int, mem []int) int {
 	return count
 }
 
-/* Climbing stairs: Memoization search */
+/* Climbing stairs: memoized search */
 func climbingStairsDFSMem(n int) int {
-	// mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+	// mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
 	mem := make([]int, n+1)
 	for i := range mem {
 		mem[i] = -1

@@ -24,7 +24,7 @@ function mulHash(key: string): number {
     return hash;
 }
 
-/* XOR ハッシュ */
+/* 排他的論理和ハッシュ */
 function xorHash(key: string): number {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -36,25 +36,25 @@ function xorHash(key: string): number {
 
 /* 回転ハッシュ */
 function rotHash(key: string): number {
-    let hash = 0n;
-    const MODULUS = 1000000007n;
+    let hash = 0;
+    const MODULUS = 1000000007;
     for (const c of key) {
-        hash = ((hash << 4n) ^ (hash >> 28n) ^ BigInt(c.charCodeAt(0))) % MODULUS;
+        hash = ((hash << 4) ^ (hash >> 28) ^ c.charCodeAt(0)) % MODULUS;
     }
-    return Number(hash);
+    return hash;
 }
 
-/* Driver Code */
-const key = 'Hello アルゴリズム';
+/* 実行用コード */
+const key = 'Hello 算法';
 
 let hash = addHash(key);
-console.log('加算ハッシュ値は ' + hash);
+console.log('加算ハッシュの値は ' + hash);
 
 hash = mulHash(key);
-console.log('乗算ハッシュ値は ' + hash);
+console.log('乗算ハッシュの値は ' + hash);
 
 hash = xorHash(key);
-console.log('XOR ハッシュ値は ' + hash);
+console.log('排他的論理和ハッシュの値は ' + hash);
 
 hash = rotHash(key);
-console.log('回転ハッシュ値は ' + hash);
+console.log('回転ハッシュの値は ' + hash);

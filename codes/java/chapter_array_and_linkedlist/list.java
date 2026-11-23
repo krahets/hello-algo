@@ -11,7 +11,7 @@ import java.util.*;
 public class list {
     public static void main(String[] args) {
         /* 初始化列表 */
-        // 注意数组的元素类型是 int[] 的包装类 Integer[]
+        // 注意数组类型需为 Integer[] 而非 int[]，因为列表元素只能是 int 的包装类 Integer
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("列表 nums = " + nums);

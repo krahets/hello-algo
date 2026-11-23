@@ -8,7 +8,7 @@
 
 /* Search */
 int dfs(int i) {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if (i == 1 || i == 2)
         return i;
     // dp[i] = dp[i-1] + dp[i-2]
@@ -16,17 +16,17 @@ int dfs(int i) {
     return count;
 }
 
-/* Climbing stairs: Search */
+/* Climbing stairs: search */
 int climbingStairsDFS(int n) {
     return dfs(n);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     int n = 9;
 
     int res = climbingStairsDFS(n);
-    cout << "Climbing " << n << " stairs has " << res << " solutions" << endl;
+    cout << "Climbing " << n << " stairs: " << res << " ways" << endl;
 
     return 0;
 }

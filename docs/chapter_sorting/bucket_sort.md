@@ -12,7 +12,7 @@
 2. 对每个桶分别执行排序（这里采用编程语言的内置排序函数）。
 3. 按照桶从小到大的顺序合并结果。
 
-![桶排序算法流程](bucket_sort.assets/bucket_sort_overview.png)
+![桶排序算法流程](bucket_sort.assets/bucket_sort_overview.svg)
 
 代码如下所示：
 
@@ -36,10 +36,10 @@
 
 如下图所示，这种方法本质上是创建一棵递归树，目标是让叶节点的值尽可能平均。当然，不一定要每轮将数据划分为 3 个桶，具体划分方式可根据数据特点灵活选择。
 
-![递归划分桶](bucket_sort.assets/scatter_in_buckets_recursively.png)
+![递归划分桶](bucket_sort.assets/scatter_in_buckets_recursively.svg)
 
 如果我们提前知道商品价格的概率分布，**则可以根据数据概率分布设置每个桶的价格分界线**。值得注意的是，数据分布并不一定需要特意统计，也可以根据数据特点采用某种概率模型进行近似。
 
 如下图所示，我们假设商品价格服从正态分布，这样就可以合理地设定价格区间，从而将商品平均分配到各个桶中。
 
-![根据概率分布划分桶](bucket_sort.assets/scatter_in_buckets_distribution.png)
+![根据概率分布划分桶](bucket_sort.assets/scatter_in_buckets_distribution.svg)
