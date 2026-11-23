@@ -102,6 +102,6 @@ if __FILE__ == $0
   for i in 0...10
     queue.push(i)
     queue.pop
-    puts "After enqueueing and dequeueing in round #{i}, queue = #{queue.to_array}"
+    puts "After round #{i} of enqueue + dequeue, queue = #{queue.to_array}"
   end
 end

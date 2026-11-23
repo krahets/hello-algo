@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "title": "Counting ways to reach step 5 from the counts for steps 3 and 4",
+  "summary": "The final move onto step 5 must come from either step 3 or step 4, giving 3 + 5 = 8 ways.",
+  "context": [
+    "Because each move climbs only 1 or 2 steps, let dp[n] be the number of ways to reach step n, with initial states dp[1] = 1 and dp[2] = 2."
+  ],
+  "description": [
+    "Steps 3, 4, and 5 on the staircase are highlighted in green, cyan, and blue, respectively. First, 3 dashed green arcs converge on step 3 (labeled dp[3] = 3) and 5 solid cyan arcs converge on step 4 (labeled dp[4] = 5); from there, a single dashed green arc spanning 2 steps and a single solid cyan arc spanning 1 step converge on step 5. The equation dp[5] = dp[3] + dp[4] = 8 appears at the top, and a row at the bottom pairs steps 1 through 6 with their numbers of ways."
+  ],
+  "frames": [
+    {
+      "id": "source-368",
+      "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png",
+      "title": "Counting ways to reach step 5 from the counts for steps 3 and 4",
+      "explanation": "To reach step 5, the final move either jumps 2 steps up from step 3 or jumps 1 step up from step 4. Extending each of the 3 ways to reach step 3 with a 2-step jump produces 3 ways to reach step 5; extending each of the 5 ways to reach step 4 with a 1-step jump produces another 5 ways. Because these two groups differ in the step preceding the final move, they are mutually exclusive and collectively exhaustive, so dp[5] = dp[3] + dp[4] = 3 + 5 = 8. More generally, for any step i (i ≥ 3), dp[i] = dp[i-1] + dp[i-2]."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Steps and numbers of ways shown in the figure",
+      "headers": [
+        "Number of steps n",
+        "Number of ways dp[n]"
+      ],
+      "rows": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "2",
+          "2"
+        ],
+        [
+          "3",
+          "3"
+        ],
+        [
+          "4",
+          "5"
+        ],
+        [
+          "5",
+          "8"
+        ],
+        [
+          "6",
+          "13"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

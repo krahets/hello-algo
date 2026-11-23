@@ -11,7 +11,7 @@ if __name__ == "__main__":
     # 덱 초기화
     deq: deque[int] = deque()
 
-    # 큐에 원소 삽입
+    # 원소 삽입
     deq.append(2)  # 맨 뒤에 추가한다
     deq.append(5)
     deq.append(4)
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     rear: int = deq[-1]  # 맨 뒤 원소
     print("맨 뒤 원소 rear =", rear)
 
-    # 큐에서 원소 꺼내기
+    # 원소 꺼내기
     pop_front: int = deq.popleft()  # 맨 앞 원소를 꺼낸다
     print("맨 앞에서 꺼낸 원소  pop_front =", pop_front)
     print("맨 앞에서 꺼낸 후 deque =", deq)

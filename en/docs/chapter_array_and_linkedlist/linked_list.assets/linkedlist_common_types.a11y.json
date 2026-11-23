@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "title": "Three common types of linked lists",
+  "summary": "Compare the link structures of singly, circular, and doubly linked lists using the same nodes 1, 3, 2, 5, and 4.",
+  "context": [
+    "All three rows use five nodes arranged in the order 1, 3, 2, 5, 4, comparing the three connection patterns from top to bottom."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "id": "source-53",
+      "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png",
+      "title": "Three common types of linked lists",
+      "explanation": "A singly linked list can only be traversed forward along successor references; in a circular linked list, any node can serve as the head; a doubly linked list can be traversed in both directions via next or prev, at the cost of storing an extra predecessor reference."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "References and boundaries of the three linked list types",
+      "headers": [
+        "Type and position",
+        "Between adjacent nodes",
+        "Head and tail boundaries"
+      ],
+      "row_header": 0,
+      "rows": [
+        [
+          "Singly linked list, top",
+          "Rightward next: 1 → 3 → 2 → 5 → 4",
+          "Tail node 4 has next pointing to None"
+        ],
+        [
+          "Circular linked list, middle",
+          "Rightward next: 1 → 3 → 2 → 5 → 4",
+          "Tail node 4 routes back beneath the row to node 1, forming a closed loop"
+        ],
+        [
+          "Doubly linked list, bottom",
+          "Node order is 1, 3, 2, 5, 4; between every adjacent pair, rightward next points to the successor and leftward prev points to the predecessor",
+          "Node 1 has prev pointing to None on the left, and node 4 has next pointing to None on the right"
+        ]
+      ]
+    }
+  ]
+}

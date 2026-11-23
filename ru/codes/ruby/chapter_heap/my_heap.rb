@@ -109,7 +109,7 @@ class MaxHeap
     end
   end
 
-  # ## Вывести кучу (двоичное дерево) ###
+  ### Вывести кучу (двоичное дерево) ###
   def __print__
     print_heap(@max_heap)
   end

@@ -34,7 +34,7 @@ int *getMinHeap(MaxHeap *maxHeap) {
     return res;
 }
 
-// Use a heap to find the k largest elements in an array
+/* Use a heap to find the k largest elements in an array */
 int *topKHeap(int *nums, int sizeNums, int k) {
     // Initialize a min heap
     // Note: negate every element to simulate a min heap with a max heap

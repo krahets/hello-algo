@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "title": "Greedy strategy for the fractional knapsack problem",
+  "summary": "Sort items by value per unit weight from highest to lowest and fill the knapsack starting with higher unit values.",
+  "context": [
+    "Maximizing total value within limited capacity comes down to packing as much value as possible into every unit of weight. Accordingly, the greedy strategy for fractional knapsack sorts all candidate items in descending order of value per unit weight first."
+  ],
+  "description": [
+    "The central table reorders items by descending value per unit weight, printing ID, weight, value, and value per unit weight across four columns with fruit icons for names. Two notes read \"Sort by value per unit weight from highest to lowest\" and \"Greedy strategy: Prioritize items with higher value per unit weight\". On the right, an upward gray arrow points toward higher unit value, so items are taken from the top row downward.",
+    "The table below preserves the figure's row order. Both the apple and grapes have value per unit weight 5, with the apple listed first; equal unit values require no fixed tie-breaking order."
+  ],
+  "frames": [
+    {
+      "id": "source-463",
+      "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.png",
+      "title": "Greedy strategy for the fractional knapsack problem",
+      "explanation": "Scan downward taking whole items whenever they fit, and cut just enough of the next item to fill any remaining capacity. Applied to the earlier capacity-50 example, this takes the whole banana followed by weight 30 of the pineapple for 277.5 (supplied from the earlier example; this figure draws only the sorting and selection rule)."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Greedy strategy figure: items ordered by descending value per unit weight",
+      "headers": [
+        "ID and icon",
+        "Weight",
+        "Value",
+        "Value per unit weight"
+      ],
+      "rows": [
+        [
+          "2 (Banana)",
+          "20",
+          "120",
+          "6"
+        ],
+        [
+          "4 (Pineapple)",
+          "40",
+          "210",
+          "5.25"
+        ],
+        [
+          "1 (Apple)",
+          "10",
+          "50",
+          "5"
+        ],
+        [
+          "3 (Grapes)",
+          "30",
+          "150",
+          "5"
+        ],
+        [
+          "5 (Watermelon)",
+          "50",
+          "240",
+          "4.8"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

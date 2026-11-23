@@ -26,7 +26,7 @@ class LinkedListQueue {
         return Size() == 0;
     }
 
-    /* 큐에 삽입 */
+    /* 원소 삽입 */
     public void Push(int num) {
         // 꼬리 노드 뒤에 num을 추가한다
         ListNode node = new(num);
@@ -42,7 +42,7 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* 큐에서 꺼내기 */
+    /* 원소 꺼내기 */
     public int Pop() {
         int num = Peek();
         // 머리 노드를 삭제한다
@@ -79,7 +79,7 @@ public class linkedlist_queue {
         /* 큐 초기화 */
         LinkedListQueue queue = new();
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -91,7 +91,7 @@ public class linkedlist_queue {
         int peek = queue.Peek();
         Console.WriteLine("맨 앞 원소 peek = " + peek);
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int pop = queue.Pop();
         Console.WriteLine("큐에서 꺼낸 원소 pop = " + pop + ", 큐에서 꺼낸 후 queue = " + string.Join(",", queue.ToArray()));
 

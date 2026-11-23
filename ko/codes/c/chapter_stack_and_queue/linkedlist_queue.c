@@ -43,7 +43,7 @@ bool empty(LinkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
-/* 큐에 삽입 */
+/* 원소 삽입 */
 void push(LinkedListQueue *queue, int num) {
     // 꼬리 노드 위치에 node를 추가한다
     ListNode *node = newListNode(num);
@@ -66,7 +66,7 @@ int peek(LinkedListQueue *queue) {
     return queue->front->val;
 }
 
-/* 큐에서 꺼내기 */
+/* 원소 꺼내기 */
 int pop(LinkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
@@ -95,7 +95,7 @@ int main() {
     /* 큐 초기화 */
     LinkedListQueue *queue = newLinkedListQueue();
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
@@ -108,7 +108,7 @@ int main() {
     int peekNum = peek(queue);
     printf("큐의 맨 앞 원소 peek = %d\r\n", peekNum);
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     peekNum = pop(queue);
     printf("큐에서 꺼낸 원소 pop = %d, 꺼낸 후 queue = ", peekNum);
     printLinkedListQueue(queue);

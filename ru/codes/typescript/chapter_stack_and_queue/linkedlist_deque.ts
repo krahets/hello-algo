@@ -6,8 +6,8 @@
 
 /* Узел двусвязного списка */
 class ListNode {
-    prev: ListNode; // Ссылка на узел-предшественник (указатель)
-    next: ListNode; // Ссылка на узел-преемник (указатель)
+    prev: ListNode | null; // Ссылка на узел-предшественник (указатель)
+    next: ListNode | null; // Ссылка на узел-преемник (указатель)
     val: number; // Значение узла
 
     constructor(val: number) {

@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Problem definition for maximum product cutting",
+  "summary": "For a fixed sum, choose how many parts to cut and their sizes to maximize their product.",
+  "context": [
+    "Given an integer n ≥ 2, split n into a sum of m ≥ 2 positive integers n = n₁ + n₂ + … + nₘ (with subscripts 1 through m) so as to maximize the product n₁ × n₂ × … × nₘ."
+  ],
+  "description": [
+    "A symbolic bar diagram shows a solid gray bar of total length n above and an equal-length segmented colored bar below cut by vertical dashed lines into n₁, n₂, n₃, …, nₘ₋₂, nₘ₋₁, nₘ (ending at subscripts m minus 2, m minus 1, and m) from left to right, with dashed alignment lines at both ends showing the parts sum to n; below reads \"Given integer n, find max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ)\"."
+  ],
+  "frames": [
+    {
+      "id": "source-479",
+      "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png",
+      "title": "Problem definition for maximum product cutting",
+      "explanation": "The subscripted labels and ellipsis represent an arbitrary m-part split rather than requiring at least six parts; m can be as small as 2. Neither n, m, nor concrete part sizes are fixed here, so schematic bar widths do not represent numeric values."
+    }
+  ]
+}

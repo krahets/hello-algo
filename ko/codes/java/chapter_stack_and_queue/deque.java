@@ -23,13 +23,13 @@ public class deque {
         int peekLast = deque.peekLast();
         System.out.println("맨 뒤 원소 peekLast = " + peekLast);
 
-        /* 큐에 원소 삽입 */
+        /* 원소 삽입 */
         deque.offerLast(4);
         System.out.println("원소 4를 맨 뒤에 삽입한 후 deque = " + deque);
         deque.offerFirst(1);
         System.out.println("원소 1을 맨 앞에 삽입한 후 deque = " + deque);
 
-        /* 큐에서 원소 꺼내기 */
+        /* 원소 꺼내기 */
         int popLast = deque.pollLast();
         System.out.println("맨 뒤에서 꺼낸 원소 = " + popLast + ", 맨 뒤에서 꺼낸 후 deque = " + deque);
         int popFirst = deque.pollFirst();

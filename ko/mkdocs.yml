@@ -4,14 +4,11 @@ INHERIT: ../mkdocs.yml
 site_name: Hello 알고리즘
 site_url: https://www.hello-algo.com/ko/
 site_description: 애니메이션으로 설명하고 클릭 한 번으로 실행하는 자료 구조와 알고리즘 입문서
-docs_dir: ../build/ko/docs
-site_dir: ../site/ko
 edit_uri: tree/main/ko/docs
 version: 1.3.0
 copyright: 저작권 &copy; 2026 krahets<br>웹사이트 콘텐츠에는 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 라이선스가 적용된다
 
 theme:
-  custom_dir: ../build/overrides
   language: ko
   font:
     text: Noto Sans KR

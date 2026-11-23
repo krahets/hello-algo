@@ -105,6 +105,6 @@ fun main() {
     for (i in 0..9) {
         queue.push(i)
         queue.pop()
-        println("After enqueue and dequeue round $i: queue = ${queue.toArray().contentToString()}")
+        println("After round $i of enqueue + dequeue, queue = ${queue.toArray().contentToString()}")
     }
 }

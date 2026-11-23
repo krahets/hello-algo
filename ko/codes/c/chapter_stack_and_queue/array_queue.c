@@ -51,7 +51,7 @@ int peek(ArrayQueue *queue) {
     return queue->nums[queue->front];
 }
 
-/* 큐에 삽입 */
+/* 원소 삽입 */
 void push(ArrayQueue *queue, int num) {
     if (size(queue) == capacity(queue)) {
         printf("큐가 가득 찼다\r\n");
@@ -65,7 +65,7 @@ void push(ArrayQueue *queue, int num) {
     queue->queSize++;
 }
 
-/* 큐에서 꺼내기 */
+/* 원소 꺼내기 */
 int pop(ArrayQueue *queue) {
     int num = peek(queue);
     // 맨 앞 포인터를 뒤로 한 칸 이동하고, 끝을 넘어가면 배열의 처음으로 돌아온다
@@ -93,7 +93,7 @@ int main() {
     int queSize;
     ArrayQueue *queue = newArrayQueue(capacity);
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
@@ -106,7 +106,7 @@ int main() {
     int peekNum = peek(queue);
     printf("큐의 맨 앞 원소 peek = %d\r\n", peekNum);
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     peekNum = pop(queue);
     printf("큐에서 꺼낸 원소 pop = %d, 꺼낸 후 queue = ", peekNum);
     printArray(toArray(queue, &queSize), queSize);
@@ -123,7 +123,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         push(queue, i);
         pop(queue);
-        printf("%d번째 삽입 + 꺼내기 후 queue = ", i);
+        printf("반복 %d 회차에서 삽입 + 꺼내기를 수행한 후 queue = ", i);
         printArray(toArray(queue, &queSize), queSize);
     }
 

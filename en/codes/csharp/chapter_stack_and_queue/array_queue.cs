@@ -108,7 +108,7 @@ public class array_queue {
         for (int i = 0; i < 10; i++) {
             queue.Push(i);
             queue.Pop();
-            Console.WriteLine("Round " + i + " : after enqueue + dequeue, queue = " + string.Join(",", queue.ToArray()));
+            Console.WriteLine("After round " + i + " of enqueue + dequeue, queue = " + string.Join(",", queue.ToArray()));
         }
     }
 }

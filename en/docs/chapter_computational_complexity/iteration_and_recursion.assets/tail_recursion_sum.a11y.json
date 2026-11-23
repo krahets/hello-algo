@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "title": "Tail-recursive summation",
+  "summary": "Use an accumulator to perform addition before each recursive call so the return phase simply passes the result back.",
+  "context": [
+    "Initially n is a nonnegative integer and accumulator res = 0; recur(n, res) in the figure corresponds to tail_recur in the code."
+  ],
+  "description": [
+    "The left column, \"Recurse downward\", lists the parameter and accumulator at each step, while every row in the right column, \"Return upward\", returns the final sum unchanged. The table below follows the figure's top and bottom calls for larger n with intermediate levels represented by ellipses; smaller n passes only through the parameters actually needed rather than a fixed 7 levels. When n = 0, it immediately returns the initial value 0."
+  ],
+  "result": "Stack frames can be reused to reduce stack space to O(1) only when the runtime environment supports and enables tail-call optimization; without optimization, stack space remains O(n). Python does not support tail-call optimization by default.",
+  "frames": [
+    {
+      "id": "source-23",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/tail_recursion_sum.png",
+      "title": "Tail-recursive summation",
+      "explanation": "Starting from recur(n, 0), each step computes res + k first and then calls the next level with k - 1 and the updated accumulator. At k = 1, only the final term 1 remains to be added; the next level k = 0 hits the base case and immediately returns the complete sum. During the return phase, each level merely forwards that same result without performing further additions."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Accumulator values during downward calls in the figure",
+      "headers": [
+        "Current parameter k",
+        "Accumulated res"
+      ],
+      "rows": [
+        [
+          "n",
+          "0"
+        ],
+        [
+          "n−1",
+          "n"
+        ],
+        [
+          "Intermediate calls",
+          "Omitted"
+        ],
+        [
+          "3",
+          "n+…+5+4"
+        ],
+        [
+          "2",
+          "n+…+5+4+3"
+        ],
+        [
+          "1",
+          "n+…+5+4+3+2"
+        ],
+        [
+          "0",
+          "n + … + 5 + 4 + 3 + 2 + 1, complete sum"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -123,13 +123,13 @@ console.log('맨 앞 원소 peekFirst = ' + peekFirst);
 const peekLast = deque.peekLast();
 console.log('맨 뒤 원소 peekLast = ' + peekLast);
 
-/* 큐에 원소 삽입 */
+/* 원소 삽입 */
 deque.pushLast(4);
 console.log('뒤쪽에 원소 4를 삽입한 후 deque = [' + deque.toArray() + ']');
 deque.pushFirst(1);
 console.log('앞쪽에 원소 1을 삽입한 후 deque = [' + deque.toArray() + ']');
 
-/* 큐에서 원소 꺼내기 */
+/* 원소 꺼내기 */
 const popLast = deque.popLast();
 console.log(
     '맨 뒤에서 꺼낸 원소 = ' +

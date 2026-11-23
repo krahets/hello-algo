@@ -118,7 +118,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "Round " << i << " : after enqueue + dequeue, queue = ";
+        cout << "After round " << i << " of enqueue + dequeue, queue = ";
         printVector(queue->toVector());
     }
 

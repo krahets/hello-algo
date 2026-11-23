@@ -14,7 +14,7 @@ extern "C" {
 /* 連結リストのノードの構造体 */
 typedef struct ListNode {
     int val;               // ノードの値
-    struct ListNode *next; // 次のノードへの参照
+    struct ListNode *next; // 次のノードへのポインタ
 } ListNode;
 
 /* コンストラクタ：新しいノードを初期化する */

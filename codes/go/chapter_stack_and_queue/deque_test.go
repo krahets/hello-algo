@@ -51,7 +51,6 @@ func TestDeque(t *testing.T) {
 
 func TestArrayDeque(t *testing.T) {
 	/* 初始化双向队列 */
-	// 在 Go 中，将 list 作为双向队列使用
 	deque := newArrayDeque(16)
 
 	/* 元素入队 */
@@ -102,7 +101,7 @@ func TestLinkedListDeque(t *testing.T) {
 	deque.pushLast(4)
 	deque.pushFirst(3)
 	deque.pushFirst(1)
-	fmt.Print("队列 deque = ")
+	fmt.Print("双向队列 deque = ")
 	PrintList(deque.toList())
 
 	// 访问队首元素

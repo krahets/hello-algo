@@ -14,7 +14,7 @@ if __FILE__ == $0
   deque << 2
   deque << 5
   deque << 4
-  # Front insertion in a simple array takes O(n); Ruby implementations can optimize Array#unshift
+  # Note that Array#unshift has O(n) time complexity because the underlying structure is an array
   deque.unshift(3)
   deque.unshift(1)
   puts "Deque deque = #{deque}"
@@ -26,7 +26,7 @@ if __FILE__ == $0
   puts "Rear element peek_last = #{peek_last}"
 
   # Dequeue an element
-  # Front removal in a simple array takes O(n); Ruby implementations can optimize Array#shift
+  # Note that Array#shift has O(n) time complexity because the underlying structure is an array
   pop_front = deque.shift
   puts "Element dequeued from the front: pop_front = #{pop_front}; deque = #{deque}"
   pop_back = deque.pop

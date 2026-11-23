@@ -75,7 +75,7 @@ int main() {
 
     /* 배열 초기화 */
     int size = 5;
-    int arr[5];
+    int arr[5] = {0};
     printf("배열 arr = ");
     printArray(arr, size);
 

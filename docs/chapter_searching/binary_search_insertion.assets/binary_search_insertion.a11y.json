@@ -1,0 +1,252 @@
+{
+  "schema_version": 2,
+  "title": "二分查找最左插入点",
+  "summary": "中点等于目标时继续向左查找，确定所有相等元素之前的插入位置。",
+  "context": [
+    "给定升序数组 [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]，索引为 0 至 9，查找目标值 target = 6 的插入点。值 6 连续占据索引 2 至 6；题目要求返回新 6 应插入的索引，使它排在所有已有 6 的最左侧（本算法仅计算并返回插入点索引，不在原数组中实际执行插入搬移）。",
+    "指针 i、j 表示双闭搜索区间 [i, j] 的左、右边界，中点索引按 m = (i + j) / 2 向下取整计算。当 nums[m] < target 时执行 i = m + 1 向右逼近；当 nums[m] > target 或 nums[m] == target 时均执行 j = m − 1 向左收缩，使指针 j 持续逼近小于 target 的最右元素、指针 i 持续逼近首个大于等于 target 的位置。"
+  ],
+  "description": [
+    "每轮先计算中点，再移动一个边界。边界刚更新时，图中的 m 仍是上一次的中点，可能留在新区间之外；只有再次计算中点时才更新 m。",
+    "下面先列固定输入，再用一张表汇总八帧的指针轨迹，之后的各步说明给出操作原因和当前状态。八帧对应三轮中点比较，不是八轮循环。"
+  ],
+  "frames": [
+    {
+      "id": "source-226",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step1.png",
+      "title": "初始化搜索区间",
+      "explanation": "目标值为 6。初始化 i = 0，j = 9，双闭区间 [0, 9] 覆盖全部十个元素，尚未计算 m；数组见“固定输入：目标值为 6”。",
+      "key_state": "初始化：目标 6，i = 0，j = 9，区间 [0, 9]，m 尚未计算。",
+      "announcement": "令左边界 i = 0、右边界 j = 9，双闭搜索区间 [0, 9] 覆盖全部 10 个元素。"
+    },
+    {
+      "id": "source-227",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step2.png",
+      "title": "计算中点 4",
+      "explanation": "第 1 轮：当前 i = 0，j = 9，对区间 [0, 9] 计算 m = (0 + 9) // 2 = 4。nums[4] = 6 等于目标，但还不能确定它是最左一个 6。",
+      "key_state": "第 1 轮中点：i = 0，j = 9，区间 [0, 9]，m = 4，nums[4] = 6。",
+      "announcement": "对闭区间 [0, 9] 计算首轮中点 m = (0 + 9) // 2 = 4，中点元素 nums[4] = 6，等于目标值 6。"
+    },
+    {
+      "id": "source-228",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step3.png",
+      "title": "遇到 6，右边界左移",
+      "explanation": "nums[4] = 6 等于目标，为排查左侧是否还有 6，执行 j = m − 1。当前 i = 0，j = 3，区间为 [0, 3]；图中 m = 4 是未重算的旧中点，留在新区间右侧之外。",
+      "key_state": "遇到 6 后右边界左移：i = 0，j = 3，区间 [0, 3]；旧 m = 4 在区间外，尚未重算。",
+      "announcement": "因 nums[4] = 6 等于目标值 6，为继续排查左侧是否还有 6 以定位最左插入点，仍执行 j = m − 1 将右边界左移至 3；图中旧中点 m = 4 暂未重算，留在新区间 [0, 3] 右侧之外。"
+    },
+    {
+      "id": "source-229",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step4.png",
+      "title": "计算中点 1",
+      "explanation": "第 2 轮：当前 i = 0，j = 3，对区间 [0, 3] 重算 m = (0 + 3) // 2 = 1。nums[1] = 3 小于目标 6，插入点在它右侧。",
+      "key_state": "第 2 轮中点：i = 0，j = 3，区间 [0, 3]，m = 1，nums[1] = 3，小于目标 6。",
+      "announcement": "对新区间 [0, 3] 重新计算中点 m = (0 + 3) // 2 = 1，中点元素 nums[1] = 3，小于目标值 6。"
+    },
+    {
+      "id": "source-230",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step5.png",
+      "title": "遇到 3，左边界右移",
+      "explanation": "因 nums[1] = 3 小于目标 6，执行 i = m + 1。当前 i = 2，j = 3，区间为 [2, 3]；图中 m = 1 是未重算的旧中点，留在新区间左侧之外。",
+      "key_state": "遇到 3 后左边界右移：i = 2，j = 3，区间 [2, 3]；旧 m = 1 在区间外，尚未重算。",
+      "announcement": "因 nums[1] = 3 小于目标值 6，最左插入点必在右侧，执行 i = m + 1 将左边界右移至 2；图中旧中点 m = 1 暂未重算，留在新区间 [2, 3] 左侧之外。"
+    },
+    {
+      "id": "source-231",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step6.png",
+      "title": "计算中点 2",
+      "explanation": "第 3 轮：当前 i = 2，j = 3，对区间 [2, 3] 重算 m = (2 + 3) // 2 = 2。nums[2] = 6 再次等于目标。",
+      "key_state": "第 3 轮中点：i = 2，j = 3，区间 [2, 3]，m = 2，nums[2] = 6。",
+      "announcement": "对区间 [2, 3] 重新计算中点 m = (2 + 3) // 2 = 2，中点元素 nums[2] = 6，再次等于目标值 6。"
+    },
+    {
+      "id": "source-232",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step7.png",
+      "title": "再次遇到 6，区间变空",
+      "explanation": "因 nums[2] = 6 等于目标，继续执行 j = m − 1。当前 i = 2，j = 1，双闭区间 [2, 1] 已空，循环将结束；图中仍保留旧中点 m = 2，不再重算。",
+      "key_state": "再次遇到 6 后：i = 2，j = 1，区间 [2, 1] 已空；图中旧 m = 2 不再重算。",
+      "announcement": "因 nums[2] = 6 等于目标值 6，继续执行 j = m − 1 得 j = 1；此时 i = 2 大于 j = 1，双闭搜索区间变为空区间，满足循环终止条件。"
+    },
+    {
+      "id": "source-233",
+      "book_path": "chapter_searching/binary_search_insertion.assets/binary_search_insertion_step8.png",
+      "title": "返回最左插入索引 2",
+      "explanation": "循环结束，图中仅保留返回指针 i = 2，j、m 不再显示。返回索引 2，使新 6 排在已有五个 6 之前；原数组没有发生插入或搬移。",
+      "key_state": "搜索结束，返回最左插入索引 i = 2；图中不再显示 j、m，原数组未改变。",
+      "announcement": "循环因区间为空而结束，返回左边界索引 i = 2，即新 6 应排在所有已有五个 6 最左侧的位置；本算法只计算并返回插入索引，未对原数组执行实际插入或元素搬移。"
+    }
+  ],
+  "animations": {
+    "binary-search-insertion": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-226"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-227"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-228"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-229"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-230"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-231"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-232"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-233"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "固定输入：目标值为 6",
+      "headers": [
+        "索引",
+        "值"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "3"
+        ],
+        [
+          "2",
+          "6"
+        ],
+        [
+          "3",
+          "6"
+        ],
+        [
+          "4",
+          "6"
+        ],
+        [
+          "5",
+          "6"
+        ],
+        [
+          "6",
+          "6"
+        ],
+        [
+          "7",
+          "10"
+        ],
+        [
+          "8",
+          "12"
+        ],
+        [
+          "9",
+          "15"
+        ]
+      ],
+      "row_header": 0
+    },
+    {
+      "caption": "最左插入点的八步指针轨迹",
+      "headers": [
+        "步骤",
+        "i",
+        "j",
+        "m",
+        "搜索区间",
+        "中点或返回状态"
+      ],
+      "rows": [
+        [
+          "1",
+          "0",
+          "9",
+          "未计算",
+          "[0, 9]",
+          "未计算"
+        ],
+        [
+          "2",
+          "0",
+          "9",
+          "4",
+          "[0, 9]",
+          "本轮中点"
+        ],
+        [
+          "3",
+          "0",
+          "3",
+          "4",
+          "[0, 3]",
+          "旧中点，在新区间右侧之外"
+        ],
+        [
+          "4",
+          "0",
+          "3",
+          "1",
+          "[0, 3]",
+          "本轮中点"
+        ],
+        [
+          "5",
+          "2",
+          "3",
+          "1",
+          "[2, 3]",
+          "旧中点，在新区间左侧之外"
+        ],
+        [
+          "6",
+          "2",
+          "3",
+          "2",
+          "[2, 3]",
+          "本轮中点"
+        ],
+        [
+          "7",
+          "2",
+          "1",
+          "2",
+          "[2, 1]，空区间",
+          "旧中点，区间已空，不再重算"
+        ],
+        [
+          "8",
+          "2",
+          "图中不再显示",
+          "图中不再显示",
+          "搜索结束",
+          "仅显示返回指针 i"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0,
+    1
+  ]
+}

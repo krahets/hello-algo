@@ -9,7 +9,7 @@ import '../utils/tree_node.dart';
 
 void main() {
   /* 初始化二元樹 */
-  // 舒適化節點
+  // 初始化節點
   TreeNode n1 = TreeNode(1);
   TreeNode n2 = TreeNode(2);
   TreeNode n3 = TreeNode(3);

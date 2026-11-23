@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "A balanced binary search tree and a tree reduced to a chain",
+  "summary": "The same seven nodes satisfy the same search tree ordering, but the shape changes the length of a search path.",
+  "context": [
+    "In a binary search tree, all values in a node’s left subtree are smaller than its value and all values in its right subtree are larger. Arrows point from parent to child."
+  ],
+  "description": [
+    "The left figure is labeled “Balanced binary search tree.” Root 4 has left and right children 2 and 6; 2 has children 1 and 3, and 6 has children 5 and 7. Counting gives three levels and a height of 2 edges. The right figure, “Degenerate binary search tree,” starts at root 7 and follows only left children: 7 → 6 → 5 → 4 → 3 → 2 → 1. Every right link is empty. There are seven levels and a height of 6 edges."
+  ],
+  "result": "In a balanced binary search tree, search, insertion, and deletion can take logarithmic time. In a single chain the worst case visits every node, taking O(n) time.",
+  "frames": [
+    {
+      "id": "source-116",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_degradation.png",
+      "title": "A balanced binary search tree and a tree reduced to a chain",
+      "explanation": "Both trees contain the same values 1 through 7 and satisfy the strict binary search tree ordering. Searching for leaf 1 on the left visits just three nodes along 4 → 2 → 1. On the right it visits all seven along 7 → 6 → 5 → 4 → 3 → 2 → 1. The figure compares two structures without showing any insertions or deletions that would change one into the other."
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schema_version": 2,
+  "title": "二叉搜索树删除双子节点",
+  "summary": "删除度为 2 的节点时，先在右子树中定位并摘除中序后继节点，再将后继值写入目标节点 cur。",
+  "context": [
+    "待删除目标值为 4。初始树含值 3 至 15，根为 8。下表列出全部初始连接；空表示没有子节点，cur 始终指向最初存放值 4 的那个对象。",
+    "第 1、2 步不改连接；第 3 步摘除原节点 5，第 4 步才把值 5 写入 cur。除各步明确指出的变化外，下表中的连接保持不变；以 12 为根的右子树始终不变。nex 是图中的后继指针，对应源码的 tmp。"
+  ],
+  "description": [
+    "本图按源码先递归删除后继，再改写 cur 的值。若先将 cur 改成 5，再从整棵树按值删除 5，会先命中 cur；因此这段源码的两步不能直接交换。"
+  ],
+  "result": "完成后树中不再包含值 4，cur 对象仍在原位置；保留了其余节点和搜索树顺序。",
+  "frames": [
+    {
+      "id": "source-124",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png",
+      "title": "定位具有两个子节点的目标",
+      "explanation": "目标值 4 小于根 8，向左找到 cur（当前值 4）。cur 左接 3、右接 6；6 左接叶节点 5、右接叶节点 7，连接与“删除前的全树连接”表一致。cur 的度为 2，不能直接断开父边，本例选择寻找右子树的最小值来替换。",
+      "key_state": "cur 位于根 8 左侧、值为 4，左接 3、右接 6；6 左接 5、右接 7，尚未改动。",
+      "announcement": "定位到值为 4 且具有两个子节点的目标节点 cur。"
+    },
+    {
+      "id": "source-125",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png",
+      "title": "找到中序后继 5",
+      "explanation": "沿 cur（4）→6→5 找到中序后继，令 nex 指向原节点 5。当前根 8 左接 cur，cur 仍左接 3、右接 6，6 左接 5、右接 7；节点值与连接均未改变。5 是右子树最小值，替换后大于左子树的 3、小于剩余右子树的 6、7，能保持搜索树顺序。",
+      "key_state": "cur 值仍为 4，左接 3、右接 6；nex 指向 6 的左叶节点 5，6 右接 7，尚未改动。",
+      "announcement": "在 cur 的右子树中找到最小节点 5，记为中序后继 nex。"
+    },
+    {
+      "id": "source-126",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png",
+      "title": "摘除原后继节点",
+      "explanation": "递归删除 nex 指向的叶节点 5，将 6.left 设为空。当前根 8 左接 cur（值仍为 4），cur 左接 3、右接 6；6 左空、右接叶节点 7。只有原节点 5 被摘除，其余连接保持初始表所示；nex 仍保留对原节点的引用，下一步可读取它的值。图中旧位置的虚线圆只作对照，不是仍留在树中的节点。",
+      "key_state": "原节点 5 已摘除；cur 值仍为 4，左接 3、右接 6，6 左空、右接 7。",
+      "announcement": "先从 6 左侧摘除原后继叶节点 5，此时 cur 的值仍保持 4。"
+    },
+    {
+      "id": "source-127",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png",
+      "title": "把后继值写入 cur",
+      "explanation": "本步将后继值 5 写入 cur，覆盖原值 4。当前根 8 左接 cur（值已为 5），cur 左接 3、右接 6；6 左空、右接叶节点 7。仅 cur 的值改变，它与父节点 8 及子节点 3、6 的引用都不变；原节点 5 已摘除，树中只剩一份值 5。",
+      "key_state": "cur 值已改为 5，左接 3、右接 6；6 左空、右接 7，原节点 5 已摘除，删除完成。",
+      "announcement": "将后继值 5 写入 cur 覆盖原值 4，完成双子节点删除。"
+    }
+  ],
+  "animations": {
+    "bst-delete-two-children": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-124"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-125"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-126"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-127"
+        }
+      ]
+    }
+  },
+  "tables": [
+    {
+      "caption": "删除前的全树连接",
+      "headers": [
+        "节点",
+        "初始左子节点",
+        "初始右子节点"
+      ],
+      "rows": [
+        [
+          "8（根）",
+          "cur（初值 4）",
+          "12"
+        ],
+        [
+          "3",
+          "空",
+          "空"
+        ],
+        [
+          "cur（初值 4）",
+          "3",
+          "6"
+        ],
+        [
+          "5（原节点）",
+          "空",
+          "空"
+        ],
+        [
+          "6",
+          "5（原节点）",
+          "7"
+        ],
+        [
+          "7",
+          "空",
+          "空"
+        ],
+        [
+          "9",
+          "空",
+          "空"
+        ],
+        [
+          "10",
+          "9",
+          "11"
+        ],
+        [
+          "11",
+          "空",
+          "空"
+        ],
+        [
+          "12",
+          "10",
+          "14"
+        ],
+        [
+          "13",
+          "空",
+          "空"
+        ],
+        [
+          "14",
+          "13",
+          "15"
+        ],
+        [
+          "15",
+          "空",
+          "空"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "input_tables": [
+    0
+  ]
+}

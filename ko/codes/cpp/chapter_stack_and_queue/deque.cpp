@@ -11,7 +11,7 @@ int main() {
     /* 덱 초기화 */
     deque<int> deque;
 
-    /* 큐에 원소 삽입 */
+    /* 원소 삽입 */
     deque.push_back(2);
     deque.push_back(5);
     deque.push_back(4);
@@ -26,7 +26,7 @@ int main() {
     int back = deque.back();
     cout << "큐의 맨 뒤 원소 back = " << back << endl;
 
-    /* 큐에서 원소 꺼내기 */
+    /* 원소 꺼내기 */
     deque.pop_front();
     cout << "맨 앞에서 꺼낸 원소 popFront = " << front << ", 맨 앞에서 꺼낸 후 deque = ";
     printDeque(deque);

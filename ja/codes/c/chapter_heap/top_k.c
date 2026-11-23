@@ -34,7 +34,7 @@ int *getMinHeap(MaxHeap *maxHeap) {
     return res;
 }
 
-// ヒープを使って配列内の大きいほうから k 個の要素を求める関数
+/* ヒープを使って配列内の大きいほうから k 個の要素を求める関数 */
 int *topKHeap(int *nums, int sizeNums, int k) {
     // 最小ヒープを初期化する
     // 注意：ヒープの全要素の符号を反転することで、最大ヒープを使って最小ヒープを再現する

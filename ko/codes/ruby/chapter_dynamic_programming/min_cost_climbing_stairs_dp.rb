@@ -17,7 +17,7 @@ def min_cost_climbing_stairs_dp(cost)
   dp[n]
 end
 
-# 계단 오르기의 최소 비용: 공간을 최적화한 동적 계획법
+### 계단 오르기의 최소 비용: 공간을 최적화한 동적 계획법 ###
 def min_cost_climbing_stairs_dp_comp(cost)
   n = cost.length - 1
   return cost[n] if n == 1 || n == 2

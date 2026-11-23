@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Splitting a large factor does not decrease the product",
+  "summary": "Larger integer factors can be split further without decreasing the product.",
+  "context": [
+    "In maximum product cutting, test whether an integer factor n should be split further by comparing n against the product of 2 and n - 2."
+  ],
+  "description": [
+    "Above sits a gray bar of length n; below sits an equal-length bar split at a vertical dashed line into a short green \"2\" on the left and a blue \"n - 2\" on the right, captioned below \"When n ≥ 4, 2(n - 2) ≥ n always holds. Thus the final partition should contain only factors 1, 2, 3\"."
+  ],
+  "frames": [
+    {
+      "id": "source-480",
+      "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png",
+      "title": "Splitting a large factor does not decrease the product",
+      "explanation": "Because 2(n - 2) - n = n - 4, the product stays equal at n = 4 and strictly increases for n > 4. Repeatedly splitting factors of 4 or greater never decreases the product. Thus at least one optimal split uses only 1, 2, and 3. An optimal split may also retain a 4."
+    }
+  ]
+}

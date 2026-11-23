@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "title": "Extending the dynamic programming state with the previous step size",
+  "summary": "Recording whether the last move climbed 1 or 2 steps in the two-dimensional state dp[i, j] excludes consecutive 1-step moves during transitions.",
+  "context": [
+    "Each move climbs 1 or 2 steps, with two consecutive 1-step moves forbidden. Because whether a 1-step move is currently allowed depends on the previous step size, extend the state to two-dimensional dp[i, j]: the number of ways to reach step i whose last move climbed j steps (for j = 1 or 2)."
+  ],
+  "description": [
+    "On the top step, the figure labels two target states: cyan dp[i, 1] and blue dp[i, 2]; on step i - 1, cyan dp[i - 1, 2] and gray dp[i - 1, 1]; and on step i - 2, blue dp[i - 2, 1] and blue dp[i - 2, 2]. A solid cyan arc spans 1 step from dp[i - 1, 2] to dp[i, 1], whereas a gray dotted arc from gray dp[i - 1, 1] to dp[i, 1] carries the note \"Two consecutive one-step moves are forbidden, so this term is discarded\"; from dp[i - 2, 1] and dp[i - 2, 2], two solid blue arcs each span 2 steps into dp[i, 2].",
+    "When the final move climbs 1 step from step i - 1, the move that reached step i - 1 must have climbed 2 steps, giving dp[i, 1] = dp[i - 1, 2]. When the final move climbs 2 steps from step i - 2, the move that reached step i - 2 could have climbed either 1 or 2 steps, giving dp[i, 2] = dp[i - 2, 1] + dp[i - 2, 2].",
+    "The figure draws only symbolic transitions without numeric initial values. The table below supplies the initial states at steps 1 and 2 from the chapter code, from which recurrence begins at step 3."
+  ],
+  "result": "Once the state includes the last move's step size, valid subsequent moves depend only on the current state, restoring the no-aftereffect property; the total number of ways to reach step n is dp[n, 1] + dp[n, 2].",
+  "frames": [
+    {
+      "id": "source-375",
+      "book_path": "chapter_dynamic_programming/dp_problem_features.assets/climbing_stairs_constraint_state_transfer.png",
+      "title": "Extending the dynamic programming state with the previous step size",
+      "explanation": "Step 1 has only 0→1, so dp[1, 1] = 1 and dp[1, 2] = 0. For step 2, 0→1→2 takes two consecutive 1-step moves and is invalid; only 0→2 is valid, so dp[2, 1] = 0 and dp[2, 2] = 1."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Initial states in the chapter code (supplied base cases)",
+      "headers": [
+        "Step i",
+        "dp[i,1]",
+        "dp[i,2]"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "2",
+          "0",
+          "1"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

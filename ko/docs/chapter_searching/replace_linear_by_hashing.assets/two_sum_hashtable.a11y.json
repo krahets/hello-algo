@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "title": "해시 테이블로 두 수의 합 구하기",
+  "summary": "이미 확인한 원소와 인덱스를 해시 테이블에 저장하며 현재 값과 더해 목표 합이 되는 짝(보수)이 있는지 먼저 조회한 뒤 현재 원소를 넣을지 결정한다.",
+  "context": [
+    "정수 배열 nums = [2, 7, 11, 15](인덱스 0~3)와 목표 합 target = 13이 주어진다.",
+    "보조 해시 테이블 map으로 이미 순회한 원소를 기록한다. 키(key, ‘원소’ 표시)에는 배열 원소 값을 저장하고 값(value, ‘인덱스’ 표시)에는 해당 원소의 배열 인덱스를 저장한다. 단일 반복문의 매 순회마다 먼저 보수 target − nums[i]가 이미 map에 있는지 조회하여, 있으면 즉시 [map[target − nums[i]], i]를 반환하고 없을 때만 현재 키-값 쌍 nums[i]: i를 map에 기록한다."
+  ],
+  "description": [
+    "매 순회에서 ‘보수를 먼저 조회한 뒤 현재 원소를 저장’하는 순서 덕분에 짝을 이루는 다른 원소는 반드시 현재 위치 i 이전의 서로 다른 인덱스에서 나오게 된다. 세 단계 화면은 차례로 i = 0, 1, 2일 때의 판정과 해시 테이블 상태를 보여 준다(1단계 화면은 빈 테이블이 아니라 첫 삽입 2: 0까지 마친 뒤의 상태를 보여 준다는 점에 유의한다)."
+  ],
+  "result": "해시 조회가 평균 O(1)이라는 전제에서 전체 평균 시간 복잡도는 O(n), 보조 공간 복잡도는 O(n)으로 공간을 더 써서 시간을 절약하는 방식이다.",
+  "frames": [
+    {
+      "id": "source-235",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png",
+      "title": "보수 11 없음, 2 기록",
+      "explanation": "i = 0은 원소 2를 가리킨다. 그림 오른쪽 설명과 같이 초기 빈 테이블에 13 − 2 = 11이 없으므로 2: 0을 기록해 현재 map = {2: 0}이 된다. 아직 답을 반환하지 않았으며 다음 항목은 인덱스 1의 7이다.",
+      "key_state": "i = 0(값 2): 보수 11이 없어 기록 후 map = {2: 0}.",
+      "announcement": "인덱스 0의 원소 2를 방문해 해시 테이블에 보수 11이 없음을 확인하고 키-값 쌍 2: 0을 map에 저장한다."
+    },
+    {
+      "id": "source-236",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png",
+      "title": "보수 6 없음, 7 기록",
+      "explanation": "i = 1은 원소 7을 가리킨다. 그림 오른쪽 설명과 같이 13 − 7 = 6이 map에 없으므로 7: 1을 기록한다. 이전까지 테이블에는 키 2만 있었고 기록 후 map = {2: 0, 7: 1}이 되며, 아직 답을 반환하지 않았고 다음 항목은 인덱스 2의 11이다.",
+      "key_state": "i = 1(값 7): 보수 6이 없어 기록 후 map = {2: 0, 7: 1}.",
+      "announcement": "인덱스 1의 원소 7을 방문해 해시 테이블에 보수 6이 없음을 확인하고 키-값 쌍 7: 1을 map에 저장한다."
+    },
+    {
+      "id": "source-237",
+      "book_path": "chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png",
+      "title": "보수 2 발견, 인덱스 반환",
+      "explanation": "i = 2는 원소 11을 가리킨다. 그림 오른쪽 설명과 같이 13 − 11 = 2가 이미 map에 있고 map[2] = 0이므로 인덱스 [0, 2]를 반환한다. map은 {2: 0, 7: 1} 그대로 유지되며 11은 테이블에 넣지 않고 인덱스 3의 15도 더 이상 처리하지 않는다.",
+      "key_state": "i = 2(값 11): map에서 보수 2(인덱스 0)를 찾아 즉시 [0, 2]를 반환한다. map은 {2: 0, 7: 1} 그대로이며 11은 넣지 않고 15는 처리하지 않는다.",
+      "announcement": "인덱스 2의 원소 11을 방문해 해시 테이블에서 보수 2(인덱스 0)를 조회하고 [0, 2]를 반환한다."
+    }
+  ],
+  "animations": {
+    "two-sum-hash": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-235"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-236"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-237"
+        }
+      ]
+    }
+  }
+}

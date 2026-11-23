@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "title": "基于链表实现栈的入栈与出栈",
+  "summary": "将单向链表的头节点作为栈顶，入栈和出栈都在头部操作。",
+  "context": [
+    "左侧是对外表现的栈，上为栈顶、下为栈底；右侧是竖直单向链表，上为头节点、下为尾节点，next 箭头向下。中间向左箭头标注“底层实现是链表，对外表现为栈”。"
+  ],
+  "description": [
+    "栈顶对应链表头节点，栈底对应尾节点。因此，栈从底到顶的顺序与链表从头到尾的顺序相反。左侧栈顶开口旁，入栈箭头向下进入，出栈箭头向上离开。"
+  ],
+  "result": "基于链表实现栈时，入栈和出栈都只在链表头部增删节点，时间复杂度均为 O(1)。",
+  "frames": [
+    {
+      "id": "source-57",
+      "book_path": "chapter_stack_and_queue/stack.assets/linkedlist_stack_step1.png",
+      "title": "初始栈：头节点 5 为栈顶",
+      "explanation": "初始栈从底到顶为 [1, 3, 2, 5]，共 4 个元素；链表从头到尾为 5 → 2 → 3 → 1。头节点 5 对应栈顶，尾节点 1 对应栈底。",
+      "key_state": "初始栈（底到顶）[1, 3, 2, 5]；链表（头到尾）5 → 2 → 3 → 1，头节点 5 为栈顶。",
+      "announcement": "初始栈包含 4 个元素，链表头节点 5 对应栈顶，尾节点 1 对应栈底。"
+    },
+    {
+      "id": "source-58",
+      "book_path": "chapter_stack_and_queue/stack.assets/linkedlist_stack_step2_push.png",
+      "title": "在链表头部入栈 4",
+      "explanation": "执行 push(4)，右侧标注“将节点 4 添加至链表头部”。青色新节点 4 插在原头节点 5 上方，next 指向 5，并成为新头节点。当前链表从头到尾为 4 → 5 → 2 → 3 → 1，栈从底到顶为 [1, 3, 2, 5, 4]，共 5 个元素；头节点和栈顶为 4，尾节点和栈底仍为 1。",
+      "key_state": "push(4) 后：栈（底到顶）[1, 3, 2, 5, 4]；链表（头到尾）4 → 5 → 2 → 3 → 1，新头节点 4 为栈顶。",
+      "announcement": "执行 push(4)，将节点 4 插入链表头部，4 成为新的头节点和栈顶。"
+    },
+    {
+      "id": "source-59",
+      "book_path": "chapter_stack_and_queue/stack.assets/linkedlist_stack_step3_pop.png",
+      "title": "在链表头部出栈 4",
+      "explanation": "执行 pop()，右侧标注“删除头节点”。移除并返回原头节点 4，让后继 5 成为新头节点。当前链表从头到尾恢复为 5 → 2 → 3 → 1，栈从底到顶恢复为 [1, 3, 2, 5]，共 4 个元素；头节点和栈顶为 5，尾节点和栈底仍为 1。",
+      "key_state": "pop() 移除并返回头节点 4 后：栈（底到顶）[1, 3, 2, 5]；链表（头到尾）5 → 2 → 3 → 1，栈顶恢复为 5。",
+      "announcement": "执行 pop() 移除并返回链表头节点 4，头节点与栈顶恢复为 5。"
+    }
+  ],
+  "animations": {
+    "linkedlist-stack": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-57"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-58"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-59"
+        }
+      ]
+    }
+  }
+}

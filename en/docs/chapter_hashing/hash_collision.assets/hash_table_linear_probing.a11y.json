@@ -1,0 +1,84 @@
+{
+  "schema_version": 2,
+  "title": "Linear probing with step size 1",
+  "summary": "Without introducing separate linked lists, all key-value pairs are stored directly in the bucket array; on a hash collision, linear probing scans downward from the starting bucket with step size 1 and places the entry in the first empty bucket encountered.",
+  "context": [
+    "A callout box on the left reads \"Open addressing: Linear probing with a step size of 1\", and below it, \"Hash function: key % 100; Keys with the same last two digits produce a hash collision\".",
+    "On the right is a single one-dimensional bucket array in which each slot holds at most one key-value pair. Between the \"Index\" and \"Array\" columns, two left curly braces group 3 consecutive buckets near the top toward bold index 00 and 5 consecutive buckets lower down toward bold index 76, indicating that these two clusters have starting hash buckets 00 and 76, respectively."
+  ],
+  "description": [
+    "Indices 00, 01, and 02 for the upper three slots and 76, 77, and 78 below are labeled directly in the figure. Keys 676 and 776 occupy the two adjacent slots immediately following 78, where an ellipsis omits the numbers in the index column; by consecutive slot numbering they are inferred to be 79 and 80, and the table below notes that these indices are inferred. Key 076 is written with a leading zero to three digits in the figure.",
+    "Each starting bucket in the table is computed by key % 100, matching 00 or 76 as indicated by the curly braces, and may differ from the bucket where the entry is actually stored. Although the arrangement shown could be produced by inserting each cluster into an empty table in table order, the figure alone does not uniquely determine the insertion history."
+  ],
+  "tables": [
+    {
+      "caption": "Starting buckets and actual storage positions in the figure",
+      "headers": [
+        "Actual bucket index",
+        "Key",
+        "Value",
+        "Starting bucket (key % 100)"
+      ],
+      "rows": [
+        [
+          "00",
+          "200",
+          "A",
+          "00"
+        ],
+        [
+          "01",
+          "500",
+          "D",
+          "00"
+        ],
+        [
+          "02",
+          "300",
+          "Y",
+          "00"
+        ],
+        [
+          "76",
+          "076",
+          "H",
+          "76"
+        ],
+        [
+          "77",
+          "876",
+          "I",
+          "76"
+        ],
+        [
+          "78",
+          "276",
+          "E",
+          "76"
+        ],
+        [
+          "79 (inferred from adjacent slot; unlabeled in figure)",
+          "676",
+          "T",
+          "76"
+        ],
+        [
+          "80 (inferred from adjacent slot; unlabeled in figure)",
+          "776",
+          "X",
+          "76"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "In open addressing with linear probing, an entry's actual array index may lie after its starting hash bucket; lookups must likewise begin at the starting bucket given by key % 100 and compare each key forward with step size 1.",
+  "frames": [
+    {
+      "id": "source-86",
+      "book_path": "chapter_hashing/hash_collision.assets/hash_table_linear_probing.png",
+      "title": "Two linear-probing clusters starting at buckets 00 and 76",
+      "explanation": "The two curly braces illustrate how colliding entries cluster forward. Tracing a lookup for key 276 in the figure: first compute 276 % 100 = 76; bucket 76 holds key 076, which does not match, so continue to 876 in bucket 77, which also does not match; bucket 78 finally matches key 276 and returns value E."
+    }
+  ]
+}

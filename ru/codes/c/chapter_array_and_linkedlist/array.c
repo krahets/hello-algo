@@ -75,7 +75,7 @@ int main() {
 
     /* Инициализация массива */
     int size = 5;
-    int arr[5];
+    int arr[5] = {0};
     printf("Массив arr = ");
     printArray(arr, size);
 

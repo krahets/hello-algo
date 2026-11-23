@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "title": "Tower of Hanoi example: moving six disks from A to C",
+  "summary": "Starting with six disks stacked from smallest on top to largest at the bottom on rod A, move them all to rod C using rod B while preserving their order.",
+  "context": [
+    "The Tower of Hanoi rules require moving only one disk at a time, taking it from the top of one rod and placing it onto the top of another, with smaller disks kept above larger disks at every step."
+  ],
+  "description": [
+    "The upper half shows the starting state: three rods labeled A, B, and C from left to right, with six differently colored disks stacked from smallest at the top to largest at the bottom on rod A while rods B and C are empty.",
+    "The lower half shows the goal state: rods A and B are empty, and all six disks sit on rightmost rod C in their original order from smallest on top to largest at the bottom. A downward arrow in the middle labeled \"Move all disks from A to C\" summarizes the overall objective rather than implying the whole stack can be moved at once."
+  ],
+  "frames": [
+    {
+      "id": "source-326",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_example.png",
+      "title": "Tower of Hanoi example: moving six disks from A to C",
+      "explanation": "This figure defines only the starting and goal states without expanding intermediate steps, which must be carried out as a sequence of legal single-disk moves."
+    }
+  ]
+}

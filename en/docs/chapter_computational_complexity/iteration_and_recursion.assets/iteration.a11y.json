@@ -1,0 +1,18 @@
+{
+  "schema_version": 2,
+  "title": "Single-level loop",
+  "summary": "Use initialization, condition checking, and updating to control repeated task execution.",
+  "context": [
+    "The flowchart sums the integers from 1 to n for a positive integer n: the running sum starts at 0, and each \"Task\" adds the current i to that sum."
+  ],
+  "description": [],
+  "result": "When the task executes, i takes the values 1 through n in turn for n executions in total; once updated to i = n + 1, the condition is false and the loop ends.",
+  "frames": [
+    {
+      "id": "source-19",
+      "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/iteration.png",
+      "title": "Single-level loop",
+      "explanation": "First initialize i = 1, then test i ≤ n. When true, execute the task, increment i by 1, and loop directly back to the condition check; when false, exit. Initialization runs only once before entering the loop rather than resetting i to 1 on every iteration."
+    }
+  ]
+}
