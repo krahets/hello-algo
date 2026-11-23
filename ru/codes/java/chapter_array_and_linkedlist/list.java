@@ -11,7 +11,7 @@ import java.util.*;
 public class list {
     public static void main(String[] args) {
         /* Инициализация списка */
-        // Обратите внимание: тип элементов массива int[] — это обертка Integer[]
+        // Обратите внимание: массив должен иметь тип Integer[], а не int[], поскольку элементами списка могут быть только объекты класса-обертки Integer
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("Список nums = " + nums);
@@ -20,9 +20,9 @@ public class list {
         int num = nums.get(1);
         System.out.println("Элемент по индексу 1: num = " + num);
 
-        /* Обновление элемента */
+        /* Изменение элемента */
         nums.set(1, 0);
-        System.out.println("После обновления элемента по индексу 1 до 0 nums = " + nums);
+        System.out.println("После изменения значения элемента с индексом 1 на 0 nums = " + nums);
 
         /* Очистить список */
         nums.clear();

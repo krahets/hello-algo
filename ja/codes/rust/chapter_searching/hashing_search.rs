@@ -11,8 +11,8 @@ use std::rc::Rc;
 
 /* ハッシュ探索（配列） */
 fn hashing_search_array<'a>(map: &'a HashMap<i32, usize>, target: i32) -> Option<&'a usize> {
-    // ハッシュテーブルの key: 対象要素、value: インデックス
-    // ハッシュテーブルにその key がなければ None を返す
+    // ハッシュテーブルの key：目的の要素、value：インデックス
+    // ハッシュテーブルにこの key が存在しない場合、None を返す
     map.get(&target)
 }
 
@@ -21,24 +21,24 @@ fn hashing_search_linked_list(
     map: &HashMap<i32, Rc<RefCell<ListNode<i32>>>>,
     target: i32,
 ) -> Option<&Rc<RefCell<ListNode<i32>>>> {
-    // ハッシュテーブルの key: 対象ノードの値、value: ノードオブジェクト
-    // ハッシュテーブルにその key がなければ None を返す
+    // ハッシュテーブルの key：目的のノードの値、value：ノードオブジェクト
+    // ハッシュテーブルにこの key が存在しない場合、None を返す
     map.get(&target)
 }
 
-/* Driver Code */
+/* 実行用コード */
 pub fn main() {
     let target = 3;
 
     /* ハッシュ探索（配列） */
     let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8];
-    // ハッシュテーブルを初期化
+    // ハッシュテーブルを初期化する
     let mut map = HashMap::new();
     for (i, num) in nums.iter().enumerate() {
-        map.insert(*num, i); // key: 要素、value: インデックス
+        map.insert(*num, i); // key：要素、value：インデックス
     }
     let index = hashing_search_array(&map, target);
-    println!("対象要素 3 のインデックス = {}", index.unwrap());
+    println!("目的の要素 3 のインデックス = {}", index.unwrap());
 
     /* ハッシュ探索（連結リスト） */
     let head = ListNode::arr_to_linked_list(&nums);
@@ -46,5 +46,5 @@ pub fn main() {
     // let mut map1 = HashMap::new();
     let map1 = ListNode::linked_list_to_hashmap(head);
     let node = hashing_search_linked_list(&map1, target);
-    println!("対象ノード値 3 に対応するノードオブジェクトは {:?}", node);
+    println!("目的のノードの値 3 に対応するノードオブジェクトは {:?}", node);
 }

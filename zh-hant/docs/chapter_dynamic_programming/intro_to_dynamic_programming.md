@@ -10,7 +10,7 @@
 
 如下圖所示，對於一個 $3$ 階樓梯，共有 $3$ 種方案可以爬到樓頂。
 
-![爬到第 3 階的方案數量](intro_to_dynamic_programming.assets/climbing_stairs_example.png)
+![爬到第 3 階的方案數量](intro_to_dynamic_programming.assets/climbing_stairs_example.svg)
 
 本題的目標是求解方案數量，**我們可以考慮透過回溯來窮舉所有可能性**。具體來說，將爬樓梯想象為一個多輪選擇的過程：從地面出發，每輪選擇上 $1$ 階或 $2$ 階，每當到達樓梯頂部時就將方案數量加 $1$ ，當越過樓梯頂部時就將其剪枝。程式碼如下所示：
 
@@ -38,7 +38,7 @@ $$
 
 這意味著在爬樓梯問題中，各個子問題之間存在遞推關係，**原問題的解可以由子問題的解構建得來**。下圖展示了該遞推關係。
 
-![方案數量遞推關係](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png)
+![方案數量遞推關係](intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.svg)
 
 我們可以根據遞推公式得到暴力搜尋解法。以 $dp[n]$ 為起始點，**遞迴地將一個較大問題拆解為兩個較小問題的和**，直至到達最小子問題 $dp[1]$ 和 $dp[2]$ 時返回。其中，最小子問題的解是已知的，即 $dp[1] = 1$、$dp[2] = 2$ ，表示爬到第 $1$、$2$ 階分別有 $1$、$2$ 種方案。
 
@@ -50,7 +50,7 @@ $$
 
 下圖展示了暴力搜尋形成的遞迴樹。對於問題 $dp[n]$ ，其遞迴樹的深度為 $n$ ，時間複雜度為 $O(2^n)$ 。指數階屬於爆炸式增長，如果我們輸入一個比較大的 $n$ ，則會陷入漫長的等待之中。
 
-![爬樓梯對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.png)
+![爬樓梯對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_tree.svg)
 
 觀察上圖，**指數階的時間複雜度是“重疊子問題”導致的**。例如 $dp[9]$ 被分解為 $dp[8]$ 和 $dp[7]$ ，$dp[8]$ 被分解為 $dp[7]$ 和 $dp[6]$ ，兩者都包含子問題 $dp[7]$ 。
 
@@ -71,7 +71,7 @@ $$
 
 觀察下圖，**經過記憶化處理後，所有重疊子問題都只需計算一次，時間複雜度最佳化至 $O(n)$** ，這是一個巨大的飛躍。
 
-![記憶化搜尋對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png)
+![記憶化搜尋對應遞迴樹](intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.svg)
 
 ## 方法三：動態規劃
 
@@ -87,7 +87,7 @@ $$
 
 下圖模擬了以上程式碼的執行過程。
 
-![爬樓梯的動態規劃過程](intro_to_dynamic_programming.assets/climbing_stairs_dp.png)
+![爬樓梯的動態規劃過程](intro_to_dynamic_programming.assets/climbing_stairs_dp.svg)
 
 與回溯演算法一樣，動態規劃也使用“狀態”概念來表示問題求解的特定階段，每個狀態都對應一個子問題以及相應的區域性最優解。例如，爬樓梯問題的狀態定義為當前所在樓梯階數 $i$ 。
 

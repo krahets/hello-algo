@@ -11,20 +11,20 @@ import (
 	"strings"
 )
 
-// PrintSlice print slice
+// PrintSlice prints a slice.
 func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
 
-// PrintList print list
+// PrintList prints a list.
 func PrintList(list *list.List) {
 	if list.Len() == 0 {
 		fmt.Print("[]\n")
 		return
 	}
 	e := list.Front()
-	// Force conversion to string will affect efficiency
+	// Formatting values as strings adds overhead
 	fmt.Print("[")
 	for e.Next() != nil {
 		fmt.Print(e.Value, " ")
@@ -33,23 +33,23 @@ func PrintList(list *list.List) {
 	fmt.Print(e.Value, "]\n")
 }
 
-// PrintMap print hash table
+// PrintMap prints a hash map.
 func PrintMap[K comparable, V any](m map[K]V) {
 	for key, value := range m {
 		fmt.Println(key, "->", value)
 	}
 }
 
-// PrintHeap print heap
+// PrintHeap prints a heap.
 func PrintHeap(h []any) {
-	fmt.Printf("Heap array representation:")
+	fmt.Printf("Array representation of the heap:")
 	fmt.Printf("%v", h)
-	fmt.Printf("\nTree representation of heap:\n")
+	fmt.Printf("\nTree representation of the heap:\n")
 	root := SliceToTree(h)
 	PrintTree(root)
 }
 
-// PrintLinkedList print linked list
+// PrintLinkedList prints a linked list.
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
 		return
@@ -63,12 +63,12 @@ func PrintLinkedList(node *ListNode) {
 	fmt.Println(builder.String())
 }
 
-// PrintTree print binary tree
+// PrintTree prints a binary tree.
 func PrintTree(root *TreeNode) {
 	printTreeHelper(root, nil, false)
 }
 
-// printTreeHelper print binary tree
+// printTreeHelper prints a binary tree.
 // This tree printer is borrowed from TECHIE DELIGHT
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {

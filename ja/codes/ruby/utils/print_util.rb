@@ -6,14 +6,14 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative "./tree_node"
 
-### 行列を出力 ###
+### 行列を表示する ###
 def print_matrix(mat)
   s = []
   mat.each { |arr| s << " #{arr.to_s}" }
   puts "[\n#{s.join(",\n")}\n]"
 end
 
-### 連結リストを出力 ###
+### 連結リストを表示する ###
 def print_linked_list(head)
   list = []
   while head
@@ -39,8 +39,8 @@ def show_trunk(p)
   print p.str
 end
 
-### 二分木を出力 ###
-# This tree printer is borrowed from TECHIE DELIGHT
+### 二分木を表示する ###
+# この木の表示処理は TECHIE DELIGHT から借用した
 # https://www.techiedelight.com/c-program-print-binary-tree/
 def print_tree(root, prev=nil, is_right=false)
   return if root.nil?
@@ -66,12 +66,12 @@ def print_tree(root, prev=nil, is_right=false)
   print_tree(root.left, trunk, false)
 end
 
-### ハッシュテーブルを出力 ###
+### ハッシュテーブルを表示する ###
 def print_hash_map(hmap)
   hmap.entries.each { |key, value| puts "#{key} -> #{value}" }
 end
 
-### ヒープを出力 ###
+### ヒープを表示する ###
 def print_heap(heap)
   puts "ヒープの配列表現：#{heap}"
   puts "ヒープの木構造表現："

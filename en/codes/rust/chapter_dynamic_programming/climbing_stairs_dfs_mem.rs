@@ -4,13 +4,13 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* Memoization search */
+/* Memoized search */
 fn dfs(i: usize, mem: &mut [i32]) -> i32 {
-    // Known dp[1] and dp[2], return them
+    // The values of dp[1] and dp[2] are known; return them
     if i == 1 || i == 2 {
         return i as i32;
     }
-    // If record dp[i] exists, return it directly
+    // If dp[i] has been recorded, return it directly
     if mem[i] != -1 {
         return mem[i];
     }
@@ -21,17 +21,17 @@ fn dfs(i: usize, mem: &mut [i32]) -> i32 {
     count
 }
 
-/* Climbing stairs: Memoization search */
+/* Climbing stairs: memoized search */
 fn climbing_stairs_dfs_mem(n: usize) -> i32 {
-    // mem[i] records the total number of solutions to climb to the i-th stair, -1 means no record
+    // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
     let mut mem = vec![-1; n + 1];
     dfs(n, &mut mem)
 }
 
-/* Driver Code */
+/* Driver code */
 pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dfs_mem(n);
-    println!("Climbing {n} stairs has {res} solutions");
+    println!("Number of ways to climb {n} stairs: {res}");
 }

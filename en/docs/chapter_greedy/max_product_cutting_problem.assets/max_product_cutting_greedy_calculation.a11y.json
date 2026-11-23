@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "title": "Direct calculation for maximum product cutting",
+  "summary": "Use integer division and remainder to write n = 3 × a + b and adjust the split by remainder case, handling small cases n = 2 and n = 3 separately so at least two parts are formed.",
+  "context": [
+    "Given an integer n ≥ 2, split n into at least two positive integers summing to n to maximize their product.",
+    "Because the optimal greedy strategy extracts as many 3s as possible, the code avoids cutting in a loop and instead computes quotient a = n // 3 and remainder b = n % 3 in one step to get the count a of 3s and remainder b."
+  ],
+  "description": [
+    "The diagram decomposes a bar of length n into \"a copies of 3\" and a \"Remainder b\" segment above the identity n = 3 × a + b (with a = n // 3 and b = n % 3 in {0, 1, 2}). Drawing \"Remainder b\" on the left is purely symbolic—neither fixing concrete values of n or b nor implying left-to-right cutting—while ellipses between blue 3-blocks stand for additional copies of 3.",
+    "The table below supplies all five cases from the chapter text and code (not drawn separately in the figure). Boundary inputs n = 2 and n = 3 must be cut into at least two parts rather than left uncut as n.",
+    "When n ≥ 4 and b = 1, we have a ≥ 1, so at least one 3 can be recombined with remainder 1 into 2 + 2—keeping sum 4 while raising their local product from 3 to 4—leaving a - 1 copies of 3 and product 3^(a - 1) × 2 × 2 (3 raised to the exponent (a minus 1), times 2 times 2)."
+  ],
+  "frames": [
+    {
+      "id": "source-482",
+      "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png",
+      "title": "Compute the maximum product directly by cases on quotient a and remainder b",
+      "explanation": "In the figure, \"Remainder b\" represents the quotient-remainder decomposition: b = 0 leaves no remainder piece, b = 2 keeps 2 as a factor, and b = 1 recombines with one 3 as in the table—0 is never used as a factor."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Case-by-case calculation rules from the chapter text and code",
+      "headers": [
+        "Condition",
+        "Split or recombination",
+        "Maximum product"
+      ],
+      "rows": [
+        [
+          "n=2",
+          "1+1",
+          "1"
+        ],
+        [
+          "n=3",
+          "1+2",
+          "2"
+        ],
+        [
+          "n ≥ 4, b = 0",
+          "a copies of 3",
+          "3^a"
+        ],
+        [
+          "n ≥ 4, b = 1",
+          "a - 1 copies of 3 and two 2s; replace one 3 plus remainder 1 with 2 + 2",
+          "3^(a−1)×2×2"
+        ],
+        [
+          "n ≥ 4, b = 2",
+          "a copies of 3 and one 2",
+          "3^a×2"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

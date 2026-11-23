@@ -6,21 +6,21 @@
 
 import utils
 
-/* Stack based on linked list implementation */
+/* Stack implemented with a linked list */
 class LinkedListStack {
-    private var _peek: ListNode? // Use head node as stack top
-    private var _size: Int // Stack length
+    private var _peek: ListNode? // Use the head node as the stack top
+    private var _size: Int // Stack size
 
     init() {
         _size = 0
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     func size() -> Int {
         _size
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -42,7 +42,7 @@ class LinkedListStack {
         return num
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     func peek() -> Int {
         if isEmpty() {
             fatalError("Stack is empty")
@@ -50,7 +50,7 @@ class LinkedListStack {
         return _peek!.val
     }
 
-    /* Convert List to Array and return */
+    /* Convert the linked list to an array and return it */
     func toArray() -> [Int] {
         var node = _peek
         var res = Array(repeating: 0, count: size())
@@ -64,12 +64,12 @@ class LinkedListStack {
 
 @main
 enum _LinkedListStack {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Access top of the stack element */
+        /* Initialize the stack */
         let stack = LinkedListStack()
 
-        /* Elements push onto stack */
+        /* Push elements onto the stack */
         stack.push(num: 1)
         stack.push(num: 3)
         stack.push(num: 2)
@@ -77,20 +77,20 @@ enum _LinkedListStack {
         stack.push(num: 4)
         print("Stack stack = \(stack.toArray())")
 
-        /* Return list for printing */
+        /* Access the top element */
         let peek = stack.peek()
         print("Top element peek = \(peek)")
 
-        /* Element pop from stack */
+        /* Pop an element from the stack */
         let pop = stack.pop()
-        print("Pop element pop = \(pop), after pop stack = \(stack.toArray())")
+        print("Popped element pop = \(pop); after popping, stack = \(stack.toArray())")
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         let size = stack.size()
-        print("Stack length size = \(size)")
+        print("Stack size = \(size)")
 
-        /* Check if empty */
+        /* Check whether it is empty */
         let isEmpty = stack.isEmpty()
-        print("Is stack empty = \(isEmpty)")
+        print("Is the stack empty? \(isEmpty)")
     }
 }

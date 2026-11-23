@@ -6,7 +6,7 @@
 
 package chapter_searching
 
-/* Бинарный поиск самого левого target */
+/* Двоичный поиск самого левого элемента target */
 fun binarySearchLeftEdge(nums: IntArray, target: Int): Int {
     // Эквивалентно поиску точки вставки target
     val i = binarySearchInsertion(nums, target)
@@ -14,11 +14,11 @@ fun binarySearchLeftEdge(nums: IntArray, target: Int): Int {
     if (i == nums.size || nums[i] != target) {
         return -1
     }
-    // Найти target и вернуть индекс i
+    // target найден, возвращается индекс i
     return i
 }
 
-/* Бинарный поиск самого правого target */
+/* Двоичный поиск самого правого элемента target */
 fun binarySearchRightEdge(nums: IntArray, target: Int): Int {
     // Преобразовать задачу в поиск самого левого target + 1
     val i = binarySearchInsertion(nums, target + 1)
@@ -28,7 +28,7 @@ fun binarySearchRightEdge(nums: IntArray, target: Int): Int {
     if (j == -1 || nums[j] != target) {
         return -1
     }
-    // Найти target и вернуть индекс j
+    // target найден, возвращается индекс j
     return j
 }
 
@@ -38,7 +38,7 @@ fun main() {
     val nums = intArrayOf(1, 3, 6, 6, 6, 6, 6, 10, 12, 15)
     println("\nМассив nums = ${nums.contentToString()}")
 
-    // Бинарный поиск левой и правой границы
+    // Двоичный поиск левой и правой границы
     for (target in intArrayOf(6, 7)) {
         var index = binarySearchLeftEdge(nums, target)
         println("Индекс самого левого элемента $target равен $index")

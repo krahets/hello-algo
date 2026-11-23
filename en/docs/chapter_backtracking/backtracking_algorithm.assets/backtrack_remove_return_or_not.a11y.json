@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "title": "Whether to keep searching after recording a solution",
+  "summary": "When valid solutions may still exist among a target node's descendants, returning immediately after recording a solution misses deeper solutions; that early return must be removed so the search continues.",
+  "context": [
+    "The task is to find all paths starting at the root, ending at a node with value 7, and containing no node with value 3. The binary tree shown has 8 nodes: root 1 has left and right children 7 and 3; the left (shallower) 7 has left and right children 4 and 5, with a deeper left child 7 beneath 4; and 3 has left and right children 6 and the right 7. Compared with the seven-node input in the earlier example and accompanying Python code, this figure adds the deeper left child 7 beneath 4; on that seven-node tree, removing the return after recording a solution would not add any solutions.",
+    "What is compared here is whether to execute return immediately after recording a solution to end the current recursive branch. Pruning that stops descending at node 3 and normal backtracking after visiting a node's children remain unchanged in both approaches; the template code implements that pruning by rejecting choices with value 3."
+  ],
+  "description": [
+    "The left and right panels respectively keep and remove the early return after recording a solution. The table below compares which nodes each search visits and resulting paths; in the right branch, both panels stop descending upon reaching the red node 3, skipping 6 and the right 7."
+  ],
+  "frames": [
+    {
+      "id": "source-341",
+      "book_path": "chapter_backtracking/backtracking_algorithm.assets/backtrack_remove_return_or_not.png",
+      "title": "Whether to keep searching after recording a solution",
+      "explanation": "Only by continuing deeper after recording the shallower 7 can the right panel discover the deeper 7 among its descendants; ending the current branch early misses that solution."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Handling after recording a solution and resulting paths",
+      "headers": [
+        "Approach",
+        "Nodes visited next",
+        "Paths found"
+      ],
+      "rows": [
+        [
+          "Left panel: keep early return",
+          "Stops at the shallower 7 without visiting its descendants 4, 5, and the deeper 7",
+          "[1, 7]"
+        ],
+        [
+          "Right panel: remove early return",
+          "Continues after recording the shallower 7 to visit 4, the deeper 7, and 5",
+          "[1, 7]; [1, 7, 4, 7]"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

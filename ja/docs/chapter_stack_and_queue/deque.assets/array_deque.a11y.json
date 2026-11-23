@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "title": "循環配列による両端キューの実装",
+  "summary": "先頭のインデックスと有効な要素数を管理し、中間の要素を移動せずに両端で追加と取り出しを行います。",
+  "context": [
+    "左は両端キュー、右は内部で使う縦長の循環配列です。どちらも上が先頭、下が末尾です。front は先頭のインデックス、size は有効な要素数です。上に 1 マス進むとインデックスが 1 減ります。これはコードのコメントでいう「左に移動」に当たります。下に 1 マス進むとインデックスが 1 増えます。",
+    "末尾に次に書き込む位置は rear = (front + size) % capacity で求めます。図では配列の端をまたがないため rear = front + size と略し、容量や個々のインデックスの値は記していません。"
+  ],
+  "description": [
+    "追加する前には空きが必要で、取り出す前には要素が少なくとも 1 個必要です。有効な要素の位置は (front + i) % capacity で、i は 0 から size - 1 までです。先頭に追加するときは front を (front - 1 + capacity) % capacity に更新します。",
+    "元からある 3、2、5 は同じマスにとどまります。灰色の破線は有効範囲外のマスです。取り出した後で破線になっても、コードが値を 0 に消去したことにはなりません。末尾に加わる 4 は青緑、先頭に加わる 1 はオレンジです。"
+  ],
+  "result": "どちらの端で追加・取り出しをしても、変更するのは端のマス、front、size のうち必要なものだけです。中間の要素を移さず、いずれも O(1) で実行できます。",
+  "frames": [
+    {
+      "id": "source-76",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step1.png",
+      "title": "両端キューの初期状態",
+      "explanation": "有効なキューは [3, 2, 5] で、front は 3 を指し、size = 3 です。rear は front + size で求まり、5 の下の最初の空きマスを指します。上下の端にはさらに空きマスと省略記号があります。",
+      "key_state": "有効なキューは [3, 2, 5]、front は 3、size = 3 です。rear は 5 の下の空きマスを指します。",
+      "announcement": "初期状態は [3, 2, 5] で、front は 3、size = 3、rear は 5 の次の空きマスです。"
+    },
+    {
+      "id": "source-77",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step2_push_last.png",
+      "title": "末尾に 4 を追加",
+      "explanation": "push_last(4) を実行します。追加前の front と size = 3 から rear を求め、その空きマスに 4 を書いてから size を 4 に増やします。キューは [3, 2, 5, 4] で、front は 3 のままです。図の rear は書き込んだ 4 に残っています。新しい size で計算し直すと、次の末尾の書き込み先は 4 の 1 マス下です。",
+      "key_state": "front は 3、size = 4、有効なキューは [3, 2, 5, 4] です。図の rear は今回 4 を書いた位置を指します。",
+      "announcement": "追加前に計算した rear のマスに 4 を書き、size を 4 に増やしました。図の rear の矢印は今回書き込んだ 4 に残っています。"
+    },
+    {
+      "id": "source-78",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step3_push_first.png",
+      "title": "先頭に 1 を追加",
+      "explanation": "push_first(1) で front を 3 の 1 マス上の空き位置に移し、1 を書いてから size を 4 から 5 に増やします。キューは [1, 3, 2, 5, 4] になり、front が新しい先頭 1 を指します。他の要素は元の位置のままです。この図には rear の印はありません。",
+      "key_state": "front は 1、size = 5、有効なキューは [1, 3, 2, 5, 4] です。",
+      "announcement": "front を 1 マス上に移して 1 を書き、size を 5 に増やしました。他の要素は動きません。"
+    },
+    {
+      "id": "source-79",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step4_pop_last.png",
+      "title": "末尾から 4 を取り出す",
+      "explanation": "pop_last() で末尾の 4 を読み取って返し、size を 5 から 4 に減らします。キューは [1, 3, 2, 5] で、front は 1 のままです。4 のあったマスは破線になり、有効範囲から外れます。この図には rear の印はありません。",
+      "key_state": "front は 1、size = 4、有効なキューは [1, 3, 2, 5]、戻り値は 4 です。",
+      "announcement": "末尾の 4 を読み取って返し、size を 4 に減らしました。元の末尾のマスは有効範囲外です。"
+    },
+    {
+      "id": "source-80",
+      "book_path": "chapter_stack_and_queue/deque.assets/array_deque_step5_pop_first.png",
+      "title": "先頭から 1 を取り出す",
+      "explanation": "pop_first() で先頭の 1 を読み取って返します。front を 1 マス下に移して再び 3 を指すようにし、size を 4 から 3 に減らします。キューは [3, 2, 5] に戻り、1 のあったマスは有効範囲から外れます。この図には rear の印はありません。",
+      "key_state": "front は 3、size = 3、有効なキューは [3, 2, 5]、戻り値は 1 です。",
+      "announcement": "先頭の 1 を読み取って返し、front を 1 マス下の 3 に戻して size を 3 に減らしました。"
+    }
+  ],
+  "animations": {
+    "array-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-76"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-77"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-78"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-79"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-80"
+        }
+      ]
+    }
+  }
+}

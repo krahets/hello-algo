@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "title": "이진 탐색 트리에서 노드 7 찾기",
+  "summary": "값 1부터 15까지 있는 이진 탐색 트리에서 현재 값과 7을 비교하면서 왼쪽 또는 오른쪽 가지를 골라 내려간다.",
+  "context": [
+    "이진 탐색 트리에서는 어떤 노드를 기준으로 보더라도 왼쪽 서브트리의 값은 모두 그 노드보다 작고 오른쪽 서브트리의 값은 모두 그 노드보다 크다. 화살표는 부모에서 자식으로 향한다.",
+    "네 레벨이 가득 찬 이진 탐색 트리에 값 1부터 15까지 있다. 루트 8의 왼쪽과 오른쪽 자식은 각각 4와 12다. 같은 순서로 4의 자식은 2와 6, 12의 자식은 10과 14다. 2의 자식은 1과 3, 6의 자식은 5와 7, 10의 자식은 9와 11, 14의 자식은 13과 15다.",
+    "포인터 cur가 가리키는 현재 노드는 파란색으로 채워져 있다. 이미 지나온 경로는 파란 화살표와 노드 바깥의 파란 테두리로 표시한다."
+  ],
+  "description": [],
+  "result": "cur는 8 → 4 → 6 → 7을 따라 네 노드를 차례로 비교한다. 네 번째 단계에서 7을 찾아 해당 노드를 반환한다. 탐색하는 동안 트리의 연결은 그대로다.",
+  "frames": [
+    {
+      "id": "source-118",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step1.png",
+      "title": "루트 노드 8에서 탐색 시작",
+      "explanation": "cur를 파란색으로 채워진 루트 8에 둔다. 목표 값 7을 현재 값 8과 비교한다. 7 < 8이므로 찾을 곳은 왼쪽 서브트리다. 다음에는 왼쪽 아래의 자식 4로 간다. 현재까지 방문한 노드는 8이다.",
+      "key_state": "cur는 루트 8을 가리킨다. 7 < 8이므로 다음은 왼쪽 자식 4다.",
+      "announcement": "7을 찾기 시작한다. cur를 루트 8에 놓았다."
+    },
+    {
+      "id": "source-119",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step2.png",
+      "title": "왼쪽 자식 4로 이동",
+      "explanation": "7 < 8이므로 cur = cur.left를 실행해 파란 화살표를 따라 8에서 왼쪽 자식 4로 간다. 7과 현재 값 4를 비교하면 7 > 4이므로 다음에는 4의 오른쪽 서브트리로 간다. 현재 경로는 8 → 4다.",
+      "key_state": "cur는 4를 가리킨다. 경로는 8 → 4다. 7 > 4이므로 다음은 오른쪽 자식 6이다.",
+      "announcement": "7이 8보다 작아서 cur가 8에서 왼쪽 자식 4로 이동했다."
+    },
+    {
+      "id": "source-120",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step3.png",
+      "title": "오른쪽 자식 6으로 이동",
+      "explanation": "7 > 4이므로 cur = cur.right를 실행해 파란 화살표를 따라 4에서 오른쪽 자식 6으로 간다. 7과 현재 값 6을 비교하면 7 > 6이므로 다음에도 오른쪽 자식으로 간다. 현재 경로는 8 → 4 → 6이다.",
+      "key_state": "cur는 6을 가리킨다. 경로는 8 → 4 → 6이다. 7 > 6이므로 다음은 오른쪽 자식 7이다.",
+      "announcement": "7이 4보다 커서 cur가 4에서 오른쪽 자식 6으로 이동했다."
+    },
+    {
+      "id": "source-121",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_search_step4.png",
+      "title": "노드 7 발견",
+      "explanation": "7 > 6이므로 cur = cur.right를 실행해 파란 화살표를 따라 6에서 오른쪽 자식 7로 간다. cur의 값이 목표 값 7과 일치한다. 반복을 끝내고 노드 7을 반환한다. 방문 경로는 8 → 4 → 6 → 7이다.",
+      "key_state": "cur가 목표 노드 7을 가리킨다. 경로는 8 → 4 → 6 → 7이며 탐색에 성공했다.",
+      "announcement": "7이 6보다 커서 cur가 6에서 오른쪽 자식 7로 이동했고 목표 값을 찾았다."
+    }
+  ],
+  "animations": {
+    "bst-search": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-118"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-119"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-120"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-121"
+        }
+      ]
+    }
+  }
+}

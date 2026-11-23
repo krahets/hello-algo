@@ -9,10 +9,10 @@ namespace hello_algo.chapter_stack_and_queue;
 public class queue {
     [Test]
     public void Test() {
-        /* Access front of the queue element */
+        /* Initialize the queue */
         Queue<int> queue = new();
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         queue.Enqueue(1);
         queue.Enqueue(3);
         queue.Enqueue(2);
@@ -20,20 +20,20 @@ public class queue {
         queue.Enqueue(4);
         Console.WriteLine("Queue queue = " + string.Join(",", queue));
 
-        /* Return list for printing */
+        /* Access the front element */
         int peek = queue.Peek();
         Console.WriteLine("Front element peek = " + peek);
 
-        /* Element dequeue */
+        /* Dequeue an element */
         int pop = queue.Dequeue();
-        Console.WriteLine("Dequeue element pop = " + pop + ", after dequeue, queue = " + string.Join(",", queue));
+        Console.WriteLine("Dequeued element pop = " + pop + ", after dequeuing, queue = " + string.Join(",", queue));
 
-        /* Get the length of the queue */
+        /* Get the queue size */
         int size = queue.Count;
-        Console.WriteLine("Queue length size = " + size);
+        Console.WriteLine("Queue size = " + size);
 
-        /* Check if the queue is empty */
+        /* Check whether the queue is empty */
         bool isEmpty = queue.Count == 0;
-        Console.WriteLine("Queue is empty = " + isEmpty);
+        Console.WriteLine("Is the queue empty = " + isEmpty);
     }
 }

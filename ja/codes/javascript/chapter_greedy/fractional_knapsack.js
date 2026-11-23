@@ -12,13 +12,13 @@ class Item {
     }
 }
 
-/* 分数ナップサック：貪欲法 */
+/* 分割可能ナップサック問題：貪欲法 */
 function fractionalKnapsack(wgt, val, cap) {
-    // 重さと価値の 2 属性を持つ品物リストを作成
+    // 重さと価値の 2 つの属性を持つ品物のリストを作成する
     const items = wgt.map((w, i) => new Item(w, val[i]));
-    // 単位価値 item.v / item.w の高い順にソートする
+    // 単位重さ当たりの価値 item.v / item.w の降順にソートする
     items.sort((a, b) => b.v / b.w - a.v / a.w);
-    // 貪欲選択を繰り返す
+    // 貪欲な選択を繰り返す
     let res = 0;
     for (const item of items) {
         if (item.w <= cap) {
@@ -26,21 +26,21 @@ function fractionalKnapsack(wgt, val, cap) {
             res += item.v;
             cap -= item.w;
         } else {
-            // 残り容量が足りない場合は、現在の品物の一部だけをナップサックに入れる
+            // 残り容量が不足している場合、現在の品物の一部をナップサックに入れる
             res += (item.v / item.w) * cap;
-            // 残り容量がないため、ループを抜ける
+            // 残り容量がないため、ループを終了する
             break;
         }
     }
     return res;
 }
 
-/* Driver Code */
+/* 実行用コード */
 const wgt = [10, 20, 30, 40, 50];
 const val = [50, 120, 150, 210, 240];
 const cap = 50;
 const n = wgt.length;
 
-// 貪欲法
+// 貪欲アルゴリズム
 const res = fractionalKnapsack(wgt, val, cap);
-console.log(`ナップサック容量を超えない最大価値は ${res}`);
+console.log(`ナップサックの容量を超えない品物の最大価値は ${res}`);

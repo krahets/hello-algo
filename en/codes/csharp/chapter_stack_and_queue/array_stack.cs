@@ -6,20 +6,20 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Stack based on array implementation */
+/* Stack implemented with an array */
 class ArrayStack {
     List<int> stack;
     public ArrayStack() {
-        // Initialize list (dynamic array)
+        // Initialize the list (dynamic array)
         stack = [];
     }
 
-    /* Get the length of the stack */
+    /* Get the stack size */
     public int Size() {
         return stack.Count;
     }
 
-    /* Check if the stack is empty */
+    /* Check whether the stack is empty */
     public bool IsEmpty() {
         return Size() == 0;
     }
@@ -38,14 +38,14 @@ class ArrayStack {
         return val;
     }
 
-    /* Return list for printing */
+    /* Access the top element */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return stack[Size() - 1];
     }
 
-    /* Convert List to Array and return */
+    /* Convert the list to an array and return it */
     public int[] ToArray() {
         return [.. stack];
     }
@@ -54,10 +54,10 @@ class ArrayStack {
 public class array_stack {
     [Test]
     public void Test() {
-        /* Access top of the stack element */
+        /* Initialize the stack */
         ArrayStack stack = new();
 
-        /* Elements push onto stack */
+        /* Push elements onto the stack */
         stack.Push(1);
         stack.Push(3);
         stack.Push(2);
@@ -65,20 +65,20 @@ public class array_stack {
         stack.Push(4);
         Console.WriteLine("Stack stack = " + string.Join(",", stack.ToArray()));
 
-        /* Return list for printing */
+        /* Access the top element */
         int peek = stack.Peek();
-        Console.WriteLine("Stack top element peek = " + peek);
+        Console.WriteLine("Top element peek = " + peek);
 
-        /* Element pop from stack */
+        /* Pop an element from the stack */
         int pop = stack.Pop();
-        Console.WriteLine("Pop element pop = " + pop + ", after pop, stack = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("Popped element pop = " + pop + ", after popping, stack = " + string.Join(",", stack.ToArray()));
 
-        /* Get the length of the stack */
+        /* Get the stack size */
         int size = stack.Size();
-        Console.WriteLine("Stack length size = " + size);
+        Console.WriteLine("Stack size = " + size);
 
-        /* Check if empty */
+        /* Check whether it is empty */
         bool isEmpty = stack.IsEmpty();
-        Console.WriteLine("Stack is empty = " + isEmpty);
+        Console.WriteLine("Is the stack empty = " + isEmpty);
     }
 }

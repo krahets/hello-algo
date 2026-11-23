@@ -9,7 +9,7 @@ package chapter_divide_and_conquer.build_tree
 import utils.TreeNode
 import utils.printTree
 
-/* Build binary tree: divide and conquer */
+/* Build a binary tree: divide and conquer */
 fun dfs(
     preorder: IntArray,
     inorderMap: Map<Int?, Int?>,
@@ -17,11 +17,11 @@ fun dfs(
     l: Int,
     r: Int
 ): TreeNode? {
-    // Terminate when the subtree interval is empty
+    // Stop when the subtree interval is empty
     if (r - l < 0) return null
     // Initialize the root node
     val root = TreeNode(preorder[i])
-    // Query m to divide the left and right subtrees
+    // Look up m to separate the left and right subtrees
     val m = inorderMap[preorder[i]]!!
     // Subproblem: build the left subtree
     root.left = dfs(preorder, inorderMap, i + 1, l, m - 1)
@@ -31,9 +31,9 @@ fun dfs(
     return root
 }
 
-/* Build binary tree */
+/* Build a binary tree */
 fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
-    // Initialize hash map, storing the mapping from inorder elements to indices
+    // Initialize a hash table mapping each element in inorder to its index
     val inorderMap = HashMap<Int?, Int?>()
     for (i in inorder.indices) {
         inorderMap[inorder[i]] = i
@@ -42,12 +42,12 @@ fun buildTree(preorder: IntArray, inorder: IntArray): TreeNode? {
     return root
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val preorder = intArrayOf(3, 9, 2, 1, 7)
     val inorder = intArrayOf(9, 3, 1, 2, 7)
-    println("Pre-order traversal = ${preorder.contentToString()}")
-    println("In-order traversal = ${inorder.contentToString()}")
+    println("Preorder traversal = ${preorder.contentToString()}")
+    println("Inorder traversal = ${inorder.contentToString()}")
 
     val root = buildTree(preorder, inorder)
     println("The constructed binary tree is:")

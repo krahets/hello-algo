@@ -8,13 +8,13 @@ namespace hello_algo.chapter_computational_complexity;
 
 public class time_complexity {
     void Algorithm(int n) {
-        int a = 1;  // +0 (technique 1)
-        a += n;  // +0 (technique 1)
-        // +n (technique 2)
+        int a = 1;  // +0 (rule 1)
+        a += n;  // +0 (rule 1)
+        // +n (rule 2)
         for (int i = 0; i < 5 * n + 1; i++) {
             Console.WriteLine(0);
         }
-        // +n*n (technique 3)
+        // +n*n (rule 3)
         for (int i = 0; i < 2 * n; i++) {
             for (int j = 0; j < n + 1; j++) {
                 Console.WriteLine(0);
@@ -41,7 +41,7 @@ public class time_complexity {
         }
     }
 
-    /* Constant order */
+    /* Constant complexity */
     int Constant(int n) {
         int count = 0;
         int size = 100000;
@@ -50,7 +50,7 @@ public class time_complexity {
         return count;
     }
 
-    /* Linear order */
+    /* Linear complexity */
     int Linear(int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
@@ -58,20 +58,20 @@ public class time_complexity {
         return count;
     }
 
-    /* Linear order (traversing array) */
+    /* Linear complexity (array traversal) */
     int ArrayTraversal(int[] nums) {
         int count = 0;
-        // Number of iterations is proportional to the array length
+        // The number of iterations is proportional to the array length
         foreach (int num in nums) {
             count++;
         }
         return count;
     }
 
-    /* Exponential order */
+    /* Quadratic complexity */
     int Quadratic(int n) {
         int count = 0;
-        // Number of iterations is quadratically related to the data size n
+        // The number of iterations is proportional to the square of the input size n
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 count++;
@@ -80,27 +80,27 @@ public class time_complexity {
         return count;
     }
 
-    /* Quadratic order (bubble sort) */
+    /* Quadratic complexity (bubble sort) */
     int BubbleSort(int[] nums) {
         int count = 0;  // Counter
-        // Outer loop: unsorted range is [0, i]
+        // Outer loop: the unsorted range is [0, i]
         for (int i = nums.Length - 1; i > 0; i--) {
-            // Inner loop: swap the largest element in the unsorted range [0, i] to the rightmost end of that range
+            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
                     (nums[j + 1], nums[j]) = (nums[j], nums[j + 1]);
-                    count += 3;  // Element swap includes 3 unit operations
+                    count += 3;  // Swapping two elements takes 3 elementary operations
                 }
             }
         }
         return count;
     }
 
-    /* Exponential order (loop implementation) */
+    /* Exponential complexity (iterative implementation) */
     int Exponential(int n) {
         int count = 0, bas = 1;
-        // Cells divide into two every round, forming sequence 1, 2, 4, 8, ..., 2^(n-1)
+        // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < bas; j++) {
                 count++;
@@ -111,13 +111,13 @@ public class time_complexity {
         return count;
     }
 
-    /* Exponential order (recursive implementation) */
+    /* Exponential complexity (recursive implementation) */
     int ExpRecur(int n) {
         if (n == 1) return 1;
         return ExpRecur(n - 1) + ExpRecur(n - 1) + 1;
     }
 
-    /* Logarithmic order (loop implementation) */
+    /* Logarithmic complexity (iterative implementation) */
     int Logarithmic(int n) {
         int count = 0;
         while (n > 1) {
@@ -127,13 +127,13 @@ public class time_complexity {
         return count;
     }
 
-    /* Logarithmic order (recursive implementation) */
+    /* Logarithmic complexity (recursive implementation) */
     int LogRecur(int n) {
         if (n <= 1) return 0;
         return LogRecur(n / 2) + 1;
     }
 
-    /* Linearithmic order */
+    /* Linearithmic complexity */
     int LinearLogRecur(int n) {
         if (n <= 1) return 1;
         int count = LinearLogRecur(n / 2) + LinearLogRecur(n / 2);
@@ -143,11 +143,11 @@ public class time_complexity {
         return count;
     }
 
-    /* Factorial order (recursive implementation) */
+    /* Factorial complexity (recursive implementation) */
     int FactorialRecur(int n) {
         if (n == 0) return 1;
         int count = 0;
-        // Split from 1 into n
+        // Split one problem into n subproblems
         for (int i = 0; i < n; i++) {
             count += FactorialRecur(n - 1);
         }
@@ -156,40 +156,40 @@ public class time_complexity {
 
     [Test]
     public void Test() {
-        // You can modify n to run and observe the trend of the number of operations for various complexities
+        // Try different values of n to see how the operation count grows for each complexity
         int n = 8;
-        Console.WriteLine("Input data size n = " + n);
+        Console.WriteLine("Input size n = " + n);
 
         int count = Constant(n);
-        Console.WriteLine("Constant order operation count = " + count);
+        Console.WriteLine("Operation count for constant complexity = " + count);
 
         count = Linear(n);
-        Console.WriteLine("Linear order operation count = " + count);
+        Console.WriteLine("Operation count for linear complexity = " + count);
         count = ArrayTraversal(new int[n]);
-        Console.WriteLine("Linear order (array traversal) operation count = " + count);
+        Console.WriteLine("Operation count for linear complexity (array traversal) = " + count);
 
         count = Quadratic(n);
-        Console.WriteLine("Quadratic order operation count = " + count);
+        Console.WriteLine("Operation count for quadratic complexity = " + count);
         int[] nums = new int[n];
         for (int i = 0; i < n; i++)
             nums[i] = n - i;  // [n,n-1,...,2,1]
         count = BubbleSort(nums);
-        Console.WriteLine("Quadratic order (bubble sort) operation count = " + count);
+        Console.WriteLine("Operation count for quadratic complexity (bubble sort) = " + count);
 
         count = Exponential(n);
-        Console.WriteLine("Exponential order (loop implementation) operation count = " + count);
+        Console.WriteLine("Operation count for exponential complexity (iterative implementation) = " + count);
         count = ExpRecur(n);
-        Console.WriteLine("Exponential order (recursive implementation) operation count = " + count);
+        Console.WriteLine("Operation count for exponential complexity (recursive implementation) = " + count);
 
         count = Logarithmic(n);
-        Console.WriteLine("Logarithmic order (loop implementation) operation count = " + count);
+        Console.WriteLine("Operation count for logarithmic complexity (iterative implementation) = " + count);
         count = LogRecur(n);
-        Console.WriteLine("Logarithmic order (recursive implementation) operation count = " + count);
+        Console.WriteLine("Operation count for logarithmic complexity (recursive implementation) = " + count);
 
         count = LinearLogRecur(n);
-        Console.WriteLine("Linearithmic order (recursive implementation) operation count = " + count);
+        Console.WriteLine("Operation count for linearithmic complexity (recursive implementation) = " + count);
 
         count = FactorialRecur(n);
-        Console.WriteLine("Factorial order (recursive implementation) operation count = " + count);
+        Console.WriteLine("Operation count for factorial complexity (recursive implementation) = " + count);
     }
 }

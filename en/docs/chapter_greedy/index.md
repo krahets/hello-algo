@@ -1,9 +1,9 @@
-# Greedy
+# Greedy algorithms
 
-![Greedy](../assets/covers/chapter_greedy.jpg)
+![Greedy algorithms](../assets/covers/chapter_greedy.jpg)
 
 !!! abstract
 
-    Sunflowers turn toward the sun, always seeking the fullest growth possible.
+    A sunflower turns toward the sun, always seeking the greatest opportunity to grow.
 
-    Through successive simple choices, greedy strategies gradually lead to the optimal solution.
+    Through a series of simple choices, a greedy strategy leads us step by step toward the best answer.

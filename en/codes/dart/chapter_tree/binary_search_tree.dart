@@ -13,56 +13,56 @@ class BinarySearchTree {
 
   /* Constructor */
   BinarySearchTree() {
-    // Initialize empty tree
+    // Initialize an empty tree
     _root = null;
   }
 
-  /* Get root node of binary tree */
+  /* Get the root node of the binary tree */
   TreeNode? getRoot() {
     return _root;
   }
 
-  /* Search node */
+  /* Find a node */
   TreeNode? search(int _num) {
     TreeNode? cur = _root;
-    // Loop search, exit after passing leaf node
+    // Search in a loop, stopping if a null reference is reached
     while (cur != null) {
-      // Target node is in cur's right subtree
+      // The target node lies in the right subtree of cur
       if (cur.val < _num)
         cur = cur.right;
-      // Target node is in cur's left subtree
+      // The target node lies in the left subtree of cur
       else if (cur.val > _num)
         cur = cur.left;
-      // Found target node, exit loop
+      // The target node was found; exit the loop
       else
         break;
     }
-    // Return target node
+    // Return the target node
     return cur;
   }
 
-  /* Insert node */
+  /* Insert a node */
   void insert(int _num) {
-    // If tree is empty, initialize root node
+    // If the tree is empty, initialize the root node
     if (_root == null) {
       _root = TreeNode(_num);
       return;
     }
     TreeNode? cur = _root;
     TreeNode? pre = null;
-    // Loop search, exit after passing leaf node
+    // Search in a loop, stopping if a null reference is reached
     while (cur != null) {
-      // Found duplicate node, return directly
+      // Return immediately if a duplicate node is found
       if (cur.val == _num) return;
       pre = cur;
-      // Insertion position is in cur's right subtree
+      // The insertion position lies in the right subtree of cur
       if (cur.val < _num)
         cur = cur.right;
-      // Insertion position is in cur's left subtree
+      // The insertion position lies in the left subtree of cur
       else
         cur = cur.left;
     }
-    // Insert node
+    // Insert a node
     TreeNode? node = TreeNode(_num);
     if (pre!.val < _num)
       pre.right = node;
@@ -70,84 +70,84 @@ class BinarySearchTree {
       pre.left = node;
   }
 
-  /* Remove node */
+  /* Remove a node */
   void remove(int _num) {
-    // If tree is empty, return directly
+    // Return immediately if the tree is empty
     if (_root == null) return;
     TreeNode? cur = _root;
     TreeNode? pre = null;
-    // Loop search, exit after passing leaf node
+    // Search in a loop, stopping if a null reference is reached
     while (cur != null) {
-      // Found node to delete, exit loop
+      // The node to remove was found; exit the loop
       if (cur.val == _num) break;
       pre = cur;
-      // Node to delete is in cur's right subtree
+      // The node to remove lies in the right subtree of cur
       if (cur.val < _num)
         cur = cur.right;
-      // Node to delete is in cur's left subtree
+      // The node to remove lies in the left subtree of cur
       else
         cur = cur.left;
     }
-    // If no node to delete, return directly
+    // Return if the node to remove does not exist
     if (cur == null) return;
-    // Number of child nodes = 0 or 1
+    // Number of children = 0 or 1
     if (cur.left == null || cur.right == null) {
-      // When number of child nodes = 0 / 1, child = null / that child node
+      // With 0 / 1 children, child is null / the child node, respectively
       TreeNode? child = cur.left ?? cur.right;
-      // Delete node cur
+      // Remove node cur
       if (cur != _root) {
         if (pre!.left == cur)
           pre.left = child;
         else
           pre.right = child;
       } else {
-        // If deleted node is root node, reassign root node
+        // If the removed node is the root, assign the new root
         _root = child;
       }
     } else {
-      // Number of child nodes = 2
-      // Get next node of cur in inorder traversal
+      // Number of children = 2
+      // Get the inorder successor of cur
       TreeNode? tmp = cur.right;
       while (tmp!.left != null) {
         tmp = tmp.left;
       }
-      // Recursively delete node tmp
+      // Recursively remove node tmp
       remove(tmp.val);
-      // Replace cur with tmp
+      // Replace the value of cur with the value of tmp
       cur.val = tmp.val;
     }
   }
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
-  /* Initialize binary search tree */
+  /* Initialize the binary search tree */
   BinarySearchTree bst = BinarySearchTree();
-  // Please note that different insertion orders will generate different binary trees, this sequence can generate a perfect binary tree
+  // Different insertion orders produce different binary trees; this sequence produces a perfect binary tree
   List<int> nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
   for (int _num in nums) {
     bst.insert(_num);
   }
-  print("\nInitialized binary tree is\n");
+  print("\nThe initialized binary tree is:\n");
   printTree(bst.getRoot());
 
-  /* Search node */
+  /* Find a node */
   TreeNode? node = bst.search(7);
-  print("\nFound node object is $node, node value = ${node?.val}");
+  print("\nNode found: $node, node value = ${node?.val}");
 
-  /* Insert node */
+  /* Insert a node */
   bst.insert(16);
-  print("\nAfter inserting node 16, binary tree is\n");
+  print("\nBinary tree after inserting node 16:\n");
   printTree(bst.getRoot());
 
-  /* Remove node */
+  /* Remove a node */
   bst.remove(1);
-  print("\nAfter removing node 1, binary tree is\n");
+  print("\nBinary tree after removing node 1:\n");
   printTree(bst.getRoot());
   bst.remove(2);
-  print("\nAfter removing node 2, binary tree is\n");
+  print("\nBinary tree after removing node 2:\n");
   printTree(bst.getRoot());
   bst.remove(4);
-  print("\nAfter removing node 4, binary tree is\n");
+  print("\nBinary tree after removing node 4:\n");
   printTree(bst.getRoot());
 }

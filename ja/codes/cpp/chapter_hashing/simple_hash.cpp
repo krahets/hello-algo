@@ -26,7 +26,7 @@ int mulHash(string key) {
     return (int)hash;
 }
 
-/* XOR ハッシュ */
+/* 排他的論理和ハッシュ */
 int xorHash(string key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -46,21 +46,21 @@ int rotHash(string key) {
     return (int)hash;
 }
 
-/* Driver Code */
+/* 実行用コード */
 int main() {
-    string key = "Hello アルゴリズム";
+    string key = "Hello 算法";
 
     int hash = addHash(key);
-    cout << "加算ハッシュ値は " << hash << endl;
+    cout << "加算ハッシュの値は " << hash << endl;
 
     hash = mulHash(key);
-    cout << "乗算ハッシュ値は " << hash << endl;
+    cout << "乗算ハッシュの値は " << hash << endl;
 
     hash = xorHash(key);
-    cout << "XORハッシュ値は " << hash << endl;
+    cout << "排他的論理和ハッシュの値は " << hash << endl;
 
     hash = rotHash(key);
-    cout << "回転ハッシュ値は " << hash << endl;
+    cout << "回転ハッシュの値は " << hash << endl;
 
     return 0;
 }

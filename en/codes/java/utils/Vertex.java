@@ -16,7 +16,7 @@ public class Vertex {
         this.val = val;
     }
 
-    /* Input value list vals, return vertex list vets */
+    /* Given the array of values vals, return the array of vertices vets */
     public static Vertex[] valsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.length];
         for (int i = 0; i < vals.length; i++) {
@@ -25,7 +25,7 @@ public class Vertex {
         return vets;
     }
 
-    /* Input vertex list vets, return value list vals */
+    /* Given the list of vertices vets, return the list of values vals */
     public static List<Integer> vetsToVals(List<Vertex> vets) {
         List<Integer> vals = new ArrayList<>();
         for (Vertex vet : vets) {

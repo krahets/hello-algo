@@ -6,24 +6,24 @@
 
 #include "../utils/common.hpp"
 
-/* Backtracking algorithm: Permutations I */
+/* Backtracking: permutations I */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
-    // When the state length equals the number of elements, record the solution
+    // Record a solution when the state length equals the number of elements
     if (state.size() == choices.size()) {
         res.push_back(state);
         return;
     }
-    // Traverse all choices
+    // Iterate over all choices
     for (int i = 0; i < choices.size(); i++) {
         int choice = choices[i];
-        // Pruning: do not allow repeated selection of elements
+        // Prune: do not choose an element more than once
         if (!selected[i]) {
-            // Attempt: make choice, update state
+            // Try: make a choice and update the state
             selected[i] = true;
             state.push_back(choice);
-            // Proceed to the next round of selection
+            // Proceed to the next choice
             backtrack(state, choices, selected, res);
-            // Backtrack: undo choice, restore to previous state
+            // Backtrack: undo the choice and restore the previous state
             selected[i] = false;
             state.pop_back();
         }
@@ -39,7 +39,7 @@ vector<vector<int>> permutationsI(vector<int> nums) {
     return res;
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
     vector<int> nums = {1, 2, 3};
 

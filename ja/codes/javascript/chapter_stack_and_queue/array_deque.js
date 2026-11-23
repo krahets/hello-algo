@@ -4,10 +4,10 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 循環配列ベースの両端キュー */
+/* 循環配列で実装した両端キュー */
 class ArrayDeque {
     #nums; // 両端キューの要素を格納する配列
-    #front; // 先頭ポインタ。先頭要素を指す
+    #front; // キューの先頭要素を指す先頭ポインタ
     #queSize; // 両端キューの長さ
 
     /* コンストラクタ */
@@ -17,89 +17,89 @@ class ArrayDeque {
         this.#queSize = 0;
     }
 
-    /* 両端キューの容量を取得 */
+    /* 両端キューの容量を取得する */
     capacity() {
         return this.#nums.length;
     }
 
-    /* 両端キューの長さを取得 */
+    /* 両端キューの長さを取得する */
     size() {
         return this.#queSize;
     }
 
-    /* 両端キューが空かどうかを判定 */
+    /* 両端キューが空かどうかを判定する */
     isEmpty() {
         return this.#queSize === 0;
     }
 
-    /* 循環配列のインデックスを計算 */
+    /* 循環配列のインデックスを計算する */
     index(i) {
-        // 剰余演算により配列の先頭と末尾をつなげる
-        // i が配列の末尾を越えたら先頭に戻る
-        // i が配列の先頭を越えて前に出たら末尾に戻る
+        // 剰余演算を使い、配列の先頭と末尾をつなぐ
+        // i が配列の末尾を越えたら、先頭に戻る
+        // i が配列の先頭を越えたら、末尾に戻る
         return (i + this.capacity()) % this.capacity();
     }
 
-    /* キュー先頭にエンキュー */
+    /* 先頭にエンキューする */
     pushFirst(num) {
         if (this.#queSize === this.capacity()) {
-            console.log('両端キューがいっぱいです');
+            console.log('両端キューが満杯です');
             return;
         }
         // 先頭ポインタを左に 1 つ移動する
-        // 剰余演算により、front が配列先頭を越えた後に末尾へ戻るようにする
+        // 剰余演算により、front が配列の先頭を越えたら末尾に戻るようにする
         this.#front = this.index(this.#front - 1);
-        // num をキュー先頭に追加
+        // num をキューの先頭に追加する
         this.#nums[this.#front] = num;
         this.#queSize++;
     }
 
-    /* キュー末尾にエンキュー */
+    /* 末尾にエンキューする */
     pushLast(num) {
         if (this.#queSize === this.capacity()) {
-            console.log('両端キューがいっぱいです');
+            console.log('両端キューが満杯です');
             return;
         }
-        // キュー末尾ポインタを計算し、末尾インデックス + 1 を指す
+        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
         const rear = this.index(this.#front + this.#queSize);
-        // num をキュー末尾に追加
+        // num をキューの末尾に追加する
         this.#nums[rear] = num;
         this.#queSize++;
     }
 
-    /* キュー先頭からデキュー */
+    /* 先頭からデキューする */
     popFirst() {
         const num = this.peekFirst();
-        // 先頭ポインタを 1 つ後ろへ進める
+        // 先頭ポインタを後ろに 1 つ移動する
         this.#front = this.index(this.#front + 1);
         this.#queSize--;
         return num;
     }
 
-    /* キュー末尾からデキュー */
+    /* 末尾からデキューする */
     popLast() {
         const num = this.peekLast();
         this.#queSize--;
         return num;
     }
 
-    /* キュー先頭の要素にアクセス */
+    /* キューの先頭要素にアクセス */
     peekFirst() {
-        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
+        if (this.isEmpty()) throw new Error('両端キューが空です。');
         return this.#nums[this.#front];
     }
 
-    /* キュー末尾の要素にアクセス */
+    /* キューの末尾要素にアクセスする */
     peekLast() {
-        if (this.isEmpty()) throw new Error('The Deque Is Empty.');
-        // 末尾要素のインデックスを計算
+        if (this.isEmpty()) throw new Error('両端キューが空です。');
+        // 末尾要素のインデックスを計算する
         const last = this.index(this.#front + this.#queSize - 1);
         return this.#nums[last];
     }
 
-    /* 出力用の配列を返す */
+    /* 表示用の配列を返す */
     toArray() {
-        // 有効長の範囲内のリスト要素のみを変換
+        // 有効な長さの範囲内にあるリストの要素だけを変換する
         const res = [];
         for (let i = 0, j = this.#front; i < this.#queSize; i++, j++) {
             res[i] = this.#nums[this.index(j)];
@@ -108,8 +108,8 @@ class ArrayDeque {
     }
 }
 
-/* Driver Code */
-/* 両端キューを初期化 */
+/* 実行用コード */
+/* 両端キューを初期化する */
 const capacity = 5;
 const deque = new ArrayDeque(capacity);
 deque.pushLast(3);
@@ -117,40 +117,40 @@ deque.pushLast(2);
 deque.pushLast(5);
 console.log('両端キュー deque = [' + deque.toArray() + ']');
 
-/* 要素にアクセス */
+/* 要素にアクセスする */
 const peekFirst = deque.peekFirst();
-console.log('先頭要素 peekFirst = ' + peekFirst);
+console.log('キューの先頭要素 peekFirst = ' + peekFirst);
 const peekLast = deque.peekLast();
-console.log('末尾要素 peekLast = ' + peekLast);
+console.log('キューの末尾要素 peekLast = ' + peekLast);
 
-/* 要素をエンキュー */
+/* 要素をエンキューする */
 deque.pushLast(4);
-console.log('要素 4 を末尾に追加した後 deque = [' + deque.toArray() + ']');
+console.log('要素 4 を末尾にエンキューした後 deque = [' + deque.toArray() + ']');
 deque.pushFirst(1);
-console.log('要素 1 を先頭に追加した後 deque = [' + deque.toArray() + ']');
+console.log('要素 1 を先頭にエンキューした後 deque = [' + deque.toArray() + ']');
 
-/* 要素をデキュー */
+/* 要素をデキューする */
 const popLast = deque.popLast();
 console.log(
-    '末尾から取り出した要素 = ' +
+    '末尾からデキューした要素 = ' +
         popLast +
-        '、末尾から取り出した後 deque = [' +
+        '、末尾からデキューした後 deque = [' +
         deque.toArray() +
         ']'
 );
 const popFirst = deque.popFirst();
 console.log(
-    '先頭から取り出した要素 = ' +
+    '先頭からデキューした要素 = ' +
         popFirst +
-        '、先頭から取り出した後 deque = [' +
+        '、先頭からデキューした後 deque = [' +
         deque.toArray() +
         ']'
 );
 
-/* 両端キューの長さを取得 */
+/* 両端キューの長さを取得する */
 const size = deque.size();
 console.log('両端キューの長さ size = ' + size);
 
-/* 両端キューが空かどうかを判定 */
+/* 両端キューが空かどうかを判定する */
 const isEmpty = deque.isEmpty();
-console.log('両端キューが空かどうか = ' + isEmpty);
+console.log('両端キューは空か = ' + isEmpty);

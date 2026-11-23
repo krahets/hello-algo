@@ -10,7 +10,7 @@
     2. 每次只能移动一个圆盘。
     3. 小圆盘必须时刻位于大圆盘之上。
 
-![汉诺塔问题示例](hanota_problem.assets/hanota_example.png)
+![汉诺塔问题示例](hanota_problem.assets/hanota_example.svg)
 
 **我们将规模为 $i$ 的汉诺塔问题记作 $f(i)$** 。例如 $f(3)$ 代表将 $3$ 个圆盘从 `A` 移动至 `C` 的汉诺塔问题。
 
@@ -19,10 +19,10 @@
 如下图所示，对于问题 $f(1)$ ，即当只有一个圆盘时，我们将它直接从 `A` 移动至 `C` 即可。
 
 === "<1>"
-    ![规模为 1 的问题的解](hanota_problem.assets/hanota_f1_step1.png)
+    ![规模为 1 的问题的解](hanota_problem.assets/hanota_f1_step1.svg)
 
 === "<2>"
-    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.png)
+    ![hanota_f1_step2](hanota_problem.assets/hanota_f1_step2.svg)
 
 如下图所示，对于问题 $f(2)$ ，即当有两个圆盘时，**由于要时刻满足小圆盘在大圆盘之上，因此需要借助 `B` 来完成移动**。
 
@@ -31,16 +31,16 @@
 3. 最后将小圆盘从 `B` 移至 `C` 。
 
 === "<1>"
-    ![规模为 2 的问题的解](hanota_problem.assets/hanota_f2_step1.png)
+    ![规模为 2 的问题的解](hanota_problem.assets/hanota_f2_step1.svg)
 
 === "<2>"
-    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.png)
+    ![hanota_f2_step2](hanota_problem.assets/hanota_f2_step2.svg)
 
 === "<3>"
-    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.png)
+    ![hanota_f2_step3](hanota_problem.assets/hanota_f2_step3.svg)
 
 === "<4>"
-    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.png)
+    ![hanota_f2_step4](hanota_problem.assets/hanota_f2_step4.svg)
 
 解决问题 $f(2)$ 的过程可总结为：**将两个圆盘借助 `B` 从 `A` 移至 `C`** 。其中，`C` 称为目标柱、`B` 称为缓冲柱。
 
@@ -55,16 +55,16 @@
 3. 令 `C` 为目标柱、`A` 为缓冲柱，将两个圆盘从 `B` 移至 `C` 。
 
 === "<1>"
-    ![规模为 3 的问题的解](hanota_problem.assets/hanota_f3_step1.png)
+    ![规模为 3 的问题的解](hanota_problem.assets/hanota_f3_step1.svg)
 
 === "<2>"
-    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.png)
+    ![hanota_f3_step2](hanota_problem.assets/hanota_f3_step2.svg)
 
 === "<3>"
-    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.png)
+    ![hanota_f3_step3](hanota_problem.assets/hanota_f3_step3.svg)
 
 === "<4>"
-    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.png)
+    ![hanota_f3_step4](hanota_problem.assets/hanota_f3_step4.svg)
 
 从本质上看，**我们将问题 $f(3)$ 划分为两个子问题 $f(2)$ 和一个子问题 $f(1)$** 。按顺序解决这三个子问题之后，原问题随之得到解决。这说明子问题是独立的，而且解可以合并。
 
@@ -76,7 +76,7 @@
 
 对于这两个子问题 $f(n-1)$ ，**可以通过相同的方式进行递归划分**，直至达到最小子问题 $f(1)$ 。而 $f(1)$ 的解是已知的，只需一次移动操作即可。
 
-![解决汉诺塔问题的分治策略](hanota_problem.assets/hanota_divide_and_conquer.png)
+![解决汉诺塔问题的分治策略](hanota_problem.assets/hanota_divide_and_conquer.svg)
 
 ### 代码实现
 
@@ -88,7 +88,7 @@
 
 如下图所示，汉诺塔问题形成一棵高度为 $n$ 的递归树，每个节点代表一个子问题，对应一个开启的 `dfs()` 函数，**因此时间复杂度为 $O(2^n)$ ，空间复杂度为 $O(n)$** 。
 
-![汉诺塔问题的递归树](hanota_problem.assets/hanota_recursive_tree.png)
+![汉诺塔问题的递归树](hanota_problem.assets/hanota_recursive_tree.svg)
 
 !!! quote
 

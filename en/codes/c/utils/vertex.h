@@ -16,7 +16,7 @@ typedef struct {
     int val;
 } Vertex;
 
-/* Constructor, initialize a new node */
+/* Constructor: initialize a new vertex */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));
@@ -24,7 +24,7 @@ Vertex *newVertex(int val) {
     return vet;
 }
 
-/* Convert value array to vertex array */
+/* Convert an array of values to an array of vertices */
 Vertex **valsToVets(int *vals, int size) {
     Vertex **vertices = (Vertex **)malloc(size * sizeof(Vertex *));
     for (int i = 0; i < size; ++i) {
@@ -33,7 +33,7 @@ Vertex **valsToVets(int *vals, int size) {
     return vertices;
 }
 
-/* Convert vertex array to value array */
+/* Convert an array of vertices to an array of values */
 int *vetsToVals(Vertex **vertices, int size) {
     int *vals = (int *)malloc(size * sizeof(int));
     for (int i = 0; i < size; ++i) {

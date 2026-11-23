@@ -16,7 +16,7 @@ func NewVertex(val int) Vertex {
 	}
 }
 
-// ValsToVets は値リストを頂点リストにデシリアライズする
+// ValsToVets は値のリストをデシリアライズして頂点のリストにする
 func ValsToVets(vals []int) []Vertex {
 	vets := make([]Vertex, len(vals))
 	for i := 0; i < len(vals); i++ {
@@ -25,7 +25,7 @@ func ValsToVets(vals []int) []Vertex {
 	return vets
 }
 
-// VetsToVals は頂点リストを値リストにシリアライズする
+// VetsToVals は頂点のリストをシリアライズして値のリストにする
 func VetsToVals(vets []Vertex) []int {
 	vals := make([]int, len(vets))
 	for i := range vets {
@@ -34,17 +34,17 @@ func VetsToVals(vets []Vertex) []int {
 	return vals
 }
 
-// DeleteSliceElms はスライスの指定要素を削除する
+// DeleteSliceElms はスライスの指定された要素を削除する
 func DeleteSliceElms[T any](a []T, elms ...T) []T {
 	if len(a) == 0 || len(elms) == 0 {
 		return a
 	}
-	// まず要素を set に変換する
+	// 先に要素を set に変換する
 	m := make(map[any]struct{})
 	for _, v := range elms {
 		m[v] = struct{}{}
 	}
-	// 指定した要素を除外する
+	// 指定された要素を除外する
 	res := make([]T, 0, len(a))
 	for _, v := range a {
 		if _, ok := m[v]; !ok {

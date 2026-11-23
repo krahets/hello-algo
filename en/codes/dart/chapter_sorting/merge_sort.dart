@@ -4,14 +4,14 @@
  * Author: what-is-me (whatisme@outlook.jp)
  */
 
-/* Merge left subarray and right subarray */
+/* Merge the left and right subarrays */
 void merge(List<int> nums, int left, int mid, int right) {
-  // Left subarray interval is [left, mid], right subarray interval is [mid+1, right]
-  // Create a temporary array tmp to store the merged results
+  // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
+  // Create a temporary array tmp to store the merged result
   List<int> tmp = List.filled(right - left + 1, 0);
-  // Initialize the start indices of the left and right subarrays
+  // Initialize the starting indices of the left and right subarrays
   int i = left, j = mid + 1, k = 0;
-  // While both subarrays still have elements, compare and copy the smaller element into the temporary array
+  // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
   while (i <= mid && j <= right) {
     if (nums[i] <= nums[j])
       tmp[k++] = nums[i++];
@@ -25,7 +25,7 @@ void merge(List<int> nums, int left, int mid, int right) {
   while (j <= right) {
     tmp[k++] = nums[j++];
   }
-  // Copy the elements from the temporary array tmp back to the original array nums at the corresponding interval
+  // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
   for (k = 0; k < tmp.length; k++) {
     nums[left + k] = tmp[k];
   }
@@ -33,17 +33,17 @@ void merge(List<int> nums, int left, int mid, int right) {
 
 /* Merge sort */
 void mergeSort(List<int> nums, int left, int right) {
-  // Termination condition
-  if (left >= right) return; // Terminate recursion when subarray length is 1
-  // Divide and conquer stage
-  int mid = left + (right - left) ~/ 2; // Calculate midpoint
-  mergeSort(nums, left, mid); // Recursively process the left subarray
-  mergeSort(nums, mid + 1, right); // Recursively process the right subarray
-  // Merge stage
+  // Base case
+  if (left >= right) return; // Stop recursing when the subarray has at most one element
+  // Divide phase
+  int mid = left + (right - left) ~/ 2; // Calculate the midpoint
+  mergeSort(nums, left, mid); // Recurse on the left subarray
+  mergeSort(nums, mid + 1, right); // Recurse on the right subarray
+  // Merge phase
   merge(nums, left, mid, right);
 }
 
-/* Driver Code */
+/* Driver code */
 void main() {
   /* Merge sort */
   List<int> nums = [7, 3, 2, 6, 0, 1, 5, 4];

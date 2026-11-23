@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "title": "원판 한 개짜리 하노이의 탑(f(1))",
+  "summary": "기둥 A에 있는 유일한 원판을 목표 기둥 C로 곧바로 옮기며, 단일 원판 이동 한 번으로 끝난다.",
+  "context": [
+    "세 기둥은 왼쪽부터 A, B, C다. 한 번에 기둥 맨 위의 원판 하나만 옮길 수 있고 큰 원판은 작은 원판 위에 놓을 수 없다. f(1)은 원판 한 개를 옮기는 문제로, 재귀 분해의 기본 경우다."
+  ],
+  "description": [
+    "초록색 둥근 직사각형이 유일한 원판을 나타낸다. 두 장면은 각각 이동 전과 이동 후이며 실제로는 단일 원판 이동을 한 번만 수행한다."
+  ],
+  "frames": [
+    {
+      "id": "source-329",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step1.png",
+      "title": "유일한 원판이 기둥 A에 놓인 상태",
+      "explanation": "초기에는 A=[초록색 원판], B=[], C=[]로 아직 이동하기 전이다. 원판 위를 가로막는 것이 없고 목표 기둥 C가 비어 있으므로 보조 기둥 B를 쓸 필요 없이 A에서 C로 곧바로 옮길 수 있다.",
+      "key_state": "기둥 A에 원판 한 개가 있고 기둥 B와 기둥 C는 비어 있으며 아직 이동하지 않았다.",
+      "announcement": "원판 한 개가 기둥 A에 놓인 초기 상태를 보여 준다."
+    },
+    {
+      "id": "source-330",
+      "book_path": "chapter_divide_and_conquer/hanota_problem.assets/hanota_f1_step2.png",
+      "title": "원판을 기둥 A에서 기둥 C로 바로 이동",
+      "explanation": "A 맨 위의 유일한 초록색 원판 위를 가로막는 것이 없고 목표 기둥 C가 비어 있으므로 B를 거치지 않고 원판을 A에서 C로 곧바로 옮긴다. 현재 A=[], B=[], C=[초록색 원판]이며 단일 원판 이동 한 번으로 작업이 끝난다.",
+      "key_state": "단일 원판 이동 한 번을 마쳤다. 원판은 기둥 C에 있고 기둥 A와 기둥 B는 비어 있다.",
+      "announcement": "유일한 원판을 기둥 A에서 기둥 C로 곧바로 옮긴다."
+    }
+  ],
+  "animations": {
+    "hanota-f1": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-329"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-330"
+        }
+      ]
+    }
+  }
+}

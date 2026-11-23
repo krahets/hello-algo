@@ -6,11 +6,11 @@
 
 /* メモ化探索 */
 fn dfs(i: usize, mem: &mut [i32]) -> i32 {
-    // dp[1] と dp[2] は既知なので返す
+    // dp[1] と dp[2] は既知なので、その値を返す
     if i == 1 || i == 2 {
         return i as i32;
     }
-    // dp[i] の記録があれば、それをそのまま返す
+    // dp[i] が記録済みなら、その値をそのまま返す
     if mem[i] != -1 {
         return mem[i];
     }
@@ -21,14 +21,14 @@ fn dfs(i: usize, mem: &mut [i32]) -> i32 {
     count
 }
 
-/* 階段登り：メモ化探索 */
+/* 階段の上り方：メモ化探索 */
 fn climbing_stairs_dfs_mem(n: usize) -> i32 {
-    // mem[i] は第 i 段まで上る方法の総数を記録し、-1 は未記録を表す
+    // mem[i] は i 段目まで上る方法の総数を記録し、-1 は未記録を表す
     let mut mem = vec![-1; n + 1];
     dfs(n, &mut mem)
 }
 
-/* Driver Code */
+/* 実行用コード */
 pub fn main() {
     let n: usize = 9;
 

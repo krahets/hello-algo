@@ -7,34 +7,34 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### 前順走査：例題2 ###
+### 行きがけ順走査：例題 2 ###
 def pre_order(root)
   return unless root
 
-  # 試す
+  # 試行
   $path << root
 
-  # 解を記録
+  # 解を記録する
   $res << $path.dup if root.val == 7
 
   pre_order(root.left)
   pre_order(root.right)
 
-  # バックトラック
+  # 復元
   $path.pop
 end
 
-### Driver Code ###
+### 実行用コード ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\n二分木を初期化"
+  puts "\n二分木を初期化する"
   print_tree(root)
 
-  # 先行順走査
+  # 行きがけ順走査
   $path, $res = [], []
   pre_order(root)
 
-  puts "\n根ノードからノード 7 までのすべての経路を出力"
+  puts "\n根ノードからノード 7 までのすべての経路を出力する"
   for path in $res
     p path.map { |node| node.val }
   end

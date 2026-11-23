@@ -16,20 +16,20 @@ func newAVLTree() *aVLTree {
 	return &aVLTree{root: nil}
 }
 
-/* Get node height */
+/* Get the node height */
 func (t *aVLTree) height(node *TreeNode) int {
-	// Empty node height is -1, leaf node height is 0
+	// A nil node has height -1; a leaf has height 0
 	if node != nil {
 		return node.Height
 	}
 	return -1
 }
 
-/* Update node height */
+/* Update the node height */
 func (t *aVLTree) updateHeight(node *TreeNode) {
 	lh := t.height(node.Left)
 	rh := t.height(node.Right)
-	// Node height equals the height of the tallest subtree + 1
+	// The node height equals the height of its taller subtree + 1
 	if lh > rh {
 		node.Height = lh + 1
 	} else {
@@ -37,9 +37,9 @@ func (t *aVLTree) updateHeight(node *TreeNode) {
 	}
 }
 
-/* Get balance factor */
+/* Get the balance factor */
 func (t *aVLTree) balanceFactor(node *TreeNode) int {
-	// Empty node balance factor is 0
+	// A nil node has balance factor 0
 	if node == nil {
 		return 0
 	}
@@ -47,103 +47,103 @@ func (t *aVLTree) balanceFactor(node *TreeNode) int {
 	return t.height(node.Left) - t.height(node.Right)
 }
 
-/* Right rotation operation */
+/* Right rotation */
 func (t *aVLTree) rightRotate(node *TreeNode) *TreeNode {
 	child := node.Left
 	grandChild := child.Right
-	// Using child as pivot, rotate node to the right
+	// Rotate node to the right around child
 	child.Right = node
 	node.Left = grandChild
-	// Update node height
+	// Update the node height
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// Return root node of subtree after rotation
+	// Return the root of the rotated subtree
 	return child
 }
 
-/* Left rotation operation */
+/* Left rotation */
 func (t *aVLTree) leftRotate(node *TreeNode) *TreeNode {
 	child := node.Right
 	grandChild := child.Left
-	// Using child as pivot, rotate node to the left
+	// Rotate node to the left around child
 	child.Left = node
 	node.Right = grandChild
-	// Update node height
+	// Update the node height
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// Return root node of subtree after rotation
+	// Return the root of the rotated subtree
 	return child
 }
 
-/* Perform rotation operation to restore balance to this subtree */
+/* Perform rotations to restore balance in this subtree */
 func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
-	// Get balance factor of node
-	// Go recommends short variables, here bf refers to t.balanceFactor
+	// Get the balance factor of node
+	// Go favors short local variable names; bf holds the result of t.balanceFactor(node)
 	bf := t.balanceFactor(node)
-	// Left-leaning tree
+	// Left-heavy tree
 	if bf > 1 {
 		if t.balanceFactor(node.Left) >= 0 {
-			// Right rotation
+			// Rotate right
 			return t.rightRotate(node)
 		} else {
-			// First left rotation then right rotation
+			// Rotate left, then right
 			node.Left = t.leftRotate(node.Left)
 			return t.rightRotate(node)
 		}
 	}
-	// Right-leaning tree
+	// Right-heavy tree
 	if bf < -1 {
 		if t.balanceFactor(node.Right) <= 0 {
-			// Left rotation
+			// Rotate left
 			return t.leftRotate(node)
 		} else {
-			// First right rotation then left rotation
+			// Rotate right, then left
 			node.Right = t.rightRotate(node.Right)
 			return t.leftRotate(node)
 		}
 	}
-	// Balanced tree, no rotation needed, return directly
+	// The tree is balanced; return without rotating
 	return node
 }
 
-/* Insert node */
+/* Insert a node */
 func (t *aVLTree) insert(val int) {
 	t.root = t.insertHelper(t.root, val)
 }
 
-/* Recursively insert node (helper function) */
+/* Insert a node recursively (helper function) */
 func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
 	}
-	/* 1. Find insertion position and insert node */
+	/* 1. Find the insertion position and insert the node */
 	if val < node.Val.(int) {
 		node.Left = t.insertHelper(node.Left, val)
 	} else if val > node.Val.(int) {
 		node.Right = t.insertHelper(node.Right, val)
 	} else {
-		// Duplicate node not inserted, return directly
+		// Return without inserting a duplicate node
 		return node
 	}
-	// Update node height
+	// Update the node height
 	t.updateHeight(node)
-	/* 2. Perform rotation operation to restore balance to this subtree */
+	/* 2. Perform rotations to restore balance in this subtree */
 	node = t.rotate(node)
-	// Return root node of subtree
+	// Return the subtree root
 	return node
 }
 
-/* Remove node */
+/* Remove a node */
 func (t *aVLTree) remove(val int) {
 	t.root = t.removeHelper(t.root, val)
 }
 
-/* Recursively remove node (helper function) */
+/* Remove a node recursively (helper function) */
 func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil
 	}
-	/* 1. Find node and delete */
+	/* 1. Find and remove the node */
 	if val < node.Val.(int) {
 		node.Left = t.removeHelper(node.Left, val)
 	} else if val > node.Val.(int) {
@@ -155,14 +155,14 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 				child = node.Right
 			}
 			if child == nil {
-				// Number of child nodes = 0, delete node directly and return
+				// Number of children = 0: remove node and return
 				return nil
 			} else {
-				// Number of child nodes = 1, delete node directly
+				// Number of children = 1: remove node directly
 				node = child
 			}
 		} else {
-			// Number of child nodes = 2, delete the next node in inorder traversal and replace current node with it
+			// Number of children = 2: remove the inorder successor and use its value to replace the current node value
 			temp := node.Right
 			for temp.Left != nil {
 				temp = temp.Left
@@ -171,30 +171,30 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 			node.Val = temp.Val
 		}
 	}
-	// Update node height
+	// Update the node height
 	t.updateHeight(node)
-	/* 2. Perform rotation operation to restore balance to this subtree */
+	/* 2. Perform rotations to restore balance in this subtree */
 	node = t.rotate(node)
-	// Return root node of subtree
+	// Return the subtree root
 	return node
 }
 
-/* Search node */
+/* Find a node */
 func (t *aVLTree) search(val int) *TreeNode {
 	cur := t.root
-	// Loop search, exit after passing leaf node
+	// Continue searching while the current node is not nil
 	for cur != nil {
 		if cur.Val.(int) < val {
-			// Target node is in cur's right subtree
+			// If the target node exists, it lies in the right subtree of cur
 			cur = cur.Right
 		} else if cur.Val.(int) > val {
-			// Target node is in cur's left subtree
+			// If the target node exists, it lies in the left subtree of cur
 			cur = cur.Left
 		} else {
-			// Found target node, exit loop
+			// The target node was found; exit the loop
 			break
 		}
 	}
-	// Return target node
+	// Return the target node, or nil if it was not found
 	return cur
 }

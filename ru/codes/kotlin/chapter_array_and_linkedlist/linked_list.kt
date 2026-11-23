@@ -9,14 +9,14 @@ package chapter_array_and_linkedlist
 import utils.ListNode
 import utils.printLinkedList
 
-/* Вставить узел P после узла n0 в связном списке */
+/* Вставка узла P в связный список после узла n0 */
 fun insert(n0: ListNode?, p: ListNode?) {
     val n1 = n0?.next
     p?.next = n1
     n0?.next = p
 }
 
-/* Удалить первый узел после узла n0 в связном списке */
+/* Удаление первого узла после узла n0 из связного списка */
 fun remove(n0: ListNode?) {
     if (n0?.next == null)
         return
@@ -26,7 +26,7 @@ fun remove(n0: ListNode?) {
     n0.next = n1
 }
 
-/* Доступ к узлу связного списка по индексу index */
+/* Доступ к узлу с индексом index в связном списке */
 fun access(head: ListNode?, index: Int): ListNode? {
     var h = head
     for (i in 0..<index) {
@@ -37,7 +37,7 @@ fun access(head: ListNode?, index: Int): ListNode? {
     return h
 }
 
-/* Найти в связном списке первый узел со значением target */
+/* Поиск первого узла со значением target в связном списке */
 fun find(head: ListNode?, target: Int): Int {
     var index = 0
     var h = head

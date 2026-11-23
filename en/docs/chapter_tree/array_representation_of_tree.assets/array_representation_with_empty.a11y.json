@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "title": "Binary tree array keeping empty slots",
+  "summary": "Explicitly keep empty slots for missing intermediate nodes in the level-order array so the 2i+1 and 2i+2 mappings reconstruct the tree uniquely.",
+  "context": [
+    "The 10 solid nodes are connected as follows: root 1 connects to left child 2 and right child 3; 2 connects only to left child 4; 3 connects to left child 6 and right child 7; 4 connects to left child 8 and right child 9; 6 connects only to left child 12; 7 connects only to right child 15; and 8, 9, 12, and 15 are leaf nodes. Array indices 0 through 14 span 15 cells holding 10 node values and five empty slots at indices 4, 9, 10, 12, and 13; the table below lists every cell."
+  ],
+  "description": [],
+  "result": "Keeping intermediate empty slots explicitly lets child positions 2i+1 and 2i+2 for index i reconstruct this tree uniquely. An empty slot means no node exists there (often written None or null in code), not the numeric value 0.",
+  "frames": [
+    {
+      "id": "source-112",
+      "book_path": "chapter_tree/array_representation_of_tree.assets/array_representation_with_empty.png",
+      "title": "Binary tree array keeping empty slots",
+      "explanation": "Even though index 4 is an empty slot with no node, its two child positions 9 and 10 on the next level must also be left empty so later nodes do not shift forward out of place. For instance, node 6 at index 5 stores 12 at left child position 11 and has an empty right child position 12."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Array indices and node values",
+      "headers": [
+        "Index",
+        "Node value or empty slot"
+      ],
+      "rows": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ],
+        [
+          "4",
+          "Empty"
+        ],
+        [
+          "5",
+          "6"
+        ],
+        [
+          "6",
+          "7"
+        ],
+        [
+          "7",
+          "8"
+        ],
+        [
+          "8",
+          "9"
+        ],
+        [
+          "9",
+          "Empty"
+        ],
+        [
+          "10",
+          "Empty"
+        ],
+        [
+          "11",
+          "12"
+        ],
+        [
+          "12",
+          "Empty"
+        ],
+        [
+          "13",
+          "Empty"
+        ],
+        [
+          "14",
+          "15"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

@@ -10,14 +10,14 @@ import (
 
 /* Случайный доступ к элементу */
 func randomAccess(nums []int) (randomNum int) {
-	// Случайным образом выбрать число из интервала [0, nums.length)
+	// Случайный выбор числа из диапазона [0, nums.length)
 	randomIndex := rand.Intn(len(nums))
 	// Получить и вернуть случайный элемент
 	randomNum = nums[randomIndex]
 	return
 }
 
-/* Увеличить длину массива */
+/* Увеличение длины массива */
 func extend(nums []int, enlarge int) []int {
 	// Инициализировать массив увеличенной длины
 	res := make([]int, len(nums)+enlarge)
@@ -29,9 +29,9 @@ func extend(nums []int, enlarge int) []int {
 	return res
 }
 
-/* Вставить элемент num по индексу index в массив */
+/* Вставка элемента num в массив по индексу index */
 func insert(nums []int, num int, index int) {
-	// Сдвинуть элемент с индексом index и все последующие элементы на одну позицию назад
+	// Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
@@ -39,9 +39,9 @@ func insert(nums []int, num int, index int) {
 	nums[index] = num
 }
 
-/* Удалить элемент по индексу index */
+/* Удаление элемента по индексу index */
 func remove(nums []int, index int) {
-	// Сдвинуть все элементы после индекса index на одну позицию вперед
+	// Сдвинуть все элементы после индекса index на одну позицию влево
 	for i := index; i < len(nums)-1; i++ {
 		nums[i] = nums[i+1]
 	}
@@ -66,7 +66,7 @@ func traverse(nums []int) {
 	}
 }
 
-/* Найти заданный элемент в массиве */
+/* Поиск заданного элемента в массиве */
 func find(nums []int, target int) (index int) {
 	index = -1
 	for i := 0; i < len(nums); i++ {

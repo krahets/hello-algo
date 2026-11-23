@@ -10,27 +10,27 @@ require_relative '../utils/print_util'
 class MaxHeap
   attr_reader :max_heap
 
-  ### Constructor, build heap from input list ###
+  ### Constructor: build a heap from the input list ###
   def initialize(nums)
-    # Add list elements to heap as is
+    # Place the list elements in the heap without changing their order
     @max_heap = nums
-    # Heapify all nodes except leaf nodes
+    # Sift down from every non-leaf node
     parent(size - 1).downto(0) do |i|
       sift_down(i)
     end
   end
 
-  ### Get left child index ###
+  ### Get the left child index ###
   def left(i)
     2 * i + 1
   end
 
-  ### Get right child index ###
+  ### Get the right child index ###
   def right(i)
     2 * i + 2
   end
 
-  ### Get parent node index ###
+  ### Get the parent index ###
   def parent(i)
     (i - 1) / 2     # Floor division
   end
@@ -40,108 +40,108 @@ class MaxHeap
     @max_heap[i], @max_heap[j] = @max_heap[j], @max_heap[i]
   end
 
-  ### Get heap size ###
+  ### Get the heap size ###
   def size
     @max_heap.length
   end
 
-  ### Check if heap is empty ###
+  ### Check whether the heap is empty ###
   def is_empty?
     size == 0
   end
 
-  ### Access heap top element ###
+  ### Access the top element of the heap ###
   def peek
     @max_heap[0]
   end
 
-  ### Push element to heap ###
+  ### Push an element onto the heap ###
   def push(val)
-    # Add node
+    # Add a node
     @max_heap << val
-    # Heapify from bottom to top
+    # Sift up
     sift_up(size - 1)
   end
 
-  ### Heapify from node i, bottom to top ###
+  ### Sift up starting from node i ###
   def sift_up(i)
     loop do
-      # Get parent node of node i
+      # Get the parent of node i
       p = parent(i)
-      # When "crossing root node" or "node needs no repair", end heapify
+      # Stop sifting when the root has been passed or the node needs no repair
       break if p < 0 || @max_heap[i] <= @max_heap[p]
-      # Swap two nodes
+      # Swap the two nodes
       swap(i, p)
-      # Loop upward heapify
+      # Continue sifting up
       i = p
     end
   end
 
-  ### Pop element from heap ###
+  ### Pop an element from the heap ###
   def pop
-    # Handle empty case
+    # Handle an empty heap
     raise IndexError, "Heap is empty" if is_empty?
-    # Delete node
+    # Swap the root with the rightmost leaf on the last level (swap the first and last elements)
     swap(0, size - 1)
-    # Remove node
+    # Remove a node
     val = @max_heap.pop
-    # Return top element
+    # Sift down
     sift_down(0)
-    # Return heap top element
+    # Return the top element of the heap
     val
   end
 
-  ### Heapify from node i, top to bottom ###
+  ### Sift down starting from node i ###
   def sift_down(i)
     loop do
-      # If node i is largest or indices l, r are out of bounds, no need to continue heapify, break
+      # Find the node with the largest value among i, l, and r, and store its index in ma
       l, r, ma = left(i), right(i), i
       ma = l if l < size && @max_heap[l] > @max_heap[ma]
       ma = r if r < size && @max_heap[r] > @max_heap[ma]
 
-      # Swap two nodes
+      # Stop if node i is largest or both child indices l and r are out of bounds
       break if ma == i
 
-      # Swap two nodes
+      # Swap the two nodes
       swap(i, ma)
-      # Loop downwards heapification
+      # Continue sifting down
       i = ma
     end
   end
 
-  ### Print heap (binary tree) ###
+  ### Print the heap (binary tree)###
   def __print__
     print_heap(@max_heap)
   end
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
-  # Consider negating the elements before entering the heap, which can reverse the size relationship, thus implementing max heap
+  # Initialize a max heap
   max_heap = MaxHeap.new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
-  puts "\nAfter inputting list and building heap"
+  puts "\nAfter building a heap from the input list:"
   max_heap.__print__
 
-  # Check if heap is empty
+  # Get the top element of the heap
   peek = max_heap.peek
-  puts "\nHeap top element is #{peek}"
+  puts "\nHeap top: #{peek}"
 
-  # Element enters heap
+  # Push an element onto the heap
   val = 7
   max_heap.push(val)
-  puts "\nAfter element #{val} pushes to heap"
+  puts "\nAfter pushing #{val} onto the heap"
   max_heap.__print__
 
-  # Time complexity is O(n), not O(nlogn)
+  # Pop the top element from the heap
   peek = max_heap.pop
-  puts "\nAfter heap top element #{peek} pops from heap"
+  puts "\nAfter popping heap top #{peek}"
   max_heap.__print__
 
-  # Get heap size
+  # Get the heap size
   size = max_heap.size
-  puts "\nHeap size is #{size}"
+  puts "\nNumber of elements in the heap: #{size}"
 
-  # Check if heap is empty
+  # Check whether the heap is empty
   is_empty = max_heap.is_empty?
-  puts "\nIs heap empty #{is_empty}"
+  puts "\nIs the heap empty? #{is_empty}"
 end

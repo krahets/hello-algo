@@ -19,12 +19,12 @@ class Pair {
     }
 }
 
-/* Hash table based on array implementation */
+/* Hash table implemented with an array */
 class ArrayHashMap {
     private List<Pair> buckets;
 
     public ArrayHashMap() {
-        // Initialize array with 100 buckets
+        // Initialize an array containing 100 buckets
         buckets = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             buckets.add(null);
@@ -37,7 +37,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* Query operation */
+    /* Lookup operation */
     public String get(int key) {
         int index = hashFunc(key);
         Pair pair = buckets.get(index);
@@ -46,7 +46,7 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* Add operation */
+    /* Insert operation */
     public void put(int key, String val) {
         Pair pair = new Pair(key, val);
         int index = hashFunc(key);
@@ -56,7 +56,7 @@ class ArrayHashMap {
     /* Remove operation */
     public void remove(int key) {
         int index = hashFunc(key);
-        // Set to null to represent deletion
+        // Set the bucket to null to mark it as removed
         buckets.set(index, null);
     }
 
@@ -90,7 +90,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* Print hash table */
+    /* Print the hash table */
     public void print() {
         for (Pair kv : pairSet()) {
             System.out.println(kv.key + " -> " + kv.val);
@@ -100,40 +100,40 @@ class ArrayHashMap {
 
 public class array_hash_map {
     public static void main(String[] args) {
-        /* Initialize hash table */
+        /* Initialize the hash table */
         ArrayHashMap map = new ArrayHashMap();
 
-        /* Add operation */
-        // Add key-value pair (key, value) to the hash table
-        map.put(12836, "Xiao Ha");
-        map.put(15937, "Xiao Luo");
-        map.put(16750, "Xiao Suan");
-        map.put(13276, "Xiao Fa");
-        map.put(10583, "Xiao Ya");
-        System.out.println("\nAfter adding is complete, hash table is\nKey -> Value");
+        /* Insert operation */
+        // Insert the key-value pair (key, value) into the hash table
+        map.put(12836, "小哈");
+        map.put(15937, "小啰");
+        map.put(16750, "小算");
+        map.put(13276, "小法");
+        map.put(10583, "小鸭");
+        System.out.println("\nHash table after insertion:\nKey -> Value");
         map.print();
 
-        /* Query operation */
-        // Input key into hash table to get value
+        /* Lookup operation */
+        // Look up key in the hash table to obtain value
         String name = map.get(15937);
-        System.out.println("\nInput student ID 15937, query name " + name);
+        System.out.println("\nLook up student ID 15937 to obtain the name " + name);
 
         /* Remove operation */
-        // Remove key-value pair (key, value) from hash table
+        // Remove the key-value pair (key, value) from the hash table
         map.remove(10583);
-        System.out.println("\nAfter removing 10583, hash table is\nKey -> Value");
+        System.out.println("\nHash table after removing 10583:\nKey -> Value");
         map.print();
 
-        /* Traverse hash table */
-        System.out.println("\nTraverse key-value pairs Key->Value");
+        /* Traverse the hash table */
+        System.out.println("\nTraverse key-value pairs: Key->Value");
         for (Pair kv : map.pairSet()) {
             System.out.println(kv.key + " -> " + kv.val);
         }
-        System.out.println("\nTraverse keys only Key");
+        System.out.println("\nTraverse keys only: Key");
         for (int key : map.keySet()) {
             System.out.println(key);
         }
-        System.out.println("\nTraverse values only Value");
+        System.out.println("\nTraverse values only: Value");
         for (String val : map.valueSet()) {
             System.out.println(val);
         }

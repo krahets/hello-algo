@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "title": "Hash table with separate chaining",
+  "summary": "Each hash bucket corresponds to a singly linked list of key-value pair nodes; when multiple key values have the same remainder modulo 100 and fall into the same bucket, they are chained sequentially in that bucket's list.",
+  "context": [
+    "A callout box on the left states the core definition, \"Chaining: Each bucket stores a linked list containing all colliding entries\", and notes below it, \"Hash function: key % 100; Keys with the same last two digits produce a hash collision\".",
+    "The main diagram on the right has three column headings: \"Index\", a light blue \"Array\" column, and a light green \"Linked list (each node is a key-value pair)\" region extending to the right. The blue array column holds the head node of each non-empty linked list, and subsequent colliding nodes are chained to the right by one-way arrows."
+  ],
+  "description": [
+    "The figure draws five non-empty buckets—00, 37, 50, 76, and 83—with ellipses omitting the remaining indices and buckets rather than implying a five-slot array. Counting across all buckets gives 13 key-value pairs in total; the table below lists them from head to tail for each bucket."
+  ],
+  "tables": [
+    {
+      "caption": "Buckets shown in the figure and their linked-list order",
+      "headers": [
+        "Bucket index",
+        "Key-value pairs from head to tail"
+      ],
+      "rows": [
+        [
+          "00",
+          "(200,A) → (500,F) → (300,J)"
+        ],
+        [
+          "37",
+          "(937,B) → (637,G) → (437,K) → (237,M)"
+        ],
+        [
+          "50",
+          "(750,C) → (850,H)"
+        ],
+        [
+          "76",
+          "(276,D)"
+        ],
+        [
+          "83",
+          "(583,E) → (683,I) → (283,L)"
+        ]
+      ],
+      "row_header": 0
+    }
+  ],
+  "result": "By combining a bucket array with linked lists, separate chaining allows any number of colliding key entries sharing the same last two digits to coexist in the same bucket's list without overwriting one another.",
+  "frames": [
+    {
+      "id": "source-85",
+      "book_path": "chapter_hashing/hash_collision.assets/hash_table_chaining.png",
+      "title": "Collision chains in the five shown hash buckets",
+      "explanation": "A lookup first uses key % 100 to locate the bucket, then traverses that bucket's linked list comparing each full key until a match is found or the end of the list is reached. For example, tracing a lookup for 437 in the figure: 437 % 100 = 37 enters bucket 37, checks 937 and then 637, and finds 437 at the 3rd node, retrieving value K. The links in the figure show only the current list order and do not prescribe the insertion order of the nodes."
+    }
+  ]
+}

@@ -87,7 +87,7 @@ class LinkedListDeque {
         // Если в очереди один элемент, начало и конец указывают на один узел
         if (queSize == 1) {
             val = front->val;
-            delete front; // Освобождаем общий узел один раз
+            delete front; // Оба указателя указывают на один узел, поэтому достаточно освободить его один раз
             front = nullptr;
             rear = nullptr;
         }

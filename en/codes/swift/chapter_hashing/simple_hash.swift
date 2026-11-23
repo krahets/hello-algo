@@ -40,7 +40,7 @@ func xorHash(key: String) -> Int {
     return hash & MODULUS
 }
 
-/* Rotational hash */
+/* Rotating hash */
 func rotHash(key: String) -> Int {
     var hash = 0
     let MODULUS = 1_000_000_007
@@ -54,20 +54,20 @@ func rotHash(key: String) -> Int {
 
 @main
 enum SimpleHash {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        let key = "Hello Algo"
+        let key = "Hello 算法"
 
         var hash = addHash(key: key)
-        print("Additive hash value is \(hash)")
+        print("Additive hash value: \(hash)")
 
         hash = mulHash(key: key)
-        print("Multiplicative hash value is \(hash)")
+        print("Multiplicative hash value: \(hash)")
 
         hash = xorHash(key: key)
-        print("XOR hash value is \(hash)")
+        print("XOR hash value: \(hash)")
 
         hash = rotHash(key: key)
-        print("Rotational hash value is \(hash)")
+        print("Rotating hash value: \(hash)")
     }
 }

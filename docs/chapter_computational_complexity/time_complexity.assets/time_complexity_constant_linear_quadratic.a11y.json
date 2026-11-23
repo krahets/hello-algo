@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "title": "循环结构与操作次数",
+  "summary": "比较单次操作、单层循环和双层循环的工作量增长。",
+  "context": [],
+  "description": [
+    "每个小方块代表 1 次基础操作，外围循环框表示重复执行的范围。"
+  ],
+  "frames": [
+    {
+      "id": "source-28",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
+      "title": "循环结构与操作次数",
+      "explanation": "双层框表示嵌套：外层每执行 1 轮，内层都固定完整运行 n 次，所以次数相乘为 n × n，而不是两个循环先后执行时的相加。"
+    }
+  ],
+  "tables": [
+    {
+      "caption": "循环结构的工作量",
+      "headers": [
+        "结构",
+        "基础操作次数",
+        "时间复杂度"
+      ],
+      "rows": [
+        [
+          "无循环",
+          "1",
+          "常数阶 O(1)"
+        ],
+        [
+          "单层循环n次",
+          "n",
+          "线性阶 O(n)"
+        ],
+        [
+          "双层嵌套，各n次",
+          "n×n=n²",
+          "平方阶 O(n²)"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

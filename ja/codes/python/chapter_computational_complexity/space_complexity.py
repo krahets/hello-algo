@@ -13,36 +13,36 @@ from modules import ListNode, TreeNode, print_tree
 
 def function() -> int:
     """関数"""
-    # 何らかの処理を行う
+    # 何らかの処理を実行する
     return 0
 
 
 def constant(n: int):
-    """定数階"""
-    # 定数、変数、オブジェクトは O(1) の空間を占める
+    """定数オーダー"""
+    # 定数、変数、オブジェクトは O(1) の領域を使用する
     a = 0
     nums = [0] * 10000
     node = ListNode(0)
-    # ループ内の変数は O(1) の空間を占める
+    # ループ内の変数は O(1) の領域を使用する
     for _ in range(n):
         c = 0
-    # ループ内の関数は O(1) の空間を占める
+    # ループ内の関数は O(1) の領域を使用する
     for _ in range(n):
         function()
 
 
 def linear(n: int):
-    """線形階"""
-    # 長さ n のリストは O(n) の空間を使用
+    """線形オーダー"""
+    # 長さ n のリストは O(n) の領域を使用する
     nums = [0] * n
-    # 長さ n のハッシュテーブルは O(n) の空間を使用
+    # 長さ n のハッシュテーブルは O(n) の領域を使用する
     hmap = dict[int, str]()
     for i in range(n):
         hmap[i] = str(i)
 
 
 def linear_recur(n: int):
-    """線形時間（再帰実装）"""
+    """線形オーダー（再帰による実装）"""
     print("再帰 n =", n)
     if n == 1:
         return
@@ -50,13 +50,13 @@ def linear_recur(n: int):
 
 
 def quadratic(n: int):
-    """二乗階"""
-    # 二次元リストは O(n^2) の空間を使用
+    """二次オーダー"""
+    # 二次元リストは O(n^2) の領域を使用する
     num_matrix = [[0] * n for _ in range(n)]
 
 
 def quadratic_recur(n: int) -> int:
-    """二次時間（再帰実装）"""
+    """二次オーダー（再帰による実装）"""
     if n <= 0:
         return 0
     # 配列 nums の長さは n, n-1, ..., 2, 1
@@ -65,7 +65,7 @@ def quadratic_recur(n: int) -> int:
 
 
 def build_tree(n: int) -> TreeNode | None:
-    """指数時間（完全二分木の構築）"""
+    """指数オーダー（パーフェクト二分木の構築）"""
     if n == 0:
         return None
     root = TreeNode(0)
@@ -74,15 +74,15 @@ def build_tree(n: int) -> TreeNode | None:
     return root
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
     n = 5
-    # 定数階
+    # 定数オーダー
     constant(n)
-    # 線形階
+    # 線形オーダー
     linear(n)
     linear_recur(n)
-    # 二乗階
+    # 二次オーダー
     quadratic(n)
     quadratic_recur(n)
     # 指数オーダー

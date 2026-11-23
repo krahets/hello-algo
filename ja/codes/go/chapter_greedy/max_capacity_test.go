@@ -12,7 +12,7 @@ import (
 func TestMaxCapacity(t *testing.T) {
 	ht := []int{3, 8, 5, 2, 7, 7, 3, 4}
 
-	// 貪欲法
+	// 貪欲アルゴリズム
 	res := maxCapacity(ht)
 	fmt.Println("最大容量は", res)
 }

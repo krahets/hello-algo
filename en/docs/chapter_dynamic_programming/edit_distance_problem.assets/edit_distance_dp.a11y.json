@@ -1,0 +1,922 @@
+{
+  "schema_version": 2,
+  "title": "Dynamic programming for edit distance",
+  "summary": "Fill the table cell by cell across source and target prefixes to find the minimum number of edits needed to transform string bag into pack.",
+  "context": [
+    "The source string s is bag (length 3), and the target string t is pack (length 4); note that this input differs from the other examples in the text. Each operation inserts, deletes, or replaces a single character at a cost of 1.",
+    "State dp[i, j] represents the minimum number of edits needed to transform the first i characters of source string s (the source prefix) into the first j characters of target string t (the target prefix). The two-dimensional table has 4 rows and 5 columns: rows i = 0 to 3 correspond to source prefixes empty string, b, ba, and bag; columns j = 0 to 4 correspond to target prefixes empty string, p, pa, pac, and pack."
+  ],
+  "description": [
+    "First create a 4×5 all-zero table, in which dp[0, 0] is already the valid boundary value 0 for transforming one empty string into another; then initialize the positive-length entries in the first row as dp[0, j] = j (inserting j characters into the empty string to form the target prefix) and in the first column as dp[i, 0] = i (deleting i characters from the source prefix to reach the empty string). The remaining 12 interior cells are solved row by row from top to bottom, and from left to right within each row.",
+    "To compute dp[i, j], compare the final character s[i - 1] of the current source prefix with the final character t[j - 1] of the target prefix: if the two final characters match, no additional edit is needed, so the entry equals the upper-left value dp[i - 1, j - 1] directly (without adding 1); if they differ, take the minimum of the left entry dp[i, j - 1] (insertion), the upper entry dp[i - 1, j] (deletion), and the upper-left entry dp[i - 1, j - 1] (replacement), plus 1. Each step provides a uniquely named full state table marking every cell's value together with \"valid boundary,\" \"computed,\" or \"uncomputed initial value\"; step 15 marks the bottom-right cell as \"return value.\" Row and column headers give both i or j and the corresponding prefix for lookup either by coordinates or by prefix."
+  ],
+  "frames": [
+    {
+      "id": "source-444",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step1.png",
+      "title": "Create the initial 4×5 all-zero dp table",
+      "explanation": "For source string s = bag (length 3) and target string t = pack (length 4), create a 4×5 two-dimensional dp table. All 20 cells currently hold 0: dp[0, 0] is already the valid boundary for transforming an empty string into an empty string, while the remaining 19 cells hold uncomputed initial values, with the positive-length boundaries in the first row and first column yet to be set.",
+      "key_state": "Initial 4×5 all-zero table (bag to pack): dp[0, 0] is already the valid boundary 0, and the other 19 cells hold uncomputed initial values awaiting positive-length boundary setup in the first row and first column.",
+      "announcement": "Create a 4×5 all-zero table for transforming bag into pack; the empty-to-empty boundary is 0, and the remaining boundaries are yet to be set.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 1: full all-zero dp table",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=1, b",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=2, ba",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-445",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step2.png",
+      "title": "Initialize the empty-string boundaries in the first row and first column",
+      "explanation": "Keep dp[0, 0] = 0 for transforming an empty string into an empty string. Initialize the first row from dp[0, 0] to dp[0, 4] as [0, 1, 2, 3, 4] (transforming the empty source prefix into the length-j target prefixes empty string, p, pa, pac, and pack requires inserting j characters, with dp[0, 4] = 4 for empty string to pack); initialize the first column from dp[0, 0] to dp[3, 0] as [0, 1, 2, 3] (transforming the length-i source prefixes empty string, b, ba, and bag into the empty string requires deleting i characters, with dp[3, 0] = 3 for bag to empty string). In the interior, across rows 1 to 3 and columns 1 to 4, the 12 entries of 0 remain uncomputed initial values.",
+      "key_state": "Empty-string boundaries set: first row [0, 1, 2, 3, 4] (dp[0, 4] = 4), first column [0, 1, 2, 3] (dp[3, 0] = 3).",
+      "announcement": "Initialize the first-row insertion boundary from the empty string as [0, 1, 2, 3, 4] and the first-column deletion boundary to the empty string as [0, 1, 2, 3].",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 2: full dp table after initializing empty-string boundaries",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-446",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step3.png",
+      "title": "Compute dp[1, 1] (source prefix b to target prefix p): minimum 1 edit",
+      "explanation": "At i = 1, j = 1, compute dp[1, 1] for transforming source prefix b into target prefix p: the source final character b and target final character p differ, so compare left dp[1, 0] = 1, above dp[0, 1] = 1, and upper-left dp[0, 0] = 0, take the minimum 0 plus 1 (corresponding to replacing b with p), and write dp[1, 1] = 1.",
+      "key_state": "dp[1, 1] (source prefix b to target prefix p, final characters b and p differ): min(left 1, above 1, upper-left 0) + 1 = 1.",
+      "announcement": "Compute dp[1, 1] (b to p): final characters b and p differ, so take the three-way minimum 0 plus 1 to get 1.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 3: full dp table after computing dp[1, 1]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-447",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step4.png",
+      "title": "Compute dp[1, 2] (source prefix b to target prefix pa): minimum 2 edits",
+      "explanation": "At i = 1, j = 2, compute dp[1, 2] for transforming source prefix b into target prefix pa: the source final character b and target final character a differ, so compare left dp[1, 1] = 1, above dp[0, 2] = 2, and upper-left dp[0, 1] = 1, take the minimum 1 plus 1, and write dp[1, 2] = 2.",
+      "key_state": "dp[1, 2] (source prefix b to target prefix pa, final characters b and a differ): min(left 1, above 2, upper-left 1) + 1 = 2.",
+      "announcement": "Compute dp[1, 2] (b to pa): final characters b and a differ, so take the three-way minimum 1 plus 1 to get 2.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 4: full dp table after computing dp[1, 2]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-448",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step5.png",
+      "title": "Compute dp[1, 3] (source prefix b to target prefix pac): minimum 3 edits",
+      "explanation": "At i = 1, j = 3, compute dp[1, 3] for transforming source prefix b into target prefix pac: the source final character b and target final character c differ, so compare left dp[1, 2] = 2, above dp[0, 3] = 3, and upper-left dp[0, 2] = 2, take the minimum 2 plus 1, and write dp[1, 3] = 3.",
+      "key_state": "dp[1, 3] (source prefix b to target prefix pac, final characters b and c differ): min(left 2, above 3, upper-left 2) + 1 = 3.",
+      "announcement": "Compute dp[1, 3] (b to pac): final characters b and c differ, so take the three-way minimum 2 plus 1 to get 3.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 5: full dp table after computing dp[1, 3]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-449",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step6.png",
+      "title": "Compute dp[1, 4] (source prefix b to target string pack): minimum 4 edits",
+      "explanation": "At i = 1, j = 4, compute dp[1, 4] for transforming source prefix b into the full target string pack: the source final character b and target final character k differ, so compare left dp[1, 3] = 3, above dp[0, 4] = 4, and upper-left dp[0, 3] = 3, take the minimum 3 plus 1, and write dp[1, 4] = 4, completing row 1.",
+      "key_state": "dp[1, 4] (source prefix b to target string pack, final characters b and k differ): min(left 3, above 4, upper-left 3) + 1 = 4, completing row 1.",
+      "announcement": "Compute dp[1, 4] (b to pack): final characters b and k differ, so take the three-way minimum 3 plus 1 to get 4, completing row 1.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 6: full dp table after computing dp[1, 4]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-450",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step7.png",
+      "title": "Compute dp[2, 1] (source prefix ba to target prefix p): minimum 2 edits",
+      "explanation": "Move to row 2 and process i = 2, j = 1 to compute dp[2, 1] for transforming source prefix ba into target prefix p: the source final character a and target final character p differ, so compare left dp[2, 0] = 2, above dp[1, 1] = 1, and upper-left dp[1, 0] = 1, take the minimum 1 plus 1, and write dp[2, 1] = 2.",
+      "key_state": "dp[2, 1] (source prefix ba to target prefix p, final characters a and p differ): min(left 2, above 1, upper-left 1) + 1 = 2.",
+      "announcement": "Move to row 2 and compute dp[2, 1] (ba to p): final characters a and p differ, so take the three-way minimum 1 plus 1 to get 2.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 7: full dp table after computing dp[2, 1]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-451",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step8.png",
+      "title": "Compute dp[2, 2] (source prefix ba to target prefix pa): both end in a, take 1 directly",
+      "explanation": "At i = 2, j = 2, compute dp[2, 2] for transforming source prefix ba into target prefix pa: the current source prefix final character s[1] and target prefix final character t[1] are both a, so the two final characters match completely and need no additional edit; instead of adding 1 to the result for b to p, copy upper-left dp[1, 1] = 1 directly and write dp[2, 2] = 1.",
+      "key_state": "dp[2, 2] (source prefix ba to target prefix pa, both ending in a): no additional edit needed; take upper-left dp[1, 1] = 1 directly.",
+      "announcement": "Compute dp[2, 2] (ba to pa): both end in a, requiring no additional edit, so copy upper-left dp[1, 1] = 1 directly.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 8: full dp table after computing dp[2, 2]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-452",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step9.png",
+      "title": "Compute dp[2, 3] (source prefix ba to target prefix pac): minimum 2 edits",
+      "explanation": "At i = 2, j = 3, compute dp[2, 3] for transforming source prefix ba into target prefix pac: the source final character a and target final character c differ, so compare left dp[2, 2] = 1, above dp[1, 3] = 3, and upper-left dp[1, 2] = 2, take the minimum from the left, 1 (inserting c on top of the 1-edit transformation from ba to pa), plus 1, and write dp[2, 3] = 2.",
+      "key_state": "dp[2, 3] (source prefix ba to target prefix pac, final characters a and c differ): min(left 1, above 3, upper-left 2) + 1 = 2.",
+      "announcement": "Compute dp[2, 3] (ba to pac): final characters a and c differ, so add 1 to the left minimum 1 to get 2.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 9: full dp table after computing dp[2, 3]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "2, computed",
+              "0, uncomputed initial value"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-453",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step10.png",
+      "title": "Compute dp[2, 4] (source prefix ba to target string pack): minimum 3 edits",
+      "explanation": "At i = 2, j = 4, compute dp[2, 4] for transforming source prefix ba into the full target string pack: the source final character a and target final character k differ, so compare left dp[2, 3] = 2, above dp[1, 4] = 4, and upper-left dp[1, 3] = 3, take the minimum from the left, 2, plus 1, and write dp[2, 4] = 3, completing row 2.",
+      "key_state": "dp[2, 4] (source prefix ba to target string pack, final characters a and k differ): min(left 2, above 4, upper-left 3) + 1 = 3, completing row 2.",
+      "announcement": "Compute dp[2, 4] (ba to pack): final characters a and k differ, so add 1 to the left minimum 2 to get 3, completing row 2.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 10: full dp table after computing dp[2, 4]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "2, computed",
+              "3, computed"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-454",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step11.png",
+      "title": "Compute dp[3, 1] (source string bag to target prefix p): minimum 3 edits",
+      "explanation": "Move to row 3 and process i = 3, j = 1 to compute dp[3, 1] for transforming the full source string bag into target prefix p: the source final character g and target final character p differ, so compare left dp[3, 0] = 3, above dp[2, 1] = 2, and upper-left dp[2, 0] = 2, take the minimum 2 plus 1, and write dp[3, 1] = 3.",
+      "key_state": "dp[3, 1] (source string bag to target prefix p, final characters g and p differ): min(left 3, above 2, upper-left 2) + 1 = 3.",
+      "announcement": "Move to row 3 and compute dp[3, 1] (bag to p): final characters g and p differ, so take the three-way minimum 2 plus 1 to get 3.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 11: full dp table after computing dp[3, 1]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "2, computed",
+              "3, computed"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "3, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-455",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step12.png",
+      "title": "Compute dp[3, 2] (source string bag to target prefix pa): minimum 2 edits",
+      "explanation": "At i = 3, j = 2, compute dp[3, 2] for transforming the full source string bag into target prefix pa: the source final character g and target final character a differ, so compare left dp[3, 1] = 3, above dp[2, 2] = 1, and upper-left dp[2, 1] = 2, take the minimum from above, 1 (deleting the final g leaves the subproblem of converting ba to pa), plus 1, and write dp[3, 2] = 2.",
+      "key_state": "dp[3, 2] (source string bag to target prefix pa, final characters g and a differ): min(left 3, above 1, upper-left 2) + 1 = 2.",
+      "announcement": "Compute dp[3, 2] (bag to pa): final characters g and a differ, so add 1 to the upper minimum 1 to get 2.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 12: full dp table after computing dp[3, 2]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "2, computed",
+              "3, computed"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "3, computed",
+              "2, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-456",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step13.png",
+      "title": "Compute dp[3, 3] (source string bag to target prefix pac): minimum 2 edits",
+      "explanation": "At i = 3, j = 3, compute dp[3, 3] for transforming the full source string bag into target prefix pac: the source final character g and target final character c differ, so compare left dp[3, 2] = 2, above dp[2, 3] = 2, and upper-left dp[2, 2] = 1, take the upper-left minimum, 1 (once the final g is replaced by c, the remaining subproblem is to convert ba to pa), plus 1, and write dp[3, 3] = 2.",
+      "key_state": "dp[3, 3] (source string bag to target prefix pac, final characters g and c differ): min(left 2, above 2, upper-left 1) + 1 = 2.",
+      "announcement": "Compute dp[3, 3] (bag to pac): final characters g and c differ, so add 1 to the upper-left minimum 1 to get 2.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 13: full dp table after computing dp[3, 3]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "2, computed",
+              "3, computed"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "3, computed",
+              "2, computed",
+              "2, computed",
+              "0, uncomputed initial value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-457",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step14.png",
+      "title": "Compute dp[3, 4] (source string bag to target string pack): minimum 3 edits",
+      "explanation": "At the bottom-right cell i = 3, j = 4, compute dp[3, 4] for transforming the full source string bag into the full target string pack: the source final character g and target final character k differ, so compare left dp[3, 3] = 2, above dp[2, 4] = 3, and upper-left dp[2, 3] = 2, take the minimum 2 plus 1, and write dp[3, 4] = 3, completing the entire table.",
+      "key_state": "dp[3, 4] (source string bag to target string pack, final characters g and k differ): min(left 2, above 3, upper-left 2) + 1 = 3, completing the table.",
+      "announcement": "Compute bottom-right dp[3, 4] (bag to pack): final characters g and k differ, so take the three-way minimum 2 plus 1 to get 3.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 14: full dp table after computing dp[3, 4]",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "2, computed",
+              "3, computed"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "3, computed",
+              "2, computed",
+              "2, computed",
+              "3, computed"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    },
+    {
+      "id": "source-458",
+      "book_path": "chapter_dynamic_programming/edit_distance_problem.assets/edit_distance_dp_step15.png",
+      "title": "Read bottom-right dp[3, 4] and return the minimum edit count 3",
+      "explanation": "After all state transitions finish, highlight the bottom-right entry dp[3, 4] = 3 and return it as the minimum number of edits needed to transform the full source string bag into the full target string pack. No other cells are updated in this step; the table gives the minimum edit count without specifying a unique sequence of edits.",
+      "key_state": "Table complete: bottom-right dp[3, 4] = 3, so transforming bag into pack takes a minimum of 3 edits.",
+      "announcement": "Table complete; return dp[3, 4] = 3 as the minimum number of edits to transform bag into pack.",
+      "state_tables": [
+        {
+          "caption": "Edit distance, step 15: full dp table returning the final result",
+          "headers": [
+            "Source prefix / target prefix",
+            "j=0, empty string",
+            "j=1, p",
+            "j=2, pa",
+            "j=3, pac",
+            "j=4, pack"
+          ],
+          "rows": [
+            [
+              "i=0, empty string",
+              "0, valid boundary",
+              "1, valid boundary",
+              "2, valid boundary",
+              "3, valid boundary",
+              "4, valid boundary"
+            ],
+            [
+              "i=1, b",
+              "1, valid boundary",
+              "1, computed",
+              "2, computed",
+              "3, computed",
+              "4, computed"
+            ],
+            [
+              "i=2, ba",
+              "2, valid boundary",
+              "2, computed",
+              "1, computed",
+              "2, computed",
+              "3, computed"
+            ],
+            [
+              "i=3, bag",
+              "3, valid boundary",
+              "3, computed",
+              "2, computed",
+              "2, computed",
+              "3, return value"
+            ]
+          ],
+          "row_header": 0
+        }
+      ]
+    }
+  ],
+  "animations": {
+    "edit-distance-dp": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-444"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-445"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-446"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-447"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-448"
+        },
+        {
+          "id": "step-6",
+          "frame_id": "source-449"
+        },
+        {
+          "id": "step-7",
+          "frame_id": "source-450"
+        },
+        {
+          "id": "step-8",
+          "frame_id": "source-451"
+        },
+        {
+          "id": "step-9",
+          "frame_id": "source-452"
+        },
+        {
+          "id": "step-10",
+          "frame_id": "source-453"
+        },
+        {
+          "id": "step-11",
+          "frame_id": "source-454"
+        },
+        {
+          "id": "step-12",
+          "frame_id": "source-455"
+        },
+        {
+          "id": "step-13",
+          "frame_id": "source-456"
+        },
+        {
+          "id": "step-14",
+          "frame_id": "source-457"
+        },
+        {
+          "id": "step-15",
+          "frame_id": "source-458"
+        }
+      ]
+    }
+  }
+}

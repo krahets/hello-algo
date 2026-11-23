@@ -22,7 +22,7 @@ int linearSearchArray(vector<int> &nums, int target) {
 ListNode *linearSearchLinkedList(ListNode *head, int target) {
     // Обойти связный список
     while (head != nullptr) {
-        // Найти целевой узел и вернуть его
+        // Целевой узел найден, возвращается этот узел
         if (head->val == target)
             return head;
         head = head->next;

@@ -7,30 +7,30 @@
 /* Doubly linked list node */
 class ListNode {
     var val: Int // Node value
-    var next: ListNode? // Successor node reference
-    weak var prev: ListNode? // Predecessor node reference
+    var next: ListNode? // Reference to the next node
+    weak var prev: ListNode? // Reference to the previous node
 
     init(val: Int) {
         self.val = val
     }
 }
 
-/* Double-ended queue based on doubly linked list implementation */
+/* Deque implemented with a doubly linked list */
 class LinkedListDeque {
     private var front: ListNode? // Head node front
     private var rear: ListNode? // Tail node rear
-    private var _size: Int // Length of the double-ended queue
+    private var _size: Int // Deque size
 
     init() {
         _size = 0
     }
 
-    /* Get the length of the double-ended queue */
+    /* Get the deque size */
     func size() -> Int {
         _size
     }
 
-    /* Check if the double-ended queue is empty */
+    /* Check whether the deque is empty */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -43,29 +43,29 @@ class LinkedListDeque {
             front = node
             rear = node
         }
-        // Front of the queue enqueue operation
+        // Enqueue at the front
         else if isFront {
             // Add node to the head of the linked list
             front?.prev = node
             node.next = front
-            front = node // Update head node
+            front = node // Update the head node
         }
-        // Rear of the queue enqueue operation
+        // Enqueue at the rear
         else {
             // Add node to the tail of the linked list
             rear?.next = node
             node.prev = rear
-            rear = node // Update tail node
+            rear = node // Update the tail node
         }
-        _size += 1 // Update queue length
+        _size += 1 // Update the deque size
     }
 
-    /* Front of the queue enqueue */
+    /* Enqueue at the front */
     func pushFirst(num: Int) {
         push(num: num, isFront: true)
     }
 
-    /* Rear of the queue enqueue */
+    /* Enqueue at the rear */
     func pushLast(num: Int) {
         push(num: num, isFront: false)
     }
@@ -76,45 +76,45 @@ class LinkedListDeque {
             fatalError("Deque is empty")
         }
         let val: Int
-        // When the deque has one element, front and rear point to the same node
+        // When the deque size is 1, the head and tail point to the same node
         if _size == 1 {
             val = front!.val
             front = nil
             rear = nil
         }
-        // Temporarily store head node value
+        // Dequeue from the front
         else if isFront {
-            val = front!.val // Delete head node
-            // Delete head node
+            val = front!.val // Save the head node value
+            // Remove the head node
             let fNext = front?.next
             fNext?.prev = nil
             front?.next = nil
-            front = fNext // Update head node
+            front = fNext // Update the head node
         }
-        // Temporarily store tail node value
+        // Dequeue from the rear
         else {
-            val = rear!.val // Delete tail node
-            // Update tail node
+            val = rear!.val // Save the tail node value
+            // Remove the tail node
             let rPrev = rear?.prev
             rPrev?.next = nil
             rear?.prev = nil
-            rear = rPrev // Update tail node
+            rear = rPrev // Update the tail node
         }
-        _size -= 1 // Update queue length
+        _size -= 1 // Update the deque size
         return val
     }
 
-    /* Rear of the queue dequeue */
+    /* Dequeue from the front */
     func popFirst() -> Int {
         pop(isFront: true)
     }
 
-    /* Access rear of the queue element */
+    /* Dequeue from the rear */
     func popLast() -> Int {
         pop(isFront: false)
     }
 
-    /* Return list for printing */
+    /* Access the front element */
     func peekFirst() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
@@ -122,7 +122,7 @@ class LinkedListDeque {
         return front!.val
     }
 
-    /* Driver Code */
+    /* Access the rear element */
     func peekLast() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
@@ -130,7 +130,7 @@ class LinkedListDeque {
         return rear!.val
     }
 
-    /* Return array for printing */
+    /* Return an array for printing */
     func toArray() -> [Int] {
         var node = front
         var res = Array(repeating: 0, count: size())
@@ -144,39 +144,39 @@ class LinkedListDeque {
 
 @main
 enum _LinkedListDeque {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
-        /* Get the length of the double-ended queue */
+        /* Initialize the deque */
         let deque = LinkedListDeque()
         deque.pushLast(num: 3)
         deque.pushLast(num: 2)
         deque.pushLast(num: 5)
         print("Deque deque = \(deque.toArray())")
 
-        /* Update element */
+        /* Access an element */
         let peekFirst = deque.peekFirst()
         print("Front element peekFirst = \(peekFirst)")
         let peekLast = deque.peekLast()
         print("Rear element peekLast = \(peekLast)")
 
-        /* Elements enqueue */
+        /* Enqueue elements */
         deque.pushLast(num: 4)
-        print("After element 4 enqueues at rear, deque = \(deque.toArray())")
+        print("After enqueueing 4 at the rear, deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
-        print("After element 1 enqueues at front, deque = \(deque.toArray())")
+        print("After enqueueing 1 at the front, deque = \(deque.toArray())")
 
-        /* Element dequeue */
+        /* Dequeue an element */
         let popLast = deque.popLast()
-        print("Dequeue rear element = \(popLast), after rear dequeue deque = \(deque.toArray())")
+        print("Element dequeued from the rear = \(popLast); after dequeueing, deque = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("Dequeue front element = \(popFirst), after front dequeue deque = \(deque.toArray())")
+        print("Element dequeued from the front = \(popFirst); after dequeueing, deque = \(deque.toArray())")
 
-        /* Get the length of the double-ended queue */
+        /* Get the deque size */
         let size = deque.size()
-        print("Deque length size = \(size)")
+        print("Deque size = \(size)")
 
-        /* Check if the double-ended queue is empty */
+        /* Check whether the deque is empty */
         let isEmpty = deque.isEmpty()
-        print("Is deque empty = \(isEmpty)")
+        print("Is the deque empty? \(isEmpty)")
     }
 }

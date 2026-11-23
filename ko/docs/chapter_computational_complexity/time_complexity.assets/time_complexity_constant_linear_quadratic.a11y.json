@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "title": "반복 구조와 연산 횟수",
+  "summary": "단일 연산, 단일 반복문, 이중 중첩 반복문의 작업량 증가를 비교한다.",
+  "context": [],
+  "description": [
+    "작은 사각형 하나는 기본 연산 1회를 나타내고 바깥의 반복 상자는 반복 실행되는 범위를 나타낸다."
+  ],
+  "frames": [
+    {
+      "id": "source-28",
+      "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
+      "title": "반복 구조와 연산 횟수",
+      "explanation": "두 상자가 겹친 것은 중첩 반복을 뜻한다. 바깥 반복문이 한 번 돌 때마다 안쪽 반복문의 작업이 n번 실행되므로 전체 작업 횟수는 n × n이다. 두 반복문을 나란히 차례로 실행할 때처럼 횟수를 더하지 않는다."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "반복 구조별 작업량",
+      "headers": [
+        "구조",
+        "기본 연산 횟수",
+        "시간 복잡도"
+      ],
+      "rows": [
+        [
+          "반복 없음",
+          "1",
+          "상수 O(1)"
+        ],
+        [
+          "단일 반복문 n번",
+          "n",
+          "선형 O(n)"
+        ],
+        [
+          "이중 중첩, 각각 n번",
+          "n×n=n²",
+          "제곱 O(n²)"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

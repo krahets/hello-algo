@@ -39,11 +39,11 @@ macro_rules! op_vec {
     };
 }
 
-// For the serialization encoding rules, please refer to:
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// Array representation of binary tree:
+// For the serialization rules, see:
+// https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
+// Array representation of the binary tree:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// Linked list representation of binary tree:
+// Linked representation of the binary tree:
 //             /——— 15
 //         /——— 7
 //     /——— 3

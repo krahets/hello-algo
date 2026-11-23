@@ -10,25 +10,25 @@ func recur(n: Int) -> Int {
     if n == 1 {
         return 1
     }
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     let res = recur(n: n - 1)
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     return n + res
 }
 
-/* 反復で再帰を模擬する */
+/* 反復を使って再帰を再現する */
 func forLoopRecur(n: Int) -> Int {
-    // 明示的なスタックを使ってシステムコールスタックを模擬する
+    // 明示的なスタックを使って、システムの呼び出しスタックを再現する
     var stack: [Int] = []
     var res = 0
-    // 再帰：再帰呼び出し
+    // 往路：再帰呼び出し
     for i in (1 ... n).reversed() {
-        // 「スタックへのプッシュ」で「再帰」を模擬する
+        // 「プッシュ操作」で再帰の「往路」を再現する
         stack.append(i)
     }
-    // 帰りがけ：結果を返す
+    // 復路：結果を返す
     while !stack.isEmpty {
-        // 「スタックから取り出す操作」で「帰り」をシミュレート
+        // 「ポップ操作」で再帰の「復路」を再現する
         res += stack.removeLast()
     }
     // res = 1+2+3+...+n
@@ -51,7 +51,7 @@ func fib(n: Int) -> Int {
     if n == 1 || n == 2 {
         return n - 1
     }
-    // f(n) = f(n-1) + f(n-2) を再帰的に呼び出す
+    // 再帰呼び出し f(n) = f(n-1) + f(n-2)
     let res = fib(n: n - 1) + fib(n: n - 2)
     // 結果 f(n) を返す
     return res
@@ -59,19 +59,19 @@ func fib(n: Int) -> Int {
 
 @main
 enum Recursion {
-    /* Driver Code */
+    /* 実行用コード */
     static func main() {
         let n = 5
         var res = 0
 
         res = recursion.recur(n: n)
-        print("\n再帰関数による総和結果 res = \(res)")
+        print("\n再帰関数で求めた和 res = \(res)")
 
         res = recursion.forLoopRecur(n: n)
-        print("\n反復で再帰をシミュレートした総和結果 res = \(res)")
+        print("\n反復で再帰を再現して求めた和 res = \(res)")
 
         res = recursion.tailRecur(n: n, res: 0)
-        print("\n末尾再帰関数による総和結果 res = \(res)")
+        print("\n末尾再帰関数で求めた和 res = \(res)")
 
         res = recursion.fib(n: n)
         print("\nフィボナッチ数列の第 \(n) 項は \(res)")

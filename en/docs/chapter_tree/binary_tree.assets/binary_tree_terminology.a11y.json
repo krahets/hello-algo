@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "title": "Binary tree roots, leaves, depth, and height",
+  "summary": "Root and leaf labels identify node positions. Scales on either side show depth and height.",
+  "context": [],
+  "description": [
+    "This four-level binary tree has node values inside green circles. Gray arrows lead from parents to their left and right children. Root 1 has children 2 and 3, node 2 has 4 and 5, node 3 has 6 and 7, and node 4 has 8 and 9, each listed left to right. Node 6 has only left child 12; node 7 has left child 14 and right child 15.",
+    "Each directed line represents one edge. “Root node” points to the topmost node 1, which has no parent. Six lines from “Leaf node” point to 8, 9, 5, 12, 14, and 15. All six lack children. Leaf 5 is on level 3 and the other five are on level 4, showing that leaves need not share a level.",
+    "Horizontal dashed lines align the scales with the tree levels. Both depth and height count edges. At upper left the path from root 1 to node 2 has 1 edge, so node 2 has depth 1. At lower left the paths from node 2 to its farthest leaves 8 and 9 have 2 edges, so node 2 has height 2. The long scale on the right counts 3 edges from root 1 to a deepest leaf: the binary tree has height 3."
+  ],
+  "frames": [
+    {
+      "id": "source-90",
+      "book_path": "chapter_tree/binary_tree.assets/binary_tree_terminology.png",
+      "title": "Binary tree roots, leaves, depth, and height",
+      "explanation": "From node 2 there is 1 edge to leaf 5 but 2 edges to leaves 8 and 9. Height takes the farthest distance, 2. This four-level tree has height 3 because a path has 1 fewer edge than levels."
+    }
+  ]
+}

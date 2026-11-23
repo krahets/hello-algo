@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "title": "이중 연결 리스트로 구현한 덱",
+  "summary": "머리와 꼬리 노드 및 양방향 참조를 관리하면 가운데 노드를 움직이지 않고 양 끝에서 노드를 추가하고 삭제할 수 있다.",
+  "context": [
+    "왼쪽은 외부에서 본 덱, 오른쪽은 세로로 그린 이중 연결 리스트다. 둘 다 위가 맨 앞, 아래가 맨 뒤다. 머리 노드는 덱의 맨 앞, 꼬리 노드는 맨 뒤에 해당한다. 이웃 노드는 아래로 향하는 next와 위로 향하는 prev로 연결된다."
+  ],
+  "description": [
+    "다섯 장면이 초기 상태, 뒤에 4 넣기, 앞에 1 넣기, 뒤에서 4 꺼내기, 앞에서 1 꺼내기를 차례로 보여 준다. 새로 넣은 4는 청록색, 1은 주황색이다. 기존의 3, 2, 5는 제자리에 남는다."
+  ],
+  "result": "머리 노드와 꼬리 노드의 참조를 관리하면 뒤에서 꺼낼 때 꼬리 노드의 prev로 새 꼬리 노드를 바로 찾을 수 있어 머리 노드부터 순회할 필요가 없다. 양 끝의 넣기와 꺼내기 모두 끝부분의 참조만 바꾸므로 O(1)이다.",
+  "frames": [
+    {
+      "id": "source-71",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step1.png",
+      "title": "덱의 초기 상태",
+      "explanation": "초기 이중 연결 리스트는 3 ⇄ 2 ⇄ 5이며 머리 노드는 3, 꼬리 노드는 5다. 왼쪽 덱의 원소는 [3, 2, 5]이고 반환값은 없다.",
+      "key_state": "머리 노드는 3, 꼬리 노드는 5이며 현재 [3, 2, 5]다.",
+      "announcement": "초기 이중 연결 리스트는 3 ⇄ 2 ⇄ 5다. 머리 노드는 3, 꼬리 노드는 5다."
+    },
+    {
+      "id": "source-72",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step2_push_last.png",
+      "title": "뒤에 4 넣기",
+      "explanation": "push_last(4)는 5 아래에 새 노드 4를 연결한다. 5.next는 4를, 4.prev는 5를 가리킨다. 리스트는 3 ⇄ 2 ⇄ 5 ⇄ 4가 되고 머리 노드는 여전히 3, 새 꼬리 노드는 4다. 반환값은 없다.",
+      "key_state": "머리 노드는 3, 꼬리 노드는 4이며 현재 [3, 2, 5, 4]다.",
+      "announcement": "5와 4를 양방향으로 연결하고 꼬리 노드 참조를 4로 바꿨다."
+    },
+    {
+      "id": "source-73",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step3_push_first.png",
+      "title": "앞에 1 넣기",
+      "explanation": "push_first(1)은 3 위에 새 노드 1을 연결한다. 1.next는 3을, 3.prev는 1을 가리킨다. 리스트는 1 ⇄ 3 ⇄ 2 ⇄ 5 ⇄ 4가 되고 새 머리 노드는 1, 꼬리 노드는 여전히 4다. 반환값은 없다.",
+      "key_state": "머리 노드는 1, 꼬리 노드는 4이며 현재 [1, 3, 2, 5, 4]다.",
+      "announcement": "1과 3을 양방향으로 연결하고 머리 노드 참조를 1로 바꿨다."
+    },
+    {
+      "id": "source-74",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step4_pop_last.png",
+      "title": "뒤에서 4 꺼내기",
+      "explanation": "pop_last()는 4.prev를 따라 5를 바로 찾는다. 꼬리 노드 참조를 5로 바꾸고 5와 4 사이의 양방향 연결을 끊은 뒤 4를 반환한다. 리스트는 1 ⇄ 3 ⇄ 2 ⇄ 5가 되고 머리 노드는 1, 꼬리 노드는 5다.",
+      "key_state": "머리 노드는 1, 꼬리 노드는 5이며 현재 [1, 3, 2, 5]다. 반환값은 4다.",
+      "announcement": "4.prev를 따라 5를 찾아 꼬리 노드 참조를 갱신했다. 노드 4의 연결을 끊고 4를 반환했다."
+    },
+    {
+      "id": "source-75",
+      "book_path": "chapter_stack_and_queue/deque.assets/linkedlist_deque_step5_pop_first.png",
+      "title": "앞에서 1 꺼내기",
+      "explanation": "pop_first()는 1.next를 따라 3을 찾는다. 머리 노드 참조를 3으로 바꾸고 1과 3 사이의 양방향 연결을 끊은 뒤 1을 반환한다. 리스트는 다시 3 ⇄ 2 ⇄ 5가 되고 머리 노드는 3, 꼬리 노드는 5다.",
+      "key_state": "머리 노드는 3, 꼬리 노드는 5이며 현재 [3, 2, 5]다. 반환값은 1이다.",
+      "announcement": "1.next를 따라 3을 찾아 머리 노드 참조를 갱신했다. 노드 1의 연결을 끊고 1을 반환했다."
+    }
+  ],
+  "animations": {
+    "linkedlist-deque": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "id": "step-1",
+          "frame_id": "source-71"
+        },
+        {
+          "id": "step-2",
+          "frame_id": "source-72"
+        },
+        {
+          "id": "step-3",
+          "frame_id": "source-73"
+        },
+        {
+          "id": "step-4",
+          "frame_id": "source-74"
+        },
+        {
+          "id": "step-5",
+          "frame_id": "source-75"
+        }
+      ]
+    }
+  }
+}

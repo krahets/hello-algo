@@ -7,13 +7,13 @@
 import HeapModule
 import utils
 
-/* Find the largest k elements in array based on heap */
+/* Use a heap to find the k largest elements in an array */
 func topKHeap(nums: [Int], k: Int) -> [Int] {
-    // Initialize min heap and build heap with first k elements
+    // Build a heap from the first k elements and use it as a min heap
     var heap = Heap(nums.prefix(k))
-    // Starting from the (k+1)th element, maintain heap length as k
+    // Starting with element k+1, keep the heap size at k
     for i in nums.indices.dropFirst(k) {
-        // If current element is greater than top element, top element exits heap, current element enters heap
+        // If the current element exceeds the heap minimum, remove the minimum and insert the current element
         if nums[i] > heap.min()! {
             _ = heap.removeMin()
             heap.insert(nums[i])
@@ -24,13 +24,13 @@ func topKHeap(nums: [Int], k: Int) -> [Int] {
 
 @main
 enum TopK {
-    /* Driver Code */
+    /* Driver code */
     static func main() {
         let nums = [1, 7, 6, 3, 2]
         let k = 3
 
         let res = topKHeap(nums: nums, k: k)
-        print("The largest \(k) elements are")
+        print("The \(k) largest elements are:")
         PrintUtil.printHeap(queue: res)
     }
 }

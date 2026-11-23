@@ -1,0 +1,64 @@
+{
+  "schema_version": 2,
+  "title": "Example input for the fractional knapsack problem",
+  "summary": "With capacity 50, a fractional knapsack can pack the whole banana plus part of the pineapple, illustrating the optimal solution.",
+  "context": [
+    "Given 5 items and knapsack capacity cap = 50 (item data in the table below), each item may be taken up to its full weight or split arbitrarily to take a fraction whose value scales in proportion to the weight taken."
+  ],
+  "description": [
+    "On the left, a table lists ID i, weight wgt[i - 1], and value val[i - 1] with fruit icons identifying each row. Row 2 (banana) and row 4 (pineapple) are shaded light orange, sending arrows labeled \"Weight packed 20\" and \"Weight packed 30\" to the knapsack on the right labeled \"Knapsack capacity cap = 50\". At the bottom appear the optimal choice and maximum-value formula.",
+    "The first three columns in the table below transcribe the figure with fruit names from the icons; the extra \"Value per unit weight\" column is computed as value divided by weight and is not drawn in this figure—for example, the apple has 50 ÷ 10 = 5."
+  ],
+  "frames": [
+    {
+      "id": "source-461",
+      "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png",
+      "title": "Example input for the fractional knapsack problem",
+      "explanation": "The whole banana takes weight 20 for value 120, leaving capacity 30; because the pineapple weighs 40, taking three-quarters of it yields value (30/40) × 210 = 157.5. The bottom formula gives Maximum value: 120 + (30/40) × 210 = 277.5 at total weight 20 + 30 = 50, with no other items taken."
+    }
+  ],
+  "tables": [
+    {
+      "caption": "Fractional knapsack example: item data from the figure plus computed value per unit weight",
+      "headers": [
+        "ID and icon",
+        "Weight",
+        "Value",
+        "Value per unit weight"
+      ],
+      "rows": [
+        [
+          "1 (Apple)",
+          "10",
+          "50",
+          "5"
+        ],
+        [
+          "2 (Banana)",
+          "20",
+          "120",
+          "6"
+        ],
+        [
+          "3 (Grapes)",
+          "30",
+          "150",
+          "5"
+        ],
+        [
+          "4 (Pineapple)",
+          "40",
+          "210",
+          "5.25"
+        ],
+        [
+          "5 (Watermelon)",
+          "50",
+          "240",
+          "4.8"
+        ]
+      ],
+      "row_header": 0
+    }
+  ]
+}

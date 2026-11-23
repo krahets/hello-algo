@@ -6,14 +6,14 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Backtracking ###
 def backtrack(choices, state, n, res)
-  # When climbing to the n-th stair, add 1 to the solution count
+  # When step n is reached, increase the number of ways by 1
   res[0] += 1 if state == n
-  # Traverse all choices
+  # Iterate over all choices
   for choice in choices
-    # Pruning: not allowed to go beyond the n-th stair
+    # Prune: do not go beyond step n
     next if state + choice > n
 
-    # Attempt: make choice, update state
+    # Try: make a choice and update the state
     backtrack(choices, state + choice, n, res)
   end
   # Backtrack
@@ -21,17 +21,17 @@ end
 
 ### Climbing stairs: backtracking ###
 def climbing_stairs_backtrack(n)
-  choices = [1, 2] # Can choose to climb up 1 or 2 stairs
-  state = 0 # Start climbing from the 0-th stair
-  res = [0] # Use res[0] to record the solution count
+  choices = [1, 2] # Choose to climb 1 or 2 steps
+  state = 0 # Start climbing from step 0
+  res = [0] # Use res[0] to record the number of ways
   backtrack(choices, state, n, res)
   res.first
 end
 
-### Driver Code ###
+### Driver code ###
 if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_backtrack(n)
-  puts "Climbing #{n} stairs has #{res} solutions"
+  puts "Number of ways to climb #{n} stairs: #{res}"
 end

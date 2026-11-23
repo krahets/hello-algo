@@ -10,12 +10,16 @@ on:
       - ".github/workflows/python.yml"
       - "codes/python/**/*.py"
       - "en/codes/python/**/*.py"
+      - "ja/codes/python/**/*.py"
+      - "ko/codes/python/**/*.py"
   pull_request:
     branches: ["main"]
     paths:
       - ".github/workflows/python.yml"
       - "codes/python/**/*.py"
       - "en/codes/python/**/*.py"
+      - "ja/codes/python/**/*.py"
+      - "ko/codes/python/**/*.py"
   workflow_dispatch:
 
 permissions:
@@ -25,11 +29,13 @@ jobs:
   build:
     name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    env:
+      PYTHONIOENCODING: utf-8
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         python-version: ["3.10"]
-        code-dir: ["codes/python", "en/codes/python"]
+        code-dir: ["codes/python", "en/codes/python", "ja/codes/python", "ko/codes/python"]
     steps:
       - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}

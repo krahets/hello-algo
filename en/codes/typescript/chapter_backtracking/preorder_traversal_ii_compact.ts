@@ -8,7 +8,7 @@ import { type TreeNode } from '../modules/TreeNode';
 import { arrToTree } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* Preorder traversal: Example 2 */
+/* Preorder traversal: example 2 */
 function preOrder(
     root: TreeNode | null,
     path: TreeNode[],
@@ -17,10 +17,10 @@ function preOrder(
     if (root === null) {
         return;
     }
-    // Attempt
+    // Try
     path.push(root);
     if (root.val === 7) {
-        // Record solution
+        // Record the solution
         res.push([...path]);
     }
     preOrder(root.left, path, res);
@@ -29,9 +29,9 @@ function preOrder(
     path.pop();
 }
 
-// Driver Code
+// Driver code
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nInitialize binary tree');
+console.log('\nInitialize the binary tree');
 printTree(root);
 
 // Preorder traversal
@@ -39,7 +39,7 @@ const path: TreeNode[] = [];
 const res: TreeNode[][] = [];
 preOrder(root, path, res);
 
-console.log('\nOutput all paths from root node to node 7');
+console.log('\nOutput all paths from the root to nodes with value 7');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

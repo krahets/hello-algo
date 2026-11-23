@@ -8,38 +8,38 @@ package chapter_greedy
 
 /* Item */
 class Item(
-    val w: Int, // Item
+    val w: Int, // Item weight
     val v: Int  // Item value
 )
 
-/* Fractional knapsack: Greedy algorithm */
+/* Fractional knapsack: greedy algorithm */
 fun fractionalKnapsack(wgt: IntArray, _val: IntArray, c: Int): Double {
-    // Create item list with two attributes: weight, value
+    // Create a list of items, each with two attributes: weight and value
     var cap = c
     val items = arrayOfNulls<Item>(wgt.size)
     for (i in wgt.indices) {
         items[i] = Item(wgt[i], _val[i])
     }
-    // Sort by unit value item.v / item.w from high to low
+    // Sort by value per unit weight, item.v / item.w, in descending order
     items.sortBy { item: Item? -> -(item!!.v.toDouble() / item.w) }
-    // Loop for greedy selection
+    // Repeatedly make greedy choices
     var res = 0.0
     for (item in items) {
         if (item!!.w <= cap) {
-            // If remaining capacity is sufficient, put the entire current item into the knapsack
+            // If enough capacity remains, put the entire current item in the knapsack
             res += item.v
             cap -= item.w
         } else {
-            // If remaining capacity is insufficient, put part of the current item into the knapsack
+            // If the remaining capacity is insufficient, put part of the current item in the knapsack
             res += item.v.toDouble() / item.w * cap
-            // No remaining capacity, so break out of the loop
+            // No capacity remains, so exit the loop
             break
         }
     }
     return res
 }
 
-/* Driver Code */
+/* Driver code */
 fun main() {
     val wgt = intArrayOf(10, 20, 30, 40, 50)
     val _val = intArrayOf(50, 120, 150, 210, 240)
@@ -47,5 +47,5 @@ fun main() {
 
     // Greedy algorithm
     val res = fractionalKnapsack(wgt, _val, cap)
-    println("Maximum item value not exceeding knapsack capacity is $res")
+    println("Maximum total item value within the knapsack capacity: $res")
 }

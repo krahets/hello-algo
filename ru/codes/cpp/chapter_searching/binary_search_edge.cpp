@@ -6,9 +6,9 @@
 
 #include "../utils/common.hpp"
 
-/* Бинарный поиск точки вставки (с повторяющимися элементами) */
+/* Двоичный поиск точки вставки (с повторяющимися элементами) */
 int binarySearchInsertion(const vector<int> &nums, int target) {
-    int i = 0, j = nums.size() - 1; // Инициализировать двусторонне замкнутый интервал [0, n-1]
+    int i = 0, j = nums.size() - 1; // Инициализировать замкнутый интервал [0, n-1]
     while (i <= j) {
         int m = i + (j - i) / 2; // Вычислить индекс середины m
         if (nums[m] < target) {
@@ -21,7 +21,7 @@ int binarySearchInsertion(const vector<int> &nums, int target) {
     return i;
 }
 
-/* Бинарный поиск самого левого target */
+/* Двоичный поиск самого левого элемента target */
 int binarySearchLeftEdge(vector<int> &nums, int target) {
     // Эквивалентно поиску точки вставки target
     int i = binarySearchInsertion(nums, target);
@@ -29,11 +29,11 @@ int binarySearchLeftEdge(vector<int> &nums, int target) {
     if (i == nums.size() || nums[i] != target) {
         return -1;
     }
-    // Найти target и вернуть индекс i
+    // target найден, возвращается индекс i
     return i;
 }
 
-/* Бинарный поиск самого правого target */
+/* Двоичный поиск самого правого элемента target */
 int binarySearchRightEdge(vector<int> &nums, int target) {
     // Преобразовать задачу в поиск самого левого target + 1
     int i = binarySearchInsertion(nums, target + 1);
@@ -43,7 +43,7 @@ int binarySearchRightEdge(vector<int> &nums, int target) {
     if (j == -1 || nums[j] != target) {
         return -1;
     }
-    // Найти target и вернуть индекс j
+    // target найден, возвращается индекс j
     return j;
 }
 
@@ -54,7 +54,7 @@ int main() {
     cout << "\nМассив nums = ";
     printVector(nums);
 
-    // Бинарный поиск левой и правой границы
+    // Двоичный поиск левой и правой границы
     for (int target : {6, 7}) {
         int index = binarySearchLeftEdge(nums, target);
         cout << "Индекс самого левого элемента " << target << " равен " << index << endl;

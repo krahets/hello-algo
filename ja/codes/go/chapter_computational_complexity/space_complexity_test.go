@@ -12,12 +12,12 @@ import (
 
 func TestSpaceComplexity(t *testing.T) {
 	n := 5
-	// 定数階
+	// 定数オーダー
 	spaceConstant(n)
-	// 線形階
+	// 線形オーダー
 	spaceLinear(n)
 	spaceLinearRecur(n)
-	// 二乗階
+	// 二次オーダー
 	spaceQuadratic(n)
 	spaceQuadraticRecur(n)
 	// 指数オーダー

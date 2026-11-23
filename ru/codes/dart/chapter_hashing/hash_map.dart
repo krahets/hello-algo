@@ -36,6 +36,5 @@ void main() {
   print("\nОтдельный обход ключей");
   map.keys.forEach((key) => print(key));
   print("\nОтдельный обход значений");
-  map.forEach((key, value) => print("$value"));
   map.values.forEach((value) => print(value));
 }

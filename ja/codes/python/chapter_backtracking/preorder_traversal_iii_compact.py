@@ -12,32 +12,32 @@ from modules import TreeNode, print_tree, list_to_tree
 
 
 def pre_order(root: TreeNode):
-    """前順走査：例題 3"""
+    """行きがけ順走査：例題 3"""
     # 枝刈り
     if root is None or root.val == 3:
         return
-    # 試す
+    # 試行
     path.append(root)
     if root.val == 7:
-        # 解を記録
+        # 解を記録する
         res.append(list(path))
     pre_order(root.left)
     pre_order(root.right)
-    # バックトラック
+    # 復元
     path.pop()
 
 
-"""Driver Code"""
+"""実行用コード"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\n二分木を初期化")
+    print("\n二分木を初期化する")
     print_tree(root)
 
-    # 先行順走査
+    # 行きがけ順走査
     path = list[TreeNode]()
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n根ノードからノード 7 までの経路をすべて出力し、経路には値が 3 のノードを含めない")
+    print("\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する")
     for path in res:
         print([node.val for node in path])

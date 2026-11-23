@@ -5,7 +5,7 @@
 1. 对于根节点，左子树中所有节点的值 $<$ 根节点的值 $<$ 右子树中所有节点的值。
 2. 任意节点的左、右子树也是二叉搜索树，即同样满足条件 `1.` 。
 
-![二叉搜索树](binary_search_tree.assets/binary_search_tree.png)
+![二叉搜索树](binary_search_tree.assets/binary_search_tree.svg)
 
 ## 二叉搜索树的操作
 
@@ -20,16 +20,16 @@
 - 若 `cur.val = num` ，说明找到目标节点，跳出循环并返回该节点。
 
 === "<1>"
-    ![二叉搜索树查找节点示例](binary_search_tree.assets/bst_search_step1.png)
+    ![二叉搜索树查找节点示例](binary_search_tree.assets/bst_search_step1.svg)
 
 === "<2>"
-    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.png)
+    ![bst_search_step2](binary_search_tree.assets/bst_search_step2.svg)
 
 === "<3>"
-    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.png)
+    ![bst_search_step3](binary_search_tree.assets/bst_search_step3.svg)
 
 === "<4>"
-    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.png)
+    ![bst_search_step4](binary_search_tree.assets/bst_search_step4.svg)
 
 二叉搜索树的查找操作与二分查找算法的工作原理一致，都是每轮排除一半情况。循环次数最多为二叉树的高度，当二叉树平衡时，使用 $O(\log n)$ 时间。示例代码如下：
 
@@ -44,7 +44,7 @@
 1. **查找插入位置**：与查找操作相似，从根节点出发，根据当前节点值和 `num` 的大小关系循环向下搜索，直到越过叶节点（遍历至 `None` ）时跳出循环。
 2. **在该位置插入节点**：初始化节点 `num` ，将该节点置于 `None` 的位置。
 
-![在二叉搜索树中插入节点](binary_search_tree.assets/bst_insert.png)
+![在二叉搜索树中插入节点](binary_search_tree.assets/bst_insert.svg)
 
 在代码实现中，需要注意以下两点。
 
@@ -63,11 +63,11 @@
 
 如下图所示，当待删除节点的度为 $0$ 时，表示该节点是叶节点，可以直接删除。
 
-![在二叉搜索树中删除节点（度为 0 ）](binary_search_tree.assets/bst_remove_case1.png)
+![在二叉搜索树中删除节点（度为 0 ）](binary_search_tree.assets/bst_remove_case1.svg)
 
 如下图所示，当待删除节点的度为 $1$ 时，将待删除节点替换为其子节点即可。
 
-![在二叉搜索树中删除节点（度为 1 ）](binary_search_tree.assets/bst_remove_case2.png)
+![在二叉搜索树中删除节点（度为 1 ）](binary_search_tree.assets/bst_remove_case2.svg)
 
 当待删除节点的度为 $2$ 时，我们无法直接删除它，而需要使用一个节点替换该节点。由于要保持二叉搜索树“左子树 $<$ 根节点 $<$ 右子树”的性质，**因此这个节点可以是右子树的最小节点或左子树的最大节点**。
 
@@ -77,16 +77,16 @@
 2. 用 `tmp` 的值覆盖待删除节点的值，并在树中递归删除节点 `tmp` 。
 
 === "<1>"
-    ![在二叉搜索树中删除节点（度为 2 ）](binary_search_tree.assets/bst_remove_case3_step1.png)
+    ![在二叉搜索树中删除节点（度为 2 ）](binary_search_tree.assets/bst_remove_case3_step1.svg)
 
 === "<2>"
-    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.png)
+    ![bst_remove_case3_step2](binary_search_tree.assets/bst_remove_case3_step2.svg)
 
 === "<3>"
-    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.png)
+    ![bst_remove_case3_step3](binary_search_tree.assets/bst_remove_case3_step3.svg)
 
 === "<4>"
-    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.png)
+    ![bst_remove_case3_step4](binary_search_tree.assets/bst_remove_case3_step4.svg)
 
 删除节点操作同样使用 $O(\log n)$ 时间，其中查找待删除节点需要 $O(\log n)$ 时间，获取中序遍历后继节点需要 $O(\log n)$ 时间。示例代码如下：
 
@@ -102,7 +102,7 @@
 
 利用中序遍历升序的性质，我们在二叉搜索树中获取有序数据仅需 $O(n)$ 时间，无须进行额外的排序操作，非常高效。
 
-![二叉搜索树的中序遍历序列](binary_search_tree.assets/bst_inorder_traversal.png)
+![二叉搜索树的中序遍历序列](binary_search_tree.assets/bst_inorder_traversal.svg)
 
 ## 二叉搜索树的效率
 
@@ -120,7 +120,7 @@
 
 然而，如果我们在二叉搜索树中不断地插入和删除节点，可能导致二叉树退化为下图所示的链表，这时各种操作的时间复杂度也会退化为 $O(n)$ 。
 
-![二叉搜索树退化](binary_search_tree.assets/bst_degradation.png)
+![二叉搜索树退化](binary_search_tree.assets/bst_degradation.svg)
 
 ## 二叉搜索树常见应用
 

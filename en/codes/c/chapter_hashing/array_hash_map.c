@@ -9,7 +9,7 @@
 /* Default hash table size */
 #define MAX_SIZE 100
 
-/* Key-value pair int->string */
+/* Key-value pair: int -> string */
 typedef struct {
     int key;
     char *val;
@@ -21,7 +21,7 @@ typedef struct {
     int len;
 } MapSet;
 
-/* Hash table based on array implementation */
+/* Hash table implemented with an array */
 typedef struct {
     Pair *buckets[MAX_SIZE];
 } ArrayHashMap;
@@ -52,7 +52,7 @@ int hashFunc(int key) {
     return index;
 }
 
-/* Query operation */
+/* Lookup operation */
 const char *get(const ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     const Pair *Pair = hmap->buckets[index];
@@ -61,7 +61,7 @@ const char *get(const ArrayHashMap *hmap, const int key) {
     return Pair->val;
 }
 
-/* Add operation */
+/* Insert operation */
 void put(ArrayHashMap *hmap, const int key, const char *val) {
     Pair *Pair = malloc(sizeof(Pair));
     Pair->key = key;
@@ -85,7 +85,7 @@ void pairSet(ArrayHashMap *hmap, MapSet *set) {
     Pair *entries;
     int i = 0, index = 0;
     int total = 0;
-    /* Count valid key-value pairs */
+    /* Count stored key-value pairs */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -109,7 +109,7 @@ void keySet(ArrayHashMap *hmap, MapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
-    /* Count valid key-value pairs */
+    /* Count stored key-value pairs */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -131,7 +131,7 @@ void valueSet(ArrayHashMap *hmap, MapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
-    /* Count valid key-value pairs */
+    /* Count stored key-value pairs */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -148,7 +148,7 @@ void valueSet(ArrayHashMap *hmap, MapSet *set) {
     set->len = total;
 }
 
-/* Print hash table */
+/* Print the hash table */
 void print(ArrayHashMap *hmap) {
     int i;
     MapSet set;
@@ -160,43 +160,43 @@ void print(ArrayHashMap *hmap) {
     free(set.set);
 }
 
-/* Driver Code */
+/* Driver code */
 int main() {
-    /* Initialize hash table */
+    /* Initialize the hash table */
     ArrayHashMap *hmap = newArrayHashMap();
 
-    /* Add operation */
-    // Add key-value pair (key, value) to the hash table
-    put(hmap, 12836, "Xiao Ha");
-    put(hmap, 15937, "Xiao Luo");
-    put(hmap, 16750, "Xiao Suan");
-    put(hmap, 13276, "Xiao Fa");
-    put(hmap, 10583, "Xiao Ya");
-    printf("\nAfter addition, hash table is\nKey -> Value\n");
+    /* Insert operation */
+    // Insert the key-value pair (key, value) into the hash table
+    put(hmap, 12836, "小哈");
+    put(hmap, 15937, "小啰");
+    put(hmap, 16750, "小算");
+    put(hmap, 13276, "小法");
+    put(hmap, 10583, "小鸭");
+    printf("\nHash table after insertion:\nKey -> Value\n");
     print(hmap);
 
-    /* Query operation */
-    // Input key into hash table to get value
+    /* Lookup operation */
+    // Look up key in the hash table to obtain value
     const char *name = get(hmap, 15937);
-    printf("\nInput student ID 15937, found name %s\n", name);
+    printf("\nLook up student ID 15937; name found: %s\n", name);
 
     /* Remove operation */
-    // Remove key-value pair (key, value) from hash table
+    // Remove the key-value pair (key, value) from the hash table
     removeItem(hmap, 10583);
-    printf("\nAfter deleting 10583, hash table is\nKey -> Value\n");
+    printf("\nHash table after removing 10583:\nKey -> Value\n");
     print(hmap);
 
-    /* Traverse hash table */
+    /* Traverse the hash table */
     int i;
 
-    printf("\nTraverse key-value pairs Key->Value\n");
+    printf("\nIterate over key-value pairs, Key->Value\n");
     print(hmap);
 
     MapSet set;
 
     keySet(hmap, &set);
     int *keys = (int *)set.set;
-    printf("\nTraverse keys only Key\n");
+    printf("\nIterate over keys only, Key\n");
     for (i = 0; i < set.len; i++) {
         printf("%d\n", keys[i]);
     }
@@ -204,7 +204,7 @@ int main() {
 
     valueSet(hmap, &set);
     char **vals = (char **)set.set;
-    printf("\nTraverse values only Value\n");
+    printf("\nIterate over values only, Value\n");
     for (i = 0; i < set.len; i++) {
         printf("%s\n", vals[i]);
     }

@@ -11,37 +11,37 @@
 5. Оставшийся элемент обязательно является максимальным, сортировать его не нужно, поэтому массив считается отсортированным.
 
 === "<1>"
-    ![Шаги сортировки выбором](selection_sort.assets/selection_sort_step1.png)
+    ![Шаги сортировки выбором](selection_sort.assets/selection_sort_step1.svg)
 
 === "<2>"
-    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.png)
+    ![selection_sort_step2](selection_sort.assets/selection_sort_step2.svg)
 
 === "<3>"
-    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.png)
+    ![selection_sort_step3](selection_sort.assets/selection_sort_step3.svg)
 
 === "<4>"
-    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.png)
+    ![selection_sort_step4](selection_sort.assets/selection_sort_step4.svg)
 
 === "<5>"
-    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.png)
+    ![selection_sort_step5](selection_sort.assets/selection_sort_step5.svg)
 
 === "<6>"
-    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.png)
+    ![selection_sort_step6](selection_sort.assets/selection_sort_step6.svg)
 
 === "<7>"
-    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.png)
+    ![selection_sort_step7](selection_sort.assets/selection_sort_step7.svg)
 
 === "<8>"
-    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.png)
+    ![selection_sort_step8](selection_sort.assets/selection_sort_step8.svg)
 
 === "<9>"
-    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.png)
+    ![selection_sort_step9](selection_sort.assets/selection_sort_step9.svg)
 
 === "<10>"
-    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.png)
+    ![selection_sort_step10](selection_sort.assets/selection_sort_step10.svg)
 
 === "<11>"
-    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.png)
+    ![selection_sort_step11](selection_sort.assets/selection_sort_step11.svg)
 
 В коде мы используем $k$ для записи минимального элемента в пределах неотсортированного диапазона:
 
@@ -55,4 +55,4 @@
 - **Пространственная сложность равна $O(1)$, сортировка выполняется на месте**: указатели $i$ и $j$ используют константный объем дополнительной памяти.
 - **Нестабильная сортировка**: как показано на рисунке ниже, элемент `nums[i]` может быть переставлен вправо от другого равного ему элемента, из-за чего их относительный порядок изменится.
 
-![Пример нестабильности сортировки выбором](selection_sort.assets/selection_sort_instability.png)
+![Пример нестабильности сортировки выбором](selection_sort.assets/selection_sort_instability.svg)

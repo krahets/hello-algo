@@ -7,24 +7,24 @@
 namespace hello_algo.chapter_dynamic_programming;
 
 public class min_cost_climbing_stairs_dp {
-    /* Minimum cost climbing stairs: Dynamic programming */
+    /* Minimum cost to climb stairs: dynamic programming */
     int MinCostClimbingStairsDP(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
             return cost[n];
-        // Initialize dp table, used to store solutions to subproblems
+        // Initialize the dp table to store subproblem solutions
         int[] dp = new int[n + 1];
-        // Initial state: preset the solution to the smallest subproblem
+        // Initial states: set the solutions to the smallest subproblems
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // State transition: gradually solve larger subproblems from smaller ones
+        // State transitions: solve progressively larger subproblems using smaller ones
         for (int i = 3; i <= n; i++) {
             dp[i] = Math.Min(dp[i - 1], dp[i - 2]) + cost[i];
         }
         return dp[n];
     }
 
-    /* Minimum cost climbing stairs: Space-optimized dynamic programming */
+    /* Minimum cost to climb stairs: space-optimized dynamic programming */
     int MinCostClimbingStairsDPComp(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
@@ -41,13 +41,13 @@ public class min_cost_climbing_stairs_dp {
     [Test]
     public void Test() {
         int[] cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
-        Console.WriteLine("Input stair cost list is");
+        Console.WriteLine("Input stair costs:");
         PrintUtil.PrintList(cost);
 
         int res = MinCostClimbingStairsDP(cost);
-        Console.WriteLine($"Minimum cost to climb stairs is {res}");
+        Console.WriteLine($"Minimum cost to finish climbing the stairs: {res}");
 
         res = MinCostClimbingStairsDPComp(cost);
-        Console.WriteLine($"Minimum cost to climb stairs is {res}");
+        Console.WriteLine($"Minimum cost to finish climbing the stairs: {res}");
     }
 }
