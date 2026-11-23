@@ -15,7 +15,7 @@
 
 ### Q & A
 
-**Q**: Why can a hash table contain both linear and nonlinear data structures?
+**Q**: Why might a hash table implementation use both linear and nonlinear data structures?
 
 A hash table is built on an array. To handle hash collisions, it may use separate chaining, discussed later in the Hash collisions section: each array bucket points to a linked list, which may be converted to a tree (usually a red-black tree) if it grows beyond a threshold.
 
