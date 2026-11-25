@@ -1,18 +1,18 @@
 {
   "context": [
-    "n 為正整數，以下按未做尾呼叫最佳化的執行過程計數。"
+    "n 是正整數，以下依未進行尾端呼叫最佳化的執行過程計算。"
   ],
   "description": [],
   "frames": [
     {
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
-      "explanation": "左列“向下‘遞’”從 linear_recur(n) 逐層減 1，直到基本情況 linear_recur(1)，大括號標註“遞迴深度 n”。外層等待內層返回，因此最深處有 n 個堆疊幀同時存在；隨後沿右列“向上‘迴’”逐層返回，每返回一層才釋放該層堆疊幀。圖右列寫作 return 0；現版 Python 用裸 return，實際返回 None，這一差異不影響堆疊空間計數。",
+      "explanation": "圖的左側是「向下『遞』」，從 linear_recur(n) 開始，每深入一層就將參數減 1，直到基本情況 linear_recur(1)。大括號標示「遞迴深度 n」。因為外層要等內層回傳，最深處同時有 n 個堆疊框架。接著沿右側「向上『迴』」逐層回傳，每回傳一層才釋放該層的堆疊框架。圖的右側寫的是 return 0，目前的 Python 程式碼使用不帶值的 return，實際回傳 None。這項差異不影響堆疊空間的計算。",
       "id": "source-35",
       "title": "遞迴呼叫的堆疊空間"
     }
   ],
-  "result": "每層佔常數區域性空間，最深時同時存在 n 層，峰值堆疊空間為 O(n)；之後逐層釋放不改變已經達到的峰值。",
+  "result": "每層的區域資料占用常數空間，最深時同時存在 n 層，因此堆疊空間的峰值為 O(n)。之後逐層釋放空間，並不改變已達到的峰值。",
   "schema_version": 2,
-  "summary": "空間取決於同時未返回的呼叫數，逐層遞迴會積累堆疊幀。",
+  "summary": "堆疊空間取決於同時尚未回傳的呼叫數，每深入一層遞迴，就會多累積一個堆疊框架。",
   "title": "遞迴呼叫的堆疊空間"
 }

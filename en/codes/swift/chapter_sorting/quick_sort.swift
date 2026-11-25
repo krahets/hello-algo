@@ -4,8 +4,8 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Quick sort functions */
-/* Two-pointer partitioning */
+/* Quicksort class */
+/* Partition with two pointers */
 func partition(nums: inout [Int], left: Int, right: Int) -> Int {
     // Use nums[left] as the pivot
     var i = left
@@ -19,25 +19,25 @@ func partition(nums: inout [Int], left: Int, right: Int) -> Int {
         }
         nums.swapAt(i, j) // Swap these two elements
     }
-    nums.swapAt(i, left) // Swap the pivot into the boundary position between the two subarrays
+    nums.swapAt(i, left) // Swap the pivot into place between the two subarrays
     return i // Return the pivot index
 }
 
-/* Quick sort */
+/* Quicksort */
 func quickSort(nums: inout [Int], left: Int, right: Int) {
-    // Stop recursing when the subarray has at most one element
+    // Stop recursing when the subarray has length 1
     if left >= right {
         return
     }
-    // Two-pointer partitioning
+    // Partition with two pointers
     let pivot = partition(nums: &nums, left: left, right: right)
     // Recurse on the left and right subarrays
     quickSort(nums: &nums, left: left, right: pivot - 1)
     quickSort(nums: &nums, left: pivot + 1, right: right)
 }
 
-/* Quick sort functions (median pivot optimization) */
-/* Select the median of three candidate elements */
+/* Quicksort class with median-of-three pivot selection */
+/* Select the median of three candidates */
 func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
     let l = nums[left]
     let m = nums[mid]
@@ -51,37 +51,37 @@ func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
     return right
 }
 
-/* Two-pointer partitioning (median of three) */
+/* Partition with two pointers (median of three) */
 func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
-    // Select the median of three candidate elements
+    // Select the median of three candidates
     let med = medianThree(nums: nums, left: left, mid: left + (right - left) / 2, right: right)
-    // Swap the median into the leftmost position of the current subarray
+    // Swap the median into the leftmost position
     nums.swapAt(left, med)
     return partition(nums: &nums, left: left, right: right)
 }
 
-/* Quick sort (median pivot optimization) */
+/* Quicksort with median-of-three pivot selection */
 func quickSortMedian(nums: inout [Int], left: Int, right: Int) {
-    // Stop recursing when the subarray has at most one element
+    // Stop recursing when the subarray has length 1
     if left >= right {
         return
     }
-    // Two-pointer partitioning
+    // Partition with two pointers
     let pivot = partitionMedian(nums: &nums, left: left, right: right)
     // Recurse on the left and right subarrays
     quickSortMedian(nums: &nums, left: left, right: pivot - 1)
     quickSortMedian(nums: &nums, left: pivot + 1, right: right)
 }
 
-/* Quick sort (recursion depth optimization) */
+/* Quicksort with reduced recursion depth */
 func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
     var left = left
     var right = right
-    // Stop when the subarray has at most one element
+    // Stop when the subarray has length 1
     while left < right {
-        // Perform two-pointer partitioning
+        // Partition with two pointers
         let pivot = partition(nums: &nums, left: left, right: right)
-        // Apply quick sort to the shorter of the two subarrays
+        // Apply quicksort to the shorter of the two subarrays
         if (pivot - left) < (right - pivot) {
             quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // Recursively sort the left subarray
             left = pivot + 1 // The remaining unsorted range is [pivot + 1, right]
@@ -94,21 +94,21 @@ func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
 
 @main
 enum QuickSort {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
-        /* Quick sort */
+        /* Quicksort */
         var nums = [2, 4, 1, 0, 3, 5]
         quickSort(nums: &nums, left: nums.startIndex, right: nums.endIndex - 1)
-        print("After quick sort, nums = \(nums)")
+        print("After quicksort, nums = \(nums)")
 
-        /* Quick sort (median pivot optimization) */
+        /* Quicksort with median-of-three pivot selection */
         var nums1 = [2, 4, 1, 0, 3, 5]
         quickSortMedian(nums: &nums1, left: nums1.startIndex, right: nums1.endIndex - 1)
-        print("After quick sort (median pivot optimization), nums1 = \(nums1)")
+        print("After median-of-three quicksort, nums1 = \(nums1)")
 
-        /* Quick sort (recursion depth optimization) */
+        /* Quicksort with reduced recursion depth */
         var nums2 = [2, 4, 1, 0, 3, 5]
         quickSortTailCall(nums: &nums2, left: nums2.startIndex, right: nums2.endIndex - 1)
-        print("After quick sort (recursion depth optimization), nums2 = \(nums2)")
+        print("After quicksort with reduced recursion depth, nums2 = \(nums2)")
     }
 }

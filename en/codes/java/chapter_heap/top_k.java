@@ -10,9 +10,9 @@ import utils.*;
 import java.util.*;
 
 public class top_k {
-    /* Use a heap to find the k largest elements in an array */
+    /* Find the k largest elements in the array using a heap */
     static Queue<Integer> topKHeap(int[] nums, int k) {
-        // Initialize a min heap
+        // Initialize a min-heap
         Queue<Integer> heap = new PriorityQueue<Integer>();
         // Push the first k array elements onto the heap
         for (int i = 0; i < k; i++) {
@@ -20,7 +20,7 @@ public class top_k {
         }
         // Starting with element k+1, keep the heap size at k
         for (int i = k; i < nums.length; i++) {
-            // If the current element is larger than the heap top, pop the top element and push the current element
+            // If the current element exceeds the root, pop the root and push the current element
             if (nums[i] > heap.peek()) {
                 heap.poll();
                 heap.offer(nums[i]);
@@ -34,7 +34,7 @@ public class top_k {
         int k = 3;
 
         Queue<Integer> res = topKHeap(nums, k);
-        System.out.println("The largest " + k + " elements are:");
+        System.out.println("The top " + k + " elements are:");
         PrintUtil.printHeap(res);
     }
 }

@@ -4,19 +4,19 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* 最大容量：貪欲法 */
+/* 最大容量（貪欲法） */
 function maxCapacity(ht: number[]): number {
-    // i, j を初期化し、配列の両端をそれぞれ指すようにする
+    // i と j を配列の両端に置く
     let i = 0,
         j = ht.length - 1;
     // 最大容量の初期値は 0
     let res = 0;
-    // 2 枚の板が出会うまで貪欲な選択を繰り返す
+    // 両方の板が同じ位置に来るまで貪欲選択を繰り返す
     while (i < j) {
         // 最大容量を更新する
         const cap: number = Math.min(ht[i], ht[j]) * (j - i);
         res = Math.max(res, cap);
-        // 低い方の仕切り板を内側に移動する
+        // 低い板のポインタを内側へ動かす
         if (ht[i] < ht[j]) {
             i += 1;
         } else {
@@ -26,10 +26,10 @@ function maxCapacity(ht: number[]): number {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 const ht: number[] = [3, 8, 5, 2, 7, 7, 3, 4];
 
-// 貪欲アルゴリズム
+// 貪欲法
 const res: number = maxCapacity(ht);
 console.log(`最大容量は ${res}`);
 

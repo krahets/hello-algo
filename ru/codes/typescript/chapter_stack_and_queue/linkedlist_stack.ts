@@ -8,24 +8,24 @@ import { ListNode } from '../modules/ListNode';
 
 /* Стек на основе связного списка */
 class LinkedListStack {
-    private stackPeek: ListNode | null; // Использовать головной узел как вершину стека
-    private stkSize: number = 0; // Длина стека
+    private stackPeek: ListNode | null; // Первый узел списка служит вершиной стека
+    private stkSize: number = 0; // Размер стека
 
     constructor() {
         this.stackPeek = null;
     }
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     get size(): number {
         return this.stkSize;
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     isEmpty(): boolean {
         return this.size === 0;
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     push(num: number): void {
         const node = new ListNode(num);
         node.next = this.stackPeek;
@@ -33,22 +33,22 @@ class LinkedListStack {
         this.stkSize++;
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     pop(): number {
         const num = this.peek();
-        if (!this.stackPeek) throw new Error('стек пуст');
+        if (!this.stackPeek) throw new Error('Стек пуст');
         this.stackPeek = this.stackPeek.next;
         this.stkSize--;
         return num;
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     peek(): number {
-        if (!this.stackPeek) throw new Error('стек пуст');
+        if (!this.stackPeek) throw new Error('Стек пуст');
         return this.stackPeek.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть */
+    /* Преобразовать связный список в массив и вернуть его */
     toArray(): number[] {
         let node = this.stackPeek;
         const res = new Array<number>(this.size);
@@ -60,11 +60,11 @@ class LinkedListStack {
     }
 }
 
-/* Driver Code */
-/* Инициализация стека */
+/* Пример использования */
+/* Инициализировать стек */
 const stack = new LinkedListStack();
 
-/* Помещение элемента в стек */
+/* Поместить элементы в стек */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -72,20 +72,20 @@ stack.push(5);
 stack.push(4);
 console.log('Стек stack = ' + stack.toArray());
 
-/* Доступ к верхнему элементу стека */
+/* Посмотреть элемент на вершине стека */
 const peek = stack.peek();
-console.log('Верхний элемент стека peek = ' + peek);
+console.log('Элемент на вершине стека peek = ' + peek);
 
-/* Извлечение элемента из стека */
+/* Снять элемент со стека */
 const pop = stack.pop();
-console.log('Извлечен элемент pop = ' + pop + ', стек после извлечения stack = ' + stack.toArray());
+console.log('Снятый элемент pop = ' + pop + ', после снятия stack = ' + stack.toArray());
 
-/* Получение длины стека */
+/* Получить размер стека */
 const size = stack.size;
-console.log('Длина стека size = ' + size);
+console.log('Размер стека size = ' + size);
 
-/* Проверка на пустоту */
+/* Проверить, пуст ли стек */
 const isEmpty = stack.isEmpty();
-console.log('Пуст ли стек = ' + isEmpty);
+console.log('Стек пуст = ' + isEmpty);
 
 export {};

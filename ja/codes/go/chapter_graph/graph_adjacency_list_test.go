@@ -20,26 +20,26 @@ func TestGraphAdjList(t *testing.T) {
 	graph.print()
 
 	/* 辺を追加する */
-	// 頂点 1, 2 は v[0], v[2] に対応する
+	// 頂点 1 と 2 はそれぞれ v[0] と v[2]
 	graph.addEdge(v[0], v[2])
-	fmt.Println("\n辺 1-2 を追加した後のグラフ")
+	fmt.Println("\n辺 1-2 を追加した後のグラフ：")
 	graph.print()
 
 	/* 辺を削除する */
-	// 頂点 1, 3 は v[0], v[1] に対応する
+	// 頂点 1 と 3 はそれぞれ v[0] と v[1]
 	graph.removeEdge(v[0], v[1])
-	fmt.Println("\n辺 1-3 を削除した後のグラフ")
+	fmt.Println("\n辺 1-3 を削除した後のグラフ：")
 	graph.print()
 
 	/* 頂点を追加する */
 	v5 := NewVertex(6)
 	graph.addVertex(v5)
-	fmt.Println("\n頂点 6 を追加した後のグラフ")
+	fmt.Println("\n頂点 6 を追加した後のグラフ：")
 	graph.print()
 
 	/* 頂点を削除する */
-	// 頂点 3 は v[1] に対応する
+	// 頂点 3 は v[1]
 	graph.removeVertex(v[1])
-	fmt.Println("\n頂点 3 を削除した後のグラフ")
+	fmt.Println("\n頂点 3 を削除した後のグラフ：")
 	graph.print()
 }

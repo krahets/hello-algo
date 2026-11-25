@@ -20,12 +20,12 @@ func TestLinkedList(t *testing.T) {
 	n3 := NewListNode(5)
 	n4 := NewListNode(4)
 
-	// 構建節點之間的引用
+	// 建立節點之間的參照
 	n0.Next = n1
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
-	fmt.Println("初始化的鏈結串列為")
+	fmt.Println("初始化後的鏈結串列為")
 	PrintLinkedList(n0)
 
 	/* 插入節點 */
@@ -38,11 +38,11 @@ func TestLinkedList(t *testing.T) {
 	fmt.Println("刪除節點後的鏈結串列為")
 	PrintLinkedList(n0)
 
-	/* 訪問節點 */
+	/* 存取節點 */
 	node := access(n0, 3)
-	fmt.Println("鏈結串列中索引 3 處的節點的值 =", node)
+	fmt.Println("鏈結串列中索引 3 處的節點值 =", node)
 
-	/* 查詢節點 */
+	/* 尋找節點 */
 	index := findNode(n0, 2)
-	fmt.Println("鏈結串列中值為 2 的節點的索引 =", index)
+	fmt.Println("鏈結串列中值為 2 的節點索引 =", index)
 }

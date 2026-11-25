@@ -1,31 +1,67 @@
 {
-  "schema_version": 2,
-  "title": "Stable placement in counting sort using prefix sums",
-  "summary": "Accumulate frequencies into prefix sums to find destination indices. Scan the input backward, filling res and decrementing the counts, then copy res over nums.",
+  "animations": {
+    "counting-sort": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-300",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-301",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-302",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-303",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-304",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-305",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-306",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-307",
+          "id": "step-8"
+        }
+      ]
+    }
+  },
   "context": [
-    "The original array is nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4] (indices 0 through 9). Values range from 0 through 4, with frequencies counter = [3, 2, 3, 0, 2].",
-    "Accumulating the counts in counter gives the initial prefix = [3, 5, 8, 8, 10]. Initially prefix[num] counts elements less than or equal to num. For a value num that occurs, prefix[num] - 1 gives the last index it will occupy in res. The figure calls these sums prefix; the code stores them in counter, overwriting its frequencies.",
-    "The result array res has ten slots. Blank cells mean nothing has been placed yet and differ from cells that already contain the value 0. The code initializes res with zeros, while the drawing leaves unwritten cells blank."
+    "The original array is nums = [1, 0, 1, 2, 0, 4, 0, 2, 2, 4] (indices 0 through 9). Values range from 0 through 4, and their frequencies are counter = [3, 2, 3, 0, 2].",
+    "Accumulating counter gives the initial prefix = [3, 5, 8, 8, 10]. Initially, prefix[num] counts all elements less than or equal to num. For each num present, prefix[num] - 1 gives its last destination index in res. The figure calls these sums prefix. The code in the text accumulates and stores them directly in counter.",
+    "The result array res has ten slots. Unwritten slots are drawn blank to distinguish them from slots that already hold the value 0, even though the code initializes res with zeros."
   ],
   "description": [
-    "Scan nums from right to left. Write the current value num to res[prefix[num] − 1], then decrease prefix[num] by 1. If another equal value remains, the new prefix[num] − 1 gives its destination. The entries in prefix change during placement and no longer hold the original prefix sums.",
-    "Scanning backward while filling each value’s result positions from right to left preserves stability. Equal elements farther right in the input take the farther-right positions first, leaving earlier elements to their left. The first four writes shown use original indices 9, 8, 7, and 6. The next six are skipped on screen before the completed result array res is shown and copied over nums."
+    "Scan nums from right to left. Write the current value num into res[prefix[num] − 1], then decrease prefix[num] by 1. If another copy of the value remains, the updated prefix[num] − 1 gives its next destination index. Thus prefix changes with each write and no longer holds the original prefix sums.",
+    "Scanning backward and filling from right to left work together: the rightmost of two equal elements is placed first, farther right in its result segment, and the leftmost is placed later, farther left. This preserves stability. The first four writes shown use original indices 9, 8, 7, and 6. The figure skips the six intervening writes, shows the completed traversal, and finally copies res back into nums."
   ],
   "frames": [
     {
-      "id": "source-300",
+      "announcement": "The counts are three 0s, two 1s, three 2s, no 3s, and two 4s.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step1.png",
-      "title": "Count frequencies",
-      "explanation": "Scan nums to count the occurrences of 0, 1, 2, 3, and 4, producing the length-5 array counter = [3, 2, 3, 0, 2]. Prefix sums have not been calculated and nothing has been written to the result.",
+      "explanation": "Scan the original array nums and count the occurrences of 0, 1, 2, 3, and 4. This gives the length-5 count array counter = [3, 2, 3, 0, 2]. No prefix sums have been computed and no result slots have been written.",
+      "id": "source-300",
       "key_state": "The counts are counter = [3, 2, 3, 0, 2].",
-      "announcement": "Frequencies: 0 occurs 3 times, 1 occurs 2 times, 2 occurs 3 times, 3 occurs 0 times, and 4 occurs 2 times.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 1: nums",
+          "caption": "Counting sort step 1: nums",
           "headers": [
             "Index",
             "Value in nums"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -67,15 +103,15 @@
               "9",
               "4"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 1: frequencies in counter",
+          "caption": "Counting sort step 1: frequencies in counter",
           "headers": [
             "Number num",
             "Occurrences"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -97,97 +133,97 @@
               "4",
               "2"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Count the frequencies"
     },
     {
-      "id": "source-301",
+      "announcement": "Accumulate the frequencies in prefix to find the last writable index in res for each value present.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step2.png",
-      "title": "Accumulate the frequencies and prepare the result array",
-      "explanation": "Accumulate counter to obtain prefix = [3, 5, 8, 8, 10], and prepare ten blank slots in res. Using prefix[num] - 1, the last destination for 0 is 3 - 1 = 2, for 2 it is 8 - 1 = 7, and for 4 it is 10 - 1 = 9. Value 3 is absent and will never be written.",
-      "key_state": "Prefix sums are prefix = [3, 5, 8, 8, 10]. No elements have been placed in res yet.",
-      "announcement": "Accumulate frequencies into prefix sums in prefix to find the last available index in res for each value that occurs.",
+      "explanation": "Accumulate counter to get prefix = [3, 5, 8, 8, 10], and prepare ten empty slots in res. From prefix[num] - 1, the last destination for 0 is 3 - 1 = 2, for 2 it is 8 - 1 = 7, and for 4 it is 10 - 1 = 9. Since 3 never occurs, it triggers no write.",
+      "id": "source-301",
+      "key_state": "The prefix sums are prefix = [3, 5, 8, 8, 10]. No elements have been written to res.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 2: nums and res",
+          "caption": "Counting sort step 2: nums and res",
           "headers": [
             "Index",
             "Value in nums",
             "Value or write status in res",
-            "Original index of the element in res"
+            "Original index of element in res"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "1",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "2",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "3",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "4",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "5",
               "4",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "6",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "7",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "8",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "9",
               "4",
-              "Not yet written",
+              "Unwritten",
               "None"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 2: initial prefix",
+          "caption": "Counting sort step 2: initial prefix",
           "headers": [
             "Number num",
             "prefix[num]"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -209,80 +245,80 @@
               "4",
               "10"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Accumulate the frequencies and prepare the result array"
     },
     {
-      "id": "source-302",
+      "announcement": "Read 4 from original index 9, moving right to left. Write it at result index 9 and decrease prefix[4] by 1.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step3.png",
-      "title": "Write the final 4 at index 9",
-      "explanation": "The num marker points to the rightmost input index 9, holding 4. Before this write, prefix[4] = 10, giving destination 10 - 1 = 9. Write 4 to res[9], then decrement prefix[4] by 1 to 9. The figure shows prefix after the decrement. Only original index 9 has been processed; the other nine slots remain empty.",
-      "key_state": "From original index 9, 4 has been written to res[9] = 4, and prefix[4] decreased to 9. The other nine slots remain empty.",
-      "announcement": "Read 4 from original index 9 in the right-to-left scan, write it at result index 9, and decrease prefix[4] by 1.",
+      "explanation": "The pointer num is at original index 9, the rightmost position, which holds 4. Before decrementing, prefix[4] = 10, so the destination is 10 - 1 = 9. Write 4 to res[9], then decrement prefix[4] by 1 to 9. The figure shows prefix after the decrement. Only original index 9 has been processed, leaving nine slots unwritten.",
+      "id": "source-302",
+      "key_state": "The 4 from original index 9 is in res[9] = 4, and prefix[4] has decreased to 9. Nine slots remain unwritten.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 3: nums and res",
+          "caption": "Counting sort step 3: nums and res",
           "headers": [
             "Index",
             "Value in nums",
             "Value or write status in res",
-            "Original index of the element in res"
+            "Original index of element in res"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "1",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "2",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "3",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "4",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "5",
               "4",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "6",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "7",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "8",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -291,15 +327,15 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 3: prefix after decrementing",
+          "caption": "Counting sort step 3: prefix after decrementing",
           "headers": [
             "Number num",
             "prefix[num]"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -321,68 +357,68 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Write the final 4 to index 9"
     },
     {
-      "id": "source-303",
+      "announcement": "Read 2 from original index 8, write it at result index 7, and decrease prefix[2] by 1.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step4.png",
-      "title": "Write 2 from original index 8 at index 7",
-      "explanation": "The num marker moves left to input index 8, holding 2. Before this write, prefix[2] = 8, giving destination 8 - 1 = 7. Write 2 to res[7], then decrement prefix[2] by 1 to 7. The figure shows prefix after the decrement. Original indices 9 down to 8 have been processed.",
-      "key_state": "From original index 8, 2 has been written to res[7] = 2, and prefix[2] decreased to 7. Original indices 9 down to 8 have been processed.",
-      "announcement": "Read 2 from original index 8 in the right-to-left scan, write it at result index 7, and decrease prefix[2] by 1.",
+      "explanation": "The pointer num moves left to original index 8, which holds 2. Before decrementing, prefix[2] = 8, so the destination is 8 - 1 = 7. Write 2 to res[7], then decrement prefix[2] by 1 to 7. The figure shows prefix after the decrement. Original indices 9 down through 8 have been processed.",
+      "id": "source-303",
+      "key_state": "The 2 from original index 8 is in res[7] = 2, and prefix[2] has decreased to 7. Original indices 9 down through 8 have been processed.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 4: nums and res",
+          "caption": "Counting sort step 4: nums and res",
           "headers": [
             "Index",
             "Value in nums",
             "Value or write status in res",
-            "Original index of the element in res"
+            "Original index of element in res"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "1",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "2",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "3",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "4",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "5",
               "4",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "6",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -394,7 +430,7 @@
             [
               "8",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -403,15 +439,15 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 4: prefix after decrementing",
+          "caption": "Counting sort step 4: prefix after decrementing",
           "headers": [
             "Number num",
             "prefix[num]"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -433,62 +469,62 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Write the 2 from original index 8 to index 7"
     },
     {
-      "id": "source-304",
+      "announcement": "Read 2 from original index 7, write it at result index 6, and decrease prefix[2] by 1.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step5.png",
-      "title": "Write 2 from original index 7 at index 6",
-      "explanation": "The num marker moves left to input index 7, holding 2. This is the second 2 encountered from the right. The preceding write decremented prefix[2] to 7. Before this write, prefix[2] = 7, giving destination 7 - 1 = 6. Write 2 to res[6] to the left of the previous 2, preserving their original order, then decrement prefix[2] by 1 to 6. The figure shows prefix after the decrement. Original indices 9 down to 7 have been processed.",
-      "key_state": "From original index 7, 2 has been written to res[6] = 2, and prefix[2] decreased to 6. Original indices 9 down to 7 have been processed.",
-      "announcement": "Read 2 from original index 7 in the right-to-left scan, write it at result index 6, and decrease prefix[2] by 1.",
+      "explanation": "The pointer num moves left to original index 7 and finds another 2. The previous decrement left prefix[2] = 7, so the destination is 7 - 1 = 6. Write this 2 to res[6], just left of the previous 2, preserving their original order. Then decrement prefix[2] by 1 to 6. Original indices 9 down through 7 have been processed.",
+      "id": "source-304",
+      "key_state": "The 2 from original index 7 is in res[6] = 2, and prefix[2] has decreased to 6. Original indices 9 down through 7 have been processed.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 5: nums and res",
+          "caption": "Counting sort step 5: nums and res",
           "headers": [
             "Index",
             "Value in nums",
             "Value or write status in res",
-            "Original index of the element in res"
+            "Original index of element in res"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "1",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "2",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "3",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "4",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "5",
               "4",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -506,7 +542,7 @@
             [
               "8",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -515,15 +551,15 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 5: prefix after decrementing",
+          "caption": "Counting sort step 5: prefix after decrementing",
           "headers": [
             "Number num",
             "prefix[num]"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -545,38 +581,38 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Write the 2 from original index 7 to index 6"
     },
     {
-      "id": "source-305",
+      "announcement": "Read 0 from original index 6, write it at result index 2, and decrease prefix[0] by 1.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step6.png",
-      "title": "Write 0 from original index 6 at index 2",
-      "explanation": "The num marker moves left to input index 6, holding 0. Before this write, prefix[0] = 3, giving destination 3 - 1 = 2. Write 0 to res[2], then decrement prefix[0] by 1 to 2. The figure shows prefix after the decrement. Original indices 9 down to 6 have been processed; res[2] holds a written 0, while “Not yet written” means no element has been placed.",
-      "key_state": "From original index 6, 0 has been written to res[2] = 0, and prefix[0] decreased to 2. Original indices 9 down to 6 have been processed.",
-      "announcement": "Read 0 from original index 6 in the right-to-left scan, write it at result index 2, and decrease prefix[0] by 1.",
+      "explanation": "The pointer num moves left to original index 6, which holds 0. Before decrementing, prefix[0] = 3, so the destination is 3 - 1 = 2. Write 0 to res[2], then decrement prefix[0] by 1 to 2. The figure shows prefix after the decrement. Original indices 9 down through 6 have been processed. The zero in res[2] has actually been written. “Unwritten” means that no element has been placed there yet.",
+      "id": "source-305",
+      "key_state": "The 0 from original index 6 is in res[2] = 0, and prefix[0] has decreased to 2. Original indices 9 down through 6 have been processed.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 6: nums and res",
+          "caption": "Counting sort step 6: nums and res",
           "headers": [
             "Index",
             "Value in nums",
             "Value or write status in res",
-            "Original index of the element in res"
+            "Original index of element in res"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
               "1",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "1",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -588,19 +624,19 @@
             [
               "3",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "4",
               "0",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
               "5",
               "4",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -618,7 +654,7 @@
             [
               "8",
               "2",
-              "Not yet written",
+              "Unwritten",
               "None"
             ],
             [
@@ -627,15 +663,15 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 6: prefix after decrementing",
+          "caption": "Counting sort step 6: prefix after decrementing",
           "headers": [
             "Number num",
             "prefix[num]"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -657,27 +693,27 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Write the 0 from original index 6 to index 2"
     },
     {
-      "id": "source-306",
+      "announcement": "The remaining six backward writes are complete, and the result array res is fully sorted.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step7.png",
-      "title": "Finish the other six writes",
-      "explanation": "Continue backward through original indices 5 down to 0. Their six values, 4, 0, 2, 1, 0, 1, go to indices 8, 1, 5, 4, 0, 3 of res respectively. The figure skips these six intermediate writes. At the end of the scan res holds the entire sorted sequence. The original array nums above it has not yet been overwritten.",
-      "key_state": "Result array res contains the full ascending sequence, while nums still has its original order.",
-      "announcement": "The remaining six writes in reverse input order are complete. The entire result array res is sorted.",
+      "explanation": "Continue backward from original index 5 through 0. Write the six values 4, 0, 2, 1, 0, 1 to indices 8, 1, 5, 4, 0, 3 of res, respectively. The figure skips these six intermediate frames and goes straight to the end of the scan. The sorted sequence fills res, while the original array nums above still awaits the copy.",
+      "id": "source-306",
+      "key_state": "The complete ascending sequence fills res. The elements of nums are still in their original order.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 7: nums and res",
+          "caption": "Counting sort step 7: nums and res",
           "headers": [
             "Index",
             "Value in nums",
             "Value or write status in res",
-            "Original index of the element in res"
+            "Original index of element in res"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -739,15 +775,15 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 7: prefix after decrementing",
+          "caption": "Counting sort step 7: prefix after decrementing",
           "headers": [
             "Number num",
             "prefix[num]"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -769,27 +805,27 @@
               "4",
               "8"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Complete the remaining six writes"
     },
     {
-      "id": "source-307",
+      "announcement": "Copy the sorted result res back into the original array nums to finish counting sort.",
       "book_path": "chapter_sorting/counting_sort.assets/counting_sort_step8.png",
-      "title": "Copy the result back to nums",
-      "explanation": "Copy all ten elements from sorted res back into nums at their corresponding indices. The upper array nums becomes [0, 0, 0, 1, 1, 2, 2, 2, 4, 4], completing counting sort. The final prefix = [0, 3, 5, 8, 8]. For the values that occur, 0, 1, 2, and 4, these entries give their first indices in res: 0, 3, 5, and 8. Value 3 does not occur, so prefix[3] = 8 does not point to a 3; it matches the first index of 4. Final prefix[num] counts the input elements strictly less than num. For example, 8 elements are less than 3, giving 8 even though 3 is absent.",
-      "key_state": "Result array res has been copied over nums. Counting sort is complete.",
-      "announcement": "Overwrite nums with sorted res to complete counting sort.",
+      "explanation": "Finally, copy the ten sorted elements from res to the same indices in nums. The upper array becomes [0, 0, 0, 1, 1, 2, 2, 2, 4, 4], completing counting sort. Now prefix = [0, 3, 5, 8, 8]. For the values present, 0, 1, 2, and 4, the entries are their first indices in res: 0, 3, 5, and 8, respectively. Since 3 is absent, prefix[3] = 8 does not point to a 3. It equals the starting index for 4. Each final prefix[num] counts the input elements smaller than num. For example, 8 elements are smaller than 3, so even the absent value 3 has an entry of 8.",
+      "id": "source-307",
+      "key_state": "The result in res has been copied back into nums, completing counting sort.",
       "state_tables": [
         {
-          "caption": "Counting sort, step 8: nums and res",
+          "caption": "Counting sort step 8: nums and res",
           "headers": [
             "Index",
             "Value in nums",
             "Value or write status in res",
-            "Original index of the element in res"
+            "Original index of element in res"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -851,15 +887,15 @@
               "4",
               "9"
             ]
-          ],
-          "row_header": 0
+          ]
         },
         {
-          "caption": "Counting sort, step 8: final prefix (unchanged from step 7)",
+          "caption": "Counting sort step 8: final prefix (same as step 7)",
           "headers": [
             "Number num",
             "prefix[num]"
           ],
+          "row_header": 0,
           "rows": [
             [
               "0",
@@ -881,49 +917,13 @@
               "4",
               "8"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Copy the result back to nums"
     }
   ],
-  "animations": {
-    "counting-sort": {
-      "kind": "source-frames",
-      "states": [
-        {
-          "id": "step-1",
-          "frame_id": "source-300"
-        },
-        {
-          "id": "step-2",
-          "frame_id": "source-301"
-        },
-        {
-          "id": "step-3",
-          "frame_id": "source-302"
-        },
-        {
-          "id": "step-4",
-          "frame_id": "source-303"
-        },
-        {
-          "id": "step-5",
-          "frame_id": "source-304"
-        },
-        {
-          "id": "step-6",
-          "frame_id": "source-305"
-        },
-        {
-          "id": "step-7",
-          "frame_id": "source-306"
-        },
-        {
-          "id": "step-8",
-          "frame_id": "source-307"
-        }
-      ]
-    }
-  }
+  "schema_version": 2,
+  "summary": "Accumulate the frequencies into prefix sums to find destination indices. Scan the input backward, writing to res and decrementing the counts, then copy the result back into nums.",
+  "title": "Stable placement in counting sort using prefix sums"
 }

@@ -9,11 +9,11 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 基於鏈結串列實現的堆疊 */
+/* 以鏈結串列實作堆疊 */
 #[allow(dead_code)]
 pub struct LinkedListStack<T> {
-    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 將頭節點作為堆疊頂
-    stk_size: usize,                              // 堆疊的長度
+    stack_peek: Option<Rc<RefCell<ListNode<T>>>>, // 以首節點作為堆疊頂端
+    stk_size: usize,                              // 堆疊長度
 }
 
 impl<T: Copy> LinkedListStack<T> {
@@ -24,7 +24,7 @@ impl<T: Copy> LinkedListStack<T> {
         }
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     pub fn size(&self) -> usize {
         return self.stk_size;
     }
@@ -34,7 +34,7 @@ impl<T: Copy> LinkedListStack<T> {
         return self.size() == 0;
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     pub fn push(&mut self, num: T) {
         let node = ListNode::new(num);
         node.borrow_mut().next = self.stack_peek.take();
@@ -42,7 +42,7 @@ impl<T: Copy> LinkedListStack<T> {
         self.stk_size += 1;
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     pub fn pop(&mut self) -> Option<T> {
         self.stack_peek.take().map(|old_head| {
             self.stack_peek = old_head.borrow_mut().next.take();
@@ -52,12 +52,12 @@ impl<T: Copy> LinkedListStack<T> {
         })
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 取得堆疊頂端節點的參照 */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.stack_peek.as_ref()
     }
 
-    /* 將 List 轉化為 Array 並返回 */
+    /* 將鏈結串列轉成 Vec 並回傳 */
     pub fn to_array(&self) -> Vec<T> {
         fn _to_array<T: Sized + Copy>(head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
             if let Some(node) = head {
@@ -72,12 +72,12 @@ impl<T: Copy> LinkedListStack<T> {
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 fn main() {
     /* 初始化堆疊 */
     let mut stack = LinkedListStack::new();
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -86,20 +86,20 @@ fn main() {
     print!("堆疊 stack = ");
     print_util::print_array(&stack.to_array());
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     let peek = stack.peek().unwrap().borrow().val;
-    print!("\n堆疊頂元素 peek = {}", peek);
+    print!("\n堆疊頂端元素 peek = {}", peek);
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     let pop = stack.pop().unwrap();
-    print!("\n出堆疊元素 pop = {}，出堆疊後 stack = ", pop);
+    print!("\n彈出的元素 pop = {}，彈出後 stack = ", pop);
     print_util::print_array(&stack.to_array());
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     let size = stack.size();
-    print!("\n堆疊的長度 size = {}", size);
+    print!("\n堆疊長度 size = {}", size);
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     let is_empty = stack.is_empty();
     print!("\n堆疊是否為空 = {}", is_empty);
 }

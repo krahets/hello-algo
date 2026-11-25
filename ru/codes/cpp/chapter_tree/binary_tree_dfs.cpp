@@ -6,14 +6,14 @@
 
 #include "../utils/common.hpp"
 
-// Инициализировать список для хранения последовательности обхода
+// Создать список для последовательности обхода
 vector<int> vec;
 
-/* Предварительный обход */
+/* Прямой обход */
 void preOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // Порядок обхода: корень -> левое поддерево -> правое поддерево
+    // Порядок посещения: корень -> левое поддерево -> правое поддерево
     vec.push_back(root->val);
     preOrder(root->left);
     preOrder(root->right);
@@ -23,7 +23,7 @@ void preOrder(TreeNode *root) {
 void inOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // Порядок обхода: левое поддерево -> корень -> правое поддерево
+    // Порядок посещения: левое поддерево -> корень -> правое поддерево
     inOrder(root->left);
     vec.push_back(root->val);
     inOrder(root->right);
@@ -33,36 +33,36 @@ void inOrder(TreeNode *root) {
 void postOrder(TreeNode *root) {
     if (root == nullptr)
         return;
-    // Порядок обхода: левое поддерево -> правое поддерево -> корень
+    // Порядок посещения: левое поддерево -> правое поддерево -> корень
     postOrder(root->left);
     postOrder(root->right);
     vec.push_back(root->val);
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     /* Инициализация двоичного дерева */
-    // Здесь используется функция, напрямую строящая двоичное дерево из массива
+    // Используем функцию, которая строит двоичное дерево непосредственно из массива
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
     cout << endl << "Инициализация двоичного дерева\n" << endl;
     printTree(root);
 
-    /* Предварительный обход */
+    /* Прямой обход */
     vec.clear();
     preOrder(root);
-    cout << endl << "Последовательность печати узлов при предварительном обходе = ";
+    cout << endl << "Узлы в порядке прямого обхода = ";
     printVector(vec);
 
     /* Симметричный обход */
     vec.clear();
     inOrder(root);
-    cout << endl << "Последовательность печати узлов при симметричном обходе = ";
+    cout << endl << "Узлы в порядке симметричного обхода = ";
     printVector(vec);
 
     /* Обратный обход */
     vec.clear();
     postOrder(root);
-    cout << endl << "Последовательность печати узлов при обратном обходе = ";
+    cout << endl << "Узлы в порядке обратного обхода = ";
     printVector(vec);
 
     return 0;

@@ -9,7 +9,7 @@ namespace hello_algo.chapter_dynamic_programming;
 public class climbing_stairs_dfs {
     /* 搜尋 */
     int DFS(int i) {
-        // 已知 dp[1] 和 dp[2] ，返回之
+        // 已知 dp[1] 和 dp[2]，直接回傳對應的值
         if (i == 1 || i == 2)
             return i;
         // dp[i] = dp[i-1] + dp[i-2]
@@ -26,6 +26,6 @@ public class climbing_stairs_dfs {
     public void Test() {
         int n = 9;
         int res = ClimbingStairsDFS(n);
-        Console.WriteLine($"爬 {n} 階樓梯共有 {res} 種方案");
+        Console.WriteLine($"爬 {n} 階樓梯共有 {res} 種走法");
     }
 }

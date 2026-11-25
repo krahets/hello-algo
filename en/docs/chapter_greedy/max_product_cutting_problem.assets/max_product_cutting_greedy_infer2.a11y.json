@@ -1,19 +1,19 @@
 {
-  "schema_version": 2,
-  "title": "Replacing three 2s with two 3s",
-  "summary": "Compare two local splits with the same sum of 6: three 2s versus two 3s.",
   "context": [
-    "Building on the result that an optimal split need only consider the factors 1, 2, and 3, this figure examines a split that already contains three 2s while keeping all remaining factors unchanged."
+    "It suffices to consider factors of 1, 2, and 3 when looking for an optimal split. This figure examines a split that already contains three twos, leaving all other factors unchanged."
   ],
   "description": [
-    "At the top is a solid gray bar of total length n. On the middle row, three consecutive blue blocks labeled \"2\" (total length 6) appear on the left, followed by a gray remainder segment on the right. On the bottom row, only the left span of equal length 6 is drawn, replaced by two purple blocks labeled \"3\"; the gray remainder on the right is drawn only on the middle row and does not take part in the replacement. A downward solid gray arrow in the center marks the conversion from three 2s to two 3s, and a caption below reads \"Whenever there are three 2s, greedily replace them with two 3s\"."
+    "At the top, a gray bar represents the full length n. In the middle row, three adjacent blue pieces labeled “2” have total length 6 and sit to the left of a gray remainder. The bottom row shows just the same left interval of length 6, now filled by two purple pieces labeled “3.” The gray remainder appears only in the middle row and plays no part in the change. A solid gray arrow points down from the three twos to the two threes. The caption reads “Whenever there are three twos, greedily replace them with two threes.”"
   ],
   "frames": [
     {
-      "id": "source-481",
       "book_path": "chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png",
-      "title": "Replacing three 2s with two 3s",
-      "explanation": "The product of three 2s is 8 and the product of two 3s is 9, while both sum to 6. Let P be the product of the remaining positive integer factors, taking P = 1 when there are none. This local replacement increases the overall product from 8P to 9P, so an optimal split retains at most two 2s. This algebraic argument provides the derivation for the local replacement shown in the figure."
+      "explanation": "Three twos have product 8, and two threes have product 9, while both sums equal 6. Let P be the product of all other positive integer factors, taking P = 1 if there are none. The substitution shown raises the whole product from 8P to 9P, so an optimal split contains at most two twos.",
+      "id": "source-481",
+      "title": "Replacing three twos with two threes"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "Compare two ways to split a length of 6: three twos or two threes.",
+  "title": "Replacing three twos with two threes"
 }

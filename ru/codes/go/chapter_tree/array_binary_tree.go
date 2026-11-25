@@ -4,7 +4,7 @@
 
 package chapter_tree
 
-/* Класс двоичного дерева в массивном представлении */
+/* Класс двоичного дерева на основе массива */
 type arrayBinaryTree struct {
 	tree []any
 }
@@ -16,39 +16,39 @@ func newArrayBinaryTree(arr []any) *arrayBinaryTree {
 	}
 }
 
-/* Вместимость списка */
+/* Ёмкость списка */
 func (abt *arrayBinaryTree) size() int {
 	return len(abt.tree)
 }
 
 /* Получить значение узла с индексом i */
 func (abt *arrayBinaryTree) val(i int) any {
-	// Если индекс выходит за границы, вернуть null, обозначающий пустую позицию
+	// Если индекс выходит за границы массива, вернуть null — признак пустой позиции
 	if i < 0 || i >= abt.size() {
 		return nil
 	}
 	return abt.tree[i]
 }
 
-/* Получить индекс левого дочернего узла узла с индексом i */
+/* Получить индекс левого потомка узла с индексом i */
 func (abt *arrayBinaryTree) left(i int) int {
 	return 2*i + 1
 }
 
-/* Получить индекс правого дочернего узла узла с индексом i */
+/* Получить индекс правого потомка узла с индексом i */
 func (abt *arrayBinaryTree) right(i int) int {
 	return 2*i + 2
 }
 
-/* Получить индекс родительского узла узла с индексом i */
+/* Получить индекс родителя узла с индексом i */
 func (abt *arrayBinaryTree) parent(i int) int {
 	return (i - 1) / 2
 }
 
-/* Обход в ширину */
+/* Обход по уровням */
 func (abt *arrayBinaryTree) levelOrder() []any {
 	var res []any
-	// Непосредственно обходить массив
+	// Пройти непосредственно по массиву
 	for i := 0; i < abt.size(); i++ {
 		if abt.val(i) != nil {
 			res = append(res, abt.val(i))
@@ -59,11 +59,11 @@ func (abt *arrayBinaryTree) levelOrder() []any {
 
 /* Обход в глубину */
 func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
-	// Если это пустая позиция, вернуть
+	// Если позиция пуста, завершить вызов
 	if abt.val(i) == nil {
 		return
 	}
-	// Предварительный обход
+	// Прямой обход
 	if order == "pre" {
 		*res = append(*res, abt.val(i))
 	}
@@ -79,7 +79,7 @@ func (abt *arrayBinaryTree) dfs(i int, order string, res *[]any) {
 	}
 }
 
-/* Предварительный обход */
+/* Прямой обход */
 func (abt *arrayBinaryTree) preOrder() []any {
 	var res []any
 	abt.dfs(0, "pre", &res)

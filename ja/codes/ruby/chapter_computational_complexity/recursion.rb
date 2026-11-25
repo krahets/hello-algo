@@ -8,24 +8,24 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 def recur(n)
   # 終了条件
   return 1 if n == 1
-  # 往路：再帰呼び出し
+  # 行き：再帰呼び出し
   res = recur(n - 1)
-  # 復路：結果を返す
+  # 帰り：結果を返す
   n + res
 end
 
-### 反復を使って再帰を再現する ###
+### 反復で再帰を模擬 ###
 def for_loop_recur(n)
-  # 明示的なスタックを使って、システムの呼び出しスタックを再現する
+  # 明示的なスタックでシステムの呼び出しスタックを模擬
   stack = []
   res = 0
 
-  # 往路：再帰呼び出し
+  # 行き：再帰呼び出し
   for i in n.downto(0)
-    # 「プッシュ操作」で再帰の「往路」を再現する
+    # プッシュで「行き」を模擬
     stack << i
   end
-  # 復路：結果を返す
+  # 帰り：結果を返す
   while !stack.empty?
     res += stack.pop
   end
@@ -52,18 +52,18 @@ def fib(n)
   res
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   n = 5
 
   res = recur(n)
-  puts "\n再帰関数で求めた和 res = #{res}"
+  puts "\n再帰関数による総和 res = #{res}"
 
   res = for_loop_recur(n)
-  puts "\n反復で再帰を再現して求めた和 res = #{res}"
+  puts "\n反復で再帰を模擬して求めた総和 res = #{res}"
 
   res = tail_recur(n, 0)
-  puts "\n末尾再帰関数で求めた和 res = #{res}"
+  puts "\n末尾再帰関数による総和 res = #{res}"
 
   res = fib(n)
   puts "\nフィボナッチ数列の第 #{n} 項は #{res}"

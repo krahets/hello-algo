@@ -9,7 +9,7 @@ use hello_algo_rust::include::print_util;
 /* Sift down from node i in a heap of size n */
 fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
     loop {
-        // Find the node with the largest value among i, l, and r, and store its index in ma
+        // Let ma be the index of the largest of nodes i, l, and r
         let l = 2 * i + 1;
         let r = 2 * i + 2;
         let mut ma = i;
@@ -19,7 +19,7 @@ fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
         if r < n && nums[r] > nums[ma] {
             ma = r;
         }
-        // Stop if node i is largest or both child indices l and r are out of bounds
+        // Stop if i is the largest or both child indices l and r are out of bounds
         if ma == i {
             break;
         }
@@ -32,20 +32,20 @@ fn sift_down(nums: &mut [i32], n: usize, mut i: usize) {
 
 /* Heap sort */
 fn heap_sort(nums: &mut [i32]) {
-    // Build the heap by sifting down from every non-leaf node
+    // Build the heap by sifting down from each non-leaf node
     for i in (0..nums.len() / 2).rev() {
         sift_down(nums, nums.len(), i);
     }
-    // Extract the largest element from the heap, repeating for n-1 rounds
+    // Extract the maximum from the heap in each of n-1 rounds
     for i in (1..nums.len()).rev() {
-        // Swap the root with the rightmost leaf on the last level (the first and last elements of the current heap)
+        // Swap the root and rightmost leaf (the first and last elements)
         nums.swap(0, i);
-        // Sift down starting at the root
+        // Sift down from the root
         sift_down(nums, i, 0);
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     heap_sort(&mut nums);

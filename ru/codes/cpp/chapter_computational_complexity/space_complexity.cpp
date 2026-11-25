@@ -12,18 +12,18 @@ int func() {
     return 0;
 }
 
-/* Постоянная сложность */
+/* Константная сложность */
 void constant(int n) {
     // Константы, переменные и объекты занимают O(1) памяти
     const int a = 0;
     int b = 0;
     vector<int> nums(10000);
     ListNode node(0);
-    // Переменные в цикле занимают O(1) памяти
+    // Переменные цикла занимают O(1) памяти
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // Функции в цикле занимают O(1) памяти
+    // Вызовы функции в цикле требуют O(1) памяти
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -38,16 +38,16 @@ void linear(int n) {
     for (int i = 0; i < n; i++) {
         nodes.push_back(ListNode(i));
     }
-    // Хеш-таблица длины n занимает O(n) памяти
+    // Хеш-таблица из n элементов занимает O(n) памяти
     unordered_map<int, string> map;
     for (int i = 0; i < n; i++) {
         map[i] = to_string(i);
     }
 }
 
-/* Линейная сложность (рекурсивная реализация) */
+/* Линейная сложность (рекурсия) */
 void linearRecur(int n) {
-    cout << "Рекурсия n = " << n << endl;
+    cout << "Рекурсивный вызов: n = " << n << endl;
     if (n == 1)
         return;
     linearRecur(n - 1);
@@ -66,16 +66,16 @@ void quadratic(int n) {
     }
 }
 
-/* Квадратичная сложность (рекурсивная реализация) */
+/* Квадратичная сложность (рекурсия) */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "Рекурсия n = " << n << " , длина nums = " << nums.size() << endl;
+    cout << "При n = " << n << " длина nums = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
-/* Экспоненциальная сложность (построение полного двоичного дерева) */
+/* Экспоненциальная сложность (построение совершенного двоичного дерева) */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return nullptr;
@@ -85,10 +85,10 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int n = 5;
-    // Постоянная сложность
+    // Константная сложность
     constant(n);
     // Линейная сложность
     linear(n);

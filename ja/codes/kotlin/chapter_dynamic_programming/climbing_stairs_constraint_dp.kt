@@ -6,7 +6,7 @@
 
 package chapter_dynamic_programming
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 fun climbingStairsConstraintDP(n: Int): Int {
     if (n == 1 || n == 2) {
         return 1
@@ -26,10 +26,10 @@ fun climbingStairsConstraintDP(n: Int): Int {
     return dp[n][1] + dp[n][2]
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val n = 9
 
     val res = climbingStairsConstraintDP(n)
-    println("$n 段の階段を上る方法は全部で $res 通り")
+    println("全 $n 段の階段の登り方は $res 通り")
 }

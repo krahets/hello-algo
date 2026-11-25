@@ -11,47 +11,47 @@ class ArrayStack {
     _stack = [];
   }
 
-  /* Получение длины стека */
+  /* Получить размер стека */
   int size() {
     return _stack.length;
   }
 
-  /* Проверка, пуст ли стек */
+  /* Проверить, пуст ли стек */
   bool isEmpty() {
     return _stack.isEmpty;
   }
 
-  /* Поместить в стек */
+  /* Поместить элемент в стек */
   void push(int _num) {
     _stack.add(_num);
   }
 
-  /* Извлечь из стека */
+  /* Снять элемент со стека */
   int pop() {
     if (isEmpty()) {
-      throw Exception("стек пуст");
+      throw Exception("Стек пуст");
     }
     return _stack.removeLast();
   }
 
-  /* Доступ к верхнему элементу стека */
+  /* Посмотреть элемент на вершине стека */
   int peek() {
     if (isEmpty()) {
-      throw Exception("стек пуст");
+      throw Exception("Стек пуст");
     }
     return _stack.last;
   }
 
-  /* Преобразовать стек в Array и вернуть */
+  /* Преобразовать стек в массив и вернуть его */
   List<int> toArray() => _stack;
 }
 
-/* Driver Code */
+/* Пример использования */
 void main() {
-  /* Инициализация стека */
+  /* Инициализировать стек */
   final ArrayStack stack = ArrayStack();
 
-  /* Помещение элемента в стек */
+  /* Поместить элементы в стек */
   stack.push(1);
   stack.push(3);
   stack.push(2);
@@ -59,19 +59,19 @@ void main() {
   stack.push(4);
   print("Стек stack = ${stack.toArray()}");
 
-  /* Доступ к верхнему элементу стека */
+  /* Посмотреть элемент на вершине стека */
   final int peek = stack.peek();
-  print("Верхний элемент peek = $peek");
+  print("Элемент на вершине стека peek = $peek");
 
-  /* Извлечение элемента из стека */
+  /* Снять элемент со стека */
   final int pop = stack.pop();
-  print("Извлеченный элемент pop = $pop, stack после извлечения = ${stack.toArray()}");
+  print("Снятый элемент pop = $pop, после снятия stack = ${stack.toArray()}");
 
-  /* Получение длины стека */
+  /* Получить размер стека */
   final int size = stack.size();
-  print("Длина стека size = $size");
+  print("Размер стека size = $size");
 
-  /* Проверка на пустоту */
+  /* Проверить, пуст ли стек */
   final bool isEmpty = stack.isEmpty();
-  print("Пуст ли стек = $isEmpty");
+  print("Стек пуст = $isEmpty");
 }

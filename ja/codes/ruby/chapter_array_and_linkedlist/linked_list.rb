@@ -8,14 +8,14 @@ require_relative '../utils/list_node'
 require_relative '../utils/print_util'
 
 ### 連結リストのノード n0 の直後にノード _p を挿入する ###
-# Ruby では `p` は組み込み関数、`P` は定数なので、代わりに `_p` を使える
+# Ruby の `p` は組み込み関数、`P` は定数なので、代わりに `_p` を使える
 def insert(n0, _p)
   n1 = n0.next
   _p.next = n1
   n0.next = _p
 end
 
-### 連結リストのノード n0 の直後のノードを削除する ###
+### 連結リストのノード n0 の直後にあるノードを削除する ###
 def remove(n0)
   return if n0.next.nil?
 
@@ -35,7 +35,7 @@ def access(head, index)
   head
 end
 
-### 連結リストから値が target である最初のノードを探索する ###
+### 連結リストから値が target の最初のノードを探す ###
 def find(head, target)
   index = 0
   while head
@@ -47,7 +47,7 @@ def find(head, target)
   -1
 end
 
-### 実行用コード ###
+### ドライバコード ###
 if __FILE__ == $0
   # 連結リストを初期化する
   # 各ノードを初期化する
@@ -61,7 +61,7 @@ if __FILE__ == $0
   n1.next = n2
   n2.next = n3
   n3.next = n4
-  puts "初期化した連結リスト"
+  puts "初期化した連結リスト："
   print_linked_list(n0)
 
   # ノードを挿入する
@@ -70,14 +70,14 @@ if __FILE__ == $0
 
   # ノードを削除する
   remove(n0)
-  puts "ノードを削除した後の連結リスト"
+  puts "ノード削除後の連結リスト："
   print_linked_list(n0)
 
   # ノードにアクセスする
   node = access(n0, 3)
   puts "連結リストのインデックス 3 にあるノードの値 = #{node.val}"
 
-  # ノードを探索する
+  # ノードを探す
   index = find(n0, 2)
-  puts "連結リスト内で値が 2 であるノードのインデックス = #{index}"
+  puts "連結リストで値が 2 のノードのインデックス = #{index}"
 end

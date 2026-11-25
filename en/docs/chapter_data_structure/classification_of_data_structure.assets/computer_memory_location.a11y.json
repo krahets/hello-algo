@@ -1,29 +1,29 @@
 {
-  "schema_version": 2,
-  "title": "Accessing memory by address",
-  "summary": "Locate a memory cell by adding its row base address and column offset, then read the data stored there.",
   "context": [],
   "description": [
-    "On the left is a vertical memory module whose black chip area connects via two gray lines to the memory grid on the right. Those physical chips are not at the same level of representation as the dark cells indicating used memory inside the grid.",
-    "The grid shows 5 rows and 8 columns: row base addresses are 0x0000, 0x0010, 0x0020, 0x0030, and 0x0040, and column offsets run from 00 to 07; ellipses on the right and bottom indicate additional cells not drawn. Light cells represent free memory and dark cells represent used memory; free memory does not mean the cell contains the number 0."
+    "On the left is a vertical memory module. Two gray lines connect its black chip area to the memory grid on the right. The physical chips and the dark cells marking used space in the grid represent different levels of detail.",
+    "The grid has five rows and eight columns. The rows start at 0x0000, 0x0010, 0x0020, 0x0030, and 0x0040, with column offsets 00 through 07. Ellipses at the right and bottom indicate additional cells. Light cells are available and dark cells are in use. An available cell does not necessarily contain 0."
   ],
   "frames": [
     {
-      "id": "source-39",
       "book_path": "chapter_data_structure/classification_of_data_structure.assets/computer_memory_location.png",
-      "title": "Accessing memory by address",
-      "explanation": "Adding the row base address and column offset pinpoints a cell. For example, 0x0020 plus offset 04 gives 0x0024, yielding data value 2. The two read callouts below the grid correspond to the two rows in the table. An address identifies a location, whereas data is the content stored at that location; the grid is an addressing diagram rather than the physical circuit layout of a memory chip."
+      "explanation": "Add a row's starting address and a column offset to locate a cell. For example, 0x0020 plus offset 04 gives 0x0024, which holds the value 2. The two reads below the grid correspond to the two rows in the table. An address identifies a location, and the data is the content stored there. The grid illustrates addressing rather than the chip's physical circuit layout.",
+      "id": "source-39",
+      "title": "Accessing memory by address"
     }
   ],
+  "schema_version": 2,
+  "summary": "Add the column offset to the row's starting address to locate a memory cell and read its data.",
   "tables": [
     {
-      "caption": "Two used memory cells highlighted in the figure",
+      "caption": "Two occupied memory cells in the diagram",
       "headers": [
         "Full address",
-        "Row base address",
+        "Row starting address",
         "Column offset",
         "Stored data"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0x0012",
@@ -37,8 +37,8 @@
           "04",
           "2"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Accessing memory by address"
 }

@@ -16,10 +16,10 @@ class HashMapChaining:
 
     def __init__(self):
         """Конструктор"""
-        self.size = 0  # Число пар ключ-значение
-        self.capacity = 4  # Вместимость хеш-таблицы
-        self.load_thres = 2.0 / 3.0  # Порог коэффициента загрузки для запуска расширения
-        self.extend_ratio = 2  # Коэффициент расширения
+        self.size = 0  # Число пар «ключ — значение»
+        self.capacity = 4  # Ёмкость хеш-таблицы
+        self.load_thres = 2.0 / 3.0  # Порог коэффициента заполнения для расширения
+        self.extend_ratio = 2  # Во сколько раз увеличивается ёмкость
         self.buckets = [[] for _ in range(self.capacity)]  # Массив корзин
 
     def hash_func(self, key: int) -> int:
@@ -27,42 +27,42 @@ class HashMapChaining:
         return key % self.capacity
 
     def load_factor(self) -> float:
-        """Коэффициент загрузки"""
+        """Коэффициент заполнения"""
         return self.size / self.capacity
 
     def get(self, key: int) -> str | None:
-        """Операция поиска"""
+        """Поиск"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Обойти корзину; если найден key, вернуть соответствующее val
+        # Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
         for pair in bucket:
             if pair.key == key:
                 return pair.val
-        # Если key не найден, вернуть None
+        # Если ключ key не найден, вернуть None
         return None
 
     def put(self, key: int, val: str):
-        """Операция добавления"""
-        # Когда коэффициент загрузки превышает порог, выполнить расширение
+        """Вставка"""
+        # Расширить таблицу, если коэффициент заполнения превысил порог
         if self.load_factor() > self.load_thres:
             self.extend()
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+        # Обойти корзину. Если найден ключ key, обновить val и завершить операцию
         for pair in bucket:
             if pair.key == key:
                 pair.val = val
                 return
-        # Если такого key нет, добавить пару ключ-значение в конец
+        # Если ключа key нет, добавить пару в конец списка
         pair = Pair(key, val)
         bucket.append(pair)
         self.size += 1
 
     def remove(self, key: int):
-        """Операция удаления"""
+        """Удаление"""
         index = self.hash_func(key)
         bucket = self.buckets[index]
-        # Обойти корзину и удалить из нее пару ключ-значение
+        # Обойти корзину и удалить из неё нужную пару
         for pair in bucket:
             if pair.key == key:
                 bucket.remove(pair)
@@ -73,11 +73,11 @@ class HashMapChaining:
         """Расширить хеш-таблицу"""
         # Временно сохранить исходную хеш-таблицу
         buckets = self.buckets
-        # Инициализация новой хеш-таблицы после расширения
+        # Создать новую таблицу увеличенной ёмкости
         self.capacity *= self.extend_ratio
         self.buckets = [[] for _ in range(self.capacity)]
         self.size = 0
-        # Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        # Перенести пары из исходной таблицы в новую
         for bucket in buckets:
             for pair in bucket:
                 self.put(pair.key, pair.val)
@@ -93,26 +93,26 @@ class HashMapChaining:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация хеш-таблицы
+    # Создать хеш-таблицу
     hashmap = HashMapChaining()
 
-    # Операция добавления
-    # Добавить пару (key, value) в хеш-таблицу
+    # Вставка
+    # Добавить в таблицу пару (key, value)
     hashmap.put(12836, "Сяо Ха")
     hashmap.put(15937, "Сяо Ло")
     hashmap.put(16750, "Сяо Суань")
     hashmap.put(13276, "Сяо Фа")
     hashmap.put(10583, "Сяо Я")
-    print("\nПосле завершения добавления хеш-таблица имеет вид\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\nХеш-таблица после вставки:\n[Ключ1 -> Значение1, Ключ2 -> Значение2, ...]")
     hashmap.print()
 
-    # Операция поиска
-    # Передать ключ key в хеш-таблицу и получить значение value
+    # Поиск
+    # Получить из таблицы значение value по ключу key
     name = hashmap.get(13276)
-    print("\nДля номера 13276 найдено имя " + name)
+    print("\nИмя студента с номером 13276: " + name)
 
-    # Операция удаления
-    # Удалить пару (key, value) из хеш-таблицы
+    # Удаление
+    # Удалить из таблицы пару (key, value)
     hashmap.remove(12836)
-    print("\nПосле удаления 12836 хеш-таблица имеет вид\n[Key1 -> Value1, Key2 -> Value2, ...]")
+    print("\nХеш-таблица после удаления 12836:\n[Ключ1 -> Значение1, Ключ2 -> Значение2, ...]")
     hashmap.print()

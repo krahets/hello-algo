@@ -8,9 +8,9 @@ import (
 	"container/list"
 )
 
-/* 基於鏈結串列實現的堆疊 */
+/* 以鏈結串列實作堆疊 */
 type linkedListStack struct {
-	// 使用內建包 list 來實現堆疊
+	// 使用標準函式庫的 list 套件實作堆疊
 	data *list.List
 }
 
@@ -21,12 +21,12 @@ func newLinkedListStack() *linkedListStack {
 	}
 }
 
-/* 入堆疊 */
+/* 推入堆疊 */
 func (s *linkedListStack) push(value int) {
 	s.data.PushBack(value)
 }
 
-/* 出堆疊 */
+/* 彈出堆疊頂端的元素 */
 func (s *linkedListStack) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* 訪問堆疊頂元素 */
+/* 讀取堆疊頂端的元素 */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,7 +45,7 @@ func (s *linkedListStack) peek() any {
 	return e.Value
 }
 
-/* 獲取堆疊的長度 */
+/* 取得堆疊長度 */
 func (s *linkedListStack) size() int {
 	return s.data.Len()
 }
@@ -55,7 +55,7 @@ func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 獲取 List 用於列印 */
+/* 回傳 list.List 的指標以便輸出 */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

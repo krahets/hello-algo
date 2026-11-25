@@ -12,20 +12,20 @@ import (
 func TestBinarySearchTree(t *testing.T) {
 	bst := newBinarySearchTree()
 	nums := []int{8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15}
-	// 挿入順序が異なると異なる二分木になることに注意。この順序ではパーフェクト二分木を生成できる
+	// 挿入順によって木の形は変わる。この順に挿入すると完璧二分木になる
 	for _, num := range nums {
 		bst.insert(num)
 	}
 	fmt.Println("\n初期化した二分木：")
 	bst.print()
 
-	// 根ノードを取得する
+	// 根を取得する
 	node := bst.getRoot()
-	fmt.Println("\n二分木の根ノード：", node.Val)
+	fmt.Println("\n二分木の根：", node.Val)
 
 	// ノードを探索する
 	node = bst.search(7)
-	fmt.Println("見つかったノードオブジェクトは", node, "、ノードの値 =", node.Val)
+	fmt.Println("見つかったノードのオブジェクト：", node, "、ノードの値 = ", node.Val)
 
 	// ノードを挿入する
 	bst.insert(16)

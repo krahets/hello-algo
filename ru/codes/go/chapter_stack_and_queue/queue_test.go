@@ -13,11 +13,11 @@ import (
 )
 
 func TestQueue(t *testing.T) {
-	/* Инициализация очереди */
-	// В Go list используется как очередь
+	/* Инициализировать очередь */
+	// В Go в качестве очереди используется список из пакета list
 	queue := list.New()
 
-	/* Добавление элемента в очередь */
+	/* Добавить элементы в очередь */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
@@ -26,35 +26,35 @@ func TestQueue(t *testing.T) {
 	fmt.Print("Очередь queue = ")
 	PrintList(queue)
 
-	/* Доступ к элементу в начале очереди */
+	/* Посмотреть первый элемент очереди */
 	peek := queue.Front()
-	fmt.Println("Первый элемент peek =", peek.Value)
+	fmt.Println("Первый элемент очереди peek =", peek.Value)
 
-	/* Извлечение элемента из очереди */
+	/* Извлечь элемент из очереди */
 	pop := queue.Front()
 	queue.Remove(pop)
-	fmt.Print("Извлеченный элемент pop = ", pop.Value, ", queue после извлечения = ")
+	fmt.Print("Извлечённый элемент pop = ", pop.Value, ", после извлечения queue = ")
 	PrintList(queue)
 
-	/* Получение длины очереди */
+	/* Получить длину очереди */
 	size := queue.Len()
 	fmt.Println("Длина очереди size =", size)
 
-	/* Проверка, пуста ли очередь */
+	/* Проверить, пуста ли очередь */
 	isEmpty := queue.Len() == 0
-	fmt.Println("Пуста ли очередь =", isEmpty)
+	fmt.Println("Очередь пуста =", isEmpty)
 }
 
 func TestArrayQueue(t *testing.T) {
 
-	// Инициализировать очередь, используя общий интерфейс очереди
+	// Инициализировать очередь и использовать общие для очередей операции
 	capacity := 10
 	queue := newArrayQueue(capacity)
 	if queue.pop() != nil {
 		t.Errorf("want:%v,got:%v", nil, queue.pop())
 	}
 
-	// Добавление элемента в очередь
+	// Добавить элементы в очередь
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -63,28 +63,28 @@ func TestArrayQueue(t *testing.T) {
 	fmt.Print("Очередь queue = ")
 	PrintSlice(queue.toSlice())
 
-	// Доступ к элементу в начале очереди
+	// Посмотреть первый элемент очереди
 	peek := queue.peek()
-	fmt.Println("Первый элемент peek =", peek)
+	fmt.Println("Первый элемент очереди peek =", peek)
 
-	// Извлечение элемента из очереди
+	// Извлечь элемент из очереди
 	pop := queue.pop()
-	fmt.Print("Извлеченный элемент pop = ", pop, ", queue после извлечения = ")
+	fmt.Print("Извлечённый элемент pop = ", pop, ", после извлечения queue = ")
 	PrintSlice(queue.toSlice())
 
 	// Получить длину очереди
 	size := queue.size()
 	fmt.Println("Длина очереди size =", size)
 
-	// Проверка на пустоту
+	// Проверить, пуста ли очередь
 	isEmpty := queue.isEmpty()
-	fmt.Println("Пуста ли очередь =", isEmpty)
+	fmt.Println("Очередь пуста =", isEmpty)
 
-	/* Проверка кольцевого массива */
+	/* Проверить работу кольцевого массива */
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("После ", i, "-го раунда операций enqueue и dequeue queue =")
+		fmt.Print("В цикле ", i, " после добавления и извлечения элемента queue =")
 		PrintSlice(queue.toSlice())
 	}
 }
@@ -93,7 +93,7 @@ func TestLinkedListQueue(t *testing.T) {
 	// Инициализировать очередь
 	queue := newLinkedListQueue()
 
-	// Добавление элемента в очередь
+	// Добавить элементы в очередь
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -102,29 +102,29 @@ func TestLinkedListQueue(t *testing.T) {
 	fmt.Print("Очередь queue = ")
 	PrintList(queue.toList())
 
-	// Доступ к элементу в начале очереди
+	// Посмотреть первый элемент очереди
 	peek := queue.peek()
-	fmt.Println("Первый элемент peek =", peek)
+	fmt.Println("Первый элемент очереди peek =", peek)
 
-	// Извлечение элемента из очереди
+	// Извлечь элемент из очереди
 	pop := queue.pop()
-	fmt.Print("Извлеченный элемент pop = ", pop, ", queue после извлечения = ")
+	fmt.Print("Извлечённый элемент pop = ", pop, ", после извлечения queue = ")
 	PrintList(queue.toList())
 
 	// Получить длину очереди
 	size := queue.size()
 	fmt.Println("Длина очереди size =", size)
 
-	// Проверка на пустоту
+	// Проверить, пуста ли очередь
 	isEmpty := queue.isEmpty()
-	fmt.Println("Пуста ли очередь =", isEmpty)
+	fmt.Println("Очередь пуста =", isEmpty)
 }
 
-// BenchmarkArrayQueue 8 ns/op in Mac M1 Pro
+// Результат BenchmarkArrayQueue на Mac с M1 Pro — 8 ns/op
 func BenchmarkArrayQueue(b *testing.B) {
 	capacity := 1000
 	queue := newArrayQueue(capacity)
-	// use b.N for looping
+	// Число итераций цикла задаёт b.N
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}
@@ -133,10 +133,10 @@ func BenchmarkArrayQueue(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedQueue 62.66 ns/op in Mac M1 Pro
+// Результат BenchmarkLinkedQueue на Mac с M1 Pro — 62.66 ns/op
 func BenchmarkLinkedQueue(b *testing.B) {
 	queue := newLinkedListQueue()
-	// use b.N for looping
+	// Число итераций цикла задаёт b.N
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}

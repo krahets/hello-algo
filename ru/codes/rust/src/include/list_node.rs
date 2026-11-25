@@ -19,13 +19,13 @@ impl<T> ListNode<T> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
 
-    /* Десериализовать массив в связный список */
+    /* Восстановить связный список из массива */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
     where
         T: Copy + Clone,
     {
         let mut head = None;
-        // insert in reverse order
+        // Вставлять элементы в обратном порядке
         for item in array.iter().rev() {
             let node = Rc::new(RefCell::new(ListNode {
                 val: *item,

@@ -6,60 +6,60 @@
 
 #include "../utils/common.hpp"
 
-/* Двоичный поиск точки вставки (с повторяющимися элементами) */
+/* Двоичный поиск позиции вставки при наличии повторов */
 int binarySearchInsertion(const vector<int> &nums, int target) {
-    int i = 0, j = nums.size() - 1; // Инициализировать замкнутый интервал [0, n-1]
+    int i = 0, j = nums.size() - 1; // Задаём замкнутый интервал [0, n-1]
     while (i <= j) {
-        int m = i + (j - i) / 2; // Вычислить индекс середины m
+        int m = i + (j - i) / 2; // Вычисляем индекс середины m
         if (nums[m] < target) {
-            i = m + 1; // target находится в интервале [m+1, j]
+            i = m + 1; // Ищем target в интервале [m+1, j]
         } else {
-            j = m - 1; // Самый правый элемент, меньший target, находится в интервале [i, m-1]
+            j = m - 1; // В интервале [i, m-1] ищем последний элемент, меньший target
         }
     }
-    // Вернуть точку вставки i
+    // Возвращаем позицию вставки i
     return i;
 }
 
-/* Двоичный поиск самого левого элемента target */
+/* Двоичный поиск первого вхождения target */
 int binarySearchLeftEdge(vector<int> &nums, int target) {
-    // Эквивалентно поиску точки вставки target
+    // Задача равносильна поиску позиции вставки target
     int i = binarySearchInsertion(nums, target);
-    // target не найден, вернуть -1
+    // Значение target не найдено, возвращаем -1
     if (i == nums.size() || nums[i] != target) {
         return -1;
     }
-    // target найден, возвращается индекс i
+    // Значение target найдено, возвращаем индекс i
     return i;
 }
 
-/* Двоичный поиск самого правого элемента target */
+/* Двоичный поиск последнего вхождения target */
 int binarySearchRightEdge(vector<int> &nums, int target) {
-    // Преобразовать задачу в поиск самого левого target + 1
+    // Сводим задачу к поиску первого вхождения target + 1
     int i = binarySearchInsertion(nums, target + 1);
-    // j указывает на самый правый target, а i — на первый элемент больше target
+    // j указывает на последнее вхождение target, а i — на первый элемент, больший target
     int j = i - 1;
-    // target не найден, вернуть -1
+    // Значение target не найдено, возвращаем -1
     if (j == -1 || nums[j] != target) {
         return -1;
     }
-    // target найден, возвращается индекс j
+    // Значение target найдено, возвращаем индекс j
     return j;
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
     // Массив с повторяющимися элементами
     vector<int> nums = {1, 3, 6, 6, 6, 6, 6, 10, 12, 15};
     cout << "\nМассив nums = ";
     printVector(nums);
 
-    // Двоичный поиск левой и правой границы
+    // Двоичный поиск левой и правой границ
     for (int target : {6, 7}) {
         int index = binarySearchLeftEdge(nums, target);
-        cout << "Индекс самого левого элемента " << target << " равен " << index << endl;
+        cout << "Индекс первого вхождения " << target << " равен " << index << endl;
         index = binarySearchRightEdge(nums, target);
-        cout << "Индекс самого правого элемента " << target << " равен " << index << endl;
+        cout << "Индекс последнего вхождения " << target << " равен " << index << endl;
     }
 
     return 0;

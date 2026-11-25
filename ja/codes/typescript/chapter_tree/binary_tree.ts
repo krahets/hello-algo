@@ -19,7 +19,7 @@ n1.left = n2;
 n1.right = n3;
 n2.left = n4;
 n2.right = n5;
-console.log('\n二分木を初期化する\n');
+console.log('\n二分木を初期化\n');
 printTree(n1);
 
 /* ノードの挿入と削除 */

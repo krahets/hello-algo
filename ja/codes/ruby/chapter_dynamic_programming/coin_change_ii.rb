@@ -15,10 +15,10 @@ def coin_change_ii_dp(coins, amt)
   for i in 1...(n + 1)
     for a in 1...(amt + 1)
       if coins[i - 1] > a
-        # 目標金額を超える場合、硬貨 i を選ばない
+        # 目標金額を超える場合は硬貨 i を使わない
         dp[i][a] = dp[i - 1][a]
       else
-        # 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+        # 硬貨 i を使わない場合と使う場合の組合せ数を足す
         dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
       end
     end
@@ -26,7 +26,7 @@ def coin_change_ii_dp(coins, amt)
   dp[n][amt]
 end
 
-### 硬貨の両替 II：空間を最適化した動的計画法 ###
+### 硬貨の両替 II：使用メモリを削減した動的計画法 ###
 def coin_change_ii_dp_comp(coins, amt)
   n = coins.length
   # dp テーブルを初期化する
@@ -34,13 +34,13 @@ def coin_change_ii_dp_comp(coins, amt)
   dp[0] = 1
   # 状態遷移
   for i in 1...(n + 1)
-    # 順方向に走査する
+    # 昇順に走査する
     for a in 1...(amt + 1)
       if coins[i - 1] > a
-        # 目標金額を超える場合、硬貨 i を選ばない
+        # 目標金額を超える場合は硬貨 i を使わない
         dp[a] = dp[a]
       else
-        # 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+        # 硬貨 i を使わない場合と使う場合の組合せ数を足す
         dp[a] = dp[a] + dp[a - coins[i - 1]]
       end
     end
@@ -48,16 +48,16 @@ def coin_change_ii_dp_comp(coins, amt)
   dp[amt]
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   coins = [1, 2, 5]
   amt = 5
 
   # 動的計画法
   res = coin_change_ii_dp(coins, amt)
-  puts "目標金額になる硬貨の組み合わせの数は #{res}"
+  puts "目標金額を作る硬貨の組合せ数は #{res}"
 
-  # 空間を最適化した動的計画法
+  # 使用メモリを削減した動的計画法
   res = coin_change_ii_dp_comp(coins, amt)
-  puts "目標金額になる硬貨の組み合わせの数は #{res}"
+  puts "目標金額を作る硬貨の組合せ数は #{res}"
 end

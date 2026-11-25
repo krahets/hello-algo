@@ -8,28 +8,28 @@ import graph_adjacency_list_target
 import utils
 
 /* Breadth-first traversal */
-// Represent the graph with an adjacency list to access all neighbors of a given vertex
+// Represent the graph with an adjacency list to look up all neighbors of a given vertex
 func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
-    // Vertex traversal sequence
+    // Vertex traversal order
     var res: [Vertex] = []
-    // Hash set recording visited vertices
+    // Use a hash set to track visited vertices
     var visited: Set<Vertex> = [startVet]
-    // Use a queue to implement BFS
+    // Use a queue for BFS
     var que: [Vertex] = [startVet]
-    // Starting from startVet, loop until all reachable vertices have been visited
+    // Starting at vertex vet, loop until all reachable vertices have been visited
     while !que.isEmpty {
         let vet = que.removeFirst() // Dequeue the front vertex
         res.append(vet) // Record the visited vertex
-        // Traverse all neighbors of this vertex
+        // Iterate over all neighbors of this vertex
         for adjVet in graph.adjList[vet] ?? [] {
             if visited.contains(adjVet) {
-                continue // Skip vertices that have already been visited
+                continue // Skip visited vertices
             }
             que.append(adjVet) // Enqueue only unvisited vertices
-            visited.insert(adjVet) // Mark this vertex as visited
+            visited.insert(adjVet) // Mark the vertex as visited
         }
     }
-    // Return the vertex traversal sequence
+    // Return the vertex traversal order
     return res
 }
 
@@ -37,7 +37,7 @@ func graphBFS(graph: GraphAdjList, startVet: Vertex) -> [Vertex] {
 enum GraphBFS {
     /* Driver code */
     static func main() {
-        /* Initialize the undirected graph */
+        /* Initialize an undirected graph */
         let v = Vertex.valsToVets(vals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
         let edges = [
             [v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[1], v[4]],
@@ -50,7 +50,7 @@ enum GraphBFS {
 
         /* Breadth-first traversal */
         let res = graphBFS(graph: graph, startVet: v[0])
-        print("\nVertex sequence from breadth-first traversal (BFS):")
+        print("\nBreadth-first search (BFS) visits the vertices in this order:")
         print(Vertex.vetsToVals(vets: res))
     }
 }

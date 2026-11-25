@@ -17,15 +17,15 @@ public class list {
 
         /* 要素にアクセスする */
         int num = nums[1];
-        Console.WriteLine("インデックス 1 の要素にアクセスした結果 num = " + num);
+        Console.WriteLine("インデックス 1 の要素を読み出した結果 num = " + num);
 
         /* 要素を更新する */
         nums[1] = 0;
-        Console.WriteLine("インデックス 1 の要素を 0 に更新した結果 nums = " + string.Join(",", nums));
+        Console.WriteLine("インデックス 1 の要素を 0 に更新した後の nums = " + string.Join(",", nums));
 
         /* リストを空にする */
         nums.Clear();
-        Console.WriteLine("リストを空にした後 nums = " + string.Join(",", nums));
+        Console.WriteLine("リストを空にした後の nums = " + string.Join(",", nums));
 
         /* 末尾に要素を追加する */
         nums.Add(1);
@@ -33,15 +33,15 @@ public class list {
         nums.Add(2);
         nums.Add(5);
         nums.Add(4);
-        Console.WriteLine("要素を追加した後 nums = " + string.Join(",", nums));
+        Console.WriteLine("要素追加後の nums = " + string.Join(",", nums));
 
         /* 途中に要素を挿入する */
         nums.Insert(3, 6);
-        Console.WriteLine("インデックス 3 に数値 6 を挿入した結果 nums = " + string.Join(",", nums));
+        Console.WriteLine("インデックス 3 に 6 を挿入した後の nums = " + string.Join(",", nums));
 
         /* 要素を削除する */
         nums.RemoveAt(3);
-        Console.WriteLine("インデックス 3 の要素を削除した結果 nums = " + string.Join(",", nums));
+        Console.WriteLine("インデックス 3 の要素を削除した後の nums = " + string.Join(",", nums));
 
         /* インデックスを使ってリストを走査する */
         int count = 0;
@@ -57,10 +57,10 @@ public class list {
         /* 2 つのリストを連結する */
         List<int> nums1 = [6, 8, 7, 10, 9];
         nums.AddRange(nums1);
-        Console.WriteLine("リスト nums の後ろに nums1 を連結した結果 nums = " + string.Join(",", nums));
+        Console.WriteLine("リスト nums1 を nums の末尾に連結した後の nums = " + string.Join(",", nums));
 
         /* リストをソートする */
         nums.Sort(); // ソート後、リストの要素は昇順に並ぶ
-        Console.WriteLine("リストをソートした後 nums = " + string.Join(",", nums));
+        Console.WriteLine("ソート後のリスト nums = " + string.Join(",", nums));
     }
 }

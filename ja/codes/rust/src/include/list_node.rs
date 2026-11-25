@@ -19,7 +19,7 @@ impl<T> ListNode<T> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
 
-    /* 配列をデシリアライズして連結リストにする */
+    /* 配列をデシリアライズして連結リストを復元する */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
     where
         T: Copy + Clone,

@@ -6,10 +6,10 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### 二分探索：問題 f(i, j) ###
 def dfs(nums, target, i, j)
-  # 区間が空なら目的の要素が存在しないため、-1 を返す
+  # 区間が空なら目的の要素はないので -1 を返す
   return -1 if i > j
   
-  # 中央のインデックス m を計算する
+  # 中央のインデックス m を求める
   m = (i + j) / 2
 
   if nums[m] < target
@@ -31,12 +31,12 @@ def binary_search(nums, target)
   dfs(nums, target, 0, n - 1)
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   target = 6
   nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
-  # 二分探索（閉区間）
+  # 二分探索（両端を含む区間）
   index = binary_search(nums, target)
   puts "目的の要素 6 のインデックス = #{index}"
 end

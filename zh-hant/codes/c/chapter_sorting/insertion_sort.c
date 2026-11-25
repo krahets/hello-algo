@@ -8,21 +8,21 @@
 
 /* 插入排序 */
 void insertionSort(int nums[], int size) {
-    // 外迴圈：已排序區間為 [0, i-1]
+    // 外層迴圈：已排序的區間為 [0, i-1]
     for (int i = 1; i < size; i++) {
         int base = nums[i], j = i - 1;
-        // 內迴圈：將 base 插入到已排序區間 [0, i-1] 中的正確位置
+        // 內層迴圈：將 base 插入已排序區間 [0, i-1] 中的正確位置
         while (j >= 0 && nums[j] > base) {
-            // 將 nums[j] 向右移動一位
+            // 將 nums[j] 向右移動一格
             nums[j + 1] = nums[j];
             j--;
         }
-        // 將 base 賦值到正確位置
+        // 將 base 寫入正確位置
         nums[j + 1] = base;
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int nums[] = {4, 1, 3, 1, 5, 2};
     insertionSort(nums, 6);

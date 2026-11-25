@@ -8,7 +8,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com), Cy (9738314@gmail.com)
 def for_loop(n)
   res = 0
 
-  # 迴圈求和 1, 2, ..., n-1, n
+  # 迴圈加總 1, 2, ..., n-1, n
   for i in 1..n
     res += i
   end
@@ -21,7 +21,7 @@ def while_loop(n)
   res = 0
   i = 1 # 初始化條件變數
 
-  # 迴圈求和 1, 2, ..., n-1, n
+  # 迴圈加總 1, 2, ..., n-1, n
   while i <= n
     res += i
     i += 1 # 更新條件變數
@@ -30,12 +30,12 @@ def while_loop(n)
   res
 end
 
-### while 迴圈（兩次更新）###
+### while 迴圈（更新兩次）###
 def while_loop_ii(n)
   res = 0
   i = 1 # 初始化條件變數
 
-  # 迴圈求和 1, 4, 10, ...
+  # 迴圈加總 1, 4, 10, ...
   while i <= n
     res += i
     # 更新條件變數
@@ -61,19 +61,19 @@ def nested_for_loop(n)
   res
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   n = 5
 
   res = for_loop(n)
-  puts "\nfor 迴圈的求和結果 res = #{res}"
+  puts "\nfor 迴圈的總和 res = #{res}"
 
   res = while_loop(n)
-  puts "\nwhile 迴圈的求和結果 res = #{res}"
+  puts "\nwhile 迴圈的總和 res = #{res}"
 
   res = while_loop_ii(n)
-  puts "\nwhile 迴圈（兩次更新）求和結果 res = #{res}"
+  puts "\nwhile 迴圈（更新兩次）的總和 res = #{res}"
 
   res = nested_for_loop(n)
-  puts "\n雙層 for 迴圈的走訪結果 #{res}"
+  puts "\n雙層 for 迴圈走訪的結果 #{res}"
 end

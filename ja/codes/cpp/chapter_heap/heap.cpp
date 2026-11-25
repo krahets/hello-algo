@@ -7,19 +7,19 @@
 #include "../utils/common.hpp"
 
 void testPush(priority_queue<int> &heap, int val) {
-    heap.push(val); // ヒープに要素を挿入する
-    cout << "\n要素 " << val << " をヒープに挿入した後" << endl;
+    heap.push(val); // 要素をヒープに挿入する
+    cout << "\n要素 " << val << " を挿入した後：" << endl;
     printHeap(heap);
 }
 
 void testPop(priority_queue<int> &heap) {
     int val = heap.top();
     heap.pop();
-    cout << "\nヒープの先頭要素 " << val << " を取り出した後" << endl;
+    cout << "\n根の要素 " << val << " を取り出した後：" << endl;
     printHeap(heap);
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* ヒープを初期化する */
     // 最小ヒープを初期化する
@@ -27,20 +27,20 @@ int main() {
     // 最大ヒープを初期化する
     priority_queue<int, vector<int>, less<int>> maxHeap;
 
-    cout << "\n以下のテストケースは最大ヒープを対象とする" << endl;
+    cout << "\n以下は最大ヒープのテスト例" << endl;
 
-    /* ヒープに要素を挿入する */
+    /* 要素をヒープに挿入する */
     testPush(maxHeap, 1);
     testPush(maxHeap, 3);
     testPush(maxHeap, 2);
     testPush(maxHeap, 5);
     testPush(maxHeap, 4);
 
-    /* ヒープの先頭要素を取得する */
+    /* ヒープの根の要素を取得する */
     int peek = maxHeap.top();
-    cout << "\nヒープの先頭要素は " << peek << endl;
+    cout << "\nヒープの根の要素： " << peek << endl;
 
-    /* ヒープの先頭要素を取り出す */
+    /* 根の要素を取り出す */
     testPop(maxHeap);
     testPop(maxHeap);
     testPop(maxHeap);
@@ -49,17 +49,17 @@ int main() {
 
     /* ヒープのサイズを取得する */
     int size = maxHeap.size();
-    cout << "\nヒープの要素数は " << size << endl;
+    cout << "\nヒープの要素数： " << size << endl;
 
-    /* ヒープが空か判定 */
+    /* ヒープが空か判定する */
     bool isEmpty = maxHeap.empty();
-    cout << "\nヒープは空か " << isEmpty << endl;
+    cout << "\nヒープは空か： " << isEmpty << endl;
 
-    /* リストを入力してヒープを構築する */
-    // 時間計算量は O(n) であり、O(nlogn) ではない
+    /* 入力リストからヒープを構築する */
+    // 時間計算量は O(nlogn) ではなく O(n)
     vector<int> input{1, 3, 2, 5, 4};
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
-    cout << "リストを入力して最小ヒープを構築した後" << endl;
+    cout << "入力リストから構築した最小ヒープ：" << endl;
     printHeap(minHeap);
 
     return 0;

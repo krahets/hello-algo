@@ -11,7 +11,7 @@ int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
-/* Coin change: dynamic programming */
+/* Coin change with dynamic programming */
 int coinChangeDP(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
@@ -20,24 +20,24 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
     for (int i = 0; i <= n; i++) {
         dp[i] = calloc(amt + 1, sizeof(int));
     }
-    // State transitions: first row and first column
+    // State transitions for the first row and column
     for (int a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
-    // State transitions: remaining rows and columns
+    // State transitions for the remaining rows and columns
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If the coin exceeds the target amount, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[i][a] = myMin(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
     }
     int res = dp[n][amt] != MAX ? dp[n][amt] : -1;
-    // Free memory
+    // Free the memory
     for (int i = 0; i <= n; i++) {
         free(dp[i]);
     }
@@ -45,7 +45,7 @@ int coinChangeDP(int coins[], int amt, int coinsSize) {
     return res;
 }
 
-/* Coin change: space-optimized dynamic programming */
+/* Coin change with space-optimized dynamic programming */
 int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
     int MAX = amt + 1;
@@ -56,20 +56,20 @@ int coinChangeDPComp(int coins[], int amt, int coinsSize) {
     } 
     dp[0] = 0;
 
-    // State transitions
+    // State transition
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If the coin exceeds the target amount, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[a] = dp[a];
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[a] = myMin(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }
     }
     int res = dp[amt] != MAX ? dp[amt] : -1;
-    // Free memory
+    // Free the memory
     free(dp);
     return res;
 }

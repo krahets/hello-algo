@@ -15,7 +15,7 @@ class TreeNode(
     var left: TreeNode? = null // Reference to the left child
     var right: TreeNode? = null // Reference to the right child
 
-    // For the serialization rules, see:
+    // For the serialization format, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
     // Array representation of the binary tree:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -31,7 +31,7 @@ class TreeNode(
     //         \——— 4
     //             \——— 8
 
-    /* Deserialize a list into a binary tree: recursion */
+    /* Recursively deserialize a list into a binary tree */
     companion object {
         private fun listToTreeDFS(arr: MutableList<Int?>, i: Int): TreeNode? {
             if (i < 0 || i >= arr.size || arr[i] == null) {
@@ -48,7 +48,7 @@ class TreeNode(
             return listToTreeDFS(arr, 0)
         }
 
-        /* Serialize a binary tree into a list: recursion */
+        /* Recursively serialize a binary tree into a list */
         private fun treeToListDFS(root: TreeNode?, i: Int, res: MutableList<Int?>) {
             if (root == null) return
             while (i >= res.size) {

@@ -4,72 +4,72 @@
       "kind": "prose",
       "prose": {
         "context": [
-          "前驅節點 n0 的值為 1，後繼節點 n1 的值為 3，初始時 n0.next 指向 n1，n1 右側的省略號表示後續鏈結串列；待插入節點 P 的值為 0，初始尚未接入鏈結串列。next 表示節點的後繼指標（引用）。"
+          "前驅節點 n0 的值為 1，後繼節點 n1 的值為 3。起初 n0.next 指向 n1，n1 右邊的刪節號代表後續串列。待插入的節點 P 的值為 0，起初尚未接入串列。next 表示指向後繼節點的指標（參照）。"
         ],
         "description": [],
-        "result": "各節點的數值及 n1 之後的連線保持不變。已知前驅 n0 時，兩次引用修改只需 O(1) 時間，無須移動後續節點。",
+        "result": "各節點的值和 n1 之後的連結維持原狀。若已知前驅節點 n0，修改兩個參照只需要 O(1) 時間，無須移動後續節點。",
         "steps": [
           {
-            "announcement": "顯示初始鏈結串列 n0（1）→ n1（3）與待插入節點 P（0）。",
-            "explanation": "初始連線為 n0（1）→ n1（3）→ …，n0.next 指向 n1。待插入的 P（0）獨立在外，圖中未畫出 P.next 的初始指向。",
+            "announcement": "圖中顯示初始串列 n0（1）→ n1（3），以及待插入的節點 P（0）。",
+            "explanation": "初始連結為 n0（1）→ n1（3）→ …，n0.next 指向 n1。待插入的 P（0）仍獨立在外，圖中未畫出 P.next 原本指向何處。",
             "id": "step-1",
-            "key_state": "初始狀態：n0.next = n1，節點 P（值 0）獨立在外未接入。",
-            "title": "初始連線"
+            "key_state": "初始狀態：n0.next = n1，節點 P（值為 0）尚未接入串列。",
+            "title": "初始連結"
           },
           {
-            "announcement": "執行 P.next = n1，讓新節點 P 先指向後繼 n1。",
-            "explanation": "執行 P.next = n1。此時 n0（1）的 next 與 P（0）的 next 都指向 n1（3），n1 之後的連線不變。從 n0 出發仍直接到達 n1，還不經過 P。",
+            "announcement": "執行 P.next = n1，讓新節點 P 先指向後繼節點 n1。",
+            "explanation": "執行 P.next = n1。此時 n0（1）和 P（0）的 next 都指向 n1（3），n1 之後的連結維持原狀。從 n0 出發仍會直接到達 n1，不會經過 P。",
             "id": "step-2",
-            "key_state": "已執行 P.next = n1，且 n0.next 仍指向 n1（兩者均指向 n1），從 n0 出發尚未經過 P。",
-            "title": "連線 P 的後繼"
+            "key_state": "已執行 P.next = n1，n0.next 仍指向 n1。兩者都指向 n1，從 n0 出發還不會經過 P。",
+            "title": "將 P 連到後繼節點"
           },
           {
-            "announcement": "執行 n0.next = P，插入完成，鏈結串列變為 n0（1）→ P（0）→ n1（3）→ 後續節點。",
-            "explanation": "執行 n0.next = P，並保留 P.next = n1。連線變為 n0（1）→ P（0）→ n1（3）→ …，從 n0 出發先經過 P，再到後續鏈結串列，插入完成。",
+            "announcement": "執行 n0.next = P，插入完成。串列變為 n0（1）→ P（0）→ n1（3）→ 後續節點。",
+            "explanation": "執行 n0.next = P，並保留 P.next = n1。連結變為 n0（1）→ P（0）→ n1（3）→ …。從 n0 出發會先經過 P，再到達後續串列，插入完成。",
             "id": "step-3",
-            "key_state": "已執行 n0.next = P 且 P.next = n1；最終鏈結串列為 n0（1）→ P（0）→ n1（3）→ …。",
-            "title": "把 P 接入鏈結串列"
+            "key_state": "已執行 n0.next = P，且 P.next = n1。最後的串列為 n0（1）→ P（0）→ n1（3）→ …。",
+            "title": "將 P 接入鏈結串列"
           }
         ],
-        "summary": "在相鄰節點 n0 與 n1 之間插入新節點 P，只需依次修改 P.next 與 n0.next 兩次引用。",
+        "summary": "要在相鄰節點 n0 和 n1 之間插入新節點 P，只需依序修改 P.next 和 n0.next 這兩個參照。",
         "title": "在鏈結串列中插入節點"
       }
     }
   },
   "context": [
-    "前驅節點 n0 的值為 1，後繼節點 n1 的值為 3，初始時 n0.next 指向 n1，n1 右側的省略號表示後續鏈結串列；待插入節點 P 的值為 0，初始尚未接入鏈結串列。next 表示節點的後繼指標（引用）。"
+    "前驅節點 n0 的值為 1，後繼節點 n1 的值為 3。起初 n0.next 指向 n1，n1 右邊的刪節號代表後續串列。待插入的節點 P 的值為 0，起初尚未接入串列。next 表示指向後繼節點的指標（參照）。"
   ],
   "description": [],
   "frames": [
     {
       "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_insert_node.png",
-      "explanation": "先把新節點接到原後繼，再讓前驅指向新節點，可避免丟失後續鏈結串列。程式碼先用 n1 儲存 n0.next，然後按圖中的順序執行兩次賦值。只有第二次賦值完成後，從 n0 出發才會經過 P。",
+      "explanation": "先將新節點連到原本的後繼節點，再讓前驅節點指向新節點，就不會遺失後續串列。程式碼先用 n1 保存 n0.next，再依圖中的順序執行兩次賦值。第二次賦值完成後，從 n0 出發才會經過 P。",
       "id": "source-51",
       "title": "在鏈結串列中插入節點"
     }
   ],
-  "result": "各節點的數值及 n1 之後的連線保持不變。已知前驅 n0 時，兩次引用修改只需 O(1) 時間，無須移動後續節點。",
+  "result": "各節點的值和 n1 之後的連結維持原狀。若已知前驅節點 n0，修改兩個參照只需要 O(1) 時間，無須移動後續節點。",
   "schema_version": 2,
-  "summary": "在相鄰節點 n0 與 n1 之間插入新節點 P，只需依次修改 P.next 與 n0.next 兩次引用。",
+  "summary": "要在相鄰節點 n0 和 n1 之間插入新節點 P，只需依序修改 P.next 和 n0.next 這兩個參照。",
   "tables": [
     {
-      "caption": "插入過程的連線",
+      "caption": "插入過程中各節點的連結",
       "headers": [
         "階段",
         "n0.next",
         "P.next",
-        "從n0出發依次經過"
+        "從 n0 出發依序經過的節點"
       ],
       "row_header": 0,
       "rows": [
         [
           "初始",
           "n1",
-          "未畫出指向",
+          "未畫出指向何處",
           "n0 → n1 → …"
         ],
         [
-          "連線P的後繼",
+          "將 P 連到後繼節點",
           "n1",
           "n1",
           "n0 → n1 → …"

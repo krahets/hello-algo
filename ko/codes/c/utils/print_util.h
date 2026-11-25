@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-/* 배열을 출력한다 */
+/* 배열 출력 */
 void printArray(int arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -31,7 +31,7 @@ void printArray(int arr[], int size) {
     printf("%d]\n", arr[size - 1]);
 }
 
-/* 배열을 출력한다 */
+/* 배열 출력 */
 void printArrayFloat(float arr[], int size) {
     if (arr == NULL || size == 0) {
         printf("[]");
@@ -79,7 +79,7 @@ void showTrunks(Trunk *trunk) {
 
 /**
  * 이진 트리 출력
- * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다
+ * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다.
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
@@ -117,7 +117,7 @@ void printTree(TreeNode *root) {
 /* 힙 출력 */
 void printHeap(int arr[], int size) {
     TreeNode *root;
-    printf("힙의 배열 표현:");
+    printf("힙의 배열 표현: ");
     printArray(arr, size);
     printf("힙의 트리 표현:\n");
     root = arrayToTree(arr, size);

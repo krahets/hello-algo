@@ -4,9 +4,9 @@
 
 package chapter_backtracking
 
-/* 백트래킹 알고리즘: 부분 집합 합 I */
+/* 백트래킹: 부분집합의 합 I */
 func backtrackSubsetSumINaive(total, target int, state, choices *[]int, res *[][]int) {
-	// 부분 집합의 합이 target과 같으면 해를 기록한다
+	// 부분집합의 합이 target과 같으면 해를 기록한다
 	if target == total {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
@@ -14,24 +14,24 @@ func backtrackSubsetSumINaive(total, target int, state, choices *[]int, res *[][
 	}
 	// 모든 선택지를 순회한다
 	for i := 0; i < len(*choices); i++ {
-		// 가지치기: 부분 집합의 합이 target을 초과하면 해당 선택을 건너뛴다
+		// 가지치기: 부분집합의 합이 target을 초과하면 이 선택을 건너뛴다
 		if total+(*choices)[i] > target {
 			continue
 		}
-		// 시도: 선택하고 원소의 합 total을 갱신한다
+		// 시도: 원소를 선택하고 원소의 합 total을 갱신한다
 		*state = append(*state, (*choices)[i])
 		// 다음 선택을 진행한다
 		backtrackSubsetSumINaive(total+(*choices)[i], target, state, choices, res)
-		// 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+		// 되돌리기: 선택을 취소하고 이전 상태를 복원한다
 		*state = (*state)[:len(*state)-1]
 	}
 }
 
-/* 부분 집합 합 I 풀기(중복 부분 집합 포함) */
+/* 부분집합의 합 I 풀기(중복 부분집합 포함) */
 func subsetSumINaive(nums []int, target int) [][]int {
-	state := make([]int, 0) // 상태(부분 집합)
-	total := 0              // 부분 집합의 합
-	res := make([][]int, 0) // 결과 리스트(부분 집합 리스트)
+	state := make([]int, 0) // 상태(부분집합)
+	total := 0              // 부분집합의 합
+	res := make([][]int, 0) // 결과 리스트(부분집합의 리스트)
 	backtrackSubsetSumINaive(total, target, &state, &nums, &res)
 	return res
 }

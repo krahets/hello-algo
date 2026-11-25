@@ -8,28 +8,28 @@
 
 #define MAX_SIZE 5000
 
-/* 基於陣列實現的堆疊 */
+/* 以陣列實作堆疊 */
 typedef struct {
     int *data;
     int size;
 } ArrayStack;
 
-/* 建構子 */
+/* 建立堆疊 */
 ArrayStack *newArrayStack() {
     ArrayStack *stack = malloc(sizeof(ArrayStack));
-    // 初始化一個大容量，避免擴容
+    // 一開始就配置較大的容量，以免之後需要擴充
     stack->data = malloc(sizeof(int) * MAX_SIZE);
     stack->size = 0;
     return stack;
 }
 
-/* 析構函式 */
+/* 釋放堆疊的記憶體 */
 void delArrayStack(ArrayStack *stack) {
     free(stack->data);
     free(stack);
 }
 
-/* 獲取堆疊的長度 */
+/* 取得堆疊長度 */
 int size(ArrayStack *stack) {
     return stack->size;
 }
@@ -39,7 +39,7 @@ bool isEmpty(ArrayStack *stack) {
     return stack->size == 0;
 }
 
-/* 入堆疊 */
+/* 推入堆疊 */
 void push(ArrayStack *stack, int num) {
     if (stack->size == MAX_SIZE) {
         printf("堆疊已滿\n");
@@ -49,7 +49,7 @@ void push(ArrayStack *stack, int num) {
     stack->size++;
 }
 
-/* 訪問堆疊頂元素 */
+/* 讀取堆疊頂端的元素 */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
         printf("堆疊為空\n");
@@ -58,19 +58,19 @@ int peek(ArrayStack *stack) {
     return stack->data[stack->size - 1];
 }
 
-/* 出堆疊 */
+/* 彈出堆疊頂端的元素 */
 int pop(ArrayStack *stack) {
     int val = peek(stack);
     stack->size--;
     return val;
 }
 
-/* Driver Code */
+/* 範例程式 */
 int main() {
     /* 初始化堆疊 */
     ArrayStack *stack = newArrayStack();
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -79,20 +79,20 @@ int main() {
     printf("堆疊 stack = ");
     printArray(stack->data, stack->size);
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     int val = peek(stack);
-    printf("堆疊頂元素 top = %d\n", val);
+    printf("堆疊頂端元素 top = %d\n", val);
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     val = pop(stack);
-    printf("出堆疊元素 pop = %d ，出堆疊後 stack = ", val);
+    printf("彈出的元素 pop = %d ，彈出後 stack = ", val);
     printArray(stack->data, stack->size);
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     int size = stack->size;
-    printf("堆疊的長度 size = %d\n", size);
+    printf("堆疊長度 size = %d\n", size);
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     bool empty = isEmpty(stack);
     printf("堆疊是否為空 = %s\n", empty ? "true" : "false");
 

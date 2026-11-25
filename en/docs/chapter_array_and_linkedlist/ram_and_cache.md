@@ -1,71 +1,71 @@
 # Memory and cache *
 
-The first two sections of this chapter introduced arrays and linked lists, two fundamental structures representing contiguous and scattered storage, respectively.
+In the first two sections of this chapter, we explored two fundamental data structures, arrays and linked lists. They illustrate two physical layouts: contiguous and noncontiguous storage.
 
-**Physical structure largely determines how efficiently a program uses memory and cache**, affecting its overall performance.
+In fact, **the physical layout largely determines how efficiently a program uses memory and cache**, which in turn affects the overall performance of an algorithm's implementation.
 
-## Computer storage devices
+## Computer memory and storage devices
 
-Computers have three types of storage: <u>disk storage</u>, <u>random-access memory (RAM)</u>, and <u>cache memory</u>. The table below compares their roles and performance characteristics.
+A computer has three types of storage: <u>disk</u>, <u>main memory (random-access memory, RAM)</u>, and <u>cache memory</u>. The table compares their roles and performance characteristics.
 
-<p align="center"> Table <id> &nbsp; Computer storage devices </p>
+<p align="center">Table <id> &nbsp; Computer memory and storage devices</p>
 
-|                | Disk storage                                     | RAM                                   | Cache                                              |
+|                | Disk                                     | Main memory                                   | Cache                                              |
 | -------------- | ---------------------------------------- | -------------------------------------- | ------------------------------------------------- |
-| Purpose           | Long-term storage of the operating system, programs, files, and other data | Temporary storage of running programs and data being processed | Stores frequently accessed data and instructions to reduce CPU accesses to RAM |
-| Volatility         | Retains data without power                       | Loses data without power                       | Loses data without power                                  |
-| Capacity           | Large, on the TB scale                            | Smaller, on the GB scale                          | Very small, on the MB scale                                   |
+| Purpose           | Long-term storage for data, including the operating system, programs, and files | Temporary storage for running programs and the data being processed | Stores frequently accessed data and instructions to reduce CPU accesses to main memory |
+| Volatility         | Retains data when power is lost                       | Loses data when power is lost                       | Loses data when power is lost                                  |
+| Capacity           | Large, on the order of terabytes                            | Smaller, on the order of gigabytes                          | Very small, on the order of megabytes                                   |
 | Speed           | Slower, hundreds to thousands of MB/s                    | Faster, tens of GB/s                        | Very fast, tens to hundreds of GB/s                           |
-| Price (Chinese yuan) | Inexpensive, fractions of a yuan to several yuan per GB                  | More expensive, tens to hundreds of yuan per GB                | Very expensive, priced as part of the CPU                           |
+| Price (Chinese yuan) | Relatively inexpensive, a fraction of a yuan to a few yuan per GB                  | More expensive, tens to hundreds of yuan per GB                | Very expensive, priced as part of the CPU                           |
 
-We can picture computer storage as the pyramid in the figure below. Nearer the top, storage is faster, smaller, and more expensive. This hierarchy is a deliberate design by computer scientists and engineers.
+Picture the computer's memory and storage system as the pyramid below. The closer a device is to the top, the faster, smaller, and more expensive it is. Computer scientists and engineers designed this hierarchy deliberately.
 
-- **RAM cannot readily replace disk storage**. It loses data when power is removed, making it unsuitable for long-term storage. It also costs tens of times more than disk storage, making such a replacement impractical for consumers.
-- **Cache capacity and speed are difficult to maximize together**. From L1 to L2 to L3, increasing capacity means greater physical size and distance from the CPU core, increasing transfer time and access latency. With current technology, a multilevel cache offers the best balance of capacity, speed, and cost.
+- **Main memory is unlikely to replace disks.** First, main memory loses its data when power is lost, making it unsuitable for long-term storage. Second, it costs tens of times as much as disk storage, which makes it difficult to adopt widely as a replacement in the consumer market.
+- **Large capacity and high speed are difficult to achieve in the same cache.** From L1 to L2 to L3, caches increase in capacity and physical size and sit farther from the CPU core. Data takes longer to travel, increasing access latency. With current technology, a hierarchy of caches offers the best balance of capacity, speed, and cost.
 
-![Computer storage hierarchy](ram_and_cache.assets/storage_pyramid.svg)
+![Computer memory and storage hierarchy](ram_and_cache.assets/storage_pyramid.svg)
 
 !!! tip
 
-    The storage hierarchy balances speed, capacity, and cost. Such tradeoffs occur throughout industry, requiring us to find the best balance among competing strengths and limitations.
+    The computer memory hierarchy strikes a careful balance among speed, capacity, and cost. Designers face similar trade-offs across industries, where they must weigh competing advantages and limitations.
 
-In general, **disks store large amounts of data long term, RAM temporarily holds data being processed, and caches hold frequently accessed data and instructions** to speed up execution. The three work together to keep the computer efficient.
+In short, **disks store large amounts of data for the long term, main memory temporarily holds data that running programs are processing, and cache holds frequently accessed data and instructions** to speed up execution. The three work together to keep the system running efficiently.
 
-As shown in the figure below, a running program reads data from disk into RAM for the CPU to process. The cache can be viewed as part of the CPU: **it intelligently loads data from RAM** and provides faster access, improving execution speed and reducing dependence on slower memory.
+As the figure shows, when a program runs, data is read from disk into main memory for the CPU to process. The cache can be viewed as part of the CPU. **By selectively loading data from main memory**, it gives the CPU fast access to that data, significantly improving program performance and reducing reliance on slower main memory.
 
-![Data flow between disk, RAM, and cache](ram_and_cache.assets/computer_storage_devices.svg)
+![Data flow between disk, main memory, and cache](ram_and_cache.assets/computer_storage_devices.svg)
 
 ## Memory efficiency of data structures
 
-Arrays and linked lists each have strengths and limitations in memory use.
+Arrays and linked lists each have advantages and limitations in how they use memory.
 
-On one hand, **memory is finite, and the same region cannot be shared by multiple programs**, so data structures should use it efficiently. Arrays pack elements tightly without extra references (pointers) between nodes, making them more space-efficient. However, they require a sufficiently large contiguous allocation, which can waste memory, and expansion costs extra time and space. Linked lists instead allocate and reclaim memory node by node, providing greater flexibility.
+First, **memory is limited, and a block allocated for one program's private use is unavailable to others**, so we want our data structures to use space efficiently. Array elements are packed together without the extra references (pointers) that link list nodes, making arrays more space-efficient. However, an array needs a sufficiently large contiguous block all at once. Some of it may go unused, and growing the array costs extra time and space. A linked list offers more flexibility by allocating and reclaiming memory one node at a time.
 
-On the other hand, **repeated allocation and deallocation increasingly fragment free memory**, reducing its usability. Arrays' contiguous storage is less prone to causing fragmentation. Linked lists store elements in scattered locations, so frequent insertions and deletions are more likely to fragment memory.
+Second, **repeatedly allocating and freeing memory as a program runs leaves free memory increasingly fragmented**, reducing how efficiently it can be used. Arrays occupy contiguous storage and are relatively unlikely to cause fragmentation. Linked list elements are scattered, making fragmentation more likely when insertions and removals are frequent.
 
 ## Cache efficiency of data structures
 
-A cache is much smaller than RAM but far faster, making it crucial to execution speed. Its limited capacity holds only a small portion of frequently accessed data. If the CPU requests data not in the cache, a <u>cache miss</u> occurs, and the data must be fetched from slower RAM.
+A cache holds far less data than main memory but is much faster, so it plays a crucial role in execution speed. Its limited capacity holds only a small portion of frequently used data. When the CPU requests data that is absent from the cache, a <u>cache miss</u> occurs, and the CPU must load it from slower main memory.
 
-Clearly, **fewer cache misses mean more efficient CPU reads and writes** and better program performance. The fraction of accesses successfully served by the cache is the <u>cache hit rate</u>, a common measure of cache efficiency.
+**Fewer cache misses mean more efficient CPU reads and writes** and better program performance. The fraction of accesses for which the CPU successfully obtains the data from cache is the <u>cache hit rate</u>, a common measure of cache efficiency.
 
-Caches use the following mechanisms to improve efficiency.
+To work as efficiently as possible, caches use the following mechanisms when loading data.
 
-- **Cache lines**: Data is stored and loaded in cache-line units rather than one byte at a time, making transfers more efficient.
-- **Prefetching**: The processor tries to predict access patterns, such as sequential access or fixed strides, and loads matching data into the cache to improve the hit rate.
-- **Spatial locality**: Accessing data suggests that nearby data may soon be needed, so the cache loads neighboring data as well.
-- **Temporal locality**: Recently accessed data is likely to be accessed again soon, so keeping it in the cache improves the hit rate.
+- **Cache lines.** A cache stores and loads data a line at a time. Transferring a whole cache line is more efficient than transferring individual bytes.
+- **Prefetching.** The processor tries to predict access patterns, such as sequential access or jumps at a fixed stride. It loads data into the cache based on these patterns to increase the hit rate.
+- **Spatial locality.** When a program accesses an item, it may soon access nearby data. Loading the neighboring data along with the requested item improves the hit rate.
+- **Temporal locality.** A program that accesses an item is likely to access it again soon. The cache takes advantage of this by retaining recently accessed data to improve the hit rate.
 
-**Arrays and linked lists use the cache differently**, mainly in the following ways.
+**Arrays and linked lists use the cache with different degrees of efficiency** for several reasons.
 
-- **Storage size**: Linked list elements require more space, leaving less room for useful data in the cache.
-- **Cache lines**: Linked list data is scattered, so loading a whole cache line brings in a larger proportion of unneeded data.
-- **Prefetching**: Array access patterns are more predictable, making it easier to anticipate the next data needed.
-- **Spatial locality**: Array elements are stored together, so data near a loaded element is more likely to be accessed soon.
+- **Space requirements.** Linked list elements occupy more space than array elements, leaving room for less useful data in the cache.
+- **Cache lines.** Linked list nodes are scattered throughout memory. Because the cache loads whole lines, a higher proportion of the data it loads goes unused.
+- **Prefetching.** An array's access pattern is more predictable than a linked list's, so the system can more easily anticipate which data it will need next.
+- **Spatial locality.** An array occupies a contiguous block of memory, making it more likely that data near a loaded element will be accessed soon.
 
-Overall, **arrays have higher cache hit rates and usually faster operations than linked lists**. This makes array-based structures popular for algorithmic problems.
+Overall, **arrays have higher cache hit rates, so operations on them are usually more efficient than operations on linked lists**. This helps explain why array-backed data structures are often preferred for algorithm problems.
 
-However, **better cache efficiency does not make arrays superior in every situation**. Choose a structure based on the requirements. Both arrays and linked lists can implement a stack, discussed in the next chapter, but suit different situations.
+Still, **high cache efficiency does not make arrays better than linked lists in every situation**. The choice depends on the requirements. For example, both can implement a stack (covered in the next chapter), but the two implementations suit different situations.
 
-- For algorithm exercises, an array-based stack is often preferable because of faster operations and random access, at the cost of allocating some memory in advance.
-- If the dataset is very large, changes frequently, and the stack's size is hard to predict, a linked-list-based stack may be more suitable. It can distribute data throughout memory and avoid the extra cost of array expansion.
+- For algorithm problems, we tend to choose an array-backed stack because it offers efficient operations and random access. The trade-off is that some memory must be allocated for the array in advance.
+- A linked-list stack is a better fit when the data volume is very large, changes greatly, and the expected stack size is hard to estimate. The nodes can occupy different parts of memory, avoiding the extra overhead of growing an array.

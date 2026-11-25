@@ -1,63 +1,63 @@
 {
-  "schema_version": 2,
-  "title": "Value per unit weight of items",
-  "summary": "Value per unit weight equals item value divided by weight; taking weight w of an item adds w times its value per unit weight to the knapsack.",
   "context": [
-    "Because fractional knapsack allows splitting items, comparing value per unit weight determines priority better than comparing whole-item values alone."
+    "In fractional knapsack, items are divisible. Comparing their values per unit of weight tells you more about which to take first than comparing the values of whole items."
   ],
   "description": [
-    "On the left, the table lists the five items by original ID with fruit icons transcribed as names. Its fourth column, \"Value per unit weight val[i - 1] / wgt[i - 1]\", prints 5, 6, 5, 5.25, and 4.8 directly in the figure rather than adding an external column. On the right, weight taken w multiplied by value per unit weight gives \"Value added to the knapsack\"."
+    "The table on the left lists the five items by original item number, with fruit names taken from the icons. The fourth column is labeled “Unit value val[i-1] / wgt[i-1].” The values 5, 6, 5, 5.25, and 4.8 appear in the diagram itself. On the right, multiplying the weight taken, w, by the unit value gives the value added to the knapsack."
   ],
   "frames": [
     {
-      "id": "source-462",
       "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_unit_value.png",
-      "title": "Value per unit weight of items",
-      "explanation": "For example, the apple's value per unit weight is 50 ÷ 10 = 5. On the right, Weight taken from the current item w × Value per unit weight val[i - 1] / wgt[i - 1] = Value added to the knapsack, holding whether an item is taken whole or in part. Across the table, banana has the highest unit value, followed by pineapple."
+      "explanation": "For example, the apple's unit value is 50 ÷ 10 = 5. The relationship on the right is weight taken w × unit value val[i-1] / wgt[i-1] = value added to the knapsack. It applies to both whole items and fractions. The banana has the highest unit value in the table, followed by the pineapple.",
+      "id": "source-462",
+      "title": "Value per unit of weight"
     }
   ],
+  "schema_version": 2,
+  "summary": "Unit value is an item's value divided by its weight. Taking a portion of weight w adds w times the item's unit value to the knapsack.",
   "tables": [
     {
-      "caption": "Unit-value figure: four-column item data from the diagram",
+      "caption": "The four columns of item data in the unit value diagram",
       "headers": [
-        "ID and icon",
+        "Item number and icon",
         "Weight",
         "Value",
-        "Value per unit weight"
+        "Unit value"
       ],
+      "row_header": 0,
       "rows": [
         [
-          "1 (Apple)",
+          "1 (apple)",
           "10",
           "50",
           "5"
         ],
         [
-          "2 (Banana)",
+          "2 (banana)",
           "20",
           "120",
           "6"
         ],
         [
-          "3 (Grapes)",
+          "3 (grapes)",
           "30",
           "150",
           "5"
         ],
         [
-          "4 (Pineapple)",
+          "4 (pineapple)",
           "40",
           "210",
           "5.25"
         ],
         [
-          "5 (Watermelon)",
+          "5 (watermelon)",
           "50",
           "240",
           "4.8"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Value per unit of weight"
 }

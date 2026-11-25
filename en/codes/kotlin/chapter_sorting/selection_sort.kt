@@ -24,9 +24,9 @@ fun selectionSort(nums: IntArray) {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     selectionSort(nums)
-    println("After selection sort: nums = ${nums.contentToString()}")
+    println("After selection sort, nums = ${nums.contentToString()}")
 }

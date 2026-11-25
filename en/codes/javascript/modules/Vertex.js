@@ -11,7 +11,7 @@ class Vertex {
         this.val = val;
     }
 
-    /* Given the list of values vals, return the list of vertices vets */
+    /* Given the array of values vals, return the array of vertices vets */
     static valsToVets(vals) {
         const vets = [];
         for (let i = 0; i < vals.length; i++) {
@@ -20,7 +20,7 @@ class Vertex {
         return vets;
     }
 
-    /* Given the list of vertices vets, return the list of values vals */
+    /* Given the array of vertices vets, return the array of values vals */
     static vetsToVals(vets) {
         const vals = [];
         for (const vet of vets) {

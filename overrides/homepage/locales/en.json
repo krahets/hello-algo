@@ -1,7 +1,7 @@
 {
   "hero_class": "hero-div hero-div--en",
   "labels": {
-    "astronaut": "Getting to know algorithms",
+    "astronaut": "Introduction to algorithms",
     "chapter_computational_complexity": "Complexity analysis",
     "chapter_array_and_linkedlist": "Arrays and linked lists",
     "chapter_stack_and_queue": "Stacks and queues",
@@ -14,7 +14,7 @@
     "chapter_divide_and_conquer": "Divide and conquer",
     "chapter_backtracking": "Backtracking",
     "chapter_dynamic_programming": "Dynamic programming",
-    "chapter_greedy": "Greedy algorithms"
+    "chapter_greedy": "The greedy approach"
   },
   "label_styles": {
     "astronaut": "left: 52.244%; top: 20.919%;",
@@ -34,17 +34,17 @@
   },
   "typing": {
     "style": "height: min(9vh, 12vw);",
-    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo+!",
+    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+Algo!",
     "alt": ""
   },
-  "tagline": "A data structures and algorithms tutorial with animated illustrations and code you can run with one click",
+  "tagline": "Learn data structures and algorithms with animated diagrams and code you can run in one click",
   "start_label": "Start reading",
   "start_href": "chapter_hello_algo/",
   "reading": [
     {
-      "asset": "web_mac_iphone",
+      "asset": "en_web_mac_iphone",
       "href": "chapter_hello_algo/",
-      "alt": "Web reading on a computer and phone",
+      "alt": "Reading online on a computer and a phone",
       "label": "Read online",
       "image_style": "height: 66.31%;",
       "spacers": [
@@ -53,53 +53,53 @@
       ]
     },
     {
-      "asset": "pdf_ipad",
+      "asset": "en_pdf_ipad",
       "href": "https://github.com/krahets/hello-algo/releases",
-      "alt": "PDF reading on a tablet",
+      "alt": "Reading a PDF on a tablet",
       "label": "Download PDF/EPUB",
       "image_style": "height: 75%;",
       "spacers": []
     }
   ],
-  "reading_description": "Get started with data structures and algorithms through 500 animated illustrations, code in 14 programming languages, and 3,000 community questions and answers",
+  "reading_description": "Get up to speed on data structures and algorithms with 500 animated diagrams, code in 14 programming languages, and 3,000 questions and answers from the community.",
   "endorsement_title": "Endorsements",
   "endorsements": [
     [
-      "“An accessible introduction to data structures and algorithms that encourages readers to learn by thinking and doing. Highly recommended for anyone new to algorithms.”",
-      "— Junhui Deng, Professor, Department of Computer Science, Tsinghua University"
+      "“This approachable introduction to data structures and algorithms encourages readers to think things through and try them out. I highly recommend it to anyone just getting started with algorithms.”",
+      "— Junhui Deng, professor of computer science at Tsinghua University"
     ],
     [
-      "“If I had had Hello Algo when I was learning data structures and algorithms, it would have been ten times easier!”",
-      "— Mu Li, Senior Principal Scientist, Amazon"
+      "“If I’d had Hello Algo when I was learning data structures and algorithms, it would probably have been ten times easier!”",
+      "— Mu Li, senior principal scientist at Amazon"
     ]
   ],
   "features": [
     {
-      "title": "Animated illustrations",
-      "description": "Clear explanations and a gradual learning curve",
+      "title": "Animated diagrams",
+      "description": "Clear explanations ease you into the material.",
       "quotes": [
         "\"A picture is worth a thousand words.\""
       ],
       "video": "en_animation",
-      "video_label": "Animation example"
+      "video_label": "Example of an animated diagram"
     },
     {
-      "title": "Run code with one click",
-      "description": "Code in more than ten programming languages, with execution visualizations",
+      "title": "Run code in one click",
+      "description": "Watch code run step by step in more than ten programming languages.",
       "quotes": [
         "\"Talk is cheap. Show me the code.\""
       ],
       "video": "en_running_code",
-      "video_label": "Running code example"
+      "video_label": "Example of code in action"
     },
     {
       "title": "Learn together",
-      "description": "Ask questions, join discussions, and learn with fellow readers",
+      "description": "Ask questions and join the discussion to learn alongside other readers.",
       "quotes": [
         "\"Learning by teaching.\""
       ],
       "video": "en_comment",
-      "video_label": "Comments example"
+      "video_label": "Sample reader discussion"
     }
   ],
   "people": [
@@ -119,13 +119,13 @@
     },
     {
       "title": "Code reviewers",
-      "description": "The developers below worked together on the code in different programming languages. Thank you for your efforts and contributions!",
+      "description": "These developers worked together to write the book’s code in several programming languages. Thank you all for your time and contributions!",
       "profiles": [
         {
           "href": "https://github.com/coderonion",
           "class": "profile-cell",
           "asset": "avatar_coderonion",
-          "alt": "Reviewer: coderonion",
+          "alt": "Code reviewer: coderonion",
           "name": "coderonion",
           "detail": "Zig, Rust"
         },
@@ -133,7 +133,7 @@
           "href": "https://github.com/curtishd",
           "class": "profile-cell",
           "asset": "avatar_curtishd",
-          "alt": "Reviewer: curtishd",
+          "alt": "Code reviewer: curtishd",
           "name": "curtishd",
           "detail": "Kotlin"
         },
@@ -141,7 +141,7 @@
           "href": "https://github.com/Gonglja",
           "class": "profile-cell",
           "asset": "avatar_Gonglja",
-          "alt": "Reviewer: Gonglja",
+          "alt": "Code reviewer: Gonglja",
           "name": "Gonglja",
           "detail": "C, C++"
         },
@@ -149,7 +149,7 @@
           "href": "https://github.com/gvenusleo",
           "class": "profile-cell",
           "asset": "avatar_gvenusleo",
-          "alt": "Reviewer: gvenusleo",
+          "alt": "Code reviewer: gvenusleo",
           "name": "gvenusleo",
           "detail": "Dart"
         },
@@ -157,7 +157,7 @@
           "href": "https://github.com/hpstory",
           "class": "profile-cell",
           "asset": "avatar_hpstory",
-          "alt": "Reviewer: hpstory",
+          "alt": "Code reviewer: hpstory",
           "name": "hpstory",
           "detail": "C#"
         },
@@ -165,7 +165,7 @@
           "href": "https://github.com/justin-tse",
           "class": "profile-cell",
           "asset": "avatar_justin-tse",
-          "alt": "Reviewer: justin-tse",
+          "alt": "Code reviewer: justin-tse",
           "name": "justin-tse",
           "detail": "JS, TS"
         },
@@ -173,7 +173,7 @@
           "href": "https://github.com/khoaxuantu",
           "class": "profile-cell",
           "asset": "avatar_khoaxuantu",
-          "alt": "Reviewer: khoaxuantu",
+          "alt": "Code reviewer: khoaxuantu",
           "name": "khoaxuantu",
           "detail": "Ruby"
         },
@@ -181,7 +181,7 @@
           "href": "https://github.com/krahets",
           "class": "profile-cell",
           "asset": "avatar_krahets",
-          "alt": "Reviewer: krahets",
+          "alt": "Code reviewer: krahets",
           "name": "krahets",
           "detail": "Python, Java"
         },
@@ -189,7 +189,7 @@
           "href": "https://github.com/night-cruise",
           "class": "profile-cell",
           "asset": "avatar_night-cruise",
-          "alt": "Reviewer: night-cruise",
+          "alt": "Code reviewer: night-cruise",
           "name": "night-cruise",
           "detail": "Rust"
         },
@@ -197,7 +197,7 @@
           "href": "https://github.com/nuomi1",
           "class": "profile-cell",
           "asset": "avatar_nuomi1",
-          "alt": "Reviewer: nuomi1",
+          "alt": "Code reviewer: nuomi1",
           "name": "nuomi1",
           "detail": "Swift"
         },
@@ -205,7 +205,7 @@
           "href": "https://github.com/Reanon",
           "class": "profile-cell",
           "asset": "avatar_Reanon",
-          "alt": "Reviewer: Reanon",
+          "alt": "Code reviewer: Reanon",
           "name": "Reanon",
           "detail": "Go, C"
         },
@@ -213,7 +213,7 @@
           "href": "https://github.com/rongyi",
           "class": "profile-cell",
           "asset": "avatar_rongyi",
-          "alt": "Reviewer: rongyi",
+          "alt": "Code reviewer: rongyi",
           "name": "rongyi",
           "detail": "Rust"
         }
@@ -221,12 +221,12 @@
     },
     {
       "title": "Contributors",
-      "description": "More than 200 open-source contributors have helped improve this book. Thank you for your time and effort!",
+      "description": "More than 200 contributors from the open source community continue to improve this book together. Thank you all for your time and effort!",
       "profiles": [],
       "banner": {
         "href": "https://github.com/krahets/hello-algo/graphs/contributors",
         "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
-        "alt": "Contributors",
+        "alt": "Contributors to this book",
         "style": "width: 100%; max-width: 38.5em;"
       }
     }

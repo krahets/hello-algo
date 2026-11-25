@@ -8,18 +8,18 @@
 
 void testPush(priority_queue<int> &heap, int val) {
     heap.push(val); // 힙에 원소 삽입
-    cout << "\n원소 " << val << " 힙에 삽입 후" << endl;
+    cout << "\n원소 " << val << " 삽입 후" << endl;
     printHeap(heap);
 }
 
 void testPop(priority_queue<int> &heap) {
     int val = heap.top();
     heap.pop();
-    cout << "\n힙의 루트 원소 " << val << " 힙에서 꺼낸 후" << endl;
+    cout << "\n루트 원소 " << val << " 제거 후" << endl;
     printHeap(heap);
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 힙 초기화 */
     // 최소 힙 초기화
@@ -27,7 +27,7 @@ int main() {
     // 최대 힙 초기화
     priority_queue<int, vector<int>, less<int>> maxHeap;
 
-    cout << "\n다음 테스트 예제는 최대 힙이다" << endl;
+    cout << "\n다음은 최대 힙 테스트 예제다." << endl;
 
     /* 힙에 원소 삽입 */
     testPush(maxHeap, 1);
@@ -36,7 +36,7 @@ int main() {
     testPush(maxHeap, 5);
     testPush(maxHeap, 4);
 
-    /* 힙의 루트 원소 반환 */
+    /* 힙의 루트 원소 구하기 */
     int peek = maxHeap.top();
     cout << "\n힙의 루트 원소: " << peek << endl;
 
@@ -47,19 +47,19 @@ int main() {
     testPop(maxHeap);
     testPop(maxHeap);
 
-    /* 힙 크기 반환 */
+    /* 힙 크기 구하기 */
     int size = maxHeap.size();
-    cout << "\n힙의 원소 개수: " << size << endl;
+    cout << "\n힙의 원소 수: " << size << endl;
 
-    /* 힙이 비어 있는지 판단 */
+    /* 힙이 비었는지 확인 */
     bool isEmpty = maxHeap.empty();
-    cout << "\n힙이 비어 있는가: " << isEmpty << endl;
+    cout << "\n빈 힙 여부: " << isEmpty << endl;
 
-    /* 리스트를 입력하여 힙 구성 */
-    // 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+    /* 입력 리스트로 힙 구성 */
+    // 시간 복잡도는 O(nlogn)이 아니라 O(n)
     vector<int> input{1, 3, 2, 5, 4};
     priority_queue<int, vector<int>, greater<int>> minHeap(input.begin(), input.end());
-    cout << "리스트를 입력하여 최소 힙을 구성한 후" << endl;
+    cout << "입력 리스트로 만든 최소 힙" << endl;
     printHeap(minHeap);
 
     return 0;

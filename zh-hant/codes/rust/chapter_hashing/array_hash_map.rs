@@ -10,14 +10,14 @@ pub struct Pair {
     pub key: i32,
     pub val: String,
 }
-/* 基於陣列實現的雜湊表 */
+/* 以陣列實作的雜湊表 */
 pub struct ArrayHashMap {
     buckets: Vec<Option<Pair>>,
 }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // 初始化陣列，包含 100 個桶
+        // 初始化包含 100 個桶的陣列
         Self {
             buckets: vec![None; 100],
         }
@@ -46,11 +46,11 @@ impl ArrayHashMap {
     /* 刪除操作 */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        // 置為 None ，代表刪除
+        // 設為 None，表示刪除
         self.buckets[index] = None;
     }
 
-    /* 獲取所有鍵值對 */
+    /* 取得所有鍵值對 */
     pub fn entry_set(&self) -> Vec<&Pair> {
         self.buckets
             .iter()
@@ -58,7 +58,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* 獲取所有鍵 */
+    /* 取得所有鍵 */
     pub fn key_set(&self) -> Vec<&i32> {
         self.buckets
             .iter()
@@ -66,7 +66,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* 獲取所有值 */
+    /* 取得所有值 */
     pub fn value_set(&self) -> Vec<&String> {
         self.buckets
             .iter()
@@ -74,7 +74,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     pub fn print(&self) {
         for pair in self.entry_set() {
             println!("{} -> {}", pair.key, pair.val);
@@ -92,18 +92,18 @@ fn main() {
     map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鴨");
-    println!("\n新增完成後，雜湊表為\nKey -> Value");
+    println!("\n新增後的雜湊表\nKey -> Value");
     map.print();
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     let name = map.get(15937).unwrap();
-    println!("\n輸入學號 15937 ，查詢到姓名 {}", name);
+    println!("\n輸入學號 15937，查得姓名 {}", name);
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.remove(10583);
-    println!("\n刪除 10583 後，雜湊表為\nKey -> Value");
+    println!("\n刪除 10583 後的雜湊表\nKey -> Value");
     map.print();
 
     /* 走訪雜湊表 */
@@ -112,12 +112,12 @@ fn main() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\n單獨走訪鍵 Key");
+    println!("\n只走訪鍵 Key");
     for key in map.key_set() {
         println!("{}", key);
     }
 
-    println!("\n單獨走訪值 Value");
+    println!("\n只走訪值 Value");
     for val in map.value_set() {
         println!("{}", val);
     }

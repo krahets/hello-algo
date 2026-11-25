@@ -15,24 +15,24 @@ class Item(int w, int v) {
 public class fractional_knapsack {
     /* Дробный рюкзак: жадный алгоритм */
     double FractionalKnapsack(int[] wgt, int[] val, int cap) {
-        // Создать список предметов с двумя свойствами: вес и стоимость
+        // Создаём список предметов с двумя свойствами: весом и стоимостью
         Item[] items = new Item[wgt.Length];
         for (int i = 0; i < wgt.Length; i++) {
             items[i] = new Item(wgt[i], val[i]);
         }
-        // Отсортировать по удельной стоимости item.v / item.w в порядке убывания
+        // Сортируем по убыванию удельной стоимости item.v / item.w
         Array.Sort(items, (x, y) => ((double)y.v / y.w).CompareTo((double)x.v / x.w));
-        // Циклический жадный выбор
+        // На каждом шаге делаем жадный выбор
         double res = 0;
         foreach (Item item in items) {
             if (item.w <= cap) {
-                // Если оставшейся вместимости достаточно, положить в рюкзак текущий предмет целиком
+                // Если места достаточно, кладём предмет целиком
                 res += item.v;
                 cap -= item.w;
             } else {
-                // Если оставшейся вместимости недостаточно, положить в рюкзак часть текущего предмета
+                // Если места недостаточно, кладём часть предмета
                 res += (double)item.v / item.w * cap;
-                // Свободной вместимости больше не осталось, поэтому выйти из цикла
+                // Рюкзак заполнен, выходим из цикла
                 break;
             }
         }
@@ -47,6 +47,6 @@ public class fractional_knapsack {
 
         // Жадный алгоритм
         double res = FractionalKnapsack(wgt, val, cap);
-        Console.WriteLine("Максимальная стоимость предметов без превышения вместимости рюкзака = " + res);
+        Console.WriteLine("Максимальная стоимость при заданной вместимости рюкзака: " + res);
     }
 }

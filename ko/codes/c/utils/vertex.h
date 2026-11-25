@@ -16,7 +16,7 @@ typedef struct {
     int val;
 } Vertex;
 
-/* 생성자: 새 노드를 초기화한다 */
+/* 새 노드를 초기화하는 생성자 */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));
@@ -24,7 +24,7 @@ Vertex *newVertex(int val) {
     return vet;
 }
 
-/* 값 배열을 정점 배열로 변환한다 */
+/* 값 배열을 정점 배열로 변환 */
 Vertex **valsToVets(int *vals, int size) {
     Vertex **vertices = (Vertex **)malloc(size * sizeof(Vertex *));
     for (int i = 0; i < size; ++i) {
@@ -33,7 +33,7 @@ Vertex **valsToVets(int *vals, int size) {
     return vertices;
 }
 
-/* 정점 배열을 값 배열로 변환한다 */
+/* 정점 배열을 값 배열로 변환 */
 int *vetsToVals(Vertex **vertices, int size) {
     int *vals = (int *)malloc(size * sizeof(int));
     for (int i = 0; i < size; ++i) {

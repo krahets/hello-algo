@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// 假設路徑和結果長度不超過 100
+// 假設路徑與結果的長度皆不超過 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -14,12 +14,12 @@ TreeNode *path[MAX_SIZE];
 TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
-/* 判斷當前狀態是否為解 */
+/* 判斷目前的狀態是否為解 */
 bool isSolution(void) {
     return pathSize > 0 && path[pathSize - 1]->val == 7;
 }
 
-/* 記錄解 */
+/* 記錄此解 */
 void recordSolution(void) {
     for (int i = 0; i < pathSize; i++) {
         res[resSize][i] = path[i];
@@ -27,7 +27,7 @@ void recordSolution(void) {
     resSize++;
 }
 
-/* 判斷在當前狀態下，該選擇是否合法 */
+/* 判斷這個選擇在目前的狀態下是否合法 */
 bool isValid(TreeNode *choice) {
     return choice != NULL && choice->val != 3;
 }
@@ -37,35 +37,35 @@ void makeChoice(TreeNode *choice) {
     path[pathSize++] = choice;
 }
 
-/* 恢復狀態 */
+/* 還原狀態 */
 void undoChoice(void) {
     pathSize--;
 }
 
 /* 回溯演算法：例題三 */
 void backtrack(TreeNode *choices[2]) {
-    // 檢查是否為解
+    // 檢查目前的狀態是否為解
     if (isSolution()) {
-        // 記錄解
+        // 記錄此解
         recordSolution();
     }
-    // 走訪所有選擇
+    // 逐一檢查所有選項
     for (int i = 0; i < 2; i++) {
         TreeNode *choice = choices[i];
         // 剪枝：檢查選擇是否合法
         if (isValid(choice)) {
-            // 嘗試：做出選擇，更新狀態
+            // 嘗試：做出選擇並更新狀態
             makeChoice(choice);
-            // 進行下一輪選擇
+            // 進入下一輪選擇
             TreeNode *nextChoices[2] = {choice->left, choice->right};
             backtrack(nextChoices);
-            // 回退：撤銷選擇，恢復到之前的狀態
+            // 回溯：撤銷選擇，還原先前的狀態
             undoChoice();
         }
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
@@ -76,7 +76,7 @@ int main() {
     TreeNode *choices[2] = {root, NULL};
     backtrack(choices);
 
-    printf("\n輸出所有根節點到節點 7 的路徑，要求路徑中不包含值為 3 的節點\n");
+    printf("\n輸出從根節點到值為 7 的節點的所有路徑，且路徑中不得包含值為 3 的節點\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;

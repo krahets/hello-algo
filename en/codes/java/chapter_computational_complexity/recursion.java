@@ -14,25 +14,25 @@ public class recursion {
         // Base case
         if (n == 1)
             return 1;
-        // Recurse: make a recursive call
+        // Descend: make a recursive call
         int res = recur(n - 1);
         // Unwind: return the result
         return n + res;
     }
 
-    /* Simulate recursion using iteration */
+    /* Simulate recursion with iteration */
     static int forLoopRecur(int n) {
-        // Use an explicit stack to simulate the system call stack
+        // Use an explicit stack to simulate the call stack
         Stack<Integer> stack = new Stack<>();
         int res = 0;
-        // Recurse: make a recursive call
+        // Descend: make a recursive call
         for (int i = n; i > 0; i--) {
-            // Simulate recursive calls by pushing onto the stack
+            // Push to simulate descending
             stack.push(i);
         }
         // Unwind: return the result
         while (!stack.isEmpty()) {
-            // Simulate unwinding by popping from the stack
+            // Pop to simulate unwinding
             res += stack.pop();
         }
         // res = 1+2+3+...+n
@@ -44,11 +44,11 @@ public class recursion {
         // Base case
         if (n == 0)
             return res;
-        // Tail-recursive call
+        // Tail call
         return tailRecur(n - 1, res + n);
     }
 
-    /* Fibonacci sequence: recursion */
+    /* Fibonacci sequence using recursion */
     static int fib(int n) {
         // Base cases: f(1) = 0, f(2) = 1
         if (n == 1 || n == 2)
@@ -59,19 +59,19 @@ public class recursion {
         return res;
     }
 
-    /* Driver code */
+    /* Driver Code */
     public static void main(String[] args) {
         int n = 5;
         int res;
 
         res = recur(n);
-        System.out.println("\nSum from recursion: res = " + res);
+        System.out.println("\nRecursive sum: res = " + res);
 
         res = forLoopRecur(n);
-        System.out.println("\nSum from simulating recursion with iteration: res = " + res);
+        System.out.println("\nSum using simulated recursion: res = " + res);
 
         res = tailRecur(n, 0);
-        System.out.println("\nSum from tail recursion: res = " + res);
+        System.out.println("\nTail-recursive sum: res = " + res);
 
         res = fib(n);
         System.out.println("\nFibonacci term " + n + " is " + res);

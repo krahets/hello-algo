@@ -6,21 +6,21 @@
 
 /* Backtracking: permutations I */
 func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if state.count == choices.count {
         res.append(state)
         return
     }
-    // Iterate over all choices
+    // Try each choice
     for (i, choice) in choices.enumerated() {
-        // Prune: do not choose an element more than once
+        // Prune: skip elements already in use
         if !selected[i] {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             selected[i] = true
             state.append(choice)
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state: &state, choices: choices, selected: &selected, res: &res)
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false
             state.removeLast()
         }

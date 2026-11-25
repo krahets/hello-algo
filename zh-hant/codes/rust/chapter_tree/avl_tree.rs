@@ -18,14 +18,14 @@ struct AVLTree {
 }
 
 impl AVLTree {
-    /* 建構子 */
+    /* 建構方法 */
     fn new() -> Self {
         Self { root: None }
     }
 
-    /* 獲取節點高度 */
+    /* 取得節點高度 */
     fn height(node: OptionTreeNodeRc) -> i32 {
-        // 空節點高度為 -1 ，葉節點高度為 0
+        // 空節點的高度為 -1，葉節點的高度為 0
         match node {
             Some(node) => node.borrow().height,
             None => -1,
@@ -37,17 +37,17 @@ impl AVLTree {
         if let Some(node) = node {
             let left = node.borrow().left.clone();
             let right = node.borrow().right.clone();
-            // 節點高度等於最高子樹高度 + 1
+            // 節點高度等於最高子樹的高度加 1
             node.borrow_mut().height = std::cmp::max(Self::height(left), Self::height(right)) + 1;
         }
     }
 
-    /* 獲取平衡因子 */
+    /* 取得平衡因子 */
     fn balance_factor(node: OptionTreeNodeRc) -> i32 {
         match node {
-            // 空節點平衡因子為 0
+            // 空節點的平衡因子為 0
             None => 0,
-            // 節點平衡因子 = 左子樹高度 - 右子樹高度
+            // 節點的平衡因子 = 左子樹高度 - 右子樹高度
             Some(node) => {
                 Self::height(node.borrow().left.clone()) - Self::height(node.borrow().right.clone())
             }
@@ -60,13 +60,13 @@ impl AVLTree {
             Some(node) => {
                 let child = node.borrow().left.clone().unwrap();
                 let grand_child = child.borrow().right.clone();
-                // 以 child 為原點，將 node 向右旋轉
+                // 以 child 為支點，將 node 向右旋轉
                 child.borrow_mut().right = Some(node.clone());
                 node.borrow_mut().left = grand_child;
                 // 更新節點高度
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // 返回旋轉後子樹的根節點
+                // 回傳旋轉後的子樹根節點
                 Some(child)
             }
             None => None,
@@ -79,22 +79,22 @@ impl AVLTree {
             Some(node) => {
                 let child = node.borrow().right.clone().unwrap();
                 let grand_child = child.borrow().left.clone();
-                // 以 child 為原點，將 node 向左旋轉
+                // 以 child 為支點，將 node 向左旋轉
                 child.borrow_mut().left = Some(node.clone());
                 node.borrow_mut().right = grand_child;
                 // 更新節點高度
                 Self::update_height(Some(node));
                 Self::update_height(Some(child.clone()));
-                // 返回旋轉後子樹的根節點
+                // 回傳旋轉後的子樹根節點
                 Some(child)
             }
             None => None,
         }
     }
 
-    /* 執行旋轉操作，使該子樹重新恢復平衡 */
+    /* 透過旋轉讓這棵子樹恢復平衡 */
     fn rotate(node: OptionTreeNodeRc) -> OptionTreeNodeRc {
-        // 獲取節點 node 的平衡因子
+        // 取得節點 node 的平衡因子
         let balance_factor = Self::balance_factor(node.clone());
         // 左偏樹
         if balance_factor > 1 {
@@ -103,7 +103,7 @@ impl AVLTree {
                 // 右旋
                 Self::right_rotate(Some(node))
             } else {
-                // 先左旋後右旋
+                // 先左旋再右旋
                 let left = node.borrow().left.clone();
                 node.borrow_mut().left = Self::left_rotate(left);
                 Self::right_rotate(Some(node))
@@ -116,13 +116,13 @@ impl AVLTree {
                 // 左旋
                 Self::left_rotate(Some(node))
             } else {
-                // 先右旋後左旋
+                // 先右旋再左旋
                 let right = node.borrow().right.clone();
                 node.borrow_mut().right = Self::right_rotate(right);
                 Self::left_rotate(Some(node))
             }
         } else {
-            // 平衡樹，無須旋轉，直接返回
+            // 樹已平衡，無須旋轉，直接返回
             node
         }
     }
@@ -132,11 +132,11 @@ impl AVLTree {
         self.root = Self::insert_helper(self.root.clone(), val);
     }
 
-    /* 遞迴插入節點（輔助方法） */
+    /* 以遞迴插入節點（輔助方法） */
     fn insert_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查詢插入位置並插入節點 */
+                /* 1. 找出插入位置並插入節點 */
                 match {
                     let node_val = node.borrow().val;
                     node_val
@@ -152,14 +152,14 @@ impl AVLTree {
                         node.borrow_mut().right = Self::insert_helper(right, val);
                     }
                     Ordering::Equal => {
-                        return Some(node); // 重複節點不插入，直接返回
+                        return Some(node); // 若節點重複，直接返回，略過插入操作
                     }
                 }
                 Self::update_height(Some(node.clone())); // 更新節點高度
 
-                /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
+                /* 2. 透過旋轉讓這棵子樹恢復平衡 */
                 node = Self::rotate(Some(node)).unwrap();
-                // 返回子樹的根節點
+                // 回傳子樹的根節點
                 Some(node)
             }
             None => Some(TreeNode::new(val)),
@@ -171,11 +171,11 @@ impl AVLTree {
         Self::remove_helper(self.root.clone(), val);
     }
 
-    /* 遞迴刪除節點（輔助方法） */
+    /* 以遞迴刪除節點（輔助方法） */
     fn remove_helper(node: OptionTreeNodeRc, val: i32) -> OptionTreeNodeRc {
         match node {
             Some(mut node) => {
-                /* 1. 查詢節點並刪除 */
+                /* 1. 找出並刪除節點 */
                 if val < node.borrow().val {
                     let left = node.borrow().left.clone();
                     node.borrow_mut().left = Self::remove_helper(left, val);
@@ -189,15 +189,15 @@ impl AVLTree {
                         node.borrow().right.clone()
                     };
                     match child {
-                        // 子節點數量 = 0 ，直接刪除 node 並返回
+                        // 若有 0 個子節點，直接刪除 node 並返回
                         None => {
                             return None;
                         }
-                        // 子節點數量 = 1 ，直接刪除 node
+                        // 若只有 1 個子節點，直接刪除 node
                         Some(child) => node = child,
                     }
                 } else {
-                    // 子節點數量 = 2 ，則將中序走訪的下個節點刪除，並用該節點替換當前節點
+                    // 若有 2 個子節點，刪除中序走訪的下一個節點，並用它的值取代目前節點的值
                     let mut temp = node.borrow().right.clone().unwrap();
                     loop {
                         let temp_left = temp.borrow().left.clone();
@@ -212,19 +212,19 @@ impl AVLTree {
                 }
                 Self::update_height(Some(node.clone())); // 更新節點高度
 
-                /* 2. 執行旋轉操作，使該子樹重新恢復平衡 */
+                /* 2. 透過旋轉讓這棵子樹恢復平衡 */
                 node = Self::rotate(Some(node)).unwrap();
-                // 返回子樹的根節點
+                // 回傳子樹的根節點
                 Some(node)
             }
             None => None,
         }
     }
 
-    /* 查詢節點 */
+    /* 搜尋節點 */
     fn search(&self, val: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // 迴圈查詢，越過葉節點後跳出
+        // 用迴圈搜尋，越過葉節點後跳出迴圈
         while let Some(current) = cur.clone() {
             match current.borrow().val.cmp(&val) {
                 // 目標節點在 cur 的右子樹中
@@ -241,30 +241,30 @@ impl AVLTree {
                 }
             }
         }
-        // 返回目標節點
+        // 回傳目標節點
         cur
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 fn main() {
     fn test_insert(tree: &mut AVLTree, val: i32) {
         tree.insert(val);
-        println!("\n插入節點 {} 後，AVL 樹為", val);
+        println!("\n插入節點 {} 後的 AVL 樹為", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
     fn test_remove(tree: &mut AVLTree, val: i32) {
         tree.remove(val);
-        println!("\n刪除節點 {} 後，AVL 樹為", val);
+        println!("\n刪除節點 {} 後的 AVL 樹為", val);
         print_util::print_tree(&tree.root.clone().unwrap());
     }
 
-    /* 初始化空 AVL 樹 */
+    /* 初始化一棵空的 AVL 樹 */
     let mut avl_tree = AVLTree::new();
 
     /* 插入節點 */
-    // 請關注插入節點後，AVL 樹是如何保持平衡的
+    // 請觀察插入節點後 AVL 樹如何維持平衡
     test_insert(&mut avl_tree, 1);
     test_insert(&mut avl_tree, 2);
     test_insert(&mut avl_tree, 3);
@@ -280,16 +280,16 @@ fn main() {
     test_insert(&mut avl_tree, 7);
 
     /* 刪除節點 */
-    // 請關注刪除節點後，AVL 樹是如何保持平衡的
-    test_remove(&mut avl_tree, 8); // 刪除度為 0 的節點
-    test_remove(&mut avl_tree, 5); // 刪除度為 1 的節點
-    test_remove(&mut avl_tree, 4); // 刪除度為 2 的節點
+    // 請觀察刪除節點後 AVL 樹如何維持平衡
+    test_remove(&mut avl_tree, 8); // 刪除分支度為 0 的節點
+    test_remove(&mut avl_tree, 5); // 刪除分支度為 1 的節點
+    test_remove(&mut avl_tree, 4); // 刪除分支度為 2 的節點
 
     /* 查詢節點 */
     let node = avl_tree.search(7);
     if let Some(node) = node {
         println!(
-            "\n查詢到的節點物件為 {:?}，節點值 = {}",
+            "\n找到的節點物件為 {:?}，節點值 = {}",
             &*node.borrow(),
             node.borrow().val
         );

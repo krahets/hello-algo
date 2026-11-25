@@ -2,93 +2,93 @@
 
 ## Check your understanding
 
-### The first passes of selection sort and bubble sort
+### The first few passes of selection sort and bubble sort
 
-Given the array `[4, 2, 5, 1, 3]`, sort in ascending order throughout this exercise.
+Use the array `[4, 2, 5, 1, 3]` for the following questions. Sort in ascending order throughout.
 
 <!-- numbered-subquestions -->
 
-1. Simulate the first two passes of selection sort. Write the array after each pass and identify the positions whose final values are now fixed.
-2. Simulate the first pass of bubble sort. Write the array and the number of swaps, and identify the position whose final value is now fixed.
+1. Simulate the first two passes of selection sort. Write down the array after each pass and identify the positions that now hold their final values.
+2. Simulate the first pass of bubble sort. Write down the resulting array and the number of swaps, and identify the position that now holds its final value.
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. The first two passes are:
+    1. The first two passes give the following results:
 
-        | Pass | Array | Explanation |
+        | Pass | Array state | Explanation |
         | --- | --- | --- |
-        | 1 | `[1, 2, 5, 4, 3]` | Swap the minimum element, 1, with the first element |
+        | 1 | `[1, 2, 5, 4, 3]` | Swap the minimum, 1, with the first element |
         | 2 | `[1, 2, 5, 4, 3]` | The value 2 is already at index 1, so no swap is needed |
 
-        The first two positions are now fixed. Subsequent passes need only continue selecting the minimum from `[5, 4, 3]`.
+        The first two positions now hold their final values. Subsequent passes only need to select the minimum from `[5, 4, 3]`.
 
-    2. Compare adjacent elements in order: swap 4 and 2, leave 4 and 5 unchanged, swap 5 and 1, then swap 5 and 3.
-        The result is `[2, 4, 1, 3, 5]`, with three swaps. The maximum element, 5, has moved to the end, fixing the last position.
+    2. Compare adjacent elements in order: swap 4 and 2, leave 4 and 5 in place, swap 5 and 1, and swap 5 and 3.
+        This gives `[2, 4, 1, 3, 5]` after 3 swaps. The maximum, 5, has reached the end of the array, so the last position holds its final value.
 
-### Does the order of equal elements change?
+### Can equal elements change order?
 
-In the array $[2_a, 2_b, 1]$, $2_a$ and $2_b$ have equal values; the subscripts mark their original order.
-
-<!-- numbered-subquestions -->
-
-1. Write the array after the first pass of selection sort. Has the relative order of $2_a$ and $2_b$ changed?
-2. Write the array after the first pass of bubble sort. Has the relative order of $2_a$ and $2_b$ changed?
-3. Based on your answers, explain how the two algorithms differ in preserving the original order of equal elements.
-
-??? success "Reference answer"
-
-    1. The first pass of selection sort selects the minimum element, 1, and swaps it with the first element, $2_a$, producing
-        $[1, 2_b, 2_a]$. The swap moves $2_a$ after $2_b$, changing their relative order.
-
-    2. Bubble sort first compares $2_a$ with $2_b$ and does not swap them because they are equal. It then compares and swaps $2_b$ and 1.
-        After the first pass, the array is $[2_a, 1, 2_b]$. Since $2_a$ still precedes $2_b$, their relative order is unchanged.
-
-    3. In this example, selection sort changes the original order of equal elements. Bubble sort swaps adjacent elements only when the left element
-        is greater than the right one. Equal elements are never swapped with each other, so their original order is preserved.
-
-### Comparing counting sort and radix sort
-
-A school needs to sort many student IDs, each exactly eight digits long. Answer the following:
+In the array $[2_a, 2_b, 1]$, $2_a$ and $2_b$ have the same value. Their subscripts mark their original order.
 
 <!-- numbered-subquestions -->
 
-1. How many passes does radix sort need when starting with the least significant digit?
-2. If counting sort treats each student ID directly as an integer, why would many counting entries go unused?
-3. Based on your answers, which would you choose for sorting many eight-digit student IDs: counting sort or radix sort? Why?
+1. Write down the array after the first pass of selection sort. Has the relative order of $2_a$ and $2_b$ changed?
+2. Write down the array after the first pass of bubble sort. Has the relative order of $2_a$ and $2_b$ changed?
+3. Use your answers to explain how the two algorithms differ in their treatment of equal elements.
 
-??? success "Reference answer"
+??? success "Sample answer"
 
-    1. Each ID has eight digits, so there are eight passes, from the least to the most significant digit. Each pass groups digits only by values 0 through 9.
+    1. The first pass of selection sort finds the minimum, 1, and swaps it with the first element, $2_a$, giving
+        $[1, 2_b, 2_a]$. The swap moves $2_a$ after $2_b$, reversing their relative order.
 
-    2. Direct counting reserves an entry for every possible eight-digit value, but actual students use only a small fraction of them.
-        Most counts would remain 0.
+    2. Bubble sort first compares $2_a$ and $2_b$ and leaves them in place because they are equal. It then compares $2_b$ with 1 and swaps them.
+        The first pass ends with $[2_a, 1, 2_b]$. The element $2_a$ still precedes $2_b$, so their relative order is unchanged.
 
-    3. Choose radix sort. It uses the fixed number of digits and the ten possible values per digit, requiring only eight stable grouping passes.
-        Counting sort using each entire eight-digit ID as an integer index would reserve entries for many values that never occur.
+    3. In this example, selection sort changes the original order of equal elements. Only when the left element is greater than the right
+        does bubble sort swap the two neighbors. Equal elements never swap with each other, so they retain their original order.
+
+### Compare counting sort and radix sort
+
+A school needs to sort a large collection of student IDs, each exactly 8 digits long. Answer the following questions.
+
+<!-- numbered-subquestions -->
+
+1. How many passes does radix sort need if it starts with the least significant digit?
+2. If you use counting sort with each ID treated as a single integer, why will many entries in the count array go unused?
+3. Based on your answers, would you choose counting sort or radix sort for a large collection of 8-digit student IDs? Why?
+
+??? success "Sample answer"
+
+    1. Each ID has 8 digits, so sorting from the least significant digit to the most significant takes 8 passes. Each pass groups the IDs by a digit from 0 to 9.
+
+    2. Counting the IDs directly requires an entry for every possible 8-digit value, but the students use only a small fraction of those values.
+        Most counts will stay at 0.
+
+    3. Choose radix sort. Each ID has a fixed number of digits, and each digit has just 10 possible values, so 8 rounds of stable grouping suffice.
+        Using each entire 8-digit ID as an integer index for counting sort would reserve count entries for many values that never occur.
 
 ## Programming exercises
 
-### Sorting an array with merge sort
+### Sort an array using merge sort
 
-Given an integer array `nums`, implement merge sort yourself to arrange its elements in nondecreasing order and return the result. Do not call the language's built-in sorting function.
+Given an integer array `nums`, implement merge sort to arrange its elements in nondecreasing order and return the sorted array. Do not use a built-in sorting function.
 
 ??? tip "Hints"
 
-    1. An interval of length at most 1 is already sorted.
-    2. Split the interval in half at the midpoint and recursively sort each half.
-    3. Use two pointers to merge the sorted halves, then write the result back to the original array.
+    1. A range of length 0 or 1 is already sorted
+    2. Split the range at the midpoint and recursively sort each half
+    3. Merge the two sorted halves with two pointers, then write the result back to the original array
 
 [LeetCode](https://leetcode.com/problems/sort-an-array/){ .rounded-button .exercise-button target="_blank" rel="noopener noreferrer" }
 
-### Sorting an integer array with counting sort
+### Sort an integer array using counting sort
 
-You are given an integer array `nums` and a nonnegative integer $K$. Every element lies between $0$ and $K$.
+You are given an integer array `nums` and a nonnegative integer $K$. Every array element is between $0$ and $K$, inclusive.
 
-Implement counting sort, write the elements back into `nums` in nondecreasing order, and return `nums`.
-Do not determine the order by comparing elements with one another, and do not use the language's built-in sorting function.
+Implement counting sort, write the result back to `nums` in nondecreasing order, and return `nums`.
+Do not compare elements to determine their order or use a built-in sorting function.
 
 ??? tip "Hints"
 
-    1. Since every element is between 0 and K, its value can directly index the counting array.
-    2. First scan nums, incrementing the count at the corresponding position by 1.
-    3. Then scan the counting array from 0 through K. If x occurs a given number of times, write that many consecutive copies of x into nums.
+    1. Each element is between 0 and K, so you can use its value as an index into the count array
+    2. Scan nums once, adding 1 to the count at the corresponding index for each element
+    3. Then scan the count array from 0 to K. For each value x, write as many consecutive copies of x to nums as its count indicates

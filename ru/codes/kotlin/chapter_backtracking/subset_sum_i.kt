@@ -6,7 +6,7 @@
 
 package chapter_backtracking.subset_sum_i
 
-/* Алгоритм бэктрекинга: сумма подмножеств I */
+/* Поиск с возвратом: сумма подмножества I */
 fun backtrack(
     state: MutableList<Int>,
     target: Int,
@@ -14,45 +14,45 @@ fun backtrack(
     start: Int,
     res: MutableList<MutableList<Int>?>
 ) {
-    // Если сумма подмножества равна target, записать решение
+    // Если сумма подмножества равна target, сохраняем решение
     if (target == 0) {
         res.add(state.toMutableList())
         return
     }
-    // Обойти все варианты выбора
-    // Отсечение 2: начинать обход с start, чтобы избежать генерации повторяющихся подмножеств
+    // Перебираем все варианты
+    // Отсечение 2: начинаем перебор с start, чтобы не получать одинаковые подмножества
     for (i in start..<choices.size) {
-        // Отсечение 1: если сумма подмножества превышает target, немедленно завершить цикл
-        // Это связано с тем, что массив уже отсортирован, следующие элементы больше, и сумма подмножества точно превысит target
+        // Отсечение 1: если сумма подмножества превышает target, выходим из цикла
+        // Массив отсортирован: следующие элементы не меньше текущего, поэтому сумма тоже превысит target
         if (target - choices[i] < 0) {
             break
         }
-        // Попытка: сделать выбор и обновить target и start
+        // Пробуем вариант и обновляем target и start
         state.add(choices[i])
-        // Перейти к следующему выбору
+        // Переходим к следующему выбору
         backtrack(state, target - choices[i], choices, i, res)
-        // Откат: отменить выбор и восстановить предыдущее состояние
+        // Возврат: отменяем выбор и восстанавливаем прежнее состояние
         state.removeAt(state.size - 1)
     }
 }
 
-/* Решить задачу суммы подмножеств I */
+/* Задача о сумме подмножества I */
 fun subsetSumI(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
     val state = mutableListOf<Int>() // Состояние (подмножество)
-    nums.sort() // Отсортировать nums
-    val start = 0 // Стартовая вершина обхода
+    nums.sort() // Сортируем nums
+    val start = 0 // Начальная позиция перебора
     val res = mutableListOf<MutableList<Int>?>() // Список результатов (список подмножеств)
     backtrack(state, target, nums, start, res)
     return res
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val nums = intArrayOf(3, 4, 5)
     val target = 9
 
     val res = subsetSumI(nums, target)
 
-    println("Входной массив nums = ${nums.contentToString()}, target = $target")
+    println("Исходный массив nums = ${nums.contentToString()}, target = $target")
     println("Все подмножества с суммой $target: res = $res")
 }

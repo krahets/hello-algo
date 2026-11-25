@@ -11,25 +11,25 @@ int recur(int n) {
     // Base case
     if (n == 1)
         return 1;
-    // Recurse: make a recursive call
+    // Descend: make a recursive call
     int res = recur(n - 1);
     // Unwind: return the result
     return n + res;
 }
 
-/* Simulate recursion using iteration */
+/* Simulate recursion with iteration */
 int forLoopRecur(int n) {
-    // Use an explicit stack to simulate the system call stack
+    // Use an explicit stack to simulate the call stack
     stack<int> stack;
     int res = 0;
-    // Recurse: make a recursive call
+    // Descend: make a recursive call
     for (int i = n; i > 0; i--) {
-        // Simulate recursive calls by pushing onto the stack
+        // Push to simulate descending
         stack.push(i);
     }
     // Unwind: return the result
     while (!stack.empty()) {
-        // Simulate unwinding by popping from the stack
+        // Pop to simulate unwinding
         res += stack.top();
         stack.pop();
     }
@@ -42,11 +42,11 @@ int tailRecur(int n, int res) {
     // Base case
     if (n == 0)
         return res;
-    // Tail-recursive call
+    // Tail call
     return tailRecur(n - 1, res + n);
 }
 
-/* Fibonacci sequence: recursion */
+/* Fibonacci sequence using recursion */
 int fib(int n) {
     // Base cases: f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
@@ -57,19 +57,19 @@ int fib(int n) {
     return res;
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     int n = 5;
     int res;
 
     res = recur(n);
-    cout << "\nSum from the recursive function, res = " << res << endl;
+    cout << "\nRecursive sum: res = " << res << endl;
 
     res = forLoopRecur(n);
-    cout << "\nSum from simulating recursion with iteration, res = " << res << endl;
+    cout << "\nSum using simulated recursion: res = " << res << endl;
 
     res = tailRecur(n, 0);
-    cout << "\nSum from the tail-recursive function, res = " << res << endl;
+    cout << "\nTail-recursive sum: res = " << res << endl;
 
     res = fib(n);
     cout << "\nFibonacci term " << n << " is " << res << endl;

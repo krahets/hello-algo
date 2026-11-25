@@ -11,10 +11,10 @@ pub fn TreeNode(comptime T: type) type {
 
         val: T = undefined, // 節點值
         height: i32 = undefined, // 節點高度
-        left: ?*Self = null, // 左子節點指標
-        right: ?*Self = null, // 右子節點指標
+        left: ?*Self = null, // 指向左子節點的指標
+        right: ?*Self = null, // 指向右子節點的指標
 
-        // Initialize a tree node with specific value
+        // 以指定的值初始化二元樹節點
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.height = 0;

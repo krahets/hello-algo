@@ -6,7 +6,7 @@
 
 import '../chapter_stack_and_queue/linkedlist_deque.dart';
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   int _num = 3;
   int hashNum = _num.hashCode;
@@ -18,7 +18,7 @@ void main() {
 
   double dec = 3.14159;
   int hashDec = dec.hashCode;
-  print("小数 $dec のハッシュ値は $hashDec");
+  print("浮動小数点数 $dec のハッシュ値は $hashDec");
 
   String str = "Hello 算法";
   int hashStr = str.hashCode;

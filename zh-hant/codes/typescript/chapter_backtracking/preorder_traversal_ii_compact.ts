@@ -20,16 +20,16 @@ function preOrder(
     // 嘗試
     path.push(root);
     if (root.val === 7) {
-        // 記錄解
+        // 記錄此解
         res.push([...path]);
     }
     preOrder(root.left, path, res);
     preOrder(root.right, path, res);
-    // 回退
+    // 回溯
     path.pop();
 }
 
-// Driver Code
+// 主程式
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
 console.log('\n初始化二元樹');
 printTree(root);
@@ -39,7 +39,7 @@ const path: TreeNode[] = [];
 const res: TreeNode[][] = [];
 preOrder(root, path, res);
 
-console.log('\n輸出所有根節點到節點 7 的路徑');
+console.log('\n輸出從根節點到值為 7 的節點的所有路徑');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

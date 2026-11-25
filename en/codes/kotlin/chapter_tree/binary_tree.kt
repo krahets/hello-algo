@@ -18,7 +18,7 @@ fun main() {
     val n3 = TreeNode(3)
     val n4 = TreeNode(4)
     val n5 = TreeNode(5)
-    // Set up references (pointers) between the nodes
+    // Link the nodes with references (pointers)
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -26,15 +26,15 @@ fun main() {
     println("\nInitialize the binary tree\n")
     printTree(n1)
 
-    /* Insert and remove nodes */
+    /* Insert and delete nodes */
     val P = TreeNode(0)
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     n1.left = P
     P.left = n2
     println("\nAfter inserting node P:\n")
     printTree(n1)
-    // Remove node P
+    // Delete node P
     n1.left = n2
-    println("\nAfter removing node P:\n")
+    println("\nAfter deleting node P:\n")
     printTree(n1)
 }

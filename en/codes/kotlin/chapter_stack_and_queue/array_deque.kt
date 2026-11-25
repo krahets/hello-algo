@@ -6,11 +6,11 @@
 
 package chapter_stack_and_queue
 
-/* Deque implemented with a circular array */
+/* Deque backed by a circular array */
 /* Constructor */
 class ArrayDeque(capacity: Int) {
     private var nums: IntArray = IntArray(capacity) // Array that stores the deque elements
-    private var front: Int = 0 // Front pointer, pointing to the first element
+    private var front: Int = 0 // Index of the front element
     private var queSize: Int = 0 // Deque size
 
     /* Get the deque capacity */
@@ -28,74 +28,74 @@ class ArrayDeque(capacity: Int) {
         return queSize == 0
     }
 
-    /* Calculate an index in the circular array */
+    /* Compute the circular array index */
     private fun index(i: Int): Int {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap around to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         return (i + capacity()) % capacity()
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     fun pushFirst(num: Int) {
         if (queSize == capacity()) {
             println("Deque is full")
             return
         }
-        // Move the front pointer one position to the left
-        // Use modulo to wrap front to the end when it passes the beginning of the array
+        // Move the front index one slot to the left
+        // Use the remainder to wrap front to the end if it goes before the start
         front = index(front - 1)
-        // Add num to the front
+        // Add num at the front
         nums[front] = num
         queSize++
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     fun pushLast(num: Int) {
         if (queSize == capacity()) {
             println("Deque is full")
             return
         }
-        // Calculate the rear pointer, which points one position past the last element
+        // Compute the index one slot past the rear element
         val rear = index(front + queSize)
-        // Add num to the rear
+        // Add num at the rear
         nums[rear] = num
         queSize++
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     fun popFirst(): Int {
         val num = peekFirst()
-        // Advance the front pointer by one position
+        // Advance the front index by one
         front = index(front + 1)
         queSize--
         return num
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     fun popLast(): Int {
         val num = peekLast()
         queSize--
         return num
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     fun peekFirst(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return nums[front]
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     fun peekLast(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        // Calculate the index of the last element
+        // Compute the index of the rear element
         val last = index(front + queSize - 1)
         return nums[last]
     }
 
     /* Return an array for printing */
     fun toArray(): IntArray {
-        // Copy only the elements within the occupied range
+        // Copy only the elements currently in the deque
         val res = IntArray(queSize)
         var i = 0
         var j = front
@@ -115,25 +115,25 @@ fun main() {
     deque.pushLast(3)
     deque.pushLast(2)
     deque.pushLast(5)
-    println("Deque deque = ${deque.toArray().contentToString()}")
+    println("deque = ${deque.toArray().contentToString()}")
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     val peekFirst = deque.peekFirst()
-    println("Front element: peekFirst = $peekFirst")
+    println("Front element (peekFirst) = $peekFirst")
     val peekLast = deque.peekLast()
-    println("Rear element: peekLast = $peekLast")
+    println("Rear element (peekLast) = $peekLast")
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.pushLast(4)
-    println("After enqueuing 4 at the rear: deque = ${deque.toArray().contentToString()}")
+    println("After adding 4 at the rear, deque = ${deque.toArray().contentToString()}")
     deque.pushFirst(1)
-    println("After enqueuing 1 at the front: deque = ${deque.toArray().contentToString()}")
+    println("After adding 1 at the front, deque = ${deque.toArray().contentToString()}")
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     val popLast = deque.popLast()
-    println("Element dequeued from the rear = ${popLast}; deque after removal = ${deque.toArray().contentToString()}")
+    println("Removed from the rear = ${popLast}, deque after removal = ${deque.toArray().contentToString()}")
     val popFirst = deque.popFirst()
-    println("Element dequeued from the front = ${popFirst}; deque after removal = ${deque.toArray().contentToString()}")
+    println("Removed from the front = ${popFirst}, deque after removal = ${deque.toArray().contentToString()}")
 
     /* Get the deque size */
     val size = deque.size()
@@ -141,5 +141,5 @@ fun main() {
 
     /* Check whether the deque is empty */
     val isEmpty = deque.isEmpty()
-    println("Is the deque empty? $isEmpty")
+    println("Deque is empty = $isEmpty")
 }

@@ -11,10 +11,10 @@ pub fn TreeNode(comptime T: type) type {
 
         val: T = undefined, // 노드 값
         height: i32 = undefined, // 노드 높이
-        left: ?*Self = null, // 왼쪽 자식 노드 포인터
-        right: ?*Self = null, // 오른쪽 자식 노드 포인터
+        left: ?*Self = null, // 왼쪽 자식 노드를 가리키는 포인터
+        right: ?*Self = null, // 오른쪽 자식 노드를 가리키는 포인터
 
-        // 지정한 값으로 트리 노드를 초기화한다
+        // 지정한 값으로 트리 노드를 초기화한다.
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.height = 0;
@@ -24,7 +24,7 @@ pub fn TreeNode(comptime T: type) type {
     };
 }
 
-// 배열을 역직렬화하여 이진 트리로 변환한다
+// 배열을 이진 트리로 역직렬화
 pub fn arrToTree(comptime T: type, allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
     if (arr.len == 0) return null;
     var root = try allocator.create(TreeNode(T));

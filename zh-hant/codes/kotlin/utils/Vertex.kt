@@ -9,7 +9,7 @@ package utils
 /* 頂點類別 */
 class Vertex(val _val: Int) {
     companion object {
-        /* 輸入值串列 vals ，返回頂點串列 vets */
+        /* 傳入數值陣列 vals，回傳頂點陣列 vets */
         fun valsToVets(vals: IntArray): Array<Vertex?> {
             val vets = arrayOfNulls<Vertex>(vals.size)
             for (i in vals.indices) {
@@ -18,7 +18,7 @@ class Vertex(val _val: Int) {
             return vets
         }
 
-        /* 輸入頂點串列 vets ，返回值串列 vals */
+        /* 傳入頂點串列 vets，回傳數值串列 vals */
         fun vetsToVals(vets: MutableList<Vertex?>): MutableList<Int> {
             val vals = mutableListOf<Int>()
             for (vet in vets) {

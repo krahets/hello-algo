@@ -6,7 +6,7 @@
 
 /* 探索 */
 fn dfs(i: usize) -> i32 {
-    // dp[1] と dp[2] は既知なので、その値を返す
+    // 既知の値 dp[1] と dp[2] のうち、該当する方を返す
     if i == 1 || i == 2 {
         return i as i32;
     }
@@ -15,15 +15,15 @@ fn dfs(i: usize) -> i32 {
     count
 }
 
-/* 階段の上り方：探索 */
+/* 階段の登り方：探索 */
 fn climbing_stairs_dfs(n: usize) -> i32 {
     dfs(n)
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dfs(n);
-    println!("{n} 段の階段を上る方法は全部で {res} 通り");
+    println!("全 {n} 段の階段の登り方は {res} 通り");
 }

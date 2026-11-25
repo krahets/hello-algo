@@ -11,7 +11,7 @@ require_relative '../utils/print_util'
 def pre_order(root)
   return if root.nil?
 
-  # 訪問優先順序：根節點 -> 左子樹 -> 右子樹
+  # 走訪順序：根節點 -> 左子樹 -> 右子樹
   $res << root.val
   pre_order(root.left)
   pre_order(root.right)
@@ -21,7 +21,7 @@ end
 def in_order(root)
   return if root.nil?
 
-  # 訪問優先順序：左子樹 -> 根節點 -> 右子樹
+  # 走訪順序：左子樹 -> 根節點 -> 右子樹
   in_order(root.left)
   $res << root.val
   in_order(root.right)
@@ -31,16 +31,16 @@ end
 def post_order(root)
   return if root.nil?
 
-  # 訪問優先順序：左子樹 -> 右子樹 -> 根節點
+  # 走訪順序：左子樹 -> 右子樹 -> 根節點
   post_order(root.left)
   post_order(root.right)
   $res << root.val
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   # 初始化二元樹
-  # 這裡藉助了一個從陣列直接生成二元樹的函式
+  # 這裡使用能從陣列直接建立二元樹的函式
   root = arr_to_tree([1, 2, 3, 4, 5, 6, 7])
   puts "\n初始化二元樹\n\n"
   print_tree(root)
@@ -48,15 +48,15 @@ if __FILE__ == $0
   # 前序走訪
   $res = []
   pre_order(root)
-  puts "\n前序走訪的節點列印序列 = #{$res}"
+  puts "\n依前序走訪印出的節點序列 = #{$res}"
 
   # 中序走訪
   $res.clear
   in_order(root)
-  puts "\nn中序走訪的節點列印序列 = #{$res}"
+  puts "\nn依中序走訪印出的節點序列 = #{$res}"
 
   # 後序走訪
   $res.clear
   post_order(root)
-  puts "\nn後序走訪的節點列印序列 = #{$res}"
+  puts "\nn依後序走訪印出的節點序列 = #{$res}"
 end

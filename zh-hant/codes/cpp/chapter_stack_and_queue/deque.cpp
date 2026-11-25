@@ -6,41 +6,41 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* 範例程式 */
 int main() {
-    /* 初始化雙向佇列 */
+    /* 初始化雙端佇列 */
     deque<int> deque;
 
-    /* 元素入列 */
+    /* 將元素加入雙端佇列 */
     deque.push_back(2);
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);
     deque.push_front(1);
-    cout << "雙向佇列 deque = ";
+    cout << "雙端佇列 deque = ";
     printDeque(deque);
 
-    /* 訪問元素 */
+    /* 讀取隊首與隊尾元素 */
     int front = deque.front();
-    cout << "佇列首元素 front = " << front << endl;
+    cout << "隊首元素 front = " << front << endl;
     int back = deque.back();
-    cout << "佇列尾元素 back = " << back << endl;
+    cout << "隊尾元素 back = " << back << endl;
 
-    /* 元素出列 */
+    /* 從雙端佇列移除元素 */
     deque.pop_front();
-    cout << "佇列首出列元素 popFront = " << front << "，佇列首出列後 deque = ";
+    cout << "從隊首取出的元素 popFront = " << front << "，從隊首取出後 deque = ";
     printDeque(deque);
     deque.pop_back();
-    cout << "佇列尾出列元素 popLast = " << back << "，佇列尾出列後 deque = ";
+    cout << "從隊尾取出的元素 popLast = " << back << "，從隊尾取出後 deque = ";
     printDeque(deque);
 
-    /* 獲取雙向佇列的長度 */
+    /* 取得雙端佇列長度 */
     int size = deque.size();
-    cout << "雙向佇列長度 size = " << size << endl;
+    cout << "雙端佇列長度 size = " << size << endl;
 
-    /* 判斷雙向佇列是否為空 */
+    /* 判斷雙端佇列是否為空 */
     bool empty = deque.empty();
-    cout << "雙向佇列是否為空 = " << empty << endl;
+    cout << "雙端佇列是否為空 = " << empty << endl;
 
     return 0;
 }

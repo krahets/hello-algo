@@ -4,7 +4,7 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* Stack implemented with an array */
+/* Array-backed stack */
 class ArrayStack {
     #stack;
     constructor() {
@@ -21,24 +21,24 @@ class ArrayStack {
         return this.#stack.length === 0;
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     push(num) {
         this.#stack.push(num);
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     pop() {
         if (this.isEmpty()) throw new Error('Stack is empty');
         return this.#stack.pop();
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     top() {
         if (this.isEmpty()) throw new Error('Stack is empty');
         return this.#stack[this.#stack.length - 1];
     }
 
-    /* Return an Array */
+    /* Return the backing array */
     toArray() {
         return this.#stack;
     }
@@ -54,22 +54,22 @@ stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-console.log('Stack stack = ');
+console.log('stack = ');
 console.log(stack.toArray());
 
-/* Access the top element */
+/* Peek at the top element */
 const top = stack.top();
-console.log('Top element top = ' + top);
+console.log('Top element (top) = ' + top);
 
-/* Pop an element from the stack */
+/* Pop the top element */
 const pop = stack.pop();
-console.log('Popped element pop = ' + pop + '; after popping, stack = ');
+console.log('Popped element (pop) = ' + pop + ', stack after the pop = ');
 console.log(stack.toArray());
 
 /* Get the stack size */
 const size = stack.size;
 console.log('Stack size = ' + size);
 
-/* Check whether it is empty */
+/* Check whether the stack is empty */
 const isEmpty = stack.isEmpty();
-console.log('Is the stack empty = ' + isEmpty);
+console.log('Stack is empty = ' + isEmpty);

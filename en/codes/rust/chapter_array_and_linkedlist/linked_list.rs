@@ -16,7 +16,7 @@ pub fn insert<T>(n0: &Rc<RefCell<ListNode<T>>>, P: Rc<RefCell<ListNode<T>>>) {
     n0.borrow_mut().next = Some(P);
 }
 
-/* Remove the first node after node n0 in the linked list */
+/* Remove the node immediately after n0 in the linked list */
 #[allow(non_snake_case)]
 pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     // n0 -> P -> n1
@@ -27,7 +27,7 @@ pub fn remove<T>(n0: &Rc<RefCell<ListNode<T>>>) {
     }
 }
 
-/* Access the node at index `index` in the linked list */
+/* Access the linked list node at the specified index */
 pub fn access<T>(head: Rc<RefCell<ListNode<T>>>, index: i32) -> Option<Rc<RefCell<ListNode<T>>>> {
     fn dfs<T>(
         head: Option<&Rc<RefCell<ListNode<T>>>>,
@@ -63,38 +63,38 @@ pub fn find<T: PartialEq>(head: Rc<RefCell<ListNode<T>>>, target: T) -> i32 {
     find(Some(head).as_ref(), target, 0)
 }
 
-/* Driver code */
+/* Driver Code */
 fn main() {
     /* Initialize the linked list */
-    // Initialize the individual nodes
+    // Initialize the nodes
     let n0 = ListNode::new(1);
     let n1 = ListNode::new(3);
     let n2 = ListNode::new(2);
     let n3 = ListNode::new(5);
     let n4 = ListNode::new(4);
-    // Set up references between the nodes
+    // Link the nodes together
     n0.borrow_mut().next = Some(n1.clone());
     n1.borrow_mut().next = Some(n2.clone());
     n2.borrow_mut().next = Some(n3.clone());
     n3.borrow_mut().next = Some(n4.clone());
-    print!("The initialized linked list is ");
+    print!("Initial linked list: ");
     print_util::print_linked_list(&n0);
 
     /* Insert a node */
     insert(&n0, ListNode::new(0));
-    print!("The linked list after inserting a node is ");
+    print!("Linked list after insertion: ");
     print_util::print_linked_list(&n0);
 
     /* Remove a node */
     remove(&n0);
-    print!("The linked list after removing a node is ");
+    print!("Linked list after removal: ");
     print_util::print_linked_list(&n0);
 
     /* Access a node */
     let node = access(n0.clone(), 3);
-    println!("Value of the node at index 3 in the linked list = {}", node.unwrap().borrow().val);
+    println!("Value of the node at index 3 = {}", node.unwrap().borrow().val);
 
     /* Find a node */
     let index = find(n0.clone(), 2);
-    println!("Index of the node with value 2 in the linked list = {}", index);
+    println!("Index of the node with value 2 = {}", index);
 }

@@ -1,22 +1,22 @@
 {
-  "schema_version": 2,
-  "title": "Four search strategies",
-  "summary": "Four subfigures compare element-by-element scanning, halving by sorted order, key-based lookup, and branching down a tree.",
   "context": [
-    "All four subfigures use locating target value 6 (highlighted in blue) as an example to illustrate how searching works under different data organizations. Here n denotes the dataset size, and the complexity beside each subfigure title refers to a single lookup (preprocessing costs—sorting beforehand for binary search, building the table for hash lookup, and building and balancing the tree for tree search—are separate)."
+    "Each panel locates the target value 6, highlighted in blue, to show how searching works with a different data organization. Here n is the number of elements. The complexity beside each panel title covers a single search. Sorting for binary search, constructing the hash table, and building and maintaining a balanced tree incur separate costs."
   ],
   "description": [
-    "Upper left, “Linear search O(n)” (Scan the array linearly): in the unsorted array [1, 5, 3, 2, 4, 7, 6, 9, 0, 8], check elements one by one from index 0 rightward, passing 1, 5, 3, 2, 4, and 7 before finding target 6 at index 6.",
-    "Lower left, “Binary search O(log n)” (Use the sorted order to narrow the search interval): in the ascending array [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], use order comparisons to halve the range and rule out subintervals that cannot contain the target, locating target 6 at index 6 (the two blue arcs in the diagram schematically illustrate narrowing the range rather than tracing the full sequence of midpoint pointers).",
-    "Upper right, “Hash lookup O(1)” (Enter key to look up value): the hash table lists ten key-value pairs in the order [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] (each column's key equals the value beneath it) and directly locates value 6 from key 6 in O(1) average lookup time.",
-    "Lower right, “Tree search O(log n)” (Find the target node in a binary search tree): the binary search tree has root 4; 4 has left and right children 1 and 7; 1 has left and right children 0 and 2, where 2 has only right child 3; 7 has left and right children 5 and 8, where 5 has only right child 6 and 8 has only right child 9; 0, 3, 6, and 9 are leaf nodes. Starting at root 4, the search goes to right child 7 because 6 > 4, to left child 5 because 6 < 7, and to right child 6 because 6 > 5, reaching the target along the blue-highlighted path 4 → 7 → 5 → 6."
+    "Upper left, “Linear search O(n)” (scan the array): Start at index 0 in the unsorted array [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] and check each element in turn, moving right. After passing 1, 5, 3, 2, 4, and 7, find the target, 6, at index 6.",
+    "Lower left, “Binary search O(log n)” (use the sorted order to narrow the search interval): In the ascending array [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], comparisons rule out half the interval at a time and locate the target, 6, at index 6. The two curved blue arrows illustrate the narrowing search range without showing the full sequence of pointer positions.",
+    "Upper right, “Hash lookup O(1)” (look up a value by key): The table lists ten key-value pairs in the order [1, 5, 3, 2, 4, 7, 6, 9, 0, 8]. In each column the key equals the value below it. Looking up key 6 leads directly to value 6. A lookup takes O(1) time on average.",
+    "Lower right, “Tree search O(log n)” (search the binary search tree for the target node): The root is 4, with left child 1 and right child 7. Node 1 has left child 0 and right child 2, and node 2 has only a right child, 3. Node 7 has left child 5 and right child 8. Node 5 has only a right child, 6, and node 8 has only a right child, 9. Nodes 0, 3, 6, and 9 are leaves. Start at root 4. Since 6 > 4, go right to 7. Since 6 < 7, go left to 5. Since 6 > 5, go right to 6. The blue path 4 → 7 → 5 → 6 reaches the target."
   ],
   "frames": [
     {
-      "id": "source-238",
       "book_path": "chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png",
-      "title": "Four search strategies",
-      "explanation": "Binary search requires a sorted array, while hash lookup and tree search require their respective data structures. The O(1) shown for hashing is average-case efficiency, and O(log n) for tree search assumes the tree stays balanced; an ordinary binary search tree that degenerates into a chain still takes O(n) time in the worst case."
+      "explanation": "Binary search requires a sorted array. Hash lookup and tree search require their respective data structures. O(1) for hash lookup is an average, and O(log n) for tree search assumes the tree stays balanced. An ordinary binary search tree can degenerate into a chain, giving O(n) worst-case search time.",
+      "id": "source-238",
+      "title": "Four search strategies"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "Four panels compare scanning one element at a time, halving a sorted interval, looking up a key, and following tree branches.",
+  "title": "Four search strategies"
 }

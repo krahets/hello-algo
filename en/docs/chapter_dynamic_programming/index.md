@@ -6,4 +6,4 @@
 
     Streams flow into rivers, and rivers flow into the sea.
     
-    Dynamic programming brings together solutions to small problems to answer a larger one, guiding us step by step to the other shore.
+    Dynamic programming brings the solutions to small problems together, carrying us step by step toward the answer to a larger one.

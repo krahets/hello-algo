@@ -11,7 +11,7 @@ typedef struct {
     TreeNode *root;
 } BinarySearchTree;
 
-/* 建構子 */
+/* 建構函式 */
 BinarySearchTree *newBinarySearchTree() {
     // 初始化空樹
     BinarySearchTree *bst = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
@@ -19,21 +19,21 @@ BinarySearchTree *newBinarySearchTree() {
     return bst;
 }
 
-/* 析構函式 */
+/* 解構函式 */
 void delBinarySearchTree(BinarySearchTree *bst) {
     freeMemoryTree(bst->root);
     free(bst);
 }
 
-/* 獲取二元樹根節點 */
+/* 取得二元樹的根節點 */
 TreeNode *getRoot(BinarySearchTree *bst) {
     return bst->root;
 }
 
-/* 查詢節點 */
+/* 搜尋節點 */
 TreeNode *search(BinarySearchTree *bst, int num) {
     TreeNode *cur = bst->root;
-    // 迴圈查詢，越過葉節點後跳出
+    // 用迴圈搜尋，越過葉節點後跳出迴圈
     while (cur != NULL) {
         if (cur->val < num) {
             // 目標節點在 cur 的右子樹中
@@ -46,7 +46,7 @@ TreeNode *search(BinarySearchTree *bst, int num) {
             break;
         }
     }
-    // 返回目標節點
+    // 回傳目標節點
     return cur;
 }
 
@@ -58,7 +58,7 @@ void insert(BinarySearchTree *bst, int num) {
         return;
     }
     TreeNode *cur = bst->root, *pre = NULL;
-    // 迴圈查詢，越過葉節點後跳出
+    // 用迴圈搜尋，越過葉節點後跳出迴圈
     while (cur != NULL) {
         // 找到重複節點，直接返回
         if (cur->val == num) {
@@ -83,33 +83,33 @@ void insert(BinarySearchTree *bst, int num) {
 }
 
 /* 刪除節點 */
-// 由於引入了 stdio.h ，此處無法使用 remove 關鍵詞
+// 由於已引入 stdio.h，這裡無法使用 remove 這個名稱
 void removeItem(BinarySearchTree *bst, int num) {
-    // 若樹為空，直接提前返回
+    // 若樹為空，直接返回
     if (bst->root == NULL)
         return;
     TreeNode *cur = bst->root, *pre = NULL;
-    // 迴圈查詢，越過葉節點後跳出
+    // 用迴圈搜尋，越過葉節點後跳出迴圈
     while (cur != NULL) {
-        // 找到待刪除節點，跳出迴圈
+        // 找到要刪除的節點，跳出迴圈
         if (cur->val == num)
             break;
         pre = cur;
         if (cur->val < num) {
-            // 待刪除節點在 root 的右子樹中
+            // 要刪除的節點在 root 的右子樹中
             cur = cur->right;
         } else {
-            // 待刪除節點在 root 的左子樹中
+            // 要刪除的節點在 root 的左子樹中
             cur = cur->left;
         }
     }
-    // 若無待刪除節點，則直接返回
+    // 若找不到要刪除的節點，直接返回
     if (cur == NULL)
         return;
-    // 判斷待刪除節點是否存在子節點
+    // 判斷要刪除的節點是否有子節點
     if (cur->left == NULL || cur->right == NULL) {
-        /* 子節點數量 = 0 or 1 */
-        // 當子節點數量 = 0 / 1 時， child = nullptr / 該子節點
+        /* 子節點數為 0 或 1 */
+        // 有 0 個子節點時，child = nullptr；只有 1 個時，child 指向該子節點
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // 刪除節點 cur
         if (pre == NULL) {
@@ -122,21 +122,21 @@ void removeItem(BinarySearchTree *bst, int num) {
         // 釋放記憶體
         free(cur);
     } else {
-        /* 子節點數量 = 2 */
-        // 獲取中序走訪中 cur 的下一個節點
+        /* 子節點數為 2 */
+        // 取得中序走訪中 cur 的下一個節點
         TreeNode *tmp = cur->right;
         while (tmp->left != NULL) {
             tmp = tmp->left;
         }
         int tmpVal = tmp->val;
-        // 遞迴刪除節點 tmp
+        // 以遞迴刪除節點 tmp
         removeItem(bst, tmp->val);
-        // 用 tmp 覆蓋 cur
+        // 用 tmp 的值覆寫 cur 的值
         cur->val = tmpVal;
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     /* 初始化二元搜尋樹 */
     int nums[] = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
@@ -144,27 +144,27 @@ int main() {
     for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
         insert(bst, nums[i]);
     }
-    printf("初始化的二元樹為\n");
+    printf("初始化後的二元樹為\n");
     printTree(getRoot(bst));
 
-    /* 查詢節點 */
+    /* 搜尋節點 */
     TreeNode *node = search(bst, 7);
-    printf("查詢到的節點物件的節點值 = %d\n", node->val);
+    printf("找到的節點物件，其節點值 = %d\n", node->val);
 
     /* 插入節點 */
     insert(bst, 16);
-    printf("插入節點 16 後，二元樹為\n");
+    printf("插入節點 16 後的二元樹為\n");
     printTree(getRoot(bst));
 
     /* 刪除節點 */
     removeItem(bst, 1);
-    printf("刪除節點 1 後，二元樹為\n");
+    printf("刪除節點 1 後的二元樹為\n");
     printTree(getRoot(bst));
     removeItem(bst, 2);
-    printf("刪除節點 2 後，二元樹為\n");
+    printf("刪除節點 2 後的二元樹為\n");
     printTree(getRoot(bst));
     removeItem(bst, 4);
-    printf("刪除節點 4 後，二元樹為\n");
+    printf("刪除節點 4 後的二元樹為\n");
     printTree(getRoot(bst));
 
     // 釋放記憶體

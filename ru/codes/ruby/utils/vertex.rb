@@ -13,12 +13,12 @@ class Vertex
   end
 end
 
-### На вход подается список значений vals, на выходе возвращается список вершин vets ###
+### Принять список значений vals и вернуть список вершин vets ###
 def vals_to_vets(vals)
   Array.new(vals.length) { |i| Vertex.new(vals[i]) }
 end
 
-### На вход подается список вершин vets, на выходе возвращается список значений vals ###
+### Принять список вершин vets и вернуть список значений vals ###
 def vets_to_vals(vets)
   Array.new(vets.length) { |i| vets[i].val }
 end

@@ -1,41 +1,41 @@
-# Binary trees
+# Binary tree
 
-A <u>binary tree</u> is a nonlinear data structure representing relationships between ancestors and descendants. It embodies the divide-and-conquer idea of splitting in two. Like a linked list, it is built from nodes, each containing a value and references to its left and right children.
+A <u>binary tree</u> is a nonlinear data structure that represents relationships between ancestors and descendants. Its two branches reflect the divide-and-conquer idea of splitting a problem in two. As with a linked list, the basic unit is a node. Each node contains a value and references to its left and right children.
 
 ```snippet
 tree_node_class
 ```
 
-Each node has two references or pointers, one to its <u>left child</u> and one to its <u>right child</u>. The node is their <u>parent</u>. Its left child and all nodes below that child form its <u>left subtree</u>; the <u>right subtree</u> is defined similarly.
+Each node has two references (pointers), one to its <u>left child</u> and one to its <u>right child</u>. The node is the <u>parent</u> of these children. For a given node, the tree consisting of its left child and all that child's descendants is its <u>left subtree</u>. Its <u>right subtree</u> is defined in the same way.
 
-**Every non-leaf node has children and at least one nonempty subtree**. In the figure below, if node 2 is the parent, its left and right children are nodes 4 and 5. Its left subtree consists of node 4 and everything below it, and its right subtree consists of node 5 and everything below it.
+**Every node in a binary tree except a leaf has at least one child and a nonempty subtree**. For example, take node 2 as the parent in the figure below. Its left and right children are nodes 4 and 5. Its left subtree consists of node 4 and all its descendants, and its right subtree consists of node 5 and all its descendants.
 
-![Parents, children, and subtrees](binary_tree.assets/binary_tree_definition.svg)
+![Parent, children, and subtrees](binary_tree.assets/binary_tree_definition.svg)
 
-## Common terminology
+## Binary tree terminology
 
-The figure below illustrates common binary-tree terminology.
+The figure below illustrates common binary tree terms.
 
-- <u>Root</u>: the topmost node, which has no parent.
-- <u>Leaf</u>: a node with no children; both of its child references point to `None`.
-- <u>Edge</u>: a connection between two nodes, represented by a reference or pointer.
-- A node's <u>level</u>: levels increase from top to bottom, with the root at level 1.
-- A node's <u>degree</u>: its number of children, which is 0, 1, or 2 in a binary tree.
-- A tree's <u>height</u>: the number of edges from the root to its farthest leaf.
-- A node's <u>depth</u>: the number of edges from the root to that node.
-- A node's <u>height</u>: the number of edges from that node to its farthest leaf.
+- The <u>root</u> is the node at the top of a binary tree. It has no parent.
+- A <u>leaf</u> has no children. Both its pointers refer to `None`.
+- An <u>edge</u> is a line connecting two nodes. It represents a node reference (pointer).
+- A node's <u>level</u> increases from top to bottom. The root is at level 1.
+- A node's <u>degree</u> is its number of children. In a binary tree, the possible degrees are 0, 1, and 2.
+- The <u>height</u> of a binary tree is the number of edges from the root to the farthest leaf.
+- A node's <u>depth</u> is the number of edges from the root to that node.
+- A node's <u>height</u> is the number of edges between it and its farthest descendant leaf.
 
-![Common binary-tree terminology](binary_tree.assets/binary_tree_terminology.svg)
+![Common binary tree terms](binary_tree.assets/binary_tree_terminology.svg)
 
 !!! tip
 
-    Height and depth are usually measured in edges, but some problems or textbooks count nodes instead. Under that convention, add 1 to both height and depth.
+    We usually define height and depth by counting edges. Some problems and textbooks count nodes instead. Under that convention, add 1 to both height and depth.
 
-## Basic operations
+## Basic binary tree operations
 
-### Initializing a binary tree
+### Initialize the binary tree
 
-As with a linked list, first create the nodes, then connect them with references or pointers.
+As with a linked list, first initialize the nodes, then connect them with references (pointers).
 
 ```snippet
 init_binary_tree
@@ -45,11 +45,11 @@ init_binary_tree
 
     @tutor init_binary_tree_tutor
 
-### Inserting and deleting nodes
+### Insert and delete nodes
 
-As with linked lists, insertion and deletion can be implemented by changing pointers. An example is shown below.
+As with a linked list, we can insert and delete nodes in a binary tree by changing pointers. The figure below gives an example.
 
-![Inserting and deleting a binary-tree node](binary_tree.assets/binary_tree_add_remove.svg)
+![Inserting and deleting a node in a binary tree](binary_tree.assets/binary_tree_add_remove.svg)
 
 ```snippet
 insert_remove_node
@@ -61,54 +61,54 @@ insert_remove_node
 
 !!! tip
 
-    Inserting a node may change the tree's logical structure, while deleting a node generally means deleting it and all its subtrees. Meaningful insertion and deletion operations therefore usually require several coordinated steps.
+    Inserting a node can change the logical structure of a binary tree, and deleting a node usually means removing it along with all its subtrees. In practice, insertion and deletion in a binary tree therefore involve coordinating several operations to achieve the intended result.
 
 ## Common types of binary trees
 
-### Perfect binary trees
+### Perfect binary tree
 
-In a <u>perfect binary tree</u>, every level is completely filled, as shown below. Leaves have degree $0$, and all other nodes have degree $2$. A tree of height $h$ has $2^{h+1} - 1$ nodes, an exponential relationship reminiscent of cell division in nature.
+In a <u>perfect binary tree</u>, every level is completely filled, as shown below. Leaves have degree $0$, and every other node has degree $2$. A tree of height $h$ has $2^{h+1} - 1$ nodes. This exponential relationship mirrors the familiar pattern of cell division in nature.
 
 !!! tip
 
-    In Chinese-language resources, a perfect binary tree is often called <u>满二叉树</u>.
+    In Chinese usage, a perfect binary tree is often called a <u>mǎn èrchāshù</u>.
 
-![A perfect binary tree](binary_tree.assets/perfect_binary_tree.svg)
+![Perfect binary tree](binary_tree.assets/perfect_binary_tree.svg)
 
-### Complete binary trees
+### Complete binary tree
 
-Only the lowest level of a <u>complete binary tree</u> may be incomplete, and its nodes must fill that level consecutively from left to right, as shown below. Every perfect binary tree is also complete.
+In a <u>complete binary tree</u>, only the bottom level may be partially filled, and its nodes must occupy consecutive positions from left to right, as shown below. Every perfect binary tree is also complete.
 
-![A complete binary tree](binary_tree.assets/complete_binary_tree.svg)
+![Complete binary tree](binary_tree.assets/complete_binary_tree.svg)
 
-### Full binary trees
+### Full binary tree
 
-In a <u>full binary tree</u>, every node other than a leaf has exactly two children, as shown below.
+In a <u>full binary tree</u>, every node except a leaf has two children, as shown below.
 
-![A full binary tree](binary_tree.assets/full_binary_tree.svg)
+![Full binary tree](binary_tree.assets/full_binary_tree.svg)
 
-### Balanced binary trees
+### Balanced binary tree
 
-In a <u>balanced binary tree</u>, the heights of the left and right subtrees of every node differ by at most 1, as shown below.
+In a <u>balanced binary tree</u>, the absolute difference between the heights of the left and right subtrees at every node is at most 1, as shown below.
 
-![A balanced binary tree](binary_tree.assets/balanced_binary_tree.svg)
+![Balanced binary tree](binary_tree.assets/balanced_binary_tree.svg)
 
-## Degeneration of a binary tree
+## How a binary tree degenerates
 
-The figure below shows ideal and degenerate tree structures. When every level is full, the tree is perfect. When every node lies along one side, the tree degenerates into a linked list.
+The figure below shows the ideal and degenerate forms of a binary tree. When every level is full, the tree is perfect. When all nodes lean to one side, the tree degenerates into a linked list.
 
-- A perfect binary tree is the ideal case, making full use of divide and conquer.
-- A linked list is the opposite extreme: operations become linear, with time complexity degrading to $O(n)$.
+- A perfect binary tree is the ideal case. It takes full advantage of a binary tree's divide-and-conquer structure.
+- A linked list is the other extreme. Operations become linear, with time complexity $O(n)$.
 
-![Best and worst binary-tree structures](binary_tree.assets/binary_tree_best_worst_cases.svg)
+![Best- and worst-case binary tree shapes](binary_tree.assets/binary_tree_best_worst_cases.svg)
 
-As the table below shows, quantities such as leaf count, total node count, and height reach their maximum or minimum values in these best and worst structures.
+As the table below shows, quantities such as the number of leaves, total node count, and height reach their maximum or minimum values in the best- and worst-case shapes.
 
-<p align="center"> Table <id> &nbsp; Best and worst binary-tree structures </p>
+<p align="center"> Table <id> &nbsp; Best- and worst-case binary tree shapes </p>
 
 |                             | Perfect binary tree         | Linked list    |
 | --------------------------- | ------------------ | ------- |
-| Nodes at level $i$         | $2^{i-1}$          | $1$     |
-| Leaves in a tree of height $h$ | $2^h$              | $1$     |
-| Total nodes in a tree of height $h$   | $2^{h+1} - 1$      | $h + 1$ |
+| Number of nodes at level $i$         | $2^{i-1}$          | $1$     |
+| Number of leaves in a tree of height $h$ | $2^h$              | $1$     |
+| Total number of nodes in a tree of height $h$   | $2^{h+1} - 1$      | $h + 1$ |
 | Height of a tree with $n$ nodes   | $\log_2 (n+1) - 1$ | $n - 1$ |

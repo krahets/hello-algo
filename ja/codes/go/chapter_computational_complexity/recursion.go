@@ -12,25 +12,25 @@ func recur(n int) int {
 	if n == 1 {
 		return 1
 	}
-	// 往路：再帰呼び出し
+	// 行き：再帰呼び出し
 	res := recur(n - 1)
-	// 復路：結果を返す
+	// 帰り：結果を返す
 	return n + res
 }
 
-/* 反復を使って再帰を再現する */
+/* 反復で再帰を模擬 */
 func forLoopRecur(n int) int {
-	// 明示的なスタックを使って、システムの呼び出しスタックを再現する
+	// 明示的なスタックでシステムの呼び出しスタックを模擬
 	stack := list.New()
 	res := 0
-	// 往路：再帰呼び出し
+	// 行き：再帰呼び出し
 	for i := n; i > 0; i-- {
-		// 「プッシュ操作」で再帰の「往路」を再現する
+		// プッシュで「行き」を模擬
 		stack.PushBack(i)
 	}
-	// 復路：結果を返す
+	// 帰り：結果を返す
 	for stack.Len() != 0 {
-		// 「ポップ操作」で再帰の「復路」を再現する
+		// ポップで「帰り」を模擬
 		res += stack.Back().Value.(int)
 		stack.Remove(stack.Back())
 	}

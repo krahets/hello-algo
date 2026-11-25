@@ -22,14 +22,14 @@ def pre_order(root: TreeNode):
         res.append(list(path))
     pre_order(root.left)
     pre_order(root.right)
-    # 復元
+    # 後戻り
     path.pop()
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\n二分木を初期化する")
+    print("\n二分木を初期化")
     print_tree(root)
 
     # 行きがけ順走査
@@ -37,6 +37,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n根ノードからノード 7 までのすべての経路を出力する")
+    print("\n根から値が 7 のノードまでの経路をすべて出力")
     for path in res:
         print([node.val for node in path])

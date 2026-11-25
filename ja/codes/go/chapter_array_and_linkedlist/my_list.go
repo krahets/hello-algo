@@ -16,7 +16,7 @@ type myList struct {
 func newMyList() *myList {
 	return &myList{
 		arrCapacity: 10,              // リストの容量
-		arr:         make([]int, 10), // 配列（リストの要素を格納する）
+		arr:         make([]int, 10), // 配列（リストの要素を格納）
 		arrSize:     0,               // リストの長さ（現在の要素数）
 		extendRatio: 2,               // リストの容量を拡張する際の倍率
 	}
@@ -34,7 +34,7 @@ func (l *myList) capacity() int {
 
 /* 要素にアクセスする */
 func (l *myList) get(index int) int {
-	// インデックスが範囲外の場合、例外を送出する。以下も同様
+	// インデックスが範囲外なら例外を送出する。以下も同様
 	if index < 0 || index >= l.arrSize {
 		panic("インデックスが範囲外です")
 	}
@@ -51,7 +51,7 @@ func (l *myList) set(num, index int) {
 
 /* 末尾に要素を追加する */
 func (l *myList) add(num int) {
-	// 要素数が容量を超える場合、容量を拡張する
+	// 要素数が容量を超えるときは容量を拡張する
 	if l.arrSize == l.arrCapacity {
 		l.extendCapacity()
 	}
@@ -65,11 +65,11 @@ func (l *myList) insert(num, index int) {
 	if index < 0 || index >= l.arrSize {
 		panic("インデックスが範囲外です")
 	}
-	// 要素数が容量を超える場合、容量を拡張する
+	// 要素数が容量を超えるときは容量を拡張する
 	if l.arrSize == l.arrCapacity {
 		l.extendCapacity()
 	}
-	// インデックス index 以降の全要素を後ろに 1 つずらす
+	// インデックス index 以降の要素をすべて後ろに 1 つずらす
 	for j := l.arrSize - 1; j >= index; j-- {
 		l.arr[j+1] = l.arr[j]
 	}
@@ -84,7 +84,7 @@ func (l *myList) remove(index int) int {
 		panic("インデックスが範囲外です")
 	}
 	num := l.arr[index]
-	// インデックス index より後の全要素を前に 1 つずらす
+	// インデックス index より後ろの要素をすべて前に 1 つずらす
 	for j := index; j < l.arrSize-1; j++ {
 		l.arr[j] = l.arr[j+1]
 	}
@@ -96,14 +96,14 @@ func (l *myList) remove(index int) int {
 
 /* リストの容量を拡張する */
 func (l *myList) extendCapacity() {
-	// 元の配列の extendRatio 倍の長さの配列を新たに作成し、元の配列をコピーする
+	// 元の配列の extendRatio 倍の長さの配列を作り、元の配列の内容をコピーする
 	l.arr = append(l.arr, make([]int, l.arrCapacity*(l.extendRatio-1))...)
 	// リストの容量を更新する
 	l.arrCapacity = len(l.arr)
 }
 
-/* 有効な長さのリストを返す */
+/* 有効な長さの分だけリストを返す */
 func (l *myList) toArray() []int {
-	// 有効な長さの範囲内にあるリストの要素だけを変換する
+	// 有効な範囲内のリスト要素だけを変換する
 	return l.arr[:l.arrSize]
 }

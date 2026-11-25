@@ -12,25 +12,25 @@ void main() {
   deque.addFirst(3);
   deque.addLast(2);
   deque.addLast(5);
-  print("Deque deque = $deque");
+  print("deque = $deque");
 
-  /* Access an element */
+  /* Peek at the front and rear elements */
   final int peekFirst = deque.first;
-  print("Front element peekFirst = $peekFirst");
+  print("Front element (peekFirst) = $peekFirst");
   final int peekLast = deque.last;
-  print("Rear element peekLast = $peekLast");
+  print("Rear element (peekLast) = $peekLast");
 
-  /* Enqueue elements */
+  /* Add elements to the deque */
   deque.addLast(4);
-  print("After enqueuing 4 at the rear, deque = $deque");
+  print("After adding 4 at the rear, deque = $deque");
   deque.addFirst(1);
-  print("After enqueuing 1 at the front, deque = $deque");
+  print("After adding 1 at the front, deque = $deque");
 
-  /* Dequeue an element */
+  /* Remove elements from both ends */
   final int popLast = deque.removeLast();
-  print("Element dequeued from the rear = $popLast; after dequeuing from the rear, deque = $deque");
+  print("Removed from the rear = $popLast, deque after removal = $deque");
   final int popFirst = deque.removeFirst();
-  print("Element dequeued from the front = $popFirst; after dequeuing from the front, deque = $deque");
+  print("Removed from the front = $popFirst, deque after removal = $deque");
 
   /* Get the deque size */
   final int size = deque.length;
@@ -38,5 +38,5 @@ void main() {
 
   /* Check whether the deque is empty */
   final bool isEmpty = deque.isEmpty;
-  print("Is the deque empty = $isEmpty");
+  print("Deque is empty = $isEmpty");
 }

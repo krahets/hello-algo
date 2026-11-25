@@ -6,9 +6,9 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* 基於鏈結串列實現的佇列 */
+/* 以鏈結串列實作佇列 */
 class LinkedListQueue {
-    ListNode? front, rear;  // 頭節點 front ，尾節點 rear 
+    ListNode? front, rear;  // front 指向首節點，rear 指向尾節點 
     int queSize = 0;
 
     public LinkedListQueue() {
@@ -16,7 +16,7 @@ class LinkedListQueue {
         rear = null;
     }
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     public int Size() {
         return queSize;
     }
@@ -26,15 +26,15 @@ class LinkedListQueue {
         return Size() == 0;
     }
 
-    /* 入列 */
+    /* 入隊 */
     public void Push(int num) {
-        // 在尾節點後新增 num
+        // 建立存有 num 的新節點，準備接到隊尾
         ListNode node = new(num);
-        // 如果佇列為空，則令頭、尾節點都指向該節點
+        // 若佇列為空，讓隊首與隊尾都指向新節點
         if (front == null) {
             front = node;
             rear = node;
-            // 如果佇列不為空，則將該節點新增到尾節點後
+            // 若佇列非空，將新節點接在尾節點之後
         } else if (rear != null) {
             rear.next = node;
             rear = node;
@@ -42,23 +42,23 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* 出列 */
+    /* 出隊 */
     public int Pop() {
         int num = Peek();
-        // 刪除頭節點
+        // 移除首節點
         front = front?.next;
         queSize--;
         return num;
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return front!.val;
     }
 
-    /* 將鏈結串列轉化為 Array 並返回 */
+    /* 將鏈結串列轉成陣列並回傳 */
     public int[] ToArray() {
         if (front == null)
             return [];
@@ -79,7 +79,7 @@ public class linkedlist_queue {
         /* 初始化佇列 */
         LinkedListQueue queue = new();
 
-        /* 元素入列 */
+        /* 將元素加入佇列 */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -87,15 +87,15 @@ public class linkedlist_queue {
         queue.Push(4);
         Console.WriteLine("佇列 queue = " + string.Join(",", queue.ToArray()));
 
-        /* 訪問佇列首元素 */
+        /* 讀取隊首元素 */
         int peek = queue.Peek();
-        Console.WriteLine("佇列首元素 peek = " + peek);
+        Console.WriteLine("隊首元素 peek = " + peek);
 
-        /* 元素出列 */
+        /* 從佇列取出元素 */
         int pop = queue.Pop();
-        Console.WriteLine("出列元素 pop = " + pop + "，出列後 queue = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("出隊元素 pop = " + pop + "，出隊後 queue = " + string.Join(",", queue.ToArray()));
 
-        /* 獲取佇列的長度 */
+        /* 取得佇列長度 */
         int size = queue.Size();
         Console.WriteLine("佇列長度 size = " + size);
 

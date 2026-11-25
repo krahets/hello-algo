@@ -6,34 +6,34 @@
 
 #include "../utils/common.hpp"
 
-/* Find an insertion point using binary search (no duplicates) */
+/* Binary search for an insertion point (no duplicates) */
 int binarySearchInsertionSimple(vector<int> &nums, int target) {
     int i = 0, j = nums.size() - 1; // Initialize the closed interval [0, n-1]
     while (i <= j) {
-        int m = i + (j - i) / 2; // Calculate the midpoint index m
+        int m = i + (j - i) / 2; // Compute the midpoint index m
         if (nums[m] < target) {
-            i = m + 1; // Target must be in [m+1, j] if it exists
+            i = m + 1; // Any match must lie in [m+1, j]
         } else if (nums[m] > target) {
-            j = m - 1; // Target must be in [i, m-1] if it exists
+            j = m - 1; // Any match must lie in [i, m-1]
         } else {
-            return m; // Target was found; return insertion point m
+            return m; // Found target. Return insertion point m
         }
     }
-    // Target was not found; return insertion point i
+    // Target not found. Return insertion point i
     return i;
 }
 
-/* Find an insertion point using binary search (with duplicates) */
+/* Binary search for an insertion point (duplicates allowed) */
 int binarySearchInsertion(vector<int> &nums, int target) {
     int i = 0, j = nums.size() - 1; // Initialize the closed interval [0, n-1]
     while (i <= j) {
-        int m = i + (j - i) / 2; // Calculate the midpoint index m
+        int m = i + (j - i) / 2; // Compute the midpoint index m
         if (nums[m] < target) {
-            i = m + 1; // Target must be in [m+1, j] if it exists
+            i = m + 1; // Any match must lie in [m+1, j]
         } else if (nums[m] > target) {
-            j = m - 1; // Target must be in [i, m-1] if it exists
+            j = m - 1; // Any match must lie in [i, m-1]
         } else {
-            j = m - 1; // Continue searching [i, m-1] for the insertion point before any equal elements
+            j = m - 1; // Look in [i, m-1] for the rightmost element less than target
         }
     }
     // Return insertion point i
@@ -42,21 +42,21 @@ int binarySearchInsertion(vector<int> &nums, int target) {
 
 /* Driver code */
 int main() {
-    // Array with no duplicate elements
+    // Array without duplicates
     vector<int> nums = {1, 3, 6, 8, 12, 15, 23, 26, 31, 35};
     cout << "\nArray nums = ";
     printVector(nums);
-    // Find an insertion point using binary search
+    // Find the insertion point using binary search
     for (int target : {6, 9}) {
         int index = binarySearchInsertionSimple(nums, target);
         cout << "Element " << target << " has insertion index " << index << endl;
     }
 
-    // Array containing duplicate elements
+    // Array with duplicates
     nums = {1, 3, 6, 6, 6, 6, 6, 10, 12, 15};
     cout << "\nArray nums = ";
     printVector(nums);
-    // Find an insertion point using binary search
+    // Find the insertion point using binary search
     for (int target : {2, 6, 20}) {
         int index = binarySearchInsertion(nums, target);
         cout << "Element " << target << " has insertion index " << index << endl;

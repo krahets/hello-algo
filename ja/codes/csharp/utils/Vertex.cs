@@ -6,11 +6,11 @@
 
 namespace hello_algo.utils;
 
-/* 頂点クラス */
+/* 頂点を表すクラス */
 public class Vertex(int val) {
     public int val = val;
 
-    /* 値のリスト vals を入力し、頂点のリスト vets を返す */
+    /* 値のリスト vals を受け取り、頂点のリスト vets を返す */
     public static Vertex[] ValsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.Length];
         for (int i = 0; i < vals.Length; i++) {
@@ -19,7 +19,7 @@ public class Vertex(int val) {
         return vets;
     }
 
-    /* 頂点のリスト vets を入力し、値のリスト vals を返す */
+    /* 頂点のリスト vets を受け取り、値のリスト vals を返す */
     public static List<int> VetsToVals(List<Vertex> vets) {
         List<int> vals = [];
         foreach (Vertex vet in vets) {

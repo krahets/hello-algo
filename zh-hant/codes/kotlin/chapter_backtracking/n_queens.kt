@@ -16,7 +16,7 @@ fun backtrack(
     diags1: BooleanArray,
     diags2: BooleanArray
 ) {
-    // 當放置完所有行時，記錄解
+    // 每一列都放好皇后後，記錄此解
     if (row == n) {
         val copyState = mutableListOf<MutableList<String>>()
         for (sRow in state) {
@@ -25,21 +25,21 @@ fun backtrack(
         res.add(copyState)
         return
     }
-    // 走訪所有列
+    // 逐一檢查各欄
     for (col in 0..<n) {
-        // 計算該格子對應的主對角線和次對角線
+        // 計算這一格對應的主對角線與副對角線索引
         val diag1 = row - col + n - 1
         val diag2 = row + col
-        // 剪枝：不允許該格子所在列、主對角線、次對角線上存在皇后
+        // 剪枝：這一格所在的欄、主對角線及副對角線都不能已有皇后
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // 嘗試：將皇后放置在該格子
+            // 嘗試：將皇后放在這一格
             state[row][col] = "Q"
             diags2[diag2] = true
             diags1[diag1] = diags2[diag2]
             cols[col] = diags1[diag1]
-            // 放置下一行
+            // 在下一列放置皇后
             backtrack(row + 1, n, state, res, cols, diags1, diags2)
-            // 回退：將該格子恢復為空位
+            // 回溯：將這一格還原為空位
             state[row][col] = "#"
             diags2[diag2] = false
             diags1[diag1] = diags2[diag2]
@@ -48,9 +48,9 @@ fun backtrack(
     }
 }
 
-/* 求解 n 皇后 */
+/* 求解 n 皇后問題 */
 fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
-    // 初始化 n*n 大小的棋盤，其中 'Q' 代表皇后，'#' 代表空位
+    // 初始化 n*n 棋盤，'Q' 代表皇后，'#' 代表空位
     val state = mutableListOf<MutableList<String>>()
     for (i in 0..<n) {
         val row = mutableListOf<String>()
@@ -59,9 +59,9 @@ fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
         }
         state.add(row)
     }
-    val cols = BooleanArray(n) // 記錄列是否有皇后
-    val diags1 = BooleanArray(2 * n - 1) // 記錄主對角線上是否有皇后
-    val diags2 = BooleanArray(2 * n - 1) // 記錄次對角線上是否有皇后
+    val cols = BooleanArray(n) // 記錄各欄是否已有皇后
+    val diags1 = BooleanArray(2 * n - 1) // 記錄各主對角線上是否已有皇后
+    val diags2 = BooleanArray(2 * n - 1) // 記錄各副對角線上是否已有皇后
     val res = mutableListOf<MutableList<MutableList<String>>?>()
 
     backtrack(0, n, state, res, cols, diags1, diags2)
@@ -69,13 +69,13 @@ fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
     return res
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val n = 4
     val res = nQueens(n)
 
-    println("輸入棋盤長寬為 $n")
-    println("皇后放置方案共有 ${res.size} 種")
+    println("輸入棋盤的邊長為 $n")
+    println("皇后共有 ${res.size} 種擺法")
     for (state in res) {
         println("--------------------")
         for (row in state!!) {

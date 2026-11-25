@@ -6,16 +6,16 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* 連結リストで実装したスタック */
+/* 連結リストを使ったスタック */
 class LinkedListStack {
-    ListNode? stackPeek;  // 先頭ノードをスタックの先頭とする
-    int stkSize = 0;   // スタックの長さ
+    ListNode? stackPeek;  // 先頭ノードをスタックのトップとする
+    int stkSize = 0;   // スタックの要素数
 
     public LinkedListStack() {
         stackPeek = null;
     }
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     public int Size() {
         return stkSize;
     }
@@ -25,7 +25,7 @@ class LinkedListStack {
         return Size() == 0;
     }
 
-    /* プッシュ */
+    /* プッシュする */
     public void Push(int num) {
         ListNode node = new(num) {
             next = stackPeek
@@ -34,7 +34,7 @@ class LinkedListStack {
         stkSize++;
     }
 
-    /* ポップ */
+    /* ポップする */
     public int Pop() {
         int num = Peek();
         stackPeek = stackPeek!.next;
@@ -42,14 +42,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return stackPeek!.val;
     }
 
-    /* List を Array に変換して返す */
+    /* 連結リストを配列に変換して返す */
     public int[] ToArray() {
         if (stackPeek == null)
             return [];
@@ -78,17 +78,17 @@ public class linkedlist_stack {
         stack.Push(4);
         Console.WriteLine("スタック stack = " + string.Join(",", stack.ToArray()));
 
-        /* スタックの先頭要素にアクセスする */
+        /* スタックのトップを参照する */
         int peek = stack.Peek();
-        Console.WriteLine("スタックの先頭要素 peek = " + peek);
+        Console.WriteLine("スタックのトップの要素 peek = " + peek);
 
         /* 要素をポップする */
         int pop = stack.Pop();
-        Console.WriteLine("ポップした要素 pop = " + pop + "、ポップ後 stack = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("ポップした要素 pop = " + pop + "、ポップ後の stack = " + string.Join(",", stack.ToArray()));
 
-        /* スタックの長さを取得する */
+        /* スタックの要素数を取得する */
         int size = stack.Size();
-        Console.WriteLine("スタックの長さ size = " + size);
+        Console.WriteLine("スタックの要素数 size = " + size);
 
         /* 空かどうかを判定する */
         bool isEmpty = stack.IsEmpty();

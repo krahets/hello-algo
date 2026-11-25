@@ -6,32 +6,32 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 from collections import deque
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     # Initialize the deque
     deq: deque[int] = deque()
 
-    # Enqueue elements
-    deq.append(2)  # Add to the rear
+    # Add elements to the deque
+    deq.append(2)  # Add at the rear
     deq.append(5)
     deq.append(4)
-    deq.appendleft(3)  # Add to the front
+    deq.appendleft(3)  # Add at the front
     deq.appendleft(1)
-    print("Deque deque =", deq)
+    print("deque =", deq)
 
-    # Access an element
+    # Peek at the front and rear elements
     front: int = deq[0]  # Front element
-    print("Front element front =", front)
+    print("Front element (front) =", front)
     rear: int = deq[-1]  # Rear element
-    print("Rear element rear =", rear)
+    print("Rear element (rear) =", rear)
 
-    # Dequeue an element
-    pop_front: int = deq.popleft()  # Dequeue the front element
-    print("Element dequeued from the front, pop_front =", pop_front)
-    print("After dequeuing from the front, deque =", deq)
-    pop_rear: int = deq.pop()  # Dequeue the rear element
-    print("Element dequeued from the rear, pop_rear =", pop_rear)
-    print("After dequeuing from the rear, deque =", deq)
+    # Remove elements from both ends
+    pop_front: int = deq.popleft()  # Remove and return the front element
+    print("Removed from the front (pop_front) =", pop_front)
+    print("After removing the front element, deque =", deq)
+    pop_rear: int = deq.pop()  # Remove and return the rear element
+    print("Removed from the rear (pop_rear) =", pop_rear)
+    print("After removing the rear element, deque =", deq)
 
     # Get the deque size
     size: int = len(deq)
@@ -39,4 +39,4 @@ if __name__ == "__main__":
 
     # Check whether the deque is empty
     is_empty: bool = len(deq) == 0
-    print("Is the deque empty =", is_empty)
+    print("Deque is empty =", is_empty)

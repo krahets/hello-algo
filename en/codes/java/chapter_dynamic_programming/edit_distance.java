@@ -9,21 +9,21 @@ package chapter_dynamic_programming;
 import java.util.Arrays;
 
 public class edit_distance {
-    /* Edit distance: brute-force search */
+    /* Edit distance with brute-force search */
     static int editDistanceDFS(String s, String t, int i, int j) {
-        // If the current prefixes of s and t are both empty, return 0
+        // Return 0 if both s and t are empty
         if (i == 0 && j == 0)
             return 0;
-        // If the current prefix of s is empty, return j, the length of the current prefix of t
+        // Return the length of t if s is empty
         if (i == 0)
             return j;
-        // If the current prefix of t is empty, return i, the length of the current prefix of s
+        // Return the length of s if t is empty
         if (j == 0)
             return i;
-        // If the two characters are equal, skip both of them
+        // Skip both characters if they match
         if (s.charAt(i - 1) == t.charAt(j - 1))
             return editDistanceDFS(s, t, i - 1, j - 1);
-        // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+        // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
         int insert = editDistanceDFS(s, t, i, j - 1);
         int delete = editDistanceDFS(s, t, i - 1, j);
         int replace = editDistanceDFS(s, t, i - 1, j - 1);
@@ -31,51 +31,51 @@ public class edit_distance {
         return Math.min(Math.min(insert, delete), replace) + 1;
     }
 
-    /* Edit distance: memoized search */
+    /* Edit distance with memoized search */
     static int editDistanceDFSMem(String s, String t, int[][] mem, int i, int j) {
-        // If the current prefixes of s and t are both empty, return 0
+        // Return 0 if both s and t are empty
         if (i == 0 && j == 0)
             return 0;
-        // If the current prefix of s is empty, return j, the length of the current prefix of t
+        // Return the length of t if s is empty
         if (i == 0)
             return j;
-        // If the current prefix of t is empty, return i, the length of the current prefix of s
+        // Return the length of s if t is empty
         if (j == 0)
             return i;
-        // If a result has already been recorded, return it directly
+        // Return the cached result if available
         if (mem[i][j] != -1)
             return mem[i][j];
-        // If the two characters are equal, skip both of them
+        // Skip both characters if they match
         if (s.charAt(i - 1) == t.charAt(j - 1))
             return editDistanceDFSMem(s, t, mem, i - 1, j - 1);
-        // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+        // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
         int insert = editDistanceDFSMem(s, t, mem, i, j - 1);
         int delete = editDistanceDFSMem(s, t, mem, i - 1, j);
         int replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1);
-        // Record and return the minimum number of edits
+        // Cache and return the minimum number of edits
         mem[i][j] = Math.min(Math.min(insert, delete), replace) + 1;
         return mem[i][j];
     }
 
-    /* Edit distance: dynamic programming */
+    /* Edit distance with dynamic programming */
     static int editDistanceDP(String s, String t) {
         int n = s.length(), m = t.length();
         int[][] dp = new int[n + 1][m + 1];
-        // State transitions: first row and first column
+        // State transitions for the first row and column
         for (int i = 1; i <= n; i++) {
             dp[i][0] = i;
         }
         for (int j = 1; j <= m; j++) {
             dp[0][j] = j;
         }
-        // State transitions: remaining rows and columns
+        // State transitions for the remaining rows and columns
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    // If the two characters are equal, skip both of them
+                    // Skip both characters if they match
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                     dp[i][j] = Math.min(Math.min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1;
                 }
             }
@@ -83,30 +83,30 @@ public class edit_distance {
         return dp[n][m];
     }
 
-    /* Edit distance: space-optimized dynamic programming */
+    /* Edit distance with space-optimized dynamic programming */
     static int editDistanceDPComp(String s, String t) {
         int n = s.length(), m = t.length();
         int[] dp = new int[m + 1];
-        // State transitions: first row
+        // State transitions for the first row
         for (int j = 1; j <= m; j++) {
             dp[j] = j;
         }
-        // State transitions: remaining rows
+        // State transitions for the remaining rows
         for (int i = 1; i <= n; i++) {
-            // State transitions: first column
-            int leftup = dp[0]; // Temporarily store dp[i-1, j-1]
+            // State transitions for the first column
+            int leftup = dp[0]; // Save dp[i-1, j-1] temporarily
             dp[0] = i;
-            // State transitions: remaining columns
+            // State transitions for the remaining columns
             for (int j = 1; j <= m; j++) {
                 int temp = dp[j];
                 if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    // If the two characters are equal, skip both of them
+                    // Skip both characters if they match
                     dp[j] = leftup;
                 } else {
-                    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                     dp[j] = Math.min(Math.min(dp[j - 1], dp[j]), leftup) + 1;
                 }
-                leftup = temp; // Update to dp[i-1, j-1] for the next iteration
+                leftup = temp; // Update the saved value to hold dp[i-1, j-1] for the next iteration
             }
         }
         return dp[m];

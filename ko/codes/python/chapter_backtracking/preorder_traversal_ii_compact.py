@@ -26,7 +26,7 @@ def pre_order(root: TreeNode):
     path.pop()
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
     print("\n이진 트리 초기화")
@@ -37,6 +37,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n루트 노드에서 노드 7까지의 모든 경로 출력")
+    print("\n루트에서 값이 7인 노드까지의 모든 경로 출력")
     for path in res:
         print([node.val for node in path])

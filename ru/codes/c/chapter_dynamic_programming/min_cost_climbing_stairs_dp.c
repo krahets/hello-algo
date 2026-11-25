@@ -11,17 +11,17 @@ int myMin(int a, int b) {
     return a < b ? a : b;
 }
 
-/* Минимальная стоимость подъема по лестнице: динамическое программирование */
+/* Минимальная стоимость подъёма: динамическое программирование */
 int minCostClimbingStairsDP(int cost[], int costSize) {
     int n = costSize - 1;
     if (n == 1 || n == 2)
         return cost[n];
-    // Инициализация таблицы dp для хранения решений подзадач
+    // Создать таблицу dp для решений подзадач
     int *dp = calloc(n + 1, sizeof(int));
-    // Начальное состояние: заранее задать решения наименьших подзадач
+    // Начальные состояния: задать решения простейших подзадач
     dp[1] = cost[1];
     dp[2] = cost[2];
-    // Переход состояний: постепенное решение больших подзадач через меньшие
+    // Переход: решать подзадачи от меньших к большим
     for (int i = 3; i <= n; i++) {
         dp[i] = myMin(dp[i - 1], dp[i - 2]) + cost[i];
     }
@@ -31,7 +31,7 @@ int minCostClimbingStairsDP(int cost[], int costSize) {
     return res;
 }
 
-/* Минимальная стоимость подъема по лестнице: динамическое программирование с оптимизацией памяти */
+/* Минимальная стоимость подъёма: динамическое программирование с экономией памяти */
 int minCostClimbingStairsDPComp(int cost[], int costSize) {
     int n = costSize - 1;
     if (n == 1 || n == 2)
@@ -45,18 +45,18 @@ int minCostClimbingStairsDPComp(int cost[], int costSize) {
     return b;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int cost[] = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
     int costSize = sizeof(cost) / sizeof(cost[0]);
-    printf("Список стоимостей ступеней = ");
+    printf("Стоимость ступеней:");
     printArray(cost, costSize);
 
     int res = minCostClimbingStairsDP(cost, costSize);
-    printf("Минимальная стоимость подъема по лестнице = %d\n", res);
+    printf("Минимальная стоимость подъёма: %d\n", res);
 
     res = minCostClimbingStairsDPComp(cost, costSize);
-    printf("Минимальная стоимость подъема по лестнице = %d\n", res);
+    printf("Минимальная стоимость подъёма: %d\n", res);
 
     return 0;
 }

@@ -8,23 +8,23 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* Minimum cost to climb stairs: dynamic programming */
+/* Minimum cost to climb stairs with dynamic programming */
 fun minCostClimbingStairsDP(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
     // Initialize the dp table to store subproblem solutions
     val dp = IntArray(n + 1)
-    // Initial states: set the solutions to the smallest subproblems
+    // Base cases: set the solutions to the smallest subproblems
     dp[1] = cost[1]
     dp[2] = cost[2]
-    // State transitions: solve progressively larger subproblems using smaller ones
+    // State transition: solve larger subproblems using smaller ones
     for (i in 3..n) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
 }
 
-/* Minimum cost to climb stairs: space-optimized dynamic programming */
+/* Minimum cost to climb stairs with space-optimized dynamic programming */
 fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
@@ -44,8 +44,8 @@ fun main() {
     println("Input stair costs: ${cost.contentToString()}")
 
     var res = minCostClimbingStairsDP(cost)
-    println("Minimum cost to finish climbing the stairs: $res")
+    println("Minimum cost to climb the stairs: $res")
 
     res = minCostClimbingStairsDPComp(cost)
-    println("Minimum cost to finish climbing the stairs: $res")
+    println("Minimum cost to climb the stairs: $res")
 }

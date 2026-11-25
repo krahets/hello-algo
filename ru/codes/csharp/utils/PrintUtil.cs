@@ -50,10 +50,10 @@ public static class PrintUtil {
     }
 
     /**
- * Вывести двоичное дерево
- * Этот вывод дерева заимствован из TECHIE DELIGHT
- * https://www.techiedelight.com/c-program-print-binary-tree/
- */
+     * Вывести двоичное дерево
+     * Код для вывода дерева заимствован у TECHIE DELIGHT
+     * https://www.techiedelight.com/c-program-print-binary-tree/
+     */
     public static void PrintTree(TreeNode? root) {
         PrintTree(root, null, false);
     }
@@ -108,24 +108,24 @@ public static class PrintUtil {
 
     /* Вывести кучу */
     public static void PrintHeap(Queue<int> queue) {
-        Console.Write("Массивное представление кучи:");
+        Console.Write("Куча в виде массива: ");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
-        Console.WriteLine("Древовидное представление кучи:");
+        Console.WriteLine("Куча в виде дерева:");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }
 
-    /* Вывести приоритетную очередь */
+    /* Вывести очередь с приоритетом */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
-        Console.Write("Массивное представление кучи:");
+        Console.Write("Куча в виде массива: ");
         List<int> list = [];
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);
         }
         Console.WriteLine(string.Join(',', list.ToList()));
-        Console.WriteLine("Древовидное представление кучи:");
+        Console.WriteLine("Куча в виде дерева:");
         TreeNode? tree = TreeNode.ListToTree(list.Cast<int?>().ToList());
         PrintTree(tree);
     }

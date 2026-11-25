@@ -10,7 +10,7 @@ namespace hello_algo.utils;
 public class Vertex(int val) {
     public int val = val;
 
-    /* 輸入值串列 vals ，返回頂點串列 vets */
+    /* 傳入數值陣列 vals，回傳頂點陣列 vets */
     public static Vertex[] ValsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.Length];
         for (int i = 0; i < vals.Length; i++) {
@@ -19,7 +19,7 @@ public class Vertex(int val) {
         return vets;
     }
 
-    /* 輸入頂點串列 vets ，返回值串列 vals */
+    /* 傳入頂點串列 vets，回傳數值串列 vals */
     public static List<int> VetsToVals(List<Vertex> vets) {
         List<int> vals = [];
         foreach (Vertex vet in vets) {

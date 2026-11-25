@@ -30,7 +30,7 @@ ListNode *vecToLinkedList(vector<int> list) {
     return dum->next;
 }
 
-/* 연결 리스트에 할당한 메모리 공간을 해제한다 */
+/* 연결 리스트에 할당한 메모리 해제 */
 void freeMemoryLinkedList(ListNode *cur) {
     // 메모리 해제
     ListNode *pre;

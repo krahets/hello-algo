@@ -6,26 +6,26 @@
 
 /* 回溯演算法：n 皇后 */
 func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]], cols: inout [Bool], diags1: inout [Bool], diags2: inout [Bool]) {
-    // 當放置完所有行時，記錄解
+    // 每一列都放好皇后後，記錄此解
     if row == n {
         res.append(state)
         return
     }
-    // 走訪所有列
+    // 逐一檢查各欄
     for col in 0 ..< n {
-        // 計算該格子對應的主對角線和次對角線
+        // 計算這一格對應的主對角線與副對角線索引
         let diag1 = row - col + n - 1
         let diag2 = row + col
-        // 剪枝：不允許該格子所在列、主對角線、次對角線上存在皇后
+        // 剪枝：這一格所在的欄、主對角線及副對角線都不能已有皇后
         if !cols[col] && !diags1[diag1] && !diags2[diag2] {
-            // 嘗試：將皇后放置在該格子
+            // 嘗試：將皇后放在這一格
             state[row][col] = "Q"
             cols[col] = true
             diags1[diag1] = true
             diags2[diag2] = true
-            // 放置下一行
+            // 在下一列放置皇后
             backtrack(row: row + 1, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
-            // 回退：將該格子恢復為空位
+            // 回溯：將這一格還原為空位
             state[row][col] = "#"
             cols[col] = false
             diags1[diag1] = false
@@ -34,13 +34,13 @@ func backtrack(row: Int, n: Int, state: inout [[String]], res: inout [[[String]]
     }
 }
 
-/* 求解 n 皇后 */
+/* 求解 n 皇后問題 */
 func nQueens(n: Int) -> [[[String]]] {
-    // 初始化 n*n 大小的棋盤，其中 'Q' 代表皇后，'#' 代表空位
+    // 初始化 n*n 棋盤，'Q' 代表皇后，'#' 代表空位
     var state = Array(repeating: Array(repeating: "#", count: n), count: n)
-    var cols = Array(repeating: false, count: n) // 記錄列是否有皇后
-    var diags1 = Array(repeating: false, count: 2 * n - 1) // 記錄主對角線上是否有皇后
-    var diags2 = Array(repeating: false, count: 2 * n - 1) // 記錄次對角線上是否有皇后
+    var cols = Array(repeating: false, count: n) // 記錄各欄是否已有皇后
+    var diags1 = Array(repeating: false, count: 2 * n - 1) // 記錄各主對角線上是否已有皇后
+    var diags2 = Array(repeating: false, count: 2 * n - 1) // 記錄各副對角線上是否已有皇后
     var res: [[[String]]] = []
 
     backtrack(row: 0, n: n, state: &state, res: &res, cols: &cols, diags1: &diags1, diags2: &diags2)
@@ -50,13 +50,13 @@ func nQueens(n: Int) -> [[[String]]] {
 
 @main
 enum NQueens {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         let n = 4
         let res = nQueens(n: n)
 
-        print("輸入棋盤長寬為 \(n)")
-        print("皇后放置方案共有 \(res.count) 種")
+        print("輸入棋盤的邊長為 \(n)")
+        print("皇后共有 \(res.count) 種擺法")
         for state in res {
             print("--------------------")
             for row in state {

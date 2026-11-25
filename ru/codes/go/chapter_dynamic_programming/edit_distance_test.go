@@ -17,7 +17,7 @@ func TestEditDistanceDFS(test *testing.T) {
 
 	// Полный перебор
 	res := editDistanceDFS(s, t, n, m)
-	fmt.Printf("Чтобы преобразовать %s в %s, нужно минимум %d шагов\n", s, t, res)
+	fmt.Printf("Для преобразования %s в %s требуется минимум правок: %d\n", s, t, res)
 
 	// Поиск с мемоизацией
 	mem := make([][]int, n+1)
@@ -28,13 +28,13 @@ func TestEditDistanceDFS(test *testing.T) {
 		}
 	}
 	res = editDistanceDFSMem(s, t, mem, n, m)
-	fmt.Printf("Чтобы преобразовать %s в %s, нужно минимум %d шагов\n", s, t, res)
+	fmt.Printf("Для преобразования %s в %s требуется минимум правок: %d\n", s, t, res)
 
 	// Динамическое программирование
 	res = editDistanceDP(s, t)
-	fmt.Printf("Чтобы преобразовать %s в %s, нужно минимум %d шагов\n", s, t, res)
+	fmt.Printf("Для преобразования %s в %s требуется минимум правок: %d\n", s, t, res)
 
-	// Динамическое программирование с оптимизацией памяти
+	// Динамическое программирование с экономией памяти
 	res = editDistanceDPComp(s, t)
-	fmt.Printf("Чтобы преобразовать %s в %s, нужно минимум %d шагов\n", s, t, res)
+	fmt.Printf("Для преобразования %s в %s требуется минимум правок: %d\n", s, t, res)
 }

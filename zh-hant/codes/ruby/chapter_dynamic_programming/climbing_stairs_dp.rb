@@ -8,11 +8,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 def climbing_stairs_dp(n)
   return n  if n == 1 || n == 2
 
-  # 初始化 dp 表，用於儲存子問題的解
+  # 初始化 dp 表，用來儲存子問題的解
   dp = Array.new(n + 1, 0)
-  # 初始狀態：預設最小子問題的解
+  # 初始狀態：設定最小子問題的解
   dp[1], dp[2] = 1, 2
-  # 狀態轉移：從較小子問題逐步求解較大子問題
+  # 狀態轉移：從較小的子問題逐步求出較大子問題的解
   (3...(n + 1)).each { |i| dp[i] = dp[i - 1] + dp[i - 2] }
 
   dp[n]
@@ -28,13 +28,13 @@ def climbing_stairs_dp_comp(n)
   b
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_dp(n)
-  puts "爬 #{n} 階樓梯共有 #{res} 種方案"
+  puts "爬 #{n} 階樓梯共有 #{res} 種走法"
 
   res = climbing_stairs_dp_comp(n)
-  puts "爬 #{n} 階樓梯共有 #{res} 種方案"
+  puts "爬 #{n} 階樓梯共有 #{res} 種走法"
 end

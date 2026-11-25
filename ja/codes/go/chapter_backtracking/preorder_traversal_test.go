@@ -12,16 +12,16 @@ import (
 )
 
 func TestPreorderTraversalICompact(t *testing.T) {
-	/* 二分木を初期化する */
+	/* 二分木を初期化 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n二分木を初期化する")
+	fmt.Println("\n二分木を初期化")
 	PrintTree(root)
 
 	// 行きがけ順走査
 	res := make([]*TreeNode, 0)
 	preOrderI(root, &res)
 
-	fmt.Println("\n値が 7 であるすべてのノードを出力する")
+	fmt.Println("\n値が 7 のノードをすべて出力")
 	for _, node := range res {
 		fmt.Printf("%v ", node.Val)
 	}
@@ -29,9 +29,9 @@ func TestPreorderTraversalICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIICompact(t *testing.T) {
-	/* 二分木を初期化する */
+	/* 二分木を初期化 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n二分木を初期化する")
+	fmt.Println("\n二分木を初期化")
 	PrintTree(root)
 
 	// 行きがけ順走査
@@ -39,7 +39,7 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderII(root, &res, &path)
 
-	fmt.Println("\n根ノードからノード 7 までのすべての経路を出力する")
+	fmt.Println("\n根から値が 7 のノードまでの経路をすべて出力")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -49,9 +49,9 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIICompact(t *testing.T) {
-	/* 二分木を初期化する */
+	/* 二分木を初期化 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n二分木を初期化する")
+	fmt.Println("\n二分木を初期化")
 	PrintTree(root)
 
 	// 行きがけ順走査
@@ -59,7 +59,7 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する")
+	fmt.Println("\n根から値が 7 のノードまでの経路のうち、値が 3 のノードを含まないものをすべて出力")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -69,9 +69,9 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 }
 
 func TestPreorderTraversalIIITemplate(t *testing.T) {
-	/* 二分木を初期化する */
+	/* 二分木を初期化 */
 	root := SliceToTree([]any{1, 7, 3, 4, 5, 6, 7})
-	fmt.Println("\n二分木を初期化する")
+	fmt.Println("\n二分木を初期化")
 	PrintTree(root)
 
 	// バックトラッキング
@@ -81,7 +81,7 @@ func TestPreorderTraversalIIITemplate(t *testing.T) {
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する")
+	fmt.Println("\n根から値が 7 のノードまでの経路のうち、値が 3 のノードを含まないものをすべて出力")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

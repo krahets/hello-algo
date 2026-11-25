@@ -10,7 +10,7 @@ public class n_queens {
     /* Backtracking: n-queens */
     void Backtrack(int row, int n, List<List<string>> state, List<List<List<string>>> res,
             bool[] cols, bool[] diags1, bool[] diags2) {
-        // Record a solution when a queen has been placed in every row
+        // Record the solution once every row has a queen
         if (row == n) {
             List<List<string>> copyState = [];
             foreach (List<string> sRow in state) {
@@ -19,19 +19,19 @@ public class n_queens {
             res.Add(copyState);
             return;
         }
-        // Iterate over all columns
+        // Try each column
         for (int col = 0; col < n; col++) {
-            // Calculate the main-diagonal and anti-diagonal indices for this square
+            // Find the two diagonals through this square
             int diag1 = row - col + n - 1;
             int diag2 = row + col;
-            // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+            // Prune if the column or either diagonal already has a queen
             if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-                // Try: place a queen on this square
+                // Try placing a queen on this square
                 state[row][col] = "Q";
                 cols[col] = diags1[diag1] = diags2[diag2] = true;
                 // Place a queen in the next row
                 Backtrack(row + 1, n, state, res, cols, diags1, diags2);
-                // Backtrack: restore this square to empty
+                // Backtrack: clear this square
                 state[row][col] = "#";
                 cols[col] = diags1[diag1] = diags2[diag2] = false;
             }
@@ -40,7 +40,7 @@ public class n_queens {
 
     /* Solve the n-queens problem */
     List<List<List<string>>> NQueens(int n) {
-        // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+        // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
         List<List<string>> state = [];
         for (int i = 0; i < n; i++) {
             List<string> row = [];
@@ -49,9 +49,9 @@ public class n_queens {
             }
             state.Add(row);
         }
-        bool[] cols = new bool[n]; // Track whether a column contains a queen
-        bool[] diags1 = new bool[2 * n - 1]; // Track whether a main diagonal contains a queen
-        bool[] diags2 = new bool[2 * n - 1]; // Track whether an anti-diagonal contains a queen
+        bool[] cols = new bool[n]; // Track occupied columns
+        bool[] diags1 = new bool[2 * n - 1]; // Track occupied main diagonals
+        bool[] diags2 = new bool[2 * n - 1]; // Track occupied secondary diagonals
         List<List<List<string>>> res = [];
 
         Backtrack(0, n, state, res, cols, diags1, diags2);
@@ -64,8 +64,8 @@ public class n_queens {
         int n = 4;
         List<List<List<string>>> res = NQueens(n);
 
-        Console.WriteLine("Input board side length: " + n);
-        Console.WriteLine("There are " + res.Count + " queen placements");
+        Console.WriteLine("Board side length:  " + n);
+        Console.WriteLine("Found  " + res.Count + "  queen arrangements");
         foreach (List<List<string>> state in res) {
             Console.WriteLine("--------------------");
             foreach (List<string> row in state) {

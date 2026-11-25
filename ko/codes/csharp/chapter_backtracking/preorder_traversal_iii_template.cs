@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_iii_template {
-    /* 현재 상태가 해인지 판단 */
+    /* 현재 상태가 해인지 확인한다 */
     bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
@@ -17,22 +17,22 @@ public class preorder_traversal_iii_template {
         res.Add(new List<TreeNode>(state));
     }
 
-    /* 현재 상태에서 해당 선택이 유효한지 판단 */
+    /* 현재 상태에서 이 선택이 유효한지 확인한다 */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
 
-    /* 상태 갱신 */
+    /* 상태를 갱신한다 */
     void MakeChoice(List<TreeNode> state, TreeNode choice) {
         state.Add(choice);
     }
 
-    /* 상태 복원 */
+    /* 상태를 복원한다 */
     void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
-    /* 백트래킹 알고리즘: 예제 3 */
+    /* 백트래킹: 예제 3 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
         // 해인지 확인한다
         if (IsSolution(state)) {
@@ -43,11 +43,11 @@ public class preorder_traversal_iii_template {
         foreach (TreeNode choice in choices) {
             // 가지치기: 선택이 유효한지 확인한다
             if (IsValid(state, choice)) {
-                // 시도: 선택하고 상태를 갱신한다
+                // 시도: 하나를 선택하고 상태를 갱신한다
                 MakeChoice(state, choice);
                 // 다음 선택을 진행한다
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+                // 되돌리기: 선택을 취소하고 이전 상태를 복원한다
                 UndoChoice(state, choice);
             }
         }
@@ -64,7 +64,7 @@ public class preorder_traversal_iii_template {
         List<TreeNode> choices = [root!];
         Backtrack([], choices, res);
 
-        Console.WriteLine("\n값이 3인 노드를 포함하지 않는 조건으로, 루트 노드에서 노드 7까지의 모든 경로 출력");
+        Console.WriteLine("\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

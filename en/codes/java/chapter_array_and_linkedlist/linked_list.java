@@ -16,7 +16,7 @@ public class linked_list {
         n0.next = P;
     }
 
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     static void remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -26,7 +26,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     static ListNode access(ListNode head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -48,39 +48,39 @@ public class linked_list {
         return -1;
     }
 
-    /* Driver code */
+    /* Driver Code */
     public static void main(String[] args) {
         /* Initialize the linked list */
-        // Initialize the individual nodes
+        // Initialize the nodes
         ListNode n0 = new ListNode(1);
         ListNode n1 = new ListNode(3);
         ListNode n2 = new ListNode(2);
         ListNode n3 = new ListNode(5);
         ListNode n4 = new ListNode(4);
-        // Set up references between the nodes
+        // Link the nodes together
         n0.next = n1;
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        System.out.println("The initialized linked list is");
+        System.out.println("Initial linked list:");
         PrintUtil.printLinkedList(n0);
 
         /* Insert a node */
         insert(n0, new ListNode(0));
-        System.out.println("The linked list after inserting a node is");
+        System.out.println("Linked list after insertion:");
         PrintUtil.printLinkedList(n0);
 
         /* Remove a node */
         remove(n0);
-        System.out.println("The linked list after removing a node is");
+        System.out.println("Linked list after removal:");
         PrintUtil.printLinkedList(n0);
 
         /* Access a node */
         ListNode node = access(n0, 3);
-        System.out.println("Value of the node at index 3 in the linked list = " + node.val);
+        System.out.println("Value of the node at index 3 = " + node.val);
 
         /* Find a node */
         int index = find(n0, 2);
-        System.out.println("Index of the node with value 2 in the linked list = " + index);
+        System.out.println("Index of the node with value 2 = " + index);
     }
 }

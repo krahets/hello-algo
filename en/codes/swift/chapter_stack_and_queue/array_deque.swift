@@ -4,10 +4,10 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Deque implemented with a circular array */
+/* Deque backed by a circular array */
 class ArrayDeque {
     private var nums: [Int] // Array that stores the deque elements
-    private var front: Int // Front index, identifying the first element
+    private var front: Int // Index of the front element
     private var _size: Int // Deque size
 
     /* Constructor */
@@ -32,58 +32,58 @@ class ArrayDeque {
         size() == 0
     }
 
-    /* Calculate an index in the circular array */
+    /* Compute the circular array index */
     private func index(i: Int) -> Int {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap around to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         (i + capacity()) % capacity()
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     func pushFirst(num: Int) {
         if size() == capacity() {
             print("Deque is full")
             return
         }
-        // Move the front index one position to the left
-        // Use modulo to wrap front to the end when it passes the beginning of the array
+        // Move the front index one slot to the left
+        // Use the remainder to wrap front to the end if it goes before the start
         front = index(i: front - 1)
-        // Add num to the front
+        // Add num at the front
         nums[front] = num
         _size += 1
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     func pushLast(num: Int) {
         if size() == capacity() {
             print("Deque is full")
             return
         }
-        // Calculate the rear index, one position past the last element
+        // Compute the index one slot past the rear element
         let rear = index(i: front + size())
-        // Add num to the rear
+        // Add num at the rear
         nums[rear] = num
         _size += 1
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     func popFirst() -> Int {
         let num = peekFirst()
-        // Advance the front index by one position
+        // Advance the front index by one
         front = index(i: front + 1)
         _size -= 1
         return num
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     func popLast() -> Int {
         let num = peekLast()
         _size -= 1
         return num
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     func peekFirst() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
@@ -91,19 +91,19 @@ class ArrayDeque {
         return nums[front]
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     func peekLast() -> Int {
         if isEmpty() {
             fatalError("Deque is empty")
         }
-        // Calculate the index of the last element
+        // Compute the index of the rear element
         let last = index(i: front + size() - 1)
         return nums[last]
     }
 
     /* Return an array for printing */
     func toArray() -> [Int] {
-        // Include only the elements in the occupied range
+        // Copy only the elements currently in the deque
         (front ..< front + size()).map { nums[index(i: $0)] }
     }
 }
@@ -117,25 +117,25 @@ enum _ArrayDeque {
         deque.pushLast(num: 3)
         deque.pushLast(num: 2)
         deque.pushLast(num: 5)
-        print("Deque deque = \(deque.toArray())")
+        print("deque = \(deque.toArray())")
 
-        /* Access an element */
+        /* Peek at the front and rear elements */
         let peekFirst = deque.peekFirst()
-        print("Front element peekFirst = \(peekFirst)")
+        print("Front element (peekFirst) = \(peekFirst)")
         let peekLast = deque.peekLast()
-        print("Rear element peekLast = \(peekLast)")
+        print("Rear element (peekLast) = \(peekLast)")
 
-        /* Enqueue elements */
+        /* Add elements to the deque */
         deque.pushLast(num: 4)
-        print("After enqueueing 4 at the rear, deque = \(deque.toArray())")
+        print("After adding 4 at the rear, deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
-        print("After enqueueing 1 at the front, deque = \(deque.toArray())")
+        print("After adding 1 at the front, deque = \(deque.toArray())")
 
-        /* Dequeue an element */
+        /* Remove elements from both ends */
         let popLast = deque.popLast()
-        print("Element dequeued from the rear = \(popLast); after dequeueing, deque = \(deque.toArray())")
+        print("Removed from the rear = \(popLast), deque after removal = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("Element dequeued from the front = \(popFirst); after dequeueing, deque = \(deque.toArray())")
+        print("Removed from the front = \(popFirst), deque after removal = \(deque.toArray())")
 
         /* Get the deque size */
         let size = deque.size()
@@ -143,6 +143,6 @@ enum _ArrayDeque {
 
         /* Check whether the deque is empty */
         let isEmpty = deque.isEmpty()
-        print("Is the deque empty? \(isEmpty)")
+        print("Deque is empty = \(isEmpty)")
     }
 }

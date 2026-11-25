@@ -11,11 +11,11 @@
 extern "C" {
 #endif
 
-/* Определить тип вектора */
+/* Определение типа вектора */
 typedef struct vector {
     int size;     // Текущий размер вектора
-    int capacity; // Текущая емкость вектора
-    int depth;    // Текущая глубина вектора
+    int capacity; // Текущая ёмкость вектора
+    int depth;    // Текущая глубина вложенности вектора
     void **data;  // Массив указателей на данные
 } vector;
 
@@ -29,7 +29,7 @@ vector *newVector() {
     return v;
 }
 
-/* Создать вектор, указав размер и значение элементов по умолчанию */
+/* Создать вектор заданного размера с заданным начальным значением элементов */
 vector *_newVector(int size, void *elem, int elemSize) {
     vector *v = malloc(sizeof(vector));
     v->size = size;
@@ -63,7 +63,7 @@ void delVector(vector *v) {
     }
 }
 
-/* Добавить элемент в конец вектора (копированием) */
+/*  Добавить копию элемента в конец вектора */
 void vectorPushback(vector *v, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         v->capacity *= 2;
@@ -74,7 +74,7 @@ void vectorPushback(vector *v, void *elem, int elemSize) {
     v->data[v->size++] = tmp;
 }
 
-/* Извлечь элемент из конца вектора */
+/* Удалить последний элемент вектора */
 void vectorPopback(vector *v) {
     if (v->size != 0) {
         free(v->data[v->size - 1]);
@@ -116,7 +116,7 @@ void *vectorAt(vector *v, int pos) {
     return v->data[pos];
 }
 
-/* Установить элемент вектора по индексу pos */
+/* Задать значение элемента вектора по индексу pos */
 void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     if (pos < 0 || pos >= v->size) {
         printf("vectorSet: out of range\n");
@@ -128,19 +128,19 @@ void vectorSet(vector *v, int pos, void *elem, int elemSize) {
     v->data[pos] = tmp;
 }
 
-/* Расширение вектора */
+/* Увеличить ёмкость вектора */
 void vectorExpand(vector *v) {
     v->capacity *= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* Сжатие вектора */
+/* Уменьшить ёмкость вектора */
 void vectorShrink(vector *v) {
     v->capacity /= 2;
     v->data = realloc(v->data, v->capacity * sizeof(void *));
 }
 
-/* Вставить элемент по индексу pos в вектор */
+/* Вставить элемент вектора на позицию pos */
 void vectorInsert(vector *v, int pos, void *elem, int elemSize) {
     if (v->size == v->capacity) {
         vectorExpand(v);
@@ -165,24 +165,24 @@ void vectorErase(vector *v, int pos) {
     }
 }
 
-/* Обмен элементов вектора */
+/* Поменять местами два элемента вектора */
 void vectorSwap(vector *v, int i, int j) {
     void *tmp = v->data[i];
     v->data[i] = v->data[j];
     v->data[j] = tmp;
 }
 
-/* Пуст ли вектор */
+/* Проверить, пуст ли вектор */
 bool vectorEmpty(vector *v) {
     return v->size == 0;
 }
 
-/* Заполнен ли вектор */
+/* Проверить, заполнен ли вектор */
 bool vectorFull(vector *v) {
     return v->size == v->capacity;
 }
 
-/* Равны ли векторы */
+/* Проверить, равны ли векторы */
 bool vectorEqual(vector *v1, vector *v2) {
     if (v1->size != v2->size) {
         printf("size not equal\n");
@@ -199,13 +199,13 @@ bool vectorEqual(vector *v1, vector *v2) {
     return true;
 }
 
-/* Отсортировать содержимое вектора */
+/* Отсортировать элементы вектора */
 void vectorSort(vector *v, int (*cmp)(const void *, const void *)) {
     qsort(v->data, v->size, sizeof(void *), cmp);
 }
 
-/* Функция печати: нужно передать функцию для вывода значения переменной */
-/* В настоящее время поддерживается только вывод vector глубины 1 */
+/* Для вывода вектора нужно передать функцию вывода отдельного значения */
+/* Поддерживается вывод только векторов глубины 1 */
 void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     if (v) {
         if (v->depth == 0) {
@@ -235,7 +235,7 @@ void printVector(vector *v, void (*printFunc)(vector *v, void *p)) {
     }
 }
 
-/* В настоящее время поддерживается только вывод vector глубины 2 */
+/* Поддерживается вывод только векторов глубины 2 */
 void printVectorMatrix(vector *vv, void (*printFunc)(vector *v, void *p)) {
     printf("[\n");
     for (int i = 0; i < vv->size; i++) {

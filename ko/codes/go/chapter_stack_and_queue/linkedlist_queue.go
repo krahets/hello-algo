@@ -10,7 +10,7 @@ import (
 
 /* 연결 리스트로 구현한 큐 */
 type linkedListQueue struct {
-	// 내장 패키지 list로 큐를 구현한다
+	// 표준 라이브러리의 list 패키지로 큐를 구현한다
 	data *list.List
 }
 
@@ -21,12 +21,12 @@ func newLinkedListQueue() *linkedListQueue {
 	}
 }
 
-/* 원소 삽입 */
+/* 큐에 삽입 */
 func (s *linkedListQueue) push(value any) {
 	s.data.PushBack(value)
 }
 
-/* 원소 꺼내기 */
+/* 큐에서 꺼내기 */
 func (s *linkedListQueue) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListQueue) pop() any {
 	return e.Value
 }
 
-/* 맨 앞 원소 접근 */
+/* 맨 앞 원소 조회 */
 func (s *linkedListQueue) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListQueue) peek() any {
 	return e.Value
 }
 
-/* 큐의 길이 반환 */
+/* 큐의 길이 조회 */
 func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
 
-/* 큐가 비어 있는지 판단 */
+/* 큐가 비어 있는지 확인 */
 func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 출력에 사용할 List 반환 */
+/* 출력에 사용할 list.List 반환 */
 func (s *linkedListQueue) toList() *list.List {
 	return s.data
 }

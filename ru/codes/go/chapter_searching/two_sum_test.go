@@ -10,15 +10,15 @@ import (
 )
 
 func TestTwoSum(t *testing.T) {
-	// ======= Test Case =======
+	// ======= Тестовый пример =======
 	nums := []int{2, 7, 11, 15}
 	target := 13
 
-	// ====== Основной код ======
-	// Метод 1: решение полным перебором
+	// ====== Пример использования ======
+	// Способ 1: полный перебор
 	res := twoSumBruteForce(nums, target)
-	fmt.Println("Результат метода 1 res =", res)
+	fmt.Println("Способ 1, res =", res)
 	// Способ 2: хеш-таблица
 	res = twoSumHashTable(nums, target)
-	fmt.Println("Результат метода 2 res =", res)
+	fmt.Println("Способ 2, res =", res)
 }

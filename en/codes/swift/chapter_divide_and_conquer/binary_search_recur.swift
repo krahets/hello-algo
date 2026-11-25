@@ -6,27 +6,27 @@
 
 /* Binary search: problem f(i, j) */
 func dfs(nums: [Int], target: Int, i: Int, j: Int) -> Int {
-    // If the interval is empty, the target is absent; return -1
+    // An empty interval contains no target, so return -1
     if i > j {
         return -1
     }
-    // Calculate the midpoint index m
+    // Compute the middle index m
     let m = (i + j) / 2
     if nums[m] < target {
-        // Recurse on subproblem f(m+1, j)
+        // Recursively solve f(m+1, j)
         return dfs(nums: nums, target: target, i: m + 1, j: j)
     } else if nums[m] > target {
-        // Recurse on subproblem f(i, m-1)
+        // Recursively solve f(i, m-1)
         return dfs(nums: nums, target: target, i: i, j: m - 1)
     } else {
-        // The target element was found; return its index
+        // Target found: return its index
         return m
     }
 }
 
 /* Binary search */
 func binarySearch(nums: [Int], target: Int) -> Int {
-    // Solve problem f(0, n-1)
+    // Solve f(0, n-1)
     dfs(nums: nums, target: target, i: nums.startIndex, j: nums.endIndex - 1)
 }
 
@@ -39,6 +39,6 @@ enum BinarySearchRecur {
 
         // Binary search (closed interval)
         let index = binarySearch(nums: nums, target: target)
-        print("Index of target element 6 = \(index)")
+        print("Index of target 6 = \(index)")
     }
 }

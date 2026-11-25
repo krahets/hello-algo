@@ -33,7 +33,7 @@ fn main() {
     let mut str_hasher = DefaultHasher::new();
     str.hash(&mut str_hasher);
     let hash_str = str_hasher.finish();
-    println!("Hash of string {}: {}", str, hash_str);
+    println!("String {} has hash value {}", str, hash_str);
 
     let arr = (&12836, &"小哈");
     let mut tup_hasher = DefaultHasher::new();
@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("The value in node {:?} has hash value {}", node, hash);
+    println!("The value stored in node {:?} has hash value {}", node, hash);
 }

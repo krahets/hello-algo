@@ -8,9 +8,9 @@ import (
 	"math/rand"
 )
 
-/* Случайный доступ к элементу */
+/* Чтение случайного элемента */
 func randomAccess(nums []int) (randomNum int) {
-	// Случайный выбор числа из диапазона [0, nums.length)
+	// Выбрать случайное число из интервала [0, nums.length)
 	randomIndex := rand.Intn(len(nums))
 	// Получить и вернуть случайный элемент
 	randomNum = nums[randomIndex]
@@ -19,29 +19,29 @@ func randomAccess(nums []int) (randomNum int) {
 
 /* Увеличение длины массива */
 func extend(nums []int, enlarge int) []int {
-	// Инициализировать массив увеличенной длины
+	// Создать массив увеличенной длины
 	res := make([]int, len(nums)+enlarge)
-	// Скопировать все элементы исходного массива в новый массив
+	// Скопировать все элементы исходного массива в новый
 	for i, num := range nums {
 		res[i] = num
 	}
-	// Вернуть новый массив после расширения
+	// Вернуть новый массив увеличенной длины
 	return res
 }
 
-/* Вставка элемента num в массив по индексу index */
+/* Вставить num в массив по индексу index */
 func insert(nums []int, num int, index int) {
-	// Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
+	// Сдвинуть на одну позицию вправо все элементы начиная с index
 	for i := len(nums) - 1; i > index; i-- {
 		nums[i] = nums[i-1]
 	}
-	// Присвоить num элементу по индексу index
+	// Записать num по индексу index
 	nums[index] = num
 }
 
-/* Удаление элемента по индексу index */
+/* Удалить элемент по индексу index */
 func remove(nums []int, index int) {
-	// Сдвинуть все элементы после индекса index на одну позицию влево
+	// Сдвинуть все элементы после index на одну позицию влево
 	for i := index; i < len(nums)-1; i++ {
 		nums[i] = nums[i+1]
 	}
@@ -50,16 +50,16 @@ func remove(nums []int, index int) {
 /* Обход массива */
 func traverse(nums []int) {
 	count := 0
-	// Обход массива по индексам
+	// Обойти массив по индексам
 	for i := 0; i < len(nums); i++ {
 		count += nums[i]
 	}
 	count = 0
-	// Непосредственно обходить элементы массива
+	// Перебрать элементы массива напрямую
 	for _, num := range nums {
 		count += num
 	}
-	// Одновременно обходить индексы и элементы данных
+	// Одновременно перебирать индексы и элементы
 	for i, num := range nums {
 		count += nums[i]
 		count += num

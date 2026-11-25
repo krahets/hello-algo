@@ -10,25 +10,25 @@ fn recur(n: i32) -> i32 {
     if n == 1 {
         return 1;
     }
-    // Recurse: make a recursive call
+    // Descend: make a recursive call
     let res = recur(n - 1);
     // Unwind: return the result
     n + res
 }
 
-/* Simulate recursion using iteration */
+/* Simulate recursion with iteration */
 fn for_loop_recur(n: i32) -> i32 {
-    // Use an explicit stack to simulate the system call stack
+    // Use an explicit stack to simulate the call stack
     let mut stack = Vec::new();
     let mut res = 0;
-    // Recurse: make a recursive call
+    // Descend: make a recursive call
     for i in (1..=n).rev() {
-        // Simulate recursive calls by pushing onto the stack
+        // Push to simulate descending
         stack.push(i);
     }
     // Unwind: return the result
     while !stack.is_empty() {
-        // Simulate unwinding by popping from the stack
+        // Pop to simulate unwinding
         res += stack.pop().unwrap();
     }
     // res = 1+2+3+...+n
@@ -41,11 +41,11 @@ fn tail_recur(n: i32, res: i32) -> i32 {
     if n == 0 {
         return res;
     }
-    // Tail-recursive call
+    // Tail call
     tail_recur(n - 1, res + n)
 }
 
-/* Fibonacci sequence: recursion */
+/* Fibonacci sequence using recursion */
 fn fib(n: i32) -> i32 {
     // Base cases: f(1) = 0, f(2) = 1
     if n == 1 || n == 2 {
@@ -57,20 +57,20 @@ fn fib(n: i32) -> i32 {
     res
 }
 
-/* Driver code */
+/* Driver Code */
 fn main() {
     let n = 5;
     let mut res;
 
     res = recur(n);
-    println!("\nSum from the recursive function: res = {res}");
+    println!("\nRecursive sum: res = {res}");
 
     res = for_loop_recur(n);
-    println!("\nSum from simulating recursion using iteration: res = {res}");
+    println!("\nSum using simulated recursion: res = {res}");
 
     res = tail_recur(n, 0);
-    println!("\nSum from the tail-recursive function: res = {res}");
+    println!("\nTail-recursive sum: res = {res}");
 
     res = fib(n);
-    println!("\nTerm {n} of the Fibonacci sequence is {res}");
+    println!("\nFibonacci term {n} is {res}");
 }

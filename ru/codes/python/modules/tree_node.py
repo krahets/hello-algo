@@ -16,29 +16,29 @@ class TreeNode:
         self.left: TreeNode | None = None  # Ссылка на левый дочерний узел
         self.right: TreeNode | None = None  # Ссылка на правый дочерний узел
 
-    # Правила кодирования сериализации см.:
-    # https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    # Массивное представление двоичного дерева:
+    # Правила кодирования при сериализации описаны здесь:
+    # https://www.hello-algo.com/ru/chapter_tree/array_representation_of_tree/
+    # Двоичное дерево в виде массива:
     # [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    # Связное представление двоичного дерева:
-    # /——— 15
-    # /——— 7
-    # /——— 3
-    # |    \——— 6
-    # |        \——— 12
+    # Двоичное дерево в виде связанных узлов:
+    #             /——— 15
+    #         /——— 7
+    #     /——— 3
+    #    |    \——— 6
+    #    |        \——— 12
     # ——— 1
-    # \——— 2
-    # |    /——— 9
-    # \——— 4
-    # \——— 8
+    #     \——— 2
+    #        |    /——— 9
+    #         \——— 4
+    #             \——— 8
 
 
 def list_to_tree_dfs(arr: list[int], i: int) -> TreeNode | None:
-    """Десериализовать список в двоичное дерево: рекурсия"""
-    # Если индекс выходит за длину массива или соответствующий элемент равен None, вернуть None
+    """Рекурсивно восстановить двоичное дерево из списка"""
+    # Если индекс выходит за границы массива или соответствующий элемент равен None, вернуть None
     if i < 0 or i >= len(arr) or arr[i] is None:
         return None
-    # Построить текущий узел
+    # Создать текущий узел
     root = TreeNode(arr[i])
     # Рекурсивно построить левое и правое поддеревья
     root.left = list_to_tree_dfs(arr, 2 * i + 1)
@@ -47,12 +47,12 @@ def list_to_tree_dfs(arr: list[int], i: int) -> TreeNode | None:
 
 
 def list_to_tree(arr: list[int]) -> TreeNode | None:
-    """Десериализовать список в двоичное дерево"""
+    """Восстановить двоичное дерево из списка"""
     return list_to_tree_dfs(arr, 0)
 
 
 def tree_to_list_dfs(root: TreeNode, i: int, res: list[int]) -> list[int]:
-    """Сериализовать двоичное дерево в список: рекурсия"""
+    """Рекурсивно сериализовать двоичное дерево в список"""
     if root is None:
         return
     if i >= len(res):

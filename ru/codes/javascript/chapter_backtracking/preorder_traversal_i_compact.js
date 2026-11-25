@@ -7,27 +7,27 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-/* Предварительный обход: пример 1 */
+/* Прямой обход: пример 1 */
 function preOrder(root, res) {
     if (root === null) {
         return;
     }
     if (root.val === 7) {
-        // Записать решение
+        // Сохраняем решение
         res.push(root);
     }
     preOrder(root.left, res);
     preOrder(root.right, res);
 }
 
-// Driver Code
+// Основная программа
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
-console.log('\nИнициализация двоичного дерева');
+console.log('\nСоздаём двоичное дерево');
 printTree(root);
 
-// Предварительный обход
+// Прямой обход
 const res = [];
 preOrder(root, res);
 
-console.log('\nВсе узлы со значением 7');
+console.log('\nВыводим все узлы со значением 7');
 console.log(res.map((node) => node.val));

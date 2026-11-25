@@ -9,7 +9,7 @@
 /* for ループ */
 int forLoop(int n) {
     int res = 0;
-    // ループで 1, 2, ..., n-1, n の和を求める
+    // 1, 2, ..., n-1, n の和をループで求める
     for (int i = 1; i <= n; i++) {
         res += i;
     }
@@ -19,37 +19,37 @@ int forLoop(int n) {
 /* while ループ */
 int whileLoop(int n) {
     int res = 0;
-    int i = 1; // 条件変数を初期化する
-    // ループで 1, 2, ..., n-1, n の和を求める
+    int i = 1; // 条件判定用の変数を初期化
+    // 1, 2, ..., n-1, n の和をループで求める
     while (i <= n) {
         res += i;
-        i++; // 条件変数を更新する
+        i++; // 条件判定用の変数を更新
     }
     return res;
 }
 
-/* while ループ（2 回の更新） */
+/* while ループ（2 回更新） */
 int whileLoopII(int n) {
     int res = 0;
-    int i = 1; // 条件変数を初期化する
-    // ループで 1, 4, 10, ... の和を求める
+    int i = 1; // 条件判定用の変数を初期化
+    // 1, 4, 10, ... の和をループで求める
     while (i <= n) {
         res += i;
-        // 条件変数を更新する
+        // 条件判定用の変数を更新
         i++;
         i *= 2;
     }
     return res;
 }
 
-/* 二重 for ループ */
+/* 二重の for ループ */
 char *nestedForLoop(int n) {
-    // n * n は点の個数であり、文字列 "(i, j), " の長さは最大 6+10*2 である。さらに末尾のヌル文字 \0 のための領域を加える
+    // 点の個数は n * n。各点を表す文字列 "(i, j), " の長さは最大 6+10*2 で、末尾のヌル文字 \0 の領域も必要
     int size = n * n * 26 + 1;
     char *res = malloc(size * sizeof(char));
-    // i = 1, 2, ..., n-1, n のループ
+    // i = 1, 2, ..., n-1, n の順に繰り返す
     for (int i = 1; i <= n; i++) {
-        // j = 1, 2, ..., n-1, n のループ
+        // j = 1, 2, ..., n-1, n の順に繰り返す
         for (int j = 1; j <= n; j++) {
             char tmp[26];
             snprintf(tmp, sizeof(tmp), "(%d, %d), ", i, j);
@@ -59,22 +59,22 @@ char *nestedForLoop(int n) {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    printf("\nfor ループで求めた和 res = %d\n", res);
+    printf("\nfor ループによる総和 res = %d\n", res);
 
     res = whileLoop(n);
-    printf("\nwhile ループで求めた和 res = %d\n", res);
+    printf("\nwhile ループによる総和 res = %d\n", res);
 
     res = whileLoopII(n);
-    printf("\nwhile ループ（2 回の更新）で求めた和 res = %d\n", res);
+    printf("\nwhile ループ（2 回更新）による総和 res = %d\n", res);
 
     char *resStr = nestedForLoop(n);
-    printf("\n二重 for ループの走査結果 %s\r\n", resStr);
+    printf("\n二重の for ループの走査結果 %s\r\n", resStr);
     free(resStr);
 
     return 0;

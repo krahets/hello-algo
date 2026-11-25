@@ -4,18 +4,18 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* 동전 교환: 탐욕 */
+/* 탐욕 알고리즘으로 거스름돈 만들기 */
 fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
-    // coins 리스트가 정렬되어 있다고 가정한다
+    // coins 리스트는 오름차순으로 정렬되어 있다고 가정한다
     let mut i = coins.len() - 1;
     let mut count = 0;
-    // 남은 금액이 없을 때까지 탐욕적 선택을 반복한다
+    // 남은 금액이 없어질 때까지 탐욕 선택을 반복한다
     while amt > 0 {
-        // 남은 금액보다 작으면서 가장 가까운 금액의 동전을 찾는다
+        // 남은 금액보다 작으면서 그 금액에 가장 가까운 동전을 찾는다
         while i > 0 && coins[i] > amt {
             i -= 1;
         }
-        // coins[i]를 선택한다
+        // coins[i] 선택
         amt -= coins[i];
         count += 1;
     }
@@ -27,28 +27,28 @@ fn coin_change_greedy(coins: &[i32], mut amt: i32) -> i32 {
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
-    // 탐욕: 전역 최적해를 찾는 것이 보장된다
+    // 탐욕 선택이 전역 최적해를 보장하는 경우
     let coins = [1, 5, 10, 20, 50, 100];
     let amt = 186;
     let res = coin_change_greedy(&coins, amt);
     println!("\ncoins = {:?}, amt = {}", coins, amt);
-    println!("목표 금액 {}에 필요한 최소 동전 개수는 {}개이다", amt, res);
+    println!("목표 금액 {}, 필요한 최소 동전 수: {}", amt, res);
 
-    // 탐욕: 전역 최적해를 찾는 것이 보장되지 않는다
+    // 탐욕 선택이 전역 최적해를 보장하지 않는 경우
     let coins = [1, 20, 50];
     let amt = 60;
     let res = coin_change_greedy(&coins, amt);
     println!("\ncoins = {:?}, amt = {}", coins, amt);
-    println!("목표 금액 {}에 필요한 최소 동전 개수는 {}개이다", amt, res);
-    println!("실제로 필요한 최소 개수는 3개이며, 20 + 20 + 20이다");
+    println!("목표 금액 {}, 필요한 최소 동전 수: {}", amt, res);
+    println!("실제로는 20 + 20 + 20으로 최소 3개가 필요하다");
 
-    // 탐욕: 전역 최적해를 찾는 것이 보장되지 않는다
+    // 탐욕 선택이 전역 최적해를 보장하지 않는 경우
     let coins = [1, 49, 50];
     let amt = 98;
     let res = coin_change_greedy(&coins, amt);
     println!("\ncoins = {:?}, amt = {}", coins, amt);
-    println!("목표 금액 {}에 필요한 최소 동전 개수는 {}개이다", amt, res);
-    println!("실제로 필요한 최소 개수는 2개이며, 49 + 49이다");
+    println!("목표 금액 {}, 필요한 최소 동전 수: {}", amt, res);
+    println!("실제로는 49 + 49로 최소 2개가 필요하다");
 }

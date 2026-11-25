@@ -17,13 +17,13 @@ public class built_in_hash {
 
         boolean bol = true;
         int hashBol = Boolean.hashCode(bol);
-        System.out.println("布林量 " + bol + " 的雜湊值為 " + hashBol);
+        System.out.println("布林值 " + bol + " 的雜湊值為 " + hashBol);
 
         double dec = 3.14159;
         int hashDec = Double.hashCode(dec);
         System.out.println("小數 " + dec + " 的雜湊值為 " + hashDec);
 
-        String str = "Hello 演算法";
+        String str = "Hello 算法";
         int hashStr = str.hashCode();
         System.out.println("字串 " + str + " 的雜湊值為 " + hashStr);
 

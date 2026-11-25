@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Like explorers in a maze, we may encounter obstacles as we move forward.
+    Like explorers in a maze, we may meet obstacles along the way.
     
-    Backtracking lets us start again, try new paths, and eventually find our way out into the light.
+    Backtracking lets us retrace our steps and try again until we find the way out into the light.

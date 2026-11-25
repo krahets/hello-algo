@@ -19,7 +19,7 @@ public class preorder_traversal_iii_compact {
         if (root == null || root.val == 3) {
             return;
         }
-        // Try
+        // Try a choice
         path.add(root);
         if (root.val == 7) {
             // Record the solution
@@ -41,7 +41,7 @@ public class preorder_traversal_iii_compact {
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3");
+        System.out.println("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

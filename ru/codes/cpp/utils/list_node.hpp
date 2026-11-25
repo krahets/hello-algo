@@ -19,7 +19,7 @@ struct ListNode {
     }
 };
 
-/* Десериализовать список в связный список */
+/* Восстановить связный список из списка значений */
 ListNode *vecToLinkedList(vector<int> list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;

@@ -17,5 +17,5 @@ function fastPow(x, n) {
 }
 
 if (fastPow(7, 0) !== 1 || fastPow(3, 5) !== 243 || fastPow(2, 6) !== 64) {
-    throw new Error('빠른 거듭제곱 검증에 실패했다');
+    throw new Error('fast power check failed');
 }

@@ -15,7 +15,7 @@ func insertNode(n0 *ListNode, P *ListNode) {
 	n0.Next = P
 }
 
-/* 연결 리스트의 노드 n0 바로 뒤에 있는 노드 삭제 */
+/* 연결 리스트에서 n0 바로 다음 노드 삭제 */
 func removeItem(n0 *ListNode) {
 	if n0.Next == nil {
 		return
@@ -26,7 +26,7 @@ func removeItem(n0 *ListNode) {
 	n0.Next = n1
 }
 
-/* 연결 리스트에서 인덱스가 index인 노드에 접근 */
+/* 연결 리스트의 인덱스 index에 있는 노드에 접근 */
 func access(head *ListNode, index int) *ListNode {
 	for i := 0; i < index; i++ {
 		if head == nil {
@@ -37,7 +37,7 @@ func access(head *ListNode, index int) *ListNode {
 	return head
 }
 
-/* 연결 리스트에서 값이 target인 첫 번째 노드 탐색 */
+/* 연결 리스트에서 값이 target인 첫 번째 노드 찾기 */
 func findNode(head *ListNode, target int) int {
 	index := 0
 	for head != nil {

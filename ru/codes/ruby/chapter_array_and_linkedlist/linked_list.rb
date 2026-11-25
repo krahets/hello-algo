@@ -7,15 +7,15 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/list_node'
 require_relative '../utils/print_util'
 
-### Вставка узла _p в связный список после узла n0 ###
-# В Ruby `p` является встроенной функцией, а `P` — константой, поэтому вместо них можно использовать `_p`
+### Вставить узел _p после узла n0 ###
+# В Ruby `p` — встроенная функция, а `P` — константа, поэтому можно использовать имя `_p`
 def insert(n0, _p)
   n1 = n0.next
   _p.next = n1
   n0.next = _p
 end
 
-### Удаление первого узла после узла n0 из связного списка ###
+### Удалить первый узел, следующий за n0 ###
 def remove(n0)
   return if n0.next.nil?
 
@@ -25,7 +25,7 @@ def remove(n0)
   n0.next = n1
 end
 
-### Доступ к узлу с индексом index в связном списке ###
+### Получить узел списка по индексу index ###
 def access(head, index)
   for i in 0...index
     return nil if head.nil?
@@ -35,7 +35,7 @@ def access(head, index)
   head
 end
 
-### Поиск первого узла со значением target в связном списке ###
+### Найти первый узел списка со значением target ###
 def find(head, target)
   index = 0
   while head
@@ -47,21 +47,21 @@ def find(head, target)
   -1
 end
 
-### Driver Code ###
+### Демонстрационный код ###
 if __FILE__ == $0
   # Инициализация связного списка
-  # Инициализация всех узлов
+  # Инициализировать узлы
   n0 = ListNode.new(1)
   n1 = ListNode.new(3)
   n2 = ListNode.new(2)
   n3 = ListNode.new(5)
   n4 = ListNode.new(4)
-  # Построить ссылки между узлами
+  # Связать узлы ссылками
   n0.next = n1
   n1.next = n2
   n2.next = n3
   n3.next = n4
-  puts "Исходный связный список"
+  puts "Исходный связный список:"
   print_linked_list(n0)
 
   # Вставка узла
@@ -70,14 +70,14 @@ if __FILE__ == $0
 
   # Удаление узла
   remove(n0)
-  puts "Связный список после удаления узла"
+  puts "Связный список после удаления:"
   print_linked_list(n0)
 
   # Доступ к узлу
   node = access(n0, 3)
-  puts "Значение узла по индексу 3 в связном списке = #{node.val}"
+  puts "Значение узла по индексу 3 = #{node.val}"
 
   # Поиск узла
   index = find(n0, 2)
-  puts "Индекс узла со значением 2 в связном списке = #{index}"
+  puts "Индекс узла со значением 2 = #{index}"
 end

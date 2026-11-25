@@ -4,7 +4,7 @@ Created Time: 2026-08-18
 Author: Hello Algo Team
 =end
 
-### Sum using iteration ###
+### Iterative sum ###
 def sum_iter(n)
   res = 0
   for i in 1..n
@@ -13,7 +13,7 @@ def sum_iter(n)
   res
 end
 
-### Sum using recursion ###
+### Recursive sum ###
 def sum_recur(n)
   return 1 if n == 1
 

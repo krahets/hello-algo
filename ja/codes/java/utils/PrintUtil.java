@@ -54,7 +54,7 @@ public class PrintUtil {
 
     /**
      * 二分木を表示する
-     * この木の表示処理は TECHIE DELIGHT から借用した
+     * 木の表示には TECHIE DELIGHT のコードを使用
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
@@ -109,7 +109,7 @@ public class PrintUtil {
         List<Integer> list = new ArrayList<>(queue);
         System.out.print("ヒープの配列表現：");
         System.out.println(list);
-        System.out.println("ヒープの木構造表現：");
+        System.out.println("ヒープの木構造：");
         TreeNode root = TreeNode.listToTree(list);
         printTree(root);
     }

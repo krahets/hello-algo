@@ -1,57 +1,56 @@
 {
-  "schema_version": 2,
-  "title": "Recursive binary search",
-  "summary": "Recursively search ten sorted elements for 6, shrinking the search interval from [0, 9] to [0, 3] and then [2, 3], finally returning index 2.",
-  "context": [
-    "The input consists of ten elements in increasing order at indices 0 through 9, with target 6; the full array is listed in the \"Fixed sorted input\" table. Here f(i, j) denotes searching the closed interval [i, j], with midpoint index m equal to floor((i + j) / 2)."
-  ],
-  "description": [
-    "After comparing the midpoint value against the target at each step, recursion enters only the single subinterval that could still contain the target. Excluded positions remain in the original array; once the target is hit, its index is returned directly without any merge step. The two tables below list the full input and the three calls."
-  ],
-  "frames": [
-    {
-      "id": "source-312",
-      "book_path": "chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png",
-      "title": "Recursive binary search",
-      "explanation": "The note at the bottom reads \"The final result is index 2 for element 6\". Counting by the closed intervals in the table, the number of candidates drops from 10 to 4 to 2, and the third call hits the target and returns immediately."
-    }
-  ],
   "animations": {
     "flow-recursive-search": {
       "kind": "prose",
       "prose": {
-        "title": "Recursive binary search",
-        "summary": "Three states step through the three recursive calls in order, showing each call's current interval, midpoint, and next call or return value.",
         "context": [
-          "The target value is 6 and the input array never changes, so element values can be looked up in the \"Fixed sorted input\" table above; the parameters of all three calls can also be looked up by call in the \"Three recursive calls\" table."
+          "The target is 6 throughout. Look up values in the “Fixed sorted input” table above and arguments by call name in the “Three recursive calls” table."
         ],
         "description": [],
         "steps": [
           {
+            "announcement": "Call f(0, 9). At midpoint m = 4, the value 12 exceeds the target 6. Exclude indices 4 through 9 and recurse into f(0, 3).",
+            "explanation": "In the initial closed interval [0, 9], the midpoint m is (0 + 9) / 2 rounded down to 4. The value at index 4 is 12. Since 12 > 6, the target can only lie to the left. Rule out indices 4 through 9 and call f(0, 3).",
             "id": "step-1",
-            "title": "Inspect midpoint value 12",
-            "explanation": "On the initial closed interval [0, 9], compute midpoint m = floor((0 + 9) / 2) = 4, where the element at index 4 is 12. Since 12 > 6, the target can only lie in the left half; exclude indices 4 through 9 and recursively call f(0, 3).",
-            "key_state": "f(0, 9): midpoint m = 4 (value 12 > 6), recurse into left subinterval f(0, 3).",
-            "announcement": "Call f(0, 9); midpoint m = 4 has value 12, which is greater than target 6, so exclude indices 4 through 9 and recurse into f(0, 3)."
+            "key_state": "f(0, 9): at m = 4, the value is 12 > 6. Search the left interval with f(0, 3).",
+            "title": "Check the middle value 12"
           },
           {
+            "announcement": "Call f(0, 3). At midpoint m = 1, the value 3 is less than the target 6. Exclude indices 0 and 1 and recurse into f(2, 3).",
+            "explanation": "In the closed interval [0, 3], the midpoint m is (0 + 3) / 2 rounded down to 1. The value at index 1 is 3. Since 3 < 6, the target can only lie to the right. Rule out indices 0 and 1 and call f(2, 3).",
             "id": "step-2",
-            "title": "Inspect midpoint value 3",
-            "explanation": "On the closed interval [0, 3], compute midpoint m = floor((0 + 3) / 2) = 1, where the element at index 1 is 3. Since 3 < 6, the target can only lie in the right half; exclude indices 0 and 1 and recursively call f(2, 3).",
-            "key_state": "f(0, 3): midpoint m = 1 (value 3 < 6), recurse into right subinterval f(2, 3).",
-            "announcement": "Call f(0, 3); midpoint m = 1 has value 3, which is less than target 6, so exclude indices 0 and 1 and recurse into f(2, 3)."
+            "key_state": "f(0, 3): at m = 1, the value is 3 < 6. Search the right interval with f(2, 3).",
+            "title": "Check the middle value 3"
           },
           {
+            "announcement": "Call f(2, 3). The value at middle index 2 is 6. This matches the target, so return index 2 directly.",
+            "explanation": "In the closed interval [2, 3], the midpoint m is (2 + 3) / 2 rounded down to 2. The value at index 2 is 6, matching the target. Return index 2 directly to the caller. No merge is needed.",
             "id": "step-3",
-            "title": "Hit target value 6",
-            "explanation": "On the closed interval [2, 3], compute midpoint m = floor((2 + 3) / 2) = 2, where the element at index 2 is 6, matching the target value; return index 2 directly up the call chain with no combine step needed.",
-            "key_state": "f(2, 3): midpoint m = 2 (value 6 = 6), target found and index 2 returned.",
-            "announcement": "Call f(2, 3); midpoint index 2 has value 6, hitting the target and returning index 2 directly."
+            "key_state": "f(2, 3): at m = 2, the value matches (6 = 6). Return index 2.",
+            "title": "Find the target value 6"
           }
-        ]
+        ],
+        "summary": "Three states show the three recursive calls. Each step gives the current interval, midpoint, and either the next call or the return value.",
+        "title": "Recursive binary search"
       }
     }
   },
+  "context": [
+    "The input consists of ten increasing elements at indices 0 through 9, and the target is 6. The “Fixed sorted input” table lists the entire array. The call f(i, j) searches the closed interval [i, j]. The midpoint m is (i + j) / 2 rounded down."
+  ],
+  "description": [
+    "After comparing the middle element with the target, recurse only into the part that can still contain it. Excluded positions stay in the array. A match returns the index directly, with no results to merge. The two tables give the full input and the three calls."
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png",
+      "explanation": "The bottom label reads “The final index of element 6 is 2.” The closed intervals in the table contain 10, 4, and 2 candidates, respectively. The third call finds the target and returns directly.",
+      "id": "source-312",
+      "title": "Recursive binary search"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "Search recursively for 6 among ten increasing elements. The interval shrinks from [0, 9] to [0, 3] and then [2, 3]. The search returns index 2.",
   "tables": [
     {
       "caption": "Fixed sorted input",
@@ -59,6 +58,7 @@
         "Index",
         "Value"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -100,32 +100,32 @@
           "9",
           "35"
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
       "caption": "Three recursive calls",
       "headers": [
         "Call (closed interval)",
-        "Midpoint index m",
-        "Midpoint value",
+        "Middle index m",
+        "Middle value",
         "Comparison",
-        "Next action"
+        "Next step"
       ],
+      "row_header": 0,
       "rows": [
         [
           "f(0, 9)",
           "4",
           "12",
           "12 > 6",
-          "Recursive call f(0, 3)"
+          "Call f(0, 3) recursively"
         ],
         [
           "f(0, 3)",
           "1",
           "3",
           "3 < 6",
-          "Recursive call f(2, 3)"
+          "Call f(2, 3) recursively"
         ],
         [
           "f(2, 3)",
@@ -134,8 +134,8 @@
           "6 = 6",
           "Return index 2"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Recursive binary search"
 }

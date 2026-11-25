@@ -18,14 +18,14 @@ void preOrder(TreeNode *root) {
         return;
     }
     if (root->val == 7) {
-        // 記錄解
+        // 記錄此解
         res[resSize++] = root;
     }
     preOrder(root->left);
     preOrder(root->right);
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));

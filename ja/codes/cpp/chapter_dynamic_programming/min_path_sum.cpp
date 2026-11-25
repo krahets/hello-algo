@@ -8,15 +8,15 @@
 
 /* 最小経路和：全探索 */
 int minPathSumDFS(vector<vector<int>> &grid, int i, int j) {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if (i == 0 && j == 0) {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if (i < 0 || j < 0) {
         return INT_MAX;
     }
-    // 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
+    // 左上から (i-1, j) と (i, j-1) までの最小経路コストを求める
     int up = minPathSumDFS(grid, i - 1, j);
     int left = minPathSumDFS(grid, i, j - 1);
     // 左上から (i, j) までの最小経路コストを返す
@@ -25,19 +25,19 @@ int minPathSumDFS(vector<vector<int>> &grid, int i, int j) {
 
 /* 最小経路和：メモ化探索 */
 int minPathSumDFSMem(vector<vector<int>> &grid, vector<vector<int>> &mem, int i, int j) {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if (i == 0 && j == 0) {
         return grid[0][0];
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if (i < 0 || j < 0) {
         return INT_MAX;
     }
-    // 記録済みなら、その値をそのまま返す
+    // 記録済みなら、その値を返す
     if (mem[i][j] != -1) {
         return mem[i][j];
     }
-    // 左隣と上隣のセルまでの最小経路コスト
+    // 左と上のマスまでの最小経路コスト
     int up = minPathSumDFSMem(grid, mem, i - 1, j);
     int left = minPathSumDFSMem(grid, mem, i, j - 1);
     // 左上から (i, j) までの最小経路コストを記録して返す
@@ -68,7 +68,7 @@ int minPathSumDP(vector<vector<int>> &grid) {
     return dp[n - 1][m - 1];
 }
 
-/* 最小経路和：空間を最適化した動的計画法 */
+/* 最小経路和：使用メモリを削減した動的計画法 */
 int minPathSumDPComp(vector<vector<int>> &grid) {
     int n = grid.size(), m = grid[0].size();
     // dp テーブルを初期化する
@@ -90,7 +90,7 @@ int minPathSumDPComp(vector<vector<int>> &grid) {
     return dp[m - 1];
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     vector<vector<int>> grid = {{1, 3, 1, 5}, {2, 2, 4, 2}, {5, 3, 2, 1}, {4, 3, 5, 2}};
     int n = grid.size(), m = grid[0].size();
@@ -108,7 +108,7 @@ int main() {
     res = minPathSumDP(grid);
     cout << "左上から右下までの最小経路和は " << res << endl;
 
-    // 空間を最適化した動的計画法
+    // 使用メモリを削減した動的計画法
     res = minPathSumDPComp(grid);
     cout << "左上から右下までの最小経路和は " << res << endl;
 

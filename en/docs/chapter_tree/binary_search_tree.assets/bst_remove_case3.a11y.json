@@ -1,80 +1,83 @@
 {
-  "schema_version": 2,
-  "title": "Delete a node with two children from a binary search tree",
-  "summary": "For a target of degree 2, find its inorder successor in the right subtree, detach that node, and then copy its value into the target cur.",
-  "context": [
-    "The target value is 4. The initial tree contains 3 through 15 and has root 8. The table gives all initial links, with “Empty” for a missing child. Throughout, cur points to the object that originally held 4.",
-    "Steps 1 and 2 leave all links intact. Step 3 detaches the original node 5, and only step 4 writes value 5 into cur. Links in the table stay the same except for the changes noted at each step. The right subtree rooted at 12 never changes. The figure’s successor pointer nex corresponds to tmp in the source code."
-  ],
-  "description": [
-    "The code first recursively deletes the successor, then overwrites the value of cur. If cur were changed to 5 first, a search from the root to delete value 5 would encounter cur before the original successor. These two operations cannot simply be reversed in this implementation."
-  ],
-  "result": "Afterward the tree no longer contains 4. The cur object remains in its original position. The other nodes and the binary search tree order are preserved.",
-  "frames": [
-    {
-      "id": "source-124",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png",
-      "title": "Locate the target with two children",
-      "explanation": "Since 4 is smaller than root 8, follow the left link to cur, currently holding 4. Its left and right children are 3 and 6; 6 has left leaf 5 and right leaf 7, as in “All tree links before deletion.” The degree of cur is 2. Simply disconnecting its parent’s edge would lose its children, so this example searches the right subtree for its minimum as a replacement.",
-      "key_state": "Pointer cur is left of root 8 and holds 4, with left child 3 and right child 6. Node 6 has left child 5 and right child 7. Nothing has changed yet.",
-      "announcement": "Find target node cur, which holds 4 and has two children."
-    },
-    {
-      "id": "source-125",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png",
-      "title": "Find inorder successor 5",
-      "explanation": "Follow cur (4)→6→5 and point nex to the original node 5. Root 8 has cur on the left; cur still has left child 3 and right child 6; 6 has left child 5 and right child 7. Values and links are unchanged. As the minimum on the right, 5 is greater than 3 on the left and smaller than the remaining right-side values 6 and 7, preserving order after replacement.",
-      "key_state": "Pointer cur still holds 4 with left child 3 and right child 6, while nex points to 6’s left leaf 5 and 6’s right child is 7. Nothing has changed.",
-      "announcement": "Find the minimum node 5 in cur’s right subtree and mark it as inorder successor nex."
-    },
-    {
-      "id": "source-126",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png",
-      "title": "Detach the original successor node",
-      "explanation": "Recursively delete leaf 5 referenced by nex and clear 6.left. Root 8 still has cur (value 4) as its left child, and cur has left child 3 and right child 6. Node 6 has no left child and has right leaf 7. Only the original node 5 has been detached; other links match the initial table. Pointer nex retains a reference to the original object so its value can be read next. The dashed circle marks its former position; no node remains there.",
-      "key_state": "The original node 5 is detached, while cur still holds 4 with left child 3 and right child 6. Node 6 has no left child and has right child 7.",
-      "announcement": "First detach successor leaf 5 from the left of 6. The value in cur is still 4."
-    },
-    {
-      "id": "source-127",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png",
-      "title": "Copy the successor’s value into cur",
-      "explanation": "Write successor value 5 into cur, replacing 4. Root 8 has cur (now holding 5) as its left child; cur has left child 3 and right child 6. Node 6 has no left child and has right leaf 7. Only the value in cur changed. Its links to parent 8 and children 3 and 6 are unchanged. The original node 5 is gone, leaving just one copy of value 5 in the tree.",
-      "key_state": "Pointer cur now holds 5 with left child 3 and right child 6. Node 6 has no left child and has right child 7. Original node 5 is detached; deletion is complete.",
-      "announcement": "Overwrite the original value 4 in cur with successor value 5, completing deletion of the node with two children."
-    }
-  ],
   "animations": {
     "bst-delete-two-children": {
       "kind": "source-frames",
       "states": [
         {
-          "id": "step-1",
-          "frame_id": "source-124"
+          "frame_id": "source-124",
+          "id": "step-1"
         },
         {
-          "id": "step-2",
-          "frame_id": "source-125"
+          "frame_id": "source-125",
+          "id": "step-2"
         },
         {
-          "id": "step-3",
-          "frame_id": "source-126"
+          "frame_id": "source-126",
+          "id": "step-3"
         },
         {
-          "id": "step-4",
-          "frame_id": "source-127"
+          "frame_id": "source-127",
+          "id": "step-4"
         }
       ]
     }
   },
+  "context": [
+    "The value to delete is 4. The initial tree contains values 3 through 15 and has root 8. The table lists all initial connections. “Empty” means there is no child. The pointer cur always refers to the object that originally held 4.",
+    "Steps 1 and 2 leave the connections unchanged. Step 3 detaches the original node 5. Only in step 4 is the value 5 written into cur. Except for the changes specified at each step, the table's connections stay the same. The right subtree rooted at 12 stays intact throughout. The successor pointer nex in the figure corresponds to tmp in the code."
+  ],
+  "description": [
+    "The figure follows the code: recursively delete the successor first, then overwrite the value of cur. If cur were changed to 5 first, a search from the root to delete the value 5 would hit cur first. The two steps in this code cannot simply be swapped."
+  ],
+  "frames": [
+    {
+      "announcement": "Locate the target node cur, which holds 4 and has two children.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step1.png",
+      "explanation": "The target value 4 is less than root 8, so go left to find cur (currently 4). Its left child is 3 and its right child is 6. Node 6 has left leaf 5 and right leaf 7, as shown in “Connections throughout the tree before deletion.” Since cur has degree 2, we cannot simply cut its parent edge. Here we use the minimum value in its right subtree as a replacement.",
+      "id": "source-124",
+      "key_state": "The node cur is to the left of root 8 and holds 4. It has left child 3 and right child 6. Node 6 has left child 5 and right child 7. Nothing has changed yet.",
+      "title": "Locate the target with two children"
+    },
+    {
+      "announcement": "Find the smallest node in the right subtree of cur, node 5, and mark it as the inorder successor nex.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step2.png",
+      "explanation": "Follow cur (4) → 6 → 5 to the inorder successor and point nex to the original node 5. Root 8 still has left child cur, cur has left child 3 and right child 6, and 6 has left child 5 and right child 7. No value or connection has changed. As the minimum in the right subtree, 5 is larger than 3 on the left and smaller than the remaining values 6 and 7 on the right, so the replacement preserves the search ordering.",
+      "id": "source-125",
+      "key_state": "The value of cur is still 4. Its left child is 3 and its right child is 6. The pointer nex points to 6's left leaf, 5, and 6 has right child 7. Nothing has changed yet.",
+      "title": "Find the inorder successor, 5"
+    },
+    {
+      "announcement": "First detach the original successor leaf 5 from the left of 6. At this stage cur still holds 4.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step3.png",
+      "explanation": "Recursively delete leaf 5, referenced by nex, by clearing 6.left. Root 8 has left child cur (still holding 4). The left and right children of cur are 3 and 6. Node 6 has no left child and has right leaf 7. Only the original node 5 has been detached. All other connections still match the initial table. The pointer nex retains a reference to the original node so its value can be read in the next step. The dashed circle marks its old position for comparison. It is no longer a node in the tree.",
+      "id": "source-126",
+      "key_state": "The original node 5 has been detached. The value of cur is still 4, with left child 3 and right child 6. Node 6 has no left child and has right child 7.",
+      "title": "Detach the original successor node"
+    },
+    {
+      "announcement": "Overwrite the original value 4 in cur with the successor's value 5 to finish deleting a node with two children.",
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case3_step4.png",
+      "explanation": "Write the successor's value 5 into cur, overwriting 4. Root 8 has left child cur (now holding 5), and cur has left child 3 and right child 6. Node 6 has no left child and has right leaf 7. Only the value of cur has changed. Its links to parent 8 and children 3 and 6 stay the same. The original node 5 has been detached, leaving exactly one value 5 in the tree.",
+      "id": "source-127",
+      "key_state": "The value of cur is now 5, with left child 3 and right child 6. Node 6 has no left child and has right child 7. The original node 5 is detached, and deletion is complete.",
+      "title": "Write the successor's value into cur"
+    }
+  ],
+  "input_tables": [
+    0
+  ],
+  "result": "When deletion is complete, the tree no longer contains the value 4. The cur object remains in place, and the other nodes and the search ordering are preserved.",
+  "schema_version": 2,
+  "summary": "To delete a node of degree 2, first locate and detach its inorder successor in the right subtree. Then write the successor's value into the target node cur.",
   "tables": [
     {
-      "caption": "All tree links before deletion",
+      "caption": "Connections throughout the tree before deletion",
       "headers": [
         "Node",
         "Initial left child",
         "Initial right child"
       ],
+      "row_header": 0,
       "rows": [
         [
           "8 (root)",
@@ -141,11 +144,8 @@
           "Empty",
           "Empty"
         ]
-      ],
-      "row_header": 0
+      ]
     }
   ],
-  "input_tables": [
-    0
-  ]
+  "title": "Deleting a node with two children from a binary search tree"
 }

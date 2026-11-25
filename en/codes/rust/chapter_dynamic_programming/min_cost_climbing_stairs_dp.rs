@@ -6,7 +6,7 @@
 
 use std::cmp;
 
-/* Minimum cost to climb stairs: dynamic programming */
+/* Minimum cost to climb stairs with dynamic programming */
 fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
@@ -14,17 +14,17 @@ fn min_cost_climbing_stairs_dp(cost: &[i32]) -> i32 {
     }
     // Initialize the dp table to store subproblem solutions
     let mut dp = vec![-1; n + 1];
-    // Initial states: set the solutions to the smallest subproblems
+    // Base cases: set the solutions to the smallest subproblems
     dp[1] = cost[1];
     dp[2] = cost[2];
-    // State transitions: solve progressively larger subproblems using smaller ones
+    // State transition: solve larger subproblems using smaller ones
     for i in 3..=n {
         dp[i] = cmp::min(dp[i - 1], dp[i - 2]) + cost[i];
     }
     dp[n]
 }
 
-/* Minimum cost to climb stairs: space-optimized dynamic programming */
+/* Minimum cost to climb stairs with space-optimized dynamic programming */
 fn min_cost_climbing_stairs_dp_comp(cost: &[i32]) -> i32 {
     let n = cost.len() - 1;
     if n == 1 || n == 2 {
@@ -45,8 +45,8 @@ pub fn main() {
     println!("Input stair costs: {:?}", &cost);
 
     let res = min_cost_climbing_stairs_dp(&cost);
-    println!("Minimum cost to finish climbing the stairs: {res}");
+    println!("Minimum cost to climb the stairs: {res}");
 
     let res = min_cost_climbing_stairs_dp_comp(&cost);
-    println!("Minimum cost to finish climbing the stairs: {res}");
+    println!("Minimum cost to climb the stairs: {res}");
 }

@@ -12,14 +12,14 @@ from chapter_hashing.array_hash_map import Pair
 
 
 class HashMapOpenAddressing:
-    """開放定址雜湊表"""
+    """採用開放定址法的雜湊表"""
 
     def __init__(self):
-        """建構子"""
+        """建構方法"""
         self.size = 0  # 鍵值對數量
         self.capacity = 4  # 雜湊表容量
-        self.load_thres = 2.0 / 3.0  # 觸發擴容的負載因子閾值
-        self.extend_ratio = 2  # 擴容倍數
+        self.load_thres = 2.0 / 3.0  # 觸發容量擴充的負載因子門檻
+        self.extend_ratio = 2  # 容量擴充倍數
         self.buckets: list[Pair | None] = [None] * self.capacity  # 桶陣列
         self.TOMBSTONE = Pair(-1, "-1")  # 刪除標記
 
@@ -32,79 +32,79 @@ class HashMapOpenAddressing:
         return self.size / self.capacity
 
     def find_bucket(self, key: int) -> int:
-        """搜尋 key 對應的桶索引"""
+        """尋找 key 對應的桶索引"""
         index = self.hash_func(key)
         first_tombstone = -1
         for _ in range(self.capacity):
             bucket = self.buckets[index]
             if bucket is None:
                 break
-            # 記錄遇到的首個刪除標記
+            # 記錄遇到的第一個刪除標記
             if bucket is self.TOMBSTONE:
                 if first_tombstone == -1:
                     first_tombstone = index
-            # 若遇到 key ，返回對應的桶索引
+            # 若遇到 key，回傳對應的桶索引
             elif bucket.key == key:
-                # 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                # 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                 if first_tombstone != -1:
                     self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
-                    return first_tombstone  # 返回移動後的桶索引
-                return index  # 返回桶索引
-            # 計算桶索引，越過尾部則返回頭部
+                    return first_tombstone  # 回傳移動後的桶索引
+                return index  # 回傳桶索引
+            # 計算桶索引，超過陣列尾端就回到開頭
             index = (index + 1) % self.capacity
-        # 若 key 不存在，則返回新增點的索引
+        # 若 key 不存在，回傳可插入位置的索引
         return index if first_tombstone == -1 else first_tombstone
 
     def get(self, key: int) -> str:
         """查詢操作"""
-        # 搜尋 key 對應的桶索引
+        # 尋找 key 對應的桶索引
         index = self.find_bucket(key)
-        # 若找到鍵值對，則返回對應 val
+        # 若找到鍵值對，回傳對應的 val
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             return self.buckets[index].val
-        # 若鍵值對不存在，則返回 None
+        # 若鍵值對不存在，回傳 None
         return None
 
     def put(self, key: int, val: str):
         """新增操作"""
-        # 當負載因子超過閾值時，執行擴容
+        # 當負載因子超過門檻時，擴充容量
         if self.load_factor() > self.load_thres:
             self.extend()
-        # 搜尋 key 對應的桶索引
+        # 尋找 key 對應的桶索引
         index = self.find_bucket(key)
-        # 若找到鍵值對，則覆蓋 val 並返回
+        # 若找到鍵值對，覆寫 val 並結束操作
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index].val = val
             return
-        # 若鍵值對不存在，則新增該鍵值對
+        # 若鍵值對不存在，新增該鍵值對
         self.buckets[index] = Pair(key, val)
         self.size += 1
 
     def remove(self, key: int):
         """刪除操作"""
-        # 搜尋 key 對應的桶索引
+        # 尋找 key 對應的桶索引
         index = self.find_bucket(key)
-        # 若找到鍵值對，則用刪除標記覆蓋它
+        # 若找到鍵值對，以刪除標記取代它
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index] = self.TOMBSTONE
             self.size -= 1
 
     def extend(self):
-        """擴容雜湊表"""
-        # 暫存原雜湊表
+        """擴充雜湊表容量"""
+        # 暫存原本的雜湊表
         buckets_tmp = self.buckets
-        # 初始化擴容後的新雜湊表
+        # 初始化擴充後的新雜湊表
         self.capacity *= self.extend_ratio
         self.buckets = [None] * self.capacity
         self.size = 0
-        # 將鍵值對從原雜湊表搬運至新雜湊表
+        # 將鍵值對從原本的雜湊表移到新表
         for pair in buckets_tmp:
             if pair not in [None, self.TOMBSTONE]:
                 self.put(pair.key, pair.val)
 
     def print(self):
-        """列印雜湊表"""
+        """印出雜湊表"""
         for pair in self.buckets:
             if pair is None:
                 print("None")
@@ -126,16 +126,16 @@ if __name__ == "__main__":
     hashmap.put(16750, "小算")
     hashmap.put(13276, "小法")
     hashmap.put(10583, "小鴨")
-    print("\n新增完成後，雜湊表為\nKey -> Value")
+    print("\n新增後的雜湊表\nKey -> Value")
     hashmap.print()
 
     # 查詢操作
-    # 向雜湊表中輸入鍵 key ，得到值 val
+    # 輸入鍵 key，從雜湊表取得對應的值 val
     name = hashmap.get(13276)
-    print("\n輸入學號 13276 ，查詢到姓名 " + name)
+    print("\n輸入學號 13276，查得姓名 " + name)
 
     # 刪除操作
-    # 在雜湊表中刪除鍵值對 (key, val)
+    # 從雜湊表刪除鍵值對 (key, val)
     hashmap.remove(16750)
-    print("\n刪除 16750 後，雜湊表為\nKey -> Value")
+    print("\n刪除 16750 後的雜湊表\nKey -> Value")
     hashmap.print()

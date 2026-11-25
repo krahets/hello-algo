@@ -95,8 +95,8 @@ fn show_trunks(trunk: Option<&Trunk>) {
 
 /* Вывести кучу */
 pub fn print_heap(heap: Vec<i32>) {
-    println!("Массивное представление кучи: {:?}", heap);
-    println!("Древовидное представление кучи:");
+    println!("Куча в виде массива: {:?}", heap);
+    println!("Куча в виде дерева:");
     if let Some(root) = vec_to_tree(heap.into_iter().map(|val| Some(val)).collect()) {
         print_tree(&root);
     }

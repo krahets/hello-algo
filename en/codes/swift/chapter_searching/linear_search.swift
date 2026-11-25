@@ -6,31 +6,31 @@
 
 import utils
 
-/* Linear search (array) */
+/* Linear search in an array */
 func linearSearchArray(nums: [Int], target: Int) -> Int {
     // Traverse the array
     for i in nums.indices {
-        // The target element was found; return its index
+        // Found the target. Return its index
         if nums[i] == target {
             return i
         }
     }
-    // The target element was not found; return -1
+    // Target not found. Return -1
     return -1
 }
 
-/* Linear search (linked list) */
+/* Linear search in a linked list */
 func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
     var head = head
     // Traverse the linked list
     while head != nil {
-        // The target node was found; return it
+        // Found the target node. Return it
         if head?.val == target {
             return head
         }
         head = head?.next
     }
-    // The target node was not found; return nil
+    // Target node not found. Return null
     return nil
 }
 
@@ -40,14 +40,14 @@ enum LinearSearch {
     static func main() {
         let target = 3
 
-        /* Perform linear search on the array */
+        /* Run linear search on the array */
         let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
         let index = linearSearchArray(nums: nums, target: target)
-        print("Index of target element 3 = \(index)")
+        print("Index of target 3 = \(index)")
 
-        /* Perform linear search on the linked list */
+        /* Run linear search on the linked list */
         let head = ListNode.arrToLinkedList(arr: nums)
         let node = linearSearchLinkedList(head: head, target: target)
-        print("Node object with target value 3: \(node!)")
+        print("Node object for target value 3 = \(node!)")
     }
 }

@@ -39,7 +39,7 @@ enum PreorderTraversalIICompact {
         res = []
         preOrder(root: root)
 
-        print("\n루트 노드에서 노드 7까지의 모든 경로 출력")
+        print("\n루트에서 값이 7인 노드까지의 모든 경로 출력")
         for path in res {
             var vals: [Int] = []
             for node in path {

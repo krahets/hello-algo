@@ -6,11 +6,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### 基於鏈結串列實現的堆疊 ###
+### 以鏈結串列實作堆疊 ###
 class LinkedListStack
   attr_reader :size
 
-  ### 建構子 ###
+  ### 初始化方法 ###
   def initialize
     @size = 0
   end
@@ -20,7 +20,7 @@ class LinkedListStack
     @peek.nil?
   end
 
-  ### 入堆疊 ###
+  ### 推入堆疊 ###
   def push(val)
     node = ListNode.new(val)
     node.next = @peek
@@ -28,7 +28,7 @@ class LinkedListStack
     @size += 1
   end
 
-  ### 出堆疊 ###
+  ### 彈出堆疊頂端的元素 ###
   def pop
     num = peek
     @peek = @peek.next
@@ -36,14 +36,14 @@ class LinkedListStack
     num
   end
 
-  ### 訪問堆疊頂元素 ###
+  ### 讀取堆疊頂端的元素 ###
   def peek
     raise IndexError, '堆疊為空' if is_empty?
 
     @peek.val
   end
 
-  ### 將鏈結串列轉化為 Array 並反回 ###
+  ### 將鏈結串列轉成 Array 並回傳 ###
   def to_array
     arr = []
     node = @peek
@@ -55,12 +55,12 @@ class LinkedListStack
   end
 end
 
-### Driver Code ###
+### 範例程式 ###
 if __FILE__ == $0
   # 初始化堆疊
   stack = LinkedListStack.new
 
-  # 元素入堆疊
+  # 將元素推入堆疊
   stack.push(1)
   stack.push(3)
   stack.push(2)
@@ -68,20 +68,20 @@ if __FILE__ == $0
   stack.push(4)
   puts "堆疊 stack = #{stack.to_array}"
 
-  # 訪問堆疊頂元素
+  # 讀取堆疊頂端的元素
   peek = stack.peek
-  puts "堆疊頂元素 peek = #{peek}"
+  puts "堆疊頂端元素 peek = #{peek}"
 
-  # 元素出堆疊
+  # 從堆疊彈出元素
   pop = stack.pop
-  puts "出堆疊元素 pop = #{pop}"
-  puts "出堆疊後 stack = #{stack.to_array}"
+  puts "彈出的元素 pop = #{pop}"
+  puts "彈出後 stack = #{stack.to_array}"
 
-  # 獲取堆疊的長度
+  # 取得堆疊長度
   size = stack.size
-  puts "堆疊的長度 size = #{size}"
+  puts "堆疊長度 size = #{size}"
 
-  # 判斷是否為空
+  # 判斷堆疊是否為空
   is_empty = stack.is_empty?
   puts "堆疊是否為空 = #{is_empty}"
 end

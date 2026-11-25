@@ -9,26 +9,26 @@ import (
 	"testing"
 )
 
-// Quick sort
+// Quicksort
 func TestQuickSort(t *testing.T) {
 	q := quickSort{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("After quick sort, nums = ", nums)
+	fmt.Println("After quicksort, nums = ", nums)
 }
 
-// Quick sort (median pivot optimization)
+// Quicksort with median-of-three pivot selection
 func TestQuickSortMedian(t *testing.T) {
 	q := quickSortMedian{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("After quick sort (median pivot optimization), nums = ", nums)
+	fmt.Println("After median-of-three quicksort, nums = ", nums)
 }
 
-// Quick sort (recursion depth optimization)
+// Quicksort with reduced recursion depth
 func TestQuickSortTailCall(t *testing.T) {
 	q := quickSortTailCall{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("After quick sort (recursion depth optimization), nums = ", nums)
+	fmt.Println("After quicksort with reduced recursion depth, nums = ", nums)
 }

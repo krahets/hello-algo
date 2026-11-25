@@ -7,26 +7,26 @@
 namespace hello_algo.chapter_divide_and_conquer;
 
 public class build_tree {
-    /* 構建二元樹：分治 */
+    /* 建構二元樹：分治法 */
     TreeNode? DFS(int[] preorder, Dictionary<int, int> inorderMap, int i, int l, int r) {
         // 子樹區間為空時終止
         if (r - l < 0)
             return null;
         // 初始化根節點
         TreeNode root = new(preorder[i]);
-        // 查詢 m ，從而劃分左右子樹
+        // 查出 m，據此劃分左右子樹
         int m = inorderMap[preorder[i]];
-        // 子問題：構建左子樹
+        // 子問題：建構左子樹
         root.left = DFS(preorder, inorderMap, i + 1, l, m - 1);
-        // 子問題：構建右子樹
+        // 子問題：建構右子樹
         root.right = DFS(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-        // 返回根節點
+        // 回傳根節點
         return root;
     }
 
-    /* 構建二元樹 */
+    /* 建構二元樹 */
     TreeNode? BuildTree(int[] preorder, int[] inorder) {
-        // 初始化雜湊表，儲存 inorder 元素到索引的對映
+        // 初始化雜湊表，記錄 inorder 中各元素對應的索引
         Dictionary<int, int> inorderMap = [];
         for (int i = 0; i < inorder.Length; i++) {
             inorderMap.TryAdd(inorder[i], i);
@@ -43,7 +43,7 @@ public class build_tree {
         Console.WriteLine("中序走訪 = " + string.Join(", ", inorder));
 
         TreeNode? root = BuildTree(preorder, inorder);
-        Console.WriteLine("構建的二元樹為：");
+        Console.WriteLine("建構出的二元樹為：");
         PrintUtil.PrintTree(root);
     }
 }

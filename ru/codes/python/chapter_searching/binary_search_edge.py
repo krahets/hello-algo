@@ -12,26 +12,26 @@ from binary_search_insertion import binary_search_insertion
 
 
 def binary_search_left_edge(nums: list[int], target: int) -> int:
-    """Двоичный поиск самого левого элемента target"""
-    # Эквивалентно поиску точки вставки target
+    """Двоичный поиск первого вхождения target"""
+    # Задача равносильна поиску позиции вставки target
     i = binary_search_insertion(nums, target)
-    # target не найден, вернуть -1
+    # Значение target не найдено, возвращаем -1
     if i == len(nums) or nums[i] != target:
         return -1
-    # target найден, возвращается индекс i
+    # Значение target найдено, возвращаем индекс i
     return i
 
 
 def binary_search_right_edge(nums: list[int], target: int) -> int:
-    """Двоичный поиск самого правого элемента target"""
-    # Преобразовать задачу в поиск самого левого target + 1
+    """Двоичный поиск последнего вхождения target"""
+    # Сводим задачу к поиску первого вхождения target + 1
     i = binary_search_insertion(nums, target + 1)
-    # j указывает на самый правый target, а i — на первый элемент больше target
+    # j указывает на последнее вхождение target, а i — на первый элемент, больший target
     j = i - 1
-    # target не найден, вернуть -1
+    # Значение target не найдено, возвращаем -1
     if j == -1 or nums[j] != target:
         return -1
-    # target найден, возвращается индекс j
+    # Значение target найдено, возвращаем индекс j
     return j
 
 
@@ -41,9 +41,9 @@ if __name__ == "__main__":
     nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
     print(f"\nМассив nums = {nums}")
 
-    # Двоичный поиск левой и правой границы
+    # Двоичный поиск левой и правой границ
     for target in [6, 7]:
         index = binary_search_left_edge(nums, target)
-        print(f"Индекс самого левого элемента {target} равен {index}")
+        print(f"Индекс первого вхождения {target} = {index}")
         index = binary_search_right_edge(nums, target)
-        print(f"Индекс самого правого элемента {target} равен {index}")
+        print(f"Индекс последнего вхождения {target} = {index}")

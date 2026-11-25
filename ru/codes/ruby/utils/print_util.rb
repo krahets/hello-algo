@@ -40,7 +40,7 @@ def show_trunk(p)
 end
 
 ### Вывести двоичное дерево ###
-# This tree printer is borrowed from TECHIE DELIGHT
+# Код для вывода дерева заимствован у TECHIE DELIGHT
 # https://www.techiedelight.com/c-program-print-binary-tree/
 def print_tree(root, prev=nil, is_right=false)
   return if root.nil?
@@ -73,8 +73,8 @@ end
 
 ### Вывести кучу ###
 def print_heap(heap)
-  puts "Массивное представление кучи:#{heap}"
-  puts "Древовидное представление кучи:"
+  puts "Куча в виде массива: #{heap}"
+  puts "Куча в виде дерева:"
   root = arr_to_tree(heap)
   print_tree(root)
 end

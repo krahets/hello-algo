@@ -1,60 +1,60 @@
 # Hash algorithms
 
-The previous two sections explained how hash tables work and how collisions are resolved. Whether we use open addressing or separate chaining, **these techniques keep the table working when collisions occur, but do not reduce how often collisions happen**.
+The previous two sections explained how hash tables work and how they handle collisions. Both open addressing and chaining **keep a hash table working correctly when collisions occur, but neither reduces the number of collisions**.
 
-Frequent collisions can severely degrade performance. In the separate-chaining table shown below, the ideal case distributes pairs evenly among buckets for the best lookup efficiency. In the worst case, all pairs occupy the same bucket, degrading the time complexity to $O(n)$.
+Frequent collisions can sharply degrade hash table performance. The figure below shows a hash table with chaining. Ideally, the pairs are evenly distributed across buckets, giving the fastest lookups. In the worst case, all pairs land in a single bucket, and lookup time degrades to $O(n)$.
 
 ![Best and worst cases for hash collisions](hash_algorithm.assets/hash_collision_best_worst_condition.svg)
 
-**The hash function determines how key-value pairs are distributed**. Recall its two steps: calculate a hash value, then take it modulo the array length:
+**The hash function determines how the key-value pairs are distributed**. Recall its two steps: compute the hash value, then take the remainder modulo the array length.
 
 ```shell
 index = hash(key) % capacity
 ```
 
-For a fixed `capacity`, **the hash algorithm `hash()` determines the output**, and therefore the distribution of pairs in the table.
+In this formula, when the table capacity `capacity` is fixed, **the hash algorithm `hash()` determines the output** and thus how the key-value pairs are distributed across the table.
 
-To lower the likelihood of collisions, we should therefore focus on designing `hash()`.
+To reduce the likelihood of collisions, we therefore need to focus on the design of the hash algorithm `hash()`.
 
 ## Goals of a hash algorithm
 
-To build a hash table that is both fast and reliable, its hash algorithm should have these properties.
+A fast, reliable hash table needs a hash algorithm with the following properties.
 
-- **Determinism**: The same input must always produce the same output, ensuring reliable lookup.
-- **Efficiency**: Calculating a hash should be fast. Lower computational overhead makes the table more practical.
-- **Uniform distribution**: The algorithm should distribute pairs evenly across the table. More uniform distribution means fewer collisions.
+- **Determinism**. The same input should always produce the same output so that the table works reliably.
+- **Efficiency**. Computing a hash value should be fast. The lower the cost, the more practical the table is to use.
+- **Uniform distribution**. The algorithm should spread key-value pairs evenly across the table. The more uniform the distribution, the less likely a collision becomes.
 
-Hash algorithms also have many applications beyond hash tables.
+Hash algorithms also have many uses beyond implementing hash tables.
 
-- **Password storage**: To protect passwords, systems usually store password hashes rather than plaintext passwords. When a user enters a password, the system hashes it and compares the result with the stored hash. A match means the password is accepted.
-- **Data-integrity checking**: A sender can calculate a hash of the data and send it alongside the data. The receiver recomputes the hash and compares it with the received hash. A match indicates that the data is intact.
+- **Password storage**. To protect passwords, systems typically store a hash of each password instead of the plaintext. When a user enters a password, the system hashes it and compares the result with the stored hash. If they match, the system accepts the password.
+- **Data integrity checks**. A sender can compute a hash of the data and send it along with the data. The recipient hashes the data received and compares the result with the hash received. If they match, the data is considered intact.
 
-Cryptographic applications require stronger security properties to prevent reverse engineering, such as recovering an original password from its hash.
+Cryptographic applications need stronger security properties to prevent someone from working backward from a hash, for example to recover the original password.
 
-- **One-wayness**: The hash should not reveal any information about the input data.
-- **Collision resistance**: Finding two different inputs with the same hash should be extremely difficult.
-- **Avalanche effect**: A small input change should produce a large, unpredictable output change.
+- **One-way operation**. It should be infeasible to work backward from the hash value to recover information about the input.
+- **Collision resistance**. Finding two different inputs with the same hash value should be extremely difficult.
+- **Avalanche effect**. A small change to the input should cause a large, unpredictable change in the output.
 
-**Uniform distribution and collision resistance are independent concepts**. Uniform output does not guarantee collision resistance. For example, with random keys, `key % 100` can produce uniform outputs. But this algorithm is too simple: all keys with the same last two digits give the same output. It is therefore easy to infer a usable key from a hash and crack a password.
+**Uniform distribution and collision resistance are distinct properties**. A uniform distribution does not guarantee collision resistance. For example, with random inputs `key`, the function `key % 100` can produce uniformly distributed outputs. Yet this algorithm is so simple that every `key` with the same last two digits gives the same output. Given a hash, it is easy to find a `key` that works and thereby defeat the password check.
 
 ## Designing a hash algorithm
 
-Designing a hash algorithm is complex and involves many factors. For less demanding uses, however, we can devise simple algorithms.
+Designing a hash algorithm is complex and requires balancing many factors. For less demanding applications, however, we can design simple algorithms.
 
-- **Additive hashing**: Add the ASCII codes of all input characters and use the sum as the hash.
-- **Multiplicative hashing**: Use multiplication to mix values, multiplying by a constant each round and accumulating character ASCII codes into the hash.
-- **XOR hashing**: Accumulate each input element into a hash using exclusive OR.
-- **Rotational hashing**: Accumulate each character's ASCII code into a hash, rotating the hash before each accumulation.
+- **Additive hashing** adds the ASCII codes of all the input characters and uses the sum as the hash value.
+- **Multiplicative hashing** mixes the character contributions by multiplying the running hash by a constant each round and accumulating each character’s ASCII code.
+- **XOR hashing** combines each input element with the running hash using XOR.
+- **Rotation hashing** rotates the running hash before incorporating the ASCII code of each character.
 
 ```src
 [file]{simple_hash}-[class]{}-[func]{rot_hash}
 ```
 
-Each algorithm ends by taking the result modulo the large prime $1000000007$ to keep it within a suitable range. Why emphasize a prime modulus? What goes wrong with a composite modulus? This is an interesting question.
+Each algorithm takes the result modulo the large prime $1000000007$ as its final step to keep the hash in a suitable range. Why use a prime modulus? What can go wrong with a composite modulus?
 
-The conclusion is that **using a large prime modulus helps make hash values as uniformly distributed as possible**. Because a prime shares no nontrivial factors with other numbers, it reduces periodic patterns introduced by the modulo operation and thus avoids collisions.
+**A large prime modulus gives the best chance of distributing hash values evenly**. Because a prime shares no nontrivial factor with numbers that are not its multiples, it can reduce periodic patterns introduced by the remainder operation and help avoid collisions.
 
-For example, choose the composite modulus $9$, which is divisible by $3$. Every key divisible by $3$ then maps to one of just three hash values: $0$, $3$, or $6$.
+For example, suppose we choose the composite modulus $9$. It is divisible by $3$, so every `key` divisible by $3$ maps to one of just three hash values: $0$, $3$, or $6$.
 
 $$
 \begin{aligned}
@@ -64,7 +64,7 @@ $$
 \end{aligned}
 $$
 
-If the input keys follow this arithmetic progression, the hash values cluster, increasing collisions. Now replace the modulus with the prime $13$. With no common factor between the key pattern and the modulus, the output becomes noticeably more uniform.
+If the input values of `key` follow this arithmetic progression, the hashes cluster, leading to more collisions. Now set `modulus` to the prime $13$. The step between successive `key` values has no common factor greater than one with `modulus`, so the hash values are much more evenly distributed.
 
 $$
 \begin{aligned}
@@ -74,44 +74,44 @@ $$
 \end{aligned}
 $$
 
-If the keys are already uniformly random, either a prime or a composite modulus can produce uniformly distributed hashes. When the keys have a periodic pattern, however, a composite modulus is more likely to cause clustering.
+If `key` is uniformly random, either a prime or a composite modulus can produce evenly distributed hash values. When `key` follows a periodic pattern, however, a composite modulus is more likely to produce clusters.
 
 We therefore usually choose a prime modulus, preferably a large one, to suppress periodic patterns as much as possible and make the algorithm more robust.
 
 ## Common hash algorithms
 
-The simple algorithms above are fragile and fall well short of our design goals. Addition and XOR are commutative, for example, so additive and XOR hashing cannot distinguish strings containing the same characters in different orders. This can increase collisions and create security problems.
+The simple algorithms above are fragile and fall well short of the design goals. For example, addition and XOR are commutative, so additive and XOR hashing cannot distinguish strings that contain the same characters in different orders. This can increase collisions and cause security problems.
 
-In practice, standard algorithms such as MD5, SHA-1, SHA-2, and SHA-3 are commonly used. They map inputs of arbitrary length to fixed-length hash values.
+In practice, standard hash algorithms include MD5, SHA-1, SHA-2, and SHA-3. They map inputs of any length to fixed-length hash values.
 
-Over nearly a century, hash algorithms have continually evolved. Some researchers work to improve their performance, while others, along with hackers, search for security weaknesses. The table below lists commonly used algorithms.
+Over nearly a century, hash algorithms have undergone continual refinement. Some researchers work to improve their performance, while other researchers and hackers look for security weaknesses. The table below lists common hash algorithms used in practice.
 
-- MD5 and SHA-1 have been successfully attacked repeatedly and have been retired from security applications.
-- SHA-256, part of the SHA-2 family, is among the most secure hash algorithms. No successful attack has been reported, so it is widely used in security applications and protocols.
-- SHA-3 has lower implementation overhead and higher computational efficiency than SHA-2, but is not yet as widely used.
+- Successful attacks against MD5 and SHA-1 have led security applications to phase them out.
+- SHA-256, a member of the SHA-2 family, is among the most secure hash algorithms. It has withstood attacks to date and is widely used in security applications and protocols.
+- SHA-3 has lower implementation overhead and higher computational efficiency than SHA-2, but the SHA-2 family is still more widely used.
 
 <p align="center"> Table <id> &nbsp; Common hash algorithms </p>
 
 |          | MD5                            | SHA-1            | SHA-2                        | SHA-3               |
 | -------- | ------------------------------ | ---------------- | ---------------------------- | ------------------- |
-| Introduced | 1992                           | 1995             | 2002                         | 2008                |
+| Year introduced | 1992                           | 1995             | 2002                         | 2008                |
 | Output length | 128 bit                        | 160 bit          | 256/512 bit                  | 224/256/384/512 bit |
-| Hash collisions | More frequent                           | More frequent             | Rare                         | Rare                |
-| Security | Low; successfully attacked               | Low; successfully attacked | High                           | High                  |
-| Applications     | Deprecated; still used for integrity checks | Deprecated         | Cryptocurrency transaction verification, digital signatures, and more | Can replace SHA-2    |
+| Hash collisions | Relatively frequent                           | Relatively frequent             | Rare                         | Rare                |
+| Security level | Low; successful attacks exist               | Low; successful attacks exist | High                           | High                  |
+| Applications     | Deprecated, still used for data integrity checks | Deprecated         | Cryptocurrency transaction verification, digital signatures, and more | Can serve as an alternative to SHA-2    |
 
 ## Hash values of data structures
 
-Hash-table keys can be integers, floating-point numbers, strings, and other types. Programming languages usually provide built-in hashing for these types to calculate bucket indices. In Python, for example, `hash()` calculates hash values for various types.
+A hash table’s `key` can be an integer, a floating-point number, a string, or another data type. Programming languages typically provide built-in hashing for these types so a table can compute a bucket index. In Python, for example, we can call `hash()` to compute hash values for several data types.
 
-- Integers and Booleans have hash values equal to their own values.
-- Hashing floating-point numbers and strings is more complex; interested readers can explore the details.
-- A tuple's hash combines the hashes of its individual elements into one value.
-- An object's hash is based on its memory address. Overriding its hash method allows hashing by content instead.
+- Integers and Booleans hash to their own numeric values.
+- Hashing floating-point numbers and strings is more involved. Interested readers can explore these calculations further.
+- To hash a tuple, hash each element and combine the results into a single hash value.
+- An object’s hash value is based on its memory address. You can override its hash method to generate a hash based on its contents.
 
 !!! tip
 
-    Built-in hash functions differ in their definitions and implementations across programming languages.
+    Programming languages differ in how they define and implement their built-in hash functions.
 
 ```snippet
 builtin_hash
@@ -121,8 +121,8 @@ builtin_hash
 
     @tutor builtin_hash_tutor
 
-In many programming languages, **only immutable objects can serve as hash-table keys**. If a list, a dynamic array, were used as a key, changing its contents would change its hash, making the original value impossible to retrieve from the table.
+In many programming languages, **only immutable objects can serve as a hash table’s `key`**. Suppose we used a list (a dynamic array) as a `key`. Changing the contents of the list would change its hash value, and we would no longer be able to look up the original `value` in the table.
 
-Custom objects, such as linked-list nodes, can be hashable even though their member variables are mutable. **Their hash is usually based on their memory address**, which stays the same even when their contents change.
+A user-defined object, such as a linked list node, can be hashable even though its fields can change. **An object’s hash is typically based on its memory address**. Changes to its contents leave its address, and therefore its hash, unchanged.
 
-You may notice different hash values when running the program in different consoles. **Each time the Python interpreter starts, it adds a random salt to its string hash function**. This helps prevent HashDoS attacks and improves security.
+You may notice different hash values when you run the program in different consoles. **Each time the Python interpreter starts, it supplies a random salt to the string hash function**. This helps prevent HashDoS attacks and makes hashing more secure.

@@ -6,9 +6,9 @@
 
 #include "../utils/common.h"
 
-/* Stack implemented with a linked list */
+/* Stack backed by a linked list */
 typedef struct {
-    ListNode *top; // Use the head node as the stack top
+    ListNode *top; // Use the head node as the top of the stack
     int size;      // Stack size
 } LinkedListStack;
 
@@ -40,16 +40,16 @@ bool isEmpty(LinkedListStack *s) {
     return size(s) == 0;
 }
 
-/* Push */
+/* Push an element onto the stack */
 void push(LinkedListStack *s, int num) {
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-    node->next = s->top; // Set the new node's pointer field
-    node->val = num;     // Set the new node's data field
-    s->top = node;       // Update the stack top
+    node->next = s->top; // Link the new node to the current top
+    node->val = num;     // Set the value of the new node
+    s->top = node;       // Update the top of the stack
     s->size++;           // Update the stack size
 }
 
-/* Access the top element */
+/* Peek at the top element */
 int peek(LinkedListStack *s) {
     if (s->size == 0) {
         printf("Stack is empty\n");
@@ -58,12 +58,12 @@ int peek(LinkedListStack *s) {
     return s->top->val;
 }
 
-/* Pop */
+/* Remove and return the top element */
 int pop(LinkedListStack *s) {
     int val = peek(s);
     ListNode *tmp = s->top;
     s->top = s->top->next;
-    // Free memory
+    // Free the allocated memory
     free(tmp);
     s->size--;
     return val;
@@ -81,26 +81,26 @@ int main() {
     push(stack, 5);
     push(stack, 4);
 
-    printf("Stack stack = ");
+    printf("stack = ");
     printLinkedList(stack->top);
 
-    /* Access the top element */
+    /* Peek at the top element */
     int val = peek(stack);
-    printf("Top element top = %d\r\n", val);
+    printf("Top element (top) = %d\r\n", val);
 
-    /* Pop an element from the stack */
+    /* Pop the top element */
     val = pop(stack);
-    printf("Popped element pop = %d; after popping, stack =  ", val);
+    printf("Popped element (pop) = %d, stack after the pop =  ", val);
     printLinkedList(stack->top);
 
     /* Get the stack size */
     printf("Stack size = %d\n", size(stack));
 
-    /* Check whether it is empty */
+    /* Check whether the stack is empty */
     bool empty = isEmpty(stack);
-    printf("Is the stack empty = %s\n", empty ? "true" : "false");
+    printf("Stack is empty = %s\n", empty ? "true" : "false");
 
-    // Free memory
+    // Free the allocated memory
     delLinkedListStack(stack);
 
     return 0;

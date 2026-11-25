@@ -12,27 +12,27 @@ class Item(
     val v: Int  // Item value
 )
 
-/* Fractional knapsack: greedy algorithm */
+/* Greedy fractional knapsack */
 fun fractionalKnapsack(wgt: IntArray, _val: IntArray, c: Int): Double {
-    // Create a list of items, each with two attributes: weight and value
+    // Create a list of items, each with a weight and a value
     var cap = c
     val items = arrayOfNulls<Item>(wgt.size)
     for (i in wgt.indices) {
         items[i] = Item(wgt[i], _val[i])
     }
-    // Sort by value per unit weight, item.v / item.w, in descending order
+    // Sort by value per unit of weight, item.v / item.w, in descending order
     items.sortBy { item: Item? -> -(item!!.v.toDouble() / item.w) }
-    // Repeatedly make greedy choices
+    // Make greedy choices in a loop
     var res = 0.0
     for (item in items) {
         if (item!!.w <= cap) {
-            // If enough capacity remains, put the entire current item in the knapsack
+            // If the whole item fits, put it in the knapsack
             res += item.v
             cap -= item.w
         } else {
-            // If the remaining capacity is insufficient, put part of the current item in the knapsack
+            // If the whole item does not fit, take a fraction of it
             res += item.v.toDouble() / item.w * cap
-            // No capacity remains, so exit the loop
+            // The knapsack is full, so exit the loop
             break
         }
     }
@@ -47,5 +47,5 @@ fun main() {
 
     // Greedy algorithm
     val res = fractionalKnapsack(wgt, _val, cap)
-    println("Maximum total item value within the knapsack capacity: $res")
+    println("The maximum total value within the weight limit is $res")
 }

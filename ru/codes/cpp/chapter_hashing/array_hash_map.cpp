@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Пара ключ-значение */
+/* Пара «ключ — значение» */
 struct Pair {
   public:
     int key;
@@ -24,7 +24,7 @@ class ArrayHashMap {
 
   public:
     ArrayHashMap() {
-        // Инициализировать массив, содержащий 100 корзин
+        // Создать массив из 100 корзин
         buckets = vector<Pair *>(100);
     }
 
@@ -42,7 +42,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* Операция поиска */
+    /* Поиск */
     string get(int key) {
         int index = hashFunc(key);
         Pair *pair = buckets[index];
@@ -51,22 +51,22 @@ class ArrayHashMap {
         return pair->val;
     }
 
-    /* Операция добавления */
+    /* Вставка */
     void put(int key, string val) {
         Pair *pair = new Pair(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
 
-    /* Операция удаления */
+    /* Удаление */
     void remove(int key) {
         int index = hashFunc(key);
-        // Освободить память и присвоить nullptr
+        // Освободить память и присвоить указателю nullptr
         delete buckets[index];
         buckets[index] = nullptr;
     }
 
-    /* Получить все пары ключ-значение */
+    /* Получить все пары «ключ — значение» */
     vector<Pair *> pairSet() {
         vector<Pair *> pairSet;
         for (Pair *pair : buckets) {
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// Тестовые примеры см. в array_hash_map_test.cpp
+// Примеры тестов см. в array_hash_map_test.cpp

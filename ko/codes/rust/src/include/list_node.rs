@@ -19,13 +19,13 @@ impl<T> ListNode<T> {
         Rc::new(RefCell::new(ListNode { val, next: None }))
     }
 
-    /* 배열을 역직렬화하여 연결 리스트로 변환한다 */
+    /* 배열을 연결 리스트로 역직렬화 */
     pub fn arr_to_linked_list(array: &[T]) -> Option<Rc<RefCell<ListNode<T>>>>
     where
         T: Copy + Clone,
     {
         let mut head = None;
-        // 역순으로 삽입한다
+        // 역순으로 삽입
         for item in array.iter().rev() {
             let node = Rc::new(RefCell::new(ListNode {
                 val: *item,
@@ -36,7 +36,7 @@ impl<T> ListNode<T> {
         head
     }
 
-    /* 연결 리스트를 해시 테이블로 변환한다 */
+    /* 연결 리스트를 해시 테이블로 변환 */
     pub fn linked_list_to_hashmap(
         linked_list: Option<Rc<RefCell<ListNode<T>>>>,
     ) -> HashMap<T, Rc<RefCell<ListNode<T>>>>

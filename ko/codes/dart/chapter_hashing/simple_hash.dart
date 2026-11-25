@@ -44,19 +44,19 @@ int rotHash(String key) {
   return hash;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 void main() {
   String key = "Hello 算法";
 
   int hash = addHash(key);
-  print("덧셈 해시값 = $hash");
+  print("덧셈 해시값: $hash");
 
   hash = mulHash(key);
-  print("곱셈 해시값 = $hash");
+  print("곱셈 해시값: $hash");
 
   hash = xorHash(key);
-  print("XOR 해시값 = $hash");
+  print("XOR 해시값: $hash");
 
   hash = rotHash(key);
-  print("회전 해시값 = $hash");
+  print("회전 해시값: $hash");
 }

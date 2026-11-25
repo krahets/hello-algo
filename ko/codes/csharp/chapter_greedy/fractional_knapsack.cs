@@ -13,26 +13,26 @@ class Item(int w, int v) {
 }
 
 public class fractional_knapsack {
-    /* 분할 가능한 배낭: 탐욕 */
+    /* 탐욕 알고리즘으로 분할 가능 배낭 풀기 */
     double FractionalKnapsack(int[] wgt, int[] val, int cap) {
-        // 무게와 가치 두 속성을 갖는 물건의 리스트를 생성한다
+        // 무게와 가치를 속성으로 갖는 물건의 리스트를 만든다
         Item[] items = new Item[wgt.Length];
         for (int i = 0; i < wgt.Length; i++) {
             items[i] = new Item(wgt[i], val[i]);
         }
         // 단위 가치 item.v / item.w를 기준으로 내림차순 정렬한다
         Array.Sort(items, (x, y) => ((double)y.v / y.w).CompareTo((double)x.v / x.w));
-        // 탐욕적 선택을 반복한다
+        // 탐욕 선택을 반복한다
         double res = 0;
         foreach (Item item in items) {
             if (item.w <= cap) {
-                // 남은 용량이 충분하면 현재 물건을 통째로 배낭에 넣는다
+                // 남은 용량이 충분하면 현재 물건을 통째로 배낭에 담는다
                 res += item.v;
                 cap -= item.w;
             } else {
-                // 남은 용량이 부족하면 현재 물건의 일부를 배낭에 넣는다
+                // 남은 용량이 부족하면 현재 물건의 일부만 배낭에 담는다
                 res += (double)item.v / item.w * cap;
-                // 남은 용량이 없으므로 반복문을 종료한다
+                // 남은 용량이 없으므로 반복문을 빠져나온다
                 break;
             }
         }
@@ -47,6 +47,6 @@ public class fractional_knapsack {
 
         // 탐욕 알고리즘
         double res = FractionalKnapsack(wgt, val, cap);
-        Console.WriteLine("배낭 용량을 초과하지 않는 물건의 최대 가치: " + res);
+        Console.WriteLine("배낭 용량 안에서 얻는 최대 가치: " + res);
     }
 }

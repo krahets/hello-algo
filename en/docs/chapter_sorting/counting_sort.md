@@ -1,18 +1,18 @@
 # Counting sort
 
-<u>Counting sort</u> sorts by counting how often each element occurs. It is typically used for integer arrays.
+<u>Counting sort</u> sorts elements by counting their occurrences. It is typically used for arrays of integers.
 
 ## A simple implementation
 
-Start with a simple example: an array `nums` of length $n$ containing nonnegative integers. The overall process is shown below.
+Let's start with a simple example. Given an array `nums` of length $n$ containing nonnegative integers, counting sort proceeds as shown below.
 
-1. Traverse the array to find its maximum value, denoted by $m$, then create an auxiliary array `counter` of length $m + 1$.
-2. **Use `counter` to count occurrences of each number in `nums`**. Here, `counter[num]` is the number of occurrences of `num`. Simply traverse `nums` and increment `counter[num]` by $1$ for each current value `num`.
-3. **Because the indices of `counter` are inherently ordered, the numbers are effectively already sorted**. Traverse `counter` and write each number into `nums` in ascending order, repeating it according to its count.
+1. Scan the array to find the largest number, $m$. Then create an auxiliary array `counter` of length $m + 1$.
+2. **Use `counter` to count how many times each number occurs in `nums`**. The entry `counter[num]` gives the count for `num`. To obtain the counts, scan `nums`. For each number `num`, increase `counter[num]` by $1$.
+3. **The indices of `counter` are naturally ordered, so they already give us the numbers in sorted order**. Scan `counter` and write the numbers into `nums` from smallest to largest, repeating each one as many times as its count indicates.
 
-![The counting sort process](counting_sort.assets/counting_sort_overview.svg)
+![Counting sort procedure](counting_sort.assets/counting_sort_overview.svg)
 
-The code is as follows:
+Here is the code:
 
 ```src
 [file]{counting_sort}-[class]{}-[func]{counting_sort_naive}
@@ -20,27 +20,27 @@ The code is as follows:
 
 !!! note "How counting sort relates to bucket sort"
 
-    From a bucket-sort perspective, each index of `counter` is a bucket, and counting occurrences is equivalent to distributing elements into their corresponding buckets. Counting sort is essentially a special case of bucket sort for integer data.
+    From the perspective of bucket sort, each index in the count array `counter` acts as a bucket, and counting elements amounts to distributing them among their corresponding buckets. Counting sort is essentially a special case of bucket sort for integers.
 
-## A complete implementation
+## A full implementation
 
-You may have noticed that **step `3.` above fails when the input consists of objects**. Suppose the inputs are product objects and we want to sort them by price, a member variable of the class. The algorithm above can produce only the sorted prices.
+You may have noticed that **step `3.` breaks down if the input consists of objects**. Suppose the objects represent products and we want to sort them by price, a member variable of the class. The algorithm above can return only the sorted prices.
 
-How can we obtain the sorted original data? First, calculate the “prefix sums” of `counter`. The prefix sum `prefix[i]` is the sum of the array entries up to index `i`:
+How can we get the original objects in sorted order? First, compute the prefix sums of `counter`. At index `i`, the prefix sum `prefix[i]` is the sum of the first `i` elements of the array:
 
 $$
 \text{prefix}[i] = \sum_{j=0}^i \text{counter[j]}
 $$
 
-**The prefix sum has a precise meaning: `prefix[num] - 1` is the index of the last occurrence of `num` in the result array `res`**. This tells us where each element belongs. Next, traverse the original array `nums` in reverse and perform two steps for each element `num`.
+**The prefix sums tell us where to place elements: `prefix[num] - 1` is the last index at which `num` occurs in the result array `res`**. With these positions in hand, traverse the original array `nums` in reverse. For each element `num`, perform the following two steps.
 
-1. Place `num` at index `prefix[num] - 1` in `res`.
-2. Decrease `prefix[num]` by $1$ to obtain the index for placing the next occurrence of `num`.
+1. Write `num` to array `res` at index `prefix[num] - 1`.
+2. Decrease the prefix sum `prefix[num]` by $1$ to get the next index for `num`.
 
-After the traversal, `res` contains the sorted result. Finally, copy `res` over the original array `nums`. The figure below shows the complete process.
+After the traversal, `res` holds the sorted result. Copy `res` back into the original array `nums`. The figure below shows the complete counting sort procedure.
 
 === "<1>"
-    ![Steps of counting sort](counting_sort.assets/counting_sort_step1.svg)
+    ![Counting sort steps](counting_sort.assets/counting_sort_step1.svg)
 
 === "<2>"
     ![counting_sort_step2](counting_sort.assets/counting_sort_step2.svg)
@@ -63,7 +63,7 @@ After the traversal, `res` contains the sorted result. Finally, copy `res` over 
 === "<8>"
     ![counting_sort_step8](counting_sort.assets/counting_sort_step8.svg)
 
-The implementation is as follows:
+Here is the implementation of counting sort:
 
 ```src
 [file]{counting_sort}-[class]{}-[func]{counting_sort}
@@ -71,14 +71,14 @@ The implementation is as follows:
 
 ## Algorithm properties
 
-- **Time complexity: $O(n + m)$; not adaptive**. Traversing `nums` and `counter` each takes linear time. Usually $n \gg m$, so the complexity approaches $O(n)$.
-- **Space complexity: $O(n + m)$; not in-place**. The algorithm uses arrays `res` and `counter` of lengths $n$ and $m$, respectively.
-- **Stable**. Since elements are placed into `res` from right to left, traversing `nums` in reverse preserves the relative order of equal elements. A forward traversal also produces a correctly sorted result, but it is not stable.
+- **Time complexity: $O(n + m)$, nonadaptive**. Scanning `nums` and scanning `counter` each take linear time. Typically, $n \gg m$, so the time complexity approaches $O(n)$.
+- **Space complexity: $O(n + m)$, out-of-place**. The algorithm uses an array of length $n$ for `res` and an array of length $m$ for `counter`.
+- **Stable**. For each value, we fill its positions in `res` from right to left. Scanning `nums` backward therefore preserves the relative order of equal elements, making the sort stable. Scanning `nums` forward would still produce a correctly sorted sequence of values, but the sort would be unstable.
 
 ## Limitations
 
-Counting sort may seem ingenious: it sorts efficiently simply by counting occurrences. However, its prerequisites are relatively restrictive.
+Counting sort is an ingenious way to sort efficiently simply by counting occurrences. However, the input has to meet fairly strict requirements.
 
-**Counting sort applies only to nonnegative integers**. For other data types, the values must be convertible to nonnegative integers without changing their relative order. For example, if an integer array contains negative numbers, add a constant to every element to make them all positive, sort, and then reverse the transformation.
+**Counting sort works directly only with nonnegative integers**. For other types, we must be able to convert the data to nonnegative integers while preserving the ordering by value. For example, if an integer array contains negative values, we can add a constant to every value to make them all positive, sort the array, and then subtract the constant.
 
-**Counting sort suits large datasets with a relatively small value range**. In the example above, $m$ must not be too large, or the algorithm will consume excessive space. When $n \ll m$, counting sort takes $O(m)$ time and may be slower than an $O(n \log n)$ sorting algorithm.
+**Counting sort works well when there are many elements but the range of values is small**. In our example, a large $m$ would require too much space. And when $n \ll m$, counting sort takes $O(m)$ time and may be slower than an $O(n \log n)$ sorting algorithm.

@@ -16,7 +16,7 @@ typedef struct {
     int val;
 } Vertex;
 
-/* Constructor: initialize a new vertex */
+/* Create and initialize a new vertex */
 Vertex *newVertex(int val) {
     Vertex *vet;
     vet = (Vertex *)malloc(sizeof(Vertex));

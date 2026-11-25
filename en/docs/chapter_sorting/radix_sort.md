@@ -1,28 +1,28 @@
 # Radix sort
 
-The previous section introduced counting sort, which suits a large number of elements $n$ with a small value range $m$. Suppose we need to sort $n = 10^6$ student IDs, each an $8$-digit number. The value range $m = 10^8$ is very large, so counting sort would require substantial memory. Radix sort avoids this problem.
+The previous section introduced counting sort, which works well when the number of elements $n$ is large but the range of values $m$ is small. Suppose we need to sort $n = 10^6$ student IDs, each $8$ digits long. The range of values, $m = 10^8$, is so large that counting sort would require a great deal of memory. Radix sort avoids this problem.
 
-<u>Radix sort</u> shares counting sort's core idea of sorting by counting occurrences. It also uses the relative significance of digit positions, sorting one digit at a time to obtain the final order.
+<u>Radix sort</u> shares counting sort's basic idea of using counts to order elements. It also takes advantage of place value: sorting by one digit at a time, in succession, produces the final sorted order.
 
-## Algorithm steps
+## How the algorithm works
 
-For the student IDs, number the least significant digit as $1$ and the most significant as $8$. Radix sort proceeds as shown below.
+For the student IDs, number the digits from $1$ at the least significant end to $8$ at the most significant end. The figure below shows how radix sort proceeds.
 
 1. Initialize the digit position $k = 1$.
-2. Apply counting sort to the $k$th digit of each student ID. The data is now sorted in ascending order by its $k$th digit.
-3. Increase the digit position $k$ by $1$ and return to step `2.`. Continue until all digit positions have been processed.
+2. Apply counting sort to digit $k$ of the student IDs. The IDs are now in ascending order by digit $k$.
+3. Increase $k$ by $1$ and return to step `2.`. Stop after sorting by every digit.
 
-![The radix sort process](radix_sort.assets/radix_sort_overview.svg)
+![Radix sort procedure](radix_sort.assets/radix_sort_overview.svg)
 
-Now consider the implementation. For a number $x$ in base $d$, its $k$th digit $x_k$ can be obtained with the following formula:
+Let's look at the implementation. For a base-$d$ number $x$, we can obtain digit $k$, denoted by $x_k$, with the following formula:
 
 $$
 x_k = \lfloor\frac{x}{d^{k-1}}\rfloor \bmod d
 $$
 
-Here, $\lfloor a \rfloor$ rounds the floating-point value $a$ down, and $\bmod \: d$ takes the remainder modulo $d$. For the student IDs, $d = 10$ and $k \in [1, 8]$.
+Here $\lfloor a \rfloor$ rounds the floating-point number $a$ down to an integer, and $\bmod \: d$ takes the remainder after division by $d$. For the student IDs, $d = 10$ and $k \in [1, 8]$.
 
-We also need to modify counting sort slightly so that it sorts by the $k$th digit:
+We also need to adapt counting sort slightly so that it sorts numbers by digit $k$:
 
 ```src
 [file]{radix_sort}-[class]{}-[func]{radix_sort}
@@ -30,12 +30,12 @@ We also need to modify counting sort slightly so that it sorts by the $k$th digi
 
 !!! question "Why start with the least significant digit?"
 
-    In successive rounds, a later sort takes precedence over an earlier one. For example, if the first round orders two elements as $a < b$ but the second orders them as $a > b$, the second result replaces the first. Higher digits have greater priority, so lower digits must be sorted first.
+    Each pass takes precedence over the one before it. For example, if the first pass orders two elements as $a < b$ but the second orders them as $a > b$, the second order prevails. Since more significant digits have higher priority, sort by the less significant digits first.
 
 ## Algorithm properties
 
-Compared with counting sort, radix sort handles a larger range of values, **provided the data can be represented with a fixed number of digits and that number is not too large**. For example, floating-point numbers are unsuitable because their digit count $k$ may be so large that $O(nk) \gg O(n^2)$.
+Compared with counting sort, radix sort handles a larger range of values, **provided that the data can be represented with a fixed number of digits and that this number is not too large**. For example, floating-point numbers are a poor fit here because their digit count $k$ can be so large that the time complexity satisfies $O(nk) \gg O(n^2)$.
 
-- **Time complexity: $O(nk)$; not adaptive**. For $n$ elements represented in base $d$ with at most $k$ digits, counting sort on one digit takes $O(n + d)$ time. Sorting all $k$ digits takes $O((n + d)k)$. Usually $d$ and $k$ are relatively small, so the complexity approaches $O(n)$.
-- **Space complexity: $O(n + d)$; not in-place**. Like counting sort, radix sort requires arrays `res` and `counter` of lengths $n$ and $d$.
-- **Stable**. Radix sort is stable when the counting sort used within it is stable. If counting sort is not stable, radix sort cannot guarantee a correctly sorted result.
+- **Time complexity: $O(nk)$, nonadaptive**. Suppose there are $n$ elements in base $d$, each with at most $k$ digits. Counting sort takes $O(n + d)$ time for one digit, so sorting by all $k$ digits takes $O((n + d)k)$ time. Typically, $d$ and $k$ are both small and the time complexity approaches $O(n)$.
+- **Space complexity: $O(n + d)$, out-of-place**. As in counting sort, radix sort uses an array `res` of length $n$ and an array `counter` of length $d$.
+- **Stable**. If the counting sort used for each digit is stable, radix sort is stable too. If counting sort is unstable, radix sort may produce an incorrect result.

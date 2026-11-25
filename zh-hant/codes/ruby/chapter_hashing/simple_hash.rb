@@ -44,9 +44,9 @@ def rot_hash(key)
   hash % modulus
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
-  key = "Hello 演算法"
+  key = "Hello 算法"
 
   hash = add_hash(key)
   puts "加法雜湊值為 #{hash}"

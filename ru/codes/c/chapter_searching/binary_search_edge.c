@@ -6,61 +6,61 @@
 
 #include "../utils/common.h"
 
-/* Двоичный поиск точки вставки (с повторяющимися элементами) */
+/* Двоичный поиск позиции вставки при наличии повторов */
 int binarySearchInsertion(int *nums, int numSize, int target) {
-    int i = 0, j = numSize - 1; // Инициализировать замкнутый интервал [0, n-1]
+    int i = 0, j = numSize - 1; // Задаём замкнутый интервал [0, n-1]
     while (i <= j) {
-        int m = i + (j - i) / 2; // Вычислить индекс середины m
+        int m = i + (j - i) / 2; // Вычисляем индекс середины m
         if (nums[m] < target) {
-            i = m + 1; // target находится в интервале [m+1, j]
+            i = m + 1; // Ищем target в интервале [m+1, j]
         } else {
-            j = m - 1; // Самый правый элемент, меньший target, находится в интервале [i, m-1]
+            j = m - 1; // В интервале [i, m-1] ищем последний элемент, меньший target
         }
     }
-    // Вернуть точку вставки i
+    // Возвращаем позицию вставки i
     return i;
 }
 
-/* Двоичный поиск самого левого элемента target */
+/* Двоичный поиск первого вхождения target */
 int binarySearchLeftEdge(int *nums, int numSize, int target) {
-    // Эквивалентно поиску точки вставки target
+    // Задача равносильна поиску позиции вставки target
     int i = binarySearchInsertion(nums, numSize, target);
-    // target не найден, вернуть -1
+    // Значение target не найдено, возвращаем -1
     if (i == numSize || nums[i] != target) {
         return -1;
     }
-    // target найден, возвращается индекс i
+    // Значение target найдено, возвращаем индекс i
     return i;
 }
 
-/* Двоичный поиск самого правого элемента target */
+/* Двоичный поиск последнего вхождения target */
 int binarySearchRightEdge(int *nums, int numSize, int target) {
-    // Преобразовать задачу в поиск самого левого target + 1
+    // Сводим задачу к поиску первого вхождения target + 1
     int i = binarySearchInsertion(nums, numSize, target + 1);
-    // j указывает на самый правый target, а i — на первый элемент больше target
+    // j указывает на последнее вхождение target, а i — на первый элемент, больший target
     int j = i - 1;
-    // target не найден, вернуть -1
+    // Значение target не найдено, возвращаем -1
     if (j == -1 || nums[j] != target) {
         return -1;
     }
-    // target найден, возвращается индекс j
+    // Значение target найдено, возвращаем индекс j
     return j;
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
     // Массив с повторяющимися элементами
     int nums[] = {1, 3, 6, 6, 6, 6, 6, 10, 12, 15};
     printf("\nМассив nums = ");
     printArray(nums, sizeof(nums) / sizeof(nums[0]));
 
-    // Двоичный поиск левой и правой границы
+    // Двоичный поиск левой и правой границ
     int targets[] = {6, 7};
     for (int i = 0; i < sizeof(targets) / sizeof(targets[0]); i++) {
         int index = binarySearchLeftEdge(nums, sizeof(nums) / sizeof(nums[0]), targets[i]);
-        printf("Индекс самого левого элемента %d = %d\n", targets[i], index);
+        printf("Индекс первого вхождения %d = %d\n", targets[i], index);
         index = binarySearchRightEdge(nums, sizeof(nums) / sizeof(nums[0]), targets[i]);
-        printf("Индекс самого правого элемента %d = %d\n", targets[i], index);
+        printf("Индекс последнего вхождения %d = %d\n", targets[i], index);
     }
 
     return 0;

@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Coin change II: dynamic programming */
+/* Coin change II with dynamic programming */
 int coinChangeIIDP(List<int> coins, int amt) {
   int n = coins.length;
   // Initialize the dp table
@@ -13,14 +13,14 @@ int coinChangeIIDP(List<int> coins, int amt) {
   for (int i = 0; i <= n; i++) {
     dp[i][0] = 1;
   }
-  // State transitions
+  // State transition
   for (int i = 1; i <= n; i++) {
     for (int a = 1; a <= amt; a++) {
       if (coins[i - 1] > a) {
-        // If the coin exceeds the current amount a, do not choose coin i
+        // Skip coin i if its value exceeds the target amount
         dp[i][a] = dp[i - 1][a];
       } else {
-        // Add the numbers of ways without and with coin i
+        // Add the counts for skipping and taking coin i
         dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
       }
     }
@@ -28,20 +28,20 @@ int coinChangeIIDP(List<int> coins, int amt) {
   return dp[n][amt];
 }
 
-/* Coin change II: space-optimized dynamic programming */
+/* Coin change II with space-optimized dynamic programming */
 int coinChangeIIDPComp(List<int> coins, int amt) {
   int n = coins.length;
   // Initialize the dp table
   List<int> dp = List.filled(amt + 1, 0);
   dp[0] = 1;
-  // State transitions
+  // State transition
   for (int i = 1; i <= n; i++) {
     for (int a = 1; a <= amt; a++) {
       if (coins[i - 1] > a) {
-        // If the coin exceeds the current amount a, do not choose coin i
+        // Skip coin i if its value exceeds the target amount
         dp[a] = dp[a];
       } else {
-        // Add the numbers of ways without and with coin i
+        // Add the counts for skipping and taking coin i
         dp[a] = dp[a] + dp[a - coins[i - 1]];
       }
     }

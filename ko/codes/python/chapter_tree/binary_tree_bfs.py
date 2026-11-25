@@ -13,30 +13,30 @@ from collections import deque
 
 
 def level_order(root: TreeNode | None) -> list[int]:
-    """레벨 순서 순회"""
+    """레벨 순회"""
     # 큐를 초기화하고 루트 노드를 넣는다
     queue: deque[TreeNode] = deque()
     queue.append(root)
-    # 순회 순서를 저장할 리스트를 초기화한다
+    # 순회 결과를 저장할 리스트를 초기화한다
     res = []
     while queue:
-        node: TreeNode = queue.popleft()  # 큐에서 꺼낸다
+        node: TreeNode = queue.popleft()  # 큐에서 노드를 꺼낸다
         res.append(node.val)  # 노드 값을 저장한다
         if node.left is not None:
-            queue.append(node.left)  # 왼쪽 자식 노드를 큐에 삽입한다
+            queue.append(node.left)  # 왼쪽 자식을 큐에 넣는다
         if node.right is not None:
-            queue.append(node.right)  # 오른쪽 자식 노드를 큐에 삽입한다
+            queue.append(node.right)  # 오른쪽 자식을 큐에 넣는다
     return res
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     # 이진 트리 초기화
-    # 여기서는 배열로부터 이진 트리를 바로 생성하는 함수를 사용한다
+    # 배열에서 바로 이진 트리를 만드는 함수를 사용한다
     root: TreeNode = list_to_tree(arr=[1, 2, 3, 4, 5, 6, 7])
     print("\n이진 트리 초기화\n")
     print_tree(root)
 
-    # 레벨 순서 순회
+    # 레벨 순회
     res: list[int] = level_order(root)
-    print("\n레벨 순서 순회의 노드 출력 순서 = ", res)
+    print("\n레벨 순회로 출력한 노드 순서 = ", res)

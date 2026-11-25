@@ -8,7 +8,7 @@ import { type TreeNode } from '../modules/TreeNode';
 import { arrToTree } from '../modules/TreeNode';
 import { printTree } from '../modules/PrintUtil';
 
-/* 현재 상태가 해인지 판단 */
+/* 현재 상태가 해인지 확인한다 */
 function isSolution(state: TreeNode[]): boolean {
     return state && state[state.length - 1]?.val === 7;
 }
@@ -18,22 +18,22 @@ function recordSolution(state: TreeNode[], res: TreeNode[][]): void {
     res.push([...state]);
 }
 
-/* 현재 상태에서 해당 선택이 유효한지 판단 */
+/* 현재 상태에서 이 선택이 유효한지 확인한다 */
 function isValid(state: TreeNode[], choice: TreeNode): boolean {
     return choice !== null && choice.val !== 3;
 }
 
-/* 상태 갱신 */
+/* 상태를 갱신한다 */
 function makeChoice(state: TreeNode[], choice: TreeNode): void {
     state.push(choice);
 }
 
-/* 상태 복원 */
+/* 상태를 복원한다 */
 function undoChoice(state: TreeNode[]): void {
     state.pop();
 }
 
-/* 백트래킹 알고리즘: 예제 3 */
+/* 백트래킹: 예제 3 */
 function backtrack(
     state: TreeNode[],
     choices: TreeNode[],
@@ -48,11 +48,11 @@ function backtrack(
     for (const choice of choices) {
         // 가지치기: 선택이 유효한지 확인한다
         if (isValid(state, choice)) {
-            // 시도: 선택하고 상태를 갱신한다
+            // 시도: 하나를 선택하고 상태를 갱신한다
             makeChoice(state, choice);
             // 다음 선택을 진행한다
             backtrack(state, [choice.left, choice.right], res);
-            // 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+            // 되돌리기: 선택을 취소하고 이전 상태를 복원한다
             undoChoice(state);
         }
     }
@@ -67,7 +67,7 @@ printTree(root);
 const res: TreeNode[][] = [];
 backtrack([], [root], res);
 
-console.log('\n값이 3인 노드를 포함하지 않는 조건으로, 루트 노드에서 노드 7까지의 모든 경로 출력');
+console.log('\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

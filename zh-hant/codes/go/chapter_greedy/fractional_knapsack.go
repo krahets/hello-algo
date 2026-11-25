@@ -12,28 +12,28 @@ type Item struct {
 	v int // 物品價值
 }
 
-/* 分數背包：貪婪 */
+/* 分數背包：貪婪法 */
 func fractionalKnapsack(wgt []int, val []int, cap int) float64 {
-	// 建立物品串列，包含兩個屬性：重量、價值
+	// 建立物品清單，每件物品有重量與價值兩項屬性
 	items := make([]Item, len(wgt))
 	for i := 0; i < len(wgt); i++ {
 		items[i] = Item{wgt[i], val[i]}
 	}
-	// 按照單位價值 item.v / item.w 從高到低進行排序
+	// 依單位價值 item.v / item.w 由高到低排序
 	sort.Slice(items, func(i, j int) bool {
 		return float64(items[i].v)/float64(items[i].w) > float64(items[j].v)/float64(items[j].w)
 	})
-	// 迴圈貪婪選擇
+	// 反覆依貪婪策略選取物品
 	res := 0.0
 	for _, item := range items {
 		if item.w <= cap {
-			// 若剩餘容量充足，則將當前物品整個裝進背包
+			// 若剩餘容量足夠，就將目前的物品整件裝入背包
 			res += float64(item.v)
 			cap -= item.w
 		} else {
-			// 若剩餘容量不足，則將當前物品的一部分裝進背包
+			// 若剩餘容量不足，就將目前物品的一部分裝入背包
 			res += float64(item.v) / float64(item.w) * float64(cap)
-			// 已無剩餘容量，因此跳出迴圈
+			// 背包已滿，跳出迴圈
 			break
 		}
 	}

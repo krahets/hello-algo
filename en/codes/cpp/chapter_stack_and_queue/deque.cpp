@@ -11,27 +11,27 @@ int main() {
     /* Initialize the deque */
     deque<int> deque;
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.push_back(2);
     deque.push_back(5);
     deque.push_back(4);
     deque.push_front(3);
     deque.push_front(1);
-    cout << "Deque deque = ";
+    cout << "deque = ";
     printDeque(deque);
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     int front = deque.front();
-    cout << "Front element front = " << front << endl;
+    cout << "Front element (front) = " << front << endl;
     int back = deque.back();
-    cout << "Rear element back = " << back << endl;
+    cout << "Rear element (back) = " << back << endl;
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     deque.pop_front();
-    cout << "Element removed from the front, popFront = " << front << ", after dequeuing from the front, deque = ";
+    cout << "Removed from the front (popFront) = " << front << ", deque after removal = ";
     printDeque(deque);
     deque.pop_back();
-    cout << "Element removed from the rear, popLast = " << back << ", after dequeuing from the rear, deque = ";
+    cout << "Removed from the rear (popLast) = " << back << ", deque after removal = ";
     printDeque(deque);
 
     /* Get the deque size */
@@ -40,7 +40,7 @@ int main() {
 
     /* Check whether the deque is empty */
     bool empty = deque.empty();
-    cout << "Is the deque empty = " << empty << endl;
+    cout << "Deque is empty = " << empty << endl;
 
     return 0;
 }

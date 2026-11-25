@@ -6,32 +6,32 @@
 
 #include "../utils/common.h"
 
-// Предположить, что все элементы меньше 1000
+// Предполагаем, что все элементы меньше 1000
 #define MAX_SIZE 1000
 
-/* Построить двоичное дерево: разделяй и властвуй */
+/* Построение двоичного дерева методом «разделяй и властвуй» */
 TreeNode *dfs(int *preorder, int *inorderMap, int i, int l, int r, int size) {
-    // Завершить при пустом диапазоне поддерева
+    // Если интервал поддерева пуст, завершаем рекурсию
     if (r - l < 0)
         return NULL;
-    // Инициализировать корневой узел
+    // Создаём корень
     TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
     root->val = preorder[i];
     root->left = NULL;
     root->right = NULL;
-    // Найти m, чтобы разделить левое и правое поддеревья
+    // Находим m и разделяем левое и правое поддеревья
     int m = inorderMap[preorder[i]];
-    // Подзадача: построить левое поддерево
+    // Подзадача: строим левое поддерево
     root->left = dfs(preorder, inorderMap, i + 1, l, m - 1, size);
-    // Подзадача: построить правое поддерево
+    // Подзадача: строим правое поддерево
     root->right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r, size);
-    // Вернуть корневой узел
+    // Возвращаем корень
     return root;
 }
 
-/* Построить двоичное дерево */
+/* Построение двоичного дерева */
 TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
-    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
+    // Создаём хеш-таблицу индексов элементов inorder
     int *inorderMap = (int *)malloc(sizeof(int) * MAX_SIZE);
     for (int i = 0; i < inorderSize; i++) {
         inorderMap[inorder[i]] = i;
@@ -41,13 +41,13 @@ TreeNode *buildTree(int *preorder, int preorderSize, int *inorder, int inorderSi
     return root;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int preorder[] = {3, 9, 2, 1, 7};
     int inorder[] = {9, 3, 1, 2, 7};
     int preorderSize = sizeof(preorder) / sizeof(preorder[0]);
     int inorderSize = sizeof(inorder) / sizeof(inorder[0]);
-    printf("Предварительный обход = ");
+    printf("Прямой обход = ");
     printArray(preorder, preorderSize);
     printf("Симметричный обход = ");
     printArray(inorder, inorderSize);

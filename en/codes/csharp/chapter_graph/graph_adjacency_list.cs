@@ -6,9 +6,9 @@
 
 namespace hello_algo.chapter_graph;
 
-/* Undirected graph class implemented with an adjacency list */
+/* Undirected graph represented by an adjacency list */
 public class GraphAdjList {
-    // Adjacency list: key is a vertex, value is the list of all its neighbors
+    // Adjacency list: each vertex maps to its neighbors
     public Dictionary<Vertex, List<Vertex>> adjList;
 
     /* Constructor */
@@ -22,7 +22,7 @@ public class GraphAdjList {
         }
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     int Size() {
         return adjList.Count;
     }
@@ -31,7 +31,7 @@ public class GraphAdjList {
     public void AddEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
-        // Add edge vet1 - vet2
+        // Add the edge vet1 - vet2
         adjList[vet1].Add(vet2);
         adjList[vet2].Add(vet1);
     }
@@ -40,7 +40,7 @@ public class GraphAdjList {
     public void RemoveEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         adjList[vet1].Remove(vet2);
         adjList[vet2].Remove(vet1);
     }
@@ -49,7 +49,7 @@ public class GraphAdjList {
     public void AddVertex(Vertex vet) {
         if (adjList.ContainsKey(vet))
             return;
-        // Add a new list to the adjacency list
+        // Add a new linked list to the adjacency list
         adjList.Add(vet, []);
     }
 
@@ -57,9 +57,9 @@ public class GraphAdjList {
     public void RemoveVertex(Vertex vet) {
         if (!adjList.ContainsKey(vet))
             throw new InvalidOperationException();
-        // Remove the list corresponding to vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         adjList.Remove(vet);
-        // Traverse the lists of the other vertices and remove all edges incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         foreach (List<Vertex> list in adjList.Values) {
             list.Remove(vet);
         }
@@ -80,7 +80,7 @@ public class GraphAdjList {
 public class graph_adjacency_list {
     [Test]
     public void Test() {
-        /* Initialize the undirected graph */
+        /* Initialize an undirected graph */
         Vertex[] v = Vertex.ValsToVets([1, 3, 2, 5, 4]);
         Vertex[][] edges =
         [
@@ -96,13 +96,13 @@ public class graph_adjacency_list {
         graph.Print();
 
         /* Add an edge */
-        // Vertices 1 and 2 are v[0] and v[2]
+        // Vertices 1 and 2 are v[0] and v[2], respectively
         graph.AddEdge(v[0], v[2]);
         Console.WriteLine("\nGraph after adding edge 1-2:");
         graph.Print();
 
         /* Remove an edge */
-        // Vertices 1 and 3 are v[0] and v[1]
+        // Vertices 1 and 3 are v[0] and v[1], respectively
         graph.RemoveEdge(v[0], v[1]);
         Console.WriteLine("\nGraph after removing edge 1-3:");
         graph.Print();

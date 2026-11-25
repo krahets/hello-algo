@@ -12,7 +12,7 @@ import (
 func TestCountingSort(t *testing.T) {
 	nums := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSortNaive(nums)
-	fmt.Println("計數排序（無法排序物件）完成後 nums = ", nums)
+	fmt.Println("計數排序（無法將物件排序）完成後 nums = ", nums)
 
 	nums1 := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSort(nums1)

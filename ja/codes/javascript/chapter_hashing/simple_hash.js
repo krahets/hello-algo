@@ -24,7 +24,7 @@ function mulHash(key) {
     return hash;
 }
 
-/* 排他的論理和ハッシュ */
+/* XOR ハッシュ */
 function xorHash(key) {
     let hash = 0;
     const MODULUS = 1000000007;
@@ -44,7 +44,7 @@ function rotHash(key) {
     return hash;
 }
 
-/* 実行用コード */
+/* 実行例 */
 const key = 'Hello 算法';
 
 let hash = addHash(key);
@@ -54,7 +54,7 @@ hash = mulHash(key);
 console.log('乗算ハッシュの値は ' + hash);
 
 hash = xorHash(key);
-console.log('排他的論理和ハッシュの値は ' + hash);
+console.log('XOR ハッシュの値は ' + hash);
 
 hash = rotHash(key);
 console.log('回転ハッシュの値は ' + hash);

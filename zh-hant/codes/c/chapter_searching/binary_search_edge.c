@@ -6,61 +6,61 @@
 
 #include "../utils/common.h"
 
-/* 二分搜尋插入點（存在重複元素） */
+/* 用二分搜尋找插入點（有重複元素） */
 int binarySearchInsertion(int *nums, int numSize, int target) {
-    int i = 0, j = numSize - 1; // 初始化雙閉區間 [0, n-1]
+    int i = 0, j = numSize - 1; // 將閉區間設為 [0, n-1]
     while (i <= j) {
         int m = i + (j - i) / 2; // 計算中點索引 m
         if (nums[m] < target) {
-            i = m + 1; // target 在區間 [m+1, j] 中
+            i = m + 1; // target 若存在，必在區間 [m+1, j] 內
         } else {
-            j = m - 1; // 最右一個小於 target 的元素在區間 [i, m-1] 中
+            j = m - 1; // 最右邊小於 target 的元素位於區間 [i, m-1] 內
         }
     }
-    // 返回插入點 i
+    // 回傳插入點 i
     return i;
 }
 
-/* 二分搜尋最左一個 target */
+/* 用二分搜尋找最左邊的 target */
 int binarySearchLeftEdge(int *nums, int numSize, int target) {
-    // 等價於查詢 target 的插入點
+    // 等同於搜尋 target 的插入點
     int i = binarySearchInsertion(nums, numSize, target);
-    // 未找到 target ，返回 -1
+    // 找不到 target，回傳 -1
     if (i == numSize || nums[i] != target) {
         return -1;
     }
-    // 找到 target ，返回索引 i
+    // 找到 target，回傳索引 i
     return i;
 }
 
-/* 二分搜尋最右一個 target */
+/* 用二分搜尋找最右邊的 target */
 int binarySearchRightEdge(int *nums, int numSize, int target) {
-    // 轉化為查詢最左一個 target + 1
+    // 改為搜尋 target + 1 的最左插入位置
     int i = binarySearchInsertion(nums, numSize, target + 1);
-    // j 指向最右一個 target ，i 指向首個大於 target 的元素
+    // j 指向最右邊的 target，i 指向第一個大於 target 的元素
     int j = i - 1;
-    // 未找到 target ，返回 -1
+    // 找不到 target，回傳 -1
     if (j == -1 || nums[j] != target) {
         return -1;
     }
-    // 找到 target ，返回索引 j
+    // 找到 target，回傳索引 j
     return j;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
-    // 包含重複元素的陣列
+    // 含有重複元素的陣列
     int nums[] = {1, 3, 6, 6, 6, 6, 6, 10, 12, 15};
     printf("\n陣列 nums = ");
     printArray(nums, sizeof(nums) / sizeof(nums[0]));
 
-    // 二分搜尋左邊界和右邊界
+    // 用二分搜尋找左界和右界
     int targets[] = {6, 7};
     for (int i = 0; i < sizeof(targets) / sizeof(targets[0]); i++) {
         int index = binarySearchLeftEdge(nums, sizeof(nums) / sizeof(nums[0]), targets[i]);
-        printf("最左一個元素 %d 的索引為 %d\n", targets[i], index);
+        printf("最左邊的元素 %d 的索引為 %d\n", targets[i], index);
         index = binarySearchRightEdge(nums, sizeof(nums) / sizeof(nums[0]), targets[i]);
-        printf("最右一個元素 %d 的索引為 %d\n", targets[i], index);
+        printf("最右邊的元素 %d 的索引為 %d\n", targets[i], index);
     }
 
     return 0;

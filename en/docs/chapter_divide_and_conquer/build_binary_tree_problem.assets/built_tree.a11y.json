@@ -1,293 +1,332 @@
 {
-  "schema_version": 2,
-  "title": "Recursive tree construction: create nodes on the way down, connect subtrees on return",
-  "summary": "Create nodes 3, 9, 2, 1, and 7 during recursive descent, and attach each subtree to its parent only as calls return, building the five-node tree.",
+  "animations": {
+    "build-binary-tree": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-317",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-318",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-319",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-320",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-321",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-322",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-323",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-324",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-325",
+          "id": "step-9"
+        }
+      ]
+    }
+  },
   "context": [
-    "The input is preorder traversal preorder = [3, 9, 2, 1, 7] and inorder traversal inorder = [9, 3, 1, 2, 7], with all node values distinct.",
-    "Each recursive subproblem first initializes the current root node from the first element of its active preorder segment (creating the node during top-down descent), then partitions by the inorder root position and recursively builds the left and right subtrees; only after a child call returns its subtree root does the parent call assign it to the current root's left or right reference (establishing edges during bottom-up return). Calls on empty intervals return None immediately."
+    "The inputs are the traversals preorder = [3, 9, 2, 1, 7] and inorder = [9, 3, 1, 2, 7], with distinct node values.",
+    "Each recursive subproblem creates its root from the first element of the active preorder segment on descent. It splits the inorder segment at the root and recursively builds the left and right subtrees. Only when a child call returns its subtree root does the parent assign the current root’s left or right reference, creating the edge on return. A call on an empty interval returns None immediately."
   ],
   "description": [
-    "Nine frames capture the moments when a node is created or a completed subtree is attached; empty-interval calls returning None are not shown as separate frames. In each step, the \"Tree construction step N\" table lists every node created so far and its child references. \"Not yet connected\" means the corresponding subtree is still awaiting construction or return, whereas \"No child\" means the node has no child on that side."
+    "Nine frames show nodes being created or subtrees being attached. Calls that return None for empty intervals have no separate frame. Each “Tree construction, step N” table lists all nodes and references created so far. “Unlinked” means the subtree still awaits construction or attachment on return. “None” means that child is absent."
   ],
-  "result": "The finished tree has preorder traversal [3, 9, 2, 1, 7] and inorder traversal [9, 3, 1, 2, 7], matching the input.",
   "frames": [
     {
-      "id": "source-317",
+      "announcement": "Create root 3 and separate the left subtree [9] from the three nodes of the right subtree.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step1.png",
-      "title": "Create root node 3",
-      "explanation": "Enter the top-level call with i = 0 and inorder interval [0, 4], creating root 3 from the first preorder element. Finding 3 at inorder index 1 splits out left subtree [9] and a right subtree with inorder [1, 2, 7] and preorder [2, 1, 7]. Only root 3 exists so far, with no parent-child edges; recursion next builds the left subtree.",
-      "key_state": "Root node 3 created; left and right subtrees not yet connected.",
-      "announcement": "Create root node 3, partitioning left subtree [9] and the three nodes of the right subtree.",
+      "explanation": "Enter the top-level call with i = 0 and inorder interval [0, 4]. Create root 3 from the first preorder value. Its inorder index is 1. The left subtree is [9], and the right subtree has inorder [1, 2, 7] and preorder [2, 1, 7]. Only root 3 exists, with no edges yet. Recurse into the left subtree first.",
+      "id": "source-317",
+      "key_state": "Root 3 exists. Neither subtree is linked yet.",
       "state_tables": [
         {
-          "caption": "Tree construction step 1: nodes and references after creating root node 3",
+          "caption": "Tree construction, step 1: nodes and references after creating root 3",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
-              "Not yet connected",
-              "Not yet connected"
+              "Unlinked",
+              "Unlinked"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Create root 3"
     },
     {
-      "id": "source-318",
+      "announcement": "Recurse into the left subproblem and create leaf 9, ready to return it.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step2.png",
-      "title": "Create leaf node 9",
-      "explanation": "Enter the left subproblem with i = 1 and inorder interval [0, 0], creating node 9. Both of its left and right inorder subintervals are empty, so those empty-subtree calls return None, making 9 a leaf node. Because the call building node 9 has not yet returned it to root 3, there is still no edge between the two nodes.",
-      "key_state": "Leaf node 9 created, not yet connected to root node 3.",
-      "announcement": "Recurse into the left subproblem, create leaf node 9, and prepare to return up.",
+      "explanation": "Enter the left subproblem with i = 1 and inorder interval [0, 0]. Create node 9. Both of its inorder subintervals are empty, so the corresponding calls return None, making 9 a leaf. The call building 9 has not yet returned it to root 3, so no edge joins the two nodes.",
+      "id": "source-318",
+      "key_state": "Leaf 9 exists and is waiting to be linked to root 3.",
       "state_tables": [
         {
-          "caption": "Tree construction step 2: nodes and references after creating leaf node 9",
+          "caption": "Tree construction, step 2: nodes and references after creating leaf 9",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
-              "Not yet connected",
-              "Not yet connected"
+              "Unlinked",
+              "Unlinked"
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Create leaf 9"
     },
     {
-      "id": "source-319",
+      "announcement": "Attach the returned leaf 9 to the left of root 3.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step3.png",
-      "title": "Attach left subtree 9",
-      "explanation": "The call that built node 9 returns it to root 3, and the parent call sets 3.left = 9, establishing the first edge. Root 3's right subtree has not been built yet, so execution next enters the right subproblem.",
-      "key_state": "Edge 3.left = 9 established; right subtree of root 3 still to be built.",
-      "announcement": "Attach the returned leaf node 9 as the left child of root node 3.",
+      "explanation": "The call that built node 9 returns it to root 3. The parent call sets 3.left = 9, creating the first edge. The right subtree of root 3 remains to be built. Continue with the right subproblem.",
+      "id": "source-319",
+      "key_state": "The edge 3.left = 9 is in place. The right subtree of root 3 still needs to be built.",
       "state_tables": [
         {
-          "caption": "Tree construction step 3: nodes and references after attaching left subtree 9",
+          "caption": "Tree construction, step 3: nodes and references after attaching left subtree 9",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
               "9",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Attach left subtree 9"
     },
     {
-      "id": "source-320",
+      "announcement": "Create node 2 as the right subtree root and split its children into subproblems [1] and [7].",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step4.png",
-      "title": "Create right-subtree root 2",
-      "explanation": "Enter the right subproblem with i = 2 and inorder interval [2, 4], creating node 2 from the first element of the active preorder segment [2, 1, 7]. Node 2 lies at inorder index m = 3, splitting its left subproblem [1] and right subproblem [7]. Edge 3.left = 9 remains unchanged; neither side of 2 is connected yet, and the call rooted at 2 has not yet returned to 3, so there is no edge between 3 and 2.",
-      "key_state": "Node 2 created with both subtrees pending; only 3.left = 9 is connected, and 2 is not yet attached to 3.",
-      "announcement": "Create right-subtree root node 2 and partition its left and right subproblems [1] and [7].",
+      "explanation": "Enter the right subproblem with i = 2 and inorder interval [2, 4]. Create node 2 from the first element of the active preorder segment [2, 1, 7]. Its inorder index is m = 3. Its left subproblem is [1] and its right subproblem is [7]. The edge 3.left = 9 remains. Neither child of 2 is linked, and the call rooted at 2 has not yet returned to 3, so there is no edge from 3 to 2.",
+      "id": "source-320",
+      "key_state": "Node 2 exists, with both subtrees still to be built. The only edge is 3.left = 9, and 2 is still separate from 3.",
       "state_tables": [
         {
-          "caption": "Tree construction step 4: nodes and references after creating right-subtree root 2",
+          "caption": "Tree construction, step 4: nodes and references after creating right subtree root 2",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
               "9",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "2",
-              "Not yet connected",
-              "Not yet connected"
+              "Unlinked",
+              "Unlinked"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Create right subtree root 2"
     },
     {
-      "id": "source-321",
+      "announcement": "Create leaf 1, ready to return it to parent 2.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step5.png",
-      "title": "Create leaf node 1",
-      "explanation": "Enter node 2's left subproblem with i = 3 and inorder interval [2, 2], creating leaf node 1. Its left and right inorder subintervals are empty, and the call building node 1 has not yet returned it to node 2. Four nodes now exist, with only 3.left = 9 connected; 1 is not yet attached to 2, and 2 is not yet attached to 3.",
-      "key_state": "Leaf node 1 created; only 3.left = 9 is connected, with 1 not yet attached to 2 and 2 not yet attached to 3.",
-      "announcement": "Create leaf node 1 and prepare to return up to parent node 2.",
+      "explanation": "Enter the left subproblem of node 2 with i = 3 and inorder interval [2, 2]. Create leaf 1. Both inorder subintervals are empty, but the call building node 1 has not yet returned it to node 2. Four nodes now exist. The only edge is 3.left = 9. Node 1 is still separate from 2, and 2 from 3.",
+      "id": "source-321",
+      "key_state": "Leaf 1 exists. The only edge is 3.left = 9. Node 1 is still separate from 2, and 2 from 3.",
       "state_tables": [
         {
-          "caption": "Tree construction step 5: nodes and references after creating leaf node 1",
+          "caption": "Tree construction, step 5: nodes and references after creating leaf 1",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
               "9",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "2",
-              "Not yet connected",
-              "Not yet connected"
+              "Unlinked",
+              "Unlinked"
             ],
             [
               "1",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Create leaf 1"
     },
     {
-      "id": "source-322",
+      "announcement": "Attach the returned leaf 1 to the left of node 2.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step6.png",
-      "title": "Attach left subtree of node 2",
-      "explanation": "The call building node 1 returns to node 2, and the parent call sets 2.left = 1. Edges 3.left = 9 and 2.left = 1 are now in place; node 2's right subproblem [7] still awaits construction, and 2 has not yet returned to attach to 3.",
-      "key_state": "Edges 3.left = 9 and 2.left = 1 connected; 2.right still pending, and 2 not yet attached to 3.",
-      "announcement": "Attach the returned leaf node 1 as the left child of node 2.",
+      "explanation": "The call that built node 1 returns it to node 2. The parent call sets 2.left = 1. The edges are now 3.left = 9 and 2.left = 1. The right subproblem [7] still needs to be built, and node 2 has yet to return and attach to 3.",
+      "id": "source-322",
+      "key_state": "The edges are 3.left = 9 and 2.left = 1. The subtree for 2.right still needs to be built, and 2 is still separate from 3.",
       "state_tables": [
         {
-          "caption": "Tree construction step 6: nodes and references after attaching the left subtree of node 2",
+          "caption": "Tree construction, step 6: nodes and references after attaching the left subtree of node 2",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
               "9",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "2",
               "1",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "1",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Attach the left subtree of node 2"
     },
     {
-      "id": "source-323",
+      "announcement": "Create leaf 7, ready to return it to parent 2.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step7.png",
-      "title": "Create leaf node 7",
-      "explanation": "Enter node 2's right subproblem with i = 4 and inorder interval [4, 4], creating the final leaf node 7. All five nodes are now created; edges 3.left = 9 and 2.left = 1 exist, while 2.right and 3.right are still unconnected. The call building node 7 is about to return it to node 2.",
-      "key_state": "All five nodes created; 3.left = 9 and 2.left = 1 are connected, while 2.right and 3.right remain unconnected.",
-      "announcement": "Create leaf node 7 and prepare to return up to parent node 2.",
+      "explanation": "Enter the right subproblem of node 2 with i = 4 and inorder interval [4, 4]. Create the last leaf, 7. All five nodes exist. The edges 3.left = 9 and 2.left = 1 are in place, while 2.right and 3.right are still unlinked. The call that built node 7 is about to return it to node 2.",
+      "id": "source-323",
+      "key_state": "All five nodes exist. The edges are 3.left = 9 and 2.left = 1. The references 2.right and 3.right are still unlinked.",
       "state_tables": [
         {
-          "caption": "Tree construction step 7: nodes and references after creating leaf node 7",
+          "caption": "Tree construction, step 7: nodes and references after creating leaf 7",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
               "9",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "2",
               "1",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "1",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "7",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Create leaf 7"
     },
     {
-      "id": "source-324",
+      "announcement": "Attach leaf 7 to the right of node 2, completing the subtree rooted at 2.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step8.png",
-      "title": "Attach right subtree of node 2",
-      "explanation": "The call building node 7 returns to node 2, and the parent call sets 2.right = 7. Three edges now exist: 3.left = 9, 2.left = 1, and 2.right = 7; the subtree rooted at 2 is complete and ready to return to root 3, though no edge connects 3 and 2 yet.",
-      "key_state": "Edge 3.left = 9 connected, and the subtree rooted at 2 (left 1, right 7) is complete; 2 is not yet attached to 3.",
-      "announcement": "Attach leaf node 7 as the right child of node 2, completing the subtree rooted at 2.",
+      "explanation": "The call that built node 7 returns it to node 2. The parent sets 2.right = 7. The three edges are now 3.left = 9, 2.left = 1, and 2.right = 7. The subtree rooted at 2 is complete and ready to return to root 3. No edge joins 3 and 2 yet.",
+      "id": "source-324",
+      "key_state": "The edge 3.left = 9 is in place. The subtree rooted at 2 is complete, with left child 1 and right child 7, and is waiting to be linked to 3.",
       "state_tables": [
         {
-          "caption": "Tree construction step 8: nodes and references after attaching the right subtree of node 2",
+          "caption": "Tree construction, step 8: nodes and references after attaching the right subtree of node 2",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
               "9",
-              "Not yet connected"
+              "Unlinked"
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "2",
@@ -296,34 +335,34 @@
             ],
             [
               "1",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "7",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Attach the right subtree of node 2"
     },
     {
-      "id": "source-325",
+      "announcement": "Attach the completed subtree rooted at 2 to the right of root 3 and return root 3 to finish construction.",
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step9.png",
-      "title": "Attach complete right subtree",
-      "explanation": "The right subtree rooted at 2 returns to the top-level call, which sets 3.right = 2 to establish the final edge. Now 3 has left child 9 and right child 2, node 2 has left child 1 and right child 7, and 9, 1, and 7 are leaves. With all four parent-child edges established, the top-level call returns root 3, completing the reconstruction.",
-      "key_state": "Tree construction complete: 3 connects to left 9 and right 2, and 2 connects to left 1 and right 7.",
-      "announcement": "Attach the completed right subtree rooted at 2 to the right of root node 3, and return root 3 to finish.",
+      "explanation": "The right subtree rooted at 2 returns to the top-level call, which sets 3.right = 2 to create the final edge. Node 3 has left child 9 and right child 2. Node 2 has left child 1 and right child 7. Nodes 9, 1, and 7 are leaves. With all four parent–child edges in place, the top-level function returns root 3 to finish construction.",
+      "id": "source-325",
+      "key_state": "The tree is complete. Node 3 has left child 9 and right child 2. Node 2 has left child 1 and right child 7.",
       "state_tables": [
         {
-          "caption": "Tree construction step 9: nodes and references after attaching the complete right subtree",
+          "caption": "Tree construction, step 9: nodes and references after attaching the completed right subtree",
           "headers": [
             "Node",
             "Left child",
             "Right child"
           ],
+          "row_header": 0,
           "rows": [
             [
               "3",
@@ -332,8 +371,8 @@
             ],
             [
               "9",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "2",
@@ -342,71 +381,35 @@
             ],
             [
               "1",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ],
             [
               "7",
-              "No child",
-              "No child"
+              "None",
+              "None"
             ]
-          ],
-          "row_header": 0
+          ]
         }
-      ]
+      ],
+      "title": "Attach the completed right subtree"
     }
   ],
-  "animations": {
-    "build-binary-tree": {
-      "kind": "source-frames",
-      "states": [
-        {
-          "id": "step-1",
-          "frame_id": "source-317"
-        },
-        {
-          "id": "step-2",
-          "frame_id": "source-318"
-        },
-        {
-          "id": "step-3",
-          "frame_id": "source-319"
-        },
-        {
-          "id": "step-4",
-          "frame_id": "source-320"
-        },
-        {
-          "id": "step-5",
-          "frame_id": "source-321"
-        },
-        {
-          "id": "step-6",
-          "frame_id": "source-322"
-        },
-        {
-          "id": "step-7",
-          "frame_id": "source-323"
-        },
-        {
-          "id": "step-8",
-          "frame_id": "source-324"
-        },
-        {
-          "id": "step-9",
-          "frame_id": "source-325"
-        }
-      ]
-    }
-  },
+  "input_tables": [
+    0
+  ],
+  "result": "The completed tree has preorder traversal [3, 9, 2, 1, 7] and inorder traversal [9, 3, 1, 2, 7], matching the input.",
+  "schema_version": 2,
+  "summary": "Recursive descent creates nodes 3, 9, 2, 1, and 7 in order. As calls return, they link each subtree to its parent, completing the five-node tree.",
   "tables": [
     {
-      "caption": "Fixed traversal input",
+      "caption": "Fixed traversal inputs",
       "headers": [
         "Index",
         "Preorder value",
         "Inorder value"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -433,11 +436,8 @@
           "7",
           "7"
         ]
-      ],
-      "row_header": 0
+      ]
     }
   ],
-  "input_tables": [
-    0
-  ]
+  "title": "Recursive tree construction: create nodes on descent and link subtrees on return"
 }

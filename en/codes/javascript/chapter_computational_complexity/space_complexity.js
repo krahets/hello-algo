@@ -14,53 +14,53 @@ function constFunc() {
     return 0;
 }
 
-/* Constant complexity */
+/* Constant space */
 function constant(n) {
-    // Constants, variables, and objects occupy O(1) space
+    // Constants, variables, and objects use O(1) space
     const a = 0;
     const b = 0;
     const nums = new Array(10000);
     const node = new ListNode(0);
-    // Variables in the loop occupy O(1) space
+    // Variables in the loop use O(1) space
     for (let i = 0; i < n; i++) {
         const c = 0;
     }
-    // Function calls in the loop occupy O(1) space
+    // Function calls in the loop use O(1) space
     for (let i = 0; i < n; i++) {
         constFunc();
     }
 }
 
-/* Linear complexity */
+/* Linear space */
 function linear(n) {
     // An array of length n uses O(n) space
     const nums = new Array(n);
-    // A list of length n occupies O(n) space
+    // A list of length n uses O(n) space
     const nodes = [];
     for (let i = 0; i < n; i++) {
         nodes.push(new ListNode(i));
     }
-    // A hash table with n entries occupies O(n) space
+    // A hash table with n entries uses O(n) space
     const map = new Map();
     for (let i = 0; i < n; i++) {
         map.set(i, i.toString());
     }
 }
 
-/* Linear complexity (recursive implementation) */
+/* Linear space (recursive) */
 function linearRecur(n) {
-    console.log(`Recursive call with n = ${n}`);
+    console.log(`Recursive call: n = ${n}`);
     if (n === 1) return;
     linearRecur(n - 1);
 }
 
-/* Quadratic complexity */
+/* Quadratic space */
 function quadratic(n) {
-    // The matrix uses O(n^2) space
+    // A matrix uses O(n^2) space
     const numMatrix = Array(n)
         .fill(null)
         .map(() => Array(n).fill(null));
-    // The two-dimensional list occupies O(n^2) space
+    // A two-dimensional list uses O(n^2) space
     const numList = [];
     for (let i = 0; i < n; i++) {
         const tmp = [];
@@ -71,15 +71,15 @@ function quadratic(n) {
     }
 }
 
-/* Quadratic complexity (recursive implementation) */
+/* Quadratic space (recursive) */
 function quadraticRecur(n) {
     if (n <= 0) return 0;
     const nums = new Array(n);
-    console.log(`In the recursive call with n = ${n}, nums has length ${nums.length}`);
+    console.log(`Recursive call: n = ${n}, length of nums = ${nums.length}`);
     return quadraticRecur(n - 1);
 }
 
-/* Exponential complexity (building a perfect binary tree) */
+/* Exponential space (build a perfect binary tree) */
 function buildTree(n) {
     if (n === 0) return null;
     const root = new TreeNode(0);
@@ -88,16 +88,16 @@ function buildTree(n) {
     return root;
 }
 
-/* Driver code */
+/* Driver Code */
 const n = 5;
-// Constant complexity
+// Constant space
 constant(n);
-// Linear complexity
+// Linear space
 linear(n);
 linearRecur(n);
-// Quadratic complexity
+// Quadratic space
 quadratic(n);
 quadraticRecur(n);
-// Exponential complexity
+// Exponential space
 const root = buildTree(n);
 printTree(root);

@@ -7,9 +7,9 @@
 /* Очередь на основе кольцевого массива */
 struct ArrayQueue<T> {
     nums: Vec<T>,      // Массив для хранения элементов очереди
-    front: i32,        // Указатель head, указывающий на первый элемент очереди
+    front: i32,        // Индекс первого элемента очереди
     que_size: i32,     // Длина очереди
-    que_capacity: i32, // Вместимость очереди
+    que_capacity: i32, // Ёмкость очереди
 }
 
 impl<T: Copy + Default> ArrayQueue<T> {
@@ -23,45 +23,45 @@ impl<T: Copy + Default> ArrayQueue<T> {
         }
     }
 
-    /* Получить вместимость очереди */
+    /* Получить ёмкость очереди */
     fn capacity(&self) -> i32 {
         self.que_capacity
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     fn size(&self) -> i32 {
         self.que_size
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     fn is_empty(&self) -> bool {
         self.que_size == 0
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("Очередь заполнена");
             return;
         }
-        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
-        // С помощью операции взятия по модулю вернуть rear к началу после выхода за конец массива
+        // Вычислить индекс вставки в конец очереди: прибавить 1 к индексу последнего элемента с учётом перехода по кругу
+        // При выходе за конец массива операция взятия остатка возвращает rear в начало
         let rear = (self.front + self.que_size) % self.que_capacity;
-        // Добавить num в хвост очереди
+        // Добавить num в конец очереди
         self.nums[rear as usize] = num;
         self.que_size += 1;
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     fn pop(&mut self) -> T {
         let num = self.peek();
-        // Указатель head сдвигается на одну позицию назад; если он выходит за конец, то возвращается в начало массива
+        // Сдвинуть индекс начала очереди на одну позицию вперёд. При выходе за конец массива перейти к его началу
         self.front = (self.front + 1) % self.que_capacity;
         self.que_size -= 1;
         num
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     fn peek(&self) -> T {
         if self.is_empty() {
             panic!("index out of bounds");
@@ -69,7 +69,7 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.nums[self.front as usize]
     }
 
-    /* Вернуть массив */
+    /* Вернуть динамический массив */
     fn to_vector(&self) -> Vec<T> {
         let cap = self.que_capacity;
         let mut j = self.front;
@@ -82,13 +82,13 @@ impl<T: Copy + Default> ArrayQueue<T> {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    /* Инициализация очереди */
+    /* Инициализировать очередь */
     let capacity = 10;
     let mut queue = ArrayQueue::new(capacity);
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в очередь */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -96,30 +96,30 @@ fn main() {
     queue.push(4);
     println!("Очередь queue = {:?}", queue.to_vector());
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     let peek = queue.peek();
-    println!("Первый элемент peek = {}", peek);
+    println!("Первый элемент очереди peek = {}", peek);
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элемент из очереди */
     let pop = queue.pop();
     println!(
-        "Извлеченный элемент pop = {:?}, queue после извлечения = {:?}",
+        "Извлечённый элемент pop = {:?}, после извлечения queue = {:?}",
         pop,
         queue.to_vector()
     );
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     let size = queue.size();
     println!("Длина очереди size = {}", size);
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     let is_empty = queue.is_empty();
-    println!("Пуста ли очередь = {}", is_empty);
+    println!("Очередь пуста = {}", is_empty);
 
-    /* Проверка кольцевого массива */
+    /* Проверить работу кольцевого массива */
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("После {:?}-го раунда операций enqueue и dequeue queue = {:?}", i, queue.to_vector());
+        println!("В цикле {:?} после добавления и извлечения элемента queue = {:?}", i, queue.to_vector());
     }
 }

@@ -11,12 +11,12 @@ class ArrayStack {
         this.stack = [];
     }
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     get size(): number {
         return this.stack.length;
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     isEmpty(): boolean {
         return this.stack.length === 0;
     }
@@ -32,19 +32,19 @@ class ArrayStack {
         return this.stack.pop();
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     top(): number | undefined {
         if (this.isEmpty()) throw new Error('스택이 비어 있다');
         return this.stack[this.stack.length - 1];
     }
 
-    /* Array를 반환한다 */
+    /* Array 반환 */
     toArray() {
         return this.stack;
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 /* 스택 초기화 */
 const stack = new ArrayStack();
 
@@ -57,20 +57,20 @@ stack.push(4);
 console.log('스택 stack = ');
 console.log(stack.toArray());
 
-/* 스택 맨 위 원소 접근 */
+/* 스택 맨 위의 원소 조회 */
 const top = stack.top();
-console.log('스택의 맨 위 원소 top = ' + top);
+console.log('맨 위 원소 top = ' + top);
 
 /* 스택에서 원소 꺼내기 */
 const pop = stack.pop();
-console.log('스택에서 꺼낸 원소 pop = ' + pop + ', 스택에서 꺼낸 후 stack = ');
+console.log('꺼낸 원소 pop = ' + pop + ', 꺼낸 후 stack = ');
 console.log(stack.toArray());
 
-/* 스택의 길이 반환 */
+/* 스택의 길이 조회 */
 const size = stack.size;
 console.log('스택의 길이 size = ' + size);
 
-/* 비어 있는지 판단 */
+/* 비어 있는지 확인 */
 const isEmpty = stack.isEmpty();
 console.log('스택이 비어 있는가 = ' + isEmpty);
 

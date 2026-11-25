@@ -9,10 +9,10 @@ package chapter_sorting;
 import java.util.Arrays;
 
 public class heap_sort {
-    /* 堆積的長度為 n ，從節點 i 開始，從頂至底堆積化 */
+    /* 堆積的長度為 n，從節點 i 開始由上而下調整堆積 */
     public static void siftDown(int[] nums, int n, int i) {
         while (true) {
-            // 判斷節點 i, l, r 中值最大的節點，記為 ma
+            // 找出節點 i、l、r 中值最大的節點，記為 ma
             int l = 2 * i + 1;
             int r = 2 * i + 2;
             int ma = i;
@@ -20,31 +20,31 @@ public class heap_sort {
                 ma = l;
             if (r < n && nums[r] > nums[ma])
                 ma = r;
-            // 若節點 i 最大或索引 l, r 越界，則無須繼續堆積化，跳出
+            // 若節點 i 的值最大或索引 l、r 超出範圍，便無須繼續調整堆積，跳出迴圈
             if (ma == i)
                 break;
-            // 交換兩節點
+            // 交換兩個節點
             int temp = nums[i];
             nums[i] = nums[ma];
             nums[ma] = temp;
-            // 迴圈向下堆積化
+            // 以迴圈繼續向下調整堆積
             i = ma;
         }
     }
 
     /* 堆積排序 */
     public static void heapSort(int[] nums) {
-        // 建堆積操作：堆積化除葉節點以外的其他所有節點
+        // 建立堆積：對所有非葉節點執行堆積調整
         for (int i = nums.length / 2 - 1; i >= 0; i--) {
             siftDown(nums, nums.length, i);
         }
-        // 從堆積中提取最大元素，迴圈 n-1 輪
+        // 從堆積中取出最大元素，重複 n-1 輪
         for (int i = nums.length - 1; i > 0; i--) {
-            // 交換根節點與最右葉節點（交換首元素與尾元素）
+            // 交換根節點與最右側的葉節點（即交換首尾元素）
             int tmp = nums[0];
             nums[0] = nums[i];
             nums[i] = tmp;
-            // 以根節點為起點，從頂至底進行堆積化
+            // 從根節點開始，由上而下調整堆積
             siftDown(nums, i, 0);
         }
     }

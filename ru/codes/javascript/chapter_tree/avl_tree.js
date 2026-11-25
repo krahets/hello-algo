@@ -7,22 +7,22 @@
 const { TreeNode } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-/* AVL-дерево */
+/* АВЛ-дерево*/
 class AVLTree {
     /* Конструктор */
     constructor() {
-        this.root = null; // Корневой узел
+        this.root = null; //Корень
     }
 
     /* Получить высоту узла */
     height(node) {
-        // Высота пустого узла равна -1, высота листового узла равна 0
+        // Высота пустого узла равна -1, высота листа равна 0
         return node === null ? -1 : node.height;
     }
 
     /* Обновить высоту узла */
     #updateHeight(node) {
-        // Высота узла равна высоте более высокого поддерева + 1
+        // Высота узла на 1 больше высоты самого высокого поддерева
         node.height =
             Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
@@ -31,65 +31,65 @@ class AVLTree {
     balanceFactor(node) {
         // Коэффициент баланса пустого узла равен 0
         if (node === null) return 0;
-        // Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
+        // Коэффициент баланса узла равен высоте левого поддерева минус высота правого
         return this.height(node.left) - this.height(node.right);
     }
 
-    /* Операция правого вращения */
+    /* Правый поворот */
     #rightRotate(node) {
         const child = node.left;
         const grandChild = child.right;
-        // Выполнить правое вращение узла node вокруг child
+        // Повернуть node вправо вокруг child
         child.right = node;
         node.left = grandChild;
         // Обновить высоту узла
         this.#updateHeight(node);
         this.#updateHeight(child);
-        // Вернуть корневой узел поддерева после вращения
+        // Вернуть корень поддерева после поворота
         return child;
     }
 
-    /* Операция левого вращения */
+    /* Левый поворот */
     #leftRotate(node) {
         const child = node.right;
         const grandChild = child.left;
-        // Выполнить левое вращение узла node вокруг child
+        // Повернуть node влево вокруг child
         child.left = node;
         node.right = grandChild;
         // Обновить высоту узла
         this.#updateHeight(node);
         this.#updateHeight(child);
-        // Вернуть корневой узел поддерева после вращения
+        // Вернуть корень поддерева после поворота
         return child;
     }
 
-    /* Выполнить вращение, чтобы снова сбалансировать поддерево */
+    /* Выполнить поворот, чтобы восстановить баланс поддерева */
     #rotate(node) {
         // Получить коэффициент баланса узла node
         const balanceFactor = this.balanceFactor(node);
-        // Левосторонне перекошенное дерево
+        // Перевес влево
         if (balanceFactor > 1) {
             if (this.balanceFactor(node.left) >= 0) {
-                // Правое вращение
+                // Поворот вправо
                 return this.#rightRotate(node);
             } else {
-                // Сначала левое вращение, затем правое
+                // Сначала поворот влево, затем вправо
                 node.left = this.#leftRotate(node.left);
                 return this.#rightRotate(node);
             }
         }
-        // Правосторонне перекошенное дерево
+        // Перевес вправо
         if (balanceFactor < -1) {
             if (this.balanceFactor(node.right) <= 0) {
-                // Левое вращение
+                // Поворот влево
                 return this.#leftRotate(node);
             } else {
-                // Сначала правое вращение, затем левое
+                // Сначала поворот вправо, затем влево
                 node.right = this.#rightRotate(node.right);
                 return this.#leftRotate(node);
             }
         }
-        // Дерево сбалансировано, вращение не требуется, вернуть сразу
+        // Дерево сбалансировано: завершить вызов без поворота
         return node;
     }
 
@@ -101,15 +101,15 @@ class AVLTree {
     /* Рекурсивная вставка узла (вспомогательный метод) */
     #insertHelper(node, val) {
         if (node === null) return new TreeNode(val);
-        /* 1. Найти позицию вставки и вставить узел */
+        /* 1. Найти место вставки и вставить узел */
         if (val < node.val) node.left = this.#insertHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#insertHelper(node.right, val);
-        else return node; // Повторяющийся узел не вставлять, сразу вернуть
+        else return node; // Такой узел уже есть: завершить вызов без вставки
         this.#updateHeight(node); // Обновить высоту узла
-        /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+        /* 2. Восстановить баланс поддерева с помощью поворота */
         node = this.#rotate(node);
-        // Вернуть корневой узел поддерева
+        // Вернуть корень поддерева
         return node;
     }
 
@@ -121,19 +121,19 @@ class AVLTree {
     /* Рекурсивное удаление узла (вспомогательный метод) */
     #removeHelper(node, val) {
         if (node === null) return null;
-        /* 1. Найти узел и удалить его */
+        /* 1. Найти и удалить узел */
         if (val < node.val) node.left = this.#removeHelper(node.left, val);
         else if (val > node.val)
             node.right = this.#removeHelper(node.right, val);
         else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;
-                // Число дочерних узлов = 0, удалить node и сразу вернуть
+                // Нет потомков: удалить node и завершить вызов
                 if (child === null) return null;
-                // Число дочерних узлов = 1, удалить node напрямую
+                // Один потомок: удалить node
                 else node = child;
             } else {
-                // Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
+                // Два потомка: удалить следующий узел симметричного обхода и заменить им текущий узел
                 let temp = node.right;
                 while (temp.left !== null) {
                     temp = temp.left;
@@ -143,46 +143,46 @@ class AVLTree {
             }
         }
         this.#updateHeight(node); // Обновить высоту узла
-        /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+        /* 2. Восстановить баланс поддерева с помощью поворота */
         node = this.#rotate(node);
-        // Вернуть корневой узел поддерева
+        // Вернуть корень поддерева
         return node;
     }
 
     /* Поиск узла */
     search(val) {
         let cur = this.root;
-        // Искать в цикле и выйти после прохода за листовой узел
+        // Искать в цикле до выхода за пределы листа
         while (cur !== null) {
-            // Целевой узел находится в правом поддереве cur
+            // Искомый узел в правом поддереве cur
             if (cur.val < val) cur = cur.right;
-            // Целевой узел находится в левом поддереве cur
+            // Искомый узел в левом поддереве cur
             else if (cur.val > val) cur = cur.left;
-            // Найти целевой узел и выйти из цикла
+            // Узел найден: выйти из цикла
             else break;
         }
-        // Вернуть целевой узел
+        // Вернуть искомый узел
         return cur;
     }
 }
 
 function testInsert(tree, val) {
     tree.insert(val);
-    console.log('\nПосле вставки узла ' + val + ' AVL-дерево имеет вид');
+    console.log('\nПосле вставки узла ' + val + ' АВЛ-дерево имеет вид:');
     printTree(tree.root);
 }
 
 function testRemove(tree, val) {
     tree.remove(val);
-    console.log('\nПосле удаления узла ' + val + ' AVL-дерево имеет вид');
+    console.log('\nПосле удаления узла ' + val + ' АВЛ-дерево имеет вид:');
     printTree(tree.root);
 }
 
-/* Driver Code */
-/* Инициализация пустого AVL-дерева */
+/* Основная программа */
+/* Инициализация пустого АВЛ-дерева */
 const avlTree = new AVLTree();
 /* Вставка узла */
-// Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
+// Проследите, как АВЛ-дерево сохраняет баланс после вставки узла
 testInsert(avlTree, 1);
 testInsert(avlTree, 2);
 testInsert(avlTree, 3);
@@ -198,11 +198,11 @@ testInsert(avlTree, 6);
 testInsert(avlTree, 7);
 
 /* Удаление узла */
-// Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
-testRemove(avlTree, 8); // Удаление узла степени 0
-testRemove(avlTree, 5); // Удаление узла степени 1
-testRemove(avlTree, 4); // Удаление узла степени 2
+// Проследите, как АВЛ-дерево сохраняет баланс после удаления узла
+testRemove(avlTree, 8); // Удаление узла без потомков
+testRemove(avlTree, 5); // Удаление узла с одним потомком
+testRemove(avlTree, 4); // Удаление узла с двумя потомками
 
 /* Поиск узла */
 const node = avlTree.search(7);
-console.log('\nНайденный объект узла =', node, ', значение узла = ' + node.val);
+console.log('\nНайденный узел:', node, 'значение узла = ' + node.val);

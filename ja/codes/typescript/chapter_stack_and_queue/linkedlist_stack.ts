@@ -6,16 +6,16 @@
 
 import { ListNode } from '../modules/ListNode';
 
-/* 連結リストで実装したスタック */
+/* 連結リストを使ったスタック */
 class LinkedListStack {
-    private stackPeek: ListNode | null; // 先頭ノードをスタックの先頭とする
-    private stkSize: number = 0; // スタックの長さ
+    private stackPeek: ListNode | null; // 先頭ノードをスタックのトップとする
+    private stkSize: number = 0; // スタックの要素数
 
     constructor() {
         this.stackPeek = null;
     }
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     get size(): number {
         return this.stkSize;
     }
@@ -25,7 +25,7 @@ class LinkedListStack {
         return this.size === 0;
     }
 
-    /* プッシュ */
+    /* プッシュする */
     push(num: number): void {
         const node = new ListNode(num);
         node.next = this.stackPeek;
@@ -33,7 +33,7 @@ class LinkedListStack {
         this.stkSize++;
     }
 
-    /* ポップ */
+    /* ポップする */
     pop(): number {
         const num = this.peek();
         if (!this.stackPeek) throw new Error('スタックが空です');
@@ -42,13 +42,13 @@ class LinkedListStack {
         return num;
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     peek(): number {
         if (!this.stackPeek) throw new Error('スタックが空です');
         return this.stackPeek.val;
     }
 
-    /* 連結リストを Array に変換して返す */
+    /* 連結リストを配列に変換して返す */
     toArray(): number[] {
         let node = this.stackPeek;
         const res = new Array<number>(this.size);
@@ -60,7 +60,7 @@ class LinkedListStack {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 /* スタックを初期化する */
 const stack = new LinkedListStack();
 
@@ -72,17 +72,17 @@ stack.push(5);
 stack.push(4);
 console.log('スタック stack = ' + stack.toArray());
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 const peek = stack.peek();
-console.log('スタックの先頭要素 peek = ' + peek);
+console.log('スタックのトップの要素 peek = ' + peek);
 
 /* 要素をポップする */
 const pop = stack.pop();
-console.log('ポップした要素 pop = ' + pop + '、ポップ後 stack = ' + stack.toArray());
+console.log('ポップした要素 pop = ' + pop + '、ポップ後の stack = ' + stack.toArray());
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 const size = stack.size;
-console.log('スタックの長さ size = ' + size);
+console.log('スタックの要素数 size = ' + size);
 
 /* 空かどうかを判定する */
 const isEmpty = stack.isEmpty();

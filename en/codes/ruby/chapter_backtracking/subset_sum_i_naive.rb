@@ -6,30 +6,30 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Backtracking: subset sum I ###
 def backtrack(state, target, total, choices, res)
-  # Record a solution when the subset sum equals target
+  # Record a solution when the subset sums to target
   if total == target
     res << state.dup
     return
   end
 
-  # Iterate over all choices
+  # Try each choice
   for i in 0...choices.length
-    # Prune: skip this choice if the subset sum would exceed target
+    # Prune: skip choices that would take the subset sum over target
     next if total + choices[i] > target
-    # Try: make a choice and update the sum total
+    # Make a choice and update the running sum total
     state << choices[i]
-    # Proceed to the next choice
+    # Make the next choice
     backtrack(state, target, total + choices[i], choices, res)
-    # Backtrack: undo the choice and restore the previous state
+    # Backtrack: undo the choice to restore the previous state
     state.pop
   end
 end
 
-### Solve subset sum I (with duplicate subsets)###
+### Solve subset sum I (including duplicate subsets)###
 def subset_sum_i_naive(nums, target)
-  state = [] # State (subset)
+  state = [] # State (current subset)
   total = 0 # Subset sum
-  res = [] # Result list (list of subsets)
+  res = [] # Results (list of subsets)
   backtrack(state, target, total, nums, res)
   res
 end
@@ -41,6 +41,6 @@ if __FILE__ == $0
   res = subset_sum_i_naive(nums, target)
 
   puts "Input array nums = #{nums}, target = #{target}"
-  puts "All subsets with sum #{target}: res = #{res}"
-  puts "Note that this method produces duplicate subsets"
+  puts "Subsets that sum to #{target}: res = #{res}"
+  puts "This method returns duplicate subsets"
 end

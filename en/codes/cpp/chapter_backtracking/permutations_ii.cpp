@@ -8,24 +8,24 @@
 
 /* Backtracking: permutations II */
 void backtrack(vector<int> &state, const vector<int> &choices, vector<bool> &selected, vector<vector<int>> &res) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if (state.size() == choices.size()) {
         res.push_back(state);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     unordered_set<int> duplicated;
     for (int i = 0; i < choices.size(); i++) {
         int choice = choices[i];
-        // Prune: do not reuse an element or choose the same value again at this depth
+        // Skip elements already in use and values already tried at this level
         if (!selected[i] && duplicated.find(choice) == duplicated.end()) {
-            // Try: make a choice and update the state
-            duplicated.emplace(choice); // Record the chosen value
+            // Make a choice and update the state
+            duplicated.emplace(choice); // Track values already tried
             selected[i] = true;
             state.push_back(choice);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, choices, selected, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
             state.pop_back();
         }
@@ -47,9 +47,9 @@ int main() {
 
     vector<vector<int>> res = permutationsII(nums);
 
-    cout << "Input array nums = ";
+    cout << "Input array nums =  ";
     printVector(nums);
-    cout << "All permutations res = ";
+    cout << "All permutations res =  ";
     printVectorMatrix(res);
 
     return 0;

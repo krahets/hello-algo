@@ -23,17 +23,17 @@ func preOrder(root: TreeNode?) {
 
 @main
 enum PreorderTraversalICompact {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\n二分木を初期化する")
+        print("\n二分木を初期化")
         PrintUtil.printTree(root: root)
 
         // 行きがけ順走査
         res = []
         preOrder(root: root)
 
-        print("\n値が 7 であるすべてのノードを出力する")
+        print("\n値が 7 のノードをすべて出力")
         var vals: [Int] = []
         for node in res {
             vals.append(node.val)

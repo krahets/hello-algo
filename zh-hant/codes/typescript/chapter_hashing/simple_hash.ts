@@ -44,8 +44,8 @@ function rotHash(key: string): number {
     return hash;
 }
 
-/* Driver Code */
-const key = 'Hello 演算法';
+/* 主程式 */
+const key = 'Hello 算法';
 
 let hash = addHash(key);
 console.log('加法雜湊值為 ' + hash);

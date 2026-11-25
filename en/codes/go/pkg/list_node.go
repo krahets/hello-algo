@@ -10,7 +10,7 @@ type ListNode struct {
 	Val  int
 }
 
-// NewListNode constructs a linked list node.
+// NewListNode creates a linked list node.
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,
@@ -20,7 +20,7 @@ func NewListNode(v int) *ListNode {
 
 // ArrayToLinkedList deserializes an array into a linked list.
 func ArrayToLinkedList(arr []int) *ListNode {
-	// Dummy head of the linked list
+	// Dummy head node of the linked list
 	dummy := NewListNode(0)
 	node := dummy
 	for _, val := range arr {

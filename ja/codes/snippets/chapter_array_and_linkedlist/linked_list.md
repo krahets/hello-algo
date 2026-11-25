@@ -12,7 +12,7 @@ class ListNode:
 /* 連結リストのノード */
 struct ListNode {
     int val;        // ノードの値
-    ListNode *next; // 後続ノードへのポインタ
+    ListNode *next; // 次のノードへのポインタ
     ListNode(int x) : val(x), next(nullptr) {
     }
 };
@@ -42,10 +42,10 @@ public class ListNode(int x) {
 // ListNode は連結リストのノード
 type ListNode struct {
     Val  int       // ノードの値
-    Next *ListNode // 後続ノードへのポインタ
+    Next *ListNode // 次のノードへのポインタ
 }
 
-// NewListNode は連結リストのノードのコンストラクタ
+// NewListNode は連結リストのノードを作るコンストラクタ
 func NewListNode(v int) *ListNode {
     return &ListNode{
         Val:  v,
@@ -108,7 +108,7 @@ use std::rc::Rc;
 #[derive(Debug)]
 pub struct ListNode<T> {
     pub val: T, // ノードの値
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 後続ノードへのポインタ
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 次のノードへのポインタ
 }
 
 impl<T> ListNode<T> {
@@ -119,13 +119,13 @@ impl<T> ListNode<T> {
 ```
 
 ```c title=""
-/* 連結リストのノードの構造体 */
+/* 連結リストのノードを表す構造体 */
 typedef struct ListNode {
     int val;               // ノードの値
     struct ListNode *next; // 次のノードへのポインタ
 } ListNode;
 
-/* コンストラクタ：新しいノードを初期化する */
+/* 新しいノードを初期化するコンストラクタ */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -355,7 +355,7 @@ n3.next = n4
 ```
 
 <!-- [tutor]{init_linked_list_tutor} -->
-https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n0%20%3D%20ListNode(1)%0A%20%20%20%20n1%20%3D%20ListNode(3)%0A%20%20%20%20n2%20%3D%20ListNode(2)%0A%20%20%20%20n3%20%3D%20ListNode(5)%0A%20%20%20%20n4%20%3D%20ListNode(4)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E9%96%93%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%A8%AD%E5%AE%9A%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%A1%A8%E3%81%99%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%201%20-%3E%203%20-%3E%202%20-%3E%205%20-%3E%204%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20%E5%90%84%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20n0%20%3D%20ListNode%281%29%0A%20%20%20%20n1%20%3D%20ListNode%283%29%0A%20%20%20%20n2%20%3D%20ListNode%282%29%0A%20%20%20%20n3%20%3D%20ListNode%285%29%0A%20%20%20%20n4%20%3D%20ListNode%284%29%0A%20%20%20%20%23%20%E5%8F%82%E7%85%A7%E3%81%A7%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E3%81%A4%E3%81%AA%E3%81%90%0A%20%20%20%20n0.next%20%3D%20n1%0A%20%20%20%20n1.next%20%3D%20n2%0A%20%20%20%20n2.next%20%3D%20n3%0A%20%20%20%20n3.next%20%3D%20n4&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{doubly_list_node_class} -->
 ```python title=""
@@ -365,7 +365,7 @@ class ListNode:
     def __init__(self, val: int):
         """コンストラクタ"""
         self.val: int = val  # ノードの値
-        self.next: ListNode | None = None  # 後続ノードへの参照
+        self.next: ListNode | None = None  # 次のノードへの参照
         self.prev: ListNode | None = None  # 前のノードへの参照
 ```
 
@@ -373,7 +373,7 @@ class ListNode:
 /* 双方向連結リストのノード */
 struct DoublyListNode {
     int val;              // ノードの値
-    DoublyListNode *next; // 後続ノードへのポインタ
+    DoublyListNode *next; // 次のノードへのポインタ
     DoublyListNode *prev; // 前のノードへのポインタ
     DoublyListNode(int val) : val(val), prev(nullptr), next(nullptr) {
     }
@@ -384,7 +384,7 @@ struct DoublyListNode {
 /* 双方向連結リストのノード */
 class ListNode {
     int val;       // ノードの値
-    ListNode next; // 後続ノードへの参照
+    ListNode next; // 次のノードへの参照
     ListNode prev; // 前のノードへの参照
 
     ListNode(int val) {
@@ -398,20 +398,20 @@ class ListNode {
 /* 双方向連結リストのノード */
 public class ListNode(int val) {
     public int val = val;         // ノードの値
-    public ListNode? next = null; // 後続ノードへの参照
+    public ListNode? next = null; // 次のノードへの参照
     public ListNode? prev = null; // 前のノードへの参照
 }
 ```
 
 ```go title=""
-/* 双方向連結リストのノード構造体 */
+/* 双方向連結リストのノードを表す構造体 */
 type DoublyListNode struct {
     Val  int             // ノードの値
-    Next *DoublyListNode // 後続ノードへのポインタ
-    Prev *DoublyListNode // 先行ノードへのポインタ
+    Next *DoublyListNode // 次のノードへのポインタ
+    Prev *DoublyListNode // 前のノードへのポインタ
 }
 
-// NewDoublyListNode で初期化
+// NewDoublyListNode で初期化する
 func NewDoublyListNode(val int) *DoublyListNode {
     return &DoublyListNode{
         Val:  val,
@@ -425,7 +425,7 @@ func NewDoublyListNode(val int) *DoublyListNode {
 /* 双方向連結リストのノード */
 class ListNode {
     var val: Int // ノードの値
-    var next: ListNode? // 後続ノードへの参照
+    var next: ListNode? // 次のノードへの参照
     weak var prev: ListNode? // 前のノードへの参照
 
     init(val: Int) {
@@ -438,7 +438,7 @@ class ListNode {
 /* 双方向連結リストのノード */
 class ListNode {
     prev; // 前のノードへの参照（ポインタ）
-    next; // 後続ノードへの参照（ポインタ）
+    next; // 次のノードへの参照（ポインタ）
     val; // ノードの値
 
     constructor(val) {
@@ -453,7 +453,7 @@ class ListNode {
 /* 双方向連結リストのノード */
 class ListNode {
     prev: ListNode | null; // 前のノードへの参照（ポインタ）
-    next: ListNode | null; // 後続ノードへの参照（ポインタ）
+    next: ListNode | null; // 次のノードへの参照（ポインタ）
     val: number; // ノードの値
 
     constructor(val: number) {
@@ -468,7 +468,7 @@ class ListNode {
 /* 双方向連結リストのノード */
 class ListNode {
   int val; // ノードの値
-  ListNode? next; // 後続ノードへの参照
+  ListNode? next; // 次のノードへの参照
   ListNode? prev; // 前のノードへの参照
 
   ListNode(this.val, {this.next, this.prev});
@@ -482,7 +482,7 @@ use std::rc::Rc;
 /* 双方向連結リストのノード */
 pub struct ListNode<T> {
     pub val: T,                                 // ノードの値
-    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 後続ノードへのポインタ
+    pub next: Option<Rc<RefCell<ListNode<T>>>>, // 次のノードへのポインタ
     pub prev: Option<Rc<RefCell<ListNode<T>>>>, // 前のノードへのポインタ
 }
 
@@ -501,7 +501,7 @@ impl<T> ListNode<T> {
 /* 双方向連結リストのノード */
 typedef struct DoublyListNode {
     int val;                     // ノードの値
-    struct DoublyListNode *next; // 後続ノードへのポインタ
+    struct DoublyListNode *next; // 次のノードへのポインタ
     struct DoublyListNode *prev; // 前のノードへのポインタ
 } DoublyListNode;
 
@@ -520,7 +520,7 @@ DoublyListNode *newDoublyListNode(int num) {
 class ListNode(
     var _val: Int // ノードの値
 ) {
-    var next: ListNode? = null // 後続ノードへの参照
+    var next: ListNode? = null // 次のノードへの参照
     var prev: ListNode? = null // 前のノードへの参照
 }
 ```
@@ -529,7 +529,7 @@ class ListNode(
 ### 双方向連結リストのノード ###
 class ListNode
   attr_accessor :val  # ノードの値
-  attr_accessor :next # 後続ノードへの参照
+  attr_accessor :next # 次のノードへの参照
   attr_accessor :prev # 前のノードへの参照
 
   ### コンストラクタ ###

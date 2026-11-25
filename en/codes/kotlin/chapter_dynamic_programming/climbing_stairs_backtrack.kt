@@ -13,25 +13,25 @@ fun backtrack(
     n: Int,
     res: MutableList<Int>
 ) {
-    // When step n is reached, increase the number of ways by 1
+    // Count one more way when we reach stair n
     if (state == n)
         res[0] = res[0] + 1
     // Iterate over all choices
     for (choice in choices) {
-        // Prune: do not go beyond step n
+        // Prune moves that would overshoot stair n
         if (state + choice > n) continue
-        // Try: make a choice and update the state
+        // Try a choice and update the state
         backtrack(choices, state + choice, n, res)
-        // Backtrack
+        // Undo the choice
     }
 }
 
-/* Climbing stairs: backtracking */
+/* Climbing stairs with backtracking */
 fun climbingStairsBacktrack(n: Int): Int {
-    val choices = mutableListOf(1, 2) // Choose to climb 1 or 2 steps
-    val state = 0 // Start climbing from step 0
+    val choices = mutableListOf(1, 2) // Each move can climb 1 or 2 stairs
+    val state = 0 // Start at stair 0
     val res = mutableListOf<Int>()
-    res.add(0) // Use res[0] to record the number of ways
+    res.add(0) // Store the number of ways in res[0]
     backtrack(choices, state, n, res)
     return res[0]
 }
@@ -41,5 +41,5 @@ fun main() {
     val n = 9
 
     val res = climbingStairsBacktrack(n)
-    println("There are $res ways to climb $n stairs")
+    println("Climbing $n stairs: $res ways")
 }

@@ -4,7 +4,8 @@ services:
     build:
       context: .
       args:
-        # Set the languages to be installed, separated by spaces
+        # Укажите языки для установки через пробел
+        # Укажите языки для установки через пробел
         LANGS: "python cpp java csharp"
     image: hello-algo-code
     container_name: hello-algo-code

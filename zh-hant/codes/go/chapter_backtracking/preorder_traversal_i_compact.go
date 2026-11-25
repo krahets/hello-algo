@@ -14,7 +14,7 @@ func preOrderI(root *TreeNode, res *[]*TreeNode) {
 		return
 	}
 	if (root.Val).(int) == 7 {
-		// 記錄解
+		// 記錄此解
 		*res = append(*res, root)
 	}
 	preOrderI(root.Left, res)

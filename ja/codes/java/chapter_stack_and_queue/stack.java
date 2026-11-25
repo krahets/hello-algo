@@ -21,17 +21,17 @@ public class stack {
         stack.push(4);
         System.out.println("スタック stack = " + stack);
 
-        /* スタックの先頭要素にアクセスする */
+        /* スタックのトップを参照する */
         int peek = stack.peek();
-        System.out.println("スタックの先頭要素 peek = " + peek);
+        System.out.println("スタックのトップの要素 peek = " + peek);
 
         /* 要素をポップする */
         int pop = stack.pop();
-        System.out.println("ポップした要素 pop = " + pop + "、ポップ後 stack = " + stack);
+        System.out.println("ポップした要素 pop = " + pop + "、ポップ後の stack = " + stack);
 
-        /* スタックの長さを取得する */
+        /* スタックの要素数を取得する */
         int size = stack.size();
-        System.out.println("スタックの長さ size = " + size);
+        System.out.println("スタックの要素数 size = " + size);
 
         /* 空かどうかを判定する */
         boolean isEmpty = stack.isEmpty();

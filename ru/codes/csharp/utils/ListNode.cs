@@ -9,7 +9,7 @@ public class ListNode(int x) {
     public int val = x;
     public ListNode? next;
 
-    /* Десериализовать массив в связный список */
+    /* Восстановить связный список из массива */
     public static ListNode? ArrToLinkedList(int[] arr) {
         ListNode dum = new(0);
         ListNode head = dum;

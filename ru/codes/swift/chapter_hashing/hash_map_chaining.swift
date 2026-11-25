@@ -8,10 +8,10 @@ import utils
 
 /* Хеш-таблица с цепочками */
 class HashMapChaining {
-    var size: Int // Число пар ключ-значение
-    var capacity: Int // Вместимость хеш-таблицы
-    var loadThres: Double // Порог коэффициента загрузки для запуска расширения
-    var extendRatio: Int // Коэффициент расширения
+    var size: Int // Число пар «ключ — значение»
+    var capacity: Int // Ёмкость хеш-таблицы
+    var loadThres: Double // Порог коэффициента заполнения для расширения
+    var extendRatio: Int // Во сколько раз увеличивается ёмкость
     var buckets: [[Pair]] // Массив корзин
 
     /* Конструктор */
@@ -28,51 +28,51 @@ class HashMapChaining {
         key % capacity
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     func loadFactor() -> Double {
         Double(size) / Double(capacity)
     }
 
-    /* Операция поиска */
+    /* Поиск */
     func get(key: Int) -> String? {
         let index = hashFunc(key: key)
         let bucket = buckets[index]
-        // Обойти корзину; если найден key, вернуть соответствующее val
+        // Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
         for pair in bucket {
             if pair.key == key {
                 return pair.val
             }
         }
-        // Если key не найден, вернуть nil
+        // Если ключ key не найден, вернуть nil
         return nil
     }
 
-    /* Операция добавления */
+    /* Вставка */
     func put(key: Int, val: String) {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if loadFactor() > loadThres {
             extend()
         }
         let index = hashFunc(key: key)
         let bucket = buckets[index]
-        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+        // Обойти корзину. Если найден ключ key, обновить val и завершить операцию
         for pair in bucket {
             if pair.key == key {
                 pair.val = val
                 return
             }
         }
-        // Если такого key нет, добавить пару ключ-значение в конец
+        // Если ключа key нет, добавить пару в конец списка
         let pair = Pair(key: key, val: val)
         buckets[index].append(pair)
         size += 1
     }
 
-    /* Операция удаления */
+    /* Удаление */
     func remove(key: Int) {
         let index = hashFunc(key: key)
         let bucket = buckets[index]
-        // Обойти корзину и удалить из нее пару ключ-значение
+        // Обойти корзину и удалить из неё нужную пару
         for (pairIndex, pair) in bucket.enumerated() {
             if pair.key == key {
                 buckets[index].remove(at: pairIndex)
@@ -86,11 +86,11 @@ class HashMapChaining {
     func extend() {
         // Временно сохранить исходную хеш-таблицу
         let bucketsTmp = buckets
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         capacity *= extendRatio
         buckets = Array(repeating: [], count: capacity)
         size = 0
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         for bucket in bucketsTmp {
             for pair in bucket {
                 put(key: pair.key, val: pair.val)
@@ -109,30 +109,30 @@ class HashMapChaining {
 
 @main
 enum _HashMapChaining {
-    /* Driver Code */
+    /* Демонстрационный код */
     static func main() {
-        /* Инициализация хеш-таблицы */
+        /* Создать хеш-таблицу */
         let map = HashMapChaining()
 
-        /* Операция добавления */
-        // Добавить пару (key, value) в хеш-таблицу
+        /* Вставка */
+        // Добавить в таблицу пару (key, value)
         map.put(key: 12836, val: "Сяо Ха")
         map.put(key: 15937, val: "Сяо Ло")
         map.put(key: 16750, val: "Сяо Суань")
         map.put(key: 13276, val: "Сяо Фа")
         map.put(key: 10583, val: "Сяо Я")
-        print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
+        print("\nХеш-таблица после вставки:\nКлюч -> Значение")
         map.print()
 
-        /* Операция поиска */
-        // Ввести в хеш-таблицу ключ key и получить значение value
+        /* Поиск */
+        // Получить из таблицы значение value по ключу key
         let name = map.get(key: 13276)
-        print("\nДля номера 13276 найдено имя \(name!)")
+        print("\nИмя студента с номером 13276: \(name!)")
 
-        /* Операция удаления */
-        // Удалить пару (key, value) из хеш-таблицы
+        /* Удаление */
+        // Удалить из таблицы пару (key, value)
         map.remove(key: 12836)
-        print("\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение")
+        print("\nХеш-таблица после удаления 12836:\nКлюч -> Значение")
         map.print()
     }
 }

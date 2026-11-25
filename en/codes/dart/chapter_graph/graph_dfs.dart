@@ -7,7 +7,7 @@
 import '../utils/vertex.dart';
 import 'graph_adjacency_list.dart';
 
-/* Depth-first traversal helper function */
+/* Helper for depth-first traversal */
 void dfs(
   GraphAdjList graph,
   Set<Vertex> visited,
@@ -15,22 +15,22 @@ void dfs(
   Vertex vet,
 ) {
   res.add(vet); // Record the visited vertex
-  visited.add(vet); // Mark this vertex as visited
-  // Traverse all neighbors of this vertex
+  visited.add(vet); // Mark the vertex as visited
+  // Iterate over all neighbors of this vertex
   for (Vertex adjVet in graph.adjList[vet]!) {
     if (visited.contains(adjVet)) {
-      continue; // Skip vertices that have already been visited
+      continue; // Skip visited vertices
     }
-    // Recursively visit the neighboring vertex
+    // Visit neighbors recursively
     dfs(graph, visited, res, adjVet);
   }
 }
 
 /* Depth-first traversal */
 List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
-  // Vertex traversal sequence
+  // Vertex traversal order
   List<Vertex> res = [];
-  // Hash set recording visited vertices
+  // Use a hash set to track visited vertices
   Set<Vertex> visited = {};
   dfs(graph, visited, res, startVet);
   return res;
@@ -38,7 +38,7 @@ List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
 
 /* Driver code */
 void main() {
-  /* Initialize the undirected graph */
+  /* Initialize an undirected graph */
   List<Vertex> v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
   List<List<Vertex>> edges = [
     [v[0], v[1]],
@@ -54,6 +54,6 @@ void main() {
 
   /* Depth-first traversal */
   List<Vertex> res = graphDFS(graph, v[0]);
-  print("\nVertex sequence from depth-first traversal (DFS):");
+  print("\nDepth-first search (DFS) visits the vertices in this order:");
   print(Vertex.vetsToVals(res));
 }

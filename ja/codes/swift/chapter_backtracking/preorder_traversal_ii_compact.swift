@@ -22,16 +22,16 @@ func preOrder(root: TreeNode?) {
     }
     preOrder(root: root.left)
     preOrder(root: root.right)
-    // 復元
+    // 後戻り
     path.removeLast()
 }
 
 @main
 enum PreorderTraversalIICompact {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
-        print("\n二分木を初期化する")
+        print("\n二分木を初期化")
         PrintUtil.printTree(root: root)
 
         // 行きがけ順走査
@@ -39,7 +39,7 @@ enum PreorderTraversalIICompact {
         res = []
         preOrder(root: root)
 
-        print("\n根ノードからノード 7 までのすべての経路を出力する")
+        print("\n根から値が 7 のノードまでの経路をすべて出力")
         for path in res {
             var vals: [Int] = []
             for node in path {

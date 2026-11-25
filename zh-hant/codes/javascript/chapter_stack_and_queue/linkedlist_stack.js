@@ -6,16 +6,16 @@
 
 const { ListNode } = require('../modules/ListNode');
 
-/* 基於鏈結串列實現的堆疊 */
+/* 以鏈結串列實作堆疊 */
 class LinkedListStack {
-    #stackPeek; // 將頭節點作為堆疊頂
-    #stkSize = 0; // 堆疊的長度
+    #stackPeek; // 以首節點作為堆疊頂端
+    #stkSize = 0; // 堆疊長度
 
     constructor() {
         this.#stackPeek = null;
     }
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     get size() {
         return this.#stkSize;
     }
@@ -25,7 +25,7 @@ class LinkedListStack {
         return this.size === 0;
     }
 
-    /* 入堆疊 */
+    /* 推入堆疊 */
     push(num) {
         const node = new ListNode(num);
         node.next = this.#stackPeek;
@@ -33,7 +33,7 @@ class LinkedListStack {
         this.#stkSize++;
     }
 
-    /* 出堆疊 */
+    /* 彈出堆疊頂端的元素 */
     pop() {
         const num = this.peek();
         this.#stackPeek = this.#stackPeek.next;
@@ -41,13 +41,13 @@ class LinkedListStack {
         return num;
     }
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     peek() {
         if (!this.#stackPeek) throw new Error('堆疊為空');
         return this.#stackPeek.val;
     }
 
-    /* 將鏈結串列轉化為 Array 並返回 */
+    /* 將鏈結串列轉成陣列並回傳 */
     toArray() {
         let node = this.#stackPeek;
         const res = new Array(this.size);
@@ -59,11 +59,11 @@ class LinkedListStack {
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 /* 初始化堆疊 */
 const stack = new LinkedListStack();
 
-/* 元素入堆疊 */
+/* 將元素推入堆疊 */
 stack.push(1);
 stack.push(3);
 stack.push(2);
@@ -71,18 +71,18 @@ stack.push(5);
 stack.push(4);
 console.log('堆疊 stack = ' + stack.toArray());
 
-/* 訪問堆疊頂元素 */
+/* 讀取堆疊頂端的元素 */
 const peek = stack.peek();
-console.log('堆疊頂元素 peek = ' + peek);
+console.log('堆疊頂端元素 peek = ' + peek);
 
-/* 元素出堆疊 */
+/* 從堆疊彈出元素 */
 const pop = stack.pop();
-console.log('出堆疊元素 pop = ' + pop + '，出堆疊後 stack = ' + stack.toArray());
+console.log('彈出的元素 pop = ' + pop + '，彈出後 stack = ' + stack.toArray());
 
-/* 獲取堆疊的長度 */
+/* 取得堆疊長度 */
 const size = stack.size;
-console.log('堆疊的長度 size = ' + size);
+console.log('堆疊長度 size = ' + size);
 
-/* 判斷是否為空 */
+/* 判斷堆疊是否為空 */
 const isEmpty = stack.isEmpty();
 console.log('堆疊是否為空 = ' + isEmpty);

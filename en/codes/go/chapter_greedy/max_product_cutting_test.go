@@ -13,5 +13,5 @@ func TestMaxProductCutting(t *testing.T) {
 	n := 58
 	// Greedy algorithm
 	res := maxProductCutting(n)
-	fmt.Println("Maximum product after splitting:", res)
+	fmt.Println("The maximum product after cutting is", res)
 }

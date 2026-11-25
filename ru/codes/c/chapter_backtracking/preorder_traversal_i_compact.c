@@ -6,43 +6,43 @@
 
 #include "../utils/common.h"
 
-// Предположить, что длина результата не превышает 100
+// Предполагаем, что длина результата не превышает 100
 #define MAX_SIZE 100
 
 TreeNode *res[MAX_SIZE];
 int resSize = 0;
 
-/* Предварительный обход: пример 1 */
+/* Прямой обход: пример 1 */
 void preOrder(TreeNode *root) {
     if (root == NULL) {
         return;
     }
     if (root->val == 7) {
-        // Записать решение
+        // Сохраняем решение
         res[resSize++] = root;
     }
     preOrder(root->left);
     preOrder(root->right);
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\nИнициализация двоичного дерева\n");
+    printf("\nСоздаём двоичное дерево\n");
     printTree(root);
 
-    // Предварительный обход
+    // Прямой обход
     preOrder(root);
 
-    printf("\nВывести все узлы со значением 7\n");
+    printf("\nВыводим все узлы со значением 7\n");
     int *vals = malloc(resSize * sizeof(int));
     for (int i = 0; i < resSize; i++) {
         vals[i] = res[i]->val;
     }
     printArray(vals, resSize);
 
-    // Освободить память
+    // Освобождаем память
     freeMemoryTree(root);
     free(vals);
     return 0;

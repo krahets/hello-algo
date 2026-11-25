@@ -8,15 +8,15 @@
 
 /* Найти k наибольших элементов массива с помощью кучи */
 priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k) {
-    // Инициализация минимальной кучи
+    // Инициализировать мин-кучу
     priority_queue<int, vector<int>, greater<int>> heap;
-    // Поместить первые k элементов массива в кучу
+    // Добавить в кучу первые k элементов массива
     for (int i = 0; i < k; i++) {
         heap.push(nums[i]);
     }
-    // Начиная с элемента k+1, поддерживать длину кучи равной k
+    // Начиная с (k+1)-го элемента, поддерживать размер кучи равным k
     for (int i = k; i < nums.size(); i++) {
-        // Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу
+        // Если текущий элемент больше корня, извлечь корень и вставить текущий элемент
         if (nums[i] > heap.top()) {
             heap.pop();
             heap.push(nums[i]);
@@ -25,13 +25,13 @@ priority_queue<int, vector<int>, greater<int>> topKHeap(vector<int> &nums, int k
     return heap;
 }
 
-// Driver Code
+// Пример использования
 int main() {
     vector<int> nums = {1, 7, 6, 3, 2};
     int k = 3;
 
     priority_queue<int, vector<int>, greater<int>> res = topKHeap(nums, k);
-    cout << "Наибольшие " << k << " элементов: ";
+    cout << "При k = " << k << " наибольшие элементы: ";
     printHeap(res);
 
     return 0;

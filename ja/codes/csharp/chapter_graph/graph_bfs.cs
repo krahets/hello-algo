@@ -7,30 +7,30 @@
 namespace hello_algo.chapter_graph;
 
 public class graph_bfs {
-    /* 幅優先走査 */
-    // 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
+    /* 幅優先探索 */
+    // 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
-        // 頂点の走査順序
+        // 頂点の訪問順
         List<Vertex> res = [];
         // 訪問済みの頂点を記録するハッシュ集合
         HashSet<Vertex> visited = [startVet];
-        // BFS の実装にキューを使う
+        // BFS にキューを使う
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
-        // 頂点 vet を始点として、すべての頂点を訪問するまで繰り返す
+        // 頂点 vet から開始し、すべての頂点を訪問するまで繰り返す
         while (que.Count > 0) {
-            Vertex vet = que.Dequeue(); // キューの先頭の頂点をデキューする
+            Vertex vet = que.Dequeue(); // キューの先頭から頂点を取り出す
             res.Add(vet);               // 訪問した頂点を記録する
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // 訪問済みの頂点をスキップする
+                    continue;          // 訪問済みの頂点を飛ばす
                 }
-                que.Enqueue(adjVet);   // 未訪問の頂点だけをエンキューする
+                que.Enqueue(adjVet);   // 未訪問の頂点だけをキューに追加する
                 visited.Add(adjVet);   // この頂点を訪問済みにする
             }
         }
 
-        // 頂点の走査順序を返す
+        // 頂点を訪問順に返す
         return res;
     }
 
@@ -47,12 +47,12 @@ public class graph_bfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\n初期化後のグラフ");
+        Console.WriteLine("\n初期化後のグラフ：");
         graph.Print();
 
-        /* 幅優先走査 */
+        /* 幅優先探索 */
         List<Vertex> res = GraphBFS(graph, v[0]);
-        Console.WriteLine("\n幅優先走査（BFS）の頂点の順序");
+        Console.WriteLine("\n幅優先探索（BFS）での頂点の訪問順：");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

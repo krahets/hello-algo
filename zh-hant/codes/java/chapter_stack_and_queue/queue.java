@@ -13,7 +13,7 @@ public class queue {
         /* 初始化佇列 */
         Queue<Integer> queue = new LinkedList<>();
 
-        /* 元素入列 */
+        /* 將元素加入佇列 */
         queue.offer(1);
         queue.offer(3);
         queue.offer(2);
@@ -21,15 +21,15 @@ public class queue {
         queue.offer(4);
         System.out.println("佇列 queue = " + queue);
 
-        /* 訪問佇列首元素 */
+        /* 讀取隊首元素 */
         int peek = queue.peek();
-        System.out.println("佇列首元素 peek = " + peek);
+        System.out.println("隊首元素 peek = " + peek);
 
-        /* 元素出列 */
+        /* 從佇列取出元素 */
         int pop = queue.poll();
-        System.out.println("出列元素 pop = " + pop + "，出列後 queue = " + queue);
+        System.out.println("出隊元素 pop = " + pop + "，出隊後 queue = " + queue);
 
-        /* 獲取佇列的長度 */
+        /* 取得佇列長度 */
         int size = queue.size();
         System.out.println("佇列長度 size = " + size);
 

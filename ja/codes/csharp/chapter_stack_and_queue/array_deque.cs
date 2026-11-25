@@ -6,11 +6,11 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* 循環配列で実装した両端キュー */
+/* 循環配列を使った両端キュー */
 public class ArrayDeque {
     int[] nums;  // 両端キューの要素を格納する配列
-    int front;   // キューの先頭要素を指す先頭ポインタ
-    int queSize; // 両端キューの長さ
+    int front;   // 両端キューの先頭要素を指すインデックス
+    int queSize; // 両端キューの要素数
 
     /* コンストラクタ */
     public ArrayDeque(int capacity) {
@@ -23,7 +23,7 @@ public class ArrayDeque {
         return nums.Length;
     }
 
-    /* 両端キューの長さを取得する */
+    /* 両端キューの要素数を取得する */
     public int Size() {
         return queSize;
     }
@@ -33,58 +33,58 @@ public class ArrayDeque {
         return queSize == 0;
     }
 
-    /* 循環配列のインデックスを計算する */
+    /* 循環配列のインデックスを求める */
     int Index(int i) {
-        // 剰余演算を使い、配列の先頭と末尾をつなぐ
-        // i が配列の末尾を越えたら、先頭に戻る
-        // i が配列の先頭を越えたら、末尾に戻る
+        // 剰余を使って配列の先頭と末尾をつなぐ
+        // i が配列の末尾を越えたら先頭に戻る
+        // i が配列の先頭より前に出たら末尾に回る
         return (i + Capacity()) % Capacity();
     }
 
-    /* 先頭にエンキューする */
+    /* 先頭に追加する */
     public void PushFirst(int num) {
         if (queSize == Capacity()) {
             Console.WriteLine("両端キューが満杯です");
             return;
         }
-        // 先頭ポインタを左に 1 つ移動する
-        // 剰余演算により、front が配列の先頭を越えたら末尾に戻るようにする
+        // 先頭のインデックスを左に 1 つ移す
+        // 剰余を使い、front が配列の先頭より前に出たら末尾に回るようにする
         front = Index(front - 1);
-        // num をキューの先頭に追加する
+        // num を両端キューの先頭に追加する
         nums[front] = num;
         queSize++;
     }
 
-    /* 末尾にエンキューする */
+    /* 末尾に追加する */
     public void PushLast(int num) {
         if (queSize == Capacity()) {
             Console.WriteLine("両端キューが満杯です");
             return;
         }
-        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+        // 両端キューの末尾要素の次の位置を示すインデックスを求める
         int rear = Index(front + queSize);
-        // num をキューの末尾に追加する
+        // num を両端キューの末尾に追加する
         nums[rear] = num;
         queSize++;
     }
 
-    /* 先頭からデキューする */
+    /* 先頭から取り出す */
     public int PopFirst() {
         int num = PeekFirst();
-        // 先頭ポインタを後ろに 1 つ移動する
+        // 先頭のインデックスを 1 つ進める
         front = Index(front + 1);
         queSize--;
         return num;
     }
 
-    /* 末尾からデキューする */
+    /* 末尾から取り出す */
     public int PopLast() {
         int num = PeekLast();
         queSize--;
         return num;
     }
 
-    /* キューの先頭要素にアクセス */
+    /* 両端キューの先頭要素を参照する */
     public int PeekFirst() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
@@ -92,19 +92,19 @@ public class ArrayDeque {
         return nums[front];
     }
 
-    /* キューの末尾要素にアクセスする */
+    /* 両端キューの末尾要素を参照する */
     public int PeekLast() {
         if (IsEmpty()) {
             throw new InvalidOperationException();
         }
-        // 末尾要素のインデックスを計算する
+        // 末尾要素のインデックスを求める
         int last = Index(front + queSize - 1);
         return nums[last];
     }
 
     /* 表示用の配列を返す */
     public int[] ToArray() {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // 両端キューの要素数に当たる範囲だけを変換する
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[Index(j)];
@@ -123,27 +123,27 @@ public class array_deque {
         deque.PushLast(5);
         Console.WriteLine("両端キュー deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 要素にアクセスする */
+        /* 要素を参照する */
         int peekFirst = deque.PeekFirst();
-        Console.WriteLine("キューの先頭要素 peekFirst = " + peekFirst);
+        Console.WriteLine("先頭要素 peekFirst = " + peekFirst);
         int peekLast = deque.PeekLast();
-        Console.WriteLine("キューの末尾要素 peekLast = " + peekLast);
+        Console.WriteLine("末尾要素 peekLast = " + peekLast);
 
-        /* 要素をエンキューする */
+        /* 要素を両端キューに追加する */
         deque.PushLast(4);
-        Console.WriteLine("要素 4 を末尾にエンキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("末尾に 4 を追加した後の deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("要素 1 を先頭にエンキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("先頭に 1 を追加した後の deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 要素をデキューする */
+        /* 両端キューから要素を取り出す */
         int popLast = deque.PopLast();
-        Console.WriteLine("末尾からデキューした要素 = " + popLast + "、末尾からデキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("末尾から取り出した要素 = " + popLast + "、末尾から取り出した後の deque = " + string.Join(" ", deque.ToArray()));
         int popFirst = deque.PopFirst();
-        Console.WriteLine("先頭からデキューした要素 = " + popFirst + "、先頭からデキューした後 deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("先頭から取り出した要素 = " + popFirst + "、先頭から取り出した後の deque = " + string.Join(" ", deque.ToArray()));
 
-        /* 両端キューの長さを取得する */
+        /* 両端キューの要素数を取得する */
         int size = deque.Size();
-        Console.WriteLine("両端キューの長さ size = " + size);
+        Console.WriteLine("両端キューの要素数 size = " + size);
 
         /* 両端キューが空かどうかを判定する */
         bool isEmpty = deque.IsEmpty();

@@ -6,7 +6,7 @@
 
 package chapter_backtracking.n_queens
 
-/* Алгоритм бэктрекинга: n ферзей */
+/* Поиск с возвратом: задача о n ферзях */
 fun backtrack(
     row: Int,
     n: Int,
@@ -16,7 +16,7 @@ fun backtrack(
     diags1: BooleanArray,
     diags2: BooleanArray
 ) {
-    // Когда все строки уже обработаны, записать решение
+    // Когда ферзи расставлены во всех строках, сохраняем решение
     if (row == n) {
         val copyState = mutableListOf<MutableList<String>>()
         for (sRow in state) {
@@ -25,21 +25,21 @@ fun backtrack(
         res.add(copyState)
         return
     }
-    // Обойти все столбцы
+    // Перебираем все столбцы
     for (col in 0..<n) {
-        // Вычислить главную и побочную диагонали, соответствующие этой клетке
+        // Вычисляем индексы прямой и обратной диагоналей клетки
         val diag1 = row - col + n - 1
         val diag2 = row + col
-        // Отсечение: в столбце, главной диагонали и побочной диагонали этой клетки не должно быть ферзей
+        // Отсечение: в столбце и на обеих диагоналях клетки не должно быть ферзей
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // Попытка: поставить ферзя в эту клетку
+            // Пробуем поставить ферзя на эту клетку
             state[row][col] = "Q"
             diags2[diag2] = true
             diags1[diag1] = diags2[diag2]
             cols[col] = diags1[diag1]
-            // Перейти к размещению следующей строки
+            // Переходим к следующей строке
             backtrack(row + 1, n, state, res, cols, diags1, diags2)
-            // Откат: восстановить эту клетку как пустую
+            // Возврат: освобождаем клетку
             state[row][col] = "#"
             diags2[diag2] = false
             diags1[diag1] = diags2[diag2]
@@ -48,9 +48,9 @@ fun backtrack(
     }
 }
 
-/* Решить задачу о n ферзях */
+/* Решение задачи о n ферзях */
 fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
-    // Инициализировать доску размера n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
+    // Создаём доску n*n, где 'Q' обозначает ферзя, а '#' — пустую клетку
     val state = mutableListOf<MutableList<String>>()
     for (i in 0..<n) {
         val row = mutableListOf<String>()
@@ -59,9 +59,9 @@ fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
         }
         state.add(row)
     }
-    val cols = BooleanArray(n) // Отмечать, есть ли ферзь в столбце
-    val diags1 = BooleanArray(2 * n - 1) // Отмечать наличие ферзя на главной диагонали
-    val diags2 = BooleanArray(2 * n - 1) // Отмечать наличие ферзя на побочной диагонали
+    val cols = BooleanArray(n) // Отмечаем столбцы, занятые ферзями
+    val diags1 = BooleanArray(2 * n - 1) // Отмечаем прямые диагонали, занятые ферзями
+    val diags2 = BooleanArray(2 * n - 1) // Отмечаем обратные диагонали, занятые ферзями
     val res = mutableListOf<MutableList<MutableList<String>>?>()
 
     backtrack(0, n, state, res, cols, diags1, diags2)
@@ -69,13 +69,13 @@ fun nQueens(n: Int): MutableList<MutableList<MutableList<String>>?> {
     return res
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val n = 4
     val res = nQueens(n)
 
-    println("Размер входной доски = $n")
-    println("Количество способов расстановки ферзей: ${res.size}")
+    println("Длина стороны доски: $n")
+    println("Число расстановок ферзей: ${res.size}.")
     for (state in res) {
         println("--------------------")
         for (row in state!!) {

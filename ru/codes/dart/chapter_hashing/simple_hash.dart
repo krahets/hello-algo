@@ -24,7 +24,7 @@ int mulHash(String key) {
   return hash;
 }
 
-/* XOR-хеширование */
+/* Хеширование с помощью XOR */
 int xorHash(String key) {
   int hash = 0;
   final int MODULUS = 1000000007;
@@ -44,19 +44,19 @@ int rotHash(String key) {
   return hash;
 }
 
-/* Dirver Code */
+/* Демонстрационный код */
 void main() {
-  String key = "Hello Algo";
+  String key = "Hello 算法";
 
   int hash = addHash(key);
-  print("Хеш-сумма сложением = $hash");
+  print("Аддитивный хеш: $hash");
 
   hash = mulHash(key);
-  print("Хеш-сумма умножением = $hash");
+  print("Мультипликативный хеш: $hash");
 
   hash = xorHash(key);
-  print("Хеш-сумма XOR = $hash");
+  print("Хеш на основе XOR: $hash");
 
   hash = rotHash(key);
-  print("Хеш-сумма с циклическим сдвигом = $hash");
+  print("Хеш с циклическим сдвигом: $hash");
 }

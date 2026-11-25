@@ -19,19 +19,19 @@ class Pair {
 class HashMapOpenAddressing {
     private size: number; // Number of key-value pairs
     private capacity: number; // Hash table capacity
-    private loadThres: number; // Load factor threshold that triggers capacity growth
-    private extendRatio: number; // Capacity growth factor
+    private loadThres: number; // Load factor threshold for resizing
+    private extendRatio: number; // Growth factor
     private buckets: Array<Pair | null>; // Bucket array
-    private TOMBSTONE: Pair; // Tombstone marker
+    private TOMBSTONE: Pair; // Deletion marker
 
     /* Constructor */
     constructor() {
         this.size = 0; // Number of key-value pairs
         this.capacity = 4; // Hash table capacity
-        this.loadThres = 2.0 / 3.0; // Load factor threshold that triggers capacity growth
-        this.extendRatio = 2; // Capacity growth factor
+        this.loadThres = 2.0 / 3.0; // Load factor threshold for resizing
+        this.extendRatio = 2; // Growth factor
         this.buckets = Array(this.capacity).fill(null); // Bucket array
-        this.TOMBSTONE = new Pair(-1, '-1'); // Tombstone marker
+        this.TOMBSTONE = new Pair(-1, '-1'); // Deletion marker
     }
 
     /* Hash function */
@@ -52,52 +52,52 @@ class HashMapOpenAddressing {
         while (this.buckets[index] !== null) {
             // If key is found, return its bucket index
             if (this.buckets[index]!.key === key) {
-                // If a tombstone was encountered earlier, move the key-value pair to that index
+                // If a deletion marker was found earlier, move the pair to that index
                 if (firstTombstone !== -1) {
                     this.buckets[firstTombstone] = this.buckets[index];
                     this.buckets[index] = this.TOMBSTONE;
-                    return firstTombstone; // Return the bucket index after the move
+                    return firstTombstone; // Return the new bucket index
                 }
                 return index; // Return the bucket index
             }
-            // Record the first tombstone encountered
+            // Record the first deletion marker encountered
             if (
                 firstTombstone === -1 &&
                 this.buckets[index] === this.TOMBSTONE
             ) {
                 firstTombstone = index;
             }
-            // Calculate the bucket index, wrapping to the beginning after the end
+            // Compute the next bucket index, wrapping to the start at the end
             index = (index + 1) % this.capacity;
         }
         // If key is absent, return the index for insertion
         return firstTombstone === -1 ? index : firstTombstone;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     get(key: number): string | null {
         // Find the bucket index for key
         const index = this.findBucket(key);
-        // If the key-value pair is found, return its val
+        // If the pair is found, return its val
         if (
             this.buckets[index] !== null &&
             this.buckets[index] !== this.TOMBSTONE
         ) {
             return this.buckets[index]!.val;
         }
-        // Return null if the key-value pair does not exist
+        // Return null if the pair is absent
         return null;
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     put(key: number, val: string): void {
-        // Grow the capacity when the load factor exceeds the threshold
+        // Expand the table when the load factor exceeds the threshold
         if (this.loadFactor() > this.loadThres) {
             this.extend();
         }
         // Find the bucket index for key
         const index = this.findBucket(key);
-        // If the key-value pair is found, overwrite val and return
+        // If the pair is found, overwrite val and return
         if (
             this.buckets[index] !== null &&
             this.buckets[index] !== this.TOMBSTONE
@@ -105,16 +105,16 @@ class HashMapOpenAddressing {
             this.buckets[index]!.val = val;
             return;
         }
-        // If the key-value pair is absent, insert it
+        // If the pair is absent, insert it
         this.buckets[index] = new Pair(key, val);
         this.size++;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     remove(key: number): void {
         // Find the bucket index for key
         const index = this.findBucket(key);
-        // If the key-value pair is found, replace it with a tombstone
+        // If the pair is found, replace it with a deletion marker
         if (
             this.buckets[index] !== null &&
             this.buckets[index] !== this.TOMBSTONE
@@ -124,15 +124,15 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* Grow the hash table capacity */
+    /* Expand the hash table */
     private extend(): void {
-        // Keep a reference to the original hash table
+        // Save the original hash table
         const bucketsTmp = this.buckets;
-        // Initialize a new hash table with the expanded capacity
+        // Initialize the larger hash table
         this.capacity *= this.extendRatio;
         this.buckets = Array(this.capacity).fill(null);
         this.size = 0;
-        // Move the key-value pairs from the original hash table to the new one
+        // Move the key-value pairs from the old table into the new one
         for (const pair of bucketsTmp) {
             if (pair !== null && pair !== this.TOMBSTONE) {
                 this.put(pair.key, pair.val);
@@ -158,23 +158,23 @@ class HashMapOpenAddressing {
 // Initialize the hash table
 const hashmap = new HashMapOpenAddressing();
 
-// Insert operation
-// Insert the key-value pair (key, val) into the hash table
-hashmap.put(12836, '小哈');
-hashmap.put(15937, '小啰');
-hashmap.put(16750, '小算');
-hashmap.put(13276, '小法');
-hashmap.put(10583, '小鸭');
+// Insert a key-value pair
+// Insert the pair (key, val) into the hash table
+hashmap.put(12836, 'Xiao Ha');
+hashmap.put(15937, 'Xiao Luo');
+hashmap.put(16750, 'Xiao Suan');
+hashmap.put(13276, 'Xiao Fa');
+hashmap.put(10583, 'Xiao Ya');
 console.log('\nHash table after insertion:\nKey -> Value');
 hashmap.print();
 
-// Lookup operation
-// Look up key in the hash table to obtain val
+// Look up a value
+// Look up key in the hash table to get val
 const name = hashmap.get(13276);
-console.log('\nLook up student ID 13276 to obtain the name ' + name);
+console.log('\nName for student ID 13276: ' + name);
 
-// Remove operation
-// Remove the key-value pair (key, val) from the hash table
+// Remove a key-value pair
+// Remove the pair (key, val) from the hash table
 hashmap.remove(16750);
 console.log('\nHash table after removing 16750:\nKey -> Value');
 hashmap.print();

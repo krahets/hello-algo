@@ -1,62 +1,62 @@
 # 両端キュー
 
-キューでは、先頭要素の削除と末尾への追加しかできません。下図の<u>両端キュー（double-ended queue）</u>は、先頭と末尾の両方で追加・削除ができ、より柔軟です。
+通常のキューでは、要素を削除できるのは先頭だけで、追加できるのは末尾だけです。下図の<u>両端キュー（double-ended queue）</u>はより柔軟で、先頭と末尾のどちらでも要素を追加したり削除したりできます。
 
 ![両端キューの操作](deque.assets/deque_operations.svg)
 
-## 両端キューの主な操作
+## 両端キューの基本操作
 
-主な操作を下表に示します。具体的なメソッド名は、使う言語によって異なります。
+両端キューでよく使う操作を次の表に示します。実際のメソッド名は使用するプログラミング言語によって異なります。
 
-<p align="center"> 表 <id> &nbsp; 両端キューの操作効率 </p>
+<p align="center"> 表 <id> &nbsp; 両端キューの各操作の時間計算量 </p>
 
 | メソッド名         | 説明             | 時間計算量 |
 | -------------- | ---------------- | ---------- |
-| `push_first()` | 先頭に要素を追加 | $O(1)$     |
-| `push_last()`  | 末尾に要素を追加 | $O(1)$     |
-| `pop_first()`  | 先頭要素を削除     | $O(1)$     |
-| `pop_last()`   | 末尾要素を削除     | $O(1)$     |
-| `peek_first()` | 先頭要素にアクセス     | $O(1)$     |
-| `peek_last()`  | 末尾要素にアクセス     | $O(1)$     |
+| `push_first()` | 先頭に要素を追加する | $O(1)$     |
+| `push_last()`  | 末尾に要素を追加する | $O(1)$     |
+| `pop_first()`  | 先頭の要素を削除する     | $O(1)$     |
+| `pop_last()`   | 末尾の要素を削除する     | $O(1)$     |
+| `peek_first()` | 先頭の要素を参照する     | $O(1)$     |
+| `peek_last()`  | 末尾の要素を参照する     | $O(1)$     |
 
-同様に、言語が用意する両端キュークラスをそのまま利用できます。
+両端キューについても、プログラミング言語が用意しているクラスをそのまま利用できます。
 
 ```snippet
 deque_operations
 ```
 
-??? pythontutor "実行の可視化"
+??? pythontutor "実行の様子を見る"
 
     @tutor deque_operations_tutor
 
 ## 両端キューの実装 *
 
-実装はキューと似ており、基盤となるデータ構造に連結リストか配列を選べます。
+両端キューは通常のキューと同じように、内部のデータ構造に連結リストまたは配列を使って実装できます。
 
 ### 双方向連結リストによる実装
 
-前節では、通常の単方向連結リストでキューを実装しました。先頭ノードの削除（デキュー）と、末尾ノードの後への追加（エンキュー）が容易だからです。
+前の節では、通常の単方向連結リストでキューを実装しました。先頭ノードの削除（デキューに対応）と、末尾ノードの後ろへの新しいノードの追加（エンキューに対応）が簡単にできるからです。
 
-両端キューでは、先頭でも末尾でも追加と削除ができます。つまり、反対側の対称的な操作も必要です。そのため、基盤に双方向連結リストを使います。
+両端キューでは、先頭と末尾のどちらでもエンキューとデキューができます。つまり、通常のキューの操作に加え、端を入れ替えた逆向きの操作も実装する必要があります。そこで、両端キューの内部のデータ構造に「双方向連結リスト」を使います。
 
-下図のように、双方向連結リストの先頭と末尾を両端キューの先頭と末尾に対応させ、両端でノードを追加・削除できるようにします。
+下図のように、双方向連結リストの先頭ノードを両端キューの先頭、末尾ノードを末尾とみなし、どちらの端でもノードを追加、削除できるようにします。
 
 === "<1>"
-    ![連結リストによる両端キューの追加と削除](deque.assets/linkedlist_deque_step1.svg)
+    ![連結リストで実装した両端キューのエンキューとデキュー](deque.assets/linkedlist_deque_step1.svg)
 
 === "<2>"
-    ![連結リストによる両端キュー：末尾に追加](deque.assets/linkedlist_deque_step2_push_last.svg)
+    ![linkedlist_deque_push_last](deque.assets/linkedlist_deque_step2_push_last.svg)
 
 === "<3>"
-    ![連結リストによる両端キュー：先頭に追加](deque.assets/linkedlist_deque_step3_push_first.svg)
+    ![linkedlist_deque_push_first](deque.assets/linkedlist_deque_step3_push_first.svg)
 
 === "<4>"
-    ![連結リストによる両端キュー：末尾から取り出す](deque.assets/linkedlist_deque_step4_pop_last.svg)
+    ![linkedlist_deque_pop_last](deque.assets/linkedlist_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![連結リストによる両端キュー：先頭から取り出す](deque.assets/linkedlist_deque_step5_pop_first.svg)
+    ![linkedlist_deque_pop_first](deque.assets/linkedlist_deque_step5_pop_first.svg)
 
-実装は次のとおりです。
+実装のコードを以下に示します。
 
 ```src
 [file]{linkedlist_deque}-[class]{linked_list_deque}-[func]{}
@@ -64,24 +64,24 @@ deque_operations
 
 ### 配列による実装
 
-下図のように、配列によるキューと同様、循環配列で両端キューを実装できます。
+下図のように、配列で通常のキューを実装したときと同様に、両端キューも循環配列で実装できます。
 
 === "<1>"
-    ![配列による両端キューの追加と削除](deque.assets/array_deque_step1.svg)
+    ![配列で実装した両端キューのエンキューとデキュー](deque.assets/array_deque_step1.svg)
 
 === "<2>"
-    ![配列による両端キュー：末尾に追加](deque.assets/array_deque_step2_push_last.svg)
+    ![array_deque_push_last](deque.assets/array_deque_step2_push_last.svg)
 
 === "<3>"
-    ![配列による両端キュー：先頭に追加](deque.assets/array_deque_step3_push_first.svg)
+    ![array_deque_push_first](deque.assets/array_deque_step3_push_first.svg)
 
 === "<4>"
-    ![配列による両端キュー：末尾から取り出す](deque.assets/array_deque_step4_pop_last.svg)
+    ![array_deque_pop_last](deque.assets/array_deque_step4_pop_last.svg)
 
 === "<5>"
-    ![配列による両端キュー：先頭から取り出す](deque.assets/array_deque_step5_pop_first.svg)
+    ![array_deque_pop_first](deque.assets/array_deque_step5_pop_first.svg)
 
-キューの実装に、先頭への追加と末尾からの取り出しのメソッドを加えるだけです。
+通常のキューの実装に、「先頭へのエンキュー」と「末尾からのデキュー」のメソッドを追加するだけです。
 
 ```src
 [file]{array_deque}-[class]{array_deque}-[func]{}
@@ -89,6 +89,6 @@ deque_operations
 
 ## 両端キューの用途
 
-両端キューはスタックとキューの両方の論理を持つため、**両者のすべての用途を実現でき、さらに高い自由度も提供します**。
+両端キューはスタックとキューの両方の動作ができます。**そのため、スタックとキューのあらゆる用途に使え、操作の自由度も高くなります**。
 
-ソフトウェアの「元に戻す」は通常、変更のたびに操作をスタックへ `push` し、`pop` で取り消します。ただし、システム資源の制約から、通常は、保存できる履歴が例えば $50$ 回までに制限されます。長さが $50$ を超えたら、底、つまりキューの先頭から削除する必要があります。**スタックではできないため、両端キューに置き換えます**。「元に戻す」の中心的な論理は依然として先入れ後出しであり、両端キューは追加の処理をより柔軟に実現している点に注意してください。
+ソフトウェアの「元に戻す」機能には、通常スタックが使われます。変更を加えるたびに、その操作をスタックに `push` し、`pop` で操作を取り出して元に戻します。ただし、システムの資源には限りがあるため、通常は元に戻せる回数に上限を設けます（たとえば $50$ 回分だけ保存します）。スタックの長さが $50$ を超えると、スタックの底（キューの先頭）にある操作を削除する必要があります。**スタックでは底から削除できないため、ここでスタックの代わりに両端キューを使います**。「元に戻す」機能の基本は、あくまでスタックの後入れ先出しの原則です。両端キューを使うことで、こうした追加の処理を柔軟に実現できます。

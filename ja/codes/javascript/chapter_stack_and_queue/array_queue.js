@@ -4,11 +4,11 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* 循環配列で実装したキュー */
+/* 循環配列を使ったキュー */
 class ArrayQueue {
     #nums; // キューの要素を格納する配列
-    #front = 0; // キューの先頭要素を指す先頭ポインタ
-    #queSize = 0; // キューの長さ
+    #front = 0; // キューの先頭要素を指すインデックス
+    #queSize = 0; // キューの要素数
 
     constructor(capacity) {
         this.#nums = new Array(capacity);
@@ -19,48 +19,48 @@ class ArrayQueue {
         return this.#nums.length;
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     get size() {
         return this.#queSize;
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     isEmpty() {
         return this.#queSize === 0;
     }
 
-    /* エンキュー */
+    /* エンキューする */
     push(num) {
         if (this.size === this.capacity) {
             console.log('キューが満杯です');
             return;
         }
-        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
-        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
+        // キューの末尾要素の次の位置を示すインデックスを求める
+        // 剰余を使い、rear が配列の末尾を越えたら先頭に戻るようにする
         const rear = (this.#front + this.size) % this.capacity;
         // num をキューの末尾に追加する
         this.#nums[rear] = num;
         this.#queSize++;
     }
 
-    /* デキュー */
+    /* デキューする */
     pop() {
         const num = this.peek();
-        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
+        // 先頭のインデックスを 1 つ進め、配列の末尾を越えたら先頭に戻す
         this.#front = (this.#front + 1) % this.capacity;
         this.#queSize--;
         return num;
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     peek() {
         if (this.isEmpty()) throw new Error('キューが空です');
         return this.#nums[this.#front];
     }
 
-    /* Array を返す */
+    /* 配列を返す */
     toArray() {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // キューの要素数に当たる範囲だけを変換する
         const arr = new Array(this.size);
         for (let i = 0, j = this.#front; i < this.size; i++, j++) {
             arr[i] = this.#nums[j % this.capacity];
@@ -69,12 +69,12 @@ class ArrayQueue {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 /* キューを初期化する */
 const capacity = 10;
 const queue = new ArrayQueue(capacity);
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -82,25 +82,25 @@ queue.push(5);
 queue.push(4);
 console.log('キュー queue =', queue.toArray());
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 const peek = queue.peek();
-console.log('キューの先頭要素 peek = ' + peek);
+console.log('先頭要素 peek = ' + peek);
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 const pop = queue.pop();
-console.log('デキューした要素 pop = ' + pop + '、デキュー後 queue =', queue.toArray());
+console.log('デキューした要素 pop = ' + pop + '、デキュー後の queue =', queue.toArray());
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 const size = queue.size;
-console.log('キューの長さ size = ' + size);
+console.log('キューの要素数 size = ' + size);
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 const isEmpty = queue.isEmpty();
 console.log('キューは空か = ' + isEmpty);
 
-/* 循環配列をテストする */
+/* 循環配列の動作を確認する */
 for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    console.log('第 ' + i + ' 回のエンキューとデキューの後 queue =', queue.toArray());
+    console.log('第 ' + i + ' 回のエンキューとデキューを終えた後の queue =', queue.toArray());
 }

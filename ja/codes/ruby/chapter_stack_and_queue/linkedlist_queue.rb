@@ -6,33 +6,33 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### 連結リストで実装したキュー ###
+### 連結リストを使ったキュー ###
 class LinkedListQueue
-  ### キューの長さを取得 ###
+  ### キューの要素数を取得する ###
   attr_reader :size
 
-  ### コンストラクタ ###
+  ### 初期化メソッド ###
   def initialize
     @front = nil  # 先頭ノード front
     @rear = nil   # 末尾ノード rear
     @size = 0
   end
 
-  ### キューが空か判定 ###
+  ### キューが空かどうかを判定する ###
   def is_empty?
     @front.nil?
   end
 
-  ### エンキュー ###
+  ### エンキューする ###
   def push(num)
-    # 末尾ノードの後ろに num を追加する
+    # 値が num のノードを末尾ノードの後ろに追加する
     node = ListNode.new(num)
 
-    # キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
+    # キューが空なら、先頭と末尾の両方がこのノードを指すようにする
     if @front.nil?
       @front = node
       @rear = node
-    # キューが空でない場合、このノードを末尾ノードの後ろに追加する
+    # キューが空でなければ、このノードを末尾ノードの後ろにつなぐ
     else
       @rear.next = node
       @rear = node
@@ -41,7 +41,7 @@ class LinkedListQueue
     @size += 1
   end
 
-  ### デキュー ###
+  ### デキューする ###
   def pop
     num = peek
     # 先頭ノードを削除する
@@ -50,14 +50,14 @@ class LinkedListQueue
     num
   end
 
-  ### キューの先頭要素にアクセス ###
+  ### キューの先頭要素を参照する ###
   def peek
     raise IndexError, 'キューが空です' if is_empty?
 
     @front.val
   end
 
-  ### 連結リストを Array に変換して返す ###
+  ### 連結リストを配列に変換して返す ###
   def to_array
     queue = []
     temp = @front
@@ -69,12 +69,12 @@ class LinkedListQueue
   end
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # キューを初期化する
   queue = LinkedListQueue.new
 
-  # 要素をエンキューする
+  # 要素をキューに追加する
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -82,20 +82,20 @@ if __FILE__ == $0
   queue.push(4)
   puts "キュー queue = #{queue.to_array}"
 
-  # キューの先頭要素にアクセス
+  # キューの先頭要素を参照する
   peek = queue.peek
-  puts "キューの先頭要素 front = #{peek}"
+  puts "先頭要素 front = #{peek}"
 
-  # 要素をデキューする
+  # キューから要素を取り出す
   pop_front = queue.pop
   puts "デキューした要素 pop = #{pop_front}"
-  puts "デキュー後 queue = #{queue.to_array}"
+  puts "デキュー後の queue = #{queue.to_array}"
 
-  # キューの長さを取得
+  # キューの要素数を取得する
   size = queue.size
-  puts "キューの長さ size = #{size}"
+  puts "キューの要素数 size = #{size}"
 
-  # キューが空か判定
+  # キューが空かどうかを判定する
   is_empty = queue.is_empty?
   puts "キューは空か = #{is_empty}"
 end

@@ -1,18 +1,18 @@
 {
-  "schema_version": 2,
-  "title": "Stack space of recursive calls",
-  "summary": "Stack space depends on how many calls remain active at once, as each nested recursive call adds a stack frame.",
   "context": [
-    "Here n is a positive integer, counted below under standard execution without tail-call optimization."
+    "The integer n is positive. The following count assumes execution without tail-call optimization."
   ],
   "description": [],
-  "result": "Each level uses constant local space, and at maximum depth n levels coexist simultaneously for O(n) peak stack space; releasing frames afterward one by one does not reduce the peak already reached.",
   "frames": [
     {
-      "id": "source-35",
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_recursive_linear.png",
-      "title": "Stack space of recursive calls",
-      "explanation": "The left column, \"Recurse downward\", steps down by 1 from linear_recur(n) to the base case linear_recur(1), spanned by a brace labeled \"Recursion depth n\". Because outer calls wait for inner calls to finish, n stack frames coexist at the deepest point; control then unwinds up the right column, \"Return upward\", freeing each level's stack frame only as it returns. Although the right column writes return 0 whereas the current Python code uses a bare return (returning None), that difference does not affect the stack-space count."
+      "explanation": "In the left column, “Descend,” the argument decreases by 1 at each call, from linear_recur(n) down to the base case linear_recur(1). A brace is labeled “Recursion depth n.” Each outer call waits for its child, so n frames coexist at the deepest point. The right column, “Unwind,” shows the calls returning one at a time. Each frame is released only when its call returns. The figure shows return 0, while the current Python code uses a bare return and returns None. This difference does not affect the stack space count.",
+      "id": "source-35",
+      "title": "Stack space used by recursive calls"
     }
-  ]
+  ],
+  "result": "Each level uses constant local space. At maximum depth, n levels are active at once, so peak stack space is O(n). Releasing frames afterward does not change the peak already reached.",
+  "schema_version": 2,
+  "summary": "Stack space depends on how many calls are active at once. Each deeper call adds a stack frame.",
+  "title": "Stack space used by recursive calls"
 }

@@ -8,8 +8,8 @@
 
 /* Стек на основе связного списка */
 typedef struct {
-    ListNode *top; // Использовать головной узел как вершину стека
-    int size;      // Длина стека
+    ListNode *top; // Первый узел списка служит вершиной стека
+    int size;      // Размер стека
 } LinkedListStack;
 
 /* Конструктор */
@@ -30,35 +30,35 @@ void delLinkedListStack(LinkedListStack *s) {
     free(s);
 }
 
-/* Получение длины стека */
+/* Получить размер стека */
 int size(LinkedListStack *s) {
     return s->size;
 }
 
-/* Проверка, пуст ли стек */
+/* Проверить, пуст ли стек */
 bool isEmpty(LinkedListStack *s) {
     return size(s) == 0;
 }
 
-/* Поместить в стек */
+/* Поместить элемент в стек */
 void push(LinkedListStack *s, int num) {
     ListNode *node = (ListNode *)malloc(sizeof(ListNode));
-    node->next = s->top; // Обновить поле указателя нового узла
-    node->val = num;     // Обновить поле данных нового узла
+    node->next = s->top; // Записать в новый узел указатель на прежнюю вершину стека
+    node->val = num;     // Записать значение в поле данных нового узла
     s->top = node;       // Обновить вершину стека
     s->size++;           // Обновить размер стека
 }
 
-/* Доступ к верхнему элементу стека */
+/* Посмотреть элемент на вершине стека */
 int peek(LinkedListStack *s) {
     if (s->size == 0) {
-        printf("стек пуст\n");
+        printf("Стек пуст\n");
         return INT_MAX;
     }
     return s->top->val;
 }
 
-/* Извлечь из стека */
+/* Снять элемент со стека */
 int pop(LinkedListStack *s) {
     int val = peek(s);
     ListNode *tmp = s->top;
@@ -69,12 +69,12 @@ int pop(LinkedListStack *s) {
     return val;
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     LinkedListStack *stack = newLinkedListStack();
 
-    /* Помещение элемента в стек */
+    /* Поместить элементы в стек */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -84,21 +84,21 @@ int main() {
     printf("Стек stack = ");
     printLinkedList(stack->top);
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     int val = peek(stack);
-    printf("Верхний элемент стека top = %d\r\n", val);
+    printf("Элемент на вершине стека top = %d\r\n", val);
 
-    /* Извлечение элемента из стека */
+    /* Снять элемент со стека */
     val = pop(stack);
-    printf("Извлечен элемент из стека pop = %d, стек после извлечения =  ", val);
+    printf("Снятый элемент pop = %d, после снятия stack =  ", val);
     printLinkedList(stack->top);
 
-    /* Получение длины стека */
-    printf("Длина стека size = %d\n", size(stack));
+    /* Получить размер стека */
+    printf("Размер стека size = %d\n", size(stack));
 
-    /* Проверка на пустоту */
+    /* Проверить, пуст ли стек */
     bool empty = isEmpty(stack);
-    printf("Пуст ли стек = %s\n", empty ? "true" : "false");
+    printf("Стек пуст = %s\n", empty ? "true" : "false");
 
     // Освободить память
     delLinkedListStack(stack);

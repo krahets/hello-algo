@@ -48,9 +48,9 @@ int rotHash(char *key) {
     return (int)hash;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
-    char *key = "Hello 演算法";
+    char *key = "Hello 算法";
 
     int hash = addHash(key);
     printf("加法雜湊值為 %d\n", hash);

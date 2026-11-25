@@ -4,7 +4,7 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### Демонстрационный код ###
 if __FILE__ == $0
   # Инициализация списка
   nums = [1, 3, 2, 5, 4]
@@ -16,9 +16,9 @@ if __FILE__ == $0
 
   # Изменение элемента
   nums[1] = 0
-  puts "После изменения значения элемента с индексом 1 на 0 nums = #{nums}"
+  puts "После записи 0 по индексу 1 nums = #{nums}"
 
-  # Очистить список
+  # Очистка списка
   nums.clear
   puts "После очистки списка nums = #{nums}"
 
@@ -38,23 +38,23 @@ if __FILE__ == $0
   nums.delete_at(3)
   puts "После удаления элемента по индексу 3 nums = #{nums}"
 
-  # Обходить список по индексам
+  # Обойти список по индексам
   count = 0
   for i in 0...nums.length
     count += nums[i]
   end
 
-  # Непосредственно обходить элементы списка
+  # Перебрать элементы списка напрямую
   count = 0
   nums.each do |x|
     count += x
   end
 
-  # Объединить два списка
+  # Объединение двух списков
   nums1 = [6, 8, 7, 10, 9]
   nums += nums1
-  puts "После конкатенации списка nums1 к nums nums = #{nums}"
+  puts "После добавления nums1 в конец nums получаем nums = #{nums}"
 
   nums = nums.sort { |a, b| a <=> b }
-  puts "После сортировки списка nums = #{nums}"
+  puts "После сортировки nums = #{nums}"
 end

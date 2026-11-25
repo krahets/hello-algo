@@ -10,13 +10,13 @@ import (
 	"strings"
 )
 
-/* チェイン法のハッシュテーブル */
+/* チェイン法によるハッシュ表 */
 type hashMapChaining struct {
 	size        int      // キーと値のペアの数
-	capacity    int      // ハッシュテーブルの容量
-	loadThres   float64  // 容量の拡張を開始する負荷率のしきい値
+	capacity    int      // ハッシュ表の容量
+	loadThres   float64  // 表を拡張する負荷率のしきい値
 	extendRatio int      // 容量の拡張倍率
-	buckets     [][]pair // バケット配列
+	buckets     [][]pair // バケットの配列
 }
 
 /* コンストラクタ */
@@ -44,7 +44,7 @@ func (m *hashMapChaining) loadFactor() float64 {
 	return float64(m.size) / float64(m.capacity)
 }
 
-/* 取得操作 */
+/* 検索 */
 func (m *hashMapChaining) get(key int) string {
 	idx := m.hashFunc(key)
 	bucket := m.buckets[idx]
@@ -54,25 +54,25 @@ func (m *hashMapChaining) get(key int) string {
 			return p.val
 		}
 	}
-	// key が見つからなかった場合、空文字列を返す
+	// key が見つからなければ空文字列を返す
 	return ""
 }
 
-/* 追加操作 */
+/* 追加 */
 func (m *hashMapChaining) put(key int, val string) {
-	// 負荷率がしきい値を超えた場合、容量を拡張する
+	// 負荷率がしきい値を超えたら表を拡張する
 	if m.loadFactor() > m.loadThres {
 		m.extend()
 	}
 	idx := m.hashFunc(key)
-	// バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
+	// バケットを走査し、指定の key が見つかったら対応する val を更新して処理を終える
 	for i := range m.buckets[idx] {
 		if m.buckets[idx][i].key == key {
 			m.buckets[idx][i].val = val
 			return
 		}
 	}
-	// key が存在しない場合、キーと値のペアを末尾に追加する
+	// key がなければ末尾にペアを追加する
 	p := pair{
 		key: key,
 		val: val,
@@ -81,10 +81,10 @@ func (m *hashMapChaining) put(key int, val string) {
 	m.size += 1
 }
 
-/* 削除操作 */
+/* 削除 */
 func (m *hashMapChaining) remove(key int) {
 	idx := m.hashFunc(key)
-	// バケットを走査し、キーと値のペアを削除する
+	// バケットを走査し、該当するペアを削除する
 	for i, p := range m.buckets[idx] {
 		if p.key == key {
 			// スライスから削除する
@@ -95,22 +95,22 @@ func (m *hashMapChaining) remove(key int) {
 	}
 }
 
-/* ハッシュテーブルの容量を拡張する */
+/* ハッシュ表を拡張する */
 func (m *hashMapChaining) extend() {
-	// 元のハッシュテーブルを一時保存する
+	// 元のハッシュ表を一時保存する
 	tmpBuckets := make([][]pair, len(m.buckets))
 	for i := 0; i < len(m.buckets); i++ {
 		tmpBuckets[i] = make([]pair, len(m.buckets[i]))
 		copy(tmpBuckets[i], m.buckets[i])
 	}
-	// 拡張後の新しいハッシュテーブルを初期化する
+	// 拡張後の新しいハッシュ表を初期化する
 	m.capacity *= m.extendRatio
 	m.buckets = make([][]pair, m.capacity)
 	for i := 0; i < m.capacity; i++ {
 		m.buckets[i] = make([]pair, 0)
 	}
 	m.size = 0
-	// キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
+	// 元のハッシュ表から新しい表にペアを移す
 	for _, bucket := range tmpBuckets {
 		for _, p := range bucket {
 			m.put(p.key, p.val)
@@ -118,7 +118,7 @@ func (m *hashMapChaining) extend() {
 	}
 }
 
-/* ハッシュテーブルを表示する */
+/* ハッシュ表を表示する */
 func (m *hashMapChaining) print() {
 	var builder strings.Builder
 

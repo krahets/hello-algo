@@ -6,7 +6,7 @@
 
 namespace hello_algo.chapter_hashing;
 
-/* 키-값 쌍 int->string */
+/* int->string 키-값 쌍 */
 class Pair(int key, string val) {
     public int key = key;
     public string val = val;
@@ -16,7 +16,7 @@ class Pair(int key, string val) {
 class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {
-        // 버킷 100개를 포함하는 배열을 초기화한다
+        // 버킷 100개로 배열 초기화
         buckets = [];
         for (int i = 0; i < 100; i++) {
             buckets.Add(null);
@@ -29,7 +29,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* 조회 연산 */
+    /* 조회 */
     public string? Get(int key) {
         int index = HashFunc(key);
         Pair? pair = buckets[index];
@@ -37,21 +37,21 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* 추가 연산 */
+    /* 추가 */
     public void Put(int key, string val) {
         Pair pair = new(key, val);
         int index = HashFunc(key);
         buckets[index] = pair;
     }
 
-    /* 삭제 연산 */
+    /* 삭제 */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // null로 설정하여 삭제를 나타낸다
+        // null로 설정하여 삭제를 나타냄
         buckets[index] = null;
     }
 
-    /* 모든 키-값 쌍 반환 */
+    /* 모든 키-값 쌍 가져오기 */
     public List<Pair> PairSet() {
         List<Pair> pairSet = [];
         foreach (Pair? pair in buckets) {
@@ -61,7 +61,7 @@ class ArrayHashMap {
         return pairSet;
     }
 
-    /* 모든 키 반환 */
+    /* 모든 키 가져오기 */
     public List<int> KeySet() {
         List<int> keySet = [];
         foreach (Pair? pair in buckets) {
@@ -71,7 +71,7 @@ class ArrayHashMap {
         return keySet;
     }
 
-    /* 모든 값 반환 */
+    /* 모든 값 가져오기 */
     public List<string> ValueSet() {
         List<string> valueSet = [];
         foreach (Pair? pair in buckets) {
@@ -96,37 +96,37 @@ public class array_hash_map {
         /* 해시 테이블 초기화 */
         ArrayHashMap map = new();
 
-        /* 추가 연산 */
-        // 해시 테이블에 (key, value) 키-값 쌍을 추가한다
-        map.Put(12836, "小哈");
-        map.Put(15937, "小啰");
-        map.Put(16750, "小算");
-        map.Put(13276, "小法");
-        map.Put(10583, "小鸭");
-        Console.WriteLine("\n추가를 마친 후의 해시 테이블\n키 -> 값");
+        /* 추가 */
+        // 해시 테이블에 키-값 쌍 (key, value) 추가
+        map.Put(12836, "샤오하");
+        map.Put(15937, "샤오뤄");
+        map.Put(16750, "샤오쑤안");
+        map.Put(13276, "샤오파");
+        map.Put(10583, "샤오야");
+        Console.WriteLine("\n추가 후 해시 테이블\nKey -> Value");
         map.Print();
 
-        /* 조회 연산 */
-        // 해시 테이블에 키 key를 입력하여 값 value를 얻는다
+        /* 조회 */
+        // 해시 테이블에 키 key를 입력하여 값 value 조회
         string? name = map.Get(15937);
-        Console.WriteLine("\n학번 15937을 입력하여 조회한 이름 " + name);
+        Console.WriteLine("\n학번 15937로 조회한 이름: " + name);
 
-        /* 삭제 연산 */
-        // 해시 테이블에서 (key, value) 키-값 쌍을 삭제한다
+        /* 삭제 */
+        // 해시 테이블에서 키-값 쌍 (key, value) 삭제
         map.Remove(10583);
-        Console.WriteLine("\n10583을 삭제한 후의 해시 테이블\n키 -> 값");
+        Console.WriteLine("\n키 10583 삭제 후 해시 테이블\nKey -> Value");
         map.Print();
 
         /* 해시 테이블 순회 */
-        Console.WriteLine("\n키-값 쌍(키->값) 순회");
+        Console.WriteLine("\n키-값 쌍 순회 Key->Value");
         foreach (Pair kv in map.PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
-        Console.WriteLine("\n키 Key만 순회");
+        Console.WriteLine("\n키만 순회 Key");
         foreach (int key in map.KeySet()) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\n값 Value만 순회");
+        Console.WriteLine("\n값만 순회 Value");
         foreach (string val in map.ValueSet()) {
             Console.WriteLine(val);
         }

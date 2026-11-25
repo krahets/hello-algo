@@ -24,17 +24,17 @@ fun preOrder(root: TreeNode?) {
     preOrder(root.right)
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val root = TreeNode.listToTree(mutableListOf(1, 7, 3, 4, 5, 6, 7))
-    println("\n二分木を初期化する")
+    println("\n二分木を初期化")
     printTree(root)
 
     // 行きがけ順走査
     res = mutableListOf()
     preOrder(root)
 
-    println("\n値が 7 であるすべてのノードを出力する")
+    println("\n値が 7 のノードをすべて出力")
     val vals = mutableListOf<Int>()
     for (node in res!!) {
         vals.add(node._val)

@@ -18,10 +18,10 @@ func unboundedKnapsackDP(wgt, val []int, cap int) int {
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// ナップサックの容量を超える場合、品物 i を選ばない
+				// 容量を超える場合は品物 i を選ばない
 				dp[i][c] = dp[i-1][c]
 			} else {
-				// 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+				// 品物 i を選ばない場合と選ぶ場合の大きい方を取る
 				dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i][c-wgt[i-1]]+val[i-1])))
 			}
 		}
@@ -29,7 +29,7 @@ func unboundedKnapsackDP(wgt, val []int, cap int) int {
 	return dp[n][cap]
 }
 
-/* 個数制限なしナップサック問題：空間を最適化した動的計画法 */
+/* 個数制限なしナップサック問題：使用メモリを削減した動的計画法 */
 func unboundedKnapsackDPComp(wgt, val []int, cap int) int {
 	n := len(wgt)
 	// dp テーブルを初期化する
@@ -38,10 +38,10 @@ func unboundedKnapsackDPComp(wgt, val []int, cap int) int {
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// ナップサックの容量を超える場合、品物 i を選ばない
+				// 容量を超える場合は品物 i を選ばない
 				dp[c] = dp[c]
 			} else {
-				// 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+				// 品物 i を選ばない場合と選ぶ場合の大きい方を取る
 				dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
 			}
 		}

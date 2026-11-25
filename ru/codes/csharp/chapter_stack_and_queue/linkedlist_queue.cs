@@ -8,7 +8,7 @@ namespace hello_algo.chapter_stack_and_queue;
 
 /* Очередь на основе связного списка */
 class LinkedListQueue {
-    ListNode? front, rear;  // Головной узел front, хвостовой узел rear
+    ListNode? front, rear;  // front — первый узел, rear — последний 
     int queSize = 0;
 
     public LinkedListQueue() {
@@ -16,25 +16,25 @@ class LinkedListQueue {
         rear = null;
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     public int Size() {
         return queSize;
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     public bool IsEmpty() {
         return Size() == 0;
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     public void Push(int num) {
-        // Добавить num после хвостового узла
+        // Добавить узел со значением num после последнего узла
         ListNode node = new(num);
-        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+        // Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
         if (front == null) {
             front = node;
             rear = node;
-            // Если очередь не пуста, добавить этот узел после хвостового узла
+            // Если очередь непуста, добавить новый узел после последнего
         } else if (rear != null) {
             rear.next = node;
             rear = node;
@@ -42,23 +42,23 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     public int Pop() {
         int num = Peek();
-        // Удалить головной узел
+        // Удалить первый узел
         front = front?.next;
         queSize--;
         return num;
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return front!.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть */
+    /* Преобразовать связный список в массив и вернуть его */
     public int[] ToArray() {
         if (front == null)
             return [];
@@ -76,10 +76,10 @@ class LinkedListQueue {
 public class linkedlist_queue {
     [Test]
     public void Test() {
-        /* Инициализация очереди */
+        /* Инициализировать очередь */
         LinkedListQueue queue = new();
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в очередь */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -87,20 +87,20 @@ public class linkedlist_queue {
         queue.Push(4);
         Console.WriteLine("Очередь queue = " + string.Join(",", queue.ToArray()));
 
-        /* Доступ к элементу в начале очереди */
+        /* Посмотреть первый элемент очереди */
         int peek = queue.Peek();
-        Console.WriteLine("Первый элемент peek = " + peek);
+        Console.WriteLine("Первый элемент очереди peek = " + peek);
 
-        /* Извлечение элемента из очереди */
+        /* Извлечь элемент из очереди */
         int pop = queue.Pop();
-        Console.WriteLine("Извлеченный элемент pop = " + pop + ", queue после извлечения = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("Извлечённый элемент pop = " + pop + ", после извлечения queue = " + string.Join(",", queue.ToArray()));
 
-        /* Получение длины очереди */
+        /* Получить длину очереди */
         int size = queue.Size();
         Console.WriteLine("Длина очереди size = " + size);
 
-        /* Проверка, пуста ли очередь */
+        /* Проверить, пуста ли очередь */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("Пуста ли очередь = " + isEmpty);
+        Console.WriteLine("Очередь пуста = " + isEmpty);
     }
 }

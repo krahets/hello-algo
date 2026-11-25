@@ -8,10 +8,10 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* Deque implemented with a circular array */
+/* Deque backed by a circular array */
 class ArrayDeque {
     private int[] nums; // Array that stores the deque elements
-    private int front; // Front pointer, pointing to the first element
+    private int front; // Index of the front element
     private int queSize; // Deque size
 
     /* Constructor */
@@ -35,76 +35,76 @@ class ArrayDeque {
         return queSize == 0;
     }
 
-    /* Calculate an index in the circular array */
+    /* Compute the circular array index */
     private int index(int i) {
-        // Use modulo to connect the end of the array to its beginning
-        // When i passes the end of the array, wrap around to the beginning
-        // When i passes the beginning of the array, wrap around to the end
+        // Use the remainder to wrap indices around the array
+        // When i goes past the end, wrap it back to the start
+        // When i goes before the start, wrap it around to the end
         return (i + capacity()) % capacity();
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     public void pushFirst(int num) {
         if (queSize == capacity()) {
             System.out.println("Deque is full");
             return;
         }
-        // Move the front pointer one position to the left
-        // Use modulo to wrap front to the end when it passes the beginning of the array
+        // Move the front index one slot to the left
+        // Use the remainder to wrap front to the end if it goes before the start
         front = index(front - 1);
-        // Add num to the front
+        // Add num at the front
         nums[front] = num;
         queSize++;
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     public void pushLast(int num) {
         if (queSize == capacity()) {
             System.out.println("Deque is full");
             return;
         }
-        // Calculate the rear pointer, which points one position past the last element
+        // Compute the index one slot past the rear element
         int rear = index(front + queSize);
-        // Add num to the rear
+        // Add num at the rear
         nums[rear] = num;
         queSize++;
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     public int popFirst() {
         int num = peekFirst();
-        // Advance the front pointer by one position
+        // Advance the front index by one
         front = index(front + 1);
         queSize--;
         return num;
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     public int popLast() {
         int num = peekLast();
         queSize--;
         return num;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return nums[front];
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
-        // Calculate the index of the last element
+        // Compute the index of the rear element
         int last = index(front + queSize - 1);
         return nums[last];
     }
 
     /* Return an array for printing */
     public int[] toArray() {
-        // Convert only the list elements within the occupied range
+        // Copy only the elements currently in the deque
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[index(j)];
@@ -120,25 +120,25 @@ public class array_deque {
         deque.pushLast(3);
         deque.pushLast(2);
         deque.pushLast(5);
-        System.out.println("Deque deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("deque = " + Arrays.toString(deque.toArray()));
 
-        /* Access an element */
+        /* Peek at the front and rear elements */
         int peekFirst = deque.peekFirst();
-        System.out.println("Front element peekFirst = " + peekFirst);
+        System.out.println("Front element (peekFirst) = " + peekFirst);
         int peekLast = deque.peekLast();
-        System.out.println("Rear element peekLast = " + peekLast);
+        System.out.println("Rear element (peekLast) = " + peekLast);
 
-        /* Enqueue elements */
+        /* Add elements to the deque */
         deque.pushLast(4);
-        System.out.println("After enqueuing element 4 at the rear, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("After adding 4 at the rear, deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("After enqueuing element 1 at the front, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("After adding 1 at the front, deque = " + Arrays.toString(deque.toArray()));
 
-        /* Dequeue an element */
+        /* Remove elements from both ends */
         int popLast = deque.popLast();
-        System.out.println("Element dequeued from the rear = " + popLast + ", after dequeuing from the rear, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("Removed from the rear = " + popLast + ", deque after removal = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
-        System.out.println("Element dequeued from the front = " + popFirst + ", after dequeuing from the front, deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("Removed from the front = " + popFirst + ", deque after removal = " + Arrays.toString(deque.toArray()));
 
         /* Get the deque size */
         int size = deque.size();
@@ -146,6 +146,6 @@ public class array_deque {
 
         /* Check whether the deque is empty */
         boolean isEmpty = deque.isEmpty();
-        System.out.println("Is the deque empty = " + isEmpty);
+        System.out.println("Deque is empty = " + isEmpty);
     }
 }

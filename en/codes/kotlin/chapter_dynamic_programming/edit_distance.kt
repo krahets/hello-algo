@@ -8,22 +8,22 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* Edit distance: brute-force search */
+/* Edit distance with brute-force search */
 fun editDistanceDFS(
     s: String,
     t: String,
     i: Int,
     j: Int
 ): Int {
-    // If both prefixes of s and t are empty, return 0
+    // Return 0 if both s and t are empty
     if (i == 0 && j == 0) return 0
-    // If the prefix of s is empty, return the prefix length of t
+    // Return the length of t if s is empty
     if (i == 0) return j
-    // If the prefix of t is empty, return the prefix length of s
+    // Return the length of s if t is empty
     if (j == 0) return i
-    // If the two characters are equal, skip both of them
+    // Skip both characters if they match
     if (s[i - 1] == t[j - 1]) return editDistanceDFS(s, t, i - 1, j - 1)
-    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
     val insert = editDistanceDFS(s, t, i, j - 1)
     val delete = editDistanceDFS(s, t, i - 1, j)
     val replace = editDistanceDFS(s, t, i - 1, j - 1)
@@ -31,7 +31,7 @@ fun editDistanceDFS(
     return min(min(insert, delete), replace) + 1
 }
 
-/* Edit distance: memoized search */
+/* Edit distance with memoized search */
 fun editDistanceDFSMem(
     s: String,
     t: String,
@@ -39,45 +39,45 @@ fun editDistanceDFSMem(
     i: Int,
     j: Int
 ): Int {
-    // If both prefixes of s and t are empty, return 0
+    // Return 0 if both s and t are empty
     if (i == 0 && j == 0) return 0
-    // If the prefix of s is empty, return the prefix length of t
+    // Return the length of t if s is empty
     if (i == 0) return j
-    // If the prefix of t is empty, return the prefix length of s
+    // Return the length of s if t is empty
     if (j == 0) return i
-    // If a result has already been recorded, return it directly
+    // Return the cached result if available
     if (mem[i][j] != -1) return mem[i][j]
-    // If the two characters are equal, skip both of them
+    // Skip both characters if they match
     if (s[i - 1] == t[j - 1]) return editDistanceDFSMem(s, t, mem, i - 1, j - 1)
-    // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+    // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
     val insert = editDistanceDFSMem(s, t, mem, i, j - 1)
     val delete = editDistanceDFSMem(s, t, mem, i - 1, j)
     val replace = editDistanceDFSMem(s, t, mem, i - 1, j - 1)
-    // Record and return the minimum number of edits
+    // Cache and return the minimum number of edits
     mem[i][j] = min(min(insert, delete), replace) + 1
     return mem[i][j]
 }
 
-/* Edit distance: dynamic programming */
+/* Edit distance with dynamic programming */
 fun editDistanceDP(s: String, t: String): Int {
     val n = s.length
     val m = t.length
     val dp = Array(n + 1) { IntArray(m + 1) }
-    // State transitions: first row and first column
+    // State transitions for the first row and column
     for (i in 1..n) {
         dp[i][0] = i
     }
     for (j in 1..m) {
         dp[0][j] = j
     }
-    // State transitions: remaining rows and columns
+    // State transitions for the remaining rows and columns
     for (i in 1..n) {
         for (j in 1..m) {
             if (s[i - 1] == t[j - 1]) {
-                // If the two characters are equal, skip both of them
+                // Skip both characters if they match
                 dp[i][j] = dp[i - 1][j - 1]
             } else {
-                // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                 dp[i][j] = min(min(dp[i][j - 1], dp[i - 1][j]), dp[i - 1][j - 1]) + 1
             }
         }
@@ -85,31 +85,31 @@ fun editDistanceDP(s: String, t: String): Int {
     return dp[n][m]
 }
 
-/* Edit distance: space-optimized dynamic programming */
+/* Edit distance with space-optimized dynamic programming */
 fun editDistanceDPComp(s: String, t: String): Int {
     val n = s.length
     val m = t.length
     val dp = IntArray(m + 1)
-    // State transitions: first row
+    // State transitions for the first row
     for (j in 1..m) {
         dp[j] = j
     }
-    // State transitions: remaining rows
+    // State transitions for the remaining rows
     for (i in 1..n) {
-        // State transitions: first column
-        var leftup = dp[0] // Temporarily store dp[i-1, j-1]
+        // State transitions for the first column
+        var leftup = dp[0] // Save dp[i-1, j-1] temporarily
         dp[0] = i
-        // State transitions: remaining columns
+        // State transitions for the remaining columns
         for (j in 1..m) {
             val temp = dp[j]
             if (s[i - 1] == t[j - 1]) {
-                // If the two characters are equal, skip both of them
+                // Skip both characters if they match
                 dp[j] = leftup
             } else {
-                // Minimum edits = the minimum among the insertion, deletion, and replacement subproblems + 1
+                // Minimum edits = 1 + the smallest remaining edit count after an insertion, deletion, or replacement
                 dp[j] = min(min(dp[j - 1], dp[j]), leftup) + 1
             }
-            leftup = temp // Update to dp[i-1, j-1] for the next iteration
+            leftup = temp // Update the saved value to hold dp[i-1, j-1] for the next iteration
         }
     }
     return dp[m]

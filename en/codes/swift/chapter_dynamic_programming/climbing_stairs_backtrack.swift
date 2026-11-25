@@ -6,28 +6,28 @@
 
 /* Backtracking */
 func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
-    // When step n is reached, increase the number of ways by 1
+    // Count one more way when we reach stair n
     if state == n {
         res[0] += 1
     }
     // Iterate over all choices
     for choice in choices {
-        // Prune: do not go beyond step n
+        // Prune moves that would overshoot stair n
         if state + choice > n {
             continue
         }
-        // Try: make a choice and update the state
+        // Try a choice and update the state
         backtrack(choices: choices, state: state + choice, n: n, res: &res)
-        // Backtrack
+        // Undo the choice
     }
 }
 
-/* Climbing stairs: backtracking */
+/* Climbing stairs with backtracking */
 func climbingStairsBacktrack(n: Int) -> Int {
-    let choices = [1, 2] // Choose to climb 1 or 2 steps
-    let state = 0 // Start climbing from step 0
+    let choices = [1, 2] // Each move can climb 1 or 2 stairs
+    let state = 0 // Start at stair 0
     var res: [Int] = []
-    res.append(0) // Use res[0] to record the number of ways
+    res.append(0) // Store the number of ways in res[0]
     backtrack(choices: choices, state: state, n: n, res: &res)
     return res[0]
 }
@@ -39,6 +39,6 @@ enum ClimbingStairsBacktrack {
         let n = 9
 
         let res = climbingStairsBacktrack(n: n)
-        print("Number of ways to climb \(n) steps: \(res)")
+        print("Climbing \(n) stairs: \(res) ways")
     }
 }

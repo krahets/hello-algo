@@ -13,20 +13,20 @@ fun dfs(
     i: Int,
     j: Int
 ): Int {
-    // If the interval is empty, the target is absent; return -1
+    // An empty interval contains no target, so return -1
     if (i > j) {
         return -1
     }
-    // Calculate the midpoint index m
+    // Compute the middle index m
     val m = (i + j) / 2
     return if (nums[m] < target) {
-        // Recurse on subproblem f(m+1, j)
+        // Recursively solve f(m+1, j)
         dfs(nums, target, m + 1, j)
     } else if (nums[m] > target) {
-        // Recurse on subproblem f(i, m-1)
+        // Recursively solve f(i, m-1)
         dfs(nums, target, i, m - 1)
     } else {
-        // The target element was found; return its index
+        // Target found: return its index
         m
     }
 }
@@ -34,7 +34,7 @@ fun dfs(
 /* Binary search */
 fun binarySearch(nums: IntArray, target: Int): Int {
     val n = nums.size
-    // Solve problem f(0, n-1)
+    // Solve f(0, n-1)
     return dfs(nums, target, 0, n - 1)
 }
 
@@ -45,5 +45,5 @@ fun main() {
 
     // Binary search (closed interval)
     val index = binarySearch(nums, target)
-    println("Index of target element 6 = $index")
+    println("Index of target 6 = $index")
 }

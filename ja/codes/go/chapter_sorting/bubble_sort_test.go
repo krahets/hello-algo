@@ -12,9 +12,9 @@ import (
 func TestBubbleSort(t *testing.T) {
 	nums := []int{4, 1, 3, 1, 5, 2}
 	bubbleSort(nums)
-	fmt.Println("バブルソート完了後 nums = ", nums)
+	fmt.Println("バブルソート後の nums = ", nums)
 
 	nums1 := []int{4, 1, 3, 1, 5, 2}
 	bubbleSortWithFlag(nums1)
-	fmt.Println("バブルソート完了後 nums1 = ", nums1)
+	fmt.Println("バブルソート後の nums1 = ", nums1)
 }

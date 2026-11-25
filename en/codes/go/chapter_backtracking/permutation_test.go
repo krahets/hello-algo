@@ -14,20 +14,20 @@ import (
 func TestPermutationI(t *testing.T) {
 	/* Permutations I */
 	nums := []int{1, 2, 3}
-	fmt.Printf("Input array nums = ")
+	fmt.Printf("Input array nums =  ")
 	PrintSlice(nums)
 
 	res := permutationsI(nums)
-	fmt.Printf("All permutations: res = ")
+	fmt.Printf("All permutations res =  ")
 	fmt.Println(res)
 }
 
 func TestPermutationII(t *testing.T) {
 	nums := []int{1, 2, 2}
-	fmt.Printf("Input array nums = ")
+	fmt.Printf("Input array nums =  ")
 	PrintSlice(nums)
 
 	res := permutationsII(nums)
-	fmt.Printf("All permutations: res = ")
+	fmt.Printf("All permutations res =  ")
 	fmt.Println(res)
 }

@@ -8,7 +8,7 @@ import utils
 
 @main
 enum HashMap {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         /* 初始化雜湊表 */
         var map: [Int: String] = [:]
@@ -20,18 +20,18 @@ enum HashMap {
         map[16750] = "小算"
         map[13276] = "小法"
         map[10583] = "小鴨"
-        print("\n新增完成後，雜湊表為\nKey -> Value")
+        print("\n新增後的雜湊表\nKey -> Value")
         PrintUtil.printHashMap(map: map)
 
         /* 查詢操作 */
-        // 向雜湊表中輸入鍵 key ，得到值 value
+        // 輸入鍵 key，從雜湊表取得對應的值 value
         let name = map[15937]!
-        print("\n輸入學號 15937 ，查詢到姓名 \(name)")
+        print("\n輸入學號 15937，查得姓名 \(name)")
 
         /* 刪除操作 */
-        // 在雜湊表中刪除鍵值對 (key, value)
+        // 從雜湊表刪除鍵值對 (key, value)
         map.removeValue(forKey: 10583)
-        print("\n刪除 10583 後，雜湊表為\nKey -> Value")
+        print("\n刪除 10583 後的雜湊表\nKey -> Value")
         PrintUtil.printHashMap(map: map)
 
         /* 走訪雜湊表 */
@@ -39,11 +39,11 @@ enum HashMap {
         for (key, value) in map {
             print("\(key) -> \(value)")
         }
-        print("\n單獨走訪鍵 Key")
+        print("\n只走訪鍵 Key")
         for key in map.keys {
             print(key)
         }
-        print("\n單獨走訪值 Value")
+        print("\n只走訪值 Value")
         for value in map.values {
             print(value)
         }

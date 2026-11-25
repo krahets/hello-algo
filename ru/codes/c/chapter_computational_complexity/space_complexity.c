@@ -12,7 +12,7 @@ int func() {
     return 0;
 }
 
-/* Постоянная сложность */
+/* Константная сложность */
 void constant(int n) {
     // Константы, переменные и объекты занимают O(1) памяти
     const int a = 0;
@@ -20,11 +20,11 @@ void constant(int n) {
     int nums[1000];
     ListNode *node = newListNode(0);
     free(node);
-    // Переменные в цикле занимают O(1) памяти
+    // Переменные цикла занимают O(1) памяти
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // Функции в цикле занимают O(1) памяти
+    // Вызовы функции в цикле требуют O(1) памяти
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -34,7 +34,7 @@ void constant(int n) {
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // Реализовано на основе uthash.h
+    UT_hash_handle hh; // Реализация на основе uthash.h
 } HashTable;
 
 /* Линейная сложность */
@@ -54,7 +54,7 @@ void linear(int n) {
     }
     free(nodes);
 
-    // Хеш-таблица длины n занимает O(n) памяти
+    // Хеш-таблица из n элементов занимает O(n) памяти
     HashTable *h = NULL;
     for (int i = 0; i < n; i++) {
         HashTable *tmp = malloc(sizeof(HashTable));
@@ -71,9 +71,9 @@ void linear(int n) {
     }
 }
 
-/* Линейная сложность (рекурсивная реализация) */
+/* Линейная сложность (рекурсия) */
 void linearRecur(int n) {
-    printf("Рекурсия n = %d\r\n", n);
+    printf("Рекурсивный вызов: n = %d\r\n", n);
     if (n == 1)
         return;
     linearRecur(n - 1);
@@ -98,18 +98,18 @@ void quadratic(int n) {
     free(numMatrix);
 }
 
-/* Квадратичная сложность (рекурсивная реализация) */
+/* Квадратичная сложность (рекурсия) */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     int *nums = malloc(sizeof(int) * n);
-    printf("Рекурсия n = %d, длина nums = %d\r\n", n, n);
+    printf("При n = %d длина nums = %d\r\n", n, n);
     int res = quadraticRecur(n - 1);
     free(nums);
     return res;
 }
 
-/* Экспоненциальная сложность (построение полного двоичного дерева) */
+/* Экспоненциальная сложность (построение совершенного двоичного дерева) */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return NULL;
@@ -119,10 +119,10 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int n = 5;
-    // Постоянная сложность
+    // Константная сложность
     constant(n);
     // Линейная сложность
     linear(n);

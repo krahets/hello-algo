@@ -12,26 +12,26 @@ func move(src, tar *list.List) {
 	pan := src.Back()
 	// Place the disk on top of tar
 	tar.PushBack(pan.Value)
-	// Remove the disk from the top of src
+	// Remove the top disk from src
 	src.Remove(pan)
 }
 
-/* Solve the Tower of Hanoi problem f(i) */
+/* Solve Tower of Hanoi subproblem f(i) */
 func dfsHanota(i int, src, buf, tar *list.List) {
-	// If only one disk in this subproblem remains on src, move it directly to tar
+	// If only one disk remains on src, move it directly to tar
 	if i == 1 {
 		move(src, tar)
 		return
 	}
 	// Subproblem f(i-1): move the top i-1 disks from src to buf using tar
 	dfsHanota(i-1, src, tar, buf)
-	// Subproblem f(1): move the remaining disk of this subproblem from src to tar
+	// Subproblem f(1): move the remaining disk from src to tar
 	move(src, tar)
 	// Subproblem f(i-1): move the top i-1 disks from buf to tar using src
 	dfsHanota(i-1, buf, src, tar)
 }
 
-/* Solve the Tower of Hanoi problem */
+/* Solve the Tower of Hanoi */
 func solveHanota(A, B, C *list.List) {
 	n := A.Len()
 	// Move the top n disks from A to C using B

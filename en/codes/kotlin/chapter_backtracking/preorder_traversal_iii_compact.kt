@@ -18,7 +18,7 @@ fun preOrder(root: TreeNode?) {
     if (root == null || root._val == 3) {
         return
     }
-    // Try
+    // Try a choice
     path!!.add(root)
     if (root._val == 7) {
         // Record the solution
@@ -41,7 +41,7 @@ fun main() {
     res = mutableListOf()
     preOrder(root)
 
-    println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
+    println("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3")
     for (path in res!!) {
         val _vals = mutableListOf<Int>()
         for (node in path) {

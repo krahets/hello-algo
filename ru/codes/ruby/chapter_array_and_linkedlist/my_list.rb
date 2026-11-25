@@ -6,8 +6,8 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### Класс списка ###
 class MyList
-  attr_reader :size       # Получить длину списка (текущее число элементов)
-  attr_reader :capacity   # Получить вместимость списка
+  attr_reader :size       # Получить длину списка (текущее количество элементов)
+  attr_reader :capacity   # Получить ёмкость списка
 
   ### Конструктор ###
   def initialize
@@ -19,73 +19,73 @@ class MyList
 
   ### Доступ к элементу ###
   def get(index)
-    # Если индекс выходит за границы, выбрасывается исключение; далее аналогично
-    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
+    # При выходе индекса за границы выбросить исключение. То же правило действует ниже
+    raise IndexError, "Индекс за пределами списка" if index < 0 || index >= size
     @arr[index]
   end
 
   ### Доступ к элементу ###
   def set(index, num)
-    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
+    raise IndexError, "Индекс за пределами списка" if index < 0 || index >= size
     @arr[index] = num
   end
 
   ### Добавление элемента в конец ###
   def add(num)
-    # При превышении вместимости по числу элементов запускается расширение
+    # Если для элементов не хватает места, увеличить ёмкость
     extend_capacity if size == capacity
     @arr[size] = num
 
-    # Обновить число элементов
+    # Обновить количество элементов
     @size += 1
   end
 
   ### Вставка элемента в середину ###
   def insert(index, num)
-    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
+    raise IndexError, "Индекс за пределами списка" if index < 0 || index >= size
 
-    # При превышении вместимости по числу элементов запускается расширение
+    # Если для элементов не хватает места, увеличить ёмкость
     extend_capacity if size == capacity
 
-    # Сдвинуть элемент с индексом index и все следующие элементы на одну позицию вправо
+    # Сдвинуть все элементы начиная с index на одну позицию вправо
     for j in (size - 1).downto(index)
       @arr[j + 1] = @arr[j]
     end
     @arr[index] = num
 
-    # Обновить число элементов
+    # Обновить количество элементов
     @size += 1
   end
 
   ### Удаление элемента ###
   def remove(index)
-    raise IndexError, "индекс выходит за границы" if index < 0 || index >= size
+    raise IndexError, "Индекс за пределами списка" if index < 0 || index >= size
     num = @arr[index]
 
-    # Сдвинуть все элементы после индекса index на одну позицию влево
+    # Сдвинуть все элементы после index на одну позицию влево
     for j in index...size
       @arr[j] = @arr[j + 1]
     end
 
-    # Обновить число элементов
+    # Обновить количество элементов
     @size -= 1
 
-    # Вернуть удаленный элемент
+    # Вернуть удалённый элемент
     num
   end
 
-  ### Расширение списка ###
+  ### Увеличение ёмкости списка ###
   def extend_capacity
-    # Создать новый массив длиной в extend_ratio раз больше исходного и скопировать в него исходный массив
+    # Создать массив в extend_ratio раз длиннее исходного и скопировать в него исходный массив
     arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
-    # Обновить вместимость списка
+    # Обновить ёмкость списка
     @capacity = arr.length
   end
 
-  ### Преобразование списка в массив ###
+  ### Преобразовать список в массив ###
   def to_array
     sz = size
-    # Преобразовывать только элементы списка в пределах фактической длины
+    # Преобразовать только используемую часть списка
     arr = Array.new(sz)
     for i in 0...sz
       arr[i] = get(i)
@@ -94,7 +94,7 @@ class MyList
   end
 end
 
-### Driver Code ###
+### Демонстрационный код ###
 if __FILE__ == $0
   # Инициализация списка
   nums = MyList.new
@@ -105,7 +105,7 @@ if __FILE__ == $0
   nums.add(2)
   nums.add(5)
   nums.add(4)
-  puts "Список nums = #{nums.to_array}, емкость = #{nums.capacity}, длина = #{nums.size}"
+  puts "Список nums = #{nums.to_array}, ёмкость = #{nums.capacity}, длина = #{nums.size}"
 
   # Вставка элемента в середину
   nums.insert(3, 6)
@@ -121,12 +121,12 @@ if __FILE__ == $0
 
   # Изменение элемента
   nums.set(1, 0)
-  puts "После изменения значения элемента с индексом 1 на 0 nums = #{nums.to_array}"
+  puts "После записи 0 по индексу 1 nums = #{nums.to_array}"
 
-  # Проверка механизма расширения
+  # Проверка увеличения ёмкости
   for i in 0...10
-    # При i = 5 длина списка превысит его вместимость, и в этот момент сработает механизм расширения
+    # При i = 5 длина списка превысит его ёмкость, поэтому потребуется увеличить ёмкость
     nums.add(i)
   end
-  puts "После расширения список nums = #{nums.to_array}, емкость = #{nums.capacity}, длина = #{nums.size}"
+  puts "После увеличения ёмкости список nums = #{nums.to_array}, ёмкость = #{nums.capacity}, длина = #{nums.size}"
 end

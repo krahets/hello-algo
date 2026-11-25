@@ -15,7 +15,7 @@ public class ListNode {
         val = x;
     }
 
-    /* Десериализовать список в связный список */
+    /* Восстановить связный список из списка значений */
     public static ListNode arrToLinkedList(int[] arr) {
         ListNode dum = new ListNode(0);
         ListNode head = dum;

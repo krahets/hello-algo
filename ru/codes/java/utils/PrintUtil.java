@@ -53,10 +53,10 @@ public class PrintUtil {
     }
 
     /**
- * Вывести двоичное дерево
- * Этот вывод дерева заимствован из TECHIE DELIGHT
- * https://www.techiedelight.com/c-program-print-binary-tree/
- */
+     * Вывести двоичное дерево
+     * Код для вывода дерева заимствован у TECHIE DELIGHT
+     * https://www.techiedelight.com/c-program-print-binary-tree/
+     */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
         if (root == null) {
             return;
@@ -104,12 +104,12 @@ public class PrintUtil {
         }
     }
 
-    /* Вывести кучу (приоритетную очередь) */
+    /* Вывести кучу (очередь с приоритетом) */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
-        System.out.print("Массивное представление кучи:");
+        System.out.print("Куча в виде массива: ");
         System.out.println(list);
-        System.out.println("Древовидное представление кучи:");
+        System.out.println("Куча в виде дерева:");
         TreeNode root = TreeNode.listToTree(list);
         printTree(root);
     }

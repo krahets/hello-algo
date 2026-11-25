@@ -6,13 +6,13 @@
 
 #include "../utils/common.h"
 
-/* 基於鏈結串列實現的佇列 */
+/* 以鏈結串列實作佇列 */
 typedef struct {
     ListNode *front, *rear;
     int queSize;
 } LinkedListQueue;
 
-/* 建構子 */
+/* 建立佇列 */
 LinkedListQueue *newLinkedListQueue() {
     LinkedListQueue *queue = (LinkedListQueue *)malloc(sizeof(LinkedListQueue));
     queue->front = NULL;
@@ -21,7 +21,7 @@ LinkedListQueue *newLinkedListQueue() {
     return queue;
 }
 
-/* 析構函式 */
+/* 釋放佇列的記憶體 */
 void delLinkedListQueue(LinkedListQueue *queue) {
     // 釋放所有節點
     while (queue->front != NULL) {
@@ -33,7 +33,7 @@ void delLinkedListQueue(LinkedListQueue *queue) {
     free(queue);
 }
 
-/* 獲取佇列的長度 */
+/* 取得佇列長度 */
 int size(LinkedListQueue *queue) {
     return queue->queSize;
 }
@@ -43,16 +43,16 @@ bool empty(LinkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
-/* 入列 */
+/* 入隊 */
 void push(LinkedListQueue *queue, int num) {
-    // 尾節點處新增 node
+    // 將 node 接在尾節點之後
     ListNode *node = newListNode(num);
-    // 如果佇列為空，則令頭、尾節點都指向該節點
+    // 若佇列為空，讓隊首與隊尾都指向新節點
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
     }
-    // 如果佇列不為空，則將該節點新增到尾節點後
+    // 若佇列非空，將新節點接在尾節點之後
     else {
         queue->rear->next = node;
         queue->rear = node;
@@ -60,13 +60,13 @@ void push(LinkedListQueue *queue, int num) {
     queue->queSize++;
 }
 
-/* 訪問佇列首元素 */
+/* 讀取隊首元素 */
 int peek(LinkedListQueue *queue) {
     assert(size(queue) && queue->front);
     return queue->front->val;
 }
 
-/* 出列 */
+/* 出隊 */
 int pop(LinkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
@@ -76,10 +76,10 @@ int pop(LinkedListQueue *queue) {
     return num;
 }
 
-/* 列印佇列 */
+/* 輸出佇列內容 */
 void printLinkedListQueue(LinkedListQueue *queue) {
     int *arr = malloc(sizeof(int) * queue->queSize);
-    // 複製鏈結串列中的資料到陣列
+    // 將鏈結串列的資料複製到陣列中
     int i;
     ListNode *node;
     for (i = 0, node = queue->front; i < queue->queSize; i++) {
@@ -90,12 +90,12 @@ void printLinkedListQueue(LinkedListQueue *queue) {
     free(arr);
 }
 
-/* Driver Code */
+/* 範例程式 */
 int main() {
     /* 初始化佇列 */
     LinkedListQueue *queue = newLinkedListQueue();
 
-    /* 元素入列 */
+    /* 將元素加入佇列 */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
@@ -104,16 +104,16 @@ int main() {
     printf("佇列 queue = ");
     printLinkedListQueue(queue);
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     int peekNum = peek(queue);
-    printf("佇列首元素 peek = %d\r\n", peekNum);
+    printf("隊首元素 peek = %d\r\n", peekNum);
 
-    /* 元素出列 */
+    /* 從佇列取出元素 */
     peekNum = pop(queue);
-    printf("出列元素 pop = %d ，出列後 queue = ", peekNum);
+    printf("出隊元素 pop = %d ，出隊後 queue = ", peekNum);
     printLinkedListQueue(queue);
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     int queueSize = size(queue);
     printf("佇列長度 size = %d\r\n", queueSize);
 

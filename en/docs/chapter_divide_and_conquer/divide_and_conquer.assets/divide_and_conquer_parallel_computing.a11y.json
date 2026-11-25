@@ -1,21 +1,21 @@
 {
-  "schema_version": 2,
-  "title": "Parallel computation structure of bucket sort",
-  "summary": "Distribute unsorted data across six buckets, sort them in parallel on six processing units, and gather the buckets in order into sorted data.",
   "context": [
-    "This structural diagram illustrates parallelizing divide and conquer without specifying concrete array values, bucket boundaries, or elapsed times. From top to bottom, it arranges \"Unsorted data\", six \"Bucket\" containers paired with six \"Processing unit\" blocks, and \"Sorted data\" at the bottom."
+    "This schematic illustrates parallel divide and conquer. It specifies no array values, numerical bucket boundaries, or running times. From top to bottom, it shows “Unsorted data,” six buckets, six processing units, and “Sorted data.”"
   ],
   "description": [
-    "Six downward branching arrows distribute the unsorted data at the top into the six buckets; each bucket connects via a vertical dashed line to the processing unit below it, indicating that sorting within each bucket is independent and can be dispatched across separate processing units in parallel.",
-    "Once the six processing units finish sorting their respective buckets, output arrows converge on \"Sorted data\" at the bottom. When buckets partition the value range in ascending order, collecting the locally sorted buckets in bucket-range order concatenates them into a globally sorted result.",
-    "This figure illustrates how independent divide-and-conquer subproblems enable multicore or multiprocessor parallelism; because it omits per-bucket load balance and communication or merging overhead, six processing units in the diagram do not imply an automatic sixfold speedup."
+    "Six downward arrows distribute the unsorted data among six buckets. A vertical dashed line connects each bucket to its processing unit. The six within-bucket sorts are independent and can run simultaneously on different units.",
+    "Once each unit finishes sorting its bucket, output arrows converge on the sorted data at the bottom. When buckets represent ordered value ranges, their sorted contents must be collected in range order to produce a globally sorted result.",
+    "The figure illustrates how independent subproblems enable parallel speedups on multicore or multiprocessor systems. It gives neither the distribution of data across buckets nor the costs of communication and merging, so six units do not imply a sixfold speedup."
   ],
   "frames": [
     {
-      "id": "source-311",
       "book_path": "chapter_divide_and_conquer/divide_and_conquer.assets/divide_and_conquer_parallel_computing.png",
-      "title": "Parallel computation structure of bucket sort",
-      "explanation": "Divide and conquer decomposes the sorting task into non-overlapping per-bucket sorting subproblems that multiple processing units can execute in parallel before combining their solutions."
+      "explanation": "Divide and conquer splits the sort into disjoint within-bucket sorts that multiple units can perform in parallel. Their results are then combined.",
+      "id": "source-311",
+      "title": "Parallel structure of bucket sort"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "Distribute unsorted data among six buckets, sort them in parallel on six processing units, then collect their results in order to obtain sorted data.",
+  "title": "Parallel structure of bucket sort"
 }

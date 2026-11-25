@@ -17,19 +17,19 @@ void main() {
   stack.add(4);
   print("스택 stack = $stack");
 
-  /* 스택 맨 위 원소 접근 */
+  /* 스택 맨 위의 원소 조회 */
   final int peek = stack.last;
-  print("스택의 맨 위 원소 peek = $peek");
+  print("맨 위 원소 peek = $peek");
 
   /* 스택에서 원소 꺼내기 */
   final int pop = stack.removeLast();
-  print("스택에서 꺼낸 원소 pop = $pop , 꺼낸 후 stack = $stack");
+  print("꺼낸 원소 pop = $pop, 꺼낸 후 stack = $stack");
 
-  /* 스택의 길이 반환 */
+  /* 스택의 길이 조회 */
   final int size = stack.length;
   print("스택의 길이 size = $size");
 
-  /* 비어 있는지 판단 */
+  /* 비어 있는지 확인 */
   final bool isEmpty = stack.isEmpty;
   print("스택이 비어 있는가 = $isEmpty");
 }

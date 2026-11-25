@@ -23,7 +23,7 @@ struct TreeNode {
     }
 };
 
-// 직렬화 인코딩 규칙은 다음을 참고한다:
+// 직렬화 인코딩 규칙은 다음을 참고한다.
 // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
 // 이진 트리의 배열 표현:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -39,7 +39,7 @@ struct TreeNode {
 //         \——— 4
 //             \——— 8
 
-/* 리스트를 이진 트리로 역직렬화: 재귀 */
+/* 재귀로 리스트를 이진 트리로 역직렬화 */
 TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     if (i < 0 || i >= arr.size() || arr[i] == INT_MAX) {
         return nullptr;
@@ -55,7 +55,7 @@ TreeNode *vectorToTree(vector<int> arr) {
     return vectorToTreeDFS(arr, 0);
 }
 
-/* 이진 트리를 리스트로 직렬화: 재귀 */
+/* 재귀로 이진 트리를 리스트로 직렬화 */
 void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     if (root == nullptr)
         return;
@@ -74,7 +74,7 @@ vector<int> treeToVecor(TreeNode *root) {
     return res;
 }
 
-/* 이진 트리의 메모리를 해제한다 */
+/* 이진 트리에 할당한 메모리 해제 */
 void freeMemoryTree(TreeNode *root) {
     if (root == nullptr)
         return;

@@ -6,13 +6,13 @@
 
 #include "./array_hash_map.cpp"
 
-/* Hash table with separate chaining */
+/* Hash table with chaining */
 class HashMapChaining {
   private:
     int size;                       // Number of key-value pairs
     int capacity;                   // Hash table capacity
-    double loadThres;               // Load factor threshold that triggers capacity growth
-    int extendRatio;                // Capacity growth factor
+    double loadThres;               // Load factor threshold for resizing
+    int extendRatio;                // Growth factor
     vector<vector<Pair *>> buckets; // Bucket array
 
   public:
@@ -25,7 +25,7 @@ class HashMapChaining {
     ~HashMapChaining() {
         for (auto &bucket : buckets) {
             for (Pair *pair : bucket) {
-                // Free memory
+                // Free the memory
                 delete pair;
             }
         }
@@ -41,68 +41,68 @@ class HashMapChaining {
         return (double)size / (double)capacity;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     string get(int key) {
         int index = hashFunc(key);
-        // Traverse the bucket; if key is found, return its corresponding val
+        // Scan the bucket and return the corresponding val if key is found
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 return pair->val;
             }
         }
-        // Return an empty string if key is not found
+        // Return an empty string if key is absent
         return "";
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     void put(int key, string val) {
-        // Grow the capacity when the load factor exceeds the threshold
+        // Expand the table when the load factor exceeds the threshold
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
-        // Traverse the bucket; if the specified key is found, update its val and return
+        // Scan the bucket. If the specified key is found, update its val and return
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 pair->val = val;
                 return;
             }
         }
-        // If key is absent, append the key-value pair at the end
+        // If key is absent, append the pair to the end of the list
         buckets[index].push_back(new Pair(key, val));
         size++;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     void remove(int key) {
         int index = hashFunc(key);
         auto &bucket = buckets[index];
-        // Traverse the bucket and remove the key-value pair
+        // Scan the bucket and remove the pair
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
                 Pair *tmp = bucket[i];
-                bucket.erase(bucket.begin() + i); // Remove the key-value pair from the list
-                delete tmp;                       // Free memory
+                bucket.erase(bucket.begin() + i); // Remove the pair from the list
+                delete tmp;                       // Free the memory
                 size--;
                 return;
             }
         }
     }
 
-    /* Grow the hash table capacity */
+    /* Expand the hash table */
     void extend() {
-        // Keep a copy of the original bucket array
+        // Save the original hash table
         vector<vector<Pair *>> bucketsTmp = buckets;
-        // Initialize a new hash table with the expanded capacity
+        // Initialize the larger hash table
         capacity *= extendRatio;
         buckets.clear();
         buckets.resize(capacity);
         size = 0;
-        // Move the key-value pairs from the original hash table to the new one
+        // Move the key-value pairs from the old table into the new one
         for (auto &bucket : bucketsTmp) {
             for (Pair *pair : bucket) {
                 put(pair->key, pair->val);
-                // Free memory
+                // Free the memory
                 delete pair;
             }
         }
@@ -125,23 +125,23 @@ int main() {
     /* Initialize the hash table */
     HashMapChaining map = HashMapChaining();
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
-    map.put(12836, "小哈");
-    map.put(15937, "小啰");
-    map.put(16750, "小算");
-    map.put(13276, "小法");
-    map.put(10583, "小鸭");
+    /* Insert a key-value pair */
+    // Insert the pair (key, value) into the hash table
+    map.put(12836, "Xiao Ha");
+    map.put(15937, "Xiao Luo");
+    map.put(16750, "Xiao Suan");
+    map.put(13276, "Xiao Fa");
+    map.put(10583, "Xiao Ya");
     cout << "\nHash table after insertion:\nKey -> Value" << endl;
     map.print();
 
-    /* Lookup operation */
-    // Look up key in the hash table to obtain value
+    /* Look up a value */
+    // Look up key in the hash table to get value
     string name = map.get(13276);
-    cout << "\nLook up student ID 13276 to obtain the name " << name << endl;
+    cout << "\nName for student ID 13276: " << name << endl;
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Remove a key-value pair */
+    // Remove the pair (key, value) from the hash table
     map.remove(12836);
     cout << "\nHash table after removing 12836:\nKey -> Value" << endl;
     map.print();

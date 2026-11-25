@@ -9,8 +9,8 @@
 /* Узел двусвязного списка */
 typedef struct DoublyListNode {
     int val;                     // Значение узла
-    struct DoublyListNode *next; // Узел-преемник
-    struct DoublyListNode *prev; // Узел-предшественник
+    struct DoublyListNode *next; // Следующий узел
+    struct DoublyListNode *prev; // Предыдущий узел
 } DoublyListNode;
 
 /* Конструктор */
@@ -27,10 +27,10 @@ void delDoublyListNode(DoublyListNode *node) {
     free(node);
 }
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 typedef struct {
-    DoublyListNode *front, *rear; // Головной узел front, хвостовой узел rear
-    int queSize;                  // Длина двусторонней очереди
+    DoublyListNode *front, *rear; // front — первый узел, rear — последний
+    int queSize;                  // Длина дека
 } LinkedListDeque;
 
 /* Конструктор */
@@ -44,120 +44,120 @@ LinkedListDeque *newLinkedListDeque() {
 
 /* Деструктор */
 void delLinkedListdeque(LinkedListDeque *deque) {
-    // Освободить все узлы
+    // Освободить память, занятую всеми узлами
     for (int i = 0; i < deque->queSize && deque->front != NULL; i++) {
         DoublyListNode *tmp = deque->front;
         deque->front = deque->front->next;
         free(tmp);
     }
-    // Освободить структуру deque
+    // Освободить память структуры deque
     free(deque);
 }
 
-/* Получение длины очереди */
+/* Получить длину дека */
 int size(LinkedListDeque *deque) {
     return deque->queSize;
 }
 
-/* Проверка, пуста ли очередь */
+/* Проверить, пуст ли дек */
 bool empty(LinkedListDeque *deque) {
     return (size(deque) == 0);
 }
 
-/* Поместить в очередь */
+/* Добавить элемент в дек */
 void push(LinkedListDeque *deque, int num, bool isFront) {
     DoublyListNode *node = newDoublyListNode(num);
-    // Если связный список пуст, пусть front и rear оба указывают на node
+    // Если связный список пуст, установить front и rear так, чтобы оба указателя указывали на node
     if (empty(deque)) {
         deque->front = deque->rear = node;
     }
-    // Операция добавления в голову очереди
+    // Добавить элемент в начало дека
     else if (isFront) {
-        // Добавить node в голову списка
+        // Добавить node в начало связного списка
         deque->front->prev = node;
         node->next = deque->front;
-        deque->front = node; // Обновить головной узел
+        deque->front = node; // Обновить ссылку на первый узел
     }
-    // Операция добавления в хвост очереди
+    // Добавить элемент в конец дека
     else {
-        // Добавить node в хвост списка
+        // Добавить node в конец связного списка
         deque->rear->next = node;
         node->prev = deque->rear;
         deque->rear = node;
     }
-    deque->queSize++; // Обновить длину очереди
+    deque->queSize++; // Обновить длину дека
 }
 
-/* Добавление в голову очереди */
+/* Добавить элемент в начало дека */
 void pushFirst(LinkedListDeque *deque, int num) {
     push(deque, num, true);
 }
 
-/* Добавление в хвост очереди */
+/* Добавить элемент в конец дека */
 void pushLast(LinkedListDeque *deque, int num) {
     push(deque, num, false);
 }
 
-/* Доступ к элементу в начале очереди */
+/* Посмотреть первый элемент дека */
 int peekFirst(LinkedListDeque *deque) {
     assert(size(deque) && deque->front);
     return deque->front->val;
 }
 
-/* Доступ к элементу в конце очереди */
+/* Посмотреть последний элемент дека */
 int peekLast(LinkedListDeque *deque) {
     assert(size(deque) && deque->rear);
     return deque->rear->val;
 }
 
-/* Извлечь из очереди */
+/* Извлечь элемент из дека */
 int pop(LinkedListDeque *deque, bool isFront) {
     if (empty(deque))
         return -1;
     int val;
-    // Если в очереди один элемент, начало и конец указывают на один узел
+    // Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
     if (deque->queSize == 1) {
         val = deque->front->val;
-        delDoublyListNode(deque->front); // Оба указателя указывают на один узел, поэтому достаточно освободить его один раз
+        delDoublyListNode(deque->front); // Оба указателя ссылаются на один узел, поэтому достаточно освободить его один раз
         deque->front = NULL;
         deque->rear = NULL;
     }
-    // Операция извлечения из головы очереди
+    // Извлечь элемент из начала дека
     else if (isFront) {
-        val = peekFirst(deque); // Временно сохранить значение головного узла
+        val = peekFirst(deque); // Временно сохранить значение первого узла
         DoublyListNode *fNext = deque->front->next;
         fNext->prev = NULL;
         deque->front->next = NULL;
         delDoublyListNode(deque->front);
-        deque->front = fNext; // Обновить головной узел
+        deque->front = fNext; // Обновить ссылку на первый узел
     }
-    // Операция извлечения из хвоста очереди
+    // Извлечь элемент из конца дека
     else {
-        val = peekLast(deque); // Временно сохранить значение хвостового узла
+        val = peekLast(deque); // Временно сохранить значение последнего узла
         DoublyListNode *rPrev = deque->rear->prev;
         rPrev->next = NULL;
         deque->rear->prev = NULL;
         delDoublyListNode(deque->rear);
-        deque->rear = rPrev; // Обновить хвостовой узел
+        deque->rear = rPrev; // Обновить ссылку на последний узел
     }
-    deque->queSize--; // Обновить длину очереди
+    deque->queSize--; // Обновить длину дека
     return val;
 }
 
-/* Извлечение из головы очереди */
+/* Извлечь элемент из начала дека */
 int popFirst(LinkedListDeque *deque) {
     return pop(deque, true);
 }
 
-/* Извлечение из хвоста очереди */
+/* Извлечь элемент из конца дека */
 int popLast(LinkedListDeque *deque) {
     return pop(deque, false);
 }
 
-/* Вывести очередь */
+/* Вывести дек */
 void printLinkedListDeque(LinkedListDeque *deque) {
     int *arr = malloc(sizeof(int) * deque->queSize);
-    // Скопировать данные связного списка в массив
+    // Скопировать данные из связного списка в массив
     int i;
     DoublyListNode *node;
     for (i = 0, node = deque->front; i < deque->queSize; i++) {
@@ -168,9 +168,9 @@ void printLinkedListDeque(LinkedListDeque *deque) {
     free(arr);
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация двусторонней очереди */
+    /* Инициализировать дек */
     LinkedListDeque *deque = newLinkedListDeque();
     pushLast(deque, 3);
     pushLast(deque, 2);
@@ -178,35 +178,35 @@ int main() {
     printf("Дек deque = ");
     printLinkedListDeque(deque);
 
-    /* Доступ к элементу */
+    /* Посмотреть первый и последний элементы */
     int peekFirstNum = peekFirst(deque);
-    printf("Элемент в голове peekFirst = %d\r\n", peekFirstNum);
+    printf("Первый элемент дека peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("Элемент в хвосте peekLast = %d\r\n", peekLastNum);
+    printf("Последний элемент дека peekLast = %d\r\n", peekLastNum);
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     pushLast(deque, 4);
-    printf("После вставки элемента 4 в хвост дек =");
+    printf("После добавления 4 в конец дека deque =");
     printLinkedListDeque(deque);
     pushFirst(deque, 1);
-    printf("После вставки элемента 1 в голову дек =");
+    printf("После добавления 1 в начало дека deque =");
     printLinkedListDeque(deque);
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элементы из дека */
     int popLastNum = popLast(deque);
-    printf("Извлечен элемент из хвоста popLast = %d, дек после извлечения из хвоста = ", popLastNum);
+    printf("Извлечённый последний элемент popLast = %d, после извлечения deque = ", popLastNum);
     printLinkedListDeque(deque);
     int popFirstNum = popFirst(deque);
-    printf("Извлечен элемент из головы popFirst = %d, дек после извлечения из головы = ", popFirstNum);
+    printf("Извлечённый первый элемент popFirst = %d, после извлечения deque = ", popFirstNum);
     printLinkedListDeque(deque);
 
-    /* Получение длины очереди */
+    /* Получить длину дека */
     int dequeSize = size(deque);
     printf("Длина дека size = %d\r\n", dequeSize);
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуст ли дек */
     bool isEmpty = empty(deque);
-    printf("Пуст ли дек = %s\r\n", isEmpty ? "true" : "false");
+    printf("Дек пуст = %s\r\n", isEmpty ? "true" : "false");
 
     // Освободить память
     delLinkedListdeque(deque);

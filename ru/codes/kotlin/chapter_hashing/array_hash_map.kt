@@ -6,7 +6,7 @@
 
 package chapter_hashing
 
-/* Пара ключ-значение */
+/* Пара «ключ — значение» */
 class Pair(
     var key: Int,
     var _val: String
@@ -14,7 +14,7 @@ class Pair(
 
 /* Хеш-таблица на основе массива */
 class ArrayHashMap {
-    // Инициализировать массив, содержащий 100 корзин
+    // Создать массив из 100 корзин
     private val buckets = arrayOfNulls<Pair>(100)
 
     /* Хеш-функция */
@@ -23,28 +23,28 @@ class ArrayHashMap {
         return index
     }
 
-    /* Операция поиска */
+    /* Поиск */
     fun get(key: Int): String? {
         val index = hashFunc(key)
         val pair = buckets[index] ?: return null
         return pair._val
     }
 
-    /* Операция добавления */
+    /* Вставка */
     fun put(key: Int, _val: String) {
         val pair = Pair(key, _val)
         val index = hashFunc(key)
         buckets[index] = pair
     }
 
-    /* Операция удаления */
+    /* Удаление */
     fun remove(key: Int) {
         val index = hashFunc(key)
-        // Присвоить null, что означает удаление
+        // Записать null в знак удаления
         buckets[index] = null
     }
 
-    /* Получить все пары ключ-значение */
+    /* Получить все пары «ключ — значение» */
     fun pairSet(): MutableList<Pair> {
         val pairSet = mutableListOf<Pair>()
         for (pair in buckets) {
@@ -84,42 +84,42 @@ class ArrayHashMap {
     }
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 fun main() {
-    /* Инициализация хеш-таблицы */
+    /* Создать хеш-таблицу */
     val map = ArrayHashMap()
 
-    /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    /* Вставка */
+    // Добавить в таблицу пару (key, value)
     map.put(12836, "Сяо Ха")
     map.put(15937, "Сяо Ло")
     map.put(16750, "Сяо Суань")
     map.put(13276, "Сяо Фа")
     map.put(10583, "Сяо Я")
-    println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
+    println("\nХеш-таблица после вставки:\nКлюч -> Значение")
     map.print()
 
-    /* Операция поиска */
-    // Ввести в хеш-таблицу ключ key и получить значение value
+    /* Поиск */
+    // Получить из таблицы значение value по ключу key
     val name = map.get(15937)
-    println("\nДля номера 15937 найдено имя $name")
+    println("\nИмя студента с номером 15937: $name")
 
-    /* Операция удаления */
-    // Удалить пару (key, value) из хеш-таблицы
+    /* Удаление */
+    // Удалить из таблицы пару (key, value)
     map.remove(10583)
-    println("\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение")
+    println("\nХеш-таблица после удаления 10583:\nКлюч -> Значение")
     map.print()
 
     /* Обход хеш-таблицы */
-    println("\nОтдельный обход пар ключ-значение")
+    println("\nОбход пар «ключ -> значение»")
     for (kv in map.pairSet()) {
         println("${kv.key} -> ${kv._val}")
     }
-    println("\nОтдельный обход ключей")
+    println("\nОбход только ключей")
     for (key in map.keySet()) {
         println(key)
     }
-    println("\nОтдельный обход значений")
+    println("\nОбход только значений")
     for (_val in map.valueSet()) {
         println(_val)
     }

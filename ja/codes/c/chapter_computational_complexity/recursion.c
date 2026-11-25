@@ -11,25 +11,25 @@ int recur(int n) {
     // 終了条件
     if (n == 1)
         return 1;
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     int res = recur(n - 1);
-    // 復路：結果を返す
+    // 帰り：結果を返す
     return n + res;
 }
 
-/* 反復を使って再帰を再現する */
+/* 反復で再帰を模擬 */
 int forLoopRecur(int n) {
-    int stack[1000]; // 大きな配列を使ってスタックを再現する
+    int stack[1000]; // 大きな配列でスタックを模擬
     int top = -1;    // スタックの先頭のインデックス
     int res = 0;
-    // 往路：再帰呼び出し
+    // 行き：再帰呼び出し
     for (int i = n; i > 0; i--) {
-        // 「プッシュ操作」で再帰の「往路」を再現する
+        // プッシュで「行き」を模擬
         stack[1 + top++] = i;
     }
-    // 復路：結果を返す
+    // 帰り：結果を返す
     while (top >= 0) {
-        // 「ポップ操作」で再帰の「復路」を再現する
+        // ポップで「帰り」を模擬
         res += stack[top--];
     }
     // res = 1+2+3+...+n
@@ -56,19 +56,19 @@ int fib(int n) {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 5;
     int res;
 
     res = recur(n);
-    printf("\n再帰関数で求めた和 res = %d\n", res);
+    printf("\n再帰関数による総和 res = %d\n", res);
 
     res = forLoopRecur(n);
-    printf("\n反復で再帰を再現して求めた和 res = %d\n", res);
+    printf("\n反復で再帰を模擬して求めた総和 res = %d\n", res);
 
     res = tailRecur(n, 0);
-    printf("\n末尾再帰関数で求めた和 res = %d\n", res);
+    printf("\n末尾再帰関数による総和 res = %d\n", res);
 
     res = fib(n);
     printf("\nフィボナッチ数列の第 %d 項は %d\n", n, res);

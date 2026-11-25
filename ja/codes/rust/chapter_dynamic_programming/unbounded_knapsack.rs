@@ -13,10 +13,10 @@ fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     for i in 1..=n {
         for c in 1..=cap {
             if wgt[i - 1] > c as i32 {
-                // ナップサックの容量を超える場合、品物 i を選ばない
+                // 容量を超える場合は品物 i を選ばない
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+                // 品物 i を選ばない場合と選ぶ場合の大きい方を取る
                 dp[i][c] = std::cmp::max(dp[i - 1][c], dp[i][c - wgt[i - 1] as usize] + val[i - 1]);
             }
         }
@@ -24,7 +24,7 @@ fn unbounded_knapsack_dp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     return dp[n][cap];
 }
 
-/* 個数制限なしナップサック問題：空間を最適化した動的計画法 */
+/* 個数制限なしナップサック問題：使用メモリを削減した動的計画法 */
 fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     let n = wgt.len();
     // dp テーブルを初期化する
@@ -33,10 +33,10 @@ fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     for i in 1..=n {
         for c in 1..=cap {
             if wgt[i - 1] > c as i32 {
-                // ナップサックの容量を超える場合、品物 i を選ばない
+                // 容量を超える場合は品物 i を選ばない
                 dp[c] = dp[c];
             } else {
-                // 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+                // 品物 i を選ばない場合と選ぶ場合の大きい方を取る
                 dp[c] = std::cmp::max(dp[c], dp[c - wgt[i - 1] as usize] + val[i - 1]);
             }
         }
@@ -44,7 +44,7 @@ fn unbounded_knapsack_dp_comp(wgt: &[i32], val: &[i32], cap: usize) -> i32 {
     dp[cap]
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let wgt = [1, 2, 3];
     let val = [5, 11, 15];
@@ -52,9 +52,9 @@ pub fn main() {
 
     // 動的計画法
     let res = unbounded_knapsack_dp(&wgt, &val, cap);
-    println!("ナップサックの容量を超えない品物の最大価値は {res}");
+    println!("容量内でナップサックに入る品物の最大価値は {res}");
 
-    // 空間を最適化した動的計画法
+    // 使用メモリを削減した動的計画法
     let res = unbounded_knapsack_dp_comp(&wgt, &val, cap);
-    println!("ナップサックの容量を超えない品物の最大価値は {res}");
+    println!("容量内でナップサックに入る品物の最大価値は {res}");
 }

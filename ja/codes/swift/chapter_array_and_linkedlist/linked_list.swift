@@ -13,7 +13,7 @@ func insert(n0: ListNode, P: ListNode) {
     n0.next = P
 }
 
-/* 連結リストのノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後にあるノードを削除する */
 func remove(n0: ListNode) {
     if n0.next == nil {
         return
@@ -36,7 +36,7 @@ func access(head: ListNode, index: Int) -> ListNode? {
     return head
 }
 
-/* 連結リストから値が target である最初のノードを探索する */
+/* 連結リストから値が target の最初のノードを探す */
 func find(head: ListNode, target: Int) -> Int {
     var head: ListNode? = head
     var index = 0
@@ -52,7 +52,7 @@ func find(head: ListNode, target: Int) -> Int {
 
 @main
 enum LinkedList {
-    /* 実行用コード */
+    /* ドライバコード */
     static func main() {
         /* 連結リストを初期化する */
         // 各ノードを初期化する
@@ -66,25 +66,25 @@ enum LinkedList {
         n1.next = n2
         n2.next = n3
         n3.next = n4
-        print("初期化した連結リスト")
+        print("初期化した連結リスト：")
         PrintUtil.printLinkedList(head: n0)
 
         /* ノードを挿入する */
         insert(n0: n0, P: ListNode(x: 0))
-        print("ノードを挿入した後の連結リスト")
+        print("ノード挿入後の連結リスト：")
         PrintUtil.printLinkedList(head: n0)
 
         /* ノードを削除する */
         remove(n0: n0)
-        print("ノードを削除した後の連結リスト")
+        print("ノード削除後の連結リスト：")
         PrintUtil.printLinkedList(head: n0)
 
         /* ノードにアクセスする */
         let node = access(head: n0, index: 3)
         print("連結リストのインデックス 3 にあるノードの値 = \(node!.val)")
 
-        /* ノードを探索する */
+        /* ノードを探す */
         let index = find(head: n0, target: 2)
-        print("連結リスト内で値が 2 であるノードのインデックス = \(index)")
+        print("連結リストで値が 2 のノードのインデックス = \(index)")
     }
 }

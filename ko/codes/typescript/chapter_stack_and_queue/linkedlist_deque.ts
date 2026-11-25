@@ -4,11 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 이중 연결 리스트 노드 */
+/* 이중 연결 리스트의 노드 */
 class ListNode {
-    prev: ListNode | null; // 이전 노드 참조(포인터)
-    next: ListNode | null; // 다음 노드 참조(포인터)
-    val: number; // 노드 값
+    prev: ListNode | null; // 이전 노드에 대한 참조(포인터)
+    next: ListNode | null; // 다음 노드에 대한 참조(포인터)
+    val: number; // 노드의 값
 
     constructor(val: number) {
         this.val = val;
@@ -19,8 +19,8 @@ class ListNode {
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {
-    private front: ListNode; // 머리 노드 front
-    private rear: ListNode; // 꼬리 노드 rear
+    private front: ListNode; // 첫 노드 front
+    private rear: ListNode; // 마지막 노드 rear
     private queSize: number; // 덱의 길이
 
     constructor() {
@@ -37,10 +37,10 @@ class LinkedListDeque {
             this.front = node;
             this.rear = node;
         } else {
-            // node를 연결 리스트의 맨 뒤에 추가한다
+            // 연결 리스트의 맨 뒤에 node를 추가한다
             this.rear.next = node;
             node.prev = this.rear;
-            this.rear = node; // 꼬리 노드를 갱신한다
+            this.rear = node; // 마지막 노드 갱신
         }
         this.queSize++;
     }
@@ -53,10 +53,10 @@ class LinkedListDeque {
             this.front = node;
             this.rear = node;
         } else {
-            // node를 연결 리스트의 맨 앞에 추가한다
+            // 연결 리스트의 맨 앞에 node를 추가한다
             this.front.prev = node;
             node.next = this.front;
-            this.front = node; // 머리 노드를 갱신한다
+            this.front = node; // 첫 노드 갱신
         }
         this.queSize++;
     }
@@ -66,18 +66,18 @@ class LinkedListDeque {
         if (this.queSize === 0) {
             return null;
         }
-        const value: number = this.rear!.val; // 꼬리 노드의 값을 저장한다
-        // 큐의 길이가 1이면 머리와 꼬리가 같은 노드를 가리킨다
+        const value: number = this.rear!.val; // 마지막 노드의 값을 저장한다
+        // 덱의 길이가 1이면 앞쪽과 뒤쪽 포인터가 같은 노드를 가리킨다
         if (this.queSize === 1) {
             this.front = null;
             this.rear = null;
         }
-        // 꼬리 노드를 삭제한다
+        // 마지막 노드 삭제
         else {
             let temp: ListNode = this.rear!.prev;
             temp!.next = null;
             this.rear!.prev = null;
-            this.rear = temp; // 꼬리 노드를 갱신한다
+            this.rear = temp; // 마지막 노드 갱신
         }
         this.queSize--;
         return value;
@@ -88,44 +88,44 @@ class LinkedListDeque {
         if (this.queSize === 0) {
             return null;
         }
-        const value: number = this.front.val; // 머리 노드의 값을 저장한다
-        // 큐의 길이가 1이면 머리와 꼬리가 같은 노드를 가리킨다
+        const value: number = this.front.val; // 첫 노드의 값을 저장한다
+        // 덱의 길이가 1이면 앞쪽과 뒤쪽 포인터가 같은 노드를 가리킨다
         if (this.queSize === 1) {
             this.front = null;
             this.rear = null;
         }
-        // 머리 노드를 삭제한다
+        // 첫 노드 삭제
         else {
             let temp: ListNode = this.front!.next;
             temp!.prev = null;
             this.front!.next = null;
-            this.front = temp; // 머리 노드를 갱신한다
+            this.front = temp; // 첫 노드 갱신
         }
         this.queSize--;
         return value;
     }
 
-    /* 맨 뒤 원소 접근 */
+    /* 맨 뒤 원소 조회 */
     peekLast(): number {
         return this.queSize === 0 ? null : this.rear.val;
     }
 
-    /* 맨 앞 원소 접근 */
+    /* 맨 앞 원소 조회 */
     peekFirst(): number {
         return this.queSize === 0 ? null : this.front.val;
     }
 
-    /* 덱의 길이 반환 */
+    /* 덱의 길이 조회 */
     size(): number {
         return this.queSize;
     }
 
-    /* 덱이 비어 있는지 판단 */
+    /* 덱이 비어 있는지 확인 */
     isEmpty(): boolean {
         return this.queSize === 0;
     }
 
-    /* 덱을 출력한다 */
+    /* 덱 출력 */
     print(): void {
         const arr: number[] = [];
         let temp: ListNode = this.front;
@@ -137,7 +137,7 @@ class LinkedListDeque {
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 /* 덱 초기화 */
 const linkedListDeque: LinkedListDeque = new LinkedListDeque();
 linkedListDeque.pushLast(3);
@@ -146,32 +146,32 @@ linkedListDeque.pushLast(5);
 console.log('덱 linkedListDeque = ');
 linkedListDeque.print();
 
-/* 원소 접근 */
+/* 원소 조회 */
 const peekFirst: number = linkedListDeque.peekFirst();
 console.log('맨 앞 원소 peekFirst = ' + peekFirst);
 const peekLast: number = linkedListDeque.peekLast();
 console.log('맨 뒤 원소 peekLast = ' + peekLast);
 
-/* 원소 삽입 */
+/* 덱에 원소 삽입 */
 linkedListDeque.pushLast(4);
-console.log('뒤쪽에 원소 4를 삽입한 후 linkedListDeque = ');
+console.log('맨 뒤에 원소 4를 삽입한 후 linkedListDeque = ');
 linkedListDeque.print();
 linkedListDeque.pushFirst(1);
-console.log('앞쪽에 원소 1을 삽입한 후 linkedListDeque = ');
+console.log('맨 앞에 원소 1을 삽입한 후 linkedListDeque = ');
 linkedListDeque.print();
 
-/* 원소 꺼내기 */
+/* 덱에서 원소 꺼내기 */
 const popLast: number = linkedListDeque.popLast();
-console.log('맨 뒤에서 꺼낸 원소 = ' + popLast + ', 뒤쪽 원소를 꺼낸 후 linkedListDeque = ');
+console.log('맨 뒤에서 꺼낸 원소 = ' + popLast + ', 맨 뒤에서 꺼낸 후 linkedListDeque = ');
 linkedListDeque.print();
 const popFirst: number = linkedListDeque.popFirst();
-console.log('맨 앞에서 꺼낸 원소 = ' + popFirst + ', 앞쪽 원소를 꺼낸 후 linkedListDeque = ');
+console.log('맨 앞에서 꺼낸 원소 = ' + popFirst + ', 맨 앞에서 꺼낸 후 linkedListDeque = ');
 linkedListDeque.print();
 
-/* 덱의 길이 반환 */
+/* 덱의 길이 조회 */
 const size: number = linkedListDeque.size();
-console.log('덱 길이 size = ' + size);
+console.log('덱의 길이 size = ' + size);
 
-/* 덱이 비어 있는지 판단 */
+/* 덱이 비어 있는지 확인 */
 const isEmpty: boolean = linkedListDeque.isEmpty();
 console.log('덱이 비어 있는가 = ' + isEmpty);

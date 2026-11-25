@@ -7,8 +7,8 @@
 /* Binary tree node */
 class TreeNode {
     val; // Node value
-    left; // Pointer to the left child
-    right; // Pointer to the right child
+    left; // Reference to the left child
+    right; // Reference to the right child
     height; //Node height
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;

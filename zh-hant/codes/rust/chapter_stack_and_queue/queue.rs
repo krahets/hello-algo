@@ -8,12 +8,12 @@ use hello_algo_rust::include::print_util;
 
 use std::collections::VecDeque;
 
-/* Driver Code */
+/* 範例程式 */
 pub fn main() {
     // 初始化佇列
     let mut queue: VecDeque<i32> = VecDeque::new();
 
-    // 元素入列
+    // 將元素加入佇列
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
@@ -22,16 +22,16 @@ pub fn main() {
     print!("佇列 queue = ");
     print_util::print_queue(&queue);
 
-    // 訪問佇列首元素
+    // 讀取隊首元素
     let peek = queue.front().unwrap();
-    println!("\n佇列首元素 peek = {peek}");
+    println!("\n隊首元素 peek = {peek}");
 
-    // 元素出列
+    // 從佇列取出元素
     let pop = queue.pop_front().unwrap();
-    print!("出列元素 pop = {pop}，出列後 queue = ");
+    print!("出隊元素 pop = {pop}，出隊後 queue = ");
     print_util::print_queue(&queue);
 
-    // 獲取佇列的長度
+    // 取得佇列長度
     let size = queue.len();
     print!("\n佇列長度 size = {size}");
 

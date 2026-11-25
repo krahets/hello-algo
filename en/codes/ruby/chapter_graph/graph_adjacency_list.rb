@@ -6,13 +6,13 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/vertex'
 
-### Undirected graph class implemented with an adjacency list ###
+### Undirected graph represented by an adjacency list ###
 class GraphAdjList
   attr_reader :adj_list
   
   ### Constructor ###
   def initialize(edges)
-    # Adjacency list: key is a vertex, value is the list of all its neighbors
+    # Adjacency list: each vertex maps to its neighbors
     @adj_list = {}
     # Add all vertices and edges
     for edge in edges
@@ -22,7 +22,7 @@ class GraphAdjList
     end
   end
 
-  ### Get the number of vertices ###
+  ### Get the vertex count ###
   def size
     @adj_list.length
   end
@@ -39,7 +39,7 @@ class GraphAdjList
   def remove_edge(vet1, vet2)
     raise ArgumentError if !@adj_list.include?(vet1) || !@adj_list.include?(vet2) || vet1 == vet2
 
-    # Remove edge vet1 - vet2
+    # Remove the edge vet1 - vet2
     @adj_list[vet1].delete(vet2)
     @adj_list[vet2].delete(vet1)
   end
@@ -48,7 +48,7 @@ class GraphAdjList
   def add_vertex(vet)
     return if @adj_list.include?(vet)
 
-    # Add a new neighbor list to the adjacency list
+    # Add a new linked list to the adjacency list
     @adj_list[vet] = []
   end
 
@@ -56,9 +56,9 @@ class GraphAdjList
   def remove_vertex(vet)
     raise ArgumentError unless @adj_list.include?(vet)
 
-    # Remove the neighbor list for vertex vet from the adjacency list
+    # Remove the linked list for vertex vet from the adjacency list
     @adj_list.delete(vet)
-    # Traverse the other neighbor lists and remove all edges incident to vet
+    # Traverse the other vertices' lists and remove every edge incident to vet
     for vertex in @adj_list
       @adj_list[vertex.first].delete(vet) if @adj_list[vertex.first].include?(vet)
     end
@@ -76,7 +76,7 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # Initialize the undirected graph
+  # Initialize an undirected graph
   v = vals_to_vets([1, 3, 2, 5, 4])
   edges = [
     [v[0], v[1]],
@@ -91,13 +91,13 @@ if __FILE__ == $0
   graph.__print__
 
   # Add an edge
-  # Vertices 1 and 2 are v[0] and v[2]
+  # Vertices 1 and 2 are v[0] and v[2], respectively
   graph.add_edge(v[0], v[2])
   puts "\nGraph after adding edge 1-2:"
   graph.__print__
 
   # Remove an edge
-  # Vertices 1 and 3 are v[0] and v[1]
+  # Vertices 1 and 3 are v[0] and v[1], respectively
   graph.remove_edge(v[0], v[1])
   puts "\nGraph after removing edge 1-3:"
   graph.__print__

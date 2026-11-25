@@ -7,7 +7,7 @@
 use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
-/* 현재 상태가 해인지 판단 */
+/* 현재 상태가 해인지 확인한다 */
 fn is_solution(state: &mut Vec<Rc<RefCell<TreeNode>>>) -> bool {
     return !state.is_empty() && state.last().unwrap().borrow().val == 7;
 }
@@ -20,22 +20,22 @@ fn record_solution(
     res.push(state.clone());
 }
 
-/* 현재 상태에서 해당 선택이 유효한지 판단 */
+/* 현재 상태에서 이 선택이 유효한지 확인한다 */
 fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Option<&Rc<RefCell<TreeNode>>>) -> bool {
     return choice.is_some() && choice.unwrap().borrow().val != 3;
 }
 
-/* 상태 갱신 */
+/* 상태를 갱신한다 */
 fn make_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Rc<RefCell<TreeNode>>) {
     state.push(choice);
 }
 
-/* 상태 복원 */
+/* 상태를 복원한다 */
 fn undo_choice(state: &mut Vec<Rc<RefCell<TreeNode>>>, _: Rc<RefCell<TreeNode>>) {
     state.pop();
 }
 
-/* 백트래킹 알고리즘: 예제 3 */
+/* 백트래킹: 예제 3 */
 fn backtrack(
     state: &mut Vec<Rc<RefCell<TreeNode>>>,
     choices: &Vec<Option<&Rc<RefCell<TreeNode>>>>,
@@ -50,7 +50,7 @@ fn backtrack(
     for &choice in choices.iter() {
         // 가지치기: 선택이 유효한지 확인한다
         if is_valid(state, choice) {
-            // 시도: 선택하고 상태를 갱신한다
+            // 시도: 하나를 선택하고 상태를 갱신한다
             make_choice(state, choice.unwrap().clone());
             // 다음 선택을 진행한다
             backtrack(
@@ -61,7 +61,7 @@ fn backtrack(
                 ],
                 res,
             );
-            // 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+            // 되돌리기: 선택을 취소하고 이전 상태를 복원한다
             undo_choice(state, choice.unwrap().clone());
         }
     }
@@ -77,7 +77,7 @@ pub fn main() {
     let mut res = Vec::new();
     backtrack(&mut Vec::new(), &mut vec![root.as_ref()], &mut res);
 
-    println!("\n값이 3인 노드를 포함하지 않는 조건으로, 루트 노드에서 노드 7까지의 모든 경로 출력");
+    println!("\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

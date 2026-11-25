@@ -15,9 +15,9 @@ func TestCoinChange(t *testing.T) {
 
 	// 동적 계획법
 	res := coinChangeDP(coins, amt)
-	fmt.Printf("목표 금액을 만드는 데 필요한 최소 동전 개수는 %d이다\n", res)
+	fmt.Printf("목표 금액을 만드는 데 필요한 최소 동전 수: %d\n", res)
 
-	// 공간을 최적화한 동적 계획법
+	// 공간 최적화 동적 계획법
 	res = coinChangeDPComp(coins, amt)
-	fmt.Printf("목표 금액을 만드는 데 필요한 최소 동전 개수는 %d이다\n", res)
+	fmt.Printf("목표 금액을 만드는 데 필요한 최소 동전 수: %d\n", res)
 }

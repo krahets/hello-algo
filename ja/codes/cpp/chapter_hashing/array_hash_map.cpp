@@ -17,14 +17,14 @@ struct Pair {
     }
 };
 
-/* 配列で実装したハッシュテーブル */
+/* 配列で実装したハッシュ表 */
 class ArrayHashMap {
   private:
     vector<Pair *> buckets;
 
   public:
     ArrayHashMap() {
-        // 100 個のバケットを含む配列を初期化する
+        // 100 個のバケットを持つ配列を初期化する
         buckets = vector<Pair *>(100);
     }
 
@@ -42,7 +42,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* 取得操作 */
+    /* 検索 */
     string get(int key) {
         int index = hashFunc(key);
         Pair *pair = buckets[index];
@@ -51,17 +51,17 @@ class ArrayHashMap {
         return pair->val;
     }
 
-    /* 追加操作 */
+    /* 追加 */
     void put(int key, string val) {
         Pair *pair = new Pair(key, val);
         int index = hashFunc(key);
         buckets[index] = pair;
     }
 
-    /* 削除操作 */
+    /* 削除 */
     void remove(int key) {
         int index = hashFunc(key);
-        // メモリを解放し、nullptr に設定する
+        // メモリを解放し、ポインタを nullptr にする
         delete buckets[index];
         buckets[index] = nullptr;
     }
@@ -99,7 +99,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     void print() {
         for (Pair *kv : pairSet()) {
             cout << kv->key << " -> " << kv->val << endl;
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// テストケースは array_hash_map_test.cpp を参照
+// テスト例は array_hash_map_test.cpp を参照

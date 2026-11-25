@@ -8,24 +8,24 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* Coin change: dynamic programming */
+/* Coin change with dynamic programming */
 fun coinChangeDP(coins: IntArray, amt: Int): Int {
     val n = coins.size
     val MAX = amt + 1
     // Initialize the dp table
     val dp = Array(n + 1) { IntArray(amt + 1) }
-    // State transitions: first row and first column
+    // State transitions for the first row and column
     for (a in 1..amt) {
         dp[0][a] = MAX
     }
-    // State transitions: remaining rows and columns
+    // State transitions for the remaining rows and columns
     for (i in 1..n) {
         for (a in 1..amt) {
             if (coins[i - 1] > a) {
-                // If the coin value exceeds the current amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[i][a] = dp[i - 1][a]
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
             }
         }
@@ -33,7 +33,7 @@ fun coinChangeDP(coins: IntArray, amt: Int): Int {
     return if (dp[n][amt] != MAX) dp[n][amt] else -1
 }
 
-/* Coin change: space-optimized dynamic programming */
+/* Coin change with space-optimized dynamic programming */
 fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
     val n = coins.size
     val MAX = amt + 1
@@ -41,14 +41,14 @@ fun coinChangeDPComp(coins: IntArray, amt: Int): Int {
     val dp = IntArray(amt + 1)
     dp.fill(MAX)
     dp[0] = 0
-    // State transitions
+    // State transition
     for (i in 1..n) {
         for (a in 1..amt) {
             if (coins[i - 1] > a) {
-                // If the coin value exceeds the current amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[a] = dp[a]
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
             }
         }

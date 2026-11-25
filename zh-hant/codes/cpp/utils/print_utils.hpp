@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-/* Find an element in a vector */
+/* 在向量中尋找指定的元素 */
 template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
     for (int i = 0; i < vec.size(); i++) {
@@ -24,7 +24,7 @@ template <typename T> int vecFind(const vector<T> &vec, T ele) {
     return j;
 }
 
-/* Concatenate a vector with a delim */
+/* 用分隔字串串接向量中的元素 */
 template <typename T> string strJoin(const string &delim, const T &vec) {
     ostringstream s;
     for (const auto &i : vec) {
@@ -36,7 +36,7 @@ template <typename T> string strJoin(const string &delim, const T &vec) {
     return s.str();
 }
 
-/* Repeat a string for n times */
+/* 將字串重複 n 次 */
 string strRepeat(string str, int n) {
     ostringstream os;
     for (int i = 0; i < n; i++)
@@ -44,7 +44,7 @@ string strRepeat(string str, int n) {
     return os.str();
 }
 
-/* 列印陣列 */
+/* 印出陣列 */
 template <typename T> void printArray(T *arr, int n) {
     cout << "[";
     for (int i = 0; i < n - 1; i++) {
@@ -56,17 +56,17 @@ template <typename T> void printArray(T *arr, int n) {
         cout << "]" << endl;
 }
 
-/* Get the Vector String object */
+/* 取得向量的字串表示 */
 template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
-/* 列印串列 */
+/* 印出向量 */
 template <typename T> void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
 
-/* 列印矩陣 */
+/* 印出矩陣 */
 template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "[" << '\n';
     for (vector<T> &list : matrix)
@@ -74,7 +74,7 @@ template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "]" << '\n';
 }
 
-/* 列印鏈結串列 */
+/* 印出鏈結串列 */
 void printLinkedList(ListNode *head) {
     vector<int> list;
     while (head != nullptr) {
@@ -104,8 +104,8 @@ void showTrunks(Trunk *p) {
 }
 
 /**
- * 列印二元樹
- * This tree printer is borrowed from TECHIE DELIGHT
+ * 印出二元樹
+ * 這段印出樹狀結構的程式碼取自 TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode *root, Trunk *prev, bool isRight) {
@@ -139,20 +139,20 @@ void printTree(TreeNode *root, Trunk *prev, bool isRight) {
     printTree(root->left, &trunk, false);
 }
 
-/* 列印二元樹 */
+/* 印出二元樹 */
 void printTree(TreeNode *root) {
     printTree(root, nullptr, false);
 }
 
-/* 列印堆疊 */
+/* 印出堆疊 */
 template <typename T> void printStack(stack<T> stk) {
-    // Reverse the input stack
+    // 將傳入的堆疊順序反轉
     stack<T> tmp;
     while (!stk.empty()) {
         tmp.push(stk.top());
         stk.pop();
     }
-    // Generate the string to print
+    // 產生要印出的字串
     ostringstream s;
     bool flag = true;
     while (!tmp.empty()) {
@@ -166,9 +166,9 @@ template <typename T> void printStack(stack<T> stk) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* 列印佇列 */
+/* 印出佇列 */
 template <typename T> void printQueue(queue<T> queue) {
-    // Generate the string to print
+    // 產生要印出的字串
     ostringstream s;
     bool flag = true;
     while (!queue.empty()) {
@@ -182,9 +182,9 @@ template <typename T> void printQueue(queue<T> queue) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* 列印雙向佇列 */
+/* 印出雙端佇列 */
 template <typename T> void printDeque(deque<T> deque) {
-    // Generate the string to print
+    // 產生要印出的字串
     ostringstream s;
     bool flag = true;
     while (!deque.empty()) {
@@ -198,15 +198,15 @@ template <typename T> void printDeque(deque<T> deque) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* 列印雜湊表 */
-// 定義模板參數 TKey 和 TValue ，用於指定鍵值對的型別
+/* 印出雜湊表 */
+// 定義樣板參數 TKey 和 TValue，分別指定鍵和值的型別
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
     }
 }
 
-/* Expose the underlying storage of the priority_queue container */
+/* 開放存取 priority_queue 容器的底層儲存空間 */
 template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
     struct HackedQueue : private priority_queue<T, S, C> {
         static S &Container(priority_queue<T, S, C> &pq) {
@@ -216,12 +216,12 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
     return HackedQueue::Container(pq);
 }
 
-/* 列印堆積（優先佇列） */
+/* 印出堆積（優先佇列） */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "堆積的陣列表示：";
+    cout << "堆積的陣列表示法：";
     printVector(vec);
-    cout << "堆積的樹狀表示：" << endl;
+    cout << "堆積的樹狀表示法：" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

@@ -25,13 +25,13 @@ int main() {
     printGraph(graph);
 
     /* Add an edge */
-    // Vertices 1 and 2 are v[0] and v[2]
+    // Vertices 1 and 2 are v[0] and v[2], respectively
     addEdge(graph, v[0], v[2]);
     printf("\nGraph after adding edge 1-2:\n");
     printGraph(graph);
 
     /* Remove an edge */
-    // Vertices 1 and 3 are v[0] and v[1]
+    // Vertices 1 and 3 are v[0] and v[1], respectively
     removeEdge(graph, v[0], v[1]);
     printf("\nGraph after removing edge 1-3:\n");
     printGraph(graph);
@@ -48,7 +48,7 @@ int main() {
     printf("\nGraph after removing vertex 3:\n");
     printGraph(graph);
 
-    // Free memory
+    // Free the memory
     delGraphAdjList(graph);
     free(v);
     return 0;

@@ -6,30 +6,30 @@ package chapter_dynamic_programming
 
 /* Backtracking */
 func backtrack(choices []int, state, n int, res []int) {
-	// When step n is reached, increase the number of ways by 1
+	// Count one more way when we reach stair n
 	if state == n {
 		res[0] = res[0] + 1
 	}
 	// Iterate over all choices
 	for _, choice := range choices {
-		// Prune: do not go beyond step n
+		// Prune moves that would overshoot stair n
 		if state+choice > n {
 			continue
 		}
-		// Try: make a choice and update the state
+		// Try a choice and update the state
 		backtrack(choices, state+choice, n, res)
-		// Backtrack
+		// Undo the choice
 	}
 }
 
-/* Climbing stairs: backtracking */
+/* Climbing stairs with backtracking */
 func climbingStairsBacktrack(n int) int {
-	// Choose to climb 1 or 2 steps
+	// Each move can climb 1 or 2 stairs
 	choices := []int{1, 2}
-	// Start climbing from step 0
+	// Start at stair 0
 	state := 0
 	res := make([]int, 1)
-	// Use res[0] to record the number of ways
+	// Store the number of ways in res[0]
 	res[0] = 0
 	backtrack(choices, state, n, res)
 	return res[0]

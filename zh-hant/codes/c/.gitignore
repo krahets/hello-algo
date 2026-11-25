@@ -1,8 +1,8 @@
-# Ignore all
+# 忽略所有檔案和目錄
 *
-# Unignore all with extensions
+# 有副檔名的檔案除外
 !*.*
-# Unignore all dirs
+# 所有目錄也除外
 !*/
 *.dSYM/
 

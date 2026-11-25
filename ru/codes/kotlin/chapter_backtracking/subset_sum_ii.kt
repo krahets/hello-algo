@@ -6,7 +6,7 @@
 
 package chapter_backtracking.subset_sum_ii
 
-/* Алгоритм бэктрекинга: сумма подмножеств II */
+/* Поиск с возвратом: сумма подмножества II */
 fun backtrack(
     state: MutableList<Int>,
     target: Int,
@@ -14,49 +14,49 @@ fun backtrack(
     start: Int,
     res: MutableList<MutableList<Int>?>
 ) {
-    // Если сумма подмножества равна target, записать решение
+    // Если сумма подмножества равна target, сохраняем решение
     if (target == 0) {
         res.add(state.toMutableList())
         return
     }
-    // Обойти все варианты выбора
-    // Отсечение 2: начинать обход с start, чтобы избежать генерации повторяющихся подмножеств
-    // Отсечение 3: начинать обход с start, чтобы избежать повторного выбора одного и того же элемента
+    // Перебираем все варианты
+    // Отсечение 2: начинаем перебор с start, чтобы не получать одинаковые подмножества
+    // Отсечение 3: начинаем перебор с start, чтобы не брать один и тот же элемент дважды
     for (i in start..<choices.size) {
-        // Отсечение 1: если сумма подмножества превышает target, немедленно завершить цикл
-        // Это связано с тем, что массив уже отсортирован, следующие элементы больше, и сумма подмножества точно превысит target
+        // Отсечение 1: если сумма подмножества превышает target, выходим из цикла
+        // Массив отсортирован: следующие элементы не меньше текущего, поэтому сумма тоже превысит target
         if (target - choices[i] < 0) {
             break
         }
-        // Отсечение 4: если этот элемент равен элементу слева, значит ветвь поиска повторяется, ее нужно сразу пропустить
+        // Отсечение 4: если значение совпало с уже проверенным на этом шаге соседом слева, пропускаем повторную ветвь
         if (i > start && choices[i] == choices[i - 1]) {
             continue
         }
-        // Попытка: сделать выбор и обновить target и start
+        // Пробуем вариант и обновляем target и start
         state.add(choices[i])
-        // Перейти к следующему выбору
+        // Переходим к следующему выбору
         backtrack(state, target - choices[i], choices, i + 1, res)
-        // Откат: отменить выбор и восстановить предыдущее состояние
+        // Возврат: отменяем выбор и восстанавливаем прежнее состояние
         state.removeAt(state.size - 1)
     }
 }
 
-/* Решить задачу суммы подмножеств II */
+/* Задача о сумме подмножества II */
 fun subsetSumII(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
     val state = mutableListOf<Int>() // Состояние (подмножество)
-    nums.sort() // Отсортировать nums
-    val start = 0 // Стартовая вершина обхода
+    nums.sort() // Сортируем nums
+    val start = 0 // Начальная позиция перебора
     val res = mutableListOf<MutableList<Int>?>() // Список результатов (список подмножеств)
     backtrack(state, target, nums, start, res)
     return res
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val nums = intArrayOf(4, 4, 5)
     val target = 9
     val res = subsetSumII(nums, target)
 
-    println("Входной массив nums = ${nums.contentToString()}, target = $target")
+    println("Исходный массив nums = ${nums.contentToString()}, target = $target")
     println("Все подмножества с суммой $target: res = $res")
 }

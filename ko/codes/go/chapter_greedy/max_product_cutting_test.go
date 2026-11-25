@@ -13,5 +13,5 @@ func TestMaxProductCutting(t *testing.T) {
 	n := 58
 	// 탐욕 알고리즘
 	res := maxProductCutting(n)
-	fmt.Println("분할 후의 최대 곱:", res)
+	fmt.Println("분할한 수들의 최대 곱:", res)
 }

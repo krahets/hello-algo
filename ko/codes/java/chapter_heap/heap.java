@@ -12,13 +12,13 @@ import java.util.*;
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
         heap.offer(val); // 힙에 원소 삽입
-        System.out.format("\n원소를 힙에 삽입한 후(원소: %d)\n", val);
+        System.out.format("\n원소 %d 삽입 후\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void testPop(Queue<Integer> heap) {
         int val = heap.poll(); // 힙의 루트 원소 꺼내기
-        System.out.format("\n힙의 루트 원소를 꺼낸 후(원소: %d)\n", val);
+        System.out.format("\n루트 원소 %d을 꺼낸 뒤의 힙\n", val);
         PrintUtil.printHeap(heap);
     }
 
@@ -26,10 +26,10 @@ public class heap {
         /* 힙 초기화 */
         // 최소 힙 초기화
         Queue<Integer> minHeap = new PriorityQueue<>();
-        // 최대 힙 초기화(lambda 식으로 Comparator를 수정하면 된다)
+        // 최대 힙 초기화(람다 식으로 Comparator를 변경하면 됨)
         Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-        System.out.println("\n다음 테스트 예제는 최대 힙이다");
+        System.out.println("\n다음은 최대 힙 테스트 예제다.");
 
         /* 힙에 원소 삽입 */
         testPush(maxHeap, 1);
@@ -38,7 +38,7 @@ public class heap {
         testPush(maxHeap, 5);
         testPush(maxHeap, 4);
 
-        /* 힙의 루트 원소 반환 */
+        /* 힙의 루트 원소 구하기 */
         int peek = maxHeap.peek();
         System.out.format("\n힙의 루트 원소: %d\n", peek);
 
@@ -49,18 +49,18 @@ public class heap {
         testPop(maxHeap);
         testPop(maxHeap);
 
-        /* 힙 크기 반환 */
+        /* 힙 크기 구하기 */
         int size = maxHeap.size();
-        System.out.format("\n힙의 원소 개수: %d\n", size);
+        System.out.format("\n힙의 원소 수: %d\n", size);
 
-        /* 힙이 비어 있는지 판단 */
+        /* 힙이 비었는지 확인 */
         boolean isEmpty = maxHeap.isEmpty();
-        System.out.format("\n힙이 비어 있는가: %b\n", isEmpty);
+        System.out.format("\n빈 힙 여부: %b\n", isEmpty);
 
-        /* 리스트를 입력하여 힙 구성 */
-        // 시간 복잡도는 O(n)이며 O(nlogn)이 아니다
+        /* 입력 리스트로 힙 구성 */
+        // 시간 복잡도는 O(nlogn)이 아니라 O(n)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\n리스트를 입력하여 최소 힙을 구성한 후");
+        System.out.println("\n입력 리스트로 만든 최소 힙:");
         PrintUtil.printHeap(minHeap);
     }
 }

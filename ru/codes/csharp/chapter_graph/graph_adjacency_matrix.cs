@@ -6,21 +6,21 @@
 
 namespace hello_algo.chapter_graph;
 
-/* Класс неориентированного графа на основе матрицы смежности */
+/* Неориентированный граф на матрице смежности */
 class GraphAdjMat {
-    List<int> vertices;     // Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
-    List<List<int>> adjMat; // Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
+    List<int> vertices;     // Список вершин: элементы — значения вершин, позиции — их индексы
+    List<List<int>> adjMat; // Матрица смежности: индексы строк и столбцов соответствуют индексам вершин
 
     /* Конструктор */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = [];
         this.adjMat = [];
-        // Добавление вершины
+        // Добавить вершину
         foreach (int val in vertices) {
             AddVertex(val);
         }
-        // Добавить ребра
-        // Обратите внимание: элементы edges представляют собой индексы вершин, то есть соответствуют индексам элементов vertices
+        // Добавить ребро
+        // Элементы edges содержат индексы вершин, то есть индексы элементов vertices
         foreach (int[] e in edges) {
             AddEdge(e[0], e[1]);
         }
@@ -31,7 +31,7 @@ class GraphAdjMat {
         return vertices.Count;
     }
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     public void AddVertex(int val) {
         int n = Size();
         // Добавить значение новой вершины в список вершин
@@ -48,35 +48,35 @@ class GraphAdjMat {
         }
     }
 
-    /* Удаление вершины */
+    /* Удалить вершину */
     public void RemoveVertex(int index) {
         if (index >= Size())
             throw new IndexOutOfRangeException();
-        // Удалить вершину с индексом index из списка вершин
+        // Удалить из списка вершин вершину с индексом index
         vertices.RemoveAt(index);
-        // Удалить строку с индексом index из матрицы смежности
+        // Удалить из матрицы смежности строку с индексом index
         adjMat.RemoveAt(index);
-        // Удалить столбец с индексом index из матрицы смежности
+        // Удалить из матрицы смежности столбец с индексом index
         foreach (List<int> row in adjMat) {
             row.RemoveAt(index);
         }
     }
 
-    /* Добавление ребра */
-    // Параметры i и j соответствуют индексам элементов vertices
+    /* Добавить ребро */
+    // Параметры i и j — индексы элементов vertices
     public void AddEdge(int i, int j) {
-        // Обработка выхода индекса за границы и случая равенства
+        // Проверить выход индексов за границы и их совпадение
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
-        // В неориентированном графе матрица смежности симметрична относительно главной диагонали, то есть выполняется (i, j) == (j, i)
+        // Матрица смежности неориентированного графа симметрична относительно главной диагонали: (i, j) == (j, i)
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
 
-    /* Удаление ребра */
-    // Параметры i и j соответствуют индексам элементов vertices
+    /* Удалить ребро */
+    // Параметры i и j — индексы элементов vertices
     public void RemoveEdge(int i, int j) {
-        // Обработка выхода индекса за границы и случая равенства
+        // Проверить выход индексов за границы и их совпадение
         if (i < 0 || j < 0 || i >= Size() || j >= Size() || i == j)
             throw new IndexOutOfRangeException();
         adjMat[i][j] = 0;
@@ -95,8 +95,8 @@ class GraphAdjMat {
 public class graph_adjacency_matrix {
     [Test]
     public void Test() {
-        /* Инициализация неориентированного графа */
-        // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+        /* Инициализировать неориентированный граф */
+        // Элементы edges содержат индексы вершин, то есть индексы элементов vertices
         int[] vertices = [1, 3, 2, 5, 4];
         int[][] edges = 
         [
@@ -108,30 +108,30 @@ public class graph_adjacency_matrix {
             [3, 4]
         ];
         GraphAdjMat graph = new(vertices, edges);
-        Console.WriteLine("\nГраф после инициализации");
+        Console.WriteLine("\nГраф после инициализации:");
         graph.Print();
 
-        /* Добавление ребра */
+        /* Добавить ребро */
         // Индексы вершин 1 и 2 равны 0 и 2 соответственно
         graph.AddEdge(0, 2);
-        Console.WriteLine("\nГраф после добавления ребра 1-2");
+        Console.WriteLine("\nГраф после добавления ребра 1–2:");
         graph.Print();
 
-        /* Удаление ребра */
+        /* Удалить ребро */
         // Индексы вершин 1 и 3 равны 0 и 1 соответственно
         graph.RemoveEdge(0, 1);
-        Console.WriteLine("\nГраф после удаления ребра 1-3");
+        Console.WriteLine("\nГраф после удаления ребра 1–3:");
         graph.Print();
 
-        /* Добавление вершины */
+        /* Добавить вершину */
         graph.AddVertex(6);
-        Console.WriteLine("\nГраф после добавления вершины 6");
+        Console.WriteLine("\nГраф после добавления вершины 6:");
         graph.Print();
 
-        /* Удаление вершины */
+        /* Удалить вершину */
         // Индекс вершины 3 равен 1
         graph.RemoveVertex(1);
-        Console.WriteLine("\nГраф после удаления вершины 3");
+        Console.WriteLine("\nГраф после удаления вершины 3:");
         graph.Print();
     }
 }

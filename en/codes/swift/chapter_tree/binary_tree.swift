@@ -17,7 +17,7 @@ enum BinaryTree {
         let n3 = TreeNode(x: 3)
         let n4 = TreeNode(x: 4)
         let n5 = TreeNode(x: 5)
-        // Set up references (pointers) between the nodes
+        // Link the nodes with references (pointers)
         n1.left = n2
         n1.right = n3
         n2.left = n4
@@ -25,16 +25,16 @@ enum BinaryTree {
         print("\nInitialize the binary tree\n")
         PrintUtil.printTree(root: n1)
 
-        /* Insert and remove nodes */
+        /* Insert and delete nodes */
         let P = TreeNode(x: 0)
-        // Insert node P between n1 and n2 in n1 -> n2
+        // Insert node P between n1 and n2
         n1.left = P
         P.left = n2
         print("\nAfter inserting node P:\n")
         PrintUtil.printTree(root: n1)
-        // Remove node P
+        // Delete node P
         n1.left = n2
-        print("\nAfter removing node P:\n")
+        print("\nAfter deleting node P:\n")
         PrintUtil.printTree(root: n1)
     }
 }

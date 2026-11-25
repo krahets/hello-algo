@@ -1,20 +1,20 @@
 {
-  "schema_version": 2,
-  "title": "Undirected and directed graphs: two-way undirected edges vs. independent directed edges",
-  "summary": "Contrast edge direction constraints on the same vertex layout using undirected segments and directed arrows.",
   "context": [
-    "Both the left and right figures contain five vertices numbered 1, 2, 3, 4, 5 in the exact same geometric layout (1 top-left, 3 bottom-left, 5 top-center, 2 bottom-center, 4 right) to contrast undirected and directed edges."
+    "Both diagrams have five vertices in exactly the same positions: 1 at the upper left, 3 at the lower left, 5 at the upper middle, 2 at the lower middle, and 4 on the right. The comparison isolates the effect of edge direction."
   ],
   "description": [
-    "On the left is \"Undirected graph (Edges have no direction)\" with 7 arrowhead-free undirected edges: 1—2, 1—3, 1—5, 2—3, 2—4, 2—5, and 4—5. Every undirected edge inherently represents a two-way connection between two vertices; for example, edge 1—5 allows traversal both from 1 to 5 and from 5 to 1.",
-    "On the right is \"Directed graph (Edges have a direction)\" with 9 arrows, listed by tail vertex as 1→3, 2→1, 2→4, 2→5, 3→1, 3→2, 4→5, 5→1, and 5→4. Between vertices 1 and 3, and between 4 and 5, there is a pair of arrows in opposite directions, while the other five connections each have only a one-way arrow."
+    "The undirected graph on the left, labeled “Edges have no direction,” has seven edges without arrowheads: 1–2, 1–3, 1–5, 2–3, 2–4, 2–5, and 4–5. Each edge connects its endpoints in both directions. For example, edge 1–5 allows travel from 1 to 5 and from 5 to 1.",
+    "The directed graph on the right, labeled “Edges have a direction,” has nine arrows, listed by starting vertex: 1→3, 2→1, 2→4, 2→5, 3→1, 3→2, 4→5, 5→1, and 5→4. Vertices 1 and 3 have arrows in both directions, as do 4 and 5. Each of the other five connections has only one arrow."
   ],
   "frames": [
     {
-      "id": "source-174",
       "book_path": "chapter_graph/graph.assets/directed_graph.png",
-      "title": "Undirected and directed graphs: two-way undirected edges vs. independent directed edges",
-      "explanation": "Directed edges in opposite directions are independent of one another. For instance, the right graph has 5→1 without a direct 1→5, although 5 is still indirectly reachable from 1 via 1→3→2→5. Direct two-way reachability requires two opposite directed edges; an indirect path must not be mistaken for a direct edge."
+      "explanation": "Opposite directed edges are independent. For example, the graph on the right has 5→1 but no direct edge 1→5. Vertex 1 can still reach 5 indirectly along 1→3→2→5. Direct travel both ways requires two oppositely directed edges. An indirect path does not count as a direct edge.",
+      "id": "source-174",
+      "title": "Undirected and directed graphs: two-way connections and independent directed edges"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "The same vertex layout uses plain lines and arrows to show how edge directions constrain travel.",
+  "title": "Undirected and directed graphs: two-way connections and independent directed edges"
 }

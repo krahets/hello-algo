@@ -7,125 +7,125 @@
 /* Узел двусвязного списка */
 class ListNode {
     var val: Int // Значение узла
-    var next: ListNode? // Ссылка на узел-преемник
-    weak var prev: ListNode? // Ссылка на узел-предшественник
+    var next: ListNode? // Ссылка на следующий узел
+    weak var prev: ListNode? // Ссылка на предыдущий узел
 
     init(val: Int) {
         self.val = val
     }
 }
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 class LinkedListDeque {
-    private var front: ListNode? // Головной узел front
-    private var rear: ListNode? // Хвостовой узел rear
-    private var _size: Int // Длина двусторонней очереди
+    private var front: ListNode? // Первый узел front
+    private var rear: ListNode? // Последний узел rear
+    private var _size: Int // Длина дека
 
     init() {
         _size = 0
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     func size() -> Int {
         _size
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* Операция добавления в очередь */
+    /* Добавить элемент в дек */
     private func push(num: Int, isFront: Bool) {
         let node = ListNode(val: num)
-        // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
+        // Если связный список пуст, установить front и rear так, чтобы они указывали на node
         if isEmpty() {
             front = node
             rear = node
         }
-        // Операция добавления в голову очереди
+        // Добавить элемент в начало дека
         else if isFront {
-            // Добавить node в голову списка
+            // Добавить node в начало связного списка
             front?.prev = node
             node.next = front
-            front = node // Обновить головной узел
+            front = node // Обновить ссылку на первый узел
         }
-        // Операция добавления в хвост очереди
+        // Добавить элемент в конец дека
         else {
-            // Добавить node в хвост списка
+            // Добавить node в конец связного списка
             rear?.next = node
             node.prev = rear
-            rear = node // Обновить хвостовой узел
+            rear = node // Обновить ссылку на последний узел
         }
-        _size += 1 // Обновить длину очереди
+        _size += 1 // Обновить длину дека
     }
 
-    /* Добавление в голову очереди */
+    /* Добавить элемент в начало дека */
     func pushFirst(num: Int) {
         push(num: num, isFront: true)
     }
 
-    /* Добавление в хвост очереди */
+    /* Добавить элемент в конец дека */
     func pushLast(num: Int) {
         push(num: num, isFront: false)
     }
 
-    /* Операция извлечения из очереди */
+    /* Извлечь элемент из дека */
     private func pop(isFront: Bool) -> Int {
         if isEmpty() {
-            fatalError("двусторонняя очередь пуста")
+            fatalError("Дек пуст")
         }
         let val: Int
-        // Если в очереди один элемент, начало и конец указывают на один узел
+        // Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
         if _size == 1 {
             val = front!.val
             front = nil
             rear = nil
         }
-        // Операция извлечения из головы очереди
+        // Извлечь элемент из начала дека
         else if isFront {
-            val = front!.val // Временно сохранить значение головного узла
-            // Удалить головной узел
+            val = front!.val // Временно сохранить значение первого узла
+            // Удалить первый узел
             let fNext = front?.next
             fNext?.prev = nil
             front?.next = nil
-            front = fNext // Обновить головной узел
+            front = fNext // Обновить ссылку на первый узел
         }
-        // Операция извлечения из хвоста очереди
+        // Извлечь элемент из конца дека
         else {
-            val = rear!.val // Временно сохранить значение хвостового узла
-            // Удалить хвостовой узел
+            val = rear!.val // Временно сохранить значение последнего узла
+            // Удалить последний узел
             let rPrev = rear?.prev
             rPrev?.next = nil
             rear?.prev = nil
-            rear = rPrev // Обновить хвостовой узел
+            rear = rPrev // Обновить ссылку на последний узел
         }
-        _size -= 1 // Обновить длину очереди
+        _size -= 1 // Обновить длину дека
         return val
     }
 
-    /* Извлечение из головы очереди */
+    /* Извлечь элемент из начала дека */
     func popFirst() -> Int {
         pop(isFront: true)
     }
 
-    /* Извлечение из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     func popLast() -> Int {
         pop(isFront: false)
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     func peekFirst() -> Int {
         if isEmpty() {
-            fatalError("двусторонняя очередь пуста")
+            fatalError("Дек пуст")
         }
         return front!.val
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     func peekLast() -> Int {
         if isEmpty() {
-            fatalError("двусторонняя очередь пуста")
+            fatalError("Дек пуст")
         }
         return rear!.val
     }
@@ -144,39 +144,39 @@ class LinkedListDeque {
 
 @main
 enum _LinkedListDeque {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
-        /* Инициализация двусторонней очереди */
+        /* Инициализировать дек */
         let deque = LinkedListDeque()
         deque.pushLast(num: 3)
         deque.pushLast(num: 2)
         deque.pushLast(num: 5)
-        print("Двусторонняя очередь deque = \(deque.toArray())")
+        print("Дек deque = \(deque.toArray())")
 
-        /* Доступ к элементу */
+        /* Посмотреть первый и последний элементы */
         let peekFirst = deque.peekFirst()
-        print("Первый элемент peekFirst = \(peekFirst)")
+        print("Первый элемент дека peekFirst = \(peekFirst)")
         let peekLast = deque.peekLast()
-        print("Последний элемент peekLast = \(peekLast)")
+        print("Последний элемент дека peekLast = \(peekLast)")
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в дек */
         deque.pushLast(num: 4)
-        print("После добавления элемента 4 в хвост deque = \(deque.toArray())")
+        print("После добавления 4 в конец дека deque = \(deque.toArray())")
         deque.pushFirst(num: 1)
-        print("После добавления элемента 1 в голову deque = \(deque.toArray())")
+        print("После добавления 1 в начало дека deque = \(deque.toArray())")
 
-        /* Извлечение элемента из очереди */
+        /* Извлечь элементы из дека */
         let popLast = deque.popLast()
-        print("Извлеченный из хвоста элемент = \(popLast), deque после извлечения из хвоста = \(deque.toArray())")
+        print("Извлечённый последний элемент = \(popLast), после извлечения deque = \(deque.toArray())")
         let popFirst = deque.popFirst()
-        print("Извлеченный из головы элемент = \(popFirst), deque после извлечения из головы = \(deque.toArray())")
+        print("Извлечённый первый элемент = \(popFirst), после извлечения deque = \(deque.toArray())")
 
-        /* Получение длины двусторонней очереди */
+        /* Получить длину дека */
         let size = deque.size()
-        print("Длина двусторонней очереди size = \(size)")
+        print("Длина дека size = \(size)")
 
-        /* Проверка, пуста ли двусторонняя очередь */
+        /* Проверить, пуст ли дек */
         let isEmpty = deque.isEmpty()
-        print("Пуста ли двусторонняя очередь = \(isEmpty)")
+        print("Дек пуст = \(isEmpty)")
     }
 }

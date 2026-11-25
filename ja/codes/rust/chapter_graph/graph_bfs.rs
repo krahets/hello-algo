@@ -10,37 +10,37 @@ use graph_adjacency_list::GraphAdjList;
 use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::{HashSet, VecDeque};
 
-/* 幅優先走査 */
-// 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
+/* 幅優先探索 */
+// 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
-    // 頂点の走査順序
+    // 頂点の訪問順
     let mut res = vec![];
     // 訪問済みの頂点を記録するハッシュ集合
     let mut visited = HashSet::new();
     visited.insert(start_vet);
-    // BFS の実装にキューを使う
+    // BFS にキューを使う
     let mut que = VecDeque::new();
     que.push_back(start_vet);
-    // 頂点 vet を始点として、すべての頂点を訪問するまで繰り返す
+    // 頂点 vet から開始し、すべての頂点を訪問するまで繰り返す
     while let Some(vet) = que.pop_front() {
         res.push(vet); // 訪問した頂点を記録する
 
-        // この頂点に隣接する全頂点を走査する
+        // この頂点の隣接頂点をすべて調べる
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // 訪問済みの頂点をスキップする
+                    continue; // 訪問済みの頂点を飛ばす
                 }
-                que.push_back(adj_vet); // 未訪問の頂点だけをエンキューする
+                que.push_back(adj_vet); // 未訪問の頂点だけをキューに追加する
                 visited.insert(adj_vet); // この頂点を訪問済みにする
             }
         }
     }
-    // 頂点の走査順序を返す
+    // 頂点を訪問順に返す
     res
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     /* 無向グラフを初期化する */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
@@ -59,11 +59,11 @@ fn main() {
         [v[7], v[8]],
     ];
     let graph = GraphAdjList::new(edges);
-    println!("\n初期化後のグラフ");
+    println!("\n初期化後のグラフ：");
     graph.print();
 
-    /* 幅優先走査 */
+    /* 幅優先探索 */
     let res = graph_bfs(graph, v[0]);
-    println!("\n幅優先走査（BFS）の頂点の順序");
+    println!("\n幅優先探索（BFS）での頂点の訪問順：");
     println!("{:?}", vets_to_vals(res));
 }

@@ -6,12 +6,12 @@
 
 package chapter_stack_and_queue
 
-/* 配列で実装したスタック */
+/* 配列を使ったスタック */
 class ArrayStack {
     // リスト（動的配列）を初期化する
     private val stack = mutableListOf<Int>()
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     fun size(): Int {
         return stack.size
     }
@@ -21,30 +21,30 @@ class ArrayStack {
         return size() == 0
     }
 
-    /* プッシュ */
+    /* プッシュする */
     fun push(num: Int) {
         stack.add(num)
     }
 
-    /* ポップ */
+    /* ポップする */
     fun pop(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stack.removeAt(size() - 1)
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stack[size() - 1]
     }
 
-    /* List を Array に変換して返す */
+    /* リストを配列に変換して返す */
     fun toArray(): Array<Any> {
         return stack.toTypedArray()
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     /* スタックを初期化する */
     val stack = ArrayStack()
@@ -57,17 +57,17 @@ fun main() {
     stack.push(4)
     println("スタック stack = ${stack.toArray().contentToString()}")
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     val peek = stack.peek()
-    println("スタックの先頭要素 peek = $peek")
+    println("スタックのトップの要素 peek = $peek")
 
     /* 要素をポップする */
     val pop = stack.pop()
-    println("ポップした要素 pop = $pop、ポップ後 stack = ${stack.toArray().contentToString()}")
+    println("ポップした要素 pop = $pop、ポップ後の stack = ${stack.toArray().contentToString()}")
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     val size = stack.size()
-    println("スタックの長さ size = $size")
+    println("スタックの要素数 size = $size")
 
     /* 空かどうかを判定する */
     val isEmpty = stack.isEmpty()

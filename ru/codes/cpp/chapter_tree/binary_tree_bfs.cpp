@@ -6,36 +6,36 @@
 
 #include "../utils/common.hpp"
 
-/* Обход в ширину */
+/* Обход по уровням */
 vector<int> levelOrder(TreeNode *root) {
-    // Инициализировать очередь и добавить корневой узел
+    // Создать очередь и добавить корень
     queue<TreeNode *> queue;
     queue.push(root);
-    // Инициализировать список для хранения последовательности обхода
+    // Создать список для последовательности обхода
     vector<int> vec;
     while (!queue.empty()) {
         TreeNode *node = queue.front();
-        queue.pop();              // Извлечение из очереди
+        queue.pop();              // Извлечь узел из очереди
         vec.push_back(node->val); // Сохранить значение узла
         if (node->left != nullptr)
-            queue.push(node->left); // Поместить левый дочерний узел в очередь
+            queue.push(node->left); // Добавить левого потомка в очередь
         if (node->right != nullptr)
-            queue.push(node->right); // Поместить правый дочерний узел в очередь
+            queue.push(node->right); // Добавить правого потомка в очередь
     }
     return vec;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     /* Инициализация двоичного дерева */
-    // Здесь используется функция, напрямую строящая двоичное дерево из массива
+    // Используем функцию, которая строит двоичное дерево непосредственно из массива
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
     cout << endl << "Инициализация двоичного дерева\n" << endl;
     printTree(root);
 
-    /* Обход в ширину */
+    /* Обход по уровням */
     vector<int> vec = levelOrder(root);
-    cout << endl << "Последовательность печати узлов при обходе в ширину = ";
+    cout << endl << "Узлы в порядке обхода по уровням = ";
     printVector(vec);
 
     return 0;

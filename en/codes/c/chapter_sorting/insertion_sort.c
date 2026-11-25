@@ -22,7 +22,7 @@ void insertionSort(int nums[], int size) {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     int nums[] = {4, 1, 3, 1, 5, 2};
     insertionSort(nums, 6);

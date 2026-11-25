@@ -6,9 +6,9 @@ package chapter_tree
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* AVL-дерево */
+/* АВЛ-дерево */
 type aVLTree struct {
-	// Корневой узел
+	// Корень
 	root *TreeNode
 }
 
@@ -18,7 +18,7 @@ func newAVLTree() *aVLTree {
 
 /* Получить высоту узла */
 func (t *aVLTree) height(node *TreeNode) int {
-	// Высота пустого узла равна -1, высота листового узла равна 0
+	// Высота пустого узла равна -1, высота листа равна 0
 	if node != nil {
 		return node.Height
 	}
@@ -29,7 +29,7 @@ func (t *aVLTree) height(node *TreeNode) int {
 func (t *aVLTree) updateHeight(node *TreeNode) {
 	lh := t.height(node.Left)
 	rh := t.height(node.Right)
-	// Высота узла равна высоте более высокого поддерева + 1
+	// Высота узла на 1 больше высоты самого высокого поддерева
 	if lh > rh {
 		node.Height = lh + 1
 	} else {
@@ -43,66 +43,66 @@ func (t *aVLTree) balanceFactor(node *TreeNode) int {
 	if node == nil {
 		return 0
 	}
-	// Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
+	// Коэффициент баланса узла равен высоте левого поддерева минус высота правого
 	return t.height(node.Left) - t.height(node.Right)
 }
 
-/* Операция правого вращения */
+/* Правый поворот */
 func (t *aVLTree) rightRotate(node *TreeNode) *TreeNode {
 	child := node.Left
 	grandChild := child.Right
-	// Выполнить правое вращение узла node вокруг child
+	// Повернуть node вправо вокруг child
 	child.Right = node
 	node.Left = grandChild
 	// Обновить высоту узла
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// Вернуть корневой узел поддерева после вращения
+	// Вернуть корень поддерева после поворота
 	return child
 }
 
-/* Операция левого вращения */
+/* Левый поворот */
 func (t *aVLTree) leftRotate(node *TreeNode) *TreeNode {
 	child := node.Right
 	grandChild := child.Left
-	// Выполнить левое вращение узла node вокруг child
+	// Повернуть node влево вокруг child
 	child.Left = node
 	node.Right = grandChild
 	// Обновить высоту узла
 	t.updateHeight(node)
 	t.updateHeight(child)
-	// Вернуть корневой узел поддерева после вращения
+	// Вернуть корень поддерева после поворота
 	return child
 }
 
-/* Выполнить вращение, чтобы снова сбалансировать поддерево */
+/* Выполнить поворот, чтобы восстановить баланс поддерева */
 func (t *aVLTree) rotate(node *TreeNode) *TreeNode {
 	// Получить коэффициент баланса узла node
-	// В Go рекомендуется использовать короткие имена переменных, здесь bf обозначает t.balanceFactor
+	// В Go принято использовать короткие имена переменных: здесь bf обозначает t.balanceFactor
 	bf := t.balanceFactor(node)
-	// Левосторонне перекошенное дерево
+	// Перевес влево
 	if bf > 1 {
 		if t.balanceFactor(node.Left) >= 0 {
-			// Правое вращение
+			// Поворот вправо
 			return t.rightRotate(node)
 		} else {
-			// Сначала левое вращение, затем правое
+			// Сначала поворот влево, затем вправо
 			node.Left = t.leftRotate(node.Left)
 			return t.rightRotate(node)
 		}
 	}
-	// Правосторонне перекошенное дерево
+	// Перевес вправо
 	if bf < -1 {
 		if t.balanceFactor(node.Right) <= 0 {
-			// Левое вращение
+			// Поворот влево
 			return t.leftRotate(node)
 		} else {
-			// Сначала правое вращение, затем левое
+			// Сначала поворот вправо, затем влево
 			node.Right = t.rightRotate(node.Right)
 			return t.leftRotate(node)
 		}
 	}
-	// Дерево сбалансировано, вращение не требуется, вернуть сразу
+	// Дерево сбалансировано: завершить вызов без поворота
 	return node
 }
 
@@ -116,20 +116,20 @@ func (t *aVLTree) insertHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return NewTreeNode(val)
 	}
-	/* 1. Найти позицию вставки и вставить узел */
+	/* 1. Найти место вставки и вставить узел */
 	if val < node.Val.(int) {
 		node.Left = t.insertHelper(node.Left, val)
 	} else if val > node.Val.(int) {
 		node.Right = t.insertHelper(node.Right, val)
 	} else {
-		// Повторяющийся узел не вставлять, сразу вернуть
+		// Такой узел уже есть: завершить вызов без вставки
 		return node
 	}
 	// Обновить высоту узла
 	t.updateHeight(node)
-	/* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+	/* 2. Восстановить баланс поддерева с помощью поворота */
 	node = t.rotate(node)
-	// Вернуть корневой узел поддерева
+	// Вернуть корень поддерева
 	return node
 }
 
@@ -143,7 +143,7 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	if node == nil {
 		return nil
 	}
-	/* 1. Найти узел и удалить его */
+	/* 1. Найти и удалить узел */
 	if val < node.Val.(int) {
 		node.Left = t.removeHelper(node.Left, val)
 	} else if val > node.Val.(int) {
@@ -155,14 +155,14 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 				child = node.Right
 			}
 			if child == nil {
-				// Число дочерних узлов = 0, удалить node и сразу вернуть
+				// Нет потомков: удалить node и завершить вызов
 				return nil
 			} else {
-				// Число дочерних узлов = 1, удалить node напрямую
+				// Один потомок: удалить node
 				node = child
 			}
 		} else {
-			// Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
+			// Два потомка: удалить следующий узел симметричного обхода и заменить им текущий узел
 			temp := node.Right
 			for temp.Left != nil {
 				temp = temp.Left
@@ -173,28 +173,28 @@ func (t *aVLTree) removeHelper(node *TreeNode, val int) *TreeNode {
 	}
 	// Обновить высоту узла
 	t.updateHeight(node)
-	/* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+	/* 2. Восстановить баланс поддерева с помощью поворота */
 	node = t.rotate(node)
-	// Вернуть корневой узел поддерева
+	// Вернуть корень поддерева
 	return node
 }
 
 /* Поиск узла */
 func (t *aVLTree) search(val int) *TreeNode {
 	cur := t.root
-	// Искать в цикле и выйти после прохода за листовой узел
+	// Искать в цикле до выхода за пределы листа
 	for cur != nil {
 		if cur.Val.(int) < val {
-			// Целевой узел находится в правом поддереве cur
+			// Искомый узел в правом поддереве cur
 			cur = cur.Right
 		} else if cur.Val.(int) > val {
-			// Целевой узел находится в левом поддереве cur
+			// Искомый узел в левом поддереве cur
 			cur = cur.Left
 		} else {
-			// Найти целевой узел и выйти из цикла
+			// Узел найден: выйти из цикла
 			break
 		}
 	}
-	// Вернуть целевой узел
+	// Вернуть искомый узел
 	return cur
 }

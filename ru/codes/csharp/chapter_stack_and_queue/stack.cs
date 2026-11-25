@@ -9,32 +9,32 @@ namespace hello_algo.chapter_stack_and_queue;
 public class stack {
     [Test]
     public void Test() {
-        /* Инициализация стека */
+        /* Инициализировать стек */
         Stack<int> stack = new();
 
-        /* Помещение элемента в стек */
+        /* Поместить элементы в стек */
         stack.Push(1);
         stack.Push(3);
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // Обратите внимание: stack.ToArray() возвращает последовательность в обратном порядке, то есть индекс 0 соответствует вершине стека
+        // Метод stack.ToArray() возвращает элементы в обратном порядке: элемент с индексом 0 находится на вершине стека
         Console.WriteLine("Стек stack = " + string.Join(",", stack));
 
-        /* Доступ к верхнему элементу стека */
+        /* Посмотреть элемент на вершине стека */
         int peek = stack.Peek();
-        Console.WriteLine("Верхний элемент peek = " + peek);
+        Console.WriteLine("Элемент на вершине стека peek = " + peek);
 
-        /* Извлечение элемента из стека */
+        /* Снять элемент со стека */
         int pop = stack.Pop();
-        Console.WriteLine("Извлеченный элемент pop = " + pop + ", stack после извлечения = " + string.Join(",", stack));
+        Console.WriteLine("Снятый элемент pop = " + pop + ", после снятия stack = " + string.Join(",", stack));
 
-        /* Получение длины стека */
+        /* Получить размер стека */
         int size = stack.Count;
-        Console.WriteLine("Длина стека size = " + size);
+        Console.WriteLine("Размер стека size = " + size);
 
-        /* Проверка на пустоту */
+        /* Проверить, пуст ли стек */
         bool isEmpty = stack.Count == 0;
-        Console.WriteLine("Пуст ли стек = " + isEmpty);
+        Console.WriteLine("Стек пуст = " + isEmpty);
     }
 }

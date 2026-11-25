@@ -4,39 +4,39 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### 範例程式 ###
 if __FILE__ == $0
-  # 初始化雙向佇列
-  # Ruby 沒有內建的雙端佇列，只能把 Array 當作雙端佇列來使用
+  # 初始化雙端佇列
+  # Ruby 沒有內建雙端佇列，只能用 Array 來模擬
   deque = []
 
-  # 元素入列
+  # 將元素加入雙端佇列
   deque << 2
   deque << 5
   deque << 4
-  # 請注意，由於是陣列，Array#unshift 方法的時間複雜度為 O(n)
+  # 請注意，Array 是陣列，因此 Array#unshift 的時間複雜度為 O(n)
   deque.unshift(3)
   deque.unshift(1)
-  puts "雙向佇列 deque = #{deque}"
+  puts "雙端佇列 deque = #{deque}"
 
-  # 訪問元素
+  # 讀取隊首與隊尾元素
   peek_first = deque.first
-  puts "佇列首元素 peek_first = #{peek_first}"
+  puts "隊首元素 peek_first = #{peek_first}"
   peek_last = deque.last
-  puts "佇列尾元素 peek_last = #{peek_last}"
+  puts "隊尾元素 peek_last = #{peek_last}"
 
-  # 元素出列
-  # 請注意，由於是陣列，Array#shift 方法的時間複雜度為 O(n)
+  # 從雙端佇列取出元素
+  # 請注意，Array 是陣列，因此 Array#shift 的時間複雜度為 O(n)
   pop_front = deque.shift
-  puts "佇列首出列元素 pop_front = #{pop_front}，佇列首出列後 deque = #{deque}"
+  puts "從隊首取出的元素 pop_front = #{pop_front}，取出後 deque = #{deque}"
   pop_back = deque.pop
-  puts "佇列尾出列元素 pop_back = #{pop_back}, 佇列尾出列後 deque = #{deque}"
+  puts "從隊尾取出的元素 pop_back = #{pop_back}， 取出後 deque = #{deque}"
 
-  # 獲取雙向佇列的長度
+  # 取得雙端佇列長度
   size = deque.length
-  puts "雙向佇列長度 size = #{size}"
+  puts "雙端佇列長度 size = #{size}"
 
-  # 判斷雙向佇列是否為空
+  # 判斷雙端佇列是否為空
   is_empty = size.zero?
-  puts "雙向佇列是否為空 = #{is_empty}"
+  puts "雙端佇列是否為空 = #{is_empty}"
 end

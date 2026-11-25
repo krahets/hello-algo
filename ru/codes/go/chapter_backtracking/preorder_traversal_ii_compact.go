@@ -8,19 +8,19 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Предварительный обход: пример 2 */
+/* Прямой обход: пример 2 */
 func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	if root == nil {
 		return
 	}
-	// Попытка
+	// Пробуем вариант
 	*path = append(*path, root)
 	if root.Val.(int) == 7 {
-		// Записать решение
+		// Сохраняем решение
 		*res = append(*res, append([]*TreeNode{}, *path...))
 	}
 	preOrderII(root.Left, res, path)
 	preOrderII(root.Right, res, path)
-	// Откат
+	// Возврат
 	*path = (*path)[:len(*path)-1]
 }

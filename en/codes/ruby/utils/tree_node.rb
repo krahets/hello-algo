@@ -17,9 +17,9 @@ class TreeNode
   end
 end
 
-### Deserialize a list into a binary tree: recursion ###
+### Recursively deserialize an array into a binary tree ###
 def arr_to_tree_dfs(arr, i)
-  # Return nil if the index is out of bounds or the corresponding element is nil
+  # Return nil if the index is out of bounds or the element at that index is nil
   return if i < 0 || i >= arr.length || arr[i].nil?
   # Create the current node
   root = TreeNode.new(arr[i])
@@ -29,12 +29,12 @@ def arr_to_tree_dfs(arr, i)
   root
 end
 
-### Deserialize a list into a binary tree ###
+### Deserialize an array into a binary tree ###
 def arr_to_tree(arr)
   arr_to_tree_dfs(arr, 0)
 end
 
-### Serialize a binary tree into a list: recursion ###
+### Recursively serialize a binary tree into an array ###
 def tree_to_arr_dfs(root, i, res)
   return if root.nil?
 
@@ -45,7 +45,7 @@ def tree_to_arr_dfs(root, i, res)
   tree_to_arr_dfs(root.right, 2 * i + 2, res)
 end
 
-### Serialize a binary tree into a list ###
+### Serialize a binary tree into an array ###
 def tree_to_arr(root)
   res = []
   tree_to_arr_dfs(root, 0, res)

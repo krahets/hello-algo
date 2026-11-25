@@ -8,7 +8,7 @@ import "sort"
 
 /* バケットソート */
 func bucketSort(nums []float64) {
-	// k = n/2 個のバケットを初期化し、各バケットに平均 2 個の要素を割り当てることを想定する
+	// k = n/2 個のバケットを初期化。各バケットには平均 2 要素が入る想定
 	k := len(nums) / 2
 	buckets := make([][]float64, k)
 	for i := 0; i < k; i++ {
@@ -16,17 +16,17 @@ func bucketSort(nums []float64) {
 	}
 	// 1. 配列の要素を各バケットに振り分ける
 	for _, num := range nums {
-		// 入力データの範囲は [0, 1) なので、num * k によりインデックス範囲 [0, k-1] に対応付ける
+		// 入力範囲は [0, 1)。num * k でインデックスの範囲 [0, k-1] に写す
 		i := int(num * float64(k))
-		// num をバケット i に追加する
+		// num をバケット i に追加
 		buckets[i] = append(buckets[i], num)
 	}
 	// 2. 各バケットをソートする
 	for i := 0; i < k; i++ {
-		// 組み込みのスライスのソート関数を使う。他のソートアルゴリズムに置き換えてもよい
+		// 組み込みのスライス用ソート関数を使用。他のソートアルゴリズムでもよい
 		sort.Float64s(buckets[i])
 	}
-	// 3. バケットを走査して結果を結合する
+	// 3. バケットを順に連結
 	i := 0
 	for _, bucket := range buckets {
 		for _, num := range bucket {

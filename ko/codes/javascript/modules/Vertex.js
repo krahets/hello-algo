@@ -11,7 +11,7 @@ class Vertex {
         this.val = val;
     }
 
-    /* 값의 리스트 vals를 입력받아 정점 리스트 vets 반환 */
+    /* 값 리스트 vals를 받아 정점 리스트 vets를 반환한다. */
     static valsToVets(vals) {
         const vets = [];
         for (let i = 0; i < vals.length; i++) {
@@ -20,7 +20,7 @@ class Vertex {
         return vets;
     }
 
-    /* 정점 리스트 vets를 입력받아 값의 리스트 vals 반환 */
+    /* 정점 리스트 vets를 받아 값 리스트 vals를 반환한다. */
     static vetsToVals(vets) {
         const vals = [];
         for (const vet of vets) {

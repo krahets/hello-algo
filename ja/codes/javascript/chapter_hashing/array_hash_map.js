@@ -12,11 +12,11 @@ class Pair {
     }
 }
 
-/* 配列で実装したハッシュテーブル */
+/* 配列で実装したハッシュ表 */
 class ArrayHashMap {
     #buckets;
     constructor() {
-        // 100 個のバケットを含む配列を初期化する
+        // 100 個のバケットを持つ配列を初期化する
         this.#buckets = new Array(100).fill(null);
     }
 
@@ -25,7 +25,7 @@ class ArrayHashMap {
         return key % 100;
     }
 
-    /* 取得操作 */
+    /* 検索 */
     get(key) {
         let index = this.#hashFunc(key);
         let pair = this.#buckets[index];
@@ -33,16 +33,16 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* 追加操作 */
+    /* 追加 */
     set(key, val) {
         let index = this.#hashFunc(key);
         this.#buckets[index] = new Pair(key, val);
     }
 
-    /* 削除操作 */
+    /* 削除 */
     delete(key) {
         let index = this.#hashFunc(key);
-        // null に設定して、削除を表す
+        // null を代入して削除する
         this.#buckets[index] = null;
     }
 
@@ -79,7 +79,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     print() {
         let pairSet = this.entries();
         for (const pair of pairSet) {
@@ -88,41 +88,41 @@ class ArrayHashMap {
     }
 }
 
-/* 実行用コード */
-/* ハッシュテーブルを初期化する */
+/* 実行例 */
+/* ハッシュ表を初期化する */
 const map = new ArrayHashMap();
-/* 追加操作 */
-// ハッシュテーブルにキーと値のペア (key, value) を追加する
+/* 追加 */
+// ハッシュ表にペア (key, value) を追加する
 map.set(12836, '小哈');
 map.set(15937, '小啰');
 map.set(16750, '小算');
 map.set(13276, '小法');
 map.set(10583, '小鸭');
-console.info('\n追加後のハッシュテーブル\nKey -> Value');
+console.info('\n追加後のハッシュ表\nKey -> Value');
 map.print();
 
-/* 取得操作 */
-// ハッシュテーブルにキー key を渡し、値 value を取得する
+/* 検索 */
+// ハッシュ表でキー key に対応する値 value を取得する
 let name = map.get(15937);
-console.info('\n学生番号 15937 に対応する氏名は ' + name);
+console.info('\n学籍番号 15937 に対応する名前は ' + name);
 
-/* 削除操作 */
-// ハッシュテーブルからキーと値のペア (key, value) を削除する
+/* 削除 */
+// ハッシュ表からペア (key, value) を削除する
 map.delete(10583);
-console.info('\n10583 を削除した後のハッシュテーブル\nKey -> Value');
+console.info('\n10583 を削除した後のハッシュ表\nKey -> Value');
 map.print();
 
-/* ハッシュテーブルを走査する */
-console.info('\nキーと値のペア Key->Value を走査する');
+/* ハッシュ表を走査する */
+console.info('\nキーと値のペアを順に表示 Key->Value');
 for (const pair of map.entries()) {
     if (!pair) continue;
     console.info(pair.key + ' -> ' + pair.val);
 }
-console.info('\nキー Key だけを走査する');
+console.info('\nキーだけを順に表示 Key');
 for (const key of map.keys()) {
     console.info(key);
 }
-console.info('\n値 Value だけを走査する');
+console.info('\n値だけを順に表示 Value');
 for (const val of map.values()) {
     console.info(val);
 }

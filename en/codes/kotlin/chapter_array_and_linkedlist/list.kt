@@ -6,7 +6,7 @@
 
 package chapter_array_and_linkedlist
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     /* Initialize the list */
     // Mutable collection
@@ -15,23 +15,23 @@ fun main() {
 
     /* Access an element */
     val num = nums[1]
-    println("Accessing the element at index 1 gives num = $num")
+    println("Reading index 1 gives num = $num")
 
     /* Update an element */
     nums[1] = 0
-    println("After updating the element at index 1 to 0, nums = $nums")
+    println("After setting the element at index 1 to 0, nums = $nums")
 
     /* Clear the list */
     nums.clear()
     println("After clearing the list, nums = $nums")
 
-    /* Append at the end */
+    /* Append an element */
     nums.add(1)
     nums.add(3)
     nums.add(2)
     nums.add(5)
     nums.add(4)
-    println("After adding elements, nums = $nums")
+    println("After appending elements, nums = $nums")
 
     /* Insert an element in the middle */
     nums.add(3, 6)
@@ -55,9 +55,9 @@ fun main() {
     /* Concatenate two lists*/
     val nums1 = mutableListOf(6, 8, 7, 10, 9)
     nums.addAll(nums1)
-    println("After appending list nums1 to nums, nums = $nums")
+    println("After appending nums1 to nums, nums = $nums")
 
     /* Sort the list */
     nums.sort()
-    println("After sorting the list, nums = $nums")
+    println("After sorting, nums = $nums")
 }

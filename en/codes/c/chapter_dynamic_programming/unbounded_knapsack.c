@@ -11,7 +11,7 @@ int myMax(int a, int b) {
     return a > b ? a : b;
 }
 
-/* Unbounded knapsack: dynamic programming */
+/* Unbounded knapsack with dynamic programming */
 int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgtSize) {
     int n = wgtSize;
     // Initialize the dp table
@@ -19,45 +19,45 @@ int unboundedKnapsackDP(int wgt[], int val[], int cap, int wgtSize) {
     for (int i = 0; i <= n; i++) {
         dp[i] = calloc(cap + 1, sizeof(int));
     }
-    // State transitions
+    // State transition
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // If item i exceeds the remaining capacity, do not choose it
+                // Skip item i if its weight exceeds the capacity
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // Take the larger value obtained by excluding and including item i
+                // Take the larger value from skipping or taking item i
                 dp[i][c] = myMax(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }
     int res = dp[n][cap];
-    // Free memory
+    // Free the memory
     for (int i = 0; i <= n; i++) {
         free(dp[i]);
     }
     return res;
 }
 
-/* Unbounded knapsack: space-optimized dynamic programming */
+/* Unbounded knapsack with space-optimized dynamic programming */
 int unboundedKnapsackDPComp(int wgt[], int val[], int cap, int wgtSize) {
     int n = wgtSize;
     // Initialize the dp table
     int *dp = calloc(cap + 1, sizeof(int));
-    // State transitions
+    // State transition
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // If item i exceeds the remaining capacity, do not choose it
+                // Skip item i if its weight exceeds the capacity
                 dp[c] = dp[c];
             } else {
-                // Take the larger value obtained by excluding and including item i
+                // Take the larger value from skipping or taking item i
                 dp[c] = myMax(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
     }
     int res = dp[cap];
-    // Free memory
+    // Free the memory
     free(dp);
     return res;
 }
@@ -71,11 +71,11 @@ int main() {
 
     // Dynamic programming
     int res = unboundedKnapsackDP(wgt, val, cap, wgtSize);
-    printf("Maximum item value within the knapsack capacity: %d\n", res);
+    printf("Maximum total item value within the weight limit: %d\n", res);
 
     // Space-optimized dynamic programming
     res = unboundedKnapsackDPComp(wgt, val, cap, wgtSize);
-    printf("Maximum item value within the knapsack capacity: %d\n", res);
+    printf("Maximum total item value within the weight limit: %d\n", res);
 
     return 0;
 }

@@ -7,61 +7,61 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 require_relative '../utils/tree_node'
 require_relative '../utils/print_util'
 
-### Проверка, является ли текущее состояние решением ###
+### Проверяем, является ли текущее состояние решением ###
 def is_solution?(state)
   !state.empty? && state.last.val == 7
 end
 
-### Записать решение ###
+### Сохраняем решение ###
 def record_solution(state, res)
   res << state.dup
 end
 
-### Проверка допустимости этого выбора в текущем состоянии ###
+### Проверяем, допустим ли выбор в текущем состоянии ###
 def is_valid?(state, choice)
   choice && choice.val != 3
 end
 
-### Обновить состояние ###
+### Обновляем состояние ###
 def make_choice(state, choice)
   state << choice
 end
 
-### Восстановить состояние ###
+### Восстанавливаем состояние ###
 def undo_choice(state, choice)
   state.pop
 end
 
-### Алгоритм бэктрекинга: пример 3 ###
+### Поиск с возвратом: пример 3 ###
 def backtrack(state, choices, res)
-  # Проверить, является ли текущее состояние решением
+  # Проверяем, найдено ли решение
   record_solution(state, res) if is_solution?(state)
 
-  # Перебор всех вариантов выбора
+  # Перебираем все варианты
   for choice in choices
-    # Отсечение: проверить допустимость выбора
+    # Отсечение: проверяем допустимость выбора
     if is_valid?(state, choice)
-      # Попытка: сделать выбор и обновить состояние
+      # Пробуем вариант и обновляем состояние
       make_choice(state, choice)
-      # Перейти к следующему выбору
+      # Переходим к следующему выбору
       backtrack(state, [choice.left, choice.right], res)
-      # Откат: отменить выбор и восстановить предыдущее состояние
+      # Возврат: отменяем выбор и восстанавливаем прежнее состояние
       undo_choice(state, choice)
     end
   end
 end
 
-### Driver Code ###
+### Основная программа ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\nИнициализация двоичного дерева"
+  puts "\nСоздаём двоичное дерево"
   print_tree(root)
 
-  # Алгоритм бэктрекинга
+  # Поиск с возвратом
   res = []
   backtrack([], [root], res)
 
-  puts "\nВсе пути от корня к узлу 7, в которых путь не содержит узлов со значением 3"
+  puts "\nВыводим все пути от корня до узлов со значением 7 без узлов со значением 3"
   for path in res
     p path.map { |node| node.val }
   end

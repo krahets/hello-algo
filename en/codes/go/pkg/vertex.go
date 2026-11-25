@@ -9,7 +9,7 @@ type Vertex struct {
 	Val int
 }
 
-// NewVertex constructs a vertex.
+// NewVertex creates a vertex.
 func NewVertex(val int) Vertex {
 	return Vertex{
 		Val: val,
@@ -39,7 +39,7 @@ func DeleteSliceElms[T any](a []T, elms ...T) []T {
 	if len(a) == 0 || len(elms) == 0 {
 		return a
 	}
-	// First, collect the elements in a set
+	// First, build a set of the elements to remove
 	m := make(map[any]struct{})
 	for _, v := range elms {
 		m[v] = struct{}{}

@@ -119,7 +119,7 @@ pub fn TreeFormatter(comptime T: type) type {
         }
 
         // 二分木を表示する
-        // この木の表示処理は TECHIE DELIGHT から借用した
+        // 木の表示には TECHIE DELIGHT のコードを使用
         // https://www.techiedelight.com/c-program-print-binary-tree/
         const Trunk = struct {
             prev: ?*Trunk = null,

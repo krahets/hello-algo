@@ -8,15 +8,15 @@ import "math"
 
 /* 最小経路和：全探索 */
 func minPathSumDFS(grid [][]int, i, j int) int {
-	// 左上のセルなら探索を終了する
+	// 左上のマスに着いたら探索を終了する
 	if i == 0 && j == 0 {
 		return grid[0][0]
 	}
-	// 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+	// 行または列の添字が範囲外ならコスト +∞ を返す
 	if i < 0 || j < 0 {
 		return math.MaxInt
 	}
-	// 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
+	// 左上から (i-1, j) と (i, j-1) までの最小経路コストを求める
 	up := minPathSumDFS(grid, i-1, j)
 	left := minPathSumDFS(grid, i, j-1)
 	// 左上から (i, j) までの最小経路コストを返す
@@ -25,19 +25,19 @@ func minPathSumDFS(grid [][]int, i, j int) int {
 
 /* 最小経路和：メモ化探索 */
 func minPathSumDFSMem(grid, mem [][]int, i, j int) int {
-	// 左上のセルなら探索を終了する
+	// 左上のマスに着いたら探索を終了する
 	if i == 0 && j == 0 {
 		return grid[0][0]
 	}
-	// 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+	// 行または列の添字が範囲外ならコスト +∞ を返す
 	if i < 0 || j < 0 {
 		return math.MaxInt
 	}
-	// 記録済みなら、その値をそのまま返す
+	// 記録済みなら、その値を返す
 	if mem[i][j] != -1 {
 		return mem[i][j]
 	}
-	// 左隣と上隣のセルまでの最小経路コスト
+	// 左と上のマスまでの最小経路コスト
 	up := minPathSumDFSMem(grid, mem, i-1, j)
 	left := minPathSumDFSMem(grid, mem, i, j-1)
 	// 左上から (i, j) までの最小経路コストを記録して返す
@@ -71,7 +71,7 @@ func minPathSumDP(grid [][]int) int {
 	return dp[n-1][m-1]
 }
 
-/* 最小経路和：空間を最適化した動的計画法 */
+/* 最小経路和：使用メモリを削減した動的計画法 */
 func minPathSumDPComp(grid [][]int) int {
 	n, m := len(grid), len(grid[0])
 	// dp テーブルを初期化する

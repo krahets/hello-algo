@@ -4,15 +4,15 @@
 
 package pkg
 
-// TreeNode: 이진 트리 노드
+// TreeNode는 이진 트리의 노드다.
 type TreeNode struct {
 	Val    any       // 노드 값
 	Height int       // 노드 높이
-	Left   *TreeNode // 왼쪽 자식 노드 참조
-	Right  *TreeNode // 오른쪽 자식 노드 참조
+	Left   *TreeNode // 왼쪽 자식 노드에 대한 참조
+	Right  *TreeNode // 오른쪽 자식 노드에 대한 참조
 }
 
-// NewTreeNode: 이진 트리 노드 생성자
+// NewTreeNode는 이진 트리 노드의 생성자다.
 func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,
@@ -22,7 +22,7 @@ func NewTreeNode(v any) *TreeNode {
 	}
 }
 
-// 직렬화 인코딩 규칙은 다음을 참고한다:
+// 직렬화 인코딩 규칙은 다음을 참고한다.
 // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
 // 이진 트리의 배열 표현:
 // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
@@ -41,7 +41,7 @@ func NewTreeNode(v any) *TreeNode {
 //	    \——— 4
 //	        \——— 8
 
-// SliceToTreeDFS: 리스트를 이진 트리로 역직렬화한다. 재귀 구현
+// SliceToTreeDFS는 재귀로 리스트를 이진 트리로 역직렬화한다.
 func SliceToTreeDFS(arr []any, i int) *TreeNode {
 	if i < 0 || i >= len(arr) || arr[i] == nil {
 		return nil
@@ -52,12 +52,12 @@ func SliceToTreeDFS(arr []any, i int) *TreeNode {
 	return root
 }
 
-// SliceToTree: 슬라이스를 역직렬화하여 이진 트리로 만든다
+// SliceToTree는 슬라이스를 이진 트리로 역직렬화한다.
 func SliceToTree(arr []any) *TreeNode {
 	return SliceToTreeDFS(arr, 0)
 }
 
-// TreeToSliceDFS: 이진 트리를 슬라이스로 직렬화한다. 재귀 구현
+// TreeToSliceDFS는 재귀로 이진 트리를 슬라이스로 직렬화한다.
 func TreeToSliceDFS(root *TreeNode, i int, res *[]any) {
 	if root == nil {
 		return
@@ -70,7 +70,7 @@ func TreeToSliceDFS(root *TreeNode, i int, res *[]any) {
 	TreeToSliceDFS(root.Right, 2*i+2, res)
 }
 
-// TreeToSlice: 이진 트리를 슬라이스로 직렬화한다
+// TreeToSlice는 이진 트리를 슬라이스로 직렬화한다.
 func TreeToSlice(root *TreeNode) []any {
 	var res []any
 	TreeToSliceDFS(root, 0, &res)

@@ -4,10 +4,10 @@
  * Author: gyt95 (gytkwan@gmail.com)
  */
 
-/* 方法 1：総当たり列挙 */
+/* 方法 1：総当たり */
 function twoSumBruteForce(nums, target) {
     const n = nums.length;
-    // 二重ループのため、時間計算量は O(n^2)
+    // 二重ループの時間計算量は O(n^2)
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
             if (nums[i] + nums[j] === target) {
@@ -18,11 +18,11 @@ function twoSumBruteForce(nums, target) {
     return [];
 }
 
-/* 方法 2：補助ハッシュテーブル */
+/* 方法 2：補助のハッシュテーブルを使う */
 function twoSumHashTable(nums, target) {
-    // 補助ハッシュテーブルの空間計算量は O(n)
+    // 補助のハッシュテーブルの空間計算量は O(n)
     let m = {};
-    // 一重ループのため、時間計算量は O(n)
+    // 一重ループの時間計算量は O(n)
     for (let i = 0; i < nums.length; i++) {
         if (m[target - nums[i]] !== undefined) {
             return [m[target - nums[i]], i];
@@ -33,14 +33,14 @@ function twoSumHashTable(nums, target) {
     return [];
 }
 
-/* 実行用コード */
+/* 実行例 */
 // 方法 1
 const nums = [2, 7, 11, 15],
     target = 13;
 
 let res = twoSumBruteForce(nums, target);
-console.log('方法 1 res = ', res);
+console.log('方法 1 の res = ', res);
 
 // 方法 2
 res = twoSumHashTable(nums, target);
-console.log('方法 2 res = ', res);
+console.log('方法 2 の res = ', res);

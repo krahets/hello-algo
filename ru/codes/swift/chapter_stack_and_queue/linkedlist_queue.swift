@@ -8,34 +8,34 @@ import utils
 
 /* Очередь на основе связного списка */
 class LinkedListQueue {
-    private var front: ListNode? // Головной узел
-    private var rear: ListNode? // Хвостовой узел
+    private var front: ListNode? // Первый узел
+    private var rear: ListNode? // Последний узел
     private var _size: Int
 
     init() {
         _size = 0
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     func size() -> Int {
         _size
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     func push(num: Int) {
-        // Добавить num после хвостового узла
+        // Добавить узел со значением num после последнего узла
         let node = ListNode(x: num)
-        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+        // Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
         if front == nil {
             front = node
             rear = node
         }
-        // Если очередь не пуста, добавить этот узел после хвостового узла
+        // Если очередь непуста, добавить новый узел после последнего
         else {
             rear?.next = node
             rear = node
@@ -43,25 +43,25 @@ class LinkedListQueue {
         _size += 1
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // Удалить головной узел
+        // Удалить первый узел
         front = front?.next
         _size -= 1
         return num
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("очередь пуста")
+            fatalError("Очередь пуста")
         }
         return front!.val
     }
 
-    /* Преобразовать связный список в Array и вернуть */
+    /* Преобразовать связный список в массив и вернуть его */
     func toArray() -> [Int] {
         var node = front
         var res = Array(repeating: 0, count: size())
@@ -75,12 +75,12 @@ class LinkedListQueue {
 
 @main
 enum _LinkedListQueue {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
-        /* Инициализация очереди */
+        /* Инициализировать очередь */
         let queue = LinkedListQueue()
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в очередь */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -88,20 +88,20 @@ enum _LinkedListQueue {
         queue.push(num: 4)
         print("Очередь queue = \(queue.toArray())")
 
-        /* Доступ к элементу в начале очереди */
+        /* Посмотреть первый элемент очереди */
         let peek = queue.peek()
-        print("Первый элемент peek = \(peek)")
+        print("Первый элемент очереди peek = \(peek)")
 
-        /* Извлечение элемента из очереди */
+        /* Извлечь элемент из очереди */
         let pop = queue.pop()
-        print("Извлеченный элемент pop = \(pop), queue после извлечения = \(queue.toArray())")
+        print("Извлечённый элемент pop = \(pop), после извлечения queue = \(queue.toArray())")
 
-        /* Получение длины очереди */
+        /* Получить длину очереди */
         let size = queue.size()
         print("Длина очереди size = \(size)")
 
-        /* Проверка, пуста ли очередь */
+        /* Проверить, пуста ли очередь */
         let isEmpty = queue.isEmpty()
-        print("Пуста ли очередь = \(isEmpty)")
+        print("Очередь пуста = \(isEmpty)")
     }
 }

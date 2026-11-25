@@ -11,7 +11,7 @@ function coinChangeIIDP(coins, amt) {
     const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: amt + 1 }, () => 0)
     );
-    // 初始化首列
+    // 初始化第一欄
     for (let i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
@@ -19,10 +19,10 @@ function coinChangeIIDP(coins, amt) {
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超過目標金額，則不選硬幣 i
+                // 若面額超過目標金額，就不選硬幣 i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 不選和選硬幣 i 這兩種方案之和
+                // 將不選與選取硬幣 i 兩種情況的組合數相加
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -40,10 +40,10 @@ function coinChangeIIDPComp(coins, amt) {
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // 若超過目標金額，則不選硬幣 i
+                // 若面額超過目標金額，就不選硬幣 i
                 dp[a] = dp[a];
             } else {
-                // 不選和選硬幣 i 這兩種方案之和
+                // 將不選與選取硬幣 i 兩種情況的組合數相加
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -51,14 +51,14 @@ function coinChangeIIDPComp(coins, amt) {
     return dp[amt];
 }
 
-/* Driver Code */
+/* 主程式 */
 const coins = [1, 2, 5];
 const amt = 5;
 
 // 動態規劃
 let res = coinChangeIIDP(coins, amt);
-console.log(`湊出目標金額的硬幣組合數量為 ${res}`);
+console.log(`湊出目標金額的硬幣組合數為 ${res}`);
 
 // 空間最佳化後的動態規劃
 res = coinChangeIIDPComp(coins, amt);
-console.log(`湊出目標金額的硬幣組合數量為 ${res}`);
+console.log(`湊出目標金額的硬幣組合數為 ${res}`);

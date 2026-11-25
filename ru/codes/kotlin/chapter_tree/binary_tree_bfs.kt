@@ -10,33 +10,33 @@ import utils.TreeNode
 import utils.printTree
 import java.util.*
 
-/* Обход в ширину */
+/* Обход по уровням */
 fun levelOrder(root: TreeNode?): MutableList<Int> {
-    // Инициализировать очередь и добавить корневой узел
+    // Создать очередь и добавить корень
     val queue = LinkedList<TreeNode?>()
     queue.add(root)
-    // Инициализировать список для хранения последовательности обхода
+    // Создать список для последовательности обхода
     val list = mutableListOf<Int>()
     while (queue.isNotEmpty()) {
-        val node = queue.poll()      // Извлечение из очереди
+        val node = queue.poll()      // Извлечь узел из очереди
         list.add(node?._val!!)       // Сохранить значение узла
         if (node.left != null)
-            queue.offer(node.left)   // Поместить левый дочерний узел в очередь
+            queue.offer(node.left)   // Добавить левого потомка в очередь
         if (node.right != null)
-            queue.offer(node.right)  // Поместить правый дочерний узел в очередь
+            queue.offer(node.right)  // Добавить правого потомка в очередь
     }
     return list
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     /* Инициализация двоичного дерева */
-    // Здесь используется функция, напрямую строящая двоичное дерево из списка
+    // Используем функцию, которая строит двоичное дерево непосредственно из списка
     val root = TreeNode.listToTree(mutableListOf(1, 2, 3, 4, 5, 6, 7))
     println("\nИнициализация двоичного дерева\n")
     printTree(root)
 
-    /* Обход в ширину */
+    /* Обход по уровням */
     val list = levelOrder(root)
-    println("\nПоследовательность печати узлов при обходе в ширину = $list")
+    println("\nУзлы в порядке обхода по уровням = $list")
 }

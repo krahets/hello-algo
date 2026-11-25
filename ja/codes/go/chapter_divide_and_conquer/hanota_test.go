@@ -30,7 +30,7 @@ func TestHanota(t *testing.T) {
 
 	solveHanota(A, B, C)
 
-	fmt.Println("円盤の移動完了後：")
+	fmt.Println("円盤をすべて移した後：")
 	fmt.Print("A = ")
 	PrintList(A)
 	fmt.Print("B = ")

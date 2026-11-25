@@ -9,13 +9,13 @@ from math import inf
 
 def min_path_sum_dfs(grid: list[list[int]], i: int, j: int) -> int:
     """最小経路和：全探索"""
-    # 左上のセルなら探索を終了する
+    # 左上のマスに着いたら探索を終了する
     if i == 0 and j == 0:
         return grid[0][0]
-    # 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    # 行または列の添字が範囲外ならコスト +∞ を返す
     if i < 0 or j < 0:
         return inf
-    # 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
+    # 左上から (i-1, j) と (i, j-1) までの最小経路コストを求める
     up = min_path_sum_dfs(grid, i - 1, j)
     left = min_path_sum_dfs(grid, i, j - 1)
     # 左上から (i, j) までの最小経路コストを返す
@@ -26,16 +26,16 @@ def min_path_sum_dfs_mem(
     grid: list[list[int]], mem: list[list[int]], i: int, j: int
 ) -> int:
     """最小経路和：メモ化探索"""
-    # 左上のセルなら探索を終了する
+    # 左上のマスに着いたら探索を終了する
     if i == 0 and j == 0:
         return grid[0][0]
-    # 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    # 行または列の添字が範囲外ならコスト +∞ を返す
     if i < 0 or j < 0:
         return inf
-    # 記録済みなら、その値をそのまま返す
+    # 記録済みなら、その値を返す
     if mem[i][j] != -1:
         return mem[i][j]
-    # 左隣と上隣のセルまでの最小経路コスト
+    # 左と上のマスまでの最小経路コスト
     up = min_path_sum_dfs_mem(grid, mem, i - 1, j)
     left = min_path_sum_dfs_mem(grid, mem, i, j - 1)
     # 左上から (i, j) までの最小経路コストを記録して返す
@@ -63,7 +63,7 @@ def min_path_sum_dp(grid: list[list[int]]) -> int:
 
 
 def min_path_sum_dp_comp(grid: list[list[int]]) -> int:
-    """最小経路和：空間を最適化した動的計画法"""
+    """最小経路和：使用メモリを削減した動的計画法"""
     n, m = len(grid), len(grid[0])
     # dp テーブルを初期化する
     dp = [0] * m
@@ -81,7 +81,7 @@ def min_path_sum_dp_comp(grid: list[list[int]]) -> int:
     return dp[m - 1]
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     grid = [[1, 3, 1, 5], [2, 2, 4, 2], [5, 3, 2, 1], [4, 3, 5, 2]]
     n, m = len(grid), len(grid[0])
@@ -99,6 +99,6 @@ if __name__ == "__main__":
     res = min_path_sum_dp(grid)
     print(f"左上から右下までの最小経路和は {res}")
 
-    # 空間を最適化した動的計画法
+    # 使用メモリを削減した動的計画法
     res = min_path_sum_dp_comp(grid)
     print(f"左上から右下までの最小経路和は {res}")

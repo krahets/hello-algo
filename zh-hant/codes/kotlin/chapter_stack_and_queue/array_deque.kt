@@ -6,96 +6,96 @@
 
 package chapter_stack_and_queue
 
-/* 基於環形陣列實現的雙向佇列 */
+/* 以環狀陣列實作雙端佇列 */
 /* 建構子 */
 class ArrayDeque(capacity: Int) {
-    private var nums: IntArray = IntArray(capacity) // 用於儲存雙向佇列元素的陣列
-    private var front: Int = 0 // 佇列首指標，指向佇列首元素
-    private var queSize: Int = 0 // 雙向佇列長度
+    private var nums: IntArray = IntArray(capacity) // 存放雙端佇列元素的陣列
+    private var front: Int = 0 // 隊首索引，記錄隊首元素在陣列中的位置
+    private var queSize: Int = 0 // 雙端佇列長度
 
-    /* 獲取雙向佇列的容量 */
+    /* 取得雙端佇列容量 */
     fun capacity(): Int {
         return nums.size
     }
 
-    /* 獲取雙向佇列的長度 */
+    /* 取得雙端佇列長度 */
     fun size(): Int {
         return queSize
     }
 
-    /* 判斷雙向佇列是否為空 */
+    /* 判斷雙端佇列是否為空 */
     fun isEmpty(): Boolean {
         return queSize == 0
     }
 
-    /* 計算環形陣列索引 */
+    /* 計算環狀陣列的索引 */
     private fun index(i: Int): Int {
-        // 透過取餘操作實現陣列首尾相連
-        // 當 i 越過陣列尾部後，回到頭部
-        // 當 i 越過陣列頭部後，回到尾部
+        // 取餘數，讓陣列的首尾相接
+        // 當 i 超過陣列末端時，繞回開頭
+        // 當 i 越過陣列開頭時，繞回末端
         return (i + capacity()) % capacity()
     }
 
-    /* 佇列首入列 */
+    /* 從隊首加入元素 */
     fun pushFirst(num: Int) {
         if (queSize == capacity()) {
-            println("雙向佇列已滿")
+            println("雙端佇列已滿")
             return
         }
-        // 佇列首指標向左移動一位
-        // 透過取餘操作實現 front 越過陣列頭部後回到尾部
+        // 將隊首索引往左移一格
+        // 取餘數，讓 front 越過陣列開頭時繞回末端
         front = index(front - 1)
-        // 將 num 新增至佇列首
+        // 將 num 加到隊首
         nums[front] = num
         queSize++
     }
 
-    /* 佇列尾入列 */
+    /* 從隊尾加入元素 */
     fun pushLast(num: Int) {
         if (queSize == capacity()) {
-            println("雙向佇列已滿")
+            println("雙端佇列已滿")
             return
         }
-        // 計算佇列尾指標，指向佇列尾索引 + 1
+        // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
         val rear = index(front + queSize)
-        // 將 num 新增至佇列尾
+        // 將 num 加到隊尾
         nums[rear] = num
         queSize++
     }
 
-    /* 佇列首出列 */
+    /* 從隊首取出元素 */
     fun popFirst(): Int {
         val num = peekFirst()
-        // 佇列首指標向後移動一位
+        // 將隊首索引往後移一格
         front = index(front + 1)
         queSize--
         return num
     }
 
-    /* 佇列尾出列 */
+    /* 從隊尾取出元素 */
     fun popLast(): Int {
         val num = peekLast()
         queSize--
         return num
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     fun peekFirst(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return nums[front]
     }
 
-    /* 訪問佇列尾元素 */
+    /* 讀取隊尾元素 */
     fun peekLast(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        // 計算尾元素索引
+        // 計算隊尾元素的索引
         val last = index(front + queSize - 1)
         return nums[last]
     }
 
-    /* 返回陣列用於列印 */
+    /* 回傳陣列以便輸出 */
     fun toArray(): IntArray {
-        // 僅轉換有效長度範圍內的串列元素
+        // 只轉換雙端佇列中實際存放的元素
         val res = IntArray(queSize)
         var i = 0
         var j = front
@@ -108,38 +108,38 @@ class ArrayDeque(capacity: Int) {
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 fun main() {
-    /* 初始化雙向佇列 */
+    /* 初始化雙端佇列 */
     val deque = ArrayDeque(10)
     deque.pushLast(3)
     deque.pushLast(2)
     deque.pushLast(5)
-    println("雙向佇列 deque = ${deque.toArray().contentToString()}")
+    println("雙端佇列 deque = ${deque.toArray().contentToString()}")
 
-    /* 訪問元素 */
+    /* 讀取隊首與隊尾元素 */
     val peekFirst = deque.peekFirst()
-    println("佇列首元素 peekFirst = $peekFirst")
+    println("隊首元素 peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("佇列尾元素 peekLast = $peekLast")
+    println("隊尾元素 peekLast = $peekLast")
 
-    /* 元素入列 */
+    /* 將元素加入雙端佇列 */
     deque.pushLast(4)
-    println("元素 4 佇列尾入列後 deque = ${deque.toArray().contentToString()}")
+    println("將元素 4 加到隊尾後 deque = ${deque.toArray().contentToString()}")
     deque.pushFirst(1)
-    println("元素 1 佇列首入列後 deque = ${deque.toArray().contentToString()}")
+    println("將元素 1 加到隊首後 deque = ${deque.toArray().contentToString()}")
 
-    /* 元素出列 */
+    /* 從雙端佇列取出元素 */
     val popLast = deque.popLast()
-    println("佇列尾出列元素 = ${popLast}，佇列尾出列後 deque = ${deque.toArray().contentToString()}")
+    println("從隊尾取出的元素 = ${popLast}，取出後 deque = ${deque.toArray().contentToString()}")
     val popFirst = deque.popFirst()
-    println("佇列首出列元素 = ${popFirst}，佇列首出列後 deque = ${deque.toArray().contentToString()}")
+    println("從隊首取出的元素 = ${popFirst}，取出後 deque = ${deque.toArray().contentToString()}")
 
-    /* 獲取雙向佇列的長度 */
+    /* 取得雙端佇列長度 */
     val size = deque.size()
-    println("雙向佇列長度 size = $size")
+    println("雙端佇列長度 size = $size")
 
-    /* 判斷雙向佇列是否為空 */
+    /* 判斷雙端佇列是否為空 */
     val isEmpty = deque.isEmpty()
-    println("雙向佇列是否為空 = $isEmpty")
+    println("雙端佇列是否為空 = $isEmpty")
 }

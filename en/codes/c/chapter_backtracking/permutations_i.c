@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-// Assume there are at most 1000 permutations
+// Assume at most 1000 permutations
 #define MAX_SIZE 1000
 
 /* Backtracking: permutations I */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if (stateSize == choicesSize) {
         res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
         for (int i = 0; i < choicesSize; i++) {
@@ -20,17 +20,17 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // Prune: do not choose an element more than once
+        // Prune: skip elements already in use
         if (!selected[i]) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             selected[i] = true;
             state[stateSize] = choice;
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
         }
     }
@@ -62,14 +62,14 @@ int main() {
 
     int **res = permutationsI(nums, numsSize, &returnSize);
 
-    printf("Input array nums = ");
+    printf("Input array nums =  ");
     printArray(nums, numsSize);
     printf("\nAll permutations res = \n");
     for (int i = 0; i < returnSize; i++) {
         printArray(res[i], numsSize);
     }
 
-    // Free memory
+    // Free the memory
     for (int i = 0; i < returnSize; i++) {
         free(res[i]);
     }

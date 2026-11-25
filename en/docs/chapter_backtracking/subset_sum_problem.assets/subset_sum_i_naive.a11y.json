@@ -1,30 +1,30 @@
 {
-  "schema_version": 2,
-  "title": "Pruning only sums exceeding the target still generates duplicate combinations",
-  "summary": "Starting from cumulative sum 0 and adding 3, 4, and 5 prunes branches exceeding 9, yet still outputs both duplicate combinations [4, 5] and [5, 4].",
   "context": [
-    "The input consists of the positive integer array choices = [3, 4, 5] and target sum target = 9; each element may be chosen repeatedly, and resulting subsets (combinations) ignore element order."
+    "The positive integer candidates are choices = [3, 4, 5], and the target is target = 9. An element may be chosen repeatedly, and order does not distinguish the resulting subsets (combinations)."
   ],
   "description": [
-    "Each circular node shows the cumulative sum of the current prefix (0 at the root). Every round tries adding all candidates 3, 4, and 5: if the new sum exceeds 9 (pruned via a dashed > 9 branch in the figure without forming a new circular node), skip it; if it equals 9, enter the leaf node to record the result and then return to the previous level to continue trying.",
-    "The search tree has 13 solid circular state nodes. The table below lists each prefix's cumulative sum and next-round choices level by level; reaching a leaf node with sum 9 records one result, and \"enter\" in the parent row refers only to entering that child call. Arrows in the table denote entering the corresponding child node, with the cumulative sum written to the right of the arrow."
+    "A circular node holds the sum of its current prefix, with 0 at the root. In each round, try adding each of 3, 4, and 5. Skip a choice if its new sum exceeds 9. A dashed branch labeled >9 marks this pruning and creates no new circular node. If the sum is exactly 9, enter the leaf, record the result, and return to the preceding level to keep trying choices.",
+    "The search tree has 13 solid circular state nodes. The table lists each prefix's running sum and subsequent choices, level by level. A result is recorded once, at the leaf whose sum is 9. “Enter” in a parent row refers only to the call for that child. Each arrow leads to a child, and the number to its right is the new running sum."
   ],
   "frames": [
     {
-      "id": "source-358",
       "book_path": "chapter_backtracking/subset_sum_problem.assets/subset_sum_i_naive.png",
-      "title": "Pruning only sums exceeding the target still generates duplicate combinations",
-      "explanation": "Although out-of-range pruning stops branches whose sum exceeds 9 promptly, the search still outputs three results—[3, 3, 3], [4, 5], and [5, 4]—where [4, 5] and [5, 4] are duplicate combinations containing the same elements in different orders."
+      "explanation": "Pruning stops branches as soon as their sum exceeds 9, but the search still outputs three results: [3, 3, 3], [4, 5], and [5, 4]. The last two, [4, 5] and [5, 4], are duplicate combinations because they contain the same elements in different orders.",
+      "id": "source-358",
+      "title": "Pruning only sums above the target still produces duplicate combinations"
     }
   ],
+  "schema_version": 2,
+  "summary": "Start from a running sum of 0 and add choices from 3, 4, and 5. Branches that exceed 9 are pruned, but the search still outputs both [4, 5] and [5, 4], which represent the same combination.",
   "tables": [
     {
-      "caption": "Cumulative-sum search tree",
+      "caption": "Search tree of running sums",
       "headers": [
         "Current prefix",
-        "Cumulative sum",
-        "Next-round choices or termination reason"
+        "Running sum",
+        "Next choices or reason for stopping"
       ],
+      "row_header": 0,
       "rows": [
         [
           "[]",
@@ -39,60 +39,60 @@
         [
           "[4]",
           "4",
-          "+3→7; +4→8; +5→9, enter [4, 5] (hits 9)"
+          "+3→7; +4→8; +5→9, enter [4, 5] (reaches 9)"
         ],
         [
           "[5]",
           "5",
-          "+3→8; +4→9, enter [5, 4] (hits 9); +5 exceeds target"
+          "+3→8; +4→9, enter [5, 4] (reaches 9); +5 exceeds the target"
         ],
         [
           "[3, 3]",
           "6",
-          "+3→9, enter [3, 3, 3] (hits 9); +4 and +5 exceed target"
+          "+3→9, enter [3, 3, 3] (reaches 9); +4 and +5 exceed the target"
         ],
         [
           "[3, 4]",
           "7",
-          "+3, +4, and +5 all exceed target"
+          "+3, +4, and +5 all exceed the target"
         ],
         [
           "[3, 5]",
           "8",
-          "+3, +4, and +5 all exceed target"
+          "+3, +4, and +5 all exceed the target"
         ],
         [
           "[4, 3]",
           "7",
-          "+3, +4, and +5 all exceed target"
+          "+3, +4, and +5 all exceed the target"
         ],
         [
           "[4, 4]",
           "8",
-          "+3, +4, and +5 all exceed target"
+          "+3, +4, and +5 all exceed the target"
         ],
         [
           "[4, 5]",
           "9",
-          "Record result and return"
+          "Record the result and return"
         ],
         [
           "[5, 3]",
           "8",
-          "+3, +4, and +5 all exceed target"
+          "+3, +4, and +5 all exceed the target"
         ],
         [
           "[5, 4]",
           "9",
-          "Record result and return"
+          "Record the result and return"
         ],
         [
           "[3, 3, 3]",
           "9",
-          "Record result and return"
+          "Record the result and return"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Pruning only sums above the target still produces duplicate combinations"
 }

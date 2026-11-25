@@ -23,7 +23,7 @@ fun sumRecur(n: Int): Int {
     return n + sumRecur(n - 1)
 }
 
-/* 선형 차수 반복문 */
+/* 선형 반복문 */
 fun linearLoop(n: Int): Int {
     var res = 0
     for (i in 0 until n) {
@@ -32,7 +32,7 @@ fun linearLoop(n: Int): Int {
     return res
 }
 
-/* 제곱 차수 반복문 */
+/* 이차 반복문 */
 fun quadraticLoop(n: Int): Int {
     var res = 0
     for (i in 0 until n) {
@@ -43,7 +43,7 @@ fun quadraticLoop(n: Int): Int {
     return res
 }
 
-/* 로그 차수 반복문 */
+/* 로그 반복문 */
 fun logarithmicLoop(n: Int): Int {
     var value = n
     while (value > 1) {

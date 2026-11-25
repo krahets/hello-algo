@@ -6,7 +6,7 @@
 
 import '../chapter_stack_and_queue/linkedlist_deque.dart';
 
-/* Driver Code */
+/* 主程式 */
 void main() {
   int _num = 3;
   int hashNum = _num.hashCode;
@@ -20,7 +20,7 @@ void main() {
   int hashDec = dec.hashCode;
   print("小數 $dec 的雜湊值為 $hashDec");
 
-  String str = "Hello 演算法";
+  String str = "Hello 算法";
   int hashStr = str.hashCode;
   print("字串 $str 的雜湊值為 $hashStr");
 

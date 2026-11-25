@@ -8,19 +8,19 @@ import utils
 
 /* 연결 리스트로 구현한 스택 */
 class LinkedListStack {
-    private var _peek: ListNode? // 머리 노드를 스택의 맨 위로 사용한다
+    private var _peek: ListNode? // 첫 노드를 스택의 맨 위로 사용한다
     private var _size: Int // 스택의 길이
 
     init() {
         _size = 0
     }
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     func size() -> Int {
         _size
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     func isEmpty() -> Bool {
         size() == 0
     }
@@ -42,7 +42,7 @@ class LinkedListStack {
         return num
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     func peek() -> Int {
         if isEmpty() {
             fatalError("스택이 비어 있다")
@@ -50,7 +50,7 @@ class LinkedListStack {
         return _peek!.val
     }
 
-    /* List를 Array로 변환하여 반환 */
+    /* 연결 리스트를 배열로 변환해 반환한다 */
     func toArray() -> [Int] {
         var node = _peek
         var res = Array(repeating: 0, count: size())
@@ -64,7 +64,7 @@ class LinkedListStack {
 
 @main
 enum _LinkedListStack {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         /* 스택 초기화 */
         let stack = LinkedListStack()
@@ -77,19 +77,19 @@ enum _LinkedListStack {
         stack.push(num: 4)
         print("스택 stack = \(stack.toArray())")
 
-        /* 스택 맨 위 원소 접근 */
+        /* 스택 맨 위의 원소 조회 */
         let peek = stack.peek()
-        print("스택의 맨 위 원소 peek = \(peek)")
+        print("맨 위 원소 peek = \(peek)")
 
         /* 스택에서 원소 꺼내기 */
         let pop = stack.pop()
-        print("스택에서 꺼낸 원소 pop = \(pop), 꺼낸 후 stack = \(stack.toArray())")
+        print("꺼낸 원소 pop = \(pop), 꺼낸 후 stack = \(stack.toArray())")
 
-        /* 스택의 길이 반환 */
+        /* 스택의 길이 조회 */
         let size = stack.size()
         print("스택의 길이 size = \(size)")
 
-        /* 비어 있는지 판단 */
+        /* 비어 있는지 확인 */
         let isEmpty = stack.isEmpty()
         print("스택이 비어 있는가 = \(isEmpty)")
     }

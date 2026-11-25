@@ -8,12 +8,12 @@ package chapter_hashing
 
 /* Хеш-таблица с открытой адресацией */
 class HashMapOpenAddressing {
-    private var size: Int               // Число пар ключ-значение
-    private var capacity: Int           // Вместимость хеш-таблицы
-    private val loadThres: Double       // Порог коэффициента загрузки для запуска расширения
-    private val extendRatio: Int        // Коэффициент расширения
+    private var size: Int               // Число пар «ключ — значение»
+    private var capacity: Int           // Ёмкость хеш-таблицы
+    private val loadThres: Double       // Порог коэффициента заполнения для расширения
+    private val extendRatio: Int        // Во сколько раз увеличивается ёмкость
     private var buckets: Array<Pair?>   // Массив корзин
-    private val TOMBSTONE: Pair         // Удалить метку
+    private val TOMBSTONE: Pair         // Метка удаления
 
     /* Конструктор */
     init {
@@ -30,20 +30,20 @@ class HashMapOpenAddressing {
         return key % capacity
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     fun loadFactor(): Double {
         return (size / capacity).toDouble()
     }
 
-    /* Найти индекс корзины, соответствующий key */
+    /* Найти индекс корзины для ключа key */
     fun findBucket(key: Int): Int {
         var index = hashFunc(key)
         var firstTombstone = -1
-        // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
+        // Линейное пробирование до первой пустой корзины
         while (buckets[index] != null) {
-            // Если встретился key, вернуть соответствующий индекс корзины
+            // При совпадении ключа key вернуть индекс его корзины
             if (buckets[index]?.key == key) {
-                // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
+                // Если ранее встретилась метка удаления, переместить пару на её место
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index]
                     buckets[index] = TOMBSTONE
@@ -51,52 +51,52 @@ class HashMapOpenAddressing {
                 }
                 return index // Вернуть индекс корзины
             }
-            // Записать первую встретившуюся метку удаления
+            // Запомнить первую встретившуюся метку удаления
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index
             }
-            // Вычислить индекс корзины; при выходе за конец вернуться к началу
+            // Вычислить индекс корзины, после конца массива перейти в начало
             index = (index + 1) % capacity
         }
-        // Если key не существует, вернуть индекс точки добавления
+        // Если ключа key нет, вернуть индекс для вставки
         return if (firstTombstone == -1) index else firstTombstone
     }
 
-    /* Операция поиска */
+    /* Поиск */
     fun get(key: Int): String? {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         val index = findBucket(key)
-        // Если пара ключ-значение найдена, вернуть соответствующее val
+        // Если пара найдена, вернуть её значение val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             return buckets[index]?._val
         }
-        // Если пары ключ-значение не существует, вернуть null
+        // Если пары нет, вернуть null
         return null
     }
 
-    /* Операция добавления */
+    /* Вставка */
     fun put(key: Int, _val: String) {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if (loadFactor() > loadThres) {
             extend()
         }
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         val index = findBucket(key)
-        // Если пара ключ-значение найдена, перезаписать val и вернуть
+        // Если пара найдена, заменить val и завершить операцию
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index]!!._val = _val
             return
         }
-        // Если пары ключ-значение нет, добавить ее
+        // Если пары нет, добавить её
         buckets[index] = Pair(key, _val)
         size++
     }
 
-    /* Операция удаления */
+    /* Удаление */
     fun remove(key: Int) {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         val index = findBucket(key)
-        // Если пара ключ-значение найдена, заменить ее меткой удаления
+        // Если пара найдена, заменить её меткой удаления
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index] = TOMBSTONE
             size--
@@ -107,11 +107,11 @@ class HashMapOpenAddressing {
     fun extend() {
         // Временно сохранить исходную хеш-таблицу
         val bucketsTmp = buckets
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         capacity *= extendRatio
         buckets = arrayOfNulls(capacity)
         size = 0
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         for (pair in bucketsTmp) {
             if (pair != null && pair != TOMBSTONE) {
                 put(pair.key, pair._val)
@@ -133,29 +133,29 @@ class HashMapOpenAddressing {
     }
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 fun main() {
-    // Инициализация хеш-таблицы
+    // Создать хеш-таблицу
     val hashmap = HashMapOpenAddressing()
 
-    // Операция добавления
-    // Добавить пару (key, val) в хеш-таблицу
+    // Вставка
+    // Добавить в таблицу пару (key, val)
     hashmap.put(12836, "Сяо Ха")
     hashmap.put(15937, "Сяо Ло")
     hashmap.put(16750, "Сяо Суань")
     hashmap.put(13276, "Сяо Фа")
     hashmap.put(10583, "Сяо Я")
-    println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
+    println("\nХеш-таблица после вставки:\nКлюч -> Значение")
     hashmap.print()
 
-    // Операция поиска
-    // Передать ключ key в хеш-таблицу и получить значение val
+    // Поиск
+    // Получить из таблицы значение val по ключу key
     val name = hashmap.get(13276)
-    println("\nДля номера 13276 найдено имя $name")
+    println("\nИмя студента с номером 13276: $name")
 
-    // Операция удаления
-    // Удалить пару (key, val) из хеш-таблицы
+    // Удаление
+    // Удалить из таблицы пару (key, val)
     hashmap.remove(16750)
-    println("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение")
+    println("\nХеш-таблица после удаления 16750:\nКлюч -> Значение")
     hashmap.print()
 }

@@ -6,13 +6,13 @@
 
 #include "../utils/common.hpp"
 
-/* 配列で実装したスタック */
+/* 配列を使ったスタック */
 class ArrayStack {
   private:
     vector<int> stack;
 
   public:
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     int size() {
         return stack.size();
     }
@@ -22,32 +22,32 @@ class ArrayStack {
         return stack.size() == 0;
     }
 
-    /* プッシュ */
+    /* プッシュする */
     void push(int num) {
         stack.push_back(num);
     }
 
-    /* ポップ */
+    /* ポップする */
     int pop() {
         int num = top();
         stack.pop_back();
         return num;
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     int top() {
         if (isEmpty())
             throw out_of_range("スタックが空です");
         return stack.back();
     }
 
-    /* Vector を返す */
+    /* vector を返す */
     vector<int> toVector() {
         return stack;
     }
 };
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* スタックを初期化する */
     ArrayStack *stack = new ArrayStack();
@@ -61,18 +61,18 @@ int main() {
     cout << "スタック stack = ";
     printVector(stack->toVector());
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     int top = stack->top();
-    cout << "スタックの先頭要素 top = " << top << endl;
+    cout << "スタックのトップの要素 top = " << top << endl;
 
     /* 要素をポップする */
     top = stack->pop();
-    cout << "ポップした要素 pop = " << top << "、ポップ後 stack = ";
+    cout << "ポップした要素 pop = " << top << "、ポップ後の stack = ";
     printVector(stack->toVector());
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     int size = stack->size();
-    cout << "スタックの長さ size = " << size << endl;
+    cout << "スタックの要素数 size = " << size << endl;
 
     /* 空かどうかを判定する */
     bool empty = stack->isEmpty();

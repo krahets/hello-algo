@@ -54,7 +54,7 @@ public class PrintUtil {
 
     /**
      * 이진 트리 출력
-     * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다
+     * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다.
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void printTree(TreeNode root, Trunk prev, boolean isRight) {
@@ -107,7 +107,7 @@ public class PrintUtil {
     /* 힙(우선순위 큐) 출력 */
     public static void printHeap(Queue<Integer> queue) {
         List<Integer> list = new ArrayList<>(queue);
-        System.out.print("힙의 배열 표현:");
+        System.out.print("힙의 배열 표현: ");
         System.out.println(list);
         System.out.println("힙의 트리 표현:");
         TreeNode root = TreeNode.listToTree(list);

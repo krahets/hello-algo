@@ -96,7 +96,7 @@ fn show_trunks(trunk: Option<&Trunk>) {
 /* ヒープを表示する */
 pub fn print_heap(heap: Vec<i32>) {
     println!("ヒープの配列表現：{:?}", heap);
-    println!("ヒープの木構造表現：");
+    println!("ヒープの木構造：");
     if let Some(root) = vec_to_tree(heap.into_iter().map(|val| Some(val)).collect()) {
         print_tree(&root);
     }

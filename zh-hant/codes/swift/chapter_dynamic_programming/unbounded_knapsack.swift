@@ -13,10 +13,10 @@ func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
     for i in 1 ... n {
         for c in 1 ... cap {
             if wgt[i - 1] > c {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[i][c] = dp[i - 1][c]
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
             }
         }
@@ -33,10 +33,10 @@ func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
     for i in 1 ... n {
         for c in 1 ... cap {
             if wgt[i - 1] > c {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[c] = dp[c]
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
             }
         }
@@ -46,7 +46,7 @@ func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
 
 @main
 enum UnboundedKnapsack {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         let wgt = [1, 2, 3]
         let val = [5, 11, 15]
@@ -54,10 +54,10 @@ enum UnboundedKnapsack {
 
         // 動態規劃
         var res = unboundedKnapsackDP(wgt: wgt, val: val, cap: cap)
-        print("不超過背包容量的最大物品價值為 \(res)")
+        print("在背包容量限制內，物品的最大總價值為 \(res)")
 
         // 空間最佳化後的動態規劃
         res = unboundedKnapsackDPComp(wgt: wgt, val: val, cap: cap)
-        print("不超過背包容量的最大物品價值為 \(res)")
+        print("在背包容量限制內，物品的最大總價值為 \(res)")
     }
 }

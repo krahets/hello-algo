@@ -16,7 +16,7 @@ def pre_order(root: TreeNode):
     # Prune
     if root is None or root.val == 3:
         return
-    # Try
+    # Try a choice
     path.append(root)
     if root.val == 7:
         # Record the solution
@@ -27,7 +27,7 @@ def pre_order(root: TreeNode):
     path.pop()
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
     print("\nInitialize the binary tree")
@@ -38,6 +38,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
+    print("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3")
     for path in res:
         print([node.val for node in path])

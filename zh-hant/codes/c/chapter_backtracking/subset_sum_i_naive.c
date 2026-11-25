@@ -20,7 +20,7 @@ int resSize = 0;
 
 /* 回溯演算法：子集和 I */
 void backtrack(int target, int total, int *choices, int choicesSize) {
-    // 子集和等於 target 時，記錄解
+    // 子集總和達到目標時，記錄此解
     if (total == target) {
         for (int i = 0; i < stateSize; i++) {
             res[resSize][i] = state[i];
@@ -28,28 +28,28 @@ void backtrack(int target, int total, int *choices, int choicesSize) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // 走訪所有選擇
+    // 逐一檢查所有選項
     for (int i = 0; i < choicesSize; i++) {
-        // 剪枝：若子集和超過 target ，則跳過該選擇
+        // 剪枝：若加入該元素後總和超過 target，略過這個選擇
         if (total + choices[i] > target) {
             continue;
         }
-        // 嘗試：做出選擇，更新元素和 total
+        // 嘗試：做出選擇，更新元素總和 total
         state[stateSize++] = choices[i];
-        // 進行下一輪選擇
+        // 進入下一輪選擇
         backtrack(target, total + choices[i], choices, choicesSize);
-        // 回退：撤銷選擇，恢復到之前的狀態
+        // 回溯：撤銷選擇，還原先前的狀態
         stateSize--;
     }
 }
 
-/* 求解子集和 I（包含重複子集） */
+/* 求解子集和 I（含重複子集） */
 void subsetSumINaive(int *nums, int numsSize, int target) {
-    resSize = 0; // 初始化解的數量為0
+    resSize = 0; // 將解的個數初始化為 0
     backtrack(target, 0, nums, numsSize);
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int nums[] = {3, 4, 5};
     int numsSize = sizeof(nums) / sizeof(nums[0]);
@@ -60,7 +60,7 @@ int main() {
     printf("輸入陣列 nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("所有和等於 %d 的子集 res = \n", target);
+    printf("總和等於 %d 的所有子集 res = \n", target);
     for (int i = 0; i < resSize; i++) {
         printArray(res[i], resColSizes[i]);
     }

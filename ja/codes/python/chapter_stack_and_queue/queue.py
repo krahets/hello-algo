@@ -6,14 +6,14 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 from collections import deque
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # キューを初期化する
     # Python では一般に、両端キューのクラス deque をキューとして使う
-    # queue.Queue() は専用のキュークラスだが、やや使いづらい
+    # queue.Queue() はキュー専用のクラスだが、使いづらい
     que: deque[int] = deque()
 
-    # 要素をエンキューする
+    # 要素をキューに追加する
     que.append(1)
     que.append(3)
     que.append(2)
@@ -21,19 +21,19 @@ if __name__ == "__main__":
     que.append(4)
     print("キュー que =", que)
 
-    # キューの先頭要素にアクセス
+    # キューの先頭要素を参照する
     front: int = que[0]
-    print("キューの先頭要素 front =", front)
+    print("先頭要素 front =", front)
 
-    # 要素をデキューする
+    # キューから要素を取り出す
     pop: int = que.popleft()
     print("デキューした要素 pop =", pop)
-    print("デキュー後 que =", que)
+    print("デキュー後の que =", que)
 
-    # キューの長さを取得
+    # キューの要素数を取得する
     size: int = len(que)
-    print("キューの長さ size =", size)
+    print("キューの要素数 size =", size)
 
-    # キューが空か判定
+    # キューが空かどうかを判定する
     is_empty: bool = len(que) == 0
     print("キューは空か =", is_empty)

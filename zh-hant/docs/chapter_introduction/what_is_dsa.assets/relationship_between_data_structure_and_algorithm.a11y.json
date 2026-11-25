@@ -4,12 +4,12 @@
   "frames": [
     {
       "book_path": "chapter_introduction/what_is_dsa.assets/relationship_between_data_structure_and_algorithm.png",
-      "explanation": "上方從左到右是輸入（input）→ 演算法（algorithm）→ 輸出（output）；演算法上方註明，它包含一系列操作指令，將輸入轉化為輸出。下方是資料結構（data structure），註明它提供結構化儲存的資料與對應的資料操作方法。三支向上的箭頭分別從資料結構指向輸入、演算法和輸出，表示支撐全部三個環節，並非只在開始前儲存輸入。",
+      "explanation": "上層由左至右依序是輸入（input）→ 演算法（algorithm）→ 輸出（output）。演算法上方的說明指出，演算法包含一連串操作指令，能將輸入轉成輸出。下層是資料結構（data structure），旁邊說明它提供以結構化方式儲存的資料，以及相應的資料操作方法。三支向上的箭頭分別從資料結構指向輸入、演算法和輸出，表示資料結構支援這三個環節，不只是在一開始儲存輸入。",
       "id": "source-17",
       "title": "資料結構與演算法的關係"
     }
   ],
   "schema_version": 2,
-  "summary": "圖用兩層結構表示演算法的處理流程，以及資料結構對整個流程的支撐。",
+  "summary": "圖中分成上下兩層，呈現演算法的處理流程，以及資料結構如何支援整個流程。",
   "title": "資料結構與演算法的關係"
 }

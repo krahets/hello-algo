@@ -7,7 +7,7 @@ package chapter_sorting
 /* Sift down from node i in a heap of size n */
 func siftDown(nums *[]int, n, i int) {
 	for true {
-		// Find the node with the largest value among i, l, and r, and store its index in ma
+		// Let ma be the index of the largest of nodes i, l, and r
 		l := 2*i + 1
 		r := 2*i + 2
 		ma := i
@@ -17,7 +17,7 @@ func siftDown(nums *[]int, n, i int) {
 		if r < n && (*nums)[r] > (*nums)[ma] {
 			ma = r
 		}
-		// Stop if node i is largest or both child indices l and r are out of bounds
+		// Stop if i is the largest or both child indices l and r are out of bounds
 		if ma == i {
 			break
 		}
@@ -30,15 +30,15 @@ func siftDown(nums *[]int, n, i int) {
 
 /* Heap sort */
 func heapSort(nums *[]int) {
-	// Build the heap by sifting down from every non-leaf node
+	// Build the heap by sifting down from each non-leaf node
 	for i := len(*nums)/2 - 1; i >= 0; i-- {
 		siftDown(nums, len(*nums), i)
 	}
-	// Extract the largest element from the heap, repeating for n-1 rounds
+	// Extract the maximum from the heap in each of n-1 rounds
 	for i := len(*nums) - 1; i > 0; i-- {
-		// Swap the root with the rightmost leaf on the last level (the first and last elements of the current heap)
+		// Swap the root and rightmost leaf (the first and last elements)
 		(*nums)[0], (*nums)[i] = (*nums)[i], (*nums)[0]
-		// Sift down starting at the root
+		// Sift down from the root
 		siftDown(nums, i, 0)
 	}
 }

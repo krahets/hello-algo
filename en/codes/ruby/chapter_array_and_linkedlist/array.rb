@@ -4,47 +4,47 @@ Created Time: 2024-03-18
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Access an element at a random index ###
+### Access a random element ###
 def random_access(nums)
-  # Choose a random index in the interval [0, nums.length)
+  # Pick a random index in [0, nums.length)
   random_index = Random.rand(0...nums.length)
 
-  # Get and return the randomly selected element
+  # Get and return the element at that index
   nums[random_index]
 end
 
 
-### Extend the array length ###
-# Ruby Array is a dynamic array that can grow directly
-# For learning purposes, this function treats Array as a fixed-length array
+### Extend the array ###
+# A Ruby Array is dynamic and can grow directly
+# For this example, treat Array as a fixed-length array
 def extend(nums, enlarge)
-  # Initialize an array with the extended length
+  # Initialize an array with the new length
   res = Array.new(nums.length + enlarge, 0)
 
-  # Copy all elements from the original array to the new array
+  # Copy all elements from the original array into the new array
   for i in 0...nums.length
     res[i] = nums[i]
   end
 
-  # Return the new, extended array
+  # Return the new, longer array
   res
 end
 
-### Insert element num at index `index` in the array ###
+### Insert num at the specified array index ###
 def insert(nums, num, index)
-  # Shift all elements at and after index `index` one position to the right
+  # Shift the elements from index onward one position to the right
   for i in (nums.length - 1).downto(index + 1)
     nums[i] = nums[i - 1]
   end
 
-  # Assign num to the element at index `index`
+  # Store num at the specified index
   nums[index] = num
 end
 
 
-### Remove the element at index `index` ###
+### Remove the element at the specified index ###
 def remove(nums, index)
-  # Shift all elements after index `index` one position to the left
+  # Shift all elements after index one position to the left
   for i in index...(nums.length - 1)
     nums[i] = nums[i + 1]
   end
@@ -65,7 +65,7 @@ def traverse(nums)
   end
 end
 
-### Find a specified element in the array ###
+### Find a given element in the array ###
 def find(nums, target)
   for i in 0...nums.length
     return i if nums[i] == target
@@ -75,7 +75,7 @@ def find(nums, target)
 end
 
 
-### Driver code ###
+### Driver Code ###
 if __FILE__ == $0
   # Initialize the array
   arr = Array.new(5, 0)
@@ -87,9 +87,9 @@ if __FILE__ == $0
   random_num = random_access(nums)
   puts "Random element from nums: #{random_num}"
 
-  # Extend the length
+  # Extend the array
   nums = extend(nums, 3)
-  puts "After extending the array length to 8, nums = #{nums}"
+  puts "After extending the array to length 8, nums = #{nums}"
 
   # Insert an element
   insert(nums, 6, 3)
@@ -104,5 +104,5 @@ if __FILE__ == $0
 
   # Find an element
   index = find(nums, 3)
-  puts "Search for 3 in nums: index = #{index}"
+  puts "Index of 3 in nums = #{index}"
 end

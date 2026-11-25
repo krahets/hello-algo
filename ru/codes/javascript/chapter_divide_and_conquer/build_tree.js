@@ -7,25 +7,25 @@
 const { printTree } = require('../modules/PrintUtil');
 const { TreeNode } = require('../modules/TreeNode');
 
-/* Построить двоичное дерево: разделяй и властвуй */
+/* Построение двоичного дерева методом «разделяй и властвуй» */
 function dfs(preorder, inorderMap, i, l, r) {
-    // Завершить при пустом диапазоне поддерева
+    // Если интервал поддерева пуст, завершаем рекурсию
     if (r - l < 0) return null;
-    // Инициализировать корневой узел
+    // Создаём корень
     const root = new TreeNode(preorder[i]);
-    // Найти m, чтобы разделить левое и правое поддеревья
+    // Находим m и разделяем левое и правое поддеревья
     const m = inorderMap.get(preorder[i]);
-    // Подзадача: построить левое поддерево
+    // Подзадача: строим левое поддерево
     root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-    // Подзадача: построить правое поддерево
+    // Подзадача: строим правое поддерево
     root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-    // Вернуть корневой узел
+    // Возвращаем корень
     return root;
 }
 
-/* Построить двоичное дерево */
+/* Построение двоичного дерева */
 function buildTree(preorder, inorder) {
-    // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
+    // Создаём хеш-таблицу индексов элементов inorder
     let inorderMap = new Map();
     for (let i = 0; i < inorder.length; i++) {
         inorderMap.set(inorder[i], i);
@@ -34,10 +34,10 @@ function buildTree(preorder, inorder) {
     return root;
 }
 
-/* Driver Code */
+/* Основная программа */
 const preorder = [3, 9, 2, 1, 7];
 const inorder = [9, 3, 1, 2, 7];
-console.log('Предварительный обход = ' + JSON.stringify(preorder));
+console.log('Прямой обход = ' + JSON.stringify(preorder));
 console.log('Симметричный обход = ' + JSON.stringify(inorder));
 const root = buildTree(preorder, inorder);
 console.log('Построенное двоичное дерево:');

@@ -6,11 +6,11 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* 循環配列で実装したキュー */
+/* 循環配列を使ったキュー */
 class ArrayQueue {
     int[] nums;  // キューの要素を格納する配列
-    int front;   // キューの先頭要素を指す先頭ポインタ
-    int queSize; // キューの長さ
+    int front;   // キューの先頭要素を指すインデックス
+    int queSize; // キューの要素数
 
     public ArrayQueue(int capacity) {
         nums = new int[capacity];
@@ -22,40 +22,40 @@ class ArrayQueue {
         return nums.Length;
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     public int Size() {
         return queSize;
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     public bool IsEmpty() {
         return queSize == 0;
     }
 
-    /* エンキュー */
+    /* エンキューする */
     public void Push(int num) {
         if (queSize == Capacity()) {
             Console.WriteLine("キューが満杯です");
             return;
         }
-        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
-        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
+        // キューの末尾要素の次の位置を示すインデックスを求める
+        // 剰余を使い、rear が配列の末尾を越えたら先頭に戻るようにする
         int rear = (front + queSize) % Capacity();
         // num をキューの末尾に追加する
         nums[rear] = num;
         queSize++;
     }
 
-    /* デキュー */
+    /* デキューする */
     public int Pop() {
         int num = Peek();
-        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
+        // 先頭のインデックスを 1 つ進め、配列の末尾を越えたら先頭に戻す
         front = (front + 1) % Capacity();
         queSize--;
         return num;
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
@@ -64,7 +64,7 @@ class ArrayQueue {
 
     /* 配列を返す */
     public int[] ToArray() {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // キューの要素数に当たる範囲だけを変換する
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[j % this.Capacity()];
@@ -80,7 +80,7 @@ public class array_queue {
         int capacity = 10;
         ArrayQueue queue = new(capacity);
 
-        /* 要素をエンキューする */
+        /* 要素をキューに追加する */
         queue.Push(1);
         queue.Push(3);
         queue.Push(2);
@@ -88,27 +88,27 @@ public class array_queue {
         queue.Push(4);
         Console.WriteLine("キュー queue = " + string.Join(",", queue.ToArray()));
 
-        /* キューの先頭要素にアクセス */
+        /* キューの先頭要素を参照する */
         int peek = queue.Peek();
-        Console.WriteLine("キューの先頭要素 peek = " + peek);
+        Console.WriteLine("先頭要素 peek = " + peek);
 
-        /* 要素をデキューする */
+        /* キューから要素を取り出す */
         int pop = queue.Pop();
-        Console.WriteLine("デキューした要素 pop = " + pop + "、デキュー後 queue = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("デキューした要素 pop = " + pop + "、デキュー後の queue = " + string.Join(",", queue.ToArray()));
 
-        /* キューの長さを取得 */
+        /* キューの要素数を取得する */
         int size = queue.Size();
-        Console.WriteLine("キューの長さ size = " + size);
+        Console.WriteLine("キューの要素数 size = " + size);
 
-        /* キューが空か判定 */
+        /* キューが空かどうかを判定する */
         bool isEmpty = queue.IsEmpty();
         Console.WriteLine("キューは空か = " + isEmpty);
 
-        /* 循環配列をテストする */
+        /* 循環配列の動作を確認する */
         for (int i = 0; i < 10; i++) {
             queue.Push(i);
             queue.Pop();
-            Console.WriteLine("第 " + i + " 回のエンキューとデキューの後 queue = " + string.Join(",", queue.ToArray()));
+            Console.WriteLine("第 " + i + " 回のエンキューとデキューを終えた後の queue = " + string.Join(",", queue.ToArray()));
         }
     }
 }

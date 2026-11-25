@@ -19,10 +19,10 @@ function unboundedKnapsackDP(
     for (let i = 1; i <= n; i++) {
         for (let c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // ナップサックの容量を超える場合、品物 i を選ばない
+                // 容量を超える場合は品物 i を選ばない
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+                // 品物 i を選ばない場合と選ぶ場合の大きい方を取る
                 dp[i][c] = Math.max(
                     dp[i - 1][c],
                     dp[i][c - wgt[i - 1]] + val[i - 1]
@@ -33,7 +33,7 @@ function unboundedKnapsackDP(
     return dp[n][cap];
 }
 
-/* 個数制限なしナップサック問題：空間を最適化した動的計画法 */
+/* 個数制限なしナップサック問題：使用メモリを削減した動的計画法 */
 function unboundedKnapsackDPComp(
     wgt: Array<number>,
     val: Array<number>,
@@ -46,10 +46,10 @@ function unboundedKnapsackDPComp(
     for (let i = 1; i <= n; i++) {
         for (let c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // ナップサックの容量を超える場合、品物 i を選ばない
+                // 容量を超える場合は品物 i を選ばない
                 dp[c] = dp[c];
             } else {
-                // 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+                // 品物 i を選ばない場合と選ぶ場合の大きい方を取る
                 dp[c] = Math.max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
@@ -57,17 +57,17 @@ function unboundedKnapsackDPComp(
     return dp[cap];
 }
 
-/* 実行用コード */
+/* 実行例 */
 const wgt = [1, 2, 3];
 const val = [5, 11, 15];
 const cap = 4;
 
 // 動的計画法
 let res = unboundedKnapsackDP(wgt, val, cap);
-console.log(`ナップサックの容量を超えない品物の最大価値は ${res}`);
+console.log(`容量内でナップサックに入る品物の最大価値は ${res}`);
 
-// 空間を最適化した動的計画法
+// 使用メモリを削減した動的計画法
 res = unboundedKnapsackDPComp(wgt, val, cap);
-console.log(`ナップサックの容量を超えない品物の最大価値は ${res}`);
+console.log(`容量内でナップサックに入る品物の最大価値は ${res}`);
 
 export {};

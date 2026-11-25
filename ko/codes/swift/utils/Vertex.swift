@@ -20,12 +20,12 @@ public class Vertex: Hashable {
         hasher.combine(val)
     }
 
-    /* 값의 리스트 vals를 입력받아 정점 리스트 vets 반환 */
+    /* 값 리스트 vals를 받아 정점 리스트 vets를 반환한다. */
     public static func valsToVets(vals: [Int]) -> [Vertex] {
         vals.map { Vertex(val: $0) }
     }
 
-    /* 정점 리스트 vets를 입력받아 값의 리스트 vals 반환 */
+    /* 정점 리스트 vets를 받아 값 리스트 vals를 반환한다. */
     public static func vetsToVals(vets: [Vertex]) -> [Int] {
         vets.map { $0.val }
     }

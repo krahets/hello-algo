@@ -11,35 +11,35 @@ import 'graph_adjacency_list.dart';
 
 /* Breadth-first traversal */
 List<Vertex> graphBFS(GraphAdjList graph, Vertex startVet) {
-  // Represent the graph with an adjacency list to access all neighbors of a given vertex
-  // Vertex traversal sequence
+  // Represent the graph with an adjacency list to look up all neighbors of a given vertex
+  // Vertex traversal order
   List<Vertex> res = [];
-  // Hash set recording visited vertices
+  // Use a hash set to track visited vertices
   Set<Vertex> visited = {};
   visited.add(startVet);
-  // Use a queue to implement BFS
+  // Use a queue for BFS
   Queue<Vertex> que = Queue();
   que.add(startVet);
-  // Starting from startVet, loop until all reachable vertices have been visited
+  // Starting at vertex vet, loop until all reachable vertices have been visited
   while (que.isNotEmpty) {
     Vertex vet = que.removeFirst(); // Dequeue the front vertex
     res.add(vet); // Record the visited vertex
-    // Traverse all neighbors of this vertex
+    // Iterate over all neighbors of this vertex
     for (Vertex adjVet in graph.adjList[vet]!) {
       if (visited.contains(adjVet)) {
-        continue; // Skip vertices that have already been visited
+        continue; // Skip visited vertices
       }
       que.add(adjVet); // Enqueue only unvisited vertices
-      visited.add(adjVet); // Mark this vertex as visited
+      visited.add(adjVet); // Mark the vertex as visited
     }
   }
-  // Return the vertex traversal sequence
+  // Return the vertex traversal order
   return res;
 }
 
 /* Driver code */
 void main() {
-  /* Initialize the undirected graph */
+  /* Initialize an undirected graph */
   List<Vertex> v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
   List<List<Vertex>> edges = [
     [v[0], v[1]],
@@ -61,6 +61,6 @@ void main() {
 
   /* Breadth-first traversal */
   List<Vertex> res = graphBFS(graph, v[0]);
-  print("\nVertex sequence from breadth-first traversal (BFS):");
+  print("\nBreadth-first search (BFS) visits the vertices in this order:");
   print(Vertex.vetsToVals(res));
 }

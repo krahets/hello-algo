@@ -4,10 +4,10 @@
  * Author: WSL0809 (wslzzy@outlook.com)
  */
 
-/* Queue implemented with a circular array */
+/* Queue backed by a circular array */
 struct ArrayQueue<T> {
     nums: Vec<T>,      // Array that stores the queue elements
-    front: i32,        // Front index, identifying the first element
+    front: i32,        // Index of the front element
     que_size: i32,     // Queue size
     que_capacity: i32, // Queue capacity
 }
@@ -38,38 +38,38 @@ impl<T: Copy + Default> ArrayQueue<T> {
         self.que_size == 0
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     fn push(&mut self, num: T) {
         if self.que_size == self.capacity() {
             println!("Queue is full");
             return;
         }
-        // Calculate the rear index, one position past the last element
-        // Use modulo to wrap rear to the beginning when it passes the end of the array
+        // Compute the index one slot past the rear element
+        // Use the remainder to wrap rear back to the start of the array
         let rear = (self.front + self.que_size) % self.que_capacity;
-        // Add num to the rear
+        // Add num at the rear
         self.nums[rear as usize] = num;
         self.que_size += 1;
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     fn pop(&mut self) -> T {
         let num = self.peek();
-        // Advance the front index by one position, wrapping to the beginning if it passes the end
+        // Advance the front index by one, wrapping to the start if it passes the end
         self.front = (self.front + 1) % self.que_capacity;
         self.que_size -= 1;
         num
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     fn peek(&self) -> T {
         if self.is_empty() {
-            panic!("Index out of bounds");
+            panic!("index out of bounds");
         }
         self.nums[self.front as usize]
     }
 
-    /* Return a vector */
+    /* Return a vector containing the queue elements */
     fn to_vector(&self) -> Vec<T> {
         let cap = self.que_capacity;
         let mut j = self.front;
@@ -94,16 +94,16 @@ fn main() {
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    println!("Queue queue = {:?}", queue.to_vector());
+    println!("queue = {:?}", queue.to_vector());
 
-    /* Access the front element */
+    /* Peek at the front element */
     let peek = queue.peek();
-    println!("Front element peek = {}", peek);
+    println!("Front element (peek) = {}", peek);
 
     /* Dequeue an element */
     let pop = queue.pop();
     println!(
-        "Dequeued element pop = {:?}; after dequeueing, queue = {:?}",
+        "Dequeued element (pop) = {:?}, queue after removal = {:?}",
         pop,
         queue.to_vector()
     );
@@ -114,12 +114,12 @@ fn main() {
 
     /* Check whether the queue is empty */
     let is_empty = queue.is_empty();
-    println!("Is the queue empty? {}", is_empty);
+    println!("Queue is empty = {}", is_empty);
 
     /* Test the circular array */
     for i in 0..10 {
         queue.push(i);
         queue.pop();
-        println!("After round {:?} of enqueue + dequeue, queue = {:?}", i, queue.to_vector());
+        println!("After enqueue/dequeue round {:?}, queue = {:?}", i, queue.to_vector());
     }
 }

@@ -15,24 +15,24 @@ class Item {
     }
 }
 
-/* 分數背包：貪婪 */
+/* 分數背包：貪婪法 */
 func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
-    // 建立物品串列，包含兩個屬性：重量、價值
+    // 建立物品清單，每件物品有重量與價值兩項屬性
     var items = zip(wgt, val).map { Item(w: $0, v: $1) }
-    // 按照單位價值 item.v / item.w 從高到低進行排序
+    // 依單位價值 item.v / item.w 由高到低排序
     items.sort { -(Double($0.v) / Double($0.w)) < -(Double($1.v) / Double($1.w)) }
-    // 迴圈貪婪選擇
+    // 反覆依貪婪策略選取物品
     var res = 0.0
     var cap = cap
     for item in items {
         if item.w <= cap {
-            // 若剩餘容量充足，則將當前物品整個裝進背包
+            // 若剩餘容量足夠，就將目前的物品整件裝入背包
             res += Double(item.v)
             cap -= item.w
         } else {
-            // 若剩餘容量不足，則將當前物品的一部分裝進背包
+            // 若剩餘容量不足，就將目前物品的一部分裝入背包
             res += Double(item.v) / Double(item.w) * Double(cap)
-            // 已無剩餘容量，因此跳出迴圈
+            // 背包已滿，跳出迴圈
             break
         }
     }
@@ -41,7 +41,7 @@ func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
 
 @main
 enum FractionalKnapsack {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         // 物品重量
         let wgt = [10, 20, 30, 40, 50]
@@ -52,6 +52,6 @@ enum FractionalKnapsack {
 
         // 貪婪演算法
         let res = fractionalKnapsack(wgt: wgt, val: val, cap: cap)
-        print("不超過背包容量的最大物品價值為 \(res)")
+        print("在背包容量限制內，物品的最大總價值為 \(res)")
     }
 }

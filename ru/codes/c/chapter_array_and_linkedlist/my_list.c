@@ -8,10 +8,10 @@
 
 /* Класс списка */
 typedef struct {
-    int *arr;        // Массив (для хранения элементов списка)
-    int capacity;    // Вместимость списка
+    int *arr;        // Массив для хранения элементов списка
+    int capacity;    // Ёмкость списка
     int size;        // Размер списка
-    int extendRatio; // Коэффициент расширения списка при каждом увеличении
+    int extendRatio; // Коэффициент увеличения ёмкости списка
 } MyList;
 
 void extendCapacity(MyList *nums);
@@ -37,7 +37,7 @@ int size(MyList *nums) {
     return nums->size;
 }
 
-/* Получить вместимость списка */
+/* Получить ёмкость списка */
 int capacity(MyList *nums) {
     return nums->capacity;
 }
@@ -57,7 +57,7 @@ void set(MyList *nums, int index, int num) {
 /* Добавление элемента в конец */
 void add(MyList *nums, int num) {
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // Расширение емкости
+        extendCapacity(nums); // Увеличение ёмкости
     }
     nums->arr[size(nums)] = num;
     nums->size++;
@@ -66,9 +66,9 @@ void add(MyList *nums, int num) {
 /* Вставка элемента в середину */
 void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
-    // При превышении вместимости по числу элементов запускается расширение
+    // Если для элементов не хватает места, увеличить ёмкость
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // Расширение емкости
+        extendCapacity(nums); // Увеличение ёмкости
     }
     for (int i = size(nums); i > index; --i) {
         nums->arr[i] = nums->arr[i - 1];
@@ -78,7 +78,7 @@ void insert(MyList *nums, int index, int num) {
 }
 
 /* Удаление элемента */
-// Внимание: stdio.h уже использует ключевое слово remove
+// Имя remove уже используется в stdio.h
 int removeItem(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
@@ -89,31 +89,31 @@ int removeItem(MyList *nums, int index) {
     return num;
 }
 
-/* Расширение списка */
+/* Увеличение ёмкости списка */
 void extendCapacity(MyList *nums) {
     // Сначала выделить память
     int newCapacity = capacity(nums) * nums->extendRatio;
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
     int *temp = nums->arr;
 
-    // Скопировать старые данные в новые
+    // Скопировать данные в новую область памяти
     for (int i = 0; i < size(nums); i++)
         extend[i] = nums->arr[i];
 
-    // Освободить старые данные
+    // Освободить прежнюю область памяти
     free(temp);
 
-    // Обновить новые данные
+    // Перейти к новым данным
     nums->arr = extend;
     nums->capacity = newCapacity;
 }
 
-/* Преобразовать список в Array для вывода */
+/* Преобразовать список в массив для вывода */
 int *toArray(MyList *nums) {
     return nums->arr;
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
     /* Инициализация списка */
     MyList *nums = newMyList();
@@ -125,7 +125,7 @@ int main() {
     add(nums, 4);
     printf("Список nums = ");
     printArray(toArray(nums), size(nums));
-    printf("Вместимость = %d, длина = %d\n", capacity(nums), size(nums));
+    printf("Ёмкость = %d, длина = %d\n", capacity(nums), size(nums));
 
     /* Вставка элемента в середину */
     insert(nums, 3, 6);
@@ -143,18 +143,18 @@ int main() {
 
     /* Изменение элемента */
     set(nums, 1, 0);
-    printf("После изменения элемента по индексу 1 на 0 nums = ");
+    printf("После записи 0 по индексу 1 nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* Проверка механизма расширения */
+    /* Проверка увеличения ёмкости */
     for (int i = 0; i < 10; i++) {
-        // При i = 5 длина списка превысит его вместимость, и в этот момент сработает механизм расширения
+        // При i = 5 длина списка превысит его ёмкость, поэтому потребуется увеличить ёмкость
         add(nums, i);
     }
 
-    printf("После расширения список nums = ");
+    printf("После увеличения ёмкости список nums = ");
     printArray(toArray(nums), size(nums));
-    printf("Вместимость = %d, длина = %d\n", capacity(nums), size(nums));
+    printf("Ёмкость = %d, длина = %d\n", capacity(nums), size(nums));
 
     /* Освободить выделенную память */
     delMyList(nums);

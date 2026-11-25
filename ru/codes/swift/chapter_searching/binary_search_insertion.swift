@@ -4,41 +4,41 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Двоичный поиск точки вставки (без повторяющихся элементов) */
+/* Двоичный поиск позиции вставки без повторов */
 func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
-    // Инициализировать замкнутый интервал [0, n-1]
+    // Задаём замкнутый интервал [0, n-1]
     var i = nums.startIndex
     var j = nums.endIndex - 1
     while i <= j {
-        let m = i + (j - i) / 2 // Вычислить индекс середины m
+        let m = i + (j - i) / 2 // Вычисляем индекс середины m
         if nums[m] < target {
-            i = m + 1 // target находится в интервале [m+1, j]
+            i = m + 1 // Ищем target в интервале [m+1, j]
         } else if nums[m] > target {
-            j = m - 1 // target находится в интервале [i, m-1]
+            j = m - 1 // Ищем target в интервале [i, m-1]
         } else {
-            return m // target найден, возвращается точка вставки m
+            return m // Значение target найдено, возвращаем позицию вставки m
         }
     }
-    // target не найден, вернуть точку вставки i
+    // Значение target не найдено, возвращаем позицию вставки i
     return i
 }
 
-/* Двоичный поиск точки вставки (с повторяющимися элементами) */
+/* Двоичный поиск позиции вставки при наличии повторов */
 public func binarySearchInsertion(nums: [Int], target: Int) -> Int {
-    // Инициализировать замкнутый интервал [0, n-1]
+    // Задаём замкнутый интервал [0, n-1]
     var i = nums.startIndex
     var j = nums.endIndex - 1
     while i <= j {
-        let m = i + (j - i) / 2 // Вычислить индекс середины m
+        let m = i + (j - i) / 2 // Вычисляем индекс середины m
         if nums[m] < target {
-            i = m + 1 // target находится в интервале [m+1, j]
+            i = m + 1 // Ищем target в интервале [m+1, j]
         } else if nums[m] > target {
-            j = m - 1 // target находится в интервале [i, m-1]
+            j = m - 1 // Ищем target в интервале [i, m-1]
         } else {
-            j = m - 1 // Самый правый элемент, меньший target, находится в интервале [i, m-1]
+            j = m - 1 // В интервале [i, m-1] ищем последний элемент, меньший target
         }
     }
-    // Вернуть точку вставки i
+    // Возвращаем позицию вставки i
     return i
 }
 
@@ -46,24 +46,24 @@ public func binarySearchInsertion(nums: [Int], target: Int) -> Int {
 
 @main
 enum BinarySearchInsertion {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
         // Массив без повторяющихся элементов
         var nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
         print("\nМассив nums = \(nums)")
-        // Двоичный поиск точки вставки
+        // Двоичный поиск позиции вставки
         for target in [6, 9] {
             let index = binarySearchInsertionSimple(nums: nums, target: target)
-            print("Индекс позиции вставки элемента \(target) равен \(index)")
+            print("Позиция вставки элемента \(target) = \(index)")
         }
 
         // Массив с повторяющимися элементами
         nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
         print("\nМассив nums = \(nums)")
-        // Двоичный поиск точки вставки
+        // Двоичный поиск позиции вставки
         for target in [2, 6, 20] {
             let index = binarySearchInsertion(nums: nums, target: target)
-            print("Индекс позиции вставки элемента \(target) равен \(index)")
+            print("Позиция вставки элемента \(target) = \(index)")
         }
     }
 }

@@ -4,17 +4,17 @@
 
 
 class Vertex:
-    """頂点クラス"""
+    """頂点を表すクラス"""
 
     def __init__(self, val: int):
         self.val = val
 
 
 def vals_to_vets(vals: list[int]) -> list["Vertex"]:
-    """値のリスト vals を入力し、頂点のリスト vets を返す"""
+    """値のリスト vals を受け取り、頂点のリスト vets を返す"""
     return [Vertex(val) for val in vals]
 
 
 def vets_to_vals(vets: list["Vertex"]) -> list[int]:
-    """頂点のリスト vets を入力し、値のリスト vals を返す"""
+    """頂点のリスト vets を受け取り、値のリスト vals を返す"""
     return [vet.val for vet in vets]

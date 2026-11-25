@@ -10,24 +10,24 @@ def recur(n: int) -> int:
     # Base case
     if n == 1:
         return 1
-    # Recurse: make a recursive call
+    # Descend: make a recursive call
     res = recur(n - 1)
     # Unwind: return the result
     return n + res
 
 
 def for_loop_recur(n: int) -> int:
-    """Simulate recursion using iteration"""
-    # Use an explicit stack to simulate the system call stack
+    """Simulate recursion with iteration"""
+    # Use an explicit stack to simulate the call stack
     stack = []
     res = 0
-    # Simulate the recursive-call phase
+    # Descend: make a recursive call
     for i in range(n, 0, -1):
-        # Simulate recursive calls by pushing onto the stack
+        # Push to simulate descending
         stack.append(i)
-    # Simulate unwinding and accumulating the result
+    # Unwind: return the result
     while stack:
-        # Simulate unwinding by popping from the stack
+        # Pop to simulate unwinding
         res += stack.pop()
     # res = 1+2+3+...+n
     return res
@@ -38,12 +38,12 @@ def tail_recur(n, res):
     # Base case
     if n == 0:
         return res
-    # Tail-recursive call
+    # Tail call
     return tail_recur(n - 1, res + n)
 
 
 def fib(n: int) -> int:
-    """Fibonacci sequence: recursion"""
+    """Fibonacci sequence using recursion"""
     # Base cases: f(1) = 0, f(2) = 1
     if n == 1 or n == 2:
         return n - 1
@@ -53,17 +53,17 @@ def fib(n: int) -> int:
     return res
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     n = 5
     res = recur(n)
-    print(f"\nSum from the recursive function: res = {res}")
+    print(f"\nRecursive sum: res = {res}")
 
     res = for_loop_recur(n)
-    print(f"\nSum from simulating recursion using iteration: res = {res}")
+    print(f"\nSum using simulated recursion: res = {res}")
 
     res = tail_recur(n, 0)
-    print(f"\nSum from the tail-recursive function: res = {res}")
+    print(f"\nTail-recursive sum: res = {res}")
 
     res = fib(n)
-    print(f"\nTerm {n} of the Fibonacci sequence is {res}")
+    print(f"\nFibonacci term {n} is {res}")

@@ -6,46 +6,46 @@ package chapter_dynamic_programming
 
 import "math"
 
-/* Minimum path sum: brute-force search */
+/* Minimum path sum with brute-force search */
 func minPathSumDFS(grid [][]int, i, j int) int {
 	// Stop searching at the top-left cell
 	if i == 0 && j == 0 {
 		return grid[0][0]
 	}
-	// If a row or column index is out of bounds, return math.MaxInt to represent an infinite cost
+	// Return a cost of +∞ if either index is out of bounds
 	if i < 0 || j < 0 {
 		return math.MaxInt
 	}
-	// Calculate the minimum path costs from the top-left corner to (i-1, j) and (i, j-1)
+	// Find the minimum path costs from the top left to (i-1, j) and (i, j-1)
 	up := minPathSumDFS(grid, i-1, j)
 	left := minPathSumDFS(grid, i, j-1)
-	// Return the minimum path cost from the top-left corner to (i, j)
+	// Return the minimum path cost from the top left to (i, j)
 	return int(math.Min(float64(left), float64(up))) + grid[i][j]
 }
 
-/* Minimum path sum: memoized search */
+/* Minimum path sum with memoized search */
 func minPathSumDFSMem(grid, mem [][]int, i, j int) int {
 	// Stop searching at the top-left cell
 	if i == 0 && j == 0 {
 		return grid[0][0]
 	}
-	// If a row or column index is out of bounds, return math.MaxInt to represent an infinite cost
+	// Return a cost of +∞ if either index is out of bounds
 	if i < 0 || j < 0 {
 		return math.MaxInt
 	}
-	// If a result has already been recorded, return it directly
+	// Return the cached result if available
 	if mem[i][j] != -1 {
 		return mem[i][j]
 	}
-	// Minimum path costs to the cells on the left and above
+	// Minimum path costs for the cells to the left and above
 	up := minPathSumDFSMem(grid, mem, i-1, j)
 	left := minPathSumDFSMem(grid, mem, i, j-1)
-	// Record and return the minimum path cost from the top-left corner to (i, j)
+	// Cache and return the minimum path cost from the top left to (i, j)
 	mem[i][j] = int(math.Min(float64(left), float64(up))) + grid[i][j]
 	return mem[i][j]
 }
 
-/* Minimum path sum: dynamic programming */
+/* Minimum path sum with dynamic programming */
 func minPathSumDP(grid [][]int) int {
 	n, m := len(grid), len(grid[0])
 	// Initialize the dp table
@@ -54,15 +54,15 @@ func minPathSumDP(grid [][]int) int {
 		dp[i] = make([]int, m)
 	}
 	dp[0][0] = grid[0][0]
-	// State transitions: first row
+	// State transitions for the first row
 	for j := 1; j < m; j++ {
 		dp[0][j] = dp[0][j-1] + grid[0][j]
 	}
-	// State transitions: first column
+	// State transitions for the first column
 	for i := 1; i < n; i++ {
 		dp[i][0] = dp[i-1][0] + grid[i][0]
 	}
-	// State transitions: remaining rows and columns
+	// State transitions for the remaining rows and columns
 	for i := 1; i < n; i++ {
 		for j := 1; j < m; j++ {
 			dp[i][j] = int(math.Min(float64(dp[i][j-1]), float64(dp[i-1][j]))) + grid[i][j]
@@ -71,21 +71,21 @@ func minPathSumDP(grid [][]int) int {
 	return dp[n-1][m-1]
 }
 
-/* Minimum path sum: space-optimized dynamic programming */
+/* Minimum path sum with space-optimized dynamic programming */
 func minPathSumDPComp(grid [][]int) int {
 	n, m := len(grid), len(grid[0])
 	// Initialize the dp table
 	dp := make([]int, m)
-	// State transitions: first row
+	// State transitions for the first row
 	dp[0] = grid[0][0]
 	for j := 1; j < m; j++ {
 		dp[j] = dp[j-1] + grid[0][j]
 	}
-	// State transitions: remaining rows and columns
+	// State transitions for the remaining rows and columns
 	for i := 1; i < n; i++ {
-		// State transitions: first column
+		// State transitions for the first column
 		dp[0] = dp[0] + grid[i][0]
-		// State transitions: remaining columns
+		// State transitions for the remaining columns
 		for j := 1; j < m; j++ {
 			dp[j] = int(math.Min(float64(dp[j-1]), float64(dp[j]))) + grid[i][j]
 		}

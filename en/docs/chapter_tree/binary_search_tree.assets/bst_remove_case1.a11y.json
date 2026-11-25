@@ -1,59 +1,45 @@
 {
-  "schema_version": 2,
-  "title": "Delete a leaf from a binary search tree",
-  "summary": "A leaf has degree 0, so it leaves no subtree to reconnect. Clear the parent’s reference to the leaf.",
-  "context": [
-    "Delete leaf 1 from a tree rooted at 8 with values 1 through 15. The two panels show the tree before and after deletion with a degree-0 check between them. The pointer cur identifies the target and pre its parent. The table compares links before and after deletion. “Removed” means the node is no longer in the tree."
-  ],
-  "description": [],
-  "result": "The remaining values 2 through 15 preserve binary search tree order. The empty position to the left of 2 represents a None reference, not a new node.",
-  "frames": [
-    {
-      "id": "source-122",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case1.png",
-      "title": "Delete a leaf from a binary search tree",
-      "explanation": "Follow 8 → 4 → 2 → 1 to find target 1. Now cur points to 1 and pre to parent 2. Since 1 has no children, its degree is 0 and no subtree needs reattaching. Set pre.left = None to clear the left link of parent 2."
-    }
-  ],
   "animations": {
     "bst-remove-leaf": {
       "kind": "prose",
       "prose": {
-        "title": "Delete a leaf from a binary search tree",
-        "summary": "A leaf has degree 0, so it leaves no subtree to reconnect. Clear the parent’s reference to the leaf.",
         "context": [
-          "Delete leaf 1 from a tree rooted at 8 with values 1 through 15. The two panels show the tree before and after deletion with a degree-0 check between them. The pointer cur identifies the target and pre its parent. The table compares links before and after deletion. “Removed” means the node is no longer in the tree."
+          "Delete leaf 1 from the tree rooted at 8 that contains values 1 through 15. Between the before and after panels, the figure notes that the node has degree 0. The pointer cur identifies the target, and pre identifies its parent. The table compares connections before and after deletion. “Removed” means the node no longer belongs to the tree."
         ],
         "description": [
-          "Animation steps 1 and 2 correspond to the two before-deletion columns in the links table. The last step corresponds to the two after-deletion columns. Look up any node by its row header in either state."
+          "Animation steps 1 and 2 correspond to the two before-deletion columns of the connection table. The last step corresponds to the two after-deletion columns. Use the node row headings to look up the connections in either state."
         ],
-        "result": "The remaining values 2 through 15 preserve binary search tree order. The empty position to the left of 2 represents a None reference, not a new node.",
+        "input_tables": [
+          0
+        ],
+        "result": "Values 2 through 15 remain in binary search tree order. The empty position to the left of 2 represents a None reference, not a new node.",
         "steps": [
           {
+            "announcement": "Follow the left branch to target node 1 and its parent, 2.",
+            "explanation": "The target 1 is less than 8, 4, and 2. Follow 8→4→2→1 to reach cur=1 with pre=2. Node 1 is still the left child of 2, and 3 is its right child. Nothing has been deleted yet. See the two before-deletion columns in “Binary search tree connections before and after deleting a leaf” for the whole tree.",
             "id": "step-1",
-            "title": "Locate the leaf to delete",
-            "explanation": "Target 1 is smaller than 8, 4, and 2. Following 8→4→2→1 gives cur=1 and pre=2. Node 2 still has left child 1 and right child 3. Nothing has been deleted. See the two before-deletion columns in “Binary search tree links before and after leaf deletion” for all links.",
-            "key_state": "With cur = 1 and pre = 2, the target is located and not yet deleted.",
-            "announcement": "Follow left links to find target 1 and its parent 2."
+            "key_state": "With cur = 1 and pre = 2, the target has been found but has yet to be deleted.",
+            "title": "Locate the leaf to delete"
           },
           {
+            "announcement": "Confirm that target node 1 has degree 0. The parent link is still intact.",
+            "explanation": "Both child references of cur (1) are empty, confirming its degree is 0 and there is no subtree to reconnect. So far only the check is complete. Node 1 is still in place: pre=2, and 2 still has left child 1 and right child 3. The whole tree still matches the two before-deletion columns of the same table.",
             "id": "step-2",
-            "title": "Check that the target has no children",
-            "explanation": "Both child links of cur (1) are empty. Its degree is 0, so there is no subtree to reconnect. This is only the check: node 1 is still present. Here pre=2, and node 2 still has left child 1 and right child 3. All links still match the table’s two before-deletion columns.",
-            "key_state": "Node 1 has degree 0 and is still present. Parent 2 has left child 1 and right child 3.",
-            "announcement": "Target 1 has degree 0. Its parent’s link is still intact."
+            "key_state": "Node 1 has degree 0 and is still in place. Parent 2 still has left child 1 and right child 3.",
+            "title": "Confirm the target has no children"
           },
           {
+            "announcement": "Set parent 2's left reference to None to finish deleting leaf 1.",
+            "explanation": "Set pre.left = None to detach leaf 1. The root remains 8. Node 2 has no left child and has right leaf 3. All other connections stay the same, and the tree retains values 2 through 15. The two after-deletion columns of the same table now describe the whole tree, with the cells for node 1 marked “Removed.”",
             "id": "step-3",
-            "title": "Clear the parent’s left link",
-            "explanation": "Execute pre.left = None to detach leaf 1. The root is still 8. Node 2 has no left child and has right leaf 3. All other links are unchanged, leaving values 2 through 15. The two after-deletion columns in the same table give the full tree and mark node 1 as removed.",
-            "key_state": "Node 2’s left link is None and its right child is 3. Leaf 1 has been detached, leaving values 2 through 15.",
-            "announcement": "Set parent 2’s left link to None to finish deleting leaf 1."
+            "key_state": "Node 2's left reference is None, and its right child is 3. Leaf 1 has been detached, leaving values 2 through 15.",
+            "title": "Clear the parent's left link"
           }
         ],
+        "summary": "A leaf has degree 0, so there is no subtree to reconnect. Simply clear the parent's reference to the leaf.",
         "tables": [
           {
-            "caption": "Binary search tree links before and after leaf deletion",
+            "caption": "Binary search tree connections before and after deleting a leaf",
             "headers": [
               "Node",
               "Left child before deletion",
@@ -61,6 +47,7 @@
               "Left child after deletion",
               "Right child after deletion"
             ],
+            "row_header": 0,
             "rows": [
               [
                 "1",
@@ -167,19 +154,31 @@
                 "Empty",
                 "Empty"
               ]
-            ],
-            "row_header": 0
+            ]
           }
         ],
-        "input_tables": [
-          0
-        ]
+        "title": "Deleting a leaf from a binary search tree"
       }
     }
   },
+  "context": [
+    "Delete leaf 1 from the tree rooted at 8 that contains values 1 through 15. Between the before and after panels, the figure notes that the node has degree 0. The pointer cur identifies the target, and pre identifies its parent. The table compares connections before and after deletion. “Removed” means the node no longer belongs to the tree."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_remove_case1.png",
+      "explanation": "To delete 1, follow 8 → 4 → 2 → 1 from the root. Now cur points to 1 and pre points to its parent, 2. Node 1 has no children, so its degree is 0 and there is no subtree to reconnect. Set pre.left = None to clear parent 2's left reference.",
+      "id": "source-122",
+      "title": "Deleting a leaf from a binary search tree"
+    }
+  ],
+  "result": "Values 2 through 15 remain in binary search tree order. The empty position to the left of 2 represents a None reference, not a new node.",
+  "schema_version": 2,
+  "summary": "A leaf has degree 0, so there is no subtree to reconnect. Simply clear the parent's reference to the leaf.",
   "tables": [
     {
-      "caption": "Binary search tree links before and after leaf deletion",
+      "caption": "Binary search tree connections before and after deleting a leaf",
       "headers": [
         "Node",
         "Left child before deletion",
@@ -187,6 +186,7 @@
         "Left child after deletion",
         "Right child after deletion"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -293,8 +293,8 @@
           "Empty",
           "Empty"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Deleting a leaf from a binary search tree"
 }

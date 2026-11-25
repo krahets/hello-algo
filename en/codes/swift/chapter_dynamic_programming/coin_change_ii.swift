@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Coin change II: dynamic programming */
+/* Coin change II with dynamic programming */
 func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
     let n = coins.count
     // Initialize the dp table
@@ -13,14 +13,14 @@ func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
     for i in 0 ... n {
         dp[i][0] = 1
     }
-    // State transitions
+    // State transition
     for i in 1 ... n {
         for a in 1 ... amt {
             if coins[i - 1] > a {
-                // If the coin exceeds the current target amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[i][a] = dp[i - 1][a]
             } else {
-                // Add the numbers of ways without and with coin i
+                // Add the counts for skipping and taking coin i
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]]
             }
         }
@@ -28,20 +28,20 @@ func coinChangeIIDP(coins: [Int], amt: Int) -> Int {
     return dp[n][amt]
 }
 
-/* Coin change II: space-optimized dynamic programming */
+/* Coin change II with space-optimized dynamic programming */
 func coinChangeIIDPComp(coins: [Int], amt: Int) -> Int {
     let n = coins.count
     // Initialize the dp table
     var dp = Array(repeating: 0, count: amt + 1)
     dp[0] = 1
-    // State transitions
+    // State transition
     for i in 1 ... n {
         for a in 1 ... amt {
             if coins[i - 1] > a {
-                // If the coin exceeds the current target amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[a] = dp[a]
             } else {
-                // Add the numbers of ways without and with coin i
+                // Add the counts for skipping and taking coin i
                 dp[a] = dp[a] + dp[a - coins[i - 1]]
             }
         }

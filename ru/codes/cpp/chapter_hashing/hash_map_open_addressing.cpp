@@ -9,19 +9,19 @@
 /* Хеш-таблица с открытой адресацией */
 class HashMapOpenAddressing {
   private:
-    int size;                             // Число пар ключ-значение
-    int capacity = 4;                     // Вместимость хеш-таблицы
-    const double loadThres = 2.0 / 3.0;     // Порог коэффициента загрузки для запуска расширения
-    const int extendRatio = 2;            // Коэффициент расширения
+    int size;                             // Число пар «ключ — значение»
+    int capacity = 4;                     // Ёмкость хеш-таблицы
+    const double loadThres = 2.0 / 3.0;     // Порог коэффициента заполнения для расширения
+    const int extendRatio = 2;            // Во сколько раз увеличивается ёмкость
     vector<Pair *> buckets;               // Массив корзин
-    Pair *TOMBSTONE = new Pair(-1, "-1"); // Удалить метку
+    Pair *TOMBSTONE = new Pair(-1, "-1"); // Метка удаления
 
   public:
     /* Конструктор */
     HashMapOpenAddressing() : size(0), buckets(capacity, nullptr) {
     }
 
-    /* Метод-деструктор */
+    /* Деструктор */
     ~HashMapOpenAddressing() {
         for (Pair *pair : buckets) {
             if (pair != nullptr && pair != TOMBSTONE) {
@@ -36,20 +36,20 @@ class HashMapOpenAddressing {
         return key % capacity;
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     double loadFactor() {
         return (double)size / capacity;
     }
 
-    /* Найти индекс корзины, соответствующий key */
+    /* Найти индекс корзины для ключа key */
     int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
+        // Линейное пробирование до первой пустой корзины
         while (buckets[index] != nullptr) {
-            // Если встретился key, вернуть соответствующий индекс корзины
+            // При совпадении ключа key вернуть индекс его корзины
             if (buckets[index]->key == key) {
-                // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
+                // Если ранее встретилась метка удаления, переместить пару на её место
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
@@ -57,52 +57,52 @@ class HashMapOpenAddressing {
                 }
                 return index; // Вернуть индекс корзины
             }
-            // Записать первую встретившуюся метку удаления
+            // Запомнить первую встретившуюся метку удаления
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Вычислить индекс корзины; при выходе за конец вернуться к началу
+            // Вычислить индекс корзины, после конца массива перейти в начало
             index = (index + 1) % capacity;
         }
-        // Если key не существует, вернуть индекс точки добавления
+        // Если ключа key нет, вернуть индекс для вставки
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
-    /* Операция поиска */
+    /* Поиск */
     string get(int key) {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         int index = findBucket(key);
-        // Если пара ключ-значение найдена, вернуть соответствующее val
+        // Если пара найдена, вернуть её значение val
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             return buckets[index]->val;
         }
-        // Если пары ключ-значение не существует, вернуть пустую строку
+        // Если пары нет, вернуть пустую строку
         return "";
     }
 
-    /* Операция добавления */
+    /* Вставка */
     void put(int key, string val) {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if (loadFactor() > loadThres) {
             extend();
         }
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         int index = findBucket(key);
-        // Если пара ключ-значение найдена, перезаписать val и вернуть
+        // Если пара найдена, заменить val и завершить операцию
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             buckets[index]->val = val;
             return;
         }
-        // Если пары ключ-значение нет, добавить ее
+        // Если пары нет, добавить её
         buckets[index] = new Pair(key, val);
         size++;
     }
 
-    /* Операция удаления */
+    /* Удаление */
     void remove(int key) {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         int index = findBucket(key);
-        // Если пара ключ-значение найдена, заменить ее меткой удаления
+        // Если пара найдена, заменить её меткой удаления
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             delete buckets[index];
             buckets[index] = TOMBSTONE;
@@ -114,11 +114,11 @@ class HashMapOpenAddressing {
     void extend() {
         // Временно сохранить исходную хеш-таблицу
         vector<Pair *> bucketsTmp = buckets;
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         capacity *= extendRatio;
         buckets = vector<Pair *>(capacity, nullptr);
         size = 0;
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         for (Pair *pair : bucketsTmp) {
             if (pair != nullptr && pair != TOMBSTONE) {
                 put(pair->key, pair->val);
@@ -141,30 +141,30 @@ class HashMapOpenAddressing {
     }
 };
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
-    // Инициализация хеш-таблицы
+    // Создать хеш-таблицу
     HashMapOpenAddressing hashmap;
 
-    // Операция добавления
-    // Добавить пару (key, val) в хеш-таблицу
+    // Вставка
+    // Добавить в таблицу пару (key, val)
     hashmap.put(12836, "Сяо Ха");
     hashmap.put(15937, "Сяо Ло");
     hashmap.put(16750, "Сяо Суань");
     hashmap.put(13276, "Сяо Фа");
     hashmap.put(10583, "Сяо Я");
-    cout << "\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение" << endl;
+    cout << "\nХеш-таблица после вставки:\nКлюч -> Значение" << endl;
     hashmap.print();
 
-    // Операция поиска
-    // Передать ключ key в хеш-таблицу и получить значение val
+    // Поиск
+    // Получить из таблицы значение val по ключу key
     string name = hashmap.get(13276);
-    cout << "\nДля студенческого номера 13276 найдено имя " << name << endl;
+    cout << "\nИмя студента с номером 13276: " << name << endl;
 
-    // Операция удаления
-    // Удалить пару (key, val) из хеш-таблицы
+    // Удаление
+    // Удалить из таблицы пару (key, val)
     hashmap.remove(16750);
-    cout << "\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение" << endl;
+    cout << "\nХеш-таблица после удаления 16750:\nКлюч -> Значение" << endl;
     hashmap.print();
 
     return 0;

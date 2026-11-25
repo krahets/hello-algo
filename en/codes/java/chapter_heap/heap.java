@@ -12,24 +12,24 @@ import java.util.*;
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
         heap.offer(val); // Push an element onto the heap
-        System.out.format("\nAfter pushing %d onto the heap:\n", val);
+        System.out.format("\nHeap after pushing %d:\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void testPop(Queue<Integer> heap) {
-        int val = heap.poll(); // Pop the top element from the heap
-        System.out.format("\nAfter popping the top element %d:\n", val);
+        int val = heap.poll(); // Pop the root
+        System.out.format("\nHeap after popping the root (%d):\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void main(String[] args) {
-        /* Initialize heaps */
-        // Initialize a min heap
+        /* Initialize the heap */
+        // Initialize a min-heap
         Queue<Integer> minHeap = new PriorityQueue<>();
-        // Initialize a max heap by supplying a lambda expression as the Comparator
+        // Initialize a max-heap using a lambda expression to customize the Comparator
         Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-        System.out.println("\nThe following example uses a max heap");
+        System.out.println("\nThe following example uses a max-heap");
 
         /* Push an element onto the heap */
         testPush(maxHeap, 1);
@@ -38,11 +38,11 @@ public class heap {
         testPush(maxHeap, 5);
         testPush(maxHeap, 4);
 
-        /* Get the top element of the heap */
+        /* Get the root element */
         int peek = maxHeap.peek();
-        System.out.format("\nTop element: %d\n", peek);
+        System.out.format("\nRoot element: %d\n", peek);
 
-        /* Pop the top element from the heap */
+        /* Pop the root */
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
@@ -57,10 +57,10 @@ public class heap {
         boolean isEmpty = maxHeap.isEmpty();
         System.out.format("\nIs the heap empty? %b\n", isEmpty);
 
-        /* Build a heap from an input list */
-        // The time complexity is O(n), not O(nlogn)
+        /* Build a heap from the input list */
+        // The time complexity is O(n), rather than O(nlogn)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\nAfter building a min heap from the input list:");
+        System.out.println("\nMin-heap built from the input list:");
         PrintUtil.printHeap(minHeap);
     }
 }

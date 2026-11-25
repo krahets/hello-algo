@@ -9,31 +9,31 @@ package chapter_tree
 import utils.TreeNode
 import utils.printTree
 
-/* Binary tree class using an array representation */
+/* Array-based binary tree class */
 class ArrayBinaryTree(private val tree: MutableList<Int?>) {
-    /* List size */
+    /* List capacity */
     fun size(): Int {
         return tree.size
     }
 
     /* Get the value of the node at index i */
     fun _val(i: Int): Int? {
-        // If the index is out of bounds, return null to represent an empty position
+        // If the index is out of bounds, return null to indicate an empty slot
         if (i < 0 || i >= size()) return null
         return tree[i]
     }
 
-    /* Get the left child index of the node at index i */
+    /* Get the index of the left child of the node at index i */
     fun left(i: Int): Int {
         return 2 * i + 1
     }
 
-    /* Get the right child index of the node at index i */
+    /* Get the index of the right child of the node at index i */
     fun right(i: Int): Int {
         return 2 * i + 2
     }
 
-    /* Get the parent index of the node at index i */
+    /* Get the index of the parent of the node at index i */
     fun parent(i: Int): Int {
         return (i - 1) / 2
     }
@@ -41,7 +41,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
     /* Level-order traversal */
     fun levelOrder(): MutableList<Int?> {
         val res = mutableListOf<Int?>()
-        // Traverse the array directly
+        // Iterate directly over the array
         for (i in 0..<size()) {
             if (_val(i) != null)
                 res.add(_val(i))
@@ -51,7 +51,7 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 
     /* Depth-first traversal */
     fun dfs(i: Int, order: String, res: MutableList<Int?>) {
-        // Return if this position is empty
+        // Return if the slot is empty
         if (_val(i) == null)
             return
         // Preorder traversal
@@ -92,17 +92,17 @@ class ArrayBinaryTree(private val tree: MutableList<Int?>) {
 /* Driver code */
 fun main() {
     // Initialize the binary tree
-    // Use a helper function that builds a binary tree directly from a list
+    // Use a function that builds a binary tree directly from a list
     val arr = mutableListOf(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15)
 
     val root = TreeNode.listToTree(arr)
     println("\nInitialize the binary tree\n")
-    println("Array representation of the binary tree:")
+    println("Array representation of the binary tree: ")
     println(arr)
-    println("Linked representation of the binary tree:")
+    println("Linked representation of the binary tree: ")
     printTree(root)
 
-    // Binary tree class using an array representation
+    // Array-based binary tree class
     val abt = ArrayBinaryTree(arr)
 
     // Access a node
@@ -110,10 +110,10 @@ fun main() {
     val l = abt.left(i)
     val r = abt.right(i)
     val p = abt.parent(i)
-    println("Current node: index = $i, value = ${abt._val(i)}")
-    println("Its left child: index = $l, value = ${abt._val(l)}")
-    println("Its right child: index = $r, value = ${abt._val(r)}")
-    println("Its parent: index = $p, value = ${abt._val(p)}")
+    println("Current node: index $i, value ${abt._val(i)}")
+    println("Left child: index $l, value ${abt._val(l)}")
+    println("Right child: index $r, value ${abt._val(r)}")
+    println("Parent: index $p, value ${abt._val(p)}")
 
     // Traverse the tree
     var res = abt.levelOrder()

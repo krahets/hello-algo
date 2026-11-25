@@ -8,12 +8,12 @@ use hello_algo_rust::include::print_util;
 
 use std::collections::VecDeque;
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     // キューを初期化する
     let mut queue: VecDeque<i32> = VecDeque::new();
 
-    // 要素をエンキューする
+    // 要素をキューに追加する
     queue.push_back(1);
     queue.push_back(3);
     queue.push_back(2);
@@ -22,20 +22,20 @@ pub fn main() {
     print!("キュー queue = ");
     print_util::print_queue(&queue);
 
-    // キューの先頭要素にアクセス
+    // キューの先頭要素を参照する
     let peek = queue.front().unwrap();
-    println!("\nキューの先頭要素 peek = {peek}");
+    println!("\n先頭要素 peek = {peek}");
 
-    // 要素をデキューする
+    // キューから要素を取り出す
     let pop = queue.pop_front().unwrap();
-    print!("デキューした要素 pop = {pop}、デキュー後 queue = ");
+    print!("デキューした要素 pop = {pop}、デキュー後の queue = ");
     print_util::print_queue(&queue);
 
-    // キューの長さを取得
+    // キューの要素数を取得する
     let size = queue.len();
-    print!("\nキューの長さ size = {size}");
+    print!("\nキューの要素数 size = {size}");
 
-    // キューが空か判定
+    // キューが空かどうかを判定する
     let is_empty = queue.is_empty();
     print!("\nキューは空か = {is_empty}");
 }

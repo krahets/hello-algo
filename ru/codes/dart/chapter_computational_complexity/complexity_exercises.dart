@@ -4,7 +4,7 @@
  * Author: Hello Algo Team
  */
 
-/* Итеративное суммирование */
+/* Суммирование в цикле */
 int sumIter(int n) {
   int res = 0;
   for (int i = 1; i <= n; i++) {

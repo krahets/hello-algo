@@ -1,70 +1,69 @@
 {
-  "schema_version": 2,
-  "title": "AVL left rotation with a grandchild",
-  "summary": "A left rotation promotes the unbalanced node’s right child. That child’s former left child attaches to the right of the demoted node, restoring balance and preserving binary search tree order.",
-  "context": [
-    "There are 6 nodes before rotation. Root 1 has left child 0 and right child 4; 4 has left child 3 and right child 5; 5 has only a right child, 6. Nodes 0, 3, and 6 are leaves. The variable node points to unbalanced root 1, child to its right child 4, and grand_child to 4’s left child 3.",
-    "The balance factor is left subtree height minus right subtree height. A leaf has height 0 and an empty subtree has height −1. The tree is balanced when every node’s factor has absolute value at most 1. The values below follow from the links in the figure.",
-    "Before rotation root 1 has left subtree height 0 and right subtree height 2, so its balance factor is −2. It needs a left rotation."
-  ],
-  "description": [
-    "Three panels from left to right show the original tree, the completed left rotation with the grandchild reattached, and the tidied layout with old dashed positions removed.",
-    "The left rotation promotes child (4) to root and makes node (1) its left child. Node 1 thus occupies the place that belonged to grandchild 3 under 4. Since 1 < 3 < 4, attaching 3 to the right of 1 preserves the strict ordering of the binary search tree."
-  ],
-  "result": "After rotation, both subtrees of the new root 4 have height 1. The entire tree is balanced, and all 6 nodes retain their inorder sequence [0, 1, 3, 4, 5, 6].",
-  "frames": [
-    {
-      "id": "source-136",
-      "book_path": "chapter_tree/avl_tree.assets/avltree_left_rotate_with_grandchild.png",
-      "title": "AVL left rotation with a grandchild",
-      "explanation": "First save node 3 with grand_child = child.left. Next, child.left = node makes 1 the left child of 4, and node.right = grand_child makes 3 the right child of 1. Node 0 remains left of 1, and 5 with its right child 6 stays right of 4. In the middle panel pale dashed outlines mark the former positions of 1 and 0, with dashed lines from the old 1 to the old 0 and to node 4. These marks track movement; there are no extra nodes. The last panel removes them and adjusts the layout without another rotation."
-    }
-  ],
   "animations": {
     "avl-left-with-grandchild": {
       "kind": "prose",
       "prose": {
-        "title": "AVL left rotation with a grandchild",
-        "summary": "A left rotation promotes the unbalanced node’s right child. That child’s former left child attaches to the right of the demoted node, restoring balance and preserving binary search tree order.",
         "context": [
-          "There are 6 nodes before rotation. Root 1 has left child 0 and right child 4; 4 has left child 3 and right child 5; 5 has only a right child, 6. Nodes 0, 3, and 6 are leaves. The variable node points to unbalanced root 1, child to its right child 4, and grand_child to 4’s left child 3.",
-          "The balance factor is left subtree height minus right subtree height. A leaf has height 0 and an empty subtree has height −1. The tree is balanced when every node’s factor has absolute value at most 1. The values below follow from the links in the figure.",
-          "Before rotation root 1 has left subtree height 0 and right subtree height 2, so its balance factor is −2. It needs a left rotation."
+          "Before rotation, the tree has 6 nodes. Root 1 has left child 0 and right child 4. Node 4 has left child 3 and right child 5. Node 5 has no left child and has right child 6. Nodes 0, 3, and 6 are leaves. The variable node points to the unbalanced root 1, child points to its right child 4, and grand_child points to the left child of 4, node 3.",
+          "The balance factor is the height of the left subtree minus the height of the right. A leaf has height 0 and an empty subtree has height −1. A tree is balanced only if the absolute value of every node's balance factor is at most 1. The factors below follow from the connections in the figure.",
+          "Before rotation, root 1 has left subtree height 0 and right subtree height 2. Its balance factor is −2, so it needs a left rotation."
         ],
         "description": [
-          "Three panels from left to right show the original tree, the completed left rotation with the grandchild reattached, and the tidied layout with old dashed positions removed.",
-          "The left rotation promotes child (4) to root and makes node (1) its left child. Node 1 thus occupies the place that belonged to grandchild 3 under 4. Since 1 < 3 < 4, attaching 3 to the right of 1 preserves the strict ordering of the binary search tree."
+          "From left to right, the three panels show the tree before rotation, after the left rotation and grandchild transfer, and after removal of the dashed marks and adjustment of the layout.",
+          "The left rotation promotes child (node 4) to the root and demotes node (node 1) to the left child of 4. Node 1 takes the original left child position of 4, so grandchild 3 must move. Since 1 < 3 < 4, attaching 3 to the right of 1 preserves the strict binary search tree ordering: smaller on the left and larger on the right."
         ],
-        "result": "After rotation, both subtrees of the new root 4 have height 1. The entire tree is balanced, and all 6 nodes retain their inorder sequence [0, 1, 3, 4, 5, 6].",
+        "result": "After rotation, node 4 is the new root. Both its subtrees have height 1, so the whole tree is balanced. The inorder traversal of all 6 nodes remains [0, 1, 3, 4, 5, 6].",
         "steps": [
           {
+            "announcement": "Locate unbalanced root 1, its right child 4, and the grandchild to transfer, 3.",
+            "explanation": "Before rotation, root 1 has left child 0 and right child 4. Node 4 has left child 3 and right child 5, and 5 has only right child 6. Nodes 0, 3, and 6 are leaves. Here node=1, child=4, and grand_child=3, with 6 nodes in all. The root's left and right subtree heights are 0 and 2, giving it balance factor −2. Save node 3, the left child of 4, before the left rotation so its reference is not overwritten.",
             "id": "step-1",
-            "title": "Locate the unbalanced node and the grandchild to reattach",
-            "explanation": "Before rotation: Root 1 has left child 0 and right child 4; 4 has left child 3 and right child 5; 5 has only a right child, 6. Nodes 0, 3, and 6 are leaves. Here node=1, child=4, and grand_child=3, for 6 nodes in total. The root’s left and right heights are 0 and 2, giving balance factor −2. Save 4’s left child 3 before the left rotation overwrites its link.",
-            "key_state": "Root 1 has left child 0 and right child 4; 4 has left child 3 and right child 5; 5 has only a right child, 6. The root’s balance factor is −2. Grandchild 3 awaits reattachment.",
-            "announcement": "Locate unbalanced root 1, its right child 4, and grandchild 3 to be reattached."
+            "key_state": "Initially, root 1 has left child 0 and right child 4. Node 4 has left child 3 and right child 5, and 5 has right child 6. The root has balance factor −2, and grandchild 3 is ready for transfer.",
+            "title": "Locate the unbalanced node and the grandchild to transfer"
           },
           {
+            "announcement": "Node 4 rises to become the root, node 1 becomes its left child, and grandchild 3 becomes the right child of 1.",
+            "explanation": "After rotation, root 4 has left child 1 and right child 5. Node 1 has left child 0 and right child 3, and 5 has only right child 6. Nodes 0, 3, and 6 are leaves. Since 1<3<4, node 3 can move from the left of 4 to the right of 1. Dashed circles mark the old positions of 1 and 0. Dashed edges from the old position of 1 to the old position of 0 and to node 4 show the movement for comparison. There are still 6 nodes.",
             "id": "step-2",
-            "title": "Rotate left and reattach grandchild 3",
-            "explanation": "Left rotation complete. Root 4 has left child 1 and right child 5; 1 has left child 0 and right child 3; 5 has only a right child, 6. Nodes 0, 3, and 6 are leaves. Since 1<3<4, node 3 can move from the left of 4 to the right of 1. Dashed circles at the old positions of 1 and 0, and dashed links from the old 1 to the old 0 and to 4, show the previous layout only. There are still 6 nodes.",
-            "key_state": "Root 4 has left child 1 and right child 5; 1 has left child 0 and right child 3; 5 has only a right child, 6. Dashed lines show former positions only.",
-            "announcement": "4 becomes root, 1 becomes the left child of 4, and grandchild 3 becomes the right child of 1."
+            "key_state": "After the left rotation, root 4 has left child 1 and right child 5. Node 1 has left child 0 and right child 3, and 5 has right child 6. Dashed marks show old positions for comparison.",
+            "title": "Rotate left and transfer grandchild 3"
           },
           {
+            "announcement": "Remove the dashed marks at the original positions and adjust the layout to show the rebalanced AVL tree.",
+            "explanation": "Remove the dashed marks at the old positions and adjust the layout. The connections stay the same: root 4 has left child 1 and right child 5, node 1 has left child 0 and right child 3, and 5 has only right child 6. Nodes 0, 3, and 6 are leaves. There is no second rotation. Both subtrees of root 4 have height 1, so the whole tree is balanced.",
             "id": "step-3",
-            "title": "Remove the dashed outlines and tidy the layout",
-            "explanation": "The old dashed positions disappear and the layout is tidied. The links stay the same. Root 4 has left child 1 and right child 5; 1 has left child 0 and right child 3; 5 has only a right child, 6. Nodes 0, 3, and 6 are leaves. No second rotation occurs. Both subtrees of root 4 have height 1 and the tree is balanced.",
-            "key_state": "Dashed outlines removed; no second rotation. Root 4 has left child 1 and right child 5; 1 has left child 0 and right child 3; 5 has only a right child, 6. Both sides have height 1.",
-            "announcement": "Remove the dashed old positions and tidy the layout to show the balanced AVL tree."
+            "key_state": "The dashed marks are gone. No second rotation takes place. Root 4 has left child 1 and right child 5, node 1 has left child 0 and right child 3, and 5 has right child 6. Both sides have height 1.",
+            "title": "Remove the dashed marks and adjust the layout"
           }
-        ]
+        ],
+        "summary": "A left rotation promotes the right child of an unbalanced node and moves that child's original left child to the right of the demoted node. This restores balance and preserves the binary search tree ordering.",
+        "title": "AVL left rotation with a grandchild"
       }
     }
   },
+  "context": [
+    "Before rotation, the tree has 6 nodes. Root 1 has left child 0 and right child 4. Node 4 has left child 3 and right child 5. Node 5 has no left child and has right child 6. Nodes 0, 3, and 6 are leaves. The variable node points to the unbalanced root 1, child points to its right child 4, and grand_child points to the left child of 4, node 3.",
+    "The balance factor is the height of the left subtree minus the height of the right. A leaf has height 0 and an empty subtree has height −1. A tree is balanced only if the absolute value of every node's balance factor is at most 1. The factors below follow from the connections in the figure.",
+    "Before rotation, root 1 has left subtree height 0 and right subtree height 2. Its balance factor is −2, so it needs a left rotation."
+  ],
+  "description": [
+    "From left to right, the three panels show the tree before rotation, after the left rotation and grandchild transfer, and after removal of the dashed marks and adjustment of the layout.",
+    "The left rotation promotes child (node 4) to the root and demotes node (node 1) to the left child of 4. Node 1 takes the original left child position of 4, so grandchild 3 must move. Since 1 < 3 < 4, attaching 3 to the right of 1 preserves the strict binary search tree ordering: smaller on the left and larger on the right."
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_tree/avl_tree.assets/avltree_left_rotate_with_grandchild.png",
+      "explanation": "First save node 3 with grand_child = child.left. Then set child.left = node to make 1 the left child of 4, and finally set node.right = grand_child to make 3 the right child of 1. Node 0 remains the left child of 1, and node 5 and its right child 6 stay to the right of 4. In the middle panel, pale dashed outlines mark the old positions of 1 and 0. Dashed edges connect the old position of 1 to the old position of 0 and to node 4. These marks show movement and do not add nodes. The final panel simply removes them and adjusts the layout. There is no further rotation.",
+      "id": "source-136",
+      "title": "AVL left rotation with a grandchild"
+    }
+  ],
+  "result": "After rotation, node 4 is the new root. Both its subtrees have height 1, so the whole tree is balanced. The inorder traversal of all 6 nodes remains [0, 1, 3, 4, 5, 6].",
+  "schema_version": 2,
+  "summary": "A left rotation promotes the right child of an unbalanced node and moves that child's original left child to the right of the demoted node. This restores balance and preserves the binary search tree ordering.",
   "tables": [
     {
-      "caption": "Parent–child links before and after rotation",
+      "caption": "Parent-child relationships before and after rotation",
       "headers": [
         "Node",
         "Left child before rotation",
@@ -72,6 +71,7 @@
         "Left child after rotation",
         "Right child after rotation"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -115,8 +115,8 @@
           "None",
           "None"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "AVL left rotation with a grandchild"
 }

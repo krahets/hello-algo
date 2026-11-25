@@ -6,11 +6,11 @@
 
 #include "../utils/common.h"
 
-/* Queue implemented with a circular array */
+/* Queue backed by a circular array */
 typedef struct {
     int *nums;       // Array that stores the queue elements
-    int front;       // Front pointer, pointing to the first element
-    int queSize;     // Current number of elements in the queue
+    int front;       // Index of the front element
+    int queSize;     // Number of elements currently in the queue
     int queCapacity; // Queue capacity
 } ArrayQueue;
 
@@ -45,30 +45,30 @@ bool empty(ArrayQueue *queue) {
     return queue->queSize == 0;
 }
 
-/* Access the front element */
+/* Peek at the front element */
 int peek(ArrayQueue *queue) {
     assert(size(queue) != 0);
     return queue->nums[queue->front];
 }
 
-/* Enqueue */
+/* Enqueue an element */
 void push(ArrayQueue *queue, int num) {
     if (size(queue) == capacity(queue)) {
         printf("Queue is full\r\n");
         return;
     }
-    // Calculate the rear pointer, which points one position past the last element
-    // Use modulo to wrap rear to the beginning when it passes the end of the array
+    // Compute the index one slot past the rear element
+    // Use the remainder to wrap rear back to the start of the array
     int rear = (queue->front + queue->queSize) % queue->queCapacity;
-    // Add num to the rear
+    // Add num at the rear
     queue->nums[rear] = num;
     queue->queSize++;
 }
 
-/* Dequeue */
+/* Remove and return the front element */
 int pop(ArrayQueue *queue) {
     int num = peek(queue);
-    // Advance the front pointer by one position, wrapping to the beginning if it passes the end
+    // Advance the front index by one, wrapping to the start if it passes the end
     queue->front = (queue->front + 1) % queue->queCapacity;
     queue->queSize--;
     return num;
@@ -99,16 +99,16 @@ int main() {
     push(queue, 2);
     push(queue, 5);
     push(queue, 4);
-    printf("Queue queue = ");
+    printf("queue = ");
     printArray(toArray(queue, &queSize), queSize);
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peekNum = peek(queue);
-    printf("Front element peek = %d\r\n", peekNum);
+    printf("Front element (peek) = %d\r\n", peekNum);
 
     /* Dequeue an element */
     peekNum = pop(queue);
-    printf("Dequeued element pop = %d; after dequeuing, queue = ", peekNum);
+    printf("Dequeued element (pop) = %d, queue after removal = ", peekNum);
     printArray(toArray(queue, &queSize), queSize);
 
     /* Get the queue size */
@@ -117,17 +117,17 @@ int main() {
 
     /* Check whether the queue is empty */
     bool isEmpty = empty(queue);
-    printf("Is the queue empty = %s\r\n", isEmpty ? "true" : "false");
+    printf("Queue is empty = %s\r\n", isEmpty ? "true" : "false");
 
     /* Test the circular array */
     for (int i = 0; i < 10; i++) {
         push(queue, i);
         pop(queue);
-        printf("After round %d of enqueue + dequeue, queue = ", i);
+        printf("After enqueue/dequeue round %d, queue = ", i);
         printArray(toArray(queue, &queSize), queSize);
     }
 
-    // Free memory
+    // Free the allocated memory
     delArrayQueue(queue);
 
     return 0;

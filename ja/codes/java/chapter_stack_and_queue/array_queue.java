@@ -8,11 +8,11 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 循環配列で実装したキュー */
+/* 循環配列を使ったキュー */
 class ArrayQueue {
     private int[] nums; // キューの要素を格納する配列
-    private int front; // キューの先頭要素を指す先頭ポインタ
-    private int queSize; // キューの長さ
+    private int front; // キューの先頭要素を指すインデックス
+    private int queSize; // キューの要素数
 
     public ArrayQueue(int capacity) {
         nums = new int[capacity];
@@ -24,40 +24,40 @@ class ArrayQueue {
         return nums.length;
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     public int size() {
         return queSize;
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     public boolean isEmpty() {
         return queSize == 0;
     }
 
-    /* エンキュー */
+    /* エンキューする */
     public void push(int num) {
         if (queSize == capacity()) {
             System.out.println("キューが満杯です");
             return;
         }
-        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
-        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
+        // キューの末尾要素の次の位置を示すインデックスを求める
+        // 剰余を使い、rear が配列の末尾を越えたら先頭に戻るようにする
         int rear = (front + queSize) % capacity();
         // num をキューの末尾に追加する
         nums[rear] = num;
         queSize++;
     }
 
-    /* デキュー */
+    /* デキューする */
     public int pop() {
         int num = peek();
-        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
+        // 先頭のインデックスを 1 つ進め、配列の末尾を越えたら先頭に戻す
         front = (front + 1) % capacity();
         queSize--;
         return num;
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
@@ -66,7 +66,7 @@ class ArrayQueue {
 
     /* 配列を返す */
     public int[] toArray() {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // キューの要素数に当たる範囲だけを変換する
         int[] res = new int[queSize];
         for (int i = 0, j = front; i < queSize; i++, j++) {
             res[i] = nums[j % capacity()];
@@ -81,7 +81,7 @@ public class array_queue {
         int capacity = 10;
         ArrayQueue queue = new ArrayQueue(capacity);
 
-        /* 要素をエンキューする */
+        /* 要素をキューに追加する */
         queue.push(1);
         queue.push(3);
         queue.push(2);
@@ -89,27 +89,27 @@ public class array_queue {
         queue.push(4);
         System.out.println("キュー queue = " + Arrays.toString(queue.toArray()));
 
-        /* キューの先頭要素にアクセス */
+        /* キューの先頭要素を参照する */
         int peek = queue.peek();
-        System.out.println("キューの先頭要素 peek = " + peek);
+        System.out.println("先頭要素 peek = " + peek);
 
-        /* 要素をデキューする */
+        /* キューから要素を取り出す */
         int pop = queue.pop();
-        System.out.println("デキューした要素 pop = " + pop + "、デキュー後 queue = " + Arrays.toString(queue.toArray()));
+        System.out.println("デキューした要素 pop = " + pop + "、デキュー後の queue = " + Arrays.toString(queue.toArray()));
 
-        /* キューの長さを取得 */
+        /* キューの要素数を取得する */
         int size = queue.size();
-        System.out.println("キューの長さ size = " + size);
+        System.out.println("キューの要素数 size = " + size);
 
-        /* キューが空か判定 */
+        /* キューが空かどうかを判定する */
         boolean isEmpty = queue.isEmpty();
         System.out.println("キューは空か = " + isEmpty);
 
-        /* 循環配列をテストする */
+        /* 循環配列の動作を確認する */
         for (int i = 0; i < 10; i++) {
             queue.push(i);
             queue.pop();
-            System.out.println("第 " + i + " 回のエンキューとデキューの後 queue = " + Arrays.toString(queue.toArray()));
+            System.out.println("第 " + i + " 回のエンキューとデキューを終えた後の queue = " + Arrays.toString(queue.toArray()));
         }
     }
 }

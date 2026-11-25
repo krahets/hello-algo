@@ -4,7 +4,7 @@
 
 package chapter_backtracking
 
-/* 백트래킹 알고리즘: 모든 순열 II */
+/* 백트래킹: 순열 II */
 func backtrackII(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
 	// 상태의 길이가 원소 개수와 같으면 해를 기록한다
 	if len(*state) == len(*choices) {
@@ -15,23 +15,23 @@ func backtrackII(state *[]int, choices *[]int, selected *[]bool, res *[][]int) {
 	duplicated := make(map[int]struct{}, 0)
 	for i := 0; i < len(*choices); i++ {
 		choice := (*choices)[i]
-		// 가지치기: 원소를 중복하여 선택할 수 없으며, 값이 같은 원소도 중복하여 선택할 수 없다
+		// 가지치기: 이미 선택한 원소를 다시 고르거나 같은 층에서 값이 같은 원소를 다시 고르지 않는다
 		if _, ok := duplicated[choice]; !ok && !(*selected)[i] {
-			// 시도: 선택하고 상태를 갱신한다
+			// 시도: 하나를 선택하고 상태를 갱신한다
 			// 선택한 원소의 값을 기록한다
 			duplicated[choice] = struct{}{}
 			(*selected)[i] = true
 			*state = append(*state, choice)
 			// 다음 선택을 진행한다
 			backtrackII(state, choices, selected, res)
-			// 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+			// 되돌리기: 선택을 취소하고 이전 상태를 복원한다
 			(*selected)[i] = false
 			*state = (*state)[:len(*state)-1]
 		}
 	}
 }
 
-/* 모든 순열 II */
+/* 순열 II */
 func permutationsII(nums []int) [][]int {
 	res := make([][]int, 0)
 	state := make([]int, 0)

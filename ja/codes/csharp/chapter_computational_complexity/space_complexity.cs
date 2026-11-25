@@ -9,22 +9,22 @@ namespace hello_algo.chapter_computational_complexity;
 public class space_complexity {
     /* 関数 */
     int Function() {
-        // 何らかの処理を実行する
+        // 何らかの処理を行う
         return 0;
     }
 
     /* 定数オーダー */
     void Constant(int n) {
-        // 定数、変数、オブジェクトは O(1) の領域を使用する
+        // 定数・変数・オブジェクトが使う領域は O(1)
         int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new(0);
-        // ループ内の変数は O(1) の領域を使用する
+        // ループ内の変数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // ループ内の関数は O(1) の領域を使用する
+        // ループ内の関数が使う領域は O(1)
         for (int i = 0; i < n; i++) {
             Function();
         }
@@ -32,14 +32,14 @@ public class space_complexity {
 
     /* 線形オーダー */
     void Linear(int n) {
-        // 長さ n の配列は O(n) の領域を使用する
+        // 長さ n の配列が使う領域は O(n)
         int[] nums = new int[n];
-        // 長さ n のリストは O(n) の領域を使用する
+        // 長さ n のリストが使う領域は O(n)
         List<ListNode> nodes = [];
         for (int i = 0; i < n; i++) {
             nodes.Add(new ListNode(i));
         }
-        // 長さ n のハッシュテーブルは O(n) の領域を使用する
+        // 長さ n のハッシュテーブルが使う領域は O(n)
         Dictionary<int, string> map = [];
         for (int i = 0; i < n; i++) {
             map.Add(i, i.ToString());
@@ -55,9 +55,9 @@ public class space_complexity {
 
     /* 二次オーダー */
     void Quadratic(int n) {
-        // 行列は O(n^2) の領域を使用する
+        // 行列が使う領域は O(n^2)
         int[,] numMatrix = new int[n, n];
-        // 二次元リストは O(n^2) の領域を使用する
+        // 二次元リストが使う領域は O(n^2)
         List<List<int>> numList = [];
         for (int i = 0; i < n; i++) {
             List<int> tmp = [];
@@ -72,11 +72,11 @@ public class space_complexity {
     int QuadraticRecur(int n) {
         if (n <= 0) return 0;
         int[] nums = new int[n];
-        Console.WriteLine("再帰 n = " + n + " における nums の長さ = " + nums.Length);
+        Console.WriteLine("再帰 n = " + n + " での nums の長さ = " + nums.Length);
         return QuadraticRecur(n - 1);
     }
 
-    /* 指数オーダー（パーフェクト二分木の構築） */
+    /* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
     TreeNode? BuildTree(int n) {
         if (n == 0) return null;
         TreeNode root = new(0) {

@@ -6,45 +6,45 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require 'set'
 
-### Алгоритм бэктрекинга: все перестановки II ###
+### Поиск с возвратом: перестановки II ###
 def backtrack(state, choices, selected, res)
-  # Когда длина состояния равна числу элементов, записать решение
+  # Когда длина текущей перестановки равна числу элементов, сохраняем решение
   if state.length == choices.length
     res << state.dup
     return
   end
 
-  # Перебор всех вариантов выбора
+  # Перебираем все варианты
   duplicated = Set.new
   choices.each_with_index do |choice, i|
-    # Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+    # Отсечение: нельзя повторно брать тот же элемент или пробовать на этом уровне то же значение
     if !selected[i] && !duplicated.include?(choice)
-      # Попытка: сделать выбор и обновить состояние
+      # Пробуем вариант и обновляем состояние
       duplicated.add(choice)
       selected[i] = true
       state << choice
-      # Перейти к следующему выбору
+      # Переходим к следующему выбору
       backtrack(state, choices, selected, res)
-      # Откат: отменить выбор и восстановить предыдущее состояние
+      # Возврат: отменяем выбор и восстанавливаем прежнее состояние
       selected[i] = false
       state.pop
     end
   end
 end
 
-### Все перестановки II ###
+### Перестановки II ###
 def permutations_ii(nums)
   res = []
   backtrack([], nums, Array.new(nums.length, false), res)
   res
 end
 
-### Driver Code ###
+### Основная программа ###
 if __FILE__ == $0
   nums = [1, 2, 2]
 
   res = permutations_ii(nums)
 
-  puts "Входной массив nums = #{nums}"
+  puts "Исходный массив nums = #{nums}"
   puts "Все перестановки res = #{res}"
 end

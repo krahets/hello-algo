@@ -6,7 +6,7 @@
 
 /* Driver code */
 /* Initialize the queue */
-// JavaScript has no built-in queue; an Array can be used as a queue
+// JavaScript has no built-in queue, so use an Array as a queue
 const queue = [];
 
 /* Enqueue elements */
@@ -15,16 +15,16 @@ queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
-console.log('Queue queue =', queue);
+console.log('queue =', queue);
 
-/* Access the front element */
+/* Peek at the front element */
 const peek = queue[0];
-console.log('Front element peek =', peek);
+console.log('Front element (peek) =', peek);
 
 /* Dequeue an element */
-// The underlying structure is an array, so shift() has O(n) time complexity
+// shift() takes O(n) time because the queue uses an array
 const pop = queue.shift();
-console.log('Dequeued element pop =', pop, '; after dequeuing, queue = ', queue);
+console.log('Dequeued element (pop) =', pop, '| queue after removal = ', queue);
 
 /* Get the queue size */
 const size = queue.length;
@@ -32,4 +32,4 @@ console.log('Queue size =', size);
 
 /* Check whether the queue is empty */
 const isEmpty = queue.length === 0;
-console.log('Is the queue empty = ', isEmpty);
+console.log('Queue is empty = ', isEmpty);

@@ -1,30 +1,30 @@
 {
-  "schema_version": 2,
-  "title": "Fibonacci recursion tree",
-  "summary": "Recursive branches repeatedly solve identically named subproblems, showing why naive recursion performs so much redundant work.",
   "context": [
-    "In the figure, f(k) corresponds to fib(k) in the chapter code. The base cases are f(1) = 0 and f(2) = 1; for k > 2, it computes f(k - 1) + f(k - 2)."
+    "In the figure, f(k) corresponds to fib(k) in the code. The base cases are f(1) = 0 and f(2) = 1. For k > 2, the function computes f(k−1) + f(k−2)."
   ],
   "description": [
-    "The figure expands only the first few levels without labeling a total height. For small n, some branches reach f(1) or f(2) earlier and stop rather than continuing through every symbolic level drawn."
+    "The figure expands only the first few levels and leaves the total depth unspecified. For small n, some branches reach f(1) or f(2) early and stop before reaching all the levels shown symbolically."
   ],
-  "result": "Actual branches stop at base cases, so not every level doubles indefinitely, yet repeated expansion still makes the call count of naive recursion grow exponentially with n. Counting levels strictly from the chapter code with the root as level 1, the longest call chain has n - 1 levels when n ≥ 2 (for instance, 2 levels when n = 3) and just the root level when n = 1. Calling the height n in the text expresses linear order of growth in n rather than the exact level count here.",
   "frames": [
     {
-      "id": "source-24",
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/recursion_tree.png",
-      "title": "Fibonacci recursion tree",
-      "explanation": "Every non-base call f(k) branches into a left child call f(k - 1) and a right child call f(k - 2). For example, the root's right child f(n - 2) (level 2) and the f(n - 2) branched on the left of level 3 lie on separate call paths and are each recomputed from scratch rather than automatically merged or reused."
+      "explanation": "Each call f(k) that has yet to reach a base case makes a left call f(k−1) and a right call f(k−2). For example, the root's right call f(n−2) at level 2 and the call f(n−2) on the left side of level 3 lie on different paths. Each computes its own result without automatically merging the calls or reusing the result.",
+      "id": "source-24",
+      "title": "Fibonacci recursion tree"
     }
   ],
+  "result": "Branches stop at a base case, so the number of calls does not double at every level. Even so, repeated expansion makes the number of calls grow exponentially with n. Counting the root as level 1, the longest chain of calls in the code has n−1 levels for n ≥ 2 (only 2 levels for n = 3). For n = 1, the root is the only level. The n levels mentioned in the text describe linear growth in depth, rather than an exact count.",
+  "schema_version": 2,
+  "summary": "Branches of the recursion solve the same subproblems repeatedly, which explains why naive recursion does so much work.",
   "tables": [
     {
-      "caption": "Calls at each level in the figure; identical names denote separate calls",
+      "caption": "Calls at each level, with repeated names denoting separate calls",
       "headers": [
         "Level",
-        "Call nodes (left to right in figure)",
+        "Calls from left to right",
         "Count"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -33,26 +33,26 @@
         ],
         [
           "2",
-          "f(n - 1), f(n - 2)",
+          "f(n−1), f(n−2)",
           "2"
         ],
         [
           "3",
-          "f(n - 2), f(n - 3), f(n - 3), f(n - 4)",
+          "f(n−2), f(n−3), f(n−3), f(n−4)",
           "4"
         ],
         [
           "4",
-          "f(n - 3), f(n - 4), f(n - 4), f(n - 5), f(n - 4), f(n - 5), f(n - 5), f(n - 6)",
+          "f(n−3), f(n−4), f(n−4), f(n−5), f(n−4), f(n−5), f(n−5), f(n−6)",
           "8"
         ],
         [
           "5",
-          "Each node from the previous level branches into two ellipses; deeper calls are not drawn explicitly",
+          "Two ellipses branch from each node in the preceding level. The individual calls are omitted.",
           "16 ellipses"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Fibonacci recursion tree"
 }

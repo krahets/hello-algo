@@ -9,39 +9,39 @@ package chapter_tree;
 import utils.*;
 import java.util.*;
 
-/* 陣列表示下的二元樹類別 */
+/* 以陣列表示二元樹的類別 */
 class ArrayBinaryTree {
     private List<Integer> tree;
 
-    /* 建構子 */
+    /* 建構方法 */
     public ArrayBinaryTree(List<Integer> arr) {
         tree = new ArrayList<>(arr);
     }
 
-    /* 串列容量 */
+    /* 串列長度 */
     public int size() {
         return tree.size();
     }
 
-    /* 獲取索引為 i 節點的值 */
+    /* 取得索引 i 處的節點值 */
     public Integer val(int i) {
-        // 若索引越界，則返回 null ，代表空位
+        // 若索引超出範圍，回傳 null 表示空位
         if (i < 0 || i >= size())
             return null;
         return tree.get(i);
     }
 
-    /* 獲取索引為 i 節點的左子節點的索引 */
+    /* 取得索引 i 處節點的左子節點索引 */
     public Integer left(int i) {
         return 2 * i + 1;
     }
 
-    /* 獲取索引為 i 節點的右子節點的索引 */
+    /* 取得索引 i 處節點的右子節點索引 */
     public Integer right(int i) {
         return 2 * i + 2;
     }
 
-    /* 獲取索引為 i 節點的父節點的索引 */
+    /* 取得索引 i 處節點的父節點索引 */
     public Integer parent(int i) {
         return (i - 1) / 2;
     }
@@ -59,7 +59,7 @@ class ArrayBinaryTree {
 
     /* 深度優先走訪 */
     private void dfs(Integer i, String order, List<Integer> res) {
-        // 若為空位，則返回
+        // 若為空位，直接返回
         if (val(i) == null)
             return;
         // 前序走訪
@@ -100,37 +100,37 @@ class ArrayBinaryTree {
 public class array_binary_tree {
     public static void main(String[] args) {
         // 初始化二元樹
-        // 這裡藉助了一個從陣列直接生成二元樹的函式
+        // 這裡使用能從陣列直接建立二元樹的函式
         List<Integer> arr = Arrays.asList(1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15);
 
         TreeNode root = TreeNode.listToTree(arr);
         System.out.println("\n初始化二元樹\n");
-        System.out.println("二元樹的陣列表示：");
+        System.out.println("二元樹的陣列表示法：");
         System.out.println(arr);
-        System.out.println("二元樹的鏈結串列表示：");
+        System.out.println("二元樹的鏈結串列表示法：");
         PrintUtil.printTree(root);
 
-        // 陣列表示下的二元樹類別
+        // 以陣列表示二元樹的類別
         ArrayBinaryTree abt = new ArrayBinaryTree(arr);
 
-        // 訪問節點
+        // 存取節點
         int i = 1;
         Integer l = abt.left(i);
         Integer r = abt.right(i);
         Integer p = abt.parent(i);
-        System.out.println("\n當前節點的索引為 " + i + " ，值為 " + abt.val(i));
+        System.out.println("\n目前節點的索引為 " + i + " ，值為 " + abt.val(i));
         System.out.println("其左子節點的索引為 " + l + " ，值為 " + (l == null ? "null" : abt.val(l)));
         System.out.println("其右子節點的索引為 " + r + " ，值為 " + (r == null ? "null" : abt.val(r)));
         System.out.println("其父節點的索引為 " + p + " ，值為 " + (p == null ? "null" : abt.val(p)));
 
         // 走訪樹
         List<Integer> res = abt.levelOrder();
-        System.out.println("\n層序走訪為：" + res);
+        System.out.println("\n層序走訪的結果：" + res);
         res = abt.preOrder();
-        System.out.println("前序走訪為：" + res);
+        System.out.println("前序走訪的結果：" + res);
         res = abt.inOrder();
-        System.out.println("中序走訪為：" + res);
+        System.out.println("中序走訪的結果：" + res);
         res = abt.postOrder();
-        System.out.println("後序走訪為：" + res);
+        System.out.println("後序走訪的結果：" + res);
     }
 }

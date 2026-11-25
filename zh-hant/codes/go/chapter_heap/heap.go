@@ -4,42 +4,42 @@
 
 package chapter_heap
 
-// Go 語言中可以透過實現 heap.Interface 來構建整數大頂堆積
-// 實現 heap.Interface 需要同時實現 sort.Interface
+// 在 Go 中可以實作 heap.Interface 來建立整數最大堆積
+// 實作 heap.Interface 時也要實作 sort.Interface
 type intHeap []any
 
-// Push heap.Interface 的函式，實現推入元素到堆積
+// Push 是 heap.Interface 的方法，負責將元素加入堆積
 func (h *intHeap) Push(x any) {
-	// Push 和 Pop 使用 pointer receiver 作為參數
-	// 因為它們不僅會對切片的內容進行調整，還會修改切片的長度。
+	// Push 和 Pop 都使用指標接收者（pointer receiver）
+	// 因為這兩個方法除了調整切片的內容，也會改變切片的長度。
 	*h = append(*h, x.(int))
 }
 
-// Pop heap.Interface 的函式，彈出切片末尾元素（heap.Pop 已將堆積頂元素交換至末尾）
+// Pop 是 heap.Interface 的方法，取出切片的最後一個元素（heap.Pop 已將頂端元素換到尾端）
 func (h *intHeap) Pop() any {
-	// 待出堆積元素存放在最後
+	// 待取出的元素位於尾端
 	last := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return last
 }
 
-// Len sort.Interface 的函式
+// Len 是 sort.Interface 的方法
 func (h *intHeap) Len() int {
 	return len(*h)
 }
 
-// Less sort.Interface 的函式
+// Less 是 sort.Interface 的方法
 func (h *intHeap) Less(i, j int) bool {
-	// 如果實現小頂堆積，則需要調整為小於號
+	// 若要實作最小堆積，這裡應改用小於符號
 	return (*h)[i].(int) > (*h)[j].(int)
 }
 
-// Swap sort.Interface 的函式
+// Swap 是 sort.Interface 的方法
 func (h *intHeap) Swap(i, j int) {
 	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
 }
 
-// Top 獲取堆積頂元素
+// Top 取得堆積頂端元素
 func (h *intHeap) Top() any {
 	return (*h)[0]
 }

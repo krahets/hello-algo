@@ -19,39 +19,39 @@
     }
   },
   "context": [
-    "左側是對外佇列，右側是豎直陣列，中間標註“底層實現是陣列，對外表現為佇列”。兩者自上而下按佇列首到佇列尾排列；向下即索引增大，對應後文橫排陣列敘述中的“向右移動”。"
+    "左側是使用者看到的佇列，右側是垂直排列的陣列，中間標示「底層以陣列實作，對外呈現為佇列」。兩側都從上到下依隊首至隊尾的順序排列。往下移表示索引增大，相當於後文在橫向陣列中所說的「往右移」。"
   ],
   "description": [
-    "這三幀沒有跨越陣列末端，圖中用 rear = front + size 表示佇列尾之後的下一寫入位置，有效區間為 [front, rear - 1]。陣列兩端的灰色虛線格和省略號表示其餘空間；槽位退出有效區間，不表示原值被清零。"
+    "這三個畫面都沒有跨越陣列末端。圖中以 rear = front + size 表示下次寫入的位置，也就是隊尾的下一格。有效範圍為 [front, rear - 1]。陣列兩端的灰色虛線格和刪節號表示其餘空間。某一格移出有效範圍，並不表示原本的值已經歸零。"
   ],
   "frames": [
     {
-      "announcement": "初始陣列佇列為 [1, 3, 2, 5]，size = 4，front 指向佇列首 1，rear 指向尾元素 5 之後的空位。",
+      "announcement": "初始陣列佇列為 [1, 3, 2, 5]，size = 4。front 指向隊首的 1，rear 指向隊尾元素 5 後面的空格。",
       "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step1.png",
-      "explanation": "初始佇列為 [1, 3, 2, 5]，size = 4。橙色 front 指向 1，青色 rear 按 front + 4 算出，指向 5 下方的首個空槽。說明框寫明 front 指佇列首、rear 指佇列尾位置加 1。",
+      "explanation": "初始佇列為 [1, 3, 2, 5]，size = 4。橘色的 front 指向 1，青色的 rear 由 front + 4 算出，指向 5 下方的第一個空格。說明框標示 front 指向隊首，rear 指向隊尾索引加 1 的位置。",
       "id": "source-67",
-      "key_state": "初始佇列 [1, 3, 2, 5]，size = 4；front 指向 1，rear = front + size 指向 5 下方的空位。",
-      "title": "初始佇列：確定有效區間"
+      "key_state": "初始佇列為 [1, 3, 2, 5]，size = 4。front 指向 1，rear = front + size 指向 5 下方的空格。",
+      "title": "初始佇列：確定有效範圍"
     },
     {
-      "announcement": "執行 push(4)，在尾指標 rear 處寫入 4 並將 size 增至 5，佇列變為 [1, 3, 2, 5, 4]。",
+      "announcement": "執行 push(4)，在尾端指標 rear 所指的位置寫入 4，再將 size 增至 5。佇列變為 [1, 3, 2, 5, 4]。",
       "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step2_push.png",
-      "explanation": "執行 push(4)。說明框列出三個子步驟：計算 rear、在 rear 處新增元素、size 自增 1。先用入列前的 size = 4 算出 5 下方的空槽，寫入青色的 4，再把 size 增至 5。當前佇列為 [1, 3, 2, 5, 4]，front 仍指 1；圖中 rear 停在本次寫入的 4 處，未按新 size 重算。重算後應指向 4 下方一格的空槽。",
+      "explanation": "執行 push(4)。說明框列出三個步驟：算出 rear、在 rear 處加入元素、將 size 加 1。先以入隊前的 size = 4 算出 5 下方空格的位置，寫入青色的 4，再將 size 增至 5。目前佇列為 [1, 3, 2, 5, 4]，front 仍指向 1。圖中的 rear 停在這次寫入 4 的位置，尚未依新的 size 重新計算。重新計算後，rear 應指向 4 正下方的空格。",
       "id": "source-68",
-      "key_state": "push(4) 後：佇列 [1, 3, 2, 5, 4]，size = 5，front 指向 1；圖中 rear 停在本次寫入的 4 處。",
-      "title": "在 rear 位置入列 4"
+      "key_state": "執行 push(4) 後，佇列為 [1, 3, 2, 5, 4]，size = 5，front 指向 1。圖中的 rear 停在這次寫入 4 的位置。",
+      "title": "將 4 寫入 rear 所指的位置"
     },
     {
-      "announcement": "執行 pop()，front 下移指向 3，size 減為 4，元素 1 出列，其餘元素 [3, 2, 5, 4] 原地保留。",
+      "announcement": "執行 pop()，front 往下移，指向 3，size 減為 4。元素 1 出隊，其餘元素 [3, 2, 5, 4] 都留在原位。",
       "book_path": "chapter_stack_and_queue/queue.assets/array_queue_step3_pop.png",
-      "explanation": "執行 pop()，取出並返回原佇列首 1。說明框列出 front 自增 1、size 自減 1：front 向下移動一格指向 3，size 從 5 減為 4。當前有效佇列為 [3, 2, 5, 4]，這些元素仍在原槽位；原 1 所在格畫為虛線，退出有效範圍。本幀不畫 rear 標記。",
+      "explanation": "執行 pop()，取出並回傳原隊首的 1。說明框列出兩個動作：將 front 加 1、size 減 1。front 往下移一格，指向 3，size 從 5 減為 4。目前有效的佇列為 [3, 2, 5, 4]，這些元素仍在原位。原本存放 1 的格子以虛線畫出，表示該格已移出有效範圍。這個畫面沒有標示 rear。",
       "id": "source-69",
-      "key_state": "pop() 返回 1；front 向下移一格指向 3，size = 4，有效佇列為 [3, 2, 5, 4]。原 1 所在槽退出有效範圍，未清零；本幀不畫 rear。",
-      "title": "移動 front，佇列首 1 出列"
+      "key_state": "pop() 回傳 1。front 往下移一格，指向 3，size = 4，有效的佇列為 [3, 2, 5, 4]。原本存放 1 的格子已移出有效範圍，格內的值沒有歸零。這個畫面沒有標示 rear。",
+      "title": "移動 front，讓隊首的 1 出隊"
     }
   ],
-  "result": "入列只需在 rear 處寫入元素並將 size 加 1，出列只需將 front 加 1 並將 size 減 1，避免了每次出列搬移剩餘元素，時間複雜度均為 O(1)。",
+  "result": "入隊只需在 rear 處寫入元素，再將 size 加 1。出隊只需將 front 加 1、size 減 1，省去每次出隊時搬動剩餘元素的工夫。兩者的時間複雜度都是 O(1)。",
   "schema_version": 2,
-  "summary": "用 front 標記佇列首、size 記錄長度，入列寫入尾後位置，出列移動佇列首索引，其他元素原地保留。",
-  "title": "基於陣列實現佇列的入列與出列"
+  "summary": "以 front 標記隊首、size 記錄佇列長度。入隊時將元素寫在隊尾的下一格，出隊時移動隊首索引，其餘元素都留在原位。",
+  "title": "以陣列實作佇列的入隊與出隊"
 }

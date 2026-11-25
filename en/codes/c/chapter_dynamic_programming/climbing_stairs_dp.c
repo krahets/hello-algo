@@ -6,16 +6,16 @@
 
 #include "../utils/common.h"
 
-/* Climbing stairs: dynamic programming */
+/* Climbing stairs with dynamic programming */
 int climbingStairsDP(int n) {
     if (n == 1 || n == 2)
         return n;
     // Initialize the dp table to store subproblem solutions
     int *dp = (int *)malloc((n + 1) * sizeof(int));
-    // Initial states: set the solutions to the smallest subproblems
+    // Base cases: set the solutions to the smallest subproblems
     dp[1] = 1;
     dp[2] = 2;
-    // State transitions: solve progressively larger subproblems using smaller ones
+    // State transition: solve larger subproblems using smaller ones
     for (int i = 3; i <= n; i++) {
         dp[i] = dp[i - 1] + dp[i - 2];
     }
@@ -24,7 +24,7 @@ int climbingStairsDP(int n) {
     return result;
 }
 
-/* Climbing stairs: space-optimized dynamic programming */
+/* Climbing stairs with space-optimized dynamic programming */
 int climbingStairsDPComp(int n) {
     if (n == 1 || n == 2)
         return n;
@@ -42,10 +42,10 @@ int main() {
     int n = 9;
 
     int res = climbingStairsDP(n);
-    printf("Number of ways to climb %d stairs: %d\n", n, res);
+    printf("Ways to climb %d stairs: %d\n", n, res);
 
     res = climbingStairsDPComp(n);
-    printf("Number of ways to climb %d stairs: %d\n", n, res);
+    printf("Ways to climb %d stairs: %d\n", n, res);
 
     return 0;
 }

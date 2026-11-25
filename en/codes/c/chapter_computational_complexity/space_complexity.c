@@ -12,19 +12,19 @@ int func() {
     return 0;
 }
 
-/* Constant complexity */
+/* Constant space */
 void constant(int n) {
-    // Constants, variables, and objects occupy O(1) space
+    // Constants, variables, and objects use O(1) space
     const int a = 0;
     int b = 0;
     int nums[1000];
     ListNode *node = newListNode(0);
     free(node);
-    // Variables in the loop occupy O(1) space
+    // Variables in the loop use O(1) space
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // Function calls in the loop occupy O(1) space
+    // Function calls in the loop use O(1) space
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -34,27 +34,27 @@ void constant(int n) {
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // Implemented using uthash.h
+    UT_hash_handle hh; // Implemented with uthash.h
 } HashTable;
 
-/* Linear complexity */
+/* Linear space */
 void linear(int n) {
     // An array of length n uses O(n) space
     int *nums = malloc(sizeof(int) * n);
     free(nums);
 
-    // A list of length n occupies O(n) space
+    // A list of length n uses O(n) space
     ListNode **nodes = malloc(sizeof(ListNode *) * n);
     for (int i = 0; i < n; i++) {
         nodes[i] = newListNode(i);
     }
-    // Free memory
+    // Free the memory
     for (int i = 0; i < n; i++) {
         free(nodes[i]);
     }
     free(nodes);
 
-    // A hash table with n entries occupies O(n) space
+    // A hash table with n entries uses O(n) space
     HashTable *h = NULL;
     for (int i = 0; i < n; i++) {
         HashTable *tmp = malloc(sizeof(HashTable));
@@ -63,7 +63,7 @@ void linear(int n) {
         HASH_ADD_INT(h, key, tmp);
     }
 
-    // Free memory
+    // Free the memory
     HashTable *curr, *tmp;
     HASH_ITER(hh, h, curr, tmp) {
         HASH_DEL(h, curr);
@@ -71,17 +71,17 @@ void linear(int n) {
     }
 }
 
-/* Linear complexity (recursive implementation) */
+/* Linear space (recursive) */
 void linearRecur(int n) {
-    printf("Recursive call n = %d\r\n", n);
+    printf("Recursive call: n = %d\r\n", n);
     if (n == 1)
         return;
     linearRecur(n - 1);
 }
 
-/* Quadratic complexity */
+/* Quadratic space */
 void quadratic(int n) {
-    // The two-dimensional list occupies O(n^2) space
+    // A two-dimensional list uses O(n^2) space
     int **numMatrix = malloc(sizeof(int *) * n);
     for (int i = 0; i < n; i++) {
         int *tmp = malloc(sizeof(int) * n);
@@ -91,25 +91,25 @@ void quadratic(int n) {
         numMatrix[i] = tmp;
     }
 
-    // Free memory
+    // Free the memory
     for (int i = 0; i < n; i++) {
         free(numMatrix[i]);
     }
     free(numMatrix);
 }
 
-/* Quadratic complexity (recursive implementation) */
+/* Quadratic space (recursive) */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     int *nums = malloc(sizeof(int) * n);
-    printf("In recursive call n = %d, nums has length = %d\r\n", n, n);
+    printf("Recursive call: n = %d, length of nums = %d\r\n", n, n);
     int res = quadraticRecur(n - 1);
     free(nums);
     return res;
 }
 
-/* Exponential complexity (building a perfect binary tree) */
+/* Exponential space (build a perfect binary tree) */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return NULL;
@@ -119,22 +119,22 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     int n = 5;
-    // Constant complexity
+    // Constant space
     constant(n);
-    // Linear complexity
+    // Linear space
     linear(n);
     linearRecur(n);
-    // Quadratic complexity
+    // Quadratic space
     quadratic(n);
     quadraticRecur(n);
-    // Exponential complexity
+    // Exponential space
     TreeNode *root = buildTree(n);
     printTree(root);
 
-    // Free memory
+    // Free the memory
     freeMemoryTree(root);
 
     return 0;

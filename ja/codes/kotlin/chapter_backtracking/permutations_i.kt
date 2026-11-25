@@ -6,43 +6,43 @@
 
 package chapter_backtracking.permutations_i
 
-/* バックトラッキング：すべての順列 I */
+/* バックトラッキングによる全順列 I */
 fun backtrack(
     state: MutableList<Int>,
     choices: IntArray,
     selected: BooleanArray,
     res: MutableList<MutableList<Int>?>
 ) {
-    // 状態の長さが要素数と等しくなったら、解を記録する
+    // 状態の長さが要素数に達したら解を記録する
     if (state.size == choices.size) {
         res.add(state.toMutableList())
         return
     }
-    // すべての選択肢を走査する
+    // すべての選択肢を調べる
     for (i in choices.indices) {
         val choice = choices[i]
-        // 枝刈り：同じ要素を繰り返し選んではならない
+        // 枝刈り：同じ要素は二度選ばない
         if (!selected[i]) {
-            // 試行：選択を行い、状態を更新する
+            // 試行：選択して状態を更新する
             selected[i] = true
             state.add(choice)
             // 次の選択に進む
             backtrack(state, choices, selected, res)
-            // 復元：選択を取り消し、以前の状態に戻す
+            // 後戻り：選択を取り消し、元の状態に戻す
             selected[i] = false
             state.removeAt(state.size - 1)
         }
     }
 }
 
-/* すべての順列 I */
+/* 全順列 I */
 fun permutationsI(nums: IntArray): MutableList<MutableList<Int>?> {
     val res = mutableListOf<MutableList<Int>?>()
     backtrack(mutableListOf(), nums, BooleanArray(nums.size), res)
     return res
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val nums = intArrayOf(1, 2, 3)
 

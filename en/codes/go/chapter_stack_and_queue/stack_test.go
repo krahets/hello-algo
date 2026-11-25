@@ -13,7 +13,7 @@ import (
 
 func TestStack(t *testing.T) {
 	/* Initialize the stack */
-	// In Go, a slice is the recommended way to implement a stack
+	// In Go, a slice is the recommended choice for a stack
 	var stack []int
 
 	/* Push elements onto the stack */
@@ -22,26 +22,26 @@ func TestStack(t *testing.T) {
 	stack = append(stack, 2)
 	stack = append(stack, 5)
 	stack = append(stack, 4)
-	fmt.Print("Stack stack = ")
+	fmt.Print("stack = ")
 	PrintSlice(stack)
 
-	/* Access the top element */
+	/* Peek at the top element */
 	peek := stack[len(stack)-1]
-	fmt.Println("Top element peek =", peek)
+	fmt.Println("Top element (peek) =", peek)
 
-	/* Pop an element from the stack */
+	/* Pop the top element */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	fmt.Print("Popped element pop = ", pop, ", after popping, stack = ")
+	fmt.Print("Popped element (pop) = ", pop, ", stack after the pop = ")
 	PrintSlice(stack)
 
 	/* Get the stack size */
 	size := len(stack)
 	fmt.Println("Stack size =", size)
 
-	/* Check whether it is empty */
+	/* Check whether the stack is empty */
 	isEmpty := len(stack) == 0
-	fmt.Println("Is the stack empty =", isEmpty)
+	fmt.Println("Stack is empty =", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
@@ -54,25 +54,25 @@ func TestArrayStack(t *testing.T) {
 	stack.push(2)
 	stack.push(5)
 	stack.push(4)
-	fmt.Print("Stack stack = ")
+	fmt.Print("stack = ")
 	PrintSlice(stack.toSlice())
 
-	// Access the top element
+	// Peek at the top element
 	peek := stack.peek()
-	fmt.Println("Top element peek =", peek)
+	fmt.Println("Top element (peek) =", peek)
 
-	// Pop an element from the stack
+	// Pop the top element
 	pop := stack.pop()
-	fmt.Print("Popped element pop = ", pop, ", after popping, stack = ")
+	fmt.Print("Popped element (pop) = ", pop, ", stack after the pop = ")
 	PrintSlice(stack.toSlice())
 
 	// Get the stack size
 	size := stack.size()
 	fmt.Println("Stack size =", size)
 
-	// Check whether it is empty
+	// Check whether the stack is empty
 	isEmpty := stack.isEmpty()
-	fmt.Println("Is the stack empty =", isEmpty)
+	fmt.Println("Stack is empty =", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
@@ -84,28 +84,28 @@ func TestLinkedListStack(t *testing.T) {
 	stack.push(2)
 	stack.push(5)
 	stack.push(4)
-	fmt.Print("Stack stack = ")
+	fmt.Print("stack = ")
 	PrintList(stack.toList())
 
-	// Access the top element
+	// Peek at the top element
 	peek := stack.peek()
-	fmt.Println("Top element peek =", peek)
+	fmt.Println("Top element (peek) =", peek)
 
-	// Pop an element from the stack
+	// Pop the top element
 	pop := stack.pop()
-	fmt.Print("Popped element pop = ", pop, ", after popping, stack = ")
+	fmt.Print("Popped element (pop) = ", pop, ", stack after the pop = ")
 	PrintList(stack.toList())
 
 	// Get the stack size
 	size := stack.size()
 	fmt.Println("Stack size =", size)
 
-	// Check whether it is empty
+	// Check whether the stack is empty
 	isEmpty := stack.isEmpty()
-	fmt.Println("Is the stack empty =", isEmpty)
+	fmt.Println("Stack is empty =", isEmpty)
 }
 
-// BenchmarkArrayStack: 8 ns/op on a Mac M1 Pro
+// BenchmarkArrayStack took 8 ns/op on a Mac with an M1 Pro
 func BenchmarkArrayStack(b *testing.B) {
 	stack := newArrayStack()
 	// Use b.N as the iteration count
@@ -117,7 +117,7 @@ func BenchmarkArrayStack(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedListStack: 65.02 ns/op on a Mac M1 Pro
+// BenchmarkLinkedListStack took 65.02 ns/op on a Mac with an M1 Pro
 func BenchmarkLinkedListStack(b *testing.B) {
 	stack := newLinkedListStack()
 	// Use b.N as the iteration count

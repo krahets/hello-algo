@@ -6,7 +6,7 @@
 
 @main
 enum List {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         /* Initialize the list */
         var nums = [1, 3, 2, 5, 4]
@@ -14,17 +14,17 @@ enum List {
 
         /* Access an element */
         let num = nums[1]
-        print("Access the element at index 1; num = \(num)")
+        print("Reading index 1 gives num = \(num)")
 
         /* Update an element */
         nums[1] = 0
-        print("After updating the element at index 1 to 0, nums = \(nums)")
+        print("After setting the element at index 1 to 0, nums = \(nums)")
 
         /* Clear the list */
         nums.removeAll()
         print("After clearing the list, nums = \(nums)")
 
-        /* Append at the end */
+        /* Append an element */
         nums.append(1)
         nums.append(3)
         nums.append(2)
@@ -54,10 +54,10 @@ enum List {
         /* Concatenate two lists */
         let nums1 = [6, 8, 7, 10, 9]
         nums.append(contentsOf: nums1)
-        print("After appending list nums1 to nums, nums = \(nums)")
+        print("After appending nums1 to nums, nums = \(nums)")
 
         /* Sort the list */
         nums.sort()
-        print("After sorting the list, nums = \(nums)")
+        print("After sorting, nums = \(nums)")
     }
 }

@@ -4,11 +4,11 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* Undirected graph type implemented with an adjacency matrix */
+/* Undirected graph type represented by an adjacency matrix */
 pub struct GraphAdjMat {
-    // Vertex list: elements are vertex values, and indices are vertex indices
+    // Vertex list: each element holds a vertex value, and its position is the vertex index
     pub vertices: Vec<i32>,
-    // Adjacency matrix: row and column indices correspond to vertex indices
+    // Adjacency matrix: row and column indices are vertex indices
     pub adj_mat: Vec<Vec<i32>>,
 }
 
@@ -24,7 +24,7 @@ impl GraphAdjMat {
             graph.add_vertex(val);
         }
         // Add an edge
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        // The entries in edges are vertex indices, that is, indices into vertices
         for edge in edges {
             graph.add_edge(edge[0], edge[1])
         }
@@ -32,7 +32,7 @@ impl GraphAdjMat {
         graph
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     pub fn size(&self) -> usize {
         self.vertices.len()
     }
@@ -53,13 +53,13 @@ impl GraphAdjMat {
     /* Remove a vertex */
     pub fn remove_vertex(&mut self, index: usize) {
         if index >= self.size() {
-            panic!("Invalid vertex index")
+            panic!("index error")
         }
-        // Remove the vertex at index `index` from the vertex list
+        // Remove the vertex at the specified index from the vertex list
         self.vertices.remove(index);
-        // Remove row `index` from the adjacency matrix
+        // Remove the row at the specified index from the adjacency matrix
         self.adj_mat.remove(index);
-        // Remove column `index` from the adjacency matrix
+        // Remove the column at the specified index from the adjacency matrix
         for row in self.adj_mat.iter_mut() {
             row.remove(index);
         }
@@ -67,23 +67,23 @@ impl GraphAdjMat {
 
     /* Add an edge */
     pub fn add_edge(&mut self, i: usize, j: usize) {
-        // Parameters i and j are element indices in vertices
-        // Handle out-of-bounds or equal indices
+        // Parameters i and j are indices into vertices
+        // Check for out-of-bounds or equal indices
         if i >= self.size() || j >= self.size() || i == j {
-            panic!("Invalid vertex index")
+            panic!("index error")
         }
-        // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+        // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
         self.adj_mat[i][j] = 1;
         self.adj_mat[j][i] = 1;
     }
 
     /* Remove an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     pub fn remove_edge(&mut self, i: usize, j: usize) {
-        // Parameters i and j are element indices in vertices
-        // Handle out-of-bounds or equal indices
+        // Parameters i and j are indices into vertices
+        // Check for out-of-bounds or equal indices
         if i >= self.size() || j >= self.size() || i == j {
-            panic!("Invalid vertex index")
+            panic!("index error")
         }
         self.adj_mat[i][j] = 0;
         self.adj_mat[j][i] = 0;
@@ -103,8 +103,8 @@ impl GraphAdjMat {
 
 /* Driver code */
 fn main() {
-    /* Initialize the undirected graph */
-    // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+    /* Initialize an undirected graph */
+    // The entries in edges are vertex indices, that is, indices into vertices
     let vertices = vec![1, 3, 2, 5, 4];
     let edges = vec![[0, 1], [0, 3], [1, 2], [2, 3], [2, 4], [3, 4]];
     let mut graph = GraphAdjMat::new(vertices, edges);

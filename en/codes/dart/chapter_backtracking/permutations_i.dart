@@ -11,22 +11,22 @@ void backtrack(
   List<bool> selected,
   List<List<int>> res,
 ) {
-  // Record a solution when the state length equals the number of elements
+  // Record a solution when the state contains all the elements
   if (state.length == choices.length) {
     res.add(List.from(state));
     return;
   }
-  // Iterate over all choices
+  // Try each choice
   for (int i = 0; i < choices.length; i++) {
     int choice = choices[i];
-    // Prune: do not choose an element more than once
+    // Prune: skip elements already in use
     if (!selected[i]) {
-      // Try: make a choice and update the state
+      // Make a choice and update the state
       selected[i] = true;
       state.add(choice);
-      // Proceed to the next choice
+      // Make the next choice
       backtrack(state, choices, selected, res);
-      // Backtrack: undo the choice and restore the previous state
+      // Backtrack: undo the choice to restore the previous state
       selected[i] = false;
       state.removeLast();
     }

@@ -13,22 +13,22 @@ import '../utils/tree_node.dart';
 
 /* 関数 */
 int function() {
-  // 何らかの処理を実行する
+  // 何らかの処理を行う
   return 0;
 }
 
 /* 定数オーダー */
 void constant(int n) {
-  // 定数、変数、オブジェクトは O(1) の領域を使用する
+  // 定数・変数・オブジェクトが使う領域は O(1)
   final int a = 0;
   int b = 0;
   List<int> nums = List.filled(10000, 0);
   ListNode node = ListNode(0);
-  // ループ内の変数は O(1) の領域を使用する
+  // ループ内の変数が使う領域は O(1)
   for (var i = 0; i < n; i++) {
     int c = 0;
   }
-  // ループ内の関数は O(1) の領域を使用する
+  // ループ内の関数が使う領域は O(1)
   for (var i = 0; i < n; i++) {
     function();
   }
@@ -36,14 +36,14 @@ void constant(int n) {
 
 /* 線形オーダー */
 void linear(int n) {
-  // 長さ n の配列は O(n) の領域を使用する
+  // 長さ n の配列が使う領域は O(n)
   List<int> nums = List.filled(n, 0);
-  // 長さ n のリストは O(n) の領域を使用する
+  // 長さ n のリストが使う領域は O(n)
   List<ListNode> nodes = [];
   for (var i = 0; i < n; i++) {
     nodes.add(ListNode(i));
   }
-  // 長さ n のハッシュテーブルは O(n) の領域を使用する
+  // 長さ n のハッシュテーブルが使う領域は O(n)
   Map<int, String> map = HashMap();
   for (var i = 0; i < n; i++) {
     map.putIfAbsent(i, () => i.toString());
@@ -59,9 +59,9 @@ void linearRecur(int n) {
 
 /* 二次オーダー */
 void quadratic(int n) {
-  // 行列は O(n^2) の領域を使用する
+  // 行列が使う領域は O(n^2)
   List<List<int>> numMatrix = List.generate(n, (_) => List.filled(n, 0));
-  // 二次元リストは O(n^2) の領域を使用する
+  // 二次元リストが使う領域は O(n^2)
   List<List<int>> numList = [];
   for (var i = 0; i < n; i++) {
     List<int> tmp = [];
@@ -76,11 +76,11 @@ void quadratic(int n) {
 int quadraticRecur(int n) {
   if (n <= 0) return 0;
   List<int> nums = List.filled(n, 0);
-  print('再帰 n = $n における nums の長さ = ${nums.length}');
+  print('再帰 n = $n での nums の長さ = ${nums.length}');
   return quadraticRecur(n - 1);
 }
 
-/* 指数オーダー（パーフェクト二分木の構築） */
+/* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
 TreeNode? buildTree(int n) {
   if (n == 0) return null;
   TreeNode root = TreeNode(0);
@@ -89,7 +89,7 @@ TreeNode? buildTree(int n) {
   return root;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   int n = 5;
   // 定数オーダー

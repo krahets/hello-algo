@@ -6,7 +6,7 @@
 
 import utils
 
-/* Класс двоичного дерева в массивном представлении */
+/* Класс двоичного дерева на основе массива */
 class ArrayBinaryTree {
     private var tree: [Int?]
 
@@ -15,39 +15,39 @@ class ArrayBinaryTree {
         tree = arr
     }
 
-    /* Вместимость списка */
+    /* Ёмкость списка */
     func size() -> Int {
         tree.count
     }
 
     /* Получить значение узла с индексом i */
     func val(i: Int) -> Int? {
-        // Если индекс выходит за границы, вернуть null, обозначающий пустую позицию
+        // Если индекс выходит за границы массива, вернуть null — признак пустой позиции
         if i < 0 || i >= size() {
             return nil
         }
         return tree[i]
     }
 
-    /* Получить индекс левого дочернего узла узла с индексом i */
+    /* Получить индекс левого потомка узла с индексом i */
     func left(i: Int) -> Int {
         2 * i + 1
     }
 
-    /* Получить индекс правого дочернего узла узла с индексом i */
+    /* Получить индекс правого потомка узла с индексом i */
     func right(i: Int) -> Int {
         2 * i + 2
     }
 
-    /* Получить индекс родительского узла узла с индексом i */
+    /* Получить индекс родителя узла с индексом i */
     func parent(i: Int) -> Int {
         (i - 1) / 2
     }
 
-    /* Обход в ширину */
+    /* Обход по уровням */
     func levelOrder() -> [Int] {
         var res: [Int] = []
-        // Непосредственно обходить массив
+        // Пройти непосредственно по массиву
         for i in 0 ..< size() {
             if let val = val(i: i) {
                 res.append(val)
@@ -58,11 +58,11 @@ class ArrayBinaryTree {
 
     /* Обход в глубину */
     private func dfs(i: Int, order: String, res: inout [Int]) {
-        // Если это пустая позиция, вернуть
+        // Если позиция пуста, завершить вызов
         guard let val = val(i: i) else {
             return
         }
-        // Предварительный обход
+        // Прямой обход
         if order == "pre" {
             res.append(val)
         }
@@ -78,7 +78,7 @@ class ArrayBinaryTree {
         }
     }
 
-    /* Предварительный обход */
+    /* Прямой обход */
     func preOrder() -> [Int] {
         var res: [Int] = []
         dfs(i: 0, order: "pre", res: &res)
@@ -102,20 +102,20 @@ class ArrayBinaryTree {
 
 @main
 enum _ArrayBinaryTree {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
-        // Инициализировать двоичное дерево
-        // Здесь используется функция, напрямую строящая двоичное дерево из массива
+        // Инициализация двоичного дерева
+        // Используем функцию, которая строит двоичное дерево непосредственно из массива
         let arr = [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]
 
         let root = TreeNode.listToTree(arr: arr)
         print("\nИнициализация двоичного дерева\n")
-        print("Массивное представление двоичного дерева:")
+        print("Двоичное дерево в виде массива:")
         print(arr)
         print("Связное представление двоичного дерева:")
         PrintUtil.printTree(root: root)
 
-        // Класс двоичного дерева в массивном представлении
+        // Класс двоичного дерева на основе массива
         let abt = ArrayBinaryTree(arr: arr)
 
         // Доступ к узлу
@@ -123,16 +123,16 @@ enum _ArrayBinaryTree {
         let l = abt.left(i: i)
         let r = abt.right(i: i)
         let p = abt.parent(i: i)
-        print("\nТекущий узел: индекс = \(i), значение = \(abt.val(i: i) as Any)")
-        print("Индекс левого дочернего узла = \(l), значение = \(abt.val(i: l) as Any)")
-        print("Индекс правого дочернего узла = \(r), значение = \(abt.val(i: r) as Any)")
-        print("Индекс родительского узла = \(p), значение = \(abt.val(i: p) as Any)")
+        print("\nИндекс текущего узла: \(i), значение: \(abt.val(i: i) as Any)")
+        print("Индекс левого потомка: \(l), значение: \(abt.val(i: l) as Any)")
+        print("Индекс правого потомка: \(r), значение: \(abt.val(i: r) as Any)")
+        print("Индекс родителя: \(p), значение: \(abt.val(i: p) as Any)")
 
-        // Обходить дерево
+        // Обход дерева
         var res = abt.levelOrder()
-        print("\nОбход в ширину: \(res)")
+        print("\nОбход по уровням: \(res)")
         res = abt.preOrder()
-        print("Предварительный обход: \(res)")
+        print("Прямой обход: \(res)")
         res = abt.inOrder()
         print("Симметричный обход: \(res)")
         res = abt.postOrder()

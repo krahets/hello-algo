@@ -25,17 +25,17 @@ void preOrder(TreeNode *root) {
     preOrder(root->right);
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\n二分木を初期化する\n");
+    printf("\n二分木を初期化\n");
     printTree(root);
 
     // 行きがけ順走査
     preOrder(root);
 
-    printf("\n値が 7 であるすべてのノードを出力する\n");
+    printf("\n値が 7 のノードをすべて出力\n");
     int *vals = malloc(resSize * sizeof(int));
     for (int i = 0; i < resSize; i++) {
         vals[i] = res[i]->val;

@@ -6,7 +6,7 @@
 
 /* Search */
 fn dfs(i: usize) -> i32 {
-    // The values of dp[1] and dp[2] are known; return them
+    // Return the known value for dp[1] or dp[2]
     if i == 1 || i == 2 {
         return i as i32;
     }
@@ -15,7 +15,7 @@ fn dfs(i: usize) -> i32 {
     count
 }
 
-/* Climbing stairs: search */
+/* Climbing stairs with search */
 fn climbing_stairs_dfs(n: usize) -> i32 {
     dfs(n)
 }
@@ -25,5 +25,5 @@ pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dfs(n);
-    println!("Number of ways to climb {n} stairs: {res}");
+    println!("Climbing {n} stairs: {res} ways");
 }

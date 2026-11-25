@@ -61,19 +61,19 @@ def nested_for_loop(n)
   res
 end
 
-### Driver code ###
+### Driver Code ###
 if __FILE__ == $0
   n = 5
 
   res = for_loop(n)
-  puts "\nSum from the for loop: res = #{res}"
+  puts "\nfor loop sum: res = #{res}"
 
   res = while_loop(n)
-  puts "\nSum from the while loop: res = #{res}"
+  puts "\nwhile loop sum: res = #{res}"
 
   res = while_loop_ii(n)
-  puts "\nSum from the while loop with two updates: res = #{res}"
+  puts "\nwhile loop sum (two updates): res = #{res}"
 
   res = nested_for_loop(n)
-  puts "\nTraversal result from nested for loops: #{res}"
+  puts "\nNested for loop traversal: #{res}"
 end

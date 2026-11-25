@@ -6,29 +6,29 @@
 
 #include "../utils/common.h"
 
-/* Бэктрекинг */
+/* Поиск с возвратом */
 void backtrack(int *choices, int state, int n, int *res, int len) {
-    // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
+    // На ступени n увеличить число способов на 1
     if (state == n)
         res[0]++;
-    // Перебор всех вариантов выбора
+    // Перебрать все варианты
     for (int i = 0; i < len; i++) {
         int choice = choices[i];
-        // Отсечение: нельзя выходить за n-ю ступень
+        // Отсечь шаги за ступень n
         if (state + choice > n)
             continue;
-        // Попытка: сделать выбор и обновить состояние
+        // Сделать выбор и обновить состояние
         backtrack(choices, state + choice, n, res, len);
-        // Откат
+        // Отменить выбор
     }
 }
 
-/* Подъем по лестнице: бэктрекинг */
+/* Подъём по лестнице: поиск с возвратом */
 int climbingStairsBacktrack(int n) {
     int choices[2] = {1, 2}; // Можно подняться на 1 или 2 ступени
-    int state = 0;           // Начать подъем с 0-й ступени
+    int state = 0;           // Начать со ступени 0
     int *res = (int *)malloc(sizeof(int));
-    *res = 0; // Использовать res[0] для хранения числа решений
+    *res = 0; // Хранить число способов в res[0]
     int len = sizeof(choices) / sizeof(int);
     backtrack(choices, state, n, res, len);
     int result = *res;
@@ -36,12 +36,12 @@ int climbingStairsBacktrack(int n) {
     return result;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int n = 9;
 
     int res = climbingStairsBacktrack(n);
-    printf("Количество способов подняться по лестнице из %d ступеней: %d\n", n, res);
+    printf("Число способов подняться на лестницу из %d ступеней: %d\n", n, res);
 
     return 0;
 }

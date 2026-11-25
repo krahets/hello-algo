@@ -4,7 +4,7 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* Additive hash */
+/* Additive hashing */
 fn add_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -16,7 +16,7 @@ fn add_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* Multiplicative hash */
+/* Multiplicative hashing */
 fn mul_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -28,7 +28,7 @@ fn mul_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* XOR hash */
+/* XOR hashing */
 fn xor_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -40,7 +40,7 @@ fn xor_hash(key: &str) -> i32 {
     (hash & MODULUS) as i32
 }
 
-/* Rotating hash */
+/* Rotation hashing */
 fn rot_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -66,5 +66,5 @@ fn main() {
     println!("XOR hash value: {hash}");
 
     let hash = rot_hash(key);
-    println!("Rotating hash value: {hash}");
+    println!("Rotation hash value: {hash}");
 }

@@ -10,42 +10,42 @@ import utils.*;
 import java.util.*;
 
 public class hashing_search {
-    /* Hash-based search (array) */
+    /* Hash lookup in an array */
     static int hashingSearchArray(Map<Integer, Integer> map, int target) {
-        // Hash table key: target element; value: index
-        // Return -1 if the hash table does not contain this key
+        // Hash table key: target element, value: index
+        // Return -1 if the key is absent
         return map.getOrDefault(target, -1);
     }
 
-    /* Hash-based search (linked list) */
+    /* Hash lookup in a linked list */
     static ListNode hashingSearchLinkedList(Map<Integer, ListNode> map, int target) {
-        // Hash table key: target node value; value: node object
-        // Return null if the hash table does not contain this key
+        // Hash table key: target node value, value: node object
+        // Return null if the key is absent
         return map.getOrDefault(target, null);
     }
 
     public static void main(String[] args) {
         int target = 3;
 
-        /* Hash-based search (array) */
+        /* Hash lookup in an array */
         int[] nums = { 1, 5, 3, 2, 4, 7, 5, 9, 10, 8 };
         // Initialize the hash table
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i); // key: element; value: index
+            map.put(nums[i], i); // key: element, value: index
         }
         int index = hashingSearchArray(map, target);
-        System.out.println("Index of target element 3 = " + index);
+        System.out.println("Index of target 3 = " + index);
 
-        /* Hash-based search (linked list) */
+        /* Hash lookup in a linked list */
         ListNode head = ListNode.arrToLinkedList(nums);
         // Initialize the hash table
         Map<Integer, ListNode> map1 = new HashMap<>();
         while (head != null) {
-            map1.put(head.val, head); // key: node value; value: node
+            map1.put(head.val, head); // key: node value, value: node
             head = head.next;
         }
         ListNode node = hashingSearchLinkedList(map1, target);
-        System.out.println("The node object corresponding to target value 3 is " + node);
+        System.out.println("Node object for target value 3 = " + node);
     }
 }

@@ -8,8 +8,8 @@
 class TreeNode {
     val: number; // 노드 값
     height: number; // 노드 높이
-    left: TreeNode | null; // 왼쪽 자식 노드 포인터
-    right: TreeNode | null; // 오른쪽 자식 노드 포인터
+    left: TreeNode | null; // 왼쪽 자식 노드를 가리키는 포인터
+    right: TreeNode | null; // 오른쪽 자식 노드를 가리키는 포인터
     constructor(
         val?: number,
         height?: number,
@@ -23,7 +23,7 @@ class TreeNode {
     }
 }
 
-/* 배열을 역직렬화하여 이진 트리로 변환한다 */
+/* 배열을 이진 트리로 역직렬화 */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

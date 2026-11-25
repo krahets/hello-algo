@@ -8,15 +8,15 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* Depth-first traversal helper function */
+/* Helper for depth-first traversal */
 func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex) {
-	// append returns an updated slice, which must be assigned back through the original slice pointer
+	// append returns a new slice reference, so assign it back to the original variable
 	*res = append(*res, vet)
 	visited[vet] = struct{}{}
-	// Traverse all neighbors of this vertex
+	// Iterate over all neighbors of this vertex
 	for _, adjVet := range g.adjList[vet] {
 		_, isExist := visited[adjVet]
-		// Recursively visit the neighboring vertex
+		// Visit neighbors recursively
 		if !isExist {
 			dfs(g, visited, res, adjVet)
 		}
@@ -24,13 +24,13 @@ func dfs(g *graphAdjList, visited map[Vertex]struct{}, res *[]Vertex, vet Vertex
 }
 
 /* Depth-first traversal */
-// Represent the graph with an adjacency list to access all neighbors of a given vertex
+// Represent the graph with an adjacency list to look up all neighbors of a given vertex
 func graphDFS(g *graphAdjList, startVet Vertex) []Vertex {
-	// Vertex traversal sequence
+	// Vertex traversal order
 	res := make([]Vertex, 0)
-	// Hash set recording visited vertices
+	// Use a hash set to track visited vertices
 	visited := make(map[Vertex]struct{})
 	dfs(g, visited, &res, startVet)
-	// Return the vertex traversal sequence
+	// Return the vertex traversal order
 	return res
 }

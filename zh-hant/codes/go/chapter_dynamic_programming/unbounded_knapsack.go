@@ -18,10 +18,10 @@ func unboundedKnapsackDP(wgt, val []int, cap int) int {
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// 若超過背包容量，則不選物品 i
+				// 若重量超過背包容量，就不選物品 i
 				dp[i][c] = dp[i-1][c]
 			} else {
-				// 不選和選物品 i 這兩種方案的較大值
+				// 取不選與選取物品 i 兩種情況中的較大值
 				dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i][c-wgt[i-1]]+val[i-1])))
 			}
 		}
@@ -38,10 +38,10 @@ func unboundedKnapsackDPComp(wgt, val []int, cap int) int {
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// 若超過背包容量，則不選物品 i
+				// 若重量超過背包容量，就不選物品 i
 				dp[c] = dp[c]
 			} else {
-				// 不選和選物品 i 這兩種方案的較大值
+				// 取不選與選取物品 i 兩種情況中的較大值
 				dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
 			}
 		}

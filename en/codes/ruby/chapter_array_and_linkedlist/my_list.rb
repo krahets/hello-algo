@@ -19,24 +19,24 @@ class MyList
 
   ### Access an element ###
   def get(index)
-    # Raise an exception if the index is out of bounds; the same applies below
+    # Throw an exception if the index is out of bounds, here and below
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
     @arr[index]
   end
 
-  ### Update an element ###
+  ### Access an element ###
   def set(index, num)
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
     @arr[index] = num
   end
 
-  ### Append an element at the end ###
+  ### Append an element ###
   def add(num)
-    # Grow the capacity when adding an element would exceed it
+    # Increase capacity when the elements would no longer fit
     extend_capacity if size == capacity
     @arr[size] = num
 
-    # Update the number of elements
+    # Update the element count
     @size += 1
   end
 
@@ -44,16 +44,16 @@ class MyList
   def insert(index, num)
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
 
-    # Grow the capacity when adding an element would exceed it
+    # Increase capacity when the elements would no longer fit
     extend_capacity if size == capacity
 
-    # Shift all elements at and after index `index` one position to the right
+    # Shift the elements from index onward one position to the right
     for j in (size - 1).downto(index)
       @arr[j + 1] = @arr[j]
     end
     @arr[index] = num
 
-    # Update the number of elements
+    # Update the element count
     @size += 1
   end
 
@@ -62,21 +62,21 @@ class MyList
     raise IndexError, "Index out of bounds" if index < 0 || index >= size
     num = @arr[index]
 
-    # Shift all elements after index one position to the left
+    # Shift the elements after index one position to the left
     for j in index...size
       @arr[j] = @arr[j + 1]
     end
 
-    # Update the number of elements
+    # Update the element count
     @size -= 1
 
     # Return the removed element
     num
   end
 
-  ### Grow the list capacity ###
+  ### Increase the list capacity ###
   def extend_capacity
-    # Duplicate the original array and append capacity * (extend_ratio - 1) empty slots
+    # Create an array extend_ratio times as long and copy the original array into it
     arr = @arr.dup + Array.new(capacity * (@extend_ratio - 1))
     # Update the list capacity
     @capacity = arr.length
@@ -85,7 +85,7 @@ class MyList
   ### Convert the list to an array ###
   def to_array
     sz = size
-    # Convert only the list elements within the occupied range
+    # Convert only the elements within the current list length
     arr = Array.new(sz)
     for i in 0...sz
       arr[i] = get(i)
@@ -94,18 +94,18 @@ class MyList
   end
 end
 
-### Driver code ###
+### Driver Code ###
 if __FILE__ == $0
   # Initialize the list
   nums = MyList.new
 
-  # Append an element at the end
+  # Append an element
   nums.add(1)
   nums.add(3)
   nums.add(2)
   nums.add(5)
   nums.add(4)
-  puts "List nums = #{nums.to_array}, capacity = #{nums.capacity}, size = #{nums.size}"
+  puts "List nums = #{nums.to_array}, capacity = #{nums.capacity}, length = #{nums.size}"
 
   # Insert an element in the middle
   nums.insert(3, 6)
@@ -117,16 +117,16 @@ if __FILE__ == $0
 
   # Access an element
   num = nums.get(1)
-  puts "Access the element at index 1: num = #{num}"
+  puts "Reading index 1 gives num = #{num}"
 
   # Update an element
   nums.set(1, 0)
-  puts "After updating the element at index 1 to 0, nums = #{nums.to_array}"
+  puts "After setting the element at index 1 to 0, nums = #{nums.to_array}"
 
   # Test capacity growth
   for i in 0...10
-    # When i = 5, the list length would exceed its capacity, triggering capacity growth
+    # At i = 5, the list length would exceed its capacity, so the list grows
     nums.add(i)
   end
-  puts "After capacity expansion, list nums = #{nums.to_array}, capacity = #{nums.capacity}, size = #{nums.size}"
+  puts "After increasing capacity, nums = #{nums.to_array}, capacity = #{nums.capacity}, length = #{nums.size}"
 end

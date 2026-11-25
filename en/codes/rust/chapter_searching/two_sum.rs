@@ -7,10 +7,10 @@
 use hello_algo_rust::include::print_util;
 use std::collections::HashMap;
 
-/* Method 1: brute-force enumeration */
+/* Method 1: Brute-force enumeration */
 pub fn two_sum_brute_force(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
     let size = nums.len();
-    // Two nested loops give a time complexity of O(n^2)
+    // Two nested loops take O(n^2) time
     for i in 0..size - 1 {
         for j in i + 1..size {
             if nums[i] + nums[j] == target {
@@ -21,11 +21,11 @@ pub fn two_sum_brute_force(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
     None
 }
 
-/* Method 2: auxiliary hash table */
+/* Method 2: Auxiliary hash table */
 pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
     // The auxiliary hash table uses O(n) space
     let mut dic = HashMap::new();
-    // A single loop gives a time complexity of O(n)
+    // A single loop takes O(n) time
     for (i, num) in nums.iter().enumerate() {
         match dic.get(&(target - num)) {
             Some(v) => return Some(vec![*v as i32, i as i32]),
@@ -36,17 +36,17 @@ pub fn two_sum_hash_table(nums: &Vec<i32>, target: i32) -> Option<Vec<i32>> {
 }
 
 fn main() {
-    // ======= Test case =======
+    // ======= Test Case =======
     let nums = vec![2, 7, 11, 15];
     let target = 13;
 
-    // ====== Driver code ======
+    // ====== Driver Code ======
     // Method 1
     let res = two_sum_brute_force(&nums, target).unwrap();
     print!("Method 1: res = ");
     print_util::print_array(&res);
     // Method 2
     let res = two_sum_hash_table(&nums, target).unwrap();
-    print!("\nMethod 2 res = ");
+    print!("\nMethod 2: res = ");
     print_util::print_array(&res);
 }

@@ -10,40 +10,40 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class array {
-    /* Access an element at a random index */
+    /* Access a random element */
     static int randomAccess(int[] nums) {
-        // Choose a random number in the interval [0, nums.length)
+        // Pick a random index in [0, nums.length)
         int randomIndex = ThreadLocalRandom.current().nextInt(0, nums.length);
-        // Get and return the randomly selected element
+        // Get and return the element at that index
         int randomNum = nums[randomIndex];
         return randomNum;
     }
 
-    /* Extend the array length */
+    /* Extend the array */
     static int[] extend(int[] nums, int enlarge) {
-        // Initialize an array with the extended length
+        // Initialize an array with the new length
         int[] res = new int[nums.length + enlarge];
-        // Copy all elements from the original array to the new array
+        // Copy all elements from the original array into the new array
         for (int i = 0; i < nums.length; i++) {
             res[i] = nums[i];
         }
-        // Return the new, extended array
+        // Return the new, longer array
         return res;
     }
 
-    /* Insert element num at index `index` in the array */
+    /* Insert num at the specified array index */
     static void insert(int[] nums, int num, int index) {
-        // Shift all elements at and after index `index` one position to the right
+        // Shift the elements from index onward one position to the right
         for (int i = nums.length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // Assign num to the element at index `index`
+        // Store num at the specified index
         nums[index] = num;
     }
 
-    /* Remove the element at index `index` */
+    /* Remove the element at the specified index */
     static void remove(int[] nums, int index) {
-        // Shift all elements after index `index` one position to the left
+        // Shift all elements after index one position to the left
         for (int i = index; i < nums.length - 1; i++) {
             nums[i] = nums[i + 1];
         }
@@ -62,7 +62,7 @@ public class array {
         }
     }
 
-    /* Find a specified element in the array */
+    /* Find a given element in the array */
     static int find(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target)
@@ -71,7 +71,7 @@ public class array {
         return -1;
     }
 
-    /* Driver code */
+    /* Driver Code */
     public static void main(String[] args) {
         /* Initialize the array */
         int[] arr = new int[5];
@@ -81,25 +81,25 @@ public class array {
 
         /* Random access */
         int randomNum = randomAccess(nums);
-        System.out.println("Randomly selected element from nums: " + randomNum);
+        System.out.println("Random element from nums: " + randomNum);
 
-        /* Extend the length */
+        /* Extend the array */
         nums = extend(nums, 3);
-        System.out.println("Extend the array length to 8, giving nums = " + Arrays.toString(nums));
+        System.out.println("After extending the array to length 8, nums = " + Arrays.toString(nums));
 
         /* Insert an element */
         insert(nums, 6, 3);
-        System.out.println("Insert the number 6 at index 3, giving nums = " + Arrays.toString(nums));
+        System.out.println("After inserting 6 at index 3, nums = " + Arrays.toString(nums));
 
         /* Remove an element */
         remove(nums, 2);
-        System.out.println("Remove the element at index 2, giving nums = " + Arrays.toString(nums));
+        System.out.println("After removing the element at index 2, nums = " + Arrays.toString(nums));
 
         /* Traverse the array */
         traverse(nums);
 
         /* Find an element */
         int index = find(nums, 3);
-        System.out.println("Find element 3 in nums, giving index = " + index);
+        System.out.println("Index of 3 in nums = " + index);
     }
 }

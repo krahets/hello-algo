@@ -79,7 +79,7 @@ void showTrunks(Trunk *trunk) {
 
 /**
  * Вывести двоичное дерево
- * Этот вывод дерева заимствован из TECHIE DELIGHT
+ * Код для вывода дерева заимствован у TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
@@ -117,9 +117,9 @@ void printTree(TreeNode *root) {
 /* Вывести кучу */
 void printHeap(int arr[], int size) {
     TreeNode *root;
-    printf("Массивное представление кучи:");
+    printf("Куча в виде массива: ");
     printArray(arr, size);
-    printf("Древовидное представление кучи:\n");
+    printf("Куча в виде дерева:\n");
     root = arrayToTree(arr, size);
     printTree(root);
 }

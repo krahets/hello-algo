@@ -55,20 +55,20 @@ fn nested_for_loop(n: i32) -> String {
     res.join("")
 }
 
-/* Driver code */
+/* Driver Code */
 fn main() {
     let n = 5;
     let mut res;
 
     res = for_loop(n);
-    println!("\nSum from the for loop: res = {res}");
+    println!("\nfor loop sum: res = {res}");
 
     res = while_loop(n);
-    println!("\nSum from the while loop: res = {res}");
+    println!("\nwhile loop sum: res = {res}");
 
     res = while_loop_ii(n);
-    println!("\nSum from the while loop with two updates, res = {}", res);
+    println!("\nwhile loop sum (two updates): res = {}", res);
 
     let res = nested_for_loop(n);
-    println!("\nTraversal from the nested for loops: {res}");
+    println!("\nNested for loop traversal: {res}");
 }

@@ -21,7 +21,7 @@ func sumRecur(n: Int) -> Int {
     return n + sumRecur(n: n - 1)
 }
 
-/* 선형 차수 반복문 */
+/* 선형 반복문 */
 func linearLoop(n: Int) -> Int {
     var res = 0
     for i in 0 ..< n {
@@ -30,7 +30,7 @@ func linearLoop(n: Int) -> Int {
     return res
 }
 
-/* 제곱 차수 반복문 */
+/* 이차 반복문 */
 func quadraticLoop(n: Int) -> Int {
     var res = 0
     for i in 0 ..< n {
@@ -41,7 +41,7 @@ func quadraticLoop(n: Int) -> Int {
     return res
 }
 
-/* 로그 차수 반복문 */
+/* 로그 반복문 */
 func logarithmicLoop(n: Int) -> Int {
     var n = n
     while n > 1 {

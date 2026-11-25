@@ -31,7 +31,7 @@ public class preorder_traversal_i_compact {
         // Preorder traversal
         PreOrder(root);
 
-        Console.WriteLine("\nOutput all nodes with value 7");
+        Console.WriteLine("\nPrint all nodes with value 7");
         PrintUtil.PrintList(res.Select(p => p.val).ToList());
     }
 }

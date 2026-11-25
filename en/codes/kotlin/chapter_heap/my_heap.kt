@@ -9,16 +9,16 @@ package chapter_heap
 import utils.printHeap
 import java.util.*
 
-/* Max heap */
+/* Max-heap */
 class MaxHeap(nums: MutableList<Int>?) {
-    // Use a resizable list instead of an array to avoid managing capacity growth
+    // Use a list instead of an array so it can grow as needed
     private val maxHeap = mutableListOf<Int>()
 
     /* Constructor: build a heap from the input list */
     init {
-        // Place the list elements in the heap without changing their order
+        // Copy the list elements into the heap in their original order
         maxHeap.addAll(nums!!)
-        // Sift down from every non-leaf node
+        // Heapify all non-leaf nodes
         for (i in parent(size() - 1) downTo 0) {
             siftDown(i)
         }
@@ -36,7 +36,7 @@ class MaxHeap(nums: MutableList<Int>?) {
 
     /* Get the parent index */
     private fun parent(i: Int): Int {
-        return (i - 1) / 2 // Integer division (truncates toward zero in Kotlin)
+        return (i - 1) / 2 // Floor division
     }
 
     /* Swap elements */
@@ -57,7 +57,7 @@ class MaxHeap(nums: MutableList<Int>?) {
         return size() == 0
     }
 
-    /* Access the top element of the heap */
+    /* Peek at the root */
     fun peek(): Int {
         return maxHeap[0]
     }
@@ -70,14 +70,14 @@ class MaxHeap(nums: MutableList<Int>?) {
         siftUp(size() - 1)
     }
 
-    /* Sift up starting from node i */
+    /* Sift up from node i */
     private fun siftUp(it: Int) {
-        // Kotlin function parameters are immutable, so create a temporary variable
+        // Kotlin function parameters are read-only, so create a temporary variable
         var i = it
         while (true) {
             // Get the parent of node i
             val p = parent(i)
-            // Stop sifting when the root has been passed or the node needs no repair
+            // Stop sifting at the root or when the node already satisfies the heap property
             if (p < 0 || maxHeap[i] <= maxHeap[p]) break
             // Swap the two nodes
             swap(i, p)
@@ -90,28 +90,28 @@ class MaxHeap(nums: MutableList<Int>?) {
     fun pop(): Int {
         // Handle an empty heap
         if (isEmpty()) throw IndexOutOfBoundsException()
-        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+        // Swap the root and the rightmost leaf (the first and last elements)
         swap(0, size() - 1)
-        // Remove a node
+        // Remove the node
         val _val = maxHeap.removeAt(size() - 1)
         // Sift down
         siftDown(0)
-        // Return the top element of the heap
+        // Return the root element
         return _val
     }
 
-    /* Sift down starting from node i */
+    /* Sift down from node i */
     private fun siftDown(it: Int) {
-        // Kotlin function parameters are immutable, so create a temporary variable
+        // Kotlin function parameters are read-only, so create a temporary variable
         var i = it
         while (true) {
-            // Find the node with the largest value among i, l, and r, and store its index in ma
+            // Store the index of the largest of nodes i, l, and r in ma
             val l = left(i)
             val r = right(i)
             var ma = i
             if (l < size() && maxHeap[l] > maxHeap[ma]) ma = l
             if (r < size() && maxHeap[r] > maxHeap[ma]) ma = r
-            // Stop if node i is largest or both child indices l and r are out of bounds
+            // Stop if i is already largest or both child indices l and r are out of bounds
             if (ma == i) break
             // Swap the two nodes
             swap(i, ma)
@@ -120,7 +120,7 @@ class MaxHeap(nums: MutableList<Int>?) {
         }
     }
 
-    /* Print the heap (binary tree) */
+    /* Print the heap as a binary tree */
     fun print() {
         val queue = PriorityQueue { a: Int, b: Int -> b - a }
         queue.addAll(maxHeap)
@@ -130,24 +130,24 @@ class MaxHeap(nums: MutableList<Int>?) {
 
 /* Driver code */
 fun main() {
-    /* Initialize a max heap */
+    /* Initialize a max-heap */
     val maxHeap = MaxHeap(mutableListOf(9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2))
-    println("\nAfter building a heap from the input list:")
+    println("\nHeap built from the input list:")
     maxHeap.print()
 
-    /* Get the top element of the heap */
+    /* Get the root element */
     var peek = maxHeap.peek()
-    print("\nTop element of the heap: $peek\n")
+    print("\nRoot element: $peek\n")
 
     /* Push an element onto the heap */
     val _val = 7
     maxHeap.push(_val)
-    print("\nAfter pushing $_val onto the heap:\n")
+    print("\nHeap after pushing $_val:\n")
     maxHeap.print()
 
-    /* Pop the top element from the heap */
+    /* Pop the root */
     peek = maxHeap.pop()
-    print("\nAfter popping the top element $peek from the heap:\n")
+    print("\nHeap after popping the root ($peek):\n")
     maxHeap.print()
 
     /* Get the heap size */

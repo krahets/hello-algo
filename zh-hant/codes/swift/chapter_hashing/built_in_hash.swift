@@ -8,7 +8,7 @@ import utils
 
 @main
 enum BuiltInHash {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         let num = 3
         let hashNum = num.hashValue
@@ -16,13 +16,13 @@ enum BuiltInHash {
 
         let bol = true
         let hashBol = bol.hashValue
-        print("布林量 \(bol) 的雜湊值為 \(hashBol)")
+        print("布林值 \(bol) 的雜湊值為 \(hashBol)")
 
         let dec = 3.14159
         let hashDec = dec.hashValue
         print("小數 \(dec) 的雜湊值為 \(hashDec)")
 
-        let str = "Hello 演算法"
+        let str = "Hello 算法"
         let hashStr = str.hashValue
         print("字串 \(str) 的雜湊值為 \(hashStr)")
 

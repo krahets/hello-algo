@@ -17,7 +17,7 @@ typedef struct {
 /* Конструктор */
 ArrayStack *newArrayStack() {
     ArrayStack *stack = malloc(sizeof(ArrayStack));
-    // Инициализировать большую вместимость, чтобы избежать расширения
+    // Сразу выделить память под большой стек, чтобы не увеличивать его ёмкость
     stack->data = malloc(sizeof(int) * MAX_SIZE);
     stack->size = 0;
     return stack;
@@ -29,17 +29,17 @@ void delArrayStack(ArrayStack *stack) {
     free(stack);
 }
 
-/* Получение длины стека */
+/* Получить размер стека */
 int size(ArrayStack *stack) {
     return stack->size;
 }
 
-/* Проверка, пуст ли стек */
+/* Проверить, пуст ли стек */
 bool isEmpty(ArrayStack *stack) {
     return stack->size == 0;
 }
 
-/* Поместить в стек */
+/* Поместить элемент в стек */
 void push(ArrayStack *stack, int num) {
     if (stack->size == MAX_SIZE) {
         printf("Стек заполнен\n");
@@ -49,28 +49,28 @@ void push(ArrayStack *stack, int num) {
     stack->size++;
 }
 
-/* Доступ к верхнему элементу стека */
+/* Посмотреть элемент на вершине стека */
 int peek(ArrayStack *stack) {
     if (stack->size == 0) {
-        printf("стек пуст\n");
+        printf("Стек пуст\n");
         return INT_MAX;
     }
     return stack->data[stack->size - 1];
 }
 
-/* Извлечь из стека */
+/* Снять элемент со стека */
 int pop(ArrayStack *stack) {
     int val = peek(stack);
     stack->size--;
     return val;
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация стека */
+    /* Инициализировать стек */
     ArrayStack *stack = newArrayStack();
 
-    /* Помещение элемента в стек */
+    /* Поместить элементы в стек */
     push(stack, 1);
     push(stack, 3);
     push(stack, 2);
@@ -79,22 +79,22 @@ int main() {
     printf("Стек stack = ");
     printArray(stack->data, stack->size);
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     int val = peek(stack);
-    printf("Верхний элемент стека top = %d\n", val);
+    printf("Элемент на вершине стека top = %d\n", val);
 
-    /* Извлечение элемента из стека */
+    /* Снять элемент со стека */
     val = pop(stack);
-    printf("Извлечен элемент из стека pop = %d, стек после извлечения = ", val);
+    printf("Снятый элемент pop = %d, после снятия stack = ", val);
     printArray(stack->data, stack->size);
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     int size = stack->size;
-    printf("Длина стека size = %d\n", size);
+    printf("Размер стека size = %d\n", size);
 
-    /* Проверка на пустоту */
+    /* Проверить, пуст ли стек */
     bool empty = isEmpty(stack);
-    printf("Пуст ли стек = %s\n", empty ? "true" : "false");
+    printf("Стек пуст = %s\n", empty ? "true" : "false");
 
     // Освободить память
     delArrayStack(stack);

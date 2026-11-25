@@ -1,84 +1,84 @@
 {
-  "schema_version": 2,
-  "title": "Coin change: step-by-step greedy selection",
-  "summary": "At each step, pick the largest denomination not exceeding the remaining amount, reducing 131 down to 0.",
-  "context": [
-    "The target amount is 131, and candidate denominations [1, 5, 10, 20, 50, 100] may each be used repeatedly. The callout states \"Greedy strategy: always choose the largest coin that does not exceed the remaining amount\"."
-  ],
-  "description": [
-    "From top to bottom, rows list remaining amounts 131, 31, 11, 1, and 0. Each of the first four rows displays the same candidate denominations with 100, 20, 10, and 1 highlighted in turn while unchosen coins are gray, linked across adjacent rows by dashed arrows. The final row reaches remaining amount 0 with no candidate row drawn.",
-    "Each row shows the balance after the previous coins have been subtracted. The highlighted coin is the next one to subtract. For example, 31 is the balance after subtracting 100. The highlighted 20 is deducted when the balance changes to 11. The table below lists coins already used, next coin chosen, and resulting balance at each row."
-  ],
-  "frames": [
-    {
-      "id": "source-459",
-      "book_path": "chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.png",
-      "title": "Four greedy selections reduce remaining amount 131 to 0",
-      "explanation": "Four coins are used in total—100 + 20 + 10 + 1 = 131—leaving denominations 5 and 50 unused. For this denomination set 4 coins is also the global minimum, though for arbitrary denominations the greedy strategy does not always minimize coin count."
-    }
-  ],
   "animations": {
     "greedy-coin-strategy": {
       "kind": "prose",
       "prose": {
-        "title": "Coin change: making 131",
-        "summary": "Five steps show the remaining balance before each of the four coin picks followed by the final zero balance.",
         "context": [
-          "Target amount is 131 with reusable denominations [1, 5, 10, 20, 50, 100]. Each step selects the largest denomination not exceeding the remaining balance."
+          "The target amount is 131, and the reusable denominations are [1, 5, 10, 20, 50, 100]. At each step, choose the largest denomination that does not exceed the remaining amount."
         ],
         "description": [
-          "In the first four steps, the highlighted coin is the upcoming pick and is subtracted only upon advancing to the next step. Gray means unchosen in the current step rather than permanently disabled. Step 5 reaches balance 0, hides the coin row, and stops."
+          "In each of the first four steps, the highlighted coin is the next one to use. Deduct it on the way to the following step. Gray means the coin is unselected in this step and can still be used later. At step five, the amount reaches zero, the row of coins disappears, and selection stops."
         ],
-        "result": "Here 4 coins achieve the minimum count; for other denomination sets, greedy selection is not guaranteed to be optimal.",
+        "result": "This example uses 4 coins, the minimum possible. For other sets of denominations, greedy selection need not be optimal.",
         "steps": [
           {
+            "announcement": "Start with 131 and select the largest usable denomination, 100. Deducting it will leave 31.",
+            "explanation": "Start with 131 and 0 coins used. Of the available denominations, 100 comes closest to 131 without exceeding it. Select 100 now. It has yet to be deducted, so the next state will have 131 - 100 = 31 left.",
             "id": "step-1",
-            "title": "Remaining 131: select largest available coin 100 next",
-            "explanation": "Starting at balance 131 with 0 coins used so far, the largest candidate denomination not exceeding 131 is 100, so select 100 next (not yet subtracted); subtracting it reduces the next balance to 131 - 100 = 31.",
-            "key_state": "Remaining balance 131, used so far: none (0 coins), next pick: 100 (not yet subtracted).",
-            "announcement": "Initial balance 131: select largest available denomination 100, leaving 31 after subtraction."
+            "key_state": "Remaining amount: 131. Coins already used: none (0 coins). Next coin selected: 100, still to be deducted.",
+            "title": "Remaining amount 131: choose 100, the largest usable coin"
           },
           {
+            "announcement": "After deducting 100, the remaining amount is 31. Choose 20 next. Deducting it will leave 11.",
+            "explanation": "Deducting the previous coin, 100, leaves 31. One coin, 100, has been used. Denominations 50 and 100 both exceed 31, and the largest denomination that fits is 20. The highlighted 20 is the next coin. It has yet to be deducted and will leave 31 - 20 = 11.",
             "id": "step-2",
-            "title": "Remaining 31: 100 subtracted, select 20 next",
-            "explanation": "After subtracting 100, the remaining balance is 31 (1 coin used so far: 100). Denominations 50 and 100 exceed 31, so the largest valid denomination is 20; the highlighted 20 is selected next (not yet subtracted) and will reduce the balance to 31 - 20 = 11.",
-            "key_state": "Remaining balance 31, used so far: 1 coin (100), next pick: 20 (not yet subtracted).",
-            "announcement": "After subtracting 100, balance is 31; select 20 next, leaving 11 after subtraction."
+            "key_state": "Remaining amount: 31. One coin already used (100). Next coin selected: 20, still to be deducted.",
+            "title": "Remaining amount 31: 100 has been deducted, and 20 is next"
           },
           {
+            "announcement": "After deducting 20, the remaining amount is 11. Choose 10 next. Deducting it will leave 1.",
+            "explanation": "Deducting the previous coin, 20, leaves 11. The 2 coins used so far, 100 and 20, total 120. Denominations 20, 50, and 100 all exceed 11, and the largest denomination that fits is 10. Select 10 as the next coin. It has yet to be deducted and will leave 11 - 10 = 1.",
             "id": "step-3",
-            "title": "Remaining 11: two coins used, select 10 next",
-            "explanation": "After subtracting 20, the remaining balance is 11 (2 coins used so far: 100, 20, totaling 120). Denominations 20, 50, and 100 exceed 11, so the largest valid denomination is 10; select 10 next (not yet subtracted), which will reduce the balance to 11 - 10 = 1.",
-            "key_state": "Remaining balance 11, used so far: 2 coins (100, 20), next pick: 10 (not yet subtracted).",
-            "announcement": "After subtracting 20, balance is 11; select 10 next, leaving 1 after subtraction."
+            "key_state": "Remaining amount: 11. Two coins already used (100, 20). Next coin selected: 10, still to be deducted.",
+            "title": "Remaining amount 11: two coins used, and 10 is next"
           },
           {
+            "announcement": "After deducting 10, the remaining amount is 1. Choose 1 next. Deducting it will leave zero.",
+            "explanation": "Deducting the previous coin, 10, leaves 1. The 3 coins used so far, 100, 20, and 10, total 130. Denominations 5, 10, 20, 50, and 100 all exceed 1. Only the smallest denomination, 1, fits. Select it now. It has yet to be deducted and will leave 1 - 1 = 0.",
             "id": "step-4",
-            "title": "Remaining 1: three coins used, select final coin 1",
-            "explanation": "After subtracting 10, the remaining balance is 1 (3 coins used so far: 100, 20, 10, totaling 130). Because 5, 10, 20, 50, and 100 all exceed 1, select smallest denomination 1 next (not yet subtracted), which will reduce the balance to 1 - 1 = 0.",
-            "key_state": "Remaining balance 1, used so far: 3 coins (100, 20, 10), next pick: 1 (not yet subtracted).",
-            "announcement": "After subtracting 10, balance is 1; select 1 next to reduce the balance to 0."
+            "key_state": "Remaining amount: 1. Three coins already used (100, 20, 10). Next coin selected: 1, still to be deducted.",
+            "title": "Remaining amount 1: three coins used, and the last coin is 1"
           },
           {
+            "announcement": "Deducting 1 brings the amount to zero. A total of 4 coins make change for 131.",
+            "explanation": "Deducting the fourth coin, 1, leaves 0. The row of candidate coins disappears, and selection stops. The four rounds used 4 coins, 100, 20, 10, and 1, with a total value of 100 + 20 + 10 + 1 = 131. Denominations 5 and 50 were unused.",
             "id": "step-5",
-            "title": "Balance reduced to 0: four coins complete the target",
-            "explanation": "Subtracting the 4th coin, 1, reduces the remaining balance to 0, hides the candidate coin row, and ends selection. Across four steps, 4 coins—100, 20, 10, and 1—sum to 100 + 20 + 10 + 1 = 131, leaving denominations 5 and 50 unused.",
-            "key_state": "Remaining balance 0; 4 coins (100, 20, 10, 1) make 131, completing coin change.",
-            "announcement": "Subtracting 1 brings the balance to 0, completing 131 with 4 coins."
+            "key_state": "Remaining amount: 0. The 4 coins used (100, 20, 10, 1) make 131, completing the change.",
+            "title": "Remaining amount zero: four coins complete the change"
           }
-        ]
+        ],
+        "summary": "The five steps show the remaining amount before each of four coin choices and the final state after the last deduction.",
+        "title": "Coin change: making 131"
       }
     }
   },
+  "context": [
+    "The target amount is 131, and the available denominations are [1, 5, 10, 20, 50, 100]. Each denomination can be used repeatedly. The figure states the greedy rule: “Always choose the coin closest to the remaining amount without exceeding it.” In each round, this is the largest denomination that fits."
+  ],
+  "description": [
+    "From top to bottom, the rows show remaining amounts of 131, 31, 11, 1, and 0. The first four rows show the same denominations in the same order. They highlight 100, 20, 10, and 1 in turn, with the other denominations in gray. Dashed arrows link the choices in consecutive rows. The last row reaches zero and shows no candidate coins.",
+    "The remaining amount in each row already accounts for the coins used earlier. The highlighted coin is the next one, and its value is still included in the current amount. For example, the row for 31 has already deducted 100. Its highlighted 20 is deducted on the way to the row for 11. For each remaining amount, the table lists the coins already used, the next coin, and the amount left after that deduction."
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.png",
+      "explanation": "The final 4 coins give 100 + 20 + 10 + 1 = 131. Denominations 5 and 50 are unused. For these denominations, 4 is also the minimum coin count. With other denominations, the greedy rule may use more coins than necessary.",
+      "id": "source-459",
+      "title": "Four greedy choices reduce the remaining amount from 131 to zero"
+    }
+  ],
+  "schema_version": 2,
+  "summary": "At each round, choose the largest denomination that does not exceed the remaining amount. The figure follows this process from 131 down to zero.",
   "tables": [
     {
-      "caption": "Remaining balance, coins used so far, and next selection",
+      "caption": "Remaining amount, coins already used, and next choice",
       "headers": [
-        "Current balance",
-        "Coins used so far",
+        "Current remaining amount",
+        "Coins already used",
         "Next coin",
-        "Balance after subtraction"
+        "Amount after deduction"
       ],
+      "row_header": 0,
       "rows": [
         [
           "131",
@@ -108,10 +108,10 @@
           "0",
           "100, 20, 10, 1",
           "Stop",
-          "No further subtraction"
+          "No further deduction"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Coin change: making one greedy choice at a time"
 }

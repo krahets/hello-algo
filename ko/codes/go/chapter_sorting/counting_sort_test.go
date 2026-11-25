@@ -12,9 +12,9 @@ import (
 func TestCountingSort(t *testing.T) {
 	nums := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSortNaive(nums)
-	fmt.Println("계수 정렬(객체 정렬 불가)을 마친 후 nums = ", nums)
+	fmt.Println("계수 정렬(객체 정렬 불가) 후 nums = ", nums)
 
 	nums1 := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSort(nums1)
-	fmt.Println("계수 정렬을 마친 후 nums1 = ", nums1)
+	fmt.Println("계수 정렬 후 nums1 = ", nums1)
 }

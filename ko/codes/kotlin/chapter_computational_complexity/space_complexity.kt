@@ -12,22 +12,22 @@ import utils.printTree
 
 /* 함수 */
 fun function(): Int {
-    // 몇 가지 연산을 수행한다
+    // 어떤 연산을 수행한다
     return 0
 }
 
 /* 상수 차수 */
 fun constant(n: Int) {
-    // 상수, 변수, 객체는 O(1) 공간을 차지한다
+    // 상수, 변수, 객체가 O(1)의 공간을 차지한다
     val a = 0
     var b = 0
     val nums = Array(10000) { 0 }
     val node = ListNode(0)
-    // 반복문 안의 변수는 O(1) 공간을 차지한다
+    // 반복문 안의 변수가 O(1)의 공간을 차지한다
     for (i in 0..<n) {
         val c = 0
     }
-    // 반복문 안의 함수는 O(1) 공간을 차지한다
+    // 반복문 안의 함수가 O(1)의 공간을 차지한다
     for (i in 0..<n) {
         function()
     }
@@ -35,14 +35,14 @@ fun constant(n: Int) {
 
 /* 선형 차수 */
 fun linear(n: Int) {
-    // 길이가 n인 배열은 O(n) 공간을 차지한다
+    // 길이 n인 배열이 O(n)의 공간을 차지한다
     val nums = Array(n) { 0 }
-    // 길이가 n인 리스트는 O(n) 공간을 차지한다
+    // 길이 n인 리스트가 O(n)의 공간을 차지한다
     val nodes = mutableListOf<ListNode>()
     for (i in 0..<n) {
         nodes.add(ListNode(i))
     }
-    // 길이가 n인 해시 테이블은 O(n) 공간을 차지한다
+    // 길이 n인 해시 테이블이 O(n)의 공간을 차지한다
     val map = mutableMapOf<Int, String>()
     for (i in 0..<n) {
         map[i] = i.toString()
@@ -51,17 +51,17 @@ fun linear(n: Int) {
 
 /* 선형 차수(재귀 구현) */
 fun linearRecur(n: Int) {
-    println("재귀 n = $n")
+    println("재귀 호출 n = $n")
     if (n == 1)
         return
     linearRecur(n - 1)
 }
 
-/* 제곱 차수 */
+/* 이차 차수 */
 fun quadratic(n: Int) {
-    // 행렬은 O(n^2) 공간을 차지한다
+    // 행렬이 O(n^2)의 공간을 차지한다
     val numMatrix = arrayOfNulls<Array<Int>?>(n)
-    // 이차원 리스트는 O(n^2) 공간을 차지한다
+    // 2차원 리스트가 O(n^2)의 공간을 차지한다
     val numList = mutableListOf<MutableList<Int>>()
     for (i in 0..<n) {
         val tmp = mutableListOf<Int>()
@@ -72,17 +72,17 @@ fun quadratic(n: Int) {
     }
 }
 
-/* 제곱 차수(재귀 구현) */
+/* 이차 차수(재귀 구현) */
 tailrec fun quadraticRecur(n: Int): Int {
     if (n <= 0)
         return 0
-    // 배열 nums의 길이는 n, n-1, ..., 2, 1이다
+    // 배열 nums의 길이는 차례로 n, n-1, ..., 2, 1이다
     val nums = Array(n) { 0 }
-    println("재귀(n = $n)의 nums 길이 = ${nums.size}")
+    println("재귀 호출 n = $n, nums의 길이 = ${nums.size}")
     return quadraticRecur(n - 1)
 }
 
-/* 지수 차수(포화 이진 트리 구성) */
+/* 지수 차수(포화 이진 트리 생성) */
 fun buildTree(n: Int): TreeNode? {
     if (n == 0)
         return null
@@ -92,7 +92,7 @@ fun buildTree(n: Int): TreeNode? {
     return root
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fun main() {
     val n = 5
     // 상수 차수
@@ -100,7 +100,7 @@ fun main() {
     // 선형 차수
     linear(n)
     linearRecur(n)
-    // 제곱 차수
+    // 이차 차수
     quadratic(n)
     quadraticRecur(n)
     // 지수 차수

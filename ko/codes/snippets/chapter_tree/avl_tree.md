@@ -5,8 +5,8 @@ class TreeNode:
     def __init__(self, val: int):
         self.val: int = val                 # 노드 값
         self.height: int = 0                # 노드 높이
-        self.left: TreeNode | None = None   # 왼쪽 자식 노드 참조
-        self.right: TreeNode | None = None  # 오른쪽 자식 노드 참조
+        self.left: TreeNode | None = None   # 왼쪽 자식 참조
+        self.right: TreeNode | None = None  # 오른쪽 자식 참조
 ```
 
 ```cpp title=""
@@ -37,8 +37,8 @@ class TreeNode {
 class TreeNode(int? x) {
     public int? val = x;    // 노드 값
     public int height;      // 노드 높이
-    public TreeNode? left;  // 왼쪽 자식 노드 참조
-    public TreeNode? right; // 오른쪽 자식 노드 참조
+    public TreeNode? left;  // 왼쪽 자식 참조
+    public TreeNode? right; // 오른쪽 자식 참조
 }
 ```
 
@@ -47,8 +47,8 @@ class TreeNode(int? x) {
 type TreeNode struct {
     Val    int       // 노드 값
     Height int       // 노드 높이
-    Left   *TreeNode // 왼쪽 자식 노드 참조
-    Right  *TreeNode // 오른쪽 자식 노드 참조
+    Left   *TreeNode // 왼쪽 자식 참조
+    Right  *TreeNode // 오른쪽 자식 참조
 }
 ```
 
@@ -72,8 +72,8 @@ class TreeNode {
 class TreeNode {
     val; // 노드 값
     height; //노드 높이
-    left; // 왼쪽 자식 노드 포인터
-    right; // 오른쪽 자식 노드 포인터
+    left; // 왼쪽 자식 포인터
+    right; // 오른쪽 자식 포인터
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.height = height === undefined ? 0 : height;
@@ -88,8 +88,8 @@ class TreeNode {
 class TreeNode {
     val: number;            // 노드 값
     height: number;         // 노드 높이
-    left: TreeNode | null;  // 왼쪽 자식 노드 포인터
-    right: TreeNode | null; // 오른쪽 자식 노드 포인터
+    left: TreeNode | null;  // 왼쪽 자식 포인터
+    right: TreeNode | null; // 오른쪽 자식 포인터
     constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
         this.val = val === undefined ? 0 : val;
         this.height = height === undefined ? 0 : height;
@@ -171,8 +171,8 @@ class TreeNode(val _val: Int) {  // 노드 값
 class TreeNode
   attr_accessor :val    # 노드 값
   attr_accessor :height # 노드 높이
-  attr_accessor :left   # 왼쪽 자식 노드 참조
-  attr_accessor :right  # 오른쪽 자식 노드 참조
+  attr_accessor :left   # 왼쪽 자식 참조
+  attr_accessor :right  # 오른쪽 자식 참조
 
   def initialize(val)
     @val = val

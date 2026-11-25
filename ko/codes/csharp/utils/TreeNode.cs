@@ -10,10 +10,10 @@ namespace hello_algo.utils;
 public class TreeNode(int? x) {
     public int? val = x;    // 노드 값
     public int height;      // 노드 높이
-    public TreeNode? left;  // 왼쪽 자식 노드 참조
-    public TreeNode? right; // 오른쪽 자식 노드 참조
+    public TreeNode? left;  // 왼쪽 자식 노드에 대한 참조
+    public TreeNode? right; // 오른쪽 자식 노드에 대한 참조
 
-    // 직렬화 인코딩 규칙은 다음을 참고한다:
+    // 직렬화 인코딩 규칙은 다음을 참고한다.
     // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
     // 이진 트리의 배열 표현:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -29,7 +29,7 @@ public class TreeNode(int? x) {
     //         \——— 4
     //             \——— 8
 
-    /* 리스트를 이진 트리로 역직렬화: 재귀 */
+    /* 재귀로 리스트를 이진 트리로 역직렬화 */
     static TreeNode? ListToTreeDFS(List<int?> arr, int i) {
         if (i < 0 || i >= arr.Count || !arr[i].HasValue) {
             return null;
@@ -46,7 +46,7 @@ public class TreeNode(int? x) {
         return ListToTreeDFS(arr, 0);
     }
 
-    /* 이진 트리를 리스트로 직렬화: 재귀 */
+    /* 재귀로 이진 트리를 리스트로 직렬화 */
     static void TreeToListDFS(TreeNode? root, int i, List<int?> res) {
         if (root == null)
             return;

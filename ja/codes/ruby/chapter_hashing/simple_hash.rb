@@ -24,7 +24,7 @@ def mul_hash(key)
   hash % modulus
 end
 
-### 排他的論理和ハッシュ ###
+### XOR ハッシュ ###
 def xor_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -44,7 +44,7 @@ def rot_hash(key)
   hash % modulus
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   key = "Hello 算法"
 
@@ -55,7 +55,7 @@ if __FILE__ == $0
   puts "乗算ハッシュの値は #{hash}"
 
   hash = xor_hash(key)
-  puts "排他的論理和ハッシュの値は #{hash}"
+  puts "XOR ハッシュの値は #{hash}"
 
   hash = rot_hash(key)
   puts "回転ハッシュの値は #{hash}"

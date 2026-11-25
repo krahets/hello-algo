@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Method 1: brute-force enumeration */
+/* Method 1: Brute-force enumeration */
 int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; ++i) {
         for (int j = i + 1; j < numsSize; ++j) {
@@ -29,14 +29,14 @@ typedef struct {
     UT_hash_handle hh; // Implemented using uthash.h
 } HashTable;
 
-/* Look up a key in the hash table */
+/* Look up a hash table entry */
 HashTable *find(HashTable *h, int key) {
     HashTable *tmp;
     HASH_FIND_INT(h, &key, tmp);
     return tmp;
 }
 
-/* Insert an entry into the hash table */
+/* Insert a hash table entry */
 void insert(HashTable **h, int key, int val) {
     HashTable *t = find(*h, key);
     if (t == NULL) {
@@ -48,7 +48,7 @@ void insert(HashTable **h, int key, int val) {
     }
 }
 
-/* Method 2: auxiliary hash table */
+/* Method 2: Auxiliary hash table */
 int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     HashTable *hashtable = NULL;
     for (int i = 0; i < numsSize; i++) {
@@ -67,10 +67,10 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
 
 /* Driver code */
 int main() {
-    // ======= Test case =======
+    // ======= Test Case =======
     int nums[] = {2, 7, 11, 15};
     int target = 13;
-    // ====== Driver code ======
+    // ====== Driver Code ======
     int returnSize;
     int *res = twoSumBruteForce(nums, sizeof(nums) / sizeof(int), target, &returnSize);
     // Method 1

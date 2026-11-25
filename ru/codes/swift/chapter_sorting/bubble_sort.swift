@@ -4,11 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Пузырьковая сортировка */
+/* Сортировка пузырьком */
 func bubbleSort(nums: inout [Int]) {
-    // Внешний цикл: неотсортированный диапазон [0, i]
+    // Внешний цикл: неотсортированный участок [0, i]
     for i in nums.indices.dropFirst().reversed() {
-        // Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
+        // Внутренний цикл: обменами переместить максимум участка [0, i] на его правый конец
         for j in 0 ..< i {
             if nums[j] > nums[j + 1] {
                 // Поменять местами nums[j] и nums[j + 1]
@@ -18,19 +18,19 @@ func bubbleSort(nums: inout [Int]) {
     }
 }
 
-/* Пузырьковая сортировка (оптимизация флагом) */
+/* Сортировка пузырьком с флагом обмена*/
 func bubbleSortWithFlag(nums: inout [Int]) {
-    // Внешний цикл: неотсортированный диапазон [0, i]
+    // Внешний цикл: неотсортированный участок [0, i]
     for i in nums.indices.dropFirst().reversed() {
         var flag = false // Инициализировать флаг
         for j in 0 ..< i {
             if nums[j] > nums[j + 1] {
                 // Поменять местами nums[j] и nums[j + 1]
                 nums.swapAt(j, j + 1)
-                flag = true // Записать обмен элементов
+                flag = true // Отметить, что произошёл обмен
             }
         }
-        if !flag { // На этой итерации «всплытия» не было ни одного обмена, сразу выйти
+        if !flag { // За этот проход обменов не было. Выйти из цикла
             break
         }
     }
@@ -38,14 +38,14 @@ func bubbleSortWithFlag(nums: inout [Int]) {
 
 @main
 enum BubbleSort {
-    /* Driver Code */
+    /* Тестовый пример */
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         bubbleSort(nums: &nums)
-        print("После пузырьковой сортировки nums = \(nums)")
+        print("После сортировки пузырьком nums = \(nums)")
 
         var nums1 = [4, 1, 3, 1, 5, 2]
         bubbleSortWithFlag(nums: &nums1)
-        print("После пузырьковой сортировки nums1 = \(nums1)")
+        print("После сортировки пузырьком nums1 = \(nums1)")
     }
 }

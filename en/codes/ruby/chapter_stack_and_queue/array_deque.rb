@@ -4,7 +4,7 @@ Created Time: 2024-04-05
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Deque implemented with a circular array ###
+### Deque backed by a circular array ###
 class ArrayDeque
   ### Get the deque size ###
   attr_reader :size
@@ -26,70 +26,70 @@ class ArrayDeque
     size.zero?
   end
 
-  ### Enqueue at the front ###
+  ### Add an element at the front ###
   def push_first(num)
     if size == capacity
       puts 'Deque is full'
       return
     end
 
-    # Move the front pointer one position to the left
-    # Use modulo to wrap front to the end when it passes the beginning of the array
+    # Move the front index one slot to the left
+    # Use the remainder to wrap front to the end if it goes before the start
     @front = index(@front - 1)
-    # Add num to the front
+    # Add num at the front
     @nums[@front] = num
     @size += 1
   end
 
-  ### Enqueue at the rear ###
+  ### Add an element at the rear ###
   def push_last(num)
     if size == capacity
       puts 'Deque is full'
       return
     end
 
-    # Calculate the rear pointer, which points one position past the last element
+    # Compute the index one slot past the rear element
     rear = index(@front + size)
-    # Add num to the rear
+    # Add num at the rear
     @nums[rear] = num
     @size += 1
   end
 
-  ### Dequeue from the front ###
+  ### Remove and return the front element ###
   def pop_first
     num = peek_first
-    # Advance the front pointer by one position
+    # Advance the front index by one
     @front = index(@front + 1)
     @size -= 1
     num
   end
 
-  ### Dequeue from the rear ###
+  ### Remove and return the rear element ###
   def pop_last
     num = peek_last
     @size -= 1
     num
   end
 
-  ### Access the front element ###
+  ### Peek at the front element ###
   def peek_first
     raise IndexError, 'Deque is empty' if is_empty?
 
     @nums[@front]
   end
 
-  ### Access the rear element ###
+  ### Peek at the rear element ###
   def peek_last
     raise IndexError, 'Deque is empty' if is_empty?
 
-    # Calculate the index of the last element
+    # Compute the index of the rear element
     last = index(@front + size - 1)
     @nums[last]
   end
 
   ### Return an array for printing ###
   def to_array
-    # Convert only the list elements within the occupied range
+    # Copy only the elements currently in the deque
     res = []
     for i in 0...size
       res << @nums[index(@front + i)]
@@ -99,11 +99,11 @@ class ArrayDeque
 
   private
 
-  ### Calculate an index in the circular array ###
+  ### Compute the circular array index ###
   def index(i)
-    # Use modulo to connect the end of the array to its beginning
-    # When i passes the end of the array, wrap around to the beginning
-    # When i passes the beginning of the array, wrap around to the end
+    # Use the remainder to wrap indices around the array
+    # When i goes past the end, wrap it back to the start
+    # When i goes before the start, wrap it around to the end
     (i + capacity) % capacity
   end
 end
@@ -115,25 +115,25 @@ if __FILE__ == $0
   deque.push_last(3)
   deque.push_last(2)
   deque.push_last(5)
-  puts "Deque deque = #{deque.to_array}"
+  puts "deque = #{deque.to_array}"
 
-  # Access an element
+  # Peek at the front and rear elements
   peek_first = deque.peek_first
-  puts "Front element peek_first = #{peek_first}"
+  puts "Front element (peek_first) = #{peek_first}"
   peek_last = deque.peek_last
-  puts "Rear element peek_last = #{peek_last}"
+  puts "Rear element (peek_last) = #{peek_last}"
 
-  # Enqueue elements
+  # Add elements to the deque
   deque.push_last(4)
-  puts "After enqueueing 4 at the rear, deque = #{deque.to_array}"
+  puts "After adding 4 at the rear, deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "After enqueueing 1 at the front, deque = #{deque.to_array}"
+  puts "After adding 1 at the front, deque = #{deque.to_array}"
 
-  # Dequeue an element
+  # Remove elements from both ends
   pop_last = deque.pop_last
-  puts "Element dequeued from the rear = #{pop_last}; deque = #{deque.to_array}"
+  puts "Removed from the rear = #{pop_last}, deque after removal = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "Element dequeued from the front = #{pop_first}; deque = #{deque.to_array}"
+  puts "Removed from the front = #{pop_first}, deque after removal = #{deque.to_array}"
 
   # Get the deque size
   size = deque.size
@@ -141,5 +141,5 @@ if __FILE__ == $0
 
   # Check whether the deque is empty
   is_empty = deque.is_empty?
-  puts "Is the deque empty? #{is_empty}"
+  puts "Deque is empty = #{is_empty}"
 end

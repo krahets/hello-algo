@@ -6,13 +6,13 @@
 
 #include "../utils/common.hpp"
 
-/* 隣接リストで実装した無向グラフクラス */
+/* 隣接リストで無向グラフを表すクラス */
 class GraphAdjList {
   public:
-    // 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+    // 隣接リスト。key は頂点、value はその頂点の全隣接頂点
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
-    /* vector から指定されたノードを削除する */
+    /* vector から指定したノードを削除する */
     void remove(vector<Vertex *> &vec, Vertex *vet) {
         for (int i = 0; i < vec.size(); i++) {
             if (vec[i] == vet) {
@@ -67,9 +67,9 @@ class GraphAdjList {
     void removeVertex(Vertex *vet) {
         if (!adjList.count(vet))
             throw invalid_argument("頂点が存在しません");
-        // 隣接リストから頂点 vet に対応する連結リストを削除する
+        // 隣接リストから頂点 vet の連結リストを削除する
         adjList.erase(vet);
-        // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+        // 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
         for (auto &adj : adjList) {
             remove(adj.second, vet);
         }
@@ -87,4 +87,4 @@ class GraphAdjList {
     }
 };
 
-// テストケースは graph_adjacency_list_test.cpp を参照
+// テスト例は graph_adjacency_list_test.cpp を参照

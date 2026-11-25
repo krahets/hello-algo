@@ -8,26 +8,26 @@
 
 /* Merge the left and right subarrays */
 void merge(vector<int> &nums, int left, int mid, int right) {
-    // The left subarray spans [left, mid], and the right subarray spans [mid+1, right]
-    // Create a temporary array tmp to store the merged result
+    // The left subarray spans [left, mid] and the right spans [mid+1, right]
+    // Create a temporary array tmp for the merged result
     vector<int> tmp(right - left + 1);
     // Initialize the starting indices of the left and right subarrays
     int i = left, j = mid + 1, k = 0;
-    // While both subarrays have elements remaining, compare them and copy the smaller element into the temporary array
+    // While both subarrays have elements left, compare their front elements and copy the smaller one to the temporary array
     while (i <= mid && j <= right) {
         if (nums[i] <= nums[j])
             tmp[k++] = nums[i++];
         else
             tmp[k++] = nums[j++];
     }
-    // Copy the remaining elements of the left and right subarrays into the temporary array
+    // Copy any remaining elements from either subarray to the temporary array
     while (i <= mid) {
         tmp[k++] = nums[i++];
     }
     while (j <= right) {
         tmp[k++] = nums[j++];
     }
-    // Copy the elements of temporary array tmp back into the corresponding range of the original array nums
+    // Copy tmp back into the corresponding range of nums
     for (k = 0; k < tmp.size(); k++) {
         nums[left + k] = tmp[k];
     }
@@ -37,16 +37,16 @@ void merge(vector<int> &nums, int left, int mid, int right) {
 void mergeSort(vector<int> &nums, int left, int right) {
     // Base case
     if (left >= right)
-        return; // Stop recursing when the subarray has at most one element
-    // Divide phase
-    int mid = left + (right - left) / 2;    // Calculate the midpoint
+        return; // Stop recursing when the subarray has length 1
+    // Divide
+    int mid = left + (right - left) / 2;    // Find the midpoint
     mergeSort(nums, left, mid);      // Recurse on the left subarray
     mergeSort(nums, mid + 1, right); // Recurse on the right subarray
-    // Merge phase
+    // Merge
     merge(nums, left, mid, right);
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     /* Merge sort */
     vector<int> nums = {7, 3, 2, 6, 0, 1, 5, 4};

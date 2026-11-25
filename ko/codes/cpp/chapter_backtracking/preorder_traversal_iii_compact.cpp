@@ -36,7 +36,7 @@ int main() {
     // 전위 순회
     preOrder(root);
 
-    cout << "\n값이 3인 노드를 포함하지 않는 조건으로, 루트 노드에서 노드 7까지의 모든 경로 출력" << endl;
+    cout << "\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

@@ -6,7 +6,7 @@
 
 import utils
 
-/* 連結リストで実装したキュー */
+/* 連結リストを使ったキュー */
 class LinkedListQueue {
     private var front: ListNode? // 先頭ノード
     private var rear: ListNode? // 末尾ノード
@@ -16,26 +16,26 @@ class LinkedListQueue {
         _size = 0
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     func size() -> Int {
         _size
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* エンキュー */
+    /* エンキューする */
     func push(num: Int) {
-        // 末尾ノードの後ろに num を追加する
+        // 値が num のノードを末尾ノードの後ろに追加する
         let node = ListNode(x: num)
-        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
+        // キューが空なら、先頭と末尾の両方がこのノードを指すようにする
         if front == nil {
             front = node
             rear = node
         }
-        // キューが空でない場合、このノードを末尾ノードの後ろに追加する
+        // キューが空でなければ、このノードを末尾ノードの後ろにつなぐ
         else {
             rear?.next = node
             rear = node
@@ -43,7 +43,7 @@ class LinkedListQueue {
         _size += 1
     }
 
-    /* デキュー */
+    /* デキューする */
     @discardableResult
     func pop() -> Int {
         let num = peek()
@@ -53,7 +53,7 @@ class LinkedListQueue {
         return num
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     func peek() -> Int {
         if isEmpty() {
             fatalError("キューが空です")
@@ -61,7 +61,7 @@ class LinkedListQueue {
         return front!.val
     }
 
-    /* 連結リストを Array に変換して返す */
+    /* 連結リストを配列に変換して返す */
     func toArray() -> [Int] {
         var node = front
         var res = Array(repeating: 0, count: size())
@@ -75,12 +75,12 @@ class LinkedListQueue {
 
 @main
 enum _LinkedListQueue {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         /* キューを初期化する */
         let queue = LinkedListQueue()
 
-        /* 要素をエンキューする */
+        /* 要素をキューに追加する */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -88,19 +88,19 @@ enum _LinkedListQueue {
         queue.push(num: 4)
         print("キュー queue = \(queue.toArray())")
 
-        /* キューの先頭要素にアクセス */
+        /* キューの先頭要素を参照する */
         let peek = queue.peek()
-        print("キューの先頭要素 peek = \(peek)")
+        print("先頭要素 peek = \(peek)")
 
-        /* 要素をデキューする */
+        /* キューから要素を取り出す */
         let pop = queue.pop()
-        print("デキューした要素 pop = \(pop)、デキュー後 queue = \(queue.toArray())")
+        print("デキューした要素 pop = \(pop)、デキュー後の queue = \(queue.toArray())")
 
-        /* キューの長さを取得 */
+        /* キューの要素数を取得する */
         let size = queue.size()
-        print("キューの長さ size = \(size)")
+        print("キューの要素数 size = \(size)")
 
-        /* キューが空か判定 */
+        /* キューが空かどうかを判定する */
         let isEmpty = queue.isEmpty()
         print("キューは空か = \(isEmpty)")
     }

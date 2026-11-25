@@ -12,7 +12,7 @@ public class linked_list {
         n0.next = P;
     }
 
-    /* 連結リストのノード n0 の直後のノードを削除する */
+    /* 連結リストのノード n0 の直後にあるノードを削除する */
     void Remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -32,7 +32,7 @@ public class linked_list {
         return head;
     }
 
-    /* 連結リストから値が target である最初のノードを探索する */
+    /* 連結リストから値が target の最初のノードを探す */
     int Find(ListNode? head, int target) {
         int index = 0;
         while (head != null) {
@@ -59,22 +59,22 @@ public class linked_list {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        Console.WriteLine($"初期化した連結リスト{n0}");
+        Console.WriteLine($"初期化した連結リスト：{n0}");
 
         // ノードを挿入する 
         Insert(n0, new ListNode(0));
-        Console.WriteLine($"ノードを挿入した後の連結リスト{n0}");
+        Console.WriteLine($"ノード挿入後の連結リスト：{n0}");
 
         // ノードを削除する 
         Remove(n0);
-        Console.WriteLine($"ノードを削除した後の連結リスト{n0}");
+        Console.WriteLine($"ノード削除後の連結リスト：{n0}");
 
         // ノードにアクセスする 
         ListNode? node = Access(n0, 3);
         Console.WriteLine($"連結リストのインデックス 3 にあるノードの値 = {node?.val}");
 
-        // ノードを探索する 
+        // ノードを探す 
         int index = Find(n0, 2);
-        Console.WriteLine($"連結リスト内で値が 2 であるノードのインデックス = {index}");
+        Console.WriteLine($"連結リストで値が 2 のノードのインデックス = {index}");
     }
 }

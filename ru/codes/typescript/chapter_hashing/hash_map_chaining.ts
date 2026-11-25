@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* Пара ключ-значение Number -> String */
+/* Пара «ключ — значение» типа Number -> String */
 class Pair {
     key: number;
     val: string;
@@ -16,10 +16,10 @@ class Pair {
 
 /* Хеш-таблица с цепочками */
 class HashMapChaining {
-    #size: number; // Число пар ключ-значение
-    #capacity: number; // Вместимость хеш-таблицы
-    #loadThres: number; // Порог коэффициента загрузки для запуска расширения
-    #extendRatio: number; // Коэффициент расширения
+    #size: number; // Число пар «ключ — значение»
+    #capacity: number; // Ёмкость хеш-таблицы
+    #loadThres: number; // Порог коэффициента заполнения для расширения
+    #extendRatio: number; // Во сколько раз увеличивается ёмкость
     #buckets: Pair[][]; // Массив корзин
 
     /* Конструктор */
@@ -36,51 +36,51 @@ class HashMapChaining {
         return key % this.#capacity;
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     #loadFactor(): number {
         return this.#size / this.#capacity;
     }
 
-    /* Операция поиска */
+    /* Поиск */
     get(key: number): string | null {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // Обойти корзину; если найден key, вернуть соответствующее val
+        // Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
         for (const pair of bucket) {
             if (pair.key === key) {
                 return pair.val;
             }
         }
-        // Если key не найден, вернуть null
+        // Если ключ key не найден, вернуть null
         return null;
     }
 
-    /* Операция добавления */
+    /* Вставка */
     put(key: number, val: string): void {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if (this.#loadFactor() > this.#loadThres) {
             this.#extend();
         }
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+        // Обойти корзину. Если найден ключ key, обновить val и завершить операцию
         for (const pair of bucket) {
             if (pair.key === key) {
                 pair.val = val;
                 return;
             }
         }
-        // Если такого key нет, добавить пару ключ-значение в конец
+        // Если ключа key нет, добавить пару в конец списка
         const pair = new Pair(key, val);
         bucket.push(pair);
         this.#size++;
     }
 
-    /* Операция удаления */
+    /* Удаление */
     remove(key: number): void {
         const index = this.#hashFunc(key);
         let bucket = this.#buckets[index];
-        // Обойти корзину и удалить из нее пару ключ-значение
+        // Обойти корзину и удалить из неё нужную пару
         for (let i = 0; i < bucket.length; i++) {
             if (bucket[i].key === key) {
                 bucket.splice(i, 1);
@@ -94,11 +94,11 @@ class HashMapChaining {
     #extend(): void {
         // Временно сохранить исходную хеш-таблицу
         const bucketsTmp = this.#buckets;
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         this.#capacity *= this.#extendRatio;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         this.#size = 0;
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         for (const bucket of bucketsTmp) {
             for (const pair of bucket) {
                 this.put(pair.key, pair.val);
@@ -118,29 +118,29 @@ class HashMapChaining {
     }
 }
 
-/* Driver Code */
-/* Инициализация хеш-таблицы */
+/* Демонстрационный код */
+/* Создать хеш-таблицу */
 const map = new HashMapChaining();
 
-/* Операция добавления */
-// Добавить пару (key, value) в хеш-таблицу
+/* Вставка */
+// Добавить в таблицу пару (key, value)
 map.put(12836, 'Сяо Ха');
 map.put(15937, 'Сяо Ло');
 map.put(16750, 'Сяо Суань');
 map.put(13276, 'Сяо Фа');
 map.put(10583, 'Сяо Я');
-console.log('\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение');
+console.log('\nХеш-таблица после вставки:\nКлюч -> Значение');
 map.print();
 
-/* Операция поиска */
-// Ввести в хеш-таблицу ключ key и получить значение value
+/* Поиск */
+// Получить из таблицы значение value по ключу key
 const name = map.get(13276);
-console.log('\nПо номеру 13276 найдено имя ' + name);
+console.log('\nИмя студента с номером 13276: ' + name);
 
-/* Операция удаления */
-// Удалить пару (key, value) из хеш-таблицы
+/* Удаление */
+// Удалить из таблицы пару (key, value)
 map.remove(12836);
-console.log('\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение');
+console.log('\nХеш-таблица после удаления 12836:\nКлюч -> Значение');
 map.print();
 
 export {};

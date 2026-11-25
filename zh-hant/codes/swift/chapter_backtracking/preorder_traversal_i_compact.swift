@@ -14,7 +14,7 @@ func preOrder(root: TreeNode?) {
         return
     }
     if root.val == 7 {
-        // 記錄解
+        // 記錄此解
         res.append(root)
     }
     preOrder(root: root.left)
@@ -23,7 +23,7 @@ func preOrder(root: TreeNode?) {
 
 @main
 enum PreorderTraversalICompact {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         let root = TreeNode.listToTree(arr: [1, 7, 3, 4, 5, 6, 7])
         print("\n初始化二元樹")

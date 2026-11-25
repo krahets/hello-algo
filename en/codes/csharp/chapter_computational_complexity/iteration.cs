@@ -56,22 +56,22 @@ public class iteration {
         return res.ToString();
     }
 
-    /* Driver code */
+    /* Driver Code */
     [Test]
     public void Test() {
         int n = 5;
         int res;
 
         res = ForLoop(n);
-        Console.WriteLine("\nSum from the for loop: res = " + res);
+        Console.WriteLine("\nfor loop sum: res = " + res);
 
         res = WhileLoop(n);
-        Console.WriteLine("\nSum from the while loop: res = " + res);
+        Console.WriteLine("\nwhile loop sum: res = " + res);
 
         res = WhileLoopII(n);
-        Console.WriteLine("\nSum from the while loop (two updates): res = " + res);
+        Console.WriteLine("\nwhile loop sum (two updates): res = " + res);
 
         string resStr = NestedForLoop(n);
-        Console.WriteLine("\nTraversal result from the nested for loops: " + resStr);
+        Console.WriteLine("\nNested for loop traversal: " + resStr);
     }
 }

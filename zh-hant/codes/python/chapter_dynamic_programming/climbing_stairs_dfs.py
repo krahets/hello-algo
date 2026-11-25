@@ -7,7 +7,7 @@ Author: krahets (krahets@163.com)
 
 def dfs(i: int) -> int:
     """搜尋"""
-    # 已知 dp[1] 和 dp[2] ，返回之
+    # 已知 dp[1] 和 dp[2]，直接回傳對應的值
     if i == 1 or i == 2:
         return i
     # dp[i] = dp[i-1] + dp[i-2]
@@ -25,4 +25,4 @@ if __name__ == "__main__":
     n = 9
 
     res = climbing_stairs_dfs(n)
-    print(f"爬 {n} 階樓梯共有 {res} 種方案")
+    print(f"爬 {n} 階樓梯共有 {res} 種走法")

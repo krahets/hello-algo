@@ -1,30 +1,30 @@
 {
-  "schema_version": 2,
-  "title": "Per-level workload of a divide-and-conquer tree",
-  "summary": "Doubling the number of subproblems while halving each subproblem's work keeps the total work per level constant.",
   "context": [
-    "Let n be a nonnegative integer power of 2. Each box in the figure represents a subproblem whose operation count equals its current size; starting from the root, every subproblem splits into two equal halves from one level to the next."
+    "Suppose n is 2 raised to a nonnegative integer power. The boxes represent subproblems. Each node does as many operations as its current size. Starting at the root, each subproblem splits into two at the next level."
   ],
   "description": [
-    "The right side totals the operations at each level. The bottom row draws only 4 boxes separated by ellipses to represent all n leaves. The table below describes the levels for general n; for small n, intermediate levels may be absent and the leaf level may coincide with an earlier row rather than there always being 5 fixed levels."
+    "The right side totals the operations by level. Only four boxes separated by ellipses appear on the bottom level. They stand for all n leaves. The table lists levels for a general input size. A small n may have no intermediate levels, and the leaf level may coincide with an earlier row. The tree does not always have five levels."
   ],
   "frames": [
     {
-      "id": "source-31",
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_logarithmic_linear.png",
-      "title": "Per-level workload of a divide-and-conquer tree",
-      "explanation": "Numbering the root as level 0, level d has 2^d (2 to the power d) subproblems performing n / 2^d operations each, whose product is always n. At the leaf level each subproblem has size 1, so 2^d = n and d = log₂ n (log base 2 of n); from level 0 through level log₂ n there are log₂ n + 1 levels in total. At the bottom of the diagram, multiplying n operations per level by the total number of levels gives n(log₂ n + 1) = n log₂ n + n, which is O(n log n)."
+      "explanation": "Number the root level 0. At level d, there are 2^d subproblems taking n/2^d operations each, so their product is always n. At the leaf level, each subproblem has size 1. Thus 2^d = n and d = log₂ n. From level 0 through level log₂ n there are log₂ n + 1 levels. At the bottom the work n per level is multiplied by the number of levels, giving n(log₂ n + 1) = n log₂ n + n, or O(n log n).",
+      "id": "source-31",
+      "title": "Work per level in a divide-and-conquer tree"
     }
   ],
+  "schema_version": 2,
+  "summary": "The number of subproblems doubles while the work per subproblem halves, keeping total work per level constant.",
   "tables": [
     {
-      "caption": "Total operations at each level in the figure",
+      "caption": "Total operations per level in the figure",
       "headers": [
         "Level",
         "Number of subproblems",
         "Operations per subproblem",
-        "Level total"
+        "Total for this level"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Root level",
@@ -39,15 +39,15 @@
           "n"
         ],
         [
-          "Second level down",
+          "Following level",
           "4",
           "n/4",
           "n"
         ],
         [
           "Intermediate levels (if any)",
-          "Continues doubling",
-          "Continues halving",
+          "Keeps doubling",
+          "Keeps halving",
           "n"
         ],
         [
@@ -56,8 +56,8 @@
           "1",
           "n"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Work per level in a divide-and-conquer tree"
 }

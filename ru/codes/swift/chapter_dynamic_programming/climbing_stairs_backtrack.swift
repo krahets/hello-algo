@@ -4,41 +4,41 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Бэктрекинг */
+/* Поиск с возвратом */
 func backtrack(choices: [Int], state: Int, n: Int, res: inout [Int]) {
-    // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
+    // На ступени n увеличить число способов на 1
     if state == n {
         res[0] += 1
     }
-    // Перебор всех вариантов выбора
+    // Перебрать все варианты
     for choice in choices {
-        // Отсечение: нельзя выходить за n-ю ступень
+        // Отсечь шаги за ступень n
         if state + choice > n {
             continue
         }
-        // Попытка: сделать выбор и обновить состояние
+        // Сделать выбор и обновить состояние
         backtrack(choices: choices, state: state + choice, n: n, res: &res)
-        // Откат
+        // Отменить выбор
     }
 }
 
-/* Подъем по лестнице: бэктрекинг */
+/* Подъём по лестнице: поиск с возвратом */
 func climbingStairsBacktrack(n: Int) -> Int {
     let choices = [1, 2] // Можно подняться на 1 или 2 ступени
-    let state = 0 // Начать подъем с 0-й ступени
+    let state = 0 // Начать со ступени 0
     var res: [Int] = []
-    res.append(0) // Использовать res[0] для хранения числа решений
+    res.append(0) // Хранить число способов в res[0]
     backtrack(choices: choices, state: state, n: n, res: &res)
     return res[0]
 }
 
 @main
 enum ClimbingStairsBacktrack {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let n = 9
 
         let res = climbingStairsBacktrack(n: n)
-        print("Количество способов подняться по лестнице из \(n) ступеней = \(res)")
+        print("Число способов подняться на лестницу из \(n) ступеней: \(res).")
     }
 }

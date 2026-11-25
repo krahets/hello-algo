@@ -13,7 +13,7 @@ public class bubble_sort {
     static void bubbleSort(int[] nums) {
         // Outer loop: the unsorted range is [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+            // Inner loop: swap the largest element in [0, i] to the right end of the range
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
@@ -25,12 +25,12 @@ public class bubble_sort {
         }
     }
 
-    /* Bubble sort (flag optimization) */
+    /* Bubble sort with an early-exit flag */
     static void bubbleSortWithFlag(int[] nums) {
         // Outer loop: the unsorted range is [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
             boolean flag = false; // Initialize the flag
-            // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+            // Inner loop: swap the largest element in [0, i] to the right end of the range
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Swap nums[j] and nums[j + 1]
@@ -41,7 +41,7 @@ public class bubble_sort {
                 }
             }
             if (!flag)
-                break; // Exit immediately if this pass made no swaps
+                break; // Stop if this pass made no swaps
         }
     }
 

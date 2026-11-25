@@ -22,8 +22,8 @@ func TestGraphBFS(t *testing.T) {
 	fmt.Println("初期化後のグラフ：")
 	graph.print()
 
-	/* 幅優先走査 */
+	/* 幅優先探索 */
 	res := graphBFS(graph, vets[0])
-	fmt.Println("幅優先走査（BFS）の頂点の順序：")
+	fmt.Println("幅優先探索（BFS）での頂点の訪問順：")
 	PrintSlice(VetsToVals(res))
 }

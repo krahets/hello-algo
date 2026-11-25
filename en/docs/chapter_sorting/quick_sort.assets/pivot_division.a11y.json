@@ -1,130 +1,130 @@
 {
-  "schema_version": 2,
-  "title": "One partition with pivot 2",
-  "summary": "Move the right pointer j first and the left pointer i second. Swap misplaced elements, then place pivot 2 at the partition boundary.",
-  "context": [
-    "Initially nums = [2, 4, 1, 0, 3, 5], indexed from 0 to 5. The current bounds are left = 0 and right = 5. The leftmost value nums[left] = 2 is the pivot.",
-    "From the left, i searches for the first element greater than the pivot. From the right, j searches for the first element smaller than the pivot. Each iteration moves j first, then i; both scans require i < j. Swap misplaced elements across the partition until the pointers meet. Finally swap the pivot into the meeting position."
-  ],
-  "description": [
-    "The upper part shows nums, the pivot marker, the bounds left and right, and the scanning pointers i and j. Below it, gray highlighting marks the current statement of partition. Pivot 2 stays at index 0 throughout the scan, even as i moves. Only the final swap moves the pivot. The bounds stay left = 0 and right = 5 throughout; their labels are hidden in the final state."
-  ],
-  "result": "One partition fixes the pivot’s final position. The subarrays on either side still need recursive sorting.",
-  "frames": [
-    {
-      "id": "source-263",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step1.png",
-      "title": "Initialize the bounds, pivot, and two pointers",
-      "explanation": "Initially nums = [2, 4, 1, 0, 3, 5]. Choose 2 at index 0 as the pivot. The gray line i, j = left, right sets i = 0 and j = 5, pointing to 2 and 5 respectively. No scans or swaps yet.",
-      "key_state": "nums = [2, 4, 1, 0, 3, 5]; i = 0, j = 5; pivot 2 at index 0.",
-      "announcement": "Initialize i = 0 and j = 5. Choose the leftmost element 2 as pivot."
-    },
-    {
-      "id": "source-264",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step2.png",
-      "title": "Scanning from the right, j finds 0 below the pivot",
-      "explanation": "Move j first. Skip 5 at index 5 and 3 at index 4: neither is smaller than pivot 2. At index 3, 0 < 2, so stop. Now nums = [2, 4, 1, 0, 3, 5], i = 0, j = 3; pivot 2 remains at index 0.",
-      "key_state": "nums = [2, 4, 1, 0, 3, 5]; i = 0, j = 3; pivot 2 at index 0. j stopped at 0, smaller than pivot 2.",
-      "announcement": "j moves left past 5 and 3 and stops at 0 at index 3."
-    },
-    {
-      "id": "source-265",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step3.png",
-      "title": "Scanning from the left, i finds 4 above the pivot",
-      "explanation": "Next move i. At index 0, 2 is no greater than pivot 2, so pass it. At index 1, 4 > 2, so stop. Now nums = [2, 4, 1, 0, 3, 5], i = 1 points to 4 and j = 3 to 0. These elements are ready to swap. Pivot 2 is still at index 0.",
-      "key_state": "nums = [2, 4, 1, 0, 3, 5]; i = 1, j = 3; pivot 2 at index 0. i stopped at 4, greater than pivot 2. The swap is next.",
-      "announcement": "i stops at 4 at index 1, ready to swap it with 0 at j."
-    },
-    {
-      "id": "source-266",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step4.png",
-      "title": "Swap 4 and 0",
-      "explanation": "Swap 4 at index 1 with 0 at index 3. The smaller value 0 moves left and the larger value 4 moves right. Now nums = [2, 0, 1, 4, 3, 5], i = 1, j = 3; pivot 2 remains at index 0.",
-      "key_state": "nums = [2, 0, 1, 4, 3, 5]; i = 1, j = 3; pivot 2 at index 0. The swap at indices 1 and 3 is complete.",
-      "announcement": "Swap 4 at index 1 with 0 at index 3."
-    },
-    {
-      "id": "source-267",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step5.png",
-      "title": "Continuing left, j finds 1 below the pivot",
-      "explanation": "In the next iteration j moves first. At index 3, 4 ≥ 2. Move left to index 2 and stop at 1 < 2. Now nums = [2, 0, 1, 4, 3, 5], i = 1 points to 0, j = 2 points to 1; pivot 2 remains at index 0.",
-      "key_state": "nums = [2, 0, 1, 4, 3, 5]; i = 1, j = 2; pivot 2 at index 0. j stopped at 1, smaller than pivot 2.",
-      "announcement": "j moves left from 4 to 1 at index 2."
-    },
-    {
-      "id": "source-268",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step6.png",
-      "title": "Pointer i moves right and meets j",
-      "explanation": "At index 1, 0 ≤ 2. Move i right to index 2, where it meets j. Now nums = [2, 0, 1, 4, 3, 5], i = j = 2. The meeting position holds 1 and pivot 2 remains at index 0. The inner scan for i stops because i < j is now false. No element greater than the pivot was found.",
-      "key_state": "nums = [2, 0, 1, 4, 3, 5]; i = 2, j = 2; pivot 2 at index 0. The pointers have met; the self-swap is still to come.",
-      "announcement": "i moves right to meet j at index 2. Scanning stops."
-    },
-    {
-      "id": "source-269",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step7.png",
-      "title": "Swapping the meeting position with itself leaves the array unchanged",
-      "explanation": "Run the nums[i], nums[j] swap at the end of this iteration. Since i = j = 2, the 1 at index 2 swaps with itself. Now nums is still [2, 0, 1, 4, 3, 5] and pivot 2 is still at index 0. The outer partition loop exits because i < j is false.",
-      "key_state": "nums = [2, 0, 1, 4, 3, 5]; i = 2, j = 2; pivot 2 at index 0. The self-swap left the array unchanged. The outer loop has ended.",
-      "announcement": "Both pointers are at the same position. Swapping there changes nothing, and the outer partition loop ends."
-    },
-    {
-      "id": "source-270",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step8.png",
-      "title": "Swap pivot 2 into boundary index 2",
-      "explanation": "After the loop, swap pivot 2 at index 0 with 1 at index 2. Now nums = [1, 0, 2, 4, 3, 5], i = j = 2. Pivot 2 has reached its final index 2.",
-      "key_state": "nums = [1, 0, 2, 4, 3, 5]; i = 2, j = 2; pivot 2 at index 2.",
-      "announcement": "Swap pivot 2 at index 0 with 1 at the meeting index 2. The pivot is in place."
-    },
-    {
-      "id": "source-271",
-      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step9.png",
-      "title": "Finish the partition and leave the two subarrays for recursion",
-      "explanation": "Execute return i to return index 2. Now nums = [1, 0, 2, 4, 3, 5]. The labels left, right, i, j are hidden. Braces mark the left subarray [1, 0] (indices 0 through 1) and the right subarray [4, 3, 5] (indices 3 through 5). All elements on the left are ≤ 2 and all on the right are ≥ 2. Neither side is sorted internally yet.",
-      "key_state": "Return index 2. Now nums = [1, 0, 2, 4, 3, 5]. The left subarray [1, 0] and right subarray [4, 3, 5] await recursive sorting. The pointer labels are hidden.",
-      "announcement": "Partition complete. Index 2 is returned. Both subarrays still require recursive sorting."
-    }
-  ],
   "animations": {
     "pivot-division": {
       "kind": "source-frames",
       "states": [
         {
-          "id": "step-1",
-          "frame_id": "source-263"
+          "frame_id": "source-263",
+          "id": "step-1"
         },
         {
-          "id": "step-2",
-          "frame_id": "source-264"
+          "frame_id": "source-264",
+          "id": "step-2"
         },
         {
-          "id": "step-3",
-          "frame_id": "source-265"
+          "frame_id": "source-265",
+          "id": "step-3"
         },
         {
-          "id": "step-4",
-          "frame_id": "source-266"
+          "frame_id": "source-266",
+          "id": "step-4"
         },
         {
-          "id": "step-5",
-          "frame_id": "source-267"
+          "frame_id": "source-267",
+          "id": "step-5"
         },
         {
-          "id": "step-6",
-          "frame_id": "source-268"
+          "frame_id": "source-268",
+          "id": "step-6"
         },
         {
-          "id": "step-7",
-          "frame_id": "source-269"
+          "frame_id": "source-269",
+          "id": "step-7"
         },
         {
-          "id": "step-8",
-          "frame_id": "source-270"
+          "frame_id": "source-270",
+          "id": "step-8"
         },
         {
-          "id": "step-9",
-          "frame_id": "source-271"
+          "frame_id": "source-271",
+          "id": "step-9"
         }
       ]
     }
-  }
+  },
+  "context": [
+    "Initially nums = [2, 4, 1, 0, 3, 5], with indices 0 through 5. The current boundaries are left = 0 and right = 5. Choose the leftmost element, nums[left] = 2, as the pivot.",
+    "The left pointer i scans right for the first element greater than the pivot. The right pointer j scans left for the first element smaller than the pivot. This implementation moves j before i on every iteration, and both scans require i < j. Swap the two misplaced elements when both are found. Continue until the pointers meet, then swap the pivot into their meeting position."
+  ],
+  "description": [
+    "Above the code, the figure shows nums, the pivot marker, the range boundaries left and right, and the scanning pointers i and j. The partition function below highlights the current statement in gray. Until the final swap to the boundary, the pivot 2 stays at index 0 while i scans right. The boundaries left = 0 and right = 5 stay fixed throughout. Only their labels are hidden in the final state."
+  ],
+  "frames": [
+    {
+      "announcement": "Initialize i = 0 and j = 5, and choose the leftmost element, 2, as the pivot.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step1.png",
+      "explanation": "Initially nums = [2, 4, 1, 0, 3, 5]. Choose 2 at index 0 as the pivot. The gray highlighted statement i, j = left, right sets i = 0 and j = 5, pointing to 2 and 5, respectively. No scan or swap has occurred.",
+      "id": "source-263",
+      "key_state": "Now nums = [2, 4, 1, 0, 3, 5], i = 0, and j = 5. The pivot 2 is at index 0.",
+      "title": "Initialize the boundaries, pivot, and two pointers"
+    },
+    {
+      "announcement": "Pointer j moves left past 5 and 3 and stops at 0 at index 3.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step2.png",
+      "explanation": "Move j first. The 5 at index 5 and the 3 at index 4 are both at least 2, so skip them. At index 3, 0 < 2, so stop. Now nums = [2, 4, 1, 0, 3, 5], i = 0, and j = 3. The pivot 2 remains at index 0.",
+      "id": "source-264",
+      "key_state": "Now nums = [2, 4, 1, 0, 3, 5], i = 0, and j = 3. The pivot 2 is at index 0. Pointer j stops at 0 because it is smaller than 2.",
+      "title": "Pointer j scans left and finds 0, smaller than the pivot"
+    },
+    {
+      "announcement": "Pointer i moves right and stops at 4 at index 1, ready to swap with the 0 at j.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step3.png",
+      "explanation": "Move i next. The 2 at index 0 is no greater than the pivot 2, so skip it. At index 1, 4 > 2, so stop. Now nums = [2, 4, 1, 0, 3, 5], with i = 1 pointing to 4 and j = 3 pointing to 0. These two elements are ready to swap. The pivot 2 remains at index 0.",
+      "id": "source-265",
+      "key_state": "Now nums = [2, 4, 1, 0, 3, 5], i = 1, and j = 3. The pivot 2 is at index 0. Pointer i stops at 4 because it is greater than 2. The pair is ready to swap.",
+      "title": "Pointer i scans right and finds 4, greater than the pivot"
+    },
+    {
+      "announcement": "Swap 4 at index 1 with 0 at index 3.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step4.png",
+      "explanation": "Swap 4 at index 1 with 0 at index 3. This moves 0, smaller than the pivot, to the left and 4, larger than the pivot, to the right. Now nums = [2, 0, 1, 4, 3, 5], i = 1, and j = 3. The pivot 2 remains at index 0.",
+      "id": "source-266",
+      "key_state": "Now nums = [2, 0, 1, 4, 3, 5], i = 1, and j = 3. The pivot 2 is at index 0. Indices 1 and 3 have been swapped.",
+      "title": "Swap 4 and 0"
+    },
+    {
+      "announcement": "Pointer j moves left from 4 to 1 at index 2.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step5.png",
+      "explanation": "Move j first on the next iteration. The 4 at index 3 satisfies 4 ≥ 2, so move left to index 2. There 1 < 2, so stop. Now nums = [2, 0, 1, 4, 3, 5], with i = 1 pointing to 0 and j = 2 pointing to 1. The pivot 2 remains at index 0.",
+      "id": "source-267",
+      "key_state": "Now nums = [2, 0, 1, 4, 3, 5], i = 1, and j = 2. The pivot 2 is at index 0. Pointer j stops at 1 because it is smaller than 2.",
+      "title": "Pointer j continues left and finds 1, smaller than the pivot"
+    },
+    {
+      "announcement": "Pointer i moves right to index 2, meets j, and stops scanning.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step6.png",
+      "explanation": "At index 1, 0 ≤ 2, so i moves right to index 2 and meets j. Now nums = [2, 0, 1, 4, 3, 5] and i = j = 2. The meeting position holds 1, and the pivot 2 remains at index 0. The inner scan for i stops because i < j no longer holds, not because it found an element greater than the pivot.",
+      "id": "source-268",
+      "key_state": "Now nums = [2, 0, 1, 4, 3, 5], i = 2, and j = 2. The pivot 2 is at index 0. The pointers have met, but the self-swap has yet to occur.",
+      "title": "Pointer i moves right to meet j"
+    },
+    {
+      "announcement": "Both pointers refer to the same position. Swapping it with itself leaves the data unchanged, and the outer partition loop ends.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step7.png",
+      "explanation": "Execute the swap of nums[i] and nums[j] at the end of the iteration. Since i = j = 2, the 1 at index 2 swaps with itself. The array remains nums = [2, 0, 1, 4, 3, 5], with the pivot 2 at index 0. The condition i < j is now false, so the outer partition loop ends.",
+      "id": "source-269",
+      "key_state": "Now nums = [2, 0, 1, 4, 3, 5], i = 2, and j = 2. The pivot 2 is at index 0. The self-swap is complete, the array is unchanged, and the outer partition loop ends.",
+      "title": "Swapping the meeting position with itself leaves the array unchanged"
+    },
+    {
+      "announcement": "Swap the pivot 2 at index 0 with the 1 at the meeting position, index 2, putting the pivot in place.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step8.png",
+      "explanation": "After the loop, swap the pivot 2 at index 0 with the 1 at index 2. Now nums = [1, 0, 2, 4, 3, 5] and i = j = 2. The pivot 2 is at its final index, 2.",
+      "id": "source-270",
+      "key_state": "Now nums = [1, 0, 2, 4, 3, 5], i = 2, and j = 2. The pivot 2 is at index 2.",
+      "title": "Swap pivot 2 into the boundary position at index 2"
+    },
+    {
+      "announcement": "Partitioning is complete and returns index 2. The left and right subarrays still need recursive sorting.",
+      "book_path": "chapter_sorting/quick_sort.assets/pivot_division_step9.png",
+      "explanation": "The statement return i returns index 2. Now nums = [1, 0, 2, 4, 3, 5]. The figure hides left, right, i, and j. Braces mark the left subarray [1, 0] (indices 0 through 1) and right subarray [4, 3, 5] (indices 3 through 5). All left elements are ≤ 2 and all right elements are ≥ 2, but both subarrays are still unsorted.",
+      "id": "source-271",
+      "key_state": "Return index 2. Now nums = [1, 0, 2, 4, 3, 5]. The left subarray [1, 0] and right subarray [4, 3, 5] still need recursive sorting. The pointers are hidden.",
+      "title": "Finish one partition, leaving the left and right subproblems"
+    }
+  ],
+  "result": "One partition fixes only the pivot's final position. Each side still needs to be sorted recursively.",
+  "schema_version": 2,
+  "summary": "Move the right pointer j first, then the left pointer i. Swap elements on the wrong sides, then place the pivot 2 at the boundary.",
+  "title": "One two-pointer partition with pivot 2"
 }

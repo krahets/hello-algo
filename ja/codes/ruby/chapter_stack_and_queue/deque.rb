@@ -4,37 +4,37 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # 両端キューを初期化する
-  # Ruby には組み込みの両端キューがないため、Array を両端キューとして使うしかない
+  # Ruby には組み込みの両端キューがなく、Array で代用するしかない
   deque = []
 
-  # 要素をエンキューする
+  # 要素を両端キューに追加する
   deque << 2
   deque << 5
   deque << 4
-  # 配列なので Array#unshift メソッドの時間計算量は O(n) であることに注意
+  # 配列を使うため、Array#unshift の時間計算量は O(n) になる点に注意
   deque.unshift(3)
   deque.unshift(1)
   puts "両端キュー deque = #{deque}"
 
-  # 要素にアクセスする
+  # 要素を参照する
   peek_first = deque.first
-  puts "キューの先頭要素 peek_first = #{peek_first}"
+  puts "先頭要素 peek_first = #{peek_first}"
   peek_last = deque.last
-  puts "キューの末尾要素 peek_last = #{peek_last}"
+  puts "末尾要素 peek_last = #{peek_last}"
 
-  # 要素をデキューする
-  # 配列なので Array#shift メソッドの時間計算量は O(n) であることに注意
+  # 両端キューから要素を取り出す
+  # 配列を使うため、Array#shift の時間計算量は O(n) になる点に注意
   pop_front = deque.shift
-  puts "先頭からデキューした要素 pop_front = #{pop_front}、先頭からデキューした後 deque = #{deque}"
+  puts "先頭から取り出した要素 pop_front = #{pop_front}、先頭から取り出した後の deque = #{deque}"
   pop_back = deque.pop
-  puts "末尾からデキューした要素 pop_back = #{pop_back}、末尾からデキューした後 deque = #{deque}"
+  puts "末尾から取り出した要素 pop_back = #{pop_back}、 末尾から取り出した後の deque = #{deque}"
 
-  # 両端キューの長さを取得する
+  # 両端キューの要素数を取得する
   size = deque.length
-  puts "両端キューの長さ size = #{size}"
+  puts "両端キューの要素数 size = #{size}"
 
   # 両端キューが空かどうかを判定する
   is_empty = size.zero?

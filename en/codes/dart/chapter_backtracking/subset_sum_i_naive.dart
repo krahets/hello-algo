@@ -12,31 +12,31 @@ void backtrack(
   List<int> choices,
   List<List<int>> res,
 ) {
-  // Record a solution when the subset sum equals target
+  // Record a solution when the subset sums to target
   if (total == target) {
     res.add(List.from(state));
     return;
   }
-  // Iterate over all choices
+  // Try each choice
   for (int i = 0; i < choices.length; i++) {
-    // Prune: skip this choice if the subset sum would exceed target
+    // Prune: skip choices that would take the subset sum over target
     if (total + choices[i] > target) {
       continue;
     }
-    // Try: make a choice and update the sum total
+    // Make a choice and update the running sum total
     state.add(choices[i]);
-    // Proceed to the next choice
+    // Make the next choice
     backtrack(state, target, total + choices[i], choices, res);
-    // Backtrack: undo the choice and restore the previous state
+    // Backtrack: undo the choice to restore the previous state
     state.removeLast();
   }
 }
 
-/* Solve subset sum I (with duplicate subsets) */
+/* Solve subset sum I (including duplicate subsets) */
 List<List<int>> subsetSumINaive(List<int> nums, int target) {
-  List<int> state = []; // State (subset)
-  int total = 0; // Sum of the elements
-  List<List<int>> res = []; // Result list (list of subsets)
+  List<int> state = []; // State (current subset)
+  int total = 0; // Sum of elements
+  List<List<int>> res = []; // Results (list of subsets)
   backtrack(state, target, total, nums, res);
   return res;
 }
@@ -49,6 +49,6 @@ void main() {
   List<List<int>> res = subsetSumINaive(nums, target);
 
   print("Input array nums = $nums, target = $target");
-  print("All subsets with sum $target: res = $res");
-  print("Note that this method produces duplicate subsets");
+  print("Subsets that sum to $target: res = $res");
+  print("This method returns duplicate subsets");
 }

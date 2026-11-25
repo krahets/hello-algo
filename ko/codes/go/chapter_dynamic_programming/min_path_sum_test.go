@@ -20,9 +20,9 @@ func TestMinPathSum(t *testing.T) {
 
 	// 완전 탐색
 	res := minPathSumDFS(grid, n-1, m-1)
-	fmt.Printf("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합은 %d이다\n", res)
+	fmt.Printf("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: %d\n", res)
 
-	// 메모이제이션을 이용한 탐색
+	// 메모이제이션 탐색
 	mem := make([][]int, n)
 	for i := 0; i < n; i++ {
 		mem[i] = make([]int, m)
@@ -31,13 +31,13 @@ func TestMinPathSum(t *testing.T) {
 		}
 	}
 	res = minPathSumDFSMem(grid, mem, n-1, m-1)
-	fmt.Printf("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합은 %d이다\n", res)
+	fmt.Printf("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: %d\n", res)
 
 	// 동적 계획법
 	res = minPathSumDP(grid)
-	fmt.Printf("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합은 %d이다\n", res)
+	fmt.Printf("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: %d\n", res)
 
-	// 공간을 최적화한 동적 계획법
+	// 공간 최적화 동적 계획법
 	res = minPathSumDPComp(grid)
-	fmt.Printf("왼쪽 위 모서리에서 오른쪽 아래 모서리까지의 최소 경로 합은 %d이다\n", res)
+	fmt.Printf("왼쪽 위에서 오른쪽 아래까지의 최소 경로 합: %d\n", res)
 }

@@ -11,7 +11,7 @@ require_relative '../utils/print_util'
 def pre_order(root)
   return if root.nil?
 
-  # 방문 우선순위: 루트 노드 -> 왼쪽 서브트리 -> 오른쪽 서브트리
+  # 방문 순서: 루트 노드 -> 왼쪽 서브트리 -> 오른쪽 서브트리
   $res << root.val
   pre_order(root.left)
   pre_order(root.right)
@@ -21,7 +21,7 @@ end
 def in_order(root)
   return if root.nil?
 
-  # 방문 우선순위: 왼쪽 서브트리 -> 루트 노드 -> 오른쪽 서브트리
+  # 방문 순서: 왼쪽 서브트리 -> 루트 노드 -> 오른쪽 서브트리
   in_order(root.left)
   $res << root.val
   in_order(root.right)
@@ -31,7 +31,7 @@ end
 def post_order(root)
   return if root.nil?
 
-  # 방문 우선순위: 왼쪽 서브트리 -> 오른쪽 서브트리 -> 루트 노드
+  # 방문 순서: 왼쪽 서브트리 -> 오른쪽 서브트리 -> 루트 노드
   post_order(root.left)
   post_order(root.right)
   $res << root.val
@@ -40,7 +40,7 @@ end
 ### 실행 코드 ###
 if __FILE__ == $0
   # 이진 트리 초기화
-  # 여기서는 배열로부터 이진 트리를 바로 생성하는 함수를 사용한다
+  # 배열에서 바로 이진 트리를 만드는 함수를 사용한다
   root = arr_to_tree([1, 2, 3, 4, 5, 6, 7])
   puts "\n이진 트리 초기화\n\n"
   print_tree(root)
@@ -48,15 +48,15 @@ if __FILE__ == $0
   # 전위 순회
   $res = []
   pre_order(root)
-  puts "\n전위 순회의 노드 출력 순서 = #{$res}"
+  puts "\n전위 순회로 출력한 노드 순서 = #{$res}"
 
   # 중위 순회
   $res.clear
   in_order(root)
-  puts "\nn중위 순회의 노드 출력 순서 = #{$res}"
+  puts "\nn중위 순회로 출력한 노드 순서 = #{$res}"
 
   # 후위 순회
   $res.clear
   post_order(root)
-  puts "\nn후위 순회의 노드 출력 순서 = #{$res}"
+  puts "\nn후위 순회로 출력한 노드 순서 = #{$res}"
 end

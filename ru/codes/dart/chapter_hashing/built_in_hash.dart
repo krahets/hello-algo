@@ -6,29 +6,29 @@
 
 import '../chapter_stack_and_queue/linkedlist_deque.dart';
 
-/* Driver Code */
+/* Демонстрационный код */
 void main() {
   int _num = 3;
   int hashNum = _num.hashCode;
-  print("Хеш-значение целого числа $_num = $hashNum");
+  print("Целое число $_num имеет хеш $hashNum");
 
   bool bol = true;
   int hashBol = bol.hashCode;
-  print("Хеш-значение булева значения $bol = $hashBol");
+  print("Логическое значение $bol имеет хеш $hashBol");
 
   double dec = 3.14159;
   int hashDec = dec.hashCode;
-  print("Хеш-значение десятичного числа $dec = $hashDec");
+  print("Вещественное число $dec имеет хеш $hashDec");
 
-  String str = "Hello Algo";
+  String str = "Hello 算法";
   int hashStr = str.hashCode;
-  print("Хеш-значение строки $str = $hashStr");
+  print("Строка $str имеет хеш $hashStr");
 
-  List arr = [12836, "Сяо Ха"];
+  List arr = [12836, "小哈"];
   int hashArr = arr.hashCode;
-  print("Хеш-значение массива $arr = $hashArr");
+  print("Массив $arr имеет хеш $hashArr");
 
   ListNode obj = new ListNode(0);
   int hashObj = obj.hashCode;
-  print("Хеш-значение объекта узла $obj = $hashObj");
+  print("Объект узла $obj имеет хеш $hashObj");
 }

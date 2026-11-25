@@ -9,7 +9,7 @@ public class ListNode(int x) {
     public int val = x;
     public ListNode? next;
 
-    /* 배열을 역직렬화하여 연결 리스트로 변환한다 */
+    /* 배열을 연결 리스트로 역직렬화 */
     public static ListNode? ArrToLinkedList(int[] arr) {
         ListNode dum = new(0);
         ListNode head = dum;

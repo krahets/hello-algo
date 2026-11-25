@@ -16,38 +16,38 @@ impl Item {
     }
 }
 
-/* 分數背包：貪婪 */
+/* 分數背包：貪婪法 */
 fn fractional_knapsack(wgt: &[i32], val: &[i32], mut cap: i32) -> f64 {
-    // 建立物品串列，包含兩個屬性：重量、價值
+    // 建立物品清單，每件物品有重量與價值兩項屬性
     let mut items = wgt
         .iter()
         .zip(val.iter())
         .map(|(&w, &v)| Item::new(w, v))
         .collect::<Vec<Item>>();
-    // 按照單位價值 item.v / item.w 從高到低進行排序
+    // 依單位價值 item.v / item.w 由高到低排序
     items.sort_by(|a, b| {
         (b.v as f64 / b.w as f64)
             .partial_cmp(&(a.v as f64 / a.w as f64))
             .unwrap()
     });
-    // 迴圈貪婪選擇
+    // 反覆依貪婪策略選取物品
     let mut res = 0.0;
     for item in &items {
         if item.w <= cap {
-            // 若剩餘容量充足，則將當前物品整個裝進背包
+            // 若剩餘容量足夠，就將目前的物品整件裝入背包
             res += item.v as f64;
             cap -= item.w;
         } else {
-            // 若剩餘容量不足，則將當前物品的一部分裝進背包
+            // 若剩餘容量不足，就將目前物品的一部分裝入背包
             res += item.v as f64 / item.w as f64 * cap as f64;
-            // 已無剩餘容量，因此跳出迴圈
+            // 背包已滿，跳出迴圈
             break;
         }
     }
     res
 }
 
-/* Driver Code */
+/* 主程式 */
 fn main() {
     let wgt = [10, 20, 30, 40, 50];
     let val = [50, 120, 150, 210, 240];
@@ -55,5 +55,5 @@ fn main() {
 
     // 貪婪演算法
     let res = fractional_knapsack(&wgt, &val, cap);
-    println!("不超過背包容量的最大物品價值為 {}", res);
+    println!("在背包容量限制內，物品的最大總價值為 {}", res);
 }

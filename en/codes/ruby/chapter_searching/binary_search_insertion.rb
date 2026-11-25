@@ -4,42 +4,42 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-### Find an insertion point using binary search (no duplicates) ###
+### Binary search for an insertion point (no duplicates) ###
 def binary_search_insertion_simple(nums, target)
   # Initialize the closed interval [0, n-1]
   i, j = 0, nums.length - 1
 
   while i <= j
-    # Calculate the midpoint index m
+    # Compute the midpoint index m
     m = (i + j) / 2
 
     if nums[m] < target
-      i = m + 1 # Target must be in [m+1, j] if it exists
+      i = m + 1 # Any match must lie in [m+1, j]
     elsif nums[m] > target
-      j = m - 1 # Target must be in [i, m-1] if it exists
+      j = m - 1 # Any match must lie in [i, m-1]
     else
-      return m  # Target was found; return insertion point m
+      return m  # Found target. Return insertion point m
     end
   end
 
-  i # Target was not found; return insertion point i
+  i # Target not found. Return insertion point i
 end
 
-### Find an insertion point using binary search (with duplicates) ###
+### Binary search for an insertion point (duplicates allowed) ###
 def binary_search_insertion(nums, target)
   # Initialize the closed interval [0, n-1]
   i, j = 0, nums.length - 1
 
   while i <= j
-    # Calculate the midpoint index m
+    # Compute the midpoint index m
     m = (i + j) / 2
 
     if nums[m] < target
-      i = m + 1 # Target must be in [m+1, j] if it exists
+      i = m + 1 # Any match must lie in [m+1, j]
     elsif nums[m] > target
-      j = m - 1 # Target must be in [i, m-1] if it exists
+      j = m - 1 # Any match must lie in [i, m-1]
     else
-      j = m - 1 # Continue in [i, m-1] to find the rightmost element smaller than target
+      j = m - 1 # Look in [i, m-1] for the rightmost element less than target
     end
   end
 
@@ -48,21 +48,21 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # Array with no duplicate elements
+  # Array without duplicates
   nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
   puts "\nArray nums = #{nums}"
-  # Find an insertion point using binary search
+  # Find the insertion point using binary search
   for target in [6, 9]
     index = binary_search_insertion_simple(nums, target)
-    puts "Insertion index for element #{target}: #{index}"
+    puts "Insertion index for #{target} = #{index}"
   end
 
-  # Array containing duplicate elements
+  # Array with duplicates
   nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
   puts "\nArray nums = #{nums}"
-  # Find an insertion point using binary search
+  # Find the insertion point using binary search
   for target in [2, 6, 20]
     index = binary_search_insertion(nums, target)
-    puts "Insertion index for element #{target}: #{index}"
+    puts "Insertion index for #{target} = #{index}"
   end
 end

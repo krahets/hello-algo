@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Heaps resemble mountain ranges, rising in layers of varied shapes.
+    Heaps are like mountain ranges, their peaks rising in tiers of different shapes.
     
-    The peaks stand at different heights, yet the highest always catches the eye first.
+    The summits stand at different heights, and the highest is always the first to catch the eye.

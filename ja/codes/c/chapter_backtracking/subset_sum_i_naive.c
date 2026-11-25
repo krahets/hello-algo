@@ -13,14 +13,14 @@
 int state[MAX_SIZE];
 int stateSize = 0;
 
-// 結果リスト（部分集合のリスト）
+// 結果のリスト（部分集合のリスト）
 int res[MAX_RES_SIZE][MAX_SIZE];
 int resColSizes[MAX_RES_SIZE];
 int resSize = 0;
 
-/* バックトラッキング：部分集合和 I */
+/* バックトラッキングによる部分和問題 I */
 void backtrack(int target, int total, int *choices, int choicesSize) {
-    // 部分集合の和が target と等しくなったら、解を記録する
+    // 部分集合の要素の和が target に等しくなったら解を記録する
     if (total == target) {
         for (int i = 0; i < stateSize; i++) {
             res[resSize][i] = state[i];
@@ -28,28 +28,28 @@ void backtrack(int target, int total, int *choices, int choicesSize) {
         resColSizes[resSize++] = stateSize;
         return;
     }
-    // すべての選択肢を走査する
+    // すべての選択肢を調べる
     for (int i = 0; i < choicesSize; i++) {
-        // 枝刈り：部分集合の和が target を超える場合、この選択をスキップする
+        // 枝刈り：部分集合の要素の和が target を超えるなら、その選択を飛ばす
         if (total + choices[i] > target) {
             continue;
         }
-        // 試行：選択を行い、要素の和 total を更新する
+        // 試行：選択して要素の和 total を更新する
         state[stateSize++] = choices[i];
         // 次の選択に進む
         backtrack(target, total + choices[i], choices, choicesSize);
-        // 復元：選択を取り消し、以前の状態に戻す
+        // 後戻り：選択を取り消し、元の状態に戻す
         stateSize--;
     }
 }
 
-/* 部分集合和 I を解く（重複した部分集合を含む） */
+/* 部分和問題 I を解く（重複する部分集合を含む） */
 void subsetSumINaive(int *nums, int numsSize, int target) {
-    resSize = 0; // 解の個数を0に初期化する
+    resSize = 0; // 解の個数を 0 に初期化する
     backtrack(target, 0, nums, numsSize);
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int nums[] = {3, 4, 5};
     int numsSize = sizeof(nums) / sizeof(nums[0]);
@@ -60,7 +60,7 @@ int main() {
     printf("入力配列 nums = ");
     printArray(nums, numsSize);
     printf("target = %d\n", target);
-    printf("和が %d になるすべての部分集合 res = \n", target);
+    printf("要素の和が %d となるすべての部分集合 res = \n", target);
     for (int i = 0; i < resSize; i++) {
         printArray(res[i], resColSizes[i]);
     }

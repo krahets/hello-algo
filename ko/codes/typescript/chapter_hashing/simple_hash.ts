@@ -44,7 +44,7 @@ function rotHash(key: string): number {
     return hash;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 const key = 'Hello 算法';
 
 let hash = addHash(key);

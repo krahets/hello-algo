@@ -13,14 +13,14 @@ void preOrder(TreeNode? root, List<TreeNode> res) {
     return;
   }
   if (root.val == 7) {
-    // 記錄解
+    // 記錄此解
     res.add(root);
   }
   preOrder(root.left, res);
   preOrder(root.right, res);
 }
 
-/* Driver Code */
+/* 主程式 */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
   print("\n初始化二元樹");

@@ -9,23 +9,23 @@
 /* Размен монет II: динамическое программирование */
 int coinChangeIIDP(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
-    // Инициализация таблицы dp
+    // Инициализировать таблицу dp
     int **dp = malloc((n + 1) * sizeof(int *));
     for (int i = 0; i <= n; i++) {
         dp[i] = calloc(amt + 1, sizeof(int));
     }
-    // Инициализация первого столбца
+    // Инициализировать первый столбец
     for (int i = 0; i <= n; i++) {
         dp[i][0] = 1;
     }
-    // Переход состояний
+    // Переход между состояниями
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // Если целевая сумма превышена, монету i не выбирать
+                // Если номинал превышает нужную сумму, не брать монету i
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // Сумма двух решений: не брать или взять монету i
+                // Сложить число комбинаций без монеты i и с ней
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
             }
         }
@@ -39,20 +39,20 @@ int coinChangeIIDP(int coins[], int amt, int coinsSize) {
     return res;
 }
 
-/* Размен монет II: динамическое программирование с оптимизацией памяти */
+/* Размен монет II: динамическое программирование с экономией памяти */
 int coinChangeIIDPComp(int coins[], int amt, int coinsSize) {
     int n = coinsSize;
-    // Инициализация таблицы dp
+    // Инициализировать таблицу dp
     int *dp = calloc(amt + 1, sizeof(int));
     dp[0] = 1;
-    // Переход состояний
+    // Переход между состояниями
     for (int i = 1; i <= n; i++) {
         for (int a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // Если целевая сумма превышена, монету i не выбирать
+                // Если номинал превышает нужную сумму, не брать монету i
                 dp[a] = dp[a];
             } else {
-                // Сумма двух решений: не брать или взять монету i
+                // Сложить число комбинаций без монеты i и с ней
                 dp[a] = dp[a] + dp[a - coins[i - 1]];
             }
         }
@@ -63,7 +63,7 @@ int coinChangeIIDPComp(int coins[], int amt, int coinsSize) {
     return res;
 }
 
-/* Driver code */
+/* Основная программа */
 int main() {
     int coins[] = {1, 2, 5};
     int coinsSize = sizeof(coins) / sizeof(coins[0]);
@@ -71,11 +71,11 @@ int main() {
 
     // Динамическое программирование
     int res = coinChangeIIDP(coins, amt, coinsSize);
-    printf("Количество комбинаций монет для набора целевой суммы = %d\n", res);
+    printf("Число комбинаций монет для заданной суммы: %d\n", res);
 
-    // Динамическое программирование с оптимизацией памяти
+    // Динамическое программирование с экономией памяти
     res = coinChangeIIDPComp(coins, amt, coinsSize);
-    printf("Количество комбинаций монет для набора целевой суммы = %d\n", res);
+    printf("Число комбинаций монет для заданной суммы: %d\n", res);
 
     return 0;
 }

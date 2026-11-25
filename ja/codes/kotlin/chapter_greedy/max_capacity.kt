@@ -9,19 +9,19 @@ package chapter_greedy
 import kotlin.math.max
 import kotlin.math.min
 
-/* 最大容量：貪欲法 */
+/* 最大容量（貪欲法） */
 fun maxCapacity(ht: IntArray): Int {
-    // i, j を初期化し、配列の両端をそれぞれ指すようにする
+    // i と j を配列の両端に置く
     var i = 0
     var j = ht.size - 1
     // 最大容量の初期値は 0
     var res = 0
-    // 2 枚の板が出会うまで貪欲な選択を繰り返す
+    // 両方の板が同じ位置に来るまで貪欲選択を繰り返す
     while (i < j) {
         // 最大容量を更新する
         val cap = min(ht[i], ht[j]) * (j - i)
         res = max(res, cap)
-        // 低い方の仕切り板を内側に移動する
+        // 低い板のポインタを内側へ動かす
         if (ht[i] < ht[j]) {
             i++
         } else {
@@ -31,11 +31,11 @@ fun maxCapacity(ht: IntArray): Int {
     return res
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val ht = intArrayOf(3, 8, 5, 2, 7, 7, 3, 4)
 
-    // 貪欲アルゴリズム
+    // 貪欲法
     val res = maxCapacity(ht)
     println("最大容量は $res")
 }

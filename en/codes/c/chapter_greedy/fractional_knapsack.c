@@ -12,31 +12,31 @@ typedef struct {
     int v; // Item value
 } Item;
 
-/* Sort by value per unit weight */
+/* Sort by value per unit of weight */
 int sortByValueDensity(const void *a, const void *b) {
     Item *t1 = (Item *)a;
     Item *t2 = (Item *)b;
     return (float)(t1->v) / t1->w < (float)(t2->v) / t2->w;
 }
 
-/* Fractional knapsack: greedy algorithm */
+/* Greedy fractional knapsack */
 float fractionalKnapsack(int wgt[], int val[], int itemCount, int cap) {
-    // Create a list of items, each with two attributes: weight and value
+    // Create a list of items, each with a weight and a value
     Item *items = malloc(sizeof(Item) * itemCount);
     for (int i = 0; i < itemCount; i++) {
         items[i] = (Item){.w = wgt[i], .v = val[i]};
     }
-    // Sort by value per unit weight, item.v / item.w, in descending order
+    // Sort by value per unit of weight, item.v / item.w, in descending order
     qsort(items, (size_t)itemCount, sizeof(Item), sortByValueDensity);
-    // Repeatedly make greedy choices
+    // Make greedy choices in a loop
     float res = 0.0;
     for (int i = 0; i < itemCount; i++) {
         if (items[i].w <= cap) {
-            // If enough capacity remains, put the entire current item in the knapsack
+            // If the whole item fits, put it in the knapsack
             res += items[i].v;
             cap -= items[i].w;
         } else {
-            // If the remaining capacity is insufficient, put part of the current item in the knapsack
+            // If the whole item does not fit, take a fraction of it
             res += (float)cap / items[i].w * items[i].v;
             cap = 0;
             break;
@@ -54,7 +54,7 @@ int main(void) {
 
     // Greedy algorithm
     float res = fractionalKnapsack(wgt, val, sizeof(wgt) / sizeof(int), capacity);
-    printf("Maximum item value within the knapsack capacity: %0.2f\n", res);
+    printf("The maximum total value within the weight limit is %0.2f\n", res);
 
     return 0;
 }

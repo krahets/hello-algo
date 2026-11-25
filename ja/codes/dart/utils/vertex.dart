@@ -4,12 +4,12 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 頂点クラス */
+/* 頂点を表すクラス */
 class Vertex {
   int val;
   Vertex(this.val);
 
-  /* 値のリスト vals を入力し、頂点のリスト vets を返す */
+  /* 値のリスト vals を受け取り、頂点のリスト vets を返す */
   static List<Vertex> valsToVets(List<int> vals) {
     List<Vertex> vets = [];
     for (int i in vals) {
@@ -18,7 +18,7 @@ class Vertex {
     return vets;
   }
 
-  /* 頂点のリスト vets を入力し、値のリスト vals を返す */
+  /* 頂点のリスト vets を受け取り、値のリスト vals を返す */
   static List<int> vetsToVals(List<Vertex> vets) {
     List<int> vals = [];
     for (Vertex vet in vets) {

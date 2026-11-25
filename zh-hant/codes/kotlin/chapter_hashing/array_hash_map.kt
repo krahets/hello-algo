@@ -12,9 +12,9 @@ class Pair(
     var _val: String
 )
 
-/* 基於陣列實現的雜湊表 */
+/* 以陣列實作的雜湊表 */
 class ArrayHashMap {
-    // 初始化陣列，包含 100 個桶
+    // 初始化包含 100 個桶的陣列
     private val buckets = arrayOfNulls<Pair>(100)
 
     /* 雜湊函式 */
@@ -40,11 +40,11 @@ class ArrayHashMap {
     /* 刪除操作 */
     fun remove(key: Int) {
         val index = hashFunc(key)
-        // 置為 null ，代表刪除
+        // 設為 null，表示刪除
         buckets[index] = null
     }
 
-    /* 獲取所有鍵值對 */
+    /* 取得所有鍵值對 */
     fun pairSet(): MutableList<Pair> {
         val pairSet = mutableListOf<Pair>()
         for (pair in buckets) {
@@ -54,7 +54,7 @@ class ArrayHashMap {
         return pairSet
     }
 
-    /* 獲取所有鍵 */
+    /* 取得所有鍵 */
     fun keySet(): MutableList<Int> {
         val keySet = mutableListOf<Int>()
         for (pair in buckets) {
@@ -64,7 +64,7 @@ class ArrayHashMap {
         return keySet
     }
 
-    /* 獲取所有值 */
+    /* 取得所有值 */
     fun valueSet(): MutableList<String> {
         val valueSet = mutableListOf<String>()
         for (pair in buckets) {
@@ -74,7 +74,7 @@ class ArrayHashMap {
         return valueSet
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     fun print() {
         for (kv in pairSet()) {
             val key = kv.key
@@ -84,7 +84,7 @@ class ArrayHashMap {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     /* 初始化雜湊表 */
     val map = ArrayHashMap()
@@ -96,18 +96,18 @@ fun main() {
     map.put(16750, "小算")
     map.put(13276, "小法")
     map.put(10583, "小鴨")
-    println("\n新增完成後，雜湊表為\nKey -> Value")
+    println("\n新增後的雜湊表\nKey -> Value")
     map.print()
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     val name = map.get(15937)
-    println("\n輸入學號 15937 ，查詢到姓名 $name")
+    println("\n輸入學號 15937，查得姓名 $name")
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.remove(10583)
-    println("\n刪除 10583 後，雜湊表為\nKey -> Value")
+    println("\n刪除 10583 後的雜湊表\nKey -> Value")
     map.print()
 
     /* 走訪雜湊表 */
@@ -115,11 +115,11 @@ fun main() {
     for (kv in map.pairSet()) {
         println("${kv.key} -> ${kv._val}")
     }
-    println("\n單獨走訪鍵 Key")
+    println("\n只走訪鍵 Key")
     for (key in map.keySet()) {
         println(key)
     }
-    println("\n單獨走訪值 Value")
+    println("\n只走訪值 Value")
     for (_val in map.valueSet()) {
         println(_val)
     }

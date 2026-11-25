@@ -6,7 +6,7 @@
 
 package chapter_searching
 
-/* Метод 1: полный перебор */
+/* Способ 1: полный перебор */
 fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     val size = nums.size
     // Два вложенных цикла, временная сложность O(n^2)
@@ -18,7 +18,7 @@ fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     return IntArray(0)
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
     val size = nums.size
     // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -33,17 +33,17 @@ fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
     return IntArray(0)
 }
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    // ======= Test Case =======
+    // ======= Тестовый пример =======
     val nums = intArrayOf(2, 7, 11, 15)
     val target = 13
 
-    // ====== Основной код ======
-    // Метод 1
+    // ====== Пример использования ======
+    // Способ 1
     var res = twoSumBruteForce(nums, target)
-    println("Результат метода 1 res = ${res.contentToString()}")
-    // Метод 2
+    println("Способ 1, res = ${res.contentToString()}")
+    // Способ 2
     res = twoSumHashTable(nums, target)
-    println("Результат метода 2 res = ${res.contentToString()}")
+    println("Способ 2, res = ${res.contentToString()}")
 }

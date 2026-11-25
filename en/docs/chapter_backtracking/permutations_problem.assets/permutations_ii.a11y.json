@@ -1,62 +1,62 @@
 {
-  "schema_version": 2,
-  "title": "Equal elements cause duplicate permutations",
-  "summary": "Expanding two elements of value 1 as separate candidates produces six paths representing only three distinct numeric permutations.",
   "context": [
-    "The input array is choices = [1, 1, 2] at indices 0, 1, and 2. Below, \"first 1\" and \"second 1\" distinguish indices 0 and 1; the figure places a hat over the second 1 as an identity marker, though both have numeric value 1. Each index is used at most once along a path, yet preventing index reuse with selected alone still yields numerically identical permutations."
+    "The input is choices = [1, 1, 2] at indices 0, 1, and 2. “First 1” and “second 1” distinguish indices 0 and 1. The figure puts a hat on the second 1 to identify it, but both have numerical value 1. An index can appear at most once per path. Using selected to prevent index reuse still allows permutations with identical values."
   ],
   "description": [
-    "At the top, state has three empty slots. Blue squares denote the first 1, cyan denotes the second 1, and purple denotes 2. Three rounds of choices fill the slots with values from unused indices, expanding into the six leaf nodes in the table below. Entries 3, 4, and 6 have orange borders pointing to \"Duplicate permutations to remove\". Leaf numbers run from left to right, and the kept-versus-duplicate pairings follow from the orange borders and numeric values."
+    "At the top, state has three empty slots. Blue represents the first 1, teal the second 1, and purple the 2. Each of three rounds fills a slot using an unused index, giving the six leaves in the table. Leaves 3, 4, and 6 have orange borders and point to “Duplicate permutations to remove.” The table numbers leaves from left to right and uses the borders and values to match each duplicate with the permutation to keep."
   ],
   "frames": [
     {
-      "id": "source-355",
       "book_path": "chapter_backtracking/permutations_problem.assets/permutations_ii.png",
-      "title": "Equal elements cause duplicate permutations",
-      "explanation": "Once the element-identity markers are ignored, the six leaf nodes correspond to just three distinct numeric permutations: [1, 1, 2], [1, 2, 1], and [2, 1, 1]."
+      "explanation": "Ignoring the identity marks leaves only three distinct value sequences among the six leaves: [1, 1, 2], [1, 2, 1], and [2, 1, 1].",
+      "id": "source-355",
+      "title": "Equal elements produce duplicate permutations"
     }
   ],
+  "schema_version": 2,
+  "summary": "Treating the two elements with value 1 as separate candidates produces six paths but only three distinct value sequences.",
   "tables": [
     {
-      "caption": "Six leaf nodes and duplicate pairings",
+      "caption": "The six leaves and their duplicate pairs",
       "headers": [
         "Leaf number (left to right)",
-        "Permutation distinguishing element identities",
-        "Marking in figure and summary"
+        "Permutation by element identity",
+        "Marking and interpretation"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
           "[first 1, second 1, 2]",
-          "No orange border, kept"
+          "No orange border: keep"
         ],
         [
           "2",
           "[first 1, 2, second 1]",
-          "No orange border, kept"
+          "No orange border: keep"
         ],
         [
           "3",
           "[second 1, first 1, 2]",
-          "Orange border, duplicates entry 1"
+          "Orange border: duplicates item 1"
         ],
         [
           "4",
           "[second 1, 2, first 1]",
-          "Orange border, duplicates entry 2"
+          "Orange border: duplicates item 2"
         ],
         [
           "5",
           "[2, first 1, second 1]",
-          "No orange border, kept"
+          "No orange border: keep"
         ],
         [
           "6",
           "[2, second 1, first 1]",
-          "Orange border, duplicates entry 5"
+          "Orange border: duplicates item 5"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Equal elements produce duplicate permutations"
 }

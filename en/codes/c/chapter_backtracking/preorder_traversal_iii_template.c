@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Assume each path and the result list contain at most 100 entries
+// Assume the path and the result each have length at most 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -27,7 +27,7 @@ void recordSolution(void) {
     resSize++;
 }
 
-/* Check whether the choice is valid in the current state */
+/* Check whether this choice is valid in the current state */
 bool isValid(TreeNode *choice) {
     return choice != NULL && choice->val != 3;
 }
@@ -44,22 +44,22 @@ void undoChoice(void) {
 
 /* Backtracking: example 3 */
 void backtrack(TreeNode *choices[2]) {
-    // Check whether this is a solution
+    // Check for a solution
     if (isSolution()) {
         // Record the solution
         recordSolution();
     }
-    // Iterate over all choices
+    // Try each choice
     for (int i = 0; i < 2; i++) {
         TreeNode *choice = choices[i];
         // Prune: check whether the choice is valid
         if (isValid(choice)) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             makeChoice(choice);
-            // Proceed to the next choice
+            // Make the next choice
             TreeNode *nextChoices[2] = {choice->left, choice->right};
             backtrack(nextChoices);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice();
         }
     }
@@ -72,11 +72,11 @@ int main() {
     printf("\nInitialize the binary tree\n");
     printTree(root);
 
-    // Backtracking algorithm
+    // Backtracking
     TreeNode *choices[2] = {root, NULL};
     backtrack(choices);
 
-    printf("\nPrint all paths from the root to nodes with value 7 that contain no node with value 3\n");
+    printf("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;
@@ -87,7 +87,7 @@ int main() {
         free(vals);
     }
 
-    // Free memory
+    // Free the memory
     freeMemoryTree(root);
     return 0;
 }

@@ -6,7 +6,7 @@
 
 package chapter_computational_complexity.complexity_exercises
 
-/* Итеративное суммирование */
+/* Суммирование в цикле */
 fun sumIter(n: Int): Int {
     var res = 0
     for (i in 1..n) {

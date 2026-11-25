@@ -14,11 +14,11 @@ class Pair
   end
 end
 
-### 配列で実装したハッシュテーブル ###
+### 配列で実装したハッシュ表 ###
 class ArrayHashMap
   ### コンストラクタ ###
   def initialize
-    # 100 個のバケットを含む配列を初期化する
+    # 100 個のバケットを持つ配列を初期化する
     @buckets = Array.new(100)
   end
 
@@ -27,7 +27,7 @@ class ArrayHashMap
     index = key % 100
   end
 
-  ### 取得操作 ###
+  ### 検索 ###
   def get(key)
     index = hash_func(key)
     pair = @buckets[index]
@@ -36,17 +36,17 @@ class ArrayHashMap
     pair.val
   end
 
-  ### 追加操作 ###
+  ### 追加 ###
   def put(key, val)
     pair = Pair.new(key, val)
     index = hash_func(key)
     @buckets[index] = pair
   end
 
-  ### 削除操作 ###
+  ### 削除 ###
   def remove(key)
     index = hash_func(key)
-    # nil に設定して、削除を表す
+    # nil を代入して削除する
     @buckets[index] = nil
   end
 
@@ -71,50 +71,50 @@ class ArrayHashMap
     result
   end
 
-  ### ハッシュテーブルを表示する ###
+  ### ハッシュ表を表示する ###
   def print
     @buckets.each { |pair| puts "#{pair.key} -> #{pair.val}" unless pair.nil? }
   end
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
-  # ハッシュテーブルを初期化する
+  # ハッシュ表を初期化する
   hmap = ArrayHashMap.new
 
-  # 追加操作
-  # ハッシュテーブルにキーと値のペア (key, value) を追加する
+  # 追加
+  # ハッシュ表にペア (key, value) を追加する
   hmap.put(12836, "小哈")
   hmap.put(15937, "小啰")
   hmap.put(16750, "小算")
   hmap.put(13276, "小法")
   hmap.put(10583, "小鸭")
-  puts "\n追加後のハッシュテーブル\nKey -> Value"
+  puts "\n追加後のハッシュ表\nKey -> Value"
   hmap.print
 
-  # 取得操作
-  # ハッシュテーブルにキー key を渡し、値 value を取得する
+  # 検索
+  # ハッシュ表でキー key に対応する値 value を取得する
   name = hmap.get(15937)
-  puts "\n学生番号 15937 に対応する氏名は #{name}"
+  puts "\n学籍番号 15937 に対応する名前は #{name}"
 
-  # 削除操作
-  # ハッシュテーブルから値のペア (key, value) を削除する
+  # 削除
+  # ハッシュ表からペア (key, value) を削除する
   hmap.remove(10583)
-  puts "\n10583 を削除した後のハッシュテーブル\nKey -> Value"
+  puts "\n10583 を削除した後のハッシュ表\nKey -> Value"
   hmap.print
 
-  # ハッシュテーブルを走査する
-  puts "\nキーと値のペア Key->Value を走査する"
+  # ハッシュ表を走査する
+  puts "\nキーと値のペアを順に表示 Key->Value"
   for pair in hmap.entry_set
     puts "#{pair.key} -> #{pair.val}"
   end
 
-  puts "\nキー Key だけを走査する"
+  puts "\nキーだけを順に表示 Key"
   for key in hmap.key_set
     puts key
   end
 
-  puts "\n値 Value だけを走査する"
+  puts "\n値だけを順に表示 Value"
   for val in hmap.value_set
     puts val
   end

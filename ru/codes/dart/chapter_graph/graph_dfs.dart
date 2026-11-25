@@ -14,31 +14,31 @@ void dfs(
   List<Vertex> res,
   Vertex vet,
 ) {
-  res.add(vet); // Отметить посещенную вершину
-  visited.add(vet); // Отметить эту вершину как посещенную
-  // Обойти все смежные вершины данной вершины
+  res.add(vet); // Записать посещённую вершину
+  visited.add(vet); // Отметить вершину как посещённую
+  // Перебрать всех соседей этой вершины
   for (Vertex adjVet in graph.adjList[vet]!) {
     if (visited.contains(adjVet)) {
-      continue; // Пропустить уже посещенную вершину
+      continue; // Пропустить посещённые вершины
     }
-    // Рекурсивно обходить смежные вершины
+    // Рекурсивно посетить соседнюю вершину
     dfs(graph, visited, res, adjVet);
   }
 }
 
 /* Обход в глубину */
 List<Vertex> graphDFS(GraphAdjList graph, Vertex startVet) {
-  // Последовательность обхода вершин
+  // Порядок обхода вершин
   List<Vertex> res = [];
-  // Хеш-множество для хранения уже посещенных вершин
+  // Хеш-множество посещённых вершин
   Set<Vertex> visited = {};
   dfs(graph, visited, res, startVet);
   return res;
 }
 
-/* Driver Code */
+/* Пример использования */
 void main() {
-  /* Инициализация неориентированного графа */
+  /* Инициализировать неориентированный граф */
   List<Vertex> v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
   List<List<Vertex>> edges = [
     [v[0], v[1]],
@@ -49,11 +49,11 @@ void main() {
     [v[5], v[6]],
   ];
   GraphAdjList graph = GraphAdjList(edges);
-  print("\nГраф после инициализации");
+  print("\nГраф после инициализации:");
   graph.printAdjList();
 
   /* Обход в глубину */
   List<Vertex> res = graphDFS(graph, v[0]);
-  print("\nПоследовательность вершин при обходе в глубину (DFS)");
+  print("\nПорядок обхода вершин в глубину (DFS):");
   print(Vertex.vetsToVals(res));
 }

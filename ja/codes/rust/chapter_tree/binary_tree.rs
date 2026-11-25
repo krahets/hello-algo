@@ -6,7 +6,7 @@
 use std::rc::Rc;
 use hello_algo_rust::include::{print_util, TreeNode};
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     /* 二分木を初期化する */
     // ノードを初期化する
@@ -20,7 +20,7 @@ fn main() {
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
     n2.borrow_mut().right = Some(Rc::clone(&n5));
-    println!("\n二分木を初期化する\n");
+    println!("\n二分木を初期化\n");
     print_util::print_tree(&n1);
 
     // ノードの挿入と削除

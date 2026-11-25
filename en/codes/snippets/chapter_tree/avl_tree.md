@@ -43,7 +43,7 @@ class TreeNode(int? x) {
 ```
 
 ```go title=""
-/* AVL tree node struct */
+/* AVL tree node structure */
 type TreeNode struct {
     Val    int       // Node value
     Height int       // Node height
@@ -114,7 +114,7 @@ class TreeNode {
 use std::rc::Rc;
 use std::cell::RefCell;
 
-/* AVL tree node struct */
+/* AVL tree node structure */
 struct TreeNode {
     val: i32,                               // Node value
     height: i32,                            // Node height
@@ -136,7 +136,7 @@ impl TreeNode {
 ```
 
 ```c title=""
-/* AVL tree node struct */
+/* AVL tree node structure */
 typedef struct TreeNode {
     int val;
     int height;

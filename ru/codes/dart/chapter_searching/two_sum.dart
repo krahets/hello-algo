@@ -33,17 +33,17 @@ List<int> twoSumHashTable(List<int> nums, int target) {
   return [0];
 }
 
-/* Driver Code */
+/* Пример использования */
 void main() {
-  // ======= Test Case =======
+  // ======= Тестовый пример =======
   List<int> nums = [2, 7, 11, 15];
   int target = 13;
 
-  // ====== Основной код ======
-  // Метод 1
+  // ====== Пример использования ======
+  // Способ 1
   List<int> res = twoSumBruteForce(nums, target);
-  print('Результат метода 1 res = $res');
-  // Метод 2
+  print('Способ 1, res = $res');
+  // Способ 2
   res = twoSumHashTable(nums, target);
-  print('Результат метода 2 res = $res');
+  print('Способ 2, res = $res');
 }

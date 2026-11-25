@@ -7,30 +7,30 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### Driver code ###
 if __FILE__ == $0
   # Initialize the deque
-  # Ruby has no built-in deque class; use an Array as a deque
+  # Ruby has no built-in deque, so use an Array as a deque
   deque = []
 
-  # Enqueue elements
+  # Add elements to the deque
   deque << 2
   deque << 5
   deque << 4
-  # Note that Array#unshift has O(n) time complexity because the underlying structure is an array
+  # Array#unshift takes O(n) time because the deque uses an array
   deque.unshift(3)
   deque.unshift(1)
-  puts "Deque deque = #{deque}"
+  puts "deque = #{deque}"
 
-  # Access an element
+  # Peek at the front and rear elements
   peek_first = deque.first
-  puts "Front element peek_first = #{peek_first}"
+  puts "Front element (peek_first) = #{peek_first}"
   peek_last = deque.last
-  puts "Rear element peek_last = #{peek_last}"
+  puts "Rear element (peek_last) = #{peek_last}"
 
-  # Dequeue an element
-  # Note that Array#shift has O(n) time complexity because the underlying structure is an array
+  # Remove elements from both ends
+  # Array#shift takes O(n) time because the deque uses an array
   pop_front = deque.shift
-  puts "Element dequeued from the front: pop_front = #{pop_front}; deque = #{deque}"
+  puts "Removed from the front (pop_front) = #{pop_front}, deque after removal = #{deque}"
   pop_back = deque.pop
-  puts "Element dequeued from the rear: pop_back = #{pop_back}; deque = #{deque}"
+  puts "Removed from the rear (pop_back) = #{pop_back}, deque after removal = #{deque}"
 
   # Get the deque size
   size = deque.length
@@ -38,5 +38,5 @@ if __FILE__ == $0
 
   # Check whether the deque is empty
   is_empty = size.zero?
-  puts "Is the deque empty? #{is_empty}"
+  puts "Deque is empty = #{is_empty}"
 end

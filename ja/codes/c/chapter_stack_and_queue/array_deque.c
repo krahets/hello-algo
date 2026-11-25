@@ -6,15 +6,15 @@
 
 #include "../utils/common.h"
 
-/* 循環配列で実装した両端キュー */
+/* 循環配列を使った両端キュー */
 typedef struct {
-    int *nums;       // キューの要素を格納する配列
-    int front;       // キューの先頭要素を指す先頭ポインタ
-    int queSize;     // キューの末尾 + 1 を指す末尾ポインタ
-    int queCapacity; // キューの容量
+    int *nums;       // 両端キューの要素を格納する配列
+    int front;       // 両端キューの先頭要素を指すインデックス
+    int queSize;     // 末尾要素の 1 つ先を指すインデックス
+    int queCapacity; // 両端キューの容量
 } ArrayDeque;
 
-/* コンストラクタ */
+/* 生成関数 */
 ArrayDeque *newArrayDeque(int capacity) {
     ArrayDeque *deque = (ArrayDeque *)malloc(sizeof(ArrayDeque));
     // 配列を初期化する
@@ -24,7 +24,7 @@ ArrayDeque *newArrayDeque(int capacity) {
     return deque;
 }
 
-/* デストラクタ */
+/* 解放関数 */
 void delArrayDeque(ArrayDeque *deque) {
     free(deque->nums);
     free(deque);
@@ -35,7 +35,7 @@ int capacity(ArrayDeque *deque) {
     return deque->queCapacity;
 }
 
-/* 両端キューの長さを取得する */
+/* 両端キューの要素数を取得する */
 int size(ArrayDeque *deque) {
     return deque->queSize;
 }
@@ -45,66 +45,66 @@ bool empty(ArrayDeque *deque) {
     return deque->queSize == 0;
 }
 
-/* 循環配列のインデックスを計算する */
+/* 循環配列のインデックスを求める */
 int dequeIndex(ArrayDeque *deque, int i) {
-    // 剰余演算を使い、配列の先頭と末尾をつなぐ
-    // i が配列の末尾を越えたら、先頭に戻る
-    // i が配列の先頭を越えたら、末尾に戻る
+    // 剰余を使って配列の先頭と末尾をつなぐ
+    // i が配列の末尾を越えたら先頭に戻る
+    // i が配列の先頭より前に出たら末尾に回る
     return ((i + capacity(deque)) % capacity(deque));
 }
 
-/* 先頭にエンキューする */
+/* 先頭に追加する */
 void pushFirst(ArrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
         printf("両端キューが満杯です\r\n");
         return;
     }
-    // 先頭ポインタを左に 1 つ移動する
-    // 剰余演算により、front が配列の先頭を越えたら末尾に戻るようにする
+    // 先頭のインデックスを左に 1 つ移す
+    // 剰余を使い、front が配列の先頭より前に出たら末尾に回るようにする
     deque->front = dequeIndex(deque, deque->front - 1);
-    // num をキューの先頭に追加する
+    // num を両端キューの先頭に追加する
     deque->nums[deque->front] = num;
     deque->queSize++;
 }
 
-/* 末尾にエンキューする */
+/* 末尾に追加する */
 void pushLast(ArrayDeque *deque, int num) {
     if (deque->queSize == capacity(deque)) {
         printf("両端キューが満杯です\r\n");
         return;
     }
-    // 末尾のインデックス + 1 を指す末尾ポインタを計算する
+    // 両端キューの末尾要素の次の位置を示すインデックスを求める
     int rear = dequeIndex(deque, deque->front + deque->queSize);
-    // num をキューの末尾に追加する
+    // num を両端キューの末尾に追加する
     deque->nums[rear] = num;
     deque->queSize++;
 }
 
-/* キューの先頭要素にアクセス */
+/* 両端キューの先頭要素を参照する */
 int peekFirst(ArrayDeque *deque) {
-    // アクセス例外：両端キューが空です
+    // 両端キューが空のときはアクセスできない
     assert(empty(deque) == 0);
     return deque->nums[deque->front];
 }
 
-/* キューの末尾要素にアクセスする */
+/* 両端キューの末尾要素を参照する */
 int peekLast(ArrayDeque *deque) {
-    // アクセス例外：両端キューが空です
+    // 両端キューが空のときはアクセスできない
     assert(empty(deque) == 0);
     int last = dequeIndex(deque, deque->front + deque->queSize - 1);
     return deque->nums[last];
 }
 
-/* 先頭からデキューする */
+/* 先頭から取り出す */
 int popFirst(ArrayDeque *deque) {
     int num = peekFirst(deque);
-    // 先頭ポインタを後ろに 1 つ移動する
+    // 先頭のインデックスを 1 つ進める
     deque->front = dequeIndex(deque, deque->front + 1);
     deque->queSize--;
     return num;
 }
 
-/* 末尾からデキューする */
+/* 末尾から取り出す */
 int popLast(ArrayDeque *deque) {
     int num = peekLast(deque);
     deque->queSize--;
@@ -123,9 +123,9 @@ int *toArray(ArrayDeque *deque, int *queSize) {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
-    /* キューを初期化する */
+    /* 両端キューを初期化する */
     int capacity = 10;
     int queSize;
     ArrayDeque *deque = newArrayDeque(capacity);
@@ -135,35 +135,35 @@ int main() {
     printf("両端キュー deque = ");
     printArray(toArray(deque, &queSize), queSize);
 
-    /* 要素にアクセスする */
+    /* 要素を参照する */
     int peekFirstNum = peekFirst(deque);
-    printf("キューの先頭要素 peekFirst = %d\r\n", peekFirstNum);
+    printf("先頭要素 peekFirst = %d\r\n", peekFirstNum);
     int peekLastNum = peekLast(deque);
-    printf("キューの末尾要素 peekLast = %d\r\n", peekLastNum);
+    printf("末尾要素 peekLast = %d\r\n", peekLastNum);
 
-    /* 要素をエンキューする */
+    /* 要素を両端キューに追加する */
     pushLast(deque, 4);
-    printf("要素 4 を末尾にエンキューした後 deque = ");
+    printf("末尾に 4 を追加した後の deque = ");
     printArray(toArray(deque, &queSize), queSize);
     pushFirst(deque, 1);
-    printf("要素 1 を先頭にエンキューした後 deque = ");
+    printf("先頭に 1 を追加した後の deque = ");
     printArray(toArray(deque, &queSize), queSize);
 
-    /* 要素をデキューする */
+    /* 両端キューから要素を取り出す */
     int popLastNum = popLast(deque);
-    printf("末尾からデキューした要素 = %d 、末尾からデキューした後 deque= ", popLastNum);
+    printf("末尾から取り出した要素 = %d 、末尾から取り出した後の deque= ", popLastNum);
     printArray(toArray(deque, &queSize), queSize);
     int popFirstNum = popFirst(deque);
-    printf("先頭からデキューした要素 = %d 、先頭からデキューした後 deque= ", popFirstNum);
+    printf("先頭から取り出した要素 = %d 、先頭から取り出した後の deque= ", popFirstNum);
     printArray(toArray(deque, &queSize), queSize);
 
-    /* キューの長さを取得 */
+    /* 両端キューの要素数を取得する */
     int dequeSize = size(deque);
-    printf("両端キューの長さ size = %d\r\n", dequeSize);
+    printf("両端キューの要素数 size = %d\r\n", dequeSize);
 
-    /* キューが空か判定 */
+    /* 両端キューが空かどうかを判定する */
     bool isEmpty = empty(deque);
-    printf("キューは空か = %s\r\n", isEmpty ? "true" : "false");
+    printf("両端キューは空か = %s\r\n", isEmpty ? "true" : "false");
 
     // メモリを解放する
     delArrayDeque(deque);

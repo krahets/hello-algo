@@ -18,20 +18,20 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // stack.ToArray() が返す列は逆順であり、インデックス 0 がスタックの先頭になることに注意
+        // stack.ToArray() では要素が逆順に並び、インデックス 0 がスタックのトップになる点に注意
         Console.WriteLine("スタック stack = " + string.Join(",", stack));
 
-        /* スタックの先頭要素にアクセスする */
+        /* スタックのトップを参照する */
         int peek = stack.Peek();
-        Console.WriteLine("スタックの先頭要素 peek = " + peek);
+        Console.WriteLine("スタックのトップの要素 peek = " + peek);
 
         /* 要素をポップする */
         int pop = stack.Pop();
-        Console.WriteLine("ポップした要素 pop = " + pop + "、ポップ後 stack = " + string.Join(",", stack));
+        Console.WriteLine("ポップした要素 pop = " + pop + "、ポップ後の stack = " + string.Join(",", stack));
 
-        /* スタックの長さを取得する */
+        /* スタックの要素数を取得する */
         int size = stack.Count;
-        Console.WriteLine("スタックの長さ size = " + size);
+        Console.WriteLine("スタックの要素数 size = " + size);
 
         /* 空かどうかを判定する */
         bool isEmpty = stack.Count == 0;

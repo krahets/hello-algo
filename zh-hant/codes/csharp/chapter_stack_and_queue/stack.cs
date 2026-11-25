@@ -12,28 +12,28 @@ public class stack {
         /* 初始化堆疊 */
         Stack<int> stack = new();
 
-        /* 元素入堆疊 */
+        /* 將元素推入堆疊 */
         stack.Push(1);
         stack.Push(3);
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // 請注意，stack.ToArray() 得到的是倒序序列，即索引 0 為堆疊頂
+        // 請注意，stack.ToArray() 會以相反的順序排列元素，索引 0 對應堆疊頂端
         Console.WriteLine("堆疊 stack = " + string.Join(",", stack));
 
-        /* 訪問堆疊頂元素 */
+        /* 讀取堆疊頂端的元素 */
         int peek = stack.Peek();
-        Console.WriteLine("堆疊頂元素 peek = " + peek);
+        Console.WriteLine("堆疊頂端元素 peek = " + peek);
 
-        /* 元素出堆疊 */
+        /* 從堆疊彈出元素 */
         int pop = stack.Pop();
-        Console.WriteLine("出堆疊元素 pop = " + pop + "，出堆疊後 stack = " + string.Join(",", stack));
+        Console.WriteLine("彈出的元素 pop = " + pop + "，彈出後 stack = " + string.Join(",", stack));
 
-        /* 獲取堆疊的長度 */
+        /* 取得堆疊長度 */
         int size = stack.Count;
-        Console.WriteLine("堆疊的長度 size = " + size);
+        Console.WriteLine("堆疊長度 size = " + size);
 
-        /* 判斷是否為空 */
+        /* 判斷堆疊是否為空 */
         bool isEmpty = stack.Count == 0;
         Console.WriteLine("堆疊是否為空 = " + isEmpty);
     }

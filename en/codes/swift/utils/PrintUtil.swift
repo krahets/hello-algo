@@ -76,7 +76,7 @@ public enum PrintUtil {
     }
 
     public static func printHeap(queue: [Int]) {
-        print("Array representation of the heap:", terminator: "")
+        print("Array representation of the heap: ", terminator: "")
         print(queue)
         print("Tree representation of the heap:")
         let root = TreeNode.listToTree(arr: queue)

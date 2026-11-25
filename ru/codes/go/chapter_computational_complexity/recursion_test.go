@@ -9,18 +9,18 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* Основная программа */
 func TestRecursion(t *testing.T) {
 	n := 5
 	res := recur(n)
-	fmt.Println("\nРезультат суммирования в рекурсивной функции res = ", res)
+	fmt.Println("\nСумма при рекурсии: res = ", res)
 
 	res = forLoopRecur(n)
-	fmt.Println("\nРезультат суммирования при имитации рекурсии итерацией res = ", res)
+	fmt.Println("\nСумма при итеративном моделировании рекурсии: res = ", res)
 
 	res = tailRecur(n, 0)
-	fmt.Println("\nРезультат суммирования в хвостовой рекурсии res = ", res)
+	fmt.Println("\nСумма при хвостовой рекурсии: res = ", res)
 
 	res = fib(n)
-	fmt.Println("\nЧлен последовательности Фибоначчи с номером", n, "=", res)
+	fmt.Println("\nЧисло Фибоначчи с номером", n, "равно", res)
 }

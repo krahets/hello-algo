@@ -9,17 +9,17 @@ import (
 	"testing"
 )
 
-/* Driver code */
+/* Driver Code */
 func TestRecursion(t *testing.T) {
 	n := 5
 	res := recur(n)
-	fmt.Println("\nSum from recursion: res = ", res)
+	fmt.Println("\nRecursive sum: res = ", res)
 
 	res = forLoopRecur(n)
-	fmt.Println("\nSum from simulating recursion with iteration: res = ", res)
+	fmt.Println("\nSum using simulated recursion: res = ", res)
 
 	res = tailRecur(n, 0)
-	fmt.Println("\nSum from tail recursion: res = ", res)
+	fmt.Println("\nTail-recursive sum: res = ", res)
 
 	res = fib(n)
 	fmt.Println("\nFibonacci term", n, "is", res)

@@ -6,15 +6,15 @@ package chapter_stack_and_queue
 
 import "fmt"
 
-/* 基於環形陣列實現的雙向佇列 */
+/* 以環狀陣列實作雙端佇列 */
 type arrayDeque struct {
-	nums        []int // 用於儲存雙向佇列元素的陣列
-	front       int   // 佇列首指標，指向佇列首元素
-	queSize     int   // 雙向佇列長度
-	queCapacity int   // 佇列容量（即最大容納元素數量）
+	nums        []int // 存放雙端佇列元素的陣列
+	front       int   // 隊首索引，記錄隊首元素在陣列中的位置
+	queSize     int   // 雙端佇列長度
+	queCapacity int   // 佇列容量（最多能容納的元素個數）
 }
 
-/* 初始化佇列 */
+/* 初始化雙端佇列 */
 func newArrayDeque(queCapacity int) *arrayDeque {
 	return &arrayDeque{
 		nums:        make([]int, queCapacity),
@@ -24,64 +24,64 @@ func newArrayDeque(queCapacity int) *arrayDeque {
 	}
 }
 
-/* 獲取雙向佇列的長度 */
+/* 取得雙端佇列長度 */
 func (q *arrayDeque) size() int {
 	return q.queSize
 }
 
-/* 判斷雙向佇列是否為空 */
+/* 判斷雙端佇列是否為空 */
 func (q *arrayDeque) isEmpty() bool {
 	return q.queSize == 0
 }
 
-/* 計算環形陣列索引 */
+/* 計算環狀陣列的索引 */
 func (q *arrayDeque) index(i int) int {
-	// 透過取餘操作實現陣列首尾相連
-	// 當 i 越過陣列尾部後，回到頭部
-	// 當 i 越過陣列頭部後，回到尾部
+	// 取餘數，讓陣列的首尾相接
+	// 當 i 超過陣列末端時，繞回開頭
+	// 當 i 越過陣列開頭時，繞回末端
 	return (i + q.queCapacity) % q.queCapacity
 }
 
-/* 佇列首入列 */
+/* 從隊首加入元素 */
 func (q *arrayDeque) pushFirst(num int) {
 	if q.queSize == q.queCapacity {
-		fmt.Println("雙向佇列已滿")
+		fmt.Println("雙端佇列已滿")
 		return
 	}
-	// 佇列首指標向左移動一位
-	// 透過取餘操作實現 front 越過陣列頭部後回到尾部
+	// 將隊首索引往左移一格
+	// 取餘數，讓 front 越過陣列開頭時繞回末端
 	q.front = q.index(q.front - 1)
-	// 將 num 新增至佇列首
+	// 將 num 加到隊首
 	q.nums[q.front] = num
 	q.queSize++
 }
 
-/* 佇列尾入列 */
+/* 從隊尾加入元素 */
 func (q *arrayDeque) pushLast(num int) {
 	if q.queSize == q.queCapacity {
-		fmt.Println("雙向佇列已滿")
+		fmt.Println("雙端佇列已滿")
 		return
 	}
-	// 計算佇列尾指標，指向佇列尾索引 + 1
+	// 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
 	rear := q.index(q.front + q.queSize)
-	// 將 num 新增至佇列尾
+	// 將 num 加到隊尾
 	q.nums[rear] = num
 	q.queSize++
 }
 
-/* 佇列首出列 */
+/* 從隊首取出元素 */
 func (q *arrayDeque) popFirst() any {
 	num := q.peekFirst()
 	if num == nil {
 		return nil
 	}
-	// 佇列首指標向後移動一位
+	// 將隊首索引往後移一格
 	q.front = q.index(q.front + 1)
 	q.queSize--
 	return num
 }
 
-/* 佇列尾出列 */
+/* 從隊尾取出元素 */
 func (q *arrayDeque) popLast() any {
 	num := q.peekLast()
 	if num == nil {
@@ -91,7 +91,7 @@ func (q *arrayDeque) popLast() any {
 	return num
 }
 
-/* 訪問佇列首元素 */
+/* 讀取隊首元素 */
 func (q *arrayDeque) peekFirst() any {
 	if q.isEmpty() {
 		return nil
@@ -99,19 +99,19 @@ func (q *arrayDeque) peekFirst() any {
 	return q.nums[q.front]
 }
 
-/* 訪問佇列尾元素 */
+/* 讀取隊尾元素 */
 func (q *arrayDeque) peekLast() any {
 	if q.isEmpty() {
 		return nil
 	}
-	// 計算尾元素索引
+	// 計算隊尾元素的索引
 	last := q.index(q.front + q.queSize - 1)
 	return q.nums[last]
 }
 
-/* 獲取 Slice 用於列印 */
+/* 回傳切片以便輸出 */
 func (q *arrayDeque) toSlice() []int {
-	// 僅轉換有效長度範圍內的串列元素
+	// 只轉換雙端佇列中實際存放的元素
 	res := make([]int, q.queSize)
 	for i, j := 0, q.front; i < q.queSize; i++ {
 		res[i] = q.nums[q.index(j)]

@@ -20,7 +20,7 @@ public class TreeNode {
         val = x;
     }
 
-    // For the serialization rules, see:
+    // For the serialization format, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
     // Array representation of the binary tree:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -36,7 +36,7 @@ public class TreeNode {
     //         \——— 4
     //             \——— 8
 
-    /* Deserialize a list into a binary tree: recursion */
+    /* Recursively deserialize a list into a binary tree */
     private static TreeNode listToTreeDFS(List<Integer> arr, int i) {
         if (i < 0 || i >= arr.size() || arr.get(i) == null) {
             return null;
@@ -52,7 +52,7 @@ public class TreeNode {
         return listToTreeDFS(arr, 0);
     }
 
-    /* Serialize a binary tree into a list: recursion */
+    /* Recursively serialize a binary tree into a list */
     private static void treeToListDFS(TreeNode root, int i, List<Integer> res) {
         if (root == null)
             return;

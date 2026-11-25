@@ -23,9 +23,9 @@ RUN for LANG in $LANGS; do \
                 dpkg -i packages-microsoft-prod.deb && \
                 apt-get update && \
                 apt-get install -y dotnet-sdk-8.0 ;; \
-            # その他の言語...
+            # その他の言語…
             *) \
-                echo "エラー：$LANG のインストール手順がありません" >&2; exit 1 ;; \
+                echo "Error: No installation workflow for $LANG" >&2; exit 1 ;; \
         esac \
     done
 

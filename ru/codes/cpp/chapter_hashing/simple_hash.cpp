@@ -26,7 +26,7 @@ int mulHash(string key) {
     return (int)hash;
 }
 
-/* XOR-хеширование */
+/* Хеширование с помощью XOR */
 int xorHash(string key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -46,21 +46,21 @@ int rotHash(string key) {
     return (int)hash;
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
-    string key = "Hello Algo";
+    string key = "Hello 算法";
 
     int hash = addHash(key);
-    cout << "Хеш суммы = " << hash << endl;
+    cout << "Аддитивный хеш: " << hash << endl;
 
     hash = mulHash(key);
-    cout << "Хеш произведения = " << hash << endl;
+    cout << "Мультипликативный хеш: " << hash << endl;
 
     hash = xorHash(key);
-    cout << "XOR-хеш = " << hash << endl;
+    cout << "Хеш на основе XOR: " << hash << endl;
 
     hash = rotHash(key);
-    cout << "Хеш с циклическим сдвигом = " << hash << endl;
+    cout << "Хеш с циклическим сдвигом: " << hash << endl;
 
     return 0;
 }

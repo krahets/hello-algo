@@ -1,54 +1,54 @@
 # Summary
 
-### Key takeaways
+### Key points
 
-- A binary tree is a nonlinear data structure that embodies the divide-and-conquer idea of splitting in two. Each node contains a value and two pointers, one to each child.
-- A node's left or right child, together with everything below it, forms its left or right subtree.
-- Tree terminology includes root, leaf, level, degree, edge, height, and depth.
-- Initializing a binary tree and inserting or deleting nodes resemble linked-list operations.
-- Common types include perfect, complete, full, and balanced binary trees. A perfect tree is the ideal form; a linked list is the worst degenerate form.
-- A binary tree can be represented by an array of node values and empty positions in level order. Index mappings between parents and children replace pointers.
-- Level-order traversal is breadth-first search: it expands outward one layer at a time and usually uses a queue.
-- Preorder, inorder, and postorder traversal are depth-first search: they follow paths to their ends before backtracking and usually use recursion.
-- A binary search tree supports efficient lookup, insertion, and deletion in $O(\log n)$ time. If it degenerates into a linked list, all these operations degrade to $O(n)$.
-- An AVL tree is a balanced binary search tree that uses rotations to maintain balance through insertions and deletions.
-- AVL rotations include right rotation, left rotation, right-then-left rotation, and left-then-right rotation. After an insertion or deletion, rotations are performed from the bottom up to restore balance.
+- A binary tree is a nonlinear data structure that embodies the divide-and-conquer idea of splitting in two. Each node holds a value and two pointers, one to its left child and one to its right.
+- For any node in a binary tree, its left subtree consists of its left child and all that child's descendants. Its right subtree is defined in the same way.
+- Binary tree terminology includes root, leaf, level, degree, edge, height, and depth.
+- Initializing a binary tree and inserting or deleting a node are similar to the corresponding linked list operations.
+- Common types include perfect, complete, full, and balanced binary trees. A perfect binary tree is the ideal shape. A tree that degenerates into a linked list has the worst shape.
+- To represent a binary tree in an array, arrange node values and empty slots in level order. Formulas relating parent and child indices take the place of pointers.
+- Level-order traversal of a binary tree is a breadth-first search. It expands outward one level at a time and usually uses a queue.
+- Preorder, inorder, and postorder are depth-first searches. They follow a branch to its end before backtracking to continue and are usually implemented recursively.
+- A binary search tree supports efficient lookup. Search, insertion, and deletion take $O(\log n)$ time. When the tree degenerates into a linked list, these operations worsen to $O(n)$ time.
+- An AVL tree is a balanced binary search tree that uses rotations to maintain balance through repeated insertions and deletions.
+- AVL rotations include right, left, right-left, and left-right rotations. After insertion or deletion, an AVL tree works upward from the bottom, applying rotations to restore balance.
 
 ### Q & A
 
-**Q**: For a binary tree with only one node, are both the tree's height and the root's depth $0$?
+**Q**: In a binary tree with just one node, are the tree height and the root's depth both $0$?
 
-Yes. Height and depth are usually defined by the number of edges traversed.
+Yes. Height and depth usually count the edges on a path.
 
-**Q**: The text says binary-tree insertion and deletion usually involve a sequence of coordinated operations. What does that mean? Does it refer to releasing resources held by child nodes?
+**Q**: Inserting or deleting a node in a binary tree generally requires several coordinated operations. What are those operations? Does this mean freeing the resources held by child nodes?
 
-For example, deleting a node from a binary search tree has three cases, and each case requires several steps involving nodes.
+Consider deletion in a binary search tree. There are three cases, and each takes several steps involving nodes.
 
-**Q**: Why does depth-first traversal have preorder, inorder, and postorder variants? What is each used for?
+**Q**: Why does depth-first traversal of a binary tree have three orders, and what is each one used for?
 
-Just as an array can be traversed forward or backward, these are three ways to visit a binary tree and obtain a particular ordering. In a binary search tree, values satisfy `left child value < root value < right child value`, so visiting “left $\rightarrow$ root $\rightarrow$ right” produces a sorted node sequence.
+Much as an array can be traversed forward or backward, a binary tree can be traversed in preorder, inorder, or postorder to obtain a particular ordering. For example, values in a binary search tree satisfy `left child value < root value < right child value`. Visiting the tree in the order “left $\rightarrow$ root $\rightarrow$ right” therefore yields a sorted sequence.
 
-**Q**: A right rotation adjusts `node`, `child`, and `grand_child`. What happens to the link between `node` and its parent? Doesn't the rotation break it?
+**Q**: A right rotation handles the relationships among the unbalanced node `node`, `child`, and `grand_child`. What about the original connection between the parent of `node` and `node`? Doesn't the rotation break it?
 
-View the operation recursively. `right_rotate(root)` receives a subtree's root and ends with `return child`, returning the new root of that subtree. The connection to its parent is updated after the function returns; it is outside the rotation function's responsibility.
+Think of the recursive calls. The right rotation `right_rotate(root)` receives a subtree root, and `return child` returns the root of the rotated subtree. The new subtree root is connected to its parent after the function returns, outside the right rotation itself.
 
-**Q**: In C++, how do you decide which methods are `private` and which are `public`? Why is `height()` public but `updateHeight()` private?
+**Q**: In C++, how do we decide which functions belong in `private` and which in `public`? Why are `height()` and `updateHeight()` placed in `public` and `private`, respectively?
 
-The main consideration is where the method is used. A method used only within the class should be `private`. Calling `updateHeight()` alone is not meaningful to a user; it is just one step of insertion or deletion. In contrast, `height()` retrieves a node's height, much like `vector.size()`, so it is `public` for convenient access.
+It mainly depends on where a method is used. A method used only within the class should be `private`. For example, there is no reason for a user to call `updateHeight()` on its own. It is just one step in insertion or deletion. In contrast, `height()` accesses a node's height, much like `vector.size()` accesses a size, so it is `public` for convenient access.
 
-**Q**: How do you build a binary search tree from input data? Is choosing the root important?
+**Q**: How can we build a binary search tree from a collection of input values? Does the choice of root matter?
 
-Yes. The construction is provided by the `build_tree()` method in the binary-search-tree code. Usually, we sort the input, choose its middle element as the root, and recursively construct the left and right subtrees. This keeps the tree as balanced as possible.
+Yes. The `build_tree()` method in the binary search tree code shows how to build the tree. To choose the root, we usually sort the input, take the middle element as the root, and recursively build the left and right subtrees. This keeps the tree as balanced as possible.
 
-**Q**: Must strings in Java always be compared with `equals()`?
+**Q**: In Java, do we always need the `equals()` method to compare strings?
 
-For primitive types in Java, `==` compares variable values. For reference types, the two forms work differently.
+For Java primitive types, `==` compares the values of two variables. For reference types, the two forms of comparison work differently.
 
-- `==` compares whether two variables refer to the same object, meaning the same location in memory.
-- `equals()` compares whether two objects have equal values.
+- `==` checks whether the variables refer to the same object, that is, the same location in memory.
+- `equals()` checks whether two objects have equal values.
 
-Use `equals()` when comparing values. However, strings initialized with `String a = "hi"; String b = "hi";` are stored in the string pool and refer to the same object, so `a == b` also works for these strings.
+To compare values, use `equals()`. However, strings initialized by `String a = "hi"; String b = "hi";` are stored in the string pool and refer to the same object, so `a == b` can also be used to compare the contents of these two strings.
 
-**Q**: Just before breadth-first traversal reaches the lowest level, does the queue contain $2^h$ nodes?
+**Q**: Just before breadth-first traversal visits the bottom level, does the queue contain $2^h$ nodes?
 
-Yes. For example, a perfect binary tree of height $h = 2$ has $n = 7$ nodes, with $4 = 2^h = (n + 1) / 2$ nodes on its lowest level.
+Yes. For example, a perfect binary tree of height $h = 2$ has $n = 7$ nodes in total and $4 = 2^h = (n + 1) / 2$ nodes on its bottom level.

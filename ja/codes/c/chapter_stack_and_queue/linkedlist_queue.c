@@ -6,13 +6,13 @@
 
 #include "../utils/common.h"
 
-/* 連結リストで実装したキュー */
+/* 連結リストを使ったキュー */
 typedef struct {
     ListNode *front, *rear;
     int queSize;
 } LinkedListQueue;
 
-/* コンストラクタ */
+/* 生成関数 */
 LinkedListQueue *newLinkedListQueue() {
     LinkedListQueue *queue = (LinkedListQueue *)malloc(sizeof(LinkedListQueue));
     queue->front = NULL;
@@ -21,7 +21,7 @@ LinkedListQueue *newLinkedListQueue() {
     return queue;
 }
 
-/* デストラクタ */
+/* 解放関数 */
 void delLinkedListQueue(LinkedListQueue *queue) {
     // すべてのノードを解放する
     while (queue->front != NULL) {
@@ -33,26 +33,26 @@ void delLinkedListQueue(LinkedListQueue *queue) {
     free(queue);
 }
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 int size(LinkedListQueue *queue) {
     return queue->queSize;
 }
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 bool empty(LinkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
-/* エンキュー */
+/* エンキューする */
 void push(LinkedListQueue *queue, int num) {
-    // 末尾ノードに node を追加する
+    // node をリストの末尾に追加する
     ListNode *node = newListNode(num);
-    // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
+    // キューが空なら、先頭と末尾の両方がこのノードを指すようにする
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
     }
-    // キューが空でない場合、このノードを末尾ノードの後ろに追加する
+    // キューが空でなければ、このノードを末尾ノードの後ろにつなぐ
     else {
         queue->rear->next = node;
         queue->rear = node;
@@ -60,13 +60,13 @@ void push(LinkedListQueue *queue, int num) {
     queue->queSize++;
 }
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 int peek(LinkedListQueue *queue) {
     assert(size(queue) && queue->front);
     return queue->front->val;
 }
 
-/* デキュー */
+/* デキューする */
 int pop(LinkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
@@ -90,12 +90,12 @@ void printLinkedListQueue(LinkedListQueue *queue) {
     free(arr);
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* キューを初期化する */
     LinkedListQueue *queue = newLinkedListQueue();
 
-    /* 要素をエンキューする */
+    /* 要素をキューに追加する */
     push(queue, 1);
     push(queue, 3);
     push(queue, 2);
@@ -104,20 +104,20 @@ int main() {
     printf("キュー queue = ");
     printLinkedListQueue(queue);
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     int peekNum = peek(queue);
-    printf("キューの先頭要素 peek = %d\r\n", peekNum);
+    printf("先頭要素 peek = %d\r\n", peekNum);
 
-    /* 要素をデキューする */
+    /* キューから要素を取り出す */
     peekNum = pop(queue);
-    printf("デキューした要素 pop = %d 、デキュー後 queue = ", peekNum);
+    printf("デキューした要素 pop = %d 、デキュー後の queue = ", peekNum);
     printLinkedListQueue(queue);
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     int queueSize = size(queue);
-    printf("キューの長さ size = %d\r\n", queueSize);
+    printf("キューの要素数 size = %d\r\n", queueSize);
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     bool isEmpty = empty(queue);
     printf("キューは空か = %s\r\n", isEmpty ? "true" : "false");
 

@@ -1,24 +1,24 @@
 # Queues
 
-A <u>queue</u> is a linear data structure that follows a first-in, first-out rule. It models a line of people: newcomers join at the back, while those at the front leave one by one.
+A <u>queue</u> is a linear data structure that follows the first-in, first-out rule. Picture a line of people: newcomers join at the back, and people leave one at a time from the front.
 
-As shown below, the two ends are called the “front” and the “rear.” Adding an element at the rear is called “enqueueing,” and removing an element from the front is called “dequeueing.”
+The two ends of a queue are called the front and the rear, as shown below. Adding an element at the rear is called enqueueing, and removing the element at the front is called dequeueing.
 
-![The first-in, first-out rule of a queue](queue.assets/queue_operations.svg)
+![The first-in, first-out rule for queues](queue.assets/queue_operations.svg)
 
 ## Common queue operations
 
-The table below lists common operations. Method names vary between programming languages; here we use the same names as for stacks.
+The table below lists common queue operations. Method names vary across programming languages. Here we use the same names as for stacks.
 
-<p align="center"> Table <id> &nbsp; Efficiency of queue operations </p>
+<p align="center"> Table <id> &nbsp; Time complexity of queue operations </p>
 
-| Method   | Description                         | Time complexity |
+| Method name   | Description                         | Time complexity |
 | -------- | ---------------------------- | ---------- |
-| `push()` | Enqueue an element at the rear | $O(1)$     |
+| `push()` | Enqueue an element by adding it at the rear | $O(1)$     |
 | `pop()`  | Dequeue the front element                 | $O(1)$     |
 | `peek()` | Access the front element                 | $O(1)$     |
 
-We can use a queue class already provided by the programming language:
+You can use the queue class your programming language provides:
 
 ```snippet
 queue_operations
@@ -30,14 +30,14 @@ queue_operations
 
 ## Implementing a queue
 
-A queue needs a data structure that allows insertion at one end and deletion at the other. Both linked lists and arrays can meet this requirement.
+A queue needs a data structure that lets us add elements at one end and remove them from the other. Both linked lists and arrays meet this requirement.
 
-### Implementation with a linked list
+### Linked list implementation
 
-As shown below, treat the linked list's head and tail as the queue's front and rear. Nodes may be added only at the rear and removed only from the front.
+As shown below, we can use the head of a linked list as the front of the queue and the tail as the rear. We add nodes only at the rear and remove them only from the front.
 
 === "<1>"
-    ![Enqueue and dequeue in a linked-list queue](queue.assets/linkedlist_queue_step1.svg)
+    ![Enqueueing and dequeueing with a linked list](queue.assets/linkedlist_queue_step1.svg)
 
 === "<2>"
     ![linkedlist_queue_push](queue.assets/linkedlist_queue_step2_push.svg)
@@ -45,27 +45,27 @@ As shown below, treat the linked list's head and tail as the queue's front and r
 === "<3>"
     ![linkedlist_queue_pop](queue.assets/linkedlist_queue_step3_pop.svg)
 
-Here is an implementation using a linked list:
+The following code implements a queue with a linked list:
 
 ```src
 [file]{linkedlist_queue}-[class]{linked_list_queue}-[func]{}
 ```
 
-### Implementation with an array
+### Array implementation
 
-Removing the first element of an array takes $O(n)$ time, which would make dequeueing inefficient. A useful technique avoids this problem.
+Removing the first element of an array takes $O(n)$ time, which would make dequeueing inefficient. We can avoid this cost by changing how we keep track of the front.
 
-Use a variable `front` for the index of the front element and a variable `size` for the queue's length. Define `rear = front + size`, so `rear` points to the position immediately after the last element.
+Let `front` hold the index of the front element and `size` track the number of elements in the queue. With `rear = front + size`, the resulting index `rear` points one slot past the last element.
 
-With this design, **the occupied interval is `[front, rear - 1]`**. Operations work as shown below.
+With this design, **the queue elements occupy the closed interval `[front, rear - 1]` in the array**. The figure below shows how the operations work.
 
-- Enqueue: assign the new element to index `rear` and increase `size` by 1.
-- Dequeue: increase `front` by 1 and decrease `size` by 1.
+- To enqueue, store the new element at index `rear` and increase `size` by 1.
+- To dequeue, simply increase `front` by 1 and decrease `size` by 1.
 
-Both operations require only a constant amount of work and take $O(1)$ time.
+Enqueueing and dequeueing each take a fixed number of steps without shifting any elements, so both run in $O(1)$ time.
 
 === "<1>"
-    ![Enqueue and dequeue in an array-based queue](queue.assets/array_queue_step1.svg)
+    ![Enqueueing and dequeueing with an array](queue.assets/array_queue_step1.svg)
 
 === "<2>"
     ![array_queue_push](queue.assets/array_queue_step2_push.svg)
@@ -73,19 +73,19 @@ Both operations require only a constant amount of work and take $O(1)$ time.
 === "<3>"
     ![array_queue_pop](queue.assets/array_queue_step3_pop.svg)
 
-There is a problem: repeated enqueueing and dequeueing move both `front` and `rear` to the right, **and they cannot continue once they reach the end of the array**. To solve this, treat the array as circular, with its end connected to its beginning.
+There is a catch. As we repeatedly enqueue and dequeue, `front` and `rear` move to the right. **Once they reach the end of the array, they can go no farther**. To solve this problem, we can treat the array as a circular array whose ends connect.
 
-When `front` or `rear` passes the array's end, wrap it back to the beginning. The remainder operation implements this cyclic behavior:
+In a circular array, whenever `front` or `rear` goes past the end, it wraps around to the beginning and continues from there. The following code uses the remainder operation to implement this wraparound:
 
 ```src
 [file]{array_queue}-[class]{array_queue}-[func]{}
 ```
 
-This queue still has a limitation: its capacity is fixed. We can address it by replacing the array with a dynamic array and adding resizing. Interested readers can try implementing this themselves.
+This queue still has a fixed capacity. We can let it grow by replacing the underlying array with a dynamic array. If you’re interested, try implementing this yourself.
 
-The comparison between these two implementations is the same as for stacks, so we will not repeat it here.
+The trade-offs between these two implementations are the same as for stacks.
 
-## Typical applications
+## Common uses of queues
 
-- **Taobao orders**. When a shopper places an order, it enters a queue, and the system processes orders in sequence. During the Singles' Day shopping festival, enormous numbers of orders arrive in a short time, making high concurrency a major engineering challenge.
-- **Tasks awaiting processing**. Queues preserve processing order wherever first-come, first-served behavior is needed, such as printer jobs or restaurant orders.
+- **Orders on Taobao**. When a shopper places an order, it joins a queue. The system then processes orders in the order they arrived. During the Singles’ Day shopping festival, huge numbers of orders arrive in a short time, making high concurrency a major challenge for engineers.
+- **Tasks waiting their turn**. A queue keeps tasks in order wherever they need to be handled on a first-come, first-served basis. Examples include print jobs and orders waiting to be served at a restaurant.

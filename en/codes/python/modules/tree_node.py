@@ -16,7 +16,7 @@ class TreeNode:
         self.left: TreeNode | None = None  # Reference to the left child
         self.right: TreeNode | None = None  # Reference to the right child
 
-    # For the serialization rules, see:
+    # For the serialization format, see:
     # https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
     # Array representation of the binary tree:
     # [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -34,8 +34,8 @@ class TreeNode:
 
 
 def list_to_tree_dfs(arr: list[int], i: int) -> TreeNode | None:
-    """Deserialize a list into a binary tree: recursion"""
-    # Return None if the index is out of bounds or the corresponding element is None
+    """Recursively deserialize a list into a binary tree"""
+    # Return None if the index is out of bounds or the element at that index is None
     if i < 0 or i >= len(arr) or arr[i] is None:
         return None
     # Create the current node
@@ -52,7 +52,7 @@ def list_to_tree(arr: list[int]) -> TreeNode | None:
 
 
 def tree_to_list_dfs(root: TreeNode, i: int, res: list[int]) -> list[int]:
-    """Serialize a binary tree into a list: recursion"""
+    """Recursively serialize a binary tree into a list"""
     if root is None:
         return
     if i >= len(res):

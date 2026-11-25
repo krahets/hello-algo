@@ -8,9 +8,9 @@ import (
 	"container/list"
 )
 
-/* Stack implemented with a linked list */
+/* Stack backed by a linked list */
 type linkedListStack struct {
-	// Use the standard library list package to implement the stack
+	// Use the standard list package to implement the stack
 	data *list.List
 }
 
@@ -21,12 +21,12 @@ func newLinkedListStack() *linkedListStack {
 	}
 }
 
-/* Push */
+/* Push an element onto the stack */
 func (s *linkedListStack) push(value int) {
 	s.data.PushBack(value)
 }
 
-/* Pop */
+/* Remove and return the top element */
 func (s *linkedListStack) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListStack) pop() any {
 	return e.Value
 }
 
-/* Access the top element */
+/* Peek at the top element */
 func (s *linkedListStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -55,7 +55,7 @@ func (s *linkedListStack) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Get the list for printing */
+/* Return the list for printing */
 func (s *linkedListStack) toList() *list.List {
 	return s.data
 }

@@ -8,13 +8,13 @@ import utils
 
 /* Level-order traversal */
 func levelOrder(root: TreeNode) -> [Int] {
-    // Initialize a queue and enqueue the root
+    // Initialize the queue with the root
     var queue: [TreeNode] = [root]
     // Initialize a list to store the traversal sequence
     var list: [Int] = []
     while !queue.isEmpty {
-        let node = queue.removeFirst() // Dequeue from the queue
-        list.append(node.val) // Store the node value
+        let node = queue.removeFirst() // Dequeue a node
+        list.append(node.val) // Save the node value
         if let left = node.left {
             queue.append(left) // Enqueue the left child
         }
@@ -30,13 +30,13 @@ enum BinaryTreeBFS {
     /* Driver code */
     static func main() {
         /* Initialize the binary tree */
-        // Use a helper function that builds a binary tree directly from an array
+        // Use a function that builds a binary tree directly from an array
         let node = TreeNode.listToTree(arr: [1, 2, 3, 4, 5, 6, 7])!
         print("\nInitialize the binary tree\n")
         PrintUtil.printTree(root: node)
 
         /* Level-order traversal */
         let list = levelOrder(root: node)
-        print("\nNode values in level order = \(list)")
+        print("\nNodes in level order = \(list)")
     }
 }

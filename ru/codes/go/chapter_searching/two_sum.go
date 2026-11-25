@@ -4,7 +4,7 @@
 
 package chapter_searching
 
-/* Метод 1: полный перебор */
+/* Способ 1: полный перебор */
 func twoSumBruteForce(nums []int, target int) []int {
 	size := len(nums)
 	// Два вложенных цикла, временная сложность O(n^2)
@@ -18,7 +18,7 @@ func twoSumBruteForce(nums []int, target int) []int {
 	return nil
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 func twoSumHashTable(nums []int, target int) []int {
 	// Вспомогательная хеш-таблица, пространственная сложность O(n)
 	hashTable := map[int]int{}

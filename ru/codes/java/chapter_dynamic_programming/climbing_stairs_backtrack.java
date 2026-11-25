@@ -9,28 +9,28 @@ package chapter_dynamic_programming;
 import java.util.*;
 
 public class climbing_stairs_backtrack {
-    /* Бэктрекинг */
+    /* Поиск с возвратом */
     public static void backtrack(List<Integer> choices, int state, int n, List<Integer> res) {
-        // Когда подъем достигает n-й ступени, число вариантов увеличивается на 1
+        // На ступени n увеличить число способов на 1
         if (state == n)
             res.set(0, res.get(0) + 1);
-        // Перебор всех вариантов выбора
+        // Перебрать все варианты
         for (Integer choice : choices) {
-            // Отсечение: нельзя выходить за n-ю ступень
+            // Отсечь шаги за ступень n
             if (state + choice > n)
                 continue;
-            // Попытка: сделать выбор и обновить состояние
+            // Сделать выбор и обновить состояние
             backtrack(choices, state + choice, n, res);
-            // Откат
+            // Отменить выбор
         }
     }
 
-    /* Подъем по лестнице: бэктрекинг */
+    /* Подъём по лестнице: поиск с возвратом */
     public static int climbingStairsBacktrack(int n) {
         List<Integer> choices = Arrays.asList(1, 2); // Можно подняться на 1 или 2 ступени
-        int state = 0; // Начать подъем с 0-й ступени
+        int state = 0; // Начать со ступени 0
         List<Integer> res = new ArrayList<>();
-        res.add(0); // Использовать res[0] для хранения числа решений
+        res.add(0); // Хранить число способов в res[0]
         backtrack(choices, state, n, res);
         return res.get(0);
     }
@@ -39,6 +39,6 @@ public class climbing_stairs_backtrack {
         int n = 9;
 
         int res = climbingStairsBacktrack(n);
-        System.out.println(String.format("Количество способов подняться по лестнице из %d ступеней: %d", n, res));
+        System.out.println(String.format("Число способов подняться на лестницу из %d ступеней: %d.", n, res));
     }
 }

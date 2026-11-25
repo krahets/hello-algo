@@ -6,39 +6,39 @@
 
 @main
 enum Deque {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
-        /* Инициализация двусторонней очереди */
-        // В Swift нет встроенного класса двусторонней очереди, поэтому Array можно использовать как двустороннюю очередь
+        /* Инициализировать дек */
+        // В Swift нет встроенного класса дека, поэтому в качестве дека можно использовать Array
         var deque: [Int] = []
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в дек */
         deque.append(2)
         deque.append(5)
         deque.append(4)
         deque.insert(3, at: 0)
         deque.insert(1, at: 0)
-        print("Двусторонняя очередь deque = \(deque)")
+        print("Дек deque = \(deque)")
 
-        /* Доступ к элементу */
+        /* Посмотреть первый и последний элементы */
         let peekFirst = deque.first!
-        print("Первый элемент peekFirst = \(peekFirst)")
+        print("Первый элемент дека peekFirst = \(peekFirst)")
         let peekLast = deque.last!
-        print("Последний элемент peekLast = \(peekLast)")
+        print("Последний элемент дека peekLast = \(peekLast)")
 
-        /* Извлечение элемента из очереди */
-        // При использовании Array для имитации removeFirst имеет сложность O(n)
+        /* Извлечь элементы из дека */
+        // При реализации на основе Array сложность removeFirst составляет O(n)
         let popFirst = deque.removeFirst()
-        print("Извлеченный из головы элемент popFirst = \(popFirst), deque после извлечения из головы = \(deque)")
+        print("Извлечённый первый элемент popFirst = \(popFirst), после извлечения deque = \(deque)")
         let popLast = deque.removeLast()
-        print("Извлеченный из хвоста элемент popLast = \(popLast), deque после извлечения из хвоста = \(deque)")
+        print("Извлечённый последний элемент popLast = \(popLast), после извлечения deque = \(deque)")
 
-        /* Получение длины двусторонней очереди */
+        /* Получить длину дека */
         let size = deque.count
-        print("Длина двусторонней очереди size = \(size)")
+        print("Длина дека size = \(size)")
 
-        /* Проверка, пуста ли двусторонняя очередь */
+        /* Проверить, пуст ли дек */
         let isEmpty = deque.isEmpty
-        print("Пуста ли двусторонняя очередь = \(isEmpty)")
+        print("Дек пуст = \(isEmpty)")
     }
 }

@@ -8,27 +8,27 @@
 
 #define MAX_SIZE 5000
 
-/* Максимальная куча */
+/* Макс-куча */
 typedef struct {
-    // size обозначает фактическое число элементов
+    // size — фактическое число элементов
     int size;
-    // Использовать массив с заранее выделенной памятью, чтобы избежать расширения
+    // Заранее выделить память под массив, чтобы его не пришлось расширять
     int data[MAX_SIZE];
 } MaxHeap;
 
-// Объявление функции
+// Объявления функций
 void siftDown(MaxHeap *maxHeap, int i);
 void siftUp(MaxHeap *maxHeap, int i);
 int parent(MaxHeap *maxHeap, int i);
 
-/* Конструктор, строящий кучу по срезу */
+/* Конструктор кучи по срезу */
 MaxHeap *newMaxHeap(int nums[], int size) {
-    // Поместить все элементы в кучу
+    // Добавить все элементы в кучу
     MaxHeap *maxHeap = (MaxHeap *)malloc(sizeof(MaxHeap));
     maxHeap->size = size;
     memcpy(maxHeap->data, nums, size * sizeof(int));
     for (int i = parent(maxHeap, size - 1); i >= 0; i--) {
-        // Выполнить heapify для всех узлов, кроме листовых
+        // Выполнить просеивание для всех узлов, кроме листьев
         siftDown(maxHeap, i);
     }
     return maxHeap;
@@ -40,17 +40,17 @@ void delMaxHeap(MaxHeap *maxHeap) {
     free(maxHeap);
 }
 
-/* Получить индекс левого дочернего узла */
+/* Индекс левого ребёнка */
 int left(MaxHeap *maxHeap, int i) {
     return 2 * i + 1;
 }
 
-/* Получить индекс правого дочернего узла */
+/* Индекс правого ребёнка */
 int right(MaxHeap *maxHeap, int i) {
     return 2 * i + 2;
 }
 
-/* Получить индекс родительского узла */
+/* Индекс родителя */
 int parent(MaxHeap *maxHeap, int i) {
     return (i - 1) / 2; // Округление вниз
 }
@@ -62,59 +62,59 @@ void swap(MaxHeap *maxHeap, int i, int j) {
     maxHeap->data[j] = temp;
 }
 
-/* Получение размера кучи */
+/* Размер кучи */
 int size(MaxHeap *maxHeap) {
     return maxHeap->size;
 }
 
-/* Проверка, пуста ли куча */
+/* Проверить, пуста ли куча */
 int isEmpty(MaxHeap *maxHeap) {
     return maxHeap->size == 0;
 }
 
-/* Доступ к элементу на вершине кучи */
+/* Посмотреть элемент в корне */
 int peek(MaxHeap *maxHeap) {
     return maxHeap->data[0];
 }
 
-/* Добавление элемента в кучу */
+/* Вставить элемент в кучу */
 void push(MaxHeap *maxHeap, int val) {
-    // По умолчанию не следует добавлять так много узлов
+    // При стандартных настройках столько узлов добавлять не следует
     if (maxHeap->size == MAX_SIZE) {
         printf("heap is full!");
         return;
     }
-    // Добавление узла
+    // Добавить узел
     maxHeap->data[maxHeap->size] = val;
     maxHeap->size++;
 
-    // Просеивание снизу вверх
+    // Просеивание вверх
     siftUp(maxHeap, maxHeap->size - 1);
 }
 
-/* Извлечение элемента из кучи */
+/* Извлечь элемент из кучи */
 int pop(MaxHeap *maxHeap) {
-    // Обработка пустого случая
+    // Проверить, пуста ли куча
     if (isEmpty(maxHeap)) {
         printf("heap is empty!");
         return INT_MAX;
     }
-    // Поменять корневой узел с самым правым листом местами (поменять первый и последний элементы)
+    // Поменять местами корень и крайний правый лист (первый и последний элементы)
     swap(maxHeap, 0, size(maxHeap) - 1);
-    // Удаление узла
+    // Удалить узел
     int val = maxHeap->data[maxHeap->size - 1];
     maxHeap->size--;
-    // Просеивание сверху вниз
+    // Просеивание вниз
     siftDown(maxHeap, 0);
 
-    // Вернуть элемент с вершины кучи
+    // Вернуть элемент из корня
     return val;
 }
 
-/* Начиная с узла i, выполнить просеивание сверху вниз */
+/* Просеивать вниз от узла i */
 void siftDown(MaxHeap *maxHeap, int i) {
     while (true) {
-        // Определить узел с максимальным значением среди i, l и r и обозначить его как max
+        // Сохранить в max индекс наибольшего из узлов i, l и r
         int l = left(maxHeap, i);
         int r = right(maxHeap, i);
         int max = i;
@@ -124,29 +124,29 @@ void siftDown(MaxHeap *maxHeap, int i) {
         if (r < size(maxHeap) && maxHeap->data[r] > maxHeap->data[max]) {
             max = r;
         }
-        // Если узел i уже максимален или индексы l и r вне границ, дальнейшее просеивание не требуется, выйти
+        // Если i уже наибольший или оба индекса l и r вне диапазона, завершить просеивание
         if (max == i) {
             break;
         }
         // Поменять два узла местами
         swap(maxHeap, i, max);
-        // Циклическое просеивание вниз
+        // Продолжить просеивание вниз
         i = max;
     }
 }
 
-/* Начиная с узла i, выполнить просеивание снизу вверх */
+/* Просеивать вверх от узла i */
 void siftUp(MaxHeap *maxHeap, int i) {
     while (true) {
-        // Получение родительского узла для узла i
+        // Найти родителя узла i
         int p = parent(maxHeap, i);
-        // Завершить heapify, когда «корневой узел уже пройден» или «узел не требует исправления»
+        // Если вышли за корень или узел уже на своём месте, завершить просеивание
         if (p < 0 || maxHeap->data[i] <= maxHeap->data[p]) {
             break;
         }
         // Поменять два узла местами
         swap(maxHeap, i, p);
-        // Циклическое просеивание вверх
+        // Продолжить просеивание вверх
         i = p;
     }
 }

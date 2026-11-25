@@ -8,24 +8,24 @@ import utils
 
 /* Стек на основе связного списка */
 class LinkedListStack {
-    private var _peek: ListNode? // Использовать головной узел как вершину стека
-    private var _size: Int // Длина стека
+    private var _peek: ListNode? // Первый узел списка служит вершиной стека
+    private var _size: Int // Размер стека
 
     init() {
         _size = 0
     }
 
-    /* Получение длины стека */
+    /* Получить размер стека */
     func size() -> Int {
         _size
     }
 
-    /* Проверка, пуст ли стек */
+    /* Проверить, пуст ли стек */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* Поместить в стек */
+    /* Поместить элемент в стек */
     func push(num: Int) {
         let node = ListNode(x: num)
         node.next = _peek
@@ -33,7 +33,7 @@ class LinkedListStack {
         _size += 1
     }
 
-    /* Извлечь из стека */
+    /* Снять элемент со стека */
     @discardableResult
     func pop() -> Int {
         let num = peek()
@@ -42,15 +42,15 @@ class LinkedListStack {
         return num
     }
 
-    /* Доступ к верхнему элементу стека */
+    /* Посмотреть элемент на вершине стека */
     func peek() -> Int {
         if isEmpty() {
-            fatalError("стек пуст")
+            fatalError("Стек пуст")
         }
         return _peek!.val
     }
 
-    /* Преобразовать List в Array и вернуть */
+    /* Преобразовать связный список в массив и вернуть его */
     func toArray() -> [Int] {
         var node = _peek
         var res = Array(repeating: 0, count: size())
@@ -64,12 +64,12 @@ class LinkedListStack {
 
 @main
 enum _LinkedListStack {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
-        /* Инициализация стека */
+        /* Инициализировать стек */
         let stack = LinkedListStack()
 
-        /* Помещение элемента в стек */
+        /* Поместить элементы в стек */
         stack.push(num: 1)
         stack.push(num: 3)
         stack.push(num: 2)
@@ -77,20 +77,20 @@ enum _LinkedListStack {
         stack.push(num: 4)
         print("Стек stack = \(stack.toArray())")
 
-        /* Доступ к верхнему элементу стека */
+        /* Посмотреть элемент на вершине стека */
         let peek = stack.peek()
-        print("Верхний элемент peek = \(peek)")
+        print("Элемент на вершине стека peek = \(peek)")
 
-        /* Извлечение элемента из стека */
+        /* Снять элемент со стека */
         let pop = stack.pop()
-        print("Извлеченный элемент pop = \(pop), stack после извлечения = \(stack.toArray())")
+        print("Снятый элемент pop = \(pop), после снятия stack = \(stack.toArray())")
 
-        /* Получение длины стека */
+        /* Получить размер стека */
         let size = stack.size()
-        print("Длина стека size = \(size)")
+        print("Размер стека size = \(size)")
 
-        /* Проверка на пустоту */
+        /* Проверить, пуст ли стек */
         let isEmpty = stack.isEmpty()
-        print("Пуст ли стек = \(isEmpty)")
+        print("Стек пуст = \(isEmpty)")
     }
 }

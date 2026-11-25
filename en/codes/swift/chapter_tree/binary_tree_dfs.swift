@@ -47,7 +47,7 @@ enum BinaryTreeDFS {
     /* Driver code */
     static func main() {
         /* Initialize the binary tree */
-        // Use a helper function that builds a binary tree directly from an array
+        // Use a function that builds a binary tree directly from an array
         let root = TreeNode.listToTree(arr: [1, 2, 3, 4, 5, 6, 7])!
         print("\nInitialize the binary tree\n")
         PrintUtil.printTree(root: root)
@@ -55,16 +55,16 @@ enum BinaryTreeDFS {
         /* Preorder traversal */
         list.removeAll()
         preOrder(root: root)
-        print("\nNode values in preorder = \(list)")
+        print("\nNodes in preorder = \(list)")
 
         /* Inorder traversal */
         list.removeAll()
         inOrder(root: root)
-        print("\nNode values in inorder = \(list)")
+        print("\nNodes in inorder = \(list)")
 
         /* Postorder traversal */
         list.removeAll()
         postOrder(root: root)
-        print("\nNode values in postorder = \(list)")
+        print("\nNodes in postorder = \(list)")
     }
 }

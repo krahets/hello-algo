@@ -6,15 +6,15 @@
 
 import '../utils/print_util.dart';
 
-/* Max heap */
+/* Max-heap */
 class MaxHeap {
   late List<int> _maxHeap;
 
   /* Constructor: build a heap from the input list */
   MaxHeap(List<int> nums) {
-    // Place the list elements in the heap without changing their order
+    // Copy the list elements into the heap in their original order
     _maxHeap = nums;
-    // Sift down from every non-leaf node
+    // Heapify all non-leaf nodes
     for (int i = _parent(size() - 1); i >= 0; i--) {
       siftDown(i);
     }
@@ -32,7 +32,7 @@ class MaxHeap {
 
   /* Get the parent index */
   int _parent(int i) {
-    return (i - 1) ~/ 2; // Integer division
+    return (i - 1) ~/ 2; // Floor division
   }
 
   /* Swap elements */
@@ -52,7 +52,7 @@ class MaxHeap {
     return size() == 0;
   }
 
-  /* Access the top element of the heap */
+  /* Peek at the root */
   int peek() {
     return _maxHeap[0];
   }
@@ -65,12 +65,12 @@ class MaxHeap {
     siftUp(size() - 1);
   }
 
-  /* Sift up starting from node i */
+  /* Sift up from node i */
   void siftUp(int i) {
     while (true) {
       // Get the parent of node i
       int p = _parent(i);
-      // Stop sifting when the root has been passed or the node needs no repair
+      // Stop sifting at the root or when the node already satisfies the heap property
       if (p < 0 || _maxHeap[i] <= _maxHeap[p]) {
         break;
       }
@@ -85,26 +85,26 @@ class MaxHeap {
   int pop() {
     // Handle an empty heap
     if (isEmpty()) throw Exception('Heap is empty');
-    // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+    // Swap the root and the rightmost leaf (the first and last elements)
     _swap(0, size() - 1);
-    // Remove a node
+    // Remove the node
     int val = _maxHeap.removeLast();
     // Sift down
     siftDown(0);
-    // Return the top element of the heap
+    // Return the root element
     return val;
   }
 
-  /* Sift down starting from node i */
+  /* Sift down from node i */
   void siftDown(int i) {
     while (true) {
-      // Find the node with the largest value among i, l, and r, and store its index in ma
+      // Store the index of the largest of nodes i, l, and r in ma
       int l = _left(i);
       int r = _right(i);
       int ma = i;
       if (l < size() && _maxHeap[l] > _maxHeap[ma]) ma = l;
       if (r < size() && _maxHeap[r] > _maxHeap[ma]) ma = r;
-      // Stop if node i is largest or both child indices l and r are out of bounds
+      // Stop if i is already largest or both child indices l and r are out of bounds
       if (ma == i) break;
       // Swap the two nodes
       _swap(i, ma);
@@ -113,7 +113,7 @@ class MaxHeap {
     }
   }
 
-  /* Print the heap (binary tree) */
+  /* Print the heap as a binary tree */
   void print() {
     printHeap(_maxHeap);
   }
@@ -121,31 +121,31 @@ class MaxHeap {
 
 /* Driver code */
 void main() {
-  /* Initialize a max heap */
+  /* Initialize a max-heap */
   MaxHeap maxHeap = MaxHeap([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-  print("\nAfter building a heap from the input list:");
+  print("\nHeap built from the input list:");
   maxHeap.print();
 
-  /* Get the top element of the heap */
+  /* Get the root element */
   int peek = maxHeap.peek();
-  print("\nHeap root: $peek");
+  print("\nRoot element: $peek");
 
   /* Push an element onto the heap */
   int val = 7;
   maxHeap.push(val);
-  print("\nAfter pushing $val onto the heap");
+  print("\nHeap after pushing $val:");
   maxHeap.print();
 
-  /* Pop the top element from the heap */
+  /* Pop the root */
   peek = maxHeap.pop();
-  print("\nAfter popping root $peek from the heap");
+  print("\nHeap after popping the root ($peek):");
   maxHeap.print();
 
   /* Get the heap size */
   int size = maxHeap.size();
-  print("\nNumber of heap elements: $size");
+  print("\nNumber of elements in the heap: $size");
 
   /* Check whether the heap is empty */
   bool isEmpty = maxHeap.isEmpty();
-  print("\nIs the heap empty: $isEmpty");
+  print("\nIs the heap empty? $isEmpty");
 }

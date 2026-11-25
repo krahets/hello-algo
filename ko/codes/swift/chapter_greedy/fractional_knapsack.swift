@@ -15,24 +15,24 @@ class Item {
     }
 }
 
-/* 분할 가능한 배낭: 탐욕 */
+/* 탐욕 알고리즘으로 분할 가능 배낭 풀기 */
 func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
-    // 무게와 가치 두 속성을 갖는 물건의 리스트를 생성한다
+    // 무게와 가치를 속성으로 갖는 물건의 리스트를 만든다
     var items = zip(wgt, val).map { Item(w: $0, v: $1) }
     // 단위 가치 item.v / item.w를 기준으로 내림차순 정렬한다
     items.sort { -(Double($0.v) / Double($0.w)) < -(Double($1.v) / Double($1.w)) }
-    // 탐욕적 선택을 반복한다
+    // 탐욕 선택을 반복한다
     var res = 0.0
     var cap = cap
     for item in items {
         if item.w <= cap {
-            // 남은 용량이 충분하면 현재 물건을 통째로 배낭에 넣는다
+            // 남은 용량이 충분하면 현재 물건을 통째로 배낭에 담는다
             res += Double(item.v)
             cap -= item.w
         } else {
-            // 남은 용량이 부족하면 현재 물건의 일부를 배낭에 넣는다
+            // 남은 용량이 부족하면 현재 물건의 일부만 배낭에 담는다
             res += Double(item.v) / Double(item.w) * Double(cap)
-            // 남은 용량이 없으므로 반복문을 종료한다
+            // 남은 용량이 없으므로 반복문을 빠져나온다
             break
         }
     }
@@ -41,7 +41,7 @@ func fractionalKnapsack(wgt: [Int], val: [Int], cap: Int) -> Double {
 
 @main
 enum FractionalKnapsack {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         // 물건의 무게
         let wgt = [10, 20, 30, 40, 50]
@@ -52,6 +52,6 @@ enum FractionalKnapsack {
 
         // 탐욕 알고리즘
         let res = fractionalKnapsack(wgt: wgt, val: val, cap: cap)
-        print("배낭 용량을 넘지 않게 담을 수 있는 물건의 최대 가치 = \(res)")
+        print("배낭 용량 안에서 얻는 최대 가치: \(res)")
     }
 }

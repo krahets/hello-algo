@@ -12,34 +12,34 @@ void backtrack(
   int start,
   List<List<int>> res,
 ) {
-  // Record a solution when the subset sum reaches the original target (the remaining target is 0)
+  // Record a solution when the subset sums to target
   if (target == 0) {
     res.add(List.from(state));
     return;
   }
-  // Iterate over all choices
-  // Pruning 2: iterate from start to avoid generating duplicate subsets
+  // Try each choice
+  // Pruning rule 2: start at start to avoid duplicate subsets
   for (int i = start; i < choices.length; i++) {
-    // Pruning 1: exit the loop if this choice exceeds the remaining target
-    // The array is sorted, so later elements are at least as large and also exceed the remaining target
+    // Pruning rule 1: break if the subset sum would exceed target
+    // The array is sorted, so later elements are at least as large and would also take the sum over target
     if (target - choices[i] < 0) {
       break;
     }
-    // Try: make a choice and update target and start
+    // Make a choice and update target and start
     state.add(choices[i]);
-    // Proceed to the next choice
+    // Make the next choice
     backtrack(state, target - choices[i], choices, i, res);
-    // Backtrack: undo the choice and restore the previous state
+    // Backtrack: undo the choice to restore the previous state
     state.removeLast();
   }
 }
 
 /* Solve subset sum I */
 List<List<int>> subsetSumI(List<int> nums, int target) {
-  List<int> state = []; // State (subset)
+  List<int> state = []; // State (current subset)
   nums.sort(); // Sort nums
-  int start = 0; // Starting index for iteration
-  List<List<int>> res = []; // Result list (list of subsets)
+  int start = 0; // Starting index
+  List<List<int>> res = []; // Results (list of subsets)
   backtrack(state, target, nums, start, res);
   return res;
 }
@@ -52,5 +52,5 @@ void main() {
   List<List<int>> res = subsetSumI(nums, target);
 
   print("Input array nums = $nums, target = $target");
-  print("All subsets with sum $target: res = $res");
+  print("Subsets that sum to $target: res = $res");
 }

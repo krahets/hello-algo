@@ -21,9 +21,9 @@ public class list {
 
         /* Изменение элемента */
         nums[1] = 0;
-        Console.WriteLine("После изменения значения элемента с индексом 1 на 0 nums = " + string.Join(",", nums));
+        Console.WriteLine("После записи 0 по индексу 1 nums = " + string.Join(",", nums));
 
-        /* Очистить список */
+        /* Очистка списка */
         nums.Clear();
         Console.WriteLine("После очистки списка nums = " + string.Join(",", nums));
 
@@ -43,24 +43,24 @@ public class list {
         nums.RemoveAt(3);
         Console.WriteLine("После удаления элемента по индексу 3 nums = " + string.Join(",", nums));
 
-        /* Обходить список по индексам */
+        /* Обойти список по индексам */
         int count = 0;
         for (int i = 0; i < nums.Count; i++) {
             count += nums[i];
         }
-        /* Непосредственно обходить элементы списка */
+        /* Перебрать элементы списка напрямую */
         count = 0;
         foreach (int x in nums) {
             count += x;
         }
 
-        /* Объединить два списка */
+        /* Объединение двух списков */
         List<int> nums1 = [6, 8, 7, 10, 9];
         nums.AddRange(nums1);
-        Console.WriteLine("После конкатенации списка nums1 к nums nums = " + string.Join(",", nums));
+        Console.WriteLine("После добавления nums1 в конец nums получаем nums = " + string.Join(",", nums));
 
-        /* Отсортировать список */
-        nums.Sort(); // После сортировки элементы списка располагаются по возрастанию
-        Console.WriteLine("После сортировки списка nums = " + string.Join(",", nums));
+        /* Сортировка списка */
+        nums.Sort(); // После сортировки элементы списка расположены по возрастанию
+        Console.WriteLine("После сортировки nums = " + string.Join(",", nums));
     }
 }

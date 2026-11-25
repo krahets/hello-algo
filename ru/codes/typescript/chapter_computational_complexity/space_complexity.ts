@@ -14,18 +14,18 @@ function constFunc(): number {
     return 0;
 }
 
-/* Постоянная сложность */
+/* Константная сложность */
 function constant(n: number): void {
     // Константы, переменные и объекты занимают O(1) памяти
     const a = 0;
     const b = 0;
     const nums = new Array(10000);
     const node = new ListNode(0);
-    // Переменные в цикле занимают O(1) памяти
+    // Переменные цикла занимают O(1) памяти
     for (let i = 0; i < n; i++) {
         const c = 0;
     }
-    // Функции в цикле занимают O(1) памяти
+    // Вызовы функции в цикле требуют O(1) памяти
     for (let i = 0; i < n; i++) {
         constFunc();
     }
@@ -40,16 +40,16 @@ function linear(n: number): void {
     for (let i = 0; i < n; i++) {
         nodes.push(new ListNode(i));
     }
-    // Хеш-таблица длины n занимает O(n) памяти
+    // Хеш-таблица из n элементов занимает O(n) памяти
     const map = new Map();
     for (let i = 0; i < n; i++) {
         map.set(i, i.toString());
     }
 }
 
-/* Линейная сложность (рекурсивная реализация) */
+/* Линейная сложность (рекурсия) */
 function linearRecur(n: number): void {
-    console.log(`Рекурсия n = ${n}`);
+    console.log(`Рекурсивный вызов: n = ${n}`);
     if (n === 1) return;
     linearRecur(n - 1);
 }
@@ -71,15 +71,15 @@ function quadratic(n: number): void {
     }
 }
 
-/* Квадратичная сложность (рекурсивная реализация) */
+/* Квадратичная сложность (рекурсия) */
 function quadraticRecur(n: number): number {
     if (n <= 0) return 0;
     const nums = new Array(n);
-    console.log(`В рекурсии n = ${n} длина nums = ${nums.length}`);
+    console.log(`При n = ${n} длина nums = ${nums.length}`);
     return quadraticRecur(n - 1);
 }
 
-/* Экспоненциальная сложность (построение полного двоичного дерева) */
+/* Экспоненциальная сложность (построение совершенного двоичного дерева) */
 function buildTree(n: number): TreeNode | null {
     if (n === 0) return null;
     const root = new TreeNode(0);
@@ -88,9 +88,9 @@ function buildTree(n: number): TreeNode | null {
     return root;
 }
 
-/* Driver Code */
+/* Основная программа */
 const n = 5;
-// Постоянная сложность
+// Константная сложность
 constant(n);
 // Линейная сложность
 linear(n);

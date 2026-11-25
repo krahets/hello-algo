@@ -6,34 +6,34 @@
 
 namespace hello_algo.chapter_tree;
 
-/* Binary tree class using an array representation */
+/* Array-based binary tree class */
 public class ArrayBinaryTree(List<int?> arr) {
     List<int?> tree = new(arr);
 
-    /* List size */
+    /* List capacity */
     public int Size() {
         return tree.Count;
     }
 
     /* Get the value of the node at index i */
     public int? Val(int i) {
-        // If the index is out of bounds, return null to represent an empty position
+        // If the index is out of bounds, return null to indicate an empty slot
         if (i < 0 || i >= Size())
             return null;
         return tree[i];
     }
 
-    /* Get the left child index of the node at index i */
+    /* Get the index of the left child of the node at index i */
     public int Left(int i) {
         return 2 * i + 1;
     }
 
-    /* Get the right child index of the node at index i */
+    /* Get the index of the right child of the node at index i */
     public int Right(int i) {
         return 2 * i + 2;
     }
 
-    /* Get the parent index of the node at index i */
+    /* Get the index of the parent of the node at index i */
     public int Parent(int i) {
         return (i - 1) / 2;
     }
@@ -41,7 +41,7 @@ public class ArrayBinaryTree(List<int?> arr) {
     /* Level-order traversal */
     public List<int> LevelOrder() {
         List<int> res = [];
-        // Traverse the array directly
+        // Iterate directly over the array
         for (int i = 0; i < Size(); i++) {
             if (Val(i).HasValue)
                 res.Add(Val(i)!.Value);
@@ -51,7 +51,7 @@ public class ArrayBinaryTree(List<int?> arr) {
 
     /* Depth-first traversal */
     void DFS(int i, string order, List<int> res) {
-        // Return if this position is empty
+        // Return if the slot is empty
         if (!Val(i).HasValue)
             return;
         // Preorder traversal
@@ -93,17 +93,17 @@ public class array_binary_tree {
     [Test]
     public void Test() {
         // Initialize the binary tree
-        // Use a helper function that builds a binary tree directly from an array
+        // Use a function that builds a binary tree directly from an array
         List<int?> arr = [1, 2, 3, 4, null, 6, 7, 8, 9, null, null, 12, null, null, 15];
 
         TreeNode? root = TreeNode.ListToTree(arr);
         Console.WriteLine("\nInitialize the binary tree\n");
-        Console.WriteLine("Array representation of the binary tree:");
+        Console.WriteLine("Array representation of the binary tree: ");
         Console.WriteLine(arr.PrintList());
-        Console.WriteLine("Linked representation of the binary tree:");
+        Console.WriteLine("Linked representation of the binary tree: ");
         PrintUtil.PrintTree(root);
 
-        // Binary tree class using an array representation
+        // Array-based binary tree class
         ArrayBinaryTree abt = new(arr);
 
         // Access a node
@@ -111,19 +111,19 @@ public class array_binary_tree {
         int l = abt.Left(i);
         int r = abt.Right(i);
         int p = abt.Parent(i);
-        Console.WriteLine("\nCurrent node index: " + i + " with value " + abt.Val(i));
-        Console.WriteLine("Left child index: " + l + " with value " + (abt.Val(l).HasValue ? abt.Val(l) : "null"));
-        Console.WriteLine("Right child index: " + r + " with value " + (abt.Val(r).HasValue ? abt.Val(r) : "null"));
-        Console.WriteLine("Parent index: " + p + " with value " + (abt.Val(p).HasValue ? abt.Val(p) : "null"));
+        Console.WriteLine("\nCurrent node: index " + i + " with value " + abt.Val(i));
+        Console.WriteLine("Left child: index " + l + " with value " + (abt.Val(l).HasValue ? abt.Val(l) : "null"));
+        Console.WriteLine("Right child: index " + r + " with value " + (abt.Val(r).HasValue ? abt.Val(r) : "null"));
+        Console.WriteLine("Parent: index " + p + " with value " + (abt.Val(p).HasValue ? abt.Val(p) : "null"));
 
         // Traverse the tree
         List<int> res = abt.LevelOrder();
-        Console.WriteLine("\nLevel-order traversal:" + res.PrintList());
+        Console.WriteLine("\nLevel-order traversal: " + res.PrintList());
         res = abt.PreOrder();
-        Console.WriteLine("Preorder traversal:" + res.PrintList());
+        Console.WriteLine("Preorder traversal: " + res.PrintList());
         res = abt.InOrder();
-        Console.WriteLine("Inorder traversal:" + res.PrintList());
+        Console.WriteLine("Inorder traversal: " + res.PrintList());
         res = abt.PostOrder();
-        Console.WriteLine("Postorder traversal:" + res.PrintList());
+        Console.WriteLine("Postorder traversal: " + res.PrintList());
     }
 }

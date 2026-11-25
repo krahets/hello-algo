@@ -39,7 +39,7 @@ void printLinkedList(ListNode? head) {
 
 /**
  * Вывести двоичное дерево
- * Этот вывод дерева заимствован из TECHIE DELIGHT
+ * Код для вывода дерева заимствован у TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode? root, [Trunk? prev = null, bool isRight = false]) {
@@ -83,8 +83,8 @@ void showTrunks(Trunk? p) {
 
 /* Вывести кучу */
 void printHeap(List<int> heap) {
-  print("Массивное представление кучи: $heap");
-  print("Древовидное представление кучи:");
+  print("Куча в виде массива: $heap");
+  print("Куча в виде дерева:");
   TreeNode? root = listToTree(heap);
   printTree(root);
 }

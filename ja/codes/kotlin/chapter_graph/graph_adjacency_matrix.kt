@@ -8,10 +8,10 @@ package chapter_graph
 
 import utils.printMatrix
 
-/* 隣接行列で実装した無向グラフクラス */
+/* 隣接行列で無向グラフを表すクラス */
 class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
-    val vertices = mutableListOf<Int>() // 頂点リスト。要素は「頂点の値」、インデックスは「頂点のインデックス」を表す
-    val adjMat = mutableListOf<MutableList<Int>>() // 隣接行列。行と列のインデックスは「頂点のインデックス」に対応する
+    val vertices = mutableListOf<Int>() // 頂点リスト。要素は頂点の値を、インデックスは頂点のインデックスを表す
+    val adjMat = mutableListOf<MutableList<Int>>() // 隣接行列。行と列のインデックスは頂点のインデックスに対応する
 
     /* コンストラクタ */
     init {
@@ -20,7 +20,7 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
             addVertex(vertex)
         }
         // 辺を追加する
-        // edges の要素は頂点のインデックス、すなわち vertices の要素のインデックスを表すことに注意
+        // edges の各要素が示すのは頂点のインデックス、すなわち vertices の要素のインデックス
         for (edge in edges) {
             addEdge(edge[0], edge[1])
         }
@@ -34,15 +34,15 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     /* 頂点を追加する */
     fun addVertex(_val: Int) {
         val n = size()
-        // 頂点リストに新しい頂点の値を追加する
+        // 新しい頂点の値を頂点リストに追加する
         vertices.add(_val)
-        // 隣接行列に 1 行追加する
+        // 隣接行列に行を 1 つ追加する
         val newRow = mutableListOf<Int>()
         for (j in 0..<n) {
             newRow.add(0)
         }
         adjMat.add(newRow)
-        // 隣接行列に 1 列追加する
+        // 隣接行列に列を 1 つ追加する
         for (row in adjMat) {
             row.add(0)
         }
@@ -63,20 +63,20 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 
     /* 辺を追加する */
-    // 引数 i, j は vertices の要素のインデックスに対応する
+    // 引数 i と j は vertices の要素のインデックス
     fun addEdge(i: Int, j: Int) {
-        // 添字が範囲外または互いに等しい場合の処理
+        // インデックスが範囲外または同じ値の場合の処理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw IndexOutOfBoundsException()
-        // 無向グラフの隣接行列は主対角線に関して対称であり、(i, j) == (j, i) を満たす
+        // 無向グラフの隣接行列は主対角線に関して対称で、(i, j) == (j, i) を満たす
         adjMat[i][j] = 1
         adjMat[j][i] = 1
     }
 
     /* 辺を削除する */
-    // 引数 i, j は vertices の要素のインデックスに対応する
+    // 引数 i と j は vertices の要素のインデックス
     fun removeEdge(i: Int, j: Int) {
-        // 添字が範囲外または互いに等しい場合の処理
+        // インデックスが範囲外または同じ値の場合の処理
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw IndexOutOfBoundsException()
         adjMat[i][j] = 0
@@ -92,10 +92,10 @@ class GraphAdjMat(vertices: IntArray, edges: Array<IntArray>) {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     /* 無向グラフを初期化する */
-    // edges の要素は頂点のインデックス、すなわち vertices の要素のインデックスを表すことに注意
+    // edges の各要素が示すのは頂点のインデックス、すなわち vertices の要素のインデックス
     val vertices = intArrayOf(1, 3, 2, 5, 4)
     val edges = arrayOf(
         intArrayOf(0, 1),
@@ -106,29 +106,29 @@ fun main() {
         intArrayOf(3, 4)
     )
     val graph = GraphAdjMat(vertices, edges)
-    println("\n初期化後のグラフ")
+    println("\n初期化後のグラフ：")
     graph.print()
 
     /* 辺を追加する */
-    // 頂点 1, 2 のインデックスはそれぞれ 0, 2
+    // 頂点 1 と 2 のインデックスはそれぞれ 0 と 2
     graph.addEdge(0, 2)
-    println("\n辺 1-2 を追加した後のグラフ")
+    println("\n辺 1-2 を追加した後のグラフ：")
     graph.print()
 
     /* 辺を削除する */
-    // 頂点 1, 3 のインデックスはそれぞれ 0, 1
+    // 頂点 1 と 3 のインデックスはそれぞれ 0 と 1
     graph.removeEdge(0, 1)
-    println("\n辺 1-3 を削除した後のグラフ")
+    println("\n辺 1-3 を削除した後のグラフ：")
     graph.print()
 
     /* 頂点を追加する */
     graph.addVertex(6)
-    println("\n頂点 6 を追加した後のグラフ")
+    println("\n頂点 6 を追加した後のグラフ：")
     graph.print()
 
     /* 頂点を削除する */
     // 頂点 3 のインデックスは 1
     graph.removeVertex(1)
-    println("\n頂点 3 を削除した後のグラフ")
+    println("\n頂点 3 を削除した後のグラフ：")
     graph.print()
 }

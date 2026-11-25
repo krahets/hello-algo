@@ -12,23 +12,23 @@ class Item {
   Item(this.w, this.v);
 }
 
-/* Fractional knapsack: greedy algorithm */
+/* Greedy fractional knapsack */
 double fractionalKnapsack(List<int> wgt, List<int> val, int cap) {
-  // Create a list of items, each with two attributes: weight and value
+  // Create a list of items, each with a weight and a value
   List<Item> items = List.generate(wgt.length, (i) => Item(wgt[i], val[i]));
-  // Sort by value per unit weight, item.v / item.w, in descending order
+  // Sort by value per unit of weight, item.v / item.w, in descending order
   items.sort((a, b) => (b.v / b.w).compareTo(a.v / a.w));
-  // Repeatedly make greedy choices
+  // Make greedy choices in a loop
   double res = 0;
   for (Item item in items) {
     if (item.w <= cap) {
-      // If enough capacity remains, put the entire current item in the knapsack
+      // If the whole item fits, put it in the knapsack
       res += item.v;
       cap -= item.w;
     } else {
-      // If the remaining capacity is insufficient, put part of the current item in the knapsack
+      // If the whole item does not fit, take a fraction of it
       res += item.v / item.w * cap;
-      // No capacity remains, so exit the loop
+      // The knapsack is full, so exit the loop
       break;
     }
   }
@@ -43,5 +43,5 @@ void main() {
 
   // Greedy algorithm
   double res = fractionalKnapsack(wgt, val, cap);
-  print("Maximum total item value within the knapsack capacity: $res");
+  print("The maximum total value within the weight limit is $res");
 }

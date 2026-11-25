@@ -9,24 +9,24 @@ namespace hello_algo.chapter_graph;
 public class graph_dfs {
     /* Вспомогательная функция обхода в глубину */
     void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
-        res.Add(vet);     // Отметить посещенную вершину
-        visited.Add(vet); // Отметить эту вершину как посещенную
-        // Обойти все смежные вершины данной вершины
+        res.Add(vet);     // Записать посещённую вершину
+        visited.Add(vet); // Отметить вершину как посещённую
+        // Перебрать всех соседей этой вершины
         foreach (Vertex adjVet in graph.adjList[vet]) {
             if (visited.Contains(adjVet)) {
-                continue; // Пропустить уже посещенную вершину
+                continue; // Пропустить посещённые вершины                             
             }
-            // Рекурсивно обходить смежные вершины
+            // Рекурсивно посетить соседнюю вершину
             DFS(graph, visited, res, adjVet);
         }
     }
 
     /* Обход в глубину */
-    // Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+    // Список смежности позволяет получить всех соседей заданной вершины
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
-        // Последовательность обхода вершин
+        // Порядок обхода вершин
         List<Vertex> res = [];
-        // Хеш-множество для хранения уже посещенных вершин
+        // Хеш-множество посещённых вершин
         HashSet<Vertex> visited = [];
         DFS(graph, visited, res, startVet);
         return res;
@@ -34,7 +34,7 @@ public class graph_dfs {
 
     [Test]
     public void Test() {
-        /* Инициализация неориентированного графа */
+        /* Инициализировать неориентированный граф */
         Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6]);
         Vertex[][] edges =
         [
@@ -43,12 +43,12 @@ public class graph_dfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\nГраф после инициализации");
+        Console.WriteLine("\nГраф после инициализации:");
         graph.Print();
 
         /* Обход в глубину */
         List<Vertex> res = GraphDFS(graph, v[0]);
-        Console.WriteLine("\nПоследовательность вершин при обходе в глубину (DFS)");
+        Console.WriteLine("\nПорядок обхода вершин в глубину (DFS):");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

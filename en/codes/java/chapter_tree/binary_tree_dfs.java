@@ -45,7 +45,7 @@ public class binary_tree_dfs {
 
     public static void main(String[] args) {
         /* Initialize the binary tree */
-        // Use a helper function that builds a binary tree directly from an array
+        // Use a function that builds a binary tree directly from an array
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
         System.out.println("\nInitialize the binary tree\n");
         PrintUtil.printTree(root);
@@ -53,16 +53,16 @@ public class binary_tree_dfs {
         /* Preorder traversal */
         list.clear();
         preOrder(root);
-        System.out.println("\nNode sequence from preorder traversal = " + list);
+        System.out.println("\nNodes in preorder = " + list);
 
         /* Inorder traversal */
         list.clear();
         inOrder(root);
-        System.out.println("\nNode sequence from inorder traversal = " + list);
+        System.out.println("\nNodes in inorder = " + list);
 
         /* Postorder traversal */
         list.clear();
         postOrder(root);
-        System.out.println("\nNode sequence from postorder traversal = " + list);
+        System.out.println("\nNodes in postorder = " + list);
     }
 }

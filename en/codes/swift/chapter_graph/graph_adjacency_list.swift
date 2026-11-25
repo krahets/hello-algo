@@ -6,9 +6,9 @@
 
 import utils
 
-/* Undirected graph class implemented with an adjacency list */
+/* Undirected graph represented by an adjacency list */
 public class GraphAdjList {
-    // Adjacency list: key is a vertex, value is the list of all its neighbors
+    // Adjacency list: each vertex maps to its neighbors
     public private(set) var adjList: [Vertex: [Vertex]]
 
     /* Constructor */
@@ -22,7 +22,7 @@ public class GraphAdjList {
         }
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     public func size() -> Int {
         adjList.count
     }
@@ -30,9 +30,9 @@ public class GraphAdjList {
     /* Add an edge */
     public func addEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("Invalid arguments")
+            fatalError("Invalid argument")
         }
-        // Add edge vet1 - vet2
+        // Add the edge vet1 - vet2
         adjList[vet1]?.append(vet2)
         adjList[vet2]?.append(vet1)
     }
@@ -40,9 +40,9 @@ public class GraphAdjList {
     /* Remove an edge */
     public func removeEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("Invalid arguments")
+            fatalError("Invalid argument")
         }
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         adjList[vet1]?.removeAll { $0 == vet2 }
         adjList[vet2]?.removeAll { $0 == vet1 }
     }
@@ -52,18 +52,18 @@ public class GraphAdjList {
         if adjList[vet] != nil {
             return
         }
-        // Add a new list to the adjacency list
+        // Add a new linked list to the adjacency list
         adjList[vet] = []
     }
 
     /* Remove a vertex */
     public func removeVertex(vet: Vertex) {
         if adjList[vet] == nil {
-            fatalError("Invalid arguments")
+            fatalError("Invalid argument")
         }
-        // Remove the list corresponding to vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         adjList.removeValue(forKey: vet)
-        // Traverse the lists of the other vertices and remove all edges incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         for key in adjList.keys {
             adjList[key]?.removeAll { $0 == vet }
         }
@@ -85,7 +85,7 @@ public class GraphAdjList {
 enum GraphAdjacencyList {
     /* Driver code */
     static func main() {
-        /* Initialize the undirected graph */
+        /* Initialize an undirected graph */
         let v = Vertex.valsToVets(vals: [1, 3, 2, 5, 4])
         let edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[2], v[3]], [v[2], v[4]], [v[3], v[4]]]
         let graph = GraphAdjList(edges: edges)
@@ -93,13 +93,13 @@ enum GraphAdjacencyList {
         graph.print()
 
         /* Add an edge */
-        // Vertices 1 and 2 are v[0] and v[2]
+        // Vertices 1 and 2 are v[0] and v[2], respectively
         graph.addEdge(vet1: v[0], vet2: v[2])
         print("\nGraph after adding edge 1-2:")
         graph.print()
 
         /* Remove an edge */
-        // Vertices 1 and 3 are v[0] and v[1]
+        // Vertices 1 and 3 are v[0] and v[1], respectively
         graph.removeEdge(vet1: v[0], vet2: v[1])
         print("\nGraph after removing edge 1-3:")
         graph.print()

@@ -6,14 +6,14 @@
 
 #include "./array_hash_map.cpp"
 
-/* チェイン法のハッシュテーブル */
+/* チェイン法によるハッシュ表 */
 class HashMapChaining {
   private:
     int size;                       // キーと値のペアの数
-    int capacity;                   // ハッシュテーブルの容量
-    double loadThres;               // 容量の拡張を開始する負荷率のしきい値
+    int capacity;                   // ハッシュ表の容量
+    double loadThres;               // 表を拡張する負荷率のしきい値
     int extendRatio;                // 容量の拡張倍率
-    vector<vector<Pair *>> buckets; // バケット配列
+    vector<vector<Pair *>> buckets; // バケットの配列
 
   public:
     /* コンストラクタ */
@@ -41,7 +41,7 @@ class HashMapChaining {
         return (double)size / (double)capacity;
     }
 
-    /* 取得操作 */
+    /* 検索 */
     string get(int key) {
         int index = hashFunc(key);
         // バケットを走査し、key が見つかったら対応する val を返す
@@ -50,38 +50,38 @@ class HashMapChaining {
                 return pair->val;
             }
         }
-        // key が見つからなかった場合、空文字列を返す
+        // key が見つからなければ空文字列を返す
         return "";
     }
 
-    /* 追加操作 */
+    /* 追加 */
     void put(int key, string val) {
-        // 負荷率がしきい値を超えた場合、容量を拡張する
+        // 負荷率がしきい値を超えたら表を拡張する
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
-        // バケットを走査し、指定された key が見つかったら、対応する val を更新して戻る
+        // バケットを走査し、指定の key が見つかったら対応する val を更新して処理を終える
         for (Pair *pair : buckets[index]) {
             if (pair->key == key) {
                 pair->val = val;
                 return;
             }
         }
-        // key が存在しない場合、キーと値のペアを末尾に追加する
+        // key がなければ末尾にペアを追加する
         buckets[index].push_back(new Pair(key, val));
         size++;
     }
 
-    /* 削除操作 */
+    /* 削除 */
     void remove(int key) {
         int index = hashFunc(key);
         auto &bucket = buckets[index];
-        // バケットを走査し、キーと値のペアを削除する
+        // バケットを走査し、該当するペアを削除する
         for (int i = 0; i < bucket.size(); i++) {
             if (bucket[i]->key == key) {
                 Pair *tmp = bucket[i];
-                bucket.erase(bucket.begin() + i); // キーと値のペアを削除する
+                bucket.erase(bucket.begin() + i); // 該当するペアを削除する
                 delete tmp;                       // メモリを解放する
                 size--;
                 return;
@@ -89,16 +89,16 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルの容量を拡張する */
+    /* ハッシュ表を拡張する */
     void extend() {
-        // 元のハッシュテーブルを一時保存する
+        // 元のハッシュ表を一時保存する
         vector<vector<Pair *>> bucketsTmp = buckets;
-        // 拡張後の新しいハッシュテーブルを初期化する
+        // 拡張後の新しいハッシュ表を初期化する
         capacity *= extendRatio;
         buckets.clear();
         buckets.resize(capacity);
         size = 0;
-        // キーと値のペアを元のハッシュテーブルから新しいハッシュテーブルに移す
+        // 元のハッシュ表から新しい表にペアを移す
         for (auto &bucket : bucketsTmp) {
             for (Pair *pair : bucket) {
                 put(pair->key, pair->val);
@@ -108,7 +108,7 @@ class HashMapChaining {
         }
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     void print() {
         for (auto &bucket : buckets) {
             cout << "[";
@@ -120,30 +120,30 @@ class HashMapChaining {
     }
 };
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュ表を初期化する */
     HashMapChaining map = HashMapChaining();
 
-    /* 追加操作 */
-    // ハッシュテーブルにキーと値のペア (key, value) を追加する
+    /* 追加 */
+    // ハッシュ表にペア (key, value) を追加する
     map.put(12836, "小哈");
     map.put(15937, "小啰");
     map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鸭");
-    cout << "\n追加後のハッシュテーブル\nKey -> Value" << endl;
+    cout << "\n追加後のハッシュ表\nKey -> Value" << endl;
     map.print();
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 検索 */
+    // ハッシュ表でキー key に対応する値 value を取得する
     string name = map.get(13276);
-    cout << "\n学生番号 13276 に対応する氏名は " << name << endl;
+    cout << "\n学籍番号 13276 に対応する名前は " << name << endl;
 
-    /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    /* 削除 */
+    // ハッシュ表からペア (key, value) を削除する
     map.remove(12836);
-    cout << "\n12836 を削除した後のハッシュテーブル\nKey -> Value" << endl;
+    cout << "\n12836 を削除した後のハッシュ表\nKey -> Value" << endl;
     map.print();
 
     return 0;

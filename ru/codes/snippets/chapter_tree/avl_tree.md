@@ -1,64 +1,64 @@
 <!-- [snippet]{avl_tree_node} -->
 ```python title=""
 class TreeNode:
-    """Класс узла AVL-дерева"""
+    """Класс узла АВЛ-дерева"""
     def __init__(self, val: int):
         self.val: int = val                 # Значение узла
         self.height: int = 0                # Высота узла
-        self.left: TreeNode | None = None   # Ссылка на левого дочернего узла
-        self.right: TreeNode | None = None  # Ссылка на правого дочернего узла
+        self.left: TreeNode | None = None   # Ссылка на левого потомка
+        self.right: TreeNode | None = None  # Ссылка на правого потомка
 ```
 
 ```cpp title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 struct TreeNode {
     int val{};          // Значение узла
     int height = 0;     // Высота узла
-    TreeNode *left{};   // Левый дочерний узел
-    TreeNode *right{};  // Правый дочерний узел
+    TreeNode *left{};   // Левый потомок
+    TreeNode *right{};  // Правый потомок
     TreeNode() = default;
     explicit TreeNode(int x) : val(x){}
 };
 ```
 
 ```java title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 class TreeNode {
     public int val;        // Значение узла
     public int height;     // Высота узла
-    public TreeNode left;  // Левый дочерний узел
-    public TreeNode right; // Правый дочерний узел
+    public TreeNode left;  // Левый потомок
+    public TreeNode right; // Правый потомок
     public TreeNode(int x) { val = x; }
 }
 ```
 
 ```csharp title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 class TreeNode(int? x) {
     public int? val = x;    // Значение узла
     public int height;      // Высота узла
-    public TreeNode? left;  // Ссылка на левого дочернего узла
-    public TreeNode? right; // Ссылка на правого дочернего узла
+    public TreeNode? left;  // Ссылка на левого потомка
+    public TreeNode? right; // Ссылка на правого потомка
 }
 ```
 
 ```go title=""
-/* Структура узла AVL-дерева */
+/* Структура узла АВЛ-дерева */
 type TreeNode struct {
     Val    int       // Значение узла
     Height int       // Высота узла
-    Left   *TreeNode // Ссылка на левого дочернего узла
-    Right  *TreeNode // Ссылка на правого дочернего узла
+    Left   *TreeNode // Ссылка на левого потомка
+    Right  *TreeNode // Ссылка на правого потомка
 }
 ```
 
 ```swift title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 class TreeNode {
     var val: Int // Значение узла
     var height: Int // Высота узла
-    var left: TreeNode? // Левый дочерний узел
-    var right: TreeNode? // Правый дочерний узел
+    var left: TreeNode? // Левый потомок
+    var right: TreeNode? // Правый потомок
 
     init(x: Int) {
         val = x
@@ -68,12 +68,12 @@ class TreeNode {
 ```
 
 ```javascript title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 class TreeNode {
     val; // Значение узла
-    height; // Высота узла
-    left; // Указатель на левого дочернего узла
-    right; // Указатель на правого дочернего узла
+    height; //Высота узла
+    left; // Указатель на левого потомка
+    right; // Указатель на правого потомка
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
         this.height = height === undefined ? 0 : height;
@@ -84,12 +84,12 @@ class TreeNode {
 ```
 
 ```typescript title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 class TreeNode {
     val: number;            // Значение узла
     height: number;         // Высота узла
-    left: TreeNode | null;  // Указатель на левого дочернего узла
-    right: TreeNode | null; // Указатель на правого дочернего узла
+    left: TreeNode | null;  // Указатель на левого потомка
+    right: TreeNode | null; // Указатель на правого потомка
     constructor(val?: number, height?: number, left?: TreeNode | null, right?: TreeNode | null) {
         this.val = val === undefined ? 0 : val;
         this.height = height === undefined ? 0 : height;
@@ -100,12 +100,12 @@ class TreeNode {
 ```
 
 ```dart title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 class TreeNode {
   int val;         // Значение узла
   int height;      // Высота узла
-  TreeNode? left;  // Левый дочерний узел
-  TreeNode? right; // Правый дочерний узел
+  TreeNode? left;  // Левый потомок
+  TreeNode? right; // Правый потомок
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 ```
@@ -114,12 +114,12 @@ class TreeNode {
 use std::rc::Rc;
 use std::cell::RefCell;
 
-/* Структура узла AVL-дерева */
+/* Структура узла АВЛ-дерева */
 struct TreeNode {
     val: i32,                               // Значение узла
     height: i32,                            // Высота узла
-    left: Option<Rc<RefCell<TreeNode>>>,    // Левый дочерний узел
-    right: Option<Rc<RefCell<TreeNode>>>,   // Правый дочерний узел
+    left: Option<Rc<RefCell<TreeNode>>>,    // Левый потомок
+    right: Option<Rc<RefCell<TreeNode>>>,   // Правый потомок
 }
 
 impl TreeNode {
@@ -136,7 +136,7 @@ impl TreeNode {
 ```
 
 ```c title=""
-/* Структура узла AVL-дерева */
+/* Структура узла АВЛ-дерева */
 typedef struct TreeNode {
     int val;
     int height;
@@ -158,21 +158,21 @@ TreeNode *newTreeNode(int val) {
 ```
 
 ```kotlin title=""
-/* Класс узла AVL-дерева */
+/* Класс узла АВЛ-дерева */
 class TreeNode(val _val: Int) {  // Значение узла
     var height: Int = 0          // Высота узла
-    var left: TreeNode? = null   // Левый дочерний узел
-    var right: TreeNode? = null  // Правый дочерний узел
+    var left: TreeNode? = null   // Левый потомок
+    var right: TreeNode? = null  // Правый потомок
 }
 ```
 
 ```ruby title=""
-### Класс узла AVL-дерева ###
+### Класс узла АВЛ-дерева ###
 class TreeNode
   attr_accessor :val    # Значение узла
   attr_accessor :height # Высота узла
-  attr_accessor :left   # Ссылка на левого дочернего узла
-  attr_accessor :right  # Ссылка на правого дочернего узла
+  attr_accessor :left   # Ссылка на левого потомка
+  attr_accessor :right  # Ссылка на правого потомка
 
   def initialize(val)
     @val = val

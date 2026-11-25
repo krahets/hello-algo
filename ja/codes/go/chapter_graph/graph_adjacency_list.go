@@ -12,9 +12,9 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 隣接リストで実装した無向グラフクラス */
+/* 隣接リストで無向グラフを表すクラス */
 type graphAdjList struct {
-	// 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+	// 隣接リスト。key は頂点、value はその頂点の全隣接頂点
 	adjList map[Vertex][]Vertex
 }
 
@@ -42,7 +42,7 @@ func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
-		panic("エラー")
+		panic("error")
 	}
 	// 辺 vet1 - vet2 を追加し、無名の struct{} を追加する
 	g.adjList[vet1] = append(g.adjList[vet1], vet2)
@@ -54,7 +54,7 @@ func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
-		panic("エラー")
+		panic("error")
 	}
 	// 辺 vet1 - vet2 を削除する
 	g.adjList[vet1] = DeleteSliceElms(g.adjList[vet1], vet2)
@@ -75,11 +75,11 @@ func (g *graphAdjList) addVertex(vet Vertex) {
 func (g *graphAdjList) removeVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if !ok {
-		panic("エラー")
+		panic("error")
 	}
-	// 隣接リストから頂点 vet に対応する連結リストを削除する
+	// 隣接リストから頂点 vet の連結リストを削除する
 	delete(g.adjList, vet)
-	// 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+	// 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
 	for v, list := range g.adjList {
 		g.adjList[v] = DeleteSliceElms(list, vet)
 	}

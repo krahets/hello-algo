@@ -9,11 +9,11 @@ package chapter_sorting;
 import java.util.*;
 
 public class bubble_sort {
-    /* Пузырьковая сортировка */
+    /* Сортировка пузырьком */
     static void bubbleSort(int[] nums) {
-        // Внешний цикл: неотсортированный диапазон [0, i]
+        // Внешний цикл: неотсортированный участок [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
-            // Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
+            // Внутренний цикл: обменами переместить максимум участка [0, i] на его правый конец
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Поменять местами nums[j] и nums[j + 1]
@@ -25,33 +25,33 @@ public class bubble_sort {
         }
     }
 
-    /* Пузырьковая сортировка (оптимизация флагом) */
+    /* Сортировка пузырьком с флагом обмена */
     static void bubbleSortWithFlag(int[] nums) {
-        // Внешний цикл: неотсортированный диапазон [0, i]
+        // Внешний цикл: неотсортированный участок [0, i]
         for (int i = nums.length - 1; i > 0; i--) {
             boolean flag = false; // Инициализировать флаг
-            // Внутренний цикл: переместить максимальный элемент неотсортированного диапазона [0, i] в его правый конец
+            // Внутренний цикл: обменами переместить максимум участка [0, i] на его правый конец
             for (int j = 0; j < i; j++) {
                 if (nums[j] > nums[j + 1]) {
                     // Поменять местами nums[j] и nums[j + 1]
                     int tmp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = tmp;
-                    flag = true; // Записать обмен элементов
+                    flag = true; // Отметить, что произошёл обмен
                 }
             }
             if (!flag)
-                break; // На этой итерации «всплытия» не было ни одного обмена, сразу выйти
+                break; // За этот проход обменов не было. Выйти из цикла
         }
     }
 
     public static void main(String[] args) {
         int[] nums = { 4, 1, 3, 1, 5, 2 };
         bubbleSort(nums);
-        System.out.println("После пузырьковой сортировки nums = " + Arrays.toString(nums));
+        System.out.println("После сортировки пузырьком nums = " + Arrays.toString(nums));
 
         int[] nums1 = { 4, 1, 3, 1, 5, 2 };
         bubbleSortWithFlag(nums1);
-        System.out.println("После пузырьковой сортировки nums1 = " + Arrays.toString(nums1));
+        System.out.println("После сортировки пузырьком nums1 = " + Arrays.toString(nums1));
     }
 }

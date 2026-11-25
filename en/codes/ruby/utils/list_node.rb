@@ -15,7 +15,7 @@ class ListNode
   end
 end
 
-### Deserialize a list into a linked list ###
+### Deserialize an array into a linked list ###
 def arr_to_linked_list(arr)
   head = current = ListNode.new(arr[0])
 
@@ -27,7 +27,7 @@ def arr_to_linked_list(arr)
   head
 end
 
-### Serialize a linked list into a list ###
+### Serialize a linked list into an array ###
 def linked_list_to_arr(head)
   arr = []
 

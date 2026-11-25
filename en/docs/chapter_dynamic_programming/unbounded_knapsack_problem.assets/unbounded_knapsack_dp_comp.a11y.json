@@ -1,579 +1,613 @@
 {
-  "schema_version": 2,
-  "title": "Single-row update for unbounded knapsack",
-  "summary": "Update the single-row array in forward order of increasing capacity, reusing the current round's updated solutions at smaller capacities so the same item can be chosen repeatedly.",
-  "context": [
-    "The knapsack capacity limit is 4, and all three items may be chosen repeatedly; see the \"Item inputs for forward-order unbounded knapsack updates\" table below for their exact weights and values. Starting after item 1 (apple) has been processed, this example demonstrates only the round for item 2 (pineapple), while item 3 (watermelon) has not yet participated.",
-    "The two-dimensional state dp[i, c] represents the maximum value achievable using only the first i items with total weight not exceeding capacity c; after space optimization, the single-row array dp[c] (for capacity index c from 0 to 4) overwrites the previous round's results round by round."
-  ],
-  "description": [
-    "Round i = 2 traverses capacities c = 1, 2, 3, 4 in forward order. When capacity is too small to fit a pineapple (c < 2), the old value from the previous round is retained; when it fits (c >= 2), the old value dp[c] (excluding the pineapple) is compared against the current-round value dp[c - 2] + 11 (including a pineapple), and the larger value is written to dp[c]. Because smaller positive capacities have already been processed in this round and capacity 0 always remains the valid boundary value 0, reading dp[c - 2] from the left within the same row in forward order allows another pineapple to be added, enabling repeated selection of the same item; the 0-1 knapsack restriction—where each item can be used at most once and old values from the previous round must be read in reverse order—does not apply here.",
-    "The upper part of the figure shows the two-dimensional table and the lower part shows the single-row array; at each step, the transcript presents the complete state as the single-row table followed by the two-dimensional reference table, with the step number included in both table captions. The single-row table has separate columns for each value and the round that produced it: i = 1 means only apples may be chosen, and i = 2 means apples and pineapples may be chosen, without implying that a solution must include both. Blue indicates states from the previous round, and green indicates entries already processed in the current round; at the end of the round, the current round's results turn blue uniformly to serve as the old states for the next round. In the two-dimensional table, a 0 marked \"uncomputed initial value\" must not be treated as a computed solution."
-  ],
-  "result": "As an additional comparison using this example's inputs: if reverse order were used by mistake, capacity 4 would be processed before capacity 2 and could only read the old value dp[2] = 10, yielding max(20, 10 + 11) = 21 and missing 22 from two pineapples. Derived from this example's initial array rather than drawn in the figure, this counterexample shows why unbounded knapsack must traverse in forward order to reuse updated values from the current round.",
-  "frames": [
-    {
-      "id": "source-418",
-      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png",
-      "title": "Before traversing i = 2: single row stores the i = 1 solutions",
-      "explanation": "Before round i = 2 (pineapple) begins, round 1 (only apples available) has already been computed: because apples may be chosen repeatedly, capacities 0 through 4 pack 0 through 4 apples for maximum values of [0, 5, 10, 15, 20]. The single-row array dp currently holds these i = 1 solutions and is ready to process item 2 (pineapple) from left to right in forward order.",
-      "key_state": "Before round i = 2 starts, single-row dp = [0, 5, 10, 15, 20]. Capacities 1 through 4 all belong to the previous round i = 1 (only apples available); capacity 0 is the boundary.",
-      "announcement": "Ready to process item 2 (pineapple); the single-row array dp initially holds the round 1 results [0, 5, 10, 15, 20].",
-      "state_tables": [
+  "animations": {
+    "unbounded-knapsack-compressed-row": {
+      "kind": "source-frames",
+      "states": [
         {
-          "caption": "Unbounded knapsack step 1: Before traversing i = 2, single row stores the i = 1 solutions — single-row dp values and round ownership",
-          "headers": [
-            "Capacity c",
-            "Current value",
-            "Round and available items"
-          ],
-          "rows": [
-            [
-              "0",
-              "0",
-              "Capacity 0 boundary shared across rounds"
-            ],
-            [
-              "1",
-              "5",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ],
-            [
-              "2",
-              "10",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ],
-            [
-              "3",
-              "15",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ],
-            [
-              "4",
-              "20",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ]
-          ],
-          "row_header": 0
+          "frame_id": "source-418",
+          "id": "step-1"
         },
         {
-          "caption": "Unbounded knapsack step 1: Before traversing i = 2, single row stores the i = 1 solutions — two-dimensional reference table of subproblem progress",
-          "headers": [
-            "Available items",
-            "Capacity 0",
-            "Capacity 1",
-            "Capacity 2",
-            "Capacity 3",
-            "Capacity 4"
-          ],
-          "rows": [
-            [
-              "First 0 items",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary"
-            ],
-            [
-              "First 1 item",
-              "0, valid boundary",
-              "5, computed",
-              "10, computed",
-              "15, computed",
-              "20, computed"
-            ],
-            [
-              "First 2 items",
-              "0, valid boundary",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ],
-            [
-              "First 3 items",
-              "0, valid boundary",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-419",
-      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png",
-      "title": "Process capacity c = 1 in forward order: pineapple does not fit, keep 5",
-      "explanation": "Start forward-order traversal at capacity c = 1: a pineapple weighs 2, which exceeds capacity 1, so it cannot fit. In the two-dimensional reference table, dp[2, 1] inherits dp[1, 1] = 5 directly from above; in the single-row array, dp[1] keeps the value 5, but now represents the current round i = 2 (highlighted in green in the figure as processed in this round), whereas capacities 2 through 4 remain old values from round i = 1.",
-      "key_state": "i = 2, c = 1: pineapple of weight 2 does not fit, so dp[1] stays 5. Single-row dp = [0, 5, 10, 15, 20]; capacity 1 now belongs to round i = 2, capacities 2 through 4 still belong to round i = 1, and capacity 0 is the boundary.",
-      "announcement": "Compute capacity 1 first in forward order: a pineapple of weight 2 does not fit, so dp[1] stays 5 and moves to round i = 2.",
-      "state_tables": [
-        {
-          "caption": "Unbounded knapsack step 2: Process capacity c = 1 in forward order (pineapple does not fit, keep 5) — single-row dp values and round ownership",
-          "headers": [
-            "Capacity c",
-            "Current value",
-            "Round and available items"
-          ],
-          "rows": [
-            [
-              "0",
-              "0",
-              "Capacity 0 boundary shared across rounds"
-            ],
-            [
-              "1",
-              "5",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "2",
-              "10",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ],
-            [
-              "3",
-              "15",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ],
-            [
-              "4",
-              "20",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ]
-          ],
-          "row_header": 0
+          "frame_id": "source-419",
+          "id": "step-2"
         },
         {
-          "caption": "Unbounded knapsack step 2: Process capacity c = 1 in forward order (pineapple does not fit, keep 5) — two-dimensional reference table of subproblem progress",
-          "headers": [
-            "Available items",
-            "Capacity 0",
-            "Capacity 1",
-            "Capacity 2",
-            "Capacity 3",
-            "Capacity 4"
-          ],
-          "rows": [
-            [
-              "First 0 items",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary"
-            ],
-            [
-              "First 1 item",
-              "0, valid boundary",
-              "5, computed",
-              "10, computed",
-              "15, computed",
-              "20, computed"
-            ],
-            [
-              "First 2 items",
-              "0, valid boundary",
-              "5, computed",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ],
-            [
-              "First 3 items",
-              "0, valid boundary",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-420",
-      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png",
-      "title": "Update capacity c = 2 in forward order: include 1 pineapple, update to 11",
-      "explanation": "Advance rightward in forward order to capacity c = 2: excluding the pineapple keeps the previous round's old value dp[2] = 10 (two apples); including 1 pineapple reads the capacity 0 boundary state dp[0] = 0 to the left in the same row and adds pineapple value 11 to get 11. Taking max(10, 11) = 11 updates single-row dp[2] to the new current-round value 11.",
-      "key_state": "i = 2, c = 2: max(10, dp[0] + 11) = 11 with boundary dp[0] = 0, so dp[2] is written as 11. Single-row dp = [0, 5, 11, 15, 20]; capacities 1 and 2 belong to round i = 2, capacities 3 and 4 still belong to round i = 1, and capacity 0 is the boundary.",
-      "announcement": "Update capacity 2 in forward order: choosing 1 pineapple gives value 11, beating 10 from two apples, so dp[2] updates to 11.",
-      "state_tables": [
-        {
-          "caption": "Unbounded knapsack step 3: Update capacity c = 2 in forward order (include 1 pineapple, update to 11) — single-row dp values and round ownership",
-          "headers": [
-            "Capacity c",
-            "Current value",
-            "Round and available items"
-          ],
-          "rows": [
-            [
-              "0",
-              "0",
-              "Capacity 0 boundary shared across rounds"
-            ],
-            [
-              "1",
-              "5",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "2",
-              "11",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "3",
-              "15",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ],
-            [
-              "4",
-              "20",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ]
-          ],
-          "row_header": 0
+          "frame_id": "source-420",
+          "id": "step-3"
         },
         {
-          "caption": "Unbounded knapsack step 3: Update capacity c = 2 in forward order (include 1 pineapple, update to 11) — two-dimensional reference table of subproblem progress",
-          "headers": [
-            "Available items",
-            "Capacity 0",
-            "Capacity 1",
-            "Capacity 2",
-            "Capacity 3",
-            "Capacity 4"
-          ],
-          "rows": [
-            [
-              "First 0 items",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary"
-            ],
-            [
-              "First 1 item",
-              "0, valid boundary",
-              "5, computed",
-              "10, computed",
-              "15, computed",
-              "20, computed"
-            ],
-            [
-              "First 2 items",
-              "0, valid boundary",
-              "5, computed",
-              "11, computed",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ],
-            [
-              "First 3 items",
-              "0, valid boundary",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-421",
-      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png",
-      "title": "Update capacity c = 3 in forward order: apple plus pineapple, update to 16",
-      "explanation": "Continue in forward order to capacity c = 3: excluding the pineapple gives the previous round's old value dp[3] = 15 (three apples); including 1 pineapple reads dp[1] = 5 (one apple), already processed in this round to the left in the same row, and adds pineapple value 11 to get 16 (one apple plus one pineapple). Taking max(15, 16) = 16 updates dp[3] to 16.",
-      "key_state": "i = 2, c = 3: max(15, dp[1] + 11) = 16 with dp[1] = 5 from the current round, so dp[3] is written as 16. Single-row dp = [0, 5, 11, 16, 20]; capacities 1 through 3 belong to round i = 2, capacity 4 still belongs to round i = 1, and capacity 0 is the boundary.",
-      "announcement": "Update capacity 3 in forward order: adding pineapple value 11 to current-row dp[1] = 5 updates dp[3] to 16.",
-      "state_tables": [
-        {
-          "caption": "Unbounded knapsack step 4: Update capacity c = 3 in forward order (apple plus pineapple, update to 16) — single-row dp values and round ownership",
-          "headers": [
-            "Capacity c",
-            "Current value",
-            "Round and available items"
-          ],
-          "rows": [
-            [
-              "0",
-              "0",
-              "Capacity 0 boundary shared across rounds"
-            ],
-            [
-              "1",
-              "5",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "2",
-              "11",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "3",
-              "16",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "4",
-              "20",
-              "Previous round i = 1, only apples available, not yet overwritten"
-            ]
-          ],
-          "row_header": 0
+          "frame_id": "source-421",
+          "id": "step-4"
         },
         {
-          "caption": "Unbounded knapsack step 4: Update capacity c = 3 in forward order (apple plus pineapple, update to 16) — two-dimensional reference table of subproblem progress",
-          "headers": [
-            "Available items",
-            "Capacity 0",
-            "Capacity 1",
-            "Capacity 2",
-            "Capacity 3",
-            "Capacity 4"
-          ],
-          "rows": [
-            [
-              "First 0 items",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary"
-            ],
-            [
-              "First 1 item",
-              "0, valid boundary",
-              "5, computed",
-              "10, computed",
-              "15, computed",
-              "20, computed"
-            ],
-            [
-              "First 2 items",
-              "0, valid boundary",
-              "5, computed",
-              "11, computed",
-              "16, computed",
-              "0, uncomputed initial value"
-            ],
-            [
-              "First 3 items",
-              "0, valid boundary",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-422",
-      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png",
-      "title": "Update capacity c = 4 in forward order: reuse updated current-round value to pick pineapple twice for 22",
-      "explanation": "Advance in forward order to capacity c = 4: excluding the pineapple gives the previous round's old value dp[4] = 20 (four apples); including a pineapple reads dp[2] = 11 (already containing 1 pineapple), just updated in this round to the left in the same row, and adds 1 more pineapple of value 11 to get 22 (two pineapples in total). Writing max(20, 22) = 22 into dp[4] directly illustrates how forward-order traversal reuses current-round solutions to choose the same item repeatedly.",
-      "key_state": "i = 2, c = 4: max(20, dp[2] + 11) = 22 with dp[2] = 11 from the current round, so dp[4] is written as 22, corresponding to two pineapples. Single-row dp = [0, 5, 11, 16, 22]; capacities 1 through 4 all belong to round i = 2, and capacity 0 is the boundary.",
-      "announcement": "Update capacity 4 in forward order: reuse the current-round value dp[2] = 11 plus 11 (two pineapples) to update dp[4] to 22.",
-      "state_tables": [
-        {
-          "caption": "Unbounded knapsack step 5: Update capacity c = 4 in forward order (reuse updated current-round value to pick pineapple twice for 22) — single-row dp values and round ownership",
-          "headers": [
-            "Capacity c",
-            "Current value",
-            "Round and available items"
-          ],
-          "rows": [
-            [
-              "0",
-              "0",
-              "Capacity 0 boundary shared across rounds"
-            ],
-            [
-              "1",
-              "5",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "2",
-              "11",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "3",
-              "16",
-              "Current round i = 2, available items: apple, pineapple"
-            ],
-            [
-              "4",
-              "22",
-              "Current round i = 2, available items: apple, pineapple"
-            ]
-          ],
-          "row_header": 0
+          "frame_id": "source-422",
+          "id": "step-5"
         },
         {
-          "caption": "Unbounded knapsack step 5: Update capacity c = 4 in forward order (reuse updated current-round value to pick pineapple twice for 22) — two-dimensional reference table of subproblem progress",
-          "headers": [
-            "Available items",
-            "Capacity 0",
-            "Capacity 1",
-            "Capacity 2",
-            "Capacity 3",
-            "Capacity 4"
-          ],
-          "rows": [
-            [
-              "First 0 items",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary"
-            ],
-            [
-              "First 1 item",
-              "0, valid boundary",
-              "5, computed",
-              "10, computed",
-              "15, computed",
-              "20, computed"
-            ],
-            [
-              "First 2 items",
-              "0, valid boundary",
-              "5, computed",
-              "11, computed",
-              "16, computed",
-              "22, computed"
-            ],
-            [
-              "First 3 items",
-              "0, valid boundary",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-423",
-      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png",
-      "title": "Finish round i = 2 traversal: single row stores solutions for the first two items",
-      "explanation": "Forward-order traversal for round i = 2 is complete, and single-row dp = [0, 5, 11, 16, 22] stores the maximum values for capacities 0 through 4 when choosing from the first two items. This step changes no numbers and simply recolors the current round's results uniformly blue to serve as the old states for the next round. In the \"First 3 items\" row of the two-dimensional reference table, the 0 entries at capacities 1 through 4 remain uncomputed initial values while capacity 0 keeps boundary value 0; watermelon has not yet been processed.",
-      "key_state": "Round i = 2 complete: single-row dp = [0, 5, 11, 16, 22]. Capacities 1 through 4 hold the solutions for the first two items and now turn blue uniformly to serve as old states for the next round; capacity 0 is the boundary, and watermelon has not yet been processed.",
-      "announcement": "Forward-order update for item 2 (pineapple) is complete; the single-row array stores the solutions [0, 5, 11, 16, 22] for the first two items, and watermelon has not yet been processed.",
-      "state_tables": [
-        {
-          "caption": "Unbounded knapsack step 6: Finish round i = 2 traversal (single row stores solutions for the first two items) — single-row dp values and round ownership",
-          "headers": [
-            "Capacity c",
-            "Current value",
-            "Round and available items"
-          ],
-          "rows": [
-            [
-              "0",
-              "0",
-              "Capacity 0 boundary shared across rounds"
-            ],
-            [
-              "1",
-              "5",
-              "Current round i = 2, available items: apple, pineapple; will serve as old state for next round"
-            ],
-            [
-              "2",
-              "11",
-              "Current round i = 2, available items: apple, pineapple; will serve as old state for next round"
-            ],
-            [
-              "3",
-              "16",
-              "Current round i = 2, available items: apple, pineapple; will serve as old state for next round"
-            ],
-            [
-              "4",
-              "22",
-              "Current round i = 2, available items: apple, pineapple; will serve as old state for next round"
-            ]
-          ],
-          "row_header": 0
-        },
-        {
-          "caption": "Unbounded knapsack step 6: Finish round i = 2 traversal (single row stores solutions for the first two items) — two-dimensional reference table of subproblem progress",
-          "headers": [
-            "Available items",
-            "Capacity 0",
-            "Capacity 1",
-            "Capacity 2",
-            "Capacity 3",
-            "Capacity 4"
-          ],
-          "rows": [
-            [
-              "First 0 items",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary",
-              "0, valid boundary"
-            ],
-            [
-              "First 1 item",
-              "0, valid boundary",
-              "5, computed",
-              "10, computed",
-              "15, computed",
-              "20, computed"
-            ],
-            [
-              "First 2 items",
-              "0, valid boundary",
-              "5, computed",
-              "11, computed",
-              "16, computed",
-              "22, computed"
-            ],
-            [
-              "First 3 items",
-              "0, valid boundary",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value",
-              "0, uncomputed initial value"
-            ]
-          ],
-          "row_header": 0
+          "frame_id": "source-423",
+          "id": "step-6"
         }
       ]
     }
+  },
+  "context": [
+    "The capacity limit is 4, and each of three item types can be taken repeatedly. The “Input items for forward updates in unbounded knapsack” table below gives weights and values. The example starts after processing apples, the first type. It shows only the round for pineapples, the second type. Watermelons, the third type, are not yet included.",
+    "Two-dimensional state dp[i, c] is the maximum value using only the first i types with total weight at most c. The space-optimized single row dp[c], indexed by c from 0 to 4, overwrites previous results one round at a time."
   ],
+  "description": [
+    "Round i = 2 visits c = 1, 2, 3, 4 in ascending order. If the pineapple cannot fit (c < 2), keep the old value. If it fits (c >= 2), compare the old dp[c] for skipping it with this round's dp[c - 2] + 11 for taking it, and write the larger value to dp[c]. Smaller positive capacities have already been processed in this round, and capacity 0 always has boundary value 0. Reading dp[c - 2] on the left can therefore add another pineapple. Unlike 0-1 knapsack, there is no one-copy limit requiring reverse traversal to read the previous round.",
+    "Each frame shows the two-dimensional table above the single row. The accompanying tables give each step's full state, the single row first and the reference table second, with step numbers in both names. The single-row table lists value and round separately: i = 1 allows only apples, while i = 2 allows apples and pineapples without requiring both. Blue marks old states, green those processed this round. At the end, all results turn blue to serve as old states in the next round. Zeros labeled “uncomputed initial value” in the two-dimensional table are placeholders."
+  ],
+  "frames": [
+    {
+      "announcement": "Prepare to process the second type, pineapples. The single array dp starts with the first-round results [0, 5, 10, 15, 20].",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step1.png",
+      "explanation": "Before round i = 2 (pineapples), round 1 (apples only) is complete. Since apples can be reused, capacities 0–4 hold 0–4 apples, respectively, giving maximum values [0, 5, 10, 15, 20]. The single array dp holds these i = 1 solutions, ready to process pineapples from left to right.",
+      "id": "source-418",
+      "key_state": "Before round i = 2, dp = [0, 5, 10, 15, 20]. Capacities 1–4 belong to the previous round i = 1, with only apples available. Capacity 0 is a boundary.",
+      "state_tables": [
+        {
+          "caption": "Unbounded knapsack, step 1, before i = 2: the single dp row holds the i = 1 solutions. Values and rounds by capacity",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and available item types"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "0",
+              "Capacity-0 boundary shared by all rounds"
+            ],
+            [
+              "1",
+              "5",
+              "Previous round i=1, apples only, still awaiting update"
+            ],
+            [
+              "2",
+              "10",
+              "Previous round i=1, apples only, still awaiting update"
+            ],
+            [
+              "3",
+              "15",
+              "Previous round i=1, apples only, still awaiting update"
+            ],
+            [
+              "4",
+              "20",
+              "Previous round i=1, apples only, still awaiting update"
+            ]
+          ]
+        },
+        {
+          "caption": "Unbounded knapsack, step 1, before i = 2: the single row holds the i = 1 solutions. Subproblem progress in the two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "First 0 item types",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value"
+            ],
+            [
+              "First item type",
+              "0, valid boundary value",
+              "5, computed",
+              "10, computed",
+              "15, computed",
+              "20, computed"
+            ],
+            [
+              "First 2 item types",
+              "0, valid boundary value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "First 3 item types",
+              "0, valid boundary value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ]
+        }
+      ],
+      "title": "Before i = 2: the single row holds the i = 1 solutions"
+    },
+    {
+      "announcement": "Start at capacity 1. The pineapple weighs 2 and does not fit, so dp[1] stays at 5 and now belongs to i = 2.",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step2.png",
+      "explanation": "Begin at c = 1. The pineapple weighs 2 and cannot fit. In the two-dimensional table, dp[2, 1] copies dp[1, 1] = 5 from directly above. In the single row, dp[1] stays at 5 but now belongs to i = 2 (green for processed this round). Capacities 2–4 still hold old values from i = 1.",
+      "id": "source-419",
+      "key_state": "i = 2, c = 1: the pineapple weighs 2 and does not fit, so dp[1] stays at 5. The row is dp = [0, 5, 10, 15, 20]. Capacity 1 now belongs to i = 2, capacities 2–4 still belong to i = 1, and capacity 0 is a boundary.",
+      "state_tables": [
+        {
+          "caption": "Unbounded knapsack, step 2, forward update at c = 1: the pineapple does not fit, so keep 5. Single-row values and rounds by capacity",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and available item types"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "0",
+              "Capacity-0 boundary shared by all rounds"
+            ],
+            [
+              "1",
+              "5",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "2",
+              "10",
+              "Previous round i=1, apples only, still awaiting update"
+            ],
+            [
+              "3",
+              "15",
+              "Previous round i=1, apples only, still awaiting update"
+            ],
+            [
+              "4",
+              "20",
+              "Previous round i=1, apples only, still awaiting update"
+            ]
+          ]
+        },
+        {
+          "caption": "Unbounded knapsack, step 2, forward update at c = 1: the pineapple does not fit, so keep 5. Subproblem progress in the two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "First 0 item types",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value"
+            ],
+            [
+              "First item type",
+              "0, valid boundary value",
+              "5, computed",
+              "10, computed",
+              "15, computed",
+              "20, computed"
+            ],
+            [
+              "First 2 item types",
+              "0, valid boundary value",
+              "5, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "First 3 item types",
+              "0, valid boundary value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ]
+        }
+      ],
+      "title": "Process c = 1 in forward order: the pineapple does not fit, so keep 5"
+    },
+    {
+      "announcement": "Forward update at capacity 2: one pineapple is worth 11, more than two apples worth 10. Update dp[2] to 11.",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step3.png",
+      "explanation": "Move right to c = 2. Skipping the pineapple keeps the old dp[2] = 10 (two apples). Taking one reads the capacity-0 boundary dp[0] = 0 to the left in this row and adds 11 for the pineapple. Take max(10, 11) = 11 and update dp[2] to this round's value of 11.",
+      "id": "source-420",
+      "key_state": "i = 2, c = 2: max(10, dp[0] + 11) = 11, using the boundary dp[0] = 0. Write 11 to dp[2]. Now dp = [0, 5, 11, 15, 20]. Capacities 1 and 2 belong to i = 2, capacities 3 and 4 still belong to i = 1, and capacity 0 is a boundary.",
+      "state_tables": [
+        {
+          "caption": "Unbounded knapsack, step 3, forward update at c = 2: take one pineapple to get 11. Single-row values and rounds by capacity",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and available item types"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "0",
+              "Capacity-0 boundary shared by all rounds"
+            ],
+            [
+              "1",
+              "5",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "2",
+              "11",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "3",
+              "15",
+              "Previous round i=1, apples only, still awaiting update"
+            ],
+            [
+              "4",
+              "20",
+              "Previous round i=1, apples only, still awaiting update"
+            ]
+          ]
+        },
+        {
+          "caption": "Unbounded knapsack, step 3, forward update at c = 2: take one pineapple to get 11. Subproblem progress in the two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "First 0 item types",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value"
+            ],
+            [
+              "First item type",
+              "0, valid boundary value",
+              "5, computed",
+              "10, computed",
+              "15, computed",
+              "20, computed"
+            ],
+            [
+              "First 2 item types",
+              "0, valid boundary value",
+              "5, computed",
+              "11, computed",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ],
+            [
+              "First 3 item types",
+              "0, valid boundary value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ]
+        }
+      ],
+      "title": "Update c = 2 in forward order: take one pineapple to get 11"
+    },
+    {
+      "announcement": "Forward update at capacity 3: add the pineapple's value of 11 to dp[1] = 5 in this row and update dp[3] to 16.",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step4.png",
+      "explanation": "Continue forward to c = 3. Skipping the pineapple keeps the old dp[3] = 15 (three apples). Taking one reads dp[1] = 5 (one apple), already processed on the left in this row. Add 11 for the pineapple to get 16 for one of each. Take max(15, 16) = 16 and update dp[3] to 16.",
+      "id": "source-421",
+      "key_state": "i = 2, c = 3: max(15, dp[1] + 11) = 16, where dp[1] = 5 belongs to this round. Write 16 to dp[3]. Now dp = [0, 5, 11, 16, 20]. Capacities 1–3 belong to i = 2, capacity 4 still belongs to i = 1, and capacity 0 is a boundary.",
+      "state_tables": [
+        {
+          "caption": "Unbounded knapsack, step 4, forward update at c = 3: an apple and a pineapple give 16. Single-row values and rounds by capacity",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and available item types"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "0",
+              "Capacity-0 boundary shared by all rounds"
+            ],
+            [
+              "1",
+              "5",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "2",
+              "11",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "3",
+              "16",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "4",
+              "20",
+              "Previous round i=1, apples only, still awaiting update"
+            ]
+          ]
+        },
+        {
+          "caption": "Unbounded knapsack, step 4, forward update at c = 3: an apple and a pineapple give 16. Subproblem progress in the two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "First 0 item types",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value"
+            ],
+            [
+              "First item type",
+              "0, valid boundary value",
+              "5, computed",
+              "10, computed",
+              "15, computed",
+              "20, computed"
+            ],
+            [
+              "First 2 item types",
+              "0, valid boundary value",
+              "5, computed",
+              "11, computed",
+              "16, computed",
+              "0, uncomputed initial value"
+            ],
+            [
+              "First 3 item types",
+              "0, valid boundary value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ]
+        }
+      ],
+      "title": "Update c = 3 in forward order: an apple and a pineapple give 16"
+    },
+    {
+      "announcement": "Forward update at capacity 4: reuse this round's dp[2] = 11 and add another 11 for two pineapples. Update dp[4] to 22.",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step5.png",
+      "explanation": "Continue forward to c = 4. Skipping the pineapple keeps the old dp[4] = 20 (four apples). Taking one reads the newly updated dp[2] = 11 from the left in this row, which already includes a pineapple. Add another 11 for a second pineapple to get 22. Write max(20, 22) = 22 to dp[4]. Forward traversal reuses this round's solution and allows the same item type to be taken again.",
+      "id": "source-422",
+      "key_state": "i = 2, c = 4: max(20, dp[2] + 11) = 22, using this round's dp[2] = 11. Write 22 to dp[4] for two pineapples. Now dp = [0, 5, 11, 16, 22]. Capacities 1–4 belong to i = 2, and capacity 0 is a boundary.",
+      "state_tables": [
+        {
+          "caption": "Unbounded knapsack, step 5, forward update at c = 4: reuse this round's value to take two pineapples for 22. Single-row values and rounds by capacity",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and available item types"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "0",
+              "Capacity-0 boundary shared by all rounds"
+            ],
+            [
+              "1",
+              "5",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "2",
+              "11",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "3",
+              "16",
+              "Current round i=2, apples and pineapples available"
+            ],
+            [
+              "4",
+              "22",
+              "Current round i=2, apples and pineapples available"
+            ]
+          ]
+        },
+        {
+          "caption": "Unbounded knapsack, step 5, forward update at c = 4: reuse this round's value to take two pineapples for 22. Subproblem progress in the two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "First 0 item types",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value"
+            ],
+            [
+              "First item type",
+              "0, valid boundary value",
+              "5, computed",
+              "10, computed",
+              "15, computed",
+              "20, computed"
+            ],
+            [
+              "First 2 item types",
+              "0, valid boundary value",
+              "5, computed",
+              "11, computed",
+              "16, computed",
+              "22, computed"
+            ],
+            [
+              "First 3 item types",
+              "0, valid boundary value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ]
+        }
+      ],
+      "title": "Update c = 4 in forward order: reuse this round's value to take two pineapples for 22"
+    },
+    {
+      "announcement": "The forward update for pineapples, the second type, is complete. The single row holds the solutions for the first two types, [0, 5, 11, 16, 22]. Watermelons have yet to be processed.",
+      "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/unbounded_knapsack_dp_comp_step6.png",
+      "explanation": "The forward pass for i = 2 is complete. The single row dp = [0, 5, 11, 16, 22] holds the maximum values for capacities 0–4 with the first two types available. No values change in this step. All become blue to serve as old states in the next round. In the reference table's “First 3 item types” row, capacities 1–4 still hold uncomputed zeros, and capacity 0 keeps its boundary value of 0. Watermelons have not yet been processed.",
+      "id": "source-423",
+      "key_state": "Round i = 2 is complete, with dp = [0, 5, 11, 16, 22]. Capacities 1–4 hold the solutions with the first two types available. They all turn blue for the next round. Capacity 0 is a boundary, and watermelons have yet to be processed.",
+      "state_tables": [
+        {
+          "caption": "Unbounded knapsack, step 6, end of i = 2: the single row holds solutions for the first two types. Single-row values and rounds by capacity",
+          "headers": [
+            "Capacity c",
+            "Current value",
+            "Round and available item types"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "0",
+              "Capacity-0 boundary shared by all rounds"
+            ],
+            [
+              "1",
+              "5",
+              "Current round i=2, apples and pineapples available. These become old states next round"
+            ],
+            [
+              "2",
+              "11",
+              "Current round i=2, apples and pineapples available. These become old states next round"
+            ],
+            [
+              "3",
+              "16",
+              "Current round i=2, apples and pineapples available. These become old states next round"
+            ],
+            [
+              "4",
+              "22",
+              "Current round i=2, apples and pineapples available. These become old states next round"
+            ]
+          ]
+        },
+        {
+          "caption": "Unbounded knapsack, step 6, end of i = 2: the single row holds solutions for the first two types. Subproblem progress in the two-dimensional reference table",
+          "headers": [
+            "Available items",
+            "Capacity 0",
+            "Capacity 1",
+            "Capacity 2",
+            "Capacity 3",
+            "Capacity 4"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "First 0 item types",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value",
+              "0, valid boundary value"
+            ],
+            [
+              "First item type",
+              "0, valid boundary value",
+              "5, computed",
+              "10, computed",
+              "15, computed",
+              "20, computed"
+            ],
+            [
+              "First 2 item types",
+              "0, valid boundary value",
+              "5, computed",
+              "11, computed",
+              "16, computed",
+              "22, computed"
+            ],
+            [
+              "First 3 item types",
+              "0, valid boundary value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value",
+              "0, uncomputed initial value"
+            ]
+          ]
+        }
+      ],
+      "title": "Finish round i = 2: the single row holds solutions for the first two types"
+    }
+  ],
+  "input_tables": [
+    0
+  ],
+  "result": "For comparison, reverse order would process capacity 4 before 2, reading only the old dp[2] = 10 and giving max(20, 10 + 11) = 21. It would miss the value 22 from two pineapples. This counterexample follows from the initial array and is not drawn. It shows why unbounded knapsack needs forward updates that reuse this round's values.",
+  "schema_version": 2,
+  "summary": "Update capacities from smallest to largest in one row. Reading newly computed results at smaller capacities in the same round allows repeated use of an item type.",
   "tables": [
     {
-      "caption": "Item inputs for forward-order unbounded knapsack updates",
+      "caption": "Input items for forward updates in unbounded knapsack",
       "headers": [
-        "ID i",
+        "Item number i",
         "Item",
         "Weight",
         "Value"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -593,42 +627,8 @@
           "3",
           "15"
         ]
-      ],
-      "row_header": 0
-    }
-  ],
-  "animations": {
-    "unbounded-knapsack-compressed-row": {
-      "kind": "source-frames",
-      "states": [
-        {
-          "id": "step-1",
-          "frame_id": "source-418"
-        },
-        {
-          "id": "step-2",
-          "frame_id": "source-419"
-        },
-        {
-          "id": "step-3",
-          "frame_id": "source-420"
-        },
-        {
-          "id": "step-4",
-          "frame_id": "source-421"
-        },
-        {
-          "id": "step-5",
-          "frame_id": "source-422"
-        },
-        {
-          "id": "step-6",
-          "frame_id": "source-423"
-        }
       ]
     }
-  },
-  "input_tables": [
-    0
-  ]
+  ],
+  "title": "Single-row updates for unbounded knapsack"
 }

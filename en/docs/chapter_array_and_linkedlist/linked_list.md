@@ -1,20 +1,20 @@
 # Linked lists
 
-Memory is a resource used by all programs, and in a complex system, free space may be scattered throughout it. An array requires contiguous storage, which may be unavailable for a very large array. This is where a linked list's flexibility helps.
+Programs share memory, and in a complex system, free space may be scattered throughout it. An array needs contiguous storage, and a sufficiently large contiguous block may be unavailable for a very large array. This is where the flexibility of a linked list pays off.
 
-A <u>linked list</u> is a linear data structure whose elements are node objects connected by references. Each reference stores the next node's memory address, allowing us to reach it from the current node.
+A <u>linked list</u> is a linear data structure in which each element is a node object. References connect the nodes. A reference records the address of the next node, letting us reach it from the current one.
 
-This design lets nodes occupy scattered memory locations; their addresses need not be contiguous.
+With this design, nodes can be scattered throughout memory. Their addresses do not need to be contiguous.
 
-![Linked list definition and storage layout](linked_list.assets/linkedlist_definition.svg)
+![A linked list and its memory layout](linked_list.assets/linkedlist_definition.svg)
 
-As shown above, the basic unit of a linked list is a <u>node</u> object. Each node holds a value and a reference to the next node.
+As the figure shows, a linked list is made up of <u>node</u> objects. Each node contains two pieces of data: its value and a reference to the next node.
 
-- The first node is called the head, and the last is called the tail.
-- The tail points to a null value: `null` in Java, `nullptr` in C++, and `None` in Python.
-- In languages supporting pointers, such as C, C++, Go, and Rust, these references are expressed as pointers.
+- The first node is called the head, and the last node is called the tail.
+- The tail points to nothing, represented by `null` in Java, `nullptr` in C++, and `None` in Python.
+- In languages that support pointers, such as C, C++, Go, and Rust, the links described above as references can be expressed as pointers.
 
-As the code below shows, each `ListNode` stores a reference (pointer) in addition to its value. Thus, **a linked list uses more memory than an array for the same amount of data**.
+As the following code shows, a `ListNode` node stores an extra reference (pointer) alongside its value. For the same amount of data, **a linked list therefore occupies more memory than an array**.
 
 ```snippet
 list_node_class
@@ -24,7 +24,7 @@ list_node_class
 
 ### Initializing a linked list
 
-Building a linked list takes two steps: initialize the node objects, then connect them with references. Afterward, start at the head and follow `next` references to visit every node in order.
+Building a linked list takes two steps. First initialize the individual nodes, then set up the references between them. Once the list is initialized, we can visit every node in order by starting at the head and following the `next` references.
 
 ```snippet
 init_linked_list
@@ -34,13 +34,13 @@ init_linked_list
 
     @tutor init_linked_list_tutor
 
-An array is a single variable, such as `nums`, containing entries `nums[0]`, `nums[1]`, and so on. A linked list consists of separate node objects. **We usually refer to the list by its head node**; for example, the list above can be called `n0`.
+A single variable represents an entire array. For example, the array `nums` contains elements such as `nums[0]` and `nums[1]`. A linked list, however, consists of independent node objects. **We usually refer to the whole list by its head node**. For example, we can call the list in the preceding code the list `n0`.
 
 ### Inserting a node
 
-Inserting a node is straightforward. As shown in the figure below, inserting a new node `P` between adjacent nodes `n0` and `n1` **requires changing only two references (pointers)**, taking $O(1)$ time.
+Inserting a node into a linked list is straightforward. To insert a new node `P` between adjacent nodes `n0` and `n1` as shown below, **change just two node references (pointers)**. This takes $O(1)$ time.
 
-In contrast, inserting an array element takes $O(n)$ time and is slower for large datasets.
+In comparison, inserting an element into an array takes $O(n)$ time and is less efficient for large amounts of data.
 
 ![Inserting a node into a linked list](linked_list.assets/linkedlist_insert_node.svg)
 
@@ -50,11 +50,11 @@ In contrast, inserting an array element takes $O(n)$ time and is slower for larg
 
 ### Removing a node
 
-Removing a node is also straightforward: as shown in the figure below, **only one reference (pointer) needs to change**.
+Removing a node is straightforward as well. As the figure shows, **only one node reference (pointer) needs to change**.
 
-Although `P` still points to `n1` after removal, traversing the list can no longer reach `P`. It therefore no longer belongs to the list.
+After removal, node `P` still points to `n1`. However, traversing the list can no longer reach `P`, so `P` no longer belongs to the list.
 
-![Removing a linked list node](linked_list.assets/linkedlist_remove_node.svg)
+![Removing a node from a linked list](linked_list.assets/linkedlist_remove_node.svg)
 
 ```src
 [file]{linked_list}-[class]{}-[func]{remove}
@@ -62,7 +62,7 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 
 ### Accessing a node
 
-**Accessing a node in a linked list is relatively slow**. An array provides access to any element in $O(1)$ time, but a linked list must be traversed from its head until the desired node is reached. Accessing the $i$-th node requires $i - 1$ iterations, giving $O(n)$ time complexity.
+**Accessing a node by position in a linked list is relatively slow**. As we saw in the previous section, any array element can be accessed in $O(1)$ time. In a linked list, the program must start at the head and visit nodes one by one until it reaches the desired node. Reaching the $i$-th node thus takes $i - 1$ iterations, for a time complexity of $O(n)$.
 
 ```src
 [file]{linked_list}-[class]{}-[func]{access}
@@ -70,34 +70,34 @@ Although `P` still points to `n1` after removal, traversing the list can no long
 
 ### Finding a node
 
-Traverse the list to find a node with value `target`, then return its index. This is also linear search. The code is as follows:
+Traverse the list to find a node whose value is `target` and report its index. This is another linear search. Here is the code:
 
 ```src
 [file]{linked_list}-[class]{}-[func]{find}
 ```
 
-## Arrays versus linked lists
+## Arrays vs. linked lists
 
-The table below compares their properties and operation costs. Their contrasting storage strategies give them contrasting strengths.
+The table below compares the properties of arrays and linked lists and the efficiency of their operations. Their contrasting storage strategies lead to different strengths and weaknesses.
 
-<p align="center"> Table <id> &nbsp; Comparing array and linked list efficiency </p>
+<p align="center">Table <id> &nbsp; Comparing the efficiency of arrays and linked lists</p>
 
-|          | Array                           | Linked list           |
+|          | Arrays                           | Linked lists           |
 | -------- | ------------------------------ | -------------- |
-| Storage | Contiguous memory                   | Scattered memory   |
-| Expansion | Fixed length                     | Flexible expansion     |
-| Memory efficiency | Less memory per element, but may waste space | More memory per element |
-| Access an element | $O(1)$                         | $O(n)$         |
-| Add an element | $O(n)$                         | $O(1)$         |
-| Remove an element | $O(n)$                         | $O(1)$         |
+| Storage layout | Contiguous memory                   | Noncontiguous memory   |
+| Capacity growth | Fixed length                     | Can grow as needed     |
+| Memory efficiency | Less memory per element, but unused slots can waste space | More memory per element |
+| Accessing an element | $O(1)$                         | $O(n)$         |
+| Adding an element | $O(n)$                         | $O(1)$         |
+| Removing an element | $O(n)$                         | $O(1)$         |
 
 ## Common types of linked lists
 
-The figure below shows three common types.
+The figure below shows three common types of linked lists.
 
-- **Singly linked list**: The ordinary linked list introduced above. Each node stores a value and a reference to the next node. The first and last nodes are the head and tail, and the tail points to `None`.
-- **Circular linked list**: Connecting a singly linked list's tail to its head forms a circular list. Any node can then be treated as the head.
-- **Doubly linked list**: Each node stores references (pointers) in both directions, to its successor and predecessor. This makes it more flexible and allows traversal in either direction, at the cost of additional memory.
+- **Singly linked list.** This is the list introduced above. Each node contains a value and a reference to the next node. The first node is the head, and the last node is the tail. The tail points to `None`.
+- **Circular linked list.** Point the tail of a singly linked list back to its head to form a circular linked list. Any node in the circle can serve as the head.
+- **Doubly linked list.** Unlike a singly linked list, a doubly linked list records references in both directions. Each node holds a reference (pointer) to its successor (the next node) and to its predecessor (the previous node). This allows more flexible traversal in either direction, at the cost of additional memory.
 
 ```snippet
 doubly_list_node_class
@@ -105,21 +105,21 @@ doubly_list_node_class
 
 ![Common types of linked lists](linked_list.assets/linkedlist_common_types.svg)
 
-## Typical applications of linked lists
+## Common uses of linked lists
 
-Singly linked lists commonly implement stacks, queues, hash tables, and graphs.
+Singly linked lists are often used to implement stacks, queues, hash tables, and graphs.
 
-- **Stacks and queues**: Inserting and removing at the same end gives last-in, first-out behavior, forming a stack. Inserting at one end and removing at the other gives first-in, first-out behavior, forming a queue.
-- **Hash tables**: Separate chaining is a common collision-handling strategy that places colliding elements in a linked list.
-- **Graphs**: An adjacency list associates each vertex with a linked list whose elements represent the other vertices connected to it.
+- **Stacks and queues.** Inserting and removing at the same end of a linked list gives last-in, first-out behavior, as in a stack. Inserting at one end and removing at the other gives first-in, first-out behavior, as in a queue.
+- **Hash tables.** Separate chaining is a common way to resolve hash collisions. It stores all elements that collide in the same linked list.
+- **Graphs.** An adjacency list is a common representation of a graph. Each vertex has an associated list whose elements represent the other vertices connected to it.
 
-Doubly linked lists are useful when both the previous and next elements must be found quickly.
+Doubly linked lists are useful when we need quick access to both the previous and the next element.
 
-- **Advanced data structures**: In structures such as red-black trees and B-trees, a node may need access to its parent. Storing a parent reference is similar to the backward link in a doubly linked list.
-- **Browser history**: The forward and back buttons require access to the next and previous visited pages. A doubly linked list makes this straightforward.
-- **LRU caching**: Least recently used eviction needs fast access to the least recently used data and efficient insertion and removal, making doubly linked lists a good fit.
+- **Advanced data structures.** In red-black trees and B-trees, for example, we need to access a node's parent. A node can store a reference back to its parent, much like a backward link in a doubly linked list.
+- **Browser history.** When a user clicks Forward or Back, the browser needs to know which page comes next or came before in the browsing history. A doubly linked list makes these operations straightforward.
+- **LRU cache eviction.** A least recently used (LRU) eviction algorithm needs to locate the least recently used data quickly and to add and remove nodes efficiently. A doubly linked list is well suited to these operations.
 
-Circular linked lists suit cyclic operations, such as operating-system resource scheduling.
+Circular linked lists are useful when operations repeat in cycles, as in operating system resource scheduling.
 
-- **Round-robin scheduling**: This common CPU scheduling algorithm cycles through processes, giving each a time slice before moving to the next. A circular linked list can implement this cycle.
-- **Data buffers**: Some buffers use circular linked lists. Audio and video players, for example, may divide a stream into buffer blocks arranged in a circular list for seamless playback.
+- **Round-robin scheduling.** In this common CPU scheduling algorithm, the operating system cycles through a set of processes. Each process gets a time slice. When it expires, the CPU switches to the next process. A circular linked list can implement this rotation.
+- **Data buffers.** Some buffers use circular linked lists. For instance, an audio or video player might divide its data stream into buffer blocks and place them in a circular linked list for seamless playback.

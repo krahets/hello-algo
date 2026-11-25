@@ -1,99 +1,99 @@
-# 二分木の構築問題
+# 二分木を構築する問題
 
 !!! question
 
-    二分木の行きがけ順走査 `preorder` と通りがけ順走査 `inorder` が与えられます。これらから二分木を構築し、根ノードを返してください。二分木には同じ値を持つノードがないものとします（下図参照）。
+    二分木の行きがけ順の走査列 `preorder` と通りがけ順の走査列 `inorder` が与えられます。この二つから二分木を構築し、根ノードを返してください。次の図のように、木に値の等しいノードはないものとします。
 
-![二分木の構築に使うデータの例](build_binary_tree_problem.assets/build_tree_example.svg)
+![二分木の構築に使うデータ例](build_binary_tree_problem.assets/build_tree_example.svg)
 
-### 分割統治で解ける問題かどうかを判断する
+### 分割統治法で解けるかを判断する
 
-元の問題は、`preorder` と `inorder` から二分木を構築することであり、典型的な分割統治の問題です。
+元の問題は `preorder` と `inorder` から二分木を構築することで、分割統治法が使える典型的な問題です。
 
-- **問題を分解できる**：分割統治の観点から、元の問題を「左部分木を構築する」「右部分木を構築する」という二つの部分問題と、「根ノードを初期化する」という一つの操作に分けられます。各部分木（部分問題）も同じ方法でさらに小さな部分木（部分問題）へ分割でき、最小の部分問題（空の部分木）に到達したら終了します。
-- **部分問題が独立している**：左部分木と右部分木は互いに独立しており、重なりません。左部分木を構築するときは、通りがけ順走査と行きがけ順走査のうち、左部分木に対応する部分だけに注目すれば十分です。右部分木も同様です。
-- **部分問題の解を統合できる**：左部分木と右部分木（部分問題の解）が得られたら、それらを根ノードにつなぐことで、元の問題の解を得られます。
+- **問題を分割できる**：元の問題は、根ノードを初期化する操作と、「左部分木を構築する」「右部分木を構築する」という二つの部分問題に分けられます。各部分木も同じ方法でさらに小さい部分木に分けられ、最小の部分問題である空の部分木に達したら終了します。
+- **部分問題が独立している**：左部分木と右部分木に共通のノードはなく、互いに独立です。左部分木を構築する際は、通りがけ順と行きがけ順の列のうち左部分木に対応する部分だけを見れば十分です。右部分木も同様です。
+- **部分問題の解をまとめられる**：左部分木と右部分木という部分問題の解が得られたら、それぞれを根につなぐことで元の問題の解になります。
 
-### 部分木をどのように分割するか
+### 部分木の分け方
 
-以上から、この問題は分割統治で解けます。**では、行きがけ順走査 `preorder` と通りがけ順走査 `inorder` から、どのように左部分木と右部分木を切り分ければよいのでしょうか**。
+この問題に分割統治法が使えることが分かりました。では、**行きがけ順 `preorder` と通りがけ順 `inorder` の走査列を、どうやって左部分木と右部分木に分ければよいのでしょうか**。
 
-定義によれば、`preorder` と `inorder` はいずれも三つの部分に分けられます。
+定義から、`preorder` と `inorder` はどちらも三つの部分に分けられます。
 
-- 行きがけ順走査：`[ 根ノード | 左部分木 | 右部分木 ]`。たとえば上図の木では `[ 3 | 9 | 2 1 7 ]` です。
-- 通りがけ順走査：`[ 左部分木 | 根ノード | 右部分木 ]`。たとえば上図の木では `[ 9 | 3 | 1 2 7 ]` です。
+- 行きがけ順：`[ 根 | 左部分木 | 右部分木 ]`。たとえば上の図の木では `[ 3 | 9 | 2 1 7 ]` です。
+- 通りがけ順：`[ 左部分木 | 根 | 右部分木 ]`。たとえば上の図の木では `[ 9 | 3 | 1 2 7 ]` です。
 
-上図のデータを例に、下図の手順で分割できます。
+上の図のデータを例に、次の図の手順で実際に分けてみます。
 
-1. 行きがけ順走査の先頭要素 3 が根ノードの値です。
-2. 根ノード 3 の `inorder` 内のインデックスを探します。そのインデックスを使うと、`inorder` を `[ 9 | 3 | 1 2 7 ]` に分割できます。
-3. `inorder` の分割結果から、左部分木と右部分木のノード数がそれぞれ 1 と 3 であることがわかります。そのため、`preorder` を `[ 3 | 9 | 2 1 7 ]` に分割できます。
+1. 行きがけ順の先頭要素 3 が根の値です。
+2. `inorder` で根 3 のインデックスを探します。これを使って `inorder` を `[ 9 | 3 | 1 2 7 ]` と分けられます。
+3. `inorder` を分けた結果から、左部分木のノードは 1 個、右部分木のノードは 3 個と分かります。したがって `preorder` を `[ 3 | 9 | 2 1 7 ]` と分けられます。
 
-![行きがけ順走査と通りがけ順走査で部分木を分割する](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
+![行きがけ順と通りがけ順の走査列を部分木に分ける](build_binary_tree_problem.assets/build_tree_preorder_inorder_division.svg)
 
 ### 変数を使って部分木の区間を表す
 
-この分割方法により、**`preorder` と `inorder` の中で、根ノード、左部分木、右部分木に対応するインデックスの区間がわかりました**。これらの区間を表すため、いくつかのポインタ変数を使います。
+この分け方により、**根、左部分木、右部分木が `preorder` と `inorder` のどのインデックス区間に対応するか**が分かりました。いくつかの位置を示す変数でこれらの区間を表しましょう。
 
-- 現在の木の根ノードが `preorder` 内にあるインデックスを $i$ とします。
-- 現在の木の根ノードが `inorder` 内にあるインデックスを $m$ とします。
-- 現在の木に対応する `inorder` 内のインデックス区間を $[l, r]$ とします。
+- 現在の木の根が `preorder` に現れるインデックスを $i$ とします。
+- 現在の木の根が `inorder` に現れるインデックスを $m$ とします。
+- 現在の木が `inorder` で占めるインデックス区間を $[l, r]$ とします。
 
-下表のように、これらの変数を使って、根ノードの `preorder` 内のインデックスと、部分木の `inorder` 内のインデックス区間を表せます。
+次の表のように、これらの変数を使うと、`preorder` での根のインデックスと、`inorder` での部分木のインデックス区間を表せます。
 
-<p align="center"> 表 <id> &nbsp; 行きがけ順走査と通りがけ順走査における根ノードと部分木のインデックス </p>
+<p align="center"> 表 <id> &nbsp; 行きがけ順と通りがけ順における根と部分木のインデックス </p>
 
-|        | 根ノードの `preorder` 内のインデックス | 部分木の `inorder` 内のインデックス区間 |
+|        | `preorder` における根のインデックス | `inorder` における部分木のインデックス区間 |
 | ------ | ---------------------------- | ----------------------------- |
 | 現在の木 | $i$                          | $[l, r]$                      |
 | 左部分木 | $i + 1$                      | $[l, m-1]$                    |
 | 右部分木 | $i + 1 + (m - l)$            | $[m+1, r]$                    |
 
-右部分木の根ノードのインデックスに含まれる $(m-l)$ は、「左部分木のノード数」を表すことに注意してください。下図とあわせて考えると理解しやすくなります。
+右部分木の根のインデックスを求める式で、$(m-l)$ は「左部分木のノード数」を表します。次の図と照らし合わせてみてください。
 
-![根ノードと左右の部分木のインデックス区間](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
+![根と左右の部分木をインデックス区間で表す](build_binary_tree_problem.assets/build_tree_division_pointers.svg)
 
-### コードの実装
+### 実装
 
-$m$ を効率よく調べられるよう、ハッシュテーブル `hmap` に、配列 `inorder` の要素からインデックスへの対応を保存します。
+$m$ を効率よく求めるため、ハッシュ表 `hmap` に、配列 `inorder` の各要素とそのインデックスの対応を格納します。
 
 ```src
 [file]{build_tree}-[class]{}-[func]{build_tree}
 ```
 
-下図に、二分木を構築する再帰の流れを示します。各ノードは再帰呼び出しを下に進める過程で作られ、各辺（参照）は上に戻る過程で作られます。
+次の図は、二分木を再帰的に構築する過程です。ノードは再帰呼び出しで下へ進むときに作り、辺（参照）は呼び出しから上へ戻るときにつなぎます。
 
 === "<1>"
-    ![二分木を構築する再帰の流れ](build_binary_tree_problem.assets/built_tree_step1.svg)
+    ![二分木を再帰的に構築する過程](build_binary_tree_problem.assets/built_tree_step1.svg)
 
 === "<2>"
-    ![二分木の構築：手順 2](build_binary_tree_problem.assets/built_tree_step2.svg)
+    ![built_tree_step2](build_binary_tree_problem.assets/built_tree_step2.svg)
 
 === "<3>"
-    ![二分木の構築：手順 3](build_binary_tree_problem.assets/built_tree_step3.svg)
+    ![built_tree_step3](build_binary_tree_problem.assets/built_tree_step3.svg)
 
 === "<4>"
-    ![二分木の構築：手順 4](build_binary_tree_problem.assets/built_tree_step4.svg)
+    ![built_tree_step4](build_binary_tree_problem.assets/built_tree_step4.svg)
 
 === "<5>"
-    ![二分木の構築：手順 5](build_binary_tree_problem.assets/built_tree_step5.svg)
+    ![built_tree_step5](build_binary_tree_problem.assets/built_tree_step5.svg)
 
 === "<6>"
-    ![二分木の構築：手順 6](build_binary_tree_problem.assets/built_tree_step6.svg)
+    ![built_tree_step6](build_binary_tree_problem.assets/built_tree_step6.svg)
 
 === "<7>"
-    ![二分木の構築：手順 7](build_binary_tree_problem.assets/built_tree_step7.svg)
+    ![built_tree_step7](build_binary_tree_problem.assets/built_tree_step7.svg)
 
 === "<8>"
-    ![二分木の構築：手順 8](build_binary_tree_problem.assets/built_tree_step8.svg)
+    ![built_tree_step8](build_binary_tree_problem.assets/built_tree_step8.svg)
 
 === "<9>"
-    ![二分木の構築：手順 9](build_binary_tree_problem.assets/built_tree_step9.svg)
+    ![built_tree_step9](build_binary_tree_problem.assets/built_tree_step9.svg)
 
-各再帰関数内での行きがけ順走査 `preorder` と通りがけ順走査 `inorder` の分割結果を下図に示します。
+各再帰呼び出しで行きがけ順の列 `preorder` と通りがけ順の列 `inorder` を分けた結果を、次の図に示します。
 
-![各再帰関数内での分割結果](build_binary_tree_problem.assets/built_tree_overall.svg)
+![各再帰呼び出しでの分割結果](build_binary_tree_problem.assets/built_tree_overall.svg)
 
-木のノード数を $n$ とすると、各ノードの初期化（再帰関数 `dfs()` の 1 回の実行）には $O(1)$ 時間かかります。**したがって、全体の時間計算量は $O(n)$ です**。
+木のノード数を $n$ とします。各ノードの初期化（再帰関数 `dfs()` の 1 回の処理）には $O(1)$ の時間がかかります。**したがって全体の時間計算量は $O(n)$ です**。
 
-ハッシュテーブルには `inorder` の要素からインデックスへの対応を保存するため、空間計算量は $O(n)$ です。最悪の場合、つまり二分木が連結リストに退化した場合は、再帰の深さが $n$ となり、スタックフレームに $O(n)$ の空間を使います。**したがって、全体の空間計算量は $O(n)$ です**。
+ハッシュ表には `inorder` の要素とインデックスの対応を格納するので、空間計算量は $O(n)$ です。最悪の場合、つまり二分木が連結リストの形に偏ると、再帰の深さは $n$ に達し、スタックフレームに $O(n)$ の空間を使います。**したがって全体の空間計算量は $O(n)$ です**。

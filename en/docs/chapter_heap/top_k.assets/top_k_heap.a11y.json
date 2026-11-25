@@ -1,280 +1,282 @@
 {
-  "schema_version": 2,
-  "title": "Finding the top-k elements with a min heap",
-  "summary": "Maintain at most k candidates in a min heap and compare its minimum against each remaining element to retain the largest k values step by step.",
-  "context": [
-    "In this example, k = 3; the input array and its indices are listed in the table below. Pointer i denotes the input index, while heap is the level-order array of the min heap: heap index 0 holds the smallest candidate, with left and right children at heap indices 1 and 2 (when present). Input indices indicate where each element came from, whereas heap indices indicate its current storage slot.",
-    "First insert the initial k input elements into the heap one by one, then compare each remaining element against the heap top: if the current value exceeds the heap top, remove the heap top and insert the current value; otherwise skip it. State tables are named by step number; steps that only compare or skip leave the heap unchanged and refer by caption to the active table of candidates and source indices."
-  ],
-  "description": [
-    "The heap top holds the smallest value among the current candidates. Whenever a larger value arrives, replacing the heap top with it preserves the largest k values seen so far. Checking the heap top takes O(1) time, and each insertion or removal takes O(log k) time."
-  ],
-  "result": "Because the heap retains at most k candidates, space complexity is O(k) and total time complexity is O(n log k).",
-  "frames": [
-    {
-      "id": "source-164",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step1.png",
-      "title": "Insert 1 into the empty heap",
-      "explanation": "At pointer i = 0, read value 1 and insert it into the empty heap. There is now 1 candidate, [1], and the heap top is 1.",
-      "key_state": "Value 1 from input index i = 0 is inserted; the heap has 1 item [1], with heap top 1.",
-      "announcement": "Insert 1 into the empty heap; the heap is now [1].",
-      "state_tables": [
-        {
-          "caption": "Step 1 candidates: after inserting 1",
-          "headers": [
-            "Heap array index",
-            "Value",
-            "Source input index"
-          ],
-          "rows": [
-            [
-              "0",
-              "1",
-              "0"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-165",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step2.png",
-      "title": "Insert 7 into the heap",
-      "explanation": "At pointer i = 1, read value 7 and insert it at heap index 1. Parent node 1 is smaller than 7, so no sift-up is needed; the 2 candidates are [1, 7], and the heap top is 1.",
-      "key_state": "Value 7 from input index i = 1 is inserted; the heap has 2 items [1, 7], with heap top 1.",
-      "announcement": "Insert 7 into the heap with no sift-up needed; the heap is now [1, 7].",
-      "state_tables": [
-        {
-          "caption": "Step 2 candidates: after inserting 7",
-          "headers": [
-            "Heap array index",
-            "Value",
-            "Source input index"
-          ],
-          "rows": [
-            [
-              "0",
-              "1",
-              "0"
-            ],
-            [
-              "1",
-              "7",
-              "1"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-166",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step3.png",
-      "title": "Insert 6; initial candidates ready",
-      "explanation": "At pointer i = 2, read value 6 and insert it at heap index 2. The 3 candidates are now [1, 7, 6], with heap top 1; all first k = 3 inputs are in the heap, so subsequent elements will be compared against the heap top.",
-      "key_state": "Value 6 from input index i = 2 is inserted; the initial 3 items [1, 7, 6] are in place, with heap top 1.",
-      "announcement": "Insert 6 into the heap; the initial three candidates [1, 7, 6] are ready, with heap top 1.",
-      "state_tables": [
-        {
-          "caption": "Step 3 candidates: initial three items ready",
-          "headers": [
-            "Heap array index",
-            "Value",
-            "Source input index"
-          ],
-          "rows": [
-            [
-              "0",
-              "1",
-              "0"
-            ],
-            [
-              "1",
-              "7",
-              "1"
-            ],
-            [
-              "2",
-              "6",
-              "2"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-167",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step4.png",
-      "title": "Compare current value 3 with heap top 1",
-      "explanation": "At pointer i = 3, current value 3 is greater than the smallest candidate 1, so a replacement will follow. This step only compares without removing or inserting yet; the 3 candidates remain [1, 7, 6], with heap top 1. For candidates and source indices, see table “Step 3 candidates: initial three items ready.”",
-      "key_state": "At input index i = 3, current value 3 > heap top 1, preparing to replace; the heap is not yet modified and still has 3 items [1, 7, 6], with heap top 1.",
-      "announcement": "Compare current value 3 with heap top 1: since 3 > 1, prepare to replace; the heap is not yet modified."
-    },
-    {
-      "id": "source-168",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step5.png",
-      "title": "Remove former heap top 1",
-      "explanation": "With pointer still at i = 3, first remove former heap top 1, leaving [6, 7] with temporary heap top 6. Only k − 1 = 2 candidates are in the heap while value 3 awaits insertion; this is an intermediate state of the replacement rather than the end of the round, and no result is lost.",
-      "key_state": "At input index i = 3, former heap top 1 is removed; the heap temporarily holds k − 1 = 2 items [6, 7] with heap top 6 while current value 3 awaits insertion.",
-      "announcement": "Remove former heap top 1; the heap temporarily holds 2 items [6, 7] while 3 awaits insertion.",
-      "state_tables": [
-        {
-          "caption": "Step 5 candidates: intermediate state after removing 1",
-          "headers": [
-            "Heap array index",
-            "Value",
-            "Source input index"
-          ],
-          "rows": [
-            [
-              "0",
-              "6",
-              "2"
-            ],
-            [
-              "1",
-              "7",
-              "1"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-169",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step6.png",
-      "title": "Insert 3 into the heap",
-      "explanation": "With pointer still at i = 3, insert value 3 into the heap and sift it up to the root, restoring k = 3 candidates [3, 7, 6] with new heap top 3. These three candidates are the largest three values among the first 4 inputs.",
-      "key_state": "At input index i = 3, 3 is inserted and sifted up, restoring 3 items [3, 7, 6] with heap top 3.",
-      "announcement": "Insert 3 and sift it up as the new heap top, restoring three candidates [3, 7, 6].",
-      "state_tables": [
-        {
-          "caption": "Step 6 candidates: after inserting 3",
-          "headers": [
-            "Heap array index",
-            "Value",
-            "Source input index"
-          ],
-          "rows": [
-            [
-              "0",
-              "3",
-              "3"
-            ],
-            [
-              "1",
-              "7",
-              "1"
-            ],
-            [
-              "2",
-              "6",
-              "2"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    },
-    {
-      "id": "source-170",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step7.png",
-      "title": "Compare current value 2 with heap top 3",
-      "explanation": "At pointer i = 4, current value 2 is smaller than heap top 3 and does not qualify for replacement. This step only compares, leaving the 3 candidates as [3, 7, 6]. For candidates and source indices, see table “Step 6 candidates: after inserting 3.”",
-      "key_state": "At input index i = 4, current value 2 < heap top 3, so no replacement occurs; the heap keeps 3 items [3, 7, 6] with heap top 3.",
-      "announcement": "Compare current value 2 with heap top 3: since 2 < 3, do not replace."
-    },
-    {
-      "id": "source-171",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step8.png",
-      "title": "Skip 2",
-      "explanation": "At pointer i = 4, because 2 is smaller than heap top 3, skip it without removing or inserting. The 3 candidates remain [3, 7, 6] with heap top 3, and all inputs have now been processed. For candidates and source indices, see table “Step 6 candidates: after inserting 3.”",
-      "key_state": "Value 2 at input index i = 4 is skipped and all inputs are processed; the heap keeps 3 items [3, 7, 6] with heap top 3.",
-      "announcement": "Skip 2; the three candidates [3, 7, 6] remain unchanged and all inputs are processed."
-    },
-    {
-      "id": "source-172",
-      "book_path": "chapter_heap/top_k.assets/top_k_heap_step9.png",
-      "title": "Return the three candidates",
-      "explanation": "Traversal is complete with no active pointer, so return the min heap [3, 7, 6] directly. Their source input indices are listed in the table below; the heap top is 3, while left and right children 7 and 6 need not be in ascending order because no final sort is performed.",
-      "key_state": "Traversal complete, no active pointer; return min heap [3, 7, 6] of 3 items with heap top 3, not sorted in ascending order.",
-      "announcement": "Return min heap [3, 7, 6]; the returned elements are not sorted in ascending order.",
-      "state_tables": [
-        {
-          "caption": "Step 9 final returned candidates and sources",
-          "headers": [
-            "Heap array index",
-            "Value",
-            "Source input index"
-          ],
-          "rows": [
-            [
-              "0",
-              "3",
-              "3"
-            ],
-            [
-              "1",
-              "7",
-              "1"
-            ],
-            [
-              "2",
-              "6",
-              "2"
-            ]
-          ],
-          "row_header": 0
-        }
-      ]
-    }
-  ],
   "animations": {
     "top-k-heap": {
       "kind": "source-frames",
       "states": [
         {
-          "id": "step-1",
-          "frame_id": "source-164"
+          "frame_id": "source-164",
+          "id": "step-1"
         },
         {
-          "id": "step-2",
-          "frame_id": "source-165"
+          "frame_id": "source-165",
+          "id": "step-2"
         },
         {
-          "id": "step-3",
-          "frame_id": "source-166"
+          "frame_id": "source-166",
+          "id": "step-3"
         },
         {
-          "id": "step-4",
-          "frame_id": "source-167"
+          "frame_id": "source-167",
+          "id": "step-4"
         },
         {
-          "id": "step-5",
-          "frame_id": "source-168"
+          "frame_id": "source-168",
+          "id": "step-5"
         },
         {
-          "id": "step-6",
-          "frame_id": "source-169"
+          "frame_id": "source-169",
+          "id": "step-6"
         },
         {
-          "id": "step-7",
-          "frame_id": "source-170"
+          "frame_id": "source-170",
+          "id": "step-7"
         },
         {
-          "id": "step-8",
-          "frame_id": "source-171"
+          "frame_id": "source-171",
+          "id": "step-8"
         },
         {
-          "id": "step-9",
-          "frame_id": "source-172"
+          "frame_id": "source-172",
+          "id": "step-9"
         }
       ]
     }
   },
+  "context": [
+    "Here k=3. The table gives the input array and its indices. The pointer i is an input index. The min-heap's level-order array is heap. Its smallest candidate is at heap index 0, and its left and right children, if present, are at heap indices 1 and 2. An input index identifies an element's origin. A heap index gives its current position.",
+    "Push the first k inputs onto the heap in order. Then compare each remaining value with the root. If the value exceeds the root, pop the root and push the new value. Otherwise, skip it. The tables are named by step. When a comparison or skip leaves the heap unchanged, the diagram refers to the table listing those candidates and their input indices."
+  ],
+  "description": [
+    "The root holds the smallest candidate. Replacing it with a larger new value preserves the k largest values among the inputs processed so far. Checking the root takes O(1) time. Adjusting the heap after a push or pop takes O(log k) time."
+  ],
+  "frames": [
+    {
+      "announcement": "Push 1 onto the empty heap, giving [1].",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step1.png",
+      "explanation": "At i=0, read 1 and push it onto the empty heap. There is one candidate, [1], and the root is 1.",
+      "id": "source-164",
+      "key_state": "The 1 at input index i=0 has been pushed. The heap has one entry, [1], with 1 at the root.",
+      "state_tables": [
+        {
+          "caption": "Step 1 candidates: after adding 1",
+          "headers": [
+            "Heap array index",
+            "Value",
+            "Original input index"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "1",
+              "0"
+            ]
+          ]
+        }
+      ],
+      "title": "Push 1 onto the empty heap"
+    },
+    {
+      "announcement": "Push 7. No sift-up is needed, and the heap is now [1, 7].",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step2.png",
+      "explanation": "At i=1, read 7 and push it at heap index 1. Its parent, 1, is smaller than 7, so no sift-up is needed. The two candidates are [1, 7], with 1 at the root.",
+      "id": "source-165",
+      "key_state": "The 7 at input index i=1 has been pushed. The heap has two entries, [1, 7], with 1 at the root.",
+      "state_tables": [
+        {
+          "caption": "Step 2 candidates: after adding 7",
+          "headers": [
+            "Heap array index",
+            "Value",
+            "Original input index"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "title": "Push 7 onto the heap"
+    },
+    {
+      "announcement": "Push 6 to complete the initial three candidates, [1, 7, 6], with 1 at the root.",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step3.png",
+      "explanation": "At i=2, read 6 and push it at heap index 2. The three candidates are [1, 7, 6], with 1 at the root. The first k=3 inputs are all in the heap. Next, compare the remaining elements with the root.",
+      "id": "source-166",
+      "key_state": "The 6 at input index i=2 has been pushed. The three initial entries are [1, 7, 6], with 1 at the root.",
+      "state_tables": [
+        {
+          "caption": "Step 3 candidates: all three initial entries",
+          "headers": [
+            "Heap array index",
+            "Value",
+            "Original input index"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ],
+            [
+              "2",
+              "6",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "title": "Push 6 to complete the initial candidates"
+    },
+    {
+      "announcement": "Compare 3 with root 1. Since 3 > 1, prepare to replace the root. The heap has not yet changed.",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step4.png",
+      "explanation": "At i=3, the current value, 3, exceeds the smallest candidate, 1. A replacement is pending. This step only compares: nothing has been popped or pushed. The three candidates remain [1, 7, 6], with 1 at the root. For the candidates and their input indices, see “Step 3 candidates: all three initial entries.”",
+      "id": "source-167",
+      "key_state": "At input index i=3, the current value 3 > root 1, so a replacement is pending. The heap still has three entries, [1, 7, 6], with 1 at the root.",
+      "title": "Compare the current value, 3, with root 1"
+    },
+    {
+      "announcement": "Pop the old root, 1. The heap temporarily holds two entries, [6, 7], while 3 waits to be pushed.",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step5.png",
+      "explanation": "With i still at 3, pop the old root, 1. The remaining heap is [6, 7], temporarily rooted at 6. It holds only k−1=2 candidates because 3 has yet to be pushed. This is an intermediate state of the replacement: no result has been missed, and the round is not yet complete.",
+      "id": "source-168",
+      "key_state": "At input index i=3, the old root, 1, has been popped. The heap temporarily has k−1=2 entries, [6, 7], with 6 at the root. The current value, 3, is waiting to be pushed.",
+      "state_tables": [
+        {
+          "caption": "Step 5 candidates: intermediate state after popping 1",
+          "headers": [
+            "Heap array index",
+            "Value",
+            "Original input index"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "6",
+              "2"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "title": "Pop the old root, 1"
+    },
+    {
+      "announcement": "Push 3 and sift it up to become the new root. There are again three candidates, [3, 7, 6].",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step6.png",
+      "explanation": "With i still at 3, push 3 and sift it up to the root. There are again k=3 candidates, [3, 7, 6], and the new root is 3. These are the three largest of the first four inputs.",
+      "id": "source-169",
+      "key_state": "At input index i=3, the value 3 has been pushed and sifted up. The heap again has three entries, [3, 7, 6], with 3 at the root.",
+      "state_tables": [
+        {
+          "caption": "Step 6 candidates: after adding 3",
+          "headers": [
+            "Heap array index",
+            "Value",
+            "Original input index"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "3",
+              "3"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ],
+            [
+              "2",
+              "6",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "title": "Push 3 onto the heap"
+    },
+    {
+      "announcement": "Compare 2 with root 3. Since 2 < 3, do not replace the root.",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step7.png",
+      "explanation": "At i=4, the current value, 2, is smaller than the root, 3, so it does not qualify for replacement. This step only compares. The three candidates remain [3, 7, 6]. For the candidates and their input indices, see “Step 6 candidates: after adding 3.”",
+      "id": "source-170",
+      "key_state": "At input index i=4, the current value 2 < root 3. No replacement occurs. The heap still has three entries, [3, 7, 6], with 3 at the root.",
+      "title": "Compare the current value, 2, with root 3"
+    },
+    {
+      "announcement": "Skip 2. The three candidates remain [3, 7, 6], and all inputs have been processed.",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step8.png",
+      "explanation": "At i=4, skip 2 because it is smaller than root 3. Nothing is popped or pushed. The three candidates remain [3, 7, 6], with 3 at the root. All inputs have been processed. For the candidates and their input indices, see “Step 6 candidates: after adding 3.”",
+      "id": "source-171",
+      "key_state": "The 2 at input index i=4 has been skipped, completing the input. The three entries are still [3, 7, 6], with 3 at the root.",
+      "title": "Skip 2"
+    },
+    {
+      "announcement": "Return the min-heap [3, 7, 6]. The result is not in ascending order.",
+      "book_path": "chapter_heap/top_k.assets/top_k_heap_step9.png",
+      "explanation": "The traversal is over, with no current input index. Return the min-heap [3, 7, 6] directly. The table gives the input index of each candidate. The root is 3, but its left and right children, 7 and 6, need not be in ascending order. No additional sort is performed.",
+      "id": "source-172",
+      "key_state": "The traversal is over, with no current input index. Return the three-entry min-heap [3, 7, 6], rooted at 3. The result is not in ascending order.",
+      "state_tables": [
+        {
+          "caption": "Step 9: final candidates and their origins",
+          "headers": [
+            "Heap array index",
+            "Value",
+            "Original input index"
+          ],
+          "row_header": 0,
+          "rows": [
+            [
+              "0",
+              "3",
+              "3"
+            ],
+            [
+              "1",
+              "7",
+              "1"
+            ],
+            [
+              "2",
+              "6",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "title": "Return the three candidates"
+    }
+  ],
+  "input_tables": [
+    0
+  ],
+  "result": "The heap stores at most k candidates, so it uses O(k) space. The total time complexity is O(n log k).",
+  "schema_version": 2,
+  "summary": "Keep at most k candidates. Compare the smallest candidate with each new element to retain the k largest values seen so far.",
   "tables": [
     {
       "caption": "Input array and indices",
@@ -282,6 +284,7 @@
         "Input index",
         "Value"
       ],
+      "row_header": 0,
       "rows": [
         [
           "0",
@@ -303,11 +306,8 @@
           "4",
           "2"
         ]
-      ],
-      "row_header": 0
+      ]
     }
   ],
-  "input_tables": [
-    0
-  ]
+  "title": "Finding the top k with a min-heap"
 }

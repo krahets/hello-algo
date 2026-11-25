@@ -13,12 +13,12 @@ import (
 
 func TestLevelOrder(t *testing.T) {
 	/* 初始化二元樹 */
-	// 這裡藉助了一個從陣列直接生成二元樹的函式
+	// 這裡使用能從陣列直接建立二元樹的函式
 	root := SliceToTree([]any{1, 2, 3, 4, 5, 6, 7})
-	fmt.Println("\n初始化二元樹: ")
+	fmt.Println("\n初始化二元樹： ")
 	PrintTree(root)
 
 	// 層序走訪
 	nums := levelOrder(root)
-	fmt.Println("\n層序走訪的節點列印序列 =", nums)
+	fmt.Println("\n依層序走訪印出的節點序列 =", nums)
 }

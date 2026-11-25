@@ -9,18 +9,18 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* Основная программа */
 func TestIteration(t *testing.T) {
 	n := 5
 	res := forLoop(n)
-	fmt.Println("\nРезультат суммирования в цикле for res = ", res)
+	fmt.Println("\nСумма в цикле for: res = ", res)
 
 	res = whileLoop(n)
-	fmt.Println("\nРезультат суммирования в цикле while res = ", res)
+	fmt.Println("\nСумма в цикле while: res = ", res)
 
 	res = whileLoopII(n)
-	fmt.Println("\nРезультат суммирования в цикле while (двойное обновление) res = ", res)
+	fmt.Println("\nСумма в цикле while с двумя обновлениями: res = ", res)
 
 	resStr := nestedForLoop(n)
-	fmt.Println("\nРезультат обхода в двойном цикле for ", resStr)
+	fmt.Println("\nРезультат обхода вложенными циклами for: ", resStr)
 }

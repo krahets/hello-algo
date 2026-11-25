@@ -7,7 +7,7 @@
 /* for ループ */
 function forLoop(n: number): number {
     let res = 0;
-    // ループで 1, 2, ..., n-1, n の和を求める
+    // 1, 2, ..., n-1, n の和をループで求める
     for (let i = 1; i <= n; i++) {
         res += i;
     }
@@ -17,35 +17,35 @@ function forLoop(n: number): number {
 /* while ループ */
 function whileLoop(n: number): number {
     let res = 0;
-    let i = 1; // 条件変数を初期化する
-    // ループで 1, 2, ..., n-1, n の和を求める
+    let i = 1; // 条件判定用の変数を初期化
+    // 1, 2, ..., n-1, n の和をループで求める
     while (i <= n) {
         res += i;
-        i++; // 条件変数を更新する
+        i++; // 条件判定用の変数を更新
     }
     return res;
 }
 
-/* while ループ（2 回の更新） */
+/* while ループ（2 回更新） */
 function whileLoopII(n: number): number {
     let res = 0;
-    let i = 1; // 条件変数を初期化する
-    // ループで 1, 4, 10, ... の和を求める
+    let i = 1; // 条件判定用の変数を初期化
+    // 1, 4, 10, ... の和をループで求める
     while (i <= n) {
         res += i;
-        // 条件変数を更新する
+        // 条件判定用の変数を更新
         i++;
         i *= 2;
     }
     return res;
 }
 
-/* 二重 for ループ */
+/* 二重の for ループ */
 function nestedForLoop(n: number): string {
     let res = '';
-    // i = 1, 2, ..., n-1, n のループ
+    // i = 1, 2, ..., n-1, n の順に繰り返す
     for (let i = 1; i <= n; i++) {
-        // j = 1, 2, ..., n-1, n のループ
+        // j = 1, 2, ..., n-1, n の順に繰り返す
         for (let j = 1; j <= n; j++) {
             res += `(${i}, ${j}), `;
         }
@@ -53,20 +53,20 @@ function nestedForLoop(n: number): string {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 const n = 5;
 let res: number;
 
 res = forLoop(n);
-console.log(`for ループで求めた和 res = ${res}`);
+console.log(`for ループによる総和 res = ${res}`);
 
 res = whileLoop(n);
-console.log(`while ループで求めた和 res = ${res}`);
+console.log(`while ループによる総和 res = ${res}`);
 
 res = whileLoopII(n);
-console.log(`while ループ（2 回の更新）で求めた和 res = ${res}`);
+console.log(`while ループ（2 回更新）による総和 res = ${res}`);
 
 const resStr = nestedForLoop(n);
-console.log(`二重 for ループの走査結果 ${resStr}`);
+console.log(`二重の for ループの走査結果 ${resStr}`);
 
 export {};

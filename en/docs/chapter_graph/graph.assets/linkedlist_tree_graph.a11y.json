@@ -1,48 +1,48 @@
 {
-  "schema_version": 2,
-  "title": "Connection relationships in linked lists, trees, and graphs",
-  "summary": "Use the same five nodes to compare linear successors, hierarchical tree branches, and network relationships that permit cross-branch links and cycles.",
   "context": [
-    "From left to right, all three subfigures use five nodes numbered 1 through 5: arrows in the singly linked list and tree denote directed references, whereas line segments in the undirected graph denote two-way adjacency. These are side-by-side structural comparisons, not steps of an algorithm transforming one structure into another."
+    "All three panels use nodes numbered 1 through 5. From left to right, arrows in the singly linked list and the tree represent directed references, and lines in the undirected graph represent adjacency in both directions. The panels compare three structures side by side rather than showing steps of an algorithm that transforms one into another."
   ],
   "description": [
-    "Comparing connection constraints from strictest to broadest: a singly linked list requires each non-tail node to have a single successor, forming one linear chain; a tree allows a parent node to branch to multiple child nodes in a top-down hierarchy from the root, while each non-root node still has only one parent with no cross-branch links or cycles; a graph removes root and hierarchy restrictions so any two vertices may be connected and cycles may occur.",
-    "Below the undirected \"Graph\" subfigure on the right, the note \"Graphs allow the most flexible relationships and are therefore the most complex\" refers to having the fewest connection constraints rather than the complexity of a specific algorithm. The table below lists the complete connections of all three structures."
+    "Consider the connection rules from most to least restrictive. In a singly linked list, every node except the tail has exactly one successor, forming a single chain. In a tree, a parent can have multiple children, forming branches down from the root. Each nonroot node has exactly one parent, and connections cannot cross branches or form cycles. A graph dispenses with the root and hierarchy requirements. Any two vertices can be connected according to the relationship being modeled, and cycles are allowed.",
+    "The label “most freedom in how nodes connect” beneath the undirected graph on the right refers to its having the fewest connection constraints. It does not describe an algorithm's complexity. The table lists every connection in each structure."
   ],
   "frames": [
     {
-      "id": "source-173",
       "book_path": "chapter_graph/graph.assets/linkedlist_tree_graph.png",
-      "title": "Connection relationships in linked lists, trees, and graphs",
-      "explanation": "The undirected graph in this example contains cycles such as 1—2—3—1 and 2—4—5—2, yet has no direct edge between 3 and 4 or between 3 and 5, so it is not a complete graph. Viewing nodes as vertices and references as edges lets us understand linked lists and trees from a graph perspective."
+      "explanation": "The undirected graph contains cycles such as 1—2—3—1 and 2—4—5—2. Vertex 3 has no edge to either 4 or 5, so the graph is not complete. Viewing nodes as vertices and references as edges lets us interpret linked lists and trees as graphs.",
+      "id": "source-173",
+      "title": "Connections in linked lists, trees, and graphs"
     }
   ],
+  "schema_version": 2,
+  "summary": "The same five nodes illustrate a linear chain of successors, a branching hierarchy, and a network that allows connections across branches and cycles.",
   "tables": [
     {
-      "caption": "Complete connections across the three example structures",
+      "caption": "All connections in the three examples",
       "headers": [
         "Structure",
-        "Complete connections",
-        "Connection constraints and features in this example"
+        "All connections",
+        "Connection rules and features of this example"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Singly linked list",
           "1→2, 2→3, 3→4, 4→5",
-          "4 successor references; single chain; tail node 5 has no successor"
+          "4 successor references form one chain. Tail node 5 has no successor."
         ],
         [
           "Tree",
           "1→2, 1→3, 2→4, 2→5",
-          "4 parent-child references; root is 1; leaves are 3, 4, 5"
+          "4 parent-child references. The root is 1, and the leaves are 3, 4, and 5."
         ],
         [
           "Undirected graph",
           "1—2, 1—3, 1—5, 2—3, 2—4, 2—5, 4—5",
-          "7 undirected edges; contains cycles, not a complete graph"
+          "7 undirected edges. The graph contains cycles and is not complete."
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Connections in linked lists, trees, and graphs"
 }

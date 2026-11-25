@@ -30,21 +30,21 @@ void preOrder(TreeNode *root) {
     }
     preOrder(root->left);
     preOrder(root->right);
-    // 復元
+    // 後戻り
     pathSize--;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\n二分木を初期化する\n");
+    printf("\n二分木を初期化\n");
     printTree(root);
 
     // 行きがけ順走査
     preOrder(root);
 
-    printf("\n根ノードからノード 7 までのすべての経路を出力する\n");
+    printf("\n根から値が 7 のノードまでの経路をすべて出力\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;

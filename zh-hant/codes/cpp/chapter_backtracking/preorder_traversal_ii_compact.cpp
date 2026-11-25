@@ -17,16 +17,16 @@ void preOrder(TreeNode *root) {
     // 嘗試
     path.push_back(root);
     if (root->val == 7) {
-        // 記錄解
+        // 記錄此解
         res.push_back(path);
     }
     preOrder(root->left);
     preOrder(root->right);
-    // 回退
+    // 回溯
     path.pop_back();
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
     cout << "\n初始化二元樹" << endl;
@@ -35,7 +35,7 @@ int main() {
     // 前序走訪
     preOrder(root);
 
-    cout << "\n輸出所有根節點到節點 7 的路徑" << endl;
+    cout << "\n輸出從根節點到值為 7 的節點的所有路徑" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

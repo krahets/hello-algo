@@ -55,22 +55,22 @@ string nestedForLoop(int n) {
     return res.str();
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    cout << "\nSum from the for loop, res = " << res << endl;
+    cout << "\nfor loop sum: res = " << res << endl;
 
     res = whileLoop(n);
-    cout << "\nSum from the while loop, res = " << res << endl;
+    cout << "\nwhile loop sum: res = " << res << endl;
 
     res = whileLoopII(n);
-    cout << "\nSum from the while loop with two updates, res = " << res << endl;
+    cout << "\nwhile loop sum (two updates): res = " << res << endl;
 
     string resStr = nestedForLoop(n);
-    cout << "\nTraversal result from the nested for loops: " << resStr << endl;
+    cout << "\nNested for loop traversal: " << resStr << endl;
 
     return 0;
 }

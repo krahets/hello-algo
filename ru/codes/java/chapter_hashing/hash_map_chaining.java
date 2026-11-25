@@ -11,10 +11,10 @@ import java.util.List;
 
 /* Хеш-таблица с цепочками */
 class HashMapChaining {
-    int size; // Число пар ключ-значение
-    int capacity; // Вместимость хеш-таблицы
-    double loadThres; // Порог коэффициента загрузки для запуска расширения
-    int extendRatio; // Коэффициент расширения
+    int size; // Число пар «ключ — значение»
+    int capacity; // Ёмкость хеш-таблицы
+    double loadThres; // Порог коэффициента заполнения для расширения
+    int extendRatio; // Во сколько раз увеличивается ёмкость
     List<List<Pair>> buckets; // Массив корзин
 
     /* Конструктор */
@@ -34,51 +34,51 @@ class HashMapChaining {
         return key % capacity;
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     double loadFactor() {
         return (double) size / capacity;
     }
 
-    /* Операция поиска */
+    /* Поиск */
     String get(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Обойти корзину; если найден key, вернуть соответствующее val
+        // Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // Если key не найден, вернуть null
+        // Если ключ key не найден, вернуть null
         return null;
     }
 
-    /* Операция добавления */
+    /* Вставка */
     void put(int key, String val) {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if (loadFactor() > loadThres) {
             extend();
         }
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+        // Обойти корзину. Если найден ключ key, обновить val и завершить операцию
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 pair.val = val;
                 return;
             }
         }
-        // Если такого key нет, добавить пару ключ-значение в конец
+        // Если ключа key нет, добавить пару в конец списка
         Pair pair = new Pair(key, val);
         bucket.add(pair);
         size++;
     }
 
-    /* Операция удаления */
+    /* Удаление */
     void remove(int key) {
         int index = hashFunc(key);
         List<Pair> bucket = buckets.get(index);
-        // Обойти корзину и удалить из нее пару ключ-значение
+        // Обойти корзину и удалить из неё нужную пару
         for (Pair pair : bucket) {
             if (pair.key == key) {
                 bucket.remove(pair);
@@ -92,14 +92,14 @@ class HashMapChaining {
     void extend() {
         // Временно сохранить исходную хеш-таблицу
         List<List<Pair>> bucketsTmp = buckets;
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         capacity *= extendRatio;
         buckets = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.add(new ArrayList<>());
         }
         size = 0;
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         for (List<Pair> bucket : bucketsTmp) {
             for (Pair pair : bucket) {
                 put(pair.key, pair.val);
@@ -121,28 +121,28 @@ class HashMapChaining {
 
 public class hash_map_chaining {
     public static void main(String[] args) {
-        /* Инициализация хеш-таблицы */
+        /* Создать хеш-таблицу */
         HashMapChaining map = new HashMapChaining();
 
-        /* Операция добавления */
-        // Добавить пару (key, value) в хеш-таблицу
+        /* Вставка */
+        // Добавить в таблицу пару (key, value)
         map.put(12836, "Сяо Ха");
         map.put(15937, "Сяо Ло");
         map.put(16750, "Сяо Суань");
         map.put(13276, "Сяо Фа");
         map.put(10583, "Сяо Я");
-        System.out.println("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
+        System.out.println("\nХеш-таблица после вставки:\nКлюч -> Значение");
         map.print();
 
-        /* Операция поиска */
-        // Ввести в хеш-таблицу ключ key и получить значение value
+        /* Поиск */
+        // Получить из таблицы значение value по ключу key
         String name = map.get(13276);
-        System.out.println("\nДля номера 13276 найдено имя " + name);
+        System.out.println("\nИмя студента с номером 13276: " + name);
 
-        /* Операция удаления */
-        // Удалить пару (key, value) из хеш-таблицы
+        /* Удаление */
+        // Удалить из таблицы пару (key, value)
         map.remove(12836);
-        System.out.println("\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение");
+        System.out.println("\nХеш-таблица после удаления 12836:\nКлюч -> Значение");
         map.print();
     }
 }

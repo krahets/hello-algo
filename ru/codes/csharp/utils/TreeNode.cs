@@ -13,23 +13,23 @@ public class TreeNode(int? x) {
     public TreeNode? left;  // Ссылка на левый дочерний узел
     public TreeNode? right; // Ссылка на правый дочерний узел
 
-    // Правила кодирования сериализации см.:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // Массивное представление двоичного дерева:
+    // Правила кодирования при сериализации описаны здесь:
+    // https://www.hello-algo.com/ru/chapter_tree/array_representation_of_tree/
+    // Двоичное дерево в виде массива:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // Связное представление двоичного дерева:
-    // /——— 15
-    // /——— 7
-    // /——— 3
-    // |    \——— 6
-    // |        \——— 12
+    // Двоичное дерево в виде связанных узлов:
+    //             /——— 15
+    //         /——— 7
+    //     /——— 3
+    //    |    \——— 6
+    //    |        \——— 12
     // ——— 1
-    // \——— 2
-    // |    /——— 9
-    // \——— 4
-    // \——— 8
+    //     \——— 2
+    //        |    /——— 9
+    //         \——— 4
+    //             \——— 8
 
-    /* Десериализовать список в двоичное дерево: рекурсия */
+    /* Рекурсивно восстановить двоичное дерево из списка */
     static TreeNode? ListToTreeDFS(List<int?> arr, int i) {
         if (i < 0 || i >= arr.Count || !arr[i].HasValue) {
             return null;
@@ -41,12 +41,12 @@ public class TreeNode(int? x) {
         return root;
     }
 
-    /* Десериализовать список в двоичное дерево */
+    /* Восстановить двоичное дерево из списка */
     public static TreeNode? ListToTree(List<int?> arr) {
         return ListToTreeDFS(arr, 0);
     }
 
-    /* Сериализовать двоичное дерево в список: рекурсия */
+    /* Рекурсивно сериализовать двоичное дерево в список */
     static void TreeToListDFS(TreeNode? root, int i, List<int?> res) {
         if (root == null)
             return;

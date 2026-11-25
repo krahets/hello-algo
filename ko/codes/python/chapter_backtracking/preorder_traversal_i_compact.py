@@ -22,7 +22,7 @@ def pre_order(root: TreeNode):
     pre_order(root.right)
 
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
     print("\n이진 트리 초기화")

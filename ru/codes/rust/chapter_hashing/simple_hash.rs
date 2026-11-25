@@ -28,7 +28,7 @@ fn mul_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* XOR-хеширование */
+/* Хеширование с помощью XOR */
 fn xor_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -52,19 +52,19 @@ fn rot_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 fn main() {
-    let key = "Hello Algo";
+    let key = "Hello 算法";
 
     let hash = add_hash(key);
-    println!("Хеш-сумма сложением = {hash}");
+    println!("Аддитивный хеш: {hash}");
 
     let hash = mul_hash(key);
-    println!("Хеш-сумма умножением = {hash}");
+    println!("Мультипликативный хеш: {hash}");
 
     let hash = xor_hash(key);
-    println!("Хеш-сумма XOR = {hash}");
+    println!("Хеш на основе XOR: {hash}");
 
     let hash = rot_hash(key);
-    println!("Хеш-сумма с циклическим сдвигом = {hash}");
+    println!("Хеш с циклическим сдвигом: {hash}");
 }

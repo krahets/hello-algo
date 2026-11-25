@@ -12,10 +12,10 @@ import (
 
 /* Хеш-таблица с цепочками */
 type hashMapChaining struct {
-	size        int      // Число пар ключ-значение
-	capacity    int      // Вместимость хеш-таблицы
-	loadThres   float64  // Порог коэффициента загрузки для запуска расширения
-	extendRatio int      // Коэффициент расширения
+	size        int      // Число пар «ключ — значение»
+	capacity    int      // Ёмкость хеш-таблицы
+	loadThres   float64  // Порог коэффициента заполнения для расширения
+	extendRatio int      // Во сколько раз увеличивается ёмкость
 	buckets     [][]pair // Массив корзин
 }
 
@@ -39,40 +39,40 @@ func (m *hashMapChaining) hashFunc(key int) int {
 	return key % m.capacity
 }
 
-/* Коэффициент загрузки */
+/* Коэффициент заполнения */
 func (m *hashMapChaining) loadFactor() float64 {
 	return float64(m.size) / float64(m.capacity)
 }
 
-/* Операция поиска */
+/* Поиск */
 func (m *hashMapChaining) get(key int) string {
 	idx := m.hashFunc(key)
 	bucket := m.buckets[idx]
-	// Обойти корзину; если найден key, вернуть соответствующее val
+	// Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
 	for _, p := range bucket {
 		if p.key == key {
 			return p.val
 		}
 	}
-	// Если key не найден, вернуть пустую строку
+	// Если ключ key не найден, вернуть пустую строку
 	return ""
 }
 
-/* Операция добавления */
+/* Вставка */
 func (m *hashMapChaining) put(key int, val string) {
-	// Когда коэффициент загрузки превышает порог, выполнить расширение
+	// Расширить таблицу, если коэффициент заполнения превысил порог
 	if m.loadFactor() > m.loadThres {
 		m.extend()
 	}
 	idx := m.hashFunc(key)
-	// Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+	// Обойти корзину. Если найден ключ key, обновить val и завершить операцию
 	for i := range m.buckets[idx] {
 		if m.buckets[idx][i].key == key {
 			m.buckets[idx][i].val = val
 			return
 		}
 	}
-	// Если такого key нет, добавить пару ключ-значение в конец
+	// Если ключа key нет, добавить пару в конец списка
 	p := pair{
 		key: key,
 		val: val,
@@ -81,13 +81,13 @@ func (m *hashMapChaining) put(key int, val string) {
 	m.size += 1
 }
 
-/* Операция удаления */
+/* Удаление */
 func (m *hashMapChaining) remove(key int) {
 	idx := m.hashFunc(key)
-	// Обойти корзину и удалить из нее пару ключ-значение
+	// Обойти корзину и удалить из неё нужную пару
 	for i, p := range m.buckets[idx] {
 		if p.key == key {
-			// Удаление из среза
+			// Удалить элемент из среза
 			m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
 			m.size -= 1
 			break
@@ -103,14 +103,14 @@ func (m *hashMapChaining) extend() {
 		tmpBuckets[i] = make([]pair, len(m.buckets[i]))
 		copy(tmpBuckets[i], m.buckets[i])
 	}
-	// Инициализация новой хеш-таблицы после расширения
+	// Создать новую таблицу увеличенной ёмкости
 	m.capacity *= m.extendRatio
 	m.buckets = make([][]pair, m.capacity)
 	for i := 0; i < m.capacity; i++ {
 		m.buckets[i] = make([]pair, 0)
 	}
 	m.size = 0
-	// Перенести пары ключ-значение из исходной хеш-таблицы в новую
+	// Перенести пары из исходной таблицы в новую
 	for _, bucket := range tmpBuckets {
 		for _, p := range bucket {
 			m.put(p.key, p.val)

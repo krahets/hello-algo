@@ -15,7 +15,7 @@ def fast_pow(x, n)
 end
 
 if __FILE__ == $0
-  raise '빠른 거듭제곱 검증에 실패했다' unless fast_pow(7, 0) == 1
-  raise '빠른 거듭제곱 검증에 실패했다' unless fast_pow(3, 5) == 243
-  raise '빠른 거듭제곱 검증에 실패했다' unless fast_pow(2, 6) == 64
+  raise 'fast power check failed' unless fast_pow(7, 0) == 1
+  raise 'fast power check failed' unless fast_pow(3, 5) == 243
+  raise 'fast power check failed' unless fast_pow(2, 6) == 64
 end

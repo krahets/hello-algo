@@ -8,31 +8,31 @@
 
 /* Backtracking: subset sum I */
 void backtrack(vector<int> &state, int target, int total, vector<int> &choices, vector<vector<int>> &res) {
-    // Record a solution when the subset sum equals target
+    // Record a solution when the subset sums to target
     if (total == target) {
         res.push_back(state);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     for (size_t i = 0; i < choices.size(); i++) {
-        // Prune: skip this choice if the subset sum would exceed target
+        // Prune: skip choices that would take the subset sum over target
         if (total + choices[i] > target) {
             continue;
         }
-        // Try: make a choice and update the sum total
+        // Make a choice and update the running sum total
         state.push_back(choices[i]);
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(state, target, total + choices[i], choices, res);
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         state.pop_back();
     }
 }
 
-/* Solve subset sum I (with duplicate subsets) */
+/* Solve subset sum I (including duplicate subsets) */
 vector<vector<int>> subsetSumINaive(vector<int> &nums, int target) {
-    vector<int> state;       // State (subset)
+    vector<int> state;       // State (current subset)
     int total = 0;           // Subset sum
-    vector<vector<int>> res; // Result list (list of subsets)
+    vector<vector<int>> res; // Results (list of subsets)
     backtrack(state, target, total, nums, res);
     return res;
 }
@@ -44,10 +44,10 @@ int main() {
 
     vector<vector<int>> res = subsetSumINaive(nums, target);
 
-    cout << "Input array nums = ";
+    cout << "Input array nums =  ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "All subsets with sum " << target << " , res = " << endl;
+    cout << "Subsets that sum to  " << target << " : res =  " << endl;
     printVectorMatrix(res);
 
     return 0;

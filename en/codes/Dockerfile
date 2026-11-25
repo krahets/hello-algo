@@ -1,13 +1,13 @@
 FROM ubuntu:latest
 
-# Use Aliyun mirrors for Ubuntu packages
+# Use the Aliyun mirrors for Ubuntu packages
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
     sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
     sed -i 's/ports.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y wget
 
-# Install the requested language environments
+# Install the selected language toolchains
 ARG LANGS
 RUN for LANG in $LANGS; do \
         case $LANG in \

@@ -14,21 +14,21 @@ func TestQuickSort(t *testing.T) {
 	q := quickSort{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("クイックソート完了後 nums = ", nums)
+	fmt.Println("クイックソート後の nums = ", nums)
 }
 
-// クイックソート（中央値ピボットによる最適化）
+// クイックソート（中央値をピボットに使用）
 func TestQuickSortMedian(t *testing.T) {
 	q := quickSortMedian{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("クイックソート（中央値ピボットによる最適化）の完了後 nums = ", nums)
+	fmt.Println("クイックソート（中央値をピボットに使用）後の nums = ", nums)
 }
 
-// クイックソート（再帰の深さの最適化）
+// クイックソート（再帰の深さを最適化）
 func TestQuickSortTailCall(t *testing.T) {
 	q := quickSortTailCall{}
 	nums := []int{4, 1, 3, 1, 5, 2}
 	q.quickSort(nums, 0, len(nums)-1)
-	fmt.Println("クイックソート（再帰の深さの最適化）の完了後 nums = ", nums)
+	fmt.Println("クイックソート（再帰の深さを最適化）後の nums = ", nums)
 }

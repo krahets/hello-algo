@@ -6,11 +6,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### 連結リストで実装したスタック ###
+### 連結リストを使ったスタック ###
 class LinkedListStack
   attr_reader :size
 
-  ### コンストラクタ ###
+  ### 初期化メソッド ###
   def initialize
     @size = 0
   end
@@ -20,7 +20,7 @@ class LinkedListStack
     @peek.nil?
   end
 
-  ### プッシュ ###
+  ### プッシュする ###
   def push(val)
     node = ListNode.new(val)
     node.next = @peek
@@ -28,7 +28,7 @@ class LinkedListStack
     @size += 1
   end
 
-  ### ポップ ###
+  ### ポップする ###
   def pop
     num = peek
     @peek = @peek.next
@@ -36,14 +36,14 @@ class LinkedListStack
     num
   end
 
-  ### スタックの先頭要素にアクセスする ###
+  ### スタックのトップを参照する ###
   def peek
     raise IndexError, 'スタックが空です' if is_empty?
 
     @peek.val
   end
 
-  ### 連結リストを Array に変換して返す ###
+  ### 連結リストを配列に変換して返す ###
   def to_array
     arr = []
     node = @peek
@@ -55,7 +55,7 @@ class LinkedListStack
   end
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # スタックを初期化する
   stack = LinkedListStack.new
@@ -68,18 +68,18 @@ if __FILE__ == $0
   stack.push(4)
   puts "スタック stack = #{stack.to_array}"
 
-  # スタックの先頭要素にアクセスする
+  # スタックのトップを参照する
   peek = stack.peek
-  puts "スタックの先頭要素 peek = #{peek}"
+  puts "スタックのトップの要素 peek = #{peek}"
 
   # 要素をポップする
   pop = stack.pop
   puts "ポップした要素 pop = #{pop}"
-  puts "ポップ後 stack = #{stack.to_array}"
+  puts "ポップ後の stack = #{stack.to_array}"
 
-  # スタックの長さを取得する
+  # スタックの要素数を取得する
   size = stack.size
-  puts "スタックの長さ size = #{size}"
+  puts "スタックの要素数 size = #{size}"
 
   # 空かどうかを判定する
   is_empty = stack.is_empty?

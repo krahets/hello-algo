@@ -10,14 +10,14 @@ pub struct Pair {
     pub key: i32,
     pub val: String,
 }
-/* Hash table implemented with an array */
+/* Array-based hash table */
 pub struct ArrayHashMap {
     buckets: Vec<Option<Pair>>,
 }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // Initialize an array containing 100 buckets
+        // Initialize an array with 100 buckets
         Self {
             buckets: vec![None; 100],
         }
@@ -28,13 +28,13 @@ impl ArrayHashMap {
         key as usize % 100
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     pub fn get(&self, key: i32) -> Option<&String> {
         let index = self.hash_func(key);
         self.buckets[index].as_ref().map(|pair| &pair.val)
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     pub fn put(&mut self, key: i32, val: &str) {
         let index = self.hash_func(key);
         self.buckets[index] = Some(Pair {
@@ -43,10 +43,10 @@ impl ArrayHashMap {
         });
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        // Set to None to mark removal
+        // Set the slot to None to remove the entry
         self.buckets[index] = None;
     }
 
@@ -85,39 +85,39 @@ impl ArrayHashMap {
 fn main() {
     /* Initialize the hash table */
     let mut map = ArrayHashMap::new();
-    /*Insert operation */
-    // Add key-value pairs (key, value) to the hash table
-    map.put(12836, "小哈");
-    map.put(15937, "小啰");
-    map.put(16750, "小算");
-    map.put(13276, "小法");
-    map.put(10583, "小鸭");
+    /*Insert a key-value pair */
+    // Insert the pair (key, value) into the hash table
+    map.put(12836, "Xiao Ha");
+    map.put(15937, "Xiao Luo");
+    map.put(16750, "Xiao Suan");
+    map.put(13276, "Xiao Fa");
+    map.put(10583, "Xiao Ya");
     println!("\nHash table after insertion:\nKey -> Value");
     map.print();
 
-    /* Lookup operation */
-    // Look up key in the hash table to obtain value
+    /* Look up a value */
+    // Look up key in the hash table to get value
     let name = map.get(15937).unwrap();
-    println!("\nLooking up student ID 15937 gives name {}", name);
+    println!("\nName for student ID 15937: {}", name);
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Remove a key-value pair */
+    // Remove the pair (key, value) from the hash table
     map.remove(10583);
     println!("\nHash table after removing 10583:\nKey -> Value");
     map.print();
 
-    /* Traverse the hash table */
-    println!("\nTraverse key-value pairs: Key->Value");
+    /* Iterate over the hash table */
+    println!("\nIterate over key-value pairs (Key->Value)");
     for pair in map.entry_set() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\nTraverse keys only: Key");
+    println!("\nIterate over keys only");
     for key in map.key_set() {
         println!("{}", key);
     }
 
-    println!("\nTraverse values only: Value");
+    println!("\nIterate over values only");
     for val in map.value_set() {
         println!("{}", val);
     }

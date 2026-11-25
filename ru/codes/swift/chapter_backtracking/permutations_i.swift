@@ -4,30 +4,30 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Алгоритм бэктрекинга: все перестановки I */
+/* Поиск с возвратом: перестановки I */
 func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if state.count == choices.count {
         res.append(state)
         return
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (i, choice) in choices.enumerated() {
-        // Отсечение: нельзя выбирать один и тот же элемент повторно
+        // Отсечение: нельзя выбирать один элемент дважды
         if !selected[i] {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             selected[i] = true
             state.append(choice)
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state: &state, choices: choices, selected: &selected, res: &res)
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false
             state.removeLast()
         }
     }
 }
 
-/* Все перестановки I */
+/* Перестановки I */
 func permutationsI(nums: [Int]) -> [[Int]] {
     var state: [Int] = []
     var selected = Array(repeating: false, count: nums.count)
@@ -38,13 +38,13 @@ func permutationsI(nums: [Int]) -> [[Int]] {
 
 @main
 enum PermutationsI {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let nums = [1, 2, 3]
 
         let res = permutationsI(nums: nums)
 
-        print("Входной массив nums = \(nums)")
+        print("Исходный массив nums = \(nums)")
         print("Все перестановки res = \(res)")
     }
 }

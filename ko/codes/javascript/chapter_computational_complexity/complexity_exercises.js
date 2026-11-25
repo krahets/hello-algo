@@ -21,7 +21,7 @@ function sumRecur(n) {
     return n + sumRecur(n - 1);
 }
 
-/* 선형 차수 반복문 */
+/* 선형 반복문 */
 function linearLoop(n) {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -30,7 +30,7 @@ function linearLoop(n) {
     return res;
 }
 
-/* 제곱 차수 반복문 */
+/* 이차 반복문 */
 function quadraticLoop(n) {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -41,7 +41,7 @@ function quadraticLoop(n) {
     return res;
 }
 
-/* 로그 차수 반복문 */
+/* 로그 반복문 */
 function logarithmicLoop(n) {
     while (n > 1) {
         n = Math.floor(n / 2);
@@ -59,5 +59,5 @@ if (
     logarithmicLoop(4) !== 1 ||
     logarithmicLoop(5) !== 1
 ) {
-    throw new Error('복잡도 연습 문제 검증에 실패했다');
+    throw new Error('complexity exercise check failed');
 }

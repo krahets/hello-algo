@@ -26,7 +26,7 @@ int mulHash(char *key) {
     return (int)hash;
 }
 
-/* XOR-хеширование */
+/* Хеширование с помощью XOR */
 int xorHash(char *key) {
     int hash = 0;
     const int MODULUS = 1000000007;
@@ -48,21 +48,21 @@ int rotHash(char *key) {
     return (int)hash;
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
-    char *key = "Hello Algo";
+    char *key = "Hello 算法";
 
     int hash = addHash(key);
-    printf("Хеш суммы = %d\n", hash);
+    printf("Аддитивный хеш: %d\n", hash);
 
     hash = mulHash(key);
-    printf("Хеш произведения = %d\n", hash);
+    printf("Мультипликативный хеш: %d\n", hash);
 
     hash = xorHash(key);
-    printf("XOR-хеш = %d\n", hash);
+    printf("Хеш на основе XOR: %d\n", hash);
 
     hash = rotHash(key);
-    printf("Хеш с циклическим сдвигом = %d\n", hash);
+    printf("Хеш с циклическим сдвигом: %d\n", hash);
 
     return 0;
 }

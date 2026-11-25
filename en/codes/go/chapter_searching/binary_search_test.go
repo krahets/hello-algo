@@ -15,47 +15,47 @@ func TestBinarySearch(t *testing.T) {
 		nums     = []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 		expected = 2
 	)
-	// Perform binary search on the array
+	// Run binary search on the array
 	actual := binarySearch(nums, target)
-	fmt.Println("Index of target element 6 =", actual)
+	fmt.Println("Index of target 6 =", actual)
 	if actual != expected {
-		t.Errorf("Index of target element 6 = %d; expected %d", actual, expected)
+		t.Errorf("Index of target 6 = %d, expected %d", actual, expected)
 	}
 }
 
 func TestBinarySearchEdge(t *testing.T) {
-	// Example array for a search that allows duplicates
+	// Array with duplicates
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 	fmt.Println("\nArray nums = ", nums)
 
 	// Find the left and right boundaries using binary search
 	for _, target := range []int{6, 7} {
 		index := binarySearchLeftEdge(nums, target)
-		fmt.Println("Leftmost occurrence of", target, "has index", index)
+		fmt.Println("The leftmost occurrence of", target, "is at index", index)
 
 		index = binarySearchRightEdge(nums, target)
-		fmt.Println("Rightmost occurrence of", target, "has index", index)
+		fmt.Println("The rightmost occurrence of", target, "is at index", index)
 	}
 }
 
 func TestBinarySearchInsertion(t *testing.T) {
-	// Array with no duplicate elements
+	// Array without duplicates
 	nums := []int{1, 3, 6, 8, 12, 15, 23, 26, 31, 35}
 	fmt.Println("Array nums =", nums)
 
-	// Find an insertion point using binary search
+	// Find the insertion point using binary search
 	for _, target := range []int{6, 9} {
 		index := binarySearchInsertionSimple(nums, target)
-		fmt.Println("Element", target, "has insertion point index", index)
+		fmt.Println("Element", target, "has insertion index", index)
 	}
 
-	// Example array for a search that allows duplicates
+	// Array with duplicates
 	nums = []int{1, 3, 6, 6, 6, 6, 6, 10, 12, 15}
 	fmt.Println("\nArray nums =", nums)
 
-	// Find an insertion point using binary search
+	// Find the insertion point using binary search
 	for _, target := range []int{2, 6, 20} {
 		index := binarySearchInsertion(nums, target)
-		fmt.Println("Element", target, "has insertion point index", index)
+		fmt.Println("Element", target, "has insertion index", index)
 	}
 }

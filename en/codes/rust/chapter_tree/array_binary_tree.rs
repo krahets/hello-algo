@@ -6,7 +6,7 @@
 
 use hello_algo_rust::include::{print_util, tree_node};
 
-/* Binary tree type using an array representation */
+/* Array-based binary tree class */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
@@ -17,14 +17,14 @@ impl ArrayBinaryTree {
         Self { tree: arr }
     }
 
-    /* Number of positions in the array */
+    /* List capacity */
     fn size(&self) -> i32 {
         self.tree.len() as i32
     }
 
     /* Get the value of the node at index i */
     fn val(&self, i: i32) -> Option<i32> {
-        // If the index is out of bounds, return None to represent an empty position
+        // If the index is out of bounds, return None to indicate an empty slot
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -32,17 +32,17 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* Get the left child index of the node at index i */
+    /* Get the index of the left child of the node at index i */
     fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
-    /* Get the right child index of the node at index i */
+    /* Get the index of the right child of the node at index i */
     fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
-    /* Get the parent index of the node at index i */
+    /* Get the index of the parent of the node at index i */
     fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
@@ -99,7 +99,7 @@ impl ArrayBinaryTree {
 /* Driver code */
 fn main() {
     // Initialize the binary tree
-    // Use a helper function that builds a binary tree directly from an array
+    // Use a function that builds a binary tree directly from an array
     let arr = vec![
         Some(1),
         Some(2),
@@ -120,7 +120,7 @@ fn main() {
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
     println!("\nInitialize the binary tree\n");
-    println!("Array representation of the binary tree:");
+    println!("Array representation of the binary tree: ");
     println!(
         "[{}]",
         arr.iter()
@@ -132,10 +132,10 @@ fn main() {
             .collect::<Vec<String>>()
             .join(", ")
     );
-    println!("Linked representation of the binary tree:");
+    println!("Linked representation of the binary tree: ");
     print_util::print_tree(&root);
 
-    // Binary tree type using an array representation
+    // Array-based binary tree class
     let abt = ArrayBinaryTree::new(arr);
 
     // Access a node
@@ -144,7 +144,7 @@ fn main() {
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\nCurrent node index: {}, value: {}",
+        "\nCurrent node: index {}, value {}",
         i,
         if let Some(val) = abt.val(i) {
             format!("{val}")
@@ -153,7 +153,7 @@ fn main() {
         }
     );
     println!(
-        "Left child index: {}, value: {}",
+        "Left child: index {}, value {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -162,7 +162,7 @@ fn main() {
         }
     );
     println!(
-        "Right child index: {}, value: {}",
+        "Right child: index {}, value {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -171,7 +171,7 @@ fn main() {
         }
     );
     println!(
-        "Parent index: {}, value: {}",
+        "Parent: index {}, value {}",
         p,
         if let Some(val) = abt.val(p) {
             format!("{val}")

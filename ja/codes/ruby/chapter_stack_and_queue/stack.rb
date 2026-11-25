@@ -4,10 +4,10 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # スタックを初期化する
-  # Ruby には組み込みのスタッククラスがないため、Array をスタックとして使える
+  # Ruby には組み込みのスタッククラスがないので、Array をスタックとして使える
   stack = []
 
   # 要素をプッシュする
@@ -18,18 +18,18 @@ if __FILE__ == $0
   stack << 4
   puts "スタック stack = #{stack}"
 
-  # スタックの先頭要素にアクセスする
+  # スタックのトップを参照する
   peek = stack.last
-  puts "スタックの先頭要素 peek = #{peek}"
+  puts "スタックのトップの要素 peek = #{peek}"
 
   # 要素をポップする
   pop = stack.pop
   puts "ポップした要素 pop = #{pop}"
-  puts "ポップ後 stack = #{stack}"
+  puts "ポップ後の stack = #{stack}"
 
-  # スタックの長さを取得する
+  # スタックの要素数を取得する
   size = stack.length
-  puts "スタックの長さ size = #{size}"
+  puts "スタックの要素数 size = #{size}"
 
   # 空かどうかを判定する
   is_empty = stack.empty?

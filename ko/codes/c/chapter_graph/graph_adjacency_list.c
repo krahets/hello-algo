@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// 노드가 최대 100개라고 가정한다
+// 최대 노드 수를 100으로 가정
 #define MAX_SIZE 100
 
 /* 노드 구조체 */
@@ -18,7 +18,7 @@ typedef struct AdjListNode {
 /* 인접 리스트로 구현한 무방향 그래프 클래스 */
 typedef struct {
     AdjListNode *heads[MAX_SIZE]; // 노드 배열
-    int size;                     // 노드 개수
+    int size;                     // 노드 수
 } GraphAdjList;
 
 /* 생성자 */
@@ -65,7 +65,7 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
 void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
     node->vertex = vet;
-    // 맨 앞에 삽입한다
+    // 리스트 맨 앞에 삽입
     node->next = head->next;
     head->next = node;
 }
@@ -75,7 +75,7 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
     assert(head1 != NULL && head2 != NULL && head1 != head2);
-    // 간선 vet1 - vet2를 추가한다
+    // 간선 vet1 - vet2 추가
     addEdgeHelper(head1, vet2);
     addEdgeHelper(head2, vet1);
 }
@@ -84,14 +84,14 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *pre = head;
     AdjListNode *cur = head->next;
-    // 연결 리스트에서 vet에 해당하는 노드를 찾는다
+    // 연결 리스트에서 vet에 해당하는 노드 찾기
     while (cur != NULL && cur->vertex != vet) {
         pre = cur;
         cur = cur->next;
     }
     if (cur == NULL)
         return;
-    // 연결 리스트에서 vet에 해당하는 노드를 삭제한다
+    // 연결 리스트에서 vet에 해당하는 노드 삭제
     pre->next = cur->next;
     // 메모리 해제
     free(cur);
@@ -102,7 +102,7 @@ void removeEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     AdjListNode *head1 = findNode(graph, vet1);
     AdjListNode *head2 = findNode(graph, vet2);
     assert(head1 != NULL && head2 != NULL);
-    // 간선 vet1 - vet2를 삭제한다
+    // 간선 vet1 - vet2 삭제
     removeEdgeHelper(head1, head2->vertex);
     removeEdgeHelper(head2, head1->vertex);
 }
@@ -116,7 +116,7 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
-    // 인접 리스트에 새 연결 리스트를 추가한다
+    // 인접 리스트에 새 연결 리스트 추가
     graph->heads[graph->size++] = head;
 }
 
@@ -124,7 +124,7 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // 해당 정점 뒤의 정점을 앞으로 옮겨 빈자리를 채운다
+    // 빈자리를 채우도록 이후 정점들을 한 칸씩 앞으로 이동
     int i;
     for (i = 0; i < graph->size; i++) {
         if (graph->heads[i] == node)
@@ -134,7 +134,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
         graph->heads[j] = graph->heads[j + 1];
     }
     graph->size--;
-    // 다른 정점의 연결 리스트를 순회하여 vet를 포함하는 모든 간선을 삭제한다
+    // 다른 정점들의 연결 리스트를 순회하며 vet에 연결된 간선을 모두 삭제
     for (int i = 0; i < graph->size; i++) {
         AdjListNode *cur = graph->heads[i];
         while (cur->next != NULL) {
@@ -147,7 +147,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
             }
         }
     }
-    // 인접 리스트에서 정점 vet에 해당하는 연결 리스트를 삭제한다
+    // 인접 리스트에서 정점 vet에 해당하는 연결 리스트 삭제
     while (node != NULL) {
         AdjListNode *next = node->next;
         free(node);

@@ -6,7 +6,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   num = 3
   hash_num = num.hash
@@ -18,7 +18,7 @@ if __FILE__ == $0
 
   dec = 3.14159
   hash_dec = dec.hash
-  puts "小数 #{dec} のハッシュ値は #{hash_dec}"
+  puts "浮動小数点数 #{dec} のハッシュ値は #{hash_dec}"
 
   str = "Hello 算法"
   hash_str = str.hash

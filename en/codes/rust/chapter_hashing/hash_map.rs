@@ -13,31 +13,31 @@ pub fn main() {
     // Initialize the hash table
     let mut map = HashMap::new();
 
-    // Insert operation
-    // Insert the key-value pair (key, value) into the hash table
-    map.insert(12836, "小哈");
-    map.insert(15937, "小啰");
-    map.insert(16750, "小算");
-    map.insert(13276, "小法");
-    map.insert(10583, "小鸭");
+    // Insert a key-value pair
+    // Insert the pair (key, value) into the hash table
+    map.insert(12836, "Xiao Ha");
+    map.insert(15937, "Xiao Luo");
+    map.insert(16750, "Xiao Suan");
+    map.insert(13276, "Xiao Fa");
+    map.insert(10583, "Xiao Ya");
     println!("\nHash table after insertion:\nKey -> Value");
     print_util::print_hash_map(&map);
 
-    // Lookup operation
-    // Look up key in the hash table to obtain value
+    // Look up a value
+    // Look up key in the hash table to get value
     let name = map.get(&15937).copied().unwrap();
-    println!("\nLooking up student ID 15937 gives name {name}");
+    println!("\nName for student ID 15937: {name}");
 
-    // Remove operation
-    // Remove the key-value pair (key, value) from the hash table
+    // Remove a key-value pair
+    // Remove the pair (key, value) from the hash table
     _ = map.remove(&10583);
     println!("\nHash table after removing 10583:\nKey -> Value");
     print_util::print_hash_map(&map);
 
-    // Traverse the hash table
-    println!("\nTraverse key-value pairs: Key->Value");
+    // Iterate over the hash table
+    println!("\nIterate over key-value pairs (Key->Value)");
     print_util::print_hash_map(&map);
-    println!("\nTraverse keys only: Key");
+    println!("\nIterate over keys only");
     for key in map.keys() {
         println!("{key}");
     }

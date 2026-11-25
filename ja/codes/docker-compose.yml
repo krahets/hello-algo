@@ -4,8 +4,8 @@ services:
     build:
       context: .
       args:
-        # インストールする言語を空白区切りで設定する
-        # インストールする言語を空白区切りで設定する
+        # インストールする言語をスペース区切りで指定する
+        # インストールする言語をスペース区切りで指定する
         LANGS: "python cpp java csharp"
     image: hello-algo-code
     container_name: hello-algo-code

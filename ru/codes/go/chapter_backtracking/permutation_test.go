@@ -12,9 +12,9 @@ import (
 )
 
 func TestPermutationI(t *testing.T) {
-	/* Все перестановки I */
+	/* Перестановки I */
 	nums := []int{1, 2, 3}
-	fmt.Printf("Входной массив nums = ")
+	fmt.Printf("Исходный массив nums = ")
 	PrintSlice(nums)
 
 	res := permutationsI(nums)
@@ -24,7 +24,7 @@ func TestPermutationI(t *testing.T) {
 
 func TestPermutationII(t *testing.T) {
 	nums := []int{1, 2, 2}
-	fmt.Printf("Входной массив nums = ")
+	fmt.Printf("Исходный массив nums = ")
 	PrintSlice(nums)
 
 	res := permutationsII(nums)

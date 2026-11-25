@@ -4,9 +4,9 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* 階段の上り方：動的計画法 */
+/* 階段の登り方：動的計画法 */
 fn climbing_stairs_dp(n: usize) -> i32 {
-    // dp[1] と dp[2] は既知なので、その値を返す
+    // 既知の値 dp[1] と dp[2] のうち、該当する方を返す
     if n == 1 || n == 2 {
         return n as i32;
     }
@@ -22,7 +22,7 @@ fn climbing_stairs_dp(n: usize) -> i32 {
     dp[n]
 }
 
-/* 階段の上り方：空間を最適化した動的計画法 */
+/* 階段の登り方：使用メモリを削減した動的計画法 */
 fn climbing_stairs_dp_comp(n: usize) -> i32 {
     if n == 1 || n == 2 {
         return n as i32;
@@ -36,13 +36,13 @@ fn climbing_stairs_dp_comp(n: usize) -> i32 {
     b
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let n: usize = 9;
 
     let res = climbing_stairs_dp(n);
-    println!("{n} 段の階段を上る方法は全部で {res} 通り");
+    println!("全 {n} 段の階段の登り方は {res} 通り");
 
     let res = climbing_stairs_dp_comp(n);
-    println!("{n} 段の階段を上る方法は全部で {res} 通り");
+    println!("全 {n} 段の階段の登り方は {res} 通り");
 }

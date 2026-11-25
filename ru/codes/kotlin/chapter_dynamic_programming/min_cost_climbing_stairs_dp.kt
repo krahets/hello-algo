@@ -8,23 +8,23 @@ package chapter_dynamic_programming
 
 import kotlin.math.min
 
-/* Минимальная стоимость подъема по лестнице: динамическое программирование */
+/* Минимальная стоимость подъёма: динамическое программирование */
 fun minCostClimbingStairsDP(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
-    // Инициализация таблицы dp для хранения решений подзадач
+    // Создать таблицу dp для решений подзадач
     val dp = IntArray(n + 1)
-    // Начальное состояние: заранее задать решения наименьших подзадач
+    // Начальные состояния: задать решения простейших подзадач
     dp[1] = cost[1]
     dp[2] = cost[2]
-    // Переход состояний: постепенное решение больших подзадач через меньшие
+    // Переход: решать подзадачи от меньших к большим
     for (i in 3..n) {
         dp[i] = min(dp[i - 1], dp[i - 2]) + cost[i]
     }
     return dp[n]
 }
 
-/* Минимальная стоимость подъема по лестнице: динамическое программирование с оптимизацией памяти */
+/* Минимальная стоимость подъёма: динамическое программирование с экономией памяти */
 fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     val n = cost.size - 1
     if (n == 1 || n == 2) return cost[n]
@@ -38,14 +38,14 @@ fun minCostClimbingStairsDPComp(cost: IntArray): Int {
     return b
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val cost = intArrayOf(0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1)
-    println("Список стоимостей ступеней = ${cost.contentToString()}")
+    println("Стоимость ступеней: ${cost.contentToString()}")
 
     var res = minCostClimbingStairsDP(cost)
-    println("Минимальная стоимость подъема по лестнице = $res")
+    println("Минимальная стоимость подъёма: $res")
 
     res = minCostClimbingStairsDPComp(cost)
-    println("Минимальная стоимость подъема по лестнице = $res")
+    println("Минимальная стоимость подъёма: $res")
 }

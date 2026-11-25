@@ -8,13 +8,13 @@ import utils
 
 /* 인접 리스트로 구현한 무방향 그래프 클래스 */
 public class GraphAdjList {
-    // 인접 리스트의 key: 정점, value: 해당 정점의 모든 인접 정점
+    // 인접 리스트의 key는 정점, value는 해당 정점의 모든 인접 정점
     public private(set) var adjList: [Vertex: [Vertex]]
 
     /* 생성자 */
     public init(edges: [[Vertex]]) {
         adjList = [:]
-        // 모든 정점과 간선을 추가한다
+        // 모든 정점과 간선 추가
         for edge in edges {
             addVertex(vet: edge[0])
             addVertex(vet: edge[1])
@@ -22,7 +22,7 @@ public class GraphAdjList {
         }
     }
 
-    /* 정점 개수 반환 */
+    /* 정점 수 구하기 */
     public func size() -> Int {
         adjList.count
     }
@@ -30,9 +30,9 @@ public class GraphAdjList {
     /* 간선 추가 */
     public func addEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("인수 오류")
+            fatalError("잘못된 인수")
         }
-        // 간선 vet1 - vet2를 추가한다
+        // 간선 vet1 - vet2 추가
         adjList[vet1]?.append(vet2)
         adjList[vet2]?.append(vet1)
     }
@@ -40,9 +40,9 @@ public class GraphAdjList {
     /* 간선 삭제 */
     public func removeEdge(vet1: Vertex, vet2: Vertex) {
         if adjList[vet1] == nil || adjList[vet2] == nil || vet1 == vet2 {
-            fatalError("인수 오류")
+            fatalError("잘못된 인수")
         }
-        // 간선 vet1 - vet2를 삭제한다
+        // 간선 vet1 - vet2 삭제
         adjList[vet1]?.removeAll { $0 == vet2 }
         adjList[vet2]?.removeAll { $0 == vet1 }
     }
@@ -52,18 +52,18 @@ public class GraphAdjList {
         if adjList[vet] != nil {
             return
         }
-        // 인접 리스트에 새 연결 리스트를 추가한다
+        // 인접 리스트에 새 연결 리스트 추가
         adjList[vet] = []
     }
 
     /* 정점 삭제 */
     public func removeVertex(vet: Vertex) {
         if adjList[vet] == nil {
-            fatalError("인수 오류")
+            fatalError("잘못된 인수")
         }
-        // 인접 리스트에서 정점 vet에 해당하는 연결 리스트를 삭제한다
+        // 인접 리스트에서 정점 vet에 해당하는 연결 리스트 삭제
         adjList.removeValue(forKey: vet)
-        // 다른 정점의 연결 리스트를 순회하여 vet를 포함하는 모든 간선을 삭제한다
+        // 다른 정점들의 연결 리스트를 순회하며 vet에 연결된 간선을 모두 삭제
         for key in adjList.keys {
             adjList[key]?.removeAll { $0 == vet }
         }
@@ -83,37 +83,37 @@ public class GraphAdjList {
 
 @main
 enum GraphAdjacencyList {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         /* 무방향 그래프 초기화 */
         let v = Vertex.valsToVets(vals: [1, 3, 2, 5, 4])
         let edges = [[v[0], v[1]], [v[0], v[3]], [v[1], v[2]], [v[2], v[3]], [v[2], v[4]], [v[3], v[4]]]
         let graph = GraphAdjList(edges: edges)
-        print("\n초기화한 후의 그래프")
+        print("\n초기화한 그래프:")
         graph.print()
 
         /* 간선 추가 */
-        // 정점 1, 2는 각각 v[0], v[2]이다
+        // 정점 1과 2는 각각 v[0], v[2]
         graph.addEdge(vet1: v[0], vet2: v[2])
-        print("\n간선 1-2를 추가한 후의 그래프")
+        print("\n간선 1-2를 추가한 그래프:")
         graph.print()
 
         /* 간선 삭제 */
-        // 정점 1, 3은 각각 v[0], v[1]이다
+        // 정점 1과 3은 각각 v[0], v[1]
         graph.removeEdge(vet1: v[0], vet2: v[1])
-        print("\n간선 1-3을 삭제한 후의 그래프")
+        print("\n간선 1-3을 삭제한 그래프:")
         graph.print()
 
         /* 정점 추가 */
         let v5 = Vertex(val: 6)
         graph.addVertex(vet: v5)
-        print("\n정점 6을 추가한 후의 그래프")
+        print("\n정점 6을 추가한 그래프:")
         graph.print()
 
         /* 정점 삭제 */
-        // 정점 3은 v[1]이다
+        // 정점 3은 v[1]
         graph.removeVertex(vet: v[1])
-        print("\n정점 3을 삭제한 후의 그래프")
+        print("\n정점 3을 삭제한 그래프:")
         graph.print()
     }
 }

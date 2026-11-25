@@ -1,24 +1,24 @@
 {
   "context": [],
   "description": [
-    "每個小方塊代表 1 次基礎操作，外圍迴圈框表示重複執行的範圍。"
+    "每個小方格代表 1 次基本操作，周圍的迴圈方框表示重複執行的範圍。"
   ],
   "frames": [
     {
       "book_path": "chapter_computational_complexity/time_complexity.assets/time_complexity_constant_linear_quadratic.png",
-      "explanation": "雙層框表示巢狀：外層每執行 1 輪，內層都固定完整執行 n 次，所以次數相乘為 n × n，而不是兩個迴圈先後執行時的相加。",
+      "explanation": "雙層方框表示巢狀迴圈：外層每執行 1 次，內層就完整執行 n 次，因此兩層的次數要相乘，得到 n × n。若是兩個迴圈先後執行，次數才是相加。",
       "id": "source-28",
       "title": "迴圈結構與操作次數"
     }
   ],
   "schema_version": 2,
-  "summary": "比較單次操作、單層迴圈和雙層迴圈的工作量增長。",
+  "summary": "比較單次操作、單層迴圈與雙層迴圈的工作量如何成長。",
   "tables": [
     {
-      "caption": "迴圈結構的工作量",
+      "caption": "各種迴圈結構的工作量",
       "headers": [
         "結構",
-        "基礎操作次數",
+        "基本操作次數",
         "時間複雜度"
       ],
       "row_header": 0,
@@ -29,12 +29,12 @@
           "常數階 O(1)"
         ],
         [
-          "單層迴圈n次",
+          "單層迴圈執行 n 次",
           "n",
           "線性階 O(n)"
         ],
         [
-          "雙層巢狀，各n次",
+          "雙層巢狀迴圈，每層各執行 n 次",
           "n×n=n²",
           "平方階 O(n²)"
         ]

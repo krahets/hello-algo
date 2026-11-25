@@ -4,9 +4,9 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* Случайный доступ к элементу */
+/* Чтение случайного элемента */
 function randomAccess(nums) {
-    // Случайный выбор числа из диапазона [0, nums.length)
+    // Выбрать случайное число из интервала [0, nums.length)
     const random_index = Math.floor(Math.random() * nums.length);
     // Получить и вернуть случайный элемент
     const random_num = nums[random_index];
@@ -14,32 +14,32 @@ function randomAccess(nums) {
 }
 
 /* Увеличение длины массива */
-// Обратите внимание: Array в JavaScript — это динамический массив, его можно расширять напрямую
-// Для удобства обучения в этой функции Array рассматривается как массив неизменяемой длины
+// В JavaScript Array — динамический массив, который можно расширять напрямую
+// В этом учебном примере функция рассматривает Array как массив фиксированной длины
 function extend(nums, enlarge) {
-    // Инициализировать массив увеличенной длины
+    // Создать массив увеличенной длины
     const res = new Array(nums.length + enlarge).fill(0);
-    // Скопировать все элементы исходного массива в новый массив
+    // Скопировать все элементы исходного массива в новый
     for (let i = 0; i < nums.length; i++) {
         res[i] = nums[i];
     }
-    // Вернуть новый массив после расширения
+    // Вернуть новый массив увеличенной длины
     return res;
 }
 
-/* Вставка элемента num в массив по индексу index */
+/* Вставить num в массив по индексу index */
 function insert(nums, num, index) {
-    // Сдвинуть элемент с индексом index и все последующие элементы на одну позицию вправо
+    // Сдвинуть на одну позицию вправо все элементы начиная с index
     for (let i = nums.length - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // Присвоить num элементу по индексу index
+    // Записать num по индексу index
     nums[index] = num;
 }
 
-/* Удаление элемента по индексу index */
+/* Удалить элемент по индексу index */
 function remove(nums, index) {
-    // Сдвинуть все элементы после индекса index на одну позицию влево
+    // Сдвинуть все элементы после index на одну позицию влево
     for (let i = index; i < nums.length - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -48,11 +48,11 @@ function remove(nums, index) {
 /* Обход массива */
 function traverse(nums) {
     let count = 0;
-    // Обход массива по индексам
+    // Обойти массив по индексам
     for (let i = 0; i < nums.length; i++) {
         count += nums[i];
     }
-    // Непосредственно обходить элементы массива
+    // Перебрать элементы массива напрямую
     for (const num of nums) {
         count += num;
     }
@@ -66,18 +66,18 @@ function find(nums, target) {
     return -1;
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 /* Инициализация массива */
 const arr = new Array(5).fill(0);
 console.log('Массив arr =', arr);
 let nums = [1, 3, 2, 5, 4];
 console.log('Массив nums =', nums);
 
-/* Случайный доступ */
+/* Чтение случайного элемента */
 let random_num = randomAccess(nums);
-console.log('Случайный элемент из nums =', random_num);
+console.log('Случайный элемент nums:', random_num);
 
-/* Расширение длины */
+/* Увеличение длины */
 nums = extend(nums, 3);
 console.log('После увеличения длины массива до 8 nums =', nums);
 
@@ -94,4 +94,4 @@ traverse(nums);
 
 /* Поиск элемента */
 let index = find(nums, 3);
-console.log('Поиск элемента 3 в nums: индекс =', index);
+console.log('Индекс элемента 3 в nums =', index);

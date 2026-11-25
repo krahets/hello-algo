@@ -8,7 +8,7 @@ package chapter_sorting
 
 /* Insertion sort */
 fun insertionSort(nums: IntArray) {
-    //Outer loop: the sorted prefix grows to 1, 2, ..., n elements
+    //Outer loop: the number of sorted elements runs from 1 through n
     for (i in nums.indices) {
         val base = nums[i]
         var j = i - 1
@@ -21,9 +21,9 @@ fun insertionSort(nums: IntArray) {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     insertionSort(nums)
-    println("After insertion sort: nums = ${nums.contentToString()}")
+    println("After insertion sort, nums = ${nums.contentToString()}")
 }

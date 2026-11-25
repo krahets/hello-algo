@@ -43,7 +43,7 @@ def rot_hash(key: str) -> int:
 
 """Driver Code"""
 if __name__ == "__main__":
-    key = "Hello 演算法"
+    key = "Hello 算法"
 
     hash = add_hash(key)
     print(f"加法雜湊值為 {hash}")

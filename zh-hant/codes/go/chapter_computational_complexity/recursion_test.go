@@ -9,18 +9,18 @@ import (
 	"testing"
 )
 
-/* Driver Code */
+/* 主程式 */
 func TestRecursion(t *testing.T) {
 	n := 5
 	res := recur(n)
-	fmt.Println("\n遞迴函式的求和結果 res = ", res)
+	fmt.Println("\n遞迴函式的總和 res = ", res)
 
 	res = forLoopRecur(n)
-	fmt.Println("\n使用迭代模擬遞迴求和結果 res = ", res)
+	fmt.Println("\n以迭代模擬遞迴的總和 res = ", res)
 
 	res = tailRecur(n, 0)
-	fmt.Println("\n尾遞迴函式的求和結果 res = ", res)
+	fmt.Println("\n尾端遞迴函式的總和 res = ", res)
 
 	res = fib(n)
-	fmt.Println("\n費波那契數列的第", n, "項為", res)
+	fmt.Println("\n費氏數列的第", n, "項為", res)
 }

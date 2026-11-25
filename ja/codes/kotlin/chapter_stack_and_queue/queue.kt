@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     /* キューを初期化する */
     val queue = LinkedList<Int>()
 
-    /* 要素をエンキューする */
+    /* 要素をキューに追加する */
     queue.offer(1)
     queue.offer(3)
     queue.offer(2)
@@ -21,19 +21,19 @@ fun main() {
     queue.offer(4)
     println("キュー queue = $queue")
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     val peek = queue.peek()
-    println("キューの先頭要素 peek = $peek")
+    println("先頭要素 peek = $peek")
 
-    /* 要素をデキューする */
+    /* キューから要素を取り出す */
     val pop = queue.poll()
-    println("デキューした要素 pop = $pop、デキュー後 queue = $queue")
+    println("デキューした要素 pop = $pop、デキュー後の queue = $queue")
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     val size = queue.size
-    println("キューの長さ size = $size")
+    println("キューの要素数 size = $size")
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     val isEmpty = queue.isEmpty()
     println("キューは空か = $isEmpty")
 }

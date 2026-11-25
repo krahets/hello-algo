@@ -8,14 +8,14 @@ package chapter_dynamic_programming
 
 /* Search */
 fun dfs(i: Int): Int {
-    // The values of dp[1] and dp[2] are known; return them
+    // Return the known value for dp[1] or dp[2]
     if (i == 1 || i == 2) return i
     // dp[i] = dp[i-1] + dp[i-2]
     val count = dfs(i - 1) + dfs(i - 2)
     return count
 }
 
-/* Climbing stairs: search */
+/* Climbing stairs with search */
 fun climbingStairsDFS(n: Int): Int {
     return dfs(n)
 }
@@ -25,5 +25,5 @@ fun main() {
     val n = 9
 
     val res = climbingStairsDFS(n)
-    println("There are $res ways to climb $n stairs")
+    println("Climbing $n stairs: $res ways")
 }

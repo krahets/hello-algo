@@ -40,7 +40,7 @@ end
 ### Driver code ###
 if __FILE__ == $0
   # Initialize the binary tree
-  # Use a helper function that builds a binary tree directly from an array
+  # Use a function that builds a binary tree directly from an array
   root = arr_to_tree([1, 2, 3, 4, 5, 6, 7])
   puts "\nInitialize the binary tree\n\n"
   print_tree(root)
@@ -48,15 +48,15 @@ if __FILE__ == $0
   # Preorder traversal
   $res = []
   pre_order(root)
-  puts "\nNode sequence from preorder traversal = #{$res}"
+  puts "\nNodes in preorder = #{$res}"
 
   # Inorder traversal
   $res.clear
   in_order(root)
-  puts "\nNode sequence from inorder traversal = #{$res}"
+  puts "\nnNodes in inorder = #{$res}"
 
   # Postorder traversal
   $res.clear
   post_order(root)
-  puts "\nNode sequence from postorder traversal = #{$res}"
+  puts "\nnNodes in postorder = #{$res}"
 end

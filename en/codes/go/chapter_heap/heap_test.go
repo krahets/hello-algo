@@ -14,22 +14,22 @@ import (
 )
 
 func testPush(h *intHeap, val int) {
-	// Call a heap.Interface function to add an element
+	// Call the heap.Interface function to add an element
 	heap.Push(h, val)
-	fmt.Printf("\nAfter pushing %d onto the heap: \n", val)
+	fmt.Printf("\nHeap after pushing %d: \n", val)
 	PrintHeap(*h)
 }
 
 func testPop(h *intHeap) {
-	// Call a heap.Interface function to remove an element
+	// Call the heap.Interface function to remove an element
 	val := heap.Pop(h)
-	fmt.Printf("\nAfter popping the top element %d from the heap: \n", val)
+	fmt.Printf("\nHeap after popping the root (%d): \n", val)
 	PrintHeap(*h)
 }
 
 func TestHeap(t *testing.T) {
 	/* Initialize the heap */
-	// Initialize a max heap
+	// Initialize a max-heap
 	maxHeap := &intHeap{}
 	heap.Init(maxHeap)
 	/* Push an element onto the heap */
@@ -39,11 +39,11 @@ func TestHeap(t *testing.T) {
 	testPush(maxHeap, 5)
 	testPush(maxHeap, 4)
 
-	/* Get the top element of the heap */
+	/* Get the root element */
 	top := maxHeap.Top()
-	fmt.Printf("Top element of the heap: %d\n", top)
+	fmt.Printf("Root element: %d\n", top)
 
-	/* Pop the top element from the heap */
+	/* Pop the root */
 	testPop(maxHeap)
 	testPop(maxHeap)
 	testPop(maxHeap)
@@ -61,24 +61,24 @@ func TestHeap(t *testing.T) {
 
 func TestMyHeap(t *testing.T) {
 	/* Initialize the heap */
-	// Initialize a max heap
+	// Initialize a max-heap
 	maxHeap := newMaxHeap([]any{9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2})
-	fmt.Printf("After building a heap from the input array:\n")
+	fmt.Printf("Heap built from the input array:\n")
 	maxHeap.print()
 
-	/* Get the top element of the heap */
+	/* Get the root element */
 	peek := maxHeap.peek()
-	fmt.Printf("\nTop element: %d\n", peek)
+	fmt.Printf("\nRoot element: %d\n", peek)
 
 	/* Push an element onto the heap */
 	val := 7
 	maxHeap.push(val)
-	fmt.Printf("\nAfter pushing %d onto the heap:\n", val)
+	fmt.Printf("\nHeap after pushing %d:\n", val)
 	maxHeap.print()
 
-	/* Pop the top element from the heap */
+	/* Pop the root */
 	peek = maxHeap.pop()
-	fmt.Printf("\nAfter popping the top element %d:\n", peek)
+	fmt.Printf("\nHeap after popping the root (%d):\n", peek)
 	maxHeap.print()
 
 	/* Get the heap size */
@@ -94,6 +94,6 @@ func TestTopKHeap(t *testing.T) {
 	nums := []int{1, 7, 6, 3, 2}
 	k := 3
 	res := topKHeap(nums, k)
-	fmt.Printf("The largest " + strconv.Itoa(k) + " elements are:")
+	fmt.Printf("The top " + strconv.Itoa(k) + " elements are:")
 	PrintHeap(*res)
 }

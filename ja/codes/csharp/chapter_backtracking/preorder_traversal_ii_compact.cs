@@ -23,20 +23,20 @@ public class preorder_traversal_ii_compact {
         }
         PreOrder(root.left);
         PreOrder(root.right);
-        // 復元
+        // 後戻り
         path.RemoveAt(path.Count - 1);
     }
 
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n二分木を初期化する");
+        Console.WriteLine("\n二分木を初期化");
         PrintUtil.PrintTree(root);
 
         // 行きがけ順走査
         PreOrder(root);
 
-        Console.WriteLine("\n根ノードからノード 7 までのすべての経路を出力する");
+        Console.WriteLine("\n根から値が 7 のノードまでの経路をすべて出力");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

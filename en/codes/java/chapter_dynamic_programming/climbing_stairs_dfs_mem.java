@@ -11,22 +11,22 @@ import java.util.Arrays;
 public class climbing_stairs_dfs_mem {
     /* Memoized search */
     public static int dfs(int i, int[] mem) {
-        // The values of dp[1] and dp[2] are known; return them
+        // Return the known value for dp[1] or dp[2]
         if (i == 1 || i == 2)
             return i;
-        // If dp[i] has been recorded, return it directly
+        // Return dp[i] directly if it is cached
         if (mem[i] != -1)
             return mem[i];
         // dp[i] = dp[i-1] + dp[i-2]
         int count = dfs(i - 1, mem) + dfs(i - 2, mem);
-        // Record dp[i]
+        // Cache dp[i]
         mem[i] = count;
         return count;
     }
 
-    /* Climbing stairs: memoized search */
+    /* Climbing stairs with memoized search */
     public static int climbingStairsDFSMem(int n) {
-        // mem[i] stores the number of ways to reach step i; -1 means no result has been recorded
+        // mem[i] stores the number of ways to reach stair i. A value of -1 means no result is cached
         int[] mem = new int[n + 1];
         Arrays.fill(mem, -1);
         return dfs(n, mem);
@@ -36,6 +36,6 @@ public class climbing_stairs_dfs_mem {
         int n = 9;
 
         int res = climbingStairsDFSMem(n);
-        System.out.println(String.format("Number of ways to climb %d stairs: %d", n, res));
+        System.out.println(String.format("Climbing %d stairs: %d ways", n, res));
     }
 }

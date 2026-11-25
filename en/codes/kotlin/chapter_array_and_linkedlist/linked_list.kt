@@ -16,7 +16,7 @@ fun insert(n0: ListNode?, p: ListNode?) {
     n0?.next = p
 }
 
-/* Remove the first node after node n0 in the linked list */
+/* Remove the node immediately after n0 in the linked list */
 fun remove(n0: ListNode?) {
     if (n0?.next == null)
         return
@@ -26,7 +26,7 @@ fun remove(n0: ListNode?) {
     n0.next = n1
 }
 
-/* Access the node at index `index` in the linked list */
+/* Access the linked list node at the specified index */
 fun access(head: ListNode?, index: Int): ListNode? {
     var h = head
     for (i in 0..<index) {
@@ -50,39 +50,39 @@ fun find(head: ListNode?, target: Int): Int {
     return -1
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     /* Initialize the linked list */
-    // Initialize the individual nodes
+    // Initialize the nodes
     val n0 = ListNode(1)
     val n1 = ListNode(3)
     val n2 = ListNode(2)
     val n3 = ListNode(5)
     val n4 = ListNode(4)
 
-    // Set up references between the nodes
+    // Link the nodes together
     n0.next = n1
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    println("The initialized linked list is")
+    println("Initial linked list:")
     printLinkedList(n0)
 
     /* Insert a node */
     insert(n0, ListNode(0))
-    println("The linked list after inserting a node is")
+    println("Linked list after insertion:")
     printLinkedList(n0)
 
     /* Remove a node */
     remove(n0)
-    println("The linked list after removing a node is")
+    println("Linked list after removal:")
     printLinkedList(n0)
 
     /* Access a node */
     val node = access(n0, 3)!!
-    println("Value of the linked-list node at index 3 = ${node._val}")
+    println("Value of the node at index 3 = ${node._val}")
 
     /* Find a node */
     val index = find(n0, 2)
-    println("Index of the linked-list node with value 2 = $index")
+    println("Index of the node with value 2 = $index")
 }

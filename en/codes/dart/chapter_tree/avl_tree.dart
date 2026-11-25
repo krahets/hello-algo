@@ -18,21 +18,21 @@ class AVLTree {
 
   /* Get the node height */
   int height(TreeNode? node) {
-    // A null node has height -1; a leaf has height 0
+    // A null node has height -1, and a leaf has height 0
     return node == null ? -1 : node.height;
   }
 
   /* Update the node height */
   void updateHeight(TreeNode? node) {
-    // The node height equals the height of its taller subtree + 1
+    // Node height is the height of the taller subtree plus 1
     node!.height = max(height(node.left), height(node.right)) + 1;
   }
 
   /* Get the balance factor */
   int balanceFactor(TreeNode? node) {
-    // A null node has balance factor 0
+    // A null node has a balance factor of 0
     if (node == null) return 0;
-    // Node balance factor = left subtree height - right subtree height
+    // Balance factor = left subtree height - right subtree height
     return height(node.left) - height(node.right);
   }
 
@@ -64,7 +64,7 @@ class AVLTree {
     return child;
   }
 
-  /* Perform rotations to restore balance in this subtree */
+  /* Rebalance the subtree by rotating it */
   TreeNode? rotate(TreeNode? node) {
     // Get the balance factor of node
     int factor = balanceFactor(node);
@@ -90,7 +90,7 @@ class AVLTree {
         return leftRotate(node);
       }
     }
-    // The tree is balanced; return without rotating
+    // The tree is balanced, so return without rotating
     return node;
   }
 
@@ -108,23 +108,23 @@ class AVLTree {
     else if (val > node.val)
       node.right = insertHelper(node.right, val);
     else
-      return node; // Return without inserting a duplicate node
+      return node; // Return without inserting a duplicate
     updateHeight(node); // Update the node height
-    /* 2. Perform rotations to restore balance in this subtree */
+    /* 2. Rebalance the subtree by rotating it */
     node = rotate(node);
     // Return the root of the subtree
     return node;
   }
 
-  /* Remove a node */
+  /* Delete a node */
   void remove(int val) {
     root = removeHelper(root, val);
   }
 
-  /* Remove a node recursively (helper method) */
+  /* Delete a node recursively (helper method) */
   TreeNode? removeHelper(TreeNode? node, int val) {
     if (node == null) return null;
-    /* 1. Find and remove the node */
+    /* 1. Find the node and delete it */
     if (val < node.val)
       node.left = removeHelper(node.left, val);
     else if (val > node.val)
@@ -132,14 +132,14 @@ class AVLTree {
     else {
       if (node.left == null || node.right == null) {
         TreeNode? child = node.left ?? node.right;
-        // Number of children = 0: remove node and return
+        // No children: delete node and return
         if (child == null)
           return null;
-        // Number of children = 1: remove node directly
+        // One child: delete node
         else
           node = child;
       } else {
-        // Number of children = 2: remove the inorder successor and use its value to replace the current node value
+        // Two children: delete the inorder successor and use it to replace the current node
         TreeNode? temp = node.right;
         while (temp!.left != null) {
           temp = temp.left;
@@ -149,24 +149,24 @@ class AVLTree {
       }
     }
     updateHeight(node); // Update the node height
-    /* 2. Perform rotations to restore balance in this subtree */
+    /* 2. Rebalance the subtree by rotating it */
     node = rotate(node);
     // Return the root of the subtree
     return node;
   }
 
-  /* Find a node */
+  /* Search for a node */
   TreeNode? search(int val) {
     TreeNode? cur = root;
-    // Search in a loop, stopping if a null reference is reached
+    // Stop the search after passing a leaf
     while (cur != null) {
-      // The target node is in the left subtree of cur
+      // The target is in the right subtree of cur
       if (val < cur.val)
         cur = cur.left;
-      // The target node is in the right subtree of cur
+      // The target is in the left subtree of cur
       else if (val > cur.val)
         cur = cur.right;
-      // The target value equals the current node value
+      // The current node matches the target
       else
         break;
     }
@@ -176,13 +176,13 @@ class AVLTree {
 
 void testInsert(AVLTree tree, int val) {
   tree.insert(val);
-  print("\nAVL tree after inserting node $val:");
+  print("\nAVL tree after inserting $val:");
   printTree(tree.root);
 }
 
 void testRemove(AVLTree tree, int val) {
   tree.remove(val);
-  print("\nAVL tree after removing node $val:");
+  print("\nAVL tree after deleting $val:");
   printTree(tree.root);
 }
 
@@ -191,7 +191,7 @@ void main() {
   /* Initialize an empty AVL tree */
   AVLTree avlTree = AVLTree();
   /* Insert a node */
-  // Observe how the AVL tree maintains balance after a node is inserted
+  // Watch how the AVL tree stays balanced after an insertion
   testInsert(avlTree, 1);
   testInsert(avlTree, 2);
   testInsert(avlTree, 3);
@@ -206,11 +206,11 @@ void main() {
   /* Insert a duplicate node */
   testInsert(avlTree, 7);
 
-  /* Remove a node */
-  // Observe how the AVL tree maintains balance after a node is removed
-  testRemove(avlTree, 8); // Remove a node with 0 children
-  testRemove(avlTree, 5); // Remove a node with 1 child
-  testRemove(avlTree, 4); // Remove a node with 2 children
+  /* Delete a node */
+  // Watch how the AVL tree stays balanced after a deletion
+  testRemove(avlTree, 8); // Delete a node with no children
+  testRemove(avlTree, 5); // Delete a node with one child
+  testRemove(avlTree, 4); // Delete a node with two children
 
   /* Look up a node */
   TreeNode? node = avlTree.search(7);

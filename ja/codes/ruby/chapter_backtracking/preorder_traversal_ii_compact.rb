@@ -20,21 +20,21 @@ def pre_order(root)
   pre_order(root.left)
   pre_order(root.right)
 
-  # 復元
+  # 後戻り
   $path.pop
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   root = arr_to_tree([1, 7, 3, 4, 5, 6, 7])
-  puts "\n二分木を初期化する"
+  puts "\n二分木を初期化"
   print_tree(root)
 
   # 行きがけ順走査
   $path, $res = [], []
   pre_order(root)
 
-  puts "\n根ノードからノード 7 までのすべての経路を出力する"
+  puts "\n根から値が 7 のノードまでの経路をすべて出力"
   for path in $res
     p path.map { |node| node.val }
   end

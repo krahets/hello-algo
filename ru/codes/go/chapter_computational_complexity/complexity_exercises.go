@@ -4,7 +4,7 @@
 
 package chapter_computational_complexity
 
-/* Итеративное суммирование */
+/* Суммирование в цикле */
 func sumIter(n int) int {
 	res := 0
 	for i := 1; i <= n; i++ {

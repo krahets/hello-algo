@@ -12,7 +12,7 @@ public class linked_list {
         n0.next = P;
     }
 
-    /* Remove the first node after node n0 in the linked list */
+    /* Remove the node immediately after n0 in the linked list */
     void Remove(ListNode n0) {
         if (n0.next == null)
             return;
@@ -22,7 +22,7 @@ public class linked_list {
         n0.next = n1;
     }
 
-    /* Access the node at index `index` in the linked list */
+    /* Access the linked list node at the specified index */
     ListNode? Access(ListNode? head, int index) {
         for (int i = 0; i < index; i++) {
             if (head == null)
@@ -48,33 +48,33 @@ public class linked_list {
     [Test]
     public void Test() {
         // Initialize the linked list 
-        // Initialize the individual nodes 
+        // Initialize the nodes 
         ListNode n0 = new(1);
         ListNode n1 = new(3);
         ListNode n2 = new(2);
         ListNode n3 = new(5);
         ListNode n4 = new(4);
-        // Set up references between the nodes
+        // Link the nodes together
         n0.next = n1;
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        Console.WriteLine($"Initialized linked list: {n0}");
+        Console.WriteLine($"Initial linked list: {n0}");
 
         // Insert a node 
         Insert(n0, new ListNode(0));
-        Console.WriteLine($"Linked list after inserting a node: {n0}");
+        Console.WriteLine($"Linked list after insertion: {n0}");
 
         // Remove a node 
         Remove(n0);
-        Console.WriteLine($"Linked list after removing a node: {n0}");
+        Console.WriteLine($"Linked list after removal: {n0}");
 
         // Access a node 
         ListNode? node = Access(n0, 3);
-        Console.WriteLine($"Value of the node at index 3 in the linked list = {node?.val}");
+        Console.WriteLine($"Value of the node at index 3 = {node?.val}");
 
         // Find a node 
         int index = Find(n0, 2);
-        Console.WriteLine($"Index of the node with value 2 in the linked list = {index}");
+        Console.WriteLine($"Index of the node with value 2 = {index}");
     }
 }

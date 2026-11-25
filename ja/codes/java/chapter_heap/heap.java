@@ -11,14 +11,14 @@ import java.util.*;
 
 public class heap {
     public static void testPush(Queue<Integer> heap, int val) {
-        heap.offer(val); // ヒープに要素を挿入する
-        System.out.format("\n要素 %d をヒープに挿入した後\n", val);
+        heap.offer(val); // 要素をヒープに挿入する
+        System.out.format("\n要素 %d の挿入後：\n", val);
         PrintUtil.printHeap(heap);
     }
 
     public static void testPop(Queue<Integer> heap) {
-        int val = heap.poll(); // ヒープの先頭要素を取り出す
-        System.out.format("\nヒープの先頭要素 %d を取り出した後\n", val);
+        int val = heap.poll(); // 根の要素を取り出す
+        System.out.format("\n根の要素 %d を取り出した後：\n", val);
         PrintUtil.printHeap(heap);
     }
 
@@ -29,20 +29,20 @@ public class heap {
         // 最大ヒープを初期化する（ラムダ式で Comparator を変更すればよい）
         Queue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
 
-        System.out.println("\n以下のテストケースは最大ヒープを対象とする");
+        System.out.println("\n以下は最大ヒープのテスト例");
 
-        /* ヒープに要素を挿入する */
+        /* 要素をヒープに挿入する */
         testPush(maxHeap, 1);
         testPush(maxHeap, 3);
         testPush(maxHeap, 2);
         testPush(maxHeap, 5);
         testPush(maxHeap, 4);
 
-        /* ヒープの先頭要素を取得する */
+        /* ヒープの根の要素を取得する */
         int peek = maxHeap.peek();
-        System.out.format("\nヒープの先頭要素は %d\n", peek);
+        System.out.format("\nヒープの根の要素：%d\n", peek);
 
-        /* ヒープの先頭要素を取り出す */
+        /* 根の要素を取り出す */
         testPop(maxHeap);
         testPop(maxHeap);
         testPop(maxHeap);
@@ -51,16 +51,16 @@ public class heap {
 
         /* ヒープのサイズを取得する */
         int size = maxHeap.size();
-        System.out.format("\nヒープの要素数は %d\n", size);
+        System.out.format("\nヒープの要素数：%d\n", size);
 
-        /* ヒープが空か判定 */
+        /* ヒープが空か判定する */
         boolean isEmpty = maxHeap.isEmpty();
-        System.out.format("\nヒープは空か %b\n", isEmpty);
+        System.out.format("\nヒープは空か：%b\n", isEmpty);
 
-        /* リストを入力してヒープを構築する */
-        // 時間計算量は O(n) であり、O(nlogn) ではない
+        /* 入力リストからヒープを構築する */
+        // 時間計算量は O(nlogn) ではなく O(n)
         minHeap = new PriorityQueue<>(Arrays.asList(1, 3, 2, 5, 4));
-        System.out.println("\nリストを入力して最小ヒープを構築した後");
+        System.out.println("\n入力リストから構築した最小ヒープ：");
         PrintUtil.printHeap(minHeap);
     }
 }

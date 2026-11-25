@@ -4,14 +4,14 @@
 
 package chapter_greedy
 
-/* Coin change: greedy algorithm */
+/* Greedy coin change */
 func coinChangeGreedy(coins []int, amt int) int {
-	// Assume the coins list is sorted in ascending order
+	// Assume the coins list is sorted
 	i := len(coins) - 1
 	count := 0
-	// Repeatedly make greedy choices until no amount remains
+	// Make greedy choices until no amount remains
 	for amt > 0 {
-		// Find the largest coin no greater than the remaining amount
+		// Find the closest denomination below the remaining amount
 		for i > 0 && coins[i] > amt {
 			i--
 		}

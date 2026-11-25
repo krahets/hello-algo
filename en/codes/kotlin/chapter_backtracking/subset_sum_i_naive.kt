@@ -14,31 +14,31 @@ fun backtrack(
     choices: IntArray,
     res: MutableList<MutableList<Int>?>
 ) {
-    // Record a solution when the subset sum equals target
+    // Record a solution when the subset sums to target
     if (total == target) {
         res.add(state.toMutableList())
         return
     }
-    // Iterate over all choices
+    // Try each choice
     for (i in choices.indices) {
-        // Prune: skip this choice if the subset sum would exceed target
+        // Prune: skip choices that would take the subset sum over target
         if (total + choices[i] > target) {
             continue
         }
-        // Try: make a choice and update the sum total
+        // Make a choice and update the running sum total
         state.add(choices[i])
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(state, target, total + choices[i], choices, res)
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         state.removeAt(state.size - 1)
     }
 }
 
-/* Solve subset sum I (with duplicate subsets) */
+/* Solve subset sum I (including duplicate subsets) */
 fun subsetSumINaive(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
-    val state = mutableListOf<Int>() // State (subset)
+    val state = mutableListOf<Int>() // State (current subset)
     val total = 0 // Subset sum
-    val res = mutableListOf<MutableList<Int>?>() // Result list (list of subsets)
+    val res = mutableListOf<MutableList<Int>?>() // Results (list of subsets)
     backtrack(state, target, total, nums, res)
     return res
 }
@@ -50,6 +50,6 @@ fun main() {
     val res = subsetSumINaive(nums, target)
 
     println("Input array nums = ${nums.contentToString()}, target = $target")
-    println("All subsets with sum $target: res = $res")
-    println("Note that this method produces duplicate subsets")
+    println("Subsets that sum to $target: res = $res")
+    println("This method returns duplicate subsets")
 }

@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_dynamic_programming;
 
 public class min_cost_climbing_stairs_dp {
-    /* 階段を上る最小コスト：動的計画法 */
+    /* 階段を登る最小コスト：動的計画法 */
     int MinCostClimbingStairsDP(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
@@ -24,7 +24,7 @@ public class min_cost_climbing_stairs_dp {
         return dp[n];
     }
 
-    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
+    /* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
     int MinCostClimbingStairsDPComp(int[] cost) {
         int n = cost.Length - 1;
         if (n == 1 || n == 2)
@@ -41,13 +41,13 @@ public class min_cost_climbing_stairs_dp {
     [Test]
     public void Test() {
         int[] cost = [0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1];
-        Console.WriteLine("入力した階段のコストのリスト");
+        Console.WriteLine("各段のコストの入力リストは");
         PrintUtil.PrintList(cost);
 
         int res = MinCostClimbingStairsDP(cost);
-        Console.WriteLine($"階段を上り終える最小コストは {res}");
+        Console.WriteLine($"階段を登りきる最小コストは {res}");
 
         res = MinCostClimbingStairsDPComp(cost);
-        Console.WriteLine($"階段を上り終える最小コストは {res}");
+        Console.WriteLine($"階段を登りきる最小コストは {res}");
     }
 }

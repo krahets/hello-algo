@@ -17,7 +17,7 @@ function preOrder(
     if (root === null) {
         return;
     }
-    // Try
+    // Try a choice
     path.push(root);
     if (root.val === 7) {
         // Record the solution
@@ -39,7 +39,7 @@ const path: TreeNode[] = [];
 const res: TreeNode[][] = [];
 preOrder(root, path, res);
 
-console.log('\nOutput all paths from the root to nodes with value 7');
+console.log('\nPrint all paths from the root to a node with value 7');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

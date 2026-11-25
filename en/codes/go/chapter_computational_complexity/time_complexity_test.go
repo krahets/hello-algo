@@ -14,35 +14,35 @@ func TestTimeComplexity(t *testing.T) {
 	fmt.Println("Input size n =", n)
 
 	count := constant(n)
-	fmt.Println("Operation count for constant complexity =", count)
+	fmt.Println("Constant operation count =", count)
 
 	count = linear(n)
-	fmt.Println("Operation count for linear complexity =", count)
+	fmt.Println("Linear operation count =", count)
 	count = arrayTraversal(make([]int, n))
-	fmt.Println("Operation count for linear complexity (array traversal) =", count)
+	fmt.Println("Linear operation count (array traversal) =", count)
 
 	count = quadratic(n)
-	fmt.Println("Operation count for quadratic complexity =", count)
+	fmt.Println("Quadratic operation count =", count)
 	nums := make([]int, n)
 	for i := 0; i < n; i++ {
 		nums[i] = n - i
 	}
 	count = bubbleSort(nums)
-	fmt.Println("Operation count for quadratic complexity (bubble sort) =", count)
+	fmt.Println("Quadratic operation count (bubble sort) =", count)
 
 	count = exponential(n)
-	fmt.Println("Operation count for exponential complexity (iterative implementation) =", count)
+	fmt.Println("Exponential operation count (iterative) =", count)
 	count = expRecur(n)
-	fmt.Println("Operation count for exponential complexity (recursive implementation) =", count)
+	fmt.Println("Exponential operation count (recursive) =", count)
 
 	count = logarithmic(n)
-	fmt.Println("Operation count for logarithmic complexity (iterative implementation) =", count)
+	fmt.Println("Logarithmic operation count (iterative) =", count)
 	count = logRecur(n)
-	fmt.Println("Operation count for logarithmic complexity (recursive implementation) =", count)
+	fmt.Println("Logarithmic operation count (recursive) =", count)
 
 	count = linearLogRecur(n)
-	fmt.Println("Operation count for linearithmic complexity (recursive implementation) =", count)
+	fmt.Println("Linearithmic operation count (recursive) =", count)
 
 	count = factorialRecur(n)
-	fmt.Println("Operation count for factorial complexity (recursive implementation) =", count)
+	fmt.Println("Factorial operation count (recursive) =", count)
 }

@@ -11,39 +11,39 @@ class AVLTree {
   private:
     /* ノードの高さを更新する */
     void updateHeight(TreeNode *node) {
-        // ノードの高さは、最も高い部分木の高さ + 1
+        // ノードの高さは、左右の部分木の高さの最大値 + 1
         node->height = max(height(node->left), height(node->right)) + 1;
     }
 
-    /* 右回転操作 */
+    /* 右回転 */
     TreeNode *rightRotate(TreeNode *node) {
         TreeNode *child = node->left;
         TreeNode *grandChild = child->right;
-        // child を中心に node を右回転する
+        // child を軸に node を右回転する
         child->right = node;
         node->left = grandChild;
         // ノードの高さを更新する
         updateHeight(node);
         updateHeight(child);
-        // 回転後の部分木の根ノードを返す
+        // 回転後の部分木の根を返す
         return child;
     }
 
-    /* 左回転操作 */
+    /* 左回転 */
     TreeNode *leftRotate(TreeNode *node) {
         TreeNode *child = node->right;
         TreeNode *grandChild = child->left;
-        // child を中心に node を左回転する
+        // child を軸に node を左回転する
         child->left = node;
         node->right = grandChild;
         // ノードの高さを更新する
         updateHeight(node);
         updateHeight(child);
-        // 回転後の部分木の根ノードを返す
+        // 回転後の部分木の根を返す
         return child;
     }
 
-    /* 回転操作によって、この部分木の平衡を回復する */
+    /* 回転して部分木の平衡を回復する */
     TreeNode *rotate(TreeNode *node) {
         // ノード node の平衡係数を取得する
         int _balanceFactor = balanceFactor(node);
@@ -53,7 +53,7 @@ class AVLTree {
                 // 右回転
                 return rightRotate(node);
             } else {
-                // 左回転してから右回転する
+                // 左回転してから右回転
                 node->left = leftRotate(node->left);
                 return rightRotate(node);
             }
@@ -64,16 +64,16 @@ class AVLTree {
                 // 左回転
                 return leftRotate(node);
             } else {
-                // 右回転してから左回転する
+                // 右回転してから左回転
                 node->right = rightRotate(node->right);
                 return leftRotate(node);
             }
         }
-        // 平衡な木なので、回転せずにそのまま返す
+        // 平衡なので回転せずに戻る
         return node;
     }
 
-    /* ノードを再帰的に挿入する（補助メソッド） */
+    /* 再帰によるノードの挿入（補助メソッド） */
     TreeNode *insertHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return new TreeNode(val);
@@ -83,15 +83,15 @@ class AVLTree {
         else if (val > node->val)
             node->right = insertHelper(node->right, val);
         else
-            return node;    // 重複したノードは挿入せず、そのまま戻る
+            return node;    // 値が重複する場合は挿入せずに戻る
         updateHeight(node); // ノードの高さを更新する
-        /* 2. 回転操作によって、この部分木の平衡を回復する */
+        /* 2. 回転して部分木の平衡を回復する */
         node = rotate(node);
-        // 部分木の根ノードを返す
+        // 部分木の根を返す
         return node;
     }
 
-    /* ノードを再帰的に削除する（補助メソッド） */
+    /* 再帰によるノードの削除（補助メソッド） */
     TreeNode *removeHelper(TreeNode *node, int val) {
         if (node == nullptr)
             return nullptr;
@@ -103,18 +103,18 @@ class AVLTree {
         else {
             if (node->left == nullptr || node->right == nullptr) {
                 TreeNode *child = node->left != nullptr ? node->left : node->right;
-                // 子ノード数 = 0 の場合、node を削除して戻る
+                // 子が 0 個なら node を削除して戻る
                 if (child == nullptr) {
                     delete node;
                     return nullptr;
                 }
-                // 子ノード数 = 1 の場合、node を削除する
+                // 子が 1 個なら node を削除する
                 else {
                     delete node;
                     node = child;
                 }
             } else {
-                // 子ノード数 = 2 の場合、通りがけ順で次のノードを削除し、そのノードで現在のノードを置き換える
+                // 子が 2 個なら通りがけ順で次のノードを削除し、その値で現在のノードの値を置き換える
                 TreeNode *temp = node->right;
                 while (temp->left != nullptr) {
                     temp = temp->left;
@@ -125,9 +125,9 @@ class AVLTree {
             }
         }
         updateHeight(node); // ノードの高さを更新する
-        /* 2. 回転操作によって、この部分木の平衡を回復する */
+        /* 2. 回転して部分木の平衡を回復する */
         node = rotate(node);
-        // 部分木の根ノードを返す
+        // 部分木の根を返す
         return node;
     }
 
@@ -136,13 +136,13 @@ class AVLTree {
 
     /* ノードの高さを取得する */
     int height(TreeNode *node) {
-        // 空ノードの高さは -1 、葉ノードの高さは 0
+        // 空のノードの高さは -1、葉の高さは 0
         return node == nullptr ? -1 : node->height;
     }
 
     /* 平衡係数を取得する */
     int balanceFactor(TreeNode *node) {
-        // 空ノードの平衡係数は 0
+        // 空のノードの平衡係数は 0
         if (node == nullptr)
             return 0;
         // ノードの平衡係数 = 左部分木の高さ - 右部分木の高さ
@@ -162,7 +162,7 @@ class AVLTree {
     /* ノードを探索する */
     TreeNode *search(int val) {
         TreeNode *cur = root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur != nullptr) {
             // 目的のノードは cur の右部分木にある
             if (cur->val < val)
@@ -170,7 +170,7 @@ class AVLTree {
             // 目的のノードは cur の左部分木にある
             else if (cur->val > val)
                 cur = cur->left;
-            // 目的のノードが見つかったので、ループを終了する
+            // 目的のノードが見つかったのでループを抜ける
             else
                 break;
         }
@@ -190,23 +190,23 @@ class AVLTree {
 
 void testInsert(AVLTree &tree, int val) {
     tree.insert(val);
-    cout << "\nノードの挿入： " << val << " 、操作後の AVL 木" << endl;
+    cout << "\nノード " << val << " を挿入した後の AVL 木：" << endl;
     printTree(tree.root);
 }
 
 void testRemove(AVLTree &tree, int val) {
     tree.remove(val);
-    cout << "\nノードの削除： " << val << " 、操作後の AVL 木" << endl;
+    cout << "\nノード " << val << " を削除した後の AVL 木：" << endl;
     printTree(tree.root);
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* 空の AVL 木を初期化する */
     AVLTree avlTree;
 
     /* ノードを挿入する */
-    // ノード挿入後、AVL 木がどのように平衡を保つかに注目する
+    // 挿入後に AVL 木がどのように平衡を保つかに注目
     testInsert(avlTree, 1);
     testInsert(avlTree, 2);
     testInsert(avlTree, 3);
@@ -218,16 +218,16 @@ int main() {
     testInsert(avlTree, 10);
     testInsert(avlTree, 6);
 
-    /* 重複したノードを挿入する */
+    /* 重複するノードを挿入する */
     testInsert(avlTree, 7);
 
     /* ノードを削除する */
-    // ノード削除後、AVL 木がどのように平衡を保つかに注目する
-    testRemove(avlTree, 8); // 次数 0 のノードを削除する
-    testRemove(avlTree, 5); // 次数 1 のノードを削除する
-    testRemove(avlTree, 4); // 次数 2 のノードを削除する
+    // 削除後に AVL 木がどのように平衡を保つかに注目
+    testRemove(avlTree, 8); // 子が 0 個のノードを削除する
+    testRemove(avlTree, 5); // 子が 1 個のノードを削除する
+    testRemove(avlTree, 4); // 子が 2 個のノードを削除する
 
-    /* ノードを探索する */
+    /* ノードを検索する */
     TreeNode *node = avlTree.search(7);
-    cout << "\n見つかったノードオブジェクトは " << node << "、ノードの値 = " << node->val << endl;
+    cout << "\n見つかったノードのオブジェクト： " << node << "、ノードの値 = " << node->val << endl;
 }

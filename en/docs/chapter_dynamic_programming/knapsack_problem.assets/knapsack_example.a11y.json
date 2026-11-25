@@ -1,32 +1,32 @@
 {
-  "schema_version": 2,
-  "title": "0-1 knapsack: optimal selection at capacity 50",
-  "summary": "Selecting the weight-20 banana and weight-30 grapes from five items fills capacity 50 exactly for a maximum value of 270.",
   "context": [
-    "In 0-1 knapsack, each item may be chosen at most once to maximize total value without exceeding knapsack capacity. This example has 5 items and knapsack capacity cap = 50; item IDs i run from 1 to 5, mapping to array index i - 1 (written wgt[i - 1] and val[i - 1] in the figure's table header)."
+    "In 0-1 knapsack, take each item at most once and maximize the total value without exceeding the capacity. Here there are 5 items and cap=50. The figure numbers items i from 1 through 5, corresponding to array index i-1 (the original column headers read wgt[i-1] and val[i-1])."
   ],
   "description": [
-    "At the upper left, a table lists the icon, weight, and value of items 1 through 5 (full data in the table below); row 2 (banana) is shaded light orange and row 3 (grapes) is shaded light purple, each sending an arrow to the purple knapsack icon at the upper right labeled \"Knapsack capacity cap = 50\".",
-    "Below, the result box states \"Maximum value: 270\" and pairs the banana and grapes icons with \"Optimal choice: pack [banana and grapes] into the knapsack using 50 units of capacity in total\"."
+    "The upper-left table lists icons, weights, and values for items 1–5 (see the table for all data). The banana row, item 2, has a light orange background, and the grapes row, item 3, has a light purple background. An arrow from each leads to the purple knapsack at the upper right, labeled “Knapsack capacity cap = 50.”",
+    "The result box below reads “Maximum value: 270.” Banana and grape icons accompany the explanation “Optimal choice: pack the banana and grapes, using 50 units of capacity.”"
   ],
   "frames": [
     {
-      "id": "source-394",
       "book_path": "chapter_dynamic_programming/knapsack_problem.assets/knapsack_example.png",
-      "title": "0-1 knapsack: optimal selection at capacity 50",
-      "explanation": "Computed from the input data, choosing item 2 (banana) and item 3 (grapes) gives total weight 20 + 30 = 50 and total value 120 + 150 = 270. That is the highest value among all non-overweight subsets—beating, for instance, 260 from items 1 and 4 or 240 from item 5 alone, supplied here from the input table for comparison."
+      "explanation": "From the input, the banana (2) and grapes (3) weigh 20+30=50 and are worth 120+150=270. This is the highest value among all combinations that fit. For comparison, items 1 and 4 give 260, while item 5 alone gives 240. These calculations and comparisons are derived from the figure's input.",
+      "id": "source-394",
+      "title": "0-1 knapsack: optimal choice for capacity 50"
     }
   ],
+  "schema_version": 2,
+  "summary": "Of five items, choose the banana weighing 20 and the grapes weighing 30. They exactly fill capacity 50 and achieve the maximum value of 270.",
   "tables": [
     {
-      "caption": "Five items for capacity 50; IDs start at 1",
+      "caption": "Five items for capacity 50, numbered from 1",
       "headers": [
-        "ID",
-        "Illustrated item",
+        "Item number",
+        "Item shown",
         "Weight",
         "Value",
-        "Included in optimal choice?"
+        "Included in the optimal choice?"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -63,8 +63,8 @@
           "240",
           "No"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "0-1 knapsack: optimal choice for capacity 50"
 }

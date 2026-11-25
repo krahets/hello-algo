@@ -10,34 +10,34 @@ public class preorder_traversal_iii_compact {
     List<TreeNode> path = [];
     List<List<TreeNode>> res = [];
 
-    /* Предварительный обход: пример 3 */
+    /* Прямой обход: пример 3 */
     void PreOrder(TreeNode? root) {
         // Отсечение
         if (root == null || root.val == 3) {
             return;
         }
-        // Попытка
+        // Пробуем вариант
         path.Add(root);
         if (root.val == 7) {
-            // Записать решение
+            // Сохраняем решение
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
         PreOrder(root.right);
-        // Откат
+        // Возврат
         path.RemoveAt(path.Count - 1);
     }
 
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\nИнициализация двоичного дерева");
+        Console.WriteLine("\nСоздаём двоичное дерево");
         PrintUtil.PrintTree(root);
 
-        // Предварительный обход
+        // Прямой обход
         PreOrder(root);
 
-        Console.WriteLine("\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3");
+        Console.WriteLine("\nВыводим все пути от корня до узлов со значением 7 без узлов со значением 3");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

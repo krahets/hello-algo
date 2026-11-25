@@ -4,11 +4,11 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 循環配列で実装したキュー */
+/* 循環配列を使ったキュー */
 class ArrayQueue {
     private var nums: [Int] // キューの要素を格納する配列
-    private var front: Int // キューの先頭要素を指す先頭ポインタ
-    private var _size: Int // キューの長さ
+    private var front: Int // キューの先頭要素を指すインデックス
+    private var _size: Int // キューの要素数
 
     init(capacity: Int) {
         // 配列を初期化する
@@ -22,41 +22,41 @@ class ArrayQueue {
         nums.count
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     func size() -> Int {
         _size
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     func isEmpty() -> Bool {
         size() == 0
     }
 
-    /* エンキュー */
+    /* エンキューする */
     func push(num: Int) {
         if size() == capacity() {
             print("キューが満杯です")
             return
         }
-        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
-        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
+        // キューの末尾要素の次の位置を示すインデックスを求める
+        // 剰余を使い、rear が配列の末尾を越えたら先頭に戻るようにする
         let rear = (front + size()) % capacity()
         // num をキューの末尾に追加する
         nums[rear] = num
         _size += 1
     }
 
-    /* デキュー */
+    /* デキューする */
     @discardableResult
     func pop() -> Int {
         let num = peek()
-        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
+        // 先頭のインデックスを 1 つ進め、配列の末尾を越えたら先頭に戻す
         front = (front + 1) % capacity()
         _size -= 1
         return num
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     func peek() -> Int {
         if isEmpty() {
             fatalError("キューが空です")
@@ -66,20 +66,20 @@ class ArrayQueue {
 
     /* 配列を返す */
     func toArray() -> [Int] {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // キューの要素数に当たる範囲だけを変換する
         (front ..< front + size()).map { nums[$0 % capacity()] }
     }
 }
 
 @main
 enum _ArrayQueue {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         /* キューを初期化する */
         let capacity = 10
         let queue = ArrayQueue(capacity: capacity)
 
-        /* 要素をエンキューする */
+        /* 要素をキューに追加する */
         queue.push(num: 1)
         queue.push(num: 3)
         queue.push(num: 2)
@@ -87,27 +87,27 @@ enum _ArrayQueue {
         queue.push(num: 4)
         print("キュー queue = \(queue.toArray())")
 
-        /* キューの先頭要素にアクセス */
+        /* キューの先頭要素を参照する */
         let peek = queue.peek()
-        print("キューの先頭要素 peek = \(peek)")
+        print("先頭要素 peek = \(peek)")
 
-        /* 要素をデキューする */
+        /* キューから要素を取り出す */
         let pop = queue.pop()
-        print("デキューした要素 pop = \(pop)、デキュー後 queue = \(queue.toArray())")
+        print("デキューした要素 pop = \(pop)、デキュー後の queue = \(queue.toArray())")
 
-        /* キューの長さを取得 */
+        /* キューの要素数を取得する */
         let size = queue.size()
-        print("キューの長さ size = \(size)")
+        print("キューの要素数 size = \(size)")
 
-        /* キューが空か判定 */
+        /* キューが空かどうかを判定する */
         let isEmpty = queue.isEmpty()
         print("キューは空か = \(isEmpty)")
 
-        /* 循環配列をテストする */
+        /* 循環配列の動作を確認する */
         for i in 0 ..< 10 {
             queue.push(num: i)
             queue.pop()
-            print("第 \(i) 回のエンキューとデキューの後 queue = \(queue.toArray())")
+            print("第 \(i) 回のエンキューとデキューを終えた後の queue = \(queue.toArray())")
         }
     }
 }

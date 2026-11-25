@@ -8,9 +8,9 @@ package chapter_graph
 
 import utils.Vertex
 
-/* 隣接リストで実装した無向グラフクラス */
+/* 隣接リストで無向グラフを表すクラス */
 class GraphAdjList(edges: Array<Array<Vertex?>>) {
-    // 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+    // 隣接リスト。key は頂点、value はその頂点の全隣接頂点
     val adjList = HashMap<Vertex, MutableList<Vertex>>()
 
     /* コンストラクタ */
@@ -58,9 +58,9 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     fun removeVertex(vet: Vertex) {
         if (!adjList.containsKey(vet))
             throw IllegalArgumentException()
-        // 隣接リストから頂点 vet に対応する連結リストを削除する
+        // 隣接リストから頂点 vet の連結リストを削除する
         adjList.remove(vet)
-        // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+        // 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
         for (list in adjList.values) {
             list.remove(vet)
         }
@@ -79,7 +79,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     /* 無向グラフを初期化する */
     val v = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
@@ -92,30 +92,30 @@ fun main() {
         arrayOf(v[3], v[4])
     )
     val graph = GraphAdjList(edges)
-    println("\n初期化後のグラフ")
+    println("\n初期化後のグラフ：")
     graph.print()
 
     /* 辺を追加する */
-    // 頂点 1, 2 は v[0], v[2] に対応する
+    // 頂点 1 と 2 はそれぞれ v[0] と v[2]
     graph.addEdge(v[0]!!, v[2]!!)
-    println("\n辺 1-2 を追加した後のグラフ")
+    println("\n辺 1-2 を追加した後のグラフ：")
     graph.print()
 
     /* 辺を削除する */
-    // 頂点 1, 3 は v[0], v[1] に対応する
+    // 頂点 1 と 3 はそれぞれ v[0] と v[1]
     graph.removeEdge(v[0]!!, v[1]!!)
-    println("\n辺 1-3 を削除した後のグラフ")
+    println("\n辺 1-3 を削除した後のグラフ：")
     graph.print()
 
     /* 頂点を追加する */
     val v5 = Vertex(6)
     graph.addVertex(v5)
-    println("\n頂点 6 を追加した後のグラフ")
+    println("\n頂点 6 を追加した後のグラフ：")
     graph.print()
 
     /* 頂点を削除する */
-    // 頂点 3 は v[1] に対応する
+    // 頂点 3 は v[1]
     graph.removeVertex(v[1]!!)
-    println("\n頂点 3 を削除した後のグラフ")
+    println("\n頂点 3 を削除した後のグラフ：")
     graph.print()
 }

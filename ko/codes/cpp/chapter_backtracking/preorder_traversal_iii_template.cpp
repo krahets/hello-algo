@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 현재 상태가 해인지 판단 */
+/* 현재 상태가 해인지 확인한다 */
 bool isSolution(vector<TreeNode *> &state) {
     return !state.empty() && state.back()->val == 7;
 }
@@ -16,22 +16,22 @@ void recordSolution(vector<TreeNode *> &state, vector<vector<TreeNode *>> &res) 
     res.push_back(state);
 }
 
-/* 현재 상태에서 해당 선택이 유효한지 판단 */
+/* 현재 상태에서 이 선택이 유효한지 확인한다 */
 bool isValid(vector<TreeNode *> &state, TreeNode *choice) {
     return choice != nullptr && choice->val != 3;
 }
 
-/* 상태 갱신 */
+/* 상태를 갱신한다 */
 void makeChoice(vector<TreeNode *> &state, TreeNode *choice) {
     state.push_back(choice);
 }
 
-/* 상태 복원 */
+/* 상태를 복원한다 */
 void undoChoice(vector<TreeNode *> &state, TreeNode *choice) {
     state.pop_back();
 }
 
-/* 백트래킹 알고리즘: 예제 3 */
+/* 백트래킹: 예제 3 */
 void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<vector<TreeNode *>> &res) {
     // 해인지 확인한다
     if (isSolution(state)) {
@@ -42,12 +42,12 @@ void backtrack(vector<TreeNode *> &state, vector<TreeNode *> &choices, vector<ve
     for (TreeNode *choice : choices) {
         // 가지치기: 선택이 유효한지 확인한다
         if (isValid(state, choice)) {
-            // 시도: 선택하고 상태를 갱신한다
+            // 시도: 하나를 선택하고 상태를 갱신한다
             makeChoice(state, choice);
             // 다음 선택을 진행한다
             vector<TreeNode *> nextChoices{choice->left, choice->right};
             backtrack(state, nextChoices, res);
-            // 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+            // 되돌리기: 선택을 취소하고 이전 상태를 복원한다
             undoChoice(state, choice);
         }
     }
@@ -65,7 +65,7 @@ int main() {
     vector<vector<TreeNode *>> res;
     backtrack(state, choices, res);
 
-    cout << "\n값이 3인 노드를 포함하지 않는 조건으로, 루트 노드에서 노드 7까지의 모든 경로 출력" << endl;
+    cout << "\n루트에서 값이 7인 노드까지 값이 3인 노드를 거치지 않는 모든 경로 출력" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

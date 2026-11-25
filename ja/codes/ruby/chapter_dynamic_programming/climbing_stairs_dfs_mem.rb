@@ -6,9 +6,9 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### メモ化探索 ###
 def dfs(i, mem)
-  # dp[1] と dp[2] は既知なので、その値を返す
+  # 既知の値 dp[1] と dp[2] のうち、該当する方を返す
   return i if i == 1 || i == 2
-  # dp[i] が記録済みなら、その値をそのまま返す
+  # dp[i] が記録済みなら、その値を返す
   return mem[i] if mem[i] != -1
 
   # dp[i] = dp[i-1] + dp[i-2]
@@ -17,17 +17,17 @@ def dfs(i, mem)
   mem[i] = count
 end
 
-### 階段の上り方：メモ化探索 ###
+### 階段の登り方：メモ化探索 ###
 def climbing_stairs_dfs_mem(n)
-  # mem[i] は i 段目まで上る方法の総数を記録し、-1 は未記録を表す
+  # mem[i] に i 段目までの登り方の総数を記録する。-1 は未記録を表す
   mem = Array.new(n + 1, -1)
   dfs(n, mem)
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_dfs_mem(n)
-  puts "#{n} 段の階段を上る方法は全部で #{res} 通り"
+  puts "全 #{n} 段の階段の登り方は #{res} 通り"
 end

@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Searching is an adventure into the unknown. We may need to explore every corner of a mysterious space, or we may be able to pinpoint our target quickly.
+    A search is a journey into the unknown. We may have to explore every corner of an unfamiliar place, or we may spot our target right away.
     
-    On this journey, every exploration may reveal an unexpected answer.
+    Each step of the journey could bring an unexpected answer.

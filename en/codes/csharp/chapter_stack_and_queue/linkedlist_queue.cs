@@ -6,9 +6,9 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Queue implemented with a linked list */
+/* Queue backed by a linked list */
 class LinkedListQueue {
-    ListNode? front, rear;  // Head node front and tail node rear 
+    ListNode? front, rear;  // front points to the head node and rear to the tail node 
     int queSize = 0;
 
     public LinkedListQueue() {
@@ -26,15 +26,15 @@ class LinkedListQueue {
         return Size() == 0;
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     public void Push(int num) {
-        // Add num after the tail node
+        // Add a node containing num after the tail
         ListNode node = new(num);
-        // If the queue is empty, make both the head and tail point to this node
+        // If the queue is empty, point both the head and tail at the new node
         if (front == null) {
             front = node;
             rear = node;
-            // If the queue is not empty, add this node after the tail node
+            // If the queue has elements, link the new node after the tail
         } else if (rear != null) {
             rear.next = node;
             rear = node;
@@ -42,7 +42,7 @@ class LinkedListQueue {
         queSize++;
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     public int Pop() {
         int num = Peek();
         // Remove the head node
@@ -51,14 +51,14 @@ class LinkedListQueue {
         return num;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return front!.val;
     }
 
-    /* Convert the linked list to an array and return it */
+    /* Return the linked list elements as an array */
     public int[] ToArray() {
         if (front == null)
             return [];
@@ -85,15 +85,15 @@ public class linkedlist_queue {
         queue.Push(2);
         queue.Push(5);
         queue.Push(4);
-        Console.WriteLine("Queue queue = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("queue = " + string.Join(",", queue.ToArray()));
 
-        /* Access the front element */
+        /* Peek at the front element */
         int peek = queue.Peek();
-        Console.WriteLine("Front element peek = " + peek);
+        Console.WriteLine("Front element (peek) = " + peek);
 
         /* Dequeue an element */
         int pop = queue.Pop();
-        Console.WriteLine("Dequeued element pop = " + pop + ", after dequeuing, queue = " + string.Join(",", queue.ToArray()));
+        Console.WriteLine("Dequeued element (pop) = " + pop + ", queue after removal = " + string.Join(",", queue.ToArray()));
 
         /* Get the queue size */
         int size = queue.Size();
@@ -101,6 +101,6 @@ public class linkedlist_queue {
 
         /* Check whether the queue is empty */
         bool isEmpty = queue.IsEmpty();
-        Console.WriteLine("Is the queue empty = " + isEmpty);
+        Console.WriteLine("Queue is empty = " + isEmpty);
     }
 }

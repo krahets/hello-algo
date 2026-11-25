@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Build a binary tree: divide and conquer */
+/* Build a binary tree using divide and conquer */
 TreeNode? dfs(
   List<int> preorder,
   Map<int, int> inorderMap,
@@ -19,7 +19,7 @@ TreeNode? dfs(
   if (r - l < 0) {
     return null;
   }
-  // Initialize the root node
+  // Initialize the root
   TreeNode? root = TreeNode(preorder[i]);
   // Look up m to separate the left and right subtrees
   int m = inorderMap[preorder[i]]!;
@@ -27,13 +27,13 @@ TreeNode? dfs(
   root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
   // Subproblem: build the right subtree
   root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-  // Return the root node
+  // Return the root
   return root;
 }
 
 /* Build a binary tree */
 TreeNode? buildTree(List<int> preorder, List<int> inorder) {
-  // Initialize a hash table mapping each element in inorder to its index
+  // Map each inorder value to its index in a hash table
   Map<int, int> inorderMap = {};
   for (int i = 0; i < inorder.length; i++) {
     inorderMap[inorder[i]] = i;
@@ -50,6 +50,6 @@ void main() {
   print("Inorder traversal = $inorder");
 
   TreeNode? root = buildTree(preorder, inorder);
-  print("The constructed binary tree is:");
+  print("Reconstructed binary tree:");
   printTree(root!);
 }

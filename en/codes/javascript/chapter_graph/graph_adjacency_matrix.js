@@ -4,10 +4,10 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* Undirected graph class implemented with an adjacency matrix */
+/* Undirected graph represented by an adjacency matrix */
 class GraphAdjMat {
-    vertices; // Vertex list: elements are vertex values, and indices are vertex indices
-    adjMat; // Adjacency matrix: row and column indices correspond to vertex indices
+    vertices; // Vertex list: each element holds a vertex value, and its position is the vertex index
+    adjMat; // Adjacency matrix: row and column indices are vertex indices
 
     /* Constructor */
     constructor(vertices, edges) {
@@ -18,13 +18,13 @@ class GraphAdjMat {
             this.addVertex(val);
         }
         // Add an edge
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        // The entries in edges are vertex indices, that is, indices into vertices
         for (const e of edges) {
             this.addEdge(e[0], e[1]);
         }
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     size() {
         return this.vertices.length;
     }
@@ -49,37 +49,37 @@ class GraphAdjMat {
     /* Remove a vertex */
     removeVertex(index) {
         if (index >= this.size()) {
-            throw new RangeError('Index out of bounds');
+            throw new RangeError('Index Out Of Bounds Exception');
         }
-        // Remove the vertex at index `index` from the vertex list
+        // Remove the vertex at the specified index from the vertex list
         this.vertices.splice(index, 1);
 
-        // Remove row `index` from the adjacency matrix
+        // Remove the row at the specified index from the adjacency matrix
         this.adjMat.splice(index, 1);
-        // Remove column `index` from the adjacency matrix
+        // Remove the column at the specified index from the adjacency matrix
         for (const row of this.adjMat) {
             row.splice(index, 1);
         }
     }
 
     /* Add an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     addEdge(i, j) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError('Index out of bounds');
+            throw new RangeError('Index Out Of Bounds Exception');
         }
-        // In an undirected graph, the adjacency matrix is symmetric about its main diagonal: (i, j) === (j, i)
+        // An undirected graph has a symmetric adjacency matrix: (i, j) === (j, i)
         this.adjMat[i][j] = 1;
         this.adjMat[j][i] = 1;
     }
 
     /* Remove an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     removeEdge(i, j) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if (i < 0 || j < 0 || i >= this.size() || j >= this.size() || i === j) {
-            throw new RangeError('Index out of bounds');
+            throw new RangeError('Index Out Of Bounds Exception');
         }
         this.adjMat[i][j] = 0;
         this.adjMat[j][i] = 0;
@@ -93,8 +93,8 @@ class GraphAdjMat {
 }
 
 /* Driver code */
-/* Initialize the undirected graph */
-// Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+/* Initialize an undirected graph */
+// The entries in edges are vertex indices, that is, indices into vertices
 const vertices = [1, 3, 2, 5, 4];
 const edges = [
     [0, 1],

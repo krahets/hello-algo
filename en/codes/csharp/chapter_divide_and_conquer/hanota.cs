@@ -16,22 +16,22 @@ public class hanota {
         tar.Add(pan);
     }
 
-    /* Solve the Tower of Hanoi problem f(i) */
+    /* Solve Tower of Hanoi subproblem f(i) */
     void DFS(int i, List<int> src, List<int> buf, List<int> tar) {
-        // If only one disk in this subproblem remains on src, move it directly to tar
+        // If only one disk remains on src, move it directly to tar
         if (i == 1) {
             Move(src, tar);
             return;
         }
         // Subproblem f(i-1): move the top i-1 disks from src to buf using tar
         DFS(i - 1, src, tar, buf);
-        // Subproblem f(1): move the remaining disk of this subproblem from src to tar
+        // Subproblem f(1): move the remaining disk from src to tar
         Move(src, tar);
         // Subproblem f(i-1): move the top i-1 disks from buf to tar using src
         DFS(i - 1, buf, src, tar);
     }
 
-    /* Solve the Tower of Hanoi problem */
+    /* Solve the Tower of Hanoi */
     void SolveHanota(List<int> A, List<int> B, List<int> C) {
         int n = A.Count;
         // Move the top n disks from A to C using B
@@ -40,7 +40,7 @@ public class hanota {
 
     [Test]
     public void Test() {
-        // The end of each list represents the top of the peg
+        // The end of the list is the top of the peg
         List<int> A = [5, 4, 3, 2, 1];
         List<int> B = [];
         List<int> C = [];

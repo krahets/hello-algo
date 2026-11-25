@@ -8,7 +8,7 @@ package chapter_hashing
 
 import utils.printHashMap
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     /* 初始化雜湊表 */
     val map = HashMap<Int, String>()
@@ -20,18 +20,18 @@ fun main() {
     map[16750] = "小算"
     map[13276] = "小法"
     map[10583] = "小鴨"
-    println("\n新增完成後，雜湊表為\nKey -> Value")
+    println("\n新增後的雜湊表\nKey -> Value")
     printHashMap(map)
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     val name = map[15937]
-    println("\n輸入學號 15937 ，查詢到姓名 $name")
+    println("\n輸入學號 15937，查得姓名 $name")
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.remove(10583)
-    println("\n刪除 10583 後，雜湊表為\nKey -> Value")
+    println("\n刪除 10583 後的雜湊表\nKey -> Value")
     printHashMap(map)
 
     /* 走訪雜湊表 */
@@ -39,11 +39,11 @@ fun main() {
     for ((key, value) in map) {
         println("$key -> $value")
     }
-    println("\n單獨走訪鍵 Key")
+    println("\n只走訪鍵 Key")
     for (key in map.keys) {
         println(key)
     }
-    println("\n單獨走訪值 Value")
+    println("\n只走訪值 Value")
     for (_val in map.values) {
         println(_val)
     }

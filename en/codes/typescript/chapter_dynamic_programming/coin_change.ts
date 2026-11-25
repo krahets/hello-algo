@@ -4,7 +4,7 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* Coin change: dynamic programming */
+/* Coin change with dynamic programming */
 function coinChangeDP(coins: Array<number>, amt: number): number {
     const n = coins.length;
     const MAX = amt + 1;
@@ -12,18 +12,18 @@ function coinChangeDP(coins: Array<number>, amt: number): number {
     const dp = Array.from({ length: n + 1 }, () =>
         Array.from({ length: amt + 1 }, () => 0)
     );
-    // State transitions: first row and first column
+    // State transitions for the first row and column
     for (let a = 1; a <= amt; a++) {
         dp[0][a] = MAX;
     }
-    // State transitions: remaining rows and columns
+    // State transitions for the remaining rows and columns
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If the coin exceeds the target amount, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[i][a] = Math.min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1);
             }
         }
@@ -31,21 +31,21 @@ function coinChangeDP(coins: Array<number>, amt: number): number {
     return dp[n][amt] !== MAX ? dp[n][amt] : -1;
 }
 
-/* Coin change: space-optimized dynamic programming */
+/* Coin change with space-optimized dynamic programming */
 function coinChangeDPComp(coins: Array<number>, amt: number): number {
     const n = coins.length;
     const MAX = amt + 1;
     // Initialize the dp table
     const dp = Array.from({ length: amt + 1 }, () => MAX);
     dp[0] = 0;
-    // State transitions
+    // State transition
     for (let i = 1; i <= n; i++) {
         for (let a = 1; a <= amt; a++) {
             if (coins[i - 1] > a) {
-                // If the coin exceeds the target amount, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[a] = dp[a];
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[a] = Math.min(dp[a], dp[a - coins[i - 1]] + 1);
             }
         }

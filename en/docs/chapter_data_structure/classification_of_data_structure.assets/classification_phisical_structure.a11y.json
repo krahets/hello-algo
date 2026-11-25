@@ -1,29 +1,29 @@
 {
-  "schema_version": 2,
-  "title": "Storage layout of arrays and linked lists",
-  "summary": "The same logical sequence can be stored contiguously or linked via pointers across noncontiguous nodes.",
   "context": [],
   "description": [
-    "Both the left and right panels show schematic 5-by-6 memory grids, with rows numbered from top to bottom and columns from left to right, both starting at 1. On the left, the array stores 1, 3, 2, 5, 4 contiguously in the first 5 cells of row 2; on the right, linked list nodes are scattered across the grid, with each node occupying an adjacent value cell and pointer cell.",
-    "Light gray cells represent free memory; cells storing the array are green, while in the linked list, value cells are cyan and pointer cells are light blue. The table below lists each node's grid location in linked-list traversal order."
+    "Each panel shows a grid with five rows and six columns. Rows are numbered from top to bottom and columns from left to right, both starting at 1. On the left, the array stores 1, 3, 2, 5, 4 consecutively in the first five cells of row 2. On the right, the linked list nodes are scattered throughout the grid. Each node occupies two adjacent cells, one for the value and one for the pointer.",
+    "Light gray cells indicate available space. Array cells are green, linked list value cells are teal, and pointer cells are light blue. The table below lists the nodes' positions in traversal order."
   ],
   "frames": [
     {
-      "id": "source-40",
       "book_path": "chapter_data_structure/classification_of_data_structure.assets/classification_phisical_structure.png",
-      "title": "Storage layout of arrays and linked lists",
-      "explanation": "An array expresses sequential order through adjacent memory locations, whereas a linked list is traversed by following next pointers. Consequently, although node 4 lies in the top row, it still comes last in 1 → 3 → 2 → 5 → 4. The figure does not label its specific pointer value. Contiguous storage avoids storing an extra pointer per element; noncontiguous nodes can utilize fragmented free memory, at the cost of storing a pointer alongside each value."
+      "explanation": "Adjacent positions give an array its order, while a linked list is traversed by following successor pointers. Although node 4 appears at the top, it comes last in 1 → 3 → 2 → 5 → 4. Its pointer value is unspecified. Contiguous storage needs no separate successor pointer for each element. Scattered nodes can use fragments of free space but require extra storage for pointers.",
+      "id": "source-40",
+      "title": "Memory layouts of arrays and linked lists"
     }
   ],
+  "schema_version": 2,
+  "summary": "The same logical sequence can occupy contiguous storage or be linked by pointers between scattered nodes.",
   "tables": [
     {
-      "caption": "Schematic grid locations and successors of linked list nodes (1-based rows and columns)",
+      "caption": "Linked list node positions and successors, with rows and columns numbered from 1",
       "headers": [
         "Node value",
-        "Value cell",
-        "Pointer cell",
+        "Value cell position",
+        "Pointer cell position",
         "Successor"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -53,10 +53,10 @@
           "4",
           "Row 1, column 5",
           "Row 1, column 6",
-          "No outgoing arrow drawn"
+          "No outgoing arrow shown"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Memory layouts of arrays and linked lists"
 }

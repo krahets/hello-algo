@@ -1,31 +1,31 @@
 {
-  "schema_version": 2,
-  "title": "Memoized search reuses previously computed states",
-  "summary": "On the first visit, memoized search computes and caches each non-base state along the left branch. When a right branch reaches the same state, its cached value still contributes to the parent’s sum.",
   "context": [
-    "Again counting ways to climb stairs by taking 1 or 2 steps at a time, with base cases dp[1] = 1 and dp[2] = 2, memoized search introduces an array mem to record computed non-base state values: base cases return immediately, while non-base states check mem first and expand further only if not yet recorded."
+    "The problem is still to count ways to climb the stairs, taking 1 or 2 stairs per move. The base cases are dp[1] = 1 and dp[2] = 2. Memoized search uses an array mem to store computed values for nonbase states. A base case returns immediately. For any other state, check the cache first and recurse only if there is no entry."
   ],
   "description": [
-    "In the figure, the main first-time computation chain runs dp[9] → dp[8] → dp[7] → ... → dp[3], with dp[6] through dp[4] condensed as ellipses; dp[3] then splits into the base cases dp[2] and dp[1]. On the right, scissors icons explicitly mark cached reuse at dp[7], dp[6], and dp[5], while remaining reuse points are summarized by ellipses. Filling in the omitted segment from the code also reuses dp[4] inside dp[6] and dp[3] inside dp[5]; the right subproblem dp[2] of dp[4] returns directly as a base case rather than a cache hit.",
-    "For example, computing dp[9] first completes its left subproblem dp[8], during which dp[7] is already computed and stored; when evaluating the right subproblem (dp[7] marked with scissors), the search reads the cached value directly without expanding it again, and that value still contributes to the sum for dp[9].",
-    "The two tables below list the three reuse relationships explicitly shown in the figure and how the code handles base cases, first-time computations, and cache hits."
+    "The first-time computations follow the main chain dp[9] → dp[8] → dp[7] → … → dp[3]. An ellipsis stands for dp[6] through dp[4] along the way. The state dp[3] then splits into the base cases dp[2] and dp[1]. On the right, scissors explicitly mark reuse of the cached values dp[7], dp[6], and dp[5]. Ellipses summarize the remaining reuse. Following the code through the omitted section, dp[6] also reuses dp[4], and dp[5] reuses dp[3]. The right subproblem of dp[4], namely dp[2], returns directly as a base case and is not a cache hit.",
+    "For example, to compute dp[9], first complete the left subproblem dp[8]. In doing so, the search computes and stores dp[7]. When it then reaches the right subproblem (dp[7], marked with scissors), it reads the cached value without expanding the state again. The value still contributes to the sum for dp[9].",
+    "The first table lists the three instances of reuse explicitly marked in the figure. The second explains how the code handles a base case, a first computation, and a cache hit."
   ],
   "frames": [
     {
-      "id": "source-370",
       "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_dfs_memo_tree.png",
-      "title": "Memoized search reuses previously computed states",
-      "explanation": "Each non-base state is expanded and computed only once, and repeated lookups return the cached value directly, reducing the time complexity to O(n)."
+      "explanation": "Each nonbase state is expanded and computed only once. Repeat requests return the cached value directly, reducing the time complexity to O(n).",
+      "id": "source-370",
+      "title": "Reusing computed states in memoized search"
     }
   ],
+  "schema_version": 2,
+  "summary": "The search first computes and caches subproblems along the main chain on the left. When a state recurs on the right, the search returns its cached value and uses it in the parent state's sum.",
   "tables": [
     {
-      "caption": "Cached state reuses explicitly shown in the figure",
+      "caption": "Cache reuse explicitly marked in the figure",
       "headers": [
-        "Parent state",
+        "Current parent state",
         "Left subproblem completed first",
-        "Right subproblem read from cache"
+        "Right subproblem then read from the cache"
       ],
+      "row_header": 0,
       "rows": [
         [
           "dp[9]",
@@ -39,33 +39,33 @@
         ],
         [
           "dp[7]",
-          "dp[6] (shown as an ellipsis in the figure)",
+          "dp[6] (represented by an ellipsis in the figure)",
           "dp[5]"
         ]
-      ],
-      "row_header": 0
+      ]
     },
     {
-      "caption": "Handling of the three kinds of states",
+      "caption": "How the three cases are handled",
       "headers": [
-        "Encountered state",
+        "State encountered",
         "Action"
       ],
+      "row_header": 0,
       "rows": [
         [
           "dp[1], dp[2]",
-          "Return 1 or 2 directly"
+          "Return the corresponding base value directly: 1 or 2"
         ],
         [
-          "Non-base state, not yet recorded",
-          "Compute recursively, sum, store in mem, and return"
+          "Nonbase state with no cache entry",
+          "Compute recursively, add the results, store the sum in mem, and return it"
         ],
         [
-          "Non-base state, already recorded",
-          "Return the value from mem directly; still added into parent sum"
+          "Nonbase state with a cache entry",
+          "Return the value from mem directly and include it in the sum"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Reusing computed states in memoized search"
 }

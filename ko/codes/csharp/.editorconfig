@@ -20,13 +20,13 @@ csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
 
-# CS8981: 타입 이름에 소문자 ASCII 문자만 포함되어 있다. 이러한 이름은 향후 언어의 예약어가 될 수 있다.
+# CS8981: 타입 이름이 ASCII 소문자로만 이루어져 있다. 이러한 이름은 향후 언어의 예약어가 될 수 있다.
 dotnet_diagnostic.CS8981.severity = silent
 
 # IDE1006: 명명 스타일
 dotnet_diagnostic.IDE1006.severity = silent
 
-# CA1822: 멤버를 static으로 선언한다
+# CA1822: 멤버를 static으로 표시
 dotnet_diagnostic.CA1822.severity = silent
 
 [*.{cs,vb}]
@@ -46,7 +46,7 @@ dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = suggestion
 dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
 dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
 
-# 심벌 지정
+# 기호 명세
 
 dotnet_naming_symbols.interface.applicable_kinds = interface
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
@@ -81,8 +81,8 @@ tab_width = 4
 indent_size = 4
 end_of_line = crlf
 
-# IDE0040: 접근 제한자를 추가한다
+# IDE0040: 접근 제한자 추가
 dotnet_diagnostic.IDE0040.severity = silent
 
-# IDE0044: readonly 한정자를 추가한다
+# IDE0044: readonly 한정자 추가
 dotnet_diagnostic.IDE0044.severity = silent

@@ -1,27 +1,26 @@
 {
-  "schema_version": 2,
-  "title": "Space required to store an n-level perfect binary tree",
-  "summary": "Storing an entire n-level perfect binary tree requires counting every retained node, not just the recursive call stack.",
   "context": [
-    "Here n is a positive integer, and the figure corresponds to the tree constructed and retained by build_tree. Each circle represents one node occupying constant space, connected by arrows to its left and right children; the brace on the right reads \"A total of n levels\"."
+    "The integer n is positive. The figure shows the tree constructed and retained by build_tree. Each circle represents a node that takes constant space. Arrows connect a parent to its left and right children. A brace on the right is labeled “n levels.”"
   ],
   "description": [
-    "The figure draws the first 3 levels and then extends 8 arrows from the 4 nodes on level 3 into ellipses to indicate further levels. The right column, \"Total nodes at each level\", writes powers 2⁰, 2¹, 2², …, 2ⁿ⁻¹. The table below supplies level numbers, decimal counts for the opening levels, and spoken forms of the powers."
+    "The figure shows the first three levels. Eight arrows extend from the four nodes at level 3 to ellipses, indicating further expansion. The right column, “Nodes per level,” lists 2⁰, 2¹, 2², …, 2ⁿ⁻¹. The table adds the level numbers, the decimal values of the first few terms, and a reading of the final power."
   ],
   "frames": [
     {
-      "id": "source-37",
       "book_path": "chapter_computational_complexity/space_complexity.assets/space_complexity_exponential.png",
-      "title": "Space required to store an n-level perfect binary tree",
-      "explanation": "At the bottom, summing across levels gives 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ - 1—that is, one less than 2 to the power n. Because new nodes remain linked into the tree via left and right pointers instead of being destroyed when the calls that created them return, all of these nodes occupy memory simultaneously. Even though the recursive call stack is only O(n) deep, the tree as a whole still requires O(2ⁿ) space, which is the conclusion pointed to at the bottom."
+      "explanation": "At the bottom, the level counts add up to 2⁰ + 2¹ + 2² + … + 2ⁿ⁻¹ = 2ⁿ − 1, or two to the power n, minus one. Left and right pointers keep the new nodes attached to the tree after the calls that created them return. All these nodes therefore occupy memory at the same time. Although the call stack has only O(n) depth, the whole tree requires O(2ⁿ) space. The arrow at the bottom points to this conclusion.",
+      "id": "source-37",
+      "title": "Space needed to store a perfect binary tree with n levels"
     }
   ],
+  "schema_version": 2,
+  "summary": "To find the space needed for an entire perfect binary tree with n levels, count all the nodes retained in memory as well as the recursive call stack.",
   "tables": [
     {
-      "caption": "Node count at each level of the perfect binary tree",
+      "caption": "Nodes at each level of a perfect binary tree",
       "headers": [
-        "Level (root is level 1)",
-        "Total nodes"
+        "Level (root at level 1)",
+        "Number of nodes"
       ],
       "row_header": 0,
       "rows": [
@@ -39,9 +38,10 @@
         ],
         [
           "n",
-          "2ⁿ⁻¹, that is, 2 raised to the exponent (n minus 1)"
+          "2ⁿ⁻¹, or two raised to the power n−1"
         ]
       ]
     }
-  ]
+  ],
+  "title": "Space needed to store a perfect binary tree with n levels"
 }

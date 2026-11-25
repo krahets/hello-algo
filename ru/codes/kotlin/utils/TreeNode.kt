@@ -15,23 +15,23 @@ class TreeNode(
     var left: TreeNode? = null // Ссылка на левый дочерний узел
     var right: TreeNode? = null // Ссылка на правый дочерний узел
 
-    // Правила кодирования сериализации см.:
-    // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-    // Массивное представление двоичного дерева:
+    // Правила кодирования при сериализации описаны здесь:
+    // https://www.hello-algo.com/ru/chapter_tree/array_representation_of_tree/
+    // Двоичное дерево в виде массива:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-    // Связное представление двоичного дерева:
-    // /——— 15
-    // /——— 7
-    // /——— 3
-    // |    \——— 6
-    // |        \——— 12
+    // Двоичное дерево в виде связанных узлов:
+    //             /——— 15
+    //         /——— 7
+    //     /——— 3
+    //    |    \——— 6
+    //    |        \——— 12
     // ——— 1
-    // \——— 2
-    // |    /——— 9
-    // \——— 4
-    // \——— 8
+    //     \——— 2
+    //        |    /——— 9
+    //         \——— 4
+    //             \——— 8
 
-    /* Десериализовать список в двоичное дерево: рекурсия */
+    /* Рекурсивно восстановить двоичное дерево из списка */
     companion object {
         private fun listToTreeDFS(arr: MutableList<Int?>, i: Int): TreeNode? {
             if (i < 0 || i >= arr.size || arr[i] == null) {
@@ -43,12 +43,12 @@ class TreeNode(
             return root
         }
 
-        /* Десериализовать список в двоичное дерево */
+        /* Восстановить двоичное дерево из списка */
         fun listToTree(arr: MutableList<Int?>): TreeNode? {
             return listToTreeDFS(arr, 0)
         }
 
-        /* Сериализовать двоичное дерево в список: рекурсия */
+        /* Рекурсивно сериализовать двоичное дерево в список */
         private fun treeToListDFS(root: TreeNode?, i: Int, res: MutableList<Int?>) {
             if (root == null) return
             while (i >= res.size) {

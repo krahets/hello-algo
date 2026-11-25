@@ -8,22 +8,22 @@
 
 /* 関数 */
 int func() {
-    // 何らかの処理を実行する
+    // 何らかの処理を行う
     return 0;
 }
 
 /* 定数オーダー */
 void constant(int n) {
-    // 定数、変数、オブジェクトは O(1) の領域を使用する
+    // 定数・変数・オブジェクトが使う領域は O(1)
     const int a = 0;
     int b = 0;
     vector<int> nums(10000);
     ListNode node(0);
-    // ループ内の変数は O(1) の領域を使用する
+    // ループ内の変数が使う領域は O(1)
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // ループ内の関数は O(1) の領域を使用する
+    // ループ内の関数が使う領域は O(1)
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -31,14 +31,14 @@ void constant(int n) {
 
 /* 線形オーダー */
 void linear(int n) {
-    // 長さ n の配列は O(n) の領域を使用する
+    // 長さ n の配列が使う領域は O(n)
     vector<int> nums(n);
-    // 長さ n のリストは O(n) の領域を使用する
+    // 長さ n のリストが使う領域は O(n)
     vector<ListNode> nodes;
     for (int i = 0; i < n; i++) {
         nodes.push_back(ListNode(i));
     }
-    // 長さ n のハッシュテーブルは O(n) の領域を使用する
+    // 長さ n のハッシュテーブルが使う領域は O(n)
     unordered_map<int, string> map;
     for (int i = 0; i < n; i++) {
         map[i] = to_string(i);
@@ -55,7 +55,7 @@ void linearRecur(int n) {
 
 /* 二次オーダー */
 void quadratic(int n) {
-    // 二次元リストは O(n^2) の領域を使用する
+    // 二次元リストが使う領域は O(n^2)
     vector<vector<int>> numMatrix;
     for (int i = 0; i < n; i++) {
         vector<int> tmp;
@@ -71,11 +71,11 @@ int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "再帰 n = " << n << " における nums の長さ = " << nums.size() << endl;
+    cout << "再帰 n = " << n << " での nums の長さ = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
-/* 指数オーダー（パーフェクト二分木の構築） */
+/* 指数オーダー（すべての葉が同じ深さの完全二分木を構築） */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return nullptr;
@@ -85,7 +85,7 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 5;
     // 定数オーダー
@@ -100,7 +100,7 @@ int main() {
     TreeNode *root = buildTree(n);
     printTree(root);
 
-    // メモリを解放する
+    // メモリを解放
     freeMemoryTree(root);
 
     return 0;

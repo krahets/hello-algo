@@ -16,18 +16,18 @@ public class space_complexity {
         return 0;
     }
 
-    /* Постоянная сложность */
+    /* Константная сложность */
     static void constant(int n) {
         // Константы, переменные и объекты занимают O(1) памяти
         final int a = 0;
         int b = 0;
         int[] nums = new int[10000];
         ListNode node = new ListNode(0);
-        // Переменные в цикле занимают O(1) памяти
+        // Переменные цикла занимают O(1) памяти
         for (int i = 0; i < n; i++) {
             int c = 0;
         }
-        // Функции в цикле занимают O(1) памяти
+        // Вызовы функции в цикле требуют O(1) памяти
         for (int i = 0; i < n; i++) {
             function();
         }
@@ -42,16 +42,16 @@ public class space_complexity {
         for (int i = 0; i < n; i++) {
             nodes.add(new ListNode(i));
         }
-        // Хеш-таблица длины n занимает O(n) памяти
+        // Хеш-таблица из n элементов занимает O(n) памяти
         Map<Integer, String> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
             map.put(i, String.valueOf(i));
         }
     }
 
-    /* Линейная сложность (рекурсивная реализация) */
+    /* Линейная сложность (рекурсия) */
     static void linearRecur(int n) {
-        System.out.println("Рекурсия n = " + n);
+        System.out.println("Рекурсивный вызов: n = " + n);
         if (n == 1)
             return;
         linearRecur(n - 1);
@@ -72,17 +72,17 @@ public class space_complexity {
         }
     }
 
-    /* Квадратичная сложность (рекурсивная реализация) */
+    /* Квадратичная сложность (рекурсия) */
     static int quadraticRecur(int n) {
         if (n <= 0)
             return 0;
-        // Длина массива nums равна n, n-1, ..., 2, 1
+        // Длина массива nums принимает значения n, n-1, ..., 2, 1
         int[] nums = new int[n];
-        System.out.println("В рекурсии n = " + n + ", длина nums = " + nums.length);
+        System.out.println("При n = " + n + " длина nums = " + nums.length);
         return quadraticRecur(n - 1);
     }
 
-    /* Экспоненциальная сложность (построение полного двоичного дерева) */
+    /* Экспоненциальная сложность (построение совершенного двоичного дерева) */
     static TreeNode buildTree(int n) {
         if (n == 0)
             return null;
@@ -92,10 +92,10 @@ public class space_complexity {
         return root;
     }
 
-    /* Driver Code */
+    /* Основная программа */
     public static void main(String[] args) {
         int n = 5;
-        // Постоянная сложность
+        // Константная сложность
         constant(n);
         // Линейная сложность
         linear(n);

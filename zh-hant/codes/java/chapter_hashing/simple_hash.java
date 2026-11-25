@@ -48,7 +48,7 @@ public class simple_hash {
     }
 
     public static void main(String[] args) {
-        String key = "Hello 演算法";
+        String key = "Hello 算法";
 
         int hash = addHash(key);
         System.out.println("加法雜湊值為 " + hash);

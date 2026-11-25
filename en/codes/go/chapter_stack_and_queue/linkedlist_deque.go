@@ -8,9 +8,9 @@ import (
 	"container/list"
 )
 
-/* Deque implemented with a doubly linked list */
+/* Deque backed by a doubly linked list */
 type linkedListDeque struct {
-	// Use the standard library list package
+	// Use the standard list package
 	data *list.List
 }
 
@@ -21,17 +21,17 @@ func newLinkedListDeque() *linkedListDeque {
 	}
 }
 
-/* Enqueue an element at the front */
+/* Add an element at the front */
 func (s *linkedListDeque) pushFirst(value any) {
 	s.data.PushFront(value)
 }
 
-/* Enqueue an element at the rear */
+/* Add an element at the rear */
 func (s *linkedListDeque) pushLast(value any) {
 	s.data.PushBack(value)
 }
 
-/* Dequeue the front element */
+/* Remove and return the front element */
 func (s *linkedListDeque) popFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -41,7 +41,7 @@ func (s *linkedListDeque) popFirst() any {
 	return e.Value
 }
 
-/* Dequeue the rear element */
+/* Remove and return the rear element */
 func (s *linkedListDeque) popLast() any {
 	if s.isEmpty() {
 		return nil
@@ -51,7 +51,7 @@ func (s *linkedListDeque) popLast() any {
 	return e.Value
 }
 
-/* Access the front element */
+/* Peek at the front element */
 func (s *linkedListDeque) peekFirst() any {
 	if s.isEmpty() {
 		return nil
@@ -60,7 +60,7 @@ func (s *linkedListDeque) peekFirst() any {
 	return e.Value
 }
 
-/* Access the rear element */
+/* Peek at the rear element */
 func (s *linkedListDeque) peekLast() any {
 	if s.isEmpty() {
 		return nil
@@ -69,17 +69,17 @@ func (s *linkedListDeque) peekLast() any {
 	return e.Value
 }
 
-/* Get the queue size */
+/* Get the deque size */
 func (s *linkedListDeque) size() int {
 	return s.data.Len()
 }
 
-/* Check whether the queue is empty */
+/* Check whether the deque is empty */
 func (s *linkedListDeque) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* Get the list for printing */
+/* Return the list for printing */
 func (s *linkedListDeque) toList() *list.List {
 	return s.data
 }

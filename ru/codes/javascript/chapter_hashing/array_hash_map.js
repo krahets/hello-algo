@@ -4,7 +4,7 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Пара ключ-значение Number -> String */
+/* Пара «ключ — значение» типа Number -> String */
 class Pair {
     constructor(key, val) {
         this.key = key;
@@ -16,7 +16,7 @@ class Pair {
 class ArrayHashMap {
     #buckets;
     constructor() {
-        // Инициализировать массив, содержащий 100 корзин
+        // Создать массив из 100 корзин
         this.#buckets = new Array(100).fill(null);
     }
 
@@ -25,7 +25,7 @@ class ArrayHashMap {
         return key % 100;
     }
 
-    /* Операция поиска */
+    /* Поиск */
     get(key) {
         let index = this.#hashFunc(key);
         let pair = this.#buckets[index];
@@ -33,20 +33,20 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* Операция добавления */
+    /* Вставка */
     set(key, val) {
         let index = this.#hashFunc(key);
         this.#buckets[index] = new Pair(key, val);
     }
 
-    /* Операция удаления */
+    /* Удаление */
     delete(key) {
         let index = this.#hashFunc(key);
-        // Присвоить null, что означает удаление
+        // Записать null в знак удаления
         this.#buckets[index] = null;
     }
 
-    /* Получить все пары ключ-значение */
+    /* Получить все пары «ключ — значение» */
     entries() {
         let arr = [];
         for (let i = 0; i < this.#buckets.length; i++) {
@@ -88,41 +88,41 @@ class ArrayHashMap {
     }
 }
 
-/* Driver Code */
-/* Инициализация хеш-таблицы */
+/* Демонстрационный код */
+/* Создать хеш-таблицу */
 const map = new ArrayHashMap();
-/* Операция добавления */
-// Добавить пару (key, value) в хеш-таблицу
+/* Вставка */
+// Добавить в таблицу пару (key, value)
 map.set(12836, 'Сяо Ха');
 map.set(15937, 'Сяо Ло');
 map.set(16750, 'Сяо Суань');
 map.set(13276, 'Сяо Фа');
 map.set(10583, 'Сяо Я');
-console.info('\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение');
+console.info('\nХеш-таблица после вставки:\nКлюч -> Значение');
 map.print();
 
-/* Операция поиска */
-// Ввести в хеш-таблицу ключ key и получить значение value
+/* Поиск */
+// Получить из таблицы значение value по ключу key
 let name = map.get(15937);
-console.info('\nПо номеру 15937 найдено имя ' + name);
+console.info('\nИмя студента с номером 15937: ' + name);
 
-/* Операция удаления */
-// Удалить пару (key, value) из хеш-таблицы
+/* Удаление */
+// Удалить из таблицы пару (key, value)
 map.delete(10583);
-console.info('\nПосле удаления 10583 хеш-таблица имеет вид\nКлюч -> Значение');
+console.info('\nХеш-таблица после удаления 10583:\nКлюч -> Значение');
 map.print();
 
 /* Обход хеш-таблицы */
-console.info('\nОтдельный обход пар ключ-значение');
+console.info('\nОбход пар «ключ -> значение»');
 for (const pair of map.entries()) {
     if (!pair) continue;
     console.info(pair.key + ' -> ' + pair.val);
 }
-console.info('\nОтдельный обход ключей');
+console.info('\nОбход только ключей');
 for (const key of map.keys()) {
     console.info(key);
 }
-console.info('\nОтдельный обход значений');
+console.info('\nОбход только значений');
 for (const val of map.values()) {
     console.info(val);
 }

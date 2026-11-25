@@ -1,68 +1,68 @@
-# プログラミング環境のインストール
+# 開発環境のセットアップ
 
 ## IDE のインストール
 
-ローカルの統合開発環境（IDE）には、オープンソースで軽量な VS Code をおすすめします。[VS Code 公式サイト](https://code.visualstudio.com/)にアクセスし、OS に合ったバージョンをダウンロードしてインストールしてください。
+手元のコンピュータで使う統合開発環境（IDE）には、オープンソースで軽量な VS Code をおすすめします。[VS Code の公式サイト](https://code.visualstudio.com/)で、お使いの OS に合った版をダウンロードし、インストールしてください。
 
-![公式サイトから VS Code をダウンロード](installation.assets/vscode_installation.png)
+![VS Code 公式サイトのダウンロード画面](installation.assets/vscode_installation.png)
 
-VS Code には豊富な拡張機能があり、多くのプログラミング言語の実行とデバッグに対応しています。たとえば Python では、「Python Extension Pack」をインストールすると、Python コードをデバッグできます。インストール手順を下図に示します。
+VS Code には豊富な拡張機能があり、ほとんどのプログラミング言語でコードを実行したりデバッグしたりできます。たとえば Python のコードは、拡張機能パック「Python Extension Pack」をインストールするとデバッグできます。インストール手順を下図に示します。
 
-![VS Code の拡張機能をインストール](installation.assets/vscode_extension_installation.png)
+![VS Code に拡張機能パックをインストールする手順](installation.assets/vscode_extension_installation.png)
 
-## 言語環境のインストール
+## 言語別の環境設定
 
-### Python 環境
+### Python の環境
 
 1. [Miniconda3](https://docs.conda.io/en/latest/miniconda.html) をダウンロードしてインストールします。Python 3.10 以降が必要です。
-2. VS Code の拡張機能マーケットプレイスで `python` を検索し、Python Extension Pack をインストールします。
-3. （任意）コマンドラインで `pip install black` を実行し、コード整形ツールをインストールします。
+2. VS Code の拡張機能マーケットプレースで `python` を検索し、Python Extension Pack をインストールします。
+3. （任意）コマンドラインで `pip install black` を実行し、コードの書式を整えるフォーマッターをインストールします。
 
-### C/C++ 環境
+### C/C++ の環境
 
-1. Windows では [MinGW](https://sourceforge.net/projects/mingw-w64/files/) のインストールが必要です（[設定ガイド](https://blog.csdn.net/qq_33698226/article/details/129031241)）。macOS には Clang が付属しているため、インストールは不要です。
-2. VS Code の拡張機能マーケットプレイスで `c++` を検索し、C/C++ Extension Pack をインストールします。
-3. （任意）Settings ページを開き、コード整形オプション `Clang_format_fallback Style` を検索して、`{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }` に設定します。
+1. Windows では [MinGW](https://sourceforge.net/projects/mingw-w64/files/) をインストールする必要があります（[中国語の設定ガイド](https://blog.csdn.net/qq_33698226/article/details/129031241)）。macOS には Clang が付属しているので、インストールは不要です。
+2. VS Code の拡張機能マーケットプレースで `c++` を検索し、C/C++ Extension Pack をインストールします。
+3. （任意）設定画面（Settings）を開き、コード整形の設定項目 `Clang_format_fallback Style` を検索して、値を `{ BasedOnStyle: Microsoft, BreakBeforeBraces: Attach }` に設定します。
 
-### Java 環境
+### Java の環境
 
-1. [OpenJDK](https://jdk.java.net/18/) をダウンロードしてインストールします（JDK 9 より新しいバージョンが必要です）。
-2. VS Code の拡張機能マーケットプレイスで `java` を検索し、Extension Pack for Java をインストールします。
+1. [OpenJDK](https://jdk.java.net/18/) をダウンロードしてインストールします。JDK 9 より新しいバージョンが必要です。
+2. VS Code の拡張機能マーケットプレースで `java` を検索し、Extension Pack for Java をインストールします。
 
-### C# 環境
+### C# の環境
 
 1. [.NET 8.0](https://dotnet.microsoft.com/en-us/download) をダウンロードしてインストールします。
-2. VS Code の拡張機能マーケットプレイスで `C# Dev Kit` を検索し、C# Dev Kit をインストールします（[設定ガイド](https://code.visualstudio.com/docs/csharp/get-started)）。
-3. Visual Studio も使用できます（[インストールガイド](https://learn.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2022)）。
+2. VS Code の拡張機能マーケットプレースで `C# Dev Kit` を検索し、C# Dev Kit をインストールします（[設定手順](https://code.visualstudio.com/docs/csharp/get-started)）。
+3. Visual Studio も利用できます（[インストール手順](https://learn.microsoft.com/ja-jp/visualstudio/install/install-visual-studio?view=vs-2022)）。
 
-### Go 環境
+### Go の環境
 
-1. [go](https://go.dev/dl/) をダウンロードしてインストールします。
-2. VS Code の拡張機能マーケットプレイスで `go` を検索し、Go をインストールします。
-3. ショートカットキー `Ctrl + Shift + P` でコマンドパレットを開き、go と入力して `Go: Install/Update Tools` を選択します。すべての項目を選んでインストールします。
+1. [Go](https://go.dev/dl/) をダウンロードしてインストールします。
+2. VS Code の拡張機能マーケットプレースで `go` を検索し、Go 拡張機能をインストールします。
+3. `Ctrl + Shift + P` でコマンドパレットを開き、go と入力して `Go: Install/Update Tools` を選びます。すべての項目にチェックを入れてインストールします。
 
-### Swift 環境
+### Swift の環境
 
 1. [Swift](https://www.swift.org/download/) をダウンロードしてインストールします。
-2. VS Code の拡張機能マーケットプレイスで `swift` を検索し、[Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang) をインストールします。
+2. VS Code の拡張機能マーケットプレースで `swift` を検索し、[Swift for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang) をインストールします。
 
-### JavaScript 環境
+### JavaScript の環境
 
 1. [Node.js](https://nodejs.org/en/) をダウンロードしてインストールします。
-2. （任意）VS Code の拡張機能マーケットプレイスで `Prettier` を検索し、コード整形ツールをインストールします。
+2. （任意）VS Code の拡張機能マーケットプレースで `Prettier` を検索し、コードフォーマッターをインストールします。
 
-### TypeScript 環境
+### TypeScript の環境
 
-1. JavaScript 環境と同じ手順でインストールします。
+1. まず、JavaScript の環境と同じ手順でセットアップします。
 2. [TypeScript Execute (tsx)](https://github.com/privatenumber/tsx?tab=readme-ov-file#global-installation) をインストールします。
-3. VS Code の拡張機能マーケットプレイスで `typescript` を検索し、[Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors) をインストールします。
+3. VS Code の拡張機能マーケットプレースで `typescript` を検索し、[Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors) をインストールします。
 
-### Dart 環境
+### Dart の環境
 
 1. [Dart](https://dart.dev/get-dart) をダウンロードしてインストールします。
-2. VS Code の拡張機能マーケットプレイスで `dart` を検索し、[Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) をインストールします。
+2. VS Code の拡張機能マーケットプレースで `dart` を検索し、[Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) 拡張機能をインストールします。
 
-### Rust 環境
+### Rust の環境
 
 1. [Rust](https://www.rust-lang.org/tools/install) をダウンロードしてインストールします。
-2. VS Code の拡張機能マーケットプレイスで `rust` を検索し、[rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) をインストールします。
+2. VS Code の拡張機能マーケットプレースで `rust` を検索し、[rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) をインストールします。

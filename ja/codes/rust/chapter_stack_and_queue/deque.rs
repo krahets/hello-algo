@@ -7,7 +7,7 @@
 use hello_algo_rust::include::print_util;
 use std::collections::VecDeque;
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     // 両端キューを初期化する
     let mut deque: VecDeque<i32> = VecDeque::new();
@@ -17,31 +17,31 @@ pub fn main() {
     print!("両端キュー deque = ");
     print_util::print_queue(&deque);
 
-    // 要素にアクセスする
+    // 要素を参照する
     let peek_first = deque.front().unwrap();
-    print!("\nキューの先頭要素 peekFirst = {peek_first}");
+    print!("\n先頭要素 peekFirst = {peek_first}");
     let peek_last = deque.back().unwrap();
-    print!("\nキューの末尾要素 peekLast = {peek_last}");
+    print!("\n末尾要素 peekLast = {peek_last}");
 
-    /* 要素をエンキューする */
+    /* 要素を両端キューに追加する */
     deque.push_back(4);
-    print!("\n要素 4 を末尾にエンキューした後 deque = ");
+    print!("\n末尾に 4 を追加した後の deque = ");
     print_util::print_queue(&deque);
     deque.push_front(1);
-    print!("\n要素 1 を先頭にエンキューした後 deque = ");
+    print!("\n先頭に 1 を追加した後の deque = ");
     print_util::print_queue(&deque);
 
-    // 要素をデキューする
+    // 両端キューから要素を取り出す
     let pop_last = deque.pop_back().unwrap();
-    print!("\n末尾からデキューした要素 = {pop_last}、末尾からデキューした後 deque = ");
+    print!("\n末尾から取り出した要素 = {pop_last}、末尾から取り出した後の deque = ");
     print_util::print_queue(&deque);
     let pop_first = deque.pop_front().unwrap();
-    print!("\n先頭からデキューした要素 = {pop_first}、先頭からデキューした後 deque = ");
+    print!("\n先頭から取り出した要素 = {pop_first}、先頭から取り出した後の deque = ");
     print_util::print_queue(&deque);
 
-    // 両端キューの長さを取得する
+    // 両端キューの要素数を取得する
     let size = deque.len();
-    print!("\n両端キューの長さ size = {size}");
+    print!("\n両端キューの要素数 size = {size}");
 
     // 両端キューが空かどうかを判定する
     let is_empty = deque.is_empty();

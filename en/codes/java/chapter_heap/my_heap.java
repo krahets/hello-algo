@@ -9,16 +9,16 @@ package chapter_heap;
 import utils.*;
 import java.util.*;
 
-/* Max heap */
+/* Max-heap */
 class MaxHeap {
-    // Use a resizable list instead of an array to avoid managing capacity growth
+    // Use a list instead of an array so it can grow as needed
     private List<Integer> maxHeap;
 
     /* Constructor: build a heap from the input list */
     public MaxHeap(List<Integer> nums) {
-        // Place the list elements in the heap without changing their order
+        // Copy the list elements into the heap in their original order
         maxHeap = new ArrayList<>(nums);
-        // Sift down from every non-leaf node
+        // Heapify all non-leaf nodes
         for (int i = parent(size() - 1); i >= 0; i--) {
             siftDown(i);
         }
@@ -36,7 +36,7 @@ class MaxHeap {
 
     /* Get the parent index */
     private int parent(int i) {
-        return (i - 1) / 2; // Integer division (truncates toward zero in Java)
+        return (i - 1) / 2; // Floor division
     }
 
     /* Swap elements */
@@ -56,7 +56,7 @@ class MaxHeap {
         return size() == 0;
     }
 
-    /* Access the top element of the heap */
+    /* Peek at the root */
     public int peek() {
         return maxHeap.get(0);
     }
@@ -69,12 +69,12 @@ class MaxHeap {
         siftUp(size() - 1);
     }
 
-    /* Sift up starting from node i */
+    /* Sift up from node i */
     private void siftUp(int i) {
         while (true) {
             // Get the parent of node i
             int p = parent(i);
-            // Stop sifting when the root has been passed or the node needs no repair
+            // Stop sifting at the root or when the node already satisfies the heap property
             if (p < 0 || maxHeap.get(i) <= maxHeap.get(p))
                 break;
             // Swap the two nodes
@@ -89,26 +89,26 @@ class MaxHeap {
         // Handle an empty heap
         if (isEmpty())
             throw new IndexOutOfBoundsException();
-        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+        // Swap the root and the rightmost leaf (the first and last elements)
         swap(0, size() - 1);
-        // Remove a node
+        // Remove the node
         int val = maxHeap.remove(size() - 1);
         // Sift down
         siftDown(0);
-        // Return the top element of the heap
+        // Return the root element
         return val;
     }
 
-    /* Sift down starting from node i */
+    /* Sift down from node i */
     private void siftDown(int i) {
         while (true) {
-            // Find the node with the largest value among i, l, and r, and store its index in ma
+            // Store the index of the largest of nodes i, l, and r in ma
             int l = left(i), r = right(i), ma = i;
             if (l < size() && maxHeap.get(l) > maxHeap.get(ma))
                 ma = l;
             if (r < size() && maxHeap.get(r) > maxHeap.get(ma))
                 ma = r;
-            // Stop if node i is largest or both child indices l and r are out of bounds
+            // Stop if i is already largest or both child indices l and r are out of bounds
             if (ma == i)
                 break;
             // Swap the two nodes
@@ -118,7 +118,7 @@ class MaxHeap {
         }
     }
 
-    /* Print the heap (binary tree) */
+    /* Print the heap as a binary tree */
     public void print() {
         Queue<Integer> queue = new PriorityQueue<>((a, b) -> { return b - a; });
         queue.addAll(maxHeap);
@@ -128,24 +128,24 @@ class MaxHeap {
 
 public class my_heap {
     public static void main(String[] args) {
-        /* Initialize a max heap */
+        /* Initialize a max-heap */
         MaxHeap maxHeap = new MaxHeap(Arrays.asList(9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2));
-        System.out.println("\nAfter building a heap from the input list:");
+        System.out.println("\nHeap built from the input list:");
         maxHeap.print();
 
-        /* Get the top element of the heap */
+        /* Get the root element */
         int peek = maxHeap.peek();
-        System.out.format("\nTop element: %d\n", peek);
+        System.out.format("\nRoot element: %d\n", peek);
 
         /* Push an element onto the heap */
         int val = 7;
         maxHeap.push(val);
-        System.out.format("\nAfter pushing %d onto the heap:\n", val);
+        System.out.format("\nHeap after pushing %d:\n", val);
         maxHeap.print();
 
-        /* Pop the top element from the heap */
+        /* Pop the root */
         peek = maxHeap.pop();
-        System.out.format("\nAfter popping the top element %d:\n", peek);
+        System.out.format("\nHeap after popping the root (%d):\n", peek);
         maxHeap.print();
 
         /* Get the heap size */

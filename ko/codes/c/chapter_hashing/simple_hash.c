@@ -48,21 +48,21 @@ int rotHash(char *key) {
     return (int)hash;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     char *key = "Hello 算法";
 
     int hash = addHash(key);
-    printf("덧셈 해시값은 %d이다\n", hash);
+    printf("덧셈 해시값: %d\n", hash);
 
     hash = mulHash(key);
-    printf("곱셈 해시값은 %d이다\n", hash);
+    printf("곱셈 해시값: %d\n", hash);
 
     hash = xorHash(key);
-    printf("XOR 해시값은 %d이다\n", hash);
+    printf("XOR 해시값: %d\n", hash);
 
     hash = rotHash(key);
-    printf("회전 해시값은 %d이다\n", hash);
+    printf("회전 해시값: %d\n", hash);
 
     return 0;
 }

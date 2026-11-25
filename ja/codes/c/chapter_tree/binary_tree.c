@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* 二分木を初期化する */
     // ノードを初期化する
@@ -20,7 +20,7 @@ int main() {
     n1->right = n3;
     n2->left = n4;
     n2->right = n5;
-    printf("二分木を初期化する\n");
+    printf("二分木を初期化\n");
     printTree(n1);
 
     /* ノードの挿入と削除 */

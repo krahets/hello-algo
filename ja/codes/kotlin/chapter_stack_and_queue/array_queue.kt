@@ -6,51 +6,51 @@
 
 package chapter_stack_and_queue
 
-/* 循環配列で実装したキュー */
+/* 循環配列を使ったキュー */
 class ArrayQueue(capacity: Int) {
     private val nums: IntArray = IntArray(capacity) // キューの要素を格納する配列
-    private var front: Int = 0 // キューの先頭要素を指す先頭ポインタ
-    private var queSize: Int = 0 // キューの長さ
+    private var front: Int = 0 // キューの先頭要素を指すインデックス
+    private var queSize: Int = 0 // キューの要素数
 
     /* キューの容量を取得する */
     fun capacity(): Int {
         return nums.size
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     fun size(): Int {
         return queSize
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     fun isEmpty(): Boolean {
         return queSize == 0
     }
 
-    /* エンキュー */
+    /* エンキューする */
     fun push(num: Int) {
         if (queSize == capacity()) {
             println("キューが満杯です")
             return
         }
-        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
-        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
+        // キューの末尾要素の次の位置を示すインデックスを求める
+        // 剰余を使い、rear が配列の末尾を越えたら先頭に戻るようにする
         val rear = (front + queSize) % capacity()
         // num をキューの末尾に追加する
         nums[rear] = num
         queSize++
     }
 
-    /* デキュー */
+    /* デキューする */
     fun pop(): Int {
         val num = peek()
-        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
+        // 先頭のインデックスを 1 つ進め、配列の末尾を越えたら先頭に戻す
         front = (front + 1) % capacity()
         queSize--
         return num
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     fun peek(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return nums[front]
@@ -58,7 +58,7 @@ class ArrayQueue(capacity: Int) {
 
     /* 配列を返す */
     fun toArray(): IntArray {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // キューの要素数に当たる範囲だけを変換する
         val res = IntArray(queSize)
         var i = 0
         var j = front
@@ -71,13 +71,13 @@ class ArrayQueue(capacity: Int) {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     /* キューを初期化する */
     val capacity = 10
     val queue = ArrayQueue(capacity)
 
-    /* 要素をエンキューする */
+    /* 要素をキューに追加する */
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -85,26 +85,26 @@ fun main() {
     queue.push(4)
     println("キュー queue = ${queue.toArray().contentToString()}")
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     val peek = queue.peek()
-    println("キューの先頭要素 peek = $peek")
+    println("先頭要素 peek = $peek")
 
-    /* 要素をデキューする */
+    /* キューから要素を取り出す */
     val pop = queue.pop()
-    println("デキューした要素 pop = ${pop}、デキュー後 queue =  ${queue.toArray().contentToString()}")
+    println("デキューした要素 pop = ${pop}、デキュー後の queue =  ${queue.toArray().contentToString()}")
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     val size = queue.size()
-    println("キューの長さ size = $size")
+    println("キューの要素数 size = $size")
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     val isEmpty = queue.isEmpty()
     println("キューは空か = $isEmpty")
 
-    /* 循環配列をテストする */
+    /* 循環配列の動作を確認する */
     for (i in 0..9) {
         queue.push(i)
         queue.pop()
-        println("第 $i 回のエンキューとデキューの後 queue = ${queue.toArray().contentToString()}")
+        println("第 $i 回のエンキューとデキューを終えた後の queue = ${queue.toArray().contentToString()}")
     }
 }

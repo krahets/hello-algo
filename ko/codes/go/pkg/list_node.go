@@ -4,13 +4,13 @@
 
 package pkg
 
-// ListNode: 연결 리스트 노드
+// ListNode는 연결 리스트의 노드다.
 type ListNode struct {
 	Next *ListNode
 	Val  int
 }
 
-// NewListNode: 연결 리스트 노드 생성자
+// NewListNode는 연결 리스트 노드의 생성자다.
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,
@@ -18,7 +18,7 @@ func NewListNode(v int) *ListNode {
 	}
 }
 
-// ArrayToLinkedList: 배열을 역직렬화하여 연결 리스트로 만든다
+// ArrayToLinkedList는 배열을 연결 리스트로 역직렬화한다.
 func ArrayToLinkedList(arr []int) *ListNode {
 	// 연결 리스트의 더미 머리 노드
 	dummy := NewListNode(0)

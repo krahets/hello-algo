@@ -18,11 +18,11 @@ func TestGraphDFS(t *testing.T) {
 		{vets[0], vets[1]}, {vets[0], vets[3]}, {vets[1], vets[2]},
 		{vets[2], vets[5]}, {vets[4], vets[5]}, {vets[5], vets[6]}}
 	graph := newGraphAdjList(edges)
-	fmt.Println("初始化後，圖為:")
+	fmt.Println("初始化後的圖為：")
 	graph.print()
 
 	/* 深度優先走訪 */
 	res := graphDFS(graph, vets[0])
-	fmt.Println("深度優先走訪（DFS）頂點序列為:")
+	fmt.Println("深度優先走訪（DFS）的頂點順序為：")
 	PrintSlice(VetsToVals(res))
 }

@@ -1,18 +1,18 @@
 {
-  "schema_version": 2,
-  "title": "Two-level nested loop",
-  "summary": "Each iteration of the outer loop reruns the entire inner loop from start to finish, determining the total number of task executions.",
   "context": [
-    "Here n is a positive integer, i controls the outer loop, and j controls the inner loop."
+    "The integer n is positive. The variable i controls the outer loop, and j controls the inner loop."
   ],
   "description": [],
-  "result": "Every value of i runs through the full range j = 1 to n, so the task executes n × n = n² times in total.",
   "frames": [
     {
-      "id": "source-20",
       "book_path": "chapter_computational_complexity/iteration_and_recursion.assets/nested_iteration.png",
-      "title": "Two-level nested loop",
-      "explanation": "First set i = 1 and test i ≤ n. When true, enter the inner loop, reset j = 1, and test j ≤ n: if true, execute the task, increment j by 1, and return to the inner check; if false, exit the inner loop, increment i by 1, and return to the outer check. Whenever the outer condition still holds, the next round starts over at j = 1; the entire process ends only when the outer condition becomes false."
+      "explanation": "Set i = 1 and check whether i ≤ n. If true, enter the inner loop, reset j to 1, and check whether j ≤ n. If the inner condition is true, perform the task, increment j by 1, and check the inner condition again. If false, leave the inner loop, increment i by 1, and check the outer condition again. If the outer condition still holds, start the next inner loop at j = 1. The process ends only when the outer condition becomes false.",
+      "id": "source-20",
+      "title": "Two nested loops"
     }
-  ]
+  ],
+  "result": "For each i, j takes every value from 1 through n. The task therefore runs n × n = n² times.",
+  "schema_version": 2,
+  "summary": "The entire inner loop runs again on each pass through the outer loop. Together they determine how often the task runs.",
+  "title": "Two nested loops"
 }

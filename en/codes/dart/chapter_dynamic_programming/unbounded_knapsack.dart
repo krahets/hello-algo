@@ -6,19 +6,19 @@
 
 import 'dart:math';
 
-/* Unbounded knapsack: dynamic programming */
+/* Unbounded knapsack with dynamic programming */
 int unboundedKnapsackDP(List<int> wgt, List<int> val, int cap) {
   int n = wgt.length;
   // Initialize the dp table
   List<List<int>> dp = List.generate(n + 1, (index) => List.filled(cap + 1, 0));
-  // State transitions
+  // State transition
   for (int i = 1; i <= n; i++) {
     for (int c = 1; c <= cap; c++) {
       if (wgt[i - 1] > c) {
-        // If item i exceeds the remaining capacity, do not choose it
+        // Skip item i if its weight exceeds the capacity
         dp[i][c] = dp[i - 1][c];
       } else {
-        // Take the larger value obtained by excluding and including item i
+        // Take the larger value from skipping or taking item i
         dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
       }
     }
@@ -26,19 +26,19 @@ int unboundedKnapsackDP(List<int> wgt, List<int> val, int cap) {
   return dp[n][cap];
 }
 
-/* Unbounded knapsack: space-optimized dynamic programming */
+/* Unbounded knapsack with space-optimized dynamic programming */
 int unboundedKnapsackDPComp(List<int> wgt, List<int> val, int cap) {
   int n = wgt.length;
   // Initialize the dp table
   List<int> dp = List.filled(cap + 1, 0);
-  // State transitions
+  // State transition
   for (int i = 1; i <= n; i++) {
     for (int c = 1; c <= cap; c++) {
       if (wgt[i - 1] > c) {
-        // If item i exceeds the remaining capacity, do not choose it
+        // Skip item i if its weight exceeds the capacity
         dp[c] = dp[c];
       } else {
-        // Take the larger value obtained by excluding and including item i
+        // Take the larger value from skipping or taking item i
         dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
       }
     }
@@ -54,9 +54,9 @@ void main() {
 
   // Dynamic programming
   int res = unboundedKnapsackDP(wgt, val, cap);
-  print("Maximum total item value within the knapsack capacity: $res");
+  print("Maximum total item value within the weight limit: $res");
 
   // Space-optimized dynamic programming
   int resComp = unboundedKnapsackDPComp(wgt, val, cap);
-  print("Maximum total item value within the knapsack capacity: $resComp");
+  print("Maximum total item value within the weight limit: $resComp");
 }

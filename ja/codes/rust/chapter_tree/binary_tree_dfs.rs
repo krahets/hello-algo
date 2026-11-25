@@ -16,7 +16,7 @@ fn pre_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // 訪問順序：根ノード -> 左部分木 -> 右部分木
+            // 訪問順：根 -> 左部分木 -> 右部分木
             let node = node.borrow();
             res.push(node.val);
             dfs(node.left.as_ref(), res);
@@ -34,7 +34,7 @@ fn in_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // 訪問順序：左部分木 -> 根ノード -> 右部分木
+            // 訪問順：左部分木 -> 根 -> 右部分木
             let node = node.borrow();
             dfs(node.left.as_ref(), res);
             res.push(node.val);
@@ -52,7 +52,7 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
 
     fn dfs(root: Option<&Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>) {
         if let Some(node) = root {
-            // 訪問順序：左部分木 -> 右部分木 -> 根ノード
+            // 訪問順：左部分木 -> 右部分木 -> 根
             let node = node.borrow();
             dfs(node.left.as_ref(), res);
             dfs(node.right.as_ref(), res);
@@ -65,23 +65,23 @@ fn post_order(root: Option<&Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     result
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     /* 二分木を初期化する */
-    // ここでは配列から二分木を直接生成する関数を使う
+    // ここでは配列から直接二分木を作る関数を使う
     let root = vec_to_tree(op_vec![1, 2, 3, 4, 5, 6, 7]);
-    println!("二分木を初期化する\n");
+    println!("二分木を初期化\n");
     print_util::print_tree(root.as_ref().unwrap());
 
     /* 行きがけ順走査 */
     let vec = pre_order(root.as_ref());
-    println!("\n行きがけ順走査で表示するノードの順序 = {:?}", vec);
+    println!("\n行きがけ順に出力したノードの列 = {:?}", vec);
 
     /* 通りがけ順走査 */
     let vec = in_order(root.as_ref());
-    println!("\n通りがけ順走査で表示するノードの順序 = {:?}", vec);
+    println!("\n通りがけ順に出力したノードの列 = {:?}", vec);
 
     /* 帰りがけ順走査 */
     let vec = post_order(root.as_ref());
-    print!("\n帰りがけ順走査で表示するノードの順序 = {:?}", vec);
+    print!("\n帰りがけ順に出力したノードの列 = {:?}", vec);
 }

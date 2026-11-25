@@ -6,7 +6,7 @@
 
 const { ListNode } = require('../modules/ListNode');
 
-/* 連結リストで実装したキュー */
+/* 連結リストを使ったキュー */
 class LinkedListQueue {
     #front; // 先頭ノード #front
     #rear; // 末尾ノード #rear
@@ -17,25 +17,25 @@ class LinkedListQueue {
         this.#rear = null;
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     get size() {
         return this.#queSize;
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     isEmpty() {
         return this.size === 0;
     }
 
-    /* エンキュー */
+    /* エンキューする */
     push(num) {
-        // 末尾ノードの後ろに num を追加する
+        // 値が num のノードを末尾ノードの後ろに追加する
         const node = new ListNode(num);
-        // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
+        // キューが空なら、先頭と末尾の両方がこのノードを指すようにする
         if (!this.#front) {
             this.#front = node;
             this.#rear = node;
-            // キューが空でない場合、このノードを末尾ノードの後ろに追加する
+            // キューが空でなければ、このノードを末尾ノードの後ろにつなぐ
         } else {
             this.#rear.next = node;
             this.#rear = node;
@@ -43,7 +43,7 @@ class LinkedListQueue {
         this.#queSize++;
     }
 
-    /* デキュー */
+    /* デキューする */
     pop() {
         const num = this.peek();
         // 先頭ノードを削除する
@@ -52,13 +52,13 @@ class LinkedListQueue {
         return num;
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     peek() {
         if (this.size === 0) throw new Error('キューが空です');
         return this.#front.val;
     }
 
-    /* 連結リストを Array に変換して返す */
+    /* 連結リストを配列に変換して返す */
     toArray() {
         let node = this.#front;
         const res = new Array(this.size);
@@ -70,11 +70,11 @@ class LinkedListQueue {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 /* キューを初期化する */
 const queue = new LinkedListQueue();
 
-/* 要素をエンキューする */
+/* 要素をキューに追加する */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -82,18 +82,18 @@ queue.push(5);
 queue.push(4);
 console.log('キュー queue = ' + queue.toArray());
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 const peek = queue.peek();
-console.log('キューの先頭要素 peek = ' + peek);
+console.log('先頭要素 peek = ' + peek);
 
-/* 要素をデキューする */
+/* キューから要素を取り出す */
 const pop = queue.pop();
-console.log('デキューした要素 pop = ' + pop + '、デキュー後 queue = ' + queue.toArray());
+console.log('デキューした要素 pop = ' + pop + '、デキュー後の queue = ' + queue.toArray());
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 const size = queue.size;
-console.log('キューの長さ size = ' + size);
+console.log('キューの要素数 size = ' + size);
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 const isEmpty = queue.isEmpty();
 console.log('キューは空か = ' + isEmpty);

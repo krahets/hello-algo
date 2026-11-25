@@ -51,7 +51,7 @@ public static class PrintUtil {
 
     /**
      * 이진 트리 출력
-     * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다
+     * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다.
      * https://www.techiedelight.com/c-program-print-binary-tree/
      */
     public static void PrintTree(TreeNode? root) {
@@ -108,7 +108,7 @@ public static class PrintUtil {
 
     /* 힙 출력 */
     public static void PrintHeap(Queue<int> queue) {
-        Console.Write("힙의 배열 표현:");
+        Console.Write("힙의 배열 표현: ");
         List<int> list = [.. queue];
         Console.WriteLine(string.Join(',', list));
         Console.WriteLine("힙의 트리 표현:");
@@ -119,7 +119,7 @@ public static class PrintUtil {
     /* 우선순위 큐 출력 */
     public static void PrintHeap(PriorityQueue<int, int> queue) {
         var newQueue = new PriorityQueue<int, int>(queue.UnorderedItems, queue.Comparer);
-        Console.Write("힙의 배열 표현:");
+        Console.Write("힙의 배열 표현: ");
         List<int> list = [];
         while (newQueue.TryDequeue(out int element, out _)) {
             list.Add(element);

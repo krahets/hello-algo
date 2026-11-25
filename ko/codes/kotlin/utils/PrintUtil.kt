@@ -46,7 +46,7 @@ fun printTree(root: TreeNode?) {
 
 /**
  * 이진 트리 출력
- * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다
+ * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다.
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
@@ -99,7 +99,7 @@ fun <K, V> printHashMap(map: Map<K, V>) {
 fun printHeap(queue: Queue<Int>?) {
     val list = mutableListOf<Int?>()
     queue?.let { list.addAll(it) }
-    print("힙의 배열 표현:")
+    print("힙의 배열 표현: ")
     println(list)
     println("힙의 트리 표현:")
     val root = TreeNode.listToTree(list)

@@ -6,7 +6,7 @@ Author: krahets (krahets@163.com)
 
 
 class ArrayDeque:
-    """Двусторонняя очередь на основе кольцевого массива"""
+    """Двусторонняя очередь (дек) на основе кольцевого массива"""
 
     def __init__(self, capacity: int):
         """Конструктор"""
@@ -15,78 +15,78 @@ class ArrayDeque:
         self._size: int = 0
 
     def capacity(self) -> int:
-        """Получить вместимость двусторонней очереди"""
+        """Получить ёмкость дека"""
         return len(self._nums)
 
     def size(self) -> int:
-        """Получение длины двусторонней очереди"""
+        """Получить длину дека"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Проверка, пуста ли двусторонняя очередь"""
+        """Проверить, пуст ли дек"""
         return self._size == 0
 
     def index(self, i: int) -> int:
         """Вычислить индекс в кольцевом массиве"""
-        # С помощью операции взятия по модулю соединить начало и конец массива
-        # Когда i выходит за конец массива, он возвращается в начало
-        # Когда i выходит за начало массива, он возвращается в конец
+        # Операция взятия остатка связывает конец массива с его началом
+        # Если индекс i выходит за конец массива, отсчёт продолжается с начала
+        # Если индекс i выходит за начало массива, отсчёт продолжается с конца
         return (i + self.capacity()) % self.capacity()
 
     def push_first(self, num: int):
-        """Добавление в голову очереди"""
+        """Добавить элемент в начало дека"""
         if self._size == self.capacity():
-            print("Двусторонняя очередь заполнена")
+            print("Дек заполнен")
             return
-        # Указатель головы сдвигается на одну позицию влево
-        # С помощью операции взятия по модулю front после выхода за начало массива возвращается в хвост
+        # Сдвинуть индекс начала дека на одну позицию влево
+        # При выходе за начало массива операция взятия остатка возвращает front в конец
         self._front = self.index(self._front - 1)
-        # Добавить num в голову очереди
+        # Добавить num в начало дека
         self._nums[self._front] = num
         self._size += 1
 
     def push_last(self, num: int):
-        """Добавление в хвост очереди"""
+        """Добавить элемент в конец дека"""
         if self._size == self.capacity():
-            print("Двусторонняя очередь заполнена")
+            print("Дек заполнен")
             return
-        # Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        # Вычислить индекс вставки в конец дека: прибавить 1 к индексу последнего элемента с учётом перехода по кругу
         rear = self.index(self._front + self._size)
-        # Добавить num в хвост очереди
+        # Добавить num в конец дека
         self._nums[rear] = num
         self._size += 1
 
     def pop_first(self) -> int:
-        """Извлечение из головы очереди"""
+        """Извлечь элемент из начала дека"""
         num = self.peek_first()
-        # Указатель головы сдвигается на одну позицию назад
+        # Сдвинуть индекс начала дека на одну позицию вперёд
         self._front = self.index(self._front + 1)
         self._size -= 1
         return num
 
     def pop_last(self) -> int:
-        """Извлечение из хвоста очереди"""
+        """Извлечь элемент из конца дека"""
         num = self.peek_last()
         self._size -= 1
         return num
 
     def peek_first(self) -> int:
-        """Доступ к элементу в начале очереди"""
+        """Посмотреть первый элемент дека"""
         if self.is_empty():
-            raise IndexError("двусторонняя очередь пуста")
+            raise IndexError("Дек пуст")
         return self._nums[self._front]
 
     def peek_last(self) -> int:
-        """Доступ к элементу в конце очереди"""
+        """Посмотреть последний элемент дека"""
         if self.is_empty():
-            raise IndexError("двусторонняя очередь пуста")
-        # Вычислить индекс хвостового элемента
+            raise IndexError("Дек пуст")
+        # Вычислить индекс последнего элемента
         last = self.index(self._front + self._size - 1)
         return self._nums[last]
 
     def to_array(self) -> list[int]:
-        """Вернуть массив для вывода"""
-        # Преобразовывать только элементы списка в пределах фактической длины
+        """Вернуть список для вывода"""
+        # Преобразовать только те элементы, которые сейчас находятся в деке
         res = []
         for i in range(self._size):
             res.append(self._nums[self.index(self._front + i)])
@@ -95,35 +95,35 @@ class ArrayDeque:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация двусторонней очереди
+    # Инициализировать дек
     deque = ArrayDeque(10)
     deque.push_last(3)
     deque.push_last(2)
     deque.push_last(5)
-    print("Двусторонняя очередь deque =", deque.to_array())
+    print("Дек deque =", deque.to_array())
 
-    # Доступ к элементу
+    # Посмотреть первый и последний элементы
     peek_first: int = deque.peek_first()
-    print("Первый элемент peek_first =", peek_first)
+    print("Первый элемент дека peek_first =", peek_first)
     peek_last: int = deque.peek_last()
-    print("Последний элемент peek_last =", peek_last)
+    print("Последний элемент дека peek_last =", peek_last)
 
-    # Добавление элемента в очередь
+    # Добавить элементы в дек
     deque.push_last(4)
-    print("После добавления элемента 4 в хвост deque =", deque.to_array())
+    print("После добавления 4 в конец дека deque =", deque.to_array())
     deque.push_first(1)
-    print("После добавления элемента 1 в голову deque =", deque.to_array())
+    print("После добавления 1 в начало дека deque =", deque.to_array())
 
-    # Извлечение элемента из очереди
+    # Извлечь элементы из дека
     pop_last: int = deque.pop_last()
-    print("Извлеченный из хвоста элемент =", pop_last, ", deque после извлечения из хвоста =", deque.to_array())
+    print("Извлечённый последний элемент =", pop_last, "— после извлечения из конца deque =", deque.to_array())
     pop_first: int = deque.pop_first()
-    print("Извлеченный из головы элемент =", pop_first, ", deque после извлечения из головы =", deque.to_array())
+    print("Извлечённый первый элемент =", pop_first, "— после извлечения из начала deque =", deque.to_array())
 
-    # Получение длины двусторонней очереди
+    # Получить длину дека
     size: int = deque.size()
-    print("Длина двусторонней очереди size =", size)
+    print("Длина дека size =", size)
 
-    # Проверка, пуста ли двусторонняя очередь
+    # Проверить, пуст ли дек
     is_empty: bool = deque.is_empty()
-    print("Пуста ли двусторонняя очередь =", is_empty)
+    print("Дек пуст =", is_empty)

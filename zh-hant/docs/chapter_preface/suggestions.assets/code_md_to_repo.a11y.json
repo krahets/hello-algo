@@ -1,17 +1,17 @@
 {
   "context": [],
   "description": [
-    "左側是正文 Python 層序走訪函式 level_order 的程式碼片段，程式碼塊左上角以綠色框突出檔案名 binary_tree_bfs.py；右側是倉庫目錄截圖，同名檔案也有綠色框。綠色雙向點線連線“程式碼檔案名稱”與“對應程式碼檔案”兩處標註；兩條灰色箭頭分別從標註指向左側程式碼塊的檔案名和右側目錄中的同名檔案。"
+    "左側是正文中以 Python 撰寫的層序走訪函式 level_order 的程式碼片段，區塊左上角的綠框標出檔名 binary_tree_bfs.py。右側是儲存庫目錄的截圖，同名檔案也以綠框標出。綠色雙向點線連接「程式碼檔名」與「對應程式檔」兩個標示；兩支灰色箭頭分別從標示指向左側區塊的檔名及右側目錄中的同名檔案。"
   ],
   "frames": [
     {
       "book_path": "chapter_preface/suggestions.assets/code_md_to_repo.png",
-      "explanation": "在倉庫中依次進入 codes、python、chapter_tree，找到該檔案；完整路徑為 codes/python/chapter_tree/binary_tree_bfs.py。一般按 codes/<語言>/<章節目錄>/<檔案名> 定位對應原始碼。正文展示核心演算法片段，倉庫檔案附有測試樣例，可閱讀並執行；相同檔案名建立兩者的對應關係。",
+      "explanation": "在儲存庫中依序進入 codes、python、chapter_tree，就會找到這個檔案，完整路徑是 codes/python/chapter_tree/binary_tree_bfs.py。一般可依 codes/<語言>/<章節目錄>/<檔名> 找到對應的原始碼。正文顯示演算法的核心片段，儲存庫中的檔案另附測試案例，可以直接閱讀和執行。兩者以相同的檔名對應。",
       "id": "source-7",
-      "title": "正文程式碼與原始碼檔案"
+      "title": "正文的程式碼與原始碼檔案"
     }
   ],
   "schema_version": 2,
-  "summary": "根據正文程式碼塊標註的檔案名，沿語言和章節目錄在倉庫中定位完整可執行原始碼。",
-  "title": "正文程式碼與原始碼檔案"
+  "summary": "依照正文程式碼區塊標示的檔名，循著程式語言與章節的目錄，就能在儲存庫中找到可直接執行的完整原始碼。",
+  "title": "正文的程式碼與原始碼檔案"
 }

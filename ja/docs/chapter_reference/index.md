@@ -10,15 +10,15 @@ icon: material/bookshelf
 
 [3] Robert Sedgewick, et al. Algorithms (4th Edition).
 
-[4] 严蔚敏. 数据结构（C 语言版）.
+[4] 严蔚敏『数据结构（C 语言版）』（データ構造、C 言語版）。
 
-[5] 邓俊辉. 数据结构（C++ 语言版，第三版）.
+[5] 邓俊辉『数据结构（C++ 语言版，第三版）』（データ構造、C++ 言語版、第 3 版）。
 
-[6] 马克 艾伦 维斯 著、陈越 訳. 数据结构与算法分析：Java语言描述（第三版）.
+[6] マーク・アレン・ワイス著、陈越訳『数据结构与算法分析：Java语言描述（第三版）』（データ構造とアルゴリズム解析、Java による記述、第 3 版）。
 
-[7] 程杰. 大话数据结构.
+[7] 程杰『大话数据结构』（やさしく語るデータ構造）。
 
-[8] 王争. 数据结构与算法之美.
+[8] 王争『数据结构与算法之美』（データ構造とアルゴリズムの美しさ）。
 
 [9] Gayle Laakmann McDowell. Cracking the Coding Interview: 189 Programming Questions and Solutions (6th Edition).
 

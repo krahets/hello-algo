@@ -10,7 +10,7 @@ public class iteration {
     /* for ループ */
     static int forLoop(int n) {
         int res = 0;
-        // ループで 1, 2, ..., n-1, n の和を求める
+        // 1, 2, ..., n-1, n の和をループで求める
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -20,35 +20,35 @@ public class iteration {
     /* while ループ */
     static int whileLoop(int n) {
         int res = 0;
-        int i = 1; // 条件変数を初期化する
-        // ループで 1, 2, ..., n-1, n の和を求める
+        int i = 1; // 条件判定用の変数を初期化
+        // 1, 2, ..., n-1, n の和をループで求める
         while (i <= n) {
             res += i;
-            i++; // 条件変数を更新する
+            i++; // 条件判定用の変数を更新
         }
         return res;
     }
 
-    /* while ループ（2 回の更新） */
+    /* while ループ（2 回更新） */
     static int whileLoopII(int n) {
         int res = 0;
-        int i = 1; // 条件変数を初期化する
-        // ループで 1, 4, 10, ... の和を求める
+        int i = 1; // 条件判定用の変数を初期化
+        // 1, 4, 10, ... の和をループで求める
         while (i <= n) {
             res += i;
-            // 条件変数を更新する
+            // 条件判定用の変数を更新
             i++;
             i *= 2;
         }
         return res;
     }
 
-    /* 二重 for ループ */
+    /* 二重の for ループ */
     static String nestedForLoop(int n) {
         StringBuilder res = new StringBuilder();
-        // i = 1, 2, ..., n-1, n のループ
+        // i = 1, 2, ..., n-1, n の順に繰り返す
         for (int i = 1; i <= n; i++) {
-            // j = 1, 2, ..., n-1, n のループ
+            // j = 1, 2, ..., n-1, n の順に繰り返す
             for (int j = 1; j <= n; j++) {
                 res.append("(" + i + ", " + j + "), ");
             }
@@ -56,21 +56,21 @@ public class iteration {
         return res.toString();
     }
 
-    /* 実行用コード */
+    /* 実行例 */
     public static void main(String[] args) {
         int n = 5;
         int res;
 
         res = forLoop(n);
-        System.out.println("\nfor ループで求めた和 res = " + res);
+        System.out.println("\nfor ループによる総和 res = " + res);
 
         res = whileLoop(n);
-        System.out.println("\nwhile ループで求めた和 res = " + res);
+        System.out.println("\nwhile ループによる総和 res = " + res);
 
         res = whileLoopII(n);
-        System.out.println("\nwhile ループ（2 回の更新）で求めた和 res = " + res);
+        System.out.println("\nwhile ループ（2 回更新）による総和 res = " + res);
 
         String resStr = nestedForLoop(n);
-        System.out.println("\n二重 for ループの走査結果 " + resStr);
+        System.out.println("\n二重の for ループの走査結果 " + resStr);
     }
 }

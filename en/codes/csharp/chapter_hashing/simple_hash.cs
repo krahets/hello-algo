@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_hashing;
 
 public class simple_hash {
-    /* Additive hash */
+    /* Additive hashing */
     int AddHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
@@ -17,7 +17,7 @@ public class simple_hash {
         return (int)hash;
     }
 
-    /* Multiplicative hash */
+    /* Multiplicative hashing */
     int MulHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
@@ -27,7 +27,7 @@ public class simple_hash {
         return (int)hash;
     }
 
-    /* XOR hash */
+    /* XOR hashing */
     int XorHash(string key) {
         int hash = 0;
         const int MODULUS = 1000000007;
@@ -37,7 +37,7 @@ public class simple_hash {
         return hash & MODULUS;
     }
 
-    /* Rotating hash */
+    /* Rotation hashing */
     int RotHash(string key) {
         long hash = 0;
         const int MODULUS = 1000000007;
@@ -61,6 +61,6 @@ public class simple_hash {
         Console.WriteLine("XOR hash value: " + hash);
 
         hash = RotHash(key);
-        Console.WriteLine("Rotating hash value: " + hash);
+        Console.WriteLine("Rotation hash value: " + hash);
     }
 }

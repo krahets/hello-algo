@@ -8,9 +8,9 @@ import (
 	"container/list"
 )
 
-/* 連結リストで実装したキュー */
+/* 連結リストを使ったキュー */
 type linkedListQueue struct {
-	// 組み込みパッケージ list でキューを実装する
+	// 標準ライブラリの list パッケージを使ってキューを実装する
 	data *list.List
 }
 
@@ -21,12 +21,12 @@ func newLinkedListQueue() *linkedListQueue {
 	}
 }
 
-/* エンキュー */
+/* エンキューする */
 func (s *linkedListQueue) push(value any) {
 	s.data.PushBack(value)
 }
 
-/* デキュー */
+/* デキューする */
 func (s *linkedListQueue) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListQueue) pop() any {
 	return e.Value
 }
 
-/* キューの先頭要素にアクセス */
+/* キューの先頭要素を参照する */
 func (s *linkedListQueue) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,17 +45,17 @@ func (s *linkedListQueue) peek() any {
 	return e.Value
 }
 
-/* キューの長さを取得 */
+/* キューの要素数を取得する */
 func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
 
-/* キューが空か判定 */
+/* キューが空かどうかを判定する */
 func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 表示用の List を取得する */
+/* 表示用にリストを取得する */
 func (s *linkedListQueue) toList() *list.List {
 	return s.data
 }

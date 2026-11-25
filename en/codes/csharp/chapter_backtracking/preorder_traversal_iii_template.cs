@@ -17,7 +17,7 @@ public class preorder_traversal_iii_template {
         res.Add(new List<TreeNode>(state));
     }
 
-    /* Check whether the choice is valid in the current state */
+    /* Check whether this choice is valid in the current state */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -34,20 +34,20 @@ public class preorder_traversal_iii_template {
 
     /* Backtracking: example 3 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // Check whether this is a solution
+        // Check for a solution
         if (IsSolution(state)) {
             // Record the solution
             RecordSolution(state, res);
         }
-        // Iterate over all choices
+        // Try each choice
         foreach (TreeNode choice in choices) {
             // Prune: check whether the choice is valid
             if (IsValid(state, choice)) {
-                // Try: make a choice and update the state
+                // Make a choice and update the state
                 MakeChoice(state, choice);
-                // Proceed to the next choice
+                // Make the next choice
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 UndoChoice(state, choice);
             }
         }
@@ -59,12 +59,12 @@ public class preorder_traversal_iii_template {
         Console.WriteLine("\nInitialize the binary tree");
         PrintUtil.PrintTree(root);
 
-        // Backtracking algorithm
+        // Backtracking
         List<List<TreeNode>> res = [];
         List<TreeNode> choices = [root!];
         Backtrack([], choices, res);
 
-        Console.WriteLine("\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3");
+        Console.WriteLine("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

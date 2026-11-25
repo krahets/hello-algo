@@ -21,7 +21,7 @@ fn sum_recur(n: i32) -> i32 {
     n + sum_recur(n - 1)
 }
 
-/* 線形オーダーのループ */
+/* 線形時間のループ */
 fn linear_loop(n: i32) -> i32 {
     let mut res = 0;
     for i in 0..n {
@@ -30,7 +30,7 @@ fn linear_loop(n: i32) -> i32 {
     res
 }
 
-/* 二次オーダーのループ */
+/* 二次時間のループ */
 fn quadratic_loop(n: i32) -> i32 {
     let mut res = 0;
     for i in 0..n {
@@ -41,7 +41,7 @@ fn quadratic_loop(n: i32) -> i32 {
     res
 }
 
-/* 対数オーダーのループ */
+/* 対数時間のループ */
 fn logarithmic_loop(mut n: i32) -> i32 {
     while n > 1 {
         n /= 2;

@@ -27,7 +27,7 @@ if __name__ == "__main__":
         if exit_status != 0:
             errors.append(stderr)
 
-    print(f"{len(src_paths)} 個のファイルをテストしました")
-    print(f"{len(errors)} 個のファイルで例外が見つかりました")
+    print(f"Tested {len(src_paths)} files")
+    print(f"Found exception in {len(errors)} files")
     if len(errors) > 0:
         raise RuntimeError("\n\n".join(errors))

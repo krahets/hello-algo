@@ -18,11 +18,11 @@ def pre_order(root: TreeNode):
     # 嘗試
     path.append(root)
     if root.val == 7:
-        # 記錄解
+        # 記錄此解
         res.append(list(path))
     pre_order(root.left)
     pre_order(root.right)
-    # 回退
+    # 回溯
     path.pop()
 
 
@@ -37,6 +37,6 @@ if __name__ == "__main__":
     res = list[list[TreeNode]]()
     pre_order(root)
 
-    print("\n輸出所有根節點到節點 7 的路徑")
+    print("\n輸出從根節點到值為 7 的節點的所有路徑")
     for path in res:
         print([node.val for node in path])

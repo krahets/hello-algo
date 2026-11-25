@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-/* vector 内の要素を探す */
+/* ベクタ内で要素を探す */
 template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
     for (int i = 0; i < vec.size(); i++) {
@@ -24,7 +24,7 @@ template <typename T> int vecFind(const vector<T> &vec, T ele) {
     return j;
 }
 
-/* vector の要素を区切り文字で連結する */
+/* ベクタの要素を区切り文字列で連結する */
 template <typename T> string strJoin(const string &delim, const T &vec) {
     ostringstream s;
     for (const auto &i : vec) {
@@ -56,7 +56,7 @@ template <typename T> void printArray(T *arr, int n) {
         cout << "]" << endl;
 }
 
-/* vector の文字列表現を取得する */
+/* ベクタの文字列表現を取得する */
 template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
@@ -105,7 +105,7 @@ void showTrunks(Trunk *p) {
 
 /**
  * 二分木を表示する
- * この木の表示処理は TECHIE DELIGHT から借用した
+ * 木の表示には TECHIE DELIGHT のコードを使用
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode *root, Trunk *prev, bool isRight) {
@@ -146,7 +146,7 @@ void printTree(TreeNode *root) {
 
 /* スタックを表示する */
 template <typename T> void printStack(stack<T> stk) {
-    // 入力スタックを反転する
+    // 入力されたスタックの順序を反転する
     stack<T> tmp;
     while (!stk.empty()) {
         tmp.push(stk.top());
@@ -199,14 +199,14 @@ template <typename T> void printDeque(deque<T> deque) {
 }
 
 /* ハッシュテーブルを表示する */
-// キーと値のペアの型を指定するテンプレート引数 TKey と TValue を定義する
+// キーと値の型をそれぞれ指定するテンプレートパラメータ TKey と TValue を定義する
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
     }
 }
 
-/* priority_queue コンテナの内部ストレージを公開する */
+/* priority_queue の内部コンテナにアクセスできるようにする */
 template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
     struct HackedQueue : private priority_queue<T, S, C> {
         static S &Container(priority_queue<T, S, C> &pq) {
@@ -221,7 +221,7 @@ template <typename T, typename S, typename C> void printHeap(priority_queue<T, S
     vector<T> vec = Container(heap);
     cout << "ヒープの配列表現：";
     printVector(vec);
-    cout << "ヒープの木構造表現：" << endl;
+    cout << "ヒープの木構造：" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

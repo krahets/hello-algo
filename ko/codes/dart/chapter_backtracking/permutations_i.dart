@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 백트래킹 알고리즘: 모든 순열 I */
+/* 백트래킹: 순열 I */
 void backtrack(
   List<int> state,
   List<int> choices,
@@ -19,21 +19,21 @@ void backtrack(
   // 모든 선택지를 순회한다
   for (int i = 0; i < choices.length; i++) {
     int choice = choices[i];
-    // 가지치기: 원소를 중복하여 선택할 수 없다
+    // 가지치기: 이미 선택한 원소는 다시 선택하지 않는다
     if (!selected[i]) {
-      // 시도: 선택하고 상태를 갱신한다
+      // 시도: 하나를 선택하고 상태를 갱신한다
       selected[i] = true;
       state.add(choice);
       // 다음 선택을 진행한다
       backtrack(state, choices, selected, res);
-      // 되돌리기: 선택을 취소하고 이전 상태로 되돌린다
+      // 되돌리기: 선택을 취소하고 이전 상태를 복원한다
       selected[i] = false;
       state.removeLast();
     }
   }
 }
 
-/* 모든 순열 I */
+/* 순열 I */
 List<List<int>> permutationsI(List<int> nums) {
   List<List<int>> res = [];
   backtrack([], nums, List.filled(nums.length, false), res);

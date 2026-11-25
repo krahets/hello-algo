@@ -6,11 +6,11 @@ Author: timi (xisunyy@163.com)
 
 
 def bubble_sort(nums: list[int]):
-    """泡沫排序"""
+    """氣泡排序"""
     n = len(nums)
-    # 外迴圈：未排序區間為 [0, i]
+    # 外層迴圈：尚未排序的區間為 [0, i]
     for i in range(n - 1, 0, -1):
-        # 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
+        # 內層迴圈：逐次交換，將未排序區間 [0, i] 中的最大元素移到區間最右端
         for j in range(i):
             if nums[j] > nums[j + 1]:
                 # 交換 nums[j] 與 nums[j + 1]
@@ -18,27 +18,27 @@ def bubble_sort(nums: list[int]):
 
 
 def bubble_sort_with_flag(nums: list[int]):
-    """泡沫排序（標誌最佳化）"""
+    """氣泡排序（以旗標最佳化）"""
     n = len(nums)
-    # 外迴圈：未排序區間為 [0, i]
+    # 外層迴圈：尚未排序的區間為 [0, i]
     for i in range(n - 1, 0, -1):
-        flag = False  # 初始化標誌位
-        # 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
+        flag = False  # 初始化旗標
+        # 內層迴圈：逐次交換，將未排序區間 [0, i] 中的最大元素移到區間最右端
         for j in range(i):
             if nums[j] > nums[j + 1]:
                 # 交換 nums[j] 與 nums[j + 1]
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
-                flag = True  # 記錄交換元素
+                flag = True  # 記錄本輪曾交換元素
         if not flag:
-            break  # 此輪“冒泡”未交換任何元素，直接跳出
+            break  # 這一輪「冒泡」未交換任何元素，直接跳出迴圈
 
 
 """Driver Code"""
 if __name__ == "__main__":
     nums = [4, 1, 3, 1, 5, 2]
     bubble_sort(nums)
-    print("泡沫排序完成後 nums =", nums)
+    print("氣泡排序完成後 nums =", nums)
 
     nums1 = [4, 1, 3, 1, 5, 2]
     bubble_sort_with_flag(nums1)
-    print("泡沫排序完成後 nums =", nums1)
+    print("氣泡排序完成後 nums =", nums1)

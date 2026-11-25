@@ -7,7 +7,7 @@
 /* for 迴圈 */
 fn for_loop(n: i32) -> i32 {
     let mut res = 0;
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     for i in 1..=n {
         res += i;
     }
@@ -19,7 +19,7 @@ fn while_loop(n: i32) -> i32 {
     let mut res = 0;
     let mut i = 1; // 初始化條件變數
 
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     while i <= n {
         res += i;
         i += 1; // 更新條件變數
@@ -27,12 +27,12 @@ fn while_loop(n: i32) -> i32 {
     res
 }
 
-/* while 迴圈（兩次更新） */
+/* while 迴圈（更新兩次） */
 fn while_loop_ii(n: i32) -> i32 {
     let mut res = 0;
     let mut i = 1; // 初始化條件變數
 
-    // 迴圈求和 1, 4, 10, ...
+    // 迴圈加總 1, 4, 10, ...
     while i <= n {
         res += i;
         // 更新條件變數
@@ -55,20 +55,20 @@ fn nested_for_loop(n: i32) -> String {
     res.join("")
 }
 
-/* Driver Code */
+/* 主程式 */
 fn main() {
     let n = 5;
     let mut res;
 
     res = for_loop(n);
-    println!("\nfor 迴圈的求和結果 res = {res}");
+    println!("\nfor 迴圈的總和 res = {res}");
 
     res = while_loop(n);
-    println!("\nwhile 迴圈的求和結果 res = {res}");
+    println!("\nwhile 迴圈的總和 res = {res}");
 
     res = while_loop_ii(n);
-    println!("\nwhile 迴圈（兩次更新）求和結果 res = {}", res);
+    println!("\nwhile 迴圈（更新兩次）的總和 res = {}", res);
 
     let res = nested_for_loop(n);
-    println!("\n雙層 for 迴圈的走訪結果 {res}");
+    println!("\n雙層 for 迴圈走訪的結果 {res}");
 }

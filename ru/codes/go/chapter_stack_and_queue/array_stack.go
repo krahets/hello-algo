@@ -9,31 +9,31 @@ type arrayStack struct {
 	data []int // Данные
 }
 
-/* Инициализация стека */
+/* Инициализировать стек */
 func newArrayStack() *arrayStack {
 	return &arrayStack{
-		// Установить длину стека равной 0, а емкость равной 16
+		// Создать стек с начальным размером 0 и ёмкостью 16
 		data: make([]int, 0, 16),
 	}
 }
 
-/* Длина стека */
+/* Размер стека */
 func (s *arrayStack) size() int {
 	return len(s.data)
 }
 
-/* Пуст ли стек */
+/* Проверить, пуст ли стек */
 func (s *arrayStack) isEmpty() bool {
 	return s.size() == 0
 }
 
-/* Поместить в стек */
+/* Поместить элемент в стек */
 func (s *arrayStack) push(v int) {
-	// Срез автоматически расширяется
+	// Ёмкость среза при необходимости увеличивается автоматически
 	s.data = append(s.data, v)
 }
 
-/* Извлечь из стека */
+/* Снять элемент со стека */
 func (s *arrayStack) pop() any {
 	val := s.peek()
 	s.data = s.data[:len(s.data)-1]
@@ -49,7 +49,7 @@ func (s *arrayStack) peek() any {
 	return val
 }
 
-/* Получить Slice для вывода */
+/* Получить срез для вывода */
 func (s *arrayStack) toSlice() []int {
 	return s.data
 }

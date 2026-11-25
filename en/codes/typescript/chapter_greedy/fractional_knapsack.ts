@@ -15,23 +15,23 @@ class Item {
     }
 }
 
-/* Fractional knapsack: greedy algorithm */
+/* Greedy fractional knapsack */
 function fractionalKnapsack(wgt: number[], val: number[], cap: number): number {
-    // Create a list of items, each with two attributes: weight and value
+    // Create a list of items, each with a weight and a value
     const items: Item[] = wgt.map((w, i) => new Item(w, val[i]));
-    // Sort by value per unit weight, item.v / item.w, in descending order
+    // Sort by value per unit of weight, item.v / item.w, in descending order
     items.sort((a, b) => b.v / b.w - a.v / a.w);
-    // Repeatedly make greedy choices
+    // Make greedy choices in a loop
     let res = 0;
     for (const item of items) {
         if (item.w <= cap) {
-            // If enough capacity remains, put the entire current item in the knapsack
+            // If the whole item fits, put it in the knapsack
             res += item.v;
             cap -= item.w;
         } else {
-            // If the remaining capacity is insufficient, put part of the current item in the knapsack
+            // If the whole item does not fit, take a fraction of it
             res += (item.v / item.w) * cap;
-            // No capacity remains, so exit the loop
+            // The knapsack is full, so exit the loop
             break;
         }
     }
@@ -45,6 +45,6 @@ const cap: number = 50;
 
 // Greedy algorithm
 const res: number = fractionalKnapsack(wgt, val, cap);
-console.log(`Maximum total item value within the knapsack capacity: ${res}`);
+console.log(`The maximum total value within the weight limit is ${res}`);
 
 export {};

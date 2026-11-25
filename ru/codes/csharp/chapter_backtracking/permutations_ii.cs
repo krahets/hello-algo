@@ -7,33 +7,33 @@
 namespace hello_algo.chapter_backtracking;
 
 public class permutations_ii {
-    /* Алгоритм бэктрекинга: все перестановки II */
+    /* Поиск с возвратом: перестановки II */
     void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
-        // Когда длина состояния равна числу элементов, записать решение
+        // Когда длина текущей перестановки равна числу элементов, сохраняем решение
         if (state.Count == choices.Length) {
             res.Add(new List<int>(state));
             return;
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         HashSet<int> duplicated = [];
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+            // Отсечение: нельзя повторно брать тот же элемент или пробовать на этом уровне то же значение
             if (!selected[i] && !duplicated.Contains(choice)) {
-                // Попытка: сделать выбор и обновить состояние
-                duplicated.Add(choice); // Записать значения уже выбранных элементов
+                // Пробуем вариант и обновляем состояние
+                duplicated.Add(choice); // Отмечаем уже выбранные значения
                 selected[i] = true;
                 state.Add(choice);
-                // Перейти к следующему выбору
+                // Переходим к следующему выбору
                 Backtrack(state, choices, selected, res);
-                // Откат: отменить выбор и восстановить предыдущее состояние
+                // Возврат: отменяем выбор и восстанавливаем прежнее состояние
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
             }
         }
     }
 
-    /* Все перестановки II */
+    /* Перестановки II */
     List<List<int>> PermutationsII(int[] nums) {
         List<List<int>> res = [];
         Backtrack([], nums, new bool[nums.Length], res);
@@ -46,7 +46,7 @@ public class permutations_ii {
 
         List<List<int>> res = PermutationsII(nums);
 
-        Console.WriteLine("Входной массив nums = " + string.Join(", ", nums));
+        Console.WriteLine("Исходный массив nums = " + string.Join(", ", nums));
         Console.WriteLine("Все перестановки res = ");
         foreach (List<int> permutation in res) {
             PrintUtil.PrintList(permutation);

@@ -13,7 +13,7 @@ typedef struct {
 
 /* Конструктор */
 BinarySearchTree *newBinarySearchTree() {
-    // Инициализировать пустое дерево
+    // Инициализация пустого дерева
     BinarySearchTree *bst = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
     bst->root = NULL;
     return bst;
@@ -25,7 +25,7 @@ void delBinarySearchTree(BinarySearchTree *bst) {
     free(bst);
 }
 
-/* Получить корневой узел двоичного дерева */
+/* Получить корень двоичного дерева */
 TreeNode *getRoot(BinarySearchTree *bst) {
     return bst->root;
 }
@@ -33,43 +33,43 @@ TreeNode *getRoot(BinarySearchTree *bst) {
 /* Поиск узла */
 TreeNode *search(BinarySearchTree *bst, int num) {
     TreeNode *cur = bst->root;
-    // Искать в цикле и выйти после прохода за листовой узел
+    // Искать в цикле до выхода за пределы листа
     while (cur != NULL) {
         if (cur->val < num) {
-            // Целевой узел находится в правом поддереве cur
+            // Искомый узел в правом поддереве cur
             cur = cur->right;
         } else if (cur->val > num) {
-            // Целевой узел находится в левом поддереве cur
+            // Искомый узел в левом поддереве cur
             cur = cur->left;
         } else {
-            // Найти целевой узел и выйти из цикла
+            // Узел найден: выйти из цикла
             break;
         }
     }
-    // Вернуть целевой узел
+    // Вернуть искомый узел
     return cur;
 }
 
 /* Вставка узла */
 void insert(BinarySearchTree *bst, int num) {
-    // Если дерево пусто, инициализировать корневой узел
+    // Если дерево пусто, создать корень
     if (bst->root == NULL) {
         bst->root = newTreeNode(num);
         return;
     }
     TreeNode *cur = bst->root, *pre = NULL;
-    // Искать в цикле и выйти после прохода за листовой узел
+    // Искать в цикле до выхода за пределы листа
     while (cur != NULL) {
-        // Найти повторяющийся узел и сразу вернуть
+        // Такой узел уже есть: завершить вызов
         if (cur->val == num) {
             return;
         }
         pre = cur;
         if (cur->val < num) {
-            // Позиция вставки находится в правом поддереве cur
+            // Место вставки в правом поддереве cur
             cur = cur->right;
         } else {
-            // Позиция вставки находится в левом поддереве cur
+            // Место вставки в левом поддереве cur
             cur = cur->left;
         }
     }
@@ -83,33 +83,33 @@ void insert(BinarySearchTree *bst, int num) {
 }
 
 /* Удаление узла */
-// Из-за подключения stdio.h здесь нельзя использовать ключевое слово remove
+// Заголовок stdio.h уже объявляет remove, поэтому здесь это имя использовать нельзя
 void removeItem(BinarySearchTree *bst, int num) {
-    // Если дерево пусто, сразу вернуть
+    // Если дерево пусто, сразу завершить вызов
     if (bst->root == NULL)
         return;
     TreeNode *cur = bst->root, *pre = NULL;
-    // Искать в цикле и выйти после прохода за листовой узел
+    // Искать в цикле до выхода за пределы листа
     while (cur != NULL) {
-        // Найти узел для удаления и выйти из цикла
+        // Узел для удаления найден: выйти из цикла
         if (cur->val == num)
             break;
         pre = cur;
         if (cur->val < num) {
-            // Удаляемый узел находится в правом поддереве root
+            // Узел для удаления в правом поддереве root
             cur = cur->right;
         } else {
-            // Удаляемый узел находится в левом поддереве root
+            // Узел для удаления в левом поддереве root
             cur = cur->left;
         }
     }
-    // Если узел для удаления отсутствует, сразу вернуть
+    // Если узел для удаления не найден, завершить вызов
     if (cur == NULL)
         return;
-    // Проверить, есть ли дочерние узлы у удаляемого узла
+    // Проверить, есть ли у удаляемого узла потомки
     if (cur->left == NULL || cur->right == NULL) {
-        /* Число дочерних узлов = 0 или 1 */
-        // Когда число дочерних узлов = 0 / 1, child = nullptr / этот дочерний узел
+        /* Число потомков равно 0 или 1 */
+        // Если потомков нет, child = nullptr, если потомок один, child указывает на него
         TreeNode *child = cur->left != NULL ? cur->left : cur->right;
         // Удалить узел cur
         if (pre == NULL) {
@@ -122,8 +122,8 @@ void removeItem(BinarySearchTree *bst, int num) {
         // Освободить память
         free(cur);
     } else {
-        /* Число дочерних узлов = 2 */
-        // Получить следующий узел после cur в симметричном обходе
+        /* Число потомков равно 2 */
+        // Найти следующий за cur узел в порядке симметричного обхода
         TreeNode *tmp = cur->right;
         while (tmp->left != NULL) {
             tmp = tmp->left;
@@ -131,12 +131,12 @@ void removeItem(BinarySearchTree *bst, int num) {
         int tmpVal = tmp->val;
         // Рекурсивно удалить узел tmp
         removeItem(bst, tmp->val);
-        // Перезаписать cur значением tmp
+        // Заменить значение cur значением tmp
         cur->val = tmpVal;
     }
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     /* Инициализация двоичного дерева поиска */
     int nums[] = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
@@ -144,27 +144,27 @@ int main() {
     for (int i = 0; i < sizeof(nums) / sizeof(int); i++) {
         insert(bst, nums[i]);
     }
-    printf("Инициализированное двоичное дерево\n");
+    printf("Исходное двоичное дерево:\n");
     printTree(getRoot(bst));
 
     /* Поиск узла */
     TreeNode *node = search(bst, 7);
-    printf("Значение найденного объекта узла = %d\n", node->val);
+    printf("Значение найденного узла = %d\n", node->val);
 
     /* Вставка узла */
     insert(bst, 16);
-    printf("После вставки узла 16 двоичное дерево имеет вид\n");
+    printf("Двоичное дерево после вставки узла 16:\n");
     printTree(getRoot(bst));
 
     /* Удаление узла */
     removeItem(bst, 1);
-    printf("После удаления узла 1 двоичное дерево имеет вид\n");
+    printf("Двоичное дерево после удаления узла 1:\n");
     printTree(getRoot(bst));
     removeItem(bst, 2);
-    printf("После удаления узла 2 двоичное дерево имеет вид\n");
+    printf("Двоичное дерево после удаления узла 2:\n");
     printTree(getRoot(bst));
     removeItem(bst, 4);
-    printf("После удаления узла 4 двоичное дерево имеет вид\n");
+    printf("Двоичное дерево после удаления узла 4:\n");
     printTree(getRoot(bst));
 
     // Освободить память

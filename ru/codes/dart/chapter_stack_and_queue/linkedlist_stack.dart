@@ -8,24 +8,24 @@ import '../utils/list_node.dart';
 
 /* Стек на основе класса связного списка */
 class LinkedListStack {
-  ListNode? _stackPeek; // Использовать головной узел как вершину стека
-  int _stkSize = 0; // Длина стека
+  ListNode? _stackPeek; // Первый узел списка служит вершиной стека
+  int _stkSize = 0; // Размер стека
 
   LinkedListStack() {
     _stackPeek = null;
   }
 
-  /* Получение длины стека */
+  /* Получить размер стека */
   int size() {
     return _stkSize;
   }
 
-  /* Проверка, пуст ли стек */
+  /* Проверить, пуст ли стек */
   bool isEmpty() {
     return _stkSize == 0;
   }
 
-  /* Поместить в стек */
+  /* Поместить элемент в стек */
   void push(int _num) {
     final ListNode node = ListNode(_num);
     node.next = _stackPeek;
@@ -33,7 +33,7 @@ class LinkedListStack {
     _stkSize++;
   }
 
-  /* Извлечь из стека */
+  /* Снять элемент со стека */
   int pop() {
     final int _num = peek();
     _stackPeek = _stackPeek!.next;
@@ -41,15 +41,15 @@ class LinkedListStack {
     return _num;
   }
 
-  /* Доступ к верхнему элементу стека */
+  /* Посмотреть элемент на вершине стека */
   int peek() {
     if (_stackPeek == null) {
-      throw Exception("стек пуст");
+      throw Exception("Стек пуст");
     }
     return _stackPeek!.val;
   }
 
-  /* Преобразовать связный список в List и вернуть */
+  /* Преобразовать связный список в List и вернуть результат */
   List<int> toList() {
     ListNode? node = _stackPeek;
     List<int> list = [];
@@ -62,12 +62,12 @@ class LinkedListStack {
   }
 }
 
-/* Driver Code */
+/* Пример использования */
 void main() {
-  /* Инициализация стека */
+  /* Инициализировать стек */
   final LinkedListStack stack = LinkedListStack();
 
-  /* Помещение элемента в стек */
+  /* Поместить элементы в стек */
   stack.push(1);
   stack.push(3);
   stack.push(2);
@@ -75,19 +75,19 @@ void main() {
   stack.push(4);
   print("Стек stack = ${stack.toList()}");
 
-  /* Доступ к верхнему элементу стека */
+  /* Посмотреть элемент на вершине стека */
   final int peek = stack.peek();
-  print("Верхний элемент peek = $peek");
+  print("Элемент на вершине стека peek = $peek");
 
-  /* Извлечение элемента из стека */
+  /* Снять элемент со стека */
   final int pop = stack.pop();
-  print("Извлеченный элемент pop = $pop, stack после извлечения = ${stack.toList()}");
+  print("Снятый элемент pop = $pop, после снятия stack = ${stack.toList()}");
 
-  /* Получение длины стека */
+  /* Получить размер стека */
   final int size = stack.size();
-  print("Длина стека size = $size");
+  print("Размер стека size = $size");
 
-  /* Проверка на пустоту */
+  /* Проверить, пуст ли стек */
   final bool isEmpty = stack.isEmpty();
-  print("Пуст ли стек = $isEmpty");
+  print("Стек пуст = $isEmpty");
 }

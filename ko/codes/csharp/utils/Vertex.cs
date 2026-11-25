@@ -10,7 +10,7 @@ namespace hello_algo.utils;
 public class Vertex(int val) {
     public int val = val;
 
-    /* 값의 리스트 vals를 입력받아 정점 리스트 vets 반환 */
+    /* 값 리스트 vals를 받아 정점 리스트 vets를 반환한다. */
     public static Vertex[] ValsToVets(int[] vals) {
         Vertex[] vets = new Vertex[vals.Length];
         for (int i = 0; i < vals.Length; i++) {
@@ -19,7 +19,7 @@ public class Vertex(int val) {
         return vets;
     }
 
-    /* 정점 리스트 vets를 입력받아 값의 리스트 vals 반환 */
+    /* 정점 리스트 vets를 받아 값 리스트 vals를 반환한다. */
     public static List<int> VetsToVals(List<Vertex> vets) {
         List<int> vals = [];
         foreach (Vertex vet in vets) {

@@ -10,7 +10,7 @@ class ListNode:
 
     def __init__(self, val: int):
         self.val: int = val  # 노드 값
-        self.next: ListNode | None = None  # 다음 노드 참조
+        self.next: ListNode | None = None  # 다음 노드에 대한 참조
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:

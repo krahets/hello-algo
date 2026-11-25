@@ -15,11 +15,11 @@ public class built_in_hash {
 
         bool bol = true;
         int hashBol = bol.GetHashCode();
-        Console.WriteLine("불리언 값 " + bol + " → 해시값: " + hashBol);
+        Console.WriteLine("불리언 " + bol + " → 해시값: " + hashBol);
 
         double dec = 3.14159;
         int hashDec = dec.GetHashCode();
-        Console.WriteLine("소수 " + dec + " → 해시값: " + hashDec);
+        Console.WriteLine("실수 " + dec + " → 해시값: " + hashDec);
 
         string str = "Hello 算法";
         int hashStr = str.GetHashCode();

@@ -6,21 +6,21 @@
 
 /* Backtracking: permutations I */
 function backtrack(state, choices, selected, res) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if (state.length === choices.length) {
         res.push([...state]);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     choices.forEach((choice, i) => {
-        // Prune: do not choose an element more than once
+        // Prune: skip elements already in use
         if (!selected[i]) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             selected[i] = true;
             state.push(choice);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, choices, selected, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
             state.pop();
         }

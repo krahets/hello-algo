@@ -30,7 +30,7 @@ int main() {
     // Preorder traversal
     preOrder(root);
 
-    cout << "\nOutput all nodes with value 7" << endl;
+    cout << "\nPrint all nodes with value 7" << endl;
     vector<int> vals;
     for (TreeNode *node : res) {
         vals.push_back(node->val);

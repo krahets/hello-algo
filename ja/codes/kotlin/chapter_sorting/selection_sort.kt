@@ -9,24 +9,24 @@ package chapter_sorting
 /* 選択ソート */
 fun selectionSort(nums: IntArray) {
     val n = nums.size
-    // 外側のループ：未ソート区間は [i, n-1]
+    // 外側のループ：未整列区間は [i, n-1]
     for (i in 0..<n - 1) {
         var k = i
-        // 内側のループ：未ソート区間の最小要素を探す
+        // 内側のループ：未整列区間の最小要素を探す
         for (j in i + 1..<n) {
             if (nums[j] < nums[k])
-                k = j // 最小要素のインデックスを記録する
+                k = j // 最小要素のインデックスを記録
         }
-        // この最小要素を未ソート区間の先頭要素と交換する
+        // その最小要素と未整列区間の先頭要素を交換
         val temp = nums[i]
         nums[i] = nums[k]
         nums[k] = temp
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val nums = intArrayOf(4, 1, 3, 1, 5, 2)
     selectionSort(nums)
-    println("選択ソート完了後 nums = ${nums.contentToString()}")
+    println("選択ソート後の nums = ${nums.contentToString()}")
 }

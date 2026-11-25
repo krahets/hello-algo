@@ -6,7 +6,7 @@
 
 use hello_algo_rust::include::{print_util, tree_node};
 
-/* 配列で表した二分木クラス */
+/* 二分木を配列で表すクラス */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
@@ -24,7 +24,7 @@ impl ArrayBinaryTree {
 
     /* インデックス i のノードの値を取得する */
     fn val(&self, i: i32) -> Option<i32> {
-        // インデックスが範囲外の場合、空きを表す None を返す
+        // 範囲外なら空きを示す None を返す
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -32,17 +32,17 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* インデックス i のノードの左の子ノードのインデックスを取得する */
+    /* インデックス i のノードの左の子のインデックスを取得する */
     fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
-    /* インデックス i のノードの右の子ノードのインデックスを取得する */
+    /* インデックス i のノードの右の子のインデックスを取得する */
     fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
-    /* インデックス i のノードの親ノードのインデックスを取得する */
+    /* インデックス i のノードの親のインデックスを取得する */
     fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
@@ -96,10 +96,10 @@ impl ArrayBinaryTree {
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     // 二分木を初期化する
-    // ここでは配列から二分木を直接生成する関数を使う
+    // ここでは配列から直接二分木を作る関数を使う
     let arr = vec![
         Some(1),
         Some(2),
@@ -119,7 +119,7 @@ fn main() {
     ];
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
-    println!("\n二分木を初期化する\n");
+    println!("\n二分木を初期化\n");
     println!("二分木の配列表現：");
     println!(
         "[{}]",
@@ -132,19 +132,19 @@ fn main() {
             .collect::<Vec<String>>()
             .join(", ")
     );
-    println!("二分木の連結リスト表現：");
+    println!("二分木の連結表現：");
     print_util::print_tree(&root);
 
-    // 配列で表した二分木クラス
+    // 二分木を配列で表すクラス
     let abt = ArrayBinaryTree::new(arr);
 
-    // ノードにアクセスする
+    // ノードへのアクセス
     let i = 1;
     let l = abt.left(i);
     let r = abt.right(i);
     let p = abt.parent(i);
     println!(
-        "\n現在のノードのインデックスは {} 、値は {}",
+        "\n現在のノードのインデックスは {}、値は {}",
         i,
         if let Some(val) = abt.val(i) {
             format!("{val}")
@@ -153,7 +153,7 @@ fn main() {
         }
     );
     println!(
-        "左の子ノードのインデックスは {} 、値は {}",
+        "左の子のインデックスは {}、値は {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -162,7 +162,7 @@ fn main() {
         }
     );
     println!(
-        "右の子ノードのインデックスは {} 、値は {}",
+        "右の子のインデックスは {}、値は {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -171,7 +171,7 @@ fn main() {
         }
     );
     println!(
-        "親ノードのインデックスは {} 、値は {}",
+        "親のインデックスは {}、値は {}",
         p,
         if let Some(val) = abt.val(p) {
             format!("{val}")
@@ -182,11 +182,11 @@ fn main() {
 
     // 木を走査する
     let mut res = abt.level_order();
-    println!("\nレベル順走査：{:?}", res);
+    println!("\nレベル順：{:?}", res);
     res = abt.pre_order();
-    println!("行きがけ順走査：{:?}", res);
+    println!("行きがけ順：{:?}", res);
     res = abt.in_order();
-    println!("通りがけ順走査：{:?}", res);
+    println!("通りがけ順：{:?}", res);
     res = abt.post_order();
-    println!("帰りがけ順走査：{:?}", res);
+    println!("帰りがけ順：{:?}", res);
 }

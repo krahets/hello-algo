@@ -4,7 +4,7 @@
  * Author: yuan0221 (yl1452491917@gmail.com)
  */
 
-/* 階段の上り方：動的計画法 */
+/* 階段の登り方：動的計画法 */
 function climbingStairsDP(n) {
     if (n === 1 || n === 2) return n;
     // 部分問題の解を格納する dp テーブルを初期化する
@@ -19,7 +19,7 @@ function climbingStairsDP(n) {
     return dp[n];
 }
 
-/* 階段の上り方：空間を最適化した動的計画法 */
+/* 階段の登り方：使用メモリを削減した動的計画法 */
 function climbingStairsDPComp(n) {
     if (n === 1 || n === 2) return n;
     let a = 1,
@@ -32,9 +32,9 @@ function climbingStairsDPComp(n) {
     return b;
 }
 
-/* 実行用コード */
+/* 実行例 */
 const n = 9;
 let res = climbingStairsDP(n);
-console.log(`${n} 段の階段を上る方法は全部で ${res} 通り`);
+console.log(`全 ${n} 段の階段の登り方は ${res} 通り`);
 res = climbingStairsDPComp(n);
-console.log(`${n} 段の階段を上る方法は全部で ${res} 通り`);
+console.log(`全 ${n} 段の階段の登り方は ${res} 通り`);

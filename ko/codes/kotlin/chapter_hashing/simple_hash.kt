@@ -46,19 +46,19 @@ fun rotHash(key: String): Int {
     return hash.toInt()
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fun main() {
     val key = "Hello 算法"
 
     var hash = addHash(key)
-    println("덧셈 해시값 = $hash")
+    println("덧셈 해시값: $hash")
 
     hash = mulHash(key)
-    println("곱셈 해시값 = $hash")
+    println("곱셈 해시값: $hash")
 
     hash = xorHash(key)
-    println("XOR 해시값 = $hash")
+    println("XOR 해시값: $hash")
 
     hash = rotHash(key)
-    println("회전 해시값 = $hash")
+    println("회전 해시값: $hash")
 }

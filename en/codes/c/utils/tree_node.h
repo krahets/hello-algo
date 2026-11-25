@@ -35,7 +35,7 @@ TreeNode *newTreeNode(int val) {
     return node;
 }
 
-// For the serialization rules, see:
+// For the serialization format, see:
 // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
 // Array representation of the binary tree:
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -51,7 +51,7 @@ TreeNode *newTreeNode(int val) {
 //         \——— 4
 //             \——— 8
 
-/* Deserialize a list into a binary tree: recursion */
+/* Recursively deserialize an array into a binary tree */
 TreeNode *arrayToTreeDFS(int *arr, int size, int i) {
     if (i < 0 || i >= size || arr[i] == INT_MAX) {
         return NULL;
@@ -63,12 +63,12 @@ TreeNode *arrayToTreeDFS(int *arr, int size, int i) {
     return root;
 }
 
-/* Deserialize a list into a binary tree */
+/* Deserialize an array into a binary tree */
 TreeNode *arrayToTree(int *arr, int size) {
     return arrayToTreeDFS(arr, size, 0);
 }
 
-/* Serialize a binary tree into a list: recursion */
+/* Recursively serialize a binary tree into an array */
 void treeToArrayDFS(TreeNode *root, int i, int *res, int *size) {
     if (root == NULL) {
         return;
@@ -83,7 +83,7 @@ void treeToArrayDFS(TreeNode *root, int i, int *res, int *size) {
     treeToArrayDFS(root->right, 2 * i + 2, res, size);
 }
 
-/* Serialize a binary tree into a list */
+/* Serialize a binary tree into an array */
 int *treeToArray(TreeNode *root, int *size) {
     *size = 0;
     int *res = NULL;
@@ -91,7 +91,7 @@ int *treeToArray(TreeNode *root, int *size) {
     return res;
 }
 
-/* Free the binary tree memory */
+/* Free the memory allocated to the binary tree */
 void freeMemoryTree(TreeNode *root) {
     if (root == NULL)
         return;

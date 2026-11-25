@@ -42,7 +42,7 @@ void postOrder(TreeNode *root) {
 /* Driver code */
 int main() {
     /* Initialize the binary tree */
-    // Use a helper function that builds a binary tree directly from an array
+    // Use a function that builds a binary tree directly from an array
     TreeNode *root = vectorToTree(vector<int>{1, 2, 3, 4, 5, 6, 7});
     cout << endl << "Initialize the binary tree\n" << endl;
     printTree(root);
@@ -50,19 +50,19 @@ int main() {
     /* Preorder traversal */
     vec.clear();
     preOrder(root);
-    cout << endl << "Node sequence from preorder traversal = ";
+    cout << endl << "Nodes in preorder = ";
     printVector(vec);
 
     /* Inorder traversal */
     vec.clear();
     inOrder(root);
-    cout << endl << "Node sequence from inorder traversal = ";
+    cout << endl << "Nodes in inorder = ";
     printVector(vec);
 
     /* Postorder traversal */
     vec.clear();
     postOrder(root);
-    cout << endl << "Node sequence from postorder traversal = ";
+    cout << endl << "Nodes in postorder = ";
     printVector(vec);
 
     return 0;

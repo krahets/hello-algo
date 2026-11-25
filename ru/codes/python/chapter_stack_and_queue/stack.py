@@ -7,10 +7,10 @@ Author: Peng Chen (pengchzn@gmail.com)
 """Driver Code"""
 if __name__ == "__main__":
     # Инициализировать стек
-    # В Python нет встроенного класса стека, поэтому list можно использовать как стек
+    # В Python нет встроенного класса стека, поэтому в качестве стека можно использовать list
     stack: list[int] = []
 
-    # Помещение элемента в стек
+    # Поместить элементы в стек
     stack.append(1)
     stack.append(3)
     stack.append(2)
@@ -18,19 +18,19 @@ if __name__ == "__main__":
     stack.append(4)
     print("Стек stack =", stack)
 
-    # Доступ к верхнему элементу стека
+    # Посмотреть элемент на вершине стека
     peek: int = stack[-1]
-    print("Верхний элемент peek =", peek)
+    print("Элемент на вершине стека peek =", peek)
 
-    # Извлечение элемента из стека
+    # Снять элемент со стека
     pop: int = stack.pop()
-    print("Извлеченный элемент pop =", pop)
-    print("stack после извлечения =", stack)
+    print("Снятый элемент pop =", pop)
+    print("После снятия элемента stack =", stack)
 
-    # Получение длины стека
+    # Получить размер стека
     size: int = len(stack)
-    print("Длина стека size =", size)
+    print("Размер стека size =", size)
 
-    # Проверка на пустоту
+    # Проверить, пуст ли стек
     is_empty: bool = len(stack) == 0
-    print("Пуст ли стек =", is_empty)
+    print("Стек пуст =", is_empty)

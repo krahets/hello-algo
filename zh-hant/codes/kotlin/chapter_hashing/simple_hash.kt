@@ -46,9 +46,9 @@ fun rotHash(key: String): Int {
     return hash.toInt()
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
-    val key = "Hello 演算法"
+    val key = "Hello 算法"
 
     var hash = addHash(key)
     println("加法雜湊值為 $hash")

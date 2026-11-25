@@ -20,7 +20,7 @@ fn record_solution(
     res.push(state.clone());
 }
 
-/* Check whether the choice is valid in the current state */
+/* Check whether this choice is valid in the current state */
 fn is_valid(_: &mut Vec<Rc<RefCell<TreeNode>>>, choice: Option<&Rc<RefCell<TreeNode>>>) -> bool {
     return choice.is_some() && choice.unwrap().borrow().val != 3;
 }
@@ -41,18 +41,18 @@ fn backtrack(
     choices: &Vec<Option<&Rc<RefCell<TreeNode>>>>,
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
 ) {
-    // Check whether this is a solution
+    // Check for a solution
     if is_solution(state) {
         // Record the solution
         record_solution(state, res);
     }
-    // Iterate over all choices
+    // Try each choice
     for &choice in choices.iter() {
         // Prune: check whether the choice is valid
         if is_valid(state, choice) {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             make_choice(state, choice.unwrap().clone());
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(
                 state,
                 &vec![
@@ -61,7 +61,7 @@ fn backtrack(
                 ],
                 res,
             );
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undo_choice(state, choice.unwrap().clone());
         }
     }
@@ -73,11 +73,11 @@ pub fn main() {
     println!("Initialize the binary tree");
     print_util::print_tree(root.as_ref().unwrap());
 
-    // Backtracking algorithm
+    // Backtracking
     let mut res = Vec::new();
     backtrack(&mut Vec::new(), &mut vec![root.as_ref()], &mut res);
 
-    println!("\nOutput all paths from the root to nodes with value 7, requiring that no node on the path has value 3");
+    println!("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

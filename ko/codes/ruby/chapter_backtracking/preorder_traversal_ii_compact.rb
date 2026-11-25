@@ -34,7 +34,7 @@ if __FILE__ == $0
   $path, $res = [], []
   pre_order(root)
 
-  puts "\n루트 노드에서 노드 7까지의 모든 경로 출력"
+  puts "\n루트에서 값이 7인 노드까지의 모든 경로 출력"
   for path in $res
     p path.map { |node| node.val }
   end

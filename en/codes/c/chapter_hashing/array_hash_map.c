@@ -9,7 +9,7 @@
 /* Default hash table size */
 #define MAX_SIZE 100
 
-/* Key-value pair: int -> string */
+/* Key-value pair: int->string */
 typedef struct {
     int key;
     char *val;
@@ -21,7 +21,7 @@ typedef struct {
     int len;
 } MapSet;
 
-/* Hash table implemented with an array */
+/* Array-based hash table */
 typedef struct {
     Pair *buckets[MAX_SIZE];
 } ArrayHashMap;
@@ -52,7 +52,7 @@ int hashFunc(int key) {
     return index;
 }
 
-/* Lookup operation */
+/* Look up a value */
 const char *get(const ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     const Pair *Pair = hmap->buckets[index];
@@ -61,7 +61,7 @@ const char *get(const ArrayHashMap *hmap, const int key) {
     return Pair->val;
 }
 
-/* Insert operation */
+/* Insert a key-value pair */
 void put(ArrayHashMap *hmap, const int key, const char *val) {
     Pair *pair = malloc(sizeof(Pair));
     pair->key = key;
@@ -72,7 +72,7 @@ void put(ArrayHashMap *hmap, const int key, const char *val) {
     hmap->buckets[index] = pair;
 }
 
-/* Remove operation */
+/* Remove a key-value pair */
 void removeItem(ArrayHashMap *hmap, const int key) {
     int index = hashFunc(key);
     free(hmap->buckets[index]->val);
@@ -85,7 +85,7 @@ void pairSet(ArrayHashMap *hmap, MapSet *set) {
     Pair *entries;
     int i = 0, index = 0;
     int total = 0;
-    /* Count stored key-value pairs */
+    /* Count the occupied entries */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -109,7 +109,7 @@ void keySet(ArrayHashMap *hmap, MapSet *set) {
     int *keys;
     int i = 0, index = 0;
     int total = 0;
-    /* Count stored key-value pairs */
+    /* Count the occupied entries */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -131,7 +131,7 @@ void valueSet(ArrayHashMap *hmap, MapSet *set) {
     char **vals;
     int i = 0, index = 0;
     int total = 0;
-    /* Count stored key-value pairs */
+    /* Count the occupied entries */
     for (i = 0; i < MAX_SIZE; i++) {
         if (hmap->buckets[i] != NULL) {
             total++;
@@ -165,38 +165,38 @@ int main() {
     /* Initialize the hash table */
     ArrayHashMap *hmap = newArrayHashMap();
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
-    put(hmap, 12836, "小哈");
-    put(hmap, 15937, "小啰");
-    put(hmap, 16750, "小算");
-    put(hmap, 13276, "小法");
-    put(hmap, 10583, "小鸭");
+    /* Insert a key-value pair */
+    // Insert the pair (key, value) into the hash table
+    put(hmap, 12836, "Xiao Ha");
+    put(hmap, 15937, "Xiao Luo");
+    put(hmap, 16750, "Xiao Suan");
+    put(hmap, 13276, "Xiao Fa");
+    put(hmap, 10583, "Xiao Ya");
     printf("\nHash table after insertion:\nKey -> Value\n");
     print(hmap);
 
-    /* Lookup operation */
-    // Look up key in the hash table to obtain value
+    /* Look up a value */
+    // Look up key in the hash table to get value
     const char *name = get(hmap, 15937);
-    printf("\nLook up student ID 15937; name found: %s\n", name);
+    printf("\nName for student ID 15937: %s\n", name);
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Remove a key-value pair */
+    // Remove the pair (key, value) from the hash table
     removeItem(hmap, 10583);
     printf("\nHash table after removing 10583:\nKey -> Value\n");
     print(hmap);
 
-    /* Traverse the hash table */
+    /* Iterate over the hash table */
     int i;
 
-    printf("\nIterate over key-value pairs, Key->Value\n");
+    printf("\nIterate over key-value pairs (Key->Value)\n");
     print(hmap);
 
     MapSet set;
 
     keySet(hmap, &set);
     int *keys = (int *)set.set;
-    printf("\nIterate over keys only, Key\n");
+    printf("\nIterate over keys only\n");
     for (i = 0; i < set.len; i++) {
         printf("%d\n", keys[i]);
     }
@@ -204,7 +204,7 @@ int main() {
 
     valueSet(hmap, &set);
     char **vals = (char **)set.set;
-    printf("\nIterate over values only, Value\n");
+    printf("\nIterate over values only\n");
     for (i = 0; i < set.len; i++) {
         printf("%s\n", vals[i]);
     }

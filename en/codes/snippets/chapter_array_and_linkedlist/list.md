@@ -19,7 +19,7 @@ vector<int> nums = {1, 3, 2, 5, 4};
 /* Initialize the list */
 // Without initial values
 List<Integer> emptyNums = new ArrayList<>();
-// With initial values (note that the array type must be Integer[] rather than int[], because list elements must use Integer, the wrapper class for int)
+// With initial values (use Integer[] rather than int[] because the list requires Integer, the wrapper class for int)
 Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
 List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
 ```
@@ -82,7 +82,7 @@ let mut nums: Vec<i32> = vec![1, 3, 2, 5, 4];
 ```
 
 ```c title="list.c"
-// C does not provide a built-in dynamic array
+// C has no built-in dynamic array
 ```
 
 ```kotlin title="list.kt"
@@ -102,7 +102,7 @@ nums = [1, 3, 2, 5, 4]
 ```
 
 <!-- [tutor]{init_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20%23%20Without%20initial%20values%0A%20%20%20%20empty_nums%20%3D%20%5B%5D%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=4&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{access_element} -->
 ```python title="list.py"
@@ -110,7 +110,7 @@ https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20
 x: int = nums[1]  # Access the element at index 1
 
 # Update an element
-nums[1] = 0  # Update the element at index 1 to 0
+nums[1] = 0  # Set the element at index 1 to 0
 ```
 
 ```cpp title="list.cpp"
@@ -118,7 +118,7 @@ nums[1] = 0  # Update the element at index 1 to 0
 int num = nums[1]; // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0; // Update the element at index 1 to 0
+nums[1] = 0; // Set the element at index 1 to 0
 ```
 
 ```java title="list.java"
@@ -126,7 +126,7 @@ nums[1] = 0; // Update the element at index 1 to 0
 int num = nums.get(1); // Access the element at index 1
 
 /* Update an element */
-nums.set(1, 0); // Update the element at index 1 to 0
+nums.set(1, 0); // Set the element at index 1 to 0
 ```
 
 ```csharp title="list.cs"
@@ -134,7 +134,7 @@ nums.set(1, 0); // Update the element at index 1 to 0
 int num = nums[1]; // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0; // Update the element at index 1 to 0
+nums[1] = 0; // Set the element at index 1 to 0
 ```
 
 ```go title="list_test.go"
@@ -142,7 +142,7 @@ nums[1] = 0; // Update the element at index 1 to 0
 num := nums[1] // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0 // Update the element at index 1 to 0
+nums[1] = 0 // Set the element at index 1 to 0
 ```
 
 ```swift title="list.swift"
@@ -150,7 +150,7 @@ nums[1] = 0 // Update the element at index 1 to 0
 let num = nums[1] // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0 // Update the element at index 1 to 0
+nums[1] = 0 // Set the element at index 1 to 0
 ```
 
 ```javascript title="list.js"
@@ -158,7 +158,7 @@ nums[1] = 0 // Update the element at index 1 to 0
 const num = nums[1]; // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0; // Update the element at index 1 to 0
+nums[1] = 0; // Set the element at index 1 to 0
 ```
 
 ```typescript title="list.ts"
@@ -166,7 +166,7 @@ nums[1] = 0; // Update the element at index 1 to 0
 const num: number = nums[1]; // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0; // Update the element at index 1 to 0
+nums[1] = 0; // Set the element at index 1 to 0
 ```
 
 ```dart title="list.dart"
@@ -174,7 +174,7 @@ nums[1] = 0; // Update the element at index 1 to 0
 int _num = nums[1]; // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0; // Update the element at index 1 to 0
+nums[1] = 0; // Set the element at index 1 to 0
 ```
 
 ```rust title="list.rs"
@@ -182,11 +182,11 @@ nums[1] = 0; // Update the element at index 1 to 0
 let num = nums[1]; // Access the element at index 1
 
 // Update an element
-nums[1] = 0; // Update the element at index 1 to 0
+nums[1] = 0; // Set the element at index 1 to 0
 ```
 
 ```c title="list.c"
-// C does not provide a built-in dynamic array
+// C has no built-in dynamic array
 ```
 
 ```kotlin title="list.kt"
@@ -194,7 +194,7 @@ nums[1] = 0; // Update the element at index 1 to 0
 val num = nums[1] // Access the element at index 1
 
 /* Update an element */
-nums[1] = 0 // Update the element at index 1 to 0
+nums[1] = 0 // Set the element at index 1 to 0
 ```
 
 ```ruby title="list.rb"
@@ -202,18 +202,18 @@ nums[1] = 0 // Update the element at index 1 to 0
 num = nums[1] # Access the element at index 1
 
 # Update an element
-nums[1] = 0 # Update the element at index 1 to 0
+nums[1] = 0 # Set the element at index 1 to 0
 ```
 
 <!-- [tutor]{access_element_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20Access%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20list%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%0A%20%20%20%20%23%20Access%20an%20element%0A%20%20%20%20x%20%3D%20nums%5B1%5D%20%20%23%20Read%20the%20element%20at%20index%201%0A%0A%20%20%20%20%23%20Update%20an%20element%0A%20%20%20%20nums%5B1%5D%20%3D%200%20%20%20%20%23%20Set%20the%20element%20at%20index%201%20to%200&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{insert_remove_element} -->
 ```python title="list.py"
 # Clear the list
 nums.clear()
 
-# Append an element at the end
+# Append an element
 nums.append(1)
 nums.append(3)
 nums.append(2)
@@ -221,7 +221,7 @@ nums.append(5)
 nums.append(4)
 
 # Insert an element in the middle
-nums.insert(3, 6)  # Insert the number 6 at index 3
+nums.insert(3, 6)  # Insert 6 at index 3
 
 # Remove an element
 nums.pop(3)  # Remove the element at index 3
@@ -231,7 +231,7 @@ nums.pop(3)  # Remove the element at index 3
 /* Clear the list */
 nums.clear();
 
-/* Append an element at the end */
+/* Append an element */
 nums.push_back(1);
 nums.push_back(3);
 nums.push_back(2);
@@ -239,7 +239,7 @@ nums.push_back(5);
 nums.push_back(4);
 
 /* Insert an element in the middle */
-nums.insert(nums.begin() + 3, 6); // Insert the number 6 at index 3
+nums.insert(nums.begin() + 3, 6); // Insert 6 at index 3
 
 /* Remove an element */
 nums.erase(nums.begin() + 3); // Remove the element at index 3
@@ -249,7 +249,7 @@ nums.erase(nums.begin() + 3); // Remove the element at index 3
 /* Clear the list */
 nums.clear();
 
-/* Append at the end */
+/* Append an element */
 nums.add(1);
 nums.add(3);
 nums.add(2);
@@ -257,7 +257,7 @@ nums.add(5);
 nums.add(4);
 
 /* Insert an element in the middle */
-nums.add(3, 6); // Insert the number 6 at index 3
+nums.add(3, 6); // Insert 6 at index 3
 
 /* Remove an element */
 nums.remove(3); // Remove the element at index 3
@@ -267,7 +267,7 @@ nums.remove(3); // Remove the element at index 3
 /* Clear the list */
 nums.Clear();
 
-/* Append at the end */
+/* Append an element */
 nums.Add(1);
 nums.Add(3);
 nums.Add(2);
@@ -275,7 +275,7 @@ nums.Add(5);
 nums.Add(4);
 
 /* Insert an element in the middle */
-nums.Insert(3, 6); // Insert the number 6 at index 3
+nums.Insert(3, 6); // Insert 6 at index 3
 
 /* Remove an element */
 nums.RemoveAt(3); // Remove the element at index 3
@@ -285,7 +285,7 @@ nums.RemoveAt(3); // Remove the element at index 3
 /* Clear the list */
 nums = nil
 
-/* Append at the end */
+/* Append an element */
 nums = append(nums, 1)
 nums = append(nums, 3)
 nums = append(nums, 2)
@@ -293,7 +293,7 @@ nums = append(nums, 5)
 nums = append(nums, 4)
 
 /* Insert an element in the middle */
-nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert the number 6 at index 3
+nums = append(nums[:3], append([]int{6}, nums[3:]...)...) // Insert 6 at index 3
 
 /* Remove an element */
 nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
@@ -303,7 +303,7 @@ nums = append(nums[:3], nums[4:]...) // Remove the element at index 3
 /* Clear the list */
 nums.removeAll()
 
-/* Append at the end */
+/* Append an element */
 nums.append(1)
 nums.append(3)
 nums.append(2)
@@ -311,7 +311,7 @@ nums.append(5)
 nums.append(4)
 
 /* Insert an element in the middle */
-nums.insert(6, at: 3) // Insert the number 6 at index 3
+nums.insert(6, at: 3) // Insert 6 at index 3
 
 /* Remove an element */
 nums.remove(at: 3) // Remove the element at index 3
@@ -321,7 +321,7 @@ nums.remove(at: 3) // Remove the element at index 3
 /* Clear the list */
 nums.length = 0;
 
-/* Append an element at the end */
+/* Append an element */
 nums.push(1);
 nums.push(3);
 nums.push(2);
@@ -329,7 +329,7 @@ nums.push(5);
 nums.push(4);
 
 /* Insert an element in the middle */
-nums.splice(3, 0, 6); // Insert the number 6 at index 3
+nums.splice(3, 0, 6); // Insert 6 at index 3
 
 /* Remove an element */
 nums.splice(3, 1); // Remove the element at index 3
@@ -339,7 +339,7 @@ nums.splice(3, 1); // Remove the element at index 3
 /* Clear the list */
 nums.length = 0;
 
-/* Append an element at the end */
+/* Append an element */
 nums.push(1);
 nums.push(3);
 nums.push(2);
@@ -347,7 +347,7 @@ nums.push(5);
 nums.push(4);
 
 /* Insert an element in the middle */
-nums.splice(3, 0, 6); // Insert the number 6 at index 3
+nums.splice(3, 0, 6); // Insert 6 at index 3
 
 /* Remove an element */
 nums.splice(3, 1); // Remove the element at index 3
@@ -357,7 +357,7 @@ nums.splice(3, 1); // Remove the element at index 3
 /* Clear the list */
 nums.clear();
 
-/* Append an element at the end */
+/* Append an element */
 nums.add(1);
 nums.add(3);
 nums.add(2);
@@ -365,7 +365,7 @@ nums.add(5);
 nums.add(4);
 
 /* Insert an element in the middle */
-nums.insert(3, 6); // Insert the number 6 at index 3
+nums.insert(3, 6); // Insert 6 at index 3
 
 /* Remove an element */
 nums.removeAt(3); // Remove the element at index 3
@@ -375,7 +375,7 @@ nums.removeAt(3); // Remove the element at index 3
 // Clear the list
 nums.clear();
 
-// Append an element at the end
+// Append an element
 nums.push(1);
 nums.push(3);
 nums.push(2);
@@ -383,21 +383,21 @@ nums.push(5);
 nums.push(4);
 
 // Insert an element in the middle
-nums.insert(3, 6); // Insert the number 6 at index 3
+nums.insert(3, 6); // Insert 6 at index 3
 
 // Remove an element
 nums.remove(3); // Remove the element at index 3
 ```
 
 ```c title="list.c"
-// C does not provide a built-in dynamic array
+// C has no built-in dynamic array
 ```
 
 ```kotlin title="list.kt"
 /* Clear the list */
 nums.clear()
 
-/* Append at the end */
+/* Append an element */
 nums.add(1)
 nums.add(3)
 nums.add(2)
@@ -405,7 +405,7 @@ nums.add(5)
 nums.add(4)
 
 /* Insert an element in the middle */
-nums.add(3, 6) // Insert the number 6 at index 3
+nums.add(3, 6) // Insert 6 at index 3
 
 /* Remove an element */
 nums.removeAt(3) // Remove the element at index 3
@@ -415,7 +415,7 @@ nums.removeAt(3) // Remove the element at index 3
 # Clear the list
 nums.clear
 
-# Append an element at the end
+# Append an element
 nums << 1
 nums << 3
 nums << 2
@@ -423,14 +423,14 @@ nums << 5
 nums << 4
 
 # Insert an element in the middle
-nums.insert(3, 6) # Insert the number 6 at index 3
+nums.insert(3, 6) # Insert 6 at index 3
 
 # Remove an element
 nums.delete_at(3) # Remove the element at index 3
 ```
 
 <!-- [tutor]{insert_remove_element_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Clear%20the%20list%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20Append%20elements%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20Insert%20an%20element%20in%20the%20middle%0A%20%20%20%20nums.insert%283%2C%206%29%20%20%23%20Insert%206%20at%20index%203%0A%20%20%20%20%0A%20%20%20%20%23%20Remove%20an%20element%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20Remove%20the%20element%20at%20index%203&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20With%20initial%20values%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Clear%20the%20list%0A%20%20%20%20nums.clear%28%29%0A%20%20%20%20%0A%20%20%20%20%23%20Add%20elements%20at%20the%20end%0A%20%20%20%20nums.append%281%29%0A%20%20%20%20nums.append%283%29%0A%20%20%20%20nums.append%282%29%0A%20%20%20%20nums.append%285%29%0A%20%20%20%20nums.append%284%29%0A%20%20%20%20%0A%20%20%20%20%23%20Insert%20an%20element%20in%20the%20middle%0A%20%20%20%20nums.insert%283,%206%29%20%20%23%20Insert%206%20at%20index%203%0A%20%20%20%20%0A%20%20%20%20%23%20Remove%20an%20element%0A%20%20%20%20nums.pop%283%29%20%20%20%20%20%20%20%20%23%20Remove%20the%20element%20at%20index%203&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{iterate_list} -->
 ```python title="list.py"
@@ -570,7 +570,7 @@ for x in &nums {
 ```
 
 ```c title="list.c"
-// C does not provide a built-in dynamic array
+// C has no built-in dynamic array
 ```
 
 ```kotlin title="list.kt"
@@ -601,78 +601,78 @@ end
 ```
 
 <!-- [tutor]{iterate_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Traverse%20the%20list%20by%20index%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20Traverse%20list%20elements%20directly%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20list%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Iterate%20over%20the%20list%20by%20index%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20nums%5Bi%5D%0A%0A%20%20%20%20%23%20Iterate%20over%20the%20elements%20directly%0A%20%20%20%20for%20num%20in%20nums%3A%0A%20%20%20%20%20%20%20%20count%20%2B%3D%20num&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{concat_list} -->
 ```python title="list.py"
 # Concatenate two lists
 nums1 = [6, 8, 7, 10, 9]
-nums += nums1  # Append list nums1 to nums
+nums += nums1  # Append nums1 to nums
 ```
 
 ```cpp title="list.cpp"
 /* Concatenate two lists */
 vector<int> nums1 = {6, 8, 7, 10, 9};
-// Append list nums1 to nums
+// Append nums1 to nums
 nums.insert(nums.end(), nums1.begin(), nums1.end());
 ```
 
 ```java title="list.java"
 /* Concatenate two lists */
 List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
-nums.addAll(nums1); // Append list nums1 to nums
+nums.addAll(nums1); // Append nums1 to nums
 ```
 
 ```csharp title="list.cs"
 /* Concatenate two lists */
 List<int> nums1 = [6, 8, 7, 10, 9];
-nums.AddRange(nums1); // Append list nums1 to nums
+nums.AddRange(nums1); // Append nums1 to nums
 ```
 
 ```go title="list_test.go"
 /* Concatenate two lists */
 nums1 := []int{6, 8, 7, 10, 9}
-nums = append(nums, nums1...) // Append list nums1 to nums
+nums = append(nums, nums1...) // Append nums1 to nums
 ```
 
 ```swift title="list.swift"
 /* Concatenate two lists */
 let nums1 = [6, 8, 7, 10, 9]
-nums.append(contentsOf: nums1) // Append list nums1 to nums
+nums.append(contentsOf: nums1) // Append nums1 to nums
 ```
 
 ```javascript title="list.js"
 /* Concatenate two lists */
 const nums1 = [6, 8, 7, 10, 9];
-nums.push(...nums1); // Append list nums1 to nums
+nums.push(...nums1); // Append nums1 to nums
 ```
 
 ```typescript title="list.ts"
 /* Concatenate two lists */
 const nums1: number[] = [6, 8, 7, 10, 9];
-nums.push(...nums1); // Append list nums1 to nums
+nums.push(...nums1); // Append nums1 to nums
 ```
 
 ```dart title="list.dart"
 /* Concatenate two lists */
 List<int> nums1 = [6, 8, 7, 10, 9];
-nums.addAll(nums1); // Append list nums1 to nums
+nums.addAll(nums1); // Append nums1 to nums
 ```
 
 ```rust title="list.rs"
 // Concatenate two lists
 let mut nums1 = vec![6, 8, 7, 10, 9];
-nums.append(&mut nums1); // append moves the elements out of nums1, leaving nums1 empty
+nums.append(&mut nums1); // append moves the elements out of nums1, leaving it empty
 ```
 
 ```c title="list.c"
-// C does not provide a built-in dynamic array
+// C has no built-in dynamic array
 ```
 
 ```kotlin title="list.kt"
 /* Concatenate two lists */
 val nums1 = mutableListOf(6, 8, 7, 10, 9)
-nums.addAll(nums1) // Append list nums1 to nums
+nums.addAll(nums1) // Append nums1 to nums
 ```
 
 ```ruby title="list.rb"
@@ -682,7 +682,7 @@ nums += nums1
 ```
 
 <!-- [tutor]{concat_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Concatenate%20two%20lists%0A%20%20%20%20nums1%20%3D%20%5B6%2C%208%2C%207%2C%2010%2C%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20Append%20nums1%20to%20nums&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20list%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Concatenate%20two%20lists%0A%20%20%20%20nums1%20%3D%20%5B6,%208,%207,%2010,%209%5D%0A%20%20%20%20nums%20%2B%3D%20nums1%20%20%23%20Add%20the%20elements%20of%20nums1%20to%20the%20end%20of%20nums&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 <!-- [snippet]{sort_list} -->
 ```python title="list.py"
@@ -736,7 +736,7 @@ nums.sort(); // After sorting, the list elements are in ascending order
 ```
 
 ```c title="list.c"
-// C does not provide a built-in dynamic array
+// C has no built-in dynamic array
 ```
 
 ```kotlin title="list.kt"
@@ -750,4 +750,4 @@ nums = nums.sort { |a, b| a <=> b } # After sorting, the list elements are in as
 ```
 
 <!-- [tutor]{sort_list_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20lists%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Sort%20the%20list%0A%20%20%20%20nums.sort%28%29%20%20%23%20After%20sorting%2C%20elements%20are%20in%20ascending%20order&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20list%0A%20%20%20%20nums%20%3D%20%5B1,%203,%202,%205,%204%5D%0A%20%20%20%20%0A%20%20%20%20%23%20Sort%20the%20list%0A%20%20%20%20nums.sort%28%29%20%20%23%20The%20elements%20are%20now%20in%20ascending%20order&cumulative=false&curInstr=3&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

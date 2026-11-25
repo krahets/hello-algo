@@ -4,11 +4,11 @@
  * Author: Zhuo Qinyue (1403450829@qq.com)
  */
 
-/* 基於環形陣列實現的雙向佇列 */
+/* 以環狀陣列實作雙端佇列 */
 class ArrayDeque {
-    #nums; // 用於儲存雙向佇列元素的陣列
-    #front; // 佇列首指標，指向佇列首元素
-    #queSize; // 雙向佇列長度
+    #nums; // 存放雙端佇列元素的陣列
+    #front; // 隊首索引，記錄隊首元素在陣列中的位置
+    #queSize; // 雙端佇列長度
 
     /* 建構子 */
     constructor(capacity) {
@@ -17,89 +17,89 @@ class ArrayDeque {
         this.#queSize = 0;
     }
 
-    /* 獲取雙向佇列的容量 */
+    /* 取得雙端佇列容量 */
     capacity() {
         return this.#nums.length;
     }
 
-    /* 獲取雙向佇列的長度 */
+    /* 取得雙端佇列長度 */
     size() {
         return this.#queSize;
     }
 
-    /* 判斷雙向佇列是否為空 */
+    /* 判斷雙端佇列是否為空 */
     isEmpty() {
         return this.#queSize === 0;
     }
 
-    /* 計算環形陣列索引 */
+    /* 計算環狀陣列的索引 */
     index(i) {
-        // 透過取餘操作實現陣列首尾相連
-        // 當 i 越過陣列尾部後，回到頭部
-        // 當 i 越過陣列頭部後，回到尾部
+        // 取餘數，讓陣列的首尾相接
+        // 當 i 超過陣列末端時，繞回開頭
+        // 當 i 越過陣列開頭時，繞回末端
         return (i + this.capacity()) % this.capacity();
     }
 
-    /* 佇列首入列 */
+    /* 從隊首加入元素 */
     pushFirst(num) {
         if (this.#queSize === this.capacity()) {
-            console.log('雙向佇列已滿');
+            console.log('雙端佇列已滿');
             return;
         }
-        // 佇列首指標向左移動一位
-        // 透過取餘操作實現 front 越過陣列頭部後回到尾部
+        // 將隊首索引往左移一格
+        // 取餘數，讓 #front 越過陣列開頭時繞回末端
         this.#front = this.index(this.#front - 1);
-        // 將 num 新增至佇列首
+        // 將 num 加到隊首
         this.#nums[this.#front] = num;
         this.#queSize++;
     }
 
-    /* 佇列尾入列 */
+    /* 從隊尾加入元素 */
     pushLast(num) {
         if (this.#queSize === this.capacity()) {
-            console.log('雙向佇列已滿');
+            console.log('雙端佇列已滿');
             return;
         }
-        // 計算佇列尾指標，指向佇列尾索引 + 1
+        // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
         const rear = this.index(this.#front + this.#queSize);
-        // 將 num 新增至佇列尾
+        // 將 num 加到隊尾
         this.#nums[rear] = num;
         this.#queSize++;
     }
 
-    /* 佇列首出列 */
+    /* 從隊首取出元素 */
     popFirst() {
         const num = this.peekFirst();
-        // 佇列首指標向後移動一位
+        // 將隊首索引往後移一格
         this.#front = this.index(this.#front + 1);
         this.#queSize--;
         return num;
     }
 
-    /* 佇列尾出列 */
+    /* 從隊尾取出元素 */
     popLast() {
         const num = this.peekLast();
         this.#queSize--;
         return num;
     }
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     peekFirst() {
         if (this.isEmpty()) throw new Error('The Deque Is Empty.');
         return this.#nums[this.#front];
     }
 
-    /* 訪問佇列尾元素 */
+    /* 讀取隊尾元素 */
     peekLast() {
         if (this.isEmpty()) throw new Error('The Deque Is Empty.');
-        // 計算尾元素索引
+        // 計算隊尾元素的索引
         const last = this.index(this.#front + this.#queSize - 1);
         return this.#nums[last];
     }
 
-    /* 返回陣列用於列印 */
+    /* 回傳陣列以便輸出 */
     toArray() {
-        // 僅轉換有效長度範圍內的串列元素
+        // 只轉換雙端佇列中實際存放的元素
         const res = [];
         for (let i = 0, j = this.#front; i < this.#queSize; i++, j++) {
             res[i] = this.#nums[this.index(j)];
@@ -108,49 +108,49 @@ class ArrayDeque {
     }
 }
 
-/* Driver Code */
-/* 初始化雙向佇列 */
+/* 範例程式 */
+/* 初始化雙端佇列 */
 const capacity = 5;
 const deque = new ArrayDeque(capacity);
 deque.pushLast(3);
 deque.pushLast(2);
 deque.pushLast(5);
-console.log('雙向佇列 deque = [' + deque.toArray() + ']');
+console.log('雙端佇列 deque = [' + deque.toArray() + ']');
 
-/* 訪問元素 */
+/* 讀取隊首與隊尾元素 */
 const peekFirst = deque.peekFirst();
-console.log('佇列首元素 peekFirst = ' + peekFirst);
+console.log('隊首元素 peekFirst = ' + peekFirst);
 const peekLast = deque.peekLast();
-console.log('佇列尾元素 peekLast = ' + peekLast);
+console.log('隊尾元素 peekLast = ' + peekLast);
 
-/* 元素入列 */
+/* 將元素加入雙端佇列 */
 deque.pushLast(4);
-console.log('元素 4 佇列尾入列後 deque = [' + deque.toArray() + ']');
+console.log('將元素 4 加到隊尾後 deque = [' + deque.toArray() + ']');
 deque.pushFirst(1);
-console.log('元素 1 佇列首入列後 deque = [' + deque.toArray() + ']');
+console.log('將元素 1 加到隊首後 deque = [' + deque.toArray() + ']');
 
-/* 元素出列 */
+/* 從雙端佇列取出元素 */
 const popLast = deque.popLast();
 console.log(
-    '佇列尾出列元素 = ' +
+    '從隊尾取出的元素 = ' +
         popLast +
-        '，佇列尾出列後 deque = [' +
+        '，從隊尾取出後 deque = [' +
         deque.toArray() +
         ']'
 );
 const popFirst = deque.popFirst();
 console.log(
-    '佇列首出列元素 = ' +
+    '從隊首取出的元素 = ' +
         popFirst +
-        '，佇列首出列後 deque = [' +
+        '，從隊首取出後 deque = [' +
         deque.toArray() +
         ']'
 );
 
-/* 獲取雙向佇列的長度 */
+/* 取得雙端佇列長度 */
 const size = deque.size();
-console.log('雙向佇列長度 size = ' + size);
+console.log('雙端佇列長度 size = ' + size);
 
-/* 判斷雙向佇列是否為空 */
+/* 判斷雙端佇列是否為空 */
 const isEmpty = deque.isEmpty();
-console.log('雙向佇列是否為空 = ' + isEmpty);
+console.log('雙端佇列是否為空 = ' + isEmpty);

@@ -6,42 +6,42 @@
 
 #include "../utils/common.hpp"
 
-/* 원소에 임의 접근 */
+/* 임의의 원소에 접근 */
 int randomAccess(int *nums, int size) {
-    // 구간 [0, size)에서 무작위로 수 하나 선택
+    // 구간 [0, size)에서 수 하나를 무작위로 선택
     int randomIndex = rand() % size;
-    // 무작위 원소를 가져와 반환한다
+    // 선택한 원소를 가져와 반환
     int randomNum = nums[randomIndex];
     return randomNum;
 }
 
-/* 배열 길이 확장 */
+/* 배열 길이 늘리기 */
 int *extend(int *nums, int size, int enlarge) {
-    // 길이를 확장한 배열을 초기화한다
+    // 길이를 늘린 새 배열 초기화
     int *res = new int[size + enlarge]{};
-    // 원래 배열의 모든 원소를 새 배열에 복사한다
+    // 원래 배열의 모든 원소를 새 배열에 복사
     for (int i = 0; i < size; i++) {
         res[i] = nums[i];
     }
     // 메모리 해제
     delete[] nums;
-    // 확장한 새 배열을 반환한다
+    // 길이를 늘린 새 배열 반환
     return res;
 }
 
 /* 배열의 인덱스 index에 원소 num 삽입 */
 void insert(int *nums, int size, int num, int index) {
-    // 인덱스 index와 그 뒤에 있는 모든 원소를 한 칸씩 뒤로 이동한다
+    // 인덱스 index부터 끝까지 모든 원소를 뒤로 한 칸씩 이동
     for (int i = size - 1; i > index; i--) {
         nums[i] = nums[i - 1];
     }
-    // index 위치의 원소에 num을 대입한다
+    // 인덱스 index의 원소에 num 대입
     nums[index] = num;
 }
 
-/* 인덱스 index에 있는 원소 삭제 */
+/* 인덱스 index의 원소 삭제 */
 void remove(int *nums, int size, int index) {
-    // 인덱스 index 뒤에 있는 모든 원소를 한 칸씩 앞으로 이동한다
+    // 인덱스 index 다음의 모든 원소를 앞으로 한 칸씩 이동
     for (int i = index; i < size - 1; i++) {
         nums[i] = nums[i + 1];
     }
@@ -50,13 +50,13 @@ void remove(int *nums, int size, int index) {
 /* 배열 순회 */
 void traverse(int *nums, int size) {
     int count = 0;
-    // 인덱스를 통해 배열을 순회한다
+    // 인덱스로 배열 순회
     for (int i = 0; i < size; i++) {
         count += nums[i];
     }
 }
 
-/* 배열에서 지정한 원소 탐색 */
+/* 배열에서 지정한 원소 찾기 */
 int find(int *nums, int size, int target) {
     for (int i = 0; i < size; i++) {
         if (nums[i] == target)
@@ -65,7 +65,7 @@ int find(int *nums, int size, int target) {
     return -1;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 배열 초기화 */
     int size = 5;
@@ -79,13 +79,13 @@ int main() {
 
     /* 임의 접근 */
     int randomNum = randomAccess(nums, size);
-    cout << "nums에서 무작위로 가져온 원소 " << randomNum << endl;
+    cout << "nums에서 무작위로 선택한 원소: " << randomNum << endl;
 
-    /* 길이 확장 */
+    /* 길이 늘리기 */
     int enlarge = 3;
     nums = extend(nums, size, enlarge);
     size += enlarge;
-    cout << "배열 길이를 8로 확장한 후 nums = ";
+    cout << "길이를 8로 늘린 배열 nums = ";
     printArray(nums, size);
 
     /* 원소 삽입 */
@@ -101,9 +101,9 @@ int main() {
     /* 배열 순회 */
     traverse(nums, size);
 
-    /* 원소 탐색 */
+    /* 원소 찾기 */
     int index = find(nums, size, 3);
-    cout << "nums에서 원소 3을 탐색하여 얻은 인덱스 = " << index << endl;
+    cout << "nums에서 원소 3을 찾은 인덱스 = " << index << endl;
 
     // 메모리 해제
     delete[] arr;

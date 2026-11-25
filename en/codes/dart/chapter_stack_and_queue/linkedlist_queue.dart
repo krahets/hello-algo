@@ -6,10 +6,10 @@
 
 import '../utils/list_node.dart';
 
-/* Queue implemented with a linked list */
+/* Queue backed by a linked list */
 class LinkedListQueue {
-  ListNode? _front; // Head node _front
-  ListNode? _rear; // Tail node _rear
+  ListNode? _front; // Head node (_front)
+  ListNode? _rear; // Tail node (_rear)
   int _queSize = 0; // Queue size
 
   LinkedListQueue() {
@@ -27,23 +27,23 @@ class LinkedListQueue {
     return _queSize == 0;
   }
 
-  /* Enqueue */
+  /* Enqueue an element */
   void push(int _num) {
-    // Add _num after the tail node
+    // Add a node containing _num after the tail
     final node = ListNode(_num);
-    // If the queue is empty, make both the head and tail point to this node
+    // If the queue is empty, point both the head and tail at the new node
     if (_front == null) {
       _front = node;
       _rear = node;
     } else {
-      // If the queue is not empty, add this node after the tail node
+      // If the queue has elements, link the new node after the tail
       _rear!.next = node;
       _rear = node;
     }
     _queSize++;
   }
 
-  /* Dequeue */
+  /* Remove and return the front element */
   int pop() {
     final int _num = peek();
     // Remove the head node
@@ -52,7 +52,7 @@ class LinkedListQueue {
     return _num;
   }
 
-  /* Access the front element */
+  /* Peek at the front element */
   int peek() {
     if (_queSize == 0) {
       throw Exception('Queue is empty');
@@ -60,7 +60,7 @@ class LinkedListQueue {
     return _front!.val;
   }
 
-  /* Convert the linked list to an array and return it */
+  /* Return the linked list values as a List */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> queue = [];
@@ -83,15 +83,15 @@ void main() {
   queue.push(2);
   queue.push(5);
   queue.push(4);
-  print("Queue queue = ${queue.toArray()}");
+  print("queue = ${queue.toArray()}");
 
-  /* Access the front element */
+  /* Peek at the front element */
   final int peek = queue.peek();
-  print("Front element peek = $peek");
+  print("Front element (peek) = $peek");
 
   /* Dequeue an element */
   final int pop = queue.pop();
-  print("Dequeued element pop = $pop; after dequeuing, queue = ${queue.toArray()}");
+  print("Dequeued element (pop) = $pop, queue after removal = ${queue.toArray()}");
 
   /* Get the queue size */
   final int size = queue.size();
@@ -99,5 +99,5 @@ void main() {
 
   /* Check whether the queue is empty */
   final bool isEmpty = queue.isEmpty();
-  print("Is the queue empty = $isEmpty");
+  print("Queue is empty = $isEmpty");
 }

@@ -7,13 +7,13 @@
 import HeapModule
 import utils
 
-/* ヒープを使って配列内の大きいほうから k 個の要素を求める */
+/* ヒープを使って配列の上位 k 個の要素を求める */
 func topKHeap(nums: [Int], k: Int) -> [Int] {
-    // 最小ヒープを初期化し、先頭 k 個の要素でヒープを構築する
+    // 最小ヒープを初期化し、先頭 k 個の要素からヒープを構築する
     var heap = Heap(nums.prefix(k))
-    // k+1 番目の要素から始め、ヒープの長さを k に保つ
+    // k+1 番目の要素からはヒープのサイズを k に保つ
     for i in nums.indices.dropFirst(k) {
-        // 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する
+        // 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する
         if nums[i] > heap.min()! {
             _ = heap.removeMin()
             heap.insert(nums[i])
@@ -24,13 +24,13 @@ func topKHeap(nums: [Int], k: Int) -> [Int] {
 
 @main
 enum TopK {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let nums = [1, 7, 6, 3, 2]
         let k = 3
 
         let res = topKHeap(nums: nums, k: k)
-        print("大きいほうから \(k) 個の要素は")
+        print("上位 \(k) 個の要素：")
         PrintUtil.printHeap(queue: res)
     }
 }

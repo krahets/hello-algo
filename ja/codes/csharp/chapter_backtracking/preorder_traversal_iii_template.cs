@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_backtracking;
 
 public class preorder_traversal_iii_template {
-    /* 現在の状態が解かを判定 */
+    /* 現在の状態が解かどうか判定する */
     bool IsSolution(List<TreeNode> state) {
         return state.Count != 0 && state[^1].val == 7;
     }
@@ -17,7 +17,7 @@ public class preorder_traversal_iii_template {
         res.Add(new List<TreeNode>(state));
     }
 
-    /* 現在の状態でこの選択が有効か判定 */
+    /* 現在の状態でその選択が可能か判定する */
     bool IsValid(List<TreeNode> state, TreeNode choice) {
         return choice != null && choice.val != 3;
     }
@@ -27,27 +27,27 @@ public class preorder_traversal_iii_template {
         state.Add(choice);
     }
 
-    /* 状態を復元する */
+    /* 状態を元に戻す */
     void UndoChoice(List<TreeNode> state, TreeNode choice) {
         state.RemoveAt(state.Count - 1);
     }
 
     /* バックトラッキング：例題 3 */
     void Backtrack(List<TreeNode> state, List<TreeNode> choices, List<List<TreeNode>> res) {
-        // 解かを確認
+        // 解かどうか調べる
         if (IsSolution(state)) {
             // 解を記録する
             RecordSolution(state, res);
         }
-        // すべての選択肢を走査する
+        // すべての選択肢を調べる
         foreach (TreeNode choice in choices) {
-            // 枝刈り：選択が有効か確認
+            // 枝刈り：その選択が可能か調べる
             if (IsValid(state, choice)) {
-                // 試行：選択を行い、状態を更新する
+                // 試行：選択して状態を更新する
                 MakeChoice(state, choice);
                 // 次の選択に進む
                 Backtrack(state, [choice.left!, choice.right!], res);
-                // 復元：選択を取り消し、以前の状態に戻す
+                // 後戻り：選択を取り消し、元の状態に戻す
                 UndoChoice(state, choice);
             }
         }
@@ -56,7 +56,7 @@ public class preorder_traversal_iii_template {
     [Test]
     public void Test() {
         TreeNode? root = TreeNode.ListToTree([1, 7, 3, 4, 5, 6, 7]);
-        Console.WriteLine("\n二分木を初期化する");
+        Console.WriteLine("\n二分木を初期化");
         PrintUtil.PrintTree(root);
 
         // バックトラッキング
@@ -64,7 +64,7 @@ public class preorder_traversal_iii_template {
         List<TreeNode> choices = [root!];
         Backtrack([], choices, res);
 
-        Console.WriteLine("\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する");
+        Console.WriteLine("\n根から値が 7 のノードまでの経路のうち、値が 3 のノードを含まないものをすべて出力");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

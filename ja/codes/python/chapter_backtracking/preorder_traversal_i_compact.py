@@ -22,15 +22,15 @@ def pre_order(root: TreeNode):
     pre_order(root.right)
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
-    print("\n二分木を初期化する")
+    print("\n二分木を初期化")
     print_tree(root)
 
     # 行きがけ順走査
     res = list[TreeNode]()
     pre_order(root)
 
-    print("\n値が 7 であるすべてのノードを出力する")
+    print("\n値が 7 のノードをすべて出力")
     print([node.val for node in res])

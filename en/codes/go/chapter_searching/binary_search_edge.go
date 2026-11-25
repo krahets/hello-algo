@@ -4,28 +4,28 @@
 
 package chapter_searching
 
-/* Find the leftmost occurrence of target using binary search */
+/* Use binary search to find the leftmost occurrence of target */
 func binarySearchLeftEdge(nums []int, target int) int {
-	// This is equivalent to finding the insertion point of target
+	// Equivalent to finding the insertion point for target
 	i := binarySearchInsertion(nums, target)
-	// If target was not found, return -1
+	// Target not found. Return -1
 	if i == len(nums) || nums[i] != target {
 		return -1
 	}
-	// Target was found; return index i
+	// Found target. Return index i
 	return i
 }
 
-/* Find the rightmost occurrence of target using binary search */
+/* Use binary search to find the rightmost occurrence of target */
 func binarySearchRightEdge(nums []int, target int) int {
-	// For integer values, find the leftmost insertion point of target + 1 (assuming no overflow)
+	// Search for the leftmost occurrence of target + 1
 	i := binarySearchInsertion(nums, target+1)
-	// i is the index of the first element greater than target (or len(nums)); j is the candidate index of the rightmost target
+	// j points to the rightmost occurrence of target, and i to the first larger element
 	j := i - 1
-	// If target was not found, return -1
+	// Target not found. Return -1
 	if j == -1 || nums[j] != target {
 		return -1
 	}
-	// Target was found; return index j
+	// Found target. Return index j
 	return j
 }

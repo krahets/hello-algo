@@ -6,10 +6,10 @@
 
 package chapter_searching
 
-/* 方法一：暴力列舉 */
+/* 方法一：窮舉法 */
 fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     val size = nums.size
-    // 兩層迴圈，時間複雜度為 O(n^2)
+    // 使用兩層迴圈，時間複雜度為 O(n^2)
     for (i in 0..<size - 1) {
         for (j in i + 1..<size) {
             if (nums[i] + nums[j] == target) return intArrayOf(i, j)
@@ -18,12 +18,12 @@ fun twoSumBruteForce(nums: IntArray, target: Int): IntArray {
     return IntArray(0)
 }
 
-/* 方法二：輔助雜湊表 */
+/* 方法二：使用輔助雜湊表 */
 fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
     val size = nums.size
-    // 輔助雜湊表，空間複雜度為 O(n)
+    // 使用輔助雜湊表，空間複雜度為 O(n)
     val dic = HashMap<Int, Int>()
-    // 單層迴圈，時間複雜度為 O(n)
+    // 使用單層迴圈，時間複雜度為 O(n)
     for (i in 0..<size) {
         if (dic.containsKey(target - nums[i])) {
             return intArrayOf(dic[target - nums[i]]!!, i)
@@ -33,13 +33,13 @@ fun twoSumHashTable(nums: IntArray, target: Int): IntArray {
     return IntArray(0)
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
-    // ======= Test Case =======
+    // ======= 測試案例 =======
     val nums = intArrayOf(2, 7, 11, 15)
     val target = 13
 
-    // ====== Driver Code ======
+    // ====== 主程式 ======
     // 方法一
     var res = twoSumBruteForce(nums, target)
     println("方法一 res = ${res.contentToString()}")

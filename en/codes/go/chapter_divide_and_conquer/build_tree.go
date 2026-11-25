@@ -6,13 +6,13 @@ package chapter_divide_and_conquer
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* Build a binary tree: divide and conquer */
+/* Build a binary tree using divide and conquer */
 func dfsBuildTree(preorder []int, inorderMap map[int]int, i, l, r int) *TreeNode {
 	// Stop when the subtree interval is empty
 	if r-l < 0 {
 		return nil
 	}
-	// Initialize the root node
+	// Initialize the root
 	root := NewTreeNode(preorder[i])
 	// Look up m to separate the left and right subtrees
 	m := inorderMap[preorder[i]]
@@ -20,13 +20,13 @@ func dfsBuildTree(preorder []int, inorderMap map[int]int, i, l, r int) *TreeNode
 	root.Left = dfsBuildTree(preorder, inorderMap, i+1, l, m-1)
 	// Subproblem: build the right subtree
 	root.Right = dfsBuildTree(preorder, inorderMap, i+1+m-l, m+1, r)
-	// Return the root node
+	// Return the root
 	return root
 }
 
 /* Build a binary tree */
 func buildTree(preorder, inorder []int) *TreeNode {
-	// Initialize a hash table mapping each element in inorder to its index
+	// Map each inorder value to its index in a hash table
 	inorderMap := make(map[int]int, len(inorder))
 	for i := 0; i < len(inorder); i++ {
 		inorderMap[inorder[i]] = i

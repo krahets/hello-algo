@@ -6,47 +6,47 @@ Author: krahets (krahets@163.com)
 
 
 def coin_change_dp(coins: list[int], amt: int) -> int:
-    """Coin change: dynamic programming"""
+    """Coin change with dynamic programming"""
     n = len(coins)
     MAX = amt + 1
     # Initialize the dp table
     dp = [[0] * (amt + 1) for _ in range(n + 1)]
-    # State transitions: first row and first column
+    # State transitions for the first row and column
     for a in range(1, amt + 1):
         dp[0][a] = MAX
-    # State transitions: remaining rows and columns
+    # State transitions for the remaining rows and columns
     for i in range(1, n + 1):
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # If the coin value exceeds the current amount a, do not choose coin i
+                # Skip coin i if its value exceeds the target amount
                 dp[i][a] = dp[i - 1][a]
             else:
-                # Take the smaller result of not choosing and choosing coin i
+                # Take the minimum of the counts for skipping and taking coin i
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
     return dp[n][amt] if dp[n][amt] != MAX else -1
 
 
 def coin_change_dp_comp(coins: list[int], amt: int) -> int:
-    """Coin change: space-optimized dynamic programming"""
+    """Coin change with space-optimized dynamic programming"""
     n = len(coins)
     MAX = amt + 1
     # Initialize the dp table
     dp = [MAX] * (amt + 1)
     dp[0] = 0
-    # State transitions
+    # State transition
     for i in range(1, n + 1):
-        # Traverse in increasing order
+        # Iterate in ascending order
         for a in range(1, amt + 1):
             if coins[i - 1] > a:
-                # If the coin value exceeds the current amount a, do not choose coin i
+                # Skip coin i if its value exceeds the target amount
                 dp[a] = dp[a]
             else:
-                # Take the smaller result of not choosing and choosing coin i
+                # Take the minimum of the counts for skipping and taking coin i
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
     return dp[amt] if dp[amt] != MAX else -1
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     coins = [1, 2, 5]
     amt = 4

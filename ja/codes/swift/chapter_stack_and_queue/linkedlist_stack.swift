@@ -6,16 +6,16 @@
 
 import utils
 
-/* 連結リストで実装したスタック */
+/* 連結リストを使ったスタック */
 class LinkedListStack {
-    private var _peek: ListNode? // 先頭ノードをスタックの先頭とする
-    private var _size: Int // スタックの長さ
+    private var _peek: ListNode? // 先頭ノードをスタックのトップとする
+    private var _size: Int // スタックの要素数
 
     init() {
         _size = 0
     }
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     func size() -> Int {
         _size
     }
@@ -25,7 +25,7 @@ class LinkedListStack {
         size() == 0
     }
 
-    /* プッシュ */
+    /* プッシュする */
     func push(num: Int) {
         let node = ListNode(x: num)
         node.next = _peek
@@ -33,7 +33,7 @@ class LinkedListStack {
         _size += 1
     }
 
-    /* ポップ */
+    /* ポップする */
     @discardableResult
     func pop() -> Int {
         let num = peek()
@@ -42,7 +42,7 @@ class LinkedListStack {
         return num
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     func peek() -> Int {
         if isEmpty() {
             fatalError("スタックが空です")
@@ -50,7 +50,7 @@ class LinkedListStack {
         return _peek!.val
     }
 
-    /* List を Array に変換して返す */
+    /* 連結リストを配列に変換して返す */
     func toArray() -> [Int] {
         var node = _peek
         var res = Array(repeating: 0, count: size())
@@ -64,7 +64,7 @@ class LinkedListStack {
 
 @main
 enum _LinkedListStack {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         /* スタックを初期化する */
         let stack = LinkedListStack()
@@ -77,17 +77,17 @@ enum _LinkedListStack {
         stack.push(num: 4)
         print("スタック stack = \(stack.toArray())")
 
-        /* スタックの先頭要素にアクセスする */
+        /* スタックのトップを参照する */
         let peek = stack.peek()
-        print("スタックの先頭要素 peek = \(peek)")
+        print("スタックのトップの要素 peek = \(peek)")
 
         /* 要素をポップする */
         let pop = stack.pop()
-        print("ポップした要素 pop = \(pop)、ポップ後 stack = \(stack.toArray())")
+        print("ポップした要素 pop = \(pop)、ポップ後の stack = \(stack.toArray())")
 
-        /* スタックの長さを取得する */
+        /* スタックの要素数を取得する */
         let size = stack.size()
-        print("スタックの長さ size = \(size)")
+        print("スタックの要素数 size = \(size)")
 
         /* 空かどうかを判定する */
         let isEmpty = stack.isEmpty()

@@ -5,17 +5,17 @@
 const std = @import("std");
 const utils = @import("utils");
 
-// List type
+// List class
 const MyList = struct {
     const Self = @This();
 
-    items: []i32, // Slice storing the list elements
+    items: []i32, // Array that stores the list elements
     capacity: usize, // List capacity
-    allocator: std.mem.Allocator, // Allocator
+    allocator: std.mem.Allocator, // Memory allocator
 
-    extend_ratio: usize = 2, // Factor by which the list capacity grows each time
+    extend_ratio: usize = 2, // Factor by which the list capacity grows
 
-    // Initialize an empty list with an allocator
+    // Constructor (allocate memory and initialize the list)
     pub fn init(allocator: std.mem.Allocator) Self {
         return Self{
             .items = &[_]i32{},
@@ -24,14 +24,14 @@ const MyList = struct {
         };
     }
 
-    // Deinitialize the list and release its memory
+    // Destructor (free memory)
     pub fn deinit(self: Self) void {
         self.allocator.free(self.allocatedSlice());
     }
 
-    // Append an element at the end
+    // Append an element
     pub fn add(self: *Self, item: i32) !void {
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
@@ -53,7 +53,7 @@ const MyList = struct {
 
     // Access an element
     pub fn get(self: *Self, index: usize) i32 {
-        // Panic if the index is out of bounds; the same applies below
+        // Throw an exception if the index is out of bounds, here and below
         if (index < 0 or index >= self.items.len) {
             @panic("Index out of bounds");
         }
@@ -62,7 +62,7 @@ const MyList = struct {
 
     // Update an element
     pub fn set(self: *Self, index: usize, num: i32) void {
-        // Panic if the index is out of bounds; the same applies below
+        // Throw an exception if the index is out of bounds, here and below
         if (index < 0 or index >= self.items.len) {
             @panic("Index out of bounds");
         }
@@ -75,11 +75,11 @@ const MyList = struct {
             @panic("Index out of bounds");
         }
 
-        // Grow the capacity when adding an element would exceed it
+        // Increase capacity when the elements would no longer fit
         const newlen = self.items.len + 1;
         try self.ensureTotalCapacity(newlen);
 
-        // Shift all elements at and after index `index` one position to the right
+        // Shift the elements from index onward one position to the right
         self.items.len += 1;
         var i = self.items.len - 1;
         while (i >= index) : (i -= 1) {
@@ -93,7 +93,7 @@ const MyList = struct {
         if (index < 0 or index >= self.getSize()) {
             @panic("Index out of bounds");
         }
-        // Shift all elements after index `index` one position to the left
+        // Shift the elements after index one position to the left
         const item = self.items[index];
         var i = index;
         while (i < self.items.len - 1) : (i += 1) {
@@ -104,12 +104,12 @@ const MyList = struct {
         return item;
     }
 
-    // Return the list elements as a slice
+    // Convert the list to an array
     pub fn toArraySlice(self: *Self) ![]i32 {
         return self.toOwnedSlice(false);
     }
 
-    // Return a slice of the elements, optionally resetting the list
+    // Return a new slice and specify whether to reset or clear the list container
     pub fn toOwnedSlice(self: *Self, clear: bool) ![]i32 {
         const allocator = self.allocator;
         const old_memory = self.allocatedSlice();
@@ -128,7 +128,7 @@ const MyList = struct {
         return new_memory;
     }
 
-    // Grow the list capacity
+    // Increase the list capacity
     fn ensureTotalCapacity(self: *Self, new_capacity: usize) !void {
         if (self.capacity >= new_capacity) return;
         const capcacity = if (self.capacity == 0) 10 else self.capacity;
@@ -158,7 +158,7 @@ const MyList = struct {
     }
 };
 
-// Driver code
+// Driver Code
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();
@@ -166,10 +166,10 @@ pub fn run() !void {
 
     // Initialize the list
     var nums = MyList.init(allocator);
-    // Defer releasing the memory
+    // Defer freeing memory
     defer nums.deinit();
 
-    // Append an element at the end
+    // Append an element
     try nums.add(1);
     try nums.add(3);
     try nums.add(2);
@@ -184,36 +184,36 @@ pub fn run() !void {
     // Insert an element in the middle
     try nums.insert(3, 6);
     std.debug.print(
-        "Insert 6 at index 3: nums = {}\n",
+        "After inserting 6 at index 3, nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
     // Remove an element
     _ = nums.remove(3);
     std.debug.print(
-        "Remove the element at index 3: nums = {}\n",
+        "After removing the element at index 3, nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
     // Access an element
     const num = nums.get(1);
-    std.debug.print("Access the element at index 1: num = {}\n", .{num});
+    std.debug.print("Reading index 1 gives num = {}\n", .{num});
 
     // Update an element
     nums.set(1, 0);
     std.debug.print(
-        "Update the element at index 1 to 0: nums = {}\n",
+        "After setting the element at index 1 to 0, nums = {}\n",
         .{utils.fmt.slice(nums.items)},
     );
 
     // Test capacity growth
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
-        // The initial capacity is 20 in this implementation, so these appends do not trigger further growth
+        // At i = 5, the list length would exceed its capacity, so the list grows
         try nums.add(i);
     }
     std.debug.print(
-        "After appending: list nums = {}, capacity = {}, length = {}\n",
+        "After increasing capacity, nums = {}, capacity = {}, length = {}\n",
         .{
             utils.fmt.slice(nums.items),
             nums.getCapacity(),

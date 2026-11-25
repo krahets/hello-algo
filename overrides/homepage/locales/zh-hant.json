@@ -2,44 +2,44 @@
   "endorsement_title": "推薦語",
   "endorsements": [
     [
-      "“一本通俗易懂的資料結構與演算法入門書，引導讀者手腦並用地學習，強烈推薦演算法初學者閱讀。”",
+      "「這是一本淺顯易懂的資料結構與演算法入門書，引導讀者一邊動腦思考，一邊動手實作。強烈推薦給剛開始學演算法的讀者。」",
       "—— 鄧俊輝，清華大學計算機系教授"
     ],
     [
-      "“如果我當年學資料結構與演算法的時候有《Hello 演算法》，學起來應該會簡單 10 倍！”",
+      "「如果當年學資料結構與演算法時就有《Hello 演算法》，我應該能學得輕鬆 10 倍！」",
       "—— 李沐，亞馬遜資深首席科學家"
     ]
   ],
   "features": [
     {
-      "description": "內容清晰易懂，學習曲線平滑",
+      "description": "內容清楚易懂，學起來循序漸進",
       "quotes": [
         "\"A picture is worth a thousand words.\"",
-        "“一圖勝千言”"
+        "「一圖勝千言」"
       ],
       "title": "動畫圖解",
-      "video": "animation",
-      "video_label": "Animation example"
+      "video": "zh-hant_animation",
+      "video_label": "動畫圖解範例"
     },
     {
-      "description": "十餘種程式語言，程式碼視覺化執行",
+      "description": "範例涵蓋十多種程式語言，讓你看見程式碼的執行過程",
       "quotes": [
         "\"Talk is cheap. Show me the code.\"",
-        "“少吹牛，看程式碼”"
+        "「少說空話，拿程式碼來看」"
       ],
       "title": "一鍵執行",
-      "video": "running_code",
-      "video_label": "Running code example"
+      "video": "zh-hant_running_code",
+      "video_label": "程式執行範例"
     },
     {
-      "description": "歡迎討論與提問，讀者間攜手共進",
+      "description": "歡迎提問、參與討論，和其他讀者一起進步",
       "quotes": [
         "\"Learning by teaching.\"",
-        "“教學相長”"
+        "「教學相長」"
       ],
       "title": "互助學習",
       "video": "comment",
-      "video_label": "Comments example"
+      "video_label": "讀者討論範例"
     }
   ],
   "hero_class": "hero-div",
@@ -62,12 +62,12 @@
   "labels": {
     "astronaut": "初識演算法",
     "chapter_array_and_linkedlist": "陣列與鏈結串列",
-    "chapter_backtracking": "回溯",
+    "chapter_backtracking": "回溯法",
     "chapter_computational_complexity": "複雜度分析",
-    "chapter_divide_and_conquer": "分治",
+    "chapter_divide_and_conquer": "分治法",
     "chapter_dynamic_programming": "動態規劃",
     "chapter_graph": "圖",
-    "chapter_greedy": "貪婪",
+    "chapter_greedy": "貪婪法",
     "chapter_hashing": "雜湊表",
     "chapter_heap": "堆積",
     "chapter_searching": "搜尋",
@@ -80,7 +80,7 @@
       "description": null,
       "profiles": [
         {
-          "alt": "Author: yudongjin",
+          "alt": "作者：yudongjin",
           "asset": "avatar_yudongjin",
           "class": "profile-cell",
           "detail": null,
@@ -91,10 +91,10 @@
       "title": "作者"
     },
     {
-      "description": "本書繁體中文版由以下譯者審閱，感謝他們的貢獻！",
+      "description": "感謝以下譯者參與繁體中文版的審閱！",
       "profiles": [
         {
-          "alt": "Reviewer: Shyam-Chen",
+          "alt": "審閱者：Shyam-Chen",
           "asset": "avatar_Shyam-Chen",
           "class": "profile-cell translator-profile-cell",
           "detail": null,
@@ -102,7 +102,7 @@
           "name": "Shyam-Chen"
         },
         {
-          "alt": "Reviewer: Dr-XYZ",
+          "alt": "審閱者：Dr-XYZ",
           "asset": "avatar_Dr-XYZ",
           "class": "profile-cell translator-profile-cell",
           "detail": null,
@@ -110,13 +110,13 @@
           "name": "Dr-XYZ"
         }
       ],
-      "title": "譯者"
+      "title": "繁體中文版翻譯與審閱"
     },
     {
-      "description": "本書多語言程式碼版本由以下開發者協力完成，感謝他們的投入與貢獻！",
+      "description": "以下開發者合力完成了本書各種程式語言的範例程式碼，感謝他們的投入與貢獻！",
       "profiles": [
         {
-          "alt": "Reviewer: coderonion",
+          "alt": "程式碼審閱者：coderonion",
           "asset": "avatar_coderonion",
           "class": "profile-cell",
           "detail": "Zig, Rust",
@@ -124,7 +124,7 @@
           "name": "coderonion"
         },
         {
-          "alt": "Reviewer: curtishd",
+          "alt": "程式碼審閱者：curtishd",
           "asset": "avatar_curtishd",
           "class": "profile-cell",
           "detail": "Kotlin",
@@ -132,7 +132,7 @@
           "name": "curtishd"
         },
         {
-          "alt": "Reviewer: Gonglja",
+          "alt": "程式碼審閱者：Gonglja",
           "asset": "avatar_Gonglja",
           "class": "profile-cell",
           "detail": "C, C++",
@@ -140,7 +140,7 @@
           "name": "Gonglja"
         },
         {
-          "alt": "Reviewer: gvenusleo",
+          "alt": "程式碼審閱者：gvenusleo",
           "asset": "avatar_gvenusleo",
           "class": "profile-cell",
           "detail": "Dart",
@@ -148,7 +148,7 @@
           "name": "gvenusleo"
         },
         {
-          "alt": "Reviewer: hpstory",
+          "alt": "程式碼審閱者：hpstory",
           "asset": "avatar_hpstory",
           "class": "profile-cell",
           "detail": "C#",
@@ -156,7 +156,7 @@
           "name": "hpstory"
         },
         {
-          "alt": "Reviewer: justin-tse",
+          "alt": "程式碼審閱者：justin-tse",
           "asset": "avatar_justin-tse",
           "class": "profile-cell",
           "detail": "JS, TS",
@@ -164,7 +164,7 @@
           "name": "justin-tse"
         },
         {
-          "alt": "Reviewer: khoaxuantu",
+          "alt": "程式碼審閱者：khoaxuantu",
           "asset": "avatar_khoaxuantu",
           "class": "profile-cell",
           "detail": "Ruby",
@@ -172,7 +172,7 @@
           "name": "khoaxuantu"
         },
         {
-          "alt": "Reviewer: krahets",
+          "alt": "程式碼審閱者：krahets",
           "asset": "avatar_krahets",
           "class": "profile-cell",
           "detail": "Python, Java",
@@ -180,7 +180,7 @@
           "name": "krahets"
         },
         {
-          "alt": "Reviewer: night-cruise",
+          "alt": "程式碼審閱者：night-cruise",
           "asset": "avatar_night-cruise",
           "class": "profile-cell",
           "detail": "Rust",
@@ -188,7 +188,7 @@
           "name": "night-cruise"
         },
         {
-          "alt": "Reviewer: nuomi1",
+          "alt": "程式碼審閱者：nuomi1",
           "asset": "avatar_nuomi1",
           "class": "profile-cell",
           "detail": "Swift",
@@ -196,7 +196,7 @@
           "name": "nuomi1"
         },
         {
-          "alt": "Reviewer: Reanon",
+          "alt": "程式碼審閱者：Reanon",
           "asset": "avatar_Reanon",
           "class": "profile-cell",
           "detail": "Go, C",
@@ -204,7 +204,7 @@
           "name": "Reanon"
         },
         {
-          "alt": "Reviewer: rongyi",
+          "alt": "程式碼審閱者：rongyi",
           "asset": "avatar_rongyi",
           "class": "profile-cell",
           "detail": "Rust",
@@ -216,30 +216,30 @@
     },
     {
       "banner": {
-        "alt": "Contributors",
+        "alt": "本書貢獻者",
         "href": "https://github.com/krahets/hello-algo/graphs/contributors",
         "style": "width: 100%; max-width: 38.5em;",
         "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12"
       },
-      "description": "本書在開源社群 200 多位貢獻者的共同努力下不斷完善，感謝他們付出的時間與精力！",
+      "description": "在開源社群 200 多位貢獻者的共同努力下，這本書持續改進。感謝大家付出的時間與心力！",
       "profiles": [],
       "title": "貢獻者"
     }
   ],
   "reading": [
     {
-      "alt": "Cover",
+      "alt": "簡體中文版紙本書封面",
       "asset": "cover_render",
       "href": "/chapter_paperbook/",
       "image_style": "height: 66.83%;",
-      "label": "了解紙質書",
+      "label": "瞭解簡體中文版紙本書",
       "spacers": [
         "height: 8.17%;"
       ]
     },
     {
       "alt": "",
-      "asset": "web_mac_iphone",
+      "asset": "zh-hant_web_mac_iphone",
       "href": "chapter_hello_algo/",
       "image_style": "height: 66.31%;",
       "label": "線上閱讀",
@@ -250,21 +250,21 @@
     },
     {
       "alt": "",
-      "asset": "pdf_ipad",
+      "asset": "zh-hant_pdf_ipad",
       "href": "https://github.com/krahets/hello-algo/releases",
       "image_style": "height: 75%;",
       "label": "下載 PDF/EPUB",
       "spacers": []
     }
   ],
-  "reading_description": "500 幅動畫圖解、14 種程式語言程式碼、3000 條社群問答，助你快速入門資料結構與演算法",
+  "reading_description": "500 幅動畫圖解、14 種程式語言的範例程式碼，以及 3000 則社群問答，帶你快速掌握資料結構與演算法的基礎",
   "reading_notes": [],
   "start_href": "chapter_hello_algo/",
   "start_label": "開始閱讀",
-  "tagline": "動畫圖解、一鍵執行的資料結構與演算法教程",
+  "tagline": "用動畫圖解學習資料結構與演算法，範例程式一鍵就能執行",
   "typing": {
     "alt": "",
-    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E6%BC%94%E7%AE%97%E6%B3%95+!",
+    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+SC&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%E6%BC%94%E7%AE%97%E6%B3%95%EF%BC%81",
     "style": "height: min(9vh, 12vw);"
   }
 }

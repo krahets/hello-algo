@@ -6,7 +6,7 @@
 
 /* Поиск */
 func dfs(i: Int) -> Int {
-    // dp[1] и dp[2] уже известны, вернуть их
+    // Для dp[1] и dp[2] вернуть известные значения
     if i == 1 || i == 2 {
         return i
     }
@@ -15,18 +15,18 @@ func dfs(i: Int) -> Int {
     return count
 }
 
-/* Подъем по лестнице: поиск */
+/* Подъём по лестнице: поиск */
 func climbingStairsDFS(n: Int) -> Int {
     dfs(i: n)
 }
 
 @main
 enum ClimbingStairsDFS {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFS(n: n)
-        print("Количество способов подняться по лестнице из \(n) ступеней = \(res)")
+        print("Число способов подняться на лестницу из \(n) ступеней: \(res).")
     }
 }

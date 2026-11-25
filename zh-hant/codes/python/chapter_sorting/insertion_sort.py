@@ -7,15 +7,15 @@ Author: timi (xisunyy@163.com)
 
 def insertion_sort(nums: list[int]):
     """插入排序"""
-    # 外迴圈：已排序區間為 [0, i-1]
+    # 外層迴圈：已排序的區間為 [0, i-1]
     for i in range(1, len(nums)):
         base = nums[i]
         j = i - 1
-        # 內迴圈：將 base 插入到已排序區間 [0, i-1] 中的正確位置
+        # 內層迴圈：將 base 插入已排序區間 [0, i-1] 中的正確位置
         while j >= 0 and nums[j] > base:
-            nums[j + 1] = nums[j]  # 將 nums[j] 向右移動一位
+            nums[j + 1] = nums[j]  # 將 nums[j] 向右移動一格
             j -= 1
-        nums[j + 1] = base  # 將 base 賦值到正確位置
+        nums[j + 1] = base  # 將 base 寫入正確位置
 
 
 """Driver Code"""

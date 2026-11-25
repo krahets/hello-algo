@@ -4,33 +4,33 @@
 
 package chapter_backtracking
 
-/* Алгоритм бэктрекинга: сумма подмножеств I */
+/* Поиск с возвратом: сумма подмножества I */
 func backtrackSubsetSumINaive(total, target int, state, choices *[]int, res *[][]int) {
-	// Если сумма подмножества равна target, записать решение
+	// Если сумма подмножества равна target, сохраняем решение
 	if target == total {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
 		return
 	}
-	// Перебор всех вариантов выбора
+	// Перебираем все варианты
 	for i := 0; i < len(*choices); i++ {
-		// Отсечение: если сумма подмножества превышает target, пропустить этот выбор
+		// Отсечение: если сумма подмножества превысит target, пропускаем этот вариант
 		if total+(*choices)[i] > target {
 			continue
 		}
-		// Попытка: сделать выбор и обновить элемент и total
+		// Пробуем вариант и обновляем сумму элементов total
 		*state = append(*state, (*choices)[i])
-		// Перейти к следующему выбору
+		// Переходим к следующему выбору
 		backtrackSubsetSumINaive(total+(*choices)[i], target, state, choices, res)
-		// Откат: отменить выбор и восстановить предыдущее состояние
+		// Возврат: отменяем выбор и восстанавливаем прежнее состояние
 		*state = (*state)[:len(*state)-1]
 	}
 }
 
-/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
+/* Задача о сумме подмножества I (с повторяющимися подмножествами) */
 func subsetSumINaive(nums []int, target int) [][]int {
 	state := make([]int, 0) // Состояние (подмножество)
-	total := 0              // Сумма подмножеств
+	total := 0              // Сумма подмножества
 	res := make([][]int, 0) // Список результатов (список подмножеств)
 	backtrackSubsetSumINaive(total, target, &state, &nums, &res)
 	return res

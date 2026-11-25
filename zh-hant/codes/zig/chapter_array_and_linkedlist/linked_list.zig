@@ -13,7 +13,7 @@ pub fn insert(comptime T: type, n0: *ListNode(T), P: *ListNode(T)) void {
     n0.next = P;
 }
 
-// 刪除鏈結串列的節點 n0 之後的首個節點
+// 刪除鏈結串列中緊接在節點 n0 之後的節點
 pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     // n0 -> P -> n1 => n0 -> n1
     const P = n0.next;
@@ -21,7 +21,7 @@ pub fn remove(comptime T: type, n0: *ListNode(T)) void {
     n0.next = n1;
 }
 
-// 訪問鏈結串列中索引為 index 的節點
+// 存取鏈結串列中索引為 index 的節點
 pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     var head: ?*ListNode(T) = node;
     var i: i32 = 0;
@@ -35,7 +35,7 @@ pub fn access(comptime T: type, node: *ListNode(T), index: i32) ?*ListNode(T) {
     return head;
 }
 
-// 在鏈結串列中查詢值為 target 的首個節點
+// 在鏈結串列中尋找第一個值為 target 的節點
 pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     var head: ?*ListNode(T) = node;
     var index: i32 = 0;
@@ -47,7 +47,7 @@ pub fn find(comptime T: type, node: *ListNode(T), target: T) i32 {
     return -1;
 }
 
-// Driver Code
+// 範例主程式
 pub fn run() void {
     // 初始化各個節點
     var n0 = ListNode(i32){ .val = 1 };
@@ -55,13 +55,13 @@ pub fn run() void {
     var n2 = ListNode(i32){ .val = 2 };
     var n3 = ListNode(i32){ .val = 5 };
     var n4 = ListNode(i32){ .val = 4 };
-    // 構建節點之間的引用
+    // 建立節點之間的參照
     n0.next = &n1;
     n1.next = &n2;
     n2.next = &n3;
     n3.next = &n4;
     std.debug.print(
-        "初始化的鏈結串列為 {}\n",
+        "初始化後的鏈結串列為 {}\n",
         .{utils.fmt.linkedList(i32, &n0)},
     );
 
@@ -80,17 +80,17 @@ pub fn run() void {
         .{utils.fmt.linkedList(i32, &n0)},
     );
 
-    // 訪問節點
+    // 存取節點
     const node = access(i32, &n0, 3);
     std.debug.print(
-        "鏈結串列中索引 3 處的節點的值 = {}\n",
+        "鏈結串列中索引 3 處的節點值 = {}\n",
         .{node.?.val},
     );
 
-    // 查詢節點
+    // 尋找節點
     const index = find(i32, &n0, 2);
     std.debug.print(
-        "鏈結串列中值為 2 的節點的索引 = {}\n",
+        "鏈結串列中值為 2 的節點索引 = {}\n",
         .{index},
     );
 

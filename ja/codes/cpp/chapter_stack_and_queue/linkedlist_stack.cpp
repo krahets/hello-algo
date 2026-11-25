@@ -6,11 +6,11 @@
 
 #include "../utils/common.hpp"
 
-/* 連結リストで実装したスタック */
+/* 連結リストを使ったスタック */
 class LinkedListStack {
   private:
-    ListNode *stackTop; // 先頭ノードをスタックの先頭とする
-    int stkSize;        // スタックの長さ
+    ListNode *stackTop; // 先頭ノードをスタックのトップとする
+    int stkSize;        // スタックの要素数
 
   public:
     LinkedListStack() {
@@ -19,11 +19,11 @@ class LinkedListStack {
     }
 
     ~LinkedListStack() {
-        // 連結リストを走査してノードを削除し、メモリを解放する
+        // 連結リストをたどり、各ノードを削除してメモリを解放する
         freeMemoryLinkedList(stackTop);
     }
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     int size() {
         return stkSize;
     }
@@ -33,7 +33,7 @@ class LinkedListStack {
         return size() == 0;
     }
 
-    /* プッシュ */
+    /* プッシュする */
     void push(int num) {
         ListNode *node = new ListNode(num);
         node->next = stackTop;
@@ -41,7 +41,7 @@ class LinkedListStack {
         stkSize++;
     }
 
-    /* ポップ */
+    /* ポップする */
     int pop() {
         int num = top();
         ListNode *tmp = stackTop;
@@ -52,14 +52,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     int top() {
         if (isEmpty())
             throw out_of_range("スタックが空です");
         return stackTop->val;
     }
 
-    /* List を Array に変換して返す */
+    /* 連結リストを vector に変換して返す */
     vector<int> toVector() {
         ListNode *node = stackTop;
         vector<int> res(size());
@@ -71,7 +71,7 @@ class LinkedListStack {
     }
 };
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* スタックを初期化する */
     LinkedListStack *stack = new LinkedListStack();
@@ -85,18 +85,18 @@ int main() {
     cout << "スタック stack = ";
     printVector(stack->toVector());
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     int top = stack->top();
-    cout << "スタックの先頭要素 top = " << top << endl;
+    cout << "スタックのトップの要素 top = " << top << endl;
 
     /* 要素をポップする */
     top = stack->pop();
-    cout << "ポップした要素 pop = " << top << "、ポップ後 stack = ";
+    cout << "ポップした要素 pop = " << top << "、ポップ後の stack = ";
     printVector(stack->toVector());
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     int size = stack->size();
-    cout << "スタックの長さ size = " << size << endl;
+    cout << "スタックの要素数 size = " << size << endl;
 
     /* 空かどうかを判定する */
     bool empty = stack->isEmpty();

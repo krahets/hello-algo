@@ -13,25 +13,25 @@ fun recur(n: Int): Int {
     // Base case
     if (n == 1)
         return 1
-    // Descending: recursive calls
+    // Descend: make a recursive call
     val res = recur(n - 1)
-    // Unwinding: return the result
+    // Unwind: return the result
     return n + res
 }
 
-/* Simulate recursion using iteration */
+/* Simulate recursion with iteration */
 fun forLoopRecur(n: Int): Int {
-    // Use an explicit stack to simulate the system call stack
+    // Use an explicit stack to simulate the call stack
     val stack = Stack<Int>()
     var res = 0
-    // Descending: recursive calls
+    // Descend: make a recursive call
     for (i in n downTo 0) {
-        // Simulate recursive calls by pushing onto the stack
+        // Push to simulate descending
         stack.push(i)
     }
-    // Unwinding: return the result
+    // Unwind: return the result
     while (stack.isNotEmpty()) {
-        // Simulate unwinding by popping from the stack
+        // Pop to simulate unwinding
         res += stack.pop()
     }
     // res = 1+2+3+...+n
@@ -40,15 +40,15 @@ fun forLoopRecur(n: Int): Int {
 
 /* Tail recursion */
 tailrec fun tailRecur(n: Int, res: Int): Int {
-    // Add the tailrec modifier to enable tail-call optimization
+    // Add the tailrec keyword to enable tail-call optimization
     // Base case
     if (n == 0)
         return res
-    // Tail-recursive call
+    // Tail call
     return tailRecur(n - 1, res + n)
 }
 
-/* Fibonacci sequence: recursion */
+/* Fibonacci sequence using recursion */
 fun fib(n: Int): Int {
     // Base cases: f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
@@ -59,20 +59,20 @@ fun fib(n: Int): Int {
     return res
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     val n = 5
     var res: Int
 
     res = recur(n)
-    println("\nSum from the recursive function: res = $res")
+    println("\nRecursive sum: res = $res")
 
     res = forLoopRecur(n)
-    println("\nSum from simulating recursion with iteration: res = $res")
+    println("\nSum using simulated recursion: res = $res")
 
     res = tailRecur(n, 0)
-    println("\nSum from the tail-recursive function: res = $res")
+    println("\nTail-recursive sum: res = $res")
 
     res = fib(n)
-    println("\nTerm $n of the Fibonacci sequence is $res")
+    println("\nFibonacci term $n is $res")
 }

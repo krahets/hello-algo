@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* 循環配列で実装したキュー */
+/* 循環配列を使ったキュー */
 class ArrayQueue {
   private:
     int *nums;       // キューの要素を格納する配列
-    int front;       // キューの先頭要素を指す先頭ポインタ
-    int queSize;     // キューの長さ
+    int front;       // キューの先頭要素を指すインデックス
+    int queSize;     // キューの要素数
     int queCapacity; // キューの容量
 
   public:
@@ -31,49 +31,49 @@ class ArrayQueue {
         return queCapacity;
     }
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     int size() {
         return queSize;
     }
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     bool isEmpty() {
         return size() == 0;
     }
 
-    /* エンキュー */
+    /* エンキューする */
     void push(int num) {
         if (queSize == queCapacity) {
             cout << "キューが満杯です" << endl;
             return;
         }
-        // 末尾のインデックス + 1 を指す末尾ポインタを計算する
-        // 剰余演算で、rear が配列末尾を越えたら先頭へ戻る
+        // キューの末尾要素の次の位置を示すインデックスを求める
+        // 剰余を使い、rear が配列の末尾を越えたら先頭に戻るようにする
         int rear = (front + queSize) % queCapacity;
         // num をキューの末尾に追加する
         nums[rear] = num;
         queSize++;
     }
 
-    /* デキュー */
+    /* デキューする */
     int pop() {
         int num = peek();
-        // 先頭ポインタを後ろに 1 つ移動し、末尾を越えたら配列の先頭に戻す
+        // 先頭のインデックスを 1 つ進め、配列の末尾を越えたら先頭に戻す
         front = (front + 1) % queCapacity;
         queSize--;
         return num;
     }
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     int peek() {
         if (isEmpty())
             throw out_of_range("キューが空です");
         return nums[front];
     }
 
-    /* 配列を Vector に変換して返す */
+    /* 配列を vector に変換して返す */
     vector<int> toVector() {
-        // 有効な長さの範囲内にあるリストの要素だけを変換する
+        // キューの要素数に当たる範囲だけを変換する
         vector<int> arr(queSize);
         for (int i = 0, j = front; i < queSize; i++, j++) {
             arr[i] = nums[j % queCapacity];
@@ -82,13 +82,13 @@ class ArrayQueue {
     }
 };
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     /* キューを初期化する */
     int capacity = 10;
     ArrayQueue *queue = new ArrayQueue(capacity);
 
-    /* 要素をエンキューする */
+    /* 要素をキューに追加する */
     queue->push(1);
     queue->push(3);
     queue->push(2);
@@ -97,28 +97,28 @@ int main() {
     cout << "キュー queue = ";
     printVector(queue->toVector());
 
-    /* キューの先頭要素にアクセス */
+    /* キューの先頭要素を参照する */
     int peek = queue->peek();
-    cout << "キューの先頭要素 peek = " << peek << endl;
+    cout << "先頭要素 peek = " << peek << endl;
 
-    /* 要素をデキューする */
+    /* キューから要素を取り出す */
     peek = queue->pop();
-    cout << "デキューした要素 pop = " << peek << "、デキュー後 queue = ";
+    cout << "デキューした要素 pop = " << peek << "、デキュー後の queue = ";
     printVector(queue->toVector());
 
-    /* キューの長さを取得 */
+    /* キューの要素数を取得する */
     int size = queue->size();
-    cout << "キューの長さ size = " << size << endl;
+    cout << "キューの要素数 size = " << size << endl;
 
-    /* キューが空か判定 */
+    /* キューが空かどうかを判定する */
     bool empty = queue->isEmpty();
     cout << "キューは空か = " << empty << endl;
 
-    /* 循環配列をテストする */
+    /* 循環配列の動作を確認する */
     for (int i = 0; i < 10; i++) {
         queue->push(i);
         queue->pop();
-        cout << "第 " << i << " 回のエンキューとデキューの後 queue = ";
+        cout << "第 " << i << " 回のエンキューとデキューを終えた後の queue = ";
         printVector(queue->toVector());
     }
 

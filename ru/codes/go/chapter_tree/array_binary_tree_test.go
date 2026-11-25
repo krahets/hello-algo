@@ -12,17 +12,17 @@ import (
 )
 
 func TestArrayBinaryTree(t *testing.T) {
-	// Инициализировать двоичное дерево
-	// Здесь используется функция, напрямую строящая двоичное дерево из массива
+	// Инициализация двоичного дерева
+	// Используем функцию, которая строит двоичное дерево непосредственно из массива
 	arr := []any{1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15}
 	root := SliceToTree(arr)
 	fmt.Println("\nИнициализация двоичного дерева")
-	fmt.Println("Массивное представление двоичного дерева:")
+	fmt.Println("Двоичное дерево в виде массива:")
 	fmt.Println(arr)
 	fmt.Println("Связное представление двоичного дерева:")
 	PrintTree(root)
 
-	// Класс двоичного дерева в массивном представлении
+	// Класс двоичного дерева на основе массива
 	abt := newArrayBinaryTree(arr)
 
 	// Доступ к узлу
@@ -30,18 +30,18 @@ func TestArrayBinaryTree(t *testing.T) {
 	l := abt.left(i)
 	r := abt.right(i)
 	p := abt.parent(i)
-	fmt.Println("\nТекущий узел: индекс =", i, ", значение =", abt.val(i))
-	fmt.Println("Индекс левого дочернего узла =", l, ", значение =", abt.val(l))
-	fmt.Println("Индекс правого дочернего узла =", r, ", значение =", abt.val(r))
-	fmt.Println("Индекс родительского узла =", p, ", значение =", abt.val(p))
+	fmt.Println("\nИндекс текущего узла:", i, "значение:", abt.val(i))
+	fmt.Println("Индекс левого потомка:", l, "значение:", abt.val(l))
+	fmt.Println("Индекс правого потомка:", r, "значение:", abt.val(r))
+	fmt.Println("Индекс родителя:", p, "значение:", abt.val(p))
 
-	// Обходить дерево
+	// Обход дерева
 	res := abt.levelOrder()
-	fmt.Println("\nОбход в ширину =", res)
+	fmt.Println("\nОбход по уровням:", res)
 	res = abt.preOrder()
-	fmt.Println("Предварительный обход =", res)
+	fmt.Println("Прямой обход:", res)
 	res = abt.inOrder()
-	fmt.Println("Симметричный обход =", res)
+	fmt.Println("Симметричный обход:", res)
 	res = abt.postOrder()
-	fmt.Println("Обратный обход =", res)
+	fmt.Println("Обратный обход:", res)
 }

@@ -11,38 +11,38 @@ use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::{HashSet, VecDeque};
 
 /* Обход в ширину */
-// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+// Список смежности позволяет получить всех соседей заданной вершины
 fn graph_bfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
-    // Последовательность обхода вершин
+    // Порядок обхода вершин
     let mut res = vec![];
-    // Хеш-множество для хранения уже посещенных вершин
+    // Хеш-множество посещённых вершин
     let mut visited = HashSet::new();
     visited.insert(start_vet);
-    // Очередь используется для реализации BFS
+    // Очередь для обхода BFS
     let mut que = VecDeque::new();
     que.push_back(start_vet);
-    // Начиная с вершины vet, продолжать цикл, пока не будут посещены все вершины
+    // Начать с вершины vet и повторять, пока не будут посещены все вершины
     while let Some(vet) = que.pop_front() {
-        res.push(vet); // Отметить посещенную вершину
+        res.push(vet); // Записать посещённую вершину
 
-        // Обойти все смежные вершины данной вершины
+        // Перебрать всех соседей этой вершины
         if let Some(adj_vets) = graph.adj_list.get(&vet) {
             for &adj_vet in adj_vets {
                 if visited.contains(&adj_vet) {
-                    continue; // Пропустить уже посещенную вершину
+                    continue; // Пропустить посещённые вершины
                 }
-                que.push_back(adj_vet); // Помещать в очередь только непосещенные вершины
-                visited.insert(adj_vet); // Отметить эту вершину как посещенную
+                que.push_back(adj_vet); // Добавить в очередь только непосещённые вершины
+                visited.insert(adj_vet); // Отметить вершину как посещённую
             }
         }
     }
-    // Вернуть последовательность обхода вершин
+    // Вернуть порядок обхода вершин
     res
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    /* Инициализация неориентированного графа */
+    /* Инициализировать неориентированный граф */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     let edges = vec![
         [v[0], v[1]],
@@ -59,11 +59,11 @@ fn main() {
         [v[7], v[8]],
     ];
     let graph = GraphAdjList::new(edges);
-    println!("\nГраф после инициализации");
+    println!("\nГраф после инициализации:");
     graph.print();
 
     /* Обход в ширину */
     let res = graph_bfs(graph, v[0]);
-    println!("\nПоследовательность вершин при обходе в ширину (BFS)");
+    println!("\nПорядок обхода вершин в ширину (BFS):");
     println!("{:?}", vets_to_vals(res));
 }

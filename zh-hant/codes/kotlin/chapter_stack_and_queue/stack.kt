@@ -8,12 +8,12 @@ package chapter_stack_and_queue
 
 import java.util.*
 
-/* Driver Code */
+/* 範例程式 */
 fun main() {
     /* 初始化堆疊 */
     val stack = Stack<Int>()
 
-    /* 元素入堆疊 */
+    /* 將元素推入堆疊 */
     stack.push(1)
     stack.push(3)
     stack.push(2)
@@ -21,19 +21,19 @@ fun main() {
     stack.push(4)
     println("堆疊 stack = $stack")
 
-    /* 訪問堆疊頂元素 */
+    /* 讀取堆疊頂端的元素 */
     val peek = stack.peek()
-    println("堆疊頂元素 peek = $peek")
+    println("堆疊頂端元素 peek = $peek")
 
-    /* 元素出堆疊 */
+    /* 從堆疊彈出元素 */
     val pop = stack.pop()
-    println("出堆疊元素 pop = $pop，出堆疊後 stack = $stack")
+    println("彈出的元素 pop = $pop，彈出後 stack = $stack")
 
-    /* 獲取堆疊的長度 */
+    /* 取得堆疊長度 */
     val size = stack.size
-    println("堆疊的長度 size = $size")
+    println("堆疊長度 size = $size")
 
-    /* 判斷是否為空 */
+    /* 判斷堆疊是否為空 */
     val isEmpty = stack.isEmpty()
     println("堆疊是否為空 = $isEmpty")
 }

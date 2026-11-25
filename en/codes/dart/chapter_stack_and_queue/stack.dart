@@ -6,7 +6,7 @@
 
 void main() {
   /* Initialize the stack */
-  // Dart has no built-in stack class; a List can be used as a stack
+  // Dart has no built-in stack class, so use a List as a stack
   final List<int> stack = [];
 
   /* Push elements onto the stack */
@@ -15,21 +15,21 @@ void main() {
   stack.add(2);
   stack.add(5);
   stack.add(4);
-  print("Stack stack = $stack");
+  print("stack = $stack");
 
-  /* Access the top element */
+  /* Peek at the top element */
   final int peek = stack.last;
-  print("Top element peek = $peek");
+  print("Top element (peek) = $peek");
 
-  /* Pop an element from the stack */
+  /* Pop the top element */
   final int pop = stack.removeLast();
-  print("Popped element pop = $pop; after popping, stack = $stack");
+  print("Popped element (pop) = $pop, stack after the pop = $stack");
 
   /* Get the stack size */
   final int size = stack.length;
   print("Stack size = $size");
 
-  /* Check whether it is empty */
+  /* Check whether the stack is empty */
   final bool isEmpty = stack.isEmpty;
-  print("Is the stack empty = $isEmpty");
+  print("Stack is empty = $isEmpty");
 }

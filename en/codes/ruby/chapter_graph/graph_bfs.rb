@@ -10,31 +10,31 @@ require_relative '../utils/vertex'
 
 ### Breadth-first traversal ###
 def graph_bfs(graph, start_vet)
-  # Represent the graph with an adjacency list to access all neighbors of a given vertex
-  # Vertex traversal sequence
+  # Represent the graph with an adjacency list to look up all neighbors of a given vertex
+  # Vertex traversal order
   res = []
-  # Hash set recording visited vertices
+  # Use a hash set to track visited vertices
   visited = Set.new([start_vet])
-  # Use a queue to implement BFS
+  # Use a queue for BFS
   que = [start_vet]
-  # Start from start_vet and loop until all reachable vertices have been visited
+  # Starting at vertex vet, loop until all reachable vertices have been visited
   while que.length > 0
     vet = que.shift # Dequeue the front vertex
     res << vet # Record the visited vertex
-    # Traverse all neighbors of this vertex
+    # Iterate over all neighbors of this vertex
     for adj_vet in graph.adj_list[vet]
-      next if visited.include?(adj_vet) # Skip vertices that have already been visited
+      next if visited.include?(adj_vet) # Skip visited vertices
       que << adj_vet # Enqueue only unvisited vertices
-      visited.add(adj_vet) # Mark this vertex as visited
+      visited.add(adj_vet) # Mark the vertex as visited
     end
   end
-  # Return the vertex traversal sequence
+  # Return the vertex traversal order
   res
 end
 
 ### Driver code ###
 if __FILE__ == $0
-  # Initialize the undirected graph
+  # Initialize an undirected graph
   v = vals_to_vets([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
   edges = [
     [v[0], v[1]],
@@ -56,6 +56,6 @@ if __FILE__ == $0
 
   # Breadth-first traversal
   res = graph_bfs(graph, v.first)
-  puts "\nBreadth-first traversal (BFS) vertex sequence:"
+  puts "\nBreadth-first search (BFS) visits the vertices in this order:"
   p vets_to_vals(res)
 end

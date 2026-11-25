@@ -4,14 +4,14 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Coin change: greedy algorithm */
+/* Greedy coin change */
 function coinChangeGreedy(coins, amt) {
-    // Assume coins is sorted in ascending order
+    // Assume the coins array is sorted
     let i = coins.length - 1;
     let count = 0;
-    // Repeatedly make greedy choices until no amount remains
+    // Make greedy choices until no amount remains
     while (amt > 0) {
-        // Find the largest coin no greater than the remaining amount
+        // Find the closest denomination below the remaining amount
         while (i > 0 && coins[i] > amt) {
             i--;
         }
@@ -24,25 +24,25 @@ function coinChangeGreedy(coins, amt) {
 }
 
 /* Driver code */
-// Greedy algorithm: guaranteed to find a globally optimal solution
+// Greedy choices are guaranteed to give a global optimum here
 let coins = [1, 5, 10, 20, 50, 100];
 let amt = 186;
 let res = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
-console.log(`Greedy coin count for amount ${amt}: ${res}`);
+console.log(`The minimum number of coins needed to make ${amt} is ${res}`);
 
-// Greedy algorithm: not guaranteed to find a globally optimal solution
+// Greedy choices do not guarantee a global optimum here
 coins = [1, 20, 50];
 amt = 60;
 res = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
-console.log(`Greedy coin count for amount ${amt}: ${res}`);
+console.log(`The minimum number of coins needed to make ${amt} is ${res}`);
 console.log('The actual minimum is 3 coins: 20 + 20 + 20');
 
-// Greedy algorithm: not guaranteed to find a globally optimal solution
+// Greedy choices do not guarantee a global optimum here
 coins = [1, 49, 50];
 amt = 98;
 res = coinChangeGreedy(coins, amt);
 console.log(`\ncoins = ${coins}, amt = ${amt}`);
-console.log(`Greedy coin count for amount ${amt}: ${res}`);
+console.log(`The minimum number of coins needed to make ${amt} is ${res}`);
 console.log('The actual minimum is 2 coins: 49 + 49');

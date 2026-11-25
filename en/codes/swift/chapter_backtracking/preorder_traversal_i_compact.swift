@@ -33,7 +33,7 @@ enum PreorderTraversalICompact {
         res = []
         preOrder(root: root)
 
-        print("\nOutput all nodes with value 7")
+        print("\nPrint all nodes with value 7")
         var vals: [Int] = []
         for node in res {
             vals.append(node.val)

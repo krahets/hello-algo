@@ -4,7 +4,7 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: сумма подмножеств I */
+/* Поиск с возвратом: сумма подмножества I */
 void backtrack(
   List<int> state,
   int target,
@@ -12,27 +12,27 @@ void backtrack(
   List<int> choices,
   List<List<int>> res,
 ) {
-  // Если сумма подмножества равна target, записать решение
+  // Если сумма подмножества равна target, сохраняем решение
   if (total == target) {
     res.add(List.from(state));
     return;
   }
-  // Перебор всех вариантов выбора
+  // Перебираем все варианты
   for (int i = 0; i < choices.length; i++) {
-    // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
+    // Отсечение: если сумма подмножества превысит target, пропускаем этот вариант
     if (total + choices[i] > target) {
       continue;
     }
-    // Попытка: сделать выбор и обновить элемент и total
+    // Пробуем вариант и обновляем сумму элементов total
     state.add(choices[i]);
-    // Перейти к следующему выбору
+    // Переходим к следующему выбору
     backtrack(state, target, total + choices[i], choices, res);
-    // Откат: отменить выбор и восстановить предыдущее состояние
+    // Возврат: отменяем выбор и восстанавливаем прежнее состояние
     state.removeLast();
   }
 }
 
-/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
+/* Задача о сумме подмножества I (с повторяющимися подмножествами) */
 List<List<int>> subsetSumINaive(List<int> nums, int target) {
   List<int> state = []; // Состояние (подмножество)
   int total = 0; // Сумма элементов
@@ -41,14 +41,14 @@ List<List<int>> subsetSumINaive(List<int> nums, int target) {
   return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 void main() {
   List<int> nums = [3, 4, 5];
   int target = 9;
 
   List<List<int>> res = subsetSumINaive(nums, target);
 
-  print("Входной массив nums = $nums, target = $target");
+  print("Исходный массив nums = $nums, target = $target");
   print("Все подмножества с суммой $target: res = $res");
   print("Обратите внимание: результат этого метода содержит повторяющиеся множества");
 }

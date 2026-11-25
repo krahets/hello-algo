@@ -4,14 +4,14 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Объединить левый и правый подмассивы */
+/* Слить левый и правый подмассивы */
 func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
-    // Диапазон левого подмассива: [left, mid], диапазон правого подмассива: [mid+1, right]
-    // Создать временный массив tmp для хранения результата слияния
+    // Левый подмассив занимает [left, mid], правый — [mid+1, right]
+    // Создать временный массив tmp для результата слияния
     var tmp = Array(repeating: 0, count: right - left + 1)
-    // Инициализировать начальные индексы левого и правого подмассивов
+    // Установить индексы на начало левого и правого подмассивов
     var i = left, j = mid + 1, k = 0
-    // Пока в левом и правом подмассивах еще есть элементы, сравнивать их и копировать меньший во временный массив
+    // Пока в обоих подмассивах есть элементы, сравнивать их и копировать меньший во временный массив
     while i <= mid, j <= right {
         if nums[i] <= nums[j] {
             tmp[k] = nums[i]
@@ -22,7 +22,7 @@ func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
         }
         k += 1
     }
-    // Скопировать оставшиеся элементы левого и правого подмассивов во временный массив
+    // Скопировать оставшиеся элементы подмассивов во временный массив
     while i <= mid {
         tmp[k] = nums[i]
         i += 1
@@ -33,7 +33,7 @@ func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
         j += 1
         k += 1
     }
-    // Скопировать элементы временного массива tmp обратно в соответствующий диапазон исходного массива nums
+    // Скопировать элементы tmp обратно на соответствующий участок nums
     for k in tmp.indices {
         nums[left + k] = tmp[k]
     }
@@ -41,21 +41,21 @@ func merge(nums: inout [Int], left: Int, mid: Int, right: Int) {
 
 /* Сортировка слиянием */
 func mergeSort(nums: inout [Int], left: Int, right: Int) {
-    // Условие завершения
+    // Условие остановки
     if left >= right { // Завершить рекурсию, когда длина подмассива равна 1
         return
     }
-    // Этап разбиения
+    // Разбиение
     let mid = left + (right - left) / 2 // Вычислить середину
-    mergeSort(nums: &nums, left: left, right: mid) // Рекурсивно обработать левый подмассив
-    mergeSort(nums: &nums, left: mid + 1, right: right) // Рекурсивно обработать правый подмассив
-    // Этап слияния
+    mergeSort(nums: &nums, left: left, right: mid) // Рекурсивно отсортировать левый подмассив
+    mergeSort(nums: &nums, left: mid + 1, right: right) // Рекурсивно отсортировать правый подмассив
+    // Слияние
     merge(nums: &nums, left: left, mid: mid, right: right)
 }
 
 @main
 enum MergeSort {
-    /* Driver Code */
+    /* Тестовый пример */
     static func main() {
         /* Сортировка слиянием */
         var nums = [7, 3, 2, 6, 0, 1, 5, 4]

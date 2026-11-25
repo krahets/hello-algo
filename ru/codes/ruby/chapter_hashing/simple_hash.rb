@@ -24,7 +24,7 @@ def mul_hash(key)
   hash % modulus
 end
 
-### XOR-хеширование ###
+### Хеширование с помощью XOR ###
 def xor_hash(key)
   hash = 0
   modulus = 1_000_000_007
@@ -44,19 +44,19 @@ def rot_hash(key)
   hash % modulus
 end
 
-### Driver Code ###
+### Демонстрационный код ###
 if __FILE__ == $0
-  key = "Hello Algo"
+  key = "Hello 算法"
 
   hash = add_hash(key)
-  puts "Хеш-сумма сложением = #{hash}"
+  puts "Аддитивный хеш: #{hash}"
 
   hash = mul_hash(key)
-  puts "Хеш-сумма умножением = #{hash}"
+  puts "Мультипликативный хеш: #{hash}"
 
   hash = xor_hash(key)
-  puts "Хеш-сумма XOR = #{hash}"
+  puts "Хеш на основе XOR: #{hash}"
 
   hash = rot_hash(key)
-  puts "Хеш-сумма с циклическим сдвигом = #{hash}"
+  puts "Хеш с циклическим сдвигом: #{hash}"
 end

@@ -6,11 +6,11 @@
 
 /* Поиск с мемоизацией */
 func dfs(i: Int, mem: inout [Int]) -> Int {
-    // dp[1] и dp[2] уже известны, вернуть их
+    // Для dp[1] и dp[2] вернуть известные значения
     if i == 1 || i == 2 {
         return i
     }
-    // Если запись dp[i] существует, сразу вернуть ее
+    // Если dp[i] уже вычислено, вернуть сохранённое значение
     if mem[i] != -1 {
         return mem[i]
     }
@@ -21,20 +21,20 @@ func dfs(i: Int, mem: inout [Int]) -> Int {
     return count
 }
 
-/* Подъем по лестнице: поиск с мемоизацией */
+/* Подъём по лестнице: поиск с мемоизацией */
 func climbingStairsDFSMem(n: Int) -> Int {
-    // mem[i] хранит число способов подняться на i-ю ступень, -1 означает отсутствие записи
+    // mem[i] хранит число способов достичь ступени i, а -1 означает отсутствие записи
     var mem = Array(repeating: -1, count: n + 1)
     return dfs(i: n, mem: &mem)
 }
 
 @main
 enum ClimbingStairsDFSMem {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFSMem(n: n)
-        print("Количество способов подняться по лестнице из \(n) ступеней = \(res)")
+        print("Число способов подняться на лестницу из \(n) ступеней: \(res).")
     }
 }

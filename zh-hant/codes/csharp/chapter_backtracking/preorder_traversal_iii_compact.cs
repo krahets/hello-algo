@@ -19,12 +19,12 @@ public class preorder_traversal_iii_compact {
         // 嘗試
         path.Add(root);
         if (root.val == 7) {
-            // 記錄解
+            // 記錄此解
             res.Add(new List<TreeNode>(path));
         }
         PreOrder(root.left);
         PreOrder(root.right);
-        // 回退
+        // 回溯
         path.RemoveAt(path.Count - 1);
     }
 
@@ -37,7 +37,7 @@ public class preorder_traversal_iii_compact {
         // 前序走訪
         PreOrder(root);
 
-        Console.WriteLine("\n輸出所有根節點到節點 7 的路徑，路徑中不包含值為 3 的節點");
+        Console.WriteLine("\n輸出從根節點到值為 7 的節點的所有路徑，且路徑中不含值為 3 的節點");
         foreach (List<TreeNode> path in res) {
             PrintUtil.PrintList(path.Select(p => p.val).ToList());
         }

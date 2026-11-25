@@ -9,12 +9,12 @@ use hello_algo_rust::include::{print_util, ListNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
-/* 基於鏈結串列實現的佇列 */
+/* 以鏈結串列實作佇列 */
 #[allow(dead_code)]
 pub struct LinkedListQueue<T> {
-    front: Option<Rc<RefCell<ListNode<T>>>>, // 頭節點 front
-    rear: Option<Rc<RefCell<ListNode<T>>>>,  // 尾節點 rear
-    que_size: usize,                         // 佇列的長度
+    front: Option<Rc<RefCell<ListNode<T>>>>, // front 指向首節點
+    rear: Option<Rc<RefCell<ListNode<T>>>>,  // rear 指向尾節點
+    que_size: usize,                         // 佇列長度
 }
 
 impl<T: Copy> LinkedListQueue<T> {
@@ -26,7 +26,7 @@ impl<T: Copy> LinkedListQueue<T> {
         }
     }
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     pub fn size(&self) -> usize {
         return self.que_size;
     }
@@ -36,17 +36,17 @@ impl<T: Copy> LinkedListQueue<T> {
         return self.que_size == 0;
     }
 
-    /* 入列 */
+    /* 入隊 */
     pub fn push(&mut self, num: T) {
-        // 在尾節點後新增 num
+        // 建立存有 num 的新節點，準備接到隊尾
         let new_rear = ListNode::new(num);
         match self.rear.take() {
-            // 如果佇列不為空，則將該節點新增到尾節點後
+            // 若佇列非空，將新節點接在尾節點之後
             Some(old_rear) => {
                 old_rear.borrow_mut().next = Some(new_rear.clone());
                 self.rear = Some(new_rear);
             }
-            // 如果佇列為空，則令頭、尾節點都指向該節點
+            // 若佇列為空，讓隊首與隊尾都指向新節點
             None => {
                 self.front = Some(new_rear.clone());
                 self.rear = Some(new_rear);
@@ -55,7 +55,7 @@ impl<T: Copy> LinkedListQueue<T> {
         self.que_size += 1;
     }
 
-    /* 出列 */
+    /* 出隊 */
     pub fn pop(&mut self) -> Option<T> {
         self.front.take().map(|old_front| {
             match old_front.borrow_mut().next.take() {
@@ -71,12 +71,12 @@ impl<T: Copy> LinkedListQueue<T> {
         })
     }
 
-    /* 訪問佇列首元素 */
+    /* 取得隊首節點的參照 */
     pub fn peek(&self) -> Option<&Rc<RefCell<ListNode<T>>>> {
         self.front.as_ref()
     }
 
-    /* 將鏈結串列轉化為 Array 並返回 */
+    /* 將鏈結串列轉成 Vec 並回傳 */
     pub fn to_array(&self, head: Option<&Rc<RefCell<ListNode<T>>>>) -> Vec<T> {
         let mut res: Vec<T> = Vec::new();
 
@@ -93,12 +93,12 @@ impl<T: Copy> LinkedListQueue<T> {
     }
 }
 
-/* Driver Code */
+/* 範例程式 */
 fn main() {
     /* 初始化佇列 */
     let mut queue = LinkedListQueue::new();
 
-    /* 元素入列 */
+    /* 將元素加入佇列 */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -107,16 +107,16 @@ fn main() {
     print!("佇列 queue = ");
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* 訪問佇列首元素 */
+    /* 讀取隊首元素 */
     let peek = queue.peek().unwrap().borrow().val;
-    print!("\n佇列首元素 peek = {}", peek);
+    print!("\n隊首元素 peek = {}", peek);
 
-    /* 元素出列 */
+    /* 從佇列取出元素 */
     let pop = queue.pop().unwrap();
-    print!("\n出列元素 pop = {}，出列後 queue = ", pop);
+    print!("\n出隊元素 pop = {}，出隊後 queue = ", pop);
     print_util::print_array(&queue.to_array(queue.peek()));
 
-    /* 獲取佇列的長度 */
+    /* 取得佇列長度 */
     let size = queue.size();
     print!("\n佇列長度 size = {}", size);
 

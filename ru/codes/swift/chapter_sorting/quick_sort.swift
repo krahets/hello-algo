@@ -5,110 +5,110 @@
  */
 
 /* Класс быстрой сортировки */
-/* Разбиение с опорными указателями */
+/* Разбиение двумя указателями */
 func partition(nums: inout [Int], left: Int, right: Int) -> Int {
-    // Взять nums[left] в качестве опорного элемента
+    // Выбрать nums[left] опорным элементом
     var i = left
     var j = right
     while i < j {
         while i < j, nums[j] >= nums[left] {
-            j -= 1 // Идти справа налево в поисках первого элемента меньше опорного
+            j -= 1 // Справа налево найти первый элемент меньше опорного
         }
         while i < j, nums[i] <= nums[left] {
-            i += 1 // Идти слева направо в поисках первого элемента больше опорного
+            i += 1 // Слева направо найти первый элемент больше опорного
         }
-        nums.swapAt(i, j) // Поменять эти два элемента местами
+        nums.swapAt(i, j) // Поменять эти элементы местами
     }
-    nums.swapAt(i, left) // Переместить опорный элемент на границу двух подмассивов
+    nums.swapAt(i, left) // Обменом поместить опорный элемент на границу подмассивов
     return i // Вернуть индекс опорного элемента
 }
 
 /* Быстрая сортировка */
 func quickSort(nums: inout [Int], left: Int, right: Int) {
-    // Завершить рекурсию, когда длина подмассива равна 1
+    // Завершить рекурсию при длине подмассива 1
     if left >= right {
         return
     }
-    // Разбиение с опорными указателями
+    // Разбиение двумя указателями
     let pivot = partition(nums: &nums, left: left, right: right)
-    // Рекурсивно обработать левый и правый подмассивы
+    // Рекурсивно отсортировать левый и правый подмассивы
     quickSort(nums: &nums, left: left, right: pivot - 1)
     quickSort(nums: &nums, left: pivot + 1, right: right)
 }
 
-/* Класс быстрой сортировки (оптимизация медианным опорным элементом) */
-/* Выбрать медиану из трех кандидатов */
+/* Класс быстрой сортировки с выбором медианы */
+/* Выбрать медиану трёх кандидатов */
 func medianThree(nums: [Int], left: Int, mid: Int, right: Int) -> Int {
     let l = nums[left]
     let m = nums[mid]
     let r = nums[right]
     if (l <= m && m <= r) || (r <= m && m <= l) {
-        return mid // m находится между l и r
+        return mid // m лежит между l и r
     }
     if (m <= l && l <= r) || (r <= l && l <= m) {
-        return left // l находится между m и r
+        return left // l лежит между m и r
     }
     return right
 }
 
-/* Разбиение с опорными указателями (медиана трех) */
+/* Разбиение двумя указателями с выбором медианы трёх */
 func partitionMedian(nums: inout [Int], left: Int, right: Int) -> Int {
-    // Выбрать медиану из трех кандидатов
+    // Выбрать медиану трёх кандидатов
     let med = medianThree(nums: nums, left: left, mid: left + (right - left) / 2, right: right)
-    // Переместить медиану в крайний левый элемент массива
+    // Обменом поместить медиану в начало массива
     nums.swapAt(left, med)
     return partition(nums: &nums, left: left, right: right)
 }
 
-/* Быстрая сортировка (оптимизация медианным опорным элементом) */
+/* Быстрая сортировка с выбором медианы в качестве опорного элемента */
 func quickSortMedian(nums: inout [Int], left: Int, right: Int) {
-    // Завершить рекурсию, когда длина подмассива равна 1
+    // Завершить рекурсию при длине подмассива 1
     if left >= right {
         return
     }
-    // Разбиение с опорными указателями
+    // Разбиение двумя указателями
     let pivot = partitionMedian(nums: &nums, left: left, right: right)
-    // Рекурсивно обработать левый и правый подмассивы
+    // Рекурсивно отсортировать левый и правый подмассивы
     quickSortMedian(nums: &nums, left: left, right: pivot - 1)
     quickSortMedian(nums: &nums, left: pivot + 1, right: right)
 }
 
-/* Быстрая сортировка (оптимизация глубины рекурсии) */
+/* Быстрая сортировка с уменьшенной глубиной рекурсии */
 func quickSortTailCall(nums: inout [Int], left: Int, right: Int) {
     var left = left
     var right = right
-    // Завершить, когда длина подмассива равна 1
+    // Завершить обработку при длине подмассива 1
     while left < right {
-        // Операция разбиения с опорными указателями
+        // Выполнить разбиение двумя указателями
         let pivot = partition(nums: &nums, left: left, right: right)
-        // Выполнить быструю сортировку для более короткого из двух подмассивов
+        // Применить быструю сортировку к более короткому подмассиву
         if (pivot - left) < (right - pivot) {
             quickSortTailCall(nums: &nums, left: left, right: pivot - 1) // Рекурсивно отсортировать левый подмассив
-            left = pivot + 1 // Оставшийся неотсортированный диапазон: [pivot + 1, right]
+            left = pivot + 1 // Оставшийся неотсортированный участок: [pivot + 1, right]
         } else {
             quickSortTailCall(nums: &nums, left: pivot + 1, right: right) // Рекурсивно отсортировать правый подмассив
-            right = pivot - 1 // Оставшийся неотсортированный диапазон: [left, pivot - 1]
+            right = pivot - 1 // Оставшийся неотсортированный участок: [left, pivot - 1]
         }
     }
 }
 
 @main
 enum QuickSort {
-    /* Driver Code */
+    /* Тестовый пример */
     static func main() {
         /* Быстрая сортировка */
         var nums = [2, 4, 1, 0, 3, 5]
         quickSort(nums: &nums, left: nums.startIndex, right: nums.endIndex - 1)
         print("После быстрой сортировки nums = \(nums)")
 
-        /* Быстрая сортировка (оптимизация медианным опорным элементом) */
+        /* Быстрая сортировка с выбором медианы в качестве опорного элемента */
         var nums1 = [2, 4, 1, 0, 3, 5]
         quickSortMedian(nums: &nums1, left: nums1.startIndex, right: nums1.endIndex - 1)
-        print("После быстрой сортировки (оптимизация медианным опорным элементом) nums1 = \(nums1)")
+        print("После быстрой сортировки с выбором медианы nums1 = \(nums1)")
 
-        /* Быстрая сортировка (оптимизация глубины рекурсии) */
+        /* Быстрая сортировка с уменьшенной глубиной рекурсии */
         var nums2 = [2, 4, 1, 0, 3, 5]
         quickSortTailCall(nums: &nums2, left: nums2.startIndex, right: nums2.endIndex - 1)
-        print("После быстрой сортировки (оптимизация глубины рекурсии) nums2 = \(nums2)")
+        print("После быстрой сортировки с уменьшенной глубиной рекурсии nums2 = \(nums2)")
     }
 }

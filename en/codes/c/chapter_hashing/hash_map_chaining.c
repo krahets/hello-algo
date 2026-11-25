@@ -23,12 +23,12 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
-/* Hash table with separate chaining */
+/* Hash table with chaining */
 typedef struct {
     int size;         // Number of key-value pairs
     int capacity;     // Hash table capacity
-    double loadThres; // Load factor threshold that triggers capacity growth
-    int extendRatio;  // Capacity growth factor
+    double loadThres; // Load factor threshold for resizing
+    int extendRatio;  // Growth factor
     Node **buckets;   // Bucket array
 } HashMapChaining;
 
@@ -71,10 +71,10 @@ double loadFactor(HashMapChaining *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
-/* Lookup operation */
+/* Look up a value */
 char *get(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
-    // Traverse the bucket; if key is found, return its corresponding val
+    // Scan the bucket and return the corresponding val if key is found
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -82,32 +82,32 @@ char *get(HashMapChaining *hashMap, int key) {
         }
         cur = cur->next;
     }
-    return ""; // Return an empty string if key is not found
+    return ""; // Return an empty string if key is absent
 }
 
-/* Insert operation */
+/* Insert a key-value pair */
 void put(HashMapChaining *hashMap, int key, const char *val);
 
-/* Grow the hash table capacity */
+/* Expand the hash table */
 void extend(HashMapChaining *hashMap) {
-    // Keep a reference to the original hash table
+    // Save the original hash table
     int oldCapacity = hashMap->capacity;
     Node **oldBuckets = hashMap->buckets;
-    // Initialize a new hash table with the expanded capacity
+    // Initialize the larger hash table
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Node **)malloc(hashMap->capacity * sizeof(Node *));
     for (int i = 0; i < hashMap->capacity; i++) {
         hashMap->buckets[i] = NULL;
     }
     hashMap->size = 0;
-    // Move the key-value pairs from the original hash table to the new one
+    // Move the key-value pairs from the old table into the new one
     for (int i = 0; i < oldCapacity; i++) {
         Node *cur = oldBuckets[i];
         while (cur) {
             put(hashMap, cur->pair->key, cur->pair->val);
             Node *temp = cur;
             cur = cur->next;
-            // Free memory
+            // Free the memory
             free(temp->pair);
             free(temp);
         }
@@ -116,14 +116,14 @@ void extend(HashMapChaining *hashMap) {
     free(oldBuckets);
 }
 
-/* Insert operation */
+/* Insert a key-value pair */
 void put(HashMapChaining *hashMap, int key, const char *val) {
-    // Grow the capacity when the load factor exceeds the threshold
+    // Expand the table when the load factor exceeds the threshold
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
     int index = hashFunc(hashMap, key);
-    // Traverse the bucket; if the specified key is found, update its val and return
+    // Scan the bucket. If the specified key is found, update its val and return
     Node *cur = hashMap->buckets[index];
     while (cur) {
         if (cur->pair->key == key) {
@@ -132,7 +132,7 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
         }
         cur = cur->next;
     }
-    // If key is absent, add the key-value pair at the head of the linked list
+    // If key is absent, insert the pair at the head of the list
     Pair *newPair = (Pair *)malloc(sizeof(Pair));
     newPair->key = key;
     strcpy(newPair->val, val);
@@ -143,20 +143,20 @@ void put(HashMapChaining *hashMap, int key, const char *val) {
     hashMap->size++;
 }
 
-/* Remove operation */
+/* Remove a key-value pair */
 void removeItem(HashMapChaining *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     Node *cur = hashMap->buckets[index];
     Node *pre = NULL;
     while (cur) {
         if (cur->pair->key == key) {
-            // Remove the key-value pair from the list
+            // Remove the pair from the list
             if (pre) {
                 pre->next = cur->next;
             } else {
                 hashMap->buckets[index] = cur->next;
             }
-            // Free memory
+            // Free the memory
             free(cur->pair);
             free(cur);
             hashMap->size--;
@@ -185,28 +185,28 @@ int main() {
     /* Initialize the hash table */
     HashMapChaining *hashMap = newHashMapChaining();
 
-    /* Insert operation */
-    // Insert the key-value pair (key, value) into the hash table
-    put(hashMap, 12836, "小哈");
-    put(hashMap, 15937, "小啰");
-    put(hashMap, 16750, "小算");
-    put(hashMap, 13276, "小法");
-    put(hashMap, 10583, "小鸭");
+    /* Insert a key-value pair */
+    // Insert the pair (key, value) into the hash table
+    put(hashMap, 12836, "Xiao Ha");
+    put(hashMap, 15937, "Xiao Luo");
+    put(hashMap, 16750, "Xiao Suan");
+    put(hashMap, 13276, "Xiao Fa");
+    put(hashMap, 10583, "Xiao Ya");
     printf("\nHash table after insertion:\nKey -> Value\n");
     print(hashMap);
 
-    /* Lookup operation */
-    // Look up key in the hash table to obtain value
+    /* Look up a value */
+    // Look up key in the hash table to get value
     char *name = get(hashMap, 13276);
-    printf("\nLook up student ID 13276; name found: %s\n", name);
+    printf("\nName for student ID 13276: %s\n", name);
 
-    /* Remove operation */
-    // Remove the key-value pair (key, value) from the hash table
+    /* Remove a key-value pair */
+    // Remove the pair (key, value) from the hash table
     removeItem(hashMap, 12836);
     printf("\nHash table after removing student ID 12836:\nKey -> Value\n");
     print(hashMap);
 
-    /* Free the hash table's memory */
+    /* Free the memory used by the hash table */
     delHashMapChaining(hashMap);
 
     return 0;

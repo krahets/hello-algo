@@ -7,7 +7,7 @@
 use hello_algo_rust::include::{print_util, vec_to_tree, TreeNode};
 use std::{cell::RefCell, rc::Rc};
 
-/* Предварительный обход: пример 3 */
+/* Прямой обход: пример 3 */
 fn pre_order(
     res: &mut Vec<Vec<Rc<RefCell<TreeNode>>>>,
     path: &mut Vec<Rc<RefCell<TreeNode>>>,
@@ -18,31 +18,31 @@ fn pre_order(
         return;
     }
     if let Some(node) = root {
-        // Попытка
+        // Пробуем вариант
         path.push(node.clone());
         if node.borrow().val == 7 {
-            // Записать решение
+            // Сохраняем решение
             res.push(path.clone());
         }
         pre_order(res, path, node.borrow().left.as_ref());
         pre_order(res, path, node.borrow().right.as_ref());
-        // Откат
+        // Возврат
         path.pop();
     }
 }
 
-/* Driver Code */
+/* Основная программа */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
-    println!("Инициализация двоичного дерева");
+    println!("Создаём двоичное дерево");
     print_util::print_tree(root.as_ref().unwrap());
 
-    // Предварительный обход
+    // Прямой обход
     let mut path = Vec::new();
     let mut res = Vec::new();
     pre_order(&mut res, &mut path, root.as_ref());
 
-    println!("\nВсе пути от корня к узлу 7, не содержащие узлов со значением 3");
+    println!("\nВыводим все пути от корня до узлов со значением 7 без узлов со значением 3");
     for path in res {
         let mut vals = Vec::new();
         for node in path {

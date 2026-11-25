@@ -7,7 +7,7 @@
 /* for 迴圈 */
 func forLoop(n: Int) -> Int {
     var res = 0
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     for i in 1 ... n {
         res += i
     }
@@ -18,7 +18,7 @@ func forLoop(n: Int) -> Int {
 func whileLoop(n: Int) -> Int {
     var res = 0
     var i = 1 // 初始化條件變數
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     while i <= n {
         res += i
         i += 1 // 更新條件變數
@@ -26,11 +26,11 @@ func whileLoop(n: Int) -> Int {
     return res
 }
 
-/* while 迴圈（兩次更新） */
+/* while 迴圈（更新兩次） */
 func whileLoopII(n: Int) -> Int {
     var res = 0
     var i = 1 // 初始化條件變數
-    // 迴圈求和 1, 4, 10, ...
+    // 迴圈加總 1, 4, 10, ...
     while i <= n {
         res += i
         // 更新條件變數
@@ -55,21 +55,21 @@ func nestedForLoop(n: Int) -> String {
 
 @main
 enum Iteration {
-    /* Driver Code */
+    /* 主程式 */
     static func main() {
         let n = 5
         var res = 0
 
         res = forLoop(n: n)
-        print("\nfor 迴圈的求和結果 res = \(res)")
+        print("\nfor 迴圈的總和 res = \(res)")
 
         res = whileLoop(n: n)
-        print("\nwhile 迴圈的求和結果 res = \(res)")
+        print("\nwhile 迴圈的總和 res = \(res)")
 
         res = whileLoopII(n: n)
-        print("\nwhile 迴圈（兩次更新）求和結果 res = \(res)")
+        print("\nwhile 迴圈（更新兩次）的總和 res = \(res)")
 
         let resStr = nestedForLoop(n: n)
-        print("\n雙層 for 迴圈的走訪結果 \(resStr)")
+        print("\n雙層 for 迴圈走訪的結果 \(resStr)")
     }
 }

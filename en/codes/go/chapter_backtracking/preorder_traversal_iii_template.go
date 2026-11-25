@@ -18,7 +18,7 @@ func recordSolution(state *[]*TreeNode, res *[][]*TreeNode) {
 	*res = append(*res, append([]*TreeNode{}, *state...))
 }
 
-/* Check whether the choice is valid in the current state */
+/* Check whether this choice is valid in the current state */
 func isValid(state *[]*TreeNode, choice *TreeNode) bool {
 	return choice != nil && choice.Val != 3
 }
@@ -35,22 +35,22 @@ func undoChoice(state *[]*TreeNode, choice *TreeNode) {
 
 /* Backtracking: example 3 */
 func backtrackIII(state *[]*TreeNode, choices *[]*TreeNode, res *[][]*TreeNode) {
-	// Check whether this is a solution
+	// Check for a solution
 	if isSolution(state) {
 		// Record the solution
 		recordSolution(state, res)
 	}
-	// Iterate over all choices
+	// Try each choice
 	for _, choice := range *choices {
 		// Prune: check whether the choice is valid
 		if isValid(state, choice) {
-			// Try: make a choice and update the state
+			// Make a choice and update the state
 			makeChoice(state, choice)
-			// Proceed to the next choice
+			// Make the next choice
 			temp := make([]*TreeNode, 0)
 			temp = append(temp, choice.Left, choice.Right)
 			backtrackIII(state, &temp, res)
-			// Backtrack: undo the choice and restore the previous state
+			// Backtrack: undo the choice to restore the previous state
 			undoChoice(state, choice)
 		}
 	}

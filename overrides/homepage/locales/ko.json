@@ -1,7 +1,7 @@
 {
   "hero_class": "hero-div hero-div--ko",
   "labels": {
-    "astronaut": "알고리즘과의 첫 만남",
+    "astronaut": "알고리즘 입문",
     "chapter_computational_complexity": "복잡도 분석",
     "chapter_array_and_linkedlist": "배열과 연결 리스트",
     "chapter_stack_and_queue": "스택과 큐",
@@ -14,7 +14,7 @@
     "chapter_divide_and_conquer": "분할 정복",
     "chapter_backtracking": "백트래킹",
     "chapter_dynamic_programming": "동적 계획법",
-    "chapter_greedy": "탐욕"
+    "chapter_greedy": "탐욕적 접근법"
   },
   "label_styles": {
     "astronaut": "left: 52.244%; top: 20.919%;",
@@ -34,15 +34,15 @@
   },
   "typing": {
     "style": "height: min(9vh, 12vw);",
-    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+KR&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%21",
+    "src": "https://readme-typing-svg.demolab.com/?font=Noto+Sans+KR&weight=400&duration=3500&pause=2000&color=FFF&center=true&vCenter=true&random=false&width=200&lines=Hello%2C+%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98!",
     "alt": ""
   },
-  "tagline": "애니메이션으로 설명하고 클릭 한 번으로 실행하는 자료 구조와 알고리즘 입문서",
+  "tagline": "움직이는 그림과 클릭 한 번으로 실행하는 코드로 배우는 자료 구조와 알고리즘",
   "start_label": "읽기 시작하기",
   "start_href": "chapter_hello_algo/",
   "reading": [
     {
-      "asset": "web_mac_iphone",
+      "asset": "ko_web_mac_iphone",
       "href": "chapter_hello_algo/",
       "alt": "",
       "label": "온라인으로 읽기",
@@ -53,56 +53,56 @@
       ]
     },
     {
-      "asset": "pdf_ipad",
+      "asset": "en_pdf_ipad",
       "href": "https://github.com/krahets/hello-algo/releases",
       "alt": "",
-      "label": "PDF/EPUB 제공 언어 확인",
+      "label": "이용 가능한 PDF·EPUB 버전 보기",
       "image_style": "height: 75%;",
       "spacers": []
     }
   ],
-  "reading_description": "500개의 애니메이션 그림, 14개 프로그래밍 언어의 코드, 3000개의 커뮤니티 질문과 답변으로 자료 구조와 알고리즘의 기초를 빠르게 익힐 수 있다",
-  "endorsement_title": "추천의 말",
+  "reading_description": "애니메이션 도해 500개, 14개 프로그래밍 언어로 작성한 코드, 커뮤니티에서 오간 질문과 답변 3,000건으로 자료 구조와 알고리즘의 기초를 빠르게 익힐 수 있다.",
+  "endorsement_title": "추천의 글",
   "endorsements": [
     [
-      "“쉽게 읽을 수 있는 자료 구조와 알고리즘 입문서다. 직접 실습하고 생각하며 배우도록 안내한다. 알고리즘 입문자에게 적극 추천한다.”",
-      "—— 덩쥔후이, 칭화대학교 컴퓨터학과 교수"
+      "“자료 구조와 알고리즘을 쉽게 풀어 쓴 입문서다. 독자가 스스로 생각하고 직접 손을 움직이며 배우도록 이끈다. 알고리즘을 처음 배우는 이들에게 강력히 추천한다.”",
+      "— 덩쥔후이, 칭화대학교 컴퓨터과학과 교수"
     ],
     [
-      "“내가 자료 구조와 알고리즘을 배울 때 『Hello 알고리즘』이 있었다면 공부가 열 배는 쉬웠을 것이다!”",
-      "—— 리무, 아마존 수석 과학자(Senior Principal Scientist)"
+      "“내가 자료 구조와 알고리즘을 배울 때 『Hello 알고리즘』이 있었다면 아마 열 배는 더 쉽게 배웠을 것이다!”",
+      "— 리무, 아마존 시니어 프린시펄 사이언티스트"
     ]
   ],
   "features": [
     {
-      "title": "애니메이션 그림",
-      "description": "명확하고 이해하기 쉬운 내용, 완만한 학습 곡선",
+      "title": "애니메이션 도해",
+      "description": "설명이 명확하고 이해하기 쉬워 차근차근 배워 나갈 수 있다.",
       "quotes": [
         "\"A picture is worth a thousand words.\"",
         "“그림 한 장이 천 마디 말보다 낫다”"
       ],
-      "video": "animation",
-      "video_label": "애니메이션 예제"
+      "video": "ko_animation",
+      "video_label": "애니메이션 도해 예시"
     },
     {
       "title": "클릭 한 번으로 실행",
-      "description": "열 가지가 넘는 프로그래밍 언어와 코드 실행 시각화",
+      "description": "10개가 넘는 프로그래밍 언어로 코드가 실행되는 과정을 눈으로 확인할 수 있다.",
       "quotes": [
         "\"Talk is cheap. Show me the code.\"",
-        "“말보다 코드를 보여 달라”"
+        "“말은 줄이고 코드를 보여 주자”"
       ],
-      "video": "running_code",
-      "video_label": "코드 실행 예제"
+      "video": "ko_running_code",
+      "video_label": "코드 실행 예시"
     },
     {
       "title": "함께 배우기",
-      "description": "질문과 토론을 나누며 함께 성장하는 독자들",
+      "description": "궁금한 점을 묻고 토론하며 다른 독자들과 함께 배워 보자.",
       "quotes": [
         "\"Learning by teaching.\"",
-        "“가르치며 배운다”"
+        "“가르치는 이와 배우는 이는 함께 성장한다”"
       ],
       "video": "comment",
-      "video_label": "댓글 예제"
+      "video_label": "독자 토론 예시"
     }
   ],
   "people": [
@@ -122,13 +122,13 @@
     },
     {
       "title": "코드 검토자",
-      "description": "다음 개발자들이 함께 힘을 모아 여러 언어의 예제 코드를 완성했다. 이들의 노력과 기여에 감사드린다!",
+      "description": "다음 개발자들이 힘을 모아 이 책의 코드를 여러 프로그래밍 언어로 구현했다. 시간과 노력을 들여 기여해 준 모든 분께 감사드린다.",
       "profiles": [
         {
           "href": "https://github.com/coderonion",
           "class": "profile-cell",
           "asset": "avatar_coderonion",
-          "alt": "검토자: coderonion",
+          "alt": "코드 검토자: coderonion",
           "name": "coderonion",
           "detail": "Zig, Rust"
         },
@@ -136,7 +136,7 @@
           "href": "https://github.com/curtishd",
           "class": "profile-cell",
           "asset": "avatar_curtishd",
-          "alt": "검토자: curtishd",
+          "alt": "코드 검토자: curtishd",
           "name": "curtishd",
           "detail": "Kotlin"
         },
@@ -144,7 +144,7 @@
           "href": "https://github.com/Gonglja",
           "class": "profile-cell",
           "asset": "avatar_Gonglja",
-          "alt": "검토자: Gonglja",
+          "alt": "코드 검토자: Gonglja",
           "name": "Gonglja",
           "detail": "C, C++"
         },
@@ -152,7 +152,7 @@
           "href": "https://github.com/gvenusleo",
           "class": "profile-cell",
           "asset": "avatar_gvenusleo",
-          "alt": "검토자: gvenusleo",
+          "alt": "코드 검토자: gvenusleo",
           "name": "gvenusleo",
           "detail": "Dart"
         },
@@ -160,7 +160,7 @@
           "href": "https://github.com/hpstory",
           "class": "profile-cell",
           "asset": "avatar_hpstory",
-          "alt": "검토자: hpstory",
+          "alt": "코드 검토자: hpstory",
           "name": "hpstory",
           "detail": "C#"
         },
@@ -168,7 +168,7 @@
           "href": "https://github.com/justin-tse",
           "class": "profile-cell",
           "asset": "avatar_justin-tse",
-          "alt": "검토자: justin-tse",
+          "alt": "코드 검토자: justin-tse",
           "name": "justin-tse",
           "detail": "JS, TS"
         },
@@ -176,7 +176,7 @@
           "href": "https://github.com/khoaxuantu",
           "class": "profile-cell",
           "asset": "avatar_khoaxuantu",
-          "alt": "검토자: khoaxuantu",
+          "alt": "코드 검토자: khoaxuantu",
           "name": "khoaxuantu",
           "detail": "Ruby"
         },
@@ -184,7 +184,7 @@
           "href": "https://github.com/krahets",
           "class": "profile-cell",
           "asset": "avatar_krahets",
-          "alt": "검토자: krahets",
+          "alt": "코드 검토자: krahets",
           "name": "krahets",
           "detail": "Python, Java"
         },
@@ -192,7 +192,7 @@
           "href": "https://github.com/night-cruise",
           "class": "profile-cell",
           "asset": "avatar_night-cruise",
-          "alt": "검토자: night-cruise",
+          "alt": "코드 검토자: night-cruise",
           "name": "night-cruise",
           "detail": "Rust"
         },
@@ -200,7 +200,7 @@
           "href": "https://github.com/nuomi1",
           "class": "profile-cell",
           "asset": "avatar_nuomi1",
-          "alt": "검토자: nuomi1",
+          "alt": "코드 검토자: nuomi1",
           "name": "nuomi1",
           "detail": "Swift"
         },
@@ -208,7 +208,7 @@
           "href": "https://github.com/Reanon",
           "class": "profile-cell",
           "asset": "avatar_Reanon",
-          "alt": "검토자: Reanon",
+          "alt": "코드 검토자: Reanon",
           "name": "Reanon",
           "detail": "Go, C"
         },
@@ -216,7 +216,7 @@
           "href": "https://github.com/rongyi",
           "class": "profile-cell",
           "asset": "avatar_rongyi",
-          "alt": "검토자: rongyi",
+          "alt": "코드 검토자: rongyi",
           "name": "rongyi",
           "detail": "Rust"
         }
@@ -224,12 +224,12 @@
     },
     {
       "title": "기여자",
-      "description": "이 책은 오픈 소스 커뮤니티의 200명이 넘는 기여자가 함께 노력한 덕분에 꾸준히 발전하고 있다. 시간과 노력을 들여 준 모든 분께 감사드린다!",
+      "description": "오픈 소스 커뮤니티에서 200명이 넘는 기여자가 힘을 보탠 덕분에 이 책은 계속 발전하고 있다. 시간과 노력을 들여 준 모든 분께 감사드린다.",
       "profiles": [],
       "banner": {
         "href": "https://github.com/krahets/hello-algo/graphs/contributors",
         "url": "https://contrib.rocks/image?repo=krahets/hello-algo&max=300&columns=12",
-        "alt": "기여자",
+        "alt": "이 책의 기여자들",
         "style": "width: 100%; max-width: 38.5em;"
       }
     }

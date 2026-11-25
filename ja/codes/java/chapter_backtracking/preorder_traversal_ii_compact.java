@@ -26,13 +26,13 @@ public class preorder_traversal_ii_compact {
         }
         preOrder(root.left);
         preOrder(root.right);
-        // 復元
+        // 後戻り
         path.remove(path.size() - 1);
     }
 
     public static void main(String[] args) {
         TreeNode root = TreeNode.listToTree(Arrays.asList(1, 7, 3, 4, 5, 6, 7));
-        System.out.println("\n二分木を初期化する");
+        System.out.println("\n二分木を初期化");
         PrintUtil.printTree(root);
 
         // 行きがけ順走査
@@ -40,7 +40,7 @@ public class preorder_traversal_ii_compact {
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\n根ノードからノード 7 までのすべての経路を出力する");
+        System.out.println("\n根から値が 7 のノードまでの経路をすべて出力");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

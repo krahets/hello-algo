@@ -14,24 +14,24 @@ fun backtrack(
     start: Int,
     res: MutableList<MutableList<Int>?>
 ) {
-    // 子集和等於 target 時，記錄解
+    // 子集總和達到目標時，記錄此解
     if (target == 0) {
         res.add(state.toMutableList())
         return
     }
-    // 走訪所有選擇
-    // 剪枝二：從 start 開始走訪，避免生成重複子集
+    // 逐一檢查所有選項
+    // 剪枝二：從 start 開始走訪，避免產生重複子集
     for (i in start..<choices.size) {
-        // 剪枝一：若子集和超過 target ，則直接結束迴圈
-        // 這是因為陣列已排序，後邊元素更大，子集和一定超過 target
+        // 剪枝一：若候選值超過剩餘目標值 target，結束迴圈
+        // 陣列已排序，後面的元素更大，也一定超過剩餘目標值 target
         if (target - choices[i] < 0) {
             break
         }
-        // 嘗試：做出選擇，更新 target, start
+        // 嘗試：做出選擇，更新 target 和 start
         state.add(choices[i])
-        // 進行下一輪選擇
+        // 進入下一輪選擇
         backtrack(state, target - choices[i], choices, i, res)
-        // 回退：撤銷選擇，恢復到之前的狀態
+        // 回溯：撤銷選擇，還原先前的狀態
         state.removeAt(state.size - 1)
     }
 }
@@ -39,14 +39,14 @@ fun backtrack(
 /* 求解子集和 I */
 fun subsetSumI(nums: IntArray, target: Int): MutableList<MutableList<Int>?> {
     val state = mutableListOf<Int>() // 狀態（子集）
-    nums.sort() // 對 nums 進行排序
-    val start = 0 // 走訪起始點
+    nums.sort() // 將 nums 排序
+    val start = 0 // 走訪的起點
     val res = mutableListOf<MutableList<Int>?>() // 結果串列（子集串列）
     backtrack(state, target, nums, start, res)
     return res
 }
 
-/* Driver Code */
+/* 主程式 */
 fun main() {
     val nums = intArrayOf(3, 4, 5)
     val target = 9
@@ -54,5 +54,5 @@ fun main() {
     val res = subsetSumI(nums, target)
 
     println("輸入陣列 nums = ${nums.contentToString()}, target = $target")
-    println("所有和等於 $target 的子集 res = $res")
+    println("總和等於 $target 的所有子集 res = $res")
 }

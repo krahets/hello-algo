@@ -11,7 +11,7 @@ require_relative '../utils/print_util'
 def pre_order(root)
   return if root.nil?
 
-  # 訪問順序：根ノード -> 左部分木 -> 右部分木
+  # 訪問順：根 -> 左部分木 -> 右部分木
   $res << root.val
   pre_order(root.left)
   pre_order(root.right)
@@ -21,7 +21,7 @@ end
 def in_order(root)
   return if root.nil?
 
-  # 訪問順序：左部分木 -> 根ノード -> 右部分木
+  # 訪問順：左部分木 -> 根 -> 右部分木
   in_order(root.left)
   $res << root.val
   in_order(root.right)
@@ -31,32 +31,32 @@ end
 def post_order(root)
   return if root.nil?
 
-  # 訪問順序：左部分木 -> 右部分木 -> 根ノード
+  # 訪問順：左部分木 -> 右部分木 -> 根
   post_order(root.left)
   post_order(root.right)
   $res << root.val
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # 二分木を初期化する
-  # ここでは配列から二分木を直接生成する関数を使う
+  # ここでは配列から直接二分木を作る関数を使う
   root = arr_to_tree([1, 2, 3, 4, 5, 6, 7])
-  puts "\n二分木を初期化する\n\n"
+  puts "\n二分木を初期化\n\n"
   print_tree(root)
 
   # 行きがけ順走査
   $res = []
   pre_order(root)
-  puts "\n行きがけ順走査で表示するノードの順序 = #{$res}"
+  puts "\n行きがけ順に出力したノードの列 = #{$res}"
 
   # 通りがけ順走査
   $res.clear
   in_order(root)
-  puts "\nn通りがけ順走査で表示するノードの順序 = #{$res}"
+  puts "\nn通りがけ順に出力したノードの列 = #{$res}"
 
   # 帰りがけ順走査
   $res.clear
   post_order(root)
-  puts "\nn帰りがけ順走査で表示するノードの順序 = #{$res}"
+  puts "\nn帰りがけ順に出力したノードの列 = #{$res}"
 end

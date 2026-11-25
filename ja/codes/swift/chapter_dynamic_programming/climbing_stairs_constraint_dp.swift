@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 func climbingStairsConstraintDP(n: Int) -> Int {
     if n == 1 || n == 2 {
         return 1
@@ -26,11 +26,11 @@ func climbingStairsConstraintDP(n: Int) -> Int {
 
 @main
 enum ClimbingStairsConstraintDP {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let n = 9
 
         let res = climbingStairsConstraintDP(n: n)
-        print("\(n) 段の階段を上る方法は全部で \(res) 通り")
+        print("全 \(n) 段の階段の登り方は \(res) 通り")
     }
 }

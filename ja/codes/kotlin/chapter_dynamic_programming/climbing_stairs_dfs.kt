@@ -8,22 +8,22 @@ package chapter_dynamic_programming
 
 /* 探索 */
 fun dfs(i: Int): Int {
-    // dp[1] と dp[2] は既知なので、その値を返す
+    // 既知の値 dp[1] と dp[2] のうち、該当する方を返す
     if (i == 1 || i == 2) return i
     // dp[i] = dp[i-1] + dp[i-2]
     val count = dfs(i - 1) + dfs(i - 2)
     return count
 }
 
-/* 階段の上り方：探索 */
+/* 階段の登り方：探索 */
 fun climbingStairsDFS(n: Int): Int {
     return dfs(n)
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val n = 9
 
     val res = climbingStairsDFS(n)
-    println("$n 段の階段を上る方法は全部で $res 通り")
+    println("全 $n 段の階段の登り方は $res 通り")
 }

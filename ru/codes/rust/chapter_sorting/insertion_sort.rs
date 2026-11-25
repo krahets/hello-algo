@@ -8,19 +8,19 @@ use hello_algo_rust::include::print_util;
 
 /* Сортировка вставками */
 fn insertion_sort(nums: &mut [i32]) {
-    // Внешний цикл: отсортированный диапазон [0, i-1]
+    // Внешний цикл: отсортированный участок [0, i-1]
     for i in 1..nums.len() {
         let (base, mut j) = (nums[i], (i - 1) as i32);
-        // Внутренний цикл: вставить base в правильную позицию отсортированного диапазона [0, i-1]
+        // Внутренний цикл: вставить base на своё место в участке [0, i-1]
         while j >= 0 && nums[j as usize] > base {
             nums[(j + 1) as usize] = nums[j as usize]; // Сдвинуть nums[j] на одну позицию вправо
             j -= 1;
         }
-        nums[(j + 1) as usize] = base; // Поместить base в правильную позицию
+        nums[(j + 1) as usize] = base; // Записать base на нужную позицию
     }
 }
 
-/* Driver Code */
+/* Тестовый пример */
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     insertion_sort(&mut nums);

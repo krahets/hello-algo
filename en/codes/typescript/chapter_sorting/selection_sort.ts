@@ -21,7 +21,7 @@ function selectionSort(nums: number[]): void {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 const nums: number[] = [4, 1, 3, 1, 5, 2];
 selectionSort(nums);
 console.log('After selection sort, nums =', nums);

@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 스택 초기화 */
     stack<int> stack;
@@ -20,20 +20,20 @@ int main() {
     cout << "스택 stack = ";
     printStack(stack);
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     int top = stack.top();
-    cout << "스택의 맨 위 원소 top = " << top << endl;
+    cout << "맨 위 원소 top = " << top << endl;
 
     /* 스택에서 원소 꺼내기 */
     stack.pop(); // 반환값 없음
-    cout << "스택에서 꺼낸 원소 pop = " << top << ", 스택에서 꺼낸 후 stack = ";
+    cout << "꺼낸 원소 pop = " << top << ", 꺼낸 후 stack = ";
     printStack(stack);
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     int size = stack.size();
     cout << "스택의 길이 size = " << size << endl;
 
-    /* 비어 있는지 판단 */
+    /* 비어 있는지 확인 */
     bool empty = stack.empty();
     cout << "스택이 비어 있는가 = " << empty << endl;
 

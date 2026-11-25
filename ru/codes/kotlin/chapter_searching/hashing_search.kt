@@ -8,42 +8,42 @@ package chapter_searching
 
 import utils.ListNode
 
-/* Хеш-поиск (массив) */
+/* Поиск по хеш-таблице в массиве */
 fun hashingSearchArray(map: Map<Int?, Int>, target: Int): Int {
-    // key хеш-таблицы: целевой элемент, _val: индекс
-    // Если такого key нет в хеш-таблице, вернуть -1
+    // Ключ хеш-таблицы — искомый элемент, _val — его индекс
+    // Если ключа в хеш-таблице нет, возвращаем -1
     return map.getOrDefault(target, -1)
 }
 
-/* Хеш-поиск (связный список) */
+/* Поиск по хеш-таблице в связном списке */
 fun hashingSearchLinkedList(map: Map<Int?, ListNode?>, target: Int): ListNode? {
-    // key хеш-таблицы: значение целевого узла, _val: объект узла
-    // Если такого key нет в хеш-таблице, вернуть null
+    // Ключ хеш-таблицы — искомое значение узла, _val — сам узел
+    // Если ключа в хеш-таблице нет, возвращаем null
     return map.getOrDefault(target, null)
 }
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
     val target = 3
 
-    /* Хеш-поиск (массив) */
+    /* Поиск по хеш-таблице в массиве */
     val nums = intArrayOf(1, 5, 3, 2, 4, 7, 5, 9, 10, 8)
-    // Инициализация хеш-таблицы
+    // Создаём хеш-таблицу
     val map = HashMap<Int?, Int>()
     for (i in nums.indices) {
-        map[nums[i]] = i // key: элемент, _val: индекс
+        map[nums[i]] = i // Ключ — элемент, _val — индекс
     }
     val index = hashingSearchArray(map, target)
-    println("Индекс целевого элемента 3 = $index")
+    println("Индекс элемента 3 = $index")
 
-    /* Хеш-поиск (связный список) */
+    /* Поиск по хеш-таблице в связном списке */
     var head = ListNode.arrToLinkedList(nums)
-    // Инициализация хеш-таблицы
+    // Создаём хеш-таблицу
     val map1 = HashMap<Int?, ListNode?>()
     while (head != null) {
-        map1[head._val] = head // key: значение узла, _val: узел
+        map1[head._val] = head // Ключ — значение узла, _val — сам узел
         head = head.next
     }
     val node = hashingSearchLinkedList(map1, target)
-    println("Объект узла со значением 3 = $node")
+    println("Узел со значением 3: $node")
 }

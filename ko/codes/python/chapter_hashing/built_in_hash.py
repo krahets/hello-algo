@@ -10,7 +10,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 from modules import ListNode
 
-"""실행 코드"""
+"""Driver Code"""
 if __name__ == "__main__":
     num = 3
     hash_num = hash(num)
@@ -18,15 +18,15 @@ if __name__ == "__main__":
 
     bol = True
     hash_bol = hash(bol)
-    print(f"불리언 값 {bol} → 해시값: {hash_bol}")
+    print(f"불리언 {bol} → 해시값: {hash_bol}")
 
     dec = 3.14159
     hash_dec = hash(dec)
-    print(f"소수 {dec} → 해시값: {hash_dec}")
+    print(f"실수 {dec} → 해시값: {hash_dec}")
 
     str = "Hello 算法"
     hash_str = hash(str)
-    print(f"문자열 {str}의 해시값은 {hash_str}이다")
+    print(f"문자열 {str} → 해시값: {hash_str}")
 
     tup = (12836, "小哈")
     hash_tup = hash(tup)

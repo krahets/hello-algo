@@ -4,18 +4,18 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Maximum container capacity: greedy algorithm */
+/* Greedy maximum capacity algorithm */
 func maxCapacity(ht: [Int]) -> Int {
-    // Initialize i and j at opposite ends of the array
+    // Start i and j at opposite ends of the array
     var i = ht.startIndex, j = ht.endIndex - 1
     // The initial maximum capacity is 0
     var res = 0
-    // Repeatedly make greedy choices until the two sides meet
+    // Make greedy choices until the two pointers meet
     while i < j {
         // Update the maximum capacity
         let cap = min(ht[i], ht[j]) * (j - i)
         res = max(res, cap)
-        // Move the shorter side inward
+        // Move the pointer at the shorter board inward
         if ht[i] < ht[j] {
             i += 1
         } else {
@@ -33,6 +33,6 @@ enum MaxCapacity {
 
         // Greedy algorithm
         let res = maxCapacity(ht: ht)
-        print("Maximum container capacity: \(res)")
+        print("The maximum capacity is \(res)")
     }
 }

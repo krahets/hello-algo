@@ -6,7 +6,7 @@
 
 package chapter_computational_complexity.time_complexity
 
-/* Constant complexity */
+/* Constant time */
 fun constant(n: Int): Int {
     var count = 0
     val size = 100000
@@ -15,7 +15,7 @@ fun constant(n: Int): Int {
     return count
 }
 
-/* Linear complexity */
+/* Linear time */
 fun linear(n: Int): Int {
     var count = 0
     for (i in 0..<n)
@@ -23,20 +23,20 @@ fun linear(n: Int): Int {
     return count
 }
 
-/* Linear complexity (array traversal) */
+/* Linear time (array traversal) */
 fun arrayTraversal(nums: IntArray): Int {
     var count = 0
-    // The number of iterations is proportional to the array length
+    // The iteration count is proportional to the array length
     for (num in nums) {
         count++
     }
     return count
 }
 
-/* Quadratic complexity */
+/* Quadratic time */
 fun quadratic(n: Int): Int {
     var count = 0
-    // The number of iterations is proportional to the square of the input size n
+    // The iteration count grows quadratically with input size n
     for (i in 0..<n) {
         for (j in 0..<n) {
             count++
@@ -45,12 +45,12 @@ fun quadratic(n: Int): Int {
     return count
 }
 
-/* Quadratic complexity (bubble sort) */
+/* Quadratic time (bubble sort) */
 fun bubbleSort(nums: IntArray): Int {
     var count = 0 // Counter
-    // Outer loop: the unsorted range is [0, i]
+    // Outer loop: the unsorted range is the closed interval [0, i]
     for (i in nums.size - 1 downTo 1) {
-        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+        // Inner loop: swap adjacent elements to move the largest in [0, i] to index i
         for (j in 0..<i) {
             if (nums[j] > nums[j + 1]) {
                 // Swap nums[j] and nums[j + 1]
@@ -64,11 +64,11 @@ fun bubbleSort(nums: IntArray): Int {
     return count
 }
 
-/* Exponential complexity (iterative implementation) */
+/* Exponential time (iterative) */
 fun exponential(n: Int): Int {
     var count = 0
     var base = 1
-    // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
+    // Each cell divides in two per round, giving 1, 2, 4, 8, ..., 2^(n-1)
     for (i in 0..<n) {
         for (j in 0..<base) {
             count++
@@ -79,7 +79,7 @@ fun exponential(n: Int): Int {
     return count
 }
 
-/* Exponential complexity (recursive implementation) */
+/* Exponential time (recursive) */
 fun expRecur(n: Int): Int {
     if (n == 1) {
         return 1
@@ -87,7 +87,7 @@ fun expRecur(n: Int): Int {
     return expRecur(n - 1) + expRecur(n - 1) + 1
 }
 
-/* Logarithmic complexity (iterative implementation) */
+/* Logarithmic time (iterative) */
 fun logarithmic(n: Int): Int {
     var n1 = n
     var count = 0
@@ -98,14 +98,14 @@ fun logarithmic(n: Int): Int {
     return count
 }
 
-/* Logarithmic complexity (recursive implementation) */
+/* Logarithmic time (recursive) */
 fun logRecur(n: Int): Int {
     if (n <= 1)
         return 0
     return logRecur(n / 2) + 1
 }
 
-/* Linearithmic complexity */
+/* Linearithmic time */
 fun linearLogRecur(n: Int): Int {
     if (n <= 1)
         return 1
@@ -116,7 +116,7 @@ fun linearLogRecur(n: Int): Int {
     return count
 }
 
-/* Factorial complexity (recursive implementation) */
+/* Factorial time (recursive) */
 fun factorialRecur(n: Int): Int {
     if (n == 0)
         return 1
@@ -128,41 +128,41 @@ fun factorialRecur(n: Int): Int {
     return count
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     // Try different values of n to see how the operation count grows for each complexity
     val n = 8
     println("Input size n = $n")
 
     var count = constant(n)
-    println("Operation count for constant complexity = $count")
+    println("Constant operation count = $count")
 
     count = linear(n)
-    println("Operation count for linear complexity = $count")
+    println("Linear operation count = $count")
     count = arrayTraversal(IntArray(n))
-    println("Operation count for linear complexity (array traversal) = $count")
+    println("Linear operation count (array traversal) = $count")
 
     count = quadratic(n)
-    println("Operation count for quadratic complexity = $count")
+    println("Quadratic operation count = $count")
     val nums = IntArray(n)
     for (i in 0..<n)
         nums[i] = n - i // [n,n-1,...,2,1]
     count = bubbleSort(nums)
-    println("Operation count for quadratic complexity (bubble sort) = $count")
+    println("Quadratic operation count (bubble sort) = $count")
 
     count = exponential(n)
-    println("Operation count for exponential complexity (iterative implementation) = $count")
+    println("Exponential operation count (iterative) = $count")
     count = expRecur(n)
-    println("Operation count for exponential complexity (recursive implementation) = $count")
+    println("Exponential operation count (recursive) = $count")
 
     count = logarithmic(n)
-    println("Operation count for logarithmic complexity (iterative implementation) = $count")
+    println("Logarithmic operation count (iterative) = $count")
     count = logRecur(n)
-    println("Operation count for logarithmic complexity (recursive implementation) = $count")
+    println("Logarithmic operation count (recursive) = $count")
 
     count = linearLogRecur(n)
-    println("Operation count for linearithmic complexity (recursive implementation) = $count")
+    println("Linearithmic operation count (recursive) = $count")
 
     count = factorialRecur(n)
-    println("Operation count for factorial complexity (recursive implementation) = $count")
+    println("Factorial operation count (recursive) = $count")
 }

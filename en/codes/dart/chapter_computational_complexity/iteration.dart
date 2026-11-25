@@ -53,20 +53,20 @@ String nestedForLoop(int n) {
   return res;
 }
 
-/* Driver code */
+/* Driver Code */
 void main() {
   int n = 5;
   int res;
 
   res = forLoop(n);
-  print("\nSum from the for loop: res = $res");
+  print("\nfor loop sum: res = $res");
 
   res = whileLoop(n);
-  print("\nSum from the while loop: res = $res");
+  print("\nwhile loop sum: res = $res");
 
   res = whileLoopII(n);
-  print("\nSum from the while loop (two updates): res = $res");
+  print("\nwhile loop sum (two updates): res = $res");
 
   String resStr = nestedForLoop(n);
-  print("\nResult of the nested for loops: $resStr");
+  print("\nNested for loop result: $resStr");
 }

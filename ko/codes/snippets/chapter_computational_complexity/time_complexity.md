@@ -1,22 +1,22 @@
 <!-- [snippet]{run_time_estimate} -->
 ```python title=""
-# 어떤 실행 플랫폼에서
+# 특정 실행 환경에서
 def algorithm(n: int):
     a = 2      # 1 ns
     a = a + 1  # 1 ns
     a = a * 2  # 10 ns
-    # n번 반복
+    # n번 반복한다
     for _ in range(n):  # 1 ns
         print(0)        # 5 ns
 ```
 
 ```cpp title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 void algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // n번 반복
+    // n번 반복한다
     for (int i = 0; i < n; i++) {  // 1 ns
         cout << 0 << endl;         // 5 ns
     }
@@ -24,12 +24,12 @@ void algorithm(int n) {
 ```
 
 ```java title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 void algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // n번 반복
+    // n번 반복한다
     for (int i = 0; i < n; i++) {  // 1 ns
         System.out.println(0);     // 5 ns
     }
@@ -37,12 +37,12 @@ void algorithm(int n) {
 ```
 
 ```csharp title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 void Algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // n번 반복
+    // n번 반복한다
     for (int i = 0; i < n; i++) {  // 1 ns
         Console.WriteLine(0);      // 5 ns
     }
@@ -50,12 +50,12 @@ void Algorithm(int n) {
 ```
 
 ```go title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 func algorithm(n int) {
     a := 2     // 1 ns
     a = a + 1  // 1 ns
     a = a * 2  // 10 ns
-    // n번 반복
+    // n번 반복한다
     for i := 0; i < n; i++ {  // 1 ns
         fmt.Println(a)        // 5 ns
     }
@@ -63,12 +63,12 @@ func algorithm(n int) {
 ```
 
 ```swift title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 func algorithm(n: Int) {
     var a = 2 // 1 ns
     a = a + 1 // 1 ns
     a = a * 2 // 10 ns
-    // n번 반복
+    // n번 반복한다
     for _ in 0 ..< n { // 1 ns
         print(0) // 5 ns
     }
@@ -76,12 +76,12 @@ func algorithm(n: Int) {
 ```
 
 ```javascript title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 function algorithm(n) {
     var a = 2; // 1 ns
     a = a + 1; // 1 ns
     a = a * 2; // 10 ns
-    // n번 반복
+    // n번 반복한다
     for(let i = 0; i < n; i++) { // 1 ns
         console.log(0); // 5 ns
     }
@@ -89,12 +89,12 @@ function algorithm(n) {
 ```
 
 ```typescript title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 function algorithm(n: number): void {
     var a: number = 2; // 1 ns
     a = a + 1; // 1 ns
     a = a * 2; // 10 ns
-    // n번 반복
+    // n번 반복한다
     for(let i = 0; i < n; i++) { // 1 ns
         console.log(0); // 5 ns
     }
@@ -102,12 +102,12 @@ function algorithm(n: number): void {
 ```
 
 ```dart title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 void algorithm(int n) {
   int a = 2; // 1 ns
   a = a + 1; // 1 ns
   a = a * 2; // 10 ns
-  // n번 반복
+  // n번 반복한다
   for (int i = 0; i < n; i++) { // 1 ns
     print(0); // 5 ns
   }
@@ -115,12 +115,12 @@ void algorithm(int n) {
 ```
 
 ```rust title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 fn algorithm(n: i32) {
     let mut a = 2;      // 1 ns
     a = a + 1;          // 1 ns
     a = a * 2;          // 10 ns
-    // n번 반복
+    // n번 반복한다
     for _ in 0..n {     // 1 ns
         println!("{}", 0);  // 5 ns
     }
@@ -128,12 +128,12 @@ fn algorithm(n: i32) {
 ```
 
 ```c title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 void algorithm(int n) {
     int a = 2;  // 1 ns
     a = a + 1;  // 1 ns
     a = a * 2;  // 10 ns
-    // n번 반복
+    // n번 반복한다
     for (int i = 0; i < n; i++) {   // 1 ns
         printf("%d", 0);            // 5 ns
     }
@@ -141,12 +141,12 @@ void algorithm(int n) {
 ```
 
 ```kotlin title=""
-// 어떤 실행 플랫폼에서
+// 특정 실행 환경에서
 fun algorithm(n: Int) {
     var a = 2 // 1 ns
     a = a + 1 // 1 ns
     a = a * 2 // 10 ns
-    // n번 반복
+    // n번 반복한다
     for (i in 0..<n) {  // 1 ns
         println(0)      // 5 ns
     }
@@ -154,12 +154,12 @@ fun algorithm(n: Int) {
 ```
 
 ```ruby title=""
-# 어떤 실행 플랫폼에서
+# 특정 실행 환경에서
 def algorithm(n)
     a = 2       # 1 ns
     a = a + 1   # 1 ns
     a = a * 2   # 10 ns
-    # n번 반복
+    # n번 반복한다
     (0...n).each do # 1 ns
         puts 0      # 5 ns
     end
@@ -168,31 +168,31 @@ end
 
 <!-- [snippet]{growth_trend} -->
 ```python title=""
-# 알고리즘 A의 시간 복잡도: 상수 시간
+# 알고리즘 A의 시간 복잡도: 상수 차수
 def algorithm_A(n: int):
     print(0)
-# 알고리즘 B의 시간 복잡도: 선형 시간
+# 알고리즘 B의 시간 복잡도: 선형 차수
 def algorithm_B(n: int):
     for _ in range(n):
         print(0)
-# 알고리즘 C의 시간 복잡도: 상수 시간
+# 알고리즘 C의 시간 복잡도: 상수 차수
 def algorithm_C(n: int):
     for _ in range(1000000):
         print(0)
 ```
 
 ```cpp title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 void algorithm_A(int n) {
     cout << 0 << endl;
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 void algorithm_B(int n) {
     for (int i = 0; i < n; i++) {
         cout << 0 << endl;
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 void algorithm_C(int n) {
     for (int i = 0; i < 1000000; i++) {
         cout << 0 << endl;
@@ -201,17 +201,17 @@ void algorithm_C(int n) {
 ```
 
 ```java title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 void algorithm_A(int n) {
     System.out.println(0);
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 void algorithm_B(int n) {
     for (int i = 0; i < n; i++) {
         System.out.println(0);
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 void algorithm_C(int n) {
     for (int i = 0; i < 1000000; i++) {
         System.out.println(0);
@@ -220,17 +220,17 @@ void algorithm_C(int n) {
 ```
 
 ```csharp title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 void AlgorithmA(int n) {
     Console.WriteLine(0);
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 void AlgorithmB(int n) {
     for (int i = 0; i < n; i++) {
         Console.WriteLine(0);
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 void AlgorithmC(int n) {
     for (int i = 0; i < 1000000; i++) {
         Console.WriteLine(0);
@@ -239,17 +239,17 @@ void AlgorithmC(int n) {
 ```
 
 ```go title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 func algorithm_A(n int) {
     fmt.Println(0)
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 func algorithm_B(n int) {
     for i := 0; i < n; i++ {
         fmt.Println(0)
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 func algorithm_C(n int) {
     for i := 0; i < 1000000; i++ {
         fmt.Println(0)
@@ -258,19 +258,19 @@ func algorithm_C(n int) {
 ```
 
 ```swift title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 func algorithmA(n: Int) {
     print(0)
 }
 
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 func algorithmB(n: Int) {
     for _ in 0 ..< n {
         print(0)
     }
 }
 
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 func algorithmC(n: Int) {
     for _ in 0 ..< 1_000_000 {
         print(0)
@@ -279,17 +279,17 @@ func algorithmC(n: Int) {
 ```
 
 ```javascript title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 function algorithm_A(n) {
     console.log(0);
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 function algorithm_B(n) {
     for (let i = 0; i < n; i++) {
         console.log(0);
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 function algorithm_C(n) {
     for (let i = 0; i < 1000000; i++) {
         console.log(0);
@@ -299,17 +299,17 @@ function algorithm_C(n) {
 ```
 
 ```typescript title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 function algorithm_A(n: number): void {
     console.log(0);
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 function algorithm_B(n: number): void {
     for (let i = 0; i < n; i++) {
         console.log(0);
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 function algorithm_C(n: number): void {
     for (let i = 0; i < 1000000; i++) {
         console.log(0);
@@ -318,17 +318,17 @@ function algorithm_C(n: number): void {
 ```
 
 ```dart title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 void algorithmA(int n) {
   print(0);
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 void algorithmB(int n) {
   for (int i = 0; i < n; i++) {
     print(0);
   }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 void algorithmC(int n) {
   for (int i = 0; i < 1000000; i++) {
     print(0);
@@ -337,17 +337,17 @@ void algorithmC(int n) {
 ```
 
 ```rust title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 fn algorithm_A(n: i32) {
     println!("{}", 0);
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 fn algorithm_B(n: i32) {
     for _ in 0..n {
         println!("{}", 0);
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 fn algorithm_C(n: i32) {
     for _ in 0..1000000 {
         println!("{}", 0);
@@ -356,17 +356,17 @@ fn algorithm_C(n: i32) {
 ```
 
 ```c title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 void algorithm_A(int n) {
     printf("%d", 0);
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 void algorithm_B(int n) {
     for (int i = 0; i < n; i++) {
         printf("%d", 0);
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 void algorithm_C(int n) {
     for (int i = 0; i < 1000000; i++) {
         printf("%d", 0);
@@ -375,17 +375,17 @@ void algorithm_C(int n) {
 ```
 
 ```kotlin title=""
-// 알고리즘 A의 시간 복잡도: 상수 시간
+// 알고리즘 A의 시간 복잡도: 상수 차수
 fun algorithm_A(n: Int) {
     println(0)
 }
-// 알고리즘 B의 시간 복잡도: 선형 시간
+// 알고리즘 B의 시간 복잡도: 선형 차수
 fun algorithm_B(n: Int) {
     for (i in 0..<n){
         println(0)
     }
 }
-// 알고리즘 C의 시간 복잡도: 상수 시간
+// 알고리즘 C의 시간 복잡도: 상수 차수
 fun algorithm_C(n: Int) {
     for (i in 0..<1000000) {
         println(0)
@@ -394,17 +394,17 @@ fun algorithm_C(n: Int) {
 ```
 
 ```ruby title=""
-# 알고리즘 A의 시간 복잡도: 상수 시간
+# 알고리즘 A의 시간 복잡도: 상수 차수
 def algorithm_A(n)
     puts 0
 end
 
-# 알고리즘 B의 시간 복잡도: 선형 시간
+# 알고리즘 B의 시간 복잡도: 선형 차수
 def algorithm_B(n)
     (0...n).each { puts 0 }
 end
 
-# 알고리즘 C의 시간 복잡도: 상수 시간
+# 알고리즘 C의 시간 복잡도: 상수 차수
 def algorithm_C(n)
     (0...1_000_000).each { puts 0 }
 end
@@ -416,7 +416,7 @@ def algorithm(n: int):
     a = 1      # +1
     a = a + 1  # +1
     a = a * 2  # +1
-    # n번 반복
+    # n번 반복한다
     for i in range(n):  # +1
         print(0)        # +1
 ```
@@ -426,8 +426,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // n번 반복
-    for (int i = 0; i < n; i++) { // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for (int i = 0; i < n; i++) { // +1(반복할 때마다 i ++ 실행)
         cout << 0 << endl;    // +1
     }
 }
@@ -438,8 +438,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // n번 반복
-    for (int i = 0; i < n; i++) { // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for (int i = 0; i < n; i++) { // +1(반복할 때마다 i ++ 실행)
         System.out.println(0);    // +1
     }
 }
@@ -450,8 +450,8 @@ void Algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // n번 반복
-    for (int i = 0; i < n; i++) {   // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for (int i = 0; i < n; i++) {   // +1(반복할 때마다 i ++ 실행)
         Console.WriteLine(0);   // +1
     }
 }
@@ -462,7 +462,7 @@ func algorithm(n int) {
     a := 1      // +1
     a = a + 1   // +1
     a = a * 2   // +1
-    // n번 반복
+    // n번 반복한다
     for i := 0; i < n; i++ {   // +1
         fmt.Println(a)         // +1
     }
@@ -474,7 +474,7 @@ func algorithm(n: Int) {
     var a = 1 // +1
     a = a + 1 // +1
     a = a * 2 // +1
-    // n번 반복
+    // n번 반복한다
     for _ in 0 ..< n { // +1
         print(0) // +1
     }
@@ -486,8 +486,8 @@ function algorithm(n) {
     var a = 1; // +1
     a += 1; // +1
     a *= 2; // +1
-    // n번 반복
-    for(let i = 0; i < n; i++){ // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for(let i = 0; i < n; i++){ // +1(반복할 때마다 i ++ 실행)
         console.log(0); // +1
     }
 }
@@ -498,8 +498,8 @@ function algorithm(n: number): void{
     var a: number = 1; // +1
     a += 1; // +1
     a *= 2; // +1
-    // n번 반복
-    for(let i = 0; i < n; i++){ // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for(let i = 0; i < n; i++){ // +1(반복할 때마다 i ++ 실행)
         console.log(0); // +1
     }
 }
@@ -510,8 +510,8 @@ void algorithm(int n) {
   int a = 1; // +1
   a = a + 1; // +1
   a = a * 2; // +1
-  // n번 반복
-  for (int i = 0; i < n; i++) { // +1(매번 i ++ 실행)
+  // n번 반복한다
+  for (int i = 0; i < n; i++) { // +1(반복할 때마다 i ++ 실행)
     print(0); // +1
   }
 }
@@ -523,8 +523,8 @@ fn algorithm(n: i32) {
     a = a + 1;      // +1
     a = a * 2;      // +1
 
-    // n번 반복
-    for _ in 0..n { // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for _ in 0..n { // +1(반복할 때마다 i ++ 실행)
         println!("{}", 0); // +1
     }
 }
@@ -535,8 +535,8 @@ void algorithm(int n) {
     int a = 1;  // +1
     a = a + 1;  // +1
     a = a * 2;  // +1
-    // n번 반복
-    for (int i = 0; i < n; i++) {   // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for (int i = 0; i < n; i++) {   // +1(반복할 때마다 i ++ 실행)
         printf("%d", 0);            // +1
     }
 }
@@ -547,8 +547,8 @@ fun algorithm(n: Int) {
     var a = 1 // +1
     a = a + 1 // +1
     a = a * 2 // +1
-    // n번 반복
-    for (i in 0..<n) { // +1(매번 i ++ 실행)
+    // n번 반복한다
+    for (i in 0..<n) { // +1(반복할 때마다 i ++ 실행)
         println(0) // +1
     }
 }
@@ -559,7 +559,7 @@ def algorithm(n)
     a = 1       # +1
     a = a + 1   # +1
     a = a * 2   # +1
-    # n번 반복
+    # n번 반복한다
     (0...n).each do # +1
         puts 0      # +1
     end

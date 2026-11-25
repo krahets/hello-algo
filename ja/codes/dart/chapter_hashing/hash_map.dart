@@ -4,37 +4,37 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
-  /* ハッシュテーブルを初期化する */
+  /* ハッシュ表を初期化する */
   final Map<int, String> map = {};
 
-  /* 追加操作 */
-  // ハッシュテーブルにキーと値のペア (key, value) を追加する
+  /* 追加 */
+  // ハッシュ表にペア (key, value) を追加する
   map[12836] = "小哈";
   map[15937] = "小啰";
   map[16750] = "小算";
   map[13276] = "小法";
   map[10583] = "小鸭";
-  print("\n追加後のハッシュテーブル\nKey -> Value");
+  print("\n追加後のハッシュ表\nKey -> Value");
   map.forEach((key, value) => print("$key -> $value"));
 
-  /* 取得操作 */
-  // ハッシュテーブルにキー key を渡し、値 value を取得する
+  /* 検索 */
+  // ハッシュ表でキー key に対応する値 value を取得する
   final String? name = map[15937];
-  print("\n学生番号 15937 に対応する氏名は $name");
+  print("\n学籍番号 15937 に対応する名前は $name");
 
-  /* 削除操作 */
-  // ハッシュテーブルからキーと値のペア (key, value) を削除する
+  /* 削除 */
+  // ハッシュ表からペア (key, value) を削除する
   map.remove(10583);
-  print("\n10583 を削除した後のハッシュテーブル\nKey -> Value");
+  print("\n10583 を削除した後のハッシュ表\nKey -> Value");
   map.forEach((key, value) => print("$key -> $value"));
 
-  /* ハッシュテーブルを走査する */
-  print("\nキーと値のペア Key->Value を走査する");
+  /* ハッシュ表を走査する */
+  print("\nキーと値のペアを順に表示 Key->Value");
   map.forEach((key, value) => print("$key -> $value"));
-  print("\nキー Key だけを走査する");
+  print("\nキーだけを順に表示 Key");
   map.keys.forEach((key) => print(key));
-  print("\n値 Value だけを走査する");
+  print("\n値だけを順に表示 Value");
   map.values.forEach((value) => print(value));
 }

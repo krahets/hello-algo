@@ -7,7 +7,7 @@
 package chapter_computational_complexity;
 
 public class complexity_exercises {
-    /* Итеративное суммирование */
+    /* Суммирование в цикле */
     static int sumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {

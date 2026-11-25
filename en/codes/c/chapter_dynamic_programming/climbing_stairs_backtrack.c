@@ -8,27 +8,27 @@
 
 /* Backtracking */
 void backtrack(int *choices, int state, int n, int *res, int len) {
-    // When step n is reached, increase the number of ways by 1
+    // Count one more way when we reach stair n
     if (state == n)
         res[0]++;
     // Iterate over all choices
     for (int i = 0; i < len; i++) {
         int choice = choices[i];
-        // Prune: do not go beyond step n
+        // Prune moves that would overshoot stair n
         if (state + choice > n)
             continue;
-        // Try: make a choice and update the state
+        // Try a choice and update the state
         backtrack(choices, state + choice, n, res, len);
-        // Backtrack
+        // Undo the choice
     }
 }
 
-/* Climbing stairs: backtracking */
+/* Climbing stairs with backtracking */
 int climbingStairsBacktrack(int n) {
-    int choices[2] = {1, 2}; // Choose to climb 1 or 2 steps
-    int state = 0;           // Start climbing from step 0
+    int choices[2] = {1, 2}; // Each move can climb 1 or 2 stairs
+    int state = 0;           // Start at stair 0
     int *res = (int *)malloc(sizeof(int));
-    *res = 0; // Use res[0] to record the number of ways
+    *res = 0; // Store the number of ways in res[0]
     int len = sizeof(choices) / sizeof(int);
     backtrack(choices, state, n, res, len);
     int result = *res;
@@ -41,7 +41,7 @@ int main() {
     int n = 9;
 
     int res = climbingStairsBacktrack(n);
-    printf("Number of ways to climb %d stairs: %d\n", n, res);
+    printf("Ways to climb %d stairs: %d\n", n, res);
 
     return 0;
 }

@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_computational_complexity;
 
 public class complexity_exercises {
-    /* Итеративное суммирование */
+    /* Суммирование в цикле */
     int SumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {

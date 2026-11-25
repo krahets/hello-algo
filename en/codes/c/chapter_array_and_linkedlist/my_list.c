@@ -6,12 +6,12 @@
 
 #include "../utils/common.h"
 
-/* List structure */
+/* List class */
 typedef struct {
-    int *arr;        // Array (stores the list elements)
+    int *arr;        // Array that stores the list elements
     int capacity;    // List capacity
     int size;        // List size
-    int extendRatio; // List capacity growth factor
+    int extendRatio; // Factor by which the list capacity grows
 } MyList;
 
 void extendCapacity(MyList *nums);
@@ -32,7 +32,7 @@ void delMyList(MyList *nums) {
     free(nums);
 }
 
-/* Get the list size */
+/* Get the list length */
 int size(MyList *nums) {
     return nums->size;
 }
@@ -54,10 +54,10 @@ void set(MyList *nums, int index, int num) {
     nums->arr[index] = num;
 }
 
-/* Append an element at the end */
+/* Append an element */
 void add(MyList *nums, int num) {
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // Grow the capacity
+        extendCapacity(nums); // Increase capacity
     }
     nums->arr[size(nums)] = num;
     nums->size++;
@@ -66,9 +66,9 @@ void add(MyList *nums, int num) {
 /* Insert an element in the middle */
 void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
-    // Grow the capacity when adding an element would exceed it
+    // Increase capacity when the elements would no longer fit
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // Grow the capacity
+        extendCapacity(nums); // Increase capacity
     }
     for (int i = size(nums); i > index; --i) {
         nums->arr[i] = nums->arr[i - 1];
@@ -78,7 +78,7 @@ void insert(MyList *nums, int index, int num) {
 }
 
 /* Remove an element */
-// Note: stdio.h already declares a function named remove
+// Note: stdio.h already uses the name remove
 int removeItem(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
@@ -89,21 +89,21 @@ int removeItem(MyList *nums, int index) {
     return num;
 }
 
-/* Grow the list capacity */
+/* Increase the list capacity */
 void extendCapacity(MyList *nums) {
-    // Allocate new space first
+    // Allocate space first
     int newCapacity = capacity(nums) * nums->extendRatio;
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
     int *temp = nums->arr;
 
-    // Copy the old data into the new array
+    // Copy the old data into the new space
     for (int i = 0; i < size(nums); i++)
         extend[i] = nums->arr[i];
 
-    // Free the old array
+    // Free the old storage
     free(temp);
 
-    // Update the array pointer and capacity
+    // Use the new storage
     nums->arr = extend;
     nums->capacity = newCapacity;
 }
@@ -113,11 +113,11 @@ int *toArray(MyList *nums) {
     return nums->arr;
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     /* Initialize the list */
     MyList *nums = newMyList();
-    /* Append an element at the end */
+    /* Append an element */
     add(nums, 1);
     add(nums, 3);
     add(nums, 2);
@@ -125,36 +125,36 @@ int main() {
     add(nums, 4);
     printf("List nums = ");
     printArray(toArray(nums), size(nums));
-    printf("Capacity = %d, size = %d\n", capacity(nums), size(nums));
+    printf("Capacity = %d, length = %d\n", capacity(nums), size(nums));
 
     /* Insert an element in the middle */
     insert(nums, 3, 6);
-    printf("Insert the number 6 at index 3, giving nums = ");
+    printf("After inserting 6 at index 3, nums = ");
     printArray(toArray(nums), size(nums));
 
     /* Remove an element */
     removeItem(nums, 3);
-    printf("Remove the element at index 3, giving nums = ");
+    printf("After removing the element at index 3, nums = ");
     printArray(toArray(nums), size(nums));
 
     /* Access an element */
     int num = get(nums, 1);
-    printf("Access the element at index 1; num = %d\n", num);
+    printf("Reading index 1 gives num = %d\n", num);
 
     /* Update an element */
     set(nums, 1, 0);
-    printf("Update the element at index 1 to 0, giving nums = ");
+    printf("After setting the element at index 1 to 0, nums = ");
     printArray(toArray(nums), size(nums));
 
     /* Test capacity growth */
     for (int i = 0; i < 10; i++) {
-        // When i = 5, the list length would exceed its capacity, triggering capacity growth
+        // At i = 5, the list length would exceed its capacity, so the list grows
         add(nums, i);
     }
 
-    printf("List after capacity growth, nums = ");
+    printf("After increasing capacity, nums = ");
     printArray(toArray(nums), size(nums));
-    printf("Capacity = %d, size = %d\n", capacity(nums), size(nums));
+    printf("Capacity = %d, length = %d\n", capacity(nums), size(nums));
 
     /* Free the allocated memory */
     delMyList(nums);

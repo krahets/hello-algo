@@ -7,32 +7,32 @@
 namespace hello_algo.chapter_backtracking;
 
 public class subset_sum_i_naive {
-    /* Алгоритм бэктрекинга: сумма подмножеств I */
+    /* Поиск с возвратом: сумма подмножества I */
     void Backtrack(List<int> state, int target, int total, int[] choices, List<List<int>> res) {
-        // Если сумма подмножества равна target, записать решение
+        // Если сумма подмножества равна target, сохраняем решение
         if (total == target) {
             res.Add(new List<int>(state));
             return;
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (int i = 0; i < choices.Length; i++) {
-            // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
+            // Отсечение: если сумма подмножества превысит target, пропускаем этот вариант
             if (total + choices[i] > target) {
                 continue;
             }
-            // Попытка: сделать выбор и обновить элемент и total
+            // Пробуем вариант и обновляем сумму элементов total
             state.Add(choices[i]);
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             Backtrack(state, target, total + choices[i], choices, res);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             state.RemoveAt(state.Count - 1);
         }
     }
 
-    /* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
+    /* Задача о сумме подмножества I (с повторяющимися подмножествами) */
     List<List<int>> SubsetSumINaive(int[] nums, int target) {
         List<int> state = []; // Состояние (подмножество)
-        int total = 0; // Сумма подмножеств
+        int total = 0; // Сумма подмножества
         List<List<int>> res = []; // Список результатов (список подмножеств)
         Backtrack(state, target, total, nums, res);
         return res;
@@ -43,8 +43,8 @@ public class subset_sum_i_naive {
         int[] nums = [3, 4, 5];
         int target = 9;
         List<List<int>> res = SubsetSumINaive(nums, target);
-        Console.WriteLine("Входной массив nums = " + string.Join(", ", nums) + ", target = " + target);
-        Console.WriteLine("Все подмножества с суммой " + target + ": res = ");
+        Console.WriteLine("Исходный массив nums = " + string.Join(", ", nums) + ", target = " + target);
+        Console.WriteLine("Все подмножества с суммой " + target + " образуют список res = ");
         foreach (var subset in res) {
             PrintUtil.PrintList(subset);
         }

@@ -11,19 +11,19 @@ import utils.*;
 
 /* 연결 리스트로 구현한 스택 */
 class LinkedListStack {
-    private ListNode stackPeek; // 머리 노드를 스택의 맨 위로 사용한다
+    private ListNode stackPeek; // 첫 노드를 스택의 맨 위로 사용한다
     private int stkSize = 0; // 스택의 길이
 
     public LinkedListStack() {
         stackPeek = null;
     }
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     public int size() {
         return stkSize;
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     public boolean isEmpty() {
         return size() == 0;
     }
@@ -44,14 +44,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     public int peek() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return stackPeek.val;
     }
 
-    /* List를 Array로 변환하여 반환 */
+    /* 연결 리스트를 배열로 변환해 반환한다 */
     public int[] toArray() {
         ListNode node = stackPeek;
         int[] res = new int[size()];
@@ -76,19 +76,19 @@ public class linkedlist_stack {
         stack.push(4);
         System.out.println("스택 stack = " + Arrays.toString(stack.toArray()));
 
-        /* 스택 맨 위 원소 접근 */
+        /* 스택 맨 위의 원소 조회 */
         int peek = stack.peek();
-        System.out.println("스택 맨 위 원소 peek = " + peek);
+        System.out.println("맨 위 원소 peek = " + peek);
 
         /* 스택에서 원소 꺼내기 */
         int pop = stack.pop();
-        System.out.println("스택에서 꺼낸 원소 pop = " + pop + ", 스택에서 꺼낸 후 stack = " + Arrays.toString(stack.toArray()));
+        System.out.println("꺼낸 원소 pop = " + pop + ", 꺼낸 후 stack = " + Arrays.toString(stack.toArray()));
 
-        /* 스택의 길이 반환 */
+        /* 스택의 길이 조회 */
         int size = stack.size();
         System.out.println("스택의 길이 size = " + size);
 
-        /* 비어 있는지 판단 */
+        /* 비어 있는지 확인 */
         boolean isEmpty = stack.isEmpty();
         System.out.println("스택이 비어 있는가 = " + isEmpty);
     }

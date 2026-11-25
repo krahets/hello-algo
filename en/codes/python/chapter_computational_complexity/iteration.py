@@ -49,17 +49,17 @@ def nested_for_loop(n: int) -> str:
     return res
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     n = 5
     res = for_loop(n)
-    print(f"\nSum from the for loop: res = {res}")
+    print(f"\nfor loop sum: res = {res}")
 
     res = while_loop(n)
-    print(f"\nSum from the while loop: res = {res}")
+    print(f"\nwhile loop sum: res = {res}")
 
     res = while_loop_ii(n)
-    print(f"\nSum from the while loop (two updates): res = {res}")
+    print(f"\nwhile loop sum (two updates): res = {res}")
 
     res = nested_for_loop(n)
-    print(f"\nTraversal from the nested for loops: {res}")
+    print(f"\nNested for loop traversal: {res}")

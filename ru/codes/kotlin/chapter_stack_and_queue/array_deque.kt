@@ -6,96 +6,96 @@
 
 package chapter_stack_and_queue
 
-/* Двусторонняя очередь на основе кольцевого массива */
+/* Двусторонняя очередь (дек) на основе кольцевого массива */
 /* Конструктор */
 class ArrayDeque(capacity: Int) {
-    private var nums: IntArray = IntArray(capacity) // Массив для хранения элементов двусторонней очереди
-    private var front: Int = 0 // Указатель head, указывающий на первый элемент очереди
-    private var queSize: Int = 0 // Длина двусторонней очереди
+    private var nums: IntArray = IntArray(capacity) // Массив для хранения элементов дека
+    private var front: Int = 0 // Индекс первого элемента дека
+    private var queSize: Int = 0 // Длина дека
 
-    /* Получить вместимость двусторонней очереди */
+    /* Получить ёмкость дека */
     fun capacity(): Int {
         return nums.size
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     fun size(): Int {
         return queSize
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     fun isEmpty(): Boolean {
         return queSize == 0
     }
 
     /* Вычислить индекс в кольцевом массиве */
     private fun index(i: Int): Int {
-        // С помощью операции взятия по модулю соединить начало и конец массива
-        // Когда i выходит за конец массива, он возвращается в начало
-        // Когда i выходит за начало массива, он возвращается в конец
+        // Операция взятия остатка связывает конец массива с его началом
+        // Если индекс i выходит за конец массива, отсчёт продолжается с начала
+        // Если индекс i выходит за начало массива, отсчёт продолжается с конца
         return (i + capacity()) % capacity()
     }
 
-    /* Добавление в голову очереди */
+    /* Добавить элемент в начало дека */
     fun pushFirst(num: Int) {
         if (queSize == capacity()) {
-            println("Двусторонняя очередь заполнена")
+            println("Дек заполнен")
             return
         }
-        // Указатель головы сдвигается на одну позицию влево
-        // С помощью операции взятия по модулю front после выхода за начало массива возвращается в хвост
+        // Сдвинуть индекс начала дека на одну позицию влево
+        // При выходе за начало массива операция взятия остатка возвращает front в конец
         front = index(front - 1)
-        // Добавить num в голову очереди
+        // Добавить num в начало дека
         nums[front] = num
         queSize++
     }
 
-    /* Добавление в хвост очереди */
+    /* Добавить элемент в конец дека */
     fun pushLast(num: Int) {
         if (queSize == capacity()) {
-            println("Двусторонняя очередь заполнена")
+            println("Дек заполнен")
             return
         }
-        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // Вычислить индекс вставки в конец дека: прибавить 1 к индексу последнего элемента с учётом перехода по кругу
         val rear = index(front + queSize)
-        // Добавить num в хвост очереди
+        // Добавить num в конец дека
         nums[rear] = num
         queSize++
     }
 
-    /* Извлечение из головы очереди */
+    /* Извлечь элемент из начала дека */
     fun popFirst(): Int {
         val num = peekFirst()
-        // Указатель головы сдвигается на одну позицию назад
+        // Сдвинуть индекс начала дека на одну позицию вперёд
         front = index(front + 1)
         queSize--
         return num
     }
 
-    /* Извлечение из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     fun popLast(): Int {
         val num = peekLast()
         queSize--
         return num
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     fun peekFirst(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return nums[front]
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     fun peekLast(): Int {
         if (isEmpty()) throw IndexOutOfBoundsException()
-        // Вычислить индекс хвостового элемента
+        // Вычислить индекс последнего элемента
         val last = index(front + queSize - 1)
         return nums[last]
     }
 
     /* Вернуть массив для вывода */
     fun toArray(): IntArray {
-        // Преобразовывать только элементы списка в пределах фактической длины
+        // Преобразовать только те элементы, которые сейчас находятся в деке
         val res = IntArray(queSize)
         var i = 0
         var j = front
@@ -108,38 +108,38 @@ class ArrayDeque(capacity: Int) {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fun main() {
-    /* Инициализация двусторонней очереди */
+    /* Инициализировать дек */
     val deque = ArrayDeque(10)
     deque.pushLast(3)
     deque.pushLast(2)
     deque.pushLast(5)
-    println("Двусторонняя очередь deque = ${deque.toArray().contentToString()}")
+    println("Дек deque = ${deque.toArray().contentToString()}")
 
-    /* Доступ к элементу */
+    /* Посмотреть первый и последний элементы */
     val peekFirst = deque.peekFirst()
-    println("Первый элемент peekFirst = $peekFirst")
+    println("Первый элемент дека peekFirst = $peekFirst")
     val peekLast = deque.peekLast()
-    println("Последний элемент peekLast = $peekLast")
+    println("Последний элемент дека peekLast = $peekLast")
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     deque.pushLast(4)
-    println("После добавления элемента 4 в хвост deque = ${deque.toArray().contentToString()}")
+    println("После добавления 4 в конец дека deque = ${deque.toArray().contentToString()}")
     deque.pushFirst(1)
-    println("После добавления элемента 1 в голову deque = ${deque.toArray().contentToString()}")
+    println("После добавления 1 в начало дека deque = ${deque.toArray().contentToString()}")
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элементы из дека */
     val popLast = deque.popLast()
-    println("Извлеченный из хвоста элемент = ${popLast}, deque после извлечения из хвоста = ${deque.toArray().contentToString()}")
+    println("Извлечённый последний элемент = ${popLast}, после извлечения deque = ${deque.toArray().contentToString()}")
     val popFirst = deque.popFirst()
-    println("Извлеченный из головы элемент = ${popFirst}, deque после извлечения из головы = ${deque.toArray().contentToString()}")
+    println("Извлечённый первый элемент = ${popFirst}, после извлечения deque = ${deque.toArray().contentToString()}")
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     val size = deque.size()
-    println("Длина двусторонней очереди size = $size")
+    println("Длина дека size = $size")
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     val isEmpty = deque.isEmpty()
-    println("Пуста ли двусторонняя очередь = $isEmpty")
+    println("Дек пуст = $isEmpty")
 }

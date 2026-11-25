@@ -17,10 +17,10 @@ int compare(const void *a, const void *b) {
 
 /* バケットソート */
 void bucketSort(float nums[], int n) {
-    int k = n / 2;                                 // k = n/2 個のバケットを初期化する
-    int *sizes = malloc(k * sizeof(int));          // 各バケットのサイズを記録する
+    int k = n / 2;                                 // k = n/2 個のバケットを初期化
+    int *sizes = malloc(k * sizeof(int));          // 各バケットのサイズを記録
     float **buckets = malloc(k * sizeof(float *)); // 動的配列の配列（バケット）
-    // 各バケットに十分な領域をあらかじめ確保する
+    // 各バケットに十分な領域をあらかじめ確保
     for (int i = 0; i < k; ++i) {
         buckets[i] = (float *)malloc(n * sizeof(float));
         sizes[i] = 0;
@@ -34,23 +34,23 @@ void bucketSort(float nums[], int n) {
     for (int i = 0; i < k; ++i) {
         qsort(buckets[i], sizes[i], sizeof(float), compare);
     }
-    // 3. ソートしたバケットを結合する
+    // 3. ソート済みのバケットを連結する
     int idx = 0;
     for (int i = 0; i < k; ++i) {
         for (int j = 0; j < sizes[i]; ++j) {
             nums[idx++] = buckets[i][j];
         }
-        // メモリを解放する
+        // メモリを解放
         free(buckets[i]);
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
-    // 入力データは [0, 1) の範囲の浮動小数点数とする
+    // 入力は [0, 1) の範囲の浮動小数点数とする
     float nums[SIZE] = {0.49f, 0.96f, 0.82f, 0.09f, 0.57f, 0.43f, 0.91f, 0.75f, 0.15f, 0.37f};
     bucketSort(nums, SIZE);
-    printf("バケットソート完了後 nums = ");
+    printf("バケットソート後の nums = ");
     printArrayFloat(nums, SIZE);
 
     return 0;

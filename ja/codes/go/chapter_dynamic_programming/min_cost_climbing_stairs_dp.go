@@ -4,7 +4,7 @@
 
 package chapter_dynamic_programming
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 func minCostClimbingStairsDP(cost []int) int {
 	n := len(cost) - 1
 	if n == 1 || n == 2 {
@@ -28,7 +28,7 @@ func minCostClimbingStairsDP(cost []int) int {
 	return dp[n]
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 func minCostClimbingStairsDPComp(cost []int) int {
 	n := len(cost) - 1
 	if n == 1 || n == 2 {

@@ -20,11 +20,11 @@ func TestSubsetSumINaive(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", 입력 배열 nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("부분 집합의 합: " + strconv.Itoa(target) + " ; 해당하는 모든 부분 집합 res = ")
+	fmt.Println("목표 합: " + strconv.Itoa(target) + " 조건을 만족하는 모든 부분집합 res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
-	fmt.Println("이 방법의 출력 결과에는 중복 집합이 포함된다")
+	fmt.Println("이 방법의 결과에는 중복된 집합이 포함된다")
 }
 
 func TestSubsetSumI(t *testing.T) {
@@ -35,7 +35,7 @@ func TestSubsetSumI(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", 입력 배열 nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("부분 집합의 합: " + strconv.Itoa(target) + " ; 해당하는 모든 부분 집합 res = ")
+	fmt.Println("목표 합: " + strconv.Itoa(target) + " 조건을 만족하는 모든 부분집합 res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}
@@ -49,7 +49,7 @@ func TestSubsetSumII(t *testing.T) {
 	fmt.Printf("target = " + strconv.Itoa(target) + ", 입력 배열 nums = ")
 	PrintSlice(nums)
 
-	fmt.Println("부분 집합의 합: " + strconv.Itoa(target) + " ; 해당하는 모든 부분 집합 res = ")
+	fmt.Println("목표 합: " + strconv.Itoa(target) + " 조건을 만족하는 모든 부분집합 res = ")
 	for i := range res {
 		PrintSlice(res[i])
 	}

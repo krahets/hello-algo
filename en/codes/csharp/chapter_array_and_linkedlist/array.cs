@@ -5,41 +5,41 @@
 namespace hello_algo.chapter_array_and_linkedlist;
 
 public class array {
-    /* Access an element at a random index */
+    /* Access a random element */
     int RandomAccess(int[] nums) {
         Random random = new();
-        // Randomly select a number from [0, nums.Length)
+        // Pick a random index in [0, nums.Length)
         int randomIndex = random.Next(nums.Length);
-        // Get and return the randomly selected element
+        // Get and return the element at that index
         int randomNum = nums[randomIndex];
         return randomNum;
     }
 
-    /* Extend the array length */
+    /* Extend the array */
     int[] Extend(int[] nums, int enlarge) {
-        // Initialize an array with the extended length
+        // Initialize an array with the new length
         int[] res = new int[nums.Length + enlarge];
-        // Copy all elements from the original array to the new array
+        // Copy all elements from the original array into the new array
         for (int i = 0; i < nums.Length; i++) {
             res[i] = nums[i];
         }
-        // Return the new, extended array
+        // Return the new, longer array
         return res;
     }
 
-    /* Insert element num at index `index` in the array */
+    /* Insert num at the specified array index */
     void Insert(int[] nums, int num, int index) {
-        // Shift all elements at and after index `index` one position to the right
+        // Shift the elements from index onward one position to the right
         for (int i = nums.Length - 1; i > index; i--) {
             nums[i] = nums[i - 1];
         }
-        // Assign num to the element at index `index`
+        // Store num at the specified index
         nums[index] = num;
     }
 
-    /* Remove the element at index `index` */
+    /* Remove the element at the specified index */
     void Remove(int[] nums, int index) {
-        // Shift all elements after index `index` one position to the left
+        // Shift all elements after index one position to the left
         for (int i = index; i < nums.Length - 1; i++) {
             nums[i] = nums[i + 1];
         }
@@ -58,7 +58,7 @@ public class array {
         }
     }
 
-    /* Find a specified element in the array */
+    /* Find a given element in the array */
     int Find(int[] nums, int target) {
         for (int i = 0; i < nums.Length; i++) {
             if (nums[i] == target)
@@ -67,7 +67,7 @@ public class array {
         return -1;
     }
 
-    /* Helper function: convert an array to a string */
+    /* Helper function to convert an array to a string */
     string ToString(int[] nums) {
         return string.Join(",", nums);
     }
@@ -83,25 +83,25 @@ public class array {
 
         // Random access
         int randomNum = RandomAccess(nums);
-        Console.WriteLine("Randomly selected element from nums: " + randomNum);
+        Console.WriteLine("Random element from nums: " + randomNum);
 
-        // Extend the length
+        // Extend the array
         nums = Extend(nums, 3);
-        Console.WriteLine("Extend the array length to 8, giving nums = " + ToString(nums));
+        Console.WriteLine("After extending the array to length 8, nums = " + ToString(nums));
 
         // Insert an element
         Insert(nums, 6, 3);
-        Console.WriteLine("Insert the number 6 at index 3, giving nums = " + ToString(nums));
+        Console.WriteLine("After inserting 6 at index 3, nums = " + ToString(nums));
 
         // Remove an element
         Remove(nums, 2);
-        Console.WriteLine("Remove the element at index 2, giving nums = " + ToString(nums));
+        Console.WriteLine("After removing the element at index 2, nums = " + ToString(nums));
 
         // Traverse the array
         Traverse(nums);
 
         // Find an element 
         int index = Find(nums, 3);
-        Console.WriteLine("Find element 3 in nums, giving index = " + index);
+        Console.WriteLine("Index of 3 in nums = " + index);
     }
 }

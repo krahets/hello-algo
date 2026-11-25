@@ -6,22 +6,22 @@
 
 /* Backtracking: permutations I */
 fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &mut Vec<Vec<i32>>) {
-    // Record a solution when the state length equals the number of elements
+    // Record a solution when the state contains all the elements
     if state.len() == choices.len() {
         res.push(state);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     for i in 0..choices.len() {
         let choice = choices[i];
-        // Prune: do not choose an element more than once
+        // Prune: skip elements already in use
         if !selected[i] {
-            // Try: make a choice and update the state
+            // Make a choice and update the state
             selected[i] = true;
             state.push(choice);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state.clone(), choices, selected, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             selected[i] = false;
             state.pop();
         }
@@ -30,7 +30,7 @@ fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &
 
 /* Permutations I */
 fn permutations_i(nums: &mut [i32]) -> Vec<Vec<i32>> {
-    let mut res = Vec::new(); // Result list (permutations)
+    let mut res = Vec::new(); // State (current subset)
     backtrack(Vec::new(), nums, &mut vec![false; nums.len()], &mut res);
     res
 }

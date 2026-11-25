@@ -12,7 +12,7 @@ pub fn ListNode(comptime T: type) type {
         val: T = 0,
         next: ?*Self = null,
 
-        // Initialize a list node with specific value
+        // Инициализировать узел списка заданным значением
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.next = null;
@@ -20,7 +20,7 @@ pub fn ListNode(comptime T: type) type {
     };
 }
 
-// Десериализовать список в связный список
+// Восстановить связный список из списка значений
 pub fn listToLinkedList(comptime T: type, allocator: std.mem.Allocator, list: std.ArrayList(T)) !?*ListNode(T) {
     var dum = try allocator.create(ListNode(T));
     dum.init(0);
@@ -34,7 +34,7 @@ pub fn listToLinkedList(comptime T: type, allocator: std.mem.Allocator, list: st
     return dum.next;
 }
 
-// Десериализовать массив в связный список
+// Восстановить связный список из массива
 pub fn arrToLinkedList(comptime T: type, mem_allocator: std.mem.Allocator, arr: []T) !?*ListNode(T) {
     var dum = try mem_allocator.create(ListNode(T));
     dum.init(0);

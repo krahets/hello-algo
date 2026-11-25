@@ -22,15 +22,15 @@ function Trunk(prev, str) {
 }
 
 /**
- * Print the binary tree
- * This tree printer is borrowed from TECHIE DELIGHT
+ * Print a binary tree
+ * This tree printer comes from Techie Delight
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 function printTree(root) {
     printTree(root, null, false);
 }
 
-/* Print the binary tree */
+/* Print a binary tree */
 function printTree(root, prev, isRight) {
     if (root === null) {
         return;

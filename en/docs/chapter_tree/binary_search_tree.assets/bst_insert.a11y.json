@@ -1,54 +1,39 @@
 {
-  "schema_version": 2,
-  "title": "Insert a node into a binary search tree",
-  "summary": "Compare values while descending until an empty link is found. Use the saved parent pointer pre to attach the new leaf.",
-  "context": [
-    "The binary search trees in this book have no duplicate values. At every node, all values in its left subtree are smaller and all values in its right subtree are larger.",
-    "Insert 16 into a tree rooted at 8 containing values 1 through 15. Two panels show the tree before and after insertion. The table places their links side by side. “Empty” means there is no child, and “Not yet inserted” means the node did not yet exist."
-  ],
-  "description": [],
-  "result": "After insertion the tree contains 1 through 16 and preserves search tree order. Once cur becomes None it no longer identifies the parent. The pointer pre retains the last nonempty node.",
-  "frames": [
-    {
-      "id": "source-117",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_insert.png",
-      "title": "Insert a node into a binary search tree",
-      "explanation": "16 is greater than 8, 12, 14, and 15 in turn. Follow right links through those four nodes until cur reaches None. The last nonempty node 15 is saved in pre. Create node 16 and set pre.right to the new node, making it the right child of 15."
-    }
-  ],
   "animations": {
     "bst-insert": {
       "kind": "prose",
       "prose": {
-        "title": "Insert a node into a binary search tree",
-        "summary": "Compare values while descending until an empty link is found. Use the saved parent pointer pre to attach the new leaf.",
         "context": [
-          "The binary search trees in this book have no duplicate values. At every node, all values in its left subtree are smaller and all values in its right subtree are larger.",
-          "Insert 16 into a tree rooted at 8 containing values 1 through 15. Two panels show the tree before and after insertion. The table places their links side by side. “Empty” means there is no child, and “Not yet inserted” means the node did not yet exist."
+          "The binary search trees in this book do not store duplicates. At every node, all values in its left subtree are smaller than its value, and all values in its right subtree are larger.",
+          "Insert 16 into the tree rooted at 8 that contains values 1 through 15. The figure shows the tree before and after insertion, and the table compares the connections side by side. “Empty” means there is no child. “Not yet added” means the node did not exist at that stage."
         ],
         "description": [
-          "Animation step 1 corresponds to the table’s two before-insertion columns, and the last step to its two after-insertion columns. Row headers identify nodes for lookup in either state."
+          "The first animation step corresponds to the two before-insertion columns of the connection table, and the last step corresponds to the two after-insertion columns. Use the node row headings to look up the connections in either state."
         ],
-        "result": "After insertion the tree contains 1 through 16 and preserves search tree order. Once cur becomes None it no longer identifies the parent. The pointer pre retains the last nonempty node.",
+        "input_tables": [
+          0
+        ],
+        "result": "After insertion, the tree contains values 1 through 16 and still satisfies the search ordering. Once cur becomes None, it cannot lead back to the parent, so pre must retain a reference to the last non-null node.",
         "steps": [
           {
+            "announcement": "Follow the right branch to the empty right child position of 15. There cur becomes None.",
+            "explanation": "The value 16 is greater than 8, 12, 14, and 15 along the search path 8→12→14→15→None. Now cur is None, pre points to 15, and node 16 has yet to be added. For all connections, see the two before-insertion columns in “Binary search tree connections before and after insertion.” Node 14 has left child 13 and right child 15. Both children of 15 are empty.",
             "id": "step-1",
-            "title": "Find the empty right-child position",
-            "explanation": "16 is greater than 8, 12, 14, and 15, so the search follows 8→12→14→15→None. Now cur is None and pre points to 15. Node 16 has not yet been inserted. For all links see the two before-insertion columns in “Binary search tree links before and after insertion.” Node 14 has left child 13 and right child 15; both child links of 15 are empty.",
-            "key_state": "With pre = 15 and cur = None, the empty right-child position of 15 has been found.",
-            "announcement": "Follow the right branch to the empty right-child position of node 15, where cur becomes None."
+            "key_state": "With pre = 15 and cur = None, the empty right child position of 15 has been found.",
+            "title": "Find the empty right child position"
           },
           {
+            "announcement": "Point parent 15's right pointer to new leaf 16 to complete the insertion.",
+            "explanation": "Create leaf 16 and set pre.right to the new node. The pointer pre points to 15, and 14 still has left child 13 and right child 15. Node 15 has no left child and has right child 16. Both children of 16 are empty. All other connections stay the same. The two after-insertion columns of the same table show the whole tree. Since 16 is greater than all its ancestors on the path, the search ordering still holds.",
             "id": "step-2",
-            "title": "Attach new leaf 16",
-            "explanation": "Create leaf 16 and set pre.right to the new node. Now pre points to 15. Node 14 still has left child 13 and right child 15. Node 15 has no left child and has 16 on its right. Both child links of 16 are empty; all other links are unchanged. See the two after-insertion columns in the same table. Since 16 exceeds all its ancestors on this path, search tree order holds.",
-            "key_state": "15.right points to new leaf 16. The tree contains values 1 through 16.",
-            "announcement": "Set parent 15’s right link to new leaf 16, completing insertion."
+            "key_state": "15.right points to new leaf 16, and the tree contains values 1 through 16.",
+            "title": "Attach new leaf 16"
           }
         ],
+        "summary": "Compare values on the way down until you reach a null reference. Use the parent pointer pre to attach the new leaf to the tree.",
         "tables": [
           {
-            "caption": "Binary search tree links before and after insertion",
+            "caption": "Binary search tree connections before and after insertion",
             "headers": [
               "Node",
               "Left child before insertion",
@@ -56,6 +41,7 @@
               "Left child after insertion",
               "Right child after insertion"
             ],
+            "row_header": 0,
             "rows": [
               [
                 "1",
@@ -164,24 +150,37 @@
               ],
               [
                 "16",
-                "Not yet inserted",
-                "Not yet inserted",
+                "Not yet added",
+                "Not yet added",
                 "Empty",
                 "Empty"
               ]
-            ],
-            "row_header": 0
+            ]
           }
         ],
-        "input_tables": [
-          0
-        ]
+        "title": "Inserting a node into a binary search tree"
       }
     }
   },
+  "context": [
+    "The binary search trees in this book do not store duplicates. At every node, all values in its left subtree are smaller than its value, and all values in its right subtree are larger.",
+    "Insert 16 into the tree rooted at 8 that contains values 1 through 15. The figure shows the tree before and after insertion, and the table compares the connections side by side. “Empty” means there is no child. “Not yet added” means the node did not exist at that stage."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_insert.png",
+      "explanation": "The value 16 is greater than each of 8, 12, 14, and 15. Follow right links through these four nodes until cur reaches the empty position None. The last non-null node, 15, is saved in pre. Create node 16 and set pre.right to the new node, making it the right child of 15.",
+      "id": "source-117",
+      "title": "Inserting a node into a binary search tree"
+    }
+  ],
+  "result": "After insertion, the tree contains values 1 through 16 and still satisfies the search ordering. Once cur becomes None, it cannot lead back to the parent, so pre must retain a reference to the last non-null node.",
+  "schema_version": 2,
+  "summary": "Compare values on the way down until you reach a null reference. Use the parent pointer pre to attach the new leaf to the tree.",
   "tables": [
     {
-      "caption": "Binary search tree links before and after insertion",
+      "caption": "Binary search tree connections before and after insertion",
       "headers": [
         "Node",
         "Left child before insertion",
@@ -189,6 +188,7 @@
         "Left child after insertion",
         "Right child after insertion"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -297,13 +297,13 @@
         ],
         [
           "16",
-          "Not yet inserted",
-          "Not yet inserted",
+          "Not yet added",
+          "Not yet added",
           "Empty",
           "Empty"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Inserting a node into a binary search tree"
 }

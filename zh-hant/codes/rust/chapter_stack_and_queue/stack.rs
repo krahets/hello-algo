@@ -6,13 +6,13 @@
 
 use hello_algo_rust::include::print_util;
 
-/* Driver Code */
+/* 範例程式 */
 pub fn main() {
     // 初始化堆疊
-    // 在 Rust 中，推薦將 Vec 當作堆疊來使用
+    // 在 Rust 中，建議用 Vec 當作堆疊
     let mut stack: Vec<i32> = Vec::new();
 
-    // 元素入堆疊
+    // 將元素推入堆疊
     stack.push(1);
     stack.push(3);
     stack.push(2);
@@ -21,18 +21,18 @@ pub fn main() {
     print!("堆疊 stack = ");
     print_util::print_array(&stack);
 
-    // 訪問堆疊頂元素
+    // 讀取堆疊頂端的元素
     let peek = stack.last().unwrap();
-    print!("\n堆疊頂元素 peek = {peek}");
+    print!("\n堆疊頂端元素 peek = {peek}");
 
-    // 元素出堆疊
+    // 從堆疊彈出元素
     let pop = stack.pop().unwrap();
-    print!("\n出堆疊元素 pop = {pop}，出堆疊後 stack = ");
+    print!("\n彈出的元素 pop = {pop}，彈出後 stack = ");
     print_util::print_array(&stack);
 
-    // 獲取堆疊的長度
+    // 取得堆疊長度
     let size = stack.len();
-    print!("\n堆疊的長度 size = {size}");
+    print!("\n堆疊長度 size = {size}");
 
     // 判斷堆疊是否為空
     let is_empty = stack.is_empty();

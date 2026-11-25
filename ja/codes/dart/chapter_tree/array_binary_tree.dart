@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* 配列で表した二分木クラス */
+/* 二分木を配列で表すクラス */
 class ArrayBinaryTree {
   late List<int?> _tree;
 
@@ -21,24 +21,24 @@ class ArrayBinaryTree {
 
   /* インデックス i のノードの値を取得する */
   int? val(int i) {
-    // インデックスが範囲外の場合、空きを表す null を返す
+    // 範囲外なら空きを示す null を返す
     if (i < 0 || i >= size()) {
       return null;
     }
     return _tree[i];
   }
 
-  /* インデックス i のノードの左の子ノードのインデックスを取得する */
+  /* インデックス i のノードの左の子のインデックスを取得する */
   int? left(int i) {
     return 2 * i + 1;
   }
 
-  /* インデックス i のノードの右の子ノードのインデックスを取得する */
+  /* インデックス i のノードの右の子のインデックスを取得する */
   int? right(int i) {
     return 2 * i + 2;
   }
 
-  /* インデックス i のノードの親ノードのインデックスを取得する */
+  /* インデックス i のノードの親のインデックスを取得する */
   int? parent(int i) {
     return (i - 1) ~/ 2;
   }
@@ -56,7 +56,7 @@ class ArrayBinaryTree {
 
   /* 深さ優先走査 */
   void dfs(int i, String order, List<int?> res) {
-    // 空きの場合、戻る
+    // 空きなら戻る
     if (val(i) == null) {
       return;
     }
@@ -98,10 +98,10 @@ class ArrayBinaryTree {
   }
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   // 二分木を初期化する
-  // ここでは配列から二分木を直接生成する関数を使う
+  // ここでは配列から直接二分木を作る関数を使う
   List<int?> arr = [
     1,
     2,
@@ -121,32 +121,32 @@ void main() {
   ];
 
   TreeNode? root = listToTree(arr);
-  print("\n二分木を初期化する\n");
+  print("\n二分木を初期化\n");
   print("二分木の配列表現：");
   print(arr);
-  print("二分木の連結リスト表現：");
+  print("二分木の連結表現：");
   printTree(root);
 
-  // 配列で表した二分木クラス
+  // 二分木を配列で表すクラス
   ArrayBinaryTree abt = ArrayBinaryTree(arr);
 
-  // ノードにアクセスする
+  // ノードへのアクセス
   int i = 1;
   int? l = abt.left(i);
   int? r = abt.right(i);
   int? p = abt.parent(i);
-  print("\n現在のノードのインデックスは $i 、値は ${abt.val(i)}");
-  print("左の子ノードのインデックスは $l 、値は ${(l == null ? "null" : abt.val(l))}");
-  print("右の子ノードのインデックスは $r 、値は ${(r == null ? "null" : abt.val(r))}");
-  print("親ノードのインデックスは $p 、値は ${(p == null ? "null" : abt.val(p))}");
+  print("\n現在のノードのインデックスは $i、値は ${abt.val(i)}");
+  print("左の子のインデックスは $l、値は ${(l == null ? "null" : abt.val(l))}");
+  print("右の子のインデックスは $r、値は ${(r == null ? "null" : abt.val(r))}");
+  print("親のインデックスは $p、値は ${(p == null ? "null" : abt.val(p))}");
 
   // 木を走査する
   List<int?> res = abt.levelOrder();
-  print("\nレベル順走査：$res");
+  print("\nレベル順：$res");
   res = abt.preOrder();
-  print("行きがけ順走査：$res");
+  print("行きがけ順：$res");
   res = abt.inOrder();
-  print("通りがけ順走査：$res");
+  print("通りがけ順：$res");
   res = abt.postOrder();
-  print("帰りがけ順走査：$res");
+  print("帰りがけ順：$res");
 }

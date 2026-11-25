@@ -1,101 +1,145 @@
 {
-  "schema_version": 2,
-  "title": "Maximum capacity: two-pointer greedy search",
-  "summary": "Start with a pointer at each end. For each pair of walls, compute the capacity, keep the largest seen, and move the pointer at the shorter wall inward. The maximum is 28.",
+  "animations": {
+    "max-capacity-greedy": {
+      "kind": "source-frames",
+      "states": [
+        {
+          "frame_id": "source-470",
+          "id": "step-1"
+        },
+        {
+          "frame_id": "source-471",
+          "id": "step-2"
+        },
+        {
+          "frame_id": "source-472",
+          "id": "step-3"
+        },
+        {
+          "frame_id": "source-473",
+          "id": "step-4"
+        },
+        {
+          "frame_id": "source-474",
+          "id": "step-5"
+        },
+        {
+          "frame_id": "source-475",
+          "id": "step-6"
+        },
+        {
+          "frame_id": "source-476",
+          "id": "step-7"
+        },
+        {
+          "frame_id": "source-477",
+          "id": "step-8"
+        },
+        {
+          "frame_id": "source-478",
+          "id": "step-9"
+        }
+      ]
+    }
+  },
   "context": [
-    "Given wall heights ht = [3, 8, 5, 2, 7, 7, 3, 4] (indices 0 to 7), container capacity is cap[i, j] = min(ht[i], ht[j]) × (j - i).",
-    "Initialize left pointer i = 0, right pointer j = 7, and maximum capacity res = 0. While i < j, compute current capacity cap, update res = max(res, cap), compare the two wall heights, and move the pointer on the shorter wall one step inward until i and j meet."
+    "For the height array ht = [3, 8, 5, 2, 7, 7, 3, 4], indexed from 0 to 7, container capacity is cap[i, j] = min(ht[i], ht[j]) × (j - i).",
+    "The greedy algorithm starts with the left pointer i = 0, the right pointer j = 7, and the maximum so far res = 0. While i < j, first compute the current capacity cap and update the maximum with res = max(res, cap). Then compare the board heights and move the pointer at the shorter board one position inward. Exit the loop when i and j meet."
   ],
   "description": [
-    "Across 9 steps, teal label i and blue label j sit above the selected left and right walls highlighted in matching colors; in Steps 2 through 8, the current container between them is shaded light blue with the current cap formula and running maximum res shown below.",
-    "Step 1 only initializes, Steps 2 through 8 perform 7 capacity evaluations, and Step 9 exits when the pointers meet, so player step numbers do not equal capacity-evaluation counts. Below, the \"Maximum capacity steps 2 to 8: calculations and running maximum\" table summarizes each step; pointer indices, cap, and res are printed in the figure, while wall heights are read off the vertical axis."
+    "The sequence has 9 steps. A teal i and a blue j above the selected boards mark the left and right pointers. Each board is highlighted in its pointer's color. Steps 2 through 8 shade the current container light blue and show below it how to compute cap and update the maximum so far, res.",
+    "Step 1 initializes the pointers, steps 2 through 8 perform seven capacity calculations, and step 9 exits when the pointers meet. The player step number therefore differs from the calculation count. The table “Maximum capacity, steps 2–8: calculations and running maximum” after the list summarizes the values by step. The diagrams label the pointers, cap, and res. The board heights can be read from the axis."
   ],
   "frames": [
     {
-      "id": "source-470",
+      "announcement": "Start the two pointers at opposite ends of the array, i = 0 and j = 7. Set the maximum capacity so far to res = 0.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png",
-      "title": "Initialize pointers at opposite ends",
-      "explanation": "Initialize left pointer i = 0 (wall height 3), right pointer j = 7 (wall height 4), and maximum capacity res = 0. No capacity has been evaluated yet, and no water region is shaded.",
-      "key_state": "Initialized: i = 0 (height 3), j = 7 (height 4), running maximum res = 0, current capacity not yet computed.",
-      "announcement": "Initialize two pointers at opposite ends i = 0, j = 7 with maximum capacity res = 0."
+      "explanation": "Set the left pointer to i = 0 at the leftmost board of height 3 and the right pointer to j = 7 at the rightmost board of height 4. Set the maximum capacity so far to res = 0. The first capacity calculation has yet to begin, and the figure does not yet show a water-filled area.",
+      "id": "source-470",
+      "key_state": "Initially, i = 0 (height 3), j = 7 (height 4), and the maximum so far is res = 0. The current capacity has yet to be calculated.",
+      "title": "Initialize the pointers at opposite ends"
     },
     {
-      "id": "source-471",
+      "announcement": "Evaluate the two ends. The left board (height 3) is shorter than the right (height 4). The capacity is cap = 21, so update res to 21.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png",
-      "title": "Compute capacity of container [0, 7]",
-      "explanation": "First evaluation on outer pair [0, 7]: left wall ht[0] = 3, right wall ht[7] = 4, width 7 - 0 = 7, giving cap = min(3, 4) × 7 = 21 and updating res = max(0, 21) = 21. Because left wall 3 is shorter than right wall 4, move shorter-wall pointer i rightward next.",
-      "key_state": "i = 0 (height 3), j = 7 (height 4), left wall shorter; width 7, water height 3, cap = 21, running max res = 21.",
-      "announcement": "Evaluate outer walls: left height 3, right height 4, left shorter; cap = 21, update res to 21."
+      "explanation": "The first calculation uses the two ends, [0, 7]. The left height is ht[0] = 3 and the right height is ht[7] = 4. The width is 7 - 0 = 7, so the current capacity is cap = min(3, 4) × 7 = 21. Update the maximum to res = max(0, 21) = 21. The left board (3) is shorter than the right (4), so move i to the right next.",
+      "id": "source-471",
+      "key_state": "At i = 0 (height 3) and j = 7 (height 4), the left board is shorter. Width 7, water height 3, current capacity cap = 21, maximum so far res = 21.",
+      "title": "Calculate the capacity between boards [0, 7]"
     },
     {
-      "id": "source-472",
+      "announcement": "Move the left pointer right from 0 to 1. The right board (height 4) is shorter than the left (height 8). The capacity is cap = 24, so update res to 24.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png",
-      "title": "Move shorter-wall pointer right to i = 1",
-      "explanation": "Because the left wall was shorter in the previous round, advance i from 0 to 1 for state [1, 7]: left wall ht[1] = 8, right wall ht[7] = 4, width 7 - 1 = 6, giving cap = min(8, 4) × 6 = 24 and updating res = max(21, 24) = 24. Now right wall 4 is shorter than left wall 8, so move right pointer j leftward next.",
-      "key_state": "i = 1 (height 8), j = 7 (height 4), right wall shorter; width 6, water height 4, cap = 24, running max res = 24.",
-      "announcement": "Move i from 0 to 1: left height 8, right height 4, right shorter; cap = 24, update res to 24."
+      "explanation": "The left board was shorter, so move i right from 0 to 1 to reach [1, 7]. The left height is ht[1] = 8, the right height is ht[7] = 4, and the width is 7 - 1 = 6. The current capacity is cap = min(8, 4) × 6 = 24. Update the maximum to res = max(21, 24) = 24. The right board (4) is now shorter than the left (8), so move j to the left next.",
+      "id": "source-472",
+      "key_state": "At i = 1 (height 8) and j = 7 (height 4), the right board is shorter. Width 6, water height 4, current capacity cap = 24, maximum so far res = 24.",
+      "title": "Move the pointer at the shorter board right to i = 1"
     },
     {
-      "id": "source-473",
+      "announcement": "Move the right pointer left from 7 to 6. The right board (height 3) is shorter than the left (height 8). The capacity is cap = 15, so res stays at 24.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png",
-      "title": "Move the right pointer left to j = 6",
-      "explanation": "Because right wall 4 was shorter than left wall 8, move j left from 7 to 6 for state [1, 6]: left wall 8, right wall ht[6] = 3, width 6 - 1 = 5, giving cap = min(8, 3) × 5 = 15; running maximum res = max(24, 15) = 24 stays unchanged.",
-      "key_state": "i = 1 (height 8), j = 6 (height 3), right wall shorter; width 5, water height 3, cap = 15, running max res = 24.",
-      "announcement": "Move j from 7 to 6: left height 8, right height 3, right shorter; cap = 15, res stays 24."
+      "explanation": "The previous right board (height 4) was shorter than the left (height 8), so move j left from 7 to 6, reaching [1, 6]. The left height is 8, the right height is ht[6] = 3, and the width is 6 - 1 = 5. The current capacity is cap = min(8, 3) × 5 = 15. The maximum so far stays at res = max(24, 15) = 24.",
+      "id": "source-473",
+      "key_state": "At i = 1 (height 8) and j = 6 (height 3), the right board is shorter. Width 5, water height 3, current capacity cap = 15, maximum so far res = 24.",
+      "title": "Move the pointer at the shorter board left to j = 6"
     },
     {
-      "id": "source-474",
+      "announcement": "Move the right pointer left from 6 to 5. The right board (height 7) is shorter than the left (height 8). The capacity is cap = 28, so update res to 28.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png",
-      "title": "Move the right pointer left to j = 5",
-      "explanation": "Because right wall 3 was shorter than left wall 8, move j left from 6 to 5 for state [1, 5]: left wall 8, right wall ht[5] = 7, width 5 - 1 = 4, giving cap = min(8, 7) × 4 = 28 and updating running maximum res = max(24, 28) = 28.",
-      "key_state": "i = 1 (height 8), j = 5 (height 7), right wall shorter; width 4, water height 7, cap = 28, running max res = 28.",
-      "announcement": "Move j from 6 to 5: left height 8, right height 7, right shorter; cap = 28, update res to 28."
+      "explanation": "The previous right board (height 3) was shorter than the left (height 8), so move j left from 6 to 5, reaching [1, 5]. The left height is 8, the right height is ht[5] = 7, and the width is 5 - 1 = 4. The current capacity is cap = min(8, 7) × 4 = 28. The maximum so far rises to res = max(24, 28) = 28.",
+      "id": "source-474",
+      "key_state": "At i = 1 (height 8) and j = 5 (height 7), the right board is shorter. Width 4, water height 7, current capacity cap = 28, maximum so far res = 28.",
+      "title": "Move the pointer at the shorter board left to j = 5"
     },
     {
-      "id": "source-475",
+      "announcement": "Move the right pointer left from 5 to 4. The right board (height 7) is shorter than the left (height 8). The capacity is cap = 21, so res stays at 28.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png",
-      "title": "Move the right pointer left to j = 4",
-      "explanation": "Because right wall 7 was shorter than left wall 8, move j left from 5 to 4 for state [1, 4]: left wall 8, right wall ht[4] = 7, width 4 - 1 = 3, giving cap = min(8, 7) × 3 = 21; running maximum res = max(28, 21) = 28 stays unchanged.",
-      "key_state": "i = 1 (height 8), j = 4 (height 7), right wall shorter; width 3, water height 7, cap = 21, running max res = 28.",
-      "announcement": "Move j from 5 to 4: left height 8, right height 7, right shorter; cap = 21, res stays 28."
+      "explanation": "The previous right board (height 7) was shorter than the left (height 8), so move j left from 5 to 4, reaching [1, 4]. The left height is 8, the right height is ht[4] = 7, and the width is 4 - 1 = 3. The current capacity is cap = min(8, 7) × 3 = 21. The maximum so far stays at res = max(28, 21) = 28.",
+      "id": "source-475",
+      "key_state": "At i = 1 (height 8) and j = 4 (height 7), the right board is shorter. Width 3, water height 7, current capacity cap = 21, maximum so far res = 28.",
+      "title": "Move the pointer at the shorter board left to j = 4"
     },
     {
-      "id": "source-476",
+      "announcement": "Move the right pointer left from 4 to 3. The right board (height 2) is shorter than the left (height 8). The capacity is cap = 4, so res stays at 28.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png",
-      "title": "Move the right pointer left to j = 3",
-      "explanation": "Because right wall 7 was shorter than left wall 8, move j left from 4 to 3 for state [1, 3]: left wall 8, right wall ht[3] = 2, width 3 - 1 = 2, giving cap = min(8, 2) × 2 = 4; running maximum res = max(28, 4) = 28 stays unchanged.",
-      "key_state": "i = 1 (height 8), j = 3 (height 2), right wall shorter; width 2, water height 2, cap = 4, running max res = 28.",
-      "announcement": "Move j from 4 to 3: left height 8, right height 2, right shorter; cap = 4, res stays 28."
+      "explanation": "The previous right board (height 7) was shorter than the left (height 8), so move j left from 4 to 3, reaching [1, 3]. The left height is 8, the right height is ht[3] = 2, and the width is 3 - 1 = 2. The current capacity is cap = min(8, 2) × 2 = 4. The maximum so far stays at res = max(28, 4) = 28.",
+      "id": "source-476",
+      "key_state": "At i = 1 (height 8) and j = 3 (height 2), the right board is shorter. Width 2, water height 2, current capacity cap = 4, maximum so far res = 28.",
+      "title": "Move the pointer at the shorter board left to j = 3"
     },
     {
-      "id": "source-477",
+      "announcement": "Move the right pointer left from 3 to 2. The right board (height 5) is shorter than the left (height 8). The capacity is cap = 5, so res stays at 28.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png",
-      "title": "Move the right pointer left to j = 2",
-      "explanation": "Because right wall 2 was shorter than left wall 8, move j left from 3 to 2 for state [1, 2]: left wall 8, right wall ht[2] = 5, width 2 - 1 = 1, giving cap = min(8, 5) × 1 = 5; running maximum res = max(28, 5) = 28 stays unchanged.",
-      "key_state": "i = 1 (height 8), j = 2 (height 5), right wall shorter; width 1, water height 5, cap = 5, running max res = 28.",
-      "announcement": "Move j from 3 to 2: left height 8, right height 5, right shorter; cap = 5, res stays 28."
+      "explanation": "The previous right board (height 2) was shorter than the left (height 8), so move j left from 3 to 2, reaching [1, 2]. The left height is 8, the right height is ht[2] = 5, and the width is 2 - 1 = 1. The current capacity is cap = min(8, 5) × 1 = 5. The maximum so far stays at res = max(28, 5) = 28.",
+      "id": "source-477",
+      "key_state": "At i = 1 (height 8) and j = 2 (height 5), the right board is shorter. Width 1, water height 5, current capacity cap = 5, maximum so far res = 28.",
+      "title": "Move the pointer at the shorter board left to j = 2"
     },
     {
-      "id": "source-478",
+      "announcement": "The right pointer moves left to index 1 and meets the left pointer. Exit the loop and return the maximum capacity of 28.",
       "book_path": "chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png",
-      "title": "Pointers meet and return maximum capacity",
-      "explanation": "Because right wall 5 is still shorter than left wall 8, j moves left from 2 to 1 and meets i. Above index 1, the two-color ij badge marks both pointers together (although axis tick 2 remains colored blue, it is no longer the current pointer position). Now i < j fails, so exit the loop without computing another capacity and return res = 28.",
-      "key_state": "Pointers meet at i = j = 1; exit the greedy loop and return maximum capacity res = 28.",
-      "announcement": "Right pointer moves left to index 1 to meet left pointer; exit loop and return maximum capacity 28."
+      "explanation": "The right board (height 5) was shorter than the left board (height 8), so move j left from index 2 to index 1, where it meets i. The teal i and blue j now appear together above the board at index 1. The number 2 on the horizontal axis is now dark gray, like the other unselected indices. Since i < j is now false, exit the loop without calculating another capacity and return the maximum, res = 28.",
+      "id": "source-478",
+      "key_state": "The pointers meet at i = j = 1. Exit the greedy loop and return the maximum capacity, res = 28.",
+      "title": "The pointers meet: return the maximum capacity"
     }
   ],
+  "input_tables": [],
+  "schema_version": 2,
+  "summary": "Start a pointer at each end and move the one at the shorter board inward. Compute the current capacity and track the largest seen at each step. The result is 28.",
   "tables": [
     {
-      "caption": "Maximum capacity steps 2 to 8: calculations and running maximum",
+      "caption": "Maximum capacity, steps 2–8: calculations and running maximum",
       "headers": [
-        "Step",
+        "Step in figure",
         "i",
         "j",
-        "Left wall height",
-        "Right wall height",
+        "Left board height",
+        "Right board height",
         "Current capacity cap",
-        "Running maximum res"
+        "Maximum so far res"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Step 2",
@@ -160,52 +204,8 @@
           "5",
           "28"
         ]
-      ],
-      "row_header": 0
-    }
-  ],
-  "animations": {
-    "max-capacity-greedy": {
-      "kind": "source-frames",
-      "states": [
-        {
-          "id": "step-1",
-          "frame_id": "source-470"
-        },
-        {
-          "id": "step-2",
-          "frame_id": "source-471"
-        },
-        {
-          "id": "step-3",
-          "frame_id": "source-472"
-        },
-        {
-          "id": "step-4",
-          "frame_id": "source-473"
-        },
-        {
-          "id": "step-5",
-          "frame_id": "source-474"
-        },
-        {
-          "id": "step-6",
-          "frame_id": "source-475"
-        },
-        {
-          "id": "step-7",
-          "frame_id": "source-476"
-        },
-        {
-          "id": "step-8",
-          "frame_id": "source-477"
-        },
-        {
-          "id": "step-9",
-          "frame_id": "source-478"
-        }
       ]
     }
-  },
-  "input_tables": []
+  ],
+  "title": "Greedy two-pointer search for maximum capacity"
 }

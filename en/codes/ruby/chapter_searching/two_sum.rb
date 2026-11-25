@@ -4,9 +4,9 @@ Created Time: 2024-04-09
 Author: Blue Bean (lonnnnnnner@gmail.com)
 =end
 
-### Method 1: brute-force enumeration ###
+### Method 1: Brute-force enumeration ###
 def two_sum_brute_force(nums, target)
-  # Two nested loops give a time complexity of O(n^2)
+  # Two nested loops take O(n^2) time
   for i in 0...(nums.length - 1)
     for j in (i + 1)...nums.length
       return [i, j] if nums[i] + nums[j] == target
@@ -16,11 +16,11 @@ def two_sum_brute_force(nums, target)
   []
 end
 
-### Method 2: auxiliary hash table ###
+### Method 2: Auxiliary hash table ###
 def two_sum_hash_table(nums, target)
   # The auxiliary hash table uses O(n) space
   dic = {}
-  # A single loop gives a time complexity of O(n)
+  # A single loop takes O(n) time
   for i in 0...nums.length
     return [dic[target - nums[i]], i] if dic.has_key?(target - nums[i])
 
@@ -32,11 +32,11 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # ======= Test case =======
+  # ======= Test Case =======
   nums = [2, 7, 11, 15]
   target = 13
 
-  # ====== Driver code ======
+  # ====== Driver Code ======
   # Method 1
   res = two_sum_brute_force(nums, target)
   puts "Method 1: res = #{res}"

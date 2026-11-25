@@ -29,7 +29,7 @@ class Trunk {
 
 /**
  * Вывести двоичное дерево
- * Этот вывод дерева заимствован из TECHIE DELIGHT
+ * Код для вывода дерева заимствован у TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 function printTree(root: TreeNode | null) {
@@ -83,9 +83,9 @@ function showTrunks(p: Trunk | null) {
 
 /* Вывести кучу */
 function printHeap(arr: number[]): void {
-    console.log('Массивное представление кучи:');
+    console.log('Куча в виде массива:');
     console.log(arr);
-    console.log('Древовидное представление кучи:');
+    console.log('Куча в виде дерева:');
     const root = arrToTree(arr);
     printTree(root);
 }

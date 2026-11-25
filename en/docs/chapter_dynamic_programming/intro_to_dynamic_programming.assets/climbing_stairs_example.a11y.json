@@ -1,19 +1,19 @@
 {
-  "schema_version": 2,
-  "title": "Three ways to climb to the third step",
-  "summary": "Three step-by-step paths show the distinct ways to reach step 3.",
   "context": [
-    "Numbering the ground level as 0, each move climbs 1 or 2 steps, with the goal of landing on step 3."
+    "Number the ground 0. Each move climbs 1 or 2 stairs, and the goal is to land exactly on stair 3."
   ],
   "description": [
-    "From left to right, the stairs are numbered 0 through 6, with the tread of target step 3 highlighted in green. Three sets of jump arcs are drawn above the same staircase, matching the step sequences listed below; a caption beneath the staircase notes, \"There are 3 ways to reach step 3.\""
+    "The stairs are numbered 0 through 6 from left to right. The tread of stair 3 is green. Three sets of arcs above the same staircase correspond to the stair sequences below. The caption reads, “There are 3 ways to reach stair 3.”"
   ],
   "frames": [
     {
-      "id": "source-367",
       "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_example.png",
-      "title": "Three ways to climb to the third step",
-      "explanation": "The solid cyan path advances along steps 0 → 1 → 2 → 3, climbing 1 step three times in a row; the dotted blue path follows 0 → 2 → 3, climbing 2 steps to step 2 and then 1 step to step 3; the dashed orange path follows 0 → 1 → 3, climbing 1 step to step 1 and then 2 steps to step 3. Climbing 2 steps then 1 step visits a different intermediate step from climbing 1 step then 2 steps, so the two count as distinct ways."
+      "explanation": "The solid teal route 0→1→2→3 climbs 1 stair three times. The dotted blue route 0→2→3 climbs 2 stairs to stair 2 and then 1 to stair 3. The dashed orange route 0→1→3 climbs 1 stair to stair 1 and then 2 to stair 3. Climbing 2 then 1 and climbing 1 then 2 visit different stairs and count as distinct routes.",
+      "id": "source-367",
+      "title": "Three ways to reach stair 3"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "Three paths show different ways to reach stair 3.",
+  "title": "Three ways to reach stair 3"
 }

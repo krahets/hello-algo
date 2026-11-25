@@ -56,21 +56,21 @@ public class iteration {
         return res.toString();
     }
 
-    /* Driver code */
+    /* Driver Code */
     public static void main(String[] args) {
         int n = 5;
         int res;
 
         res = forLoop(n);
-        System.out.println("\nSum from the for loop: res = " + res);
+        System.out.println("\nfor loop sum: res = " + res);
 
         res = whileLoop(n);
-        System.out.println("\nSum from the while loop: res = " + res);
+        System.out.println("\nwhile loop sum: res = " + res);
 
         res = whileLoopII(n);
-        System.out.println("\nSum from the while loop (two updates): res = " + res);
+        System.out.println("\nwhile loop sum (two updates): res = " + res);
 
         String resStr = nestedForLoop(n);
-        System.out.println("\nTraversal result from the nested for loops: " + resStr);
+        System.out.println("\nNested for loop traversal: " + resStr);
     }
 }

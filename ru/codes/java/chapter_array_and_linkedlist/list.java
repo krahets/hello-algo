@@ -11,7 +11,7 @@ import java.util.*;
 public class list {
     public static void main(String[] args) {
         /* Инициализация списка */
-        // Обратите внимание: массив должен иметь тип Integer[], а не int[], поскольку элементами списка могут быть только объекты класса-обертки Integer
+        // Тип массива должен быть Integer[], а не int[]: элементам списка нужен Integer — класс-обёртка для int
         Integer[] numbers = new Integer[] { 1, 3, 2, 5, 4 };
         List<Integer> nums = new ArrayList<>(Arrays.asList(numbers));
         System.out.println("Список nums = " + nums);
@@ -22,9 +22,9 @@ public class list {
 
         /* Изменение элемента */
         nums.set(1, 0);
-        System.out.println("После изменения значения элемента с индексом 1 на 0 nums = " + nums);
+        System.out.println("После записи 0 по индексу 1 nums = " + nums);
 
-        /* Очистить список */
+        /* Очистка списка */
         nums.clear();
         System.out.println("После очистки списка nums = " + nums);
 
@@ -44,23 +44,23 @@ public class list {
         nums.remove(3);
         System.out.println("После удаления элемента по индексу 3 nums = " + nums);
 
-        /* Обходить список по индексам */
+        /* Обойти список по индексам */
         int count = 0;
         for (int i = 0; i < nums.size(); i++) {
             count += nums.get(i);
         }
-        /* Непосредственно обходить элементы списка */
+        /* Перебрать элементы списка напрямую */
         for (int x : nums) {
             count += x;
         }
 
-        /* Объединить два списка */
+        /* Объединение двух списков */
         List<Integer> nums1 = new ArrayList<>(Arrays.asList(new Integer[] { 6, 8, 7, 10, 9 }));
         nums.addAll(nums1);
-        System.out.println("После конкатенации списка nums1 к nums nums = " + nums);
+        System.out.println("После добавления nums1 в конец nums получаем nums = " + nums);
 
-        /* Отсортировать список */
+        /* Сортировка списка */
         Collections.sort(nums);
-        System.out.println("После сортировки списка nums = " + nums);
+        System.out.println("После сортировки nums = " + nums);
     }
 }

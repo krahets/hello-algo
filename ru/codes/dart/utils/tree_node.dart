@@ -15,7 +15,7 @@ class TreeNode {
   TreeNode(this.val, [this.height = 0, this.left, this.right]);
 }
 
-/* Десериализовать список в двоичное дерево: рекурсия */
+/* Рекурсивно восстановить двоичное дерево из списка */
 TreeNode? listToTreeDFS(List<int?> arr, int i) {
   if (i < 0 || i >= arr.length || arr[i] == null) {
     return null;
@@ -26,12 +26,12 @@ TreeNode? listToTreeDFS(List<int?> arr, int i) {
   return root;
 }
 
-/* Десериализовать список в двоичное дерево */
+/* Восстановить двоичное дерево из списка */
 TreeNode? listToTree(List<int?> arr) {
   return listToTreeDFS(arr, 0);
 }
 
-/* Сериализовать двоичное дерево в список: рекурсия */
+/* Рекурсивно сериализовать двоичное дерево в список */
 void treeToListDFS(TreeNode? root, int i, List<int?> res) {
   if (root == null) return;
   while (i >= res.length) {

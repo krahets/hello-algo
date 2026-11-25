@@ -6,24 +6,24 @@
 
 /* Backtracking: n-queens */
 function backtrack(row, n, state, res, cols, diags1, diags2) {
-    // Record a solution when a queen has been placed in every row
+    // Record the solution once every row has a queen
     if (row === n) {
         res.push(state.map((row) => row.slice()));
         return;
     }
-    // Iterate over all columns
+    // Try each column
     for (let col = 0; col < n; col++) {
-        // Calculate the main-diagonal and anti-diagonal indices for this square
+        // Find the two diagonals through this square
         const diag1 = row - col + n - 1;
         const diag2 = row + col;
-        // Prune: the square must have no queen in its column, main diagonal, or anti-diagonal
+        // Prune if the column or either diagonal already has a queen
         if (!cols[col] && !diags1[diag1] && !diags2[diag2]) {
-            // Try: place a queen on this square
+            // Try placing a queen on this square
             state[row][col] = 'Q';
             cols[col] = diags1[diag1] = diags2[diag2] = true;
             // Place a queen in the next row
             backtrack(row + 1, n, state, res, cols, diags1, diags2);
-            // Backtrack: restore this square to empty
+            // Backtrack: clear this square
             state[row][col] = '#';
             cols[col] = diags1[diag1] = diags2[diag2] = false;
         }
@@ -32,11 +32,11 @@ function backtrack(row, n, state, res, cols, diags1, diags2) {
 
 /* Solve the n-queens problem */
 function nQueens(n) {
-    // Initialize an n*n board, where 'Q' represents a queen and '#' represents an empty square
+    // Set up an n-by-n board with 'Q' for a queen and '#' for an empty square
     const state = Array.from({ length: n }, () => Array(n).fill('#'));
-    const cols = Array(n).fill(false); // Track whether a column contains a queen
-    const diags1 = Array(2 * n - 1).fill(false); // Track whether a main diagonal contains a queen
-    const diags2 = Array(2 * n - 1).fill(false); // Track whether an anti-diagonal contains a queen
+    const cols = Array(n).fill(false); // Track occupied columns
+    const diags1 = Array(2 * n - 1).fill(false); // Track occupied main diagonals
+    const diags2 = Array(2 * n - 1).fill(false); // Track occupied secondary diagonals
     const res = [];
 
     backtrack(0, n, state, res, cols, diags1, diags2);
@@ -47,8 +47,8 @@ function nQueens(n) {
 const n = 4;
 const res = nQueens(n);
 
-console.log(`Input board side length: ${n}`);
-console.log(`Number of queen arrangements: ${res.length}`);
+console.log(`Board side length: ${n}`);
+console.log(`Found ${res.length} queen arrangements`);
 res.forEach((state) => {
     console.log('--------------------');
     state.forEach((row) => console.log(row));

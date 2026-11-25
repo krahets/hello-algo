@@ -6,16 +6,16 @@
 
 package chapter_hashing;
 
-/* 開放定址雜湊表 */
+/* 採用開放定址法的雜湊表 */
 class HashMapOpenAddressing {
     private int size; // 鍵值對數量
     private int capacity = 4; // 雜湊表容量
-    private final double loadThres = 2.0 / 3.0; // 觸發擴容的負載因子閾值
-    private final int extendRatio = 2; // 擴容倍數
+    private final double loadThres = 2.0 / 3.0; // 觸發容量擴充的負載因子門檻
+    private final int extendRatio = 2; // 容量擴充倍數
     private Pair[] buckets; // 桶陣列
     private final Pair TOMBSTONE = new Pair(-1, "-1"); // 刪除標記
 
-    /* 建構子 */
+    /* 建構方法 */
     public HashMapOpenAddressing() {
         size = 0;
         buckets = new Pair[capacity];
@@ -31,83 +31,83 @@ class HashMapOpenAddressing {
         return (double) size / capacity;
     }
 
-    /* 搜尋 key 對應的桶索引 */
+    /* 尋找 key 對應的桶索引 */
     private int findBucket(int key) {
         int index = hashFunc(key);
         int firstTombstone = -1;
-        // 線性探查，當遇到空桶時跳出
+        // 進行線性探測，遇到空桶就跳出迴圈
         while (buckets[index] != null) {
-            // 若遇到 key ，返回對應的桶索引
+            // 若遇到 key，回傳對應的桶索引
             if (buckets[index].key == key) {
-                // 若之前遇到了刪除標記，則將鍵值對移動至該索引處
+                // 若先前遇過刪除標記，將鍵值對移到該標記所在的索引位置
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
-                    return firstTombstone; // 返回移動後的桶索引
+                    return firstTombstone; // 回傳移動後的桶索引
                 }
-                return index; // 返回桶索引
+                return index; // 回傳桶索引
             }
-            // 記錄遇到的首個刪除標記
+            // 記錄遇到的第一個刪除標記
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // 計算桶索引，越過尾部則返回頭部
+            // 計算桶索引，超過陣列尾端就回到開頭
             index = (index + 1) % capacity;
         }
-        // 若 key 不存在，則返回新增點的索引
+        // 若 key 不存在，回傳可插入位置的索引
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
     /* 查詢操作 */
     public String get(int key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(key);
-        // 若找到鍵值對，則返回對應 val
+        // 若找到鍵值對，回傳對應的 val
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             return buckets[index].val;
         }
-        // 若鍵值對不存在，則返回 null
+        // 若鍵值對不存在，回傳 null
         return null;
     }
 
     /* 新增操作 */
     public void put(int key, String val) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if (loadFactor() > loadThres) {
             extend();
         }
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(key);
-        // 若找到鍵值對，則覆蓋 val 並返回
+        // 若找到鍵值對，覆寫 val 並結束操作
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index].val = val;
             return;
         }
-        // 若鍵值對不存在，則新增該鍵值對
+        // 若鍵值對不存在，新增該鍵值對
         buckets[index] = new Pair(key, val);
         size++;
     }
 
     /* 刪除操作 */
     public void remove(int key) {
-        // 搜尋 key 對應的桶索引
+        // 尋找 key 對應的桶索引
         int index = findBucket(key);
-        // 若找到鍵值對，則用刪除標記覆蓋它
+        // 若找到鍵值對，以刪除標記取代它
         if (buckets[index] != null && buckets[index] != TOMBSTONE) {
             buckets[index] = TOMBSTONE;
             size--;
         }
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     private void extend() {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         Pair[] bucketsTmp = buckets;
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         capacity *= extendRatio;
         buckets = new Pair[capacity];
         size = 0;
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for (Pair pair : bucketsTmp) {
             if (pair != null && pair != TOMBSTONE) {
                 put(pair.key, pair.val);
@@ -115,7 +115,7 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     public void print() {
         for (Pair pair : buckets) {
             if (pair == null) {
@@ -141,18 +141,18 @@ public class hash_map_open_addressing {
         hashmap.put(16750, "小算");
         hashmap.put(13276, "小法");
         hashmap.put(10583, "小鴨");
-        System.out.println("\n新增完成後，雜湊表為\nKey -> Value");
+        System.out.println("\n新增後的雜湊表\nKey -> Value");
         hashmap.print();
 
         // 查詢操作
-        // 向雜湊表中輸入鍵 key ，得到值 val
+        // 輸入鍵 key，從雜湊表取得對應的值 val
         String name = hashmap.get(13276);
-        System.out.println("\n輸入學號 13276 ，查詢到姓名 " + name);
+        System.out.println("\n輸入學號 13276，查得姓名 " + name);
 
         // 刪除操作
-        // 在雜湊表中刪除鍵值對 (key, val)
+        // 從雜湊表刪除鍵值對 (key, val)
         hashmap.remove(16750);
-        System.out.println("\n刪除 16750 後，雜湊表為\nKey -> Value");
+        System.out.println("\n刪除 16750 後的雜湊表\nKey -> Value");
         hashmap.print();
     }
 }

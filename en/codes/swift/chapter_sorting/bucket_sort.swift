@@ -11,14 +11,14 @@ func bucketSort(nums: inout [Double]) {
     var buckets = (0 ..< k).map { _ in [Double]() }
     // 1. Distribute the array elements among the buckets
     for num in nums {
-        // The input range is [0, 1); use num * k to map each value to an index in [0, k-1]
+        // For inputs in [0, 1), use num * k to map each value to an index in [0, k-1]
         let i = Int(num * Double(k))
         // Add num to bucket i
         buckets[i].append(num)
     }
     // 2. Sort each bucket
     for i in buckets.indices {
-        // Use the built-in sorting function, or replace it with another sorting algorithm
+        // Use the built-in sort or another sorting algorithm
         buckets[i].sort()
     }
     // 3. Traverse the buckets to combine the results
@@ -33,9 +33,9 @@ func bucketSort(nums: inout [Double]) {
 
 @main
 enum BucketSort {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
-        // Assume the input consists of floating-point numbers in [0, 1)
+        // Assume floating-point inputs in [0, 1)
         var nums = [0.49, 0.96, 0.82, 0.09, 0.57, 0.43, 0.91, 0.75, 0.15, 0.37]
         bucketSort(nums: &nums)
         print("After bucket sort, nums = \(nums)")

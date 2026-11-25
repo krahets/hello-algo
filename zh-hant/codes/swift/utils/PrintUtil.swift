@@ -76,9 +76,9 @@ public enum PrintUtil {
     }
 
     public static func printHeap(queue: [Int]) {
-        print("堆積的陣列表示：", terminator: "")
+        print("堆積的陣列表示法：", terminator: "")
         print(queue)
-        print("堆積的樹狀表示：")
+        print("堆積的樹狀表示法：")
         let root = TreeNode.listToTree(arr: queue)
         printTree(root: root)
     }

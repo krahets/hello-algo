@@ -11,7 +11,7 @@
 
 /* 回溯演算法：全排列 I */
 void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *selected, int **res, int *resSize) {
-    // 當狀態長度等於元素數量時，記錄解
+    // 當狀態長度等於元素個數時，記錄此解
     if (stateSize == choicesSize) {
         res[*resSize] = (int *)malloc(choicesSize * sizeof(int));
         for (int i = 0; i < choicesSize; i++) {
@@ -20,17 +20,17 @@ void backtrack(int *state, int stateSize, int *choices, int choicesSize, bool *s
         (*resSize)++;
         return;
     }
-    // 走訪所有選擇
+    // 逐一檢查所有選項
     for (int i = 0; i < choicesSize; i++) {
         int choice = choices[i];
-        // 剪枝：不允許重複選擇元素
+        // 剪枝：不可重複選取同一個元素
         if (!selected[i]) {
-            // 嘗試：做出選擇，更新狀態
+            // 嘗試：做出選擇並更新狀態
             selected[i] = true;
             state[stateSize] = choice;
-            // 進行下一輪選擇
+            // 進入下一輪選擇
             backtrack(state, stateSize + 1, choices, choicesSize, selected, res, resSize);
-            // 回退：撤銷選擇，恢復到之前的狀態
+            // 回溯：撤銷選擇，還原先前的狀態
             selected[i] = false;
         }
     }
@@ -54,7 +54,7 @@ int **permutationsI(int *nums, int numsSize, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int nums[] = {1, 2, 3};
     int numsSize = sizeof(nums) / sizeof(nums[0]);

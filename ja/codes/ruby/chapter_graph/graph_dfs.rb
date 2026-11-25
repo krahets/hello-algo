@@ -8,22 +8,22 @@ require 'set'
 require_relative './graph_adjacency_list'
 require_relative '../utils/vertex'
 
-### 深さ優先走査の補助関数 ###
+### 深さ優先探索の補助関数 ###
 def dfs(graph, visited, res, vet)
   res << vet # 訪問した頂点を記録する
   visited.add(vet) # この頂点を訪問済みにする
-  # この頂点に隣接する全頂点を走査する
+  # この頂点の隣接頂点をすべて調べる
   for adj_vet in graph.adj_list[vet]
-    next if visited.include?(adj_vet) # 訪問済みの頂点をスキップする
-    # 隣接する頂点を再帰的に訪問する
+    next if visited.include?(adj_vet) # 訪問済みの頂点を飛ばす
+    # 隣接頂点を再帰的に訪問する
     dfs(graph, visited, res, adj_vet)
   end
 end
 
-### 深さ優先走査 ###
+### 深さ優先探索 ###
 def graph_dfs(graph, start_vet)
-  # 指定した頂点に隣接する全頂点を取得しやすいように、グラフを隣接リストで表す
-  # 頂点の走査順序
+  # 指定した頂点の隣接頂点をすべて取得できるよう、グラフを隣接リストで表す
+  # 頂点の訪問順
   res = []
   # 訪問済みの頂点を記録するハッシュ集合
   visited = Set.new
@@ -31,7 +31,7 @@ def graph_dfs(graph, start_vet)
   res
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # 無向グラフを初期化する
   v = vals_to_vets([0, 1, 2, 3, 4, 5, 6])
@@ -44,11 +44,11 @@ if __FILE__ == $0
     [v[5], v[6]],
   ]
   graph = GraphAdjList.new(edges)
-  puts "\n初期化後のグラフ"
+  puts "\n初期化後のグラフ："
   graph.__print__
 
-  # 深さ優先走査
+  # 深さ優先探索
   res = graph_dfs(graph, v[0])
-  puts "\n深さ優先走査（DFS）の頂点の順序"
+  puts "\n深さ優先探索（DFS）での頂点の訪問順："
   p vets_to_vals(res)
 end

@@ -6,8 +6,8 @@ Author: krahets (krahets@163.com)
 
 
 def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
-    """Method 1: brute-force enumeration"""
-    # Two nested loops give a time complexity of O(n^2)
+    """Method 1: Brute-force enumeration"""
+    # Two nested loops take O(n^2) time
     for i in range(len(nums) - 1):
         for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == target:
@@ -16,10 +16,10 @@ def two_sum_brute_force(nums: list[int], target: int) -> list[int]:
 
 
 def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
-    """Method 2: auxiliary hash table"""
+    """Method 2: Auxiliary hash table"""
     # The auxiliary hash table uses O(n) space
     dic = {}
-    # A single loop with average O(1) hash operations gives an average time complexity of O(n)
+    # A single loop takes O(n) time
     for i in range(len(nums)):
         if target - nums[i] in dic:
             return [dic[target - nums[i]], i]
@@ -27,13 +27,13 @@ def two_sum_hash_table(nums: list[int], target: int) -> list[int]:
     return []
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # ======= Test case =======
+    # ======= Test Case =======
     nums = [2, 7, 11, 15]
     target = 13
 
-    # ====== Driver code ======
+    # ====== Driver Code ======
     # Method 1
     res: list[int] = two_sum_brute_force(nums, target)
     print("Method 1: res =", res)

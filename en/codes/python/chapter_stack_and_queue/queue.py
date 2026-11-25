@@ -6,11 +6,11 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 from collections import deque
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     # Initialize the queue
-    # In Python, we generally use the deque class as a queue
-    # Although queue.Queue() is a dedicated queue class, deque is more convenient for this example
+    # In Python, the double-ended queue class deque is commonly used as a FIFO queue
+    # queue.Queue() creates a dedicated queue, but it is less convenient here
     que: deque[int] = deque()
 
     # Enqueue elements
@@ -19,16 +19,16 @@ if __name__ == "__main__":
     que.append(2)
     que.append(5)
     que.append(4)
-    print("Queue que =", que)
+    print("que =", que)
 
-    # Access the front element
+    # Peek at the front element
     front: int = que[0]
-    print("Front element front =", front)
+    print("Front element (front) =", front)
 
     # Dequeue an element
     pop: int = que.popleft()
-    print("Dequeued element pop =", pop)
-    print("After dequeuing, que =", que)
+    print("Dequeued element (pop) =", pop)
+    print("After removal, que =", que)
 
     # Get the queue size
     size: int = len(que)
@@ -36,4 +36,4 @@ if __name__ == "__main__":
 
     # Check whether the queue is empty
     is_empty: bool = len(que) == 0
-    print("Is the queue empty =", is_empty)
+    print("Queue is empty =", is_empty)

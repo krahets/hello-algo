@@ -14,7 +14,7 @@ void insert(ListNode n0, ListNode P) {
   n0.next = P;
 }
 
-/* 連結リストのノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後にあるノードを削除する */
 void remove(ListNode n0) {
   if (n0.next == null) return;
   // n0 -> P -> n1
@@ -32,7 +32,7 @@ ListNode? access(ListNode? head, int index) {
   return head;
 }
 
-/* 連結リストから値が target である最初のノードを探索する */
+/* 連結リストから値が target の最初のノードを探す */
 int find(ListNode? head, int target) {
   int index = 0;
   while (head != null) {
@@ -45,7 +45,7 @@ int find(ListNode? head, int target) {
   return -1;
 }
 
-/* 実行用コード */
+/* ドライバコード */
 void main() {
   // 連結リストを初期化する
   // 各ノードを初期化する
@@ -60,24 +60,24 @@ void main() {
   n2.next = n3;
   n3.next = n4;
 
-  print('初期化した連結リスト');
+  print('初期化した連結リスト：');
   printLinkedList(n0);
 
   /* ノードを挿入する */
   insert(n0, ListNode(0));
-  print('ノードを挿入した後の連結リスト');
+  print('ノード挿入後の連結リスト：');
   printLinkedList(n0);
 
   /* ノードを削除する */
   remove(n0);
-  print('ノードを削除した後の連結リスト');
+  print('ノード削除後の連結リスト：');
   printLinkedList(n0);
 
   /* ノードにアクセスする */
   ListNode? node = access(n0, 3);
   print('連結リストのインデックス 3 にあるノードの値 = ${node!.val}');
 
-  /* ノードを探索する */
+  /* ノードを探す */
   int index = find(n0, 2);
-  print('連結リスト内で値が 2 であるノードのインデックス = $index');
+  print('連結リストで値が 2 のノードのインデックス = $index');
 }

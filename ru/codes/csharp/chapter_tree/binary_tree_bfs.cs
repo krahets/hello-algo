@@ -8,20 +8,20 @@ namespace hello_algo.chapter_tree;
 
 public class binary_tree_bfs {
 
-    /* Обход в ширину */
+    /* Обход по уровням */
     List<int> LevelOrder(TreeNode root) {
-        // Инициализировать очередь и добавить корневой узел
+        // Создать очередь и добавить корень
         Queue<TreeNode> queue = new();
         queue.Enqueue(root);
-        // Инициализировать список для хранения последовательности обхода
+        // Создать список для последовательности обхода
         List<int> list = [];
         while (queue.Count != 0) {
-            TreeNode node = queue.Dequeue(); // Извлечение из очереди
+            TreeNode node = queue.Dequeue(); // Извлечь узел из очереди
             list.Add(node.val!.Value);       // Сохранить значение узла
             if (node.left != null)
-                queue.Enqueue(node.left);    // Поместить левый дочерний узел в очередь
+                queue.Enqueue(node.left);    // Добавить левого потомка в очередь
             if (node.right != null)
-                queue.Enqueue(node.right);   // Поместить правый дочерний узел в очередь
+                queue.Enqueue(node.right);   // Добавить правого потомка в очередь
         }
         return list;
     }
@@ -29,12 +29,12 @@ public class binary_tree_bfs {
     [Test]
     public void Test() {
         /* Инициализация двоичного дерева */
-        // Здесь используется функция, напрямую строящая двоичное дерево из массива
+        // Используем функцию, которая строит двоичное дерево непосредственно из массива
         TreeNode? root = TreeNode.ListToTree([1, 2, 3, 4, 5, 6, 7]);
         Console.WriteLine("\nИнициализация двоичного дерева\n");
         PrintUtil.PrintTree(root);
 
         List<int> list = LevelOrder(root!);
-        Console.WriteLine("\nПоследовательность печати узлов при обходе в ширину = " + string.Join(",", list));
+        Console.WriteLine("\nУзлы в порядке обхода по уровням = " + string.Join(",", list));
     }
 }

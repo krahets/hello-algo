@@ -4,7 +4,7 @@
 
 package chapter_stack_and_queue
 
-/* 配列で実装したスタック */
+/* 配列を使ったスタック */
 type arrayStack struct {
 	data []int // データ
 }
@@ -12,35 +12,35 @@ type arrayStack struct {
 /* スタックを初期化する */
 func newArrayStack() *arrayStack {
 	return &arrayStack{
-		// スタックの長さを 0、容量を 16 に設定する
+		// スタックの初期要素数を 0、容量を 16 にする
 		data: make([]int, 0, 16),
 	}
 }
 
-/* スタックの長さ */
+/* スタックの要素数 */
 func (s *arrayStack) size() int {
 	return len(s.data)
 }
 
-/* スタックが空かどうか */
+/* スタックが空かどうかを判定する */
 func (s *arrayStack) isEmpty() bool {
 	return s.size() == 0
 }
 
-/* プッシュ */
+/* プッシュする */
 func (s *arrayStack) push(v int) {
-	// スライスの容量は自動で拡張される
+	// スライスの容量は自動的に拡張される
 	s.data = append(s.data, v)
 }
 
-/* ポップ */
+/* ポップする */
 func (s *arrayStack) pop() any {
 	val := s.peek()
 	s.data = s.data[:len(s.data)-1]
 	return val
 }
 
-/* スタックの先頭要素を取得する */
+/* スタックのトップの値を取得する */
 func (s *arrayStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -49,7 +49,7 @@ func (s *arrayStack) peek() any {
 	return val
 }
 
-/* 表示用の Slice を取得する */
+/* 表示用のスライスを取得する */
 func (s *arrayStack) toSlice() []int {
 	return s.data
 }

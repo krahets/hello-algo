@@ -11,10 +11,10 @@ class HashMapOpenAddressing {
   private:
     int size;                             // Number of key-value pairs
     int capacity = 4;                     // Hash table capacity
-    const double loadThres = 2.0 / 3.0;     // Load factor threshold that triggers capacity growth
-    const int extendRatio = 2;            // Capacity growth factor
+    const double loadThres = 2.0 / 3.0;     // Load factor threshold for resizing
+    const int extendRatio = 2;            // Growth factor
     vector<Pair *> buckets;               // Bucket array
-    Pair *TOMBSTONE = new Pair(-1, "-1"); // Tombstone marker
+    Pair *TOMBSTONE = new Pair(-1, "-1"); // Deletion marker
 
   public:
     /* Constructor */
@@ -49,60 +49,60 @@ class HashMapOpenAddressing {
         while (buckets[index] != nullptr) {
             // If key is found, return its bucket index
             if (buckets[index]->key == key) {
-                // If a tombstone was encountered earlier, move the key-value pair to that index
+                // If a deletion marker was found earlier, move the pair to that index
                 if (firstTombstone != -1) {
                     buckets[firstTombstone] = buckets[index];
                     buckets[index] = TOMBSTONE;
-                    return firstTombstone; // Return the bucket index after the move
+                    return firstTombstone; // Return the new bucket index
                 }
                 return index; // Return the bucket index
             }
-            // Record the first tombstone encountered
+            // Record the first deletion marker encountered
             if (firstTombstone == -1 && buckets[index] == TOMBSTONE) {
                 firstTombstone = index;
             }
-            // Calculate the bucket index, wrapping to the beginning after the end
+            // Compute the next bucket index, wrapping to the start at the end
             index = (index + 1) % capacity;
         }
         // If key is absent, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     string get(int key) {
         // Find the bucket index for key
         int index = findBucket(key);
-        // If the key-value pair is found, return its val
+        // If the pair is found, return its val
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             return buckets[index]->val;
         }
-        // Return an empty string if the key-value pair does not exist
+        // If the pair is absent, return an empty string
         return "";
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     void put(int key, string val) {
-        // Grow the capacity when the load factor exceeds the threshold
+        // Expand the table when the load factor exceeds the threshold
         if (loadFactor() > loadThres) {
             extend();
         }
         // Find the bucket index for key
         int index = findBucket(key);
-        // If the key-value pair is found, overwrite val and return
+        // If the pair is found, overwrite val and return
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             buckets[index]->val = val;
             return;
         }
-        // If the key-value pair is absent, insert it
+        // If the pair is absent, insert it
         buckets[index] = new Pair(key, val);
         size++;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     void remove(int key) {
         // Find the bucket index for key
         int index = findBucket(key);
-        // If the key-value pair is found, replace it with a tombstone
+        // If the pair is found, replace it with a deletion marker
         if (buckets[index] != nullptr && buckets[index] != TOMBSTONE) {
             delete buckets[index];
             buckets[index] = TOMBSTONE;
@@ -110,15 +110,15 @@ class HashMapOpenAddressing {
         }
     }
 
-    /* Grow the hash table capacity */
+    /* Expand the hash table */
     void extend() {
-        // Keep a copy of the original bucket array
+        // Save the original hash table
         vector<Pair *> bucketsTmp = buckets;
-        // Initialize a new hash table with the expanded capacity
+        // Initialize the larger hash table
         capacity *= extendRatio;
         buckets = vector<Pair *>(capacity, nullptr);
         size = 0;
-        // Move the key-value pairs from the original hash table to the new one
+        // Move the key-value pairs from the old table into the new one
         for (Pair *pair : bucketsTmp) {
             if (pair != nullptr && pair != TOMBSTONE) {
                 put(pair->key, pair->val);
@@ -146,23 +146,23 @@ int main() {
     // Initialize the hash table
     HashMapOpenAddressing hashmap;
 
-    // Insert operation
-    // Insert the key-value pair (key, val) into the hash table
-    hashmap.put(12836, "小哈");
-    hashmap.put(15937, "小啰");
-    hashmap.put(16750, "小算");
-    hashmap.put(13276, "小法");
-    hashmap.put(10583, "小鸭");
+    // Insert a key-value pair
+    // Insert the pair (key, val) into the hash table
+    hashmap.put(12836, "Xiao Ha");
+    hashmap.put(15937, "Xiao Luo");
+    hashmap.put(16750, "Xiao Suan");
+    hashmap.put(13276, "Xiao Fa");
+    hashmap.put(10583, "Xiao Ya");
     cout << "\nHash table after insertion:\nKey -> Value" << endl;
     hashmap.print();
 
-    // Lookup operation
-    // Look up key in the hash table to obtain val
+    // Look up a value
+    // Look up key in the hash table to get val
     string name = hashmap.get(13276);
-    cout << "\nLook up student ID 13276 to obtain the name " << name << endl;
+    cout << "\nName for student ID 13276: " << name << endl;
 
-    // Remove operation
-    // Remove the key-value pair (key, val) from the hash table
+    // Remove a key-value pair
+    // Remove the pair (key, val) from the hash table
     hashmap.remove(16750);
     cout << "\nHash table after removing 16750:\nKey -> Value" << endl;
     hashmap.print();

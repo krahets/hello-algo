@@ -7,13 +7,13 @@
 const { arrToTree } = require('../modules/TreeNode');
 const { printTree } = require('../modules/PrintUtil');
 
-// 순회 순서를 저장할 리스트를 초기화한다
+// 순회 결과를 저장할 리스트를 초기화한다
 const list = [];
 
 /* 전위 순회 */
 function preOrder(root) {
     if (root === null) return;
-    // 방문 우선순위: 루트 노드 -> 왼쪽 서브트리 -> 오른쪽 서브트리
+    // 방문 순서: 루트 노드 -> 왼쪽 서브트리 -> 오른쪽 서브트리
     list.push(root.val);
     preOrder(root.left);
     preOrder(root.right);
@@ -22,7 +22,7 @@ function preOrder(root) {
 /* 중위 순회 */
 function inOrder(root) {
     if (root === null) return;
-    // 방문 우선순위: 왼쪽 서브트리 -> 루트 노드 -> 오른쪽 서브트리
+    // 방문 순서: 왼쪽 서브트리 -> 루트 노드 -> 오른쪽 서브트리
     inOrder(root.left);
     list.push(root.val);
     inOrder(root.right);
@@ -31,7 +31,7 @@ function inOrder(root) {
 /* 후위 순회 */
 function postOrder(root) {
     if (root === null) return;
-    // 방문 우선순위: 왼쪽 서브트리 -> 오른쪽 서브트리 -> 루트 노드
+    // 방문 순서: 왼쪽 서브트리 -> 오른쪽 서브트리 -> 루트 노드
     postOrder(root.left);
     postOrder(root.right);
     list.push(root.val);
@@ -39,7 +39,7 @@ function postOrder(root) {
 
 /* 실행 코드 */
 /* 이진 트리 초기화 */
-// 여기서는 배열로부터 이진 트리를 바로 생성하는 함수를 사용한다
+// 배열에서 바로 이진 트리를 만드는 함수를 사용한다
 const root = arrToTree([1, 2, 3, 4, 5, 6, 7]);
 console.log('\n이진 트리 초기화\n');
 printTree(root);
@@ -47,14 +47,14 @@ printTree(root);
 /* 전위 순회 */
 list.length = 0;
 preOrder(root);
-console.log('\n전위 순회의 노드 출력 순서 = ' + list);
+console.log('\n전위 순회로 출력한 노드 순서 = ' + list);
 
 /* 중위 순회 */
 list.length = 0;
 inOrder(root);
-console.log('\n중위 순회의 노드 출력 순서 = ' + list);
+console.log('\n중위 순회로 출력한 노드 순서 = ' + list);
 
 /* 후위 순회 */
 list.length = 0;
 postOrder(root);
-console.log('\n후위 순회의 노드 출력 순서 = ' + list);
+console.log('\n후위 순회로 출력한 노드 순서 = ' + list);

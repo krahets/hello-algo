@@ -6,44 +6,44 @@
 
 import '../utils/list_node.dart';
 
-/* 連結リストで実装したキュー */
+/* 連結リストを使ったキュー */
 class LinkedListQueue {
   ListNode? _front; // 先頭ノード _front
   ListNode? _rear; // 末尾ノード _rear
-  int _queSize = 0; // キューの長さ
+  int _queSize = 0; // キューの要素数
 
   LinkedListQueue() {
     _front = null;
     _rear = null;
   }
 
-  /* キューの長さを取得 */
+  /* キューの要素数を取得する */
   int size() {
     return _queSize;
   }
 
-  /* キューが空か判定 */
+  /* キューが空かどうかを判定する */
   bool isEmpty() {
     return _queSize == 0;
   }
 
-  /* エンキュー */
+  /* エンキューする */
   void push(int _num) {
-    // 末尾ノードの後ろに _num を追加する
+    // 値が _num のノードを末尾ノードの後ろに追加する
     final node = ListNode(_num);
-    // キューが空の場合、先頭と末尾の両方がこのノードを指すようにする
+    // キューが空なら、先頭と末尾の両方がこのノードを指すようにする
     if (_front == null) {
       _front = node;
       _rear = node;
     } else {
-      // キューが空でない場合、このノードを末尾ノードの後ろに追加する
+      // キューが空でなければ、このノードを末尾ノードの後ろにつなぐ
       _rear!.next = node;
       _rear = node;
     }
     _queSize++;
   }
 
-  /* デキュー */
+  /* デキューする */
   int pop() {
     final int _num = peek();
     // 先頭ノードを削除する
@@ -52,7 +52,7 @@ class LinkedListQueue {
     return _num;
   }
 
-  /* キューの先頭要素にアクセス */
+  /* キューの先頭要素を参照する */
   int peek() {
     if (_queSize == 0) {
       throw Exception('キューが空です');
@@ -60,7 +60,7 @@ class LinkedListQueue {
     return _front!.val;
   }
 
-  /* 連結リストを Array に変換して返す */
+  /* 連結リストを List に変換して返す */
   List<int> toArray() {
     ListNode? node = _front;
     final List<int> queue = [];
@@ -72,12 +72,12 @@ class LinkedListQueue {
   }
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   /* キューを初期化する */
   final queue = LinkedListQueue();
 
-  /* 要素をエンキューする */
+  /* 要素をキューに追加する */
   queue.push(1);
   queue.push(3);
   queue.push(2);
@@ -85,19 +85,19 @@ void main() {
   queue.push(4);
   print("キュー queue = ${queue.toArray()}");
 
-  /* キューの先頭要素にアクセス */
+  /* キューの先頭要素を参照する */
   final int peek = queue.peek();
-  print("キューの先頭要素 peek = $peek");
+  print("先頭要素 peek = $peek");
 
-  /* 要素をデキューする */
+  /* キューから要素を取り出す */
   final int pop = queue.pop();
-  print("デキューした要素 pop = $pop 、デキュー後 queue = ${queue.toArray()}");
+  print("デキューした要素 pop = $pop 、デキュー後の queue = ${queue.toArray()}");
 
-  /* キューの長さを取得 */
+  /* キューの要素数を取得する */
   final int size = queue.size();
-  print("キューの長さ size = $size");
+  print("キューの要素数 size = $size");
 
-  /* キューが空か判定 */
+  /* キューが空かどうかを判定する */
   final bool isEmpty = queue.isEmpty();
   print("キューは空か = $isEmpty");
 }

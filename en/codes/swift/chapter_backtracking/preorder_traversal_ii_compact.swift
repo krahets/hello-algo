@@ -14,7 +14,7 @@ func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // Try
+    // Try a choice
     path.append(root)
     if root.val == 7 {
         // Record the solution
@@ -39,7 +39,7 @@ enum PreorderTraversalIICompact {
         res = []
         preOrder(root: root)
 
-        print("\nOutput all paths from the root to nodes with value 7")
+        print("\nPrint all paths from the root to a node with value 7")
         for path in res {
             var vals: [Int] = []
             for node in path {

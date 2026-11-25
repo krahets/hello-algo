@@ -8,39 +8,39 @@ import "math"
 
 /* 0-1 ナップサック問題：全探索 */
 func knapsackDFS(wgt, val []int, i, c int) int {
-	// すべての品物を選び終えたか、ナップサックの残り容量がなければ、価値 0 を返す
+	// 全品物の選択を終えたか、空き容量がなければ、価値 0 を返す
 	if i == 0 || c == 0 {
 		return 0
 	}
-	// ナップサックの容量を超える場合、入れない選択しかできない
+	// 容量を超える場合は、入れない選択しかできない
 	if wgt[i-1] > c {
 		return knapsackDFS(wgt, val, i-1, c)
 	}
-	// 品物 i を入れない場合と入れる場合の最大価値を計算する
+	// 品物 i を入れない場合と入れる場合の最大価値を求める
 	no := knapsackDFS(wgt, val, i-1, c)
 	yes := knapsackDFS(wgt, val, i-1, c-wgt[i-1]) + val[i-1]
-	// 2 通りの選択のうち、価値が大きいほうを返す
+	// 2 通りのうち価値が大きい方を返す
 	return int(math.Max(float64(no), float64(yes)))
 }
 
 /* 0-1 ナップサック問題：メモ化探索 */
 func knapsackDFSMem(wgt, val []int, mem [][]int, i, c int) int {
-	// すべての品物を選び終えたか、ナップサックの残り容量がなければ、価値 0 を返す
+	// 全品物の選択を終えたか、空き容量がなければ、価値 0 を返す
 	if i == 0 || c == 0 {
 		return 0
 	}
-	// 記録済みなら、その値をそのまま返す
+	// 記録済みなら、その値を返す
 	if mem[i][c] != -1 {
 		return mem[i][c]
 	}
-	// ナップサックの容量を超える場合、入れない選択しかできない
+	// 容量を超える場合は、入れない選択しかできない
 	if wgt[i-1] > c {
 		return knapsackDFSMem(wgt, val, mem, i-1, c)
 	}
-	// 品物 i を入れない場合と入れる場合の最大価値を計算する
+	// 品物 i を入れない場合と入れる場合の最大価値を求める
 	no := knapsackDFSMem(wgt, val, mem, i-1, c)
 	yes := knapsackDFSMem(wgt, val, mem, i-1, c-wgt[i-1]) + val[i-1]
-	// 2 通りの選択のうち、価値が大きいほうを返す
+	// 2 通りのうち価値が大きい方を返す
 	mem[i][c] = int(math.Max(float64(no), float64(yes)))
 	return mem[i][c]
 }
@@ -57,10 +57,10 @@ func knapsackDP(wgt, val []int, cap int) int {
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// ナップサックの容量を超える場合、品物 i を選ばない
+				// 容量を超える場合は品物 i を選ばない
 				dp[i][c] = dp[i-1][c]
 			} else {
-				// 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+				// 品物 i を選ばない場合と選ぶ場合の大きい方を取る
 				dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i-1][c-wgt[i-1]]+val[i-1])))
 			}
 		}
@@ -68,7 +68,7 @@ func knapsackDP(wgt, val []int, cap int) int {
 	return dp[n][cap]
 }
 
-/* 0-1 ナップサック問題：空間を最適化した動的計画法 */
+/* 0-1 ナップサック問題：使用メモリを削減した動的計画法 */
 func knapsackDPComp(wgt, val []int, cap int) int {
 	n := len(wgt)
 	// dp テーブルを初期化する
@@ -78,7 +78,7 @@ func knapsackDPComp(wgt, val []int, cap int) int {
 		// 逆順に走査する
 		for c := cap; c >= 1; c-- {
 			if wgt[i-1] <= c {
-				// 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+				// 品物 i を選ばない場合と選ぶ場合の大きい方を取る
 				dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
 			}
 		}

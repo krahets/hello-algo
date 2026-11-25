@@ -16,7 +16,7 @@ fun insert(n0: ListNode?, p: ListNode?) {
     n0?.next = p
 }
 
-/* 刪除鏈結串列的節點 n0 之後的首個節點 */
+/* 刪除鏈結串列中緊接在節點 n0 之後的節點 */
 fun remove(n0: ListNode?) {
     if (n0?.next == null)
         return
@@ -26,7 +26,7 @@ fun remove(n0: ListNode?) {
     n0.next = n1
 }
 
-/* 訪問鏈結串列中索引為 index 的節點 */
+/* 存取鏈結串列中索引為 index 的節點 */
 fun access(head: ListNode?, index: Int): ListNode? {
     var h = head
     for (i in 0..<index) {
@@ -37,7 +37,7 @@ fun access(head: ListNode?, index: Int): ListNode? {
     return h
 }
 
-/* 在鏈結串列中查詢值為 target 的首個節點 */
+/* 在鏈結串列中尋找第一個值為 target 的節點 */
 fun find(head: ListNode?, target: Int): Int {
     var index = 0
     var h = head
@@ -50,7 +50,7 @@ fun find(head: ListNode?, target: Int): Int {
     return -1
 }
 
-/* Driver Code */
+/* 範例主程式 */
 fun main() {
     /* 初始化鏈結串列 */
     // 初始化各個節點
@@ -60,12 +60,12 @@ fun main() {
     val n3 = ListNode(5)
     val n4 = ListNode(4)
 
-    // 構建節點之間的引用
+    // 建立節點之間的參照
     n0.next = n1
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    println("初始化的鏈結串列為")
+    println("初始化後的鏈結串列為")
     printLinkedList(n0)
 
     /* 插入節點 */
@@ -78,11 +78,11 @@ fun main() {
     println("刪除節點後的鏈結串列為")
     printLinkedList(n0)
 
-    /* 訪問節點 */
+    /* 存取節點 */
     val node = access(n0, 3)!!
-    println("鏈結串列中索引 3 處的節點的值 = ${node._val}")
+    println("鏈結串列中索引 3 處的節點值 = ${node._val}")
 
-    /* 查詢節點 */
+    /* 尋找節點 */
     val index = find(n0, 2)
-    println("鏈結串列中值為 2 的節點的索引 = $index")
+    println("鏈結串列中值為 2 的節點索引 = $index")
 }

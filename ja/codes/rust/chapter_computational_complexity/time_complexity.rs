@@ -27,7 +27,7 @@ fn linear(n: i32) -> i32 {
 /* 線形オーダー（配列の走査） */
 fn array_traversal(nums: &[i32]) -> i32 {
     let mut count = 0;
-    // ループの回数は配列の長さに比例する
+    // 反復回数は配列の長さに比例
     for _ in nums {
         count += 1;
     }
@@ -37,7 +37,7 @@ fn array_traversal(nums: &[i32]) -> i32 {
 /* 二次オーダー */
 fn quadratic(n: i32) -> i32 {
     let mut count = 0;
-    // ループの回数はデータの大きさ n の二乗に比例する
+    // 反復回数はデータサイズ n の二乗に比例
     for _ in 0..n {
         for _ in 0..n {
             count += 1;
@@ -50,16 +50,16 @@ fn quadratic(n: i32) -> i32 {
 fn bubble_sort(nums: &mut [i32]) -> i32 {
     let mut count = 0; // カウンタ
 
-    // 外側のループ：未ソート区間は [0, i]
+    // 外側のループ：未整列区間は [0, i]
     for i in (1..nums.len()).rev() {
-        // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+        // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
         for j in 0..i {
             if nums[j] > nums[j + 1] {
-                // nums[j] と nums[j + 1] を交換する
+                // nums[j] と nums[j + 1] を交換
                 let tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                count += 3; // 要素の交換は 3 回の単位操作からなる
+                count += 3; // 要素の交換は 3 回の基本操作からなる
             }
         }
     }
@@ -70,7 +70,7 @@ fn bubble_sort(nums: &mut [i32]) -> i32 {
 fn exponential(n: i32) -> i32 {
     let mut count = 0;
     let mut base = 1;
-    // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+    // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
     for _ in 0..n {
         for _ in 0..base {
             count += 1
@@ -125,18 +125,18 @@ fn factorial_recur(n: i32) -> i32 {
         return 1;
     }
     let mut count = 0;
-    // 1 個から n 個に分裂する
+    // 1 個から n 個に分かれる
     for _ in 0..n {
         count += factorial_recur(n - 1);
     }
     count
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
-    // n を変更して実行し、各計算量で操作回数がどのように変化するか確かめられる
+    // n を変えて実行し、計算量ごとに操作回数の増え方を確かめる
     let n: i32 = 8;
-    println!("入力データの大きさ n = {}", n);
+    println!("入力データのサイズ n = {}", n);
 
     let mut count = constant(n);
     println!("定数オーダーの操作回数 = {}", count);

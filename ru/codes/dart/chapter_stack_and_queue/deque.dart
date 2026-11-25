@@ -7,36 +7,36 @@
 import 'dart:collection';
 
 void main() {
-  /* Инициализация двусторонней очереди */
+  /* Инициализировать дек */
   final Queue<int> deque = Queue();
   deque.addFirst(3);
   deque.addLast(2);
   deque.addLast(5);
-  print("Двусторонняя очередь deque = $deque");
+  print("Дек deque = $deque");
 
-  /* Доступ к элементу */
+  /* Посмотреть первый и последний элементы */
   final int peekFirst = deque.first;
-  print("Первый элемент peekFirst = $peekFirst");
+  print("Первый элемент дека peekFirst = $peekFirst");
   final int peekLast = deque.last;
-  print("Последний элемент peekLast = $peekLast");
+  print("Последний элемент дека peekLast = $peekLast");
 
-  /* Добавление элемента в очередь */
+  /* Добавить элементы в дек */
   deque.addLast(4);
-  print("После добавления элемента 4 в хвост deque = $deque");
+  print("После добавления 4 в конец дека deque = $deque");
   deque.addFirst(1);
-  print("После добавления элемента 1 в голову deque = $deque");
+  print("После добавления 1 в начало дека deque = $deque");
 
-  /* Извлечение элемента из очереди */
+  /* Извлечь элементы из дека */
   final int popLast = deque.removeLast();
-  print("Извлеченный из хвоста элемент = $popLast, deque после извлечения из хвоста = $deque");
+  print("Извлечённый последний элемент = $popLast, после извлечения deque = $deque");
   final int popFirst = deque.removeFirst();
-  print("Извлеченный из головы элемент = $popFirst, deque после извлечения из головы = $deque");
+  print("Извлечённый первый элемент = $popFirst, после извлечения deque = $deque");
 
-  /* Получение длины двусторонней очереди */
+  /* Получить длину дека */
   final int size = deque.length;
-  print("Длина двусторонней очереди size = $size");
+  print("Длина дека size = $size");
 
-  /* Проверка, пуста ли двусторонняя очередь */
+  /* Проверить, пуст ли дек */
   final bool isEmpty = deque.isEmpty;
-  print("Пуста ли двусторонняя очередь = $isEmpty");
+  print("Дек пуст = $isEmpty");
 }

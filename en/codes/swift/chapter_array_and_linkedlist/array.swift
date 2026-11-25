@@ -4,40 +4,40 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Access an element at a random index */
+/* Access a random element */
 func randomAccess(nums: [Int]) -> Int {
-    // Pick a random number in the interval [0, nums.count)
+    // Pick a random index in [0, nums.count)
     let randomIndex = nums.indices.randomElement()!
-    // Get and return the randomly selected element
+    // Get and return the element at that index
     let randomNum = nums[randomIndex]
     return randomNum
 }
 
-/* Extend the array length */
+/* Extend the array */
 func extend(nums: [Int], enlarge: Int) -> [Int] {
-    // Initialize an array with the extended length
+    // Initialize an array with the new length
     var res = Array(repeating: 0, count: nums.count + enlarge)
-    // Copy all elements from the original array to the new array
+    // Copy all elements from the original array into the new array
     for i in nums.indices {
         res[i] = nums[i]
     }
-    // Return the new, extended array
+    // Return the new, longer array
     return res
 }
 
-/* Insert element num at index `index` in the array */
+/* Insert num at the specified array index */
 func insert(nums: inout [Int], num: Int, index: Int) {
-    // Shift all elements at and after index `index` one position to the right
+    // Shift the elements from index onward one position to the right
     for i in stride(from: nums.count - 1, to: index, by: -1) {
         nums[i] = nums[i - 1]
     }
-    // Assign num to the element at index `index`
+    // Store num at the specified index
     nums[index] = num
 }
 
-/* Remove the element at index `index` */
+/* Remove the element at the specified index */
 func remove(nums: inout [Int], index: Int) {
-    // Shift all elements after index `index` one position to the left
+    // Shift all elements after index one position to the left
     for i in nums.indices.dropFirst(index).dropLast() {
         nums[i] = nums[i + 1]
     }
@@ -54,14 +54,14 @@ func traverse(nums: [Int]) {
     for num in nums {
         count += num
     }
-    // Iterate over both the indices and the elements
+    // Iterate over indices and elements together
     for (i, num) in nums.enumerated() {
         count += nums[i]
         count += num
     }
 }
 
-/* Find a specified element in the array */
+/* Find a given element in the array */
 func find(nums: [Int], target: Int) -> Int {
     for i in nums.indices {
         if nums[i] == target {
@@ -73,7 +73,7 @@ func find(nums: [Int], target: Int) -> Int {
 
 @main
 enum _Array {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         /* Initialize the array */
         let arr = Array(repeating: 0, count: 5)
@@ -83,11 +83,11 @@ enum _Array {
 
         /* Random access */
         let randomNum = randomAccess(nums: nums)
-        print("Randomly selected element from nums: \(randomNum)")
+        print("Random element from nums: \(randomNum)")
 
-        /* Extend the length */
+        /* Extend the array */
         nums = extend(nums: nums, enlarge: 3)
-        print("After extending the array length to 8, nums = \(nums)")
+        print("After extending the array to length 8, nums = \(nums)")
 
         /* Insert an element */
         insert(nums: &nums, num: 6, index: 3)
@@ -102,6 +102,6 @@ enum _Array {
 
         /* Find an element */
         let index = find(nums: nums, target: 3)
-        print("Find element 3 in nums; index = \(index)")
+        print("Index of 3 in nums = \(index)")
     }
 }

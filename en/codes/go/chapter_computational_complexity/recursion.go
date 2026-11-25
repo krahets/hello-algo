@@ -12,25 +12,25 @@ func recur(n int) int {
 	if n == 1 {
 		return 1
 	}
-	// Recurse: make a recursive call
+	// Descend: make a recursive call
 	res := recur(n - 1)
 	// Unwind: return the result
 	return n + res
 }
 
-/* Simulate recursion using iteration */
+/* Simulate recursion with iteration */
 func forLoopRecur(n int) int {
-	// Use an explicit stack to simulate the system call stack
+	// Use an explicit stack to simulate the call stack
 	stack := list.New()
 	res := 0
-	// Descending: simulate recursive calls
+	// Descend: make a recursive call
 	for i := n; i > 0; i-- {
-		// Simulate recursive calls by pushing onto the stack
+		// Push to simulate descending
 		stack.PushBack(i)
 	}
-	// Unwinding: simulate returning results
+	// Unwind: return the result
 	for stack.Len() != 0 {
-		// Simulate unwinding by popping from the stack
+		// Pop to simulate unwinding
 		res += stack.Back().Value.(int)
 		stack.Remove(stack.Back())
 	}
@@ -44,11 +44,11 @@ func tailRecur(n int, res int) int {
 	if n == 0 {
 		return res
 	}
-	// Tail-recursive call
+	// Tail call
 	return tailRecur(n-1, res+n)
 }
 
-/* Fibonacci sequence: recursion */
+/* Fibonacci sequence using recursion */
 func fib(n int) int {
 	// Base cases: f(1) = 0, f(2) = 1
 	if n == 1 || n == 2 {

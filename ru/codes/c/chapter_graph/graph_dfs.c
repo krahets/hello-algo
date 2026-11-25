@@ -6,12 +6,12 @@
 
 #include "graph_adjacency_list.c"
 
-// Предположим, что максимальное число узлов равно 100
+// Допустим, узлов не больше 100
 #define MAX_SIZE 100
 
-/* Проверить, была ли вершина уже посещена */
+/* Проверить, посещена ли вершина */
 int isVisited(Vertex **res, int size, Vertex *vet) {
-    // Искать узел обходом за O(n) времени
+    // Последовательно найти узел за время O(n)
     for (int i = 0; i < size; i++) {
         if (res[i] == vet) {
             return 1;
@@ -22,14 +22,14 @@ int isVisited(Vertex **res, int size, Vertex *vet) {
 
 /* Вспомогательная функция обхода в глубину */
 void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
-    // Отметить посещенную вершину
+    // Записать посещённую вершину
     res[(*resSize)++] = vet;
-    // Обойти все смежные вершины данной вершины
+    // Перебрать всех соседей этой вершины
     AdjListNode *node = findNode(graph, vet);
     while (node != NULL) {
-        // Пропустить уже посещенную вершину
+        // Пропустить посещённые вершины
         if (!isVisited(res, *resSize, node->vertex)) {
-            // Рекурсивно обходить смежные вершины
+            // Рекурсивно посетить соседнюю вершину
             dfs(graph, res, resSize, node->vertex);
         }
         node = node->next;
@@ -37,35 +37,35 @@ void dfs(GraphAdjList *graph, Vertex **res, int *resSize, Vertex *vet) {
 }
 
 /* Обход в глубину */
-// Использовать список смежности для представления графа, чтобы получить все смежные вершины заданной вершины
+// Список смежности позволяет получить всех соседей заданной вершины
 void graphDFS(GraphAdjList *graph, Vertex *startVet, Vertex **res, int *resSize) {
     dfs(graph, res, resSize, startVet);
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    // Инициализация неориентированного графа
+    // Инициализировать неориентированный граф
     int vals[] = {0, 1, 2, 3, 4, 5, 6};
     int size = sizeof(vals) / sizeof(vals[0]);
     Vertex **v = valsToVets(vals, size);
     Vertex *edges[][2] = {{v[0], v[1]}, {v[0], v[3]}, {v[1], v[2]}, {v[2], v[5]}, {v[4], v[5]}, {v[5], v[6]}};
     int egdeSize = sizeof(edges) / sizeof(edges[0]);
     GraphAdjList *graph = newGraphAdjList();
-    // Добавить все вершины и ребра
+    // Добавить все вершины и рёбра
     for (int i = 0; i < size; i++) {
         addVertex(graph, v[i]);
     }
     for (int i = 0; i < egdeSize; i++) {
         addEdge(graph, edges[i][0], edges[i][1]);
     }
-    printf("\nПосле инициализации граф имеет вид\n");
+    printf("\nГраф после инициализации:\n");
     printGraph(graph);
 
     // Обход в глубину
     Vertex *res[MAX_SIZE];
     int resSize = 0;
     graphDFS(graph, v[0], res, &resSize);
-    printf("\nПоследовательность вершин при обходе в глубину (DFS)\n");
+    printf("\nПорядок обхода вершин в глубину (DFS):\n");
     printArray(vetsToVals(res, resSize), resSize);
 
     // Освободить память

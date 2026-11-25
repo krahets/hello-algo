@@ -18,54 +18,54 @@ def function() -> int:
 
 
 def constant(n: int):
-    """Constant complexity"""
-    # Constants, variables, and objects occupy O(1) space
+    """Constant space"""
+    # Constants, variables, and objects use O(1) space
     a = 0
     nums = [0] * 10000
     node = ListNode(0)
-    # Variables in the loop occupy O(1) space
+    # Variables in the loop use O(1) space
     for _ in range(n):
         c = 0
-    # Function calls in the loop occupy O(1) space
+    # Function calls in the loop use O(1) space
     for _ in range(n):
         function()
 
 
 def linear(n: int):
-    """Linear complexity"""
-    # A list of length n occupies O(n) space
+    """Linear space"""
+    # A list of length n uses O(n) space
     nums = [0] * n
-    # A hash table with n entries occupies O(n) space
+    # A hash table with n entries uses O(n) space
     hmap = dict[int, str]()
     for i in range(n):
         hmap[i] = str(i)
 
 
 def linear_recur(n: int):
-    """Linear complexity (recursive implementation)"""
-    print("Recursion: n =", n)
+    """Linear space (recursive)"""
+    print("Recursive call: n =", n)
     if n == 1:
         return
     linear_recur(n - 1)
 
 
 def quadratic(n: int):
-    """Quadratic complexity"""
-    # The two-dimensional list occupies O(n^2) space
+    """Quadratic space"""
+    # A two-dimensional list uses O(n^2) space
     num_matrix = [[0] * n for _ in range(n)]
 
 
 def quadratic_recur(n: int) -> int:
-    """Quadratic complexity (recursive implementation)"""
+    """Quadratic space (recursive)"""
     if n <= 0:
         return 0
-    # The lengths of array nums are n, n-1, ..., 2, 1
+    # The successive lengths of nums are n, n-1, ..., 2, 1
     nums = [0] * n
     return quadratic_recur(n - 1)
 
 
 def build_tree(n: int) -> TreeNode | None:
-    """Exponential complexity (building a perfect binary tree)"""
+    """Exponential space (build a perfect binary tree)"""
     if n == 0:
         return None
     root = TreeNode(0)
@@ -74,17 +74,17 @@ def build_tree(n: int) -> TreeNode | None:
     return root
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     n = 5
-    # Constant complexity
+    # Constant space
     constant(n)
-    # Linear complexity
+    # Linear space
     linear(n)
     linear_recur(n)
-    # Quadratic complexity
+    # Quadratic space
     quadratic(n)
     quadratic_recur(n)
-    # Exponential complexity
+    # Exponential space
     root = build_tree(n)
     print_tree(root)

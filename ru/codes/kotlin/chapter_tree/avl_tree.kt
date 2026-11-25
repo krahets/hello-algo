@@ -10,19 +10,19 @@ import utils.TreeNode
 import utils.printTree
 import kotlin.math.max
 
-/* AVL-дерево */
+/* АВЛ-дерево */
 class AVLTree {
-    var root: TreeNode? = null // Корневой узел
+    var root: TreeNode? = null // Корень
 
     /* Получить высоту узла */
     fun height(node: TreeNode?): Int {
-        // Высота пустого узла равна -1, высота листового узла равна 0
+        // Высота пустого узла равна -1, высота листа равна 0
         return node?.height ?: -1
     }
 
     /* Обновить высоту узла */
     private fun updateHeight(node: TreeNode?) {
-        // Высота узла равна высоте более высокого поддерева + 1
+        // Высота узла на 1 больше высоты самого высокого поддерева
         node?.height = max(height(node?.left), height(node?.right)) + 1
     }
 
@@ -30,65 +30,65 @@ class AVLTree {
     fun balanceFactor(node: TreeNode?): Int {
         // Коэффициент баланса пустого узла равен 0
         if (node == null) return 0
-        // Коэффициент баланса узла = высота левого поддерева - высота правого поддерева
+        // Коэффициент баланса узла равен высоте левого поддерева минус высота правого
         return height(node.left) - height(node.right)
     }
 
-    /* Операция правого вращения */
+    /* Правый поворот */
     private fun rightRotate(node: TreeNode?): TreeNode {
         val child = node!!.left
         val grandChild = child!!.right
-        // Выполнить правое вращение узла node вокруг child
+        // Повернуть node вправо вокруг child
         child.right = node
         node.left = grandChild
         // Обновить высоту узла
         updateHeight(node)
         updateHeight(child)
-        // Вернуть корневой узел поддерева после вращения
+        // Вернуть корень поддерева после поворота
         return child
     }
 
-    /* Операция левого вращения */
+    /* Левый поворот */
     private fun leftRotate(node: TreeNode?): TreeNode {
         val child = node!!.right
         val grandChild = child!!.left
-        // Выполнить левое вращение узла node вокруг child
+        // Повернуть node влево вокруг child
         child.left = node
         node.right = grandChild
         // Обновить высоту узла
         updateHeight(node)
         updateHeight(child)
-        // Вернуть корневой узел поддерева после вращения
+        // Вернуть корень поддерева после поворота
         return child
     }
 
-    /* Выполнить вращение, чтобы снова сбалансировать поддерево */
+    /* Выполнить поворот, чтобы восстановить баланс поддерева */
     private fun rotate(node: TreeNode): TreeNode {
         // Получить коэффициент баланса узла node
         val balanceFactor = balanceFactor(node)
-        // Левосторонне перекошенное дерево
+        // Перевес влево
         if (balanceFactor > 1) {
             if (balanceFactor(node.left) >= 0) {
-                // Правое вращение
+                // Поворот вправо
                 return rightRotate(node)
             } else {
-                // Сначала левое вращение, затем правое
+                // Сначала поворот влево, затем вправо
                 node.left = leftRotate(node.left)
                 return rightRotate(node)
             }
         }
-        // Правосторонне перекошенное дерево
+        // Перевес вправо
         if (balanceFactor < -1) {
             if (balanceFactor(node.right) <= 0) {
-                // Левое вращение
+                // Поворот влево
                 return leftRotate(node)
             } else {
-                // Сначала правое вращение, затем левое
+                // Сначала поворот вправо, затем влево
                 node.right = rightRotate(node.right)
                 return leftRotate(node)
             }
         }
-        // Дерево сбалансировано, вращение не требуется, вернуть сразу
+        // Дерево сбалансировано: завершить вызов без поворота
         return node
     }
 
@@ -102,17 +102,17 @@ class AVLTree {
         if (n == null)
             return TreeNode(_val)
         var node = n
-        /* 1. Найти позицию вставки и вставить узел */
+        /* 1. Найти место вставки и вставить узел */
         if (_val < node._val)
             node.left = insertHelper(node.left, _val)
         else if (_val > node._val)
             node.right = insertHelper(node.right, _val)
         else
-            return node // Повторяющийся узел не вставлять, сразу вернуть
+            return node // Такой узел уже есть: завершить вызов без вставки
         updateHeight(node) // Обновить высоту узла
-        /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+        /* 2. Восстановить баланс поддерева с помощью поворота */
         node = rotate(node)
-        // Вернуть корневой узел поддерева
+        // Вернуть корень поддерева
         return node
     }
 
@@ -124,7 +124,7 @@ class AVLTree {
     /* Рекурсивное удаление узла (вспомогательный метод) */
     private fun removeHelper(n: TreeNode?, _val: Int): TreeNode? {
         var node = n ?: return null
-        /* 1. Найти узел и удалить его */
+        /* 1. Найти и удалить узел */
         if (_val < node._val)
             node.left = removeHelper(node.left, _val)
         else if (_val > node._val)
@@ -135,14 +135,14 @@ class AVLTree {
                     node.left
                 else
                     node.right
-                // Число дочерних узлов = 0, удалить node и сразу вернуть
+                // Нет потомков: удалить node и завершить вызов
                 if (child == null)
                     return null
-                // Число дочерних узлов = 1, удалить node напрямую
+                // Один потомок: удалить node
                 else
                     node = child
             } else {
-                // Число дочерних узлов = 2, удалить следующий по симметричному обходу узел и заменить им текущий узел
+                // Два потомка: удалить следующий узел симметричного обхода и заменить им текущий узел
                 var temp = node.right
                 while (temp!!.left != null) {
                     temp = temp.left
@@ -152,51 +152,51 @@ class AVLTree {
             }
         }
         updateHeight(node) // Обновить высоту узла
-        /* 2. Выполнить вращение, чтобы снова сбалансировать поддерево */
+        /* 2. Восстановить баланс поддерева с помощью поворота */
         node = rotate(node)
-        // Вернуть корневой узел поддерева
+        // Вернуть корень поддерева
         return node
     }
 
     /* Поиск узла */
     fun search(_val: Int): TreeNode? {
         var cur = root
-        // Искать в цикле и выйти после прохода за листовой узел
+        // Искать в цикле до выхода за пределы листа
         while (cur != null) {
-            // Целевой узел находится в правом поддереве cur
+            // Искомый узел в правом поддереве cur
             cur = if (cur._val < _val)
                 cur.right!!
-            // Целевой узел находится в левом поддереве cur
+            // Искомый узел в левом поддереве cur
             else if (cur._val > _val)
                 cur.left
-            // Найти целевой узел и выйти из цикла
+            // Узел найден: выйти из цикла
             else
                 break
         }
-        // Вернуть целевой узел
+        // Вернуть искомый узел
         return cur
     }
 }
 
 fun testInsert(tree: AVLTree, _val: Int) {
     tree.insert(_val)
-    println("\nПосле вставки узла $_val AVL-дерево имеет вид")
+    println("\nАВЛ-дерево после вставки узла $_val:")
     printTree(tree.root)
 }
 
 fun testRemove(tree: AVLTree, _val: Int) {
     tree.remove(_val)
-    println("\nПосле удаления узла $_val AVL-дерево имеет вид")
+    println("\nАВЛ-дерево после удаления узла $_val:")
     printTree(tree.root)
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
-    /* Инициализация пустого AVL-дерева */
+    /* Инициализация пустого АВЛ-дерева */
     val avlTree = AVLTree()
 
     /* Вставка узла */
-    // Обратите внимание, как AVL-дерево сохраняет баланс после вставки узла
+    // Проследите, как АВЛ-дерево сохраняет баланс после вставки узла
     testInsert(avlTree, 1)
     testInsert(avlTree, 2)
     testInsert(avlTree, 3)
@@ -212,12 +212,12 @@ fun main() {
     testInsert(avlTree, 7)
 
     /* Удаление узла */
-    // Обратите внимание, как AVL-дерево сохраняет баланс после удаления узла
-    testRemove(avlTree, 8) // Удаление узла степени 0
-    testRemove(avlTree, 5) // Удаление узла степени 1
-    testRemove(avlTree, 4) // Удаление узла степени 2
+    // Проследите, как АВЛ-дерево сохраняет баланс после удаления узла
+    testRemove(avlTree, 8) // Удаление узла без потомков
+    testRemove(avlTree, 5) // Удаление узла с одним потомком
+    testRemove(avlTree, 4) // Удаление узла с двумя потомками
 
     /* Поиск узла */
     val node = avlTree.search(7)
-    println("\nНайденный объект узла = $node, значение узла = ${node?._val}")
+    println("\nНайденный узел: $node, значение узла = ${node?._val}")
 }

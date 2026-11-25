@@ -6,57 +6,57 @@
 
 package chapter_sorting
 
-/* Get the k-th digit of num, where exp = 10^(k-1) */
+/* Get digit k of num, where exp = 10^(k-1) */
 fun digit(num: Int, exp: Int): Int {
-    // Passing exp instead of k avoids repeatedly performing expensive exponentiation here
+    // Passing exp instead of k avoids repeating the costly exponentiation here
     return (num / exp) % 10
 }
 
-/* Counting sort (sort nums by the k-th digit) */
+/* Counting sort by digit k of each element in nums */
 fun countingSortDigit(nums: IntArray, exp: Int) {
-    // Decimal digits range from 0 to 9, so the bucket array needs length 10
+    // Decimal digits range from 0 to 9, so the bucket array needs 10 entries
     val counter = IntArray(10)
     val n = nums.size
-    // Count the occurrences of each digit from 0 to 9
+    // Count the occurrences of digits 0 through 9
     for (i in 0..<n) {
-        val d = digit(nums[i], exp) // Get the k-th digit of nums[i] and store it in d
-        counter[d]++                // Count the occurrences of digit d
+        val d = digit(nums[i], exp) // Let d be digit k of nums[i]
+        counter[d]++                // Count this occurrence of digit d
     }
-    // Compute prefix sums to convert occurrence counts into array positions
+    // Compute prefix sums to convert counts into array positions
     for (i in 1..9) {
         counter[i] += counter[i - 1]
     }
-    // Traverse in reverse and place each element into res according to the bucket counts
+    // Traverse backward and use the bucket counts to place each element in res
     val res = IntArray(n)
     for (i in n - 1 downTo 0) {
         val d = digit(nums[i], exp)
-        val j = counter[d] - 1 // Get the destination index j for digit d in the array
+        val j = counter[d] - 1 // Get the array index j for d
         res[j] = nums[i]       // Place the current element at index j
-        counter[d]--           // Decrease the count for d by 1
+        counter[d]--           // Decrement the count for d by 1
     }
-    // Overwrite the original array nums with the result
+    // Copy the result back into nums
     for (i in 0..<n)
         nums[i] = res[i]
 }
 
 /* Radix sort */
 fun radixSort(nums: IntArray) {
-    // Get the largest array element to determine the maximum number of digits
+    // Find the largest element to determine the maximum number of digits
     var m = Int.MIN_VALUE
     for (num in nums) if (num > m) m = num
     var exp = 1
-    // Process digits from least significant to most significant
+    // Work from the least significant digit to the most significant
     while (exp <= m) {
-        // Apply counting sort to the k-th digit of the array elements
+        // Apply counting sort to the array elements by digit k
         // k = 1 -> exp = 1
         // k = 2 -> exp = 10
-        // That is, exp = 10^(k-1)
+        // Here exp = 10^(k-1)
         countingSortDigit(nums, exp)
         exp *= 10
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fun main() {
     // Radix sort
     val nums = intArrayOf(
@@ -64,5 +64,5 @@ fun main() {
         88906420, 72429244, 30524779, 82060337, 63832996
     )
     radixSort(nums)
-    println("After radix sort: nums = ${nums.contentToString()}")
+    println("After radix sort, nums = ${nums.contentToString()}")
 }

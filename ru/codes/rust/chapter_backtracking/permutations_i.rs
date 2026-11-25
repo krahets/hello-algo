@@ -4,43 +4,43 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: все перестановки I */
+/* Поиск с возвратом: перестановки I */
 fn backtrack(mut state: Vec<i32>, choices: &[i32], selected: &mut [bool], res: &mut Vec<Vec<i32>>) {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if state.len() == choices.len() {
         res.push(state);
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for i in 0..choices.len() {
         let choice = choices[i];
-        // Отсечение: нельзя выбирать один и тот же элемент повторно
+        // Отсечение: нельзя выбирать один элемент дважды
         if !selected[i] {
-            // Попытка: сделать выбор и обновить состояние
+            // Пробуем вариант и обновляем состояние
             selected[i] = true;
             state.push(choice);
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state.clone(), choices, selected, res);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false;
             state.pop();
         }
     }
 }
 
-/* Все перестановки I */
+/* Перестановки I */
 fn permutations_i(nums: &mut [i32]) -> Vec<Vec<i32>> {
     let mut res = Vec::new(); // Состояние (подмножество)
     backtrack(Vec::new(), nums, &mut vec![false; nums.len()], &mut res);
     res
 }
 
-/* Driver Code */
+/* Основная программа */
 pub fn main() {
     let mut nums = [1, 2, 3];
 
     let res = permutations_i(&mut nums);
 
-    println!("Входной массив nums = {:?}", &nums);
+    println!("Исходный массив nums = {:?}", &nums);
     println!("Все перестановки res = {:?}", &res);
 }

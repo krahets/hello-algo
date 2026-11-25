@@ -8,7 +8,7 @@
 
 #define MAX_SIZE 100
 
-// Auxiliary array for storing the traversal sequence
+// Auxiliary array for the traversal sequence
 int arr[MAX_SIZE];
 
 /* Preorder traversal */
@@ -44,7 +44,7 @@ void postOrder(TreeNode *root, int *size) {
 /* Driver code */
 int main() {
     /* Initialize the binary tree */
-    // Use a helper function that builds a binary tree directly from an array
+    // Use a function that builds a binary tree directly from an array
     int nums[] = {1, 2, 3, 4, 5, 6, 7};
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
@@ -52,22 +52,22 @@ int main() {
     printTree(root);
 
     /* Preorder traversal */
-    // Initialize the auxiliary array's element count
+    // Initialize the auxiliary array
     size = 0;
     preOrder(root, &size);
-    printf("Node sequence from preorder traversal = ");
+    printf("Nodes in preorder = ");
     printArray(arr, size);
 
     /* Inorder traversal */
     size = 0;
     inOrder(root, &size);
-    printf("Node sequence from inorder traversal = ");
+    printf("Nodes in inorder = ");
     printArray(arr, size);
 
     /* Postorder traversal */
     size = 0;
     postOrder(root, &size);
-    printf("Node sequence from postorder traversal = ");
+    printf("Nodes in postorder = ");
     printArray(arr, size);
 
     freeMemoryTree(root);

@@ -1,84 +1,84 @@
-# Heaps
+# Heap
 
-A <u>heap</u> is a complete binary tree that satisfies a particular ordering condition. There are two main types, shown below.
+A <u>heap</u> is a complete binary tree that satisfies an ordering rule. The two main types are shown below.
 
-- <u>Min heap</u>: every node's value is $\leq$ the values of its children.
-- <u>Max heap</u>: every node's value is $\geq$ the values of its children.
+- <u>Min-heap</u>: For every parent-child pair, the parent's value $\leq$ the child's value.
+- <u>Max-heap</u>: For every parent-child pair, the parent's value $\geq$ the child's value.
 
-![A min heap and a max heap](heap.assets/min_heap_and_max_heap.svg)
+![Min-heaps and max-heaps](heap.assets/min_heap_and_max_heap.svg)
 
-As a special kind of complete binary tree, a heap has the following properties.
+As a special case of a complete binary tree, a heap has the following properties.
 
-- The lowest level is filled from left to right, and all other levels are full.
-- The root is the “top” of the heap, while the rightmost node on the lowest level is its “last” node.
-- In a max heap or min heap, the root holds the largest or smallest value, respectively.
+- The bottom level fills from left to right. Every other level is full.
+- The root of the tree is the top of the heap. The rightmost node on the bottom level is the last element of the heap.
+- In a max-heap the root holds the maximum value, and in a min-heap it holds the minimum.
 
 ## Common heap operations
 
-Many programming languages provide a <u>priority queue</u>, an abstract data structure whose elements are removed according to priority.
+Many programming languages provide a <u>priority queue</u>, an abstract data structure that orders queue elements by priority.
 
-**Heaps are commonly used to implement priority queues. A max heap corresponds to a priority queue that removes elements from largest to smallest**. From the user's perspective, the two can be treated as equivalent. This book therefore does not distinguish them strictly and uses the term “heap” for both.
+**Heaps commonly implement priority queues. A max-heap acts as a priority queue whose elements are removed from largest to smallest**. From the user's perspective, we can treat a priority queue and a heap as equivalent here. This book uses the term “heap” for both.
 
-The table below lists common operations. Method names depend on the programming language.
+The table below lists common heap operations. Method names depend on the programming language.
 
 <p align="center"> Table <id> &nbsp; Efficiency of heap operations </p>
 
-| Method      | Description                                             | Time complexity  |
+| Method name      | Description                                             | Time complexity  |
 | ----------- | ------------------------------------------------ | ----------- |
-| `push()`    | Insert an element                                         | $O(\log n)$ |
-| `pop()`     | Remove the root element                                     | $O(\log n)$ |
-| `peek()`    | Access the root: the maximum in a max heap or minimum in a min heap | $O(1)$      |
-| `size()`    | Get the number of elements                                 | $O(1)$      |
+| `push()`    | Push an element onto the heap                                         | $O(\log n)$ |
+| `pop()`     | Pop the root                                     | $O(\log n)$ |
+| `peek()`    | Access the root element (the maximum in a max-heap or the minimum in a min-heap) | $O(1)$      |
+| `size()`    | Get the number of elements in the heap                                 | $O(1)$      |
 | `isEmpty()` | Check whether the heap is empty                                   | $O(1)$      |
 
-In practice, use the heap or priority-queue class provided by the language.
+In practice, we can use the heap or priority queue class supplied by the programming language.
 
-Just as a sorting algorithm can order values in ascending or descending order, we can switch between min heaps and max heaps by setting a `flag` or changing the `Comparator`:
+Much as a sort can be set to ascending or descending order, we can switch between a min-heap and a max-heap by setting a `flag` or changing the `Comparator`, as shown below.
 
 ```snippet
 heap_operations
 ```
 
-??? pythontutor "Visualize execution"
+??? pythontutor "Run the visualization"
 
     @tutor heap_operations_tutor
 
 ## Implementing a heap
 
-The following implementation is a max heap. To turn it into a min heap, reverse every ordering comparison, for example replacing $\geq$ with $\leq$. Interested readers can try this themselves.
+We implement a max-heap below. To turn it into a min-heap, reverse all value comparisons, for example by replacing $\geq$ with $\leq$. Try implementing this version yourself.
 
-### Storage and representation
+### Heap storage and representation
 
-The binary-tree chapter showed that complete binary trees are well suited to array representation. Since a heap is a complete binary tree, **we will store it in an array**.
+As we saw in the chapter on binary trees, arrays are well suited to complete binary trees. A heap is a complete binary tree, **so we will store it in an array**.
 
-In an array representation, elements store node values and indices identify positions in the tree. **Index-mapping formulas take the place of node pointers**.
+In an array representation of a binary tree, each element holds a node value, and its index gives the node's position in the tree. **Index formulas take the place of node pointers**.
 
-As shown below, a node at index $i$ has its left child at $2i + 1$, its right child at $2i + 2$, and its parent at $(i - 1) / 2$, rounded down. An out-of-bounds index represents a missing node.
+As the figure shows, for a node at index $i$, the left child is at $2i + 1$, the right child is at $2i + 2$, and the parent is at $(i - 1) / 2$ (using floor division). An out-of-bounds index indicates an empty position or a missing node.
 
-![Representing and storing a heap](heap.assets/representation_of_heap.svg)
+![Heap representation and storage](heap.assets/representation_of_heap.svg)
 
-Wrap the index formulas in functions for convenient use:
+We can put the index formulas in functions for later use.
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{parent}
 ```
 
-### Accessing the root
+### Peek at the root
 
-The heap's root is the first element of the list:
+The root element of the heap is the root of the binary tree and the first element of the list.
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{peek}
 ```
 
-### Inserting an element
+### Push an element onto the heap
 
-To insert `val`, first append it at the end of the heap. Since it may be larger than other elements, this can violate the heap property. **We must restore the property along the path from the inserted node to the root**, an operation called <u>heapifying</u>.
+To insert `val`, first append it to the end of the heap. Since `val` may be larger than other elements, the heap property may no longer hold. **We need to repair the nodes along the path from the inserted node to the root**. Restoring the heap property is called <u>heapifying</u>.
 
-Start at the inserted node and **sift upward**. As shown below, compare it with its parent and swap them if the inserted value is larger. Repeat upward until the root is reached or no swap is needed.
+Starting at the inserted node, **sift up from the bottom**. As shown below, compare the inserted node with its parent. If the inserted node is larger, swap them. Repeat up the tree until there is no parent left to check or no swap is needed.
 
 === "<1>"
-    ![Steps for inserting into a heap](heap.assets/heap_push_step1.svg)
+    ![Steps for pushing an element onto a heap](heap.assets/heap_push_step1.svg)
 
 === "<2>"
     ![heap_push_step2](heap.assets/heap_push_step2.svg)
@@ -104,24 +104,24 @@ Start at the inserted node and **sift upward**. As shown below, compare it with 
 === "<9>"
     ![heap_push_step9](heap.assets/heap_push_step9.svg)
 
-With $n$ nodes, the tree height is $O(\log n)$, so sifting takes at most $O(\log n)$ iterations. **Insertion therefore takes $O(\log n)$ time**. The code is as follows:
+With $n$ nodes, the tree has height $O(\log n)$. Sifting therefore takes at most $O(\log n)$ iterations, and **pushing an element onto a heap takes $O(\log n)$ time**. The code follows.
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{sift_up}
 ```
 
-### Removing the root
+### Pop the root
 
-The root is the first element of the list. Removing it directly would change every remaining index, making it difficult to restore the heap property. To minimize index changes, use the following steps.
+The heap root is the root of the binary tree and the first element of the list. Removing the first element directly would change every remaining node's index and make the heap hard to repair. To minimize index changes, use the following steps.
 
-1. Swap the root with the last element, the rightmost leaf.
-2. Remove the last element from the list. Because of the swap, this is the original root.
-3. Starting at the root, **sift downward**.
+1. Swap the root with the last element (the rightmost leaf).
+2. Remove the last element from the list. After the swap, this is the original root.
+3. Starting at the root, **sift down toward the leaves**.
 
-As shown below, **sifting down proceeds in the opposite direction from sifting up**. Compare the root with its two children and swap it with the larger child when needed. Continue downward until a leaf is reached or no swap is necessary.
+As the figure below shows, **sifting down moves in the opposite direction from sifting up**. Compare the root with its children and swap with the larger child if necessary. Repeat at the new position until there are no more children or no swap is needed.
 
 === "<1>"
-    ![Steps for removing the root of a heap](heap.assets/heap_pop_step1.svg)
+    ![Steps for popping the root of a heap](heap.assets/heap_pop_step1.svg)
 
 === "<2>"
     ![heap_pop_step2](heap.assets/heap_pop_step2.svg)
@@ -150,14 +150,14 @@ As shown below, **sifting down proceeds in the opposite direction from sifting u
 === "<10>"
     ![heap_pop_step10](heap.assets/heap_pop_step10.svg)
 
-Like insertion, removing the root takes $O(\log n)$ time. The code is as follows:
+As with insertion, popping the root takes $O(\log n)$ time. The code follows.
 
 ```src
 [file]{my_heap}-[class]{max_heap}-[func]{sift_down}
 ```
 
-## Common applications
+## Common applications of heaps
 
-- **Priority queues**: Heaps are usually the first choice for implementing priority queues. Enqueueing and dequeueing both take $O(\log n)$ time, and building a heap takes $O(n)$.
-- **Heap sort**: Build a heap from a dataset, then repeatedly remove its root to obtain sorted data. In practice, a more elegant implementation is usually used; see the heap-sort section.
-- **Finding the largest $k$ elements**: This is both a classic algorithm problem and a common application, such as selecting the 10 hottest news stories for Weibo's trending list or the 10 best-selling products.
+- **Priority queues**: A heap is usually the first choice for implementing a priority queue. Enqueueing and dequeueing each take $O(\log n)$ time, and building the heap takes $O(n)$. All three operations are efficient.
+- **Heapsort**: Given a collection of values, build a heap and repeatedly pop its root to obtain the values in sorted order. In practice, we usually use a more elegant implementation, described in the section on heapsort.
+- **Finding the $k$ largest elements**: This classic algorithm problem also arises in practice, for example when selecting the ten most popular news stories for Weibo's trending list or the ten best-selling products.

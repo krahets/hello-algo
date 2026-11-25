@@ -27,7 +27,7 @@ public class simple_hash {
         return (int) hash;
     }
 
-    /* XOR-хеширование */
+    /* Хеширование с помощью XOR */
     static int xorHash(String key) {
         int hash = 0;
         final int MODULUS = 1000000007;
@@ -48,18 +48,18 @@ public class simple_hash {
     }
 
     public static void main(String[] args) {
-        String key = "Hello Algo";
+        String key = "Hello 算法";
 
         int hash = addHash(key);
-        System.out.println("Хеш-сумма сложением = " + hash);
+        System.out.println("Аддитивный хеш: " + hash);
 
         hash = mulHash(key);
-        System.out.println("Хеш-сумма умножением = " + hash);
+        System.out.println("Мультипликативный хеш: " + hash);
 
         hash = xorHash(key);
-        System.out.println("Хеш-сумма XOR = " + hash);
+        System.out.println("Хеш на основе XOR: " + hash);
 
         hash = rotHash(key);
-        System.out.println("Хеш-сумма с циклическим сдвигом = " + hash);
+        System.out.println("Хеш с циклическим сдвигом: " + hash);
     }
 }

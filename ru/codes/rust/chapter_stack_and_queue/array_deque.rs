@@ -4,11 +4,11 @@
  * Author: codingonion (coderonion@gmail.com)
  */
 use hello_algo_rust::include::print_util;
-/* Двусторонняя очередь на основе кольцевого массива */
+/* Двусторонняя очередь (дек) на основе кольцевого массива */
 struct ArrayDeque<T> {
-    nums: Vec<T>,    // Массив для хранения элементов двусторонней очереди
-    front: usize,    // Указатель head, указывающий на первый элемент очереди
-    que_size: usize, // Длина двусторонней очереди
+    nums: Vec<T>,    // Массив для хранения элементов дека
+    front: usize,    // Индекс первого элемента дека
+    que_size: usize, // Длина дека
 }
 
 impl<T: Copy + Default> ArrayDeque<T> {
@@ -21,93 +21,93 @@ impl<T: Copy + Default> ArrayDeque<T> {
         }
     }
 
-    /* Получить вместимость двусторонней очереди */
+    /* Получить ёмкость дека */
     pub fn capacity(&self) -> usize {
         self.nums.len()
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     pub fn size(&self) -> usize {
         self.que_size
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     pub fn is_empty(&self) -> bool {
         self.que_size == 0
     }
 
     /* Вычислить индекс в кольцевом массиве */
     fn index(&self, i: i32) -> usize {
-        // С помощью операции взятия по модулю соединить начало и конец массива
-        // Когда i выходит за конец массива, он возвращается в начало
-        // Когда i выходит за начало массива, он возвращается в конец
+        // Операция взятия остатка связывает конец массива с его началом
+        // Если индекс i выходит за конец массива, отсчёт продолжается с начала
+        // Если индекс i выходит за начало массива, отсчёт продолжается с конца
         ((i + self.capacity() as i32) % self.capacity() as i32) as usize
     }
 
-    /* Добавление в голову очереди */
+    /* Добавить элемент в начало дека */
     pub fn push_first(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("Двусторонняя очередь заполнена");
+            println!("Дек заполнен");
             return;
         }
-        // Указатель головы сдвигается на одну позицию влево
-        // С помощью операции взятия по модулю front после выхода за начало массива возвращается в хвост
+        // Сдвинуть индекс начала дека на одну позицию влево
+        // При выходе за начало массива операция взятия остатка возвращает front в конец
         self.front = self.index(self.front as i32 - 1);
-        // Добавить num в голову очереди
+        // Добавить num в начало дека
         self.nums[self.front] = num;
         self.que_size += 1;
     }
 
-    /* Добавление в хвост очереди */
+    /* Добавить элемент в конец дека */
     pub fn push_last(&mut self, num: T) {
         if self.que_size == self.capacity() {
-            println!("Двусторонняя очередь заполнена");
+            println!("Дек заполнен");
             return;
         }
-        // Вычислить указатель хвоста, указывающий на индекс хвоста + 1
+        // Вычислить индекс вставки в конец дека: прибавить 1 к индексу последнего элемента с учётом перехода по кругу
         let rear = self.index(self.front as i32 + self.que_size as i32);
-        // Добавить num в хвост очереди
+        // Добавить num в конец дека
         self.nums[rear] = num;
         self.que_size += 1;
     }
 
-    /* Извлечение из головы очереди */
+    /* Извлечь элемент из начала дека */
     fn pop_first(&mut self) -> T {
         let num = self.peek_first();
-        // Указатель головы сдвигается на одну позицию назад
+        // Сдвинуть индекс начала дека на одну позицию вперёд
         self.front = self.index(self.front as i32 + 1);
         self.que_size -= 1;
         num
     }
 
-    /* Извлечение из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     fn pop_last(&mut self) -> T {
         let num = self.peek_last();
         self.que_size -= 1;
         num
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     fn peek_first(&self) -> T {
         if self.is_empty() {
-            panic!("двусторонняя очередь пуста")
+            panic!("Дек пуст")
         };
         self.nums[self.front]
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     fn peek_last(&self) -> T {
         if self.is_empty() {
-            panic!("двусторонняя очередь пуста")
+            panic!("Дек пуст")
         };
-        // Вычислить индекс хвостового элемента
+        // Вычислить индекс последнего элемента
         let last = self.index(self.front as i32 + self.que_size as i32 - 1);
         self.nums[last]
     }
 
-    /* Вернуть массив для вывода */
+    /* Вернуть динамический массив для вывода */
     fn to_array(&self) -> Vec<T> {
-        // Преобразовывать только элементы списка в пределах фактической длины
+        // Преобразовать только те элементы, которые сейчас находятся в деке
         let mut res = vec![T::default(); self.que_size];
         let mut j = self.front;
         for i in 0..self.que_size {
@@ -118,43 +118,43 @@ impl<T: Copy + Default> ArrayDeque<T> {
     }
 }
 
-/* Driver Code */
+/* Пример использования */
 fn main() {
-    /* Инициализация двусторонней очереди */
+    /* Инициализировать дек */
     let mut deque = ArrayDeque::new(10);
     deque.push_last(3);
     deque.push_last(2);
     deque.push_last(5);
-    print!("Двусторонняя очередь deque = ");
+    print!("Дек deque = ");
     print_util::print_array(&deque.to_array());
 
-    /* Доступ к элементу */
+    /* Посмотреть первый и последний элементы */
     let peek_first = deque.peek_first();
-    print!("\nПервый элемент peek_first = {}", peek_first);
+    print!("\nПервый элемент дека peek_first = {}", peek_first);
     let peek_last = deque.peek_last();
-    print!("\nПоследний элемент peek_last = {}", peek_last);
+    print!("\nПоследний элемент дека peek_last = {}", peek_last);
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в дек */
     deque.push_last(4);
-    print!("\nПосле добавления элемента 4 в хвост deque = ");
+    print!("\nПосле добавления 4 в конец дека deque = ");
     print_util::print_array(&deque.to_array());
     deque.push_first(1);
-    print!("\nПосле добавления элемента 1 в голову deque = ");
+    print!("\nПосле добавления 1 в начало дека deque = ");
     print_util::print_array(&deque.to_array());
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элементы из дека */
     let pop_last = deque.pop_last();
-    print!("\nИзвлеченный из хвоста элемент = {}, deque после извлечения из хвоста = ", pop_last);
+    print!("\nИзвлечённый последний элемент = {}, после извлечения deque = ", pop_last);
     print_util::print_array(&deque.to_array());
     let pop_first = deque.pop_first();
-    print!("\nИзвлеченный из головы элемент = {}, deque после извлечения из головы = ", pop_first);
+    print!("\nИзвлечённый первый элемент = {}, после извлечения deque = ", pop_first);
     print_util::print_array(&deque.to_array());
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     let size = deque.size();
-    print!("\nДлина двусторонней очереди size = {}", size);
+    print!("\nДлина дека size = {}", size);
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     let is_empty = deque.is_empty();
-    print!("\nПуста ли двусторонняя очередь = {}", is_empty);
+    print!("\nДек пуст = {}", is_empty);
 }

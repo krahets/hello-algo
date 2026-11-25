@@ -15,25 +15,25 @@ fun main() {
     deque.offerLast(3)
     deque.offerLast(2)
     deque.offerLast(5)
-    println("Deque deque = $deque")
+    println("deque = $deque")
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     val peekFirst = deque.peekFirst()
-    println("Front element: peekFirst = $peekFirst")
+    println("Front element (peekFirst) = $peekFirst")
     val peekLast = deque.peekLast()
-    println("Rear element: peekLast = $peekLast")
+    println("Rear element (peekLast) = $peekLast")
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque.offerLast(4)
-    println("After enqueuing 4 at the rear: deque = $deque")
+    println("After adding 4 at the rear, deque = $deque")
     deque.offerFirst(1)
-    println("After enqueuing 1 at the front: deque = $deque")
+    println("After adding 1 at the front, deque = $deque")
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     val popLast = deque.pollLast()
-    println("Element dequeued from the rear = $popLast; deque after removal = $deque")
+    println("Removed from the rear = $popLast, deque after removal = $deque")
     val popFirst = deque.pollFirst()
-    println("Element dequeued from the front = $popFirst; deque after removal = $deque")
+    println("Removed from the front = $popFirst, deque after removal = $deque")
 
     /* Get the deque size */
     val size = deque.size
@@ -41,5 +41,5 @@ fun main() {
 
     /* Check whether the deque is empty */
     val isEmpty = deque.isEmpty()
-    println("Is the deque empty? $isEmpty")
+    println("Deque is empty = $isEmpty")
 }

@@ -6,48 +6,48 @@
 
 #include "../utils/common.hpp"
 
-/* Алгоритм бэктрекинга: сумма подмножеств I */
+/* Поиск с возвратом: сумма подмножества I */
 void backtrack(vector<int> &state, int target, int total, vector<int> &choices, vector<vector<int>> &res) {
-    // Если сумма подмножества равна target, записать решение
+    // Если сумма подмножества равна target, сохраняем решение
     if (total == target) {
         res.push_back(state);
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     for (size_t i = 0; i < choices.size(); i++) {
-        // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
+        // Отсечение: если сумма подмножества превысит target, пропускаем этот вариант
         if (total + choices[i] > target) {
             continue;
         }
-        // Попытка: сделать выбор и обновить элемент и total
+        // Пробуем вариант и обновляем сумму элементов total
         state.push_back(choices[i]);
-        // Перейти к следующему выбору
+        // Переходим к следующему выбору
         backtrack(state, target, total + choices[i], choices, res);
-        // Откат: отменить выбор и восстановить предыдущее состояние
+        // Возврат: отменяем выбор и восстанавливаем прежнее состояние
         state.pop_back();
     }
 }
 
-/* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
+/* Задача о сумме подмножества I (с повторяющимися подмножествами) */
 vector<vector<int>> subsetSumINaive(vector<int> &nums, int target) {
     vector<int> state;       // Состояние (подмножество)
-    int total = 0;           // Сумма подмножеств
+    int total = 0;           // Сумма подмножества
     vector<vector<int>> res; // Список результатов (список подмножеств)
     backtrack(state, target, total, nums, res);
     return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     vector<int> nums = {3, 4, 5};
     int target = 9;
 
     vector<vector<int>> res = subsetSumINaive(nums, target);
 
-    cout << "Входной массив nums = ";
+    cout << "Исходный массив nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "Все подмножества с суммой " << target << ": " << endl;
+    cout << "Все подмножества с суммой " << target << " образуют список res = " << endl;
     printVectorMatrix(res);
 
     return 0;

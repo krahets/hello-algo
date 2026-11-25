@@ -8,39 +8,39 @@ import "math"
 
 /* 最小路徑和：暴力搜尋 */
 func minPathSumDFS(grid [][]int, i, j int) int {
-	// 若為左上角單元格，則終止搜尋
+	// 若已到達左上角的格子，就結束搜尋
 	if i == 0 && j == 0 {
 		return grid[0][0]
 	}
-	// 若行列索引越界，則返回 +∞ 代價
+	// 若列或欄的索引超出範圍，就回傳成本 +∞
 	if i < 0 || j < 0 {
 		return math.MaxInt
 	}
-	// 計算從左上角到 (i-1, j) 和 (i, j-1) 的最小路徑代價
+	// 計算從左上角到 (i-1, j) 和 (i, j-1) 的最小路徑成本
 	up := minPathSumDFS(grid, i-1, j)
 	left := minPathSumDFS(grid, i, j-1)
-	// 返回從左上角到 (i, j) 的最小路徑代價
+	// 回傳從左上角到 (i, j) 的最小路徑成本
 	return int(math.Min(float64(left), float64(up))) + grid[i][j]
 }
 
 /* 最小路徑和：記憶化搜尋 */
 func minPathSumDFSMem(grid, mem [][]int, i, j int) int {
-	// 若為左上角單元格，則終止搜尋
+	// 若已到達左上角的格子，就結束搜尋
 	if i == 0 && j == 0 {
 		return grid[0][0]
 	}
-	// 若行列索引越界，則返回 +∞ 代價
+	// 若列或欄的索引超出範圍，就回傳成本 +∞
 	if i < 0 || j < 0 {
 		return math.MaxInt
 	}
-	// 若已有記錄，則直接返回
+	// 若已有紀錄，直接回傳該值
 	if mem[i][j] != -1 {
 		return mem[i][j]
 	}
-	// 左邊和上邊單元格的最小路徑代價
+	// 左方與上方格子的最小路徑成本
 	up := minPathSumDFSMem(grid, mem, i-1, j)
 	left := minPathSumDFSMem(grid, mem, i, j-1)
-	// 記錄並返回左上角到 (i, j) 的最小路徑代價
+	// 記錄並回傳從左上角到 (i, j) 的最小路徑成本
 	mem[i][j] = int(math.Min(float64(left), float64(up))) + grid[i][j]
 	return mem[i][j]
 }
@@ -54,15 +54,15 @@ func minPathSumDP(grid [][]int) int {
 		dp[i] = make([]int, m)
 	}
 	dp[0][0] = grid[0][0]
-	// 狀態轉移：首行
+	// 狀態轉移：第一列
 	for j := 1; j < m; j++ {
 		dp[0][j] = dp[0][j-1] + grid[0][j]
 	}
-	// 狀態轉移：首列
+	// 狀態轉移：第一欄
 	for i := 1; i < n; i++ {
 		dp[i][0] = dp[i-1][0] + grid[i][0]
 	}
-	// 狀態轉移：其餘行和列
+	// 狀態轉移：其餘各列與各欄
 	for i := 1; i < n; i++ {
 		for j := 1; j < m; j++ {
 			dp[i][j] = int(math.Min(float64(dp[i][j-1]), float64(dp[i-1][j]))) + grid[i][j]
@@ -76,16 +76,16 @@ func minPathSumDPComp(grid [][]int) int {
 	n, m := len(grid), len(grid[0])
 	// 初始化 dp 表
 	dp := make([]int, m)
-	// 狀態轉移：首行
+	// 狀態轉移：第一列
 	dp[0] = grid[0][0]
 	for j := 1; j < m; j++ {
 		dp[j] = dp[j-1] + grid[0][j]
 	}
-	// 狀態轉移：其餘行和列
+	// 狀態轉移：其餘各列與各欄
 	for i := 1; i < n; i++ {
-		// 狀態轉移：首列
+		// 狀態轉移：第一欄
 		dp[0] = dp[0] + grid[i][0]
-		// 狀態轉移：其餘列
+		// 狀態轉移：其餘各欄
 		for j := 1; j < m; j++ {
 			dp[j] = int(math.Min(float64(dp[j-1]), float64(dp[j]))) + grid[i][j]
 		}

@@ -9,7 +9,7 @@ package chapter_dynamic_programming;
 import java.util.Arrays;
 
 public class min_cost_climbing_stairs_dp {
-    /* 階段を上る最小コスト：動的計画法 */
+    /* 階段を登る最小コスト：動的計画法 */
     public static int minCostClimbingStairsDP(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
@@ -26,7 +26,7 @@ public class min_cost_climbing_stairs_dp {
         return dp[n];
     }
 
-    /* 階段を上る最小コスト：空間を最適化した動的計画法 */
+    /* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
     public static int minCostClimbingStairsDPComp(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
@@ -42,12 +42,12 @@ public class min_cost_climbing_stairs_dp {
 
     public static void main(String[] args) {
         int[] cost = { 0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1 };
-        System.out.println(String.format("入力した階段のコストのリストは %s", Arrays.toString(cost)));
+        System.out.println(String.format("各段のコストの入力リストは %s", Arrays.toString(cost)));
 
         int res = minCostClimbingStairsDP(cost);
-        System.out.println(String.format("階段を上り終える最小コストは %d", res));
+        System.out.println(String.format("階段を登りきる最小コストは %d", res));
 
         res = minCostClimbingStairsDPComp(cost);
-        System.out.println(String.format("階段を上り終える最小コストは %d", res));
+        System.out.println(String.format("階段を登りきる最小コストは %d", res));
     }
 }

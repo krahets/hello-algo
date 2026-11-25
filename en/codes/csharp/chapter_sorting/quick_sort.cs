@@ -7,12 +7,12 @@
 namespace hello_algo.chapter_sorting;
 
 class quickSort {
-    /* Swap the elements */
+    /* Swap elements */
     static void Swap(int[] nums, int i, int j) {
         (nums[j], nums[i]) = (nums[i], nums[j]);
     }
 
-    /* Two-pointer partitioning */
+    /* Partition with two pointers */
     static int Partition(int[] nums, int left, int right) {
         // Use nums[left] as the pivot
         int i = left, j = right;
@@ -23,16 +23,16 @@ class quickSort {
                 i++;          // Scan from left to right for the first element larger than the pivot
             Swap(nums, i, j); // Swap these two elements
         }
-        Swap(nums, i, left);  // Swap the pivot into the boundary position between the two subarrays
+        Swap(nums, i, left);  // Swap the pivot into place between the two subarrays
         return i;             // Return the pivot index
     }
 
-    /* Quick sort */
+    /* Quicksort */
     public static void QuickSort(int[] nums, int left, int right) {
-        // Stop recursing when the subarray has at most one element
+        // Stop recursing when the subarray has length 1
         if (left >= right)
             return;
-        // Two-pointer partitioning
+        // Partition with two pointers
         int pivot = Partition(nums, left, right);
         // Recurse on the left and right subarrays
         QuickSort(nums, left, pivot - 1);
@@ -40,14 +40,14 @@ class quickSort {
     }
 }
 
-/* Quick sort class (median pivot optimization) */
+/* Quicksort class with median-of-three pivot selection */
 class QuickSortMedian {
-    /* Swap the elements */
+    /* Swap elements */
     static void Swap(int[] nums, int i, int j) {
         (nums[j], nums[i]) = (nums[i], nums[j]);
     }
 
-    /* Select the median of three candidate elements */
+    /* Select the median of three candidates */
     static int MedianThree(int[] nums, int left, int mid, int right) {
         int l = nums[left], m = nums[mid], r = nums[right];
         if ((l <= m && m <= r) || (r <= m && m <= l))
@@ -57,11 +57,11 @@ class QuickSortMedian {
         return right;
     }
 
-    /* Two-pointer partitioning (median of three) */
+    /* Partition with two pointers (median of three) */
     static int Partition(int[] nums, int left, int right) {
-        // Select the median of three candidate elements
+        // Select the median of three candidates
         int med = MedianThree(nums, left, (left + right) / 2, right);
-        // Swap the median into the leftmost position of the current subarray
+        // Swap the median into the leftmost position
         Swap(nums, left, med);
         // Use nums[left] as the pivot
         int i = left, j = right;
@@ -72,16 +72,16 @@ class QuickSortMedian {
                 i++;          // Scan from left to right for the first element larger than the pivot
             Swap(nums, i, j); // Swap these two elements
         }
-        Swap(nums, i, left);  // Swap the pivot into the boundary position between the two subarrays
+        Swap(nums, i, left);  // Swap the pivot into place between the two subarrays
         return i;             // Return the pivot index
     }
 
-    /* Quick sort */
+    /* Quicksort */
     public static void QuickSort(int[] nums, int left, int right) {
-        // Stop recursing when the subarray has at most one element
+        // Stop recursing when the subarray has length 1
         if (left >= right)
             return;
-        // Two-pointer partitioning
+        // Partition with two pointers
         int pivot = Partition(nums, left, right);
         // Recurse on the left and right subarrays
         QuickSort(nums, left, pivot - 1);
@@ -89,14 +89,14 @@ class QuickSortMedian {
     }
 }
 
-/* Quick sort class (recursion depth optimization) */
+/* Quicksort class with reduced recursion depth */
 class QuickSortTailCall {
-    /* Swap the elements */
+    /* Swap elements */
     static void Swap(int[] nums, int i, int j) {
         (nums[j], nums[i]) = (nums[i], nums[j]);
     }
 
-    /* Two-pointer partitioning */
+    /* Partition with two pointers */
     static int Partition(int[] nums, int left, int right) {
         // Use nums[left] as the pivot
         int i = left, j = right;
@@ -107,17 +107,17 @@ class QuickSortTailCall {
                 i++;          // Scan from left to right for the first element larger than the pivot
             Swap(nums, i, j); // Swap these two elements
         }
-        Swap(nums, i, left);  // Swap the pivot into the boundary position between the two subarrays
+        Swap(nums, i, left);  // Swap the pivot into place between the two subarrays
         return i; // Return the pivot index
     }
 
-    /* Quick sort (recursion depth optimization) */
+    /* Quicksort with reduced recursion depth */
     public static void QuickSort(int[] nums, int left, int right) {
-        // Stop when the subarray has at most one element
+        // Stop when the subarray has length 1
         while (left < right) {
-            // Perform two-pointer partitioning
+            // Partition with two pointers
             int pivot = Partition(nums, left, right);
-            // Apply quick sort to the shorter of the two subarrays
+            // Apply quicksort to the shorter of the two subarrays
             if (pivot - left < right - pivot) {
                 QuickSort(nums, left, pivot - 1);  // Recursively sort the left subarray
                 left = pivot + 1;  // The remaining unsorted range is [pivot + 1, right]
@@ -132,19 +132,19 @@ class QuickSortTailCall {
 public class quick_sort {
     [Test]
     public void Test() {
-        /* Quick sort */
+        /* Quicksort */
         int[] nums = [2, 4, 1, 0, 3, 5];
         quickSort.QuickSort(nums, 0, nums.Length - 1);
-        Console.WriteLine("After quick sort, nums = " + string.Join(",", nums));
+        Console.WriteLine("After quicksort, nums = " + string.Join(",", nums));
 
-        /* Quick sort (median pivot optimization) */
+        /* Quicksort with median-of-three pivot selection */
         int[] nums1 = [2, 4, 1, 0, 3, 5];
         QuickSortMedian.QuickSort(nums1, 0, nums1.Length - 1);
-        Console.WriteLine("After quick sort (median pivot optimization), nums1 = " + string.Join(",", nums1));
+        Console.WriteLine("After median-of-three quicksort, nums1 = " + string.Join(",", nums1));
 
-        /* Quick sort (recursion depth optimization) */
+        /* Quicksort with reduced recursion depth */
         int[] nums2 = [2, 4, 1, 0, 3, 5];
         QuickSortTailCall.QuickSort(nums2, 0, nums2.Length - 1);
-        Console.WriteLine("After quick sort (recursion depth optimization), nums2 = " + string.Join(",", nums2));
+        Console.WriteLine("After quicksort with reduced recursion depth, nums2 = " + string.Join(",", nums2));
     }
 }

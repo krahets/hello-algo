@@ -21,7 +21,7 @@ function selectionSort(nums) {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 const nums = [4, 1, 3, 1, 5, 2];
 selectionSort(nums);
 console.log('After selection sort, nums =', nums);

@@ -9,7 +9,7 @@
 /* for 迴圈 */
 int forLoop(int n) {
     int res = 0;
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     for (int i = 1; i <= n; i++) {
         res += i;
     }
@@ -20,7 +20,7 @@ int forLoop(int n) {
 int whileLoop(int n) {
     int res = 0;
     int i = 1; // 初始化條件變數
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     while (i <= n) {
         res += i;
         i++; // 更新條件變數
@@ -28,11 +28,11 @@ int whileLoop(int n) {
     return res;
 }
 
-/* while 迴圈（兩次更新） */
+/* while 迴圈（更新兩次） */
 int whileLoopII(int n) {
     int res = 0;
     int i = 1; // 初始化條件變數
-    // 迴圈求和 1, 4, 10, ...
+    // 迴圈加總 1, 4, 10, ...
     while (i <= n) {
         res += i;
         // 更新條件變數
@@ -44,7 +44,7 @@ int whileLoopII(int n) {
 
 /* 雙層 for 迴圈 */
 char *nestedForLoop(int n) {
-    // n * n 為對應點數量，"(i, j), " 對應字串長最大為 6+10*2，加上最後一個空字元 \0 的額外空間
+    // 共有 n * n 個點，每個點的字串 "(i, j), " 最長為 6+10*2，最後還要預留一個空字元 \0 的空間
     int size = n * n * 26 + 1;
     char *res = malloc(size * sizeof(char));
     // 迴圈 i = 1, 2, ..., n-1, n
@@ -59,22 +59,22 @@ char *nestedForLoop(int n) {
     return res;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    printf("\nfor 迴圈的求和結果 res = %d\n", res);
+    printf("\nfor 迴圈的總和 res = %d\n", res);
 
     res = whileLoop(n);
-    printf("\nwhile 迴圈的求和結果 res = %d\n", res);
+    printf("\nwhile 迴圈的總和 res = %d\n", res);
 
     res = whileLoopII(n);
-    printf("\nwhile 迴圈（兩次更新）求和結果 res = %d\n", res);
+    printf("\nwhile 迴圈（更新兩次）的總和 res = %d\n", res);
 
     char *resStr = nestedForLoop(n);
-    printf("\n雙層 for 迴圈的走訪結果 %s\r\n", resStr);
+    printf("\n雙層 for 迴圈走訪的結果 %s\r\n", resStr);
     free(resStr);
 
     return 0;

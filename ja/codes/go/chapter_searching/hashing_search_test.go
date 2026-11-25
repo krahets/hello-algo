@@ -21,7 +21,7 @@ func TestHashingSearch(t *testing.T) {
 		m[nums[i]] = i
 	}
 	index := hashingSearchArray(m, target)
-	fmt.Println("目的の要素 3 のインデックス = ", index)
+	fmt.Println("目標値 3 のインデックス = ", index)
 
 	/* ハッシュ探索（連結リスト） */
 	head := ArrayToLinkedList(nums)
@@ -32,5 +32,5 @@ func TestHashingSearch(t *testing.T) {
 		head = head.Next
 	}
 	node := hashingSearchLinkedList(m1, target)
-	fmt.Println("目的のノードの値 3 に対応するノードオブジェクトは ", node)
+	fmt.Println("目標値 3 に対応するノードオブジェクトは ", node)
 }

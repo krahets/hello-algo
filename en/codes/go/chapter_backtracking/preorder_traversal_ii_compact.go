@@ -13,7 +13,7 @@ func preOrderII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	if root == nil {
 		return
 	}
-	// Try
+	// Try a choice
 	*path = append(*path, root)
 	if root.Val.(int) == 7 {
 		// Record the solution

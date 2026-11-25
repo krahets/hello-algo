@@ -8,8 +8,8 @@
 class TreeNode {
     val: number; // Значение узла
     height: number; // Высота узла
-    left: TreeNode | null; // Указатель на левый дочерний узел
-    right: TreeNode | null; // Указатель на правый дочерний узел
+    left: TreeNode | null; // Ссылка на левый дочерний узел
+    right: TreeNode | null; // Ссылка на правый дочерний узел
     constructor(
         val?: number,
         height?: number,
@@ -23,7 +23,7 @@ class TreeNode {
     }
 }
 
-/* Десериализовать массив в двоичное дерево */
+/* Восстановить двоичное дерево из массива */
 function arrToTree(arr: (number | null)[], i: number = 0): TreeNode | null {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

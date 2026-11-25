@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
     /* Инициализация списка */
     vector<int> nums = {1, 3, 2, 5, 4};
@@ -19,10 +19,10 @@ int main() {
 
     /* Изменение элемента */
     nums[1] = 0;
-    cout << "После изменения элемента по индексу 1 на 0 nums = ";
+    cout << "После записи 0 по индексу 1 nums = ";
     printVector(nums);
 
-    /* Очистить список */
+    /* Очистка списка */
     nums.clear();
     cout << "После очистки списка nums = ";
     printVector(nums);
@@ -33,7 +33,7 @@ int main() {
     nums.push_back(2);
     nums.push_back(5);
     nums.push_back(4);
-    cout << "После добавления элемента nums = ";
+    cout << "После добавления элементов nums = ";
     printVector(nums);
 
     /* Вставка элемента в середину */
@@ -46,26 +46,26 @@ int main() {
     cout << "После удаления элемента по индексу 3 nums = ";
     printVector(nums);
 
-    /* Обходить список по индексам */
+    /* Обойти список по индексам */
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
         count += nums[i];
     }
-    /* Непосредственно обходить элементы списка */
+    /* Перебрать элементы списка напрямую */
     count = 0;
     for (int x : nums) {
         count += x;
     }
 
-    /* Объединить два списка */
+    /* Объединение двух списков */
     vector<int> nums1 = {6, 8, 7, 10, 9};
     nums.insert(nums.end(), nums1.begin(), nums1.end());
-    cout << "После присоединения списка nums1 к nums nums = ";
+    cout << "После добавления nums1 в конец nums получаем nums = ";
     printVector(nums);
 
-    /* Отсортировать список */
+    /* Сортировка списка */
     sort(nums.begin(), nums.end());
-    cout << "После сортировки списка nums = ";
+    cout << "После сортировки nums = ";
     printVector(nums);
 
     return 0;

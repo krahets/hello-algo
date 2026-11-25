@@ -14,24 +14,24 @@ from modules import ListNode
 if __name__ == "__main__":
     num = 3
     hash_num = hash(num)
-    print(f"Хеш-значение целого числа {num} = {hash_num}")
+    print(f"Целое число {num} имеет хеш {hash_num}")
 
     bol = True
     hash_bol = hash(bol)
-    print(f"Хеш-значение булева значения {bol} = {hash_bol}")
+    print(f"Логическое значение {bol} имеет хеш {hash_bol}")
 
     dec = 3.14159
     hash_dec = hash(dec)
-    print(f"Хеш-значение десятичного числа {dec} = {hash_dec}")
+    print(f"Вещественное число {dec} имеет хеш {hash_dec}")
 
-    str = "Hello Algo"
+    str = "Hello 算法"
     hash_str = hash(str)
-    print(f"Хеш-значение строки {str} = {hash_str}")
+    print(f"Строка {str} имеет хеш {hash_str}")
 
-    tup = (12836, "Сяо Ха")
+    tup = (12836, "小哈")
     hash_tup = hash(tup)
-    print(f"Хеш-значение кортежа {tup} = {hash_tup}")
+    print(f"Кортеж {tup} имеет хеш {hash_tup}")
 
     obj = ListNode(0)
     hash_obj = hash(obj)
-    print(f"Хеш-значение объекта узла {obj} = {hash_obj}")
+    print(f"Объект узла {obj} имеет хеш {hash_obj}")

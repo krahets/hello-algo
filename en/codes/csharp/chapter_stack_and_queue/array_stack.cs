@@ -6,11 +6,11 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Stack implemented with an array */
+/* Array-backed stack */
 class ArrayStack {
     List<int> stack;
     public ArrayStack() {
-        // Initialize the list (dynamic array)
+        // Initialize the list (a dynamic array)
         stack = [];
     }
 
@@ -24,12 +24,12 @@ class ArrayStack {
         return Size() == 0;
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     public void Push(int num) {
         stack.Add(num);
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     public int Pop() {
         if (IsEmpty())
             throw new Exception();
@@ -38,14 +38,14 @@ class ArrayStack {
         return val;
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return stack[Size() - 1];
     }
 
-    /* Convert the list to an array and return it */
+    /* Return the list elements as an array */
     public int[] ToArray() {
         return [.. stack];
     }
@@ -63,22 +63,22 @@ public class array_stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        Console.WriteLine("Stack stack = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("stack = " + string.Join(",", stack.ToArray()));
 
-        /* Access the top element */
+        /* Peek at the top element */
         int peek = stack.Peek();
-        Console.WriteLine("Top element peek = " + peek);
+        Console.WriteLine("Top element (peek) = " + peek);
 
-        /* Pop an element from the stack */
+        /* Pop the top element */
         int pop = stack.Pop();
-        Console.WriteLine("Popped element pop = " + pop + ", after popping, stack = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("Popped element (pop) = " + pop + ", stack after the pop = " + string.Join(",", stack.ToArray()));
 
         /* Get the stack size */
         int size = stack.Size();
         Console.WriteLine("Stack size = " + size);
 
-        /* Check whether it is empty */
+        /* Check whether the stack is empty */
         bool isEmpty = stack.IsEmpty();
-        Console.WriteLine("Is the stack empty = " + isEmpty);
+        Console.WriteLine("Stack is empty = " + isEmpty);
     }
 }

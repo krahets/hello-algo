@@ -1,11 +1,11 @@
 # Bubble sort
 
-<u>Bubble sort</u> sorts by repeatedly comparing and swapping adjacent elements. The process resembles bubbles rising from the bottom to the top, which gives the algorithm its name.
+<u>Bubble sort</u> sorts elements by repeatedly comparing and swapping adjacent pairs. The way elements move resembles bubbles rising from the bottom to the surface, hence the name.
 
-As shown below, we can simulate bubbling through swaps. Scan from the left end of the array to the right, comparing each pair of adjacent elements. If the left element is greater than the right, swap them. After the scan, the largest element has moved to the far right.
+The figure below shows how swaps simulate this movement. Start at the left end of the array and work to the right, comparing each pair of neighbors. If the left element is greater than the right, swap them. By the end of the pass, the largest element has moved to the right end of the array.
 
 === "<1>"
-    ![Simulating bubbling through element swaps](bubble_sort.assets/bubble_operation_step1.svg)
+    ![Simulating bubbles rising with adjacent swaps](bubble_sort.assets/bubble_operation_step1.svg)
 
 === "<2>"
     ![bubble_operation_step2](bubble_sort.assets/bubble_operation_step2.svg)
@@ -25,18 +25,18 @@ As shown below, we can simulate bubbling through swaps. Scan from the left end o
 === "<7>"
     ![bubble_operation_step7](bubble_sort.assets/bubble_operation_step7.svg)
 
-## Algorithm steps
+## How the algorithm works
 
 For an array of length $n$, bubble sort proceeds as shown below.
 
-1. First, perform a bubbling pass over all $n$ elements, **moving the largest element to its correct position**.
-2. Next, perform a pass over the remaining $n - 1$ elements, **moving the second-largest element to its correct position**.
-3. Continue in this way. After $n - 1$ passes, **the largest $n - 1$ elements are all in their correct positions**.
-4. The one remaining element must be the smallest and needs no further sorting. The array is now sorted.
+1. First, make a pass over all $n$ elements to **move the largest element into its final position**.
+2. Next, make a pass over the remaining $n - 1$ elements to **move the second-largest element into its final position**.
+3. Continue in this way. After $n - 1$ passes, **the largest $n - 1$ elements are in their final positions**.
+4. The one remaining element must be the smallest. It is already in place, so the entire array is sorted.
 
-![The bubble sort process](bubble_sort.assets/bubble_sort_overview.svg)
+![Bubble sort procedure](bubble_sort.assets/bubble_sort_overview.svg)
 
-An implementation follows:
+Here is an implementation:
 
 ```src
 [file]{bubble_sort}-[class]{}-[func]{bubble_sort}
@@ -44,9 +44,9 @@ An implementation follows:
 
 ## Improving efficiency
 
-If a bubbling pass performs no swaps, the array is already sorted and we can return immediately. We can therefore add a variable `flag` to detect this situation and stop as soon as it occurs.
+If a pass makes no swaps, the array is already sorted and we can return it immediately. We can use a flag, `flag`, to detect this condition and stop as soon as it occurs.
 
-With this optimization, the worst-case and average time complexities remain $O(n^2)$. However, a fully sorted input achieves the best-case time complexity of $O(n)$.
+With this optimization, the worst-case and average time complexities are still $O(n^2)$. A fully sorted input achieves the best-case time complexity of $O(n)$.
 
 ```src
 [file]{bubble_sort}-[class]{}-[func]{bubble_sort_with_flag}
@@ -54,6 +54,6 @@ With this optimization, the worst-case and average time complexities remain $O(n
 
 ## Algorithm properties
 
-- **Time complexity: $O(n^2)$; adaptive**. Successive passes traverse $n - 1$, $n - 2$, $\dots$, $2$, and $1$ positions, totaling $(n - 1) n / 2$. With the `flag` optimization, the best-case time complexity is $O(n)$.
-- **Space complexity: $O(1)$; in-place**. Pointers $i$ and $j$ use constant extra space.
-- **Stable**. Equal elements are not swapped during a bubbling pass.
+- **Time complexity: $O(n^2)$, adaptive**. The successive passes scan ranges of length $n - 1$, $n - 2$, $\dots$, $2$, and $1$, for a total of $(n - 1) n / 2$. With the `flag` optimization, the best-case time complexity is $O(n)$.
+- **Space complexity: $O(1)$, in-place**. The two indices $i$ and $j$ use a constant amount of extra space.
+- **Stable**. A bubble sort pass never swaps two equal elements.

@@ -6,7 +6,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   num = 3
   hash_num = num.hash
@@ -14,13 +14,13 @@ if __FILE__ == $0
 
   bol = true
   hash_bol = bol.hash
-  puts "布林量 #{bol} 的雜湊值為 #{hash_bol}"
+  puts "布林值 #{bol} 的雜湊值為 #{hash_bol}"
 
   dec = 3.14159
   hash_dec = dec.hash
   puts "小數 #{dec} 的雜湊值為 #{hash_dec}"
 
-  str = "Hello 演算法"
+  str = "Hello 算法"
   hash_str = str.hash
   puts "字串 #{str} 的雜湊值為 #{hash_str}"
 

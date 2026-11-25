@@ -12,15 +12,15 @@ import java.util.*;
 public class TreeNode {
     public int val; // 노드 값
     public int height; // 노드 높이
-    public TreeNode left; // 왼쪽 자식 노드 참조
-    public TreeNode right; // 오른쪽 자식 노드 참조
+    public TreeNode left; // 왼쪽 자식 노드에 대한 참조
+    public TreeNode right; // 오른쪽 자식 노드에 대한 참조
 
     /* 생성자 */
     public TreeNode(int x) {
         val = x;
     }
 
-    // 직렬화 인코딩 규칙은 다음을 참고한다:
+    // 직렬화 인코딩 규칙은 다음을 참고한다.
     // https://www.hello-algo.com/ko/chapter_tree/array_representation_of_tree/
     // 이진 트리의 배열 표현:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -36,7 +36,7 @@ public class TreeNode {
     //         \——— 4
     //             \——— 8
 
-    /* 리스트를 이진 트리로 역직렬화: 재귀 */
+    /* 재귀로 리스트를 이진 트리로 역직렬화 */
     private static TreeNode listToTreeDFS(List<Integer> arr, int i) {
         if (i < 0 || i >= arr.size() || arr.get(i) == null) {
             return null;
@@ -52,7 +52,7 @@ public class TreeNode {
         return listToTreeDFS(arr, 0);
     }
 
-    /* 이진 트리를 리스트로 직렬화: 재귀 */
+    /* 재귀로 이진 트리를 리스트로 직렬화 */
     private static void treeToListDFS(TreeNode root, int i, List<Integer> res) {
         if (root == null)
             return;

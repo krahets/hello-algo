@@ -1,28 +1,28 @@
 {
-  "schema_version": 2,
-  "title": "Counting ways to reach step 5 from the counts for steps 3 and 4",
-  "summary": "The final move onto step 5 must come from either step 3 or step 4, giving 3 + 5 = 8 ways.",
   "context": [
-    "Because each move climbs only 1 or 2 steps, let dp[n] be the number of ways to reach step n, with initial states dp[1] = 1 and dp[2] = 2."
+    "Each move climbs only 1 or 2 stairs. Let dp[n] be the number of ways to reach stair n, with initial values dp[1]=1 and dp[2]=2."
   ],
   "description": [
-    "Steps 3, 4, and 5 on the staircase are highlighted in green, cyan, and blue, respectively. First, 3 dashed green arcs converge on step 3 (labeled dp[3] = 3) and 5 solid cyan arcs converge on step 4 (labeled dp[4] = 5); from there, a single dashed green arc spanning 2 steps and a single solid cyan arc spanning 1 step converge on step 5. The equation dp[5] = dp[3] + dp[4] = 8 appears at the top, and a row at the bottom pairs steps 1 through 6 with their numbers of ways."
+    "Stairs 3, 4, and 5 are highlighted in green, teal, and blue. Three dashed green paths reach stair 3 (labeled dp[3]=3), and five solid teal paths reach stair 4 (dp[4]=5). A dashed green arc over 2 stairs and a solid teal arc over 1 stair then reach stair 5. Above is dp[5]=dp[3]+dp[4]=8. Below, stairs 1 through 6 are paired with their counts."
   ],
   "frames": [
     {
-      "id": "source-368",
       "book_path": "chapter_dynamic_programming/intro_to_dynamic_programming.assets/climbing_stairs_state_transfer.png",
-      "title": "Counting ways to reach step 5 from the counts for steps 3 and 4",
-      "explanation": "To reach step 5, the final move either jumps 2 steps up from step 3 or jumps 1 step up from step 4. Extending each of the 3 ways to reach step 3 with a 2-step jump produces 3 ways to reach step 5; extending each of the 5 ways to reach step 4 with a 1-step jump produces another 5 ways. Because these two groups differ in the step preceding the final move, they are mutually exclusive and collectively exhaustive, so dp[5] = dp[3] + dp[4] = 3 + 5 = 8. More generally, for any step i (i ≥ 3), dp[i] = dp[i-1] + dp[i-2]."
+      "explanation": "The final move to stair 5 climbs either 2 stairs from stair 3 or 1 from stair 4. Append a two-stair move to each of the 3 routes to stair 3 to get 3 routes to stair 5. Append a one-stair move to each of the 5 routes to stair 4 to get 5 more. The starting stairs of the last moves differ, so the groups are disjoint and cover all possibilities. Thus dp[5]=dp[3]+dp[4]=3+5=8. For any stair i (i≥3), the same reasoning gives dp[i]=dp[i-1]+dp[i-2].",
+      "id": "source-368",
+      "title": "Adding the counts for stairs 3 and 4 gives the count for stair 5"
     }
   ],
+  "schema_version": 2,
+  "summary": "The last move to stair 5 must start at stair 3 or 4, so the number of ways is 3+5=8.",
   "tables": [
     {
-      "caption": "Steps and numbers of ways shown in the figure",
+      "caption": "Stairs and counts shown",
       "headers": [
-        "Number of steps n",
+        "Stair n",
         "Number of ways dp[n]"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -48,8 +48,8 @@
           "6",
           "13"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Adding the counts for stairs 3 and 4 gives the count for stair 5"
 }

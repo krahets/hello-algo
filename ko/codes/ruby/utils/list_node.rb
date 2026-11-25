@@ -7,7 +7,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 ### 연결 리스트 노드 클래스 ###
 class ListNode
   attr_accessor :val  # 노드 값
-  attr_accessor :next # 다음 노드를 가리키는 참조
+  attr_accessor :next # 다음 노드에 대한 참조
 
   def initialize(val=0, next_node=nil)
     @val = val

@@ -25,24 +25,24 @@ func TestLinkedList(t *testing.T) {
 	n1.Next = n2
 	n2.Next = n3
 	n3.Next = n4
-	fmt.Println("初期化した連結リスト")
+	fmt.Println("初期化した連結リスト：")
 	PrintLinkedList(n0)
 
 	/* ノードを挿入する */
 	insertNode(n0, NewListNode(0))
-	fmt.Println("ノードを挿入した後の連結リスト")
+	fmt.Println("ノード挿入後の連結リスト：")
 	PrintLinkedList(n0)
 
 	/* ノードを削除する */
 	removeItem(n0)
-	fmt.Println("ノードを削除した後の連結リスト")
+	fmt.Println("ノード削除後の連結リスト：")
 	PrintLinkedList(n0)
 
 	/* ノードにアクセスする */
 	node := access(n0, 3)
 	fmt.Println("連結リストのインデックス 3 にあるノードの値 =", node)
 
-	/* ノードを探索する */
+	/* ノードを探す */
 	index := findNode(n0, 2)
-	fmt.Println("連結リスト内で値が 2 であるノードのインデックス =", index)
+	fmt.Println("連結リストで値が 2 のノードのインデックス =", index)
 }

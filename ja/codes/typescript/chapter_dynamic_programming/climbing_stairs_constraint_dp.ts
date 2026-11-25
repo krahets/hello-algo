@@ -4,7 +4,7 @@
  * Author: Gaofer Chou (gaofer-chou@qq.com)
  */
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 function climbingStairsConstraintDP(n: number): number {
     if (n === 1 || n === 2) {
         return 1;
@@ -24,9 +24,9 @@ function climbingStairsConstraintDP(n: number): number {
     return dp[n][1] + dp[n][2];
 }
 
-/* 実行用コード */
+/* 実行例 */
 const n = 9;
 const res = climbingStairsConstraintDP(n);
-console.log(`${n} 段の階段を上る方法は全部で ${res} 通り`);
+console.log(`全 ${n} 段の階段の登り方は ${res} 通り`);
 
 export {};

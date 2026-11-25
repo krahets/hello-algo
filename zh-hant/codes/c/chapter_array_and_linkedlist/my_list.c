@@ -6,17 +6,17 @@
 
 #include "../utils/common.h"
 
-/* 串列類別 */
+/* 列表類別 */
 typedef struct {
-    int *arr;        // 陣列（儲存串列元素）
-    int capacity;    // 串列容量
-    int size;        // 串列大小
-    int extendRatio; // 串列每次擴容的倍數
+    int *arr;        // 陣列（用來儲存列表元素）
+    int capacity;    // 列表容量
+    int size;        // 列表大小
+    int extendRatio; // 列表每次擴充容量的倍數
 } MyList;
 
 void extendCapacity(MyList *nums);
 
-/* 建構子 */
+/* 建構函式 */
 MyList *newMyList() {
     MyList *nums = malloc(sizeof(MyList));
     nums->capacity = 10;
@@ -26,23 +26,23 @@ MyList *newMyList() {
     return nums;
 }
 
-/* 析構函式 */
+/* 解構函式 */
 void delMyList(MyList *nums) {
     free(nums->arr);
     free(nums);
 }
 
-/* 獲取串列長度 */
+/* 取得列表長度 */
 int size(MyList *nums) {
     return nums->size;
 }
 
-/* 獲取串列容量 */
+/* 取得列表容量 */
 int capacity(MyList *nums) {
     return nums->capacity;
 }
 
-/* 訪問元素 */
+/* 存取元素 */
 int get(MyList *nums, int index) {
     assert(index >= 0 && index < nums->size);
     return nums->arr[index];
@@ -54,10 +54,10 @@ void set(MyList *nums, int index, int num) {
     nums->arr[index] = num;
 }
 
-/* 在尾部新增元素 */
+/* 在尾端加入元素 */
 void add(MyList *nums, int num) {
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // 擴容
+        extendCapacity(nums); // 擴充容量
     }
     nums->arr[size(nums)] = num;
     nums->size++;
@@ -66,9 +66,9 @@ void add(MyList *nums, int num) {
 /* 在中間插入元素 */
 void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
-    // 元素數量超出容量時，觸發擴容機制
+    // 若加入元素後數量將超過容量，就觸發擴充機制
     if (size(nums) == capacity(nums)) {
-        extendCapacity(nums); // 擴容
+        extendCapacity(nums); // 擴充容量
     }
     for (int i = size(nums); i > index; --i) {
         nums->arr[i] = nums->arr[i - 1];
@@ -78,7 +78,7 @@ void insert(MyList *nums, int index, int num) {
 }
 
 /* 刪除元素 */
-// 注意：stdio.h 佔用了 remove 關鍵詞
+// 注意：stdio.h 已使用 remove 這個名稱
 int removeItem(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
@@ -89,47 +89,47 @@ int removeItem(MyList *nums, int index) {
     return num;
 }
 
-/* 串列擴容 */
+/* 擴充列表容量 */
 void extendCapacity(MyList *nums) {
-    // 先分配空間
+    // 先配置空間
     int newCapacity = capacity(nums) * nums->extendRatio;
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
     int *temp = nums->arr;
 
-    // 複製舊資料到新資料
+    // 將舊資料複製到新空間
     for (int i = 0; i < size(nums); i++)
         extend[i] = nums->arr[i];
 
     // 釋放舊資料
     free(temp);
 
-    // 更新新資料
+    // 改用新資料
     nums->arr = extend;
     nums->capacity = newCapacity;
 }
 
-/* 將串列轉換為 Array 用於列印 */
+/* 將列表轉為 Array 以便印出 */
 int *toArray(MyList *nums) {
     return nums->arr;
 }
 
-/* Driver Code */
+/* 範例主程式 */
 int main() {
-    /* 初始化串列 */
+    /* 初始化列表 */
     MyList *nums = newMyList();
-    /* 在尾部新增元素 */
+    /* 在尾端加入元素 */
     add(nums, 1);
     add(nums, 3);
     add(nums, 2);
     add(nums, 5);
     add(nums, 4);
-    printf("串列 nums = ");
+    printf("列表 nums = ");
     printArray(toArray(nums), size(nums));
-    printf("容量 = %d ，長度 = %d\n", capacity(nums), size(nums));
+    printf("容量 = %d，長度 = %d\n", capacity(nums), size(nums));
 
     /* 在中間插入元素 */
     insert(nums, 3, 6);
-    printf("在索引 3 處插入數字 6 ，得到 nums = ");
+    printf("在索引 3 處插入數字 6，得到 nums = ");
     printArray(toArray(nums), size(nums));
 
     /* 刪除元素 */
@@ -137,26 +137,26 @@ int main() {
     printf("刪除索引 3 處的元素，得到 nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* 訪問元素 */
+    /* 存取元素 */
     int num = get(nums, 1);
-    printf("訪問索引 1 處的元素，得到 num = %d\n", num);
+    printf("存取索引 1 處的元素，得到 num = %d\n", num);
 
     /* 更新元素 */
     set(nums, 1, 0);
-    printf("將索引 1 處的元素更新為 0 ，得到 nums = ");
+    printf("將索引 1 處的元素更新為 0，得到 nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* 測試擴容機制 */
+    /* 測試容量擴充機制 */
     for (int i = 0; i < 10; i++) {
-        // 在 i = 5 時，串列長度將超出串列容量，此時觸發擴容機制
+        // 當 i = 5，列表長度將超過容量，此時會觸發擴充機制
         add(nums, i);
     }
 
-    printf("擴容後的串列 nums = ");
+    printf("擴充後的列表 nums = ");
     printArray(toArray(nums), size(nums));
-    printf("容量 = %d ，長度 = %d\n", capacity(nums), size(nums));
+    printf("容量 = %d，長度 = %d\n", capacity(nums), size(nums));
 
-    /* 釋放分配記憶體 */
+    /* 釋放已配置的記憶體 */
     delMyList(nums);
 
     return 0;

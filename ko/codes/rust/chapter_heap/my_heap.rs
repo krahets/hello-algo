@@ -8,35 +8,35 @@ use hello_algo_rust::include::print_util;
 
 /* 최대 힙 */
 struct MaxHeap {
-    // 배열 대신 vector를 사용하면 용량 확장을 고려할 필요가 없다
+    // 용량 확장을 따로 고려할 필요가 없도록 배열 대신 vector 사용
     max_heap: Vec<i32>,
 }
 
 impl MaxHeap {
-    /* 생성자: 입력 리스트를 바탕으로 힙 구성 */
+    /* 입력 리스트로 힙을 만드는 생성자 */
     fn new(nums: Vec<i32>) -> Self {
-        // 리스트 원소를 그대로 힙에 추가한다
+        // 리스트의 원소를 그대로 힙에 추가
         let mut heap = MaxHeap { max_heap: nums };
-        // 리프 노드를 제외한 모든 노드에 힙 재정렬을 수행한다
+        // 리프를 제외한 모든 노드에서 힙 복구
         for i in (0..=Self::parent(heap.size() - 1)).rev() {
             heap.sift_down(i);
         }
         heap
     }
 
-    /* 왼쪽 자식 노드의 인덱스 반환 */
+    /* 왼쪽 자식 노드의 인덱스 구하기 */
     fn left(i: usize) -> usize {
         2 * i + 1
     }
 
-    /* 오른쪽 자식 노드의 인덱스 반환 */
+    /* 오른쪽 자식 노드의 인덱스 구하기 */
     fn right(i: usize) -> usize {
         2 * i + 2
     }
 
-    /* 부모 노드의 인덱스 반환 */
+    /* 부모 노드의 인덱스 구하기 */
     fn parent(i: usize) -> usize {
-        (i - 1) / 2 // 나눗셈의 결과를 내림한다
+        (i - 1) / 2 // 나눗셈 결과를 내림
     }
 
     /* 원소 교환 */
@@ -44,17 +44,17 @@ impl MaxHeap {
         self.max_heap.swap(i, j);
     }
 
-    /* 힙 크기 반환 */
+    /* 힙 크기 구하기 */
     fn size(&self) -> usize {
         self.max_heap.len()
     }
 
-    /* 힙이 비어 있는지 판단 */
+    /* 힙이 비었는지 확인 */
     fn is_empty(&self) -> bool {
         self.max_heap.is_empty()
     }
 
-    /* 힙의 루트 원소 접근 */
+    /* 힙의 루트 원소 조회 */
     fn peek(&self) -> Option<i32> {
         self.max_heap.first().copied()
     }
@@ -63,50 +63,50 @@ impl MaxHeap {
     fn push(&mut self, val: i32) {
         // 노드 추가
         self.max_heap.push(val);
-        // 아래에서 위로 힙을 재정렬한다
+        // 아래에서 위로 힙 복구
         self.sift_up(self.size() - 1);
     }
 
-    /* 노드 i에서 시작하여 아래에서 위로 힙 재정렬 */
+    /* 노드 i부터 아래에서 위로 힙 복구 */
     fn sift_up(&mut self, mut i: usize) {
         loop {
-            // 노드 i가 이미 힙의 루트이므로 힙 재정렬을 마친다
+            // 노드 i가 이미 루트에 있으므로 힙 복구 종료
             if i == 0 {
                 break;
             }
-            // 노드 i의 부모 노드를 구한다
+            // 노드 i의 부모 노드 구하기
             let p = Self::parent(i);
-            // 노드를 조정할 필요가 없으면 힙 재정렬을 마친다
+            // 노드를 조정할 필요가 없으면 힙 복구 종료
             if self.max_heap[i] <= self.max_heap[p] {
                 break;
             }
-            // 두 노드를 교환한다
+            // 두 노드 교환
             self.swap(i, p);
-            // 위쪽으로 힙 재정렬을 반복한다
+            // 위로 올라가며 힙 복구 반복
             i = p;
         }
     }
 
     /* 힙에서 원소 꺼내기 */
     fn pop(&mut self) -> i32 {
-        // 비어 있는 경우를 처리한다
+        // 빈 힙 처리
         if self.is_empty() {
-            panic!("인덱스가 범위를 벗어났다");
+            panic!("index out of bounds");
         }
-        // 루트 노드와 가장 오른쪽 리프 노드를 교환한다(첫 원소와 마지막 원소 교환)
+        // 루트와 맨 오른쪽 리프 교환(첫 원소와 마지막 원소 교환)
         self.swap(0, self.size() - 1);
         // 노드 삭제
         let val = self.max_heap.pop().unwrap();
-        // 위에서 아래로 힙을 재정렬한다
+        // 위에서 아래로 힙 복구
         self.sift_down(0);
-        // 힙의 루트 원소를 반환한다
+        // 힙의 루트 원소 반환
         val
     }
 
-    /* 노드 i에서 시작하여 위에서 아래로 힙 재정렬 */
+    /* 노드 i부터 위에서 아래로 힙 복구 */
     fn sift_down(&mut self, mut i: usize) {
         loop {
-            // 노드 i, l, r 중 값이 가장 큰 노드를 찾아 ma로 표시한다
+            // 노드 i, l, r 중 값이 가장 큰 노드의 인덱스를 ma에 저장
             let (l, r, mut ma) = (Self::left(i), Self::right(i), i);
             if l < self.size() && self.max_heap[l] > self.max_heap[ma] {
                 ma = l;
@@ -114,13 +114,13 @@ impl MaxHeap {
             if r < self.size() && self.max_heap[r] > self.max_heap[ma] {
                 ma = r;
             }
-            // 노드 i의 값이 가장 크거나 인덱스 l, r이 범위를 벗어나면 힙을 더 재정렬할 필요가 없으므로 종료한다
+            // 노드 i가 가장 크거나 인덱스 l, r이 범위를 벗어나면 더 복구할 필요가 없으므로 반복 종료
             if ma == i {
                 break;
             }
-            // 두 노드를 교환한다
+            // 두 노드 교환
             self.swap(i, ma);
-            // 아래쪽으로 힙 재정렬을 반복한다
+            // 아래로 내려가며 힙 복구 반복
             i = ma;
         }
     }
@@ -131,14 +131,14 @@ impl MaxHeap {
     }
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     /* 최대 힙 초기화 */
     let mut max_heap = MaxHeap::new(vec![9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2]);
-    println!("\n리스트를 입력하여 힙을 구성한 후");
+    println!("\n입력 리스트로 만든 힙:");
     max_heap.print();
 
-    /* 힙의 루트 원소 반환 */
+    /* 힙의 루트 원소 구하기 */
     let peek = max_heap.peek();
     if let Some(peek) = peek {
         println!("\n힙의 루트 원소: {}", peek);
@@ -147,19 +147,19 @@ fn main() {
     /* 힙에 원소 삽입 */
     let val = 7;
     max_heap.push(val);
-    println!("\n원소 {} 삽입 후의 힙", val);
+    println!("\n원소 {} 삽입 후", val);
     max_heap.print();
 
     /* 힙의 루트 원소 꺼내기 */
     let peek = max_heap.pop();
-    println!("\n루트 원소 {} 삭제 후의 힙", peek);
+    println!("\n루트 원소 {} 제거 후", peek);
     max_heap.print();
 
-    /* 힙 크기 반환 */
+    /* 힙 크기 구하기 */
     let size = max_heap.size();
-    println!("\n힙의 원소 개수: {}", size);
+    println!("\n힙의 원소 수: {}", size);
 
-    /* 힙이 비어 있는지 판단 */
+    /* 힙이 비었는지 확인 */
     let is_empty = max_heap.is_empty();
-    println!("\n힙이 비어 있는가: {}", is_empty);
+    println!("\n빈 힙 여부: {}", is_empty);
 }

@@ -1,85 +1,85 @@
 {
-  "schema_version": 2,
-  "title": "Inorder traversal of a binary search tree",
-  "summary": "Visit the left subtree, record the current node, then visit the right subtree to output all values in ascending order.",
-  "context": [
-    "The binary search trees in this book have no duplicate values. At every node, all values in its left subtree are smaller and all values in its right subtree are larger.",
-    "Root 8 has left and right children 4 and 12. Node 4 has children 2 and 6; node 12 has children 10 and 14. Nodes 2, 6, 10, and 14 are leaves. A dashed green path traces the traversal. Blue dots mark the moments when values are recorded."
-  ],
-  "description": [],
-  "result": "Inorder traversal yields ascending values without a separate sort. The increase is strict because the book excludes duplicate node values.",
-  "frames": [
-    {
-      "id": "source-115",
-      "book_path": "chapter_tree/binary_search_tree.assets/bst_inorder_traversal.png",
-      "title": "Inorder traversal of a binary search tree",
-      "explanation": "At each node recursively traverse the smaller values on the left, record the node, then traverse the larger values on the right. The left subtree of root 8 emits 2, 4, 6; then comes 8, followed by the right subtree’s 10, 12, 14. The final result on the right is [2, 4, 6, 8, 10, 12, 14]."
-    }
-  ],
   "animations": {
     "bst-inorder": {
       "kind": "prose",
       "prose": {
-        "title": "Inorder traversal of a binary search tree",
-        "summary": "Visit the left subtree, record the current node, then visit the right subtree to output all values in ascending order.",
         "context": [
-          "The binary search trees in this book have no duplicate values. At every node, all values in its left subtree are smaller and all values in its right subtree are larger.",
-          "Root 8 has left and right children 4 and 12. Node 4 has children 2 and 6; node 12 has children 10 and 14. Nodes 2, 6, 10, and 14 are leaves. A dashed green path traces the traversal. Blue dots mark the moments when values are recorded."
+          "The binary search trees in this book do not store duplicates. At every node, all values in its left subtree are smaller than its value, and all values in its right subtree are larger.",
+          "The input tree has root 8 with left child 4 and right child 12. Node 4 has left child 2 and right child 6, and 12 has left child 10 and right child 14. Nodes 2, 6, 10, and 14 are leaves. A dashed green path traces the traversal, and blue dots show when each node is recorded."
         ],
         "description": [],
-        "result": "Inorder traversal yields ascending values without a separate sort. The increase is strict because the book excludes duplicate node values.",
+        "result": "Inorder traversal yields ascending values without a separate sort. The sequence is strictly increasing because this book's definition excludes duplicate node values.",
         "steps": [
           {
+            "announcement": "Reach the leftmost leaf, 2, and record 2 as the first output value.",
+            "explanation": "From root 8, go left to 4 and left again to leaf 2. Its left subtree is empty, so record 2, the smallest value in the tree, first. Output so far: [2]. Remaining: [4, 6, 8, 10, 12, 14].",
             "id": "step-1",
-            "title": "Record node 2",
-            "explanation": "From root 8 go left through 4 to leaf 2. Its left subtree is empty, so record the minimum value 2 first. Output: [2]. Still to come: [4, 6, 8, 10, 12, 14].",
-            "key_state": "Record leftmost leaf 2. Output: [2].",
-            "announcement": "Reach leftmost leaf 2 and record the first output value 2."
+            "key_state": "Record the leftmost leaf, 2. Output so far: [2].",
+            "title": "Record node 2"
           },
           {
+            "announcement": "Return to parent 4 and record it. Output so far: [2, 4].",
+            "explanation": "After finishing the subtree at leaf 2, return to its parent, 4. The left subtree of 4 is complete. Record 4, then turn to its right child, 6. Output so far: [2, 4]. Remaining: [6, 8, 10, 12, 14].",
             "id": "step-2",
-            "title": "Record node 4",
-            "explanation": "After finishing leaf 2, return to its parent 4. The left subtree of 4 is complete. Record 4, then turn to its right child 6. Output: [2, 4]. Still to come: [6, 8, 10, 12, 14].",
-            "key_state": "Return to node 4 and record it. Output: [2, 4].",
-            "announcement": "Return to parent 4 and record it. Output: [2, 4]."
+            "key_state": "Return to node 4 and record it. Output so far: [2, 4].",
+            "title": "Record node 4"
           },
           {
+            "announcement": "Record right leaf 6. The left subtree yields [2, 4, 6].",
+            "explanation": "Go to node 4's right leaf, 6. Its left subtree is empty, so record 6. This completes the output from the entire left subtree of root 8. Output so far: [2, 4, 6]. Remaining: [8, 10, 12, 14].",
             "id": "step-3",
-            "title": "Record node 6",
-            "explanation": "Visit the right leaf 6 of node 4. Its left subtree is empty, so record 6. This completes the left subtree of root 8. Output: [2, 4, 6]. Still to come: [8, 10, 12, 14].",
-            "key_state": "Record the rightmost leaf 6 of the left subtree. Output: [2, 4, 6].",
-            "announcement": "Record right leaf 6, completing the left subtree. Output: [2, 4, 6]."
+            "key_state": "Record 6, the rightmost leaf of the left subtree. Output so far: [2, 4, 6].",
+            "title": "Record node 6"
           },
           {
+            "announcement": "Return to root 8 and record it. Output so far: [2, 4, 6, 8].",
+            "explanation": "When the recursive call on the left subtree rooted at 4 finishes, return to root 8 and record it. Then enter its right subtree at 12. Output so far: [2, 4, 6, 8]. Remaining: [10, 12, 14].",
             "id": "step-4",
-            "title": "Record node 8",
-            "explanation": "The recursive call on the left subtree rooted at 4 has finished. Return to root 8, record 8, then enter its right subtree at 12. Output: [2, 4, 6, 8]. Still to come: [10, 12, 14].",
-            "key_state": "Record root 8. Output: [2, 4, 6, 8].",
-            "announcement": "Return to root 8 and record it. Output: [2, 4, 6, 8]."
+            "key_state": "Record root 8. The sequence so far is [2, 4, 6, 8].",
+            "title": "Record node 8"
           },
           {
+            "announcement": "Enter the right subtree and record left leaf 10 first. Output so far: [2, 4, 6, 8, 10].",
+            "explanation": "From root 8, enter its right child, 12, then recurse first into the left leaf of 12, node 10. Its left subtree is empty, so the right subtree outputs 10 first. Do not record 12 yet. Output so far: [2, 4, 6, 8, 10]. Remaining: [12, 14].",
             "id": "step-5",
-            "title": "Record node 10",
-            "explanation": "From root 8 go right to 12, then recurse left to leaf 10. Its left subtree is empty, so 10 is the first output from the right subtree. Do not record 12 yet. Output: [2, 4, 6, 8, 10]. Still to come: [12, 14].",
-            "key_state": "Record leaf 10 first in the right subtree. Output: [2, 4, 6, 8, 10].",
-            "announcement": "Enter the right subtree and record left leaf 10 first. Output: [2, 4, 6, 8, 10]."
+            "key_state": "Record leaf 10 first in the right subtree. Output so far: [2, 4, 6, 8, 10].",
+            "title": "Record node 10"
           },
           {
+            "announcement": "Return to node 12 and record it. Output so far: [2, 4, 6, 8, 10, 12].",
+            "explanation": "After finishing the subtree at leaf 10, return to its parent, 12. The left subtree of 12 is complete. Record 12, then turn to its right leaf, 14. Output so far: [2, 4, 6, 8, 10, 12]. Remaining: [14].",
             "id": "step-6",
-            "title": "Record node 12",
-            "explanation": "After finishing leaf 10, return to parent 12. Its left subtree is complete; record 12 and proceed to right leaf 14. Output: [2, 4, 6, 8, 10, 12]. Still to come: [14].",
-            "key_state": "Return to the right subtree root 12 and record it. Output: [2, 4, 6, 8, 10, 12].",
-            "announcement": "Return to node 12 and record it. Output: [2, 4, 6, 8, 10, 12]."
+            "key_state": "Return to the root of the right subtree, 12, and record it. Output so far: [2, 4, 6, 8, 10, 12].",
+            "title": "Record node 12"
           },
           {
+            "announcement": "Record the rightmost leaf, 14, to complete the ascending sequence [2, 4, 6, 8, 10, 12, 14].",
+            "explanation": "Go to node 12's right leaf, 14, and record it. All 7 node values have now been output in ascending order. The complete output for all 7 nodes is [2, 4, 6, 8, 10, 12, 14].",
             "id": "step-7",
-            "title": "Record node 14",
-            "explanation": "Visit the right leaf 14 of node 12 and record 14. All 7 values have now been emitted in ascending order. Output: [2, 4, 6, 8, 10, 12, 14]. All 7 nodes have been recorded.",
-            "key_state": "Record rightmost leaf 14. Output: [2, 4, 6, 8, 10, 12, 14].",
-            "announcement": "Record rightmost leaf 14 to finish the ascending output. Output: [2, 4, 6, 8, 10, 12, 14]."
+            "key_state": "Record the rightmost leaf, 14. Final output: [2, 4, 6, 8, 10, 12, 14].",
+            "title": "Record node 14"
           }
-        ]
+        ],
+        "summary": "An inorder traversal visits the left subtree, the current node, and then the right subtree, yielding all the values of a binary search tree directly in ascending order.",
+        "title": "Inorder traversal of a binary search tree"
       }
     }
-  }
+  },
+  "context": [
+    "The binary search trees in this book do not store duplicates. At every node, all values in its left subtree are smaller than its value, and all values in its right subtree are larger.",
+    "The input tree has root 8 with left child 4 and right child 12. Node 4 has left child 2 and right child 6, and 12 has left child 10 and right child 14. Nodes 2, 6, 10, and 14 are leaves. A dashed green path traces the traversal, and blue dots show when each node is recorded."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_tree/binary_search_tree.assets/bst_inorder_traversal.png",
+      "explanation": "At each node, recursively visit its left subtree of smaller values, record the node itself, then visit its right subtree of larger values. The left subtree of root 8 yields 2, 4, and 6. Next comes 8, then the right subtree yields 10, 12, and 14. The full result on the right is [2, 4, 6, 8, 10, 12, 14].",
+      "id": "source-115",
+      "title": "Inorder traversal of a binary search tree"
+    }
+  ],
+  "result": "Inorder traversal yields ascending values without a separate sort. The sequence is strictly increasing because this book's definition excludes duplicate node values.",
+  "schema_version": 2,
+  "summary": "An inorder traversal visits the left subtree, the current node, and then the right subtree, yielding all the values of a binary search tree directly in ascending order.",
+  "title": "Inorder traversal of a binary search tree"
 }

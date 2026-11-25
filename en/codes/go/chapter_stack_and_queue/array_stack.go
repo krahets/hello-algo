@@ -4,20 +4,20 @@
 
 package chapter_stack_and_queue
 
-/* Stack implemented with an array */
+/* Array-backed stack */
 type arrayStack struct {
-	data []int // Data
+	data []int // Stack elements
 }
 
 /* Initialize the stack */
 func newArrayStack() *arrayStack {
 	return &arrayStack{
-		// Set the stack length to 0 and its capacity to 16
+		// Set the stack size to 0 and the capacity to 16
 		data: make([]int, 0, 16),
 	}
 }
 
-/* Stack size */
+/* Get the stack size */
 func (s *arrayStack) size() int {
 	return len(s.data)
 }
@@ -27,20 +27,20 @@ func (s *arrayStack) isEmpty() bool {
 	return s.size() == 0
 }
 
-/* Push */
+/* Push an element onto the stack */
 func (s *arrayStack) push(v int) {
-	// Appending grows the slice capacity automatically when needed
+	// The slice grows automatically as needed
 	s.data = append(s.data, v)
 }
 
-/* Pop */
+/* Remove and return the top element */
 func (s *arrayStack) pop() any {
 	val := s.peek()
 	s.data = s.data[:len(s.data)-1]
 	return val
 }
 
-/* Get the top element */
+/* Peek at the top element */
 func (s *arrayStack) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -49,7 +49,7 @@ func (s *arrayStack) peek() any {
 	return val
 }
 
-/* Get a slice for printing */
+/* Return a slice for printing */
 func (s *arrayStack) toSlice() []int {
 	return s.data
 }

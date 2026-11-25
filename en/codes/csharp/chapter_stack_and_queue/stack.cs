@@ -18,23 +18,23 @@ public class stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        // Note that stack.ToArray() returns elements in reverse insertion order, with the stack top at index 0
-        Console.WriteLine("Stack stack = " + string.Join(",", stack));
+        // stack.ToArray() returns the elements in reverse order, with the top of the stack at index 0
+        Console.WriteLine("stack = " + string.Join(",", stack));
 
-        /* Access the top element */
+        /* Peek at the top element */
         int peek = stack.Peek();
-        Console.WriteLine("Top element peek = " + peek);
+        Console.WriteLine("Top element (peek) = " + peek);
 
-        /* Pop an element from the stack */
+        /* Pop the top element */
         int pop = stack.Pop();
-        Console.WriteLine("Popped element pop = " + pop + ", after popping, stack = " + string.Join(",", stack));
+        Console.WriteLine("Popped element (pop) = " + pop + ", stack after the pop = " + string.Join(",", stack));
 
         /* Get the stack size */
         int size = stack.Count;
         Console.WriteLine("Stack size = " + size);
 
-        /* Check whether it is empty */
+        /* Check whether the stack is empty */
         bool isEmpty = stack.Count == 0;
-        Console.WriteLine("Is the stack empty = " + isEmpty);
+        Console.WriteLine("Stack is empty = " + isEmpty);
     }
 }

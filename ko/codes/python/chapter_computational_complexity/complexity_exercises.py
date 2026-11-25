@@ -21,7 +21,7 @@ def sum_recur(n: int) -> int:
 
 
 def linear_loop(n: int) -> int:
-    """선형 차수 반복문"""
+    """선형 반복문"""
     res = 0
     for i in range(n):
         res += i
@@ -29,7 +29,7 @@ def linear_loop(n: int) -> int:
 
 
 def quadratic_loop(n: int) -> int:
-    """제곱 차수 반복문"""
+    """이차 반복문"""
     res = 0
     for i in range(n):
         for j in range(i, n):
@@ -38,7 +38,7 @@ def quadratic_loop(n: int) -> int:
 
 
 def logarithmic_loop(n: int) -> int:
-    """로그 차수 반복문"""
+    """로그 반복문"""
     while n > 1:
         n //= 2
     return n

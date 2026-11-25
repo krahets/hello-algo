@@ -12,7 +12,7 @@ pub fn ListNode(comptime T: type) type {
         val: T = 0,
         next: ?*Self = null,
 
-        // Initialize a list node with the specified value
+        // Initialize a list node with the given value
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.next = null;

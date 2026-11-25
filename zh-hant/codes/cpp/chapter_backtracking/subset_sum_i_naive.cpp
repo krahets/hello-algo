@@ -8,36 +8,36 @@
 
 /* 回溯演算法：子集和 I */
 void backtrack(vector<int> &state, int target, int total, vector<int> &choices, vector<vector<int>> &res) {
-    // 子集和等於 target 時，記錄解
+    // 子集總和達到目標時，記錄此解
     if (total == target) {
         res.push_back(state);
         return;
     }
-    // 走訪所有選擇
+    // 逐一檢查所有選項
     for (size_t i = 0; i < choices.size(); i++) {
-        // 剪枝：若子集和超過 target ，則跳過該選擇
+        // 剪枝：若加入該元素後總和超過 target，略過這個選擇
         if (total + choices[i] > target) {
             continue;
         }
-        // 嘗試：做出選擇，更新元素和 total
+        // 嘗試：做出選擇，更新元素總和 total
         state.push_back(choices[i]);
-        // 進行下一輪選擇
+        // 進入下一輪選擇
         backtrack(state, target, total + choices[i], choices, res);
-        // 回退：撤銷選擇，恢復到之前的狀態
+        // 回溯：撤銷選擇，還原先前的狀態
         state.pop_back();
     }
 }
 
-/* 求解子集和 I（包含重複子集） */
+/* 求解子集和 I（含重複子集） */
 vector<vector<int>> subsetSumINaive(vector<int> &nums, int target) {
     vector<int> state;       // 狀態（子集）
-    int total = 0;           // 子集和
+    int total = 0;           // 子集總和
     vector<vector<int>> res; // 結果串列（子集串列）
     backtrack(state, target, total, nums, res);
     return res;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     vector<int> nums = {3, 4, 5};
     int target = 9;
@@ -47,7 +47,7 @@ int main() {
     cout << "輸入陣列 nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "所有和等於 " << target << " 的子集 res = " << endl;
+    cout << "所有總和等於 " << target << " 的子集 res = " << endl;
     printVectorMatrix(res);
 
     return 0;

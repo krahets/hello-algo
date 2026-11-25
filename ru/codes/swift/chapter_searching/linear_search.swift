@@ -6,48 +6,48 @@
 
 import utils
 
-/* Линейный поиск (массив) */
+/* Линейный поиск в массиве */
 func linearSearchArray(nums: [Int], target: Int) -> Int {
-    // Обход массива
+    // Обходим массив
     for i in nums.indices {
-        // Целевой элемент найден, вернуть его индекс
+        // Элемент найден, возвращаем его индекс
         if nums[i] == target {
             return i
         }
     }
-    // Целевой элемент не найден, вернуть -1
+    // Элемент не найден, возвращаем -1
     return -1
 }
 
-/* Линейный поиск (связный список) */
+/* Линейный поиск в связном списке */
 func linearSearchLinkedList(head: ListNode?, target: Int) -> ListNode? {
     var head = head
-    // Обойти связный список
+    // Обходим связный список
     while head != nil {
-        // Целевой узел найден, возвращается этот узел
+        // Нужный узел найден, возвращаем его
         if head?.val == target {
             return head
         }
         head = head?.next
     }
-    // Целевой узел не найден, вернуть null
+    // Нужный узел не найден, возвращаем null
     return nil
 }
 
 @main
 enum LinearSearch {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
         let target = 3
 
-        /* Выполнить линейный поиск в массиве */
+        /* Выполняем линейный поиск в массиве */
         let nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
         let index = linearSearchArray(nums: nums, target: target)
-        print("Индекс целевого элемента 3 = \(index)")
+        print("Индекс элемента 3 = \(index)")
 
-        /* Выполнить линейный поиск в связном списке */
+        /* Выполняем линейный поиск в связном списке */
         let head = ListNode.arrToLinkedList(arr: nums)
         let node = linearSearchLinkedList(head: head, target: target)
-        print("Объект узла со значением 3 = \(node!)")
+        print("Узел со значением 3: \(node!)")
     }
 }

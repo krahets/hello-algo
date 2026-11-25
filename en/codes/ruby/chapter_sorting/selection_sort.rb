@@ -21,7 +21,7 @@ def selection_sort(nums)
   end
 end
 
-### Driver code ###
+### Driver Code ###
 if __FILE__ == $0
   nums = [4, 1, 3, 1, 5, 2]
   selection_sort(nums)

@@ -8,40 +8,40 @@ import "sort"
 
 /* Backtracking: subset sum II */
 func backtrackSubsetSumII(start, target int, state, choices *[]int, res *[][]int) {
-	// Record a solution when the subset reaches the original target sum (remaining target is zero)
+	// Record a solution when the subset sums to target
 	if target == 0 {
 		newState := append([]int{}, *state...)
 		*res = append(*res, newState)
 		return
 	}
-	// Iterate over all choices
-	// Pruning 2: iterate from start to avoid generating duplicate subsets
-	// Pruning 3: start after the previously chosen index to avoid choosing the same element again
+	// Try each choice
+	// Pruning rule 2: start at start to avoid duplicate subsets
+	// Pruning rule 3: start at start to avoid reusing the same element
 	for i := start; i < len(*choices); i++ {
-		// Pruning 1: exit the loop if this choice exceeds the remaining target
-		// The array is sorted, so later elements are at least as large and also exceed the remaining target
+		// Pruning rule 1: break if the subset sum would exceed target
+		// The array is sorted, so later elements are at least as large and would also take the sum over target
 		if target-(*choices)[i] < 0 {
 			break
 		}
-		// Pruning 4: if this element equals its left neighbor at the same search depth, the branch is a duplicate; skip it
+		// Pruning rule 4: skip a value equal to its left neighbor, since its search branch is a duplicate
 		if i > start && (*choices)[i] == (*choices)[i-1] {
 			continue
 		}
-		// Try: make a choice and update target and start
+		// Make a choice and update target and start
 		*state = append(*state, (*choices)[i])
-		// Proceed to the next choice
+		// Make the next choice
 		backtrackSubsetSumII(i+1, target-(*choices)[i], state, choices, res)
-		// Backtrack: undo the choice and restore the previous state
+		// Backtrack: undo the choice to restore the previous state
 		*state = (*state)[:len(*state)-1]
 	}
 }
 
 /* Solve subset sum II */
 func subsetSumII(nums []int, target int) [][]int {
-	state := make([]int, 0) // State (subset)
+	state := make([]int, 0) // State (current subset)
 	sort.Ints(nums)         // Sort nums
-	start := 0              // Starting index for iteration
-	res := make([][]int, 0) // Result list (list of subsets)
+	start := 0              // Starting index
+	res := make([][]int, 0) // Results (list of subsets)
 	backtrackSubsetSumII(start, target, &state, &nums, &res)
 	return res
 }

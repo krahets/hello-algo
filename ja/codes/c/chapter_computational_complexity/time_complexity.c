@@ -28,7 +28,7 @@ int linear(int n) {
 /* 線形オーダー（配列の走査） */
 int arrayTraversal(int *nums, int n) {
     int count = 0;
-    // ループの回数は配列の長さに比例する
+    // 反復回数は配列の長さに比例
     for (int i = 0; i < n; i++) {
         count++;
     }
@@ -38,7 +38,7 @@ int arrayTraversal(int *nums, int n) {
 /* 二次オーダー */
 int quadratic(int n) {
     int count = 0;
-    // ループの回数はデータの大きさ n の二乗に比例する
+    // 反復回数はデータサイズ n の二乗に比例
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             count++;
@@ -50,16 +50,16 @@ int quadratic(int n) {
 /* 二次オーダー（バブルソート） */
 int bubbleSort(int *nums, int n) {
     int count = 0; // カウンタ
-    // 外側のループ：未ソート区間は [0, i]
+    // 外側のループ：未整列区間は [0, i]
     for (int i = n - 1; i > 0; i--) {
-        // 内側のループ：未ソート区間 [0, i] の最大要素を区間の右端に移す
+        // 内側のループ：未整列区間 [0, i] の最大要素を、交換しながら区間の右端へ移す
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
-                // nums[j] と nums[j + 1] を交換する
+                // nums[j] と nums[j + 1] を交換
                 int tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                count += 3; // 要素の交換は 3 回の単位操作からなる
+                count += 3; // 要素の交換は 3 回の基本操作からなる
             }
         }
     }
@@ -70,7 +70,7 @@ int bubbleSort(int *nums, int n) {
 int exponential(int n) {
     int count = 0;
     int bas = 1;
-    // 各回で細胞が 2 つに分裂し、数列 1, 2, 4, 8, ..., 2^(n-1) を形成する
+    // 各回で細胞が二分し、分裂する細胞の数は 1, 2, 4, 8, ..., 2^(n-1) となる
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < bas; j++) {
             count++;
@@ -127,18 +127,18 @@ int factorialRecur(int n) {
     return count;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main(int argc, char *argv[]) {
-    // n を変更して実行し、各計算量で操作回数がどのように変化するか確かめられる
+    // n を変えて実行し、計算量ごとに操作回数の増え方を確かめる
     int n = 8;
-    printf("入力データの大きさ n = %d\n", n);
+    printf("入力データのサイズ n = %d\n", n);
 
     int count = constant(n);
     printf("定数オーダーの操作回数 = %d\n", count);
 
     count = linear(n);
     printf("線形オーダーの操作回数 = %d\n", count);
-    // ヒープ領域を確保する（要素数 n 、要素型 int の一次元可変長配列を作成する）
+    // ヒープにメモリを確保（int 型の要素 n 個からなる可変長の一次元配列を作成）
     int *nums = (int *)malloc(n * sizeof(int));
     count = arrayTraversal(nums, n);
     printf("線形オーダー（配列の走査）の操作回数 = %d\n", count);
@@ -167,7 +167,7 @@ int main(int argc, char *argv[]) {
     count = factorialRecur(n);
     printf("階乗オーダー（再帰による実装）の操作回数 = %d\n", count);
 
-    // ヒープ領域を解放する
+    // ヒープのメモリを解放
     if (nums != NULL) {
         free(nums);
         nums = NULL;

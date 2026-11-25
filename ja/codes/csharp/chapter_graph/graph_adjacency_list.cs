@@ -6,9 +6,9 @@
 
 namespace hello_algo.chapter_graph;
 
-/* 隣接リストで実装した無向グラフクラス */
+/* 隣接リストで無向グラフを表すクラス */
 public class GraphAdjList {
-    // 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+    // 隣接リスト。key は頂点、value はその頂点の全隣接頂点
     public Dictionary<Vertex, List<Vertex>> adjList;
 
     /* コンストラクタ */
@@ -57,9 +57,9 @@ public class GraphAdjList {
     public void RemoveVertex(Vertex vet) {
         if (!adjList.ContainsKey(vet))
             throw new InvalidOperationException();
-        // 隣接リストから頂点 vet に対応する連結リストを削除する
+        // 隣接リストから頂点 vet の連結リストを削除する
         adjList.Remove(vet);
-        // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+        // 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
         foreach (List<Vertex> list in adjList.Values) {
             list.Remove(vet);
         }
@@ -92,31 +92,31 @@ public class graph_adjacency_list {
             [v[3], v[4]] 
         ];
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\n初期化後のグラフ");
+        Console.WriteLine("\n初期化後のグラフ：");
         graph.Print();
 
         /* 辺を追加する */
-        // 頂点 1, 2 は v[0], v[2] に対応する
+        // 頂点 1 と 2 はそれぞれ v[0] と v[2]
         graph.AddEdge(v[0], v[2]);
-        Console.WriteLine("\n辺 1-2 を追加した後のグラフ");
+        Console.WriteLine("\n辺 1-2 を追加した後のグラフ：");
         graph.Print();
 
         /* 辺を削除する */
-        // 頂点 1, 3 は v[0], v[1] に対応する
+        // 頂点 1 と 3 はそれぞれ v[0] と v[1]
         graph.RemoveEdge(v[0], v[1]);
-        Console.WriteLine("\n辺 1-3 を削除した後のグラフ");
+        Console.WriteLine("\n辺 1-3 を削除した後のグラフ：");
         graph.Print();
 
         /* 頂点を追加する */
         Vertex v5 = new(6);
         graph.AddVertex(v5);
-        Console.WriteLine("\n頂点 6 を追加した後のグラフ");
+        Console.WriteLine("\n頂点 6 を追加した後のグラフ：");
         graph.Print();
 
         /* 頂点を削除する */
-        // 頂点 3 は v[1] に対応する
+        // 頂点 3 は v[1]
         graph.RemoveVertex(v[1]);
-        Console.WriteLine("\n頂点 3 を削除した後のグラフ");
+        Console.WriteLine("\n頂点 3 を削除した後のグラフ：");
         graph.Print();
     }
 }

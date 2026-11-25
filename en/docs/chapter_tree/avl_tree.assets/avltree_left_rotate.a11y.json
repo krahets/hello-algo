@@ -1,74 +1,54 @@
 {
-  "schema_version": 2,
-  "title": "AVL left rotation and reattachment to the parent",
-  "summary": "Perform a left rotation on unbalanced node 4, turning the right-leaning chain 4 → 5 → 6 into a balanced subtree rooted at 5 with left child 4 and right child 6.",
-  "context": [
-    "The outer root of the whole tree is 1, with left child 0 and right child 4; node 4 has only right child 5, and node 5 has only right child 6. The figure labels unbalanced node 4 as node and its right child 5 as child.",
-    "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown."
-  ],
-  "description": [
-    "The three subfigures show before rotation, after local rotation, and after reattachment to the parent, rather than line-by-line code assignment snapshots. Initially, node 4 has left subtree height −1 and right subtree height 1, giving balance factor −2; outer root 1 also has balance factor −2.",
-    "Left rotation raises 5 to become the local root, makes 4 its left child, and keeps 6 as its right child. Because 5 originally had no left child, 4's right child is empty after the rotation.",
-    "In the middle view, the only solid edges are 1→0, 5→4, and 5→6; no solid edge yet connects parent node 1 to new root 5. A dashed circle at node 4's former position and a dashed edge from that old position to 5 appear solely for pre-rotation comparison and do not represent an extra node or active link. Only the final subfigure draws 1→5 and removes the dashed guide."
-  ],
-  "result": "The table compares all parent-child links before and after, while the inorder traversal sequence remains [0, 1, 4, 5, 6].",
-  "frames": [
-    {
-      "id": "source-135",
-      "book_path": "chapter_tree/avl_tree.assets/avltree_left_rotate.png",
-      "title": "AVL left rotation and reattachment to the parent",
-      "explanation": "Once the new subtree root is reattached, the height of parent node 1's right subtree drops from 2 to 1; its left child 0 is unchanged, restoring balance to the entire tree."
-    }
-  ],
   "animations": {
     "avl-left-rotation": {
       "kind": "prose",
       "prose": {
-        "title": "AVL left rotation and reattachment to the parent",
-        "summary": "Perform a left rotation on unbalanced node 4, turning the right-leaning chain 4 → 5 → 6 into a balanced subtree rooted at 5 with left child 4 and right child 6.",
         "context": [
-          "The outer root of the whole tree is 1, with left child 0 and right child 4; node 4 has only right child 5, and node 5 has only right child 6. The figure labels unbalanced node 4 as node and its right child 5 as child.",
-          "A node's balance factor is its left subtree height minus its right subtree height, with leaf height 0 and empty subtree height −1; a tree is balanced only when every node's balance factor has absolute value at most 1. The balance factors below are computed from the connections shown."
+          "The overall root, 1, has left child 0 and right child 4. Node 4 has only right child 5, and 5 has only right child 6. The figure labels unbalanced node 4 as node and its right child 5 as child.",
+          "The balance factor is the height of the left subtree minus the height of the right. A leaf has height 0 and an empty subtree has height −1. A tree is balanced only if the absolute value of every node's balance factor is at most 1. The factors below follow from the connections in the figure."
         ],
         "description": [
-          "The three subfigures show before rotation, after local rotation, and after reattachment to the parent, rather than line-by-line code assignment snapshots. Initially, node 4 has left subtree height −1 and right subtree height 1, giving balance factor −2; outer root 1 also has balance factor −2.",
-          "Left rotation raises 5 to become the local root, makes 4 its left child, and keeps 6 as its right child. Because 5 originally had no left child, 4's right child is empty after the rotation.",
-          "In the middle view, the only solid edges are 1→0, 5→4, and 5→6; no solid edge yet connects parent node 1 to new root 5. A dashed circle at node 4's former position and a dashed edge from that old position to 5 appear solely for pre-rotation comparison and do not represent an extra node or active link. Only the final subfigure draws 1→5 and removes the dashed guide."
+          "The three panels show the tree before rotation, after the local rotation, and after reconnection to the parent. Each depicts a stage rather than an individual assignment in code. Initially, node 4 has left and right subtree heights −1 and 1, giving it a balance factor of −2. The overall root 1 also has balance factor −2.",
+          "The left rotation promotes 5 to local root. Node 4 becomes its left child and 6 remains its right child. Since 5 originally had no left child, 4 has no right child after the rotation.",
+          "The middle panel shows only three solid edges: 1→0, 5→4, and 5→6. No solid edge yet connects parent 1 to the new root 5. A dashed circle at the old position of 4 and a dashed edge from there to 5 show the arrangement before rotation. They do not represent an extra node or a current connection. The final panel adds 1→5 and removes the dashed marks."
         ],
-        "result": "The table compares all parent-child links before and after, while the inorder traversal sequence remains [0, 1, 4, 5, 6].",
+        "input_tables": [],
+        "result": "The table compares all parent-child relationships before and after rotation. The inorder sequence remains [0, 1, 4, 5, 6].",
         "steps": [
           {
+            "announcement": "Identify unbalanced node 4 and its right child 5.",
+            "explanation": "Before rotation, the overall root 1 has left child 0 and right child 4. Node 4 has only right child 5, and 5 has only right child 6. All other branches are empty. With node=4 and child=5, node 4 has left and right subtree heights −1 and 1. Its balance factor is −2, so it needs a left rotation.",
             "id": "step-1",
-            "title": "Locate the right-leaning subtree",
-            "explanation": "Before rotation: outer root 1 connects to left 0 and right 4; 4 connects only to right 5, and 5 connects only to right 6, with all other branches empty. Here node=4 and child=5; 4 has left height −1 and right height 1, giving balance factor −2 and requiring a left rotation.",
-            "key_state": "Initially, root 1 connects to left 0 and right 4; 4 connects to right 5, and 5 connects to right 6; node 4 has balance factor −2, ready to rotate left.",
-            "announcement": "Identify unbalanced node 4 and its right child 5."
+            "key_state": "Initially, root 1 has left child 0 and right child 4. Node 4 has right child 5, and 5 has right child 6. Node 4 has balance factor −2 and is ready for a left rotation.",
+            "title": "Locate the right-leaning subtree"
           },
           {
+            "announcement": "The local left rotation is complete. The subtree is waiting to be reconnected to parent 1.",
+            "explanation": "After the local left rotation, the solid edges form two groups. Node 1 has only left child 0. The new root 5 has left child 4 and right child 6, both leaves. There is no solid edge from parent 1 to 5 yet, so the drawing does not yet show a fully reconnected tree. The dashed circle at the old position of 4 and its dashed edge to 5 are for comparison only. There are still exactly five nodes: 0, 1, 4, 5, and 6.",
             "id": "step-2",
-            "title": "Complete local rotation, awaiting reattachment",
-            "explanation": "After the local left rotation, the solid links split into two disconnected parts: 1 connects only to left 0, while new root 5 connects to left 4 and right 6, with both 4 and 6 as leaf nodes. Parent node 1 has no solid link to 5 yet, so the tree is not yet reconnected as a whole. The dashed circle at 4's former position and its dashed edge to 5 are only for comparison; there are still just the five nodes 0, 1, 4, 5, and 6.",
-            "key_state": "After local left rotation, 1 connects only to left 0; new root 5 connects to left 4 and right 6, with 1 not yet linked to 5.",
-            "announcement": "Local left rotation complete; not yet reattached to parent node 1."
+            "key_state": "After the local left rotation, 1 has only left child 0. New root 5 has left child 4 and right child 6. No edge yet connects 1 to 5.",
+            "title": "Local rotation complete, ready to reconnect"
           },
           {
+            "announcement": "New subtree root 5 reconnects to parent 1, completing the left rotation.",
+            "explanation": "Attach new root 5 to the right of parent 1 and remove the dashed marks at the old position. Root 1 now has left child 0 and right child 5. Node 5 has left child 4 and right child 6. Nodes 0, 4, and 6 are leaves. The right subtree of 1 drops to height 1, the entire tree regains balance, and the inorder sequence remains [0, 1, 4, 5, 6].",
             "id": "step-3",
-            "title": "Reattach the new subtree root to 1",
-            "explanation": "Attach new root 5 as the right child of parent node 1 and remove the dashed old-position guide: root 1 now connects to left 0 and right 5; 5 connects to left 4 and right 6, with 0, 4, and 6 as leaf nodes. The height of 1's right subtree drops to 1, restoring balance across the whole tree while keeping the inorder sequence [0, 1, 4, 5, 6].",
-            "key_state": "After reattachment, root 1 connects to left 0 and right 5; 5 connects to left 4 and right 6, balancing the whole tree.",
-            "announcement": "Reattach new subtree root 5 to parent node 1, completing the left rotation."
+            "key_state": "After reconnection, root 1 has left child 0 and right child 5. Node 5 has left child 4 and right child 6. The whole tree is balanced.",
+            "title": "Reconnect the new subtree root to 1"
           }
         ],
+        "summary": "A left rotation at unbalanced node 4 turns the rightward chain 4 → 5 → 6 into a balanced subtree rooted at 5, with left child 4 and right child 6.",
         "tables": [
           {
-            "caption": "Parent-child relationships before and after left rotation",
+            "caption": "Parent-child relationships before and after a left rotation",
             "headers": [
               "Node",
               "Left child before rotation",
               "Right child before rotation",
-              "Left child after reattachment",
-              "Right child after reattachment"
+              "Left child after reconnection",
+              "Right child after reconnection"
             ],
+            "row_header": 0,
             "rows": [
               [
                 "1",
@@ -105,24 +85,44 @@
                 "None",
                 "None"
               ]
-            ],
-            "row_header": 0
+            ]
           }
         ],
-        "input_tables": []
+        "title": "AVL left rotation and reconnection to the parent"
       }
     }
   },
+  "context": [
+    "The overall root, 1, has left child 0 and right child 4. Node 4 has only right child 5, and 5 has only right child 6. The figure labels unbalanced node 4 as node and its right child 5 as child.",
+    "The balance factor is the height of the left subtree minus the height of the right. A leaf has height 0 and an empty subtree has height −1. A tree is balanced only if the absolute value of every node's balance factor is at most 1. The factors below follow from the connections in the figure."
+  ],
+  "description": [
+    "The three panels show the tree before rotation, after the local rotation, and after reconnection to the parent. Each depicts a stage rather than an individual assignment in code. Initially, node 4 has left and right subtree heights −1 and 1, giving it a balance factor of −2. The overall root 1 also has balance factor −2.",
+    "The left rotation promotes 5 to local root. Node 4 becomes its left child and 6 remains its right child. Since 5 originally had no left child, 4 has no right child after the rotation.",
+    "The middle panel shows only three solid edges: 1→0, 5→4, and 5→6. No solid edge yet connects parent 1 to the new root 5. A dashed circle at the old position of 4 and a dashed edge from there to 5 show the arrangement before rotation. They do not represent an extra node or a current connection. The final panel adds 1→5 and removes the dashed marks."
+  ],
+  "frames": [
+    {
+      "book_path": "chapter_tree/avl_tree.assets/avltree_left_rotate.png",
+      "explanation": "After reconnection, the right subtree of parent 1 drops from height 2 to height 1. Its left child 0 stays in place, and the entire tree regains balance.",
+      "id": "source-135",
+      "title": "AVL left rotation and reconnection to the parent"
+    }
+  ],
+  "result": "The table compares all parent-child relationships before and after rotation. The inorder sequence remains [0, 1, 4, 5, 6].",
+  "schema_version": 2,
+  "summary": "A left rotation at unbalanced node 4 turns the rightward chain 4 → 5 → 6 into a balanced subtree rooted at 5, with left child 4 and right child 6.",
   "tables": [
     {
-      "caption": "Parent-child relationships before and after left rotation",
+      "caption": "Parent-child relationships before and after a left rotation",
       "headers": [
         "Node",
         "Left child before rotation",
         "Right child before rotation",
-        "Left child after reattachment",
-        "Right child after reattachment"
+        "Left child after reconnection",
+        "Right child after reconnection"
       ],
+      "row_header": 0,
       "rows": [
         [
           "1",
@@ -159,8 +159,8 @@
           "None",
           "None"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "AVL left rotation and reconnection to the parent"
 }

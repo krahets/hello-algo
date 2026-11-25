@@ -31,8 +31,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>   /* exit */
 
 #if defined(HASH_DEFINE_OWN_STDINT) && HASH_DEFINE_OWN_STDINT
-/* 이 코드 경로는 하위 호환성을 위해 제공하지만, 향후 제거할 예정이다. */
-#warning "HASH_DEFINE_OWN_STDINT는 더 이상 권장되지 않는다. 대신 HASH_NO_STDINT를 사용한다"
+/* 이 코드 경로는 하위 호환성을 위해 제공하며 추후 제거할 예정이다. */
+#warning "HASH_DEFINE_OWN_STDINT is deprecated; please use HASH_NO_STDINT instead"
 typedef unsigned int uint32_t;
 typedef unsigned char uint8_t;
 #elif defined(HASH_NO_STDINT) && HASH_NO_STDINT
@@ -40,10 +40,10 @@ typedef unsigned char uint8_t;
 #include <stdint.h>   /* uint8_t, uint32_t */
 #endif
 
-/* 이 매크로들은 decltype 또는 이전 GNU 확장인 __typeof를 사용한다.
-   decltype은 최신 컴파일러(C++ 소스를 컴파일할 때 VS2010 또는 gcc 4.3 이상)에서만
-   사용할 수 있으므로, 이 코드는 상황에 맞는 방법을 사용한다.
-   둘 다 사용할 수 없는 VS2008에서는 형 변환으로 우회한다. */
+/* 이 매크로들은 decltype이나 그보다 먼저 나온 GNU 확장 기능 __typeof를 사용한다.
+   decltype은 비교적 최신 컴파일러에서만 쓸 수 있다(VS2010 또는 gcc 4.3 이상으로
+   C++ 소스를 컴파일하는 경우). 따라서 이 코드는 환경에 맞는 방식을 사용하며,
+   둘 다 쓸 수 없는 VS2008에서는 형 변환으로 우회한다. */
 #if !defined(DECLTYPE) && !defined(NO_DECLTYPE)
 #if defined(_MSC_VER)   /* MS 컴파일러 */
 #if _MSC_VER >= 1600 && defined(__cplusplus)  /* C++ 모드의 VS2010 이상 */
@@ -96,10 +96,10 @@ do {                                                                            
 #endif
 
 #ifndef uthash_noexpand_fyi
-#define uthash_noexpand_fyi(tbl)          /* 확장 중지 내역을 기록하도록 정의할 수 있다  */
+#define uthash_noexpand_fyi(tbl)          /* 버킷 확장 중단을 기록하도록 정의할 수 있다.  */
 #endif
 #ifndef uthash_expand_fyi
-#define uthash_expand_fyi(tbl)            /* 확장 내역을 기록하도록 정의할 수 있다   */
+#define uthash_expand_fyi(tbl)            /* 버킷 확장을 기록하도록 정의할 수 있다.   */
 #endif
 
 #ifndef HASH_NONFATAL_OOM
@@ -107,23 +107,23 @@ do {                                                                            
 #endif
 
 #if HASH_NONFATAL_OOM
-/* malloc 실패에서 복구할 수 있다 */
+/* malloc 실패 시 복구할 수 있다. */
 
 #ifndef uthash_nonfatal_oom
-#define uthash_nonfatal_oom(obj) do {} while (0)    /* 치명적이지 않은 메모리 부족 오류 */
+#define uthash_nonfatal_oom(obj) do {} while (0)    /* 복구 가능한 메모리 부족 오류 */
 #endif
 
 #define HASH_RECORD_OOM(oomed) do { (oomed) = 1; } while (0)
 #define IF_HASH_NONFATAL_OOM(x) x
 
 #else
-/* malloc 실패 시 메모리가 유실되고 해시 테이블을 사용할 수 없게 된다 */
+/* malloc이 실패하면 메모리가 유실되고 해시 테이블을 사용할 수 없게 된다. */
 
 #ifndef uthash_fatal
 #define uthash_fatal(msg) exit(-1)        /* 치명적인 메모리 부족 오류 */
 #endif
 
-#define HASH_RECORD_OOM(oomed) uthash_fatal("메모리 부족")
+#define HASH_RECORD_OOM(oomed) uthash_fatal("out of memory")
 #define IF_HASH_NONFATAL_OOM(x)
 
 #endif
@@ -131,11 +131,11 @@ do {                                                                            
 /* 초기 버킷 수 */
 #define HASH_INITIAL_NUM_BUCKETS 32U     /* 초기 버킷 수        */
 #define HASH_INITIAL_NUM_BUCKETS_LOG2 5U /* 초기 버킷 수의 밑이 2인 로그 */
-#define HASH_BKT_CAPACITY_THRESH 10U     /* 버킷의 원소 수가 이 값에 도달하면 확장한다 */
+#define HASH_BKT_CAPACITY_THRESH 10U     /* 버킷 안의 항목 수가 이 값에 도달하면 확장한다. */
 
-/* 해시 핸들 주소가 hhp인 원소를 계산한다 */
+/* 해시 핸들의 주소가 hhp인 원소의 주소를 계산한다. */
 #define ELMT_FROM_HH(tbl,hhp) ((void*)(((char*)(hhp)) - ((tbl)->hho)))
-/* 원소 주소 elp에서 해시 핸들을 계산한다 */
+/* 원소의 주소 elp로 해시 핸들의 주소를 계산한다. */
 #define HH_FROM_ELMT(tbl,elp) ((UT_hash_handle*)(void*)(((char*)(elp)) + ((tbl)->hho)))
 
 #define HASH_ROLLBACK_BKT(hh, head, itemptrhh)                                   \
@@ -436,16 +436,16 @@ do {                                                                            
 } while (0)
 
 /* 해시 테이블에서 "delptr"를 삭제한다.
- * 애플리케이션 순서의 이중 연결 리스트에서 수행하는 "일반적인" 연결 복구 과정이다.
- * 아래에서 _hd_hh_del을 사용하는 이유는 별도의 설명이 필요하다.
- * 이전에는 (delptr)를 사용했지만, 다음과 같이
- * 머리와 삭제 대상에 같은 이름을 사용하면 버그가 발생했다.
+ * 응용 프로그램 순서를 유지하는 이중 연결 리스트의 링크를 통상적인 방식으로 다시 연결한다.
+ * 아래에서 _hd_hh_del을 사용하는 이유를 살펴보자.
+ * 이전에는 (delptr)를 직접 사용했는데, 이 때문에 버그가 발생했다.
+ * 아래처럼 리스트의 머리와 삭제할 원소에 같은 이름을 사용한 경우다.
  *  HASH_DELETE(hh,users,users);
- * 이 경우에도 동작해야 하지만, 아래에서 머리(users)를 변경하면
- * 연결을 복구하는 과정에서 삭제 대상(users)을
- * 더 이상 참조할 수 없게 된다. 해결 방법은 임시 공간에
- * 삭제 대상의 포인터를 복사하고, 이후에는 가리키는 대상이 바뀐 (users) 대신
- * 그 임시 포인터를 통해 참조하는 것이다.
+ * 이 호출도 작동해야 한다. 하지만 아래에서 머리 포인터(users)를 변경하면
+ * 삭제할 원소(users)를 더 이상 참조할 수 없어
+ * 링크를 다시 연결할 수 없었다. 이를 해결하기 위해 임시 공간에
+ * 삭제할 원소의 포인터를 복사해 두고, 이후에는
+ * 다른 곳을 가리키게 된 이름(users) 대신 이 임시 포인터로 원소를 참조한다.
  */
 #define HASH_DELETE(hh,head,delptr)                                              \
     HASH_DELETE_HH(hh, head, &(delptr)->hh)
@@ -479,7 +479,7 @@ do {                                                                            
   HASH_FSCK(hh, head, "HASH_DELETE_HH");                                         \
 } while (0)
 
-/* HASH_FIND/HASH_ADD/HASH_DEL의 편의 형식 */
+/* HASH_FIND/HASH_ADD/HASH_DEL을 간편하게 쓰기 위한 매크로 */
 #define HASH_FIND_STR(head,findstr,out)                                          \
 do {                                                                             \
     unsigned _uthash_hfstr_keylen = (unsigned)uthash_strlen(findstr);            \
@@ -510,8 +510,8 @@ do {                                                                            
 #define HASH_DEL(head,delptr)                                                    \
     HASH_DELETE(hh,head,delptr)
 
-/* HASH_DEBUG가 정의되어 있으면 HASH_FSCK는 추가/삭제할 때마다 해시 무결성을 검사한다.
- * uthash 개발자 전용이며, HASH_DEBUG가 정의되지 않으면 컴파일 시 제거된다.
+/* HASH_DEBUG를 정의하면 HASH_FSCK가 항목을 추가하거나 삭제할 때마다 해시 테이블의 무결성을 검사한다.
+ * uthash 개발자용 기능으로, HASH_DEBUG를 정의하지 않으면 컴파일 결과에서 제외된다.
  */
 #ifdef HASH_DEBUG
 #include <stdio.h>   /* fprintf, stderr */
@@ -529,7 +529,7 @@ do {                                                                            
       _prev = NULL;                                                              \
       while (_thh) {                                                             \
         if (_prev != (char*)(_thh->hh_prev)) {                                   \
-          HASH_OOPS("%s: 잘못된 hh_prev %p, 실제 값 %p\n",                       \
+          HASH_OOPS("%s: invalid hh_prev %p, actual %p\n",                       \
               (where), (void*)_thh->hh_prev, (void*)_prev);                      \
         }                                                                        \
         _bkt_count++;                                                            \
@@ -538,12 +538,12 @@ do {                                                                            
       }                                                                          \
       _count += _bkt_count;                                                      \
       if ((head)->hh.tbl->buckets[_bkt_i].count !=  _bkt_count) {                \
-        HASH_OOPS("%s: 잘못된 버킷 원소 수 %u, 실제 값 %u\n",                    \
+        HASH_OOPS("%s: invalid bucket count %u, actual %u\n",                    \
             (where), (head)->hh.tbl->buckets[_bkt_i].count, _bkt_count);         \
       }                                                                          \
     }                                                                            \
     if (_count != (head)->hh.tbl->num_items) {                                   \
-      HASH_OOPS("%s: 잘못된 hh 원소 수 %u, 실제 값 %u\n",                     \
+      HASH_OOPS("%s: invalid hh item count %u, actual %u\n",                     \
           (where), (head)->hh.tbl->num_items, _count);                           \
     }                                                                            \
     _count = 0;                                                                  \
@@ -552,14 +552,14 @@ do {                                                                            
     while (_thh) {                                                               \
       _count++;                                                                  \
       if (_prev != (char*)_thh->prev) {                                          \
-        HASH_OOPS("%s: 잘못된 prev %p, 실제 값 %p\n",                            \
+        HASH_OOPS("%s: invalid prev %p, actual %p\n",                            \
             (where), (void*)_thh->prev, (void*)_prev);                           \
       }                                                                          \
       _prev = (char*)ELMT_FROM_HH((head)->hh.tbl, _thh);                         \
       _thh = (_thh->next ? HH_FROM_ELMT((head)->hh.tbl, _thh->next) : NULL);     \
     }                                                                            \
     if (_count != (head)->hh.tbl->num_items) {                                   \
-      HASH_OOPS("%s: 잘못된 애플리케이션 원소 수 %u, 실제 값 %u\n",                    \
+      HASH_OOPS("%s: invalid app item count %u, actual %u\n",                    \
           (where), (head)->hh.tbl->num_items, _count);                           \
     }                                                                            \
   }                                                                              \
@@ -568,9 +568,9 @@ do {                                                                            
 #define HASH_FSCK(hh,head,where)
 #endif
 
-/* -DHASH_EMIT_KEYS로 컴파일하면 길이가 앞에 붙은 키를
- * 이 매크로의 값으로 지정한 디스크립터에 출력하여 해시 함수를 조정할 수 있다.
- * 애플리케이션은 #include <unistd.h>로 write(2)의 함수 원형을 가져올 수 있다. */
+/* -DHASH_EMIT_KEYS로 컴파일하면 각 키 앞에 길이를 붙여 출력한다.
+ * 출력 대상은 이 매크로의 값으로 지정한 파일 디스크립터이며, 이 출력은 해시 함수를 조정하는 데 쓴다.
+ * 응용 프로그램에서 #include <unistd.h>로 write(2)의 함수 원형을 가져올 수 있다. */
 #ifdef HASH_EMIT_KEYS
 #define HASH_EMIT_KEY(hh,head,keyptr,fieldlen)                                   \
 do {                                                                             \
@@ -582,7 +582,7 @@ do {                                                                            
 #define HASH_EMIT_KEY(hh,head,keyptr,fieldlen)
 #endif
 
-/* Perl v5.6 이전에 사용된 Bernstein 해시 함수이다. (x<<5+x)=x*33임에 유의한다. */
+/* Perl v5.6 이전에 사용한 Bernstein 해시 함수. 참고: (x<<5+x)=x*33. */
 #define HASH_BER(key,keylen,hashv)                                               \
 do {                                                                             \
   unsigned _hb_keylen = (unsigned)keylen;                                        \
@@ -594,9 +594,9 @@ do {                                                                            
 } while (0)
 
 
-/* SAX/FNV/OAT/JEN 해시 함수는 다음 주소에 나열된 함수들의 매크로 변형이다
+/* SAX/FNV/OAT/JEN 해시 함수는 아래에 소개된 함수들을 매크로 형태로 구현한 것이다.
  * http://eternallyconfuzzled.com/tuts/algorithms/jsw_tut_hashing.aspx
- * (보관된 링크: https://archive.is/Ivcan )
+ * (보관된 링크: https://archive.is/Ivcan)
  */
 #define HASH_SAX(key,keylen,hashv)                                               \
 do {                                                                             \
@@ -688,7 +688,7 @@ do {                                                                            
   HASH_JEN_MIX(_hj_i, _hj_j, hashv);                                             \
 } while (0)
 
-/* Paul Hsieh 해시 함수 */
+/* Paul Hsieh의 해시 함수 */
 #undef get16bits
 #if (defined(__GNUC__) && defined(__i386__)) || defined(__WATCOMC__)             \
   || defined(_MSC_VER) || defined (__BORLANDC__) || defined (__TURBOC__)
@@ -717,7 +717,7 @@ do {                                                                            
     hashv    += hashv >> 11;                                                     \
   }                                                                              \
                                                                                  \
-  /* 남은 부분을 처리한다 */                                                         \
+  /* 끝에 남은 데이터 처리 */                                                         \
   switch (_sfh_rem) {                                                            \
     case 3: hashv += get16bits (_sfh_key);                                       \
             hashv ^= hashv << 16;                                                \
@@ -735,7 +735,7 @@ do {                                                                            
     default: ;                                                                   \
   }                                                                              \
                                                                                  \
-  /* 마지막 127비트에 "눈사태 효과"를 강제로 일으킨다 */                                    \
+  /* 마지막 127비트에 눈사태 효과를 일으킨다. */                                    \
   hashv ^= hashv << 3;                                                           \
   hashv += hashv >> 5;                                                           \
   hashv ^= hashv << 4;                                                           \
@@ -744,7 +744,7 @@ do {                                                                            
   hashv += hashv >> 6;                                                           \
 } while (0)
 
-/* 지정된 버킷의 원소들을 순회하여 원하는 원소를 찾는다 */
+/* 이미 알아낸 버킷의 항목을 순회하며 원하는 항목을 찾는다. */
 #define HASH_FIND_IN_BKT(tbl,hh,head,keyptr,keylen_in,hashval,out)               \
 do {                                                                             \
   if ((head).hh_head != NULL) {                                                  \
@@ -766,7 +766,7 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* 버킷에 원소를 추가한다  */
+/* 버킷에 항목 추가  */
 #define HASH_ADD_TO_BKT(head,hh,addhh,oomed)                                     \
 do {                                                                             \
   UT_hash_bucket *_ha_head = &(head);                                            \
@@ -788,7 +788,7 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* 지정된 버킷에서 원소를 삭제한다 */
+/* 지정한 버킷에서 항목 제거 */
 #define HASH_DEL_IN_BKT(head,delhh)                                              \
 do {                                                                             \
   UT_hash_bucket *_hd_head = &(head);                                            \
@@ -805,30 +805,30 @@ do {                                                                            
 } while (0)
 
 /* 버킷을 확장하면 버킷 수가 두 배가 되고
- * 원소들이 새 버킷들로 재분배된다. 이상적으로는
- * 원소들이 새 버킷에 대체로 균등하게 분배된다
- * (이것이 성립하는 정도는 해당 키 영역에서
- * 해시 함수의 품질을 평가하는 척도이다).
+ * 항목들이 새 버킷에 재분배된다. 이상적인 경우에는
+ * 항목들이 새 버킷에 대체로 고르게 분포한다.
+ * (얼마나 고르게 분포하는지를 보면
+ * 해당 키 집합에 해시 함수가 얼마나 적합한지 알 수 있다.)
  *
- * 원소들이 더 많은 버킷에 분배되면 각 버킷의 체인 길이
- * (원소 수)가 줄어든다. 따라서 버킷 확장을 통해
- * 해시는 체인 길이에 상한을 유지한다. 이렇게 체인 길이에
- * 상한이 있다는 것이 해시가 상수 시간 탐색을 제공하는 핵심이다.
+ * 항목을 더 많은 버킷으로 분산하면 각 버킷의 체인 길이,
+ * 즉 항목 수가 줄어든다. 이렇게 버킷을 확장함으로써
+ * 해시 테이블은 체인 길이에 상한을 둔다. 체인 길이에 상한이 있다는 점이
+ * 해시 테이블에서 상수 시간에 조회할 수 있는 핵심 이유다.
  *
- * 아래에서 tbl->ideal_chain_maxlen을 계산하는 방법에는
- * 설명이 필요하다. 먼저 이상적인 최대 체인 길이를
- * *새로운*(두 배로 늘어난) 버킷 수를 기준으로 계산한다는 점에 유의한다.
- * 분수로 나타내면 n/b이다(n=원소 수, b=새 버킷 수).
- * 이상적인 체인 길이는 정수이므로 계산하려는 값은
- * ceil(n/b)이다. 이 해시에서는 부동 소수점 연산에 의존하지 않으므로
- * 정수로 ceil(n/b)를 계산하려면 다음과 같이 쓸 수 있다
+ * 아래에서 tbl->ideal_chain_maxlen을 계산하는 과정을
+ * 살펴보자. 먼저 여기서 구하려는 값은 이상적인
+ * 최대 체인 길이이며, 기준은 두 배로 늘어난 *새* 버킷 수다.
+ * 분수로 나타내면 n/b다(n은 항목 수, b는 새 버킷 수).
+ * 이상적인 체인 길이는 정수여야 하므로 구하려는 값은
+ * ceil(n/b)다. 이 해시 테이블은 부동 소수점 연산에 의존하지
+ * 않으므로, 정수 연산으로 ceil(n/b)를 구하는 식을 다음과 같이 쓸 수 있다.
  *
  *      ceil(n/b) = (n/b) + ((n%b)?1:0)
  *
- * 실제로 이 해시의 이전 버전은 바로 이 방법을 사용했다.
- * 하지만 b가 항상 2의 거듭제곱이라는 점을 이용하여
- * 조금 개선했다. 밑이 2인 로그를 보관해 두고 이를 lb라고 하면,
- * 비트 시프트와 논리 AND를 사용하여 다음과 같이 쓸 수 있다:
+ * 실제로 이 해시 테이블의 이전 버전에서는 위 식을 사용했다.
+ * 지금은 b의 성질을 이용해 계산을 조금 개선했다. b는
+ * 항상 2의 거듭제곱이다. 밑이 2인 b의 로그값(lb)을 저장해 두므로
+ * 비트 시프트와 AND 연산을 사용해 다음과 같이 쓸 수 있다.
  *
  *      ceil(n/b) = (n>>lb) + ( (n & (b-1)) ? 1:0)
  *
@@ -886,9 +886,9 @@ do {                                                                            
 } while (0)
 
 
-/* Simon Tatham의 O(n log(n)) 병합 정렬을 변형한 것이다 */
-/* HASH_SORT는 해시 핸들 이름이 hh라고 가정한다는 점에 유의한다.
- * HASH_SRT는 해시 핸들 이름을 전달할 수 있도록 추가되었다. */
+/* Simon Tatham의 O(n log(n)) 병합 정렬을 응용한 구현이다. */
+/* HASH_SORT는 해시 핸들의 이름이 hh라고 가정한다.
+ * 해시 핸들의 이름을 인수로 전달할 수 있도록 HASH_SRT를 추가했다. */
 #define HASH_SORT(head,cmpfcn) HASH_SRT(hh,head,cmpfcn)
 #define HASH_SRT(hh,head,cmpfcn)                                                 \
 do {                                                                             \
@@ -974,11 +974,11 @@ do {                                                                            
   }                                                                              \
 } while (0)
 
-/* 이 함수는 한 해시에서 원소를 골라 다른 해시에 넣는다.
- * 결과적으로 선택된 원소들은
- * 두 해시에 동시에 존재한다. 원소를 복사하는 것은 아니며,
- * 구조체에 반드시 존재해야 하는 보조 해시
- * 핸들을 통해 새 해시에 추가한다. */
+/* 이 함수는 한 해시 테이블에서 항목을 골라 다른 해시 테이블에 넣는다.
+ * 그 결과 선택한 항목은
+ * 두 해시 테이블에 동시에 속한다. 항목 자체를 복사하지 않고
+ * 보조 해시 핸들을 사용해 새 해시 테이블에 추가한다.
+ * 이 핸들은 항목의 구조체에 들어 있어야 한다. */
 #define HASH_SELECT(hh_dst, dst, hh_src, src, cond)                              \
 do {                                                                             \
   unsigned _src_bkt, _dst_bkt;                                                   \
@@ -1065,7 +1065,7 @@ for(((el)=(head)), ((tmp)=DECLTYPE(el)((head!=NULL)?(head)->hh.next:NULL));     
   (el) != NULL; ((el)=(tmp)), ((tmp)=DECLTYPE(el)((tmp!=NULL)?(tmp)->hh.next:NULL)))
 #endif
 
-/* 해시에 있는 원소 수를 구한다 */
+/* 해시 테이블의 항목 수를 구한다. */
 #define HASH_COUNT(head) HASH_CNT(hh,head)
 #define HASH_CNT(hh,head) ((head != NULL)?((head)->hh.tbl->num_items):0U)
 
@@ -1073,23 +1073,23 @@ typedef struct UT_hash_bucket {
    struct UT_hash_handle *hh_head;
    unsigned count;
 
-   /* expand_mult는 보통 0으로 설정한다. 이 경우 최대 체인 길이의
-    * 임곗값은 기본값인 HASH_BKT_CAPACITY_THRESH로 적용된다.
-    * (버킷의 체인이 이 길이를 초과하면 버킷 확장이 발생한다.)
-    * 그러나 expand_mult를 0이 아닌 값으로 설정하면 버킷 확장이 지연된다.
-    * 즉, 이 특정 버킷에 원소를 추가하여 발생할 확장을
-    * 체인 길이가 HASH_BKT_CAPACITY_THRESH의 *배수*에 도달할 때까지 미룬다.
-    * (배수는 단순히 expand_mult+1이다.) 이 배수를 사용하는
-    * 목적은 비용이 큰 버킷 확장을 줄이는 것이다.
-    * 특정 버킷이 과도하게 사용되는 경향이 있음을 알 때 유용하다.
-    * O(n)의 버킷 확장을 지나치게 자주 수행하는 것보다
-    * 체인 길이가 더 길어지더라도 상한 안에서 증가하도록 두는 편이 낫다.
+   /* expand_mult의 기본값은 0이다. 이때 최대 체인 길이의
+    * 임계값으로 기본값인 HASH_BKT_CAPACITY_THRESH를 사용한다.
+    * (버킷의 체인 길이가 이 값을 넘으면 버킷을 확장한다.)
+    * 반면 expand_mult를 0이 아닌 값으로 설정하면 버킷 확장이 늦춰진다.
+    * 이 버킷에 항목을 추가하더라도
+    * 체인 길이가 HASH_BKT_CAPACITY_THRESH의 *배수*에 도달해야 확장한다.
+    * (배율은 expand_mult+1이다.) 이 배율을 사용하는 목적은
+    * 비용이 많이 드는 버킷 확장의 횟수를 줄이는 데 있다.
+    * 특정 버킷에 항목이 몰리는 경향이 있음을 아는 경우에 해당한다.
+    * 이때는 체인 길이에 상한을 두되 조금 더 길어지도록 허용하는 편이
+    * O(n) 시간이 드는 버킷 확장을 자주 수행하는 것보다 낫다.
     */
    unsigned expand_mult;
 
 } UT_hash_bucket;
 
-/* 외부 분석에서 해시 테이블을 찾는 데만 사용하는 임의의 시그니처 */
+/* 외부 분석에서 해시 테이블을 찾을 때만 사용하는 임의의 식별값 */
 #define HASH_SIGNATURE 0xa0111fe1u
 #define HASH_BLOOM_SIGNATURE 0xb12220f2u
 
@@ -1097,29 +1097,29 @@ typedef struct UT_hash_table {
    UT_hash_bucket *buckets;
    unsigned num_buckets, log2_num_buckets;
    unsigned num_items;
-   struct UT_hash_handle *tail; /* 빠른 끝 추가를 위한 애플리케이션 순서의 마지막 hh    */
-   ptrdiff_t hho; /* 해시 핸들의 오프셋(원소 내 해시 핸들의 바이트 위치 */
+   struct UT_hash_handle *tail; /* 빠르게 뒤에 추가하기 위한 응용 프로그램 순서상의 마지막 hh    */
+   ptrdiff_t hho; /* 해시 핸들의 오프셋(원소 안에서 해시 핸들의 바이트 위치) */
 
-   /* 이상적인 상황(모든 버킷이 균등하게 사용됨)에서는 어느 버킷도
-    * ceil(#items/#buckets)보다 많은 원소를 갖지 않는다. 이것이 이상적인 체인 길이이다. */
+   /* 이상적인 상황(모든 버킷을 고르게 사용)에서 각 버킷의 항목 수는
+    * ceil(#items/#buckets)를 넘지 않는다. 이 값이 이상적인 체인 길이다. */
    unsigned ideal_chain_maxlen;
 
-   /* nonideal_items는 해시에서 체인 내 위치가
-    * 이상적인 최대 체인 길이를 초과하는 원소의 수이다. 이 원소들은 불균등한
-    * 해시 분포의 영향을 받아, 체인을 순회하여 도달하는 데 이상적인 횟수보다 많은 단계가 필요하다 */
+   /* nonideal_items는 해시 테이블의 항목 중 체인에서의 위치가
+    * 이상적인 최대 체인 길이를 넘는 항목의 수다. 이 항목들은 고르지 못한
+    * 해시값 분포의 영향을 받는다. 체인을 따라 이 항목들에 도달하려면 이상적인 경우보다 많은 단계가 필요하다. */
    unsigned nonideal_items;
 
-   /* 비효율적인 확장이란 버킷 수를 두 배로 늘린 뒤에도
-    * 해시 원소의 과반수가 이상적인 범위를 벗어난
-    * 체인 위치에 있는 경우이다. 연속 두 번의 확장에서 이런 일이 발생하면
-    * 추가 확장은 도움이 되지 않으므로 더 이상 확장하지 않는다. 이는 해시
-    * 함수가 키 영역에 잘 맞지 않을 때 발생한다. 확장을 중지해도
-    * 해시는 계속 동작하지만 더 이상 상수 시간을 보장하지 않는다. */
+   /* 버킷 수를 두 배로 늘렸는데도 효과가 없는 경우가 있다.
+    * 확장한 뒤에도 전체 항목 중 절반을 넘는 항목이 체인 내의 이상적인 위치를
+    * 벗어나는 경우다. 두 번 연속 확장해도 이런 결과가 나오면
+    * 더 확장해도 도움이 되지 않으므로 이후 확장을 막는다. 이는 해시
+    * 함수가 키 집합에 적합하지 않을 때 발생한다. 확장을 막아도
+    * 해시 테이블은 계속 작동하지만, 더 이상 상수 시간에 조회할 수 없다. */
    unsigned ineff_expands, noexpand;
 
-   uint32_t signature; /* 외부 분석에서 해시 테이블을 찾는 데만 사용한다 */
+   uint32_t signature; /* 외부 분석에서 해시 테이블을 찾을 때만 사용한다. */
 #ifdef HASH_BLOOM
-   uint32_t bloom_sig; /* 외부 분석에서 블룸 필터가 있는지 확인하는 데만 사용한다 */
+   uint32_t bloom_sig; /* 외부 분석에서 블룸 필터의 존재 여부를 확인할 때만 사용한다. */
    uint8_t *bloom_bv;
    uint8_t bloom_nbits;
 #endif
@@ -1128,12 +1128,12 @@ typedef struct UT_hash_table {
 
 typedef struct UT_hash_handle {
    struct UT_hash_table *tbl;
-   void *prev;                       /* 애플리케이션 순서의 이전 원소      */
-   void *next;                       /* 애플리케이션 순서의 다음 원소      */
-   struct UT_hash_handle *hh_prev;   /* 버킷 순서의 이전 hh    */
-   struct UT_hash_handle *hh_next;   /* 버킷 순서의 다음 hh        */
-   const void *key;                  /* 이를 포함하는 구조체의 키를 가리키는 포인터  */
-   unsigned keylen;                  /* 이를 포함하는 구조체의 키 길이     */
+   void *prev;                       /* 응용 프로그램 순서에서 이전 원소      */
+   void *next;                       /* 응용 프로그램 순서에서 다음 원소      */
+   struct UT_hash_handle *hh_prev;   /* 버킷 내 순서에서 이전 hh    */
+   struct UT_hash_handle *hh_next;   /* 버킷 내 순서에서 다음 hh        */
+   const void *key;                  /* 이 핸들을 포함하는 구조체의 키를 가리키는 포인터  */
+   unsigned keylen;                  /* 이 핸들을 포함하는 구조체의 키 길이     */
    unsigned hashv;                   /* hash-fcn(key)의 결과        */
 } UT_hash_handle;
 

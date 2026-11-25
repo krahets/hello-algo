@@ -6,7 +6,7 @@
 
 use hello_algo_rust::include::{print_util, tree_node};
 
-/* 배열로 표현한 이진 트리 클래스 */
+/* 배열로 이진 트리를 표현하는 클래스 */
 struct ArrayBinaryTree {
     tree: Vec<Option<i32>>,
 }
@@ -22,9 +22,9 @@ impl ArrayBinaryTree {
         self.tree.len() as i32
     }
 
-    /* 인덱스가 i인 노드의 값 반환 */
+    /* 인덱스가 i인 노드의 값을 구한다 */
     fn val(&self, i: i32) -> Option<i32> {
-        // 인덱스가 범위를 벗어나면 빈칸을 나타내는 None을 반환한다
+        // 인덱스가 범위를 벗어나면 빈자리를 뜻하는 None을 반환한다
         if i < 0 || i >= self.size() {
             None
         } else {
@@ -32,22 +32,22 @@ impl ArrayBinaryTree {
         }
     }
 
-    /* 인덱스가 i인 노드의 왼쪽 자식 노드 인덱스 반환 */
+    /* 인덱스가 i인 노드의 왼쪽 자식 인덱스를 구한다 */
     fn left(&self, i: i32) -> i32 {
         2 * i + 1
     }
 
-    /* 인덱스가 i인 노드의 오른쪽 자식 노드 인덱스 반환 */
+    /* 인덱스가 i인 노드의 오른쪽 자식 인덱스를 구한다 */
     fn right(&self, i: i32) -> i32 {
         2 * i + 2
     }
 
-    /* 인덱스가 i인 노드의 부모 노드 인덱스 반환 */
+    /* 인덱스가 i인 노드의 부모 인덱스를 구한다 */
     fn parent(&self, i: i32) -> i32 {
         (i - 1) / 2
     }
 
-    /* 레벨 순서 순회 */
+    /* 레벨 순회 */
     fn level_order(&self) -> Vec<i32> {
         self.tree.iter().filter_map(|&x| x).collect()
     }
@@ -99,7 +99,7 @@ impl ArrayBinaryTree {
 /* 실행 코드 */
 fn main() {
     // 이진 트리 초기화
-    // 여기서는 배열로부터 이진 트리를 바로 생성하는 함수를 사용한다
+    // 배열에서 바로 이진 트리를 만드는 함수를 사용한다
     let arr = vec![
         Some(1),
         Some(2),
@@ -120,7 +120,7 @@ fn main() {
 
     let root = tree_node::vec_to_tree(arr.clone()).unwrap();
     println!("\n이진 트리 초기화\n");
-    println!("이진 트리의 배열 표현:");
+    println!("이진 트리의 배열 표현: ");
     println!(
         "[{}]",
         arr.iter()
@@ -132,10 +132,10 @@ fn main() {
             .collect::<Vec<String>>()
             .join(", ")
     );
-    println!("이진 트리의 연결 리스트 표현:");
+    println!("이진 트리의 연결 리스트 표현: ");
     print_util::print_tree(&root);
 
-    // 배열로 표현한 이진 트리 클래스
+    // 배열로 이진 트리를 표현하는 클래스
     let abt = ArrayBinaryTree::new(arr);
 
     // 노드 접근
@@ -153,7 +153,7 @@ fn main() {
         }
     );
     println!(
-        "왼쪽 자식 노드의 인덱스: {}, 값: {}",
+        "왼쪽 자식의 인덱스: {}, 값: {}",
         l,
         if let Some(val) = abt.val(l) {
             format!("{val}")
@@ -162,7 +162,7 @@ fn main() {
         }
     );
     println!(
-        "오른쪽 자식 노드의 인덱스: {}, 값: {}",
+        "오른쪽 자식의 인덱스: {}, 값: {}",
         r,
         if let Some(val) = abt.val(r) {
             format!("{val}")
@@ -182,11 +182,11 @@ fn main() {
 
     // 트리 순회
     let mut res = abt.level_order();
-    println!("\n레벨 순서 순회: {:?}", res);
+    println!("\n레벨 순회 결과: {:?}", res);
     res = abt.pre_order();
-    println!("전위 순회: {:?}", res);
+    println!("전위 순회 결과: {:?}", res);
     res = abt.in_order();
-    println!("중위 순회: {:?}", res);
+    println!("중위 순회 결과: {:?}", res);
     res = abt.post_order();
-    println!("후위 순회: {:?}", res);
+    println!("후위 순회 결과: {:?}", res);
 }

@@ -17,29 +17,29 @@ public class deque {
         deque.offerLast(5);
         System.out.println("덱 deque = " + deque);
 
-        /* 원소 접근 */
+        /* 원소 조회 */
         int peekFirst = deque.peekFirst();
         System.out.println("맨 앞 원소 peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
         System.out.println("맨 뒤 원소 peekLast = " + peekLast);
 
-        /* 원소 삽입 */
+        /* 덱에 원소 삽입 */
         deque.offerLast(4);
-        System.out.println("원소 4를 맨 뒤에 삽입한 후 deque = " + deque);
+        System.out.println("맨 뒤에 원소 4를 삽입한 후 deque = " + deque);
         deque.offerFirst(1);
-        System.out.println("원소 1을 맨 앞에 삽입한 후 deque = " + deque);
+        System.out.println("맨 앞에 원소 1을 삽입한 후 deque = " + deque);
 
-        /* 원소 꺼내기 */
+        /* 덱에서 원소 꺼내기 */
         int popLast = deque.pollLast();
         System.out.println("맨 뒤에서 꺼낸 원소 = " + popLast + ", 맨 뒤에서 꺼낸 후 deque = " + deque);
         int popFirst = deque.pollFirst();
         System.out.println("맨 앞에서 꺼낸 원소 = " + popFirst + ", 맨 앞에서 꺼낸 후 deque = " + deque);
 
-        /* 덱의 길이 반환 */
+        /* 덱의 길이 조회 */
         int size = deque.size();
-        System.out.println("덱 길이 size = " + size);
+        System.out.println("덱의 길이 size = " + size);
 
-        /* 덱이 비어 있는지 판단 */
+        /* 덱이 비어 있는지 확인 */
         boolean isEmpty = deque.isEmpty();
         System.out.println("덱이 비어 있는가 = " + isEmpty);
     }

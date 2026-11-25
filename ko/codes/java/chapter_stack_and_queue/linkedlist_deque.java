@@ -8,11 +8,11 @@ package chapter_stack_and_queue;
 
 import java.util.*;
 
-/* 이중 연결 리스트 노드 */
+/* 이중 연결 리스트의 노드 */
 class ListNode {
-    int val; // 노드 값
-    ListNode next; // 다음 노드 참조
-    ListNode prev; // 이전 노드 참조
+    int val; // 노드의 값
+    ListNode next; // 다음 노드에 대한 참조
+    ListNode prev; // 이전 노드에 대한 참조
 
     ListNode(int val) {
         this.val = val;
@@ -22,24 +22,24 @@ class ListNode {
 
 /* 이중 연결 리스트로 구현한 덱 */
 class LinkedListDeque {
-    private ListNode front, rear; // 머리 노드 front, 꼬리 노드 rear
+    private ListNode front, rear; // 첫 노드 front와 마지막 노드 rear
     private int queSize = 0; // 덱의 길이
 
     public LinkedListDeque() {
         front = rear = null;
     }
 
-    /* 덱의 길이 반환 */
+    /* 덱의 길이 조회 */
     public int size() {
         return queSize;
     }
 
-    /* 덱이 비어 있는지 판단 */
+    /* 덱이 비어 있는지 확인 */
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    /* 원소 삽입 연산 */
+    /* 삽입 연산 */
     private void push(int num, boolean isFront) {
         ListNode node = new ListNode(num);
         // 연결 리스트가 비어 있으면 front와 rear가 모두 node를 가리키게 한다
@@ -47,18 +47,18 @@ class LinkedListDeque {
             front = rear = node;
         // 맨 앞에 삽입하는 연산
         else if (isFront) {
-            // node를 연결 리스트의 맨 앞에 추가한다
+            // 연결 리스트의 맨 앞에 node를 추가한다
             front.prev = node;
             node.next = front;
-            front = node; // 머리 노드를 갱신한다
+            front = node; // 첫 노드 갱신
         // 맨 뒤에 삽입하는 연산
         } else {
-            // node를 연결 리스트의 맨 뒤에 추가한다
+            // 연결 리스트의 맨 뒤에 node를 추가한다
             rear.next = node;
             node.prev = rear;
-            rear = node; // 꼬리 노드를 갱신한다
+            rear = node; // 마지막 노드 갱신
         }
-        queSize++; // 큐 길이를 갱신한다
+        queSize++; // 덱의 길이 갱신
     }
 
     /* 맨 앞에 삽입 */
@@ -71,12 +71,12 @@ class LinkedListDeque {
         push(num, false);
     }
 
-    /* 원소를 꺼내는 연산 */
+    /* 삭제 연산 */
     private int pop(boolean isFront) {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         int val;
-        // 큐의 길이가 1이면 머리와 꼬리가 같은 노드를 가리킨다
+        // 덱의 길이가 1이면 앞쪽과 뒤쪽 포인터가 같은 노드를 가리킨다
         if (queSize == 1) {
             val = front.val;
             front = null;
@@ -84,22 +84,22 @@ class LinkedListDeque {
         }
         // 맨 앞에서 꺼내는 연산
         else if (isFront) {
-            val = front.val; // 머리 노드의 값을 임시로 저장한다
-            // 머리 노드를 삭제한다
+            val = front.val; // 첫 노드의 값을 임시로 저장한다
+            // 첫 노드 삭제
             ListNode fNext = front.next;
             fNext.prev = null;
             front.next = null;
-            front = fNext; // 머리 노드를 갱신한다
+            front = fNext; // 첫 노드 갱신
         // 맨 뒤에서 꺼내는 연산
         } else {
-            val = rear.val; // 꼬리 노드의 값을 임시로 저장한다
-            // 꼬리 노드를 삭제한다
+            val = rear.val; // 마지막 노드의 값을 임시로 저장한다
+            // 마지막 노드 삭제
             ListNode rPrev = rear.prev;
             rPrev.next = null;
             rear.prev = null;
-            rear = rPrev; // 꼬리 노드를 갱신한다
+            rear = rPrev; // 마지막 노드 갱신
         }
-        queSize--; // 큐 길이를 갱신한다
+        queSize--; // 덱의 길이 갱신
         return val;
     }
 
@@ -113,21 +113,21 @@ class LinkedListDeque {
         return pop(false);
     }
 
-    /* 맨 앞 원소 접근 */
+    /* 맨 앞 원소 조회 */
     public int peekFirst() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return front.val;
     }
 
-    /* 맨 뒤 원소 접근 */
+    /* 맨 뒤 원소 조회 */
     public int peekLast() {
         if (isEmpty())
             throw new IndexOutOfBoundsException();
         return rear.val;
     }
 
-    /* 출력에 사용할 배열 반환 */
+    /* 출력할 배열 반환 */
     public int[] toArray() {
         ListNode node = front;
         int[] res = new int[size()];
@@ -148,29 +148,29 @@ public class linkedlist_deque {
         deque.pushLast(5);
         System.out.println("덱 deque = " + Arrays.toString(deque.toArray()));
 
-        /* 원소 접근 */
+        /* 원소 조회 */
         int peekFirst = deque.peekFirst();
         System.out.println("맨 앞 원소 peekFirst = " + peekFirst);
         int peekLast = deque.peekLast();
         System.out.println("맨 뒤 원소 peekLast = " + peekLast);
 
-        /* 원소 삽입 */
+        /* 덱에 원소 삽입 */
         deque.pushLast(4);
-        System.out.println("원소 4를 맨 뒤에 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("맨 뒤에 원소 4를 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
         deque.pushFirst(1);
-        System.out.println("원소 1을 맨 앞에 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
+        System.out.println("맨 앞에 원소 1을 삽입한 후 deque = " + Arrays.toString(deque.toArray()));
 
-        /* 원소 꺼내기 */
+        /* 덱에서 원소 꺼내기 */
         int popLast = deque.popLast();
         System.out.println("맨 뒤에서 꺼낸 원소 = " + popLast + ", 맨 뒤에서 꺼낸 후 deque = " + Arrays.toString(deque.toArray()));
         int popFirst = deque.popFirst();
         System.out.println("맨 앞에서 꺼낸 원소 = " + popFirst + ", 맨 앞에서 꺼낸 후 deque = " + Arrays.toString(deque.toArray()));
 
-        /* 덱의 길이 반환 */
+        /* 덱의 길이 조회 */
         int size = deque.size();
-        System.out.println("덱 길이 size = " + size);
+        System.out.println("덱의 길이 size = " + size);
 
-        /* 덱이 비어 있는지 판단 */
+        /* 덱이 비어 있는지 확인 */
         boolean isEmpty = deque.isEmpty();
         System.out.println("덱이 비어 있는가 = " + isEmpty);
     }

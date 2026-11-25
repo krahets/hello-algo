@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Queue implemented with a linked list */
+/* Queue backed by a linked list */
 typedef struct {
     ListNode *front, *rear;
     int queSize;
@@ -23,7 +23,7 @@ LinkedListQueue *newLinkedListQueue() {
 
 /* Destructor */
 void delLinkedListQueue(LinkedListQueue *queue) {
-    // Free all nodes
+    // Free all the nodes
     while (queue->front != NULL) {
         ListNode *tmp = queue->front;
         queue->front = queue->front->next;
@@ -43,16 +43,16 @@ bool empty(LinkedListQueue *queue) {
     return (size(queue) == 0);
 }
 
-/* Enqueue */
+/* Enqueue an element */
 void push(LinkedListQueue *queue, int num) {
     // Add node at the tail
     ListNode *node = newListNode(num);
-    // If the queue is empty, make both the head and tail point to this node
+    // If the queue is empty, point both the head and tail at the new node
     if (queue->front == NULL) {
         queue->front = node;
         queue->rear = node;
     }
-    // If the queue is not empty, add this node after the tail node
+    // If the queue has elements, link the new node after the tail
     else {
         queue->rear->next = node;
         queue->rear = node;
@@ -60,13 +60,13 @@ void push(LinkedListQueue *queue, int num) {
     queue->queSize++;
 }
 
-/* Access the front element */
+/* Peek at the front element */
 int peek(LinkedListQueue *queue) {
     assert(size(queue) && queue->front);
     return queue->front->val;
 }
 
-/* Dequeue */
+/* Remove and return the front element */
 int pop(LinkedListQueue *queue) {
     int num = peek(queue);
     ListNode *tmp = queue->front;
@@ -79,7 +79,7 @@ int pop(LinkedListQueue *queue) {
 /* Print the queue */
 void printLinkedListQueue(LinkedListQueue *queue) {
     int *arr = malloc(sizeof(int) * queue->queSize);
-    // Copy the linked list data into an array
+    // Copy the values from the linked list into an array
     int i;
     ListNode *node;
     for (i = 0, node = queue->front; i < queue->queSize; i++) {
@@ -101,16 +101,16 @@ int main() {
     push(queue, 2);
     push(queue, 5);
     push(queue, 4);
-    printf("Queue queue = ");
+    printf("queue = ");
     printLinkedListQueue(queue);
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peekNum = peek(queue);
-    printf("Front element peek = %d\r\n", peekNum);
+    printf("Front element (peek) = %d\r\n", peekNum);
 
     /* Dequeue an element */
     peekNum = pop(queue);
-    printf("Dequeued element pop = %d; after dequeuing, queue = ", peekNum);
+    printf("Dequeued element (pop) = %d, queue after removal = ", peekNum);
     printLinkedListQueue(queue);
 
     /* Get the queue size */
@@ -119,9 +119,9 @@ int main() {
 
     /* Check whether the queue is empty */
     bool isEmpty = empty(queue);
-    printf("Is the queue empty = %s\r\n", isEmpty ? "true" : "false");
+    printf("Queue is empty = %s\r\n", isEmpty ? "true" : "false");
 
-    // Free memory
+    // Free the allocated memory
     delLinkedListQueue(queue);
 
     return 0;

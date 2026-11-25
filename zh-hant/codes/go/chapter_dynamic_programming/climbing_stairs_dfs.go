@@ -6,7 +6,7 @@ package chapter_dynamic_programming
 
 /* 搜尋 */
 func dfs(i int) int {
-	// 已知 dp[1] 和 dp[2] ，返回之
+	// 已知 dp[1] 和 dp[2]，直接回傳對應的值
 	if i == 1 || i == 2 {
 		return i
 	}

@@ -15,10 +15,10 @@ int unboundedKnapsackDP(vector<int> &wgt, vector<int> &val, int cap) {
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[i][c] = dp[i - 1][c];
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1]);
             }
         }
@@ -35,10 +35,10 @@ int unboundedKnapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
     for (int i = 1; i <= n; i++) {
         for (int c = 1; c <= cap; c++) {
             if (wgt[i - 1] > c) {
-                // 若超過背包容量，則不選物品 i
+                // 若重量超過背包容量，就不選物品 i
                 dp[c] = dp[c];
             } else {
-                // 不選和選物品 i 這兩種方案的較大值
+                // 取不選與選取物品 i 兩種情況中的較大值
                 dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
             }
         }
@@ -46,7 +46,7 @@ int unboundedKnapsackDPComp(vector<int> &wgt, vector<int> &val, int cap) {
     return dp[cap];
 }
 
-/* Driver code */
+/* 主程式 */
 int main() {
     vector<int> wgt = {1, 2, 3};
     vector<int> val = {5, 11, 15};
@@ -54,11 +54,11 @@ int main() {
 
     // 動態規劃
     int res = unboundedKnapsackDP(wgt, val, cap);
-    cout << "不超過背包容量的最大物品價值為 " << res << endl;
+    cout << "在背包容量限制內，物品的最大總價值為 " << res << endl;
 
     // 空間最佳化後的動態規劃
     res = unboundedKnapsackDPComp(wgt, val, cap);
-    cout << "不超過背包容量的最大物品價值為 " << res << endl;
+    cout << "在背包容量限制內，物品的最大總價值為 " << res << endl;
 
     return 0;
 }

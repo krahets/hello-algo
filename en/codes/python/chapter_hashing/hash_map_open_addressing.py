@@ -18,10 +18,10 @@ class HashMapOpenAddressing:
         """Constructor"""
         self.size = 0  # Number of key-value pairs
         self.capacity = 4  # Hash table capacity
-        self.load_thres = 2.0 / 3.0  # Load factor threshold that triggers capacity growth
-        self.extend_ratio = 2  # Capacity growth factor
+        self.load_thres = 2.0 / 3.0  # Load factor threshold for resizing
+        self.extend_ratio = 2  # Growth factor
         self.buckets: list[Pair | None] = [None] * self.capacity  # Bucket array
-        self.TOMBSTONE = Pair(-1, "-1")  # Tombstone marker
+        self.TOMBSTONE = Pair(-1, "-1")  # Deletion marker
 
     def hash_func(self, key: int) -> int:
         """Hash function"""
@@ -39,66 +39,66 @@ class HashMapOpenAddressing:
             bucket = self.buckets[index]
             if bucket is None:
                 break
-            # Record the first tombstone encountered
+            # Record the first deletion marker encountered
             if bucket is self.TOMBSTONE:
                 if first_tombstone == -1:
                     first_tombstone = index
             # If key is found, return its bucket index
             elif bucket.key == key:
-                # If a tombstone was encountered earlier, move the key-value pair to that index
+                # If a deletion marker was found earlier, move the pair to that index
                 if first_tombstone != -1:
                     self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
-                    return first_tombstone  # Return the bucket index after the move
+                    return first_tombstone  # Return the new bucket index
                 return index  # Return the bucket index
-            # Calculate the bucket index, wrapping to the beginning after the end
+            # Compute the next bucket index, wrapping to the start at the end
             index = (index + 1) % self.capacity
         # If key is absent, return the index for insertion
         return index if first_tombstone == -1 else first_tombstone
 
     def get(self, key: int) -> str:
-        """Lookup operation"""
+        """Look up a value"""
         # Find the bucket index for key
         index = self.find_bucket(key)
-        # If the key-value pair is found, return its val
+        # If the pair is found, return its val
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             return self.buckets[index].val
-        # Return None if the key-value pair is absent
+        # Return None if the pair is absent
         return None
 
     def put(self, key: int, val: str):
-        """Insert operation"""
-        # Grow the capacity when the load factor exceeds the threshold
+        """Insert a key-value pair"""
+        # Expand the table when the load factor exceeds the threshold
         if self.load_factor() > self.load_thres:
             self.extend()
         # Find the bucket index for key
         index = self.find_bucket(key)
-        # If the key-value pair is found, overwrite val and return
+        # If the pair is found, overwrite val and return
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index].val = val
             return
-        # If the key-value pair is absent, insert it
+        # If the pair is absent, insert it
         self.buckets[index] = Pair(key, val)
         self.size += 1
 
     def remove(self, key: int):
-        """Remove operation"""
+        """Remove a key-value pair"""
         # Find the bucket index for key
         index = self.find_bucket(key)
-        # If the key-value pair is found, replace it with a tombstone
+        # If the pair is found, replace it with a deletion marker
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index] = self.TOMBSTONE
             self.size -= 1
 
     def extend(self):
-        """Grow the hash table capacity"""
-        # Keep a reference to the original hash table
+        """Expand the hash table"""
+        # Save the original hash table
         buckets_tmp = self.buckets
-        # Initialize a new hash table with the expanded capacity
+        # Initialize the larger hash table
         self.capacity *= self.extend_ratio
         self.buckets = [None] * self.capacity
         self.size = 0
-        # Move the key-value pairs from the original hash table to the new one
+        # Move the key-value pairs from the old table into the new one
         for pair in buckets_tmp:
             if pair not in [None, self.TOMBSTONE]:
                 self.put(pair.key, pair.val)
@@ -114,28 +114,28 @@ class HashMapOpenAddressing:
                 print(pair.key, "->", pair.val)
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     # Initialize the hash table
     hashmap = HashMapOpenAddressing()
 
-    # Insert operation
-    # Insert the key-value pair (key, val) into the hash table
-    hashmap.put(12836, "小哈")
-    hashmap.put(15937, "小啰")
-    hashmap.put(16750, "小算")
-    hashmap.put(13276, "小法")
-    hashmap.put(10583, "小鸭")
+    # Insert a key-value pair
+    # Insert the pair (key, val) into the hash table
+    hashmap.put(12836, "Xiao Ha")
+    hashmap.put(15937, "Xiao Luo")
+    hashmap.put(16750, "Xiao Suan")
+    hashmap.put(13276, "Xiao Fa")
+    hashmap.put(10583, "Xiao Ya")
     print("\nHash table after insertion:\nKey -> Value")
     hashmap.print()
 
-    # Lookup operation
-    # Look up key in the hash table to obtain val
+    # Look up a value
+    # Look up key in the hash table to get val
     name = hashmap.get(13276)
-    print("\nLook up student ID 13276 to obtain the name " + name)
+    print("\nName for student ID 13276: " + name)
 
-    # Remove operation
-    # Remove the key-value pair (key, val) from the hash table
+    # Remove a key-value pair
+    # Remove the pair (key, val) from the hash table
     hashmap.remove(16750)
     print("\nHash table after removing 16750:\nKey -> Value")
     hashmap.print()

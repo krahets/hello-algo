@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 배열로 표현한 이진 트리 구조체 */
+/* 배열로 이진 트리를 표현하는 구조체 */
 typedef struct {
     int *tree;
     int size;
@@ -32,30 +32,30 @@ int size(ArrayBinaryTree *abt) {
     return abt->size;
 }
 
-/* 인덱스가 i인 노드의 값 반환 */
+/* 인덱스가 i인 노드의 값을 구한다 */
 int val(ArrayBinaryTree *abt, int i) {
-    // 인덱스가 범위를 벗어나면 빈자리를 나타내는 INT_MAX를 반환한다
+    // 인덱스가 범위를 벗어나면 빈자리를 뜻하는 INT_MAX를 반환한다
     if (i < 0 || i >= size(abt))
         return INT_MAX;
     return abt->tree[i];
 }
 
-/* 인덱스가 i인 노드의 왼쪽 자식 노드 인덱스 반환 */
+/* 인덱스가 i인 노드의 왼쪽 자식 인덱스를 구한다 */
 int left(int i) {
     return 2 * i + 1;
 }
 
-/* 인덱스가 i인 노드의 오른쪽 자식 노드 인덱스 반환 */
+/* 인덱스가 i인 노드의 오른쪽 자식 인덱스를 구한다 */
 int right(int i) {
     return 2 * i + 2;
 }
 
-/* 인덱스가 i인 노드의 부모 노드 인덱스 반환 */
+/* 인덱스가 i인 노드의 부모 인덱스를 구한다 */
 int parent(int i) {
     return (i - 1) / 2;
 }
 
-/* 레벨 순서 순회 */
+/* 레벨 순회 */
 int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
     int *res = (int *)malloc(sizeof(int) * size(abt));
     int index = 0;
@@ -70,7 +70,7 @@ int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
 
 /* 깊이 우선 순회 */
 void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
-    // 빈칸이면 반환한다
+    // 빈자리면 반환한다
     if (val(abt, i) == INT_MAX)
         return;
     // 전위 순회
@@ -131,32 +131,32 @@ int main() {
     // 노드 접근
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
-    printf("\n현재 노드의 인덱스는 %d, 값은 %d이다\n", i, val(abt, i));
-    printf("왼쪽 자식 노드의 인덱스는 %d, 값은 %d이다\n", l, l < arrSize ? val(abt, l) : INT_MAX);
-    printf("오른쪽 자식 노드의 인덱스는 %d, 값은 %d이다\n", r, r < arrSize ? val(abt, r) : INT_MAX);
-    printf("부모 노드의 인덱스는 %d, 값은 %d이다\n", p, p < arrSize ? val(abt, p) : INT_MAX);
+    printf("\n현재 노드의 인덱스: %d, 값: %d\n", i, val(abt, i));
+    printf("왼쪽 자식의 인덱스: %d, 값: %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
+    printf("오른쪽 자식의 인덱스: %d, 값: %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
+    printf("부모 노드의 인덱스: %d, 값: %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
 
     // 트리 순회
     int returnSize;
     int *res;
 
     res = levelOrder(abt, &returnSize);
-    printf("\n레벨 순서 순회: ");
+    printf("\n레벨 순회 결과: ");
     printArray(res, returnSize);
     free(res);
 
     res = preOrder(abt, &returnSize);
-    printf("전위 순회: ");
+    printf("전위 순회 결과: ");
     printArray(res, returnSize);
     free(res);
 
     res = inOrder(abt, &returnSize);
-    printf("중위 순회: ");
+    printf("중위 순회 결과: ");
     printArray(res, returnSize);
     free(res);
 
     res = postOrder(abt, &returnSize);
-    printf("후위 순회: ");
+    printf("후위 순회 결과: ");
     printArray(res, returnSize);
     free(res);
 

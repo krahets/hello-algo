@@ -7,7 +7,7 @@
 /* 연결 리스트 노드 */
 class ListNode {
     val; // 노드 값
-    next; // 다음 노드를 가리키는 참조(포인터)
+    next; // 다음 노드에 대한 참조(포인터)
     constructor(val, next) {
         this.val = val === undefined ? 0 : val;
         this.next = next === undefined ? null : next;

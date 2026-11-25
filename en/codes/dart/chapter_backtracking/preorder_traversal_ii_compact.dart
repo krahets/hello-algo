@@ -17,7 +17,7 @@ void preOrder(
     return;
   }
 
-  // Try
+  // Try a choice
   path.add(root);
   if (root.val == 7) {
     // Record the solution
@@ -40,7 +40,7 @@ void main() {
   List<List<TreeNode>> res = [];
   preOrder(root, path, res);
 
-  print("\nOutput all paths from the root to nodes with value 7");
+  print("\nPrint all paths from the root to a node with value 7");
   for (List<TreeNode> vals in res) {
     print(List.generate(vals.length, (i) => vals[i].val));
   }

@@ -6,11 +6,11 @@ package chapter_dynamic_programming
 
 /* メモ化探索 */
 func dfsMem(i int, mem []int) int {
-	// dp[1] と dp[2] は既知なので、その値を返す
+	// 既知の値 dp[1] と dp[2] のうち、該当する方を返す
 	if i == 1 || i == 2 {
 		return i
 	}
-	// dp[i] が記録済みなら、その値をそのまま返す
+	// dp[i] が記録済みなら、その値を返す
 	if mem[i] != -1 {
 		return mem[i]
 	}
@@ -21,9 +21,9 @@ func dfsMem(i int, mem []int) int {
 	return count
 }
 
-/* 階段の上り方：メモ化探索 */
+/* 階段の登り方：メモ化探索 */
 func climbingStairsDFSMem(n int) int {
-	// mem[i] は i 段目まで上る方法の総数を記録し、-1 は未記録を表す
+	// mem[i] に i 段目までの登り方の総数を記録する。-1 は未記録を表す
 	mem := make([]int, n+1)
 	for i := range mem {
 		mem[i] = -1

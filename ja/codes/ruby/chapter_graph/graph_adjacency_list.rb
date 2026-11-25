@@ -6,13 +6,13 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/vertex'
 
-### 隣接リストで実装した無向グラフクラス ###
+### 隣接リストで無向グラフを表すクラス ###
 class GraphAdjList
   attr_reader :adj_list
   
   ### コンストラクタ ###
   def initialize(edges)
-    # 隣接リスト。key：頂点、value：その頂点に隣接する全頂点
+    # 隣接リスト。key は頂点、value はその頂点の全隣接頂点
     @adj_list = {}
     # すべての頂点と辺を追加する
     for edge in edges
@@ -56,9 +56,9 @@ class GraphAdjList
   def remove_vertex(vet)
     raise ArgumentError unless @adj_list.include?(vet)
 
-    # 隣接リストから頂点 vet に対応する連結リストを削除する
+    # 隣接リストから頂点 vet の連結リストを削除する
     @adj_list.delete(vet)
-    # 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+    # 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
     for vertex in @adj_list
       @adj_list[vertex.first].delete(vet) if @adj_list[vertex.first].include?(vet)
     end
@@ -74,7 +74,7 @@ class GraphAdjList
   end
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # 無向グラフを初期化する
   v = vals_to_vets([1, 3, 2, 5, 4])
@@ -87,30 +87,30 @@ if __FILE__ == $0
     [v[3], v[4]],
   ]
   graph = GraphAdjList.new(edges)
-  puts "\n初期化後のグラフ"
+  puts "\n初期化後のグラフ："
   graph.__print__
 
   # 辺を追加する
-  # 頂点 1、2 は v[0]、v[2] に対応する
+  # 頂点 1 と 2 はそれぞれ v[0] と v[2]
   graph.add_edge(v[0], v[2])
-  puts "\n辺 1-2 を追加した後のグラフ"
+  puts "\n辺 1-2 を追加した後のグラフ："
   graph.__print__
 
   # 辺を削除する
-  # 頂点 1、3 は v[0]、v[1] に対応する
+  # 頂点 1 と 3 はそれぞれ v[0] と v[1]
   graph.remove_edge(v[0], v[1])
-  puts "\n辺 1-3 を削除した後のグラフ"
+  puts "\n辺 1-3 を削除した後のグラフ："
   graph.__print__
 
   # 頂点を追加する
   v5 = Vertex.new(6)
   graph.add_vertex(v5)
-  puts "\n頂点 6 を追加した後のグラフ"
+  puts "\n頂点 6 を追加した後のグラフ："
   graph.__print__
 
   # 頂点を削除する
-  # 頂点 3 は v[1] に対応する
+  # 頂点 3 は v[1]
   graph.remove_vertex(v[1])
-  puts "\n頂点 3 を削除した後のグラフ"
+  puts "\n頂点 3 を削除した後のグラフ："
   graph.__print__
 end

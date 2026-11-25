@@ -4,50 +4,50 @@
  * Author: night-cruise (2586447362@qq.com)
  */
 
-/* for 반복문 */
+/* for 문 */
 fn for_loop(n: i32) -> i32 {
     let mut res = 0;
-    // 반복문으로 1, 2, ..., n-1, n의 합을 구한다
+    // 1, 2, ..., n-1, n을 차례로 더한다
     for i in 1..=n {
         res += i;
     }
     res
 }
 
-/* while 반복문 */
+/* while 문 */
 fn while_loop(n: i32) -> i32 {
     let mut res = 0;
-    let mut i = 1; // 조건 변수를 초기화한다
+    let mut i = 1; // 반복 조건에 쓰는 변수를 초기화한다
 
-    // 반복문으로 1, 2, ..., n-1, n의 합을 구한다
+    // 1, 2, ..., n-1, n을 차례로 더한다
     while i <= n {
         res += i;
-        i += 1; // 조건 변수를 갱신한다
+        i += 1; // 반복 조건에 쓰는 변수를 갱신한다
     }
     res
 }
 
-/* while 반복문(두 번 갱신) */
+/* while 문(한 번에 두 번 갱신) */
 fn while_loop_ii(n: i32) -> i32 {
     let mut res = 0;
-    let mut i = 1; // 조건 변수를 초기화한다
+    let mut i = 1; // 반복 조건에 쓰는 변수를 초기화한다
 
-    // 반복문으로 1, 4, 10, ...의 합을 구한다
+    // 1, 4, 10, ...을 차례로 더한다
     while i <= n {
         res += i;
-        // 조건 변수를 갱신한다
+        // 반복 조건에 쓰는 변수를 갱신한다
         i += 1;
         i *= 2;
     }
     res
 }
 
-/* 이중 for 반복문 */
+/* 이중 for 문 */
 fn nested_for_loop(n: i32) -> String {
     let mut res = vec![];
-    // i = 1, 2, ..., n-1, n을 반복한다
+    // i = 1, 2, ..., n-1, n에 대해 반복한다
     for i in 1..=n {
-        // j = 1, 2, ..., n-1, n을 반복한다
+        // j = 1, 2, ..., n-1, n에 대해 반복한다
         for j in 1..=n {
             res.push(format!("({}, {}), ", i, j));
         }
@@ -55,20 +55,20 @@ fn nested_for_loop(n: i32) -> String {
     res.join("")
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 fn main() {
     let n = 5;
     let mut res;
 
     res = for_loop(n);
-    println!("\nfor 반복문으로 구한 합 res = {res}");
+    println!("\nfor 문의 합 res = {res}");
 
     res = while_loop(n);
-    println!("\nwhile 반복문으로 구한 합 res = {res}");
+    println!("\nwhile 문의 합 res = {res}");
 
     res = while_loop_ii(n);
-    println!("\nwhile 반복문(두 번 갱신)으로 구한 합 res = {}", res);
+    println!("\nwhile 문(두 번 갱신)의 합 res = {}", res);
 
     let res = nested_for_loop(n);
-    println!("\n이중 for 반복문의 순회 결과 {res}");
+    println!("\n이중 for 문의 순회 결과: {res}");
 }

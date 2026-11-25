@@ -14,29 +14,29 @@ void main() {
   deque.addLast(5);
   print("덱 deque = $deque");
 
-  /* 원소 접근 */
+  /* 원소 조회 */
   final int peekFirst = deque.first;
   print("맨 앞 원소 peekFirst = $peekFirst");
   final int peekLast = deque.last;
   print("맨 뒤 원소 peekLast = $peekLast");
 
-  /* 원소 삽입 */
+  /* 덱에 원소 삽입 */
   deque.addLast(4);
   print("맨 뒤에 원소 4를 삽입한 후 deque = $deque");
   deque.addFirst(1);
   print("맨 앞에 원소 1을 삽입한 후 deque = $deque");
 
-  /* 원소 꺼내기 */
+  /* 덱에서 원소 꺼내기 */
   final int popLast = deque.removeLast();
-  print("맨 뒤에서 꺼낸 원소 = $popLast , 꺼낸 후 deque = $deque");
+  print("맨 뒤에서 꺼낸 원소 = $popLast, 맨 뒤에서 꺼낸 후 deque = $deque");
   final int popFirst = deque.removeFirst();
-  print("맨 앞에서 꺼낸 원소 = $popFirst , 꺼낸 후 deque = $deque");
+  print("맨 앞에서 꺼낸 원소 = $popFirst, 맨 앞에서 꺼낸 후 deque = $deque");
 
-  /* 덱의 길이 반환 */
+  /* 덱의 길이 조회 */
   final int size = deque.length;
   print("덱의 길이 size = $size");
 
-  /* 덱이 비어 있는지 판단 */
+  /* 덱이 비어 있는지 확인 */
   final bool isEmpty = deque.isEmpty;
   print("덱이 비어 있는가 = $isEmpty");
 }

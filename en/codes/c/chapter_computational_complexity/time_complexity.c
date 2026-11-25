@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Constant complexity */
+/* Constant time */
 int constant(int n) {
     int count = 0;
     int size = 100000;
@@ -16,7 +16,7 @@ int constant(int n) {
     return count;
 }
 
-/* Linear complexity */
+/* Linear time */
 int linear(int n) {
     int count = 0;
     for (int i = 0; i < n; i++) {
@@ -25,20 +25,20 @@ int linear(int n) {
     return count;
 }
 
-/* Linear complexity (array traversal) */
+/* Linear time (array traversal) */
 int arrayTraversal(int *nums, int n) {
     int count = 0;
-    // The number of iterations is proportional to the array length
+    // The iteration count is proportional to the array length
     for (int i = 0; i < n; i++) {
         count++;
     }
     return count;
 }
 
-/* Quadratic complexity */
+/* Quadratic time */
 int quadratic(int n) {
     int count = 0;
-    // The number of iterations is proportional to the square of the input size n
+    // The iteration count grows quadratically with input size n
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             count++;
@@ -47,12 +47,12 @@ int quadratic(int n) {
     return count;
 }
 
-/* Quadratic complexity (bubble sort) */
+/* Quadratic time (bubble sort) */
 int bubbleSort(int *nums, int n) {
     int count = 0; // Counter
-    // Outer loop: the unsorted range is [0, i]
+    // Outer loop: the unsorted range is the closed interval [0, i]
     for (int i = n - 1; i > 0; i--) {
-        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+        // Inner loop: swap adjacent elements to move the largest in [0, i] to index i
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 // Swap nums[j] and nums[j + 1]
@@ -66,11 +66,11 @@ int bubbleSort(int *nums, int n) {
     return count;
 }
 
-/* Exponential complexity (iterative implementation) */
+/* Exponential time (iterative) */
 int exponential(int n) {
     int count = 0;
     int bas = 1;
-    // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
+    // Each cell divides in two per round, giving 1, 2, 4, 8, ..., 2^(n-1)
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < bas; j++) {
             count++;
@@ -81,14 +81,14 @@ int exponential(int n) {
     return count;
 }
 
-/* Exponential complexity (recursive implementation) */
+/* Exponential time (recursive) */
 int expRecur(int n) {
     if (n == 1)
         return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
-/* Logarithmic complexity (iterative implementation) */
+/* Logarithmic time (iterative) */
 int logarithmic(int n) {
     int count = 0;
     while (n > 1) {
@@ -98,14 +98,14 @@ int logarithmic(int n) {
     return count;
 }
 
-/* Logarithmic complexity (recursive implementation) */
+/* Logarithmic time (recursive) */
 int logRecur(int n) {
     if (n <= 1)
         return 0;
     return logRecur(n / 2) + 1;
 }
 
-/* Linearithmic complexity */
+/* Linearithmic time */
 int linearLogRecur(int n) {
     if (n <= 1)
         return 1;
@@ -116,7 +116,7 @@ int linearLogRecur(int n) {
     return count;
 }
 
-/* Factorial complexity (recursive implementation) */
+/* Factorial time (recursive) */
 int factorialRecur(int n) {
     if (n == 0)
         return 1;
@@ -127,45 +127,45 @@ int factorialRecur(int n) {
     return count;
 }
 
-/* Driver code */
+/* Driver Code */
 int main(int argc, char *argv[]) {
     // Try different values of n to see how the operation count grows for each complexity
     int n = 8;
     printf("Input size n = %d\n", n);
 
     int count = constant(n);
-    printf("Operation count for constant complexity = %d\n", count);
+    printf("Constant operation count = %d\n", count);
 
     count = linear(n);
-    printf("Operation count for linear complexity = %d\n", count);
-    // Allocate heap memory for a one-dimensional array of n int elements
+    printf("Linear operation count = %d\n", count);
+    // Allocate heap memory for a one-dimensional array of n elements of type int
     int *nums = (int *)malloc(n * sizeof(int));
     count = arrayTraversal(nums, n);
-    printf("Operation count for linear complexity (array traversal) = %d\n", count);
+    printf("Linear operation count (array traversal) = %d\n", count);
 
     count = quadratic(n);
-    printf("Operation count for quadratic complexity = %d\n", count);
+    printf("Quadratic operation count = %d\n", count);
     for (int i = 0; i < n; i++) {
         nums[i] = n - i; // [n,n-1,...,2,1]
     }
     count = bubbleSort(nums, n);
-    printf("Operation count for quadratic complexity (bubble sort) = %d\n", count);
+    printf("Quadratic operation count (bubble sort) = %d\n", count);
 
     count = exponential(n);
-    printf("Operation count for exponential complexity (iteration) = %d\n", count);
+    printf("Exponential operation count (iterative) = %d\n", count);
     count = expRecur(n);
-    printf("Operation count for exponential complexity (recursion) = %d\n", count);
+    printf("Exponential operation count (recursive) = %d\n", count);
 
     count = logarithmic(n);
-    printf("Operation count for logarithmic complexity (iteration) = %d\n", count);
+    printf("Logarithmic operation count (iterative) = %d\n", count);
     count = logRecur(n);
-    printf("Operation count for logarithmic complexity (recursion) = %d\n", count);
+    printf("Logarithmic operation count (recursive) = %d\n", count);
 
     count = linearLogRecur(n);
-    printf("Operation count for linearithmic complexity (recursion) = %d\n", count);
+    printf("Linearithmic operation count (recursive) = %d\n", count);
 
     count = factorialRecur(n);
-    printf("Operation count for factorial complexity (recursion) = %d\n", count);
+    printf("Factorial operation count (recursive) = %d\n", count);
 
     // Free the heap memory
     if (nums != NULL) {

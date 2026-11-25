@@ -1,21 +1,21 @@
 # Lists
 
-A <u>list</u> is an abstract data structure representing an ordered collection. It supports access, modification, insertion, removal, and traversal without requiring users to manage capacity limits. Lists can be implemented with linked lists or arrays.
+A <u>list</u> is an abstract data structure representing an ordered collection of elements. It supports access, updates, insertion, removal, and traversal without requiring the user to manage capacity limits. A list can be implemented with a linked list or an array.
 
-- A linked list naturally serves as a list, supporting these operations and flexible dynamic growth.
-- An array also supports these operations, but its fixed length makes it a list with a length limit.
+- A linked list naturally serves as a list: we can insert, remove, find, and update elements, and it can grow dynamically as needed.
+- An array also supports insertion, removal, lookup, and updates. Its fixed length, however, makes it a list with a length limit.
 
-When an array implements a list, **its fixed length limits the list's usefulness**. We often cannot predict how much data we will store. Too small an allocation may not meet our needs; too large an allocation wastes memory.
+When a list is backed by an array, **the array's fixed length makes the list less practical**. We usually do not know in advance how much data we will store, so choosing a suitable length is difficult. Too short, and the list may not meet our needs. Too long, and it wastes memory.
 
-A <u>dynamic array</u> solves this problem. It retains the advantages of an array while allowing capacity to grow during execution.
+We can solve this problem by implementing the list with a <u>dynamic array</u>. It preserves the advantages of an array and can grow while the program is running.
 
-**Many standard-library lists use dynamic arrays**, including Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the discussion that follows, we treat lists and dynamic arrays as equivalent concepts.
+In fact, **many programming languages provide lists backed by dynamic arrays in their standard libraries**. Examples include Python's `list`, Java's `ArrayList`, C++'s `vector`, and C#'s `List`. In the discussion that follows, we use “list” and “dynamic array” interchangeably.
 
 ## Common list operations
 
 ### Initializing a list
 
-We usually initialize a list either without elements or with explicit initial values:
+We generally initialize a list in one of two ways: with or without initial values.
 
 ```snippet
 init_list
@@ -27,7 +27,7 @@ init_list
 
 ### Accessing an element
 
-Since the list is based on an array, accessing and updating an element are efficient $O(1)$ operations.
+Because the list is backed by an array, accessing or updating an element is efficient and takes $O(1)$ time.
 
 ```snippet
 access_element
@@ -39,7 +39,7 @@ access_element
 
 ### Inserting and removing elements
 
-Unlike a fixed array, a list can freely add and remove elements. Appending takes $O(1)$ time, while insertion and removal retain the array's $O(n)$ time complexity.
+Unlike a fixed-length array, a list lets us add or remove elements freely. Appending an element takes $O(1)$ time amortized, while insertion and removal still have the same $O(n)$ time complexity as in an array.
 
 ```snippet
 insert_remove_element
@@ -51,7 +51,7 @@ insert_remove_element
 
 ### Traversing a list
 
-Like an array, a list can be traversed by index or by visiting its elements directly.
+As with an array, we can traverse a list by index or iterate directly over its elements.
 
 ```snippet
 iterate_list
@@ -63,7 +63,7 @@ iterate_list
 
 ### Concatenating lists
 
-Given another list `nums1`, we can append its elements to the end of the original list.
+Given another list `nums1`, we can append its contents to the end of the original list.
 
 ```snippet
 concat_list
@@ -75,7 +75,7 @@ concat_list
 
 ### Sorting a list
 
-Once the list is sorted, we can apply binary search and two-pointer algorithms, which often appear in array problems.
+Once we sort a list, we can apply binary search and two-pointer algorithms, both common in array problems.
 
 ```snippet
 sort_list
@@ -87,13 +87,13 @@ sort_list
 
 ## Implementing a list
 
-Many languages, including Java, C++, and Python, provide lists. Their implementations are sophisticated, with carefully chosen parameters such as initial capacity and growth factor. Interested readers can study their source code.
+Many languages, including Java, C++, and Python, provide lists. Their implementations are complex and their parameters, such as initial capacity and growth factor, are carefully chosen. You can explore these choices in the source code.
 
-To understand how a list works, let's implement a simplified version with three key design choices.
+To see how a list works, let's implement a simple one. The design has three main parts.
 
-- **Initial capacity**: Choose a reasonable starting array capacity. We use 10 here.
-- **Element count**: Maintain `size`, the number of elements, updating it on insertion and removal. It identifies the list's end and tells us when expansion is needed.
-- **Growth mechanism**: If insertion finds the capacity full, allocate a larger array using a growth factor and copy all current elements into it. Here, capacity doubles each time.
+- **Initial capacity.** Choose a reasonable initial capacity for the array. In this example, we use 10.
+- **Element count.** Declare a variable `size` to track the current number of elements and update it whenever an element is inserted or removed. It tells us where the list ends and whether the array needs to grow.
+- **Capacity growth.** If the list is full when we insert an element, it needs more space. Create a larger array using the growth factor and move all current elements into it in order. In this example, we double the capacity each time.
 
 ```src
 [file]{my_list}-[class]{my_list}-[func]{}

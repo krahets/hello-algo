@@ -6,15 +6,15 @@
 
 import utils
 
-/* Max heap */
+/* Max-heap */
 class MaxHeap {
     private var maxHeap: [Int]
 
     /* Constructor: build a heap from the input list */
     init(nums: [Int]) {
-        // Place the list elements in the heap without changing their order
+        // Copy the list elements into the heap in their original order
         maxHeap = nums
-        // Sift down from every non-leaf node
+        // Heapify all non-leaf nodes
         for i in (0 ... parent(i: size() - 1)).reversed() {
             siftDown(i: i)
         }
@@ -32,7 +32,7 @@ class MaxHeap {
 
     /* Get the parent index */
     private func parent(i: Int) -> Int {
-        (i - 1) / 2 // Integer division truncates toward zero
+        (i - 1) / 2 // Floor division
     }
 
     /* Swap elements */
@@ -50,7 +50,7 @@ class MaxHeap {
         size() == 0
     }
 
-    /* Access the top element of the heap */
+    /* Peek at the root */
     func peek() -> Int {
         maxHeap[0]
     }
@@ -63,13 +63,13 @@ class MaxHeap {
         siftUp(i: size() - 1)
     }
 
-    /* Sift up starting from node i */
+    /* Sift up from node i */
     private func siftUp(i: Int) {
         var i = i
         while true {
             // Get the parent of node i
             let p = parent(i: i)
-            // Stop when the parent index is invalid or the node already satisfies the heap order
+            // Stop sifting at the root or when the node already satisfies the heap property
             if p < 0 || maxHeap[i] <= maxHeap[p] {
                 break
             }
@@ -86,21 +86,21 @@ class MaxHeap {
         if isEmpty() {
             fatalError("Heap is empty")
         }
-        // Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+        // Swap the root and the rightmost leaf (the first and last elements)
         swap(i: 0, j: size() - 1)
-        // Remove a node
+        // Remove the node
         let val = maxHeap.remove(at: size() - 1)
         // Sift down
         siftDown(i: 0)
-        // Return the top element of the heap
+        // Return the root element
         return val
     }
 
-    /* Sift down starting from node i */
+    /* Sift down from node i */
     private func siftDown(i: Int) {
         var i = i
         while true {
-            // Find the node with the largest value among i, l, and r, and store its index in ma
+            // Store the index of the largest of nodes i, l, and r in ma
             let l = left(i: i)
             let r = right(i: i)
             var ma = i
@@ -110,7 +110,7 @@ class MaxHeap {
             if r < size(), maxHeap[r] > maxHeap[ma] {
                 ma = r
             }
-            // Stop if node i is largest or both child indices l and r are out of bounds
+            // Stop if i is already largest or both child indices l and r are out of bounds
             if ma == i {
                 break
             }
@@ -121,7 +121,7 @@ class MaxHeap {
         }
     }
 
-    /* Print the heap (binary tree) */
+    /* Print the heap as a binary tree */
     func print() {
         let queue = maxHeap
         PrintUtil.printHeap(queue: queue)
@@ -132,32 +132,32 @@ class MaxHeap {
 enum MyHeap {
     /* Driver code */
     static func main() {
-        /* Initialize a max heap */
+        /* Initialize a max-heap */
         let maxHeap = MaxHeap(nums: [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
-        print("\nAfter building a heap from the input list:")
+        print("\nHeap built from the input list:")
         maxHeap.print()
 
-        /* Get the top element of the heap */
+        /* Get the root element */
         var peek = maxHeap.peek()
-        print("\nTop heap element: \(peek)")
+        print("\nRoot element: \(peek)")
 
         /* Push an element onto the heap */
         let val = 7
         maxHeap.push(val: val)
-        print("\nAfter inserting element \(val) into the heap:")
+        print("\nHeap after pushing \(val):")
         maxHeap.print()
 
-        /* Pop the top element from the heap */
+        /* Pop the root */
         peek = maxHeap.pop()
-        print("\nAfter removing the top element \(peek) from the heap:")
+        print("\nHeap after popping the root (\(peek)):")
         maxHeap.print()
 
         /* Get the heap size */
         let size = maxHeap.size()
-        print("\nNumber of heap elements: \(size)")
+        print("\nNumber of elements in the heap: \(size)")
 
         /* Check whether the heap is empty */
         let isEmpty = maxHeap.isEmpty()
-        print("\nIs the heap empty: \(isEmpty)")
+        print("\nIs the heap empty? \(isEmpty)")
     }
 }

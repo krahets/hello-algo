@@ -12,7 +12,7 @@ pub fn ListNode(comptime T: type) type {
         val: T = 0,
         next: ?*Self = null,
 
-        // Initialize a list node with specific value
+        // 以指定的值初始化鏈結串列節點
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.next = null;

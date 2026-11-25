@@ -16,7 +16,7 @@ if __FILE__ == $0
   n3 = TreeNode.new(3)
   n4 = TreeNode.new(4)
   n5 = TreeNode.new(5)
-  # Set up references (pointers) between the nodes
+  # Link the nodes with references (pointers)
   n1.left = n2
   n1.right = n3
   n2.left = n4
@@ -24,15 +24,15 @@ if __FILE__ == $0
   puts "\nInitialize the binary tree\n\n"
   print_tree(n1)
 
-  # Insert and remove nodes
+  # Insert and delete nodes
   _p = TreeNode.new(0)
   # Insert node _p between n1 and n2
   n1.left = _p
   _p.left = n2
-  puts "\nAfter inserting node _p\n\n"
+  puts "\nAfter inserting node _p:\n\n"
   print_tree(n1)
-  # Remove a node
+  # Delete a node
   n1.left = n2
-  puts "\nAfter removing node _p\n\n"
+  puts "\nAfter deleting node _p:\n\n"
   print_tree(n1)
 end

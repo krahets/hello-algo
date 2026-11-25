@@ -46,7 +46,7 @@ fun printTree(root: TreeNode?) {
 
 /**
  * 二分木を表示する
- * この木の表示処理は TECHIE DELIGHT から借用した
+ * 木の表示には TECHIE DELIGHT のコードを使用
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
@@ -101,7 +101,7 @@ fun printHeap(queue: Queue<Int>?) {
     queue?.let { list.addAll(it) }
     print("ヒープの配列表現：")
     println(list)
-    println("ヒープの木構造表現：")
+    println("ヒープの木構造：")
     val root = TreeNode.listToTree(list)
     printTree(root)
 }

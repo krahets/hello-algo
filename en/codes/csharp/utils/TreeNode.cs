@@ -13,7 +13,7 @@ public class TreeNode(int? x) {
     public TreeNode? left;  // Reference to the left child
     public TreeNode? right; // Reference to the right child
 
-    // For the serialization rules, see:
+    // For the serialization format, see:
     // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
     // Array representation of the binary tree:
     // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
@@ -29,7 +29,7 @@ public class TreeNode(int? x) {
     //         \——— 4
     //             \——— 8
 
-    /* Deserialize a list into a binary tree: recursion */
+    /* Recursively deserialize a list into a binary tree */
     static TreeNode? ListToTreeDFS(List<int?> arr, int i) {
         if (i < 0 || i >= arr.Count || !arr[i].HasValue) {
             return null;
@@ -46,7 +46,7 @@ public class TreeNode(int? x) {
         return ListToTreeDFS(arr, 0);
     }
 
-    /* Serialize a binary tree into a list: recursion */
+    /* Recursively serialize a binary tree into a list */
     static void TreeToListDFS(TreeNode? root, int i, List<int?> res) {
         if (root == null)
             return;

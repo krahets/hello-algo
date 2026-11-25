@@ -4,7 +4,7 @@
  * Author: gyt95 (gytkwan@gmail.com)
  */
 
-/* Метод 1: полный перебор */
+/* Способ 1: полный перебор */
 function twoSumBruteForce(nums: number[], target: number): number[] {
     const n = nums.length;
     // Два вложенных цикла, временная сложность O(n^2)
@@ -18,7 +18,7 @@ function twoSumBruteForce(nums: number[], target: number): number[] {
     return [];
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 function twoSumHashTable(nums: number[], target: number): number[] {
     // Вспомогательная хеш-таблица, пространственная сложность O(n)
     let m: Map<number, number> = new Map();
@@ -34,16 +34,16 @@ function twoSumHashTable(nums: number[], target: number): number[] {
     return [];
 }
 
-/* Driver Code */
-// Метод 1
+/* Пример использования */
+// Способ 1
 const nums = [2, 7, 11, 15],
     target = 13;
 
 let res = twoSumBruteForce(nums, target);
-console.log('Метод 1: res = ', res);
+console.log('Способ 1, res = ', res);
 
-// Метод 2
+// Способ 2
 res = twoSumHashTable(nums, target);
-console.log('Метод 2: res = ', res);
+console.log('Способ 2, res = ', res);
 
 export {};

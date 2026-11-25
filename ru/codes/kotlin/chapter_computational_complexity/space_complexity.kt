@@ -16,18 +16,18 @@ fun function(): Int {
     return 0
 }
 
-/* Постоянная сложность */
+/* Константная сложность */
 fun constant(n: Int) {
     // Константы, переменные и объекты занимают O(1) памяти
     val a = 0
     var b = 0
     val nums = Array(10000) { 0 }
     val node = ListNode(0)
-    // Переменные в цикле занимают O(1) памяти
+    // Переменные цикла занимают O(1) памяти
     for (i in 0..<n) {
         val c = 0
     }
-    // Функции в цикле занимают O(1) памяти
+    // Вызовы функции в цикле требуют O(1) памяти
     for (i in 0..<n) {
         function()
     }
@@ -42,16 +42,16 @@ fun linear(n: Int) {
     for (i in 0..<n) {
         nodes.add(ListNode(i))
     }
-    // Хеш-таблица длины n занимает O(n) памяти
+    // Хеш-таблица из n элементов занимает O(n) памяти
     val map = mutableMapOf<Int, String>()
     for (i in 0..<n) {
         map[i] = i.toString()
     }
 }
 
-/* Линейная сложность (рекурсивная реализация) */
+/* Линейная сложность (рекурсия) */
 fun linearRecur(n: Int) {
-    println("Рекурсия n = $n")
+    println("Рекурсивный вызов: n = $n")
     if (n == 1)
         return
     linearRecur(n - 1)
@@ -72,17 +72,17 @@ fun quadratic(n: Int) {
     }
 }
 
-/* Квадратичная сложность (рекурсивная реализация) */
+/* Квадратичная сложность (рекурсия) */
 tailrec fun quadraticRecur(n: Int): Int {
     if (n <= 0)
         return 0
-    // Длина массива nums равна n, n-1, ..., 2, 1
+    // Длина массива nums принимает значения n, n-1, ..., 2, 1
     val nums = Array(n) { 0 }
-    println("В рекурсии n = $n длина nums = ${nums.size}")
+    println("При n = $n длина nums = ${nums.size}")
     return quadraticRecur(n - 1)
 }
 
-/* Экспоненциальная сложность (построение полного двоичного дерева) */
+/* Экспоненциальная сложность (построение совершенного двоичного дерева) */
 fun buildTree(n: Int): TreeNode? {
     if (n == 0)
         return null
@@ -92,10 +92,10 @@ fun buildTree(n: Int): TreeNode? {
     return root
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val n = 5
-    // Постоянная сложность
+    // Константная сложность
     constant(n)
     // Линейная сложность
     linear(n)

@@ -7,7 +7,7 @@
 import '../utils/print_util.dart';
 import '../utils/tree_node.dart';
 
-/* Построить двоичное дерево: разделяй и властвуй */
+/* Построение двоичного дерева методом «разделяй и властвуй» */
 TreeNode? dfs(
   List<int> preorder,
   Map<int, int> inorderMap,
@@ -15,25 +15,25 @@ TreeNode? dfs(
   int l,
   int r,
 ) {
-  // Завершить при пустом диапазоне поддерева
+  // Если интервал поддерева пуст, завершаем рекурсию
   if (r - l < 0) {
     return null;
   }
-  // Инициализировать корневой узел
+  // Создаём корень
   TreeNode? root = TreeNode(preorder[i]);
-  // Найти m, чтобы разделить левое и правое поддеревья
+  // Находим m и разделяем левое и правое поддеревья
   int m = inorderMap[preorder[i]]!;
-  // Подзадача: построить левое поддерево
+  // Подзадача: строим левое поддерево
   root.left = dfs(preorder, inorderMap, i + 1, l, m - 1);
-  // Подзадача: построить правое поддерево
+  // Подзадача: строим правое поддерево
   root.right = dfs(preorder, inorderMap, i + 1 + m - l, m + 1, r);
-  // Вернуть корневой узел
+  // Возвращаем корень
   return root;
 }
 
-/* Построить двоичное дерево */
+/* Построение двоичного дерева */
 TreeNode? buildTree(List<int> preorder, List<int> inorder) {
-  // Инициализировать хеш-таблицу для хранения соответствия элементов inorder их индексам
+  // Создаём хеш-таблицу индексов элементов inorder
   Map<int, int> inorderMap = {};
   for (int i = 0; i < inorder.length; i++) {
     inorderMap[inorder[i]] = i;
@@ -42,11 +42,11 @@ TreeNode? buildTree(List<int> preorder, List<int> inorder) {
   return root;
 }
 
-/* Driver Code */
+/* Основная программа */
 void main() {
   List<int> preorder = [3, 9, 2, 1, 7];
   List<int> inorder = [9, 3, 1, 2, 7];
-  print("Предварительный обход = $preorder");
+  print("Прямой обход = $preorder");
   print("Симметричный обход = $inorder");
 
   TreeNode? root = buildTree(preorder, inorder);

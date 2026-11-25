@@ -119,7 +119,7 @@ pub fn TreeFormatter(comptime T: type) type {
         }
 
         // Print a binary tree
-        // This tree printer is borrowed from TECHIE DELIGHT
+        // This tree printer comes from Techie Delight
         // https://www.techiedelight.com/c-program-print-binary-tree/
         const Trunk = struct {
             prev: ?*Trunk = null,

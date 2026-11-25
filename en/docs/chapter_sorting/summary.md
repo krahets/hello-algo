@@ -2,46 +2,46 @@
 
 ### Key takeaways
 
-- Bubble sort sorts by swapping adjacent elements. Adding a flag to stop early improves its best-case time complexity to $O(n)$.
-- Insertion sort inserts one element from the unsorted section into its correct position in the sorted section each round. Although its time complexity is $O(n^2)$, its low operation count makes it popular for small datasets.
-- Quick sort sorts through partitioning. Repeatedly choosing the worst pivot can degrade its time complexity to $O(n^2)$. Median or random pivot selection reduces this risk. Recursing on the shorter subarray reduces recursion depth and improves space complexity to $O(\log n)$.
-- Merge sort has division and merging phases, exemplifying divide and conquer. Sorting an array requires an auxiliary array and $O(n)$ space, while sorting a linked list can be optimized to use $O(1)$ space.
-- Bucket sort has three steps: distribute data into buckets, sort within each bucket, and combine the results. It also uses divide and conquer and suits very large datasets. The key is distributing data evenly.
-- Counting sort is a special case of bucket sort that sorts by counting occurrences. It suits large datasets with a limited value range and requires data that can be converted to positive integers.
-- Radix sort sorts one digit at a time and requires data that can be represented as numbers with a fixed number of digits.
-- Ideally, a sorting algorithm would be efficient, stable, in-place, and adaptive. As with other data structures and algorithms, however, no single sorting algorithm meets all these requirements. In practice, choose one according to the data's properties.
-- The figure below compares common sorting algorithms in efficiency, stability, in-place operation, and adaptiveness.
+- Bubble sort swaps adjacent elements. Adding a flag that lets it return early improves its best-case time complexity to $O(n)$.
+- On each pass, insertion sort takes an element from the unsorted range and inserts it at the correct position in the sorted range. Although it takes $O(n^2)$ time, it performs relatively few elementary operations, making it a popular choice for small inputs.
+- Quicksort sorts by partitioning with two pointers. Choosing the worst possible pivot at every partition can degrade its running time to $O(n^2)$. A median-of-three or random pivot makes this less likely. Recursing on the shorter subarray limits recursion depth and reduces space complexity to $O(\log n)$.
+- Merge sort illustrates divide and conquer in two phases: divide and merge. Sorting an array requires an auxiliary array and takes $O(n)$ space. For a linked list, the space complexity can be reduced to $O(1)$.
+- Bucket sort has three steps: distribute the data among buckets, sort each bucket, and combine the results. It also uses divide and conquer and is suitable for very large datasets. Its efficiency depends on distributing the data evenly.
+- Counting sort is a special case of bucket sort that sorts values by counting their occurrences. It works well with large datasets whose values cover a limited range and can be converted to positive integers.
+- Radix sort sorts data one digit at a time. It requires values that can be represented with a fixed number of digits.
+- Ideally, a sorting algorithm would be efficient, stable, in-place, and adaptive. As with other data structures and algorithms, no single sort satisfies all these requirements. In practice, we choose an algorithm that suits the data.
+- The figure below compares common sorting algorithms in terms of efficiency, stability, in-place operation, and adaptivity.
 
 ![Comparison of sorting algorithms](summary.assets/sorting_algorithms_comparison.svg)
 
 ### Q & A
 
-**Q**: When is stability necessary in a sorting algorithm?
+**Q**: When does a sorting algorithm need to be stable?
 
-We often sort objects by one of their attributes. For example, students have names and heights, and we want a multilevel sort. First sort by name to obtain `(A, 180) (B, 185) (C, 170) (D, 170)`, then sort by height. An unstable algorithm may produce `(D, 170) (C, 170) (A, 180) (B, 185)`.
+In practice, we often sort objects by an attribute. Suppose each student has a name and a height, and we want to sort by multiple keys. First we sort by name, obtaining `(A, 180) (B, 185) (C, 170) (D, 170)`. Then we sort by height. An unstable sort might produce `(D, 170) (C, 170) (A, 180) (B, 185)`.
 
-Students D and C have switched positions, breaking the ordering by name. This is not what we want.
+Students D and C have switched places. They are no longer in name order within their height group, which is precisely the ordering we wanted to preserve.
 
-**Q**: Can the right-to-left and left-to-right scans in partitioning be reversed?
+**Q**: In two-pointer partitioning, can we reverse the order of the right-to-left and left-to-right scans?
 
-No. When the leftmost element is the pivot, the right-to-left scan must come first. This may seem counterintuitive, so let us examine why.
+No. With the leftmost element as the pivot, we must scan from right to left first, then from left to right. Let's examine why this seemingly counterintuitive order matters.
 
-The final step of `partition()` swaps `nums[left]` and `nums[i]`. Afterward, every element to the left of the pivot must be `<=` the pivot, **so `nums[left] >= nums[i]` must hold before that swap**. If we scan left to right first and fail to find a larger element, **the loop stops at `i == j`, where it is possible that `nums[j] == nums[i] > nums[left]`**. The final swap would then move an element larger than the pivot to the far left, causing partitioning to fail.
+The last step in `partition()` swaps `nums[left]` and `nums[i]`. After the swap, every element to the left of the pivot must be `<=` the pivot, **so `nums[left] >= nums[i]` must hold before the swap**. Suppose we scan from left to right first. If we find no larger element before the pointers meet, **the loop exits at `i == j`, and we may have `nums[j] == nums[i] > nums[left]`**. The final swap would then move an element larger than the pivot to the far left, breaking the partition.
 
-For example, given `[0, 0, 0, 0, 1]`, scanning left to right first produces `[1, 0, 0, 0, 0]` after partitioning, which is incorrect.
+For example, given `[0, 0, 0, 0, 1]`, scanning from left to right first leaves the array as `[1, 0, 0, 0, 0]` after partitioning, which is incorrect.
 
-Conversely, if we choose `nums[right]` as the pivot, we must scan left to right first.
+The argument works in reverse if we choose `nums[right]` as the pivot: in that case, we must scan from left to right first.
 
-**Q**: In the recursion-depth optimization for quick sort, why does choosing the shorter subarray keep the depth at most $\log n$?
+**Q**: In quicksort, why does recursing on the shorter subarray limit recursion depth to $\log n$?
 
-Recursion depth is the number of recursive calls that have not yet returned. Each partition divides the array into two subarrays. After the optimization, the subarray chosen for recursion is at most half the original length. Even in the worst case, where it is always exactly half, the depth is $\log n$.
+Recursion depth is the number of recursive calls that have not yet returned. Each partition splits the array into two subarrays. With the depth optimization, the subarray passed to the next recursive call is at most half the length of the current array. Even in the worst case, where the length is halved every time, the recursion depth is $\log n$.
 
-In the original quick sort, we may repeatedly recurse on the larger subarray, with lengths $n$, $n - 1$, $\dots$, $2$, and $1$ in the worst case, giving depth $n$. The optimization prevents this.
+In the original quicksort, successive calls may keep taking the longer subarray. In the worst case, their lengths are $n$, $n - 1$, $\dots$, $2$, and $1$, giving a recursion depth of $n$. The depth optimization prevents this.
 
-**Q**: If all array elements are equal, does quick sort take $O(n^2)$ time? How can we handle this degeneration?
+**Q**: Does quicksort take $O(n^2)$ time when all the elements are equal? How can we handle this case?
 
-Yes. In this case, consider partitioning into three sections: elements smaller than, equal to, and greater than the pivot. Recurse only on the smaller and greater sections. If all elements are equal, a single partition then completes the sort.
+Yes. We can handle it by partitioning the array into three parts: elements smaller than the pivot, elements equal to it, and elements larger than it. Recurse only on the smaller and larger groups. When all elements are equal, a single partition then sorts the entire array.
 
-**Q**: Why is bucket sort's worst-case time complexity $O(n^2)$?
+**Q**: Why is the worst-case time complexity of bucket sort $O(n^2)$?
 
-In the worst case, all elements fall into one bucket. If an $O(n^2)$ algorithm is used to sort that bucket, the overall time complexity is $O(n^2)$.
+In the worst case, all elements land in the same bucket. If we sort its contents with an $O(n^2)$ algorithm, the time complexity is $O(n^2)$.

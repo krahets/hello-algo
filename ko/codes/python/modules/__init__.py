@@ -1,8 +1,8 @@
-# PEP 585(표준 컬렉션의 제네릭 타입 힌트)를 따른다
+# 표준 컬렉션의 제네릭 타입 힌트에 관한 PEP 585를 따른다.
 # https://peps.python.org/pep-0585/
 from __future__ import annotations
 
-# `from module import *`로 코드를 간소화할 수 있도록 공통 라이브러리를 이곳에서 임포트한다
+# `from module import *`로 코드를 간결하게 작성할 수 있도록 공통 라이브러리를 여기서 가져온다.
 from .list_node import (
     ListNode,
     list_to_linked_list,

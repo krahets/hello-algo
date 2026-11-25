@@ -14,11 +14,11 @@ func TestTwoSum(t *testing.T) {
 	nums := []int{2, 7, 11, 15}
 	target := 13
 
-	// ====== 実行用コード ======
+	// ====== 実行例 ======
 	// 方法 1：総当たり法
 	res := twoSumBruteForce(nums, target)
-	fmt.Println("方法 1 res =", res)
+	fmt.Println("方法 1 の res =", res)
 	// 方法 2：ハッシュテーブル
 	res = twoSumHashTable(nums, target)
-	fmt.Println("方法 2 res =", res)
+	fmt.Println("方法 2 の res =", res)
 }

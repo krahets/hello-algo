@@ -8,9 +8,9 @@ import (
 	"container/list"
 )
 
-/* 基於鏈結串列實現的佇列 */
+/* 以鏈結串列實作佇列 */
 type linkedListQueue struct {
-	// 使用內建包 list 來實現佇列
+	// 使用標準函式庫的 list 套件實作佇列
 	data *list.List
 }
 
@@ -21,12 +21,12 @@ func newLinkedListQueue() *linkedListQueue {
 	}
 }
 
-/* 入列 */
+/* 入隊 */
 func (s *linkedListQueue) push(value any) {
 	s.data.PushBack(value)
 }
 
-/* 出列 */
+/* 出隊 */
 func (s *linkedListQueue) pop() any {
 	if s.isEmpty() {
 		return nil
@@ -36,7 +36,7 @@ func (s *linkedListQueue) pop() any {
 	return e.Value
 }
 
-/* 訪問佇列首元素 */
+/* 讀取隊首元素 */
 func (s *linkedListQueue) peek() any {
 	if s.isEmpty() {
 		return nil
@@ -45,7 +45,7 @@ func (s *linkedListQueue) peek() any {
 	return e.Value
 }
 
-/* 獲取佇列的長度 */
+/* 取得佇列長度 */
 func (s *linkedListQueue) size() int {
 	return s.data.Len()
 }
@@ -55,7 +55,7 @@ func (s *linkedListQueue) isEmpty() bool {
 	return s.data.Len() == 0
 }
 
-/* 獲取 List 用於列印 */
+/* 回傳 list.List 的指標以便輸出 */
 func (s *linkedListQueue) toList() *list.List {
 	return s.data
 }

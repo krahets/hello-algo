@@ -18,13 +18,13 @@ if __name__ == "__main__":
 
     bol = True
     hash_bol = hash(bol)
-    print(f"布林量 {bol} 的雜湊值為 {hash_bol}")
+    print(f"布林值 {bol} 的雜湊值為 {hash_bol}")
 
     dec = 3.14159
     hash_dec = hash(dec)
     print(f"小數 {dec} 的雜湊值為 {hash_dec}")
 
-    str = "Hello 演算法"
+    str = "Hello 算法"
     hash_str = hash(str)
     print(f"字串 {str} 的雜湊值為 {hash_str}")
 

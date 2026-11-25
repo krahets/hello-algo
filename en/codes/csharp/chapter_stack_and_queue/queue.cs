@@ -18,15 +18,15 @@ public class queue {
         queue.Enqueue(2);
         queue.Enqueue(5);
         queue.Enqueue(4);
-        Console.WriteLine("Queue queue = " + string.Join(",", queue));
+        Console.WriteLine("queue = " + string.Join(",", queue));
 
-        /* Access the front element */
+        /* Peek at the front element */
         int peek = queue.Peek();
-        Console.WriteLine("Front element peek = " + peek);
+        Console.WriteLine("Front element (peek) = " + peek);
 
         /* Dequeue an element */
         int pop = queue.Dequeue();
-        Console.WriteLine("Dequeued element pop = " + pop + ", after dequeuing, queue = " + string.Join(",", queue));
+        Console.WriteLine("Dequeued element (pop) = " + pop + ", queue after removal = " + string.Join(",", queue));
 
         /* Get the queue size */
         int size = queue.Count;
@@ -34,6 +34,6 @@ public class queue {
 
         /* Check whether the queue is empty */
         bool isEmpty = queue.Count == 0;
-        Console.WriteLine("Is the queue empty = " + isEmpty);
+        Console.WriteLine("Queue is empty = " + isEmpty);
     }
 }

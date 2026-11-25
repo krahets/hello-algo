@@ -15,10 +15,10 @@ struct DoublyListNode {
     }
 };
 
-/* Deque implemented with a doubly linked list */
+/* Deque backed by a doubly linked list */
 class LinkedListDeque {
   private:
-    DoublyListNode *front, *rear; // Head node front and tail node rear
+    DoublyListNode *front, *rear; // front points to the head node and rear to the tail node
     int queSize = 0;              // Deque size
 
   public:
@@ -28,7 +28,7 @@ class LinkedListDeque {
 
     /* Destructor */
     ~LinkedListDeque() {
-        // Traverse the linked list and delete each node to free its memory
+        // Walk the list and delete each node to free its memory
         DoublyListNode *pre, *cur = front;
         while (cur != nullptr) {
             pre = cur;
@@ -47,91 +47,91 @@ class LinkedListDeque {
         return size() == 0;
     }
 
-    /* Enqueue operation */
+    /* Add an element at either end */
     void push(int num, bool isFront) {
         DoublyListNode *node = new DoublyListNode(num);
-        // If the linked list is empty, make both front and rear point to node
+        // If the list is empty, point both front and rear at node
         if (isEmpty())
             front = rear = node;
-        // Enqueue at the front
+        // Add at the front
         else if (isFront) {
-            // Add node to the head of the linked list
+            // Link node at the head of the list
             front->prev = node;
             node->next = front;
-            front = node; // Update the head node
-        // Enqueue at the rear
+            front = node; // Update the head
+        // Add at the rear
         } else {
-            // Add node to the tail of the linked list
+            // Link node at the tail of the list
             rear->next = node;
             node->prev = rear;
-            rear = node; // Update the tail node
+            rear = node; // Update the tail
         }
         queSize++; // Update the deque size
     }
 
-    /* Enqueue at the front */
+    /* Add an element at the front */
     void pushFirst(int num) {
         push(num, true);
     }
 
-    /* Enqueue at the rear */
+    /* Add an element at the rear */
     void pushLast(int num) {
         push(num, false);
     }
 
-    /* Dequeue operation */
+    /* Remove an element from either end */
     int pop(bool isFront) {
         if (isEmpty())
-            throw out_of_range("Deque is empty");
+            throw out_of_range("Queue is empty");
         int val;
-        // When the deque size is 1, the head and tail point to the same node
+        // When the deque contains one element, the head and tail point to the same node
         if (queSize == 1) {
             val = front->val;
             delete front; // Both point to the same node, so free it only once
             front = nullptr;
             rear = nullptr;
         }
-        // Dequeue from the front
+        // Remove from the front
         else if (isFront) {
-            val = front->val; // Save the head node value
+            val = front->val; // Save the head node's value
             // Remove the head node
             DoublyListNode *fNext = front->next;
             fNext->prev = nullptr;
             front->next = nullptr;
             delete front;
-            front = fNext; // Update the head node
-        // Dequeue from the rear
+            front = fNext; // Update the head
+        // Remove from the rear
         } else {
-            val = rear->val; // Save the tail node value
+            val = rear->val; // Save the tail node's value
             // Remove the tail node
             DoublyListNode *rPrev = rear->prev;
             rPrev->next = nullptr;
             rear->prev = nullptr;
             delete rear;
-            rear = rPrev; // Update the tail node
+            rear = rPrev; // Update the tail
         }
         queSize--; // Update the deque size
         return val;
     }
 
-    /* Dequeue from the front */
+    /* Remove and return the front element */
     int popFirst() {
         return pop(true);
     }
 
-    /* Dequeue from the rear */
+    /* Remove and return the rear element */
     int popLast() {
         return pop(false);
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     int peekFirst() {
         if (isEmpty())
             throw out_of_range("Deque is empty");
         return front->val;
     }
 
-    /* Access the rear element */
+    /* Peek at the rear element */
     int peekLast() {
         if (isEmpty())
             throw out_of_range("Deque is empty");
@@ -157,29 +157,29 @@ int main() {
     deque->pushLast(3);
     deque->pushLast(2);
     deque->pushLast(5);
-    cout << "Deque deque = ";
+    cout << "deque = ";
     printVector(deque->toVector());
 
-    /* Access an element */
+    /* Peek at the front and rear elements */
     int peekFirst = deque->peekFirst();
-    cout << "Front element peekFirst = " << peekFirst << endl;
+    cout << "Front element (peekFirst) = " << peekFirst << endl;
     int peekLast = deque->peekLast();
-    cout << "Rear element peekLast = " << peekLast << endl;
+    cout << "Rear element (peekLast) = " << peekLast << endl;
 
-    /* Enqueue elements */
+    /* Add elements to the deque */
     deque->pushLast(4);
-    cout << "After enqueuing element 4 at the rear, deque =";
+    cout << "After adding 4 at the rear, deque = ";
     printVector(deque->toVector());
     deque->pushFirst(1);
-    cout << "After enqueuing element 1 at the front, deque = ";
+    cout << "After adding 1 at the front, deque = ";
     printVector(deque->toVector());
 
-    /* Dequeue an element */
+    /* Remove elements from both ends */
     int popLast = deque->popLast();
-    cout << "Element dequeued from the rear = " << popLast << ", after dequeuing from the rear, deque = ";
+    cout << "Removed from the rear = " << popLast << ", deque after removal = ";
     printVector(deque->toVector());
     int popFirst = deque->popFirst();
-    cout << "Element dequeued from the front = " << popFirst << ", after dequeuing from the front, deque = ";
+    cout << "Removed from the front = " << popFirst << ", deque after removal = ";
     printVector(deque->toVector());
 
     /* Get the deque size */
@@ -188,9 +188,9 @@ int main() {
 
     /* Check whether the deque is empty */
     bool isEmpty = deque->isEmpty();
-    cout << "Is the deque empty = " << boolalpha << isEmpty << endl;
+    cout << "Deque is empty = " << boolalpha << isEmpty << endl;
 
-    // Free memory
+    // Free the allocated memory
     delete deque;
 
     return 0;

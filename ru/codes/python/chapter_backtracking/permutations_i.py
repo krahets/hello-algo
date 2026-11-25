@@ -8,27 +8,27 @@ Author: krahets (krahets@163.com)
 def backtrack(
     state: list[int], choices: list[int], selected: list[bool], res: list[list[int]]
 ):
-    """Алгоритм бэктрекинга: все перестановки I"""
-    # Когда длина состояния равна числу элементов, записать решение
+    """Поиск с возвратом: перестановки I"""
+    # Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if len(state) == len(choices):
         res.append(list(state))
         return
-    # Перебор всех вариантов выбора
+    # Перебираем все варианты
     for i, choice in enumerate(choices):
-        # Отсечение: нельзя выбирать один и тот же элемент повторно
+        # Отсечение: нельзя выбирать один элемент дважды
         if not selected[i]:
-            # Попытка: сделать выбор и обновить состояние
+            # Пробуем вариант и обновляем состояние
             selected[i] = True
             state.append(choice)
-            # Перейти к следующему выбору
+            # Переходим к следующему выбору
             backtrack(state, choices, selected, res)
-            # Откат: отменить выбор и восстановить предыдущее состояние
+            # Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = False
             state.pop()
 
 
 def permutations_i(nums: list[int]) -> list[list[int]]:
-    """Все перестановки I"""
+    """Перестановки I"""
     res = []
     backtrack(state=[], choices=nums, selected=[False] * len(nums), res=res)
     return res
@@ -40,5 +40,5 @@ if __name__ == "__main__":
 
     res = permutations_i(nums)
 
-    print(f"Входной массив nums = {nums}")
+    print(f"Исходный массив nums = {nums}")
     print(f"Все перестановки res = {res}")

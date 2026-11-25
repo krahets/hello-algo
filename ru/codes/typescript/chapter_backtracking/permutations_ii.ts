@@ -4,48 +4,48 @@
  * Author: Justin (xiefahit@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: все перестановки II */
+/* Поиск с возвратом: перестановки II */
 function backtrack(
     state: number[],
     choices: number[],
     selected: boolean[],
     res: number[][]
 ): void {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if (state.length === choices.length) {
         res.push([...state]);
         return;
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     const duplicated = new Set();
     choices.forEach((choice, i) => {
-        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+        // Отсечение: нельзя повторно брать тот же элемент или пробовать на этом уровне то же значение
         if (!selected[i] && !duplicated.has(choice)) {
-            // Попытка: сделать выбор и обновить состояние
-            duplicated.add(choice); // Записать значения уже выбранных элементов
+            // Пробуем вариант и обновляем состояние
+            duplicated.add(choice); // Отмечаем уже выбранные значения
             selected[i] = true;
             state.push(choice);
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, choices, selected, res);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false;
             state.pop();
         }
     });
 }
 
-/* Все перестановки II */
+/* Перестановки II */
 function permutationsII(nums: number[]): number[][] {
     const res: number[][] = [];
     backtrack([], nums, Array(nums.length).fill(false), res);
     return res;
 }
 
-// Driver Code
+// Основная программа
 const nums: number[] = [1, 2, 2];
 const res: number[][] = permutationsII(nums);
 
-console.log(`Входной массив nums = ${JSON.stringify(nums)}`);
+console.log(`Исходный массив nums = ${JSON.stringify(nums)}`);
 console.log(`Все перестановки res = ${JSON.stringify(res)}`);
 
 export {};

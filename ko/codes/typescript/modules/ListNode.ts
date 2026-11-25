@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-/* 배열을 역직렬화하여 연결 리스트로 변환한다 */
+/* 배열을 연결 리스트로 역직렬화 */
 function arrToLinkedList(arr: number[]): ListNode | null {
     const dum: ListNode = new ListNode(0);
     let head = dum;

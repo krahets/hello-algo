@@ -12,12 +12,12 @@ class ArrayStack {
     vector<int> stack;
 
   public:
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     int size() {
         return stack.size();
     }
 
-    /* 스택이 비어 있는지 판단 */
+    /* 스택이 비어 있는지 확인 */
     bool isEmpty() {
         return stack.size() == 0;
     }
@@ -34,20 +34,20 @@ class ArrayStack {
         return num;
     }
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     int top() {
         if (isEmpty())
             throw out_of_range("스택이 비어 있다");
         return stack.back();
     }
 
-    /* Vector 반환 */
+    /* vector 반환 */
     vector<int> toVector() {
         return stack;
     }
 };
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     /* 스택 초기화 */
     ArrayStack *stack = new ArrayStack();
@@ -61,20 +61,20 @@ int main() {
     cout << "스택 stack = ";
     printVector(stack->toVector());
 
-    /* 스택 맨 위 원소 접근 */
+    /* 스택 맨 위의 원소 조회 */
     int top = stack->top();
-    cout << "스택의 맨 위 원소 top = " << top << endl;
+    cout << "맨 위 원소 top = " << top << endl;
 
     /* 스택에서 원소 꺼내기 */
     top = stack->pop();
-    cout << "스택에서 꺼낸 원소 pop = " << top << ", 스택에서 꺼낸 후 stack = ";
+    cout << "꺼낸 원소 pop = " << top << ", 꺼낸 후 stack = ";
     printVector(stack->toVector());
 
-    /* 스택의 길이 반환 */
+    /* 스택의 길이 조회 */
     int size = stack->size();
     cout << "스택의 길이 size = " << size << endl;
 
-    /* 비어 있는지 판단 */
+    /* 비어 있는지 확인 */
     bool empty = stack->isEmpty();
     cout << "스택이 비어 있는가 = " << empty << endl;
 

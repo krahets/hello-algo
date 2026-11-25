@@ -21,7 +21,7 @@ func TestPreorderTraversalICompact(t *testing.T) {
 	res := make([]*TreeNode, 0)
 	preOrderI(root, &res)
 
-	fmt.Println("\nOutput all nodes with value 7")
+	fmt.Println("\nPrint all nodes with value 7")
 	for _, node := range res {
 		fmt.Printf("%v ", node.Val)
 	}
@@ -39,7 +39,7 @@ func TestPreorderTraversalIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderII(root, &res, &path)
 
-	fmt.Println("\nOutput all paths from the root to nodes with value 7")
+	fmt.Println("\nPrint all paths from the root to a node with value 7")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -59,7 +59,7 @@ func TestPreorderTraversalIIICompact(t *testing.T) {
 	res := make([][]*TreeNode, 0)
 	preOrderIII(root, &res, &path)
 
-	fmt.Println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
+	fmt.Println("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)
@@ -74,14 +74,14 @@ func TestPreorderTraversalIIITemplate(t *testing.T) {
 	fmt.Println("\nInitialize the binary tree")
 	PrintTree(root)
 
-	// Backtracking algorithm
+	// Backtracking
 	res := make([][]*TreeNode, 0)
 	state := make([]*TreeNode, 0)
 	choices := make([]*TreeNode, 0)
 	choices = append(choices, root)
 	backtrackIII(&state, &choices, &res)
 
-	fmt.Println("\nOutput all paths from the root to nodes with value 7 that contain no node with value 3")
+	fmt.Println("\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3")
 	for _, path := range res {
 		for _, node := range path {
 			fmt.Printf("%v ", node.Val)

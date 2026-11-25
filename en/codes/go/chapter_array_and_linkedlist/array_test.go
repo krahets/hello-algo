@@ -5,8 +5,8 @@
 package chapter_array_and_linkedlist
 
 /**
-We treat Go slices as arrays in these examples. This simplifies the explanation
-and lets us focus on data structures and algorithms.
+Here we treat Go slices as arrays. This simplifies the examples
+so we can focus on data structures and algorithms.
 */
 
 import (
@@ -14,37 +14,37 @@ import (
 	"testing"
 )
 
-/* Driver code */
+/* Driver Code */
 func TestArray(t *testing.T) {
 	/* Initialize the array */
 	var arr [5]int
 	fmt.Println("Array arr =", arr)
-	// In Go, a type with a specified length ([5]int) is an array; without a length ([]int), it is a slice
-	// Go array lengths are determined at compile time, so the length must be a constant
-	// To make the extend() function easier to implement, we treat slices as arrays below
+	// In Go, specifying the length ([5]int) gives an array, while omitting it ([]int) gives a slice
+	// Go fixes array lengths at compile time, so the length must be a constant
+	// To simplify the extend() function for extending an array, we use a slice as the array below
 	nums := []int{1, 3, 2, 5, 4}
 	fmt.Println("Array nums =", nums)
 
 	/* Random access */
 	randomNum := randomAccess(nums)
-	fmt.Println("Randomly selected element from nums:", randomNum)
+	fmt.Println("Random element from nums:", randomNum)
 
-	/* Extend the length */
+	/* Extend the array */
 	nums = extend(nums, 3)
-	fmt.Println("Extend the array length to 8, giving nums =", nums)
+	fmt.Println("After extending the array to length 8, nums =", nums)
 
 	/* Insert an element */
 	insert(nums, 6, 3)
-	fmt.Println("Insert the number 6 at index 3, giving nums =", nums)
+	fmt.Println("After inserting 6 at index 3, nums =", nums)
 
 	/* Remove an element */
 	remove(nums, 2)
-	fmt.Println("Remove the element at index 2, giving nums =", nums)
+	fmt.Println("After removing the element at index 2, nums =", nums)
 
 	/* Traverse the array */
 	traverse(nums)
 
 	/* Find an element */
 	index := find(nums, 3)
-	fmt.Println("Find element 3 in nums, giving index =", index)
+	fmt.Println("Index of 3 in nums =", index)
 }

@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    A difficult problem is broken down layer by layer, becoming simpler with each division.
+    A hard problem grows simpler each time we break it down.
     
-    Divide and conquer reveals an important truth: start with the simple parts, and complexity becomes manageable.
+    Divide and conquer shows us why: start with the simple pieces, and even a complex problem becomes manageable.

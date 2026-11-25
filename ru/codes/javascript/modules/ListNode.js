@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-/* Десериализовать список в связный список */
+/* Восстановить связный список из списка значений */
 function arrToLinkedList(arr) {
     const dum = new ListNode(0);
     let head = dum;

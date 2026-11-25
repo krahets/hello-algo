@@ -16,76 +16,76 @@ class HashMapOpenAddressing:
 
     def __init__(self):
         """Конструктор"""
-        self.size = 0  # Число пар ключ-значение
-        self.capacity = 4  # Вместимость хеш-таблицы
-        self.load_thres = 2.0 / 3.0  # Порог коэффициента загрузки для запуска расширения
-        self.extend_ratio = 2  # Коэффициент расширения
+        self.size = 0  # Число пар «ключ — значение»
+        self.capacity = 4  # Ёмкость хеш-таблицы
+        self.load_thres = 2.0 / 3.0  # Порог коэффициента заполнения для расширения
+        self.extend_ratio = 2  # Во сколько раз увеличивается ёмкость
         self.buckets: list[Pair | None] = [None] * self.capacity  # Массив корзин
-        self.TOMBSTONE = Pair(-1, "-1")  # Удалить метку
+        self.TOMBSTONE = Pair(-1, "-1")  # Метка удаления
 
     def hash_func(self, key: int) -> int:
         """Хеш-функция"""
         return key % self.capacity
 
     def load_factor(self) -> float:
-        """Коэффициент загрузки"""
+        """Коэффициент заполнения"""
         return self.size / self.capacity
 
     def find_bucket(self, key: int) -> int:
-        """Найти индекс корзины, соответствующий key"""
+        """Найти индекс корзины для ключа key"""
         index = self.hash_func(key)
         first_tombstone = -1
         for _ in range(self.capacity):
             bucket = self.buckets[index]
             if bucket is None:
                 break
-            # Записать первую встретившуюся метку удаления
+            # Запомнить первую встретившуюся метку удаления
             if bucket is self.TOMBSTONE:
                 if first_tombstone == -1:
                     first_tombstone = index
-            # Если встретился key, вернуть соответствующий индекс корзины
+            # При совпадении ключа key вернуть индекс его корзины
             elif bucket.key == key:
-                # Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
+                # Если ранее встретилась метка удаления, переместить пару на её место
                 if first_tombstone != -1:
                     self.buckets[first_tombstone] = bucket
                     self.buckets[index] = self.TOMBSTONE
                     return first_tombstone  # Вернуть индекс корзины после перемещения
                 return index  # Вернуть индекс корзины
-            # Вычислить индекс корзины; при выходе за конец вернуться к началу
+            # Вычислить индекс корзины, после конца массива перейти в начало
             index = (index + 1) % self.capacity
-        # Если key не существует, вернуть индекс точки добавления
+        # Если ключа key нет, вернуть индекс для вставки
         return index if first_tombstone == -1 else first_tombstone
 
     def get(self, key: int) -> str:
-        """Операция поиска"""
-        # Найти индекс корзины, соответствующий key
+        """Поиск"""
+        # Найти индекс корзины для ключа key
         index = self.find_bucket(key)
-        # Если пара ключ-значение найдена, вернуть соответствующее val
+        # Если пара найдена, вернуть её значение val
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             return self.buckets[index].val
-        # Если пара ключ-значение не существует, вернуть None
+        # Если пары нет, вернуть None
         return None
 
     def put(self, key: int, val: str):
-        """Операция добавления"""
-        # Когда коэффициент загрузки превышает порог, выполнить расширение
+        """Вставка"""
+        # Расширить таблицу, если коэффициент заполнения превысил порог
         if self.load_factor() > self.load_thres:
             self.extend()
-        # Найти индекс корзины, соответствующий key
+        # Найти индекс корзины для ключа key
         index = self.find_bucket(key)
-        # Если пара ключ-значение найдена, перезаписать val и вернуть
+        # Если пара найдена, заменить val и завершить операцию
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index].val = val
             return
-        # Если пары ключ-значение нет, добавить ее
+        # Если пары нет, добавить её
         self.buckets[index] = Pair(key, val)
         self.size += 1
 
     def remove(self, key: int):
-        """Операция удаления"""
-        # Найти индекс корзины, соответствующий key
+        """Удаление"""
+        # Найти индекс корзины для ключа key
         index = self.find_bucket(key)
-        # Если пара ключ-значение найдена, заменить ее меткой удаления
+        # Если пара найдена, заменить её меткой удаления
         if self.buckets[index] not in [None, self.TOMBSTONE]:
             self.buckets[index] = self.TOMBSTONE
             self.size -= 1
@@ -94,11 +94,11 @@ class HashMapOpenAddressing:
         """Расширить хеш-таблицу"""
         # Временно сохранить исходную хеш-таблицу
         buckets_tmp = self.buckets
-        # Инициализация новой хеш-таблицы после расширения
+        # Создать новую таблицу увеличенной ёмкости
         self.capacity *= self.extend_ratio
         self.buckets = [None] * self.capacity
         self.size = 0
-        # Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        # Перенести пары из исходной таблицы в новую
         for pair in buckets_tmp:
             if pair not in [None, self.TOMBSTONE]:
                 self.put(pair.key, pair.val)
@@ -116,26 +116,26 @@ class HashMapOpenAddressing:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация хеш-таблицы
+    # Создать хеш-таблицу
     hashmap = HashMapOpenAddressing()
 
-    # Операция добавления
-    # Добавить пару (key, val) в хеш-таблицу
+    # Вставка
+    # Добавить в таблицу пару (key, val)
     hashmap.put(12836, "Сяо Ха")
     hashmap.put(15937, "Сяо Ло")
     hashmap.put(16750, "Сяо Суань")
     hashmap.put(13276, "Сяо Фа")
     hashmap.put(10583, "Сяо Я")
-    print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
+    print("\nХеш-таблица после вставки:\nКлюч -> Значение")
     hashmap.print()
 
-    # Операция поиска
-    # Передать ключ key в хеш-таблицу и получить значение val
+    # Поиск
+    # Получить из таблицы значение val по ключу key
     name = hashmap.get(13276)
-    print("\nДля номера 13276 найдено имя " + name)
+    print("\nИмя студента с номером 13276: " + name)
 
-    # Операция удаления
-    # Удалить пару (key, val) из хеш-таблицы
+    # Удаление
+    # Удалить из таблицы пару (key, val)
     hashmap.remove(16750)
-    print("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение")
+    print("\nХеш-таблица после удаления 16750:\nКлюч -> Значение")
     hashmap.print()

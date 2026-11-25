@@ -1,7 +1,7 @@
 <!-- [snippet]{stack_operations} -->
 ```python title="stack.py"
 # スタックを初期化する
-# Python には組み込みのスタッククラスがないため、list をスタックとして使える
+# Python には組み込みのスタッククラスがないので、list をスタックとして使える
 stack: list[int] = []
 
 # 要素をプッシュする
@@ -11,13 +11,13 @@ stack.append(2)
 stack.append(5)
 stack.append(4)
 
-# スタックの先頭要素にアクセスする
+# スタックのトップを参照する
 peek: int = stack[-1]
 
 # 要素をポップする
 pop: int = stack.pop()
 
-# スタックの長さを取得する
+# スタックの要素数を取得する
 size: int = len(stack)
 
 # 空かどうかを判定する
@@ -35,13 +35,13 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 int top = stack.top();
 
 /* 要素をポップする */
 stack.pop(); // 戻り値なし
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 int size = stack.size();
 
 /* 空かどうかを判定する */
@@ -59,13 +59,13 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 int peek = stack.peek();
 
 /* 要素をポップする */
 int pop = stack.pop();
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 int size = stack.size();
 
 /* 空かどうかを判定する */
@@ -83,13 +83,13 @@ stack.Push(2);
 stack.Push(5);
 stack.Push(4);
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 int peek = stack.Peek();
 
 /* 要素をポップする */
 int pop = stack.Pop();
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 int size = stack.Count;
 
 /* 空かどうかを判定する */
@@ -98,7 +98,7 @@ bool isEmpty = stack.Count == 0;
 
 ```go title="stack_test.go"
 /* スタックを初期化する */
-// Go では Slice をスタックとして使うことを推奨する
+// Go ではスライスをスタックとして使うのが推奨される
 var stack []int
 
 /* 要素をプッシュする */
@@ -108,14 +108,14 @@ stack = append(stack, 2)
 stack = append(stack, 5)
 stack = append(stack, 4)
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 peek := stack[len(stack)-1]
 
 /* 要素をポップする */
 pop := stack[len(stack)-1]
 stack = stack[:len(stack)-1]
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 size := len(stack)
 
 /* 空かどうかを判定する */
@@ -124,7 +124,7 @@ isEmpty := len(stack) == 0
 
 ```swift title="stack.swift"
 /* スタックを初期化する */
-// Swift には組み込みのスタッククラスがないため、Array をスタックとして使える
+// Swift には組み込みのスタッククラスがないので、Array をスタックとして使える
 var stack: [Int] = []
 
 /* 要素をプッシュする */
@@ -134,13 +134,13 @@ stack.append(2)
 stack.append(5)
 stack.append(4)
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 let peek = stack.last!
 
 /* 要素をポップする */
 let pop = stack.removeLast()
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 let size = stack.count
 
 /* 空かどうかを判定する */
@@ -149,7 +149,7 @@ let isEmpty = stack.isEmpty
 
 ```javascript title="stack.js"
 /* スタックを初期化する */
-// JavaScript には組み込みのスタッククラスがないため、Array をスタックとして使える
+// JavaScript には組み込みのスタッククラスがないので、Array をスタックとして使える
 const stack = [];
 
 /* 要素をプッシュする */
@@ -159,13 +159,13 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 const peek = stack[stack.length - 1];
 
 /* 要素をポップする */
 const pop = stack.pop();
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 const size = stack.length;
 
 /* 空かどうかを判定する */
@@ -174,7 +174,7 @@ const isEmpty = stack.length === 0;
 
 ```typescript title="stack.ts"
 /* スタックを初期化する */
-// TypeScript には組み込みのスタッククラスがないため、Array をスタックとして使える
+// TypeScript には組み込みのスタッククラスがないので、Array をスタックとして使える
 const stack: number[] = [];
 
 /* 要素をプッシュする */
@@ -184,13 +184,13 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 const peek = stack[stack.length - 1];
 
 /* 要素をポップする */
 const pop = stack.pop();
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 const size = stack.length;
 
 /* 空かどうかを判定する */
@@ -199,7 +199,7 @@ const isEmpty = stack.length === 0;
 
 ```dart title="stack.dart"
 /* スタックを初期化する */
-// Dart には組み込みのスタッククラスがないため、List をスタックとして使える
+// Dart には組み込みのスタッククラスがないので、List をスタックとして使える
 final List<int> stack = [];
 
 /* 要素をプッシュする */
@@ -209,13 +209,13 @@ stack.add(2);
 stack.add(5);
 stack.add(4);
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 final int peek = stack.last;
 
 /* 要素をポップする */
 final int pop = stack.removeLast();
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 final int size = stack.length;
 
 /* 空かどうかを判定する */
@@ -224,7 +224,7 @@ final bool isEmpty = stack.isEmpty;
 
 ```rust title="stack.rs"
 // スタックを初期化する
-// Rust では Vec をスタックとして使うことを推奨する
+// Rust では Vec をスタックとして使うのが推奨される
 let mut stack: Vec<i32> = Vec::new();
 
 // 要素をプッシュする
@@ -234,13 +234,13 @@ stack.push(2);
 stack.push(5);
 stack.push(4);
 
-// スタックの先頭要素にアクセスする
+// スタックのトップを参照する
 let peek = stack.last().unwrap();
 
 // 要素をポップする
 let pop = stack.pop().unwrap();
 
-// スタックの長さを取得する
+// スタックの要素数を取得する
 let size = stack.len();
 
 // スタックが空かどうかを判定する
@@ -262,13 +262,13 @@ stack.push(2)
 stack.push(5)
 stack.push(4)
 
-/* スタックの先頭要素にアクセスする */
+/* スタックのトップを参照する */
 val peek = stack.peek()
 
 /* 要素をポップする */
 val pop = stack.pop()
 
-/* スタックの長さを取得する */
+/* スタックの要素数を取得する */
 val size = stack.size
 
 /* 空かどうかを判定する */
@@ -277,7 +277,7 @@ val isEmpty = stack.isEmpty()
 
 ```ruby title="stack.rb"
 # スタックを初期化する
-# Ruby には組み込みのスタッククラスがないため、Array をスタックとして使える
+# Ruby には組み込みのスタッククラスがないので、Array をスタックとして使える
 stack = []
 
 # 要素をプッシュする
@@ -287,13 +287,13 @@ stack << 2
 stack << 5
 stack << 4
 
-# スタックの先頭要素にアクセスする
+# スタックのトップを参照する
 peek = stack.last
 
 # 要素をポップする
 pop = stack.pop
 
-# スタックの長さを取得する
+# スタックの要素数を取得する
 size = stack.length
 
 # 空かどうかを判定する
@@ -301,4 +301,4 @@ is_empty = stack.empty?
 ```
 
 <!-- [tutor]{stack_operations_tutor} -->
-https://pythontutor.com/render.html#code=%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%AB%E3%81%AF%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%8C%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%80%81list%20%E3%82%92%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%88%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.append(1)%0A%20%20%20%20stack.append(3)%0A%20%20%20%20stack.append(2)%0A%20%20%20%20stack.append(5)%0A%20%20%20%20stack.append(4)%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22%2C%20stack)%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%20peek%20%3D%22%2C%20peek)%0A%0A%20%20%20%20%23%20%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop()%0A%20%20%20%20print(%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22%2C%20pop)%0A%20%20%20%20print(%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E5%BE%8C%E3%81%AE%20stack%20%3D%22%2C%20stack)%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len(stack)%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22%2C%20size)%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len(stack)%20%3D%3D%200%0A%20%20%20%20print(%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AF%E7%A9%BA%E3%81%8B%20%3D%22%2C%20is_empty)&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%0A%20%20%20%20%23%20Python%20%E3%81%AB%E3%81%AF%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%8C%E3%81%AA%E3%81%84%E3%80%82list%20%E3%82%92%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E3%81%88%E3%82%8B%0A%20%20%20%20stack%20%3D%20%5B%5D%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AB%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%97%E3%83%83%E3%82%B7%E3%83%A5%0A%20%20%20%20stack.append%281%29%0A%20%20%20%20stack.append%283%29%0A%20%20%20%20stack.append%282%29%0A%20%20%20%20stack.append%285%29%0A%20%20%20%20stack.append%284%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E4%B8%80%E7%95%AA%E4%B8%8A%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%0A%20%20%20%20peek%20%3D%20stack%5B-1%5D%0A%20%20%20%20print%28%22%E4%B8%80%E7%95%AA%E4%B8%8A%E3%81%AE%E8%A6%81%E7%B4%A0%20peek%20%3D%22,%20peek%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8B%E3%82%89%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%9D%E3%83%83%E3%83%97%0A%20%20%20%20pop%20%3D%20stack.pop%28%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E8%A6%81%E7%B4%A0%20pop%20%3D%22,%20pop%29%0A%20%20%20%20print%28%22%E3%83%9D%E3%83%83%E3%83%97%E5%BE%8C%E3%81%AE%20stack%20%3D%22,%20stack%29%0A%0A%20%20%20%20%23%20%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%E5%8F%96%E5%BE%97%0A%20%20%20%20size%20%3D%20len%28stack%29%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AE%E9%95%B7%E3%81%95%20size%20%3D%22,%20size%29%0A%0A%20%20%20%20%23%20%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E5%88%A4%E5%AE%9A%0A%20%20%20%20is_empty%20%3D%20len%28stack%29%20%3D%3D%200%0A%20%20%20%20print%28%22%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%8C%E7%A9%BA%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%20%3D%22,%20is_empty%29&cumulative=false&curInstr=2&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

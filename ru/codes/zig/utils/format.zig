@@ -119,7 +119,7 @@ pub fn TreeFormatter(comptime T: type) type {
         }
 
         // Вывести двоичное дерево
-        // Этот вывод дерева заимствован из TECHIE DELIGHT
+        // Код для вывода дерева заимствован у TECHIE DELIGHT
         // https://www.techiedelight.com/c-program-print-binary-tree/
         const Trunk = struct {
             prev: ?*Trunk = null,

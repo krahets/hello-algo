@@ -9,24 +9,24 @@ package chapter_dynamic_programming;
 import java.util.Arrays;
 
 public class min_cost_climbing_stairs_dp {
-    /* Minimum cost to climb stairs: dynamic programming */
+    /* Minimum cost to climb stairs with dynamic programming */
     public static int minCostClimbingStairsDP(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)
             return cost[n];
         // Initialize the dp table to store subproblem solutions
         int[] dp = new int[n + 1];
-        // Initial states: set the solutions to the smallest subproblems
+        // Base cases: set the solutions to the smallest subproblems
         dp[1] = cost[1];
         dp[2] = cost[2];
-        // State transitions: solve progressively larger subproblems using smaller ones
+        // State transition: solve larger subproblems using smaller ones
         for (int i = 3; i <= n; i++) {
             dp[i] = Math.min(dp[i - 1], dp[i - 2]) + cost[i];
         }
         return dp[n];
     }
 
-    /* Minimum cost to climb stairs: space-optimized dynamic programming */
+    /* Minimum cost to climb stairs with space-optimized dynamic programming */
     public static int minCostClimbingStairsDPComp(int[] cost) {
         int n = cost.length - 1;
         if (n == 1 || n == 2)

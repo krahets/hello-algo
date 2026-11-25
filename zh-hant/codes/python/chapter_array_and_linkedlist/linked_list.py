@@ -19,7 +19,7 @@ def insert(n0: ListNode, P: ListNode):
 
 
 def remove(n0: ListNode):
-    """刪除鏈結串列的節點 n0 之後的首個節點"""
+    """刪除鏈結串列中緊接在節點 n0 之後的節點"""
     if not n0.next:
         return
     # n0 -> P -> n1
@@ -29,7 +29,7 @@ def remove(n0: ListNode):
 
 
 def access(head: ListNode, index: int) -> ListNode | None:
-    """訪問鏈結串列中索引為 index 的節點"""
+    """存取鏈結串列中索引為 index 的節點"""
     for _ in range(index):
         if not head:
             return None
@@ -38,7 +38,7 @@ def access(head: ListNode, index: int) -> ListNode | None:
 
 
 def find(head: ListNode, target: int) -> int:
-    """在鏈結串列中查詢值為 target 的首個節點"""
+    """在鏈結串列中尋找第一個值為 target 的節點"""
     index = 0
     while head:
         if head.val == target:
@@ -57,12 +57,12 @@ if __name__ == "__main__":
     n2 = ListNode(2)
     n3 = ListNode(5)
     n4 = ListNode(4)
-    # 構建節點之間的引用
+    # 建立節點之間的參照
     n0.next = n1
     n1.next = n2
     n2.next = n3
     n3.next = n4
-    print("初始化的鏈結串列為")
+    print("初始化後的鏈結串列為")
     print_linked_list(n0)
 
     # 插入節點
@@ -76,10 +76,10 @@ if __name__ == "__main__":
     print("刪除節點後的鏈結串列為")
     print_linked_list(n0)
 
-    # 訪問節點
+    # 存取節點
     node: ListNode = access(n0, 3)
-    print("鏈結串列中索引 3 處的節點的值 = {}".format(node.val))
+    print("鏈結串列中索引 3 處的節點值 = {}".format(node.val))
 
-    # 查詢節點
+    # 尋找節點
     index: int = find(n0, 2)
-    print("鏈結串列中值為 2 的節點的索引 = {}".format(index))
+    print("鏈結串列中值為 2 的節點索引 = {}".format(index))

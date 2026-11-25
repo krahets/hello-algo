@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 階段を上る最小コスト：動的計画法 */
+/* 階段を登る最小コスト：動的計画法 */
 int minCostClimbingStairsDP(vector<int> &cost) {
     int n = cost.size() - 1;
     if (n == 1 || n == 2)
@@ -23,7 +23,7 @@ int minCostClimbingStairsDP(vector<int> &cost) {
     return dp[n];
 }
 
-/* 階段を上る最小コスト：空間を最適化した動的計画法 */
+/* 階段を登る最小コスト：使用メモリを削減した動的計画法 */
 int minCostClimbingStairsDPComp(vector<int> &cost) {
     int n = cost.size() - 1;
     if (n == 1 || n == 2)
@@ -37,17 +37,17 @@ int minCostClimbingStairsDPComp(vector<int> &cost) {
     return b;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     vector<int> cost = {0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1};
-    cout << "入力した階段のコストのリスト ";
+    cout << "各段のコストの入力リストは ";
     printVector(cost);
 
     int res = minCostClimbingStairsDP(cost);
-    cout << "階段を上り終える最小コストは " << res << endl;
+    cout << "階段を登りきる最小コストは " << res << endl;
 
     res = minCostClimbingStairsDPComp(cost);
-    cout << "階段を上り終える最小コストは " << res << endl;
+    cout << "階段を登りきる最小コストは " << res << endl;
 
     return 0;
 }

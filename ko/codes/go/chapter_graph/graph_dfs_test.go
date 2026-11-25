@@ -18,11 +18,11 @@ func TestGraphDFS(t *testing.T) {
 		{vets[0], vets[1]}, {vets[0], vets[3]}, {vets[1], vets[2]},
 		{vets[2], vets[5]}, {vets[4], vets[5]}, {vets[5], vets[6]}}
 	graph := newGraphAdjList(edges)
-	fmt.Println("초기화한 후의 그래프:")
+	fmt.Println("초기화한 그래프:")
 	graph.print()
 
 	/* 깊이 우선 순회 */
 	res := graphDFS(graph, vets[0])
-	fmt.Println("깊이 우선 순회(DFS)의 정점 순서:")
+	fmt.Println("깊이 우선 순회(DFS)의 정점 방문 순서:")
 	PrintSlice(VetsToVals(res))
 }

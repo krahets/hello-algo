@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_dynamic_programming;
 
 public class climbing_stairs_dp {
-    /* 階段の上り方：動的計画法 */
+    /* 階段の登り方：動的計画法 */
     int ClimbingStairsDP(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -23,7 +23,7 @@ public class climbing_stairs_dp {
         return dp[n];
     }
 
-    /* 階段の上り方：空間を最適化した動的計画法 */
+    /* 階段の登り方：使用メモリを削減した動的計画法 */
     int ClimbingStairsDPComp(int n) {
         if (n == 1 || n == 2)
             return n;
@@ -41,9 +41,9 @@ public class climbing_stairs_dp {
         int n = 9;
 
         int res = ClimbingStairsDP(n);
-        Console.WriteLine($"{n} 段の階段を上る方法は全部で {res} 通り");
+        Console.WriteLine($"全 {n} 段の階段の登り方は {res} 通り");
 
         res = ClimbingStairsDPComp(n);
-        Console.WriteLine($"{n} 段の階段を上る方法は全部で {res} 通り");
+        Console.WriteLine($"全 {n} 段の階段の登り方は {res} 通り");
     }
 }

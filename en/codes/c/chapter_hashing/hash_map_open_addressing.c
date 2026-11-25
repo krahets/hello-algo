@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Key-value pair */
+/* Hash table with open addressing */
 typedef struct {
     int key;
     char *val;
@@ -16,13 +16,13 @@ typedef struct {
 typedef struct {
     int size;         // Number of key-value pairs
     int capacity;     // Hash table capacity
-    double loadThres; // Load factor threshold that triggers capacity growth
-    int extendRatio;  // Capacity growth factor
+    double loadThres; // Load factor threshold for resizing
+    int extendRatio;  // Growth factor
     Pair **buckets;   // Bucket array
-    Pair *TOMBSTONE;  // Tombstone marker
+    Pair *TOMBSTONE;  // Deletion marker
 } HashMapOpenAddressing;
 
-// Function declaration
+// Function declarations
 void extend(HashMapOpenAddressing *hashMap);
 
 /* Constructor */
@@ -72,46 +72,46 @@ int findBucket(HashMapOpenAddressing *hashMap, int key) {
     while (hashMap->buckets[index] != NULL) {
         // If key is found, return its bucket index
         if (hashMap->buckets[index]->key == key) {
-            // If a tombstone was encountered earlier, move the key-value pair to that index
+            // If a deletion marker was found earlier, move the pair to that index
             if (firstTombstone != -1) {
                 hashMap->buckets[firstTombstone] = hashMap->buckets[index];
                 hashMap->buckets[index] = hashMap->TOMBSTONE;
-                return firstTombstone; // Return the bucket index after the move
+                return firstTombstone; // Return the new bucket index
             }
             return index; // Return the bucket index
         }
-        // Record the first tombstone encountered
+        // Record the first deletion marker encountered
         if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
             firstTombstone = index;
         }
-        // Calculate the bucket index, wrapping to the beginning after the end
+        // Compute the next bucket index, wrapping to the start at the end
         index = (index + 1) % hashMap->capacity;
     }
     // If key is absent, return the index for insertion
     return firstTombstone == -1 ? index : firstTombstone;
 }
 
-/* Lookup operation */
+/* Look up a value */
 char *get(HashMapOpenAddressing *hashMap, int key) {
     // Find the bucket index for key
     int index = findBucket(hashMap, key);
-    // If the key-value pair is found, return its val
+    // If the pair is found, return its val
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         return hashMap->buckets[index]->val;
     }
-    // Return an empty string if the key-value pair does not exist
+    // If the pair is absent, return an empty string
     return "";
 }
 
-/* Insert operation */
+/* Insert a key-value pair */
 void put(HashMapOpenAddressing *hashMap, int key, char *val) {
-    // Grow the capacity when the load factor exceeds the threshold
+    // Expand the table when the load factor exceeds the threshold
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
     // Find the bucket index for key
     int index = findBucket(hashMap, key);
-    // If the key-value pair is found, overwrite val and return
+    // If the pair is found, overwrite val and return
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         free(hashMap->buckets[index]->val);
         hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
@@ -119,7 +119,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
         hashMap->buckets[index]->val[strlen(val)] = '\0';
         return;
     }
-    // If the key-value pair is absent, insert it
+    // If the pair is absent, insert it
     Pair *pair = (Pair *)malloc(sizeof(Pair));
     pair->key = key;
     pair->val = (char *)malloc(strlen(val) + 1);
@@ -130,11 +130,11 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
     hashMap->size++;
 }
 
-/* Remove operation */
+/* Remove a key-value pair */
 void removeItem(HashMapOpenAddressing *hashMap, int key) {
     // Find the bucket index for key
     int index = findBucket(hashMap, key);
-    // If the key-value pair is found, replace it with a tombstone
+    // If the pair is found, replace it with a deletion marker
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         Pair *pair = hashMap->buckets[index];
         free(pair->val);
@@ -144,16 +144,16 @@ void removeItem(HashMapOpenAddressing *hashMap, int key) {
     }
 }
 
-/* Grow the hash table capacity */
+/* Expand the hash table */
 void extend(HashMapOpenAddressing *hashMap) {
-    // Keep a reference to the original hash table
+    // Save the original hash table
     Pair **bucketsTmp = hashMap->buckets;
     int oldCapacity = hashMap->capacity;
-    // Initialize a new hash table with the expanded capacity
+    // Initialize the larger hash table
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Pair **)calloc(hashMap->capacity, sizeof(Pair *));
     hashMap->size = 0;
-    // Move the key-value pairs from the original hash table to the new one
+    // Move the key-value pairs from the old table into the new one
     for (int i = 0; i < oldCapacity; i++) {
         Pair *pair = bucketsTmp[i];
         if (pair != NULL && pair != hashMap->TOMBSTONE) {
@@ -184,23 +184,23 @@ int main() {
     // Initialize the hash table
     HashMapOpenAddressing *hashmap = newHashMapOpenAddressing();
 
-    // Insert operation
-    // Insert the key-value pair (key, val) into the hash table
-    put(hashmap, 12836, "小哈");
-    put(hashmap, 15937, "小啰");
-    put(hashmap, 16750, "小算");
-    put(hashmap, 13276, "小法");
-    put(hashmap, 10583, "小鸭");
+    // Insert a key-value pair
+    // Insert the pair (key, val) into the hash table
+    put(hashmap, 12836, "Xiao Ha");
+    put(hashmap, 15937, "Xiao Luo");
+    put(hashmap, 16750, "Xiao Suan");
+    put(hashmap, 13276, "Xiao Fa");
+    put(hashmap, 10583, "Xiao Ya");
     printf("\nHash table after insertion:\nKey -> Value\n");
     print(hashmap);
 
-    // Lookup operation
-    // Look up key in the hash table to obtain val
+    // Look up a value
+    // Look up key in the hash table to get val
     char *name = get(hashmap, 13276);
-    printf("\nLook up student ID 13276; name found: %s\n", name);
+    printf("\nName for student ID 13276: %s\n", name);
 
-    // Remove operation
-    // Remove the key-value pair (key, val) from the hash table
+    // Remove a key-value pair
+    // Remove the pair (key, val) from the hash table
     removeItem(hashmap, 16750);
     printf("\nHash table after removing 16750:\nKey -> Value\n");
     print(hashmap);

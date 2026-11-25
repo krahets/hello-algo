@@ -4,24 +4,24 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Coin change: dynamic programming */
+/* Coin change with dynamic programming */
 func coinChangeDP(coins: [Int], amt: Int) -> Int {
     let n = coins.count
     let MAX = amt + 1
     // Initialize the dp table
     var dp = Array(repeating: Array(repeating: 0, count: amt + 1), count: n + 1)
-    // State transitions: first row and first column
+    // State transitions for the first row and column
     for a in 1 ... amt {
         dp[0][a] = MAX
     }
-    // State transitions: remaining rows and columns
+    // State transitions for the remaining rows and columns
     for i in 1 ... n {
         for a in 1 ... amt {
             if coins[i - 1] > a {
-                // If the coin exceeds the current target amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[i][a] = dp[i - 1][a]
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[i][a] = min(dp[i - 1][a], dp[i][a - coins[i - 1]] + 1)
             }
         }
@@ -29,21 +29,21 @@ func coinChangeDP(coins: [Int], amt: Int) -> Int {
     return dp[n][amt] != MAX ? dp[n][amt] : -1
 }
 
-/* Coin change: space-optimized dynamic programming */
+/* Coin change with space-optimized dynamic programming */
 func coinChangeDPComp(coins: [Int], amt: Int) -> Int {
     let n = coins.count
     let MAX = amt + 1
     // Initialize the dp table
     var dp = Array(repeating: MAX, count: amt + 1)
     dp[0] = 0
-    // State transitions
+    // State transition
     for i in 1 ... n {
         for a in 1 ... amt {
             if coins[i - 1] > a {
-                // If the coin exceeds the current target amount a, do not choose coin i
+                // Skip coin i if its value exceeds the target amount
                 dp[a] = dp[a]
             } else {
-                // Take the smaller result of not choosing and choosing coin i
+                // Take the minimum of the counts for skipping and taking coin i
                 dp[a] = min(dp[a], dp[a - coins[i - 1]] + 1)
             }
         }

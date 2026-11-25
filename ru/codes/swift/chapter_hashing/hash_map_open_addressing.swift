@@ -8,12 +8,12 @@ import utils
 
 /* Хеш-таблица с открытой адресацией */
 class HashMapOpenAddressing {
-    var size: Int // Число пар ключ-значение
-    var capacity: Int // Вместимость хеш-таблицы
-    var loadThres: Double // Порог коэффициента загрузки для запуска расширения
-    var extendRatio: Int // Коэффициент расширения
+    var size: Int // Число пар «ключ — значение»
+    var capacity: Int // Ёмкость хеш-таблицы
+    var loadThres: Double // Порог коэффициента заполнения для расширения
+    var extendRatio: Int // Во сколько раз увеличивается ёмкость
     var buckets: [Pair?] // Массив корзин
-    var TOMBSTONE: Pair // Удалить метку
+    var TOMBSTONE: Pair // Метка удаления
 
     /* Конструктор */
     init() {
@@ -30,20 +30,20 @@ class HashMapOpenAddressing {
         key % capacity
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     func loadFactor() -> Double {
         Double(size) / Double(capacity)
     }
 
-    /* Найти индекс корзины, соответствующий key */
+    /* Найти индекс корзины для ключа key */
     func findBucket(key: Int) -> Int {
         var index = hashFunc(key: key)
         var firstTombstone = -1
-        // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
+        // Линейное пробирование до первой пустой корзины
         while buckets[index] != nil {
-            // Если встретился key, вернуть соответствующий индекс корзины
+            // При совпадении ключа key вернуть индекс его корзины
             if buckets[index]!.key == key {
-                // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
+                // Если ранее встретилась метка удаления, переместить пару на её место
                 if firstTombstone != -1 {
                     buckets[firstTombstone] = buckets[index]
                     buckets[index] = TOMBSTONE
@@ -51,52 +51,52 @@ class HashMapOpenAddressing {
                 }
                 return index // Вернуть индекс корзины
             }
-            // Записать первую встретившуюся метку удаления
+            // Запомнить первую встретившуюся метку удаления
             if firstTombstone == -1 && buckets[index] == TOMBSTONE {
                 firstTombstone = index
             }
-            // Вычислить индекс корзины; при выходе за конец вернуться к началу
+            // Вычислить индекс корзины, после конца массива перейти в начало
             index = (index + 1) % capacity
         }
-        // Если key не существует, вернуть индекс точки добавления
+        // Если ключа key нет, вернуть индекс для вставки
         return firstTombstone == -1 ? index : firstTombstone
     }
 
-    /* Операция поиска */
+    /* Поиск */
     func get(key: Int) -> String? {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         let index = findBucket(key: key)
-        // Если пара ключ-значение найдена, вернуть соответствующее val
+        // Если пара найдена, вернуть её значение val
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             return buckets[index]!.val
         }
-        // Если пары ключ-значение не существует, вернуть null
+        // Если пары нет, вернуть null
         return nil
     }
 
-    /* Операция добавления */
+    /* Вставка */
     func put(key: Int, val: String) {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if loadFactor() > loadThres {
             extend()
         }
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         let index = findBucket(key: key)
-        // Если пара ключ-значение найдена, перезаписать val и вернуть
+        // Если пара найдена, заменить val и завершить операцию
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index]!.val = val
             return
         }
-        // Если пары ключ-значение нет, добавить ее
+        // Если пары нет, добавить её
         buckets[index] = Pair(key: key, val: val)
         size += 1
     }
 
-    /* Операция удаления */
+    /* Удаление */
     func remove(key: Int) {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         let index = findBucket(key: key)
-        // Если пара ключ-значение найдена, заменить ее меткой удаления
+        // Если пара найдена, заменить её меткой удаления
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index] = TOMBSTONE
             size -= 1
@@ -107,11 +107,11 @@ class HashMapOpenAddressing {
     func extend() {
         // Временно сохранить исходную хеш-таблицу
         let bucketsTmp = buckets
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         capacity *= extendRatio
         buckets = Array(repeating: nil, count: capacity)
         size = 0
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         for pair in bucketsTmp {
             if let pair, pair != TOMBSTONE {
                 put(key: pair.key, val: pair.val)
@@ -135,30 +135,30 @@ class HashMapOpenAddressing {
 
 @main
 enum _HashMapOpenAddressing {
-    /* Driver Code */
+    /* Демонстрационный код */
     static func main() {
-        /* Инициализация хеш-таблицы */
+        /* Создать хеш-таблицу */
         let map = HashMapOpenAddressing()
 
-        /* Операция добавления */
-        // Добавить пару (key, value) в хеш-таблицу
+        /* Вставка */
+        // Добавить в таблицу пару (key, value)
         map.put(key: 12836, val: "Сяо Ха")
         map.put(key: 15937, val: "Сяо Ло")
         map.put(key: 16750, val: "Сяо Суань")
         map.put(key: 13276, val: "Сяо Фа")
         map.put(key: 10583, val: "Сяо Я")
-        print("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение")
+        print("\nХеш-таблица после вставки:\nКлюч -> Значение")
         map.print()
 
-        /* Операция поиска */
-        // Ввести в хеш-таблицу ключ key и получить значение value
+        /* Поиск */
+        // Получить из таблицы значение value по ключу key
         let name = map.get(key: 13276)
-        print("\nДля номера 13276 найдено имя \(name!)")
+        print("\nИмя студента с номером 13276: \(name!)")
 
-        /* Операция удаления */
-        // Удалить пару (key, value) из хеш-таблицы
+        /* Удаление */
+        // Удалить из таблицы пару (key, value)
         map.remove(key: 16750)
-        print("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение")
+        print("\nХеш-таблица после удаления 16750:\nКлюч -> Значение")
         map.print()
     }
 }

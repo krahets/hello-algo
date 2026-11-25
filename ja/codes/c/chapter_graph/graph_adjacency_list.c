@@ -6,18 +6,18 @@
 
 #include "../utils/common.h"
 
-// ノード数は最大 100 と仮定する
+// ノード数の上限を 100 とする
 #define MAX_SIZE 100
 
 /* ノードの構造体 */
 typedef struct AdjListNode {
     Vertex *vertex;           // 頂点
-    struct AdjListNode *next; // 後続ノード
+    struct AdjListNode *next; // 次のノード
 } AdjListNode;
 
-/* 隣接リストで実装した無向グラフクラス */
+/* 隣接リストで無向グラフを表すクラス */
 typedef struct {
-    AdjListNode *heads[MAX_SIZE]; // ノード配列
+    AdjListNode *heads[MAX_SIZE]; // ノードの配列
     int size;                     // ノード数
 } GraphAdjList;
 
@@ -51,7 +51,7 @@ void delGraphAdjList(GraphAdjList *graph) {
     free(graph);
 }
 
-/* 頂点に対応するノードを探索する */
+/* 頂点に対応するノードを探す */
 AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
     for (int i = 0; i < graph->size; i++) {
         if (graph->heads[i]->vertex == vet) {
@@ -65,7 +65,7 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
 void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
     node->vertex = vet;
-    // 先頭への挿入
+    // 先頭に挿入する
     node->next = head->next;
     head->next = node;
 }
@@ -84,7 +84,7 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
 void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *pre = head;
     AdjListNode *cur = head->next;
-    // 連結リストから vet に対応するノードを探索する
+    // 連結リストから vet に対応するノードを探す
     while (cur != NULL && cur->vertex != vet) {
         pre = cur;
         cur = cur->next;
@@ -124,7 +124,7 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // この頂点より後の頂点を前にずらし、空きを埋める
+    // 後続の頂点を前に詰めて空きを埋める
     int i;
     for (i = 0; i < graph->size; i++) {
         if (graph->heads[i] == node)
@@ -134,7 +134,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
         graph->heads[j] = graph->heads[j + 1];
     }
     graph->size--;
-    // 他の頂点の連結リストを走査し、vet を含むすべての辺を削除する
+    // 他の頂点の連結リストをたどり、vet を端点とする辺をすべて削除する
     for (int i = 0; i < graph->size; i++) {
         AdjListNode *cur = graph->heads[i];
         while (cur->next != NULL) {
@@ -147,7 +147,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
             }
         }
     }
-    // 隣接リストから頂点 vet に対応する連結リストを削除する
+    // 隣接リストから頂点 vet の連結リストを削除する
     while (node != NULL) {
         AdjListNode *next = node->next;
         free(node);

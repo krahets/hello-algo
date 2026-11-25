@@ -17,9 +17,9 @@ func TestKnapsack(t *testing.T) {
 
 	// 완전 탐색
 	res := knapsackDFS(wgt, val, n, c)
-	fmt.Printf("배낭 용량을 넘지 않는 물건의 최대 가치는 %d이다\n", res)
+	fmt.Printf("배낭 용량 내에서 얻는 최대 가치: %d\n", res)
 
-	// 메모이제이션을 이용한 탐색
+	// 메모이제이션 탐색
 	mem := make([][]int, n+1)
 	for i := 0; i <= n; i++ {
 		mem[i] = make([]int, c+1)
@@ -28,15 +28,15 @@ func TestKnapsack(t *testing.T) {
 		}
 	}
 	res = knapsackDFSMem(wgt, val, mem, n, c)
-	fmt.Printf("배낭 용량을 넘지 않는 물건의 최대 가치는 %d이다\n", res)
+	fmt.Printf("배낭 용량 내에서 얻는 최대 가치: %d\n", res)
 
 	// 동적 계획법
 	res = knapsackDP(wgt, val, c)
-	fmt.Printf("배낭 용량을 넘지 않는 물건의 최대 가치는 %d이다\n", res)
+	fmt.Printf("배낭 용량 내에서 얻는 최대 가치: %d\n", res)
 
-	// 공간을 최적화한 동적 계획법
+	// 공간 최적화 동적 계획법
 	res = knapsackDPComp(wgt, val, c)
-	fmt.Printf("배낭 용량을 넘지 않는 물건의 최대 가치는 %d이다\n", res)
+	fmt.Printf("배낭 용량 내에서 얻는 최대 가치: %d\n", res)
 }
 
 func TestUnboundedKnapsack(t *testing.T) {
@@ -46,9 +46,9 @@ func TestUnboundedKnapsack(t *testing.T) {
 
 	// 동적 계획법
 	res := unboundedKnapsackDP(wgt, val, c)
-	fmt.Printf("배낭 용량을 넘지 않는 물건의 최대 가치는 %d이다\n", res)
+	fmt.Printf("배낭 용량 내에서 얻는 최대 가치: %d\n", res)
 
-	// 공간을 최적화한 동적 계획법
+	// 공간 최적화 동적 계획법
 	res = unboundedKnapsackDPComp(wgt, val, c)
-	fmt.Printf("배낭 용량을 넘지 않는 물건의 최대 가치는 %d이다\n", res)
+	fmt.Printf("배낭 용량 내에서 얻는 최대 가치: %d\n", res)
 }

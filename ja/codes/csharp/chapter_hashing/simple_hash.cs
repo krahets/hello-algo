@@ -27,7 +27,7 @@ public class simple_hash {
         return (int)hash;
     }
 
-    /* 排他的論理和ハッシュ */
+    /* XOR ハッシュ */
     int XorHash(string key) {
         int hash = 0;
         const int MODULUS = 1000000007;
@@ -58,7 +58,7 @@ public class simple_hash {
         Console.WriteLine("乗算ハッシュの値は " + hash);
 
         hash = XorHash(key);
-        Console.WriteLine("排他的論理和ハッシュの値は " + hash);
+        Console.WriteLine("XOR ハッシュの値は " + hash);
 
         hash = RotHash(key);
         Console.WriteLine("回転ハッシュの値は " + hash);

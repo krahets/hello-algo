@@ -17,7 +17,7 @@ typedef struct ListNode {
     struct ListNode *next; // Pointer to the next node
 } ListNode;
 
-/* Constructor: initialize a new node */
+/* Create and initialize a new node */
 ListNode *newListNode(int val) {
     ListNode *node;
     node = (ListNode *)malloc(sizeof(ListNode));
@@ -43,7 +43,7 @@ ListNode *arrToLinkedList(const int *arr, size_t size) {
 
 /* Free the memory allocated to the linked list */
 void freeMemoryLinkedList(ListNode *cur) {
-    // Free memory
+    // Free the memory
     ListNode *pre;
     while (cur != NULL) {
         pre = cur;

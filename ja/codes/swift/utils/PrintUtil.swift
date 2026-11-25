@@ -78,7 +78,7 @@ public enum PrintUtil {
     public static func printHeap(queue: [Int]) {
         print("ヒープの配列表現：", terminator: "")
         print(queue)
-        print("ヒープの木構造表現：")
+        print("ヒープの木構造：")
         let root = TreeNode.listToTree(arr: queue)
         printTree(root: root)
     }

@@ -1,32 +1,32 @@
 {
-  "schema_version": 2,
-  "title": "Logical relationships in data structures",
-  "summary": "Compare four kinds of logical relationships: sequential order, parent-child hierarchy, network connections, and key-value mapping.",
   "context": [],
   "description": [
-    "The left column of the figure groups linear data structures, and the right column groups nonlinear data structures; the hash table spans across the bottom beneath both columns to illustrate key-value mapping separately."
+    "The left column shows linear structures and the right column nonlinear structures. The hash table appears separately below both columns to illustrate a key-value mapping."
   ],
   "frames": [
     {
-      "id": "source-38",
       "book_path": "chapter_data_structure/classification_of_data_structure.assets/classification_logic_structure.png",
-      "title": "Logical relationships in data structures",
-      "explanation": "Linear structures maintain a sequential order while differing in where operations are permitted; trees and heaps organize parent-child hierarchies, and graphs allow a vertex to connect to multiple neighbors. What is compared here is logical structure rather than underlying physical storage: the same logical relationship can be implemented in different ways, and a hash table can combine arrays, linked lists, or trees."
+      "explanation": "Linear structures have a sequential order, but differ in where operations can take place. Trees and heaps form parent-child hierarchies, while a graph allows a vertex to have multiple neighbors. These are logical relationships. The underlying storage can vary for the same relationship, and a hash table can combine arrays, linked lists, or trees.",
+      "id": "source-38",
+      "title": "Logical relationships in data structures"
     }
   ],
+  "schema_version": 2,
+  "summary": "Compare four logical relationships: sequences, parent-child hierarchies, network connections, and key-value mappings.",
   "tables": [
     {
-      "caption": "Examples and connections for each data structure",
+      "caption": "Examples of the structures and their connections",
       "headers": [
         "Structure",
-        "Column in figure",
+        "Column in the figure",
         "Elements and relationships shown"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Array",
           "Linear",
-          "Arranged in order 1, 3, 2, 5, 4"
+          "Ordered 1, 3, 2, 5, 4"
         ],
         [
           "Linked list",
@@ -36,35 +36,35 @@
         [
           "Stack",
           "Linear",
-          "1, 3, 2, 5, 4 from the open end to the closed end; both push and pop occur at the open end"
+          "From the open end to the closed end: 1, 3, 2, 5, 4. Both push and pop operate at the open end"
         ],
         [
           "Queue",
           "Linear",
-          "1, 3, 2, 5, 4 from the dequeue end to the enqueue end; push (enqueue) and pop (dequeue) occur at opposite ends"
+          "From the removal end to the insertion end: 1, 3, 2, 5, 4. Push enqueues at one end and pop dequeues at the other"
         ],
         [
           "Tree",
           "Nonlinear",
-          "Root 1 with left child 2 and right child 3; 2 has left 4 and right 5; 3 has left 6 and right 7; 7 nodes across three levels"
+          "Root 1 has children 2 and 3, node 2 has children 4 and 5, and node 3 has children 6 and 7, in left-to-right order. Seven nodes span three levels"
         ],
         [
           "Graph",
           "Nonlinear",
-          "5 vertices 1 through 5; 7 undirected edges: 1—2, 1—3, 2—3, 2—4, 2—5, 3—5, 4—5"
+          "Five vertices numbered 1 through 5, with seven undirected edges: 1–2, 1–3, 2–3, 2–4, 2–5, 3–5, and 4–5"
         ],
         [
           "Heap",
           "Nonlinear",
-          "Root 1 with left child 3 and right child 2; 3 has left 5 and right 4; 5 nodes across three levels"
+          "Root 1 has left child 3 and right child 2. Node 3 has left child 5 and right child 4. Five nodes span three levels"
         ],
         [
           "Hash table",
-          "Full-width row across both columns",
+          "Shown separately across both columns",
           "Keys a, b, and c map to values 1, 2, and 3, respectively"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Logical relationships in data structures"
 }

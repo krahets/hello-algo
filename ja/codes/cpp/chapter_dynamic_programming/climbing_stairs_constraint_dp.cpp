@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* 制約付きの階段の上り方：動的計画法 */
+/* 制約付きの階段の登り方：動的計画法 */
 int climbingStairsConstraintDP(int n) {
     if (n == 1 || n == 2) {
         return 1;
@@ -26,12 +26,12 @@ int climbingStairsConstraintDP(int n) {
     return dp[n][1] + dp[n][2];
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     int n = 9;
 
     int res = climbingStairsConstraintDP(n);
-    cout << "上る段数： " << n << " 段、上り方は全部で " << res << " 通り" << endl;
+    cout << "全 " << n << " 段の階段の登り方は " << res << " 通り" << endl;
 
     return 0;
 }

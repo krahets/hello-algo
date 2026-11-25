@@ -37,7 +37,7 @@ end
 def quadratic(n)
   count = 0
 
-  # 迴圈次數與資料大小 n 成平方關係
+  # 迴圈次數正比於資料大小 n 的平方
   for i in 0...n
     for j in 0...n
       count += 1
@@ -47,20 +47,20 @@ def quadratic(n)
   count
 end
 
-### 平方階（泡沫排序）###
+### 平方階（氣泡排序）###
 def bubble_sort(nums)
   count = 0  # 計數器
 
-  # 外迴圈：未排序區間為 [0, i]
+  # 外層迴圈：未排序區間為 [0, i]
   for i in (nums.length - 1).downto(0)
-    # 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
+    # 內層迴圈：藉由交換，將未排序區間 [0, i] 的最大元素移至最右端
     for j in 0...i
       if nums[j] > nums[j + 1]
         # 交換 nums[j] 與 nums[j + 1]
         tmp = nums[j]
         nums[j] = nums[j + 1]
         nums[j + 1] = tmp
-        count += 3 # 元素交換包含 3 個單元操作
+        count += 3 # 交換元素需 3 個基本操作
       end
     end
   end
@@ -68,7 +68,7 @@ def bubble_sort(nums)
   count
 end
 
-### 指數階（迴圈實現）###
+### 指數階（迴圈實作）###
 def exponential(n)
   count, base = 0, 1
 
@@ -82,13 +82,13 @@ def exponential(n)
   count
 end
 
-### 指數階（遞迴實現）###
+### 指數階（遞迴實作）###
 def exp_recur(n)
   return 1 if n == 1
   exp_recur(n - 1) + exp_recur(n - 1) + 1
 end
 
-### 對數階（迴圈實現）###
+### 對數階（迴圈實作）###
 def logarithmic(n)
   count = 0
 
@@ -100,7 +100,7 @@ def logarithmic(n)
   count
 end
 
-### 對數階（遞迴實現）###
+### 對數階（遞迴實作）###
 def log_recur(n)
   return 0 unless n > 1
   log_recur(n / 2) + 1
@@ -116,50 +116,50 @@ def linear_log_recur(n)
   count
 end
 
-### 階乘階（遞迴實現）###
+### 階乘階（遞迴實作）###
 def factorial_recur(n)
   return 1 if n == 0
 
   count = 0
-  # 從 1 個分裂出 n 個
+  # 1 個呼叫分為 n 個
   (0...n).each { count += factorial_recur(n - 1) }
 
   count
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
-  # 可以修改 n 執行，體會一下各種複雜度的操作數量變化趨勢
+  # 試著修改 n 再執行，觀察各種複雜度的操作次數如何變化
   n = 8
-  puts "輸入資料大小 n = #{n}"
+  puts "輸入規模 n = #{n}"
 
   count = constant(n)
-  puts "常數階的操作數量 = #{count}"
+  puts "常數階的操作次數 = #{count}"
 
   count = linear(n)
-  puts "線性階的操作數量 = #{count}"
+  puts "線性階的操作次數 = #{count}"
   count = array_traversal(Array.new(n, 0))
-  puts "線性階（走訪陣列）的操作數量 = #{count}"
+  puts "線性階（走訪陣列）的操作次數 = #{count}"
 
   count = quadratic(n)
-  puts "平方階的操作數量 = #{count}"
+  puts "平方階的操作次數 = #{count}"
   nums = Array.new(n) { |i| n - i } # [n, n-1, ..., 2, 1]
   count = bubble_sort(nums)
-  puts "平方階（泡沫排序）的操作數量 = #{count}"
+  puts "平方階（氣泡排序）的操作次數 = #{count}"
 
   count = exponential(n)
-  puts "指數階（迴圈實現）的操作數量 = #{count}"
+  puts "指數階（迴圈實作）的操作次數 = #{count}"
   count = exp_recur(n)
-  puts "指數階（遞迴實現）的操作數量 = #{count}"
+  puts "指數階（遞迴實作）的操作次數 = #{count}"
 
   count = logarithmic(n)
-  puts "對數階（迴圈實現）的操作數量 = #{count}"
+  puts "對數階（迴圈實作）的操作次數 = #{count}"
   count = log_recur(n)
-  puts "對數階（遞迴實現）的操作數量 = #{count}"
+  puts "對數階（遞迴實作）的操作次數 = #{count}"
 
   count = linear_log_recur(n)
-  puts "線性對數階（遞迴實現）的操作數量 = #{count}"
+  puts "線性對數階（遞迴實作）的操作次數 = #{count}"
 
   count = factorial_recur(n)
-  puts "階乘階（遞迴實現）的操作數量 = #{count}"
+  puts "階乘階（遞迴實作）的操作次數 = #{count}"
 end

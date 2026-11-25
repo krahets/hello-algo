@@ -6,18 +6,18 @@
 
 import 'dart:math';
 
-/* 最大容量：貪婪 */
+/* 最大容量：貪婪法 */
 int maxCapacity(List<int> ht) {
-  // 初始化 i, j，使其分列陣列兩端
+  // 將 i、j 分別設在陣列的兩端
   int i = 0, j = ht.length - 1;
-  // 初始最大容量為 0
+  // 起始最大容量為 0
   int res = 0;
-  // 迴圈貪婪選擇，直至兩板相遇
+  // 反覆執行貪婪選擇，直到兩塊隔板相遇
   while (i < j) {
     // 更新最大容量
     int cap = min(ht[i], ht[j]) * (j - i);
     res = max(res, cap);
-    // 向內移動短板
+    // 將較矮隔板的指標往內移
     if (ht[i] < ht[j]) {
       i++;
     } else {
@@ -27,7 +27,7 @@ int maxCapacity(List<int> ht) {
   return res;
 }
 
-/* Driver Code */
+/* 主程式 */
 void main() {
   List<int> ht = [3, 8, 5, 2, 7, 7, 3, 4];
 

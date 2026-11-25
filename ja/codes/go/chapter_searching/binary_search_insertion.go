@@ -4,43 +4,43 @@
 
 package chapter_searching
 
-/* 二分探索による挿入位置の探索（重複要素がない場合） */
+/* 挿入位置の二分探索（重複する要素がない場合） */
 func binarySearchInsertionSimple(nums []int, target int) int {
-	// 閉区間 [0, n-1] を初期化する
+	// 閉区間 [0, n-1] で初期化する
 	i, j := 0, len(nums)-1
 	for i <= j {
-		// 中央のインデックス m を計算する
+		// 中央のインデックス m を求める
 		m := i + (j-i)/2
 		if nums[m] < target {
-			// target は区間 [m+1, j] に存在する
+			// target の探索範囲は [m+1, j]
 			i = m + 1
 		} else if nums[m] > target {
-			// target は区間 [i, m-1] に存在する
+			// target の探索範囲は [i, m-1]
 			j = m - 1
 		} else {
-			// target が見つかったので、挿入位置 m を返す
+			// target が見つかったので挿入位置 m を返す
 			return m
 		}
 	}
-	// target が見つからなかったので、挿入位置 i を返す
+	// target が見つからなかったので挿入位置 i を返す
 	return i
 }
 
-/* 二分探索による挿入位置の探索（重複要素がある場合） */
+/* 挿入位置の二分探索（重複する要素がある場合） */
 func binarySearchInsertion(nums []int, target int) int {
-	// 閉区間 [0, n-1] を初期化する
+	// 閉区間 [0, n-1] で初期化する
 	i, j := 0, len(nums)-1
 	for i <= j {
-		// 中央のインデックス m を計算する
+		// 中央のインデックス m を求める
 		m := i + (j-i)/2
 		if nums[m] < target {
-			// target は区間 [m+1, j] に存在する
+			// target の探索範囲は [m+1, j]
 			i = m + 1
 		} else if nums[m] > target {
-			// target は区間 [i, m-1] に存在する
+			// target の探索範囲は [i, m-1]
 			j = m - 1
 		} else {
-			// target より小さい要素のうち最も右にあるものは、区間 [i, m-1] に存在する
+			// target 未満の最も右の要素を [i, m-1] で探す
 			j = m - 1
 		}
 	}

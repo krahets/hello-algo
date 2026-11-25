@@ -26,7 +26,7 @@ impl BinarySearchTree {
         Self { root: None }
     }
 
-    /* 二分木の根ノードを取得する */
+    /* 二分木の根を取得する */
     pub fn get_root(&self) -> OptionTreeNodeRc {
         self.root.clone()
     }
@@ -34,14 +34,14 @@ impl BinarySearchTree {
     /* ノードを探索する */
     pub fn search(&self, num: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
                 // 目的のノードは cur の右部分木にある
                 Ordering::Greater => cur = node.borrow().right.clone(),
                 // 目的のノードは cur の左部分木にある
                 Ordering::Less => cur = node.borrow().left.clone(),
-                // 目的のノードが見つかったので、ループを終了する
+                // 目的のノードが見つかったのでループを抜ける
                 Ordering::Equal => break,
             }
         }
@@ -52,17 +52,17 @@ impl BinarySearchTree {
 
     /* ノードを挿入する */
     pub fn insert(&mut self, num: i32) {
-        // 木が空の場合、根ノードを初期化する
+        // 木が空なら根を初期化する
         if self.root.is_none() {
             self.root = Some(TreeNode::new(num));
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 重複したノードが見つかったので、そのまま戻る
+                // 値が重複するノードが見つかったらそのまま戻る
                 Ordering::Equal => return,
                 // 挿入位置は cur の右部分木にある
                 Ordering::Greater => {
@@ -88,39 +88,39 @@ impl BinarySearchTree {
 
     /* ノードを削除する */
     pub fn remove(&mut self, num: i32) {
-        // 木が空の場合、そのまま早期リターンする
+        // 木が空ならすぐに戻る
         if self.root.is_none() {
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // 削除対象のノードが見つかったので、ループを終了する
+                // 削除対象のノードが見つかったのでループを抜ける
                 Ordering::Equal => break,
-                // 削除対象のノードは cur の右部分木にある
+                // 削除対象は cur の右部分木にある
                 Ordering::Greater => {
                     pre = cur.clone();
                     cur = node.borrow().right.clone();
                 }
-                // 削除対象のノードは cur の左部分木にある
+                // 削除対象は cur の左部分木にある
                 Ordering::Less => {
                     pre = cur.clone();
                     cur = node.borrow().left.clone();
                 }
             }
         }
-        // 削除対象のノードが存在しない場合、そのまま戻る
+        // 削除対象が見つからなければそのまま戻る
         if cur.is_none() {
             return;
         }
         let cur = cur.unwrap();
         let (left_child, right_child) = (cur.borrow().left.clone(), cur.borrow().right.clone());
         match (left_child.clone(), right_child.clone()) {
-            // 子ノード数 = 0 または 1
+            // 子が 0 個または 1 個
             (None, None) | (Some(_), None) | (None, Some(_)) => {
-                // 子ノード数 = 0 / 1 の場合、child = nullptr / その子ノード
+                // 子が 0 個なら child = nullptr、1 個なら child はその子
                 let child = left_child.or(right_child);
                 // ノード cur を削除する
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
@@ -132,13 +132,13 @@ impl BinarySearchTree {
                         pre.borrow_mut().right = child;
                     }
                 } else {
-                    // 削除するノードが根ノードの場合、根ノードを指定し直す
+                    // 削除対象が根なら根を設定し直す
                     self.root = child;
                 }
             }
-            // 子ノード数 = 2
+            // 子が 2 個
             (Some(_), Some(_)) => {
-                // 通りがけ順で cur の次のノードを取得する
+                // 通りがけ順で cur の次に来るノードを取得する
                 let mut tmp = cur.borrow().right.clone();
                 while let Some(node) = tmp.clone() {
                     if node.borrow().left.is_some() {
@@ -150,46 +150,46 @@ impl BinarySearchTree {
                 let tmp_val = tmp.unwrap().borrow().val;
                 // ノード tmp を再帰的に削除する
                 self.remove(tmp_val);
-                // tmp で cur を上書きする
+                // tmp の値で cur の値を上書きする
                 cur.borrow_mut().val = tmp_val;
             }
         }
     }
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     /* 二分探索木を初期化する */
     let mut bst = BinarySearchTree::new();
-    // 挿入順序が異なると異なる二分木になることに注意。この順序ではパーフェクト二分木を生成できる
+    // 挿入順によって木の形は変わる。この順に挿入すると完璧二分木になる
     let nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
     for &num in &nums {
         bst.insert(num);
     }
-    println!("\n初期化した二分木\n");
+    println!("\n初期化した二分木：\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
     /* ノードを探索する */
     let node = bst.search(7);
     println!(
-        "\n見つかったノードオブジェクトは {:?}、ノードの値 = {}",
+        "\n見つかったノードのオブジェクト：{:?}、値 = {}",
         node.clone().unwrap(),
         node.clone().unwrap().borrow().val
     );
 
     /* ノードを挿入する */
     bst.insert(16);
-    println!("\nノード 16 を挿入した後の二分木\n");
+    println!("\nノード 16 を挿入した後の二分木：\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
     /* ノードを削除する */
     bst.remove(1);
-    println!("\nノード 1 を削除した後の二分木\n");
+    println!("\nノード 1 を削除した後の二分木：\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
     bst.remove(2);
-    println!("\nノード 2 を削除した後の二分木\n");
+    println!("\nノード 2 を削除した後の二分木：\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
     bst.remove(4);
-    println!("\nノード 4 を削除した後の二分木\n");
+    println!("\nノード 4 を削除した後の二分木：\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 }

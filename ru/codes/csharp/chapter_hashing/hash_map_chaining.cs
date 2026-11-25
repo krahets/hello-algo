@@ -8,10 +8,10 @@ namespace hello_algo.chapter_hashing;
 
 /* Хеш-таблица с цепочками */
 class HashMapChaining {
-    int size; // Число пар ключ-значение
-    int capacity; // Вместимость хеш-таблицы
-    double loadThres; // Порог коэффициента загрузки для запуска расширения
-    int extendRatio; // Коэффициент расширения
+    int size; // Число пар «ключ — значение»
+    int capacity; // Ёмкость хеш-таблицы
+    double loadThres; // Порог коэффициента заполнения для расширения
+    int extendRatio; // Во сколько раз увеличивается ёмкость
     List<List<Pair>> buckets; // Массив корзин
 
     /* Конструктор */
@@ -31,47 +31,47 @@ class HashMapChaining {
         return key % capacity;
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     double LoadFactor() {
         return (double)size / capacity;
     }
 
-    /* Операция поиска */
+    /* Поиск */
     public string? Get(int key) {
         int index = HashFunc(key);
-        // Обойти корзину; если найден key, вернуть соответствующее val
+        // Обойти корзину и при совпадении ключа key вернуть соответствующее значение val
         foreach (Pair pair in buckets[index]) {
             if (pair.key == key) {
                 return pair.val;
             }
         }
-        // Если key не найден, вернуть null
+        // Если ключ key не найден, вернуть null
         return null;
     }
 
-    /* Операция добавления */
+    /* Вставка */
     public void Put(int key, string val) {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if (LoadFactor() > loadThres) {
             Extend();
         }
         int index = HashFunc(key);
-        // Обойти корзину; если встретился указанный key, обновить соответствующее val и вернуть
+        // Обойти корзину. Если найден ключ key, обновить val и завершить операцию
         foreach (Pair pair in buckets[index]) {
             if (pair.key == key) {
                 pair.val = val;
                 return;
             }
         }
-        // Если такого key нет, добавить пару ключ-значение в конец
+        // Если ключа key нет, добавить пару в конец списка
         buckets[index].Add(new Pair(key, val));
         size++;
     }
 
-    /* Операция удаления */
+    /* Удаление */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // Обойти корзину и удалить из нее пару ключ-значение
+        // Обойти корзину и удалить из неё нужную пару
         foreach (Pair pair in buckets[index].ToList()) {
             if (pair.key == key) {
                 buckets[index].Remove(pair);
@@ -85,14 +85,14 @@ class HashMapChaining {
     void Extend() {
         // Временно сохранить исходную хеш-таблицу
         List<List<Pair>> bucketsTmp = buckets;
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         capacity *= extendRatio;
         buckets = new List<List<Pair>>(capacity);
         for (int i = 0; i < capacity; i++) {
             buckets.Add([]);
         }
         size = 0;
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         foreach (List<Pair> bucket in bucketsTmp) {
             foreach (Pair pair in bucket) {
                 Put(pair.key, pair.val);
@@ -117,28 +117,28 @@ class HashMapChaining {
 public class hash_map_chaining {
     [Test]
     public void Test() {
-        /* Инициализация хеш-таблицы */
+        /* Создать хеш-таблицу */
         HashMapChaining map = new();
 
-        /* Операция добавления */
-        // Добавить пару (key, value) в хеш-таблицу
+        /* Вставка */
+        // Добавить в таблицу пару (key, value)
         map.Put(12836, "Сяо Ха");
         map.Put(15937, "Сяо Ло");
         map.Put(16750, "Сяо Суань");
         map.Put(13276, "Сяо Фа");
         map.Put(10583, "Сяо Я");
-        Console.WriteLine("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
+        Console.WriteLine("\nХеш-таблица после вставки:\nКлюч -> Значение");
         map.Print();
 
-        /* Операция поиска */
-        // Ввести в хеш-таблицу ключ key и получить значение value
+        /* Поиск */
+        // Получить из таблицы значение value по ключу key
         string? name = map.Get(13276);
-        Console.WriteLine("\nДля номера 13276 найдено имя " + name);
+        Console.WriteLine("\nИмя студента с номером 13276: " + name);
 
-        /* Операция удаления */
-        // Удалить пару (key, value) из хеш-таблицы
+        /* Удаление */
+        // Удалить из таблицы пару (key, value)
         map.Remove(12836);
-        Console.WriteLine("\nПосле удаления 12836 хеш-таблица имеет вид\nКлюч -> Значение");
+        Console.WriteLine("\nХеш-таблица после удаления 12836:\nКлюч -> Значение");
         map.Print();
     }
 }

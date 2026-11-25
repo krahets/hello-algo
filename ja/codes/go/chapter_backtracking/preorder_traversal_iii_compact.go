@@ -22,6 +22,6 @@ func preOrderIII(root *TreeNode, res *[][]*TreeNode, path *[]*TreeNode) {
 	}
 	preOrderIII(root.Left, res, path)
 	preOrderIII(root.Right, res, path)
-	// 復元
+	// 後戻り
 	*path = (*path)[:len(*path)-1]
 }

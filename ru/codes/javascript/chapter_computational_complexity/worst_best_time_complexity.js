@@ -4,7 +4,7 @@
  * Author: RiverTwilight (contact@rene.wang)
  */
 
-/* Создать массив с элементами { 1, 2, ..., n } в случайном порядке */
+/* Создать массив из чисел { 1, 2, ..., n } в случайном порядке */
 function randomNumbers(n) {
     const nums = Array(n);
     // Создать массив nums = { 1, 2, 3, ..., n }
@@ -24,8 +24,8 @@ function randomNumbers(n) {
 /* Найти индекс числа 1 в массиве nums */
 function findOne(nums) {
     for (let i = 0; i < nums.length; i++) {
-        // Когда элемент 1 находится в начале массива, достигается лучшая временная сложность O(1)
-        // Когда элемент 1 находится в конце массива, достигается худшая временная сложность O(n)
+        // Если 1 стоит в начале массива, сложность минимальна: O(1)
+        // Если 1 стоит в конце массива, сложность максимальна: O(n)
         if (nums[i] === 1) {
             return i;
         }
@@ -33,11 +33,11 @@ function findOne(nums) {
     return -1;
 }
 
-/* Driver Code */
+/* Основная программа */
 for (let i = 0; i < 10; i++) {
     const n = 100;
     const nums = randomNumbers(n);
     const index = findOne(nums);
-    console.log('\nМассив [1, 2, ..., n] после перемешивания = [' + nums.join(', ') + ']');
-    console.log('Индекс числа 1 = ' + index);
+    console.log('\nМассив [ 1, 2, ..., n ] после перемешивания = [' + nums.join(', ') + ']');
+    console.log('Индекс числа 1: ' + index);
 }

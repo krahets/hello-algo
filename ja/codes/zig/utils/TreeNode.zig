@@ -14,7 +14,7 @@ pub fn TreeNode(comptime T: type) type {
         left: ?*Self = null, // 左の子ノードへのポインタ
         right: ?*Self = null, // 右の子ノードへのポインタ
 
-        // 指定された値で木のノードを初期化する
+        // 指定された値で二分木のノードを初期化する
         pub fn init(self: *Self, x: i32) void {
             self.val = x;
             self.height = 0;
@@ -24,7 +24,7 @@ pub fn TreeNode(comptime T: type) type {
     };
 }
 
-// 配列をデシリアライズして二分木にする
+// 配列をデシリアライズして二分木を復元する
 pub fn arrToTree(comptime T: type, allocator: std.mem.Allocator, arr: []T) !?*TreeNode(T) {
     if (arr.len == 0) return null;
     var root = try allocator.create(TreeNode(T));

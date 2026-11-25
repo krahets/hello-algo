@@ -12,18 +12,18 @@ import (
 	. "github.com/krahets/hello-algo/pkg"
 )
 
-/* 基於鄰接表實現的無向圖類別 */
+/* 以鄰接串列實作的無向圖類別 */
 type graphAdjList struct {
-	// 鄰接表，key：頂點，value：該頂點的所有鄰接頂點
+	// 鄰接串列，key 是頂點，value 是該頂點的所有相鄰頂點
 	adjList map[Vertex][]Vertex
 }
 
-/* 建構子 */
+/* 建構函式 */
 func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	g := &graphAdjList{
 		adjList: make(map[Vertex][]Vertex),
 	}
-	// 新增所有頂點和邊
+	// 加入所有頂點和邊
 	for _, edge := range edges {
 		g.addVertex(edge[0])
 		g.addVertex(edge[1])
@@ -32,7 +32,7 @@ func newGraphAdjList(edges [][]Vertex) *graphAdjList {
 	return g
 }
 
-/* 獲取頂點數量 */
+/* 取得頂點數量 */
 func (g *graphAdjList) size() int {
 	return len(g.adjList)
 }
@@ -44,7 +44,7 @@ func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	if !ok1 || !ok2 || vet1 == vet2 {
 		panic("error")
 	}
-	// 新增邊 vet1 - vet2, 新增匿名 struct{},
+	// 新增邊 vet1 - vet2，加入匿名的 struct{}
 	g.adjList[vet1] = append(g.adjList[vet1], vet2)
 	g.adjList[vet2] = append(g.adjList[vet2], vet1)
 }
@@ -67,7 +67,7 @@ func (g *graphAdjList) addVertex(vet Vertex) {
 	if ok {
 		return
 	}
-	// 在鄰接表中新增一個新鏈結串列
+	// 在鄰接串列中新增一條鏈結串列
 	g.adjList[vet] = make([]Vertex, 0)
 }
 
@@ -77,18 +77,18 @@ func (g *graphAdjList) removeVertex(vet Vertex) {
 	if !ok {
 		panic("error")
 	}
-	// 在鄰接表中刪除頂點 vet 對應的鏈結串列
+	// 從鄰接串列中刪除頂點 vet 對應的鏈結串列
 	delete(g.adjList, vet)
-	// 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
+	// 走訪其他頂點的鏈結串列，刪除所有以 vet 為端點的邊
 	for v, list := range g.adjList {
 		g.adjList[v] = DeleteSliceElms(list, vet)
 	}
 }
 
-/* 列印鄰接表 */
+/* 印出鄰接串列 */
 func (g *graphAdjList) print() {
 	var builder strings.Builder
-	fmt.Printf("鄰接表 = \n")
+	fmt.Printf("鄰接串列 = \n")
 	for k, v := range g.adjList {
 		builder.WriteString("\t\t" + strconv.Itoa(k.Val) + ": ")
 		for _, vet := range v {

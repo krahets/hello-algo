@@ -4,9 +4,9 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 방법 1: 완전 열거 */
+/* 방법 1. 모든 조합 확인 */
 func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
-    // 이중 반복문이며 시간 복잡도는 O(n^2)이다
+    // 이중 반복문을 사용하므로 시간 복잡도는 O(n^2)이다.
     for i in nums.indices.dropLast() {
         for j in nums.indices.dropFirst(i + 1) {
             if nums[i] + nums[j] == target {
@@ -17,11 +17,11 @@ func twoSumBruteForce(nums: [Int], target: Int) -> [Int] {
     return [0]
 }
 
-/* 방법 2: 보조 해시 테이블 */
+/* 방법 2. 보조 해시 테이블 사용 */
 func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
-    // 보조 해시 테이블의 공간 복잡도는 O(n)이다
+    // 보조 해시 테이블을 사용하므로 공간 복잡도는 O(n)이다.
     var dic: [Int: Int] = [:]
-    // 단일 반복문이며 시간 복잡도는 O(n)이다
+    // 반복문 하나만 사용하므로 시간 복잡도는 O(n)이다.
     for i in nums.indices {
         if let j = dic[target - nums[i]] {
             return [j, i]
@@ -33,12 +33,12 @@ func twoSumHashTable(nums: [Int], target: Int) -> [Int] {
 
 @main
 enum LeetcodeTwoSum {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
-        // ======= 테스트 사례 =======
+        // ======= 테스트 케이스 =======
         let nums = [2, 7, 11, 15]
         let target = 13
-        // ====== 실행 코드 ======
+        // ====== 실행 예제 ======
         // 방법 1
         var res = twoSumBruteForce(nums: nums, target: target)
         print("방법 1 res = \(res)")

@@ -6,14 +6,14 @@ Author: Peng Chen (pengchzn@gmail.com)
 
 
 class ArrayStack:
-    """配列で実装したスタック"""
+    """配列を使ったスタック"""
 
     def __init__(self):
-        """コンストラクタ"""
+        """初期化メソッド"""
         self._stack: list[int] = []
 
     def size(self) -> int:
-        """スタックの長さを取得する"""
+        """スタックの要素数を取得する"""
         return len(self._stack)
 
     def is_empty(self) -> bool:
@@ -21,17 +21,17 @@ class ArrayStack:
         return self.size() == 0
 
     def push(self, item: int):
-        """プッシュ"""
+        """プッシュする"""
         self._stack.append(item)
 
     def pop(self) -> int:
-        """ポップ"""
+        """ポップする"""
         if self.is_empty():
             raise IndexError("スタックが空です")
         return self._stack.pop()
 
     def peek(self) -> int:
-        """スタックの先頭要素にアクセスする"""
+        """スタックのトップを参照する"""
         if self.is_empty():
             raise IndexError("スタックが空です")
         return self._stack[-1]
@@ -41,7 +41,7 @@ class ArrayStack:
         return self._stack
 
 
-"""実行用コード"""
+"""Driver Code"""
 if __name__ == "__main__":
     # スタックを初期化する
     stack = ArrayStack()
@@ -54,18 +54,18 @@ if __name__ == "__main__":
     stack.push(4)
     print("スタック stack =", stack.to_list())
 
-    # スタックの先頭要素にアクセスする
+    # スタックのトップを参照する
     peek: int = stack.peek()
-    print("スタックの先頭要素 peek =", peek)
+    print("スタックのトップの要素 peek =", peek)
 
     # 要素をポップする
     pop: int = stack.pop()
     print("ポップした要素 pop =", pop)
-    print("ポップ後 stack =", stack.to_list())
+    print("ポップ後の stack =", stack.to_list())
 
-    # スタックの長さを取得する
+    # スタックの要素数を取得する
     size: int = stack.size()
-    print("スタックの長さ size =", size)
+    print("スタックの要素数 size =", size)
 
     # 空かどうかを判定する
     is_empty: bool = stack.is_empty()

@@ -12,7 +12,7 @@ type TreeNode struct {
 	Right  *TreeNode // Reference to the right child
 }
 
-// NewTreeNode constructs a binary tree node.
+// NewTreeNode creates a binary tree node.
 func NewTreeNode(v any) *TreeNode {
 	return &TreeNode{
 		Val:    v,
@@ -22,7 +22,7 @@ func NewTreeNode(v any) *TreeNode {
 	}
 }
 
-// For the serialization rules, see:
+// For the serialization format, see:
 // https://www.hello-algo.com/en/chapter_tree/array_representation_of_tree/
 // Array representation of the binary tree:
 // [1, 2, 3, 4, nil, 6, 7, 8, 9, nil, nil, 12, nil, nil, 15]

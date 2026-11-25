@@ -4,7 +4,7 @@ Created Time: 2024-05-29
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 階段の上り方：動的計画法 ###
+### 階段の登り方：動的計画法 ###
 def climbing_stairs_dp(n)
   return n  if n == 1 || n == 2
 
@@ -18,7 +18,7 @@ def climbing_stairs_dp(n)
   dp[n]
 end
 
-### 階段の上り方：空間を最適化した動的計画法 ###
+### 階段の登り方：使用メモリを削減した動的計画法 ###
 def climbing_stairs_dp_comp(n)
   return n if n == 1 || n == 2
 
@@ -28,13 +28,13 @@ def climbing_stairs_dp_comp(n)
   b
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   n = 9
 
   res = climbing_stairs_dp(n)
-  puts "#{n} 段の階段を上る方法は全部で #{res} 通り"
+  puts "全 #{n} 段の階段の登り方は #{res} 通り"
 
   res = climbing_stairs_dp_comp(n)
-  puts "#{n} 段の階段を上る方法は全部で #{res} 通り"
+  puts "全 #{n} 段の階段の登り方は #{res} 通り"
 end

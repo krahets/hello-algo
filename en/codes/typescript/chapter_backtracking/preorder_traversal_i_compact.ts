@@ -30,7 +30,7 @@ printTree(root);
 const res: TreeNode[] = [];
 preOrder(root, res);
 
-console.log('\nOutput all nodes with value 7');
+console.log('\nPrint all nodes with value 7');
 console.log(res.map((node) => node.val));
 
 export {};

@@ -79,7 +79,7 @@ void showTrunks(Trunk *trunk) {
 
 /**
  * 二分木を表示する
- * この木の表示処理は TECHIE DELIGHT から借用した
+ * 木の表示には TECHIE DELIGHT のコードを使用
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
@@ -119,7 +119,7 @@ void printHeap(int arr[], int size) {
     TreeNode *root;
     printf("ヒープの配列表現：");
     printArray(arr, size);
-    printf("ヒープの木構造表現：\n");
+    printf("ヒープの木構造：\n");
     root = arrayToTree(arr, size);
     printTree(root);
 }

@@ -10,7 +10,7 @@ public class iteration {
     /* Цикл for */
     int ForLoop(int n) {
         int res = 0;
-        // Циклическое суммирование 1, 2, ..., n-1, n
+        // Сложить числа 1, 2, ..., n-1, n в цикле
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -20,35 +20,35 @@ public class iteration {
     /* Цикл while */
     int WhileLoop(int n) {
         int res = 0;
-        int i = 1; // Инициализация условной переменной
-        // Циклическое суммирование 1, 2, ..., n-1, n
+        int i = 1; // Задать начальное значение переменной условия
+        // Сложить числа 1, 2, ..., n-1, n в цикле
         while (i <= n) {
             res += i;
-            i += 1; // Обновить условную переменную
+            i += 1; // Обновить переменную условия
         }
         return res;
     }
 
-    /* Цикл while (двойное обновление) */
+    /* Цикл while с двумя обновлениями */
     int WhileLoopII(int n) {
         int res = 0;
-        int i = 1; // Инициализация условной переменной
-        // Циклическое суммирование 1, 4, 10, ...
+        int i = 1; // Задать начальное значение переменной условия
+        // Сложить числа 1, 4, 10, ... в цикле
         while (i <= n) {
             res += i;
-            // Обновить условную переменную
+            // Обновить переменную условия
             i += 1; 
             i *= 2;
         }
         return res;
     }
 
-    /* Двойной цикл for */
+    /* Вложенные циклы for */
     string NestedForLoop(int n) {
         StringBuilder res = new();
-        // Цикл по i = 1, 2, ..., n-1, n
+        // Перебрать i = 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
-            // Цикл по j = 1, 2, ..., n-1, n
+            // Перебрать j = 1, 2, ..., n-1, n
             for (int j = 1; j <= n; j++) {
                 res.Append($"({i}, {j}), ");
             }
@@ -56,22 +56,22 @@ public class iteration {
         return res.ToString();
     }
 
-    /* Driver Code */
+    /* Основная программа */
     [Test]
     public void Test() {
         int n = 5;
         int res;
 
         res = ForLoop(n);
-        Console.WriteLine("\nРезультат суммирования в цикле for res = " + res);
+        Console.WriteLine("\nСумма в цикле for: res = " + res);
 
         res = WhileLoop(n);
-        Console.WriteLine("\nРезультат суммирования в цикле while res = " + res);
+        Console.WriteLine("\nСумма в цикле while: res = " + res);
 
         res = WhileLoopII(n);
-        Console.WriteLine("\nРезультат суммирования в цикле while (двойное обновление) res = " + res);
+        Console.WriteLine("\nСумма в цикле while с двумя обновлениями: res = " + res);
 
         string resStr = NestedForLoop(n);
-        Console.WriteLine("\nРезультат обхода в двойном цикле for " + resStr);
+        Console.WriteLine("\nРезультат обхода вложенными циклами for: " + resStr);
     }
 }

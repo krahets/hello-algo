@@ -4,38 +4,38 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Find an insertion point using binary search (no duplicates) */
+/* Binary search for an insertion point (no duplicates) */
 func binarySearchInsertionSimple(nums: [Int], target: Int) -> Int {
     // Initialize the closed interval [0, n-1]
     var i = nums.startIndex
     var j = nums.endIndex - 1
     while i <= j {
-        let m = i + (j - i) / 2 // Calculate the midpoint index m
+        let m = i + (j - i) / 2 // Compute the midpoint index m
         if nums[m] < target {
-            i = m + 1 // Target must be in [m+1, j] if it exists
+            i = m + 1 // Any match must lie in [m+1, j]
         } else if nums[m] > target {
-            j = m - 1 // Target must be in [i, m-1] if it exists
+            j = m - 1 // Any match must lie in [i, m-1]
         } else {
-            return m // Target was found; return insertion point m
+            return m // Found target. Return insertion point m
         }
     }
-    // Target was not found; return insertion point i
+    // Target not found. Return insertion point i
     return i
 }
 
-/* Find an insertion point using binary search (with duplicates) */
+/* Binary search for an insertion point (duplicates allowed) */
 public func binarySearchInsertion(nums: [Int], target: Int) -> Int {
     // Initialize the closed interval [0, n-1]
     var i = nums.startIndex
     var j = nums.endIndex - 1
     while i <= j {
-        let m = i + (j - i) / 2 // Calculate the midpoint index m
+        let m = i + (j - i) / 2 // Compute the midpoint index m
         if nums[m] < target {
-            i = m + 1 // Target must be in [m+1, j] if it exists
+            i = m + 1 // Any match must lie in [m+1, j]
         } else if nums[m] > target {
-            j = m - 1 // Target must be in [i, m-1] if it exists
+            j = m - 1 // Any match must lie in [i, m-1]
         } else {
-            j = m - 1 // Continue in [i, m-1] to find the rightmost element smaller than target
+            j = m - 1 // Look in [i, m-1] for the rightmost element less than target
         }
     }
     // Return insertion point i
@@ -48,22 +48,22 @@ public func binarySearchInsertion(nums: [Int], target: Int) -> Int {
 enum BinarySearchInsertion {
     /* Driver code */
     static func main() {
-        // Array with no duplicate elements
+        // Array without duplicates
         var nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
         print("\nArray nums = \(nums)")
-        // Find an insertion point using binary search
+        // Find the insertion point using binary search
         for target in [6, 9] {
             let index = binarySearchInsertionSimple(nums: nums, target: target)
-            print("Insertion index for element \(target): \(index)")
+            print("Insertion index for \(target) = \(index)")
         }
 
-        // Array containing duplicate elements
+        // Array with duplicates
         nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
         print("\nArray nums = \(nums)")
-        // Find an insertion point using binary search
+        // Find the insertion point using binary search
         for target in [2, 6, 20] {
             let index = binarySearchInsertion(nums: nums, target: target)
-            print("Insertion index for element \(target): \(index)")
+            print("Insertion index for \(target) = \(index)")
         }
     }
 }

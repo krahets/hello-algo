@@ -6,27 +6,27 @@
 
 import utils
 
-/* Undirected graph class implemented with an adjacency matrix */
+/* Undirected graph represented by an adjacency matrix */
 class GraphAdjMat {
-    private var vertices: [Int] // Vertex list: elements are vertex values, and indices are vertex indices
-    private var adjMat: [[Int]] // Adjacency matrix: row and column indices correspond to vertex indices
+    private var vertices: [Int] // Vertex list: each element holds a vertex value, and its position is the vertex index
+    private var adjMat: [[Int]] // Adjacency matrix: row and column indices are vertex indices
 
     /* Constructor */
     init(vertices: [Int], edges: [[Int]]) {
         self.vertices = []
         adjMat = []
-        // Add all vertices
+        // Add a vertex
         for val in vertices {
             addVertex(val: val)
         }
-        // Add all edges
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        // Add an edge
+        // The entries in edges are vertex indices, that is, indices into vertices
         for e in edges {
             addEdge(i: e[0], j: e[1])
         }
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     func size() -> Int {
         vertices.count
     }
@@ -48,36 +48,36 @@ class GraphAdjMat {
     /* Remove a vertex */
     func removeVertex(index: Int) {
         if index >= size() {
-            fatalError("Invalid index")
+            fatalError("Index out of bounds")
         }
-        // Remove the vertex at index `index` from the vertex list
+        // Remove the vertex at the specified index from the vertex list
         vertices.remove(at: index)
-        // Remove row `index` from the adjacency matrix
+        // Remove the row at the specified index from the adjacency matrix
         adjMat.remove(at: index)
-        // Remove column `index` from the adjacency matrix
+        // Remove the column at the specified index from the adjacency matrix
         for i in adjMat.indices {
             adjMat[i].remove(at: index)
         }
     }
 
     /* Add an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     func addEdge(i: Int, j: Int) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-            fatalError("Invalid index")
+            fatalError("Index out of bounds")
         }
-        // For an undirected graph, the adjacency matrix is symmetric about its main diagonal: entries (i, j) and (j, i) are equal
+        // An undirected graph has a symmetric adjacency matrix: (i, j) == (j, i)
         adjMat[i][j] = 1
         adjMat[j][i] = 1
     }
 
     /* Remove an edge */
-    // Parameters i and j are element indices in vertices
+    // Parameters i and j are indices into vertices
     func removeEdge(i: Int, j: Int) {
-        // Handle out-of-bounds or equal indices
+        // Check for out-of-bounds or equal indices
         if i < 0 || j < 0 || i >= size() || j >= size() || i == j {
-            fatalError("Invalid index")
+            fatalError("Index out of bounds")
         }
         adjMat[i][j] = 0
         adjMat[j][i] = 0
@@ -96,8 +96,8 @@ class GraphAdjMat {
 enum GraphAdjacencyMatrix {
     /* Driver code */
     static func main() {
-        /* Initialize the undirected graph */
-        // Note that the entries in edges are vertex indices, corresponding to element indices in vertices
+        /* Initialize an undirected graph */
+        // The entries in edges are vertex indices, that is, indices into vertices
         let vertices = [1, 3, 2, 5, 4]
         let edges = [[0, 1], [1, 2], [2, 3], [0, 3], [2, 4], [3, 4]]
         let graph = GraphAdjMat(vertices: vertices, edges: edges)

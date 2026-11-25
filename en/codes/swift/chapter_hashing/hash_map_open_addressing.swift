@@ -10,10 +10,10 @@ import utils
 class HashMapOpenAddressing {
     var size: Int // Number of key-value pairs
     var capacity: Int // Hash table capacity
-    var loadThres: Double // Load factor threshold that triggers capacity growth
-    var extendRatio: Int // Capacity growth factor
+    var loadThres: Double // Load factor threshold for resizing
+    var extendRatio: Int // Growth factor
     var buckets: [Pair?] // Bucket array
-    var TOMBSTONE: Pair // Tombstone marker
+    var TOMBSTONE: Pair // Deletion marker
 
     /* Constructor */
     init() {
@@ -43,75 +43,75 @@ class HashMapOpenAddressing {
         while buckets[index] != nil {
             // If key is found, return its bucket index
             if buckets[index]!.key == key {
-                // If a tombstone was encountered earlier, move the key-value pair to that index
+                // If a deletion marker was found earlier, move the pair to that index
                 if firstTombstone != -1 {
                     buckets[firstTombstone] = buckets[index]
                     buckets[index] = TOMBSTONE
-                    return firstTombstone // Return the bucket index after the move
+                    return firstTombstone // Return the new bucket index
                 }
                 return index // Return the bucket index
             }
-            // Record the first tombstone encountered
+            // Record the first deletion marker encountered
             if firstTombstone == -1 && buckets[index] == TOMBSTONE {
                 firstTombstone = index
             }
-            // Calculate the bucket index, wrapping to the beginning after the end
+            // Compute the next bucket index, wrapping to the start at the end
             index = (index + 1) % capacity
         }
         // If key is absent, return the index for insertion
         return firstTombstone == -1 ? index : firstTombstone
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     func get(key: Int) -> String? {
         // Find the bucket index for key
         let index = findBucket(key: key)
-        // If the key-value pair is found, return its val
+        // If the pair is found, return its val
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             return buckets[index]!.val
         }
-        // Return nil if the key-value pair is absent
+        // Return null if the pair is absent
         return nil
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     func put(key: Int, val: String) {
-        // Grow the capacity when the load factor exceeds the threshold
+        // Expand the table when the load factor exceeds the threshold
         if loadFactor() > loadThres {
             extend()
         }
         // Find the bucket index for key
         let index = findBucket(key: key)
-        // If the key-value pair is found, overwrite val and return
+        // If the pair is found, overwrite val and return
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index]!.val = val
             return
         }
-        // If the key-value pair is absent, insert it
+        // If the pair is absent, insert it
         buckets[index] = Pair(key: key, val: val)
         size += 1
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     func remove(key: Int) {
         // Find the bucket index for key
         let index = findBucket(key: key)
-        // If the key-value pair is found, replace it with a tombstone
+        // If the pair is found, replace it with a deletion marker
         if buckets[index] != nil, buckets[index] != TOMBSTONE {
             buckets[index] = TOMBSTONE
             size -= 1
         }
     }
 
-    /* Grow the hash table capacity */
+    /* Expand the hash table */
     func extend() {
-        // Save the original bucket array
+        // Save the original hash table
         let bucketsTmp = buckets
-        // Initialize a new hash table with the expanded capacity
+        // Initialize the larger hash table
         capacity *= extendRatio
         buckets = Array(repeating: nil, count: capacity)
         size = 0
-        // Move the key-value pairs from the original hash table to the new one
+        // Move the key-value pairs from the old table into the new one
         for pair in bucketsTmp {
             if let pair, pair != TOMBSTONE {
                 put(key: pair.key, val: pair.val)
@@ -140,23 +140,23 @@ enum _HashMapOpenAddressing {
         /* Initialize the hash table */
         let map = HashMapOpenAddressing()
 
-        /* Insert operation */
-        // Insert the key-value pair (key, value) into the hash table
-        map.put(key: 12836, val: "小哈")
-        map.put(key: 15937, val: "小啰")
-        map.put(key: 16750, val: "小算")
-        map.put(key: 13276, val: "小法")
-        map.put(key: 10583, val: "小鸭")
+        /* Insert a key-value pair */
+        // Insert the pair (key, value) into the hash table
+        map.put(key: 12836, val: "Xiao Ha")
+        map.put(key: 15937, val: "Xiao Luo")
+        map.put(key: 16750, val: "Xiao Suan")
+        map.put(key: 13276, val: "Xiao Fa")
+        map.put(key: 10583, val: "Xiao Ya")
         print("\nHash table after insertion:\nKey -> Value")
         map.print()
 
-        /* Lookup operation */
-        // Look up key in the hash table to obtain value
+        /* Look up a value */
+        // Look up key in the hash table to get value
         let name = map.get(key: 13276)
-        print("\nLooking up student ID 13276 gives the name \(name!)")
+        print("\nName for student ID 13276: \(name!)")
 
-        /* Remove operation */
-        // Remove the key-value pair (key, value) from the hash table
+        /* Remove a key-value pair */
+        // Remove the pair (key, value) from the hash table
         map.remove(key: 16750)
         print("\nHash table after removing 16750:\nKey -> Value")
         map.print()

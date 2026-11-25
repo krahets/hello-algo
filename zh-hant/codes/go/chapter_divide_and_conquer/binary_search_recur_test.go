@@ -16,5 +16,5 @@ func TestBinarySearch(t *testing.T) {
 	targetIndex := binarySearch(nums, target)
 	fmt.Println("目標元素 6 的索引 = ", targetIndex)
 	noTargetIndex := binarySearch(nums, noTarget)
-	fmt.Println("不存在目標元素的索引 = ", noTargetIndex)
+	fmt.Println("目標元素不存在時的索引 = ", noTargetIndex)
 }

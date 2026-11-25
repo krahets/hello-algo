@@ -1,45 +1,45 @@
 {
   "context": [
-    "三行都使用按 1、3、2、5、4 排列的五個節點，從上到下比較三種連線方式。"
+    "圖中由上而下排列三種連結方式，每一排的五個節點都依序為 1、3、2、5、4。"
   ],
   "description": [],
   "frames": [
     {
       "book_path": "chapter_array_and_linkedlist/linked_list.assets/linkedlist_common_types.png",
-      "explanation": "單向鏈結串列只能沿後繼方向走訪；環形鏈結串列可以選任意節點作為頭節點；雙向鏈結串列可沿 next 或 prev 向兩個方向走訪，但需要額外儲存前驅引用。",
+      "explanation": "單向鏈結串列只能朝後繼節點的方向走訪；環狀鏈結串列可選任一節點作為頭節點；雙向鏈結串列可沿 next 或 prev 向兩個方向走訪，但要額外儲存指向前驅節點的參照。",
       "id": "source-53",
-      "title": "三種常見鏈結串列型別"
+      "title": "三種常見的鏈結串列"
     }
   ],
   "schema_version": 2,
-  "summary": "以同一組節點 1、3、2、5、4 對比單向鏈結串列、環形鏈結串列和雙向鏈結串列的連線方式。",
+  "summary": "以同一組節點 1、3、2、5、4，比較單向、環狀和雙向鏈結串列的連結方式。",
   "tables": [
     {
-      "caption": "三種鏈結串列的引用與邊界",
+      "caption": "三種鏈結串列的參照與首尾邊界",
       "headers": [
-        "型別與位置",
+        "類型與圖中位置",
         "相鄰節點之間",
         "首尾邊界"
       ],
       "row_header": 0,
       "rows": [
         [
-          "單向鏈結串列，singly linked list，上方",
-          "向右的 next：1 → 3 → 2 → 5 → 4",
+          "單向鏈結串列，singly linked list，位於上方",
+          "往右的 next：1 → 3 → 2 → 5 → 4",
           "尾節點 4 的 next 指向 None"
         ],
         [
-          "環形鏈結串列，circular linked list，中間",
-          "向右的 next：1 → 3 → 2 → 5 → 4",
-          "尾節點 4 經下方折線連回節點 1，形成閉環"
+          "環狀鏈結串列，circular linked list，位於中間",
+          "往右的 next：1 → 3 → 2 → 5 → 4",
+          "尾節點 4 經由下方的折線連回節點 1，形成環路"
         ],
         [
-          "雙向鏈結串列，doubly linked list，下方",
-          "節點順序為 1、3、2、5、4；每對相鄰節點間，向右的 next 指向後繼，向左的 prev 指向前驅",
-          "節點 1 的 prev 指向左側 None，節點 4 的 next 指向右側 None"
+          "雙向鏈結串列，doubly linked list，位於下方",
+          "節點順序為 1、3、2、5、4。每對相鄰節點之間，往右的 next 指向後繼節點，往左的 prev 指向前驅節點",
+          "節點 1 的 prev 指向左側的 None，節點 4 的 next 指向右側的 None"
         ]
       ]
     }
   ],
-  "title": "三種常見鏈結串列型別"
+  "title": "三種常見的鏈結串列"
 }

@@ -16,44 +16,44 @@ class LinkedListQueue:
 
     def __init__(self):
         """Конструктор"""
-        self._front: ListNode | None = None  # Головной узел front
-        self._rear: ListNode | None = None  # Хвостовой узел rear
+        self._front: ListNode | None = None  # Первый узел front
+        self._rear: ListNode | None = None  # Последний узел rear
         self._size: int = 0
 
     def size(self) -> int:
-        """Получение длины очереди"""
+        """Получить длину очереди"""
         return self._size
 
     def is_empty(self) -> bool:
-        """Проверка, пуста ли очередь"""
+        """Проверить, пуста ли очередь"""
         return self._size == 0
 
     def push(self, num: int):
-        """Поместить в очередь"""
-        # Добавить num после хвостового узла
+        """Добавить элемент в очередь"""
+        # Добавить узел со значением num после последнего узла
         node = ListNode(num)
-        # Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+        # Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
         if self._front is None:
             self._front = node
             self._rear = node
-        # Если очередь не пуста, добавить этот узел после хвостового узла
+        # Если очередь непуста, добавить новый узел после последнего
         else:
             self._rear.next = node
             self._rear = node
         self._size += 1
 
     def pop(self) -> int:
-        """Извлечь из очереди"""
+        """Извлечь элемент из очереди"""
         num = self.peek()
-        # Удалить головной узел
+        # Удалить первый узел
         self._front = self._front.next
         self._size -= 1
         return num
 
     def peek(self) -> int:
-        """Доступ к элементу в начале очереди"""
+        """Посмотреть первый элемент очереди"""
         if self.is_empty():
-            raise IndexError("очередь пуста")
+            raise IndexError("Очередь пуста")
         return self._front.val
 
     def to_list(self) -> list[int]:
@@ -68,10 +68,10 @@ class LinkedListQueue:
 
 """Driver Code"""
 if __name__ == "__main__":
-    # Инициализация очереди
+    # Инициализировать очередь
     queue = LinkedListQueue()
 
-    # Добавление элемента в очередь
+    # Добавить элементы в очередь
     queue.push(1)
     queue.push(3)
     queue.push(2)
@@ -79,19 +79,19 @@ if __name__ == "__main__":
     queue.push(4)
     print("Очередь queue =", queue.to_list())
 
-    # Доступ к элементу в начале очереди
+    # Посмотреть первый элемент очереди
     peek: int = queue.peek()
-    print("Первый элемент front =", peek)
+    print("Первый элемент очереди front =", peek)
 
-    # Извлечение элемента из очереди
+    # Извлечь элемент из очереди
     pop_front: int = queue.pop()
-    print("Извлеченный элемент pop =", pop_front)
-    print("queue после извлечения =", queue.to_list())
+    print("Извлечённый элемент pop =", pop_front)
+    print("После извлечения queue =", queue.to_list())
 
-    # Получение длины очереди
+    # Получить длину очереди
     size: int = queue.size()
     print("Длина очереди size =", size)
 
-    # Проверка, пуста ли очередь
+    # Проверить, пуста ли очередь
     is_empty: bool = queue.is_empty()
-    print("Пуста ли очередь =", is_empty)
+    print("Очередь пуста =", is_empty)

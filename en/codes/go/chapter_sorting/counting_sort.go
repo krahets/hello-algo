@@ -7,9 +7,9 @@ package chapter_sorting
 type CountingSort struct{}
 
 /* Counting sort */
-// Simple implementation; cannot be used to sort objects
+// Simple implementation that cannot sort objects
 func countingSortNaive(nums []int) {
-	// 1. Find the maximum array element m
+	// 1. Find the largest array element m
 	m := 0
 	for _, num := range nums {
 		if num > m {
@@ -17,12 +17,12 @@ func countingSortNaive(nums []int) {
 		}
 	}
 	// 2. Count the occurrences of each number
-	// counter[num] is the number of occurrences of num
+	// counter[num] holds the number of occurrences of num
 	counter := make([]int, m+1)
 	for _, num := range nums {
 		counter[num]++
 	}
-	// 3. Traverse counter and fill the original array nums with the elements
+	// 3. Traverse counter and write each value back into nums
 	for i, num := 0, 0; num < m+1; num++ {
 		for j := 0; j < counter[num]; j++ {
 			nums[i] = num
@@ -32,9 +32,9 @@ func countingSortNaive(nums []int) {
 }
 
 /* Counting sort */
-// Full implementation; stable and adaptable to sorting objects
+// Full implementation that can sort objects and is stable
 func countingSort(nums []int) {
-	// 1. Find the maximum array element m
+	// 1. Find the largest array element m
 	m := 0
 	for _, num := range nums {
 		if num > m {
@@ -42,27 +42,27 @@ func countingSort(nums []int) {
 		}
 	}
 	// 2. Count the occurrences of each number
-	// counter[num] is the number of occurrences of num
+	// counter[num] holds the number of occurrences of num
 	counter := make([]int, m+1)
 	for _, num := range nums {
 		counter[num]++
 	}
-	// 3. Compute prefix sums of counter to convert occurrence counts into end positions
-	// That is, counter[num]-1 is the index of the last occurrence of num in res
+	// 3. Compute prefix sums in counter to locate the last position for each value
+	// That is, counter[num]-1 is the last index of num in res
 	for i := 0; i < m; i++ {
 		counter[i+1] += counter[i]
 	}
-	// 4. Traverse nums in reverse and place each element in the result array res
-	// Initialize array res to store the result
+	// 4. Traverse nums backward and place each element in the result array res
+	// Initialize the result array res
 	n := len(nums)
 	res := make([]int, n)
 	for i := n - 1; i >= 0; i-- {
 		num := nums[i]
-		// Place num at the corresponding index
+		// Place num at its corresponding index
 		res[counter[num]-1] = num
-		// Decrement the prefix sum by 1 to determine where to place the next occurrence of num
+		// Decrement the prefix sum by 1 to find the next index for num
 		counter[num]--
 	}
-	// Overwrite the original array nums with the result array res
+	// Copy res back into the original array nums
 	copy(nums, res)
 }

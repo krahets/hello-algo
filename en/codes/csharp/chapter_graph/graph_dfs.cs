@@ -7,26 +7,26 @@
 namespace hello_algo.chapter_graph;
 
 public class graph_dfs {
-    /* Depth-first traversal helper function */
+    /* Helper for depth-first traversal */
     void DFS(GraphAdjList graph, HashSet<Vertex> visited, List<Vertex> res, Vertex vet) {
         res.Add(vet);     // Record the visited vertex
-        visited.Add(vet); // Mark this vertex as visited
-        // Traverse all neighbors of this vertex
+        visited.Add(vet); // Mark the vertex as visited
+        // Iterate over all neighbors of this vertex
         foreach (Vertex adjVet in graph.adjList[vet]) {
             if (visited.Contains(adjVet)) {
-                continue; // Skip vertices that have already been visited                             
+                continue; // Skip visited vertices                             
             }
-            // Recursively visit the neighboring vertex
+            // Visit neighbors recursively
             DFS(graph, visited, res, adjVet);
         }
     }
 
     /* Depth-first traversal */
-    // Represent the graph with an adjacency list to access all neighbors of a given vertex
+    // Represent the graph with an adjacency list to look up all neighbors of a given vertex
     List<Vertex> GraphDFS(GraphAdjList graph, Vertex startVet) {
-        // Vertex traversal sequence
+        // Vertex traversal order
         List<Vertex> res = [];
-        // Hash set recording visited vertices
+        // Use a hash set to track visited vertices
         HashSet<Vertex> visited = [];
         DFS(graph, visited, res, startVet);
         return res;
@@ -34,7 +34,7 @@ public class graph_dfs {
 
     [Test]
     public void Test() {
-        /* Initialize the undirected graph */
+        /* Initialize an undirected graph */
         Vertex[] v = Vertex.ValsToVets([0, 1, 2, 3, 4, 5, 6]);
         Vertex[][] edges =
         [
@@ -48,7 +48,7 @@ public class graph_dfs {
 
         /* Depth-first traversal */
         List<Vertex> res = GraphDFS(graph, v[0]);
-        Console.WriteLine("\nVertex sequence from depth-first traversal (DFS):");
+        Console.WriteLine("\nDepth-first search (DFS) visits the vertices in this order:");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

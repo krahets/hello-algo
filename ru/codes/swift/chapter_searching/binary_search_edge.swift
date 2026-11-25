@@ -6,46 +6,46 @@
 
 import binary_search_insertion_target
 
-/* Двоичный поиск самого левого элемента target */
+/* Двоичный поиск первого вхождения target */
 func binarySearchLeftEdge(nums: [Int], target: Int) -> Int {
-    // Эквивалентно поиску точки вставки target
+    // Задача равносильна поиску позиции вставки target
     let i = binarySearchInsertion(nums: nums, target: target)
-    // target не найден, вернуть -1
+    // Значение target не найдено, возвращаем -1
     if i == nums.endIndex || nums[i] != target {
         return -1
     }
-    // target найден, возвращается индекс i
+    // Значение target найдено, возвращаем индекс i
     return i
 }
 
-/* Двоичный поиск самого правого элемента target */
+/* Двоичный поиск последнего вхождения target */
 func binarySearchRightEdge(nums: [Int], target: Int) -> Int {
-    // Преобразовать задачу в поиск самого левого target + 1
+    // Сводим задачу к поиску первого вхождения target + 1
     let i = binarySearchInsertion(nums: nums, target: target + 1)
-    // j указывает на самый правый target, а i — на первый элемент больше target
+    // j указывает на последнее вхождение target, а i — на первый элемент, больший target
     let j = i - 1
-    // target не найден, вернуть -1
+    // Значение target не найдено, возвращаем -1
     if j == -1 || nums[j] != target {
         return -1
     }
-    // target найден, возвращается индекс j
+    // Значение target найдено, возвращаем индекс j
     return j
 }
 
 @main
 enum BinarySearchEdge {
-    /* Driver Code */
+    /* Пример использования */
     static func main() {
         // Массив с повторяющимися элементами
         let nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]
         print("\nМассив nums = \(nums)")
 
-        // Двоичный поиск левой и правой границы
+        // Двоичный поиск левой и правой границ
         for target in [6, 7] {
             var index = binarySearchLeftEdge(nums: nums, target: target)
-            print("Индекс самого левого элемента \(target) равен \(index)")
+            print("Индекс первого вхождения \(target) = \(index)")
             index = binarySearchRightEdge(nums: nums, target: target)
-            print("Индекс самого правого элемента \(target) равен \(index)")
+            print("Индекс последнего вхождения \(target) = \(index)")
         }
     }
 }

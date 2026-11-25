@@ -6,49 +6,49 @@
 
 package chapter_backtracking.permutations_ii
 
-/* Алгоритм бэктрекинга: все перестановки II */
+/* Поиск с возвратом: перестановки II */
 fun backtrack(
     state: MutableList<Int>,
     choices: IntArray,
     selected: BooleanArray,
     res: MutableList<MutableList<Int>?>
 ) {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if (state.size == choices.size) {
         res.add(state.toMutableList())
         return
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     val duplicated = HashSet<Int>()
     for (i in choices.indices) {
         val choice = choices[i]
-        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+        // Отсечение: нельзя повторно брать тот же элемент или пробовать на этом уровне то же значение
         if (!selected[i] && !duplicated.contains(choice)) {
-            // Попытка: сделать выбор и обновить состояние
-            duplicated.add(choice) // Записать значения уже выбранных элементов
+            // Пробуем вариант и обновляем состояние
+            duplicated.add(choice) // Отмечаем уже выбранные значения
             selected[i] = true
             state.add(choice)
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, choices, selected, res)
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false
             state.removeAt(state.size - 1)
         }
     }
 }
 
-/* Все перестановки II */
+/* Перестановки II */
 fun permutationsII(nums: IntArray): MutableList<MutableList<Int>?> {
     val res = mutableListOf<MutableList<Int>?>()
     backtrack(mutableListOf(), nums, BooleanArray(nums.size), res)
     return res
 }
 
-/* Driver Code */
+/* Основная программа */
 fun main() {
     val nums = intArrayOf(1, 2, 2)
     val res = permutationsII(nums)
 
-    println("Входной массив nums = ${nums.contentToString()}")
+    println("Исходный массив nums = ${nums.contentToString()}")
     println("Все перестановки res = $res")
 }

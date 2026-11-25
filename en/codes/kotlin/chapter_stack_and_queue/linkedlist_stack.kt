@@ -6,9 +6,9 @@
 
 package chapter_stack_and_queue
 
-/* Stack implemented with a linked list */
+/* Stack backed by a linked list */
 class LinkedListStack(
-    private var stackPeek: ListNode? = null, // Use the head node as the stack top
+    private var stackPeek: ListNode? = null, // Use the head node as the top of the stack
     private var stkSize: Int = 0 // Stack size
 ) {
 
@@ -22,7 +22,7 @@ class LinkedListStack(
         return size() == 0
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     fun push(num: Int) {
         val node = ListNode(num)
         node.next = stackPeek
@@ -30,7 +30,7 @@ class LinkedListStack(
         stkSize++
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     fun pop(): Int? {
         val num = peek()
         stackPeek = stackPeek?.next
@@ -38,13 +38,13 @@ class LinkedListStack(
         return num
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     fun peek(): Int? {
         if (isEmpty()) throw IndexOutOfBoundsException()
         return stackPeek?._val
     }
 
-    /* Convert the list to an array and return it */
+    /* Return the linked list elements as an array */
     fun toArray(): IntArray {
         var node = stackPeek
         val res = IntArray(size())
@@ -67,21 +67,21 @@ fun main() {
     stack.push(2)
     stack.push(5)
     stack.push(4)
-    println("Stack stack = ${stack.toArray().contentToString()}")
+    println("stack = ${stack.toArray().contentToString()}")
 
-    /* Access the top element */
+    /* Peek at the top element */
     val peek = stack.peek()!!
-    println("Top element: peek = $peek")
+    println("Top element (peek) = $peek")
 
-    /* Pop an element from the stack */
+    /* Pop the top element */
     val pop = stack.pop()!!
-    println("Popped element: pop = $pop; stack after removal = ${stack.toArray().contentToString()}")
+    println("Popped element (pop) = $pop, stack after the pop = ${stack.toArray().contentToString()}")
 
     /* Get the stack size */
     val size = stack.size()
     println("Stack size = $size")
 
-    /* Check whether it is empty */
+    /* Check whether the stack is empty */
     val isEmpty = stack.isEmpty()
-    println("Is the stack empty? $isEmpty")
+    println("Stack is empty = $isEmpty")
 }

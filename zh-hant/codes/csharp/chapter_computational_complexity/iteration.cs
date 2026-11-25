@@ -10,7 +10,7 @@ public class iteration {
     /* for 迴圈 */
     int ForLoop(int n) {
         int res = 0;
-        // 迴圈求和 1, 2, ..., n-1, n
+        // 迴圈加總 1, 2, ..., n-1, n
         for (int i = 1; i <= n; i++) {
             res += i;
         }
@@ -21,7 +21,7 @@ public class iteration {
     int WhileLoop(int n) {
         int res = 0;
         int i = 1; // 初始化條件變數
-        // 迴圈求和 1, 2, ..., n-1, n
+        // 迴圈加總 1, 2, ..., n-1, n
         while (i <= n) {
             res += i;
             i += 1; // 更新條件變數
@@ -29,11 +29,11 @@ public class iteration {
         return res;
     }
 
-    /* while 迴圈（兩次更新） */
+    /* while 迴圈（更新兩次） */
     int WhileLoopII(int n) {
         int res = 0;
         int i = 1; // 初始化條件變數
-        // 迴圈求和 1, 4, 10, ...
+        // 迴圈加總 1, 4, 10, ...
         while (i <= n) {
             res += i;
             // 更新條件變數
@@ -56,22 +56,22 @@ public class iteration {
         return res.ToString();
     }
 
-    /* Driver Code */
+    /* 主程式 */
     [Test]
     public void Test() {
         int n = 5;
         int res;
 
         res = ForLoop(n);
-        Console.WriteLine("\nfor 迴圈的求和結果 res = " + res);
+        Console.WriteLine("\nfor 迴圈的總和 res = " + res);
 
         res = WhileLoop(n);
-        Console.WriteLine("\nwhile 迴圈的求和結果 res = " + res);
+        Console.WriteLine("\nwhile 迴圈的總和 res = " + res);
 
         res = WhileLoopII(n);
-        Console.WriteLine("\nwhile 迴圈（兩次更新）求和結果 res = " + res);
+        Console.WriteLine("\nwhile 迴圈（更新兩次）的總和 res = " + res);
 
         string resStr = NestedForLoop(n);
-        Console.WriteLine("\n雙層 for 迴圈的走訪結果 " + resStr);
+        Console.WriteLine("\n雙層 for 迴圈走訪的結果 " + resStr);
     }
 }

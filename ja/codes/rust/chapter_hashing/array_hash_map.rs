@@ -10,14 +10,14 @@ pub struct Pair {
     pub key: i32,
     pub val: String,
 }
-/* 配列で実装したハッシュテーブル */
+/* 配列で実装したハッシュ表 */
 pub struct ArrayHashMap {
     buckets: Vec<Option<Pair>>,
 }
 
 impl ArrayHashMap {
     pub fn new() -> ArrayHashMap {
-        // 100 個のバケットを含む配列を初期化する
+        // 100 個のバケットを持つ配列を初期化する
         Self {
             buckets: vec![None; 100],
         }
@@ -28,13 +28,13 @@ impl ArrayHashMap {
         key as usize % 100
     }
 
-    /* 取得操作 */
+    /* 検索 */
     pub fn get(&self, key: i32) -> Option<&String> {
         let index = self.hash_func(key);
         self.buckets[index].as_ref().map(|pair| &pair.val)
     }
 
-    /* 追加操作 */
+    /* 追加 */
     pub fn put(&mut self, key: i32, val: &str) {
         let index = self.hash_func(key);
         self.buckets[index] = Some(Pair {
@@ -43,10 +43,10 @@ impl ArrayHashMap {
         });
     }
 
-    /* 削除操作 */
+    /* 削除 */
     pub fn remove(&mut self, key: i32) {
         let index = self.hash_func(key);
-        // None に設定して、削除を表す
+        // None を代入して削除する
         self.buckets[index] = None;
     }
 
@@ -74,7 +74,7 @@ impl ArrayHashMap {
             .collect()
     }
 
-    /* ハッシュテーブルを表示する */
+    /* ハッシュ表を表示する */
     pub fn print(&self) {
         for pair in self.entry_set() {
             println!("{} -> {}", pair.key, pair.val);
@@ -83,41 +83,41 @@ impl ArrayHashMap {
 }
 
 fn main() {
-    /* ハッシュテーブルを初期化する */
+    /* ハッシュ表を初期化する */
     let mut map = ArrayHashMap::new();
-    /*追加操作 */
-    // ハッシュテーブルにキーと値のペア（key, value）を追加する
+    /*追加 */
+    // ハッシュ表にペア (key, value) を追加する
     map.put(12836, "小哈");
     map.put(15937, "小啰");
     map.put(16750, "小算");
     map.put(13276, "小法");
     map.put(10583, "小鸭");
-    println!("\n追加後のハッシュテーブル\nKey -> Value");
+    println!("\n追加後のハッシュ表\nKey -> Value");
     map.print();
 
-    /* 取得操作 */
-    // ハッシュテーブルにキー key を渡し、値 value を取得する
+    /* 検索 */
+    // ハッシュ表でキー key に対応する値 value を取得する
     let name = map.get(15937).unwrap();
-    println!("\n学生番号 15937 に対応する氏名は {}", name);
+    println!("\n学籍番号 15937 に対応する名前は {}", name);
 
-    /* 削除操作 */
-    // ハッシュテーブルからキーと値のペア (key, value) を削除する
+    /* 削除 */
+    // ハッシュ表からペア (key, value) を削除する
     map.remove(10583);
-    println!("\n10583 を削除した後のハッシュテーブル\nKey -> Value");
+    println!("\n10583 を削除した後のハッシュ表\nKey -> Value");
     map.print();
 
-    /* ハッシュテーブルを走査する */
-    println!("\nキーと値のペア Key->Value を走査する");
+    /* ハッシュ表を走査する */
+    println!("\nキーと値のペアを順に表示 Key->Value");
     for pair in map.entry_set() {
         println!("{} -> {}", pair.key, pair.val);
     }
 
-    println!("\nキー Key だけを走査する");
+    println!("\nキーだけを順に表示 Key");
     for key in map.key_set() {
         println!("{}", key);
     }
 
-    println!("\n値 Value だけを走査する");
+    println!("\n値だけを順に表示 Value");
     for val in map.value_set() {
         println!("{}", val);
     }

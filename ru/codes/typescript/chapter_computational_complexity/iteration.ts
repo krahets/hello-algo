@@ -7,7 +7,7 @@
 /* Цикл for */
 function forLoop(n: number): number {
     let res = 0;
-    // Циклическое суммирование 1, 2, ..., n-1, n
+    // Сложить числа 1, 2, ..., n-1, n в цикле
     for (let i = 1; i <= n; i++) {
         res += i;
     }
@@ -17,35 +17,35 @@ function forLoop(n: number): number {
 /* Цикл while */
 function whileLoop(n: number): number {
     let res = 0;
-    let i = 1; // Инициализация условной переменной
-    // Циклическое суммирование 1, 2, ..., n-1, n
+    let i = 1; // Задать начальное значение переменной условия
+    // Сложить числа 1, 2, ..., n-1, n в цикле
     while (i <= n) {
         res += i;
-        i++; // Обновить условную переменную
+        i++; // Обновить переменную условия
     }
     return res;
 }
 
-/* Цикл while (двойное обновление) */
+/* Цикл while с двумя обновлениями */
 function whileLoopII(n: number): number {
     let res = 0;
-    let i = 1; // Инициализация условной переменной
-    // Циклическое суммирование 1, 4, 10, ...
+    let i = 1; // Задать начальное значение переменной условия
+    // Сложить числа 1, 4, 10, ... в цикле
     while (i <= n) {
         res += i;
-        // Обновить условную переменную
+        // Обновить переменную условия
         i++;
         i *= 2;
     }
     return res;
 }
 
-/* Двойной цикл for */
+/* Вложенные циклы for */
 function nestedForLoop(n: number): string {
     let res = '';
-    // Цикл по i = 1, 2, ..., n-1, n
+    // Перебрать i = 1, 2, ..., n-1, n
     for (let i = 1; i <= n; i++) {
-        // Цикл по j = 1, 2, ..., n-1, n
+        // Перебрать j = 1, 2, ..., n-1, n
         for (let j = 1; j <= n; j++) {
             res += `(${i}, ${j}), `;
         }
@@ -53,20 +53,20 @@ function nestedForLoop(n: number): string {
     return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 const n = 5;
 let res: number;
 
 res = forLoop(n);
-console.log(`Результат суммирования в цикле for res = ${res}`);
+console.log(`Сумма в цикле for: res = ${res}`);
 
 res = whileLoop(n);
-console.log(`Результат суммирования в цикле while res = ${res}`);
+console.log(`Сумма в цикле while: res = ${res}`);
 
 res = whileLoopII(n);
-console.log(`Результат суммирования в цикле while (двойное обновление) res = ${res}`);
+console.log(`Сумма в цикле while с двумя обновлениями: res = ${res}`);
 
 const resStr = nestedForLoop(n);
-console.log(`Результат обхода в двойном цикле for ${resStr}`);
+console.log(`Результат обхода вложенными циклами for: ${resStr}`);
 
 export {};

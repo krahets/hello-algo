@@ -13,12 +13,12 @@ import (
 
 func TestLevelOrder(t *testing.T) {
 	/* Initialize the binary tree */
-	// Use a helper function that builds a binary tree directly from an array
+	// Use a function that builds a binary tree directly from an array
 	root := SliceToTree([]any{1, 2, 3, 4, 5, 6, 7})
 	fmt.Println("\nInitialize the binary tree: ")
 	PrintTree(root)
 
 	// Level-order traversal
 	nums := levelOrder(root)
-	fmt.Println("\nNode sequence from level-order traversal =", nums)
+	fmt.Println("\nNodes in level order =", nums)
 }

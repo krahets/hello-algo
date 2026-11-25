@@ -14,10 +14,10 @@ import (
 
 func TestQueue(t *testing.T) {
 	/* 初始化佇列 */
-	// 在 Go 中，將 list 作為佇列來使用
+	// 在 Go 中，可用 list 套件的鏈結串列當作佇列
 	queue := list.New()
 
-	/* 元素入列 */
+	/* 將元素加入佇列 */
 	queue.PushBack(1)
 	queue.PushBack(3)
 	queue.PushBack(2)
@@ -26,17 +26,17 @@ func TestQueue(t *testing.T) {
 	fmt.Print("佇列 queue = ")
 	PrintList(queue)
 
-	/* 訪問佇列首元素 */
+	/* 取得隊首節點 */
 	peek := queue.Front()
-	fmt.Println("佇列首元素 peek =", peek.Value)
+	fmt.Println("隊首元素 peek =", peek.Value)
 
-	/* 元素出列 */
+	/* 從佇列取出元素 */
 	pop := queue.Front()
 	queue.Remove(pop)
-	fmt.Print("出列元素 pop = ", pop.Value, "，出列後 queue = ")
+	fmt.Print("出隊元素 pop = ", pop.Value, "，出隊後 queue = ")
 	PrintList(queue)
 
-	/* 獲取佇列的長度 */
+	/* 取得佇列長度 */
 	size := queue.Len()
 	fmt.Println("佇列長度 size =", size)
 
@@ -47,14 +47,14 @@ func TestQueue(t *testing.T) {
 
 func TestArrayQueue(t *testing.T) {
 
-	// 初始化佇列，使用佇列的通用介面
+	// 使用佇列的共用介面初始化佇列
 	capacity := 10
 	queue := newArrayQueue(capacity)
 	if queue.pop() != nil {
 		t.Errorf("want:%v,got:%v", nil, queue.pop())
 	}
 
-	// 元素入列
+	// 將元素加入佇列
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -63,37 +63,37 @@ func TestArrayQueue(t *testing.T) {
 	fmt.Print("佇列 queue = ")
 	PrintSlice(queue.toSlice())
 
-	// 訪問佇列首元素
+	// 讀取隊首元素
 	peek := queue.peek()
-	fmt.Println("佇列首元素 peek =", peek)
+	fmt.Println("隊首元素 peek =", peek)
 
-	// 元素出列
+	// 從佇列取出元素
 	pop := queue.pop()
-	fmt.Print("出列元素 pop = ", pop, ", 出列後 queue = ")
+	fmt.Print("出隊元素 pop = ", pop, "， 出隊後 queue = ")
 	PrintSlice(queue.toSlice())
 
-	// 獲取隊的長度
+	// 取得佇列長度
 	size := queue.size()
-	fmt.Println("隊的長度 size =", size)
+	fmt.Println("佇列長度 size =", size)
 
-	// 判斷是否為空
+	// 判斷佇列是否為空
 	isEmpty := queue.isEmpty()
-	fmt.Println("隊是否為空 =", isEmpty)
+	fmt.Println("佇列是否為空 =", isEmpty)
 
-	/* 測試環形陣列 */
+	/* 測試環狀陣列 */
 	for i := 0; i < 10; i++ {
 		queue.push(i)
 		queue.pop()
-		fmt.Print("第 ", i, " 輪入列 + 出列後 queue =")
+		fmt.Print("第 ", i, " 輪入隊 + 出隊後 queue =")
 		PrintSlice(queue.toSlice())
 	}
 }
 
 func TestLinkedListQueue(t *testing.T) {
-	// 初始化隊
+	// 初始化佇列
 	queue := newLinkedListQueue()
 
-	// 元素入列
+	// 將元素加入佇列
 	queue.push(1)
 	queue.push(3)
 	queue.push(2)
@@ -102,29 +102,29 @@ func TestLinkedListQueue(t *testing.T) {
 	fmt.Print("佇列 queue = ")
 	PrintList(queue.toList())
 
-	// 訪問佇列首元素
+	// 讀取隊首元素
 	peek := queue.peek()
-	fmt.Println("佇列首元素 peek =", peek)
+	fmt.Println("隊首元素 peek =", peek)
 
-	// 元素出列
+	// 從佇列取出元素
 	pop := queue.pop()
-	fmt.Print("出列元素 pop = ", pop, ", 出列後 queue = ")
+	fmt.Print("出隊元素 pop = ", pop, "， 出隊後 queue = ")
 	PrintList(queue.toList())
 
-	// 獲取隊的長度
+	// 取得佇列長度
 	size := queue.size()
-	fmt.Println("隊的長度 size =", size)
+	fmt.Println("佇列長度 size =", size)
 
-	// 判斷是否為空
+	// 判斷佇列是否為空
 	isEmpty := queue.isEmpty()
-	fmt.Println("隊是否為空 =", isEmpty)
+	fmt.Println("佇列是否為空 =", isEmpty)
 }
 
-// BenchmarkArrayQueue 8 ns/op in Mac M1 Pro
+// BenchmarkArrayQueue 在配備 M1 Pro 的 Mac 上測得 8 ns/op
 func BenchmarkArrayQueue(b *testing.B) {
 	capacity := 1000
 	queue := newArrayQueue(capacity)
-	// use b.N for looping
+	// 以 b.N 作為迴圈次數
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}
@@ -133,10 +133,10 @@ func BenchmarkArrayQueue(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedQueue 62.66 ns/op in Mac M1 Pro
+// BenchmarkLinkedQueue 在配備 M1 Pro 的 Mac 上測得 62.66 ns/op
 func BenchmarkLinkedQueue(b *testing.B) {
 	queue := newLinkedListQueue()
-	// use b.N for looping
+	// 以 b.N 作為迴圈次數
 	for i := 0; i < b.N; i++ {
 		queue.push(777)
 	}

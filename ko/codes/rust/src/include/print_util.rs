@@ -17,7 +17,7 @@ struct Trunk<'a, 'b> {
     str: Cell<&'b str>,
 }
 
-/* 배열을 출력한다 */
+/* 배열 출력 */
 pub fn print_array<T: Display>(nums: &[T]) {
     print!("[");
     if nums.len() > 0 {
@@ -36,7 +36,7 @@ pub fn print_hash_map<TKey: Display, TValue: Display>(map: &HashMap<TKey, TValue
     }
 }
 
-/* 큐(덱)를 출력한다 */
+/* 큐(덱) 출력 */
 pub fn print_queue<T: Display>(queue: &VecDeque<T>) {
     print!("[");
     let iter = queue.iter();

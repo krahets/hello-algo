@@ -4,7 +4,7 @@
 
 const std = @import("std");
 
-// Constant complexity
+// Constant time
 fn constant(n: i32) i32 {
     _ = n;
     var count: i32 = 0;
@@ -16,7 +16,7 @@ fn constant(n: i32) i32 {
     return count;
 }
 
-// Linear complexity
+// Linear time
 fn linear(n: i32) i32 {
     var count: i32 = 0;
     var i: i32 = 0;
@@ -26,21 +26,21 @@ fn linear(n: i32) i32 {
     return count;
 }
 
-// Linear complexity (array traversal)
+// Linear time (array traversal)
 fn arrayTraversal(nums: []i32) i32 {
     var count: i32 = 0;
-    // The number of iterations is proportional to the array length
+    // The iteration count is proportional to the array length
     for (nums) |_| {
         count += 1;
     }
     return count;
 }
 
-// Quadratic complexity
+// Quadratic time
 fn quadratic(n: i32) i32 {
     var count: i32 = 0;
     var i: i32 = 0;
-    // The number of iterations is proportional to the square of the input size n
+    // The iteration count grows quadratically with input size n
     while (i < n) : (i += 1) {
         var j: i32 = 0;
         while (j < n) : (j += 1) {
@@ -50,14 +50,14 @@ fn quadratic(n: i32) i32 {
     return count;
 }
 
-// Quadratic complexity (bubble sort)
+// Quadratic time (bubble sort)
 fn bubbleSort(nums: []i32) i32 {
     var count: i32 = 0; // Counter
-    // Outer loop: the unsorted range is [0, i]
+    // Outer loop: the unsorted range is the closed interval [0, i]
     var i: i32 = @as(i32, @intCast(nums.len)) - 1;
     while (i > 0) : (i -= 1) {
         var j: usize = 0;
-        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+        // Inner loop: swap adjacent elements to move the largest in [0, i] to index i
         while (j < i) : (j += 1) {
             if (nums[j] > nums[j + 1]) {
                 // Swap nums[j] and nums[j + 1]
@@ -71,12 +71,12 @@ fn bubbleSort(nums: []i32) i32 {
     return count;
 }
 
-// Exponential complexity (iterative implementation)
+// Exponential time (iterative)
 fn exponential(n: i32) i32 {
     var count: i32 = 0;
     var bas: i32 = 1;
     var i: i32 = 0;
-    // Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
+    // Each cell divides in two per round, giving 1, 2, 4, 8, ..., 2^(n-1)
     while (i < n) : (i += 1) {
         var j: i32 = 0;
         while (j < bas) : (j += 1) {
@@ -88,13 +88,13 @@ fn exponential(n: i32) i32 {
     return count;
 }
 
-// Exponential complexity (recursive implementation)
+// Exponential time (recursive)
 fn expRecur(n: i32) i32 {
     if (n == 1) return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
-// Logarithmic complexity (iterative implementation)
+// Logarithmic time (iterative)
 fn logarithmic(n: i32) i32 {
     var count: i32 = 0;
     var n_var: i32 = n;
@@ -104,13 +104,13 @@ fn logarithmic(n: i32) i32 {
     return count;
 }
 
-// Logarithmic complexity (recursive implementation)
+// Logarithmic time (recursive)
 fn logRecur(n: i32) i32 {
     if (n <= 1) return 0;
     return logRecur(@divTrunc(n, 2)) + 1;
 }
 
-// Linearithmic complexity
+// Linearithmic time
 fn linearLogRecur(n: i32) i32 {
     if (n <= 1) return 1;
     var count: i32 = linearLogRecur(@divTrunc(n, 2)) + linearLogRecur(@divTrunc(n, 2));
@@ -121,7 +121,7 @@ fn linearLogRecur(n: i32) i32 {
     return count;
 }
 
-// Factorial complexity (recursive implementation)
+// Factorial time (recursive)
 fn factorialRecur(n: i32) i32 {
     if (n == 0) return 1;
     var count: i32 = 0;
@@ -133,44 +133,44 @@ fn factorialRecur(n: i32) i32 {
     return count;
 }
 
-// Driver code
+// Driver Code
 pub fn run() void {
     // Try different values of n to see how the operation count grows for each complexity
     const n: i32 = 8;
     std.debug.print("Input size n = {}\n", .{n});
 
     var count = constant(n);
-    std.debug.print("Constant-time operation count = {}\n", .{count});
+    std.debug.print("Constant operation count = {}\n", .{count});
 
     count = linear(n);
-    std.debug.print("Linear-time operation count = {}\n", .{count});
+    std.debug.print("Linear operation count = {}\n", .{count});
     var nums = [_]i32{0} ** n;
     count = arrayTraversal(&nums);
-    std.debug.print("Linear-time operation count (array traversal) = {}\n", .{count});
+    std.debug.print("Linear operation count (array traversal) = {}\n", .{count});
 
     count = quadratic(n);
-    std.debug.print("Quadratic-time operation count = {}\n", .{count});
+    std.debug.print("Quadratic operation count = {}\n", .{count});
     for (&nums, 0..) |*num, i| {
         num.* = n - @as(i32, @intCast(i)); // [n,n-1,...,2,1]
     }
     count = bubbleSort(&nums);
-    std.debug.print("Quadratic-time operation count (bubble sort) = {}\n", .{count});
+    std.debug.print("Quadratic operation count (bubble sort) = {}\n", .{count});
 
     count = exponential(n);
-    std.debug.print("Exponential-time operation count (iterative) = {}\n", .{count});
+    std.debug.print("Exponential operation count (iterative) = {}\n", .{count});
     count = expRecur(n);
-    std.debug.print("Exponential-time operation count (recursive) = {}\n", .{count});
+    std.debug.print("Exponential operation count (recursive) = {}\n", .{count});
 
     count = logarithmic(n);
-    std.debug.print("Logarithmic-time operation count (iterative) = {}\n", .{count});
+    std.debug.print("Logarithmic operation count (iterative) = {}\n", .{count});
     count = logRecur(n);
-    std.debug.print("Logarithmic-time operation count (recursive) = {}\n", .{count});
+    std.debug.print("Logarithmic operation count (recursive) = {}\n", .{count});
 
     count = linearLogRecur(n);
-    std.debug.print("Linearithmic-time operation count (recursive) = {}\n", .{count});
+    std.debug.print("Linearithmic operation count (recursive) = {}\n", .{count});
 
     count = factorialRecur(n);
-    std.debug.print("Factorial-time operation count (recursive) = {}\n", .{count});
+    std.debug.print("Factorial operation count (recursive) = {}\n", .{count});
 
     std.debug.print("\n", .{});
 }

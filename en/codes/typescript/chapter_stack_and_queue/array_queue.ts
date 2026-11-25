@@ -4,10 +4,10 @@
  * Author: S-N-O-R-L-A-X (snorlax.xu@outlook.com)
  */
 
-/* Queue implemented with a circular array */
+/* Queue backed by a circular array */
 class ArrayQueue {
     private nums: number[]; // Array that stores the queue elements
-    private front: number; // Front pointer, pointing to the first element
+    private front: number; // Index of the front element
     private queSize: number; // Queue size
 
     constructor(capacity: number) {
@@ -30,38 +30,38 @@ class ArrayQueue {
         return this.queSize === 0;
     }
 
-    /* Enqueue */
+    /* Enqueue an element */
     push(num: number): void {
         if (this.size === this.capacity) {
             console.log('Queue is full');
             return;
         }
-        // Calculate the rear pointer, which points one position past the last element
-        // Use modulo to wrap rear to the beginning when it passes the end of the array
+        // Compute the index one slot past the rear element
+        // Use the remainder to wrap rear back to the start of the array
         const rear = (this.front + this.queSize) % this.capacity;
-        // Add num to the rear
+        // Add num at the rear
         this.nums[rear] = num;
         this.queSize++;
     }
 
-    /* Dequeue */
+    /* Remove and return the front element */
     pop(): number {
         const num = this.peek();
-        // Advance the front pointer by one position, wrapping to the beginning if it passes the end
+        // Advance the front index by one, wrapping to the start if it passes the end
         this.front = (this.front + 1) % this.capacity;
         this.queSize--;
         return num;
     }
 
-    /* Access the front element */
+    /* Peek at the front element */
     peek(): number {
         if (this.isEmpty()) throw new Error('Queue is empty');
         return this.nums[this.front];
     }
 
-    /* Return an Array */
+    /* Return the elements as an array */
     toArray(): number[] {
-        // Convert only the list elements within the occupied range
+        // Copy only the elements currently in the queue
         const arr = new Array(this.size);
         for (let i = 0, j = this.front; i < this.size; i++, j++) {
             arr[i] = this.nums[j % this.capacity];
@@ -81,15 +81,15 @@ queue.push(3);
 queue.push(2);
 queue.push(5);
 queue.push(4);
-console.log('Queue queue =', queue.toArray());
+console.log('queue =', queue.toArray());
 
-/* Access the front element */
+/* Peek at the front element */
 const peek = queue.peek();
-console.log('Front element peek = ' + peek);
+console.log('Front element (peek) = ' + peek);
 
 /* Dequeue an element */
 const pop = queue.pop();
-console.log('Dequeued element pop = ' + pop + '; after dequeuing, queue =', queue.toArray());
+console.log('Dequeued element (pop) = ' + pop + ', queue after removal =', queue.toArray());
 
 /* Get the queue size */
 const size = queue.size;
@@ -97,13 +97,13 @@ console.log('Queue size = ' + size);
 
 /* Check whether the queue is empty */
 const isEmpty = queue.isEmpty();
-console.log('Is the queue empty = ' + isEmpty);
+console.log('Queue is empty = ' + isEmpty);
 
 /* Test the circular array */
 for (let i = 0; i < 10; i++) {
     queue.push(i);
     queue.pop();
-    console.log('After round ' + i + ' of enqueue + dequeue, queue =', queue.toArray());
+    console.log('After round ' + i + ' of enqueueing and dequeueing, queue =', queue.toArray());
 }
 
 export {};

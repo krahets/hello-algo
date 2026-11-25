@@ -34,7 +34,7 @@ const path = [];
 const res = [];
 preOrder(root, path, res);
 
-console.log('\n루트 노드에서 노드 7까지의 모든 경로 출력');
+console.log('\n루트에서 값이 7인 노드까지의 모든 경로 출력');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

@@ -34,7 +34,7 @@ public class preorder_traversal_i_compact {
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\nOutput all nodes with value 7");
+        System.out.println("\nPrint all nodes with value 7");
         List<Integer> vals = new ArrayList<>();
         for (TreeNode node : res) {
             vals.add(node.val);

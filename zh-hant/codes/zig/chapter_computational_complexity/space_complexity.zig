@@ -9,24 +9,24 @@ const TreeNode = utils.TreeNode;
 
 // 函式
 fn function() i32 {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 
 // 常數階
 fn constant(n: i32) void {
-    // 常數、變數、物件佔用 O(1) 空間
+    // 常數、變數、物件占用 O(1) 空間
     const a: i32 = 0;
     const b: i32 = 0;
     const nums = [_]i32{0} ** 10000;
     const node = ListNode(i32){ .val = 0 };
     var i: i32 = 0;
-    // 迴圈中的變數佔用 O(1) 空間
+    // 迴圈內變數占用 O(1) 空間
     while (i < n) : (i += 1) {
         const c: i32 = 0;
         _ = c;
     }
-    // 迴圈中的函式佔用 O(1) 空間
+    // 迴圈呼叫函式占用 O(1) 空間
     i = 0;
     while (i < n) : (i += 1) {
         _ = function();
@@ -39,16 +39,16 @@ fn constant(n: i32) void {
 
 // 線性階
 fn linear(comptime n: i32) !void {
-    // 長度為 n 的陣列佔用 O(n) 空間
+    // 長度為 n 的陣列占用 O(n) 空間
     const nums = [_]i32{0} ** n;
-    // 長度為 n 的串列佔用 O(n) 空間
+    // 長度為 n 的串列占用 O(n) 空間
     var nodes = std.ArrayList(i32).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
     while (i < n) : (i += 1) {
         try nodes.append(i);
     }
-    // 長度為 n 的雜湊表佔用 O(n) 空間
+    // 長度為 n 的雜湊表占用 O(n) 空間
     var map = std.AutoArrayHashMap(i32, []const u8).init(std.heap.page_allocator);
     defer map.deinit();
     var j: i32 = 0;
@@ -60,7 +60,7 @@ fn linear(comptime n: i32) !void {
     _ = nums;
 }
 
-// 線性階（遞迴實現）
+// 線性階（遞迴實作）
 fn linearRecur(comptime n: i32) void {
     std.debug.print("遞迴 n = {}\n", .{n});
     if (n == 1) return;
@@ -69,7 +69,7 @@ fn linearRecur(comptime n: i32) void {
 
 // 平方階
 fn quadratic(n: i32) !void {
-    // 二維串列佔用 O(n^2) 空間
+    // 二維串列占用 O(n^2) 空間
     var nodes = std.ArrayList(std.ArrayList(i32)).init(std.heap.page_allocator);
     defer nodes.deinit();
     var i: i32 = 0;
@@ -84,15 +84,15 @@ fn quadratic(n: i32) !void {
     }
 }
 
-// 平方階（遞迴實現）
+// 平方階（遞迴實作）
 fn quadraticRecur(comptime n: i32) i32 {
     if (n <= 0) return 0;
     const nums = [_]i32{0} ** n;
-    std.debug.print("遞迴 n = {} 中的 nums 長度 = {}\n", .{ n, nums.len });
+    std.debug.print("遞迴 n = {} 時，nums 的長度 = {}\n", .{ n, nums.len });
     return quadraticRecur(n - 1);
 }
 
-// 指數階（建立滿二元樹）
+// 指數階（建完美二元樹）
 fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     if (n == 0) return null;
     const root = try allocator.create(TreeNode(i32));
@@ -102,7 +102,7 @@ fn buildTree(allocator: std.mem.Allocator, n: i32) !?*TreeNode(i32) {
     return root;
 }
 
-// 釋放樹的記憶體
+// 釋放樹占用的記憶體
 fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
     if (root == null) return;
     freeTree(allocator, root.?.left);
@@ -110,7 +110,7 @@ fn freeTree(allocator: std.mem.Allocator, root: ?*const TreeNode(i32)) void {
     allocator.destroy(root.?);
 }
 
-// Driver Code
+// 主程式
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();

@@ -21,12 +21,12 @@ public class preorder_traversal_ii_compact {
         // 嘗試
         path.add(root);
         if (root.val == 7) {
-            // 記錄解
+            // 記錄此解
             res.add(new ArrayList<>(path));
         }
         preOrder(root.left);
         preOrder(root.right);
-        // 回退
+        // 回溯
         path.remove(path.size() - 1);
     }
 
@@ -40,7 +40,7 @@ public class preorder_traversal_ii_compact {
         res = new ArrayList<>();
         preOrder(root);
 
-        System.out.println("\n輸出所有根節點到節點 7 的路徑");
+        System.out.println("\n輸出從根節點到值為 7 的節點的所有路徑");
         for (List<TreeNode> path : res) {
             List<Integer> vals = new ArrayList<>();
             for (TreeNode node : path) {

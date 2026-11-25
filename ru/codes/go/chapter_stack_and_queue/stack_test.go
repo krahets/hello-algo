@@ -12,11 +12,11 @@ import (
 )
 
 func TestStack(t *testing.T) {
-	/* Инициализация стека */
-	// В Go рекомендуется использовать Slice как стек
+	/* Инициализировать стек */
+	// В Go для реализации стека рекомендуется использовать срез
 	var stack []int
 
-	/* Помещение элемента в стек */
+	/* Поместить элементы в стек */
 	stack = append(stack, 1)
 	stack = append(stack, 3)
 	stack = append(stack, 2)
@@ -25,30 +25,30 @@ func TestStack(t *testing.T) {
 	fmt.Print("Стек stack = ")
 	PrintSlice(stack)
 
-	/* Доступ к верхнему элементу стека */
+	/* Посмотреть элемент на вершине стека */
 	peek := stack[len(stack)-1]
-	fmt.Println("Верхний элемент peek =", peek)
+	fmt.Println("Элемент на вершине стека peek =", peek)
 
-	/* Извлечение элемента из стека */
+	/* Снять элемент со стека */
 	pop := stack[len(stack)-1]
 	stack = stack[:len(stack)-1]
-	fmt.Print("Извлеченный элемент pop = ", pop, ", stack после извлечения = ")
+	fmt.Print("Снятый элемент pop = ", pop, ", после снятия stack = ")
 	PrintSlice(stack)
 
-	/* Получение длины стека */
+	/* Получить размер стека */
 	size := len(stack)
-	fmt.Println("Длина стека size =", size)
+	fmt.Println("Размер стека size =", size)
 
-	/* Проверка на пустоту */
+	/* Проверить, пуст ли стек */
 	isEmpty := len(stack) == 0
-	fmt.Println("Пуст ли стек =", isEmpty)
+	fmt.Println("Стек пуст =", isEmpty)
 }
 
 func TestArrayStack(t *testing.T) {
 	// Инициализировать стек
 	stack := newArrayStack()
 
-	// Помещение элемента в стек
+	// Поместить элементы в стек
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -57,28 +57,28 @@ func TestArrayStack(t *testing.T) {
 	fmt.Print("Стек stack = ")
 	PrintSlice(stack.toSlice())
 
-	// Доступ к верхнему элементу стека
+	// Посмотреть элемент на вершине стека
 	peek := stack.peek()
-	fmt.Println("Верхний элемент peek =", peek)
+	fmt.Println("Элемент на вершине стека peek =", peek)
 
-	// Извлечение элемента из стека
+	// Снять элемент со стека
 	pop := stack.pop()
-	fmt.Print("Извлеченный элемент pop = ", pop, ", stack после извлечения = ")
+	fmt.Print("Снятый элемент pop = ", pop, ", после снятия stack = ")
 	PrintSlice(stack.toSlice())
 
-	// Получение длины стека
+	// Получить размер стека
 	size := stack.size()
-	fmt.Println("Длина стека size =", size)
+	fmt.Println("Размер стека size =", size)
 
-	// Проверка на пустоту
+	// Проверить, пуст ли стек
 	isEmpty := stack.isEmpty()
-	fmt.Println("Пуст ли стек =", isEmpty)
+	fmt.Println("Стек пуст =", isEmpty)
 }
 
 func TestLinkedListStack(t *testing.T) {
-	// Инициализация стека
+	// Инициализировать стек
 	stack := newLinkedListStack()
-	// Помещение элемента в стек
+	// Поместить элементы в стек
 	stack.push(1)
 	stack.push(3)
 	stack.push(2)
@@ -87,28 +87,28 @@ func TestLinkedListStack(t *testing.T) {
 	fmt.Print("Стек stack = ")
 	PrintList(stack.toList())
 
-	// Доступ к верхнему элементу стека
+	// Посмотреть элемент на вершине стека
 	peek := stack.peek()
-	fmt.Println("Верхний элемент peek =", peek)
+	fmt.Println("Элемент на вершине стека peek =", peek)
 
-	// Извлечение элемента из стека
+	// Снять элемент со стека
 	pop := stack.pop()
-	fmt.Print("Извлеченный элемент pop = ", pop, ", stack после извлечения = ")
+	fmt.Print("Снятый элемент pop = ", pop, ", после снятия stack = ")
 	PrintList(stack.toList())
 
-	// Получение длины стека
+	// Получить размер стека
 	size := stack.size()
-	fmt.Println("Длина стека size =", size)
+	fmt.Println("Размер стека size =", size)
 
-	// Проверка на пустоту
+	// Проверить, пуст ли стек
 	isEmpty := stack.isEmpty()
-	fmt.Println("Пуст ли стек =", isEmpty)
+	fmt.Println("Стек пуст =", isEmpty)
 }
 
-// BenchmarkArrayStack 8 ns/op in Mac M1 Pro
+// Результат BenchmarkArrayStack на Mac с M1 Pro — 8 ns/op
 func BenchmarkArrayStack(b *testing.B) {
 	stack := newArrayStack()
-	// use b.N for looping
+	// Число итераций цикла задаёт b.N
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}
@@ -117,10 +117,10 @@ func BenchmarkArrayStack(b *testing.B) {
 	}
 }
 
-// BenchmarkLinkedListStack 65.02 ns/op in Mac M1 Pro
+// Результат BenchmarkLinkedListStack на Mac с M1 Pro — 65.02 ns/op
 func BenchmarkLinkedListStack(b *testing.B) {
 	stack := newLinkedListStack()
-	// use b.N for looping
+	// Число итераций цикла задаёт b.N
 	for i := 0; i < b.N; i++ {
 		stack.push(777)
 	}

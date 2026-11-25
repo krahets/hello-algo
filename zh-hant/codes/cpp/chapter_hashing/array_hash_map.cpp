@@ -17,14 +17,14 @@ struct Pair {
     }
 };
 
-/* 基於陣列實現的雜湊表 */
+/* 以陣列實作的雜湊表 */
 class ArrayHashMap {
   private:
     vector<Pair *> buckets;
 
   public:
     ArrayHashMap() {
-        // 初始化陣列，包含 100 個桶
+        // 初始化包含 100 個桶的陣列
         buckets = vector<Pair *>(100);
     }
 
@@ -61,12 +61,12 @@ class ArrayHashMap {
     /* 刪除操作 */
     void remove(int key) {
         int index = hashFunc(key);
-        // 釋放記憶體並置為 nullptr
+        // 釋放記憶體並設為 nullptr
         delete buckets[index];
         buckets[index] = nullptr;
     }
 
-    /* 獲取所有鍵值對 */
+    /* 取得所有鍵值對 */
     vector<Pair *> pairSet() {
         vector<Pair *> pairSet;
         for (Pair *pair : buckets) {
@@ -77,7 +77,7 @@ class ArrayHashMap {
         return pairSet;
     }
 
-    /* 獲取所有鍵 */
+    /* 取得所有鍵 */
     vector<int> keySet() {
         vector<int> keySet;
         for (Pair *pair : buckets) {
@@ -88,7 +88,7 @@ class ArrayHashMap {
         return keySet;
     }
 
-    /* 獲取所有值 */
+    /* 取得所有值 */
     vector<string> valueSet() {
         vector<string> valueSet;
         for (Pair *pair : buckets) {
@@ -99,7 +99,7 @@ class ArrayHashMap {
         return valueSet;
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     void print() {
         for (Pair *kv : pairSet()) {
             cout << kv->key << " -> " << kv->val << endl;
@@ -107,4 +107,4 @@ class ArrayHashMap {
     }
 };
 
-// 測試樣例請見 array_hash_map_test.cpp
+// 測試案例請見 array_hash_map_test.cpp

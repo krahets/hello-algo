@@ -4,32 +4,32 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Алгоритм бэктрекинга: все перестановки II */
+/* Поиск с возвратом: перестановки II */
 func backtrack(state: inout [Int], choices: [Int], selected: inout [Bool], res: inout [[Int]]) {
-    // Когда длина состояния равна числу элементов, записать решение
+    // Когда длина текущей перестановки равна числу элементов, сохраняем решение
     if state.count == choices.count {
         res.append(state)
         return
     }
-    // Перебор всех вариантов выбора
+    // Перебираем все варианты
     var duplicated: Set<Int> = []
     for (i, choice) in choices.enumerated() {
-        // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+        // Отсечение: нельзя повторно брать тот же элемент или пробовать на этом уровне то же значение
         if !selected[i], !duplicated.contains(choice) {
-            // Попытка: сделать выбор и обновить состояние
-            duplicated.insert(choice) // Записать значения уже выбранных элементов
+            // Пробуем вариант и обновляем состояние
+            duplicated.insert(choice) // Отмечаем уже выбранные значения
             selected[i] = true
             state.append(choice)
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state: &state, choices: choices, selected: &selected, res: &res)
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             selected[i] = false
             state.removeLast()
         }
     }
 }
 
-/* Все перестановки II */
+/* Перестановки II */
 func permutationsII(nums: [Int]) -> [[Int]] {
     var state: [Int] = []
     var selected = Array(repeating: false, count: nums.count)
@@ -40,13 +40,13 @@ func permutationsII(nums: [Int]) -> [[Int]] {
 
 @main
 enum PermutationsII {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         let nums = [1, 2, 3]
 
         let res = permutationsII(nums: nums)
 
-        print("Входной массив nums = \(nums)")
+        print("Исходный массив nums = \(nums)")
         print("Все перестановки res = \(res)")
     }
 }

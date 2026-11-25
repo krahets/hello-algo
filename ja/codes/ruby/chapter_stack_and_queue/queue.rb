@@ -4,13 +4,13 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # キューを初期化する
-  # Ruby の組み込みキュー（Thread::Queue）には peek と走査のメソッドがないため、Array をキューとして使える
+  # Ruby 組み込みのキュー（Thread::Queue）には peek メソッドも要素を順にたどるメソッドもないので、Array をキューとして使える
   queue = []
 
-  # 要素をエンキューする
+  # 要素をキューに追加する
   queue.push(1)
   queue.push(3)
   queue.push(2)
@@ -18,21 +18,21 @@ if __FILE__ == $0
   queue.push(4)
   puts "キュー queue = #{queue}"
 
-  # キューの要素にアクセスする
+  # キューの要素を参照する
   peek = queue.first
-  puts "キューの先頭要素 peek = #{peek}"
+  puts "先頭要素 peek = #{peek}"
 
-  # 要素をデキューする
-  # 配列なので Array#shift メソッドの時間計算量は O(n) であることに注意
+  # キューから要素を取り出す
+  # 配列を使うため、Array#shift の時間計算量は O(n) になる点に注意
   pop = queue.shift
   puts "デキューした要素 pop = #{pop}"
-  puts "デキュー後 queue = #{queue}"
+  puts "デキュー後の queue = #{queue}"
 
-  # キューの長さを取得
+  # キューの要素数を取得する
   size = queue.length
-  puts "キューの長さ size = #{size}"
+  puts "キューの要素数 size = #{size}"
 
-  # キューが空か判定
+  # キューが空かどうかを判定する
   is_empty = queue.empty?
   puts "キューは空か = #{is_empty}"
 end

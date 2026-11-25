@@ -9,41 +9,41 @@ use hello_algo_rust::include::print_util;
 use std::{cmp::Reverse, collections::BinaryHeap};
 
 fn test_push_max(heap: &mut BinaryHeap<i32>, val: i32) {
-    heap.push(val); // ヒープに要素を挿入する
-    println!("\n要素 {} をヒープに挿入した後", val);
+    heap.push(val); // 要素をヒープに挿入する
+    println!("\n要素 {} の挿入後：", val);
     print_util::print_heap(heap.iter().map(|&val| val).collect());
 }
 
 fn test_pop_max(heap: &mut BinaryHeap<i32>) {
     let val = heap.pop().unwrap();
-    println!("\nヒープの先頭要素 {} を取り出した後", val);
+    println!("\n根の要素 {} を取り出した後：", val);
     print_util::print_heap(heap.iter().map(|&val| val).collect());
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     /* ヒープを初期化する */
     // 最小ヒープを初期化する
     #[allow(unused_assignments)]
     let mut min_heap = BinaryHeap::new();
-    // Rust の BinaryHeap は最大ヒープであり、最小ヒープには通常 Reverse を「かぶせる」
+    // Rust の BinaryHeap は最大ヒープ。最小ヒープには通常 Reverse をかぶせる
     // 最大ヒープを初期化する
     let mut max_heap = BinaryHeap::new();
 
-    println!("\n以下のテストケースは最大ヒープを対象とする");
+    println!("\n以下は最大ヒープのテスト例");
 
-    /* ヒープに要素を挿入する */
+    /* 要素をヒープに挿入する */
     test_push_max(&mut max_heap, 1);
     test_push_max(&mut max_heap, 3);
     test_push_max(&mut max_heap, 2);
     test_push_max(&mut max_heap, 5);
     test_push_max(&mut max_heap, 4);
 
-    /* ヒープの先頭要素を取得する */
+    /* ヒープの根の要素を取得する */
     let peek = max_heap.peek().unwrap();
-    println!("\nヒープの先頭要素は {}", peek);
+    println!("\nヒープの根の要素：{}", peek);
 
-    /* ヒープの先頭要素を取り出す */
+    /* 根の要素を取り出す */
     test_pop_max(&mut max_heap);
     test_pop_max(&mut max_heap);
     test_pop_max(&mut max_heap);
@@ -52,20 +52,20 @@ fn main() {
 
     /* ヒープのサイズを取得する */
     let size = max_heap.len();
-    println!("\nヒープの要素数は {}", size);
+    println!("\nヒープの要素数：{}", size);
 
-    /* ヒープが空か判定 */
+    /* ヒープが空か判定する */
     let is_empty = max_heap.is_empty();
-    println!("\nヒープは空か {}", is_empty);
+    println!("\nヒープは空か：{}", is_empty);
 
-    /* リストを入力してヒープを構築する */
-    // 時間計算量は O(n) であり、O(nlogn) ではない
+    /* 入力リストからヒープを構築する */
+    // 時間計算量は O(nlogn) ではなく O(n)
     min_heap = BinaryHeap::from(
         vec![1, 3, 2, 5, 4]
             .into_iter()
             .map(|val| Reverse(val))
             .collect::<Vec<Reverse<i32>>>(),
     );
-    println!("\nリストを入力して最小ヒープを構築した後");
+    println!("\n入力リストから構築した最小ヒープ：");
     print_util::print_heap(min_heap.iter().map(|&val| val.0).collect());
 }

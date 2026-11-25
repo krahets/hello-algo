@@ -9,7 +9,7 @@ import "fmt"
 /* for 迴圈 */
 func forLoop(n int) int {
 	res := 0
-	// 迴圈求和 1, 2, ..., n-1, n
+	// 迴圈加總 1, 2, ..., n-1, n
 	for i := 1; i <= n; i++ {
 		res += i
 	}
@@ -21,7 +21,7 @@ func whileLoop(n int) int {
 	res := 0
 	// 初始化條件變數
 	i := 1
-	// 迴圈求和 1, 2, ..., n-1, n
+	// 迴圈加總 1, 2, ..., n-1, n
 	for i <= n {
 		res += i
 		// 更新條件變數
@@ -30,12 +30,12 @@ func whileLoop(n int) int {
 	return res
 }
 
-/* while 迴圈（兩次更新） */
+/* while 迴圈（更新兩次） */
 func whileLoopII(n int) int {
 	res := 0
 	// 初始化條件變數
 	i := 1
-	// 迴圈求和 1, 4, 10, ...
+	// 迴圈加總 1, 4, 10, ...
 	for i <= n {
 		res += i
 		// 更新條件變數

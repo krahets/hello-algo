@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* Структура двоичного дерева в представлении массивом */
+/* Структура двоичного дерева на основе массива */
 typedef struct {
     int *tree;
     int size;
@@ -27,39 +27,39 @@ void delArrayBinaryTree(ArrayBinaryTree *abt) {
     free(abt);
 }
 
-/* Вместимость списка */
+/* Ёмкость списка */
 int size(ArrayBinaryTree *abt) {
     return abt->size;
 }
 
 /* Получить значение узла с индексом i */
 int val(ArrayBinaryTree *abt, int i) {
-    // Если индекс выходит за границы, вернуть INT_MAX, обозначающий пустую позицию
+    // Если индекс выходит за границы массива, вернуть INT_MAX — признак пустой позиции
     if (i < 0 || i >= size(abt))
         return INT_MAX;
     return abt->tree[i];
 }
 
-/* Получить индекс левого дочернего узла узла с индексом i */
+/* Получить индекс левого потомка узла с индексом i */
 int left(int i) {
     return 2 * i + 1;
 }
 
-/* Получить индекс правого дочернего узла узла с индексом i */
+/* Получить индекс правого потомка узла с индексом i */
 int right(int i) {
     return 2 * i + 2;
 }
 
-/* Получить индекс родительского узла узла с индексом i */
+/* Получить индекс родителя узла с индексом i */
 int parent(int i) {
     return (i - 1) / 2;
 }
 
-/* Обход в ширину */
+/* Обход по уровням */
 int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
     int *res = (int *)malloc(sizeof(int) * size(abt));
     int index = 0;
-    // Непосредственно обходить массив
+    // Пройти непосредственно по массиву
     for (int i = 0; i < size(abt); i++) {
         if (val(abt, i) != INT_MAX)
             res[index++] = val(abt, i);
@@ -70,10 +70,10 @@ int *levelOrder(ArrayBinaryTree *abt, int *returnSize) {
 
 /* Обход в глубину */
 void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
-    // Если это пустая позиция, вернуть
+    // Если позиция пуста, завершить вызов
     if (val(abt, i) == INT_MAX)
         return;
-    // Предварительный обход
+    // Прямой обход
     if (strcmp(order, "pre") == 0)
         res[(*index)++] = val(abt, i);
     dfs(abt, left(i), order, res, index);
@@ -86,7 +86,7 @@ void dfs(ArrayBinaryTree *abt, int i, char *order, int *res, int *index) {
         res[(*index)++] = val(abt, i);
 }
 
-/* Предварительный обход */
+/* Прямой обход */
 int *preOrder(ArrayBinaryTree *abt, int *returnSize) {
     int *res = (int *)malloc(sizeof(int) * size(abt));
     int index = 0;
@@ -113,15 +113,15 @@ int *postOrder(ArrayBinaryTree *abt, int *returnSize) {
     return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
-    // Инициализировать двоичное дерево
-    // Использовать INT_MAX для обозначения пустой позиции NULL
+    // Инициализация двоичного дерева
+    // INT_MAX обозначает пустую позицию NULL
     int arr[] = {1, 2, 3, 4, INT_MAX, 6, 7, 8, 9, INT_MAX, INT_MAX, 12, INT_MAX, INT_MAX, 15};
     int arrSize = sizeof(arr) / sizeof(arr[0]);
     TreeNode *root = arrayToTree(arr, arrSize);
     printf("\nИнициализация двоичного дерева\n");
-    printf("Массивное представление двоичного дерева:\n");
+    printf("Представление двоичного дерева в виде массива:\n");
     printArray(arr, arrSize);
     printf("Связное представление двоичного дерева:\n");
     printTree(root);
@@ -131,12 +131,12 @@ int main() {
     // Доступ к узлу
     int i = 1;
     int l = left(i), r = right(i), p = parent(i);
-    printf("\nТекущий индекс узла = %d, значение = %d\n", i, val(abt, i));
-    printf("Индекс левого дочернего узла = %d, значение = %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
-    printf("Индекс правого дочернего узла = %d, значение = %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
-    printf("Индекс родительского узла = %d, значение = %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
+    printf("\nИндекс текущего узла: %d, значение: %d\n", i, val(abt, i));
+    printf("Индекс левого потомка: %d, значение: %d\n", l, l < arrSize ? val(abt, l) : INT_MAX);
+    printf("Индекс правого потомка: %d, значение: %d\n", r, r < arrSize ? val(abt, r) : INT_MAX);
+    printf("Индекс родителя: %d, значение: %d\n", p, p < arrSize ? val(abt, p) : INT_MAX);
 
-    // Обходить дерево
+    // Обход дерева
     int returnSize;
     int *res;
 
@@ -146,7 +146,7 @@ int main() {
     free(res);
 
     res = preOrder(abt, &returnSize);
-    printf("Предварительный обход: ");
+    printf("Прямой обход: ");
     printArray(res, returnSize);
     free(res);
 

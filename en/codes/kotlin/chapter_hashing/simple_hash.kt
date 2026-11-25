@@ -6,7 +6,7 @@
 
 package chapter_hashing
 
-/* Additive hash */
+/* Additive hashing */
 fun addHash(key: String): Int {
     var hash = 0L
     val MODULUS = 1000000007
@@ -16,7 +16,7 @@ fun addHash(key: String): Int {
     return hash.toInt()
 }
 
-/* Multiplicative hash */
+/* Multiplicative hashing */
 fun mulHash(key: String): Int {
     var hash = 0L
     val MODULUS = 1000000007
@@ -26,7 +26,7 @@ fun mulHash(key: String): Int {
     return hash.toInt()
 }
 
-/* XOR hash */
+/* XOR hashing */
 fun xorHash(key: String): Int {
     var hash = 0
     val MODULUS = 1000000007
@@ -36,7 +36,7 @@ fun xorHash(key: String): Int {
     return hash and MODULUS
 }
 
-/* Rotating hash */
+/* Rotation hashing */
 fun rotHash(key: String): Int {
     var hash = 0L
     val MODULUS = 1000000007
@@ -60,5 +60,5 @@ fun main() {
     println("XOR hash value: $hash")
 
     hash = rotHash(key)
-    println("Rotating hash value: $hash")
+    println("Rotation hash value: $hash")
 }

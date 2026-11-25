@@ -16,5 +16,5 @@ func TestFractionalKnapsack(t *testing.T) {
 
 	// Жадный алгоритм
 	res := fractionalKnapsack(wgt, val, capacity)
-	fmt.Println("Максимальная стоимость предметов без превышения вместимости рюкзака =", res)
+	fmt.Println("Максимальная стоимость при заданной вместимости рюкзака:", res)
 }

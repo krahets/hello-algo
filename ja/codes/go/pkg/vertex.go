@@ -4,19 +4,19 @@
 
 package pkg
 
-// Vertex は頂点クラス
+// Vertex は頂点を表す型
 type Vertex struct {
 	Val int
 }
 
-// NewVertex は頂点のコンストラクタ
+// NewVertex は頂点を作成する
 func NewVertex(val int) Vertex {
 	return Vertex{
 		Val: val,
 	}
 }
 
-// ValsToVets は値のリストをデシリアライズして頂点のリストにする
+// ValsToVets は値のリストをデシリアライズして頂点のリストを復元する
 func ValsToVets(vals []int) []Vertex {
 	vets := make([]Vertex, len(vals))
 	for i := 0; i < len(vals); i++ {
@@ -25,7 +25,7 @@ func ValsToVets(vals []int) []Vertex {
 	return vets
 }
 
-// VetsToVals は頂点のリストをシリアライズして値のリストにする
+// VetsToVals は頂点のリストを値のリストにシリアライズする
 func VetsToVals(vets []Vertex) []int {
 	vals := make([]int, len(vets))
 	for i := range vets {
@@ -34,12 +34,12 @@ func VetsToVals(vets []Vertex) []int {
 	return vals
 }
 
-// DeleteSliceElms はスライスの指定された要素を削除する
+// DeleteSliceElms はスライスから指定された要素を削除する
 func DeleteSliceElms[T any](a []T, elms ...T) []T {
 	if len(a) == 0 || len(elms) == 0 {
 		return a
 	}
-	// 先に要素を set に変換する
+	// まず、削除する要素を集合にまとめる
 	m := make(map[any]struct{})
 	for _, v := range elms {
 		m[v] = struct{}{}

@@ -1,30 +1,30 @@
 {
-  "schema_version": 2,
-  "title": "Recursively split crowded price buckets",
-  "summary": "Start with three broad price buckets. Recursively split the crowded buckets containing 65% and 35% of the data to get seven more evenly sized leaf buckets.",
   "context": [
-    "Each percentage is a share of all products, not a share of that bucket’s parent. The figure supplies price-range labels and percentages but gives no total product count, currency unit, or complete convention for interval endpoints."
+    "Each percentage is a share of all products, not just of its parent bucket. The figure gives price range labels and bucket shares but does not specify the total number of products, currency, or a complete rule for assigning endpoints."
   ],
   "description": [
-    "Arrows from “Product data” show successive subdivisions. Buckets with no further splits remain leaves. The first level has three price buckets: <100 holds 65%, 100–500 holds 20%, and >500 holds 15%. Because the <100 bucket holds 65% of all products, split it into three child buckets.",
-    "At the second level, <100 splits into <10 with 18%, 10–50 with 35%, and 50–100 with 12%. Their shares sum to 18% + 35% + 12% = 65%. The 10–50 bucket still holds a high share (35%), so split it again into 10–20 with 13%, 20–35 with 12%, and 35–50 with 10%. Their sum is 13% + 12% + 10% = 35%.",
-    "“Data partitioning result” on the right lists the seven leaf buckets (see the table). Each holds between 10% and 20% of the data, more even than the initial 65%, 20%, and 15%. The intermediate 65% and 35% represent split parents and do not count again among the final buckets."
+    "Branching arrows below “Product data” show successive subdivisions. Buckets that are not split further remain leaves. The first split gives three price buckets: <100 holds 65%, 100–500 holds 20%, and >500 holds 15%. Since <100 holds 65% of all products, it is split into three more buckets.",
+    "The second level divides <100 into <10 with 18%, 10–50 with 35%, and 50–100 with 12%. Their shares add up to 18% + 35% + 12% = 65%. The 10–50 bucket still holds a particularly large share (35%), so it is divided into 10–20 with 13%, 20–35 with 12%, and 35–50 with 10%. Their shares add up to 13% + 12% + 10% = 35%.",
+    "“Resulting groups” on the right lists the seven leaf buckets of the recursion tree (see the table). Their shares range from 10% to 20%, much more evenly distributed than the initial 65%, 20%, and 15%. The intermediate 65% and 35% totals belong to parent buckets that were split, so they do not count again in the result."
   ],
   "frames": [
     {
-      "id": "source-297",
       "book_path": "chapter_sorting/bucket_sort.assets/scatter_in_buckets_recursively.png",
-      "title": "Recursively split crowded price buckets",
-      "explanation": "The seven leaf percentages add to 100%. Each holds 10% to 20%, so the counts are more evenly distributed. An implementation must complete the illustrated ranges by specifying how to assign their endpoints."
+      "explanation": "The seven leaf shares add up to 100%. Each leaf holds 10% to 20%, so the data is more evenly distributed after splitting. An implementation must complete the range labels with explicit endpoint rules.",
+      "id": "source-297",
+      "title": "Recursively split crowded price buckets"
     }
   ],
+  "schema_version": 2,
+  "summary": "First divide the products into three price buckets. Then recursively split the crowded buckets holding 65% and 35% of the data to obtain seven more evenly populated leaf buckets.",
   "tables": [
     {
-      "caption": "Final seven leaf buckets",
+      "caption": "The seven final leaf buckets",
       "headers": [
-        "Price range shown",
+        "Price interval shown",
         "Share of all data"
       ],
+      "row_header": 0,
       "rows": [
         [
           "<10",
@@ -54,8 +54,8 @@
           ">500",
           "15%"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Recursively split crowded price buckets"
 }

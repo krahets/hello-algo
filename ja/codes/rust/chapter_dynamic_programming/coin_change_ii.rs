@@ -17,10 +17,10 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     for i in 1..=n {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {
-                // 目標金額を超える場合、硬貨 i を選ばない
+                // 目標金額を超える場合は硬貨 i を使わない
                 dp[i][a] = dp[i - 1][a];
             } else {
-                // 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+                // 硬貨 i を使わない場合と使う場合の組合せ数を足す
                 dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1] as usize];
             }
         }
@@ -28,7 +28,7 @@ fn coin_change_ii_dp(coins: &[i32], amt: usize) -> i32 {
     dp[n][amt]
 }
 
-/* 硬貨の両替 II：空間を最適化した動的計画法 */
+/* 硬貨の両替 II：使用メモリを削減した動的計画法 */
 fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     let n = coins.len();
     // dp テーブルを初期化する
@@ -38,10 +38,10 @@ fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     for i in 1..=n {
         for a in 1..=amt {
             if coins[i - 1] > a as i32 {
-                // 目標金額を超える場合、硬貨 i を選ばない
+                // 目標金額を超える場合は硬貨 i を使わない
                 dp[a] = dp[a];
             } else {
-                // 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+                // 硬貨 i を使わない場合と使う場合の組合せ数を足す
                 dp[a] = dp[a] + dp[a - coins[i - 1] as usize];
             }
         }
@@ -49,16 +49,16 @@ fn coin_change_ii_dp_comp(coins: &[i32], amt: usize) -> i32 {
     dp[amt]
 }
 
-/* 実行用コード */
+/* 実行例 */
 pub fn main() {
     let coins = [1, 2, 5];
     let amt: usize = 5;
 
     // 動的計画法
     let res = coin_change_ii_dp(&coins, amt);
-    println!("目標金額になる硬貨の組み合わせの数は {res}");
+    println!("目標金額を作る硬貨の組合せ数は {res}");
 
-    // 空間を最適化した動的計画法
+    // 使用メモリを削減した動的計画法
     let res = coin_change_ii_dp_comp(&coins, amt);
-    println!("目標金額になる硬貨の組み合わせの数は {res}");
+    println!("目標金額を作る硬貨の組合せ数は {res}");
 }

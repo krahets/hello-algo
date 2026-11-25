@@ -9,7 +9,7 @@ use hello_algo_rust::include::ListNode;
 use std::collections::hash_map::DefaultHasher;
 use std::hash::{Hash, Hasher};
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     let num = 3;
     let mut num_hasher = DefaultHasher::new();
@@ -27,7 +27,7 @@ fn main() {
     let mut dec_hasher = DefaultHasher::new();
     dec.to_bits().hash(&mut dec_hasher);
     let hash_dec = dec_hasher.finish();
-    println!("小数 {} のハッシュ値は {}", dec, hash_dec);
+    println!("浮動小数点数 {} のハッシュ値は {}", dec, hash_dec);
 
     let str = "Hello 算法";
     let mut str_hasher = DefaultHasher::new();
@@ -45,5 +45,5 @@ fn main() {
     let mut hasher = DefaultHasher::new();
     node.borrow().val.hash(&mut hasher);
     let hash = hasher.finish();
-    println!("ノード {:?} の値のハッシュ値は {}", node, hash);
+    println!("ノード {:?} に格納された値のハッシュ値は {}", node, hash);
 }

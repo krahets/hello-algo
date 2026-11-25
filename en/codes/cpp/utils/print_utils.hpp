@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-/* Find the last matching element's index in a vector */
+/* Find an element in a vector */
 template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
     for (int i = 0; i < vec.size(); i++) {
@@ -24,7 +24,7 @@ template <typename T> int vecFind(const vector<T> &vec, T ele) {
     return j;
 }
 
-/* Join vector elements with a delimiter */
+/* Join the elements of a vector with a delimiter */
 template <typename T> string strJoin(const string &delim, const T &vec) {
     ostringstream s;
     for (const auto &i : vec) {
@@ -56,12 +56,12 @@ template <typename T> void printArray(T *arr, int n) {
         cout << "]" << endl;
 }
 
-/* Get a string representation of a vector */
+/* Get the string representation of a vector */
 template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
-/* Print the list */
+/* Print a vector */
 template <typename T> void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
@@ -105,7 +105,7 @@ void showTrunks(Trunk *p) {
 
 /**
  * Print a binary tree
- * This tree printer is borrowed from TECHIE DELIGHT
+ * This tree printer comes from Techie Delight
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTree(TreeNode *root, Trunk *prev, bool isRight) {
@@ -144,7 +144,7 @@ void printTree(TreeNode *root) {
     printTree(root, nullptr, false);
 }
 
-/* Print the stack */
+/* Print a stack */
 template <typename T> void printStack(stack<T> stk) {
     // Reverse the input stack
     stack<T> tmp;
@@ -166,7 +166,7 @@ template <typename T> void printStack(stack<T> stk) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Print the queue */
+/* Print a queue */
 template <typename T> void printQueue(queue<T> queue) {
     // Generate the string to print
     ostringstream s;
@@ -182,7 +182,7 @@ template <typename T> void printQueue(queue<T> queue) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Print the deque */
+/* Print a deque */
 template <typename T> void printDeque(deque<T> deque) {
     // Generate the string to print
     ostringstream s;
@@ -198,8 +198,8 @@ template <typename T> void printDeque(deque<T> deque) {
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* Print the hash table */
-// Define template parameters TKey and TValue for the key and value types
+/* Print a hash table */
+// The template parameters TKey and TValue specify the key and value types
 template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
     for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
@@ -216,10 +216,10 @@ template <typename T, typename S, typename C> S &Container(priority_queue<T, S, 
     return HackedQueue::Container(pq);
 }
 
-/* Print the heap (priority queue) */
+/* Print a heap (priority queue) */
 template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "Array representation of the heap:";
+    cout << "Array representation of the heap: ";
     printVector(vec);
     cout << "Tree representation of the heap:" << endl;
     TreeNode *root = vectorToTree(vec);

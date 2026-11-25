@@ -8,10 +8,10 @@
 
 /* リストクラス */
 typedef struct {
-    int *arr;        // 配列（リストの要素を格納する）
+    int *arr;        // 配列（リストの要素を格納）
     int capacity;    // リストの容量
-    int size;        // リストのサイズ
-    int extendRatio; // リストを拡張する際の容量の倍率
+    int size;        // リストの長さ
+    int extendRatio; // リストの容量を拡張する際の倍率
 } MyList;
 
 void extendCapacity(MyList *nums);
@@ -66,7 +66,7 @@ void add(MyList *nums, int num) {
 /* 途中に要素を挿入する */
 void insert(MyList *nums, int index, int num) {
     assert(index >= 0 && index < size(nums));
-    // 要素数が容量を超える場合、容量を拡張する
+    // 要素数が容量を超えるときは容量を拡張する
     if (size(nums) == capacity(nums)) {
         extendCapacity(nums); // 容量を拡張する
     }
@@ -78,7 +78,7 @@ void insert(MyList *nums, int index, int num) {
 }
 
 /* 要素を削除する */
-// 注意：stdio.h で remove という名前が使われている
+// 注意：stdio.h では remove という名前がすでに使われている
 int removeItem(MyList *nums, int index) {
     assert(index >= 0 && index < size(nums));
     int num = nums->arr[index];
@@ -91,19 +91,19 @@ int removeItem(MyList *nums, int index) {
 
 /* リストの容量を拡張する */
 void extendCapacity(MyList *nums) {
-    // 先に領域を確保する
+    // まず領域を確保する
     int newCapacity = capacity(nums) * nums->extendRatio;
     int *extend = (int *)malloc(sizeof(int) * newCapacity);
     int *temp = nums->arr;
 
-    // 古いデータを新しい領域にコピーする
+    // 元のデータを新しい領域にコピーする
     for (int i = 0; i < size(nums); i++)
         extend[i] = nums->arr[i];
 
-    // 古いデータの領域を解放する
+    // 元の領域を解放する
     free(temp);
 
-    // 新しいデータを参照するよう更新する
+    // 新しいデータへの参照に更新する
     nums->arr = extend;
     nums->capacity = newCapacity;
 }
@@ -113,7 +113,7 @@ int *toArray(MyList *nums) {
     return nums->arr;
 }
 
-/* 実行用コード */
+/* ドライバコード */
 int main() {
     /* リストを初期化する */
     MyList *nums = newMyList();
@@ -125,36 +125,36 @@ int main() {
     add(nums, 4);
     printf("リスト nums = ");
     printArray(toArray(nums), size(nums));
-    printf("容量 = %d 、長さ = %d\n", capacity(nums), size(nums));
+    printf("容量 = %d、長さ = %d\n", capacity(nums), size(nums));
 
     /* 途中に要素を挿入する */
     insert(nums, 3, 6);
-    printf("インデックス 3 に数値 6 を挿入した結果 nums = ");
+    printf("インデックス 3 に 6 を挿入した後の nums = ");
     printArray(toArray(nums), size(nums));
 
     /* 要素を削除する */
     removeItem(nums, 3);
-    printf("インデックス 3 の要素を削除した結果 nums = ");
+    printf("インデックス 3 の要素を削除した後の nums = ");
     printArray(toArray(nums), size(nums));
 
     /* 要素にアクセスする */
     int num = get(nums, 1);
-    printf("インデックス 1 の要素にアクセスした結果 num = %d\n", num);
+    printf("インデックス 1 の要素を読み出した結果 num = %d\n", num);
 
     /* 要素を更新する */
     set(nums, 1, 0);
-    printf("インデックス 1 の要素を 0 に更新した結果 nums = ");
+    printf("インデックス 1 の要素を 0 に更新した後の nums = ");
     printArray(toArray(nums), size(nums));
 
-    /* 容量の拡張をテストする */
+    /* 容量拡張の動作を確認する */
     for (int i = 0; i < 10; i++) {
-        // i = 5 のときにリストの長さが容量を超えるため、容量が拡張される
+        // i = 5 でリストの長さが容量を超えるため、容量を拡張する
         add(nums, i);
     }
 
-    printf("容量を拡張した後のリスト nums = ");
+    printf("容量拡張後のリスト nums = ");
     printArray(toArray(nums), size(nums));
-    printf("容量 = %d 、長さ = %d\n", capacity(nums), size(nums));
+    printf("容量 = %d、長さ = %d\n", capacity(nums), size(nums));
 
     /* 確保したメモリを解放する */
     delMyList(nums);

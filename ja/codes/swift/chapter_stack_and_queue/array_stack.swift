@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* 配列で実装したスタック */
+/* 配列を使ったスタック */
 class ArrayStack {
     private var stack: [Int]
 
@@ -13,7 +13,7 @@ class ArrayStack {
         stack = []
     }
 
-    /* スタックの長さを取得する */
+    /* スタックの要素数を取得する */
     func size() -> Int {
         stack.count
     }
@@ -23,12 +23,12 @@ class ArrayStack {
         stack.isEmpty
     }
 
-    /* プッシュ */
+    /* プッシュする */
     func push(num: Int) {
         stack.append(num)
     }
 
-    /* ポップ */
+    /* ポップする */
     @discardableResult
     func pop() -> Int {
         if isEmpty() {
@@ -37,7 +37,7 @@ class ArrayStack {
         return stack.removeLast()
     }
 
-    /* スタックの先頭要素にアクセスする */
+    /* スタックのトップを参照する */
     func peek() -> Int {
         if isEmpty() {
             fatalError("スタックが空です")
@@ -45,7 +45,7 @@ class ArrayStack {
         return stack.last!
     }
 
-    /* List を Array に変換して返す */
+    /* スタックの要素を配列として返す */
     func toArray() -> [Int] {
         stack
     }
@@ -53,7 +53,7 @@ class ArrayStack {
 
 @main
 enum _ArrayStack {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         /* スタックを初期化する */
         let stack = ArrayStack()
@@ -66,17 +66,17 @@ enum _ArrayStack {
         stack.push(num: 4)
         print("スタック stack = \(stack.toArray())")
 
-        /* スタックの先頭要素にアクセスする */
+        /* スタックのトップを参照する */
         let peek = stack.peek()
-        print("スタックの先頭要素 peek = \(peek)")
+        print("スタックのトップの要素 peek = \(peek)")
 
         /* 要素をポップする */
         let pop = stack.pop()
-        print("ポップした要素 pop = \(pop)、ポップ後 stack = \(stack.toArray())")
+        print("ポップした要素 pop = \(pop)、ポップ後の stack = \(stack.toArray())")
 
-        /* スタックの長さを取得する */
+        /* スタックの要素数を取得する */
         let size = stack.size()
-        print("スタックの長さ size = \(size)")
+        print("スタックの要素数 size = \(size)")
 
         /* 空かどうかを判定する */
         let isEmpty = stack.isEmpty()

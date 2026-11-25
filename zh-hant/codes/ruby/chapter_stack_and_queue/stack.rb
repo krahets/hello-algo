@@ -4,13 +4,13 @@ Created Time: 2024-04-06
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### Driver Code ###
+### 範例程式 ###
 if __FILE__ == $0
   # 初始化堆疊
-  # Ruby 沒有內建的堆疊類別，可以把 Array 當作堆疊來使用
+  # Ruby 沒有內建堆疊類別，可以用 Array 當作堆疊
   stack = []
 
-  # 元素入堆疊
+  # 將元素推入堆疊
   stack << 1
   stack << 3
   stack << 2
@@ -18,20 +18,20 @@ if __FILE__ == $0
   stack << 4
   puts "堆疊 stack = #{stack}"
 
-  # 訪問堆疊頂元素
+  # 讀取堆疊頂端的元素
   peek = stack.last
-  puts "堆疊頂元素 peek = #{peek}"
+  puts "堆疊頂端元素 peek = #{peek}"
 
-  # 元素出堆疊
+  # 從堆疊彈出元素
   pop = stack.pop
-  puts "出堆疊元素 pop = #{pop}"
-  puts "出堆疊後 stack = #{stack}"
+  puts "彈出的元素 pop = #{pop}"
+  puts "彈出後 stack = #{stack}"
 
-  # 獲取堆疊的長度
+  # 取得堆疊長度
   size = stack.length
-  puts "堆疊的長度 size = #{size}"
+  puts "堆疊長度 size = #{size}"
 
-  # 判斷是否為空
+  # 判斷堆疊是否為空
   is_empty = stack.empty?
   puts "堆疊是否為空 = #{is_empty}"
 end

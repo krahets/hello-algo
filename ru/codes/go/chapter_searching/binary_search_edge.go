@@ -4,28 +4,28 @@
 
 package chapter_searching
 
-/* Двоичный поиск самого левого элемента target */
+/* Двоичный поиск первого вхождения target */
 func binarySearchLeftEdge(nums []int, target int) int {
-	// Эквивалентно поиску точки вставки target
+	// Задача равносильна поиску позиции вставки target
 	i := binarySearchInsertion(nums, target)
-	// target не найден, вернуть -1
+	// Значение target не найдено, возвращаем -1
 	if i == len(nums) || nums[i] != target {
 		return -1
 	}
-	// target найден, возвращается индекс i
+	// Значение target найдено, возвращаем индекс i
 	return i
 }
 
-/* Двоичный поиск самого правого элемента target */
+/* Двоичный поиск последнего вхождения target */
 func binarySearchRightEdge(nums []int, target int) int {
-	// Преобразовать задачу в поиск самого левого target + 1
+	// Сводим задачу к поиску первого вхождения target + 1
 	i := binarySearchInsertion(nums, target+1)
-	// j указывает на самый правый target, а i — на первый элемент больше target
+	// j указывает на последнее вхождение target, а i — на первый элемент, больший target
 	j := i - 1
-	// target не найден, вернуть -1
+	// Значение target не найдено, возвращаем -1
 	if j == -1 || nums[j] != target {
 		return -1
 	}
-	// target найден, возвращается индекс j
+	// Значение target найдено, возвращаем индекс j
 	return j
 }

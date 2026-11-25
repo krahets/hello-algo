@@ -21,19 +21,19 @@ public class stack {
         stack.push(4);
         System.out.println("스택 stack = " + stack);
 
-        /* 스택 맨 위 원소 접근 */
+        /* 스택 맨 위의 원소 조회 */
         int peek = stack.peek();
-        System.out.println("스택 맨 위 원소 peek = " + peek);
+        System.out.println("맨 위 원소 peek = " + peek);
 
         /* 스택에서 원소 꺼내기 */
         int pop = stack.pop();
-        System.out.println("스택에서 꺼낸 원소 pop = " + pop + ", 스택에서 꺼낸 후 stack = " + stack);
+        System.out.println("꺼낸 원소 pop = " + pop + ", 꺼낸 후 stack = " + stack);
 
-        /* 스택의 길이 반환 */
+        /* 스택의 길이 조회 */
         int size = stack.size();
         System.out.println("스택의 길이 size = " + size);
 
-        /* 비어 있는지 판단 */
+        /* 비어 있는지 확인 */
         boolean isEmpty = stack.isEmpty();
         System.out.println("스택이 비어 있는가 = " + isEmpty);
     }

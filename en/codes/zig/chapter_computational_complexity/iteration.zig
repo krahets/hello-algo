@@ -57,7 +57,7 @@ fn nestedForLoop(allocator: Allocator, n: usize) ![]const u8 {
     return res.toOwnedSlice();
 }
 
-// Driver code
+// Driver Code
 pub fn run() !void {
     var gpa = std.heap.DebugAllocator(.{}){};
     defer _ = gpa.deinit();
@@ -67,16 +67,16 @@ pub fn run() !void {
     var res: i32 = 0;
 
     res = forLoop(n);
-    std.debug.print("Sum computed by the for loop: res = {}\n", .{res});
+    std.debug.print("for loop sum: res = {}\n", .{res});
 
     res = whileLoop(n);
-    std.debug.print("Sum computed by the while loop: res = {}\n", .{res});
+    std.debug.print("while loop sum: res = {}\n", .{res});
 
     res = whileLoopII(n);
-    std.debug.print("Sum computed by the while loop with two updates: res = {}\n", .{res});
+    std.debug.print("while loop sum (two updates): res = {}\n", .{res});
 
     const resStr = try nestedForLoop(allocator, n);
-    std.debug.print("Nested for-loop traversal: {s}\n", .{resStr});
+    std.debug.print("Nested for loop traversal: {s}\n", .{resStr});
     allocator.free(resStr);
 
     std.debug.print("\n", .{});

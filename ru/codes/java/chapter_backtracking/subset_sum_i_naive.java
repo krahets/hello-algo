@@ -9,32 +9,32 @@ package chapter_backtracking;
 import java.util.*;
 
 public class subset_sum_i_naive {
-    /* Алгоритм бэктрекинга: сумма подмножеств I */
+    /* Поиск с возвратом: сумма подмножества I */
     static void backtrack(List<Integer> state, int target, int total, int[] choices, List<List<Integer>> res) {
-        // Если сумма подмножества равна target, записать решение
+        // Если сумма подмножества равна target, сохраняем решение
         if (total == target) {
             res.add(new ArrayList<>(state));
             return;
         }
-        // Перебор всех вариантов выбора
+        // Перебираем все варианты
         for (int i = 0; i < choices.length; i++) {
-            // Отсечение: если сумма подмножества превышает target, пропустить этот выбор
+            // Отсечение: если сумма подмножества превысит target, пропускаем этот вариант
             if (total + choices[i] > target) {
                 continue;
             }
-            // Попытка: сделать выбор и обновить элемент и total
+            // Пробуем вариант и обновляем сумму элементов total
             state.add(choices[i]);
-            // Перейти к следующему выбору
+            // Переходим к следующему выбору
             backtrack(state, target, total + choices[i], choices, res);
-            // Откат: отменить выбор и восстановить предыдущее состояние
+            // Возврат: отменяем выбор и восстанавливаем прежнее состояние
             state.remove(state.size() - 1);
         }
     }
 
-    /* Решить задачу суммы подмножеств I (с повторяющимися подмножествами) */
+    /* Задача о сумме подмножества I (с повторяющимися подмножествами) */
     static List<List<Integer>> subsetSumINaive(int[] nums, int target) {
         List<Integer> state = new ArrayList<>(); // Состояние (подмножество)
-        int total = 0; // Сумма подмножеств
+        int total = 0; // Сумма подмножества
         List<List<Integer>> res = new ArrayList<>(); // Список результатов (список подмножеств)
         backtrack(state, target, total, nums, res);
         return res;
@@ -46,8 +46,8 @@ public class subset_sum_i_naive {
 
         List<List<Integer>> res = subsetSumINaive(nums, target);
 
-        System.out.println("Входной массив nums = " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("Все подмножества с суммой " + target + ": res = " + res);
+        System.out.println("Исходный массив nums = " + Arrays.toString(nums) + ", target = " + target);
+        System.out.println("Все подмножества с суммой " + target + " образуют список res = " + res);
         System.out.println("Обратите внимание: результат этого метода содержит повторяющиеся множества");
     }
 }

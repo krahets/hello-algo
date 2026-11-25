@@ -12,12 +12,12 @@ use array_hash_map::Pair;
 
 /* Хеш-таблица с открытой адресацией */
 struct HashMapOpenAddressing {
-    size: usize,                // Число пар ключ-значение
-    capacity: usize,            // Вместимость хеш-таблицы
-    load_thres: f64,            // Порог коэффициента загрузки для запуска расширения
-    extend_ratio: usize,        // Коэффициент расширения
+    size: usize,                // Число пар «ключ — значение»
+    capacity: usize,            // Ёмкость хеш-таблицы
+    load_thres: f64,            // Порог коэффициента заполнения для расширения
+    extend_ratio: usize,        // Во сколько раз увеличивается ёмкость
     buckets: Vec<Option<Pair>>, // Массив корзин
-    TOMBSTONE: Option<Pair>,    // Удалить метку
+    TOMBSTONE: Option<Pair>,    // Метка удаления
 }
 
 impl HashMapOpenAddressing {
@@ -41,20 +41,20 @@ impl HashMapOpenAddressing {
         (key % self.capacity as i32) as usize
     }
 
-    /* Коэффициент загрузки */
+    /* Коэффициент заполнения */
     fn load_factor(&self) -> f64 {
         self.size as f64 / self.capacity as f64
     }
 
-    /* Найти индекс корзины, соответствующий key */
+    /* Найти индекс корзины для ключа key */
     fn find_bucket(&mut self, key: i32) -> usize {
         let mut index = self.hash_func(key);
         let mut first_tombstone = -1;
-        // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
+        // Линейное пробирование до первой пустой корзины
         while self.buckets[index].is_some() {
-            // Если встретился key, вернуть соответствующий индекс корзины
+            // При совпадении ключа key вернуть индекс его корзины
             if self.buckets[index].as_ref().unwrap().key == key {
-                // Если ранее встретилась метка удаления, переместить пару ключ-значение в этот индекс
+                // Если ранее встретилась метка удаления, переместить пару на её место
                 if first_tombstone != -1 {
                     self.buckets[first_tombstone as usize] = self.buckets[index].take();
                     self.buckets[index] = self.TOMBSTONE.clone();
@@ -62,14 +62,14 @@ impl HashMapOpenAddressing {
                 }
                 return index; // Вернуть индекс корзины
             }
-            // Записать первую встретившуюся метку удаления
+            // Запомнить первую встретившуюся метку удаления
             if first_tombstone == -1 && self.buckets[index] == self.TOMBSTONE {
                 first_tombstone = index as i32;
             }
-            // Вычислить индекс корзины; при выходе за конец вернуться к началу
+            // Вычислить индекс корзины, после конца массива перейти в начало
             index = (index + 1) % self.capacity;
         }
-        // Если key не существует, вернуть индекс точки добавления
+        // Если ключа key нет, вернуть индекс для вставки
         if first_tombstone == -1 {
             index
         } else {
@@ -77,41 +77,41 @@ impl HashMapOpenAddressing {
         }
     }
 
-    /* Операция поиска */
+    /* Поиск */
     fn get(&mut self, key: i32) -> Option<&str> {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         let index = self.find_bucket(key);
-        // Если пара ключ-значение найдена, вернуть соответствующее val
+        // Если пара найдена, вернуть её значение val
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             return self.buckets[index].as_ref().map(|pair| &pair.val as &str);
         }
-        // Если пары ключ-значение не существует, вернуть null
+        // Если пары нет, вернуть null
         None
     }
 
-    /* Операция добавления */
+    /* Вставка */
     fn put(&mut self, key: i32, val: String) {
-        // Когда коэффициент загрузки превышает порог, выполнить расширение
+        // Расширить таблицу, если коэффициент заполнения превысил порог
         if self.load_factor() > self.load_thres {
             self.extend();
         }
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         let index = self.find_bucket(key);
-        // Если пара ключ-значение найдена, перезаписать val и вернуть
+        // Если пара найдена, заменить val и завершить операцию
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             self.buckets[index].as_mut().unwrap().val = val;
             return;
         }
-        // Если пары ключ-значение нет, добавить ее
+        // Если пары нет, добавить её
         self.buckets[index] = Some(Pair { key, val });
         self.size += 1;
     }
 
-    /* Операция удаления */
+    /* Удаление */
     fn remove(&mut self, key: i32) {
-        // Найти индекс корзины, соответствующий key
+        // Найти индекс корзины для ключа key
         let index = self.find_bucket(key);
-        // Если пара ключ-значение найдена, заменить ее меткой удаления
+        // Если пара найдена, заменить её меткой удаления
         if self.buckets[index].is_some() && self.buckets[index] != self.TOMBSTONE {
             self.buckets[index] = self.TOMBSTONE.clone();
             self.size -= 1;
@@ -122,12 +122,12 @@ impl HashMapOpenAddressing {
     fn extend(&mut self) {
         // Временно сохранить исходную хеш-таблицу
         let buckets_tmp = self.buckets.clone();
-        // Инициализация новой хеш-таблицы после расширения
+        // Создать новую таблицу увеличенной ёмкости
         self.capacity *= self.extend_ratio;
         self.buckets = vec![None; self.capacity];
         self.size = 0;
 
-        // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+        // Перенести пары из исходной таблицы в новую
         for pair in buckets_tmp {
             if pair.is_none() || pair == self.TOMBSTONE {
                 continue;
@@ -152,30 +152,30 @@ impl HashMapOpenAddressing {
     }
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 fn main() {
-    /* Инициализация хеш-таблицы */
+    /* Создать хеш-таблицу */
     let mut hashmap = HashMapOpenAddressing::new();
 
-    /* Операция добавления */
-    // Добавить пару (key, value) в хеш-таблицу
+    /* Вставка */
+    // Добавить в таблицу пару (key, value)
     hashmap.put(12836, "Сяо Ха".to_string());
     hashmap.put(15937, "Сяо Ло".to_string());
     hashmap.put(16750, "Сяо Суань".to_string());
     hashmap.put(13276, "Сяо Фа".to_string());
     hashmap.put(10583, "Сяо Я".to_string());
 
-    println!("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение");
+    println!("\nХеш-таблица после вставки:\nКлюч -> Значение");
     hashmap.print();
 
-    /* Операция поиска */
-    // Передать ключ key в хеш-таблицу и получить значение val
+    /* Поиск */
+    // Получить из таблицы значение val по ключу key
     let name = hashmap.get(13276).unwrap();
-    println!("\nДля номера 13276 найдено имя {}", name);
+    println!("\nИмя студента с номером 13276: {}", name);
 
-    /* Операция удаления */
-    // Удалить пару (key, val) из хеш-таблицы
+    /* Удаление */
+    // Удалить из таблицы пару (key, val)
     hashmap.remove(16750);
-    println!("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение");
+    println!("\nХеш-таблица после удаления 16750:\nКлюч -> Значение");
     hashmap.print();
 }

@@ -6,22 +6,22 @@
 
 #include "../utils/common.h"
 
-// 假設節點最大數量為 100
+// 假設節點數量上限為 100
 #define MAX_SIZE 100
 
-/* 節點結構體 */
+/* 節點結構 */
 typedef struct AdjListNode {
     Vertex *vertex;           // 頂點
     struct AdjListNode *next; // 後繼節點
 } AdjListNode;
 
-/* 基於鄰接表實現的無向圖類別 */
+/* 以鄰接串列實作的無向圖類別 */
 typedef struct {
     AdjListNode *heads[MAX_SIZE]; // 節點陣列
     int size;                     // 節點數量
 } GraphAdjList;
 
-/* 建構子 */
+/* 建構函式 */
 GraphAdjList *newGraphAdjList() {
     GraphAdjList *graph = (GraphAdjList *)malloc(sizeof(GraphAdjList));
     if (!graph) {
@@ -34,7 +34,7 @@ GraphAdjList *newGraphAdjList() {
     return graph;
 }
 
-/* 析構函式 */
+/* 解構函式 */
 void delGraphAdjList(GraphAdjList *graph) {
     for (int i = 0; i < graph->size; i++) {
         AdjListNode *cur = graph->heads[i];
@@ -51,7 +51,7 @@ void delGraphAdjList(GraphAdjList *graph) {
     free(graph);
 }
 
-/* 查詢頂點對應的節點 */
+/* 尋找頂點對應的節點 */
 AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
     for (int i = 0; i < graph->size; i++) {
         if (graph->heads[i]->vertex == vet) {
@@ -61,11 +61,11 @@ AdjListNode *findNode(GraphAdjList *graph, Vertex *vet) {
     return NULL;
 }
 
-/* 新增邊輔助函式 */
+/* 新增邊的輔助函式 */
 void addEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *node = (AdjListNode *)malloc(sizeof(AdjListNode));
     node->vertex = vet;
-    // 頭插法
+    // 從串列開頭插入
     node->next = head->next;
     head->next = node;
 }
@@ -80,18 +80,18 @@ void addEdge(GraphAdjList *graph, Vertex *vet1, Vertex *vet2) {
     addEdgeHelper(head2, vet1);
 }
 
-/* 刪除邊輔助函式 */
+/* 刪除邊的輔助函式 */
 void removeEdgeHelper(AdjListNode *head, Vertex *vet) {
     AdjListNode *pre = head;
     AdjListNode *cur = head->next;
-    // 在鏈結串列中搜索 vet 對應節點
+    // 在鏈結串列中尋找 vet 對應的節點
     while (cur != NULL && cur->vertex != vet) {
         pre = cur;
         cur = cur->next;
     }
     if (cur == NULL)
         return;
-    // 將 vet 對應節點從鏈結串列中刪除
+    // 從鏈結串列中刪除 vet 對應的節點
     pre->next = cur->next;
     // 釋放記憶體
     free(cur);
@@ -116,7 +116,7 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *head = (AdjListNode *)malloc(sizeof(AdjListNode));
     head->vertex = vet;
     head->next = NULL;
-    // 在鄰接表中新增一個新鏈結串列
+    // 在鄰接串列中新增一條鏈結串列
     graph->heads[graph->size++] = head;
 }
 
@@ -124,7 +124,7 @@ void addVertex(GraphAdjList *graph, Vertex *vet) {
 void removeVertex(GraphAdjList *graph, Vertex *vet) {
     AdjListNode *node = findNode(graph, vet);
     assert(node != NULL);
-    // 將該頂點之後的頂點向前移動，以填補空缺
+    // 將後面的頂點往前移，補上空位
     int i;
     for (i = 0; i < graph->size; i++) {
         if (graph->heads[i] == node)
@@ -134,7 +134,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
         graph->heads[j] = graph->heads[j + 1];
     }
     graph->size--;
-    // 走訪其他頂點的鏈結串列，刪除所有包含 vet 的邊
+    // 走訪其他頂點的鏈結串列，刪除所有以 vet 為端點的邊
     for (int i = 0; i < graph->size; i++) {
         AdjListNode *cur = graph->heads[i];
         while (cur->next != NULL) {
@@ -147,7 +147,7 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
             }
         }
     }
-    // 在鄰接表中刪除頂點 vet 對應的鏈結串列
+    // 從鄰接串列中刪除頂點 vet 對應的鏈結串列
     while (node != NULL) {
         AdjListNode *next = node->next;
         free(node);
@@ -156,9 +156,9 @@ void removeVertex(GraphAdjList *graph, Vertex *vet) {
     free(vet);
 }
 
-/* 列印鄰接表 */
+/* 印出鄰接串列 */
 void printGraph(const GraphAdjList *graph) {
-    printf("鄰接表 =\n");
+    printf("鄰接串列 =\n");
     for (int i = 0; i < graph->size; ++i) {
         AdjListNode *node = graph->heads[i];
         printf("%d: [", node->vertex->val);

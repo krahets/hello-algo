@@ -11,7 +11,7 @@ struct Pair {
     val: String,
 }
 
-/* 鏈式位址雜湊表 */
+/* 鏈結法雜湊表 */
 struct HashMapChaining {
     size: usize,
     capacity: usize,
@@ -21,7 +21,7 @@ struct HashMapChaining {
 }
 
 impl HashMapChaining {
-    /* 建構子 */
+    /* 建構方法 */
     fn new() -> Self {
         Self {
             size: 0,
@@ -46,7 +46,7 @@ impl HashMapChaining {
     fn remove(&mut self, key: i32) -> Option<String> {
         let index = self.hash_func(key);
 
-        // 走訪桶，從中刪除鍵值對
+        // 走訪桶中的元素，從中刪除鍵值對
         for (i, p) in self.buckets[index].iter_mut().enumerate() {
             if p.key == key {
                 let pair = self.buckets[index].remove(i);
@@ -55,21 +55,21 @@ impl HashMapChaining {
             }
         }
 
-        // 若未找到 key ，則返回 None
+        // 若找不到 key，回傳 None
         None
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     fn extend(&mut self) {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         let buckets_tmp = std::mem::take(&mut self.buckets);
 
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         self.capacity *= self.extend_ratio;
         self.buckets = vec![Vec::new(); self.capacity as usize];
         self.size = 0;
 
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for bucket in buckets_tmp {
             for pair in bucket {
                 self.put(pair.key, pair.val);
@@ -77,7 +77,7 @@ impl HashMapChaining {
         }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     fn print(&self) {
         for bucket in &self.buckets {
             let mut res = Vec::new();
@@ -90,14 +90,14 @@ impl HashMapChaining {
 
     /* 新增操作 */
     fn put(&mut self, key: i32, val: String) {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if self.load_factor() > self.load_thres {
             self.extend();
         }
 
         let index = self.hash_func(key);
 
-        // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
         for pair in self.buckets[index].iter_mut() {
             if pair.key == key {
                 pair.val = val;
@@ -105,7 +105,7 @@ impl HashMapChaining {
             }
         }
 
-        // 若無該 key ，則將鍵值對新增至尾部
+        // 若沒有這個 key，就將鍵值對加到尾端
         let pair = Pair { key, val };
         self.buckets[index].push(pair);
         self.size += 1;
@@ -115,19 +115,19 @@ impl HashMapChaining {
     fn get(&self, key: i32) -> Option<&str> {
         let index = self.hash_func(key);
 
-        // 走訪桶，若找到 key ，則返回對應 val
+        // 走訪桶中的元素，若找到 key，就回傳對應的 val
         for pair in self.buckets[index].iter() {
             if pair.key == key {
                 return Some(&pair.val);
             }
         }
 
-        // 若未找到 key ，則返回 None
+        // 若找不到 key，回傳 None
         None
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 pub fn main() {
     /* 初始化雜湊表 */
     let mut map = HashMapChaining::new();
@@ -139,13 +139,13 @@ pub fn main() {
     map.put(16750, "小算".to_string());
     map.put(13276, "小法".to_string());
     map.put(10583, "小鴨".to_string());
-    println!("\n新增完成後，雜湊表為\nKey -> Value");
+    println!("\n新增後的雜湊表\nKey -> Value");
     map.print();
 
     /* 查詢操作 */
-    // 向雜湊表中輸入鍵 key ，得到值 value
+    // 輸入鍵 key，從雜湊表取得對應的值 value
     println!(
-        "\n輸入學號 13276,查詢到姓名 {}",
+        "\n輸入學號 13276，查得姓名 {}",
         match map.get(13276) {
             Some(value) => value,
             None => "Not a valid Key",
@@ -153,8 +153,8 @@ pub fn main() {
     );
 
     /* 刪除操作 */
-    // 在雜湊表中刪除鍵值對 (key, value)
+    // 從雜湊表刪除鍵值對 (key, value)
     map.remove(12836);
-    println!("\n刪除 12836 後，雜湊表為\nKey -> Value");
+    println!("\n刪除 12836 後的雜湊表\nKey -> Value");
     map.print();
 }

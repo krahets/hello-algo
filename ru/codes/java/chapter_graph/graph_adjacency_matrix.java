@@ -9,21 +9,21 @@ package chapter_graph;
 import utils.*;
 import java.util.*;
 
-/* Класс неориентированного графа на основе матрицы смежности */
+/* Неориентированный граф на матрице смежности */
 class GraphAdjMat {
-    List<Integer> vertices; // Список вершин: элементы представляют «значения вершин», а индексы — «индексы вершин»
-    List<List<Integer>> adjMat; // Матрица смежности, где индексы строк и столбцов соответствуют «индексам вершин»
+    List<Integer> vertices; // Список вершин: элементы — значения вершин, позиции — их индексы
+    List<List<Integer>> adjMat; // Матрица смежности: индексы строк и столбцов соответствуют индексам вершин
 
     /* Конструктор */
     public GraphAdjMat(int[] vertices, int[][] edges) {
         this.vertices = new ArrayList<>();
         this.adjMat = new ArrayList<>();
-        // Добавление вершины
+        // Добавить вершину
         for (int val : vertices) {
             addVertex(val);
         }
-        // Добавить ребра
-        // Обратите внимание: элементы edges представляют собой индексы вершин, то есть соответствуют индексам элементов vertices
+        // Добавить ребро
+        // Элементы edges содержат индексы вершин, то есть индексы элементов vertices
         for (int[] e : edges) {
             addEdge(e[0], e[1]);
         }
@@ -34,7 +34,7 @@ class GraphAdjMat {
         return vertices.size();
     }
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     public void addVertex(int val) {
         int n = size();
         // Добавить значение новой вершины в список вершин
@@ -51,35 +51,35 @@ class GraphAdjMat {
         }
     }
 
-    /* Удаление вершины */
+    /* Удалить вершину */
     public void removeVertex(int index) {
         if (index >= size())
             throw new IndexOutOfBoundsException();
-        // Удалить вершину с индексом index из списка вершин
+        // Удалить из списка вершин вершину с индексом index
         vertices.remove(index);
-        // Удалить строку с индексом index из матрицы смежности
+        // Удалить из матрицы смежности строку с индексом index
         adjMat.remove(index);
-        // Удалить столбец с индексом index из матрицы смежности
+        // Удалить из матрицы смежности столбец с индексом index
         for (List<Integer> row : adjMat) {
             row.remove(index);
         }
     }
 
-    /* Добавление ребра */
-    // Параметры i и j соответствуют индексам элементов vertices
+    /* Добавить ребро */
+    // Параметры i и j — индексы элементов vertices
     public void addEdge(int i, int j) {
-        // Обработка выхода индекса за границы и случая равенства
+        // Проверить выход индексов за границы и их совпадение
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw new IndexOutOfBoundsException();
-        // В неориентированном графе матрица смежности симметрична относительно главной диагонали, то есть выполняется (i, j) == (j, i)
+        // Матрица смежности неориентированного графа симметрична относительно главной диагонали: (i, j) == (j, i)
         adjMat.get(i).set(j, 1);
         adjMat.get(j).set(i, 1);
     }
 
-    /* Удаление ребра */
-    // Параметры i и j соответствуют индексам элементов vertices
+    /* Удалить ребро */
+    // Параметры i и j — индексы элементов vertices
     public void removeEdge(int i, int j) {
-        // Обработка выхода индекса за границы и случая равенства
+        // Проверить выход индексов за границы и их совпадение
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
             throw new IndexOutOfBoundsException();
         adjMat.get(i).set(j, 0);
@@ -97,35 +97,35 @@ class GraphAdjMat {
 
 public class graph_adjacency_matrix {
     public static void main(String[] args) {
-        /* Инициализация неориентированного графа */
-        // Обратите внимание: элементы edges представляют индексы вершин, то есть соответствуют индексам элементов vertices
+        /* Инициализировать неориентированный граф */
+        // Элементы edges содержат индексы вершин, то есть индексы элементов vertices
         int[] vertices = { 1, 3, 2, 5, 4 };
         int[][] edges = { { 0, 1 }, { 0, 3 }, { 1, 2 }, { 2, 3 }, { 2, 4 }, { 3, 4 } };
         GraphAdjMat graph = new GraphAdjMat(vertices, edges);
-        System.out.println("\nГраф после инициализации");
+        System.out.println("\nГраф после инициализации:");
         graph.print();
 
-        /* Добавление ребра */
+        /* Добавить ребро */
         // Индексы вершин 1 и 2 равны 0 и 2 соответственно
         graph.addEdge(0, 2);
-        System.out.println("\nГраф после добавления ребра 1-2");
+        System.out.println("\nГраф после добавления ребра 1–2:");
         graph.print();
 
-        /* Удаление ребра */
+        /* Удалить ребро */
         // Индексы вершин 1 и 3 равны 0 и 1 соответственно
         graph.removeEdge(0, 1);
-        System.out.println("\nГраф после удаления ребра 1-3");
+        System.out.println("\nГраф после удаления ребра 1–3:");
         graph.print();
 
-        /* Добавление вершины */
+        /* Добавить вершину */
         graph.addVertex(6);
-        System.out.println("\nГраф после добавления вершины 6");
+        System.out.println("\nГраф после добавления вершины 6:");
         graph.print();
 
-        /* Удаление вершины */
+        /* Удалить вершину */
         // Индекс вершины 3 равен 1
         graph.removeVertex(1);
-        System.out.println("\nГраф после удаления вершины 3");
+        System.out.println("\nГраф после удаления вершины 3:");
         graph.print();
     }
 }

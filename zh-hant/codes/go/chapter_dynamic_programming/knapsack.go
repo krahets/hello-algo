@@ -8,39 +8,39 @@ import "math"
 
 /* 0-1 背包：暴力搜尋 */
 func knapsackDFS(wgt, val []int, i, c int) int {
-	// 若已選完所有物品或背包無剩餘容量，則返回價值 0
+	// 若已考慮所有物品，或背包沒有剩餘容量，就回傳價值 0
 	if i == 0 || c == 0 {
 		return 0
 	}
-	// 若超過背包容量，則只能選擇不放入背包
+	// 若重量超過背包容量，就只能選擇不放入
 	if wgt[i-1] > c {
 		return knapsackDFS(wgt, val, i-1, c)
 	}
-	// 計算不放入和放入物品 i 的最大價值
+	// 分別計算不放入與放入物品 i 可取得的最大價值
 	no := knapsackDFS(wgt, val, i-1, c)
 	yes := knapsackDFS(wgt, val, i-1, c-wgt[i-1]) + val[i-1]
-	// 返回兩種方案中價值更大的那一個
+	// 回傳兩種選法中較大的價值
 	return int(math.Max(float64(no), float64(yes)))
 }
 
 /* 0-1 背包：記憶化搜尋 */
 func knapsackDFSMem(wgt, val []int, mem [][]int, i, c int) int {
-	// 若已選完所有物品或背包無剩餘容量，則返回價值 0
+	// 若已考慮所有物品，或背包沒有剩餘容量，就回傳價值 0
 	if i == 0 || c == 0 {
 		return 0
 	}
-	// 若已有記錄，則直接返回
+	// 若已有紀錄，直接回傳該值
 	if mem[i][c] != -1 {
 		return mem[i][c]
 	}
-	// 若超過背包容量，則只能選擇不放入背包
+	// 若重量超過背包容量，就只能選擇不放入
 	if wgt[i-1] > c {
 		return knapsackDFSMem(wgt, val, mem, i-1, c)
 	}
-	// 計算不放入和放入物品 i 的最大價值
+	// 分別計算不放入與放入物品 i 可取得的最大價值
 	no := knapsackDFSMem(wgt, val, mem, i-1, c)
 	yes := knapsackDFSMem(wgt, val, mem, i-1, c-wgt[i-1]) + val[i-1]
-	// 返回兩種方案中價值更大的那一個
+	// 回傳兩種選法中較大的價值
 	mem[i][c] = int(math.Max(float64(no), float64(yes)))
 	return mem[i][c]
 }
@@ -57,10 +57,10 @@ func knapsackDP(wgt, val []int, cap int) int {
 	for i := 1; i <= n; i++ {
 		for c := 1; c <= cap; c++ {
 			if wgt[i-1] > c {
-				// 若超過背包容量，則不選物品 i
+				// 若重量超過背包容量，就不選物品 i
 				dp[i][c] = dp[i-1][c]
 			} else {
-				// 不選和選物品 i 這兩種方案的較大值
+				// 取不選與選取物品 i 兩種情況中的較大值
 				dp[i][c] = int(math.Max(float64(dp[i-1][c]), float64(dp[i-1][c-wgt[i-1]]+val[i-1])))
 			}
 		}
@@ -75,10 +75,10 @@ func knapsackDPComp(wgt, val []int, cap int) int {
 	dp := make([]int, cap+1)
 	// 狀態轉移
 	for i := 1; i <= n; i++ {
-		// 倒序走訪
+		// 反向走訪
 		for c := cap; c >= 1; c-- {
 			if wgt[i-1] <= c {
-				// 不選和選物品 i 這兩種方案的較大值
+				// 取不選與選取物品 i 兩種情況中的較大值
 				dp[c] = int(math.Max(float64(dp[c]), float64(dp[c-wgt[i-1]]+val[i-1])))
 			}
 		}

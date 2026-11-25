@@ -15,13 +15,13 @@ public class built_in_hash {
 
         bool bol = true;
         int hashBol = bol.GetHashCode();
-        Console.WriteLine("布林量 " + bol + " 的雜湊值為 " + hashBol);
+        Console.WriteLine("布林值 " + bol + " 的雜湊值為 " + hashBol);
 
         double dec = 3.14159;
         int hashDec = dec.GetHashCode();
         Console.WriteLine("小數 " + dec + " 的雜湊值為 " + hashDec);
 
-        string str = "Hello 演算法";
+        string str = "Hello 算法";
         int hashStr = str.GetHashCode();
         Console.WriteLine("字串 " + str + " 的雜湊值為 " + hashStr);
 

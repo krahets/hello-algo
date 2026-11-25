@@ -6,11 +6,11 @@
 
 /* 二分探索：問題 f(i, j) */
 func dfs(nums: [Int], target: Int, i: Int, j: Int) -> Int {
-    // 区間が空なら目的の要素が存在しないため、-1 を返す
+    // 区間が空なら目的の要素はないので -1 を返す
     if i > j {
         return -1
     }
-    // 中央のインデックス m を計算する
+    // 中央のインデックス m を求める
     let m = (i + j) / 2
     if nums[m] < target {
         // 部分問題 f(m+1, j) を再帰的に解く
@@ -32,12 +32,12 @@ func binarySearch(nums: [Int], target: Int) -> Int {
 
 @main
 enum BinarySearchRecur {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let target = 6
         let nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35]
 
-        // 二分探索（閉区間）
+        // 二分探索（両端を含む区間）
         let index = binarySearch(nums: nums, target: target)
         print("目的の要素 6 のインデックス = \(index)")
     }

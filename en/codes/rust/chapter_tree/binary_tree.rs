@@ -15,7 +15,7 @@ fn main() {
     let n3 = TreeNode::new(3);
     let n4 = TreeNode::new(4);
     let n5 = TreeNode::new(5);
-    // Set up references (pointers) between the nodes
+    // Link the nodes with references (pointers)
     n1.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().right = Some(Rc::clone(&n3));
     n2.borrow_mut().left = Some(Rc::clone(&n4));
@@ -23,16 +23,16 @@ fn main() {
     println!("\nInitialize the binary tree\n");
     print_util::print_tree(&n1);
 
-    // Insert and remove nodes
+    // Insert and delete nodes
     let p = TreeNode::new(0);
-    // Insert node P between n1 and n2 in n1 -> n2
+    // Insert node P between n1 and n2
     p.borrow_mut().left = Some(Rc::clone(&n2));
     n1.borrow_mut().left = Some(Rc::clone(&p));
     println!("\nAfter inserting node P:\n");
     print_util::print_tree(&n1);
-    // Remove node P
+    // Delete node P
     drop(p);
     n1.borrow_mut().left = Some(Rc::clone(&n2));
-    println!("\nAfter removing node P:\n");
+    println!("\nAfter deleting node P:\n");
     print_util::print_tree(&n1);
 }

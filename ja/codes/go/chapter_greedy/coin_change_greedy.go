@@ -4,14 +4,14 @@
 
 package chapter_greedy
 
-/* 硬貨の両替：貪欲法 */
+/* 硬貨の両替（貪欲法） */
 func coinChangeGreedy(coins []int, amt int) int {
-	// coins リストはソート済みと仮定する
+	// リスト coins はソート済みとする
 	i := len(coins) - 1
 	count := 0
-	// 残額がなくなるまで貪欲な選択を繰り返す
+	// 残額がなくなるまで貪欲選択を繰り返す
 	for amt > 0 {
-		// 残額より小さく、残額に最も近い硬貨を探す
+		// 残額より小さく、最も近い額面の硬貨を探す
 		for i > 0 && coins[i] > amt {
 			i--
 		}
@@ -19,7 +19,7 @@ func coinChangeGreedy(coins []int, amt int) int {
 		amt -= coins[i]
 		count++
 	}
-	// 実行可能な方法が見つからなかった場合、-1 を返す
+	// 解が見つからなければ -1 を返す
 	if amt != 0 {
 		return -1
 	}

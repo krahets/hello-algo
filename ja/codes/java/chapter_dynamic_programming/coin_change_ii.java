@@ -20,10 +20,10 @@ public class coin_change_ii {
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 目標金額を超える場合、硬貨 i を選ばない
+                    // 目標金額を超える場合は硬貨 i を使わない
                     dp[i][a] = dp[i - 1][a];
                 } else {
-                    // 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+                    // 硬貨 i を使わない場合と使う場合の組合せ数を足す
                     dp[i][a] = dp[i - 1][a] + dp[i][a - coins[i - 1]];
                 }
             }
@@ -31,7 +31,7 @@ public class coin_change_ii {
         return dp[n][amt];
     }
 
-    /* 硬貨の両替 II：空間を最適化した動的計画法 */
+    /* 硬貨の両替 II：使用メモリを削減した動的計画法 */
     static int coinChangeIIDPComp(int[] coins, int amt) {
         int n = coins.length;
         // dp テーブルを初期化する
@@ -41,10 +41,10 @@ public class coin_change_ii {
         for (int i = 1; i <= n; i++) {
             for (int a = 1; a <= amt; a++) {
                 if (coins[i - 1] > a) {
-                    // 目標金額を超える場合、硬貨 i を選ばない
+                    // 目標金額を超える場合は硬貨 i を使わない
                     dp[a] = dp[a];
                 } else {
-                    // 硬貨 i を選ばない場合と選ぶ場合の方法の数の和
+                    // 硬貨 i を使わない場合と使う場合の組合せ数を足す
                     dp[a] = dp[a] + dp[a - coins[i - 1]];
                 }
             }
@@ -58,10 +58,10 @@ public class coin_change_ii {
 
         // 動的計画法
         int res = coinChangeIIDP(coins, amt);
-        System.out.println("目標金額になる硬貨の組み合わせの数は " + res);
+        System.out.println("目標金額を作る硬貨の組合せ数は " + res);
 
-        // 空間を最適化した動的計画法
+        // 使用メモリを削減した動的計画法
         res = coinChangeIIDPComp(coins, amt);
-        System.out.println("目標金額になる硬貨の組み合わせの数は " + res);
+        System.out.println("目標金額を作る硬貨の組合せ数は " + res);
     }
 }

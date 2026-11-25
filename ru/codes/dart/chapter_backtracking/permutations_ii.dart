@@ -4,50 +4,50 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* Алгоритм бэктрекинга: все перестановки II */
+/* Поиск с возвратом: перестановки II */
 void backtrack(
   List<int> state,
   List<int> choices,
   List<bool> selected,
   List<List<int>> res,
 ) {
-  // Когда длина состояния равна числу элементов, записать решение
+  // Когда длина текущей перестановки равна числу элементов, сохраняем решение
   if (state.length == choices.length) {
     res.add(List.from(state));
     return;
   }
-  // Перебор всех вариантов выбора
+  // Перебираем все варианты
   Set<int> duplicated = {};
   for (int i = 0; i < choices.length; i++) {
     int choice = choices[i];
-    // Отсечение: нельзя выбирать один и тот же элемент повторно и нельзя повторно выбирать равные элементы
+    // Отсечение: нельзя повторно брать тот же элемент или пробовать на этом уровне то же значение
     if (!selected[i] && !duplicated.contains(choice)) {
-      // Попытка: сделать выбор и обновить состояние
-      duplicated.add(choice); // Записать значения уже выбранных элементов
+      // Пробуем вариант и обновляем состояние
+      duplicated.add(choice); // Отмечаем уже выбранные значения
       selected[i] = true;
       state.add(choice);
-      // Перейти к следующему выбору
+      // Переходим к следующему выбору
       backtrack(state, choices, selected, res);
-      // Откат: отменить выбор и восстановить предыдущее состояние
+      // Возврат: отменяем выбор и восстанавливаем прежнее состояние
       selected[i] = false;
       state.removeLast();
     }
   }
 }
 
-/* Все перестановки II */
+/* Перестановки II */
 List<List<int>> permutationsII(List<int> nums) {
   List<List<int>> res = [];
   backtrack([], nums, List.filled(nums.length, false), res);
   return res;
 }
 
-/* Driver Code */
+/* Основная программа */
 void main() {
   List<int> nums = [1, 2, 2];
 
   List<List<int>> res = permutationsII(nums);
 
-  print("Входной массив nums = $nums");
+  print("Исходный массив nums = $nums");
   print("Все перестановки res = $res");
 }

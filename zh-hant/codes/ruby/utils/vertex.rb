@@ -13,12 +13,12 @@ class Vertex
   end
 end
 
-### 輸入值串列 vals ，返回頂點串列 vets ###
+### 傳入數值陣列 vals，回傳頂點陣列 vets ###
 def vals_to_vets(vals)
   Array.new(vals.length) { |i| Vertex.new(vals[i]) }
 end
 
-### 輸入頂點串列 vets, 返回值串列 vals ###
+### 傳入頂點陣列 vets，回傳數值陣列 vals ###
 def vets_to_vals(vets)
   Array.new(vets.length) { |i| vets[i].val }
 end

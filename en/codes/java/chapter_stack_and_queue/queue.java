@@ -19,15 +19,15 @@ public class queue {
         queue.offer(2);
         queue.offer(5);
         queue.offer(4);
-        System.out.println("Queue queue = " + queue);
+        System.out.println("queue = " + queue);
 
-        /* Access the front element */
+        /* Peek at the front element */
         int peek = queue.peek();
-        System.out.println("Front element peek = " + peek);
+        System.out.println("Front element (peek) = " + peek);
 
         /* Dequeue an element */
         int pop = queue.poll();
-        System.out.println("Dequeued element pop = " + pop + ", after dequeuing, queue = " + queue);
+        System.out.println("Dequeued element (pop) = " + pop + ", queue after removal = " + queue);
 
         /* Get the queue size */
         int size = queue.size();
@@ -35,6 +35,6 @@ public class queue {
 
         /* Check whether the queue is empty */
         boolean isEmpty = queue.isEmpty();
-        System.out.println("Is the queue empty = " + isEmpty);
+        System.out.println("Queue is empty = " + isEmpty);
     }
 }

@@ -44,7 +44,7 @@ int whileLoopII(int n) {
 
 /* Nested for loops */
 char *nestedForLoop(int n) {
-    // There are n * n points; each "(i, j), " takes at most 6+10*2 characters, plus space for the final null character \0
+    // There are n * n points. Each "(i, j), " takes at most 6+10*2 characters. Allow one extra byte for the final null character \0.
     int size = n * n * 26 + 1;
     char *res = malloc(size * sizeof(char));
     // Loop over i = 1, 2, ..., n-1, n
@@ -59,22 +59,22 @@ char *nestedForLoop(int n) {
     return res;
 }
 
-/* Driver code */
+/* Driver Code */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    printf("\nSum from the for loop, res = %d\n", res);
+    printf("\nfor loop sum: res = %d\n", res);
 
     res = whileLoop(n);
-    printf("\nSum from the while loop, res = %d\n", res);
+    printf("\nwhile loop sum: res = %d\n", res);
 
     res = whileLoopII(n);
-    printf("\nSum from the while loop (two updates), res = %d\n", res);
+    printf("\nwhile loop sum (two updates): res = %d\n", res);
 
     char *resStr = nestedForLoop(n);
-    printf("\nTraversal result from nested for loops: %s\r\n", resStr);
+    printf("\nNested for loop traversal: %s\r\n", resStr);
     free(resStr);
 
     return 0;

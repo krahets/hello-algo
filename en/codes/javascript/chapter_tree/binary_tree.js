@@ -14,7 +14,7 @@ let n1 = new TreeNode(1),
     n3 = new TreeNode(3),
     n4 = new TreeNode(4),
     n5 = new TreeNode(5);
-// Set up references (pointers) between the nodes
+// Link the nodes with references (pointers)
 n1.left = n2;
 n1.right = n3;
 n2.left = n4;
@@ -22,14 +22,14 @@ n2.right = n5;
 console.log('\nInitialize the binary tree\n');
 printTree(n1);
 
-/* Insert and remove nodes */
+/* Insert and delete nodes */
 const P = new TreeNode(0);
-// Insert node P between n1 and n2 in n1 -> n2
+// Insert node P between n1 and n2
 n1.left = P;
 P.left = n2;
 console.log('\nAfter inserting node P:\n');
 printTree(n1);
-// Remove node P
+// Delete node P
 n1.left = n2;
-console.log('\nAfter removing node P:\n');
+console.log('\nAfter deleting node P:\n');
 printTree(n1);

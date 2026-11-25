@@ -6,7 +6,7 @@ package chapter_dynamic_programming
 
 import "math"
 
-/* Coin change: dynamic programming */
+/* Coin change with dynamic programming */
 func coinChangeDP(coins []int, amt int) int {
 	n := len(coins)
 	max := amt + 1
@@ -15,18 +15,18 @@ func coinChangeDP(coins []int, amt int) int {
 	for i := 0; i <= n; i++ {
 		dp[i] = make([]int, amt+1)
 	}
-	// State transitions: first row and first column
+	// State transitions for the first row and column
 	for a := 1; a <= amt; a++ {
 		dp[0][a] = max
 	}
-	// State transitions: remaining rows and columns
+	// State transitions for the remaining rows and columns
 	for i := 1; i <= n; i++ {
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// If the coin exceeds the current target amount a, do not choose coin i
+				// Skip coin i if its value exceeds the target amount
 				dp[i][a] = dp[i-1][a]
 			} else {
-				// Take the smaller result of not choosing and choosing coin i
+				// Take the minimum of the counts for skipping and taking coin i
 				dp[i][a] = int(math.Min(float64(dp[i-1][a]), float64(dp[i][a-coins[i-1]]+1)))
 			}
 		}
@@ -37,7 +37,7 @@ func coinChangeDP(coins []int, amt int) int {
 	return -1
 }
 
-/* Coin change: dynamic programming */
+/* Coin change with dynamic programming */
 func coinChangeDPComp(coins []int, amt int) int {
 	n := len(coins)
 	max := amt + 1
@@ -46,15 +46,15 @@ func coinChangeDPComp(coins []int, amt int) int {
 	for i := 1; i <= amt; i++ {
 		dp[i] = max
 	}
-	// State transitions
+	// State transition
 	for i := 1; i <= n; i++ {
-		// Traverse in increasing order
+		// Iterate in ascending order
 		for a := 1; a <= amt; a++ {
 			if coins[i-1] > a {
-				// If the coin exceeds the current target amount a, do not choose coin i
+				// Skip coin i if its value exceeds the target amount
 				dp[a] = dp[a]
 			} else {
-				// Take the smaller result of not choosing and choosing coin i
+				// Take the minimum of the counts for skipping and taking coin i
 				dp[a] = int(math.Min(float64(dp[a]), float64(dp[a-coins[i-1]]+1)))
 			}
 		}

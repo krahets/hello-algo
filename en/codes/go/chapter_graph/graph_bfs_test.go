@@ -12,7 +12,7 @@ import (
 )
 
 func TestGraphBFS(t *testing.T) {
-	/* Initialize the undirected graph */
+	/* Initialize an undirected graph */
 	vets := ValsToVets([]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
 	edges := [][]Vertex{
 		{vets[0], vets[1]}, {vets[0], vets[3]}, {vets[1], vets[2]}, {vets[1], vets[4]},
@@ -24,6 +24,6 @@ func TestGraphBFS(t *testing.T) {
 
 	/* Breadth-first traversal */
 	res := graphBFS(graph, vets[0])
-	fmt.Println("Vertex sequence from breadth-first traversal (BFS):")
+	fmt.Println("Breadth-first search (BFS) visits the vertices in this order:")
 	PrintSlice(VetsToVals(res))
 }

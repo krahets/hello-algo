@@ -9,118 +9,118 @@ namespace hello_algo.chapter_stack_and_queue;
 /* Узел двусвязного списка */
 public class ListNode(int val) {
     public int val = val;       // Значение узла
-    public ListNode? next = null; // Ссылка на узел-преемник
-    public ListNode? prev = null; // Ссылка на узел-предшественник
+    public ListNode? next = null; // Ссылка на следующий узел
+    public ListNode? prev = null; // Ссылка на предыдущий узел
 }
 
-/* Двусторонняя очередь на основе двусвязного списка */
+/* Двусторонняя очередь (дек) на основе двусвязного списка */
 public class LinkedListDeque {
-    ListNode? front, rear; // Головной узел front, хвостовой узел rear
-    int queSize = 0;      // Длина двусторонней очереди
+    ListNode? front, rear; // front — первый узел, rear — последний
+    int queSize = 0;      // Длина дека
 
     public LinkedListDeque() {
         front = null;
         rear = null;
     }
 
-    /* Получение длины двусторонней очереди */
+    /* Получить длину дека */
     public int Size() {
         return queSize;
     }
 
-    /* Проверка, пуста ли двусторонняя очередь */
+    /* Проверить, пуст ли дек */
     public bool IsEmpty() {
         return Size() == 0;
     }
 
-    /* Операция добавления в очередь */
+    /* Добавить элемент в дек */
     void Push(int num, bool isFront) {
         ListNode node = new(num);
-        // Если связный список пуст, сделать так, чтобы и front, и rear указывали на node
+        // Если связный список пуст, установить front и rear так, чтобы они указывали на node
         if (IsEmpty()) {
             front = node;
             rear = node;
         }
-        // Операция добавления в голову очереди
+        // Добавить элемент в начало дека
         else if (isFront) {
-            // Добавить node в голову списка
+            // Добавить node в начало связного списка
             front!.prev = node;
             node.next = front;
-            front = node; // Обновить головной узел
+            front = node; // Обновить ссылку на первый узел                           
         }
-        // Операция добавления в хвост очереди
+        // Добавить элемент в конец дека
         else {
-            // Добавить node в хвост списка
+            // Добавить node в конец связного списка
             rear!.next = node;
             node.prev = rear;
-            rear = node;  // Обновить хвостовой узел
+            rear = node;  // Обновить ссылку на последний узел
         }
 
-        queSize++; // Обновить длину очереди
+        queSize++; // Обновить длину дека
     }
 
-    /* Добавление в голову очереди */
+    /* Добавить элемент в начало дека */
     public void PushFirst(int num) {
         Push(num, true);
     }
 
-    /* Добавление в хвост очереди */
+    /* Добавить элемент в конец дека */
     public void PushLast(int num) {
         Push(num, false);
     }
 
-    /* Операция извлечения из очереди */
+    /* Извлечь элемент из дека */
     int? Pop(bool isFront) {
         if (IsEmpty())
             throw new Exception();
         int? val;
-        // Если в очереди один элемент, начало и конец указывают на один узел
+        // Если длина дека равна 1, ссылки на первый и последний узлы указывают на один и тот же узел
         if (queSize == 1) {
             val = front!.val;
             front = null;
             rear = null;
         }
-        // Операция извлечения из головы очереди
+        // Извлечь элемент из начала дека
         else if (isFront) {
-            val = front!.val; // Временно сохранить значение головного узла
-            // Удалить головной узел
+            val = front!.val; // Временно сохранить значение первого узла
+            // Удалить первый узел
             ListNode? fNext = front?.next;
             fNext!.prev = null;
             front.next = null;
-            front = fNext;   // Обновить головной узел
+            front = fNext;   // Обновить ссылку на первый узел
         }
-        // Операция извлечения из хвоста очереди
+        // Извлечь элемент из конца дека
         else {
-            val = rear!.val;  // Временно сохранить значение хвостового узла
-            // Удалить хвостовой узел
+            val = rear!.val;  // Временно сохранить значение последнего узла
+            // Удалить последний узел
             ListNode? rPrev = rear?.prev;
             rPrev!.next = null;
             rear.prev = null;
-            rear = rPrev;    // Обновить хвостовой узел
+            rear = rPrev;    // Обновить ссылку на последний узел
         }
 
-        queSize--; // Обновить длину очереди
+        queSize--; // Обновить длину дека
         return val;
     }
 
-    /* Извлечение из головы очереди */
+    /* Извлечь элемент из начала дека */
     public int? PopFirst() {
         return Pop(true);
     }
 
-    /* Извлечение из хвоста очереди */
+    /* Извлечь элемент из конца дека */
     public int? PopLast() {
         return Pop(false);
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент дека */
     public int? PeekFirst() {
         if (IsEmpty())
             throw new Exception();
         return front?.val;
     }
 
-    /* Доступ к элементу в конце очереди */
+    /* Посмотреть последний элемент дека */
     public int? PeekLast() {
         if (IsEmpty())
             throw new Exception();
@@ -143,37 +143,37 @@ public class LinkedListDeque {
 public class linkedlist_deque {
     [Test]
     public void Test() {
-        /* Инициализация двусторонней очереди */
+        /* Инициализировать дек */
         LinkedListDeque deque = new();
         deque.PushLast(3);
         deque.PushLast(2);
         deque.PushLast(5);
-        Console.WriteLine("Двусторонняя очередь deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Дек deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Доступ к элементу */
+        /* Посмотреть первый и последний элементы */
         int? peekFirst = deque.PeekFirst();
-        Console.WriteLine("Первый элемент peekFirst = " + peekFirst);
+        Console.WriteLine("Первый элемент дека peekFirst = " + peekFirst);
         int? peekLast = deque.PeekLast();
-        Console.WriteLine("Последний элемент peekLast = " + peekLast);
+        Console.WriteLine("Последний элемент дека peekLast = " + peekLast);
 
-        /* Добавление элемента в очередь */
+        /* Добавить элементы в дек */
         deque.PushLast(4);
-        Console.WriteLine("После добавления элемента 4 в хвост deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После добавления 4 в конец дека deque = " + string.Join(" ", deque.ToArray()));
         deque.PushFirst(1);
-        Console.WriteLine("После добавления элемента 1 в голову deque = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("После добавления 1 в начало дека deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Извлечение элемента из очереди */
+        /* Извлечь элементы из дека */
         int? popLast = deque.PopLast();
-        Console.WriteLine("Извлеченный из хвоста элемент = " + popLast + ", deque после извлечения из хвоста = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Извлечённый последний элемент = " + popLast + ", после извлечения из конца deque = " + string.Join(" ", deque.ToArray()));
         int? popFirst = deque.PopFirst();
-        Console.WriteLine("Извлеченный из головы элемент = " + popFirst + ", deque после извлечения из головы = " + string.Join(" ", deque.ToArray()));
+        Console.WriteLine("Извлечённый первый элемент = " + popFirst + ", после извлечения из начала deque = " + string.Join(" ", deque.ToArray()));
 
-        /* Получение длины двусторонней очереди */
+        /* Получить длину дека */
         int size = deque.Size();
-        Console.WriteLine("Длина двусторонней очереди size = " + size);
+        Console.WriteLine("Длина дека size = " + size);
 
-        /* Проверка, пуста ли двусторонняя очередь */
+        /* Проверить, пуст ли дек */
         bool isEmpty = deque.IsEmpty();
-        Console.WriteLine("Пуста ли двусторонняя очередь = " + isEmpty);
+        Console.WriteLine("Дек пуст = " + isEmpty);
     }
 }

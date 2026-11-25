@@ -6,9 +6,9 @@
 
 const { ListNode } = require('../modules/ListNode');
 
-/* Stack implemented with a linked list */
+/* Stack backed by a linked list */
 class LinkedListStack {
-    #stackPeek; // Use the head node as the stack top
+    #stackPeek; // Use the head node as the top of the stack
     #stkSize = 0; // Stack size
 
     constructor() {
@@ -25,7 +25,7 @@ class LinkedListStack {
         return this.size === 0;
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     push(num) {
         const node = new ListNode(num);
         node.next = this.#stackPeek;
@@ -33,7 +33,7 @@ class LinkedListStack {
         this.#stkSize++;
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     pop() {
         const num = this.peek();
         this.#stackPeek = this.#stackPeek.next;
@@ -41,13 +41,13 @@ class LinkedListStack {
         return num;
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     peek() {
         if (!this.#stackPeek) throw new Error('Stack is empty');
         return this.#stackPeek.val;
     }
 
-    /* Convert the linked list to an Array and return it */
+    /* Return the linked list elements as an array */
     toArray() {
         let node = this.#stackPeek;
         const res = new Array(this.size);
@@ -69,20 +69,20 @@ stack.push(3);
 stack.push(2);
 stack.push(5);
 stack.push(4);
-console.log('Stack stack = ' + stack.toArray());
+console.log('stack = ' + stack.toArray());
 
-/* Access the top element */
+/* Peek at the top element */
 const peek = stack.peek();
-console.log('Top element peek = ' + peek);
+console.log('Top element (peek) = ' + peek);
 
-/* Pop an element from the stack */
+/* Pop the top element */
 const pop = stack.pop();
-console.log('Popped element pop = ' + pop + '; after popping, stack = ' + stack.toArray());
+console.log('Popped element (pop) = ' + pop + ', stack after the pop = ' + stack.toArray());
 
 /* Get the stack size */
 const size = stack.size;
 console.log('Stack size = ' + size);
 
-/* Check whether it is empty */
+/* Check whether the stack is empty */
 const isEmpty = stack.isEmpty();
-console.log('Is the stack empty = ' + isEmpty);
+console.log('Stack is empty = ' + isEmpty);

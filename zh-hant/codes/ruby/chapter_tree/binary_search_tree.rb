@@ -9,22 +9,22 @@ require_relative '../utils/print_util'
 
 ### 二元搜尋樹 ###
 class BinarySearchTree
-  ### 建構子 ###
+  ### 建構方法 ###
   def initialize
     # 初始化空樹
     @root = nil
   end
 
-  ### 獲取二元樹根節點 ###
+  ### 取得二元樹的根節點 ###
   def get_root
     @root
   end
 
-  ### 查詢節點 ###
+  ### 搜尋節點 ###
   def search(num)
     cur = @root
 
-    # 迴圈查詢，越過葉節點後跳出
+    # 用迴圈搜尋，越過葉節點後跳出迴圈
     while !cur.nil?
       # 目標節點在 cur 的右子樹中
       if cur.val < num
@@ -49,7 +49,7 @@ class BinarySearchTree
       return
     end
 
-    # 迴圈查詢，越過葉節點後跳出
+    # 用迴圈搜尋，越過葉節點後跳出迴圈
     cur, pre = @root, nil
     while !cur.nil?
       # 找到重複節點，直接返回
@@ -76,30 +76,30 @@ class BinarySearchTree
 
   ### 刪除節點 ###
   def remove(num)
-    # 若樹為空，直接提前返回
+    # 若樹為空，直接返回
     return if @root.nil?
 
-    # 迴圈查詢，越過葉節點後跳出
+    # 用迴圈搜尋，越過葉節點後跳出迴圈
     cur, pre = @root, nil
     while !cur.nil?
-      # 找到待刪除節點，跳出迴圈
+      # 找到要刪除的節點，跳出迴圈
       break if cur.val == num
 
       pre = cur
-      # 待刪除節點在 cur 的右子樹中
+      # 要刪除的節點在 cur 的右子樹中
       if cur.val < num
         cur = cur.right
-      # 待刪除節點在 cur 的左子樹中
+      # 要刪除的節點在 cur 的左子樹中
       else
         cur = cur.left
       end
     end
-    # 若無待刪除節點，則直接返回
+    # 若找不到要刪除的節點，直接返回
     return if cur.nil?
 
-    # 子節點數量 = 0 or 1
+    # 子節點數為 0 或 1
     if cur.left.nil? || cur.right.nil?
-      # 當子節點數量 = 0 / 1 時， child = null / 該子節點
+      # 有 0 個子節點時，child = null；只有 1 個時，child 指向該子節點
       child = cur.left || cur.right
       # 刪除節點 cur
       if cur != @root
@@ -109,53 +109,53 @@ class BinarySearchTree
           pre.right = child
         end
       else
-        # 若刪除節點為根節點，則重新指定根節點
+        # 若刪除的是根節點，則重新指定根節點
         @root = child
       end
-    # 子節點數量 = 2
+    # 子節點數為 2
     else
-      # 獲取中序走訪中 cur 的下一個節點
+      # 取得中序走訪中 cur 的下一個節點
       tmp = cur.right
       while !tmp.left.nil?
         tmp = tmp.left
       end
-      # 遞迴刪除節點 tmp
+      # 以遞迴刪除節點 tmp
       remove(tmp.val)
-      # 用 tmp 覆蓋 cur
+      # 用 tmp 的值覆寫 cur 的值
       cur.val = tmp.val
     end
   end
 end
 
-### Driver Code ###
+### 主程式 ###
 if __FILE__ == $0
   # 初始化二元搜尋樹
   bst = BinarySearchTree.new
   nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15]
-  # 請注意，不同的插入順序會生成不同的二元樹，該序列可以生成一個完美二元樹
+  # 請留意，插入順序不同，建成的二元樹也可能不同。這組序列會建成一棵完美二元樹
   nums.each { |num| bst.insert(num) }
-  puts "\n初始化的二元樹為\n"
+  puts "\n初始化後的二元樹為\n"
   print_tree(bst.get_root)
 
-  # 查詢節點
+  # 搜尋節點
   node = bst.search(7)
-  puts "\n查詢到的節點物件為: #{node}，節點值 = #{node.val}"
+  puts "\n找到的節點物件為 #{node}，節點值 = #{node.val}"
 
   # 插入節點
   bst.insert(16)
-  puts "\n插入節點 16 後，二元樹為\n"
+  puts "\n插入節點 16 後的二元樹為\n"
   print_tree(bst.get_root)
 
   # 刪除節點
   bst.remove(1)
-  puts "\n刪除節點 1 後，二元樹為\n"
+  puts "\n刪除節點 1 後的二元樹為\n"
   print_tree(bst.get_root)
 
   bst.remove(2)
-  puts "\n刪除節點 2 後，二元樹為\n"
+  puts "\n刪除節點 2 後的二元樹為\n"
   print_tree(bst.get_root)
 
   bst.remove(4)
-  puts "\n刪除節點 4 後，二元樹為\n"
+  puts "\n刪除節點 4 後的二元樹為\n"
   print_tree(bst.get_root)
 end

@@ -1,19 +1,19 @@
-# https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager により生成
-# https://www.toptal.com/developers/gitignore?templates=objective-c,swift,swiftpackagemanager で編集
+# https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager で生成
+# 編集先：https://www.toptal.com/developers/gitignore?templates=objective-c,swift,swiftpackagemanager
 
 ### Objective-C ###
 # Xcode
 #
-# gitignore の貢献者へ：Global/Xcode.gitignore、Objective-C.gitignore、Swift.gitignore も忘れずに更新すること
+# gitignore の編集時は Global/Xcode.gitignore、Objective-C.gitignore、Swift.gitignore も更新すること
 
 ## ユーザー設定
 xcuserdata/
 
-## Xcode 8 以前との互換性（Xcode 9 以降では無視する必要はない）
+## Xcode 8 以前との互換性のための設定（Xcode 9 以降では除外不要）
 *.xcscmblueprint
 *.xccheckout
 
-## Xcode 3 以前との互換性（Xcode 4 以降では無視する必要はない）
+## Xcode 3 以前との互換性のための設定（Xcode 4 以降では除外不要）
 build/
 DerivedData/
 *.moved-aside
@@ -26,7 +26,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 
-## Obj-C/Swift 固有
+## Objective-C と Swift に固有の項目
 *.hmap
 
 ## アプリのパッケージ化
@@ -35,23 +35,23 @@ DerivedData/
 *.dSYM
 
 # CocoaPods
-# Pods ディレクトリを .gitignore に追加することは推奨しない。ただし、
-# 最終的には自身で判断すること。利点と欠点は次に記載されている：
+# Pods ディレクトリを .gitignore に追加することは推奨しません。ただし、
+# 以下に挙げた利点と欠点を踏まえて、ご自身で判断してください。
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-# Xcode ワークスペースのソースコードを管理対象に含めたくない場合、この行を追加する
+# Xcode ワークスペースのソースコードをコミット対象から除外する場合は、次の行を追加します。
 # *.xcworkspace
 
 # Carthage
-# Carthage の依存関係のソースコードを管理対象に含めたくない場合、この行を追加する。
+# Carthage で管理する依存関係のソースコードをコミット対象から除外する場合は、次の行を追加します。
 # Carthage/Checkouts
 
 Carthage/Build/
 
 # fastlane
-# スクリーンショットは Git リポジトリに保存しないことを推奨する。
-# 代わりに、必要になるたびに fastlane でスクリーンショットを再生成する。
-# 推奨設定の詳細は次を参照：
+# スクリーンショットは Git リポジトリに保存しないことを推奨します。
+# 必要なときに fastlane でスクリーンショットを再生成してください。
+# 推奨設定の詳細は以下を参照してください。
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 fastlane/report.xml
@@ -60,48 +60,48 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 # コードインジェクション
-# 新しいコードインジェクションツールを使うと、/iOSInjectionProject フォルダが生成される
+# 新しいコードインジェクションツールを使うと、フォルダ /iOSInjectionProject が生成されます。
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
 
-### Objective-C のパッチ ###
+### Objective-C 用の補足設定 ###
 
 ### Swift ###
 # Xcode
-# gitignore の貢献者へ：Global/Xcode.gitignore、Objective-C.gitignore、Swift.gitignore も忘れずに更新すること
+# gitignore の編集時は Global/Xcode.gitignore、Objective-C.gitignore、Swift.gitignore も更新すること
 
 
 
 
 
 
-## Playgrounds
+## プレイグラウンド
 timeline.xctimeline
 playground.xcworkspace
 
 # Swift Package Manager
-# Swift Package Manager の依存関係のソースコードを管理対象に含めたくない場合、この行を追加する。
+# Swift Package Manager で管理する依存関係のソースコードをコミット対象から除外する場合は、次の行を追加します。
 # Packages/
 # Package.pins
 # Package.resolved
 # *.xcodeproj
-# Xcode は .xcworkspacedata ファイルと xcuserdata を含むこのディレクトリを自動生成するため、
-# プロジェクトにパッケージ設定ファイルを追加していない限り、これは不要である
+# Xcode は .xcworkspacedata ファイルと xcuserdata を含むこのディレクトリを自動生成します。
+# そのため、プロジェクトにパッケージ設定ファイルを追加した場合を除き、このディレクトリをコミットする必要はありません。
 # .swiftpm
 
 .build/
 
 # CocoaPods
-# Pods ディレクトリを .gitignore に追加することは推奨しない。ただし、
-# 最終的には自身で判断すること。利点と欠点は次に記載されている：
+# Pods ディレクトリを .gitignore に追加することは推奨しません。ただし、
+# 以下に挙げた利点と欠点を踏まえて、ご自身で判断してください。
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-# Xcode ワークスペースのソースコードを管理対象に含めたくない場合、この行を追加する
+# Xcode ワークスペースのソースコードをコミット対象から除外する場合は、次の行を追加します。
 # *.xcworkspace
 
 # Carthage
-# Carthage の依存関係のソースコードを管理対象に含めたくない場合、この行を追加する。
+# Carthage で管理する依存関係のソースコードをコミット対象から除外する場合は、次の行を追加します。
 # Carthage/Checkouts
 
 
@@ -110,14 +110,14 @@ Dependencies/
 .accio/
 
 # fastlane
-# スクリーンショットは Git リポジトリに保存しないことを推奨する。
-# 代わりに、必要になるたびに fastlane でスクリーンショットを再生成する。
-# 推奨設定の詳細は次を参照：
+# スクリーンショットは Git リポジトリに保存しないことを推奨します。
+# 必要なときに fastlane でスクリーンショットを再生成してください。
+# 推奨設定の詳細は以下を参照してください。
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 
 # コードインジェクション
-# 新しいコードインジェクションツールを使うと、/iOSInjectionProject フォルダが生成される
+# 新しいコードインジェクションツールを使うと、フォルダ /iOSInjectionProject が生成されます。
 # https://github.com/johnno1962/injectionforxcode
 
 
@@ -127,4 +127,4 @@ xcuserdata
 *.xcodeproj
 
 
-# https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager の終わり
+# https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager の生成内容はここまで

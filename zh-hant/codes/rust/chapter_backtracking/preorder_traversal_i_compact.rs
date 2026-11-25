@@ -14,7 +14,7 @@ fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<Tree
     }
     if let Some(node) = root {
         if node.borrow().val == 7 {
-            // 記錄解
+            // 記錄此解
             res.push(node.clone());
         }
         pre_order(res, node.borrow().left.as_ref());
@@ -22,7 +22,7 @@ fn pre_order(res: &mut Vec<Rc<RefCell<TreeNode>>>, root: Option<&Rc<RefCell<Tree
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 pub fn main() {
     let root = vec_to_tree([1, 7, 3, 4, 5, 6, 7].map(|x| Some(x)).to_vec());
     println!("初始化二元樹");

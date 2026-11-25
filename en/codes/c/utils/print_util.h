@@ -79,7 +79,7 @@ void showTrunks(Trunk *trunk) {
 
 /**
  * Print a binary tree
- * This tree printer is borrowed from TECHIE DELIGHT
+ * This tree printer comes from Techie Delight
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 void printTreeHelper(TreeNode *node, Trunk *prev, bool isRight) {
@@ -117,7 +117,7 @@ void printTree(TreeNode *root) {
 /* Print a heap */
 void printHeap(int arr[], int size) {
     TreeNode *root;
-    printf("Array representation of the heap:");
+    printf("Array representation of the heap: ");
     printArray(arr, size);
     printf("Tree representation of the heap:\n");
     root = arrayToTree(arr, size);

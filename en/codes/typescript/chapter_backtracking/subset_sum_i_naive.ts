@@ -12,31 +12,31 @@ function backtrack(
     choices: number[],
     res: number[][]
 ): void {
-    // Record a solution when the subset sum equals target
+    // Record a solution when the subset sums to target
     if (total === target) {
         res.push([...state]);
         return;
     }
-    // Iterate over all choices
+    // Try each choice
     for (let i = 0; i < choices.length; i++) {
-        // Prune: skip this choice if the subset sum would exceed target
+        // Prune: skip choices that would take the subset sum over target
         if (total + choices[i] > target) {
             continue;
         }
-        // Try: make a choice and update the sum total
+        // Make a choice and update the running sum total
         state.push(choices[i]);
-        // Proceed to the next choice
+        // Make the next choice
         backtrack(state, target, total + choices[i], choices, res);
-        // Backtrack: undo the choice and restore the previous state
+        // Backtrack: undo the choice to restore the previous state
         state.pop();
     }
 }
 
-/* Solve subset sum I (with duplicate subsets) */
+/* Solve subset sum I (including duplicate subsets) */
 function subsetSumINaive(nums: number[], target: number): number[][] {
-    const state = []; // State (subset)
+    const state = []; // State (current subset)
     const total = 0; // Subset sum
-    const res = []; // Result list (list of subsets)
+    const res = []; // Results (list of subsets)
     backtrack(state, target, total, nums, res);
     return res;
 }
@@ -46,7 +46,7 @@ const nums = [3, 4, 5];
 const target = 9;
 const res = subsetSumINaive(nums, target);
 console.log(`Input array nums = ${JSON.stringify(nums)}, target = ${target}`);
-console.log(`All subsets with sum ${target}: res = ${JSON.stringify(res)}`);
-console.log('Note that this method produces duplicate subsets');
+console.log(`Subsets that sum to ${target}: res = ${JSON.stringify(res)}`);
+console.log('This method returns duplicate subsets');
 
 export {};

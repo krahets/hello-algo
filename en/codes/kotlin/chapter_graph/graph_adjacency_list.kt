@@ -8,9 +8,9 @@ package chapter_graph
 
 import utils.Vertex
 
-/* Undirected graph class implemented with an adjacency list */
+/* Undirected graph represented by an adjacency list */
 class GraphAdjList(edges: Array<Array<Vertex?>>) {
-    // Adjacency list: key is a vertex, value is the list of all its neighbors
+    // Adjacency list: each vertex maps to its neighbors
     val adjList = HashMap<Vertex, MutableList<Vertex>>()
 
     /* Constructor */
@@ -23,7 +23,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
         }
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     fun size(): Int {
         return adjList.size
     }
@@ -32,7 +32,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     fun addEdge(vet1: Vertex, vet2: Vertex) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
-        // Add edge vet1 - vet2
+        // Add the edge vet1 - vet2
         adjList[vet1]?.add(vet2)
         adjList[vet2]?.add(vet1)
     }
@@ -41,7 +41,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     fun removeEdge(vet1: Vertex, vet2: Vertex) {
         if (!adjList.containsKey(vet1) || !adjList.containsKey(vet2) || vet1 == vet2)
             throw IllegalArgumentException()
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         adjList[vet1]?.remove(vet2)
         adjList[vet2]?.remove(vet1)
     }
@@ -50,7 +50,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     fun addVertex(vet: Vertex) {
         if (adjList.containsKey(vet))
             return
-        // Add a new list to the adjacency list
+        // Add a new linked list to the adjacency list
         adjList[vet] = mutableListOf()
     }
 
@@ -58,9 +58,9 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
     fun removeVertex(vet: Vertex) {
         if (!adjList.containsKey(vet))
             throw IllegalArgumentException()
-        // Remove the list corresponding to vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         adjList.remove(vet)
-        // Traverse the lists of the other vertices and remove all edges incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         for (list in adjList.values) {
             list.remove(vet)
         }
@@ -81,7 +81,7 @@ class GraphAdjList(edges: Array<Array<Vertex?>>) {
 
 /* Driver code */
 fun main() {
-    /* Initialize the undirected graph */
+    /* Initialize an undirected graph */
     val v = Vertex.valsToVets(intArrayOf(1, 3, 2, 5, 4))
     val edges = arrayOf(
         arrayOf(v[0], v[1]),
@@ -96,13 +96,13 @@ fun main() {
     graph.print()
 
     /* Add an edge */
-    // Vertices 1 and 2 are v[0] and v[2]
+    // Vertices 1 and 2 are v[0] and v[2], respectively
     graph.addEdge(v[0]!!, v[2]!!)
     println("\nGraph after adding edge 1-2:")
     graph.print()
 
     /* Remove an edge */
-    // Vertices 1 and 3 are v[0] and v[1]
+    // Vertices 1 and 3 are v[0] and v[1], respectively
     graph.removeEdge(v[0]!!, v[1]!!)
     println("\nGraph after removing edge 1-3:")
     graph.print()

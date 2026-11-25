@@ -6,40 +6,40 @@
 
 const { binarySearchInsertion } = require('./binary_search_insertion.js');
 
-/* Find the leftmost occurrence of target using binary search */
+/* Use binary search to find the leftmost occurrence of target */
 function binarySearchLeftEdge(nums, target) {
-    // This is equivalent to finding the insertion point of target
+    // Equivalent to finding the insertion point for target
     const i = binarySearchInsertion(nums, target);
-    // If target was not found, return -1
+    // Target not found. Return -1
     if (i === nums.length || nums[i] !== target) {
         return -1;
     }
-    // Target was found; return index i
+    // Found target. Return index i
     return i;
 }
 
-/* Find the rightmost occurrence of target using binary search */
+/* Use binary search to find the rightmost occurrence of target */
 function binarySearchRightEdge(nums, target) {
-    // Reduce the problem to finding the leftmost insertion point of target + 1
+    // Search for the leftmost occurrence of target + 1
     const i = binarySearchInsertion(nums, target + 1);
-    // j points to the rightmost target, while i points to the first element greater than target
+    // j points to the rightmost occurrence of target, and i to the first larger element
     const j = i - 1;
-    // If target was not found, return -1
+    // Target not found. Return -1
     if (j === -1 || nums[j] !== target) {
         return -1;
     }
-    // Target was found; return index j
+    // Found target. Return index j
     return j;
 }
 
 /* Driver code */
-// Array containing duplicate elements
+// Array with duplicates
 const nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15];
 console.log('\nArray nums = ' + nums);
 // Find the left and right boundaries using binary search
 for (const target of [6, 7]) {
     let index = binarySearchLeftEdge(nums, target);
-    console.log('Leftmost occurrence of ' + target + ' has index ' + index);
+    console.log('The leftmost occurrence of ' + target + ' is at index ' + index);
     index = binarySearchRightEdge(nums, target);
-    console.log('Rightmost occurrence of ' + target + ' has index ' + index);
+    console.log('The rightmost occurrence of ' + target + ' is at index ' + index);
 }

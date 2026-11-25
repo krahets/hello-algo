@@ -2,51 +2,51 @@
 
 !!! question
 
-    Given $n$ items, where item $i$ has weight $wgt[i-1]$ and value $val[i-1]$, and a knapsack with capacity $cap$, each item may be selected only once. **However, you may take a fraction of an item, with its value proportional to the weight taken**. What is the maximum total value that fits within the knapsack's capacity? An example is shown in the figure below.
+    You are given $n$ items and a knapsack of capacity $cap$. Item $i$ has weight $wgt[i-1]$ and value $val[i-1]$. You can select each item only once, **but you may take a fraction of it and receive the corresponding fraction of its value**. What is the maximum total value you can pack within the weight limit? The figure below shows an example.
 
-![Example input for the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_example.svg)
+![Example data for fractional knapsack](fractional_knapsack_problem.assets/fractional_knapsack_example.svg)
 
-The fractional knapsack problem is very similar to the 0-1 knapsack problem. The state consists of the current item $i$ and capacity $c$, and the goal is to maximize value within the knapsack's capacity.
+Fractional knapsack closely resembles 0-1 knapsack. The state includes the current item $i$ and capacity $c$, and the goal is to maximize total value within the capacity limit.
 
-The difference is that we may take only part of an item. As shown in the figure below, **we can divide items into arbitrary fractions and calculate their values in proportion to their weights**.
+Here, however, we can take just part of an item. As the figure below shows, **we can divide an item at any point and calculate the value of the portion in proportion to its weight**.
 
-1. For item $i$, the value per unit weight is $val[i-1] / wgt[i-1]$, which we call its unit value.
-2. If we take a portion of item $i$ weighing $w$, the value added to the knapsack is $w \times val[i-1] / wgt[i-1]$.
+1. For item $i$, the value per unit of weight is $val[i-1] / wgt[i-1]$. We call this its unit value.
+2. If we take a portion of item $i$ that weighs $w$, it adds $w \times val[i-1] / wgt[i-1]$ to the value in the knapsack.
 
-![Value per unit weight of each item](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg)
+![Value per unit of weight](fractional_knapsack_problem.assets/fractional_knapsack_unit_value.svg)
 
 ### Choosing a greedy strategy
 
-Maximizing the total value in the knapsack **essentially means maximizing the value obtained per unit weight**. This leads to the greedy strategy shown in the figure below.
+To maximize total value in the knapsack, **we want the greatest possible value for each unit of weight**. This leads to the greedy strategy shown below.
 
-1. Sort the items by unit value in descending order.
-2. Iterate through the items, **greedily choosing the item with the highest unit value at each step**.
-3. If the remaining capacity is insufficient, take just enough of the current item to fill the knapsack.
+1. Sort the items in descending order of unit value.
+2. Go through the items, **choosing the one with the highest remaining unit value at each step**.
+3. If the current item does not fit, take just enough of it to fill the knapsack.
 
-![Greedy strategy for the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg)
+![Greedy strategy for fractional knapsack](fractional_knapsack_problem.assets/fractional_knapsack_greedy_strategy.svg)
 
-### Code implementation
+### Implementation
 
-We define an `Item` class to make it easier to sort items by unit value. We repeatedly make greedy choices, stopping and returning the result when the knapsack is full:
+We define an `Item` class so we can sort the items by unit value. The loop makes one greedy choice at a time. Once the knapsack is full, we exit the loop and return the result:
 
 ```src
 [file]{fractional_knapsack}-[class]{}-[func]{fractional_knapsack}
 ```
 
-Built-in sorting algorithms typically take $O(n \log n)$ time and $O(\log n)$ or $O(n)$ space, depending on the programming language's implementation.
+A built-in sort typically takes $O(n \log n)$ time and $O(\log n)$ or $O(n)$ space, depending on the language's implementation.
 
-Apart from sorting, the worst case requires traversing the entire item list, **so the time complexity is $O(n)$**, where $n$ is the number of items.
+After sorting, we may have to scan the entire list in the worst case, **so the scan takes $O(n)$ time**, where $n$ is the number of items.
 
-Initializing a list of `Item` objects requires **$O(n)$ space**.
+We create a list of `Item` objects, **so the space complexity is $O(n)$**.
 
 ### Proof of correctness
 
-We use proof by contradiction. Suppose item $x$ has the highest unit value, and an algorithm produces a maximum value of `res`, but its solution does not include item $x$.
+We use proof by contradiction. Suppose item $x$ has the highest unit value and some algorithm finds a maximum value of `res` without including item $x$.
 
-Now remove one unit of weight of any item from the knapsack and replace it with one unit of weight of item $x$. Since $x$ has the highest unit value, the total value after replacement must exceed `res`. **This contradicts the assumption that `res` is optimal, showing that an optimal solution must include item $x$**.
+Remove one unit of weight of any item in the knapsack and replace it with one unit of item $x$. Since item $x$ has the highest unit value, the new total must exceed `res`. **This contradicts the assumption that `res` is optimal, so an optimal solution must include item $x$**.
 
-We can construct the same contradiction for other items in the solution. Thus, **an item with a higher unit value is always a better choice**, which establishes the greedy strategy.
+We can make the same argument for the other items in the solution. In short, **an item with a higher unit value is always a better choice**, which establishes the greedy strategy.
 
-As shown in the figure below, if we plot item weight on the horizontal axis and unit value on the vertical axis, the fractional knapsack problem becomes a problem of maximizing the area within a limited horizontal interval. This analogy provides a geometric view of why the greedy strategy works.
+The figure below plots weight on the horizontal axis and unit value on the vertical axis. In these terms, the fractional knapsack problem asks how much area we can cover within a fixed horizontal interval. This gives us a geometric way to see why the greedy strategy works.
 
-![Geometric representation of the fractional knapsack problem](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg)
+![A geometric view of fractional knapsack](fractional_knapsack_problem.assets/fractional_knapsack_area_chart.svg)

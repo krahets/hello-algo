@@ -7,7 +7,7 @@
 namespace hello_algo.chapter_computational_complexity;
 
 public class complexity_exercises {
-    /* Sum using iteration */
+    /* Iterative sum */
     int SumIter(int n) {
         int res = 0;
         for (int i = 1; i <= n; i++) {
@@ -16,7 +16,7 @@ public class complexity_exercises {
         return res;
     }
 
-    /* Sum using recursion */
+    /* Recursive sum */
     int SumRecur(int n) {
         if (n == 1) {
             return 1;

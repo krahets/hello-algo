@@ -46,7 +46,7 @@ fun printTree(root: TreeNode?) {
 
 /**
  * Вывести двоичное дерево
- * Этот вывод дерева заимствован из TECHIE DELIGHT
+ * Код для вывода дерева заимствован у TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 fun printTree(root: TreeNode?, prev: Trunk?, isRight: Boolean) {
@@ -99,9 +99,9 @@ fun <K, V> printHashMap(map: Map<K, V>) {
 fun printHeap(queue: Queue<Int>?) {
     val list = mutableListOf<Int?>()
     queue?.let { list.addAll(it) }
-    print("Массивное представление кучи:")
+    print("Куча в виде массива: ")
     println(list)
-    println("Древовидное представление кучи:")
+    println("Куча в виде дерева:")
     val root = TreeNode.listToTree(list)
     printTree(root)
 }

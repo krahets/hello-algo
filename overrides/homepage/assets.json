@@ -274,6 +274,95 @@
       "height": 512,
       "kind": "image",
       "loading": "lazy"
+    },
+    "zh-hant_animation": {
+      "source": "zh-hant/docs/index.assets/animation.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "zh-hant_running_code": {
+      "source": "zh-hant/docs/index.assets/running_code.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "zh-hant_web_mac_iphone": {
+      "source": "zh-hant/docs/assets/hero/web_mac_iphone.png",
+      "width": 1598,
+      "height": 965,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "zh-hant_pdf_ipad": {
+      "source": "zh-hant/docs/assets/hero/pdf_ipad.png",
+      "width": 812,
+      "height": 960,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "en_web_mac_iphone": {
+      "source": "en/docs/assets/hero/web_mac_iphone.png",
+      "width": 1598,
+      "height": 965,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "en_pdf_ipad": {
+      "source": "en/docs/assets/hero/pdf_ipad.png",
+      "width": 812,
+      "height": 960,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "ja_animation": {
+      "source": "ja/docs/index.assets/animation.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "ja_running_code": {
+      "source": "ja/docs/index.assets/running_code.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "ja_web_mac_iphone": {
+      "source": "ja/docs/assets/hero/web_mac_iphone.png",
+      "width": 1598,
+      "height": 965,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "ru_animation": {
+      "source": "ru/docs/index.assets/animation.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "ru_running_code": {
+      "source": "ru/docs/index.assets/running_code.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "ru_web_mac_iphone": {
+      "source": "ru/docs/assets/hero/web_mac_iphone.png",
+      "width": 1598,
+      "height": 965,
+      "kind": "image",
+      "loading": "lazy"
+    },
+    "ko_animation": {
+      "source": "ko/docs/index.assets/animation.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "ko_running_code": {
+      "source": "ko/docs/index.assets/running_code.mp4",
+      "kind": "video",
+      "loading": "near-viewport-static-in-reduced-motion"
+    },
+    "ko_web_mac_iphone": {
+      "source": "ko/docs/assets/hero/web_mac_iphone.png",
+      "width": 1598,
+      "height": 965,
+      "kind": "image",
+      "loading": "lazy"
     }
   },
   "objects": [

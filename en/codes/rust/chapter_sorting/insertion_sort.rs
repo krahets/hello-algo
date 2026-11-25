@@ -20,7 +20,7 @@ fn insertion_sort(nums: &mut [i32]) {
     }
 }
 
-/* Driver code */
+/* Driver Code */
 fn main() {
     let mut nums = [4, 1, 3, 1, 5, 2];
     insertion_sort(&mut nums);

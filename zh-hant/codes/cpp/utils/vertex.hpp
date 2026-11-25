@@ -10,14 +10,14 @@
 
 using namespace std;
 
-/* 頂點類別 */
+/* 頂點結構體 */
 struct Vertex {
     int val;
     Vertex(int x) : val(x) {
     }
 };
 
-/* 輸入值串列 vals ，返回頂點串列 vets */
+/* 傳入數值向量 vals，回傳頂點向量 vets */
 vector<Vertex *> valsToVets(vector<int> vals) {
     vector<Vertex *> vets;
     for (int val : vals) {
@@ -26,7 +26,7 @@ vector<Vertex *> valsToVets(vector<int> vals) {
     return vets;
 }
 
-/* 輸入頂點串列 vets ，返回值串列 vals */
+/* 傳入頂點向量 vets，回傳數值向量 vals */
 vector<int> vetsToVals(vector<Vertex *> vets) {
     vector<int> vals;
     for (Vertex *vet : vets) {

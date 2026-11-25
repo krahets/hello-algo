@@ -6,15 +6,15 @@
 
 import utils
 
-// Инициализировать список для хранения последовательности обхода
+// Создать список для последовательности обхода
 var list: [Int] = []
 
-/* Предварительный обход */
+/* Прямой обход */
 func preOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // Порядок обхода: корень -> левое поддерево -> правое поддерево
+    // Порядок посещения: корень -> левое поддерево -> правое поддерево
     list.append(root.val)
     preOrder(root: root.left)
     preOrder(root: root.right)
@@ -25,7 +25,7 @@ func inOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // Порядок обхода: левое поддерево -> корень -> правое поддерево
+    // Порядок посещения: левое поддерево -> корень -> правое поддерево
     inOrder(root: root.left)
     list.append(root.val)
     inOrder(root: root.right)
@@ -36,7 +36,7 @@ func postOrder(root: TreeNode?) {
     guard let root = root else {
         return
     }
-    // Порядок обхода: левое поддерево -> правое поддерево -> корень
+    // Порядок посещения: левое поддерево -> правое поддерево -> корень
     postOrder(root: root.left)
     postOrder(root: root.right)
     list.append(root.val)
@@ -44,27 +44,27 @@ func postOrder(root: TreeNode?) {
 
 @main
 enum BinaryTreeDFS {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         /* Инициализация двоичного дерева */
-        // Здесь используется функция, напрямую строящая двоичное дерево из массива
+        // Используем функцию, которая строит двоичное дерево непосредственно из массива
         let root = TreeNode.listToTree(arr: [1, 2, 3, 4, 5, 6, 7])!
         print("\nИнициализация двоичного дерева\n")
         PrintUtil.printTree(root: root)
 
-        /* Предварительный обход */
+        /* Прямой обход */
         list.removeAll()
         preOrder(root: root)
-        print("\nПоследовательность печати узлов при предварительном обходе = \(list)")
+        print("\nУзлы в порядке прямого обхода = \(list)")
 
         /* Симметричный обход */
         list.removeAll()
         inOrder(root: root)
-        print("\nПоследовательность печати узлов при симметричном обходе = \(list)")
+        print("\nУзлы в порядке симметричного обхода = \(list)")
 
         /* Обратный обход */
         list.removeAll()
         postOrder(root: root)
-        print("\nПоследовательность печати узлов при обратном обходе = \(list)")
+        print("\nУзлы в порядке обратного обхода = \(list)")
     }
 }

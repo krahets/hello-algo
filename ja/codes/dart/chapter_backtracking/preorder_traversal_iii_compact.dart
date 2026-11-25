@@ -25,14 +25,14 @@ void preOrder(
   }
   preOrder(root.left, path, res);
   preOrder(root.right, path, res);
-  // 復元
+  // 後戻り
   path.removeLast();
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   TreeNode? root = listToTree([1, 7, 3, 4, 5, 6, 7]);
-  print("\n二分木を初期化する");
+  print("\n二分木を初期化");
   printTree(root);
 
   // 行きがけ順走査
@@ -40,7 +40,7 @@ void main() {
   List<List<TreeNode>> res = [];
   preOrder(root, path, res);
 
-  print("\n根ノードからノード 7 までのすべての経路を出力する");
+  print("\n根から値が 7 のノードまでの経路をすべて出力");
   for (List<TreeNode> vals in res) {
     print(List.generate(vals.length, (i) => vals[i].val));
   }

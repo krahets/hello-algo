@@ -76,9 +76,9 @@ public enum PrintUtil {
     }
 
     public static func printHeap(queue: [Int]) {
-        print("Массивное представление кучи:", terminator: "")
+        print("Куча в виде массива: ", terminator: "")
         print(queue)
-        print("Древовидное представление кучи:")
+        print("Куча в виде дерева:")
         let root = TreeNode.listToTree(arr: queue)
         printTree(root: root)
     }

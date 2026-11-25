@@ -8,25 +8,25 @@
 
 /* Push an element onto the heap */
 void pushMinHeap(MaxHeap *maxHeap, int val) {
-    // Negate the element
+    // Negate the elements
     push(maxHeap, -val);
 }
 
 /* Pop an element from the heap */
 int popMinHeap(MaxHeap *maxHeap) {
-    // Negate the element
+    // Negate the elements
     return -pop(maxHeap);
 }
 
-/* Access the top element of the heap */
+/* Peek at the root */
 int peekMinHeap(MaxHeap *maxHeap) {
-    // Negate the element
+    // Negate the elements
     return -peek(maxHeap);
 }
 
-/* Get the elements in the heap */
+/* Retrieve the elements in the heap */
 int *getMinHeap(MaxHeap *maxHeap) {
-    // Negate every element in the heap and store the results in array res
+    // Negate each heap element and store it in the res array
     int *res = (int *)malloc(maxHeap->size * sizeof(int));
     for (int i = 0; i < maxHeap->size; i++) {
         res[i] = -maxHeap->data[i];
@@ -34,10 +34,10 @@ int *getMinHeap(MaxHeap *maxHeap) {
     return res;
 }
 
-/* Use a heap to find the k largest elements in an array */
+/* Find the k largest elements in an array using a heap */
 int *topKHeap(int *nums, int sizeNums, int k) {
-    // Initialize a min heap
-    // Note: negate every element to simulate a min heap with a max heap
+    // Initialize a min-heap
+    // Negate all values so the max-heap acts as a min-heap
     int *empty = (int *)malloc(0);
     MaxHeap *maxHeap = newMaxHeap(empty, 0);
     // Push the first k array elements onto the heap
@@ -46,14 +46,14 @@ int *topKHeap(int *nums, int sizeNums, int k) {
     }
     // Starting with element k+1, keep the heap size at k
     for (int i = k; i < sizeNums; i++) {
-        // If the current element is larger than the heap top, pop the top element and push the current element
+        // If the current element exceeds the root, pop the root and push the current element
         if (nums[i] > peekMinHeap(maxHeap)) {
             popMinHeap(maxHeap);
             pushMinHeap(maxHeap, nums[i]);
         }
     }
     int *res = getMinHeap(maxHeap);
-    // Free memory
+    // Free the memory
     delMaxHeap(maxHeap);
     return res;
 }

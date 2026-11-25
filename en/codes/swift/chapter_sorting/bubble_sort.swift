@@ -8,7 +8,7 @@
 func bubbleSort(nums: inout [Int]) {
     // Outer loop: the unsorted range is [0, i]
     for i in nums.indices.dropFirst().reversed() {
-        // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+        // Inner loop: swap the largest element in [0, i] to the right end of the range
         for j in 0 ..< i {
             if nums[j] > nums[j + 1] {
                 // Swap nums[j] and nums[j + 1]
@@ -18,7 +18,7 @@ func bubbleSort(nums: inout [Int]) {
     }
 }
 
-/* Bubble sort (flag optimization)*/
+/* Bubble sort with an early-exit flag*/
 func bubbleSortWithFlag(nums: inout [Int]) {
     // Outer loop: the unsorted range is [0, i]
     for i in nums.indices.dropFirst().reversed() {
@@ -30,7 +30,7 @@ func bubbleSortWithFlag(nums: inout [Int]) {
                 flag = true // Record that a swap occurred
             }
         }
-        if !flag { // Exit immediately if this pass made no swaps
+        if !flag { // Stop if this pass made no swaps
             break
         }
     }
@@ -38,7 +38,7 @@ func bubbleSortWithFlag(nums: inout [Int]) {
 
 @main
 enum BubbleSort {
-    /* Driver code */
+    /* Driver Code */
     static func main() {
         var nums = [4, 1, 3, 1, 5, 2]
         bubbleSort(nums: &nums)

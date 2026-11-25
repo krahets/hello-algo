@@ -19,7 +19,7 @@ struct ListNode {
     }
 };
 
-/* Deserialize a list into a linked list */
+/* Deserialize a vector into a linked list */
 ListNode *vecToLinkedList(vector<int> list) {
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
@@ -32,7 +32,7 @@ ListNode *vecToLinkedList(vector<int> list) {
 
 /* Free the memory allocated to the linked list */
 void freeMemoryLinkedList(ListNode *cur) {
-    // Free memory
+    // Free the memory
     ListNode *pre;
     while (cur != nullptr) {
         pre = cur;

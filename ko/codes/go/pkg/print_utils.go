@@ -11,20 +11,20 @@ import (
 	"strings"
 )
 
-// PrintSlice: 슬라이스를 출력한다
+// PrintSlice는 슬라이스를 출력한다.
 func PrintSlice[T any](nums []T) {
 	fmt.Printf("%v", nums)
 	fmt.Println()
 }
 
-// PrintList: 리스트를 출력한다
+// PrintList는 리스트를 출력한다.
 func PrintList(list *list.List) {
 	if list.Len() == 0 {
 		fmt.Print("[]\n")
 		return
 	}
 	e := list.Front()
-	// string으로 강제 변환하면 효율에 영향을 준다
+	// string으로 강제 변환하면 성능에 영향을 준다.
 	fmt.Print("[")
 	for e.Next() != nil {
 		fmt.Print(e.Value, " ")
@@ -33,23 +33,23 @@ func PrintList(list *list.List) {
 	fmt.Print(e.Value, "]\n")
 }
 
-// PrintMap: 해시 테이블을 출력한다
+// PrintMap은 해시 테이블을 출력한다.
 func PrintMap[K comparable, V any](m map[K]V) {
 	for key, value := range m {
 		fmt.Println(key, "->", value)
 	}
 }
 
-// PrintHeap: 힙을 출력한다
+// PrintHeap은 힙을 출력한다.
 func PrintHeap(h []any) {
-	fmt.Printf("힙의 배열 표현:")
+	fmt.Printf("힙의 배열 표현: ")
 	fmt.Printf("%v", h)
 	fmt.Printf("\n힙의 트리 표현:\n")
 	root := SliceToTree(h)
 	PrintTree(root)
 }
 
-// PrintLinkedList: 연결 리스트를 출력한다
+// PrintLinkedList는 연결 리스트를 출력한다.
 func PrintLinkedList(node *ListNode) {
 	if node == nil {
 		return
@@ -63,13 +63,13 @@ func PrintLinkedList(node *ListNode) {
 	fmt.Println(builder.String())
 }
 
-// PrintTree: 이진 트리를 출력한다
+// PrintTree는 이진 트리를 출력한다.
 func PrintTree(root *TreeNode) {
 	printTreeHelper(root, nil, false)
 }
 
-// printTreeHelper: 이진 트리를 출력한다
-// 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다
+// printTreeHelper는 이진 트리를 출력한다.
+// 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다.
 // https://www.techiedelight.com/c-program-print-binary-tree/
 func printTreeHelper(root *TreeNode, prev *trunk, isRight bool) {
 	if root == nil {

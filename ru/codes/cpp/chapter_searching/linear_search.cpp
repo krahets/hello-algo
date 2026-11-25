@@ -6,44 +6,44 @@
 
 #include "../utils/common.hpp"
 
-/* Линейный поиск (массив) */
+/* Линейный поиск в массиве */
 int linearSearchArray(vector<int> &nums, int target) {
-    // Обход массива
+    // Обходим массив
     for (int i = 0; i < nums.size(); i++) {
-        // Целевой элемент найден, вернуть его индекс
+        // Элемент найден, возвращаем его индекс
         if (nums[i] == target)
             return i;
     }
-    // Целевой элемент не найден, вернуть -1
+    // Элемент не найден, возвращаем -1
     return -1;
 }
 
-/* Линейный поиск (связный список) */
+/* Линейный поиск в связном списке */
 ListNode *linearSearchLinkedList(ListNode *head, int target) {
-    // Обойти связный список
+    // Обходим связный список
     while (head != nullptr) {
-        // Целевой узел найден, возвращается этот узел
+        // Нужный узел найден, возвращаем его
         if (head->val == target)
             return head;
         head = head->next;
     }
-    // Целевой узел не найден, вернуть nullptr
+    // Нужный узел не найден, возвращаем nullptr
     return nullptr;
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
     int target = 3;
 
-    /* Выполнить линейный поиск в массиве */
+    /* Выполняем линейный поиск в массиве */
     vector<int> nums = {1, 5, 3, 2, 4, 7, 5, 9, 10, 8};
     int index = linearSearchArray(nums, target);
-    cout << "Индекс целевого элемента 3 = " << index << endl;
+    cout << "Индекс элемента 3 = " << index << endl;
 
-    /* Выполнить линейный поиск в связном списке */
+    /* Выполняем линейный поиск в связном списке */
     ListNode *head = vecToLinkedList(nums);
     ListNode *node = linearSearchLinkedList(head, target);
-    cout << "Объект узла со значением 3 = " << node << endl;
+    cout << "Узел со значением 3: " << node << endl;
 
     return 0;
 }

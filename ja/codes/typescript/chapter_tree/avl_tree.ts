@@ -17,54 +17,54 @@ class AVLTree {
 
     /* ノードの高さを取得する */
     height(node: TreeNode): number {
-        // 空ノードの高さは -1 、葉ノードの高さは 0
+        // 空のノードの高さは -1、葉の高さは 0
         return node === null ? -1 : node.height;
     }
 
     /* ノードの高さを更新する */
     private updateHeight(node: TreeNode): void {
-        // ノードの高さは、最も高い部分木の高さ + 1
+        // ノードの高さは、左右の部分木の高さの最大値 + 1
         node.height =
             Math.max(this.height(node.left), this.height(node.right)) + 1;
     }
 
     /* 平衡係数を取得する */
     balanceFactor(node: TreeNode): number {
-        // 空ノードの平衡係数は 0
+        // 空のノードの平衡係数は 0
         if (node === null) return 0;
         // ノードの平衡係数 = 左部分木の高さ - 右部分木の高さ
         return this.height(node.left) - this.height(node.right);
     }
 
-    /* 右回転操作 */
+    /* 右回転 */
     private rightRotate(node: TreeNode): TreeNode {
         const child = node.left;
         const grandChild = child.right;
-        // child を中心に node を右回転する
+        // child を軸に node を右回転する
         child.right = node;
         node.left = grandChild;
         // ノードの高さを更新する
         this.updateHeight(node);
         this.updateHeight(child);
-        // 回転後の部分木の根ノードを返す
+        // 回転後の部分木の根を返す
         return child;
     }
 
-    /* 左回転操作 */
+    /* 左回転 */
     private leftRotate(node: TreeNode): TreeNode {
         const child = node.right;
         const grandChild = child.left;
-        // child を中心に node を左回転する
+        // child を軸に node を左回転する
         child.left = node;
         node.right = grandChild;
         // ノードの高さを更新する
         this.updateHeight(node);
         this.updateHeight(child);
-        // 回転後の部分木の根ノードを返す
+        // 回転後の部分木の根を返す
         return child;
     }
 
-    /* 回転操作によって、この部分木の平衡を回復する */
+    /* 回転して部分木の平衡を回復する */
     private rotate(node: TreeNode): TreeNode {
         // ノード node の平衡係数を取得する
         const balanceFactor = this.balanceFactor(node);
@@ -74,7 +74,7 @@ class AVLTree {
                 // 右回転
                 return this.rightRotate(node);
             } else {
-                // 左回転してから右回転する
+                // 左回転してから右回転
                 node.left = this.leftRotate(node.left);
                 return this.rightRotate(node);
             }
@@ -85,12 +85,12 @@ class AVLTree {
                 // 左回転
                 return this.leftRotate(node);
             } else {
-                // 右回転してから左回転する
+                // 右回転してから左回転
                 node.right = this.rightRotate(node.right);
                 return this.leftRotate(node);
             }
         }
-        // 平衡な木なので、回転せずにそのまま返す
+        // 平衡なので回転せずに戻る
         return node;
     }
 
@@ -99,7 +99,7 @@ class AVLTree {
         this.root = this.insertHelper(this.root, val);
     }
 
-    /* ノードを再帰的に挿入する（補助メソッド） */
+    /* 再帰によるノードの挿入（補助メソッド） */
     private insertHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return new TreeNode(val);
         /* 1. 挿入位置を探してノードを挿入する */
@@ -108,12 +108,12 @@ class AVLTree {
         } else if (val > node.val) {
             node.right = this.insertHelper(node.right, val);
         } else {
-            return node; // 重複したノードは挿入せず、そのまま戻る
+            return node; // 値が重複する場合は挿入せずに戻る
         }
         this.updateHeight(node); // ノードの高さを更新する
-        /* 2. 回転操作によって、この部分木の平衡を回復する */
+        /* 2. 回転して部分木の平衡を回復する */
         node = this.rotate(node);
-        // 部分木の根ノードを返す
+        // 部分木の根を返す
         return node;
     }
 
@@ -122,7 +122,7 @@ class AVLTree {
         this.root = this.removeHelper(this.root, val);
     }
 
-    /* ノードを再帰的に削除する（補助メソッド） */
+    /* 再帰によるノードの削除（補助メソッド） */
     private removeHelper(node: TreeNode, val: number): TreeNode {
         if (node === null) return null;
         /* 1. ノードを探して削除する */
@@ -133,15 +133,15 @@ class AVLTree {
         } else {
             if (node.left === null || node.right === null) {
                 const child = node.left !== null ? node.left : node.right;
-                // 子ノード数 = 0 の場合、node を削除して戻る
+                // 子が 0 個なら node を削除して戻る
                 if (child === null) {
                     return null;
                 } else {
-                    // 子ノード数 = 1 の場合、node を削除する
+                    // 子が 1 個なら node を削除する
                     node = child;
                 }
             } else {
-                // 子ノード数 = 2 の場合、通りがけ順で次のノードを削除し、そのノードで現在のノードを置き換える
+                // 子が 2 個なら通りがけ順で次のノードを削除し、その値で現在のノードの値を置き換える
                 let temp = node.right;
                 while (temp.left !== null) {
                     temp = temp.left;
@@ -151,16 +151,16 @@ class AVLTree {
             }
         }
         this.updateHeight(node); // ノードの高さを更新する
-        /* 2. 回転操作によって、この部分木の平衡を回復する */
+        /* 2. 回転して部分木の平衡を回復する */
         node = this.rotate(node);
-        // 部分木の根ノードを返す
+        // 部分木の根を返す
         return node;
     }
 
     /* ノードを探索する */
     search(val: number): TreeNode {
         let cur = this.root;
-        // 繰り返し探索し、葉ノードを越えたら終了する
+        // ループで探索し、葉を越えたら終了する
         while (cur !== null) {
             if (cur.val < val) {
                 // 目的のノードは cur の右部分木にある
@@ -169,7 +169,7 @@ class AVLTree {
                 // 目的のノードは cur の左部分木にある
                 cur = cur.left;
             } else {
-                // 目的のノードが見つかったので、ループを終了する
+                // 目的のノードが見つかったのでループを抜ける
                 break;
             }
         }
@@ -180,21 +180,21 @@ class AVLTree {
 
 function testInsert(tree: AVLTree, val: number): void {
     tree.insert(val);
-    console.log('\nノードの挿入： ' + val + ' 、操作後の AVL 木');
+    console.log('\nノード ' + val + ' を挿入した後の AVL 木：');
     printTree(tree.root);
 }
 
 function testRemove(tree: AVLTree, val: number): void {
     tree.remove(val);
-    console.log('\nノードの削除： ' + val + ' 、操作後の AVL 木');
+    console.log('\nノード ' + val + ' を削除した後の AVL 木：');
     printTree(tree.root);
 }
 
-/* 実行用コード */
+/* 実行例 */
 /* 空の AVL 木を初期化する */
 const avlTree = new AVLTree();
 /* ノードを挿入する */
-// ノード挿入後、AVL 木がどのように平衡を保つかに注目する
+// 挿入後に AVL 木がどのように平衡を保つかに注目
 testInsert(avlTree, 1);
 testInsert(avlTree, 2);
 testInsert(avlTree, 3);
@@ -206,17 +206,17 @@ testInsert(avlTree, 9);
 testInsert(avlTree, 10);
 testInsert(avlTree, 6);
 
-/* 重複したノードを挿入する */
+/* 重複するノードを挿入する */
 testInsert(avlTree, 7);
 
 /* ノードを削除する */
-// ノード削除後、AVL 木がどのように平衡を保つかに注目する
-testRemove(avlTree, 8); // 次数 0 のノードを削除する
-testRemove(avlTree, 5); // 次数 1 のノードを削除する
-testRemove(avlTree, 4); // 次数 2 のノードを削除する
+// 削除後に AVL 木がどのように平衡を保つかに注目
+testRemove(avlTree, 8); // 子が 0 個のノードを削除する
+testRemove(avlTree, 5); // 子が 1 個のノードを削除する
+testRemove(avlTree, 4); // 子が 2 個のノードを削除する
 
-/* ノードを探索する */
+/* ノードを検索する */
 const node = avlTree.search(7);
-console.log('\n見つかったノードオブジェクトは', node, '、ノードの値 = ' + node.val);
+console.log('\n見つかったノードのオブジェクト：', node, '、ノードの値 = ' + node.val);
 
 export {};

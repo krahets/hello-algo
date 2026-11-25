@@ -10,28 +10,28 @@ use graph_adjacency_list::GraphAdjList;
 use graph_adjacency_list::{vals_to_vets, vets_to_vals, Vertex};
 use std::collections::HashSet;
 
-/* Depth-first traversal helper function */
+/* Helper for depth-first traversal */
 fn dfs(graph: &GraphAdjList, visited: &mut HashSet<Vertex>, res: &mut Vec<Vertex>, vet: Vertex) {
     res.push(vet); // Record the visited vertex
-    visited.insert(vet); // Mark this vertex as visited
-                         // Traverse all neighbors of this vertex
+    visited.insert(vet); // Mark the vertex as visited
+                         // Iterate over all neighbors of this vertex
     if let Some(adj_vets) = graph.adj_list.get(&vet) {
         for &adj_vet in adj_vets {
             if visited.contains(&adj_vet) {
-                continue; // Skip vertices that have already been visited
+                continue; // Skip visited vertices
             }
-            // Recursively visit the neighboring vertex
+            // Visit neighbors recursively
             dfs(graph, visited, res, adj_vet);
         }
     }
 }
 
 /* Depth-first traversal */
-// Represent the graph with an adjacency list to access all neighbors of a given vertex
+// Represent the graph with an adjacency list to look up all neighbors of a given vertex
 fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
-    // Vertex traversal sequence
+    // Vertex traversal order
     let mut res = vec![];
-    // Hash set recording visited vertices
+    // Use a hash set to track visited vertices
     let mut visited = HashSet::new();
     dfs(&graph, &mut visited, &mut res, start_vet);
 
@@ -40,7 +40,7 @@ fn graph_dfs(graph: GraphAdjList, start_vet: Vertex) -> Vec<Vertex> {
 
 /* Driver code */
 fn main() {
-    /* Initialize the undirected graph */
+    /* Initialize an undirected graph */
     let v = vals_to_vets(vec![0, 1, 2, 3, 4, 5, 6]);
     let edges = vec![
         [v[0], v[1]],
@@ -56,6 +56,6 @@ fn main() {
 
     /* Depth-first traversal */
     let res = graph_dfs(graph, v[0]);
-    println!("\nVertex sequence from depth-first traversal (DFS):");
+    println!("\nDepth-first search (DFS) visits the vertices in this order:");
     println!("{:?}", vets_to_vals(res));
 }

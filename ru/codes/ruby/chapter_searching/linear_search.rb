@@ -6,39 +6,39 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative '../utils/list_node'
 
-### Линейный поиск (массив) ###
+### Линейный поиск в массиве ###
 def linear_search_array(nums, target)
-  # Обход массива
+  # Обходим массив
   for i in 0...nums.length
-    return i if nums[i] == target # Целевой элемент найден, вернуть его индекс
+    return i if nums[i] == target # Элемент найден, возвращаем его индекс
   end
 
-  -1 # Целевой элемент не найден, вернуть -1
+  -1 # Элемент не найден, возвращаем -1
 end
 
-### Линейный поиск (связный список) ###
+### Линейный поиск в связном списке ###
 def linear_search_linkedlist(head, target)
-  # Обойти связный список
+  # Обходим связный список
   while head
-    return head if head.val == target # Целевой узел найден, возвращается этот узел
+    return head if head.val == target # Нужный узел найден, возвращаем его
 
     head = head.next
   end
 
-  nil # Целевой узел не найден, вернуть None
+  nil # Нужный узел не найден, возвращаем None
 end
 
-### Driver Code ###
+### Пример использования ###
 if __FILE__ == $0
   target = 3
 
-  # Выполнить линейный поиск в массиве
+  # Выполняем линейный поиск в массиве
   nums = [1, 5, 3, 2, 4, 7, 5, 9, 10, 8]
   index = linear_search_array(nums, target)
-  puts "Индекс целевого элемента 3 = #{index}"
+  puts "Индекс элемента 3 = #{index}"
 
-  # Выполнить линейный поиск в связном списке
+  # Выполняем линейный поиск в связном списке
   head = arr_to_linked_list(nums)
   node = linear_search_linkedlist(head, target)
-  puts "Объект узла со значением 3 = #{node}"
+  puts "Узел со значением 3: #{node}"
 end

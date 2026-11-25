@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Предположим, что длина пути и результата не превышает 100
+// Предполагаем, что длина пути и длина списка результатов не превышают 100
 #define MAX_SIZE 100
 #define MAX_RES_SIZE 100
 
@@ -14,15 +14,15 @@ TreeNode *path[MAX_SIZE];
 TreeNode *res[MAX_RES_SIZE][MAX_SIZE];
 int pathSize = 0, resSize = 0;
 
-/* Предварительный обход: пример 2 */
+/* Прямой обход: пример 2 */
 void preOrder(TreeNode *root) {
     if (root == NULL) {
         return;
     }
-    // Попытка
+    // Пробуем вариант
     path[pathSize++] = root;
     if (root->val == 7) {
-        // Записать решение
+        // Сохраняем решение
         for (int i = 0; i < pathSize; ++i) {
             res[resSize][i] = path[i];
         }
@@ -30,21 +30,21 @@ void preOrder(TreeNode *root) {
     }
     preOrder(root->left);
     preOrder(root->right);
-    // Откат
+    // Возврат
     pathSize--;
 }
 
-/* Driver Code */
+/* Основная программа */
 int main() {
     int arr[] = {1, 7, 3, 4, 5, 6, 7};
     TreeNode *root = arrayToTree(arr, sizeof(arr) / sizeof(arr[0]));
-    printf("\nИнициализация двоичного дерева\n");
+    printf("\nСоздаём двоичное дерево\n");
     printTree(root);
 
-    // Предварительный обход
+    // Прямой обход
     preOrder(root);
 
-    printf("\nВывести все пути от корня к узлу 7\n");
+    printf("\nВыводим все пути от корня до узлов со значением 7\n");
     for (int i = 0; i < resSize; ++i) {
         int *vals = malloc(MAX_SIZE * sizeof(int));
         int size = 0;
@@ -55,7 +55,7 @@ int main() {
         free(vals);
     }
 
-    // Освободить память
+    // Освобождаем память
     freeMemoryTree(root);
     return 0;
 }

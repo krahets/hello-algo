@@ -1,19 +1,19 @@
-# Created by https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager
-# Edit at https://www.toptal.com/developers/gitignore?templates=objective-c,swift,swiftpackagemanager
+# Создано с помощью https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager
+# Редактировать здесь: https://www.toptal.com/developers/gitignore?templates=objective-c,swift,swiftpackagemanager
 
 ### Objective-C ###
 # Xcode
 #
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# Авторам gitignore: не забудьте обновить Global/Xcode.gitignore, Objective-C.gitignore и Swift.gitignore
 
-## User settings
+## Пользовательские настройки
 xcuserdata/
 
-## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
+## Для совместимости с Xcode 8 и более ранними версиями (начиная с Xcode 9 эти файлы можно не исключать)
 *.xcscmblueprint
 *.xccheckout
 
-## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+## Для совместимости с Xcode 3 и более ранними версиями (начиная с Xcode 4 эти файлы можно не исключать)
 build/
 DerivedData/
 *.moved-aside
@@ -26,32 +26,32 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 
-## Obj-C/Swift specific
+## Настройки для Objective-C и Swift
 *.hmap
 
-## App packaging
+## Упаковка приложения
 *.ipa
 *.dSYM.zip
 *.dSYM
 
 # CocoaPods
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
+# Мы рекомендуем не добавлять каталог Pods в .gitignore. Однако
+# решение остаётся за вами. Доводы за и против приведены здесь:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-# Add this line if you want to avoid checking in source code from the Xcode workspace
+# Добавьте эту строку, если хотите исключить из репозитория исходный код из рабочего пространства Xcode
 # *.xcworkspace
 
 # Carthage
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Добавьте эту строку, если хотите исключить из репозитория исходный код зависимостей Carthage.
 # Carthage/Checkouts
 
 Carthage/Build/
 
 # fastlane
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
+# Снимки экрана рекомендуется хранить вне репозитория Git.
+# При необходимости их можно сгенерировать заново с помощью fastlane.
+# Подробнее о рекомендуемой настройке:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 fastlane/report.xml
@@ -59,65 +59,65 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# Code Injection
-# After new code Injection tools there's a generated folder /iOSInjectionProject
+# Внедрение кода
+# Новые инструменты внедрения кода создают каталог /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
 
-### Objective-C Patch ###
+### Дополнение для Objective-C ###
 
 ### Swift ###
 # Xcode
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# Авторам gitignore: не забудьте обновить Global/Xcode.gitignore, Objective-C.gitignore и Swift.gitignore
 
 
 
 
 
 
-## Playgrounds
+## Площадки Xcode (Playgrounds)
 timeline.xctimeline
 playground.xcworkspace
 
 # Swift Package Manager
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Добавьте эту строку, если хотите исключить из репозитория исходный код зависимостей Swift Package Manager.
 # Packages/
 # Package.pins
 # Package.resolved
 # *.xcodeproj
-# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
-# hence it is not needed unless you have added a package configuration file to your project
+# Xcode автоматически создаёт этот каталог с файлом .xcworkspacedata и каталогом xcuserdata,
+# поэтому его нужно хранить в репозитории лишь в том случае, если в проект добавлен файл конфигурации пакета
 # .swiftpm
 
 .build/
 
 # CocoaPods
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
+# Мы рекомендуем не добавлять каталог Pods в .gitignore. Однако
+# решение остаётся за вами. Доводы за и против приведены здесь:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-# Add this line if you want to avoid checking in source code from the Xcode workspace
+# Добавьте эту строку, если хотите исключить из репозитория исходный код из рабочего пространства Xcode
 # *.xcworkspace
 
 # Carthage
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Добавьте эту строку, если хотите исключить из репозитория исходный код зависимостей Carthage.
 # Carthage/Checkouts
 
 
-# Accio dependency management
+# Управление зависимостями с помощью Accio
 Dependencies/
 .accio/
 
 # fastlane
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
+# Снимки экрана рекомендуется хранить вне репозитория Git.
+# При необходимости их можно сгенерировать заново с помощью fastlane.
+# Подробнее о рекомендуемой настройке:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
 
-# Code Injection
-# After new code Injection tools there's a generated folder /iOSInjectionProject
+# Внедрение кода
+# Новые инструменты внедрения кода создают каталог /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
 
@@ -127,4 +127,4 @@ xcuserdata
 *.xcodeproj
 
 
-# End of https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager
+# Конец файла https://www.toptal.com/developers/gitignore/api/objective-c,swift,swiftpackagemanager

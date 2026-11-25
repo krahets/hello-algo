@@ -11,47 +11,47 @@ class ArrayStack
     @stack = []
   end
 
-  ### Получить длину стека ###
+  ### Получить размер стека ###
   def size
     @stack.length
   end
 
-  ### Проверка, пуст ли стек ###
+  ### Проверить, пуст ли стек ###
   def is_empty?
     @stack.empty?
   end
 
-  ### Помещение в стек ###
+  ### Поместить элемент в стек ###
   def push(item)
     @stack << item
   end
 
-  ### Извлечение из стека ###
+  ### Снять элемент со стека ###
   def pop
-    raise IndexError, 'стек пуст' if is_empty?
+    raise IndexError, 'Стек пуст' if is_empty?
 
     @stack.pop
   end
 
-  ### Доступ к верхнему элементу стека ###
+  ### Посмотреть элемент на вершине стека ###
   def peek
-    raise IndexError, 'стек пуст' if is_empty?
+    raise IndexError, 'Стек пуст' if is_empty?
 
     @stack.last
   end
 
-  ### Вернуть список для вывода ###
+  ### Вернуть массив для вывода ###
   def to_array
     @stack
   end
 end
 
-### Driver Code ###
+### Пример использования ###
 if __FILE__ == $0
-  # Инициализация стека
+  # Инициализировать стек
   stack = ArrayStack.new
 
-  # Помещение элемента в стек
+  # Поместить элементы в стек
   stack.push(1)
   stack.push(3)
   stack.push(2)
@@ -59,20 +59,20 @@ if __FILE__ == $0
   stack.push(4)
   puts "Стек stack = #{stack.to_array}"
 
-  # Доступ к верхнему элементу стека
+  # Посмотреть элемент на вершине стека
   peek = stack.peek
-  puts "Верхний элемент peek = #{peek}"
+  puts "Элемент на вершине стека peek = #{peek}"
 
-  # Извлечение элемента из стека
+  # Снять элемент со стека
   pop = stack.pop
-  puts "Извлеченный элемент pop = #{pop}"
-  puts "stack после извлечения = #{stack.to_array}"
+  puts "Снятый элемент pop = #{pop}"
+  puts "После снятия элемента stack = #{stack.to_array}"
 
-  # Получение длины стека
+  # Получить размер стека
   size = stack.size
-  puts "Длина стека size = #{size}"
+  puts "Размер стека size = #{size}"
 
-  # Проверка на пустоту
+  # Проверить, пуст ли стек
   is_empty = stack.is_empty?
-  puts "Пуст ли стек = #{is_empty}"
+  puts "Стек пуст = #{is_empty}"
 end

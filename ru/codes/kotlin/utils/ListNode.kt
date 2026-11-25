@@ -11,7 +11,7 @@ class ListNode(var _val: Int) {
     var next: ListNode? = null
 
     companion object {
-        /* Десериализовать список в связный список */
+        /* Восстановить связный список из списка значений */
         fun arrToLinkedList(arr: IntArray): ListNode? {
             val dum = ListNode(0)
             var head = dum

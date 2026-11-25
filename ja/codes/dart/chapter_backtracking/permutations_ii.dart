@@ -4,45 +4,45 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* バックトラッキング：すべての順列 II */
+/* バックトラッキングによる全順列 II */
 void backtrack(
   List<int> state,
   List<int> choices,
   List<bool> selected,
   List<List<int>> res,
 ) {
-  // 状態の長さが要素数と等しくなったら、解を記録する
+  // 状態の長さが要素数に達したら解を記録する
   if (state.length == choices.length) {
     res.add(List.from(state));
     return;
   }
-  // すべての選択肢を走査する
+  // すべての選択肢を調べる
   Set<int> duplicated = {};
   for (int i = 0; i < choices.length; i++) {
     int choice = choices[i];
-    // 枝刈り：同じ要素の再選択も、等しい値を持つ要素の重複選択も許可しない
+    // 枝刈り：同じ要素は二度選ばず、この段階で同じ値の要素も繰り返し試さない
     if (!selected[i] && !duplicated.contains(choice)) {
-      // 試行：選択を行い、状態を更新する
-      duplicated.add(choice); // 選択済みの要素の値を記録する
+      // 試行：選択して状態を更新する
+      duplicated.add(choice); // 選んだ要素の値を記録する
       selected[i] = true;
       state.add(choice);
       // 次の選択に進む
       backtrack(state, choices, selected, res);
-      // 復元：選択を取り消し、以前の状態に戻す
+      // 後戻り：選択を取り消し、元の状態に戻す
       selected[i] = false;
       state.removeLast();
     }
   }
 }
 
-/* すべての順列 II */
+/* 全順列 II */
 List<List<int>> permutationsII(List<int> nums) {
   List<List<int>> res = [];
   backtrack([], nums, List.filled(nums.length, false), res);
   return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 void main() {
   List<int> nums = [1, 2, 2];
 

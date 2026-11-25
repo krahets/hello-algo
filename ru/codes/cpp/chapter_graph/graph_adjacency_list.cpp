@@ -6,10 +6,10 @@
 
 #include "../utils/common.hpp"
 
-/* Класс неориентированного графа на основе списка смежности */
+/* Неориентированный граф на списках смежности */
 class GraphAdjList {
   public:
-    // Список смежности, где key — вершина, а value — все смежные ей вершины
+    // Список смежности: ключ — вершина, значение — все её соседи
     unordered_map<Vertex *, vector<Vertex *>> adjList;
 
     /* Удалить указанный узел из vector */
@@ -24,7 +24,7 @@ class GraphAdjList {
 
     /* Конструктор */
     GraphAdjList(const vector<vector<Vertex *>> &edges) {
-        // Добавить все вершины и ребра
+        // Добавить все вершины и рёбра
         for (const vector<Vertex *> &edge : edges) {
             addVertex(edge[0]);
             addVertex(edge[1]);
@@ -37,39 +37,39 @@ class GraphAdjList {
         return adjList.size();
     }
 
-    /* Добавление ребра */
+    /* Добавить ребро */
     void addEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("вершина не существует");
-        // Добавить ребро vet1 - vet2
+            throw invalid_argument("Вершина отсутствует");
+        // Добавить ребро vet1 — vet2
         adjList[vet1].push_back(vet2);
         adjList[vet2].push_back(vet1);
     }
 
-    /* Удаление ребра */
+    /* Удалить ребро */
     void removeEdge(Vertex *vet1, Vertex *vet2) {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("вершина не существует");
-        // Удалить ребро vet1 - vet2
+            throw invalid_argument("Вершина отсутствует");
+        // Удалить ребро vet1 — vet2
         remove(adjList[vet1], vet2);
         remove(adjList[vet2], vet1);
     }
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     void addVertex(Vertex *vet) {
         if (adjList.count(vet))
             return;
-        // Добавить новый список в список смежности
+        // Добавить новый связный список в список смежности
         adjList[vet] = vector<Vertex *>();
     }
 
-    /* Удаление вершины */
+    /* Удалить вершину */
     void removeVertex(Vertex *vet) {
         if (!adjList.count(vet))
-            throw invalid_argument("вершина не существует");
-        // Удалить из списка смежности список, соответствующий вершине vet
+            throw invalid_argument("Вершина отсутствует");
+        // Удалить из списка смежности список вершины vet
         adjList.erase(vet);
-        // Обойти списки других вершин и удалить все ребра, содержащие vet
+        // Обойти списки остальных вершин и удалить все рёбра, инцидентные vet
         for (auto &adj : adjList) {
             remove(adj.second, vet);
         }
@@ -87,4 +87,4 @@ class GraphAdjList {
     }
 };
 
-// Тестовые примеры см. в graph_adjacency_list_test.cpp
+// Примеры тестов см. в graph_adjacency_list_test.cpp

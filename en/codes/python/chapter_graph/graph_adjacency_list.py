@@ -12,11 +12,11 @@ from modules import Vertex, vals_to_vets
 
 
 class GraphAdjList:
-    """Undirected graph class implemented with an adjacency list"""
+    """Undirected graph represented by an adjacency list"""
 
     def __init__(self, edges: list[list[Vertex]]):
         """Constructor"""
-        # Adjacency list: key is a vertex, value is the list of all its neighbors
+        # Adjacency list: each vertex maps to its neighbors
         self.adj_list = dict[Vertex, list[Vertex]]()
         # Add all vertices and edges
         for edge in edges:
@@ -25,14 +25,14 @@ class GraphAdjList:
             self.add_edge(edge[0], edge[1])
 
     def size(self) -> int:
-        """Get the number of vertices"""
+        """Get the vertex count"""
         return len(self.adj_list)
 
     def add_edge(self, vet1: Vertex, vet2: Vertex):
         """Add an edge"""
         if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
             raise ValueError()
-        # Add edge vet1 - vet2
+        # Add the edge vet1 - vet2
         self.adj_list[vet1].append(vet2)
         self.adj_list[vet2].append(vet1)
 
@@ -40,7 +40,7 @@ class GraphAdjList:
         """Remove an edge"""
         if vet1 not in self.adj_list or vet2 not in self.adj_list or vet1 == vet2:
             raise ValueError()
-        # Remove edge vet1 - vet2
+        # Remove the edge vet1 - vet2
         self.adj_list[vet1].remove(vet2)
         self.adj_list[vet2].remove(vet1)
 
@@ -48,16 +48,16 @@ class GraphAdjList:
         """Add a vertex"""
         if vet in self.adj_list:
             return
-        # Add a new list to the adjacency list
+        # Add a new linked list to the adjacency list
         self.adj_list[vet] = []
 
     def remove_vertex(self, vet: Vertex):
         """Remove a vertex"""
         if vet not in self.adj_list:
             raise ValueError()
-        # Remove the list corresponding to vertex vet from the adjacency list
+        # Remove the linked list for vertex vet from the adjacency list
         self.adj_list.pop(vet)
-        # Traverse the lists of the other vertices and remove all edges incident to vet
+        # Traverse the other vertices' lists and remove every edge incident to vet
         for vertex in self.adj_list:
             if vet in self.adj_list[vertex]:
                 self.adj_list[vertex].remove(vet)
@@ -70,9 +70,9 @@ class GraphAdjList:
             print(f"{vertex.val}: {tmp},")
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
-    # Initialize the undirected graph
+    # Initialize an undirected graph
     v = vals_to_vets([1, 3, 2, 5, 4])
     edges = [
         [v[0], v[1]],
@@ -87,13 +87,13 @@ if __name__ == "__main__":
     graph.print()
 
     # Add an edge
-    # Vertices 1 and 2 are v[0] and v[2]
+    # Vertices 1 and 2 are v[0] and v[2], respectively
     graph.add_edge(v[0], v[2])
     print("\nGraph after adding edge 1-2:")
     graph.print()
 
     # Remove an edge
-    # Vertices 1 and 3 are v[0] and v[1]
+    # Vertices 1 and 3 are v[0] and v[1], respectively
     graph.remove_edge(v[0], v[1])
     print("\nGraph after removing edge 1-3:")
     graph.print()

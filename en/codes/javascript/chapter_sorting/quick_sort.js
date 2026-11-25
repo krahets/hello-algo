@@ -4,16 +4,16 @@
  * Author: IsChristina (christinaxia77@foxmail.com)
  */
 
-/* Quick sort class */
+/* Quicksort class */
 class QuickSort {
-    /* Swap the elements */
+    /* Swap elements */
     swap(nums, i, j) {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    /* Two-pointer partitioning */
+    /* Partition with two pointers */
     partition(nums, left, right) {
         // Use nums[left] as the pivot
         let i = left,
@@ -25,18 +25,18 @@ class QuickSort {
             while (i < j && nums[i] <= nums[left]) {
                 i += 1; // Scan from left to right for the first element larger than the pivot
             }
-            // Swap the elements
+            // Swap elements
             this.swap(nums, i, j); // Swap these two elements
         }
-        this.swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+        this.swap(nums, i, left); // Swap the pivot into place between the two subarrays
         return i; // Return the pivot index
     }
 
-    /* Quick sort */
+    /* Quicksort */
     quickSort(nums, left, right) {
-        // Stop recursing when the subarray has at most one element
+        // Stop recursing when the subarray has length 1
         if (left >= right) return;
-        // Two-pointer partitioning
+        // Partition with two pointers
         const pivot = this.partition(nums, left, right);
         // Recurse on the left and right subarrays
         this.quickSort(nums, left, pivot - 1);
@@ -44,16 +44,16 @@ class QuickSort {
     }
 }
 
-/* Quick sort class (median pivot optimization) */
+/* Quicksort class with median-of-three pivot selection */
 class QuickSortMedian {
-    /* Swap the elements */
+    /* Swap elements */
     swap(nums, i, j) {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    /* Select the median of three candidate elements */
+    /* Select the median of three candidates */
     medianThree(nums, left, mid, right) {
         let l = nums[left],
             m = nums[mid],
@@ -65,16 +65,16 @@ class QuickSortMedian {
         return right;
     }
 
-    /* Two-pointer partitioning (median of three) */
+    /* Partition with two pointers (median of three) */
     partition(nums, left, right) {
-        // Select the median of three candidate elements
+        // Select the median of three candidates
         let med = this.medianThree(
             nums,
             left,
             Math.floor((left + right) / 2),
             right
         );
-        // Swap the median into the leftmost position of the current subarray
+        // Swap the median into the leftmost position
         this.swap(nums, left, med);
         // Use nums[left] as the pivot
         let i = left,
@@ -84,15 +84,15 @@ class QuickSortMedian {
             while (i < j && nums[i] <= nums[left]) i++; // Scan from left to right for the first element larger than the pivot
             this.swap(nums, i, j); // Swap these two elements
         }
-        this.swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+        this.swap(nums, i, left); // Swap the pivot into place between the two subarrays
         return i; // Return the pivot index
     }
 
-    /* Quick sort */
+    /* Quicksort */
     quickSort(nums, left, right) {
-        // Stop recursing when the subarray has at most one element
+        // Stop recursing when the subarray has length 1
         if (left >= right) return;
-        // Two-pointer partitioning
+        // Partition with two pointers
         const pivot = this.partition(nums, left, right);
         // Recurse on the left and right subarrays
         this.quickSort(nums, left, pivot - 1);
@@ -100,16 +100,16 @@ class QuickSortMedian {
     }
 }
 
-/* Quick sort class (recursion depth optimization) */
+/* Quicksort class with reduced recursion depth */
 class QuickSortTailCall {
-    /* Swap the elements */
+    /* Swap elements */
     swap(nums, i, j) {
         let tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
     }
 
-    /* Two-pointer partitioning */
+    /* Partition with two pointers */
     partition(nums, left, right) {
         // Use nums[left] as the pivot
         let i = left,
@@ -119,17 +119,17 @@ class QuickSortTailCall {
             while (i < j && nums[i] <= nums[left]) i++; // Scan from left to right for the first element larger than the pivot
             this.swap(nums, i, j); // Swap these two elements
         }
-        this.swap(nums, i, left); // Swap the pivot into the boundary position between the two subarrays
+        this.swap(nums, i, left); // Swap the pivot into place between the two subarrays
         return i; // Return the pivot index
     }
 
-    /* Quick sort (recursion depth optimization) */
+    /* Quicksort with reduced recursion depth */
     quickSort(nums, left, right) {
-        // Stop when the subarray has at most one element
+        // Stop when the subarray has length 1
         while (left < right) {
-            // Perform two-pointer partitioning
+            // Partition with two pointers
             let pivot = this.partition(nums, left, right);
-            // Apply quick sort to the shorter of the two subarrays
+            // Apply quicksort to the shorter of the two subarrays
             if (pivot - left < right - pivot) {
                 this.quickSort(nums, left, pivot - 1); // Recursively sort the left subarray
                 left = pivot + 1; // The remaining unsorted range is [pivot + 1, right]
@@ -141,21 +141,21 @@ class QuickSortTailCall {
     }
 }
 
-/* Driver code */
-/* Quick sort  */
+/* Driver Code */
+/* Quicksort  */
 const nums = [2, 4, 1, 0, 3, 5];
 const quickSort = new QuickSort();
 quickSort.quickSort(nums, 0, nums.length - 1);
-console.log('After quick sort, nums =', nums);
+console.log('After quicksort, nums =', nums);
 
-/* Quick sort (median pivot optimization) */
+/* Quicksort with median-of-three pivot selection */
 const nums1 = [2, 4, 1, 0, 3, 5];
 const quickSortMedian = new QuickSortMedian();
 quickSortMedian.quickSort(nums1, 0, nums1.length - 1);
-console.log('After quick sort (median pivot optimization), nums1 =', nums1);
+console.log('After median-of-three quicksort, nums =', nums1);
 
-/* Quick sort (recursion depth optimization) */
+/* Quicksort with reduced recursion depth */
 const nums2 = [2, 4, 1, 0, 3, 5];
 const quickSortTailCall = new QuickSortTailCall();
 quickSortTailCall.quickSort(nums2, 0, nums2.length - 1);
-console.log('After quick sort (recursion depth optimization), nums2 =', nums2);
+console.log('After quicksort with reduced recursion depth, nums =', nums2);

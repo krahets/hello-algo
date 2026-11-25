@@ -18,10 +18,10 @@ void testTreeNode() {
     int size = sizeof(nums) / sizeof(int);
     TreeNode *root = arrayToTree(nums, size);
 
-    // print tree
+    // 印出二元樹
     printTree(root);
 
-    // tree to arr
+    // 將二元樹轉為陣列
     int *arr = treeToArray(root, &size);
     printArray(arr, size);
 }

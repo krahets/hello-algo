@@ -16,10 +16,10 @@ public class unbounded_knapsack {
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // 若超過背包容量，則不選物品 i
+                    // 若重量超過背包容量，就不選物品 i
                     dp[i, c] = dp[i - 1, c];
                 } else {
-                    // 不選和選物品 i 這兩種方案的較大值
+                    // 取不選與選取物品 i 兩種情況中的較大值
                     dp[i, c] = Math.Max(dp[i - 1, c], dp[i, c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -36,10 +36,10 @@ public class unbounded_knapsack {
         for (int i = 1; i <= n; i++) {
             for (int c = 1; c <= cap; c++) {
                 if (wgt[i - 1] > c) {
-                    // 若超過背包容量，則不選物品 i
+                    // 若重量超過背包容量，就不選物品 i
                     dp[c] = dp[c];
                 } else {
-                    // 不選和選物品 i 這兩種方案的較大值
+                    // 取不選與選取物品 i 兩種情況中的較大值
                     dp[c] = Math.Max(dp[c], dp[c - wgt[i - 1]] + val[i - 1]);
                 }
             }
@@ -55,10 +55,10 @@ public class unbounded_knapsack {
 
         // 動態規劃
         int res = UnboundedKnapsackDP(wgt, val, cap);
-        Console.WriteLine("不超過背包容量的最大物品價值為 " + res);
+        Console.WriteLine("在背包容量限制內，物品的最大總價值為 " + res);
 
         // 空間最佳化後的動態規劃
         res = UnboundedKnapsackDPComp(wgt, val, cap);
-        Console.WriteLine("不超過背包容量的最大物品價值為 " + res);
+        Console.WriteLine("在背包容量限制內，物品的最大總價值為 " + res);
     }
 }

@@ -14,12 +14,12 @@ type binarySearchTree struct {
 
 func newBinarySearchTree() *binarySearchTree {
 	bst := &binarySearchTree{}
-	// Инициализировать пустое дерево
+	// Инициализация пустого дерева
 	bst.root = nil
 	return bst
 }
 
-/* Получить корневой узел */
+/* Получить корень */
 func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
@@ -27,34 +27,34 @@ func (bst *binarySearchTree) getRoot() *TreeNode {
 /* Поиск узла */
 func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
-	// Искать в цикле и выйти после прохода за листовой узел
+	// Искать в цикле до выхода за пределы листа
 	for node != nil {
 		if node.Val.(int) < num {
-			// Целевой узел находится в правом поддереве cur
+			// Искомый узел в правом поддереве cur
 			node = node.Right
 		} else if node.Val.(int) > num {
-			// Целевой узел находится в левом поддереве cur
+			// Искомый узел в левом поддереве cur
 			node = node.Left
 		} else {
-			// Найти целевой узел и выйти из цикла
+			// Узел найден: выйти из цикла
 			break
 		}
 	}
-	// Вернуть целевой узел
+	// Вернуть искомый узел
 	return node
 }
 
 /* Вставка узла */
 func (bst *binarySearchTree) insert(num int) {
 	cur := bst.root
-	// Если дерево пусто, инициализировать корневой узел
+	// Если дерево пусто, создать корень
 	if cur == nil {
 		bst.root = NewTreeNode(num)
 		return
 	}
-	// Позиция узла, предшествующего вставляемому
+	// Позиция родителя вставляемого узла
 	var pre *TreeNode = nil
-	// Искать в цикле и выйти после прохода за листовой узел
+	// Искать в цикле до выхода за пределы листа
 	for cur != nil {
 		if cur.Val == num {
 			return
@@ -78,34 +78,34 @@ func (bst *binarySearchTree) insert(num int) {
 /* Удаление узла */
 func (bst *binarySearchTree) remove(num int) {
 	cur := bst.root
-	// Если дерево пусто, сразу вернуть
+	// Если дерево пусто, сразу завершить вызов
 	if cur == nil {
 		return
 	}
-	// Позиция узла, предшествующего удаляемому
+	// Позиция родителя удаляемого узла
 	var pre *TreeNode = nil
-	// Искать в цикле и выйти после прохода за листовой узел
+	// Искать в цикле до выхода за пределы листа
 	for cur != nil {
 		if cur.Val == num {
 			break
 		}
 		pre = cur
 		if cur.Val.(int) < num {
-			// Удаляемый узел находится в правом поддереве
+			// Удаляемый узел в правом поддереве
 			cur = cur.Right
 		} else {
-			// Удаляемый узел находится в левом поддереве
+			// Удаляемый узел в левом поддереве
 			cur = cur.Left
 		}
 	}
-	// Если узел для удаления отсутствует, сразу вернуть
+	// Если узел для удаления не найден, завершить вызов
 	if cur == nil {
 		return
 	}
-	// Число дочерних узлов равно 0 или 1
+	// Число потомков равно 0 или 1
 	if cur.Left == nil || cur.Right == nil {
 		var child *TreeNode = nil
-		// Извлечь дочерний узел удаляемого узла
+		// Получить потомка удаляемого узла
 		if cur.Left != nil {
 			child = cur.Left
 		} else {
@@ -119,19 +119,19 @@ func (bst *binarySearchTree) remove(num int) {
 				pre.Right = child
 			}
 		} else {
-			// Если удаляемый узел является корнем, заново назначить корневой узел
+			// Если удаляется корень, назначить новый корень
 			bst.root = child
 		}
-		// Число дочерних узлов равно 2
+		// Число потомков равно 2
 	} else {
-		// Получить следующий после cur узел в симметричном обходе для удаляемого узла
+		// Найти узел, следующий за удаляемым узлом cur при симметричном обходе
 		tmp := cur.Right
 		for tmp.Left != nil {
 			tmp = tmp.Left
 		}
 		// Рекурсивно удалить узел tmp
 		bst.remove(tmp.Val.(int))
-		// Перезаписать cur значением tmp
+		// Заменить значение cur значением tmp
 		cur.Val = tmp.Val
 	}
 }

@@ -7,11 +7,11 @@
 import 'dart:collection';
 
 void main() {
-  /* Инициализация очереди */
-  // В Dart двусторонняя очередь Queue обычно рассматривается как обычная очередь
+  /* Инициализировать очередь */
+  // В Dart в качестве очереди обычно используют класс двусторонней очереди Queue
   final Queue<int> queue = Queue();
 
-  /* Добавление элемента в очередь */
+  /* Добавить элементы в очередь */
   queue.add(1);
   queue.add(3);
   queue.add(2);
@@ -19,19 +19,19 @@ void main() {
   queue.add(4);
   print("Очередь queue = $queue");
 
-  /* Доступ к элементу в начале очереди */
+  /* Посмотреть первый элемент очереди */
   final int peek = queue.first;
-  print("Первый элемент peek = $peek");
+  print("Первый элемент очереди peek = $peek");
 
-  /* Извлечение элемента из очереди */
+  /* Извлечь элемент из очереди */
   final int pop = queue.removeFirst();
-  print("Извлеченный элемент pop = $pop, queue после извлечения = $queue");
+  print("Извлечённый элемент pop = $pop, после извлечения queue = $queue");
 
   /* Получить длину очереди */
   final int size = queue.length;
   print("Длина очереди size = $size");
 
-  /* Проверка, пуста ли очередь */
+  /* Проверить, пуста ли очередь */
   final bool isEmpty = queue.isEmpty;
-  print("Пуста ли очередь = $isEmpty");
+  print("Очередь пуста = $isEmpty");
 }

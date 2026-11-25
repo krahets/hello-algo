@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-// Assume the result contains at most 100 entries
+// Assume the result has length at most 100
 #define MAX_SIZE 100
 
 TreeNode *res[MAX_SIZE];
@@ -42,7 +42,7 @@ int main() {
     }
     printArray(vals, resSize);
 
-    // Free memory
+    // Free the memory
     freeMemoryTree(root);
     free(vals);
     return 0;

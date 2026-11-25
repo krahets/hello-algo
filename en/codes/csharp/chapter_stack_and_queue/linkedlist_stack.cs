@@ -6,9 +6,9 @@
 
 namespace hello_algo.chapter_stack_and_queue;
 
-/* Stack implemented with a linked list */
+/* Stack backed by a linked list */
 class LinkedListStack {
-    ListNode? stackPeek;  // Use the head node as the stack top
+    ListNode? stackPeek;  // Use the head node as the top of the stack
     int stkSize = 0;   // Stack size
 
     public LinkedListStack() {
@@ -25,7 +25,7 @@ class LinkedListStack {
         return Size() == 0;
     }
 
-    /* Push */
+    /* Push an element onto the stack */
     public void Push(int num) {
         ListNode node = new(num) {
             next = stackPeek
@@ -34,7 +34,7 @@ class LinkedListStack {
         stkSize++;
     }
 
-    /* Pop */
+    /* Remove and return the top element */
     public int Pop() {
         int num = Peek();
         stackPeek = stackPeek!.next;
@@ -42,14 +42,14 @@ class LinkedListStack {
         return num;
     }
 
-    /* Access the top element */
+    /* Peek at the top element */
     public int Peek() {
         if (IsEmpty())
             throw new Exception();
         return stackPeek!.val;
     }
 
-    /* Convert the linked list to an array and return it */
+    /* Return the linked list elements as an array */
     public int[] ToArray() {
         if (stackPeek == null)
             return [];
@@ -76,22 +76,22 @@ public class linkedlist_stack {
         stack.Push(2);
         stack.Push(5);
         stack.Push(4);
-        Console.WriteLine("Stack stack = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("stack = " + string.Join(",", stack.ToArray()));
 
-        /* Access the top element */
+        /* Peek at the top element */
         int peek = stack.Peek();
-        Console.WriteLine("Top element peek = " + peek);
+        Console.WriteLine("Top element (peek) = " + peek);
 
-        /* Pop an element from the stack */
+        /* Pop the top element */
         int pop = stack.Pop();
-        Console.WriteLine("Popped element pop = " + pop + ", after popping, stack = " + string.Join(",", stack.ToArray()));
+        Console.WriteLine("Popped element (pop) = " + pop + ", stack after the pop = " + string.Join(",", stack.ToArray()));
 
         /* Get the stack size */
         int size = stack.Size();
         Console.WriteLine("Stack size = " + size);
 
-        /* Check whether it is empty */
+        /* Check whether the stack is empty */
         bool isEmpty = stack.IsEmpty();
-        Console.WriteLine("Is the stack empty = " + isEmpty);
+        Console.WriteLine("Stack is empty = " + isEmpty);
     }
 }

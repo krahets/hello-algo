@@ -8,8 +8,8 @@
 class TreeNode {
     val: number; // 節點值
     height: number; // 節點高度
-    left: TreeNode | null; // 左子節點指標
-    right: TreeNode | null; // 右子節點指標
+    left: TreeNode | null; // 指向左子節點的參照
+    right: TreeNode | null; // 指向右子節點的參照
     constructor(
         val?: number,
         height?: number,

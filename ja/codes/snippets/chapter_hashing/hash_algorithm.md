@@ -12,8 +12,8 @@ print(f"真偽値 {bol} のハッシュ値は {hash_bol}")
 
 dec = 3.14159
 hash_dec = hash(dec)
-print(f"小数 {dec} のハッシュ値は {hash_dec}")
-# 小数 3.14159 のハッシュ値は 326484311674566659
+print(f"浮動小数点数 {dec} のハッシュ値は {hash_dec}")
+# 浮動小数点数 3.14159 のハッシュ値は 326484311674566659
 
 str = "Hello 算法"
 hash_str = hash(str)
@@ -44,15 +44,15 @@ cout << "真偽値 " << bol << " のハッシュ値は " << hashBol << "\n";
 
 double dec = 3.14159;
 size_t hashDec = hash<double>()(dec);
-cout << "小数 " << dec << " のハッシュ値は " << hashDec << "\n";
-// 小数 3.14159 のハッシュ値は 4614256650576692846
+cout << "浮動小数点数 " << dec << " のハッシュ値は " << hashDec << "\n";
+// 浮動小数点数 3.14159 のハッシュ値は 4614256650576692846
 
 string str = "Hello 算法";
 size_t hashStr = hash<string>()(str);
 cout << "文字列「" << str << "」のハッシュ値は " << hashStr << "\n";
 // 文字列「Hello 算法」のハッシュ値は 15466937326284535026
 
-// C++ の組み込み std::hash() は、基本データ型と標準ライブラリの一部の型（std::string など）のハッシュ値の計算にのみ対応する
+// C++ の標準の std::hash() でハッシュ値を計算できるのは、基本型と一部の標準ライブラリの型（std::string など）に限られる
 // 配列やオブジェクトのハッシュ値の計算は自分で実装する必要がある
 ```
 
@@ -69,8 +69,8 @@ System.out.println("真偽値 " + bol + " のハッシュ値は " + hashBol);
 
 double dec = 3.14159;
 int hashDec = Double.hashCode(dec);
-System.out.println("小数 " + dec + " のハッシュ値は " + hashDec);
-// 小数 3.14159 のハッシュ値は -1340954729
+System.out.println("浮動小数点数 " + dec + " のハッシュ値は " + hashDec);
+// 浮動小数点数 3.14159 のハッシュ値は -1340954729
 
 String str = "Hello 算法";
 int hashStr = str.hashCode();
@@ -101,8 +101,8 @@ Console.WriteLine("真偽値 " + bol + " のハッシュ値は " + hashBol);
 
 double dec = 3.14159;
 int hashDec = dec.GetHashCode();
-Console.WriteLine("小数 " + dec + " のハッシュ値は " + hashDec);
-// 小数 3.14159 のハッシュ値は -1340954729
+Console.WriteLine("浮動小数点数 " + dec + " のハッシュ値は " + hashDec);
+// 浮動小数点数 3.14159 のハッシュ値は -1340954729
 
 string str = "Hello 算法";
 int hashStr = str.GetHashCode();
@@ -121,7 +121,7 @@ Console.WriteLine("ノードオブジェクト " + obj + " のハッシュ値は
 ```
 
 ```go title="built_in_hash.go"
-// Go には組み込みの hash code 関数がない
+// Go にはハッシュコードを求める組み込み関数がない
 ```
 
 ```swift title="built_in_hash.swift"
@@ -137,8 +137,8 @@ print("真偽値 \(bol) のハッシュ値は \(hashBol)")
 
 let dec = 3.14159
 let hashDec = dec.hashValue
-print("小数 \(dec) のハッシュ値は \(hashDec)")
-// 小数 3.14159 のハッシュ値は -2465384235396674631
+print("浮動小数点数 \(dec) のハッシュ値は \(hashDec)")
+// 浮動小数点数 3.14159 のハッシュ値は -2465384235396674631
 
 let str = "Hello 算法"
 let hashStr = str.hashValue
@@ -157,11 +157,11 @@ print("ノードオブジェクト \(obj) のハッシュ値は \(hashObj)")
 ```
 
 ```javascript title="built_in_hash.js"
-// JavaScript には組み込みの hash code 関数がない
+// JavaScript にはハッシュコードを求める組み込み関数がない
 ```
 
 ```typescript title="built_in_hash.ts"
-// TypeScript には組み込みの hash code 関数がない
+// TypeScript にはハッシュコードを求める組み込み関数がない
 ```
 
 ```dart title="built_in_hash.dart"
@@ -177,8 +177,8 @@ print("真偽値 $bol のハッシュ値は $hashBol");
 
 double dec = 3.14159;
 int hashDec = dec.hashCode;
-print("小数 $dec のハッシュ値は $hashDec");
-// 小数 3.14159 のハッシュ値は 2570631074981783
+print("浮動小数点数 $dec のハッシュ値は $hashDec");
+// 浮動小数点数 3.14159 のハッシュ値は 2570631074981783
 
 String str = "Hello 算法";
 int hashStr = str.hashCode;
@@ -218,8 +218,8 @@ let dec: f32 = 3.14159;
 let mut dec_hasher = DefaultHasher::new();
 dec.to_bits().hash(&mut dec_hasher);
 let hash_dec = dec_hasher.finish();
-println!("小数 {} のハッシュ値は {}", dec, hash_dec);
-// 小数 3.14159 のハッシュ値は 2566941990314602357
+println!("浮動小数点数 {} のハッシュ値は {}", dec, hash_dec);
+// 浮動小数点数 3.14159 のハッシュ値は 2566941990314602357
 
 let str = "Hello 算法";
 let mut str_hasher = DefaultHasher::new();
@@ -239,12 +239,12 @@ let node = ListNode::new(42);
 let mut node_hasher = DefaultHasher::new();
 node.borrow().val.hash(&mut node_hasher);
 let hash_node = node_hasher.finish();
-println!("ノード {:?} の値のハッシュ値は {}", node, hash_node);
-// ノード RefCell { value: ListNode { val: 42, next: None } } の値のハッシュ値は 15387811073369036852
+println!("ノード {:?} に格納された値のハッシュ値は {}", node, hash_node);
+// ノード RefCell { value: ListNode { val: 42, next: None } } に格納された値のハッシュ値は 15387811073369036852
 ```
 
 ```c title="built_in_hash.c"
-// C には組み込みの hash code 関数がない
+// C にはハッシュコードを求める組み込み関数がない
 ```
 
 ```kotlin title="built_in_hash.kt"
@@ -260,8 +260,8 @@ println("真偽値 $bol のハッシュ値は $hashBol")
 
 val dec = 3.14159
 val hashDec = dec.hashCode()
-println("小数 $dec のハッシュ値は $hashDec")
-// 小数 3.14159 のハッシュ値は -1340954729
+println("浮動小数点数 $dec のハッシュ値は $hashDec")
+// 浮動小数点数 3.14159 のハッシュ値は -1340954729
 
 val str = "Hello 算法"
 val hashStr = str.hashCode()
@@ -292,8 +292,8 @@ puts "真偽値 #{bol} のハッシュ値は #{hash_bol}"
 
 dec = 3.14159
 hash_dec = dec.hash
-puts "小数 #{dec} のハッシュ値は #{hash_dec}"
-# 小数 3.14159 のハッシュ値は -1479186995943067893
+puts "浮動小数点数 #{dec} のハッシュ値は #{hash_dec}"
+# 浮動小数点数 3.14159 のハッシュ値は -1479186995943067893
 
 str = "Hello 算法"
 hash_str = str.hash
@@ -312,4 +312,4 @@ puts "ノードオブジェクト #{obj} のハッシュ値は #{hash_obj}"
 ```
 
 <!-- [tutor]{builtin_hash_tutor} -->
-https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__(self%2C%20val%3A%20int)%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash(num)%0A%20%20%20%20print(f%22%E6%95%B4%E6%95%B0%20%7Bnum%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_num%7D%22)%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash(bol)%0A%20%20%20%20print(f%22%E7%9C%9F%E5%81%BD%E5%80%A4%20%7Bbol%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_bol%7D%22)%0A%20%20%20%20%23%20%E7%9C%9F%E5%81%BD%E5%80%A4%20True%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash(dec)%0A%20%20%20%20print(f%22%E5%B0%8F%E6%95%B0%20%7Bdec%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_dec%7D%22)%0A%20%20%20%20%23%20%E5%B0%8F%E6%95%B0%203.14159%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash(str)%0A%20%20%20%20print(f%22%E6%96%87%E5%AD%97%E5%88%97%E3%80%8C%7Bstr%7D%E3%80%8D%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_str%7D%22)%0A%20%20%20%20%23%20%E6%96%87%E5%AD%97%E5%88%97%E3%80%8CHello%20%E7%AE%97%E6%B3%95%E3%80%8D%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20(12836%2C%20%22%E5%B0%8F%E5%93%88%22)%0A%20%20%20%20hash_tup%20%3D%20hash(tup)%0A%20%20%20%20print(f%22%E3%82%BF%E3%83%97%E3%83%AB%20%7Btup%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_tup%7D%22)%0A%20%20%20%20%23%20%E3%82%BF%E3%83%97%E3%83%AB%20(12836%2C%20'%E5%B0%8F%E5%93%88')%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode(0)%0A%20%20%20%20hash_obj%20%3D%20hash(obj)%0A%20%20%20%20print(f%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%7Bobj%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_obj%7D%22)%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20274267521%0A&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+https://pythontutor.com/render.html#code=class%20ListNode%3A%0A%20%20%20%20%22%22%22%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E8%A1%A8%E3%81%99%E3%82%AF%E3%83%A9%E3%82%B9%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AE%E5%80%A4%0A%20%20%20%20%20%20%20%20self.next%3A%20ListNode%20%7C%20None%20%3D%20None%20%20%23%20%E6%AC%A1%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E5%8F%82%E7%85%A7%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20num%20%3D%203%0A%20%20%20%20hash_num%20%3D%20hash%28num%29%0A%20%20%20%20print%28f%22%E6%95%B4%E6%95%B0%20%7Bnum%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_num%7D%22%29%0A%20%20%20%20%23%20%E6%95%B4%E6%95%B0%203%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%203%0A%0A%20%20%20%20bol%20%3D%20True%0A%20%20%20%20hash_bol%20%3D%20hash%28bol%29%0A%20%20%20%20print%28f%22%E7%9C%9F%E5%81%BD%E5%80%A4%20%7Bbol%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_bol%7D%22%29%0A%20%20%20%20%23%20%E7%9C%9F%E5%81%BD%E5%80%A4%20True%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201%0A%0A%20%20%20%20dec%20%3D%203.14159%0A%20%20%20%20hash_dec%20%3D%20hash%28dec%29%0A%20%20%20%20print%28f%22%E6%B5%AE%E5%8B%95%E5%B0%8F%E6%95%B0%E7%82%B9%E6%95%B0%20%7Bdec%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_dec%7D%22%29%0A%20%20%20%20%23%20%E6%B5%AE%E5%8B%95%E5%B0%8F%E6%95%B0%E7%82%B9%E6%95%B0%203.14159%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20326484311674566659%0A%0A%20%20%20%20str%20%3D%20%22Hello%20%E7%AE%97%E6%B3%95%22%0A%20%20%20%20hash_str%20%3D%20hash%28str%29%0A%20%20%20%20print%28f%22%E6%96%87%E5%AD%97%E5%88%97%E3%80%8C%7Bstr%7D%E3%80%8D%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_str%7D%22%29%0A%20%20%20%20%23%20%E6%96%87%E5%AD%97%E5%88%97%E3%80%8CHello%20%E7%AE%97%E6%B3%95%E3%80%8D%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%204617003410720528961%0A%0A%20%20%20%20tup%20%3D%20%2812836,%20%22%E5%B0%8F%E5%93%88%22%29%0A%20%20%20%20hash_tup%20%3D%20hash%28tup%29%0A%20%20%20%20print%28f%22%E3%82%BF%E3%83%97%E3%83%AB%20%7Btup%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_tup%7D%22%29%0A%20%20%20%20%23%20%E3%82%BF%E3%83%97%E3%83%AB%20%2812836,%20%27%E5%B0%8F%E5%93%88%27%29%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%201029005403108185979%0A%0A%20%20%20%20obj%20%3D%20ListNode%280%29%0A%20%20%20%20hash_obj%20%3D%20hash%28obj%29%0A%20%20%20%20print%28f%22%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%7Bobj%7D%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20%7Bhash_obj%7D%22%29%0A%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%20%3Cmodules.list_node.ListNode%20object%20at%200x1058fd810%3E%20%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E5%80%A4%E3%81%AF%20274267521%0A&cumulative=false&curInstr=19&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false

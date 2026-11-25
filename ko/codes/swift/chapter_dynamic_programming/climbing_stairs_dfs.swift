@@ -6,7 +6,7 @@
 
 /* 탐색 */
 func dfs(i: Int) -> Int {
-    // dp[1]과 dp[2]는 이미 알고 있으므로 해당 값을 반환한다
+    // 이미 아는 dp[1]과 dp[2]의 값 중 해당 값을 반환한다
     if i == 1 || i == 2 {
         return i
     }
@@ -22,11 +22,11 @@ func climbingStairsDFS(n: Int) -> Int {
 
 @main
 enum ClimbingStairsDFS {
-    /* 실행 코드 */
+    /* 실행 예제 */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFS(n: n)
-        print("\(n)개 계단을 오르는 방법은 총 \(res)가지이다")
+        print("계단 \(n)개를 오르는 방법은 \(res)가지")
     }
 }

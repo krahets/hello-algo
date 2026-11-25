@@ -11,25 +11,25 @@ int recur(int n) {
     // 종료 조건
     if (n == 1)
         return 1;
-    // 내려가기: 재귀 호출
+    // 내려가는 단계: 재귀 호출
     int res = recur(n - 1);
-    // 돌아오기: 결과 반환
+    // 돌아오는 단계: 결과 반환
     return n + res;
 }
 
-/* 반복으로 재귀 구현 */
+/* 반복으로 재귀 구현하기 */
 int forLoopRecur(int n) {
-    int stack[1000]; // 큰 배열을 사용하여 스택을 구현한다
-    int top = -1;    // 스택의 맨 위 인덱스
+    int stack[1000]; // 큰 배열로 스택을 구현한다
+    int top = -1;    // 스택 꼭대기의 인덱스
     int res = 0;
-    // 내려가기: 재귀 호출
+    // 내려가는 단계: 재귀 호출
     for (int i = n; i > 0; i--) {
-        // 스택에 삽입하여 내려가는 과정을 모방한다
+        // 스택에 값을 넣어 재귀 호출 단계를 재현한다
         stack[1 + top++] = i;
     }
-    // 돌아오기: 결과 반환
+    // 돌아오는 단계: 결과 반환
     while (top >= 0) {
-        // 스택에서 꺼내어 돌아오는 과정을 모방한다
+        // 스택에서 값을 꺼내 반환 단계를 재현한다
         res += stack[top--];
     }
     // res = 1+2+3+...+n
@@ -45,18 +45,18 @@ int tailRecur(int n, int res) {
     return tailRecur(n - 1, res + n);
 }
 
-/* 피보나치 수열: 재귀 */
+/* 재귀로 피보나치 수 구하기 */
 int fib(int n) {
-    // 종료 조건 f(1) = 0, f(2) = 1
+    // 종료 조건: f(1) = 0, f(2) = 1
     if (n == 1 || n == 2)
         return n - 1;
-    // 재귀 호출 f(n) = f(n-1) + f(n-2)
+    // 재귀 호출: f(n) = f(n-1) + f(n-2)
     int res = fib(n - 1) + fib(n - 2);
     // 결과 f(n)을 반환한다
     return res;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
     int n = 5;
     int res;
@@ -65,13 +65,13 @@ int main() {
     printf("\n재귀 함수로 구한 합 res = %d\n", res);
 
     res = forLoopRecur(n);
-    printf("\n반복으로 재귀를 구현하여 구한 합 res = %d\n", res);
+    printf("\n반복으로 재귀를 구현해 구한 합 res = %d\n", res);
 
     res = tailRecur(n, 0);
     printf("\n꼬리 재귀 함수로 구한 합 res = %d\n", res);
 
     res = fib(n);
-    printf("\n피보나치 수열의 %d번째 항은 %d이다\n", n, res);
+    printf("\n피보나치 수열의 %d번째 항 = %d\n", n, res);
 
     return 0;
 }

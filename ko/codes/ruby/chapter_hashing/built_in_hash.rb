@@ -6,7 +6,7 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 require_relative '../utils/list_node'
 
-### 실행 코드 ###
+### 실행 예제 ###
 if __FILE__ == $0
   num = 3
   hash_num = num.hash
@@ -14,15 +14,15 @@ if __FILE__ == $0
 
   bol = true
   hash_bol = bol.hash
-  puts "불리언 값 #{bol} → 해시값: #{hash_bol}"
+  puts "불리언 #{bol} → 해시값: #{hash_bol}"
 
   dec = 3.14159
   hash_dec = dec.hash
-  puts "소수 #{dec} → 해시값: #{hash_dec}"
+  puts "실수 #{dec} → 해시값: #{hash_dec}"
 
   str = "Hello 算法"
   hash_str = str.hash
-  puts "문자열 #{str}의 해시값: #{hash_str}"
+  puts "문자열 #{str} → 해시값: #{hash_str}"
 
   arr = [12836, '小哈']
   hash_arr = arr.hash

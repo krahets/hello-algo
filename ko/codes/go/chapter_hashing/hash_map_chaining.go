@@ -12,10 +12,10 @@ import (
 
 /* 체이닝 해시 테이블 */
 type hashMapChaining struct {
-	size        int      // 키-값 쌍 개수
-	capacity    int      // 해시 테이블 용량
-	loadThres   float64  // 용량 확장을 수행하는 적재율 임계값
-	extendRatio int      // 용량 확장 배수
+	size        int      // 키-값 쌍의 개수
+	capacity    int      // 해시 테이블의 용량
+	loadThres   float64  // 용량을 늘리는 기준이 되는 적재율
+	extendRatio int      // 용량 증가 배수
 	buckets     [][]pair // 버킷 배열
 }
 
@@ -44,35 +44,35 @@ func (m *hashMapChaining) loadFactor() float64 {
 	return float64(m.size) / float64(m.capacity)
 }
 
-/* 조회 연산 */
+/* 조회 */
 func (m *hashMapChaining) get(key int) string {
 	idx := m.hashFunc(key)
 	bucket := m.buckets[idx]
-	// 버킷을 순회하다 key를 찾으면 해당 val을 반환한다
+	// 버킷을 순회하다가 key를 찾으면 해당 val 반환
 	for _, p := range bucket {
 		if p.key == key {
 			return p.val
 		}
 	}
-	// key를 찾지 못하면 빈 문자열을 반환한다
+	// key를 찾지 못하면 빈 문자열 반환
 	return ""
 }
 
-/* 추가 연산 */
+/* 추가 */
 func (m *hashMapChaining) put(key int, val string) {
-	// 적재율이 임계값을 초과하면 용량을 확장한다
+	// 적재율이 임계값을 넘으면 용량 늘리기
 	if m.loadFactor() > m.loadThres {
 		m.extend()
 	}
 	idx := m.hashFunc(key)
-	// 버킷을 순회하다 지정한 key를 만나면 해당 val을 갱신하고 반환한다
+	// 버킷을 순회하다가 지정한 key를 만나면 해당 val을 갱신하고 반환
 	for i := range m.buckets[idx] {
 		if m.buckets[idx][i].key == key {
 			m.buckets[idx][i].val = val
 			return
 		}
 	}
-	// 해당 key가 없으면 키-값 쌍을 맨 뒤에 추가한다
+	// 해당 key가 없으면 맨 뒤에 키-값 쌍 추가
 	p := pair{
 		key: key,
 		val: val,
@@ -81,13 +81,13 @@ func (m *hashMapChaining) put(key int, val string) {
 	m.size += 1
 }
 
-/* 삭제 연산 */
+/* 삭제 */
 func (m *hashMapChaining) remove(key int) {
 	idx := m.hashFunc(key)
-	// 버킷을 순회하며 키-값 쌍을 삭제한다
+	// 버킷을 순회하며 해당 키-값 쌍 삭제
 	for i, p := range m.buckets[idx] {
 		if p.key == key {
-			// 슬라이스에서 삭제한다
+			// 슬라이스에서 원소 삭제
 			m.buckets[idx] = append(m.buckets[idx][:i], m.buckets[idx][i+1:]...)
 			m.size -= 1
 			break
@@ -95,22 +95,22 @@ func (m *hashMapChaining) remove(key int) {
 	}
 }
 
-/* 해시 테이블 용량 확장 */
+/* 해시 테이블 용량 늘리기 */
 func (m *hashMapChaining) extend() {
-	// 원래 해시 테이블을 임시로 저장한다
+	// 기존 해시 테이블 임시 보관
 	tmpBuckets := make([][]pair, len(m.buckets))
 	for i := 0; i < len(m.buckets); i++ {
 		tmpBuckets[i] = make([]pair, len(m.buckets[i]))
 		copy(tmpBuckets[i], m.buckets[i])
 	}
-	// 용량을 확장한 새 해시 테이블을 초기화한다
+	// 용량을 늘린 새 해시 테이블 초기화
 	m.capacity *= m.extendRatio
 	m.buckets = make([][]pair, m.capacity)
 	for i := 0; i < m.capacity; i++ {
 		m.buckets[i] = make([]pair, 0)
 	}
 	m.size = 0
-	// 원래 해시 테이블의 키-값 쌍을 새 해시 테이블로 옮긴다
+	// 기존 해시 테이블의 키-값 쌍을 새 해시 테이블로 이동
 	for _, bucket := range tmpBuckets {
 		for _, p := range bucket {
 			m.put(p.key, p.val)

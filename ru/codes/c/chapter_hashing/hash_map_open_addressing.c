@@ -14,15 +14,15 @@ typedef struct {
 
 /* Хеш-таблица с открытой адресацией */
 typedef struct {
-    int size;         // Число пар ключ-значение
-    int capacity;     // Вместимость хеш-таблицы
-    double loadThres; // Порог коэффициента загрузки для запуска расширения
-    int extendRatio;  // Коэффициент расширения
+    int size;         // Число пар «ключ — значение»
+    int capacity;     // Ёмкость хеш-таблицы
+    double loadThres; // Порог коэффициента заполнения для расширения
+    int extendRatio;  // Во сколько раз увеличивается ёмкость
     Pair **buckets;   // Массив корзин
-    Pair *TOMBSTONE;  // Удалить метку
+    Pair *TOMBSTONE;  // Метка удаления
 } HashMapOpenAddressing;
 
-// Объявление функции
+// Объявления функций
 void extend(HashMapOpenAddressing *hashMap);
 
 /* Конструктор */
@@ -59,20 +59,20 @@ int hashFunc(HashMapOpenAddressing *hashMap, int key) {
     return key % hashMap->capacity;
 }
 
-/* Коэффициент загрузки */
+/* Коэффициент заполнения */
 double loadFactor(HashMapOpenAddressing *hashMap) {
     return (double)hashMap->size / (double)hashMap->capacity;
 }
 
-/* Найти индекс корзины, соответствующий key */
+/* Найти индекс корзины для ключа key */
 int findBucket(HashMapOpenAddressing *hashMap, int key) {
     int index = hashFunc(hashMap, key);
     int firstTombstone = -1;
-    // Выполнять линейное пробирование и завершить при встрече с пустой корзиной
+    // Линейное пробирование до первой пустой корзины
     while (hashMap->buckets[index] != NULL) {
-        // Если встретился key, вернуть соответствующий индекс корзины
+        // При совпадении ключа key вернуть индекс его корзины
         if (hashMap->buckets[index]->key == key) {
-            // Если ранее встретилась метка удаления, переместить пару ключ-значение на этот индекс
+            // Если ранее встретилась метка удаления, переместить пару на её место
             if (firstTombstone != -1) {
                 hashMap->buckets[firstTombstone] = hashMap->buckets[index];
                 hashMap->buckets[index] = hashMap->TOMBSTONE;
@@ -80,38 +80,38 @@ int findBucket(HashMapOpenAddressing *hashMap, int key) {
             }
             return index; // Вернуть индекс корзины
         }
-        // Записать первую встретившуюся метку удаления
+        // Запомнить первую встретившуюся метку удаления
         if (firstTombstone == -1 && hashMap->buckets[index] == hashMap->TOMBSTONE) {
             firstTombstone = index;
         }
-        // Вычислить индекс корзины; при выходе за конец вернуться к началу
+        // Вычислить индекс корзины, после конца массива перейти в начало
         index = (index + 1) % hashMap->capacity;
     }
-    // Если key не существует, вернуть индекс точки добавления
+    // Если ключа key нет, вернуть индекс для вставки
     return firstTombstone == -1 ? index : firstTombstone;
 }
 
-/* Операция поиска */
+/* Поиск */
 char *get(HashMapOpenAddressing *hashMap, int key) {
-    // Найти индекс корзины, соответствующий key
+    // Найти индекс корзины для ключа key
     int index = findBucket(hashMap, key);
-    // Если пара ключ-значение найдена, вернуть соответствующее val
+    // Если пара найдена, вернуть её значение val
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         return hashMap->buckets[index]->val;
     }
-    // Если пары ключ-значение не существует, вернуть пустую строку
+    // Если пары нет, вернуть пустую строку
     return "";
 }
 
-/* Операция добавления */
+/* Вставка */
 void put(HashMapOpenAddressing *hashMap, int key, char *val) {
-    // Когда коэффициент загрузки превышает порог, выполнить расширение
+    // Расширить таблицу, если коэффициент заполнения превысил порог
     if (loadFactor(hashMap) > hashMap->loadThres) {
         extend(hashMap);
     }
-    // Найти индекс корзины, соответствующий key
+    // Найти индекс корзины для ключа key
     int index = findBucket(hashMap, key);
-    // Если пара ключ-значение найдена, перезаписать val и вернуть
+    // Если пара найдена, заменить val и завершить операцию
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         free(hashMap->buckets[index]->val);
         hashMap->buckets[index]->val = (char *)malloc(strlen(val) + 1);
@@ -119,7 +119,7 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
         hashMap->buckets[index]->val[strlen(val)] = '\0';
         return;
     }
-    // Если пары ключ-значение нет, добавить ее
+    // Если пары нет, добавить её
     Pair *pair = (Pair *)malloc(sizeof(Pair));
     pair->key = key;
     pair->val = (char *)malloc(strlen(val) + 1);
@@ -130,11 +130,11 @@ void put(HashMapOpenAddressing *hashMap, int key, char *val) {
     hashMap->size++;
 }
 
-/* Операция удаления */
+/* Удаление */
 void removeItem(HashMapOpenAddressing *hashMap, int key) {
-    // Найти индекс корзины, соответствующий key
+    // Найти индекс корзины для ключа key
     int index = findBucket(hashMap, key);
-    // Если пара ключ-значение найдена, заменить ее меткой удаления
+    // Если пара найдена, заменить её меткой удаления
     if (hashMap->buckets[index] != NULL && hashMap->buckets[index] != hashMap->TOMBSTONE) {
         Pair *pair = hashMap->buckets[index];
         free(pair->val);
@@ -149,11 +149,11 @@ void extend(HashMapOpenAddressing *hashMap) {
     // Временно сохранить исходную хеш-таблицу
     Pair **bucketsTmp = hashMap->buckets;
     int oldCapacity = hashMap->capacity;
-    // Инициализация новой хеш-таблицы после расширения
+    // Создать новую таблицу увеличенной ёмкости
     hashMap->capacity *= hashMap->extendRatio;
     hashMap->buckets = (Pair **)calloc(hashMap->capacity, sizeof(Pair *));
     hashMap->size = 0;
-    // Перенести пары ключ-значение из исходной хеш-таблицы в новую
+    // Перенести пары из исходной таблицы в новую
     for (int i = 0; i < oldCapacity; i++) {
         Pair *pair = bucketsTmp[i];
         if (pair != NULL && pair != hashMap->TOMBSTONE) {
@@ -179,30 +179,30 @@ void print(HashMapOpenAddressing *hashMap) {
     }
 }
 
-/* Driver Code */
+/* Демонстрационный код */
 int main() {
-    // Инициализация хеш-таблицы
+    // Создать хеш-таблицу
     HashMapOpenAddressing *hashmap = newHashMapOpenAddressing();
 
-    // Операция добавления
-    // Добавить пару (key, val) в хеш-таблицу
+    // Вставка
+    // Добавить в таблицу пару (key, val)
     put(hashmap, 12836, "Сяо Ха");
     put(hashmap, 15937, "Сяо Ло");
     put(hashmap, 16750, "Сяо Суань");
     put(hashmap, 13276, "Сяо Фа");
     put(hashmap, 10583, "Сяо Я");
-    printf("\nПосле добавления хеш-таблица имеет вид\nКлюч -> Значение\n");
+    printf("\nХеш-таблица после вставки:\nКлюч -> Значение\n");
     print(hashmap);
 
-    // Операция поиска
-    // Передать ключ key в хеш-таблицу и получить значение val
+    // Поиск
+    // Получить из таблицы значение val по ключу key
     char *name = get(hashmap, 13276);
-    printf("\nДля студенческого номера 13276 найдено имя %s\n", name);
+    printf("\nИмя студента с номером 13276: %s\n", name);
 
-    // Операция удаления
-    // Удалить пару (key, val) из хеш-таблицы
+    // Удаление
+    // Удалить из таблицы пару (key, val)
     removeItem(hashmap, 16750);
-    printf("\nПосле удаления 16750 хеш-таблица имеет вид\nКлюч -> Значение\n");
+    printf("\nХеш-таблица после удаления 16750:\nКлюч -> Значение\n");
     print(hashmap);
 
     // Уничтожить хеш-таблицу

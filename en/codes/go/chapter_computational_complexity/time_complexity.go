@@ -4,7 +4,7 @@
 
 package chapter_computational_complexity
 
-/* Constant complexity */
+/* Constant time */
 func constant(n int) int {
 	count := 0
 	size := 100000
@@ -14,7 +14,7 @@ func constant(n int) int {
 	return count
 }
 
-/* Linear complexity */
+/* Linear time */
 func linear(n int) int {
 	count := 0
 	for i := 0; i < n; i++ {
@@ -23,20 +23,20 @@ func linear(n int) int {
 	return count
 }
 
-/* Linear complexity (array traversal) */
+/* Linear time (array traversal) */
 func arrayTraversal(nums []int) int {
 	count := 0
-	// The number of iterations is proportional to the array length
+	// The iteration count is proportional to the array length
 	for range nums {
 		count++
 	}
 	return count
 }
 
-/* Quadratic complexity */
+/* Quadratic time */
 func quadratic(n int) int {
 	count := 0
-	// The number of iterations is proportional to the square of the input size n
+	// The iteration count grows quadratically with input size n
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
 			count++
@@ -45,12 +45,12 @@ func quadratic(n int) int {
 	return count
 }
 
-/* Quadratic complexity (bubble sort) */
+/* Quadratic time (bubble sort) */
 func bubbleSort(nums []int) int {
 	count := 0 // Counter
-	// Outer loop: the unsorted range is [0, i]
+	// Outer loop: the unsorted range is the closed interval [0, i]
 	for i := len(nums) - 1; i > 0; i-- {
-		// Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+		// Inner loop: swap adjacent elements to move the largest in [0, i] to index i
 		for j := 0; j < i; j++ {
 			if nums[j] > nums[j+1] {
 				// Swap nums[j] and nums[j + 1]
@@ -64,10 +64,10 @@ func bubbleSort(nums []int) int {
 	return count
 }
 
-/* Exponential complexity (iterative implementation)*/
+/* Exponential time (iterative)*/
 func exponential(n int) int {
 	count, base := 0, 1
-	// Each cell divides into two per round, giving the sequence 1, 2, 4, 8, ..., 2^(n-1)
+	// Each cell divides in two per round, giving 1, 2, 4, 8, ..., 2^(n-1)
 	for i := 0; i < n; i++ {
 		for j := 0; j < base; j++ {
 			count++
@@ -78,7 +78,7 @@ func exponential(n int) int {
 	return count
 }
 
-/* Exponential complexity (recursive implementation)*/
+/* Exponential time (recursive)*/
 func expRecur(n int) int {
 	if n == 1 {
 		return 1
@@ -86,7 +86,7 @@ func expRecur(n int) int {
 	return expRecur(n-1) + expRecur(n-1) + 1
 }
 
-/* Logarithmic complexity (iterative implementation)*/
+/* Logarithmic time (iterative)*/
 func logarithmic(n int) int {
 	count := 0
 	for n > 1 {
@@ -96,7 +96,7 @@ func logarithmic(n int) int {
 	return count
 }
 
-/* Logarithmic complexity (recursive implementation)*/
+/* Logarithmic time (recursive)*/
 func logRecur(n int) int {
 	if n <= 1 {
 		return 0
@@ -104,7 +104,7 @@ func logRecur(n int) int {
 	return logRecur(n/2) + 1
 }
 
-/* Linearithmic complexity */
+/* Linearithmic time */
 func linearLogRecur(n int) int {
 	if n <= 1 {
 		return 1
@@ -116,7 +116,7 @@ func linearLogRecur(n int) int {
 	return count
 }
 
-/* Factorial complexity (recursive implementation) */
+/* Factorial time (recursive) */
 func factorialRecur(n int) int {
 	if n == 0 {
 		return 1

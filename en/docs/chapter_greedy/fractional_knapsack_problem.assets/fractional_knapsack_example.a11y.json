@@ -1,64 +1,64 @@
 {
-  "schema_version": 2,
-  "title": "Example input for the fractional knapsack problem",
-  "summary": "With capacity 50, a fractional knapsack can pack the whole banana plus part of the pineapple, illustrating the optimal solution.",
   "context": [
-    "Given 5 items and knapsack capacity cap = 50 (item data in the table below), each item may be taken up to its full weight or split arbitrarily to take a fraction whose value scales in proportion to the weight taken."
+    "There are 5 items, and the knapsack capacity is cap = 50. The table gives the item data. You may take up to the full weight of each item or divide it and take any fraction. You receive the same fraction of its original value."
   ],
   "description": [
-    "On the left, a table lists ID i, weight wgt[i - 1], and value val[i - 1] with fruit icons identifying each row. Row 2 (banana) and row 4 (pineapple) are shaded light orange, sending arrows labeled \"Weight packed 20\" and \"Weight packed 30\" to the knapsack on the right labeled \"Knapsack capacity cap = 50\". At the bottom appear the optimal choice and maximum-value formula.",
-    "The first three columns in the table below transcribe the figure with fruit names from the icons; the extra \"Value per unit weight\" column is computed as value divided by weight and is not drawn in this figure—for example, the apple has 50 ÷ 10 = 5."
+    "On the left, the rows list item number i, weight wgt[i-1], and value val[i-1], with a fruit icon identifying each item. The banana in row 2 and the pineapple in row 4 are highlighted in pale orange. Arrows labeled “Take weight 20” and “Take weight 30” point from them to the knapsack on the right, labeled “Knapsack capacity cap = 50.” The bottom shows the optimal selection and the calculation of its value.",
+    "The first three columns reproduce the diagram's data, with fruit names taken from the icons. The additional unit value column divides value by weight. For example, the apple's unit value is 50 ÷ 10 = 5."
   ],
   "frames": [
     {
-      "id": "source-461",
       "book_path": "chapter_greedy/fractional_knapsack_problem.assets/fractional_knapsack_example.png",
-      "title": "Example input for the fractional knapsack problem",
-      "explanation": "The whole banana takes weight 20 for value 120, leaving capacity 30; because the pineapple weighs 40, taking three-quarters of it yields value (30/40) × 210 = 157.5. The bottom formula gives Maximum value: 120 + (30/40) × 210 = 277.5 at total weight 20 + 30 = 50, with no other items taken."
+      "explanation": "The whole banana weighs 20 and contributes 120 in value, leaving room for 30. The whole pineapple weighs 40, so take three quarters of it for a value of (30/40) × 210 = 157.5. The maximum value shown at the bottom is 120 + (30/40) × 210 = 277.5. Together the portions weigh 20 + 30 = 50. No other items are taken.",
+      "id": "source-461",
+      "title": "Example data for fractional knapsack"
     }
   ],
+  "schema_version": 2,
+  "summary": "In the optimal solution shown, a knapsack of capacity 50 holds the whole banana and part of the pineapple.",
   "tables": [
     {
-      "caption": "Fractional knapsack example: item data from the figure plus computed value per unit weight",
+      "caption": "Fractional knapsack example with the original item data and calculated unit values",
       "headers": [
-        "ID and icon",
+        "Item number and icon",
         "Weight",
         "Value",
-        "Value per unit weight"
+        "Unit value"
       ],
+      "row_header": 0,
       "rows": [
         [
-          "1 (Apple)",
+          "1 (apple)",
           "10",
           "50",
           "5"
         ],
         [
-          "2 (Banana)",
+          "2 (banana)",
           "20",
           "120",
           "6"
         ],
         [
-          "3 (Grapes)",
+          "3 (grapes)",
           "30",
           "150",
           "5"
         ],
         [
-          "4 (Pineapple)",
+          "4 (pineapple)",
           "40",
           "210",
           "5.25"
         ],
         [
-          "5 (Watermelon)",
+          "5 (watermelon)",
           "50",
           "240",
           "4.8"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Example data for fractional knapsack"
 }

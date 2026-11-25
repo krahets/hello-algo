@@ -76,7 +76,7 @@ public enum PrintUtil {
     }
 
     public static func printHeap(queue: [Int]) {
-        print("힙의 배열 표현:", terminator: "")
+        print("힙의 배열 표현: ", terminator: "")
         print(queue)
         print("힙의 트리 표현:")
         let root = TreeNode.listToTree(arr: queue)

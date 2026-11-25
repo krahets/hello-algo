@@ -4,6 +4,6 @@
 
 !!! abstract
 
-    Data structures provide a framework that is both sturdy and versatile.
+    Think of data structures as sturdy frameworks that come in many shapes.
     
-    They offer a blueprint for organizing data, a foundation on which algorithms come to life.
+    They provide a blueprint for organizing data, giving algorithms a foundation on which to come to life.

@@ -1,42 +1,42 @@
 <!-- [snippet]{backtrack_framework} -->
 ```python title=""
 def backtrack(state: State, choices: list[Choice], res: list[State]):
-    """Backtracking template"""
-    # Check whether the state is a solution
+    """Backtracking framework"""
+    # Check for a solution
     if is_solution(state):
         # Record the solution
         record_solution(state, res)
-        # Stop searching this branch
+        # Stop searching
         return
-    # Try every choice
+    # Try each choice
     for choice in choices:
         # Prune: check whether the choice is valid
         if is_valid(state, choice):
-            # Try: make the choice and update the state
+            # Make a choice and update the state
             make_choice(state, choice)
             backtrack(state, choices, res)
-            # Backtrack: undo the choice and restore the previous state
+            # Backtrack: undo the choice to restore the previous state
             undo_choice(state, choice)
 ```
 
 ```cpp title=""
-/* Backtracking template */
+/* Backtracking framework */
 void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
-    // Check whether the state is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
-        // Stop searching this branch
+        // Stop searching
         return;
     }
-    // Try every choice
+    // Try each choice
     for (Choice *choice : choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice);
             backtrack(state, choices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice);
         }
     }
@@ -44,23 +44,23 @@ void backtrack(State *state, vector<Choice *> &choices, vector<State *> &res) {
 ```
 
 ```java title=""
-/* Backtracking template */
+/* Backtracking framework */
 void backtrack(State state, List<Choice> choices, List<State> res) {
-    // Check whether the state is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
-        // Stop searching this branch
+        // Stop searching
         return;
     }
-    // Try every choice
+    // Try each choice
     for (Choice choice : choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice);
             backtrack(state, choices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice);
         }
     }
@@ -68,23 +68,23 @@ void backtrack(State state, List<Choice> choices, List<State> res) {
 ```
 
 ```csharp title=""
-/* Backtracking template */
+/* Backtracking framework */
 void Backtrack(State state, List<Choice> choices, List<State> res) {
-    // Check whether the state is a solution
+    // Check for a solution
     if (IsSolution(state)) {
         // Record the solution
         RecordSolution(state, res);
-        // Stop searching this branch
+        // Stop searching
         return;
     }
-    // Try every choice
+    // Try each choice
     foreach (Choice choice in choices) {
         // Prune: check whether the choice is valid
         if (IsValid(state, choice)) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             MakeChoice(state, choice);
             Backtrack(state, choices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             UndoChoice(state, choice);
         }
     }
@@ -92,23 +92,23 @@ void Backtrack(State state, List<Choice> choices, List<State> res) {
 ```
 
 ```go title=""
-/* Backtracking template */
+/* Backtracking framework */
 func backtrack(state *State, choices []Choice, res *[]State) {
-    // Check whether the state is a solution
+    // Check for a solution
     if isSolution(state) {
         // Record the solution
         recordSolution(state, res)
-        // Stop searching this branch
+        // Stop searching
         return
     }
-    // Try every choice
+    // Try each choice
     for _, choice := range choices {
         // Prune: check whether the choice is valid
         if isValid(state, choice) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice)
             backtrack(state, choices, res)
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice)
         }
     }
@@ -116,23 +116,23 @@ func backtrack(state *State, choices []Choice, res *[]State) {
 ```
 
 ```swift title=""
-/* Backtracking template */
+/* Backtracking framework */
 func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
-    // Check whether the state is a solution
+    // Check for a solution
     if isSolution(state: state) {
         // Record the solution
         recordSolution(state: state, res: &res)
-        // Stop searching this branch
+        // Stop searching
         return
     }
-    // Try every choice
+    // Try each choice
     for choice in choices {
         // Prune: check whether the choice is valid
         if isValid(state: state, choice: choice) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state: &state, choice: choice)
             backtrack(state: &state, choices: choices, res: &res)
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state: &state, choice: choice)
         }
     }
@@ -140,23 +140,23 @@ func backtrack(state: inout State, choices: [Choice], res: inout [State]) {
 ```
 
 ```javascript title=""
-/* Backtracking template */
+/* Backtracking framework */
 function backtrack(state, choices, res) {
-    // Check whether the state is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
-        // Stop searching this branch
+        // Stop searching
         return;
     }
-    // Try every choice
+    // Try each choice
     for (let choice of choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice);
             backtrack(state, choices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice);
         }
     }
@@ -164,23 +164,23 @@ function backtrack(state, choices, res) {
 ```
 
 ```typescript title=""
-/* Backtracking template */
+/* Backtracking framework */
 function backtrack(state: State, choices: Choice[], res: State[]): void {
-    // Check whether the state is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res);
-        // Stop searching this branch
+        // Stop searching
         return;
     }
-    // Try every choice
+    // Try each choice
     for (let choice of choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice);
             backtrack(state, choices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice);
         }
     }
@@ -188,23 +188,23 @@ function backtrack(state: State, choices: Choice[], res: State[]): void {
 ```
 
 ```dart title=""
-/* Backtracking template */
+/* Backtracking framework */
 void backtrack(State state, List<Choice> choices, List<State> res) {
-  // Check whether the state is a solution
+  // Check for a solution
   if (isSolution(state)) {
     // Record the solution
     recordSolution(state, res);
-    // Stop searching this branch
+    // Stop searching
     return;
   }
-  // Try every choice
+  // Try each choice
   for (Choice choice in choices) {
     // Prune: check whether the choice is valid
     if (isValid(state, choice)) {
-      // Try: make the choice and update the state
+      // Make a choice and update the state
       makeChoice(state, choice);
       backtrack(state, choices, res);
-      // Backtrack: undo the choice and restore the previous state
+      // Backtrack: undo the choice to restore the previous state
       undoChoice(state, choice);
     }
   }
@@ -212,23 +212,23 @@ void backtrack(State state, List<Choice> choices, List<State> res) {
 ```
 
 ```rust title=""
-/* Backtracking template */
+/* Backtracking framework */
 fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
-    // Check whether the state is a solution
+    // Check for a solution
     if is_solution(state) {
         // Record the solution
         record_solution(state, res);
-        // Stop searching this branch
+        // Stop searching
         return;
     }
-    // Try every choice
+    // Try each choice
     for choice in choices {
         // Prune: check whether the choice is valid
         if is_valid(state, choice) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             make_choice(state, choice);
             backtrack(state, choices, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undo_choice(state, choice);
         }
     }
@@ -236,23 +236,23 @@ fn backtrack(state: &mut State, choices: &Vec<Choice>, res: &mut Vec<State>) {
 ```
 
 ```c title=""
-/* Backtracking template */
+/* Backtracking framework */
 void backtrack(State *state, Choice *choices, int numChoices, State *res, int numRes) {
-    // Check whether the state is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res, numRes);
-        // Stop searching this branch
+        // Stop searching
         return;
     }
-    // Try every choice
+    // Try each choice
     for (int i = 0; i < numChoices; i++) {
         // Prune: check whether the choice is valid
         if (isValid(state, &choices[i])) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state, &choices[i]);
             backtrack(state, choices, numChoices, res, numRes);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, &choices[i]);
         }
     }
@@ -260,23 +260,23 @@ void backtrack(State *state, Choice *choices, int numChoices, State *res, int nu
 ```
 
 ```kotlin title=""
-/* Backtracking template */
+/* Backtracking framework */
 fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
-    // Check whether the state is a solution
+    // Check for a solution
     if (isSolution(state)) {
         // Record the solution
         recordSolution(state, res)
-        // Stop searching this branch
+        // Stop searching
         return
     }
-    // Try every choice
+    // Try each choice
     for (choice in choices) {
         // Prune: check whether the choice is valid
         if (isValid(state, choice)) {
-            // Try: make the choice and update the state
+            // Make a choice and update the state
             makeChoice(state, choice)
             backtrack(state, choices, res)
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             undoChoice(state, choice)
         }
     }
@@ -284,23 +284,23 @@ fun backtrack(state: State?, choices: List<Choice?>, res: List<State?>?) {
 ```
 
 ```ruby title=""
-### Backtracking template ###
+### Backtracking framework ###
 def backtrack(state, choices, res)
-    # Check whether the state is a solution
+    # Check for a solution
     if is_solution?(state)
         # Record the solution
         record_solution(state, res)
         return
     end
 
-    # Try every choice
+    # Try each choice
     for choice in choices
         # Prune: check whether the choice is valid
         if is_valid?(state, choice)
-            # Try: make the choice and update the state
+            # Make a choice and update the state
             make_choice(state, choice)
             backtrack(state, choices, res)
-            # Backtrack: undo the choice and restore the previous state
+            # Backtrack: undo the choice to restore the previous state
             undo_choice(state, choice)
         end
     end

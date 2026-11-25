@@ -6,11 +6,11 @@ Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 
 ### 最小経路和：全探索 ###
 def min_path_sum_dfs(grid, i, j)
-  # 左上のセルなら探索を終了する
+  # 左上のマスに着いたら探索を終了する
   return grid[i][j] if i == 0 && j == 0
-  # 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+  # 行または列の添字が範囲外ならコスト +∞ を返す
   return Float::INFINITY if i < 0 || j < 0
-  # 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
+  # 左上から (i-1, j) と (i, j-1) までの最小経路コストを求める
   up = min_path_sum_dfs(grid, i - 1, j)
   left = min_path_sum_dfs(grid, i, j - 1)
   # 左上から (i, j) までの最小経路コストを返す
@@ -19,13 +19,13 @@ end
 
 ### 最小経路和：メモ化探索 ###
 def min_path_sum_dfs_mem(grid, mem, i, j)
-  # 左上のセルなら探索を終了する
+  # 左上のマスに着いたら探索を終了する
   return grid[0][0] if i == 0 && j == 0
-  # 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+  # 行または列の添字が範囲外ならコスト +∞ を返す
   return Float::INFINITY if i < 0 || j < 0
-  # 記録済みなら、その値をそのまま返す
+  # 記録済みなら、その値を返す
   return mem[i][j] if mem[i][j] != -1
-  # 左隣と上隣のセルまでの最小経路コスト
+  # 左と上のマスまでの最小経路コスト
   up = min_path_sum_dfs_mem(grid, mem, i - 1, j)
   left = min_path_sum_dfs_mem(grid, mem, i, j - 1)
   # 左上から (i, j) までの最小経路コストを記録して返す
@@ -51,7 +51,7 @@ def min_path_sum_dp(grid)
   dp[n -1][m -1]
 end
 
-### 最小経路和：空間を最適化した動的計画法 ###
+### 最小経路和：使用メモリを削減した動的計画法 ###
 def min_path_sum_dp_comp(grid)
   n, m = grid.length, grid.first.length
   # dp テーブルを初期化する
@@ -69,7 +69,7 @@ def min_path_sum_dp_comp(grid)
   dp[m - 1]
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   grid = [[1, 3, 1, 5], [2, 2, 4, 2], [5, 3, 2, 1], [4, 3, 5, 2]]
   n, m = grid.length, grid.first.length
@@ -87,7 +87,7 @@ if __FILE__ == $0
   res = min_path_sum_dp(grid)
   puts "左上から右下までの最小経路和は #{res}"
 
-  # 空間を最適化した動的計画法
+  # 使用メモリを削減した動的計画法
   res = min_path_sum_dp_comp(grid)
   puts "左上から右下までの最小経路和は #{res}"
 end

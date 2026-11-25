@@ -15,7 +15,7 @@ class ListNode
   end
 end
 
-### Десериализация списка в связный список ###
+### Восстановить связный список из списка значений ###
 def arr_to_linked_list(arr)
   head = current = ListNode.new(arr[0])
 
@@ -27,7 +27,7 @@ def arr_to_linked_list(arr)
   head
 end
 
-### Сериализация связного списка в список ###
+### Сериализовать связный список в список значений ###
 def linked_list_to_arr(head)
   arr = []
 

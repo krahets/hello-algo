@@ -13,7 +13,7 @@ function preOrder(root, path, res) {
     if (root === null || root.val === 3) {
         return;
     }
-    // Try
+    // Try a choice
     path.push(root);
     if (root.val === 7) {
         // Record the solution
@@ -35,7 +35,7 @@ const path = [];
 const res = [];
 preOrder(root, path, res);
 
-console.log('\nOutput all paths from the root to nodes with value 7 that contain no node with value 3');
+console.log('\nPrint all paths from the root to a node with value 7 that avoid nodes with value 3');
 res.forEach((path) => {
     console.log(path.map((node) => node.val));
 });

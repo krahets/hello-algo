@@ -14,12 +14,12 @@ type binarySearchTree struct {
 
 func newBinarySearchTree() *binarySearchTree {
 	bst := &binarySearchTree{}
-	// 빈 트리를 초기화한다
+	// 빈 트리 초기화
 	bst.root = nil
 	return bst
 }
 
-/* 루트 노드 반환 */
+/* 루트 노드 구하기 */
 func (bst *binarySearchTree) getRoot() *TreeNode {
 	return bst.root
 }
@@ -27,20 +27,20 @@ func (bst *binarySearchTree) getRoot() *TreeNode {
 /* 노드 탐색 */
 func (bst *binarySearchTree) search(num int) *TreeNode {
 	node := bst.root
-	// 반복하여 탐색하다 리프 노드를 지나면 종료한다
+	// 반복해서 찾다가 리프 노드를 지나면 종료한다
 	for node != nil {
 		if node.Val.(int) < num {
-			// 목표 노드는 cur의 오른쪽 서브트리에 있다
+			// 찾는 노드는 cur의 오른쪽 서브트리에 있다
 			node = node.Right
 		} else if node.Val.(int) > num {
-			// 목표 노드는 cur의 왼쪽 서브트리에 있다
+			// 찾는 노드는 cur의 왼쪽 서브트리에 있다
 			node = node.Left
 		} else {
-			// 목표 노드를 찾았으므로 반복문을 종료한다
+			// 찾는 노드를 발견했으므로 반복문을 종료한다
 			break
 		}
 	}
-	// 목표 노드를 반환한다
+	// 찾은 노드를 반환한다
 	return node
 }
 
@@ -52,9 +52,9 @@ func (bst *binarySearchTree) insert(num int) {
 		bst.root = NewTreeNode(num)
 		return
 	}
-	// 삽입할 노드의 부모가 될 노드 위치
+	// 삽입할 노드의 부모가 될 위치
 	var pre *TreeNode = nil
-	// 반복하여 탐색하다 리프 노드를 지나면 종료한다
+	// 반복해서 찾다가 리프 노드를 지나면 종료한다
 	for cur != nil {
 		if cur.Val == num {
 			return
@@ -78,13 +78,13 @@ func (bst *binarySearchTree) insert(num int) {
 /* 노드 삭제 */
 func (bst *binarySearchTree) remove(num int) {
 	cur := bst.root
-	// 트리가 비어 있으면 바로 반환하여 종료한다
+	// 트리가 비어 있으면 바로 반환한다
 	if cur == nil {
 		return
 	}
-	// 삭제할 노드의 부모 노드 위치
+	// 삭제할 노드의 부모 위치
 	var pre *TreeNode = nil
-	// 반복하여 탐색하다 리프 노드를 지나면 종료한다
+	// 반복해서 찾다가 리프 노드를 지나면 종료한다
 	for cur != nil {
 		if cur.Val == num {
 			break
@@ -102,16 +102,16 @@ func (bst *binarySearchTree) remove(num int) {
 	if cur == nil {
 		return
 	}
-	// 자식 노드 수가 0 또는 1
+	// 자식 수가 0 또는 1이다
 	if cur.Left == nil || cur.Right == nil {
 		var child *TreeNode = nil
-		// 삭제할 노드의 자식 노드를 구한다
+		// 삭제할 노드의 자식을 가져온다
 		if cur.Left != nil {
 			child = cur.Left
 		} else {
 			child = cur.Right
 		}
-		// 노드 cur를 삭제한다
+		// 노드 cur 삭제
 		if cur != bst.root {
 			if pre.Left == cur {
 				pre.Left = child
@@ -119,19 +119,19 @@ func (bst *binarySearchTree) remove(num int) {
 				pre.Right = child
 			}
 		} else {
-			// 삭제할 노드가 루트 노드이면 루트 노드를 다시 지정한다
+			// 삭제할 노드가 루트라면 루트 노드를 다시 지정한다
 			bst.root = child
 		}
-		// 자식 노드 수가 2
+		// 자식 수가 2다
 	} else {
-		// 중위 순회에서 삭제할 노드 cur의 다음 노드를 구한다
+		// 중위 순회에서 삭제할 노드 cur 다음에 오는 노드를 구한다
 		tmp := cur.Right
 		for tmp.Left != nil {
 			tmp = tmp.Left
 		}
 		// 노드 tmp를 재귀적으로 삭제한다
 		bst.remove(tmp.Val.(int))
-		// tmp로 cur를 덮어쓴다
+		// cur의 값을 tmp의 값으로 덮어쓴다
 		cur.Val = tmp.Val
 	}
 }

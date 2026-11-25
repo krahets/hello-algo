@@ -20,7 +20,7 @@ if __name__ == "__main__":
     n3 = TreeNode(val=3)
     n4 = TreeNode(val=4)
     n5 = TreeNode(val=5)
-    # 構建節點之間的引用（指標）
+    # 建立節點之間的參照（指標）
     n1.left = n2
     n1.right = n3
     n2.left = n4
@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     # 插入與刪除節點
     P = TreeNode(0)
-    # 在 n1 -> n2 中間插入節點 P
+    # 在 n1 -> n2 之間插入節點 P
     n1.left = P
     P.left = n2
     print("\n插入節點 P 後\n")

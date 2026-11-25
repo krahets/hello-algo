@@ -23,20 +23,20 @@ void preOrder(TreeNode *root) {
     }
     preOrder(root->left);
     preOrder(root->right);
-    // 復元
+    // 後戻り
     path.pop_back();
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     TreeNode *root = vectorToTree(vector<int>{1, 7, 3, 4, 5, 6, 7});
-    cout << "\n二分木を初期化する" << endl;
+    cout << "\n二分木を初期化" << endl;
     printTree(root);
 
     // 行きがけ順走査
     preOrder(root);
 
-    cout << "\n値が 3 のノードを含まない、根ノードからノード 7 までのすべての経路を出力する" << endl;
+    cout << "\n根から値が 7 のノードまでの経路のうち、値が 3 のノードを含まないものをすべて出力" << endl;
     for (vector<TreeNode *> &path : res) {
         vector<int> vals;
         for (TreeNode *node : path) {

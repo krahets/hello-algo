@@ -9,7 +9,7 @@
 /* for 迴圈 */
 int forLoop(int n) {
     int res = 0;
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     for (int i = 1; i <= n; ++i) {
         res += i;
     }
@@ -20,7 +20,7 @@ int forLoop(int n) {
 int whileLoop(int n) {
     int res = 0;
     int i = 1; // 初始化條件變數
-    // 迴圈求和 1, 2, ..., n-1, n
+    // 迴圈加總 1, 2, ..., n-1, n
     while (i <= n) {
         res += i;
         i++; // 更新條件變數
@@ -28,11 +28,11 @@ int whileLoop(int n) {
     return res;
 }
 
-/* while 迴圈（兩次更新） */
+/* while 迴圈（更新兩次） */
 int whileLoopII(int n) {
     int res = 0;
     int i = 1; // 初始化條件變數
-    // 迴圈求和 1, 4, 10, ...
+    // 迴圈加總 1, 4, 10, ...
     while (i <= n) {
         res += i;
         // 更新條件變數
@@ -55,22 +55,22 @@ string nestedForLoop(int n) {
     return res.str();
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int n = 5;
     int res;
 
     res = forLoop(n);
-    cout << "\nfor 迴圈的求和結果 res = " << res << endl;
+    cout << "\nfor 迴圈的總和 res = " << res << endl;
 
     res = whileLoop(n);
-    cout << "\nwhile 迴圈的求和結果 res = " << res << endl;
+    cout << "\nwhile 迴圈的總和 res = " << res << endl;
 
     res = whileLoopII(n);
-    cout << "\nwhile 迴圈（兩次更新）求和結果 res = " << res << endl;
+    cout << "\nwhile 迴圈（更新兩次）的總和 res = " << res << endl;
 
     string resStr = nestedForLoop(n);
-    cout << "\n雙層 for 迴圈的走訪結果 " << resStr << endl;
+    cout << "\n雙層 for 迴圈走訪的結果 " << resStr << endl;
 
     return 0;
 }

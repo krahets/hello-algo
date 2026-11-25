@@ -11,39 +11,39 @@ import java.util.*;
 public class subset_sum_ii {
     /* Backtracking: subset sum II */
     static void backtrack(List<Integer> state, int target, int[] choices, int start, List<List<Integer>> res) {
-        // Record a solution when the remaining target is zero, so the subset sums to the original target
+        // Record a solution when the subset sums to target
         if (target == 0) {
             res.add(new ArrayList<>(state));
             return;
         }
-        // Iterate over all choices
-        // Pruning 2: iterate from start to avoid generating duplicate subsets
-        // Pruning 3: iterate from start to avoid choosing the same element again
+        // Try each choice
+        // Pruning rule 2: start at start to avoid duplicate subsets
+        // Pruning rule 3: start at start to avoid reusing the same element
         for (int i = start; i < choices.length; i++) {
-            // Pruning 1: exit the loop if the next element exceeds the remaining target
-            // The array is sorted, so later elements are at least as large and also exceed the remaining target
+            // Pruning rule 1: break if the subset sum would exceed target
+            // The array is sorted, so later elements are at least as large and would also take the sum over target
             if (target - choices[i] < 0) {
                 break;
             }
-            // Pruning 4: if this element equals its left neighbor at the same search depth, the branch is a duplicate; skip it
+            // Pruning rule 4: skip a value equal to its left neighbor, since its search branch is a duplicate
             if (i > start && choices[i] == choices[i - 1]) {
                 continue;
             }
-            // Try: make a choice and update target and start
+            // Make a choice and update target and start
             state.add(choices[i]);
-            // Proceed to the next choice
+            // Make the next choice
             backtrack(state, target - choices[i], choices, i + 1, res);
-            // Backtrack: undo the choice and restore the previous state
+            // Backtrack: undo the choice to restore the previous state
             state.remove(state.size() - 1);
         }
     }
 
     /* Solve subset sum II */
     static List<List<Integer>> subsetSumII(int[] nums, int target) {
-        List<Integer> state = new ArrayList<>(); // State (subset)
+        List<Integer> state = new ArrayList<>(); // State (current subset)
         Arrays.sort(nums); // Sort nums
-        int start = 0; // Starting index for iteration
-        List<List<Integer>> res = new ArrayList<>(); // Result list (list of subsets)
+        int start = 0; // Starting index
+        List<List<Integer>> res = new ArrayList<>(); // Results (list of subsets)
         backtrack(state, target, nums, start, res);
         return res;
     }
@@ -54,7 +54,7 @@ public class subset_sum_ii {
 
         List<List<Integer>> res = subsetSumII(nums, target);
 
-        System.out.println("Input array nums = " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("All subsets with sum " + target + " : res = " + res);
+        System.out.println("Input array nums =  " + Arrays.toString(nums) + ", target = " + target);
+        System.out.println("Subsets that sum to  " + target + " : res =  " + res);
     }
 }

@@ -6,18 +6,18 @@
 
 #include "../utils/common.hpp"
 
-/* 最大容量：貪欲法 */
+/* 最大容量（貪欲法） */
 int maxCapacity(vector<int> &ht) {
-    // i, j を初期化し、配列の両端をそれぞれ指すようにする
+    // i と j を配列の両端に置く
     int i = 0, j = ht.size() - 1;
     // 最大容量の初期値は 0
     int res = 0;
-    // 2 枚の板が出会うまで貪欲な選択を繰り返す
+    // 両方の板が同じ位置に来るまで貪欲選択を繰り返す
     while (i < j) {
         // 最大容量を更新する
         int cap = min(ht[i], ht[j]) * (j - i);
         res = max(res, cap);
-        // 低い方の仕切り板を内側に移動する
+        // 低い板のポインタを内側へ動かす
         if (ht[i] < ht[j]) {
             i++;
         } else {
@@ -27,11 +27,11 @@ int maxCapacity(vector<int> &ht) {
     return res;
 }
 
-/* 実行用コード */
+/* 実行例 */
 int main() {
     vector<int> ht = {3, 8, 5, 2, 7, 7, 3, 4};
 
-    // 貪欲アルゴリズム
+    // 貪欲法
     int res = maxCapacity(ht);
     cout << "最大容量は " << res << endl;
 

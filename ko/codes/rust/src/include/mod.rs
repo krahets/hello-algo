@@ -9,7 +9,7 @@ pub mod print_util;
 pub mod tree_node;
 pub mod vertex;
 
-// include에서 다시 내보낸다
+// include 모듈에서 다시 내보내기
 pub use list_node::*;
 pub use print_util::*;
 pub use tree_node::*;

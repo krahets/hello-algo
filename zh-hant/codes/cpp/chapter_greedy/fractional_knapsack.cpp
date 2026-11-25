@@ -16,33 +16,33 @@ class Item {
     }
 };
 
-/* 分數背包：貪婪 */
+/* 分數背包：貪婪法 */
 double fractionalKnapsack(vector<int> &wgt, vector<int> &val, int cap) {
-    // 建立物品串列，包含兩個屬性：重量、價值
+    // 建立物品清單，每件物品有重量與價值兩項屬性
     vector<Item> items;
     for (int i = 0; i < wgt.size(); i++) {
         items.push_back(Item(wgt[i], val[i]));
     }
-    // 按照單位價值 item.v / item.w 從高到低進行排序
+    // 依單位價值 item.v / item.w 由高到低排序
     sort(items.begin(), items.end(), [](Item &a, Item &b) { return (double)a.v / a.w > (double)b.v / b.w; });
-    // 迴圈貪婪選擇
+    // 反覆依貪婪策略選取物品
     double res = 0;
     for (auto &item : items) {
         if (item.w <= cap) {
-            // 若剩餘容量充足，則將當前物品整個裝進背包
+            // 若剩餘容量足夠，就將目前的物品整件裝入背包
             res += item.v;
             cap -= item.w;
         } else {
-            // 若剩餘容量不足，則將當前物品的一部分裝進背包
+            // 若剩餘容量不足，就將目前物品的一部分裝入背包
             res += (double)item.v / item.w * cap;
-            // 已無剩餘容量，因此跳出迴圈
+            // 背包已滿，跳出迴圈
             break;
         }
     }
     return res;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     vector<int> wgt = {10, 20, 30, 40, 50};
     vector<int> val = {50, 120, 150, 210, 240};
@@ -50,7 +50,7 @@ int main() {
 
     // 貪婪演算法
     double res = fractionalKnapsack(wgt, val, cap);
-    cout << "不超過背包容量的最大物品價值為 " << res << endl;
+    cout << "在背包容量限制內，物品的最大總價值為 " << res << endl;
 
     return 0;
 }

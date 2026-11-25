@@ -6,7 +6,7 @@
 
 package chapter_dynamic_programming
 
-/* 階段の上り方：動的計画法 */
+/* 階段の登り方：動的計画法 */
 fun climbingStairsDP(n: Int): Int {
     if (n == 1 || n == 2) return n
     // 部分問題の解を格納する dp テーブルを初期化する
@@ -21,7 +21,7 @@ fun climbingStairsDP(n: Int): Int {
     return dp[n]
 }
 
-/* 階段の上り方：空間を最適化した動的計画法 */
+/* 階段の登り方：使用メモリを削減した動的計画法 */
 fun climbingStairsDPComp(n: Int): Int {
     if (n == 1 || n == 2) return n
     var a = 1
@@ -34,13 +34,13 @@ fun climbingStairsDPComp(n: Int): Int {
     return b
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val n = 9
 
     var res = climbingStairsDP(n)
-    println("$n 段の階段を上る方法は全部で $res 通り")
+    println("全 $n 段の階段の登り方は $res 通り")
 
     res = climbingStairsDPComp(n)
-    println("$n 段の階段を上る方法は全部で $res 通り")
+    println("全 $n 段の階段の登り方は $res 通り")
 }

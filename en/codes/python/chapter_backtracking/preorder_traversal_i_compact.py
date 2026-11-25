@@ -22,7 +22,7 @@ def pre_order(root: TreeNode):
     pre_order(root.right)
 
 
-"""Driver code"""
+"""Driver Code"""
 if __name__ == "__main__":
     root = list_to_tree([1, 7, 3, 4, 5, 6, 7])
     print("\nInitialize the binary tree")
@@ -32,5 +32,5 @@ if __name__ == "__main__":
     res = list[TreeNode]()
     pre_order(root)
 
-    print("\nOutput all nodes with value 7")
+    print("\nPrint all nodes with value 7")
     print([node.val for node in res])

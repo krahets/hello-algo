@@ -14,22 +14,22 @@ function dfs(
     res: Vertex[],
     vet: Vertex
 ): void {
-    res.push(vet); // 방문한 정점을 기록한다
-    visited.add(vet); // 해당 정점을 방문했다고 표시한다
-    // 해당 정점의 모든 인접 정점을 순회한다
+    res.push(vet); // 방문한 정점 기록
+    visited.add(vet); // 이 정점을 방문한 것으로 표시
+    // 현재 정점에 인접한 모든 정점 순회
     for (const adjVet of graph.adjList.get(vet)) {
         if (visited.has(adjVet)) {
-            continue; // 이미 방문한 정점은 건너뛴다
+            continue; // 이미 방문한 정점은 건너뜀
         }
-        // 인접 정점을 재귀적으로 방문한다
+        // 인접 정점을 재귀적으로 방문
         dfs(graph, visited, res, adjVet);
     }
 }
 
 /* 깊이 우선 순회 */
-// 지정한 정점의 모든 인접 정점을 얻기 쉽도록 그래프를 인접 리스트로 표현한다
+// 지정한 정점의 인접 정점을 모두 구할 수 있도록 인접 리스트로 그래프 표현
 function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
-    // 정점 순회 순서
+    // 정점 방문 순서
     const res: Vertex[] = [];
     // 방문한 정점을 기록하는 해시 집합
     const visited: Set<Vertex> = new Set();
@@ -37,7 +37,7 @@ function graphDFS(graph: GraphAdjList, startVet: Vertex): Vertex[] {
     return res;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 /* 무방향 그래프 초기화 */
 const v = Vertex.valsToVets([0, 1, 2, 3, 4, 5, 6]);
 const edges = [
@@ -49,10 +49,10 @@ const edges = [
     [v[5], v[6]],
 ];
 const graph = new GraphAdjList(edges);
-console.log('\n초기화한 후의 그래프');
+console.log('\n초기화한 그래프:');
 graph.print();
 
 /* 깊이 우선 순회 */
 const res = graphDFS(graph, v[0]);
-console.log('\n깊이 우선 순회(DFS)의 정점 순서');
+console.log('\n깊이 우선 순회(DFS)의 정점 방문 순서:');
 console.log(Vertex.vetsToVals(res));

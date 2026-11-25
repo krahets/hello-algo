@@ -13,14 +13,14 @@ function preOrder(root, res) {
         return;
     }
     if (root.val === 7) {
-        // 記錄解
+        // 記錄此解
         res.push(root);
     }
     preOrder(root.left, res);
     preOrder(root.right, res);
 }
 
-// Driver Code
+// 主程式
 const root = arrToTree([1, 7, 3, 4, 5, 6, 7]);
 console.log('\n初始化二元樹');
 printTree(root);

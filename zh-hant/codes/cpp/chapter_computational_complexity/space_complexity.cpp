@@ -8,22 +8,22 @@
 
 /* 函式 */
 int func() {
-    // 執行某些操作
+    // 執行操作
     return 0;
 }
 
 /* 常數階 */
 void constant(int n) {
-    // 常數、變數、物件佔用 O(1) 空間
+    // 常數、變數、物件占用 O(1) 空間
     const int a = 0;
     int b = 0;
     vector<int> nums(10000);
     ListNode node(0);
-    // 迴圈中的變數佔用 O(1) 空間
+    // 迴圈內變數占用 O(1) 空間
     for (int i = 0; i < n; i++) {
         int c = 0;
     }
-    // 迴圈中的函式佔用 O(1) 空間
+    // 迴圈呼叫函式占用 O(1) 空間
     for (int i = 0; i < n; i++) {
         func();
     }
@@ -31,21 +31,21 @@ void constant(int n) {
 
 /* 線性階 */
 void linear(int n) {
-    // 長度為 n 的陣列佔用 O(n) 空間
+    // 長度為 n 的陣列占用 O(n) 空間
     vector<int> nums(n);
-    // 長度為 n 的串列佔用 O(n) 空間
+    // 長度為 n 的串列占用 O(n) 空間
     vector<ListNode> nodes;
     for (int i = 0; i < n; i++) {
         nodes.push_back(ListNode(i));
     }
-    // 長度為 n 的雜湊表佔用 O(n) 空間
+    // 長度為 n 的雜湊表占用 O(n) 空間
     unordered_map<int, string> map;
     for (int i = 0; i < n; i++) {
         map[i] = to_string(i);
     }
 }
 
-/* 線性階（遞迴實現） */
+/* 線性階（遞迴實作） */
 void linearRecur(int n) {
     cout << "遞迴 n = " << n << endl;
     if (n == 1)
@@ -55,7 +55,7 @@ void linearRecur(int n) {
 
 /* 平方階 */
 void quadratic(int n) {
-    // 二維串列佔用 O(n^2) 空間
+    // 二維串列占用 O(n^2) 空間
     vector<vector<int>> numMatrix;
     for (int i = 0; i < n; i++) {
         vector<int> tmp;
@@ -66,16 +66,16 @@ void quadratic(int n) {
     }
 }
 
-/* 平方階（遞迴實現） */
+/* 平方階（遞迴實作） */
 int quadraticRecur(int n) {
     if (n <= 0)
         return 0;
     vector<int> nums(n);
-    cout << "遞迴 n = " << n << " 中的 nums 長度 = " << nums.size() << endl;
+    cout << "遞迴 n = " << n << " 時，nums 的長度 = " << nums.size() << endl;
     return quadraticRecur(n - 1);
 }
 
-/* 指數階（建立滿二元樹） */
+/* 指數階（建完美二元樹） */
 TreeNode *buildTree(int n) {
     if (n == 0)
         return nullptr;
@@ -85,7 +85,7 @@ TreeNode *buildTree(int n) {
     return root;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
     int n = 5;
     // 常數階

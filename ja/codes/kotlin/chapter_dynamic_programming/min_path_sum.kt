@@ -10,15 +10,15 @@ import kotlin.math.min
 
 /* 最小経路和：全探索 */
 fun minPathSumDFS(grid: Array<IntArray>, i: Int, j: Int): Int {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if (i == 0 && j == 0) {
         return grid[0][0]
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if (i < 0 || j < 0) {
         return Int.MAX_VALUE
     }
-    // 左上から (i-1, j) および (i, j-1) までの最小経路コストを計算する
+    // 左上から (i-1, j) と (i, j-1) までの最小経路コストを求める
     val up = minPathSumDFS(grid, i - 1, j)
     val left = minPathSumDFS(grid, i, j - 1)
     // 左上から (i, j) までの最小経路コストを返す
@@ -32,19 +32,19 @@ fun minPathSumDFSMem(
     i: Int,
     j: Int
 ): Int {
-    // 左上のセルなら探索を終了する
+    // 左上のマスに着いたら探索を終了する
     if (i == 0 && j == 0) {
         return grid[0][0]
     }
-    // 行または列のインデックスが範囲外の場合、コスト +∞ を返す
+    // 行または列の添字が範囲外ならコスト +∞ を返す
     if (i < 0 || j < 0) {
         return Int.MAX_VALUE
     }
-    // 記録済みなら、その値をそのまま返す
+    // 記録済みなら、その値を返す
     if (mem[i][j] != -1) {
         return mem[i][j]
     }
-    // 左隣と上隣のセルまでの最小経路コスト
+    // 左と上のマスまでの最小経路コスト
     val up = minPathSumDFSMem(grid, mem, i - 1, j)
     val left = minPathSumDFSMem(grid, mem, i, j - 1)
     // 左上から (i, j) までの最小経路コストを記録して返す
@@ -76,7 +76,7 @@ fun minPathSumDP(grid: Array<IntArray>): Int {
     return dp[n - 1][m - 1]
 }
 
-/* 最小経路和：空間を最適化した動的計画法 */
+/* 最小経路和：使用メモリを削減した動的計画法 */
 fun minPathSumDPComp(grid: Array<IntArray>): Int {
     val n = grid.size
     val m = grid[0].size
@@ -99,7 +99,7 @@ fun minPathSumDPComp(grid: Array<IntArray>): Int {
     return dp[m - 1]
 }
 
-/* 実行用コード */
+/* 実行例 */
 fun main() {
     val grid = arrayOf(
         intArrayOf(1, 3, 1, 5),
@@ -126,7 +126,7 @@ fun main() {
     res = minPathSumDP(grid)
     println("左上から右下までの最小経路和は $res")
 
-    // 空間を最適化した動的計画法
+    // 使用メモリを削減した動的計画法
     res = minPathSumDPComp(grid)
     println("左上から右下までの最小経路和は $res")
 }

@@ -4,12 +4,12 @@ Created Time: 2024-04-05
 Author: Xuan Khoa Tu Nguyen (ngxktuzkai2000@gmail.com)
 =end
 
-### 循環配列で実装した両端キュー ###
+### 循環配列を使った両端キュー ###
 class ArrayDeque
-  ### 両端キューの長さを取得する ###
+  ### 両端キューの要素数を取得する ###
   attr_reader :size
 
-  ### コンストラクタ ###
+  ### 初期化メソッド ###
   def initialize(capacity)
     @nums = Array.new(capacity, 0)
     @front = 0
@@ -26,70 +26,70 @@ class ArrayDeque
     size.zero?
   end
 
-  ### 先頭にエンキューする ###
+  ### 先頭に追加する ###
   def push_first(num)
     if size == capacity
       puts '両端キューが満杯です'
       return
     end
 
-    # 先頭ポインタを左に 1 つ移動する
-    # 剰余演算により、front が配列の先頭を越えたら末尾に戻るようにする
+    # 先頭のインデックスを左に 1 つ移す
+    # 剰余を使い、front が配列の先頭より前に出たら末尾に回るようにする
     @front = index(@front - 1)
-    # num をキューの先頭に追加する
+    # num を両端キューの先頭に追加する
     @nums[@front] = num
     @size += 1
   end
 
-  ### 末尾にエンキューする ###
+  ### 末尾に追加する ###
   def push_last(num)
     if size == capacity
       puts '両端キューが満杯です'
       return
     end
 
-    # 末尾のインデックス + 1 を指す末尾ポインタを計算する
+    # 両端キューの末尾要素の次の位置を示すインデックスを求める
     rear = index(@front + size)
-    # num をキューの末尾に追加する
+    # num を両端キューの末尾に追加する
     @nums[rear] = num
     @size += 1
   end
 
-  ### 先頭からデキューする ###
+  ### 先頭から取り出す ###
   def pop_first
     num = peek_first
-    # 先頭ポインタを後ろに 1 つ移動する
+    # 先頭のインデックスを 1 つ進める
     @front = index(@front + 1)
     @size -= 1
     num
   end
 
-  ### 末尾からデキューする ###
+  ### 末尾から取り出す ###
   def pop_last
     num = peek_last
     @size -= 1
     num
   end
 
-  ### キューの先頭要素にアクセス ###
+  ### 両端キューの先頭要素を参照する ###
   def peek_first
     raise IndexError, '両端キューが空です' if is_empty?
 
     @nums[@front]
   end
 
-  ### キューの末尾要素にアクセスする ###
+  ### 両端キューの末尾要素を参照する ###
   def peek_last
     raise IndexError, '両端キューが空です' if is_empty?
 
-    # 末尾要素のインデックスを計算する
+    # 末尾要素のインデックスを求める
     last = index(@front + size - 1)
     @nums[last]
   end
 
   ### 表示用の配列を返す ###
   def to_array
-    # 有効な長さの範囲内にあるリストの要素だけを変換する
+    # 両端キューの要素数に当たる範囲だけを変換する
     res = []
     for i in 0...size
       res << @nums[index(@front + i)]
@@ -99,16 +99,16 @@ class ArrayDeque
 
   private
 
-  ### 循環配列のインデックスを計算する ###
+  ### 循環配列のインデックスを求める ###
   def index(i)
-    # 剰余演算を使い、配列の先頭と末尾をつなぐ
-    # i が配列の末尾を越えたら、先頭に戻る
-    # i が配列の先頭を越えたら、末尾に戻る
+    # 剰余を使って配列の先頭と末尾をつなぐ
+    # i が配列の末尾を越えたら先頭に戻る
+    # i が配列の先頭より前に出たら末尾に回る
     (i + capacity) % capacity
   end
 end
 
-### 実行用コード ###
+### 実行例 ###
 if __FILE__ == $0
   # 両端キューを初期化する
   deque = ArrayDeque.new(10)
@@ -117,27 +117,27 @@ if __FILE__ == $0
   deque.push_last(5)
   puts "両端キュー deque = #{deque.to_array}"
 
-  # 要素にアクセスする
+  # 要素を参照する
   peek_first = deque.peek_first
-  puts "キューの先頭要素 peek_first = #{peek_first}"
+  puts "先頭要素 peek_first = #{peek_first}"
   peek_last = deque.peek_last
-  puts "キューの末尾要素 peek_last = #{peek_last}"
+  puts "末尾要素 peek_last = #{peek_last}"
 
-  # 要素をエンキューする
+  # 要素を両端キューに追加する
   deque.push_last(4)
-  puts "要素 4 を末尾にエンキューした後 deque = #{deque.to_array}"
+  puts "末尾に 4 を追加した後の deque = #{deque.to_array}"
   deque.push_first(1)
-  puts "要素 1 を先頭にエンキューした後 deque = #{deque.to_array}"
+  puts "先頭に 1 を追加した後の deque = #{deque.to_array}"
 
-  # 要素をデキューする
+  # 両端キューから要素を取り出す
   pop_last = deque.pop_last
-  puts "末尾からデキューした要素 = #{pop_last}、末尾からデキューした後 deque = #{deque.to_array}"
+  puts "末尾から取り出した要素 = #{pop_last}、末尾から取り出した後の deque = #{deque.to_array}"
   pop_first = deque.pop_first
-  puts "先頭からデキューした要素 = #{pop_first}、先頭からデキューした後 deque = #{deque.to_array}"
+  puts "先頭から取り出した要素 = #{pop_first}、先頭から取り出した後の deque = #{deque.to_array}"
 
-  # 両端キューの長さを取得する
+  # 両端キューの要素数を取得する
   size = deque.size
-  puts "両端キューの長さ size = #{size}"
+  puts "両端キューの要素数 size = #{size}"
 
   # 両端キューが空かどうかを判定する
   is_empty = deque.is_empty?

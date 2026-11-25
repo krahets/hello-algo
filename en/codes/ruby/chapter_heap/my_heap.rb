@@ -6,15 +6,15 @@ Author: Blue Bean (lonnnnnnner@gmail.com)
 
 require_relative '../utils/print_util'
 
-### Max heap ###
+### Max-heap ###
 class MaxHeap
   attr_reader :max_heap
 
   ### Constructor: build a heap from the input list ###
   def initialize(nums)
-    # Place the list elements in the heap without changing their order
+    # Copy the list elements into the heap in their original order
     @max_heap = nums
-    # Sift down from every non-leaf node
+    # Heapify all non-leaf nodes
     parent(size - 1).downto(0) do |i|
       sift_down(i)
     end
@@ -50,7 +50,7 @@ class MaxHeap
     size == 0
   end
 
-  ### Access the top element of the heap ###
+  ### Peek at the root ###
   def peek
     @max_heap[0]
   end
@@ -63,12 +63,12 @@ class MaxHeap
     sift_up(size - 1)
   end
 
-  ### Sift up starting from node i ###
+  ### Sift up from node i ###
   def sift_up(i)
     loop do
       # Get the parent of node i
       p = parent(i)
-      # Stop sifting when the root has been passed or the node needs no repair
+      # Stop sifting at the root or when the node already satisfies the heap property
       break if p < 0 || @max_heap[i] <= @max_heap[p]
       # Swap the two nodes
       swap(i, p)
@@ -81,25 +81,25 @@ class MaxHeap
   def pop
     # Handle an empty heap
     raise IndexError, "Heap is empty" if is_empty?
-    # Swap the root with the rightmost leaf on the last level (swap the first and last elements)
+    # Swap the root and the rightmost leaf (the first and last elements)
     swap(0, size - 1)
-    # Remove a node
+    # Remove the node
     val = @max_heap.pop
     # Sift down
     sift_down(0)
-    # Return the top element of the heap
+    # Return the root element
     val
   end
 
-  ### Sift down starting from node i ###
+  ### Sift down from node i ###
   def sift_down(i)
     loop do
-      # Find the node with the largest value among i, l, and r, and store its index in ma
+      # Store the index of the largest of nodes i, l, and r in ma
       l, r, ma = left(i), right(i), i
       ma = l if l < size && @max_heap[l] > @max_heap[ma]
       ma = r if r < size && @max_heap[r] > @max_heap[ma]
 
-      # Stop if node i is largest or both child indices l and r are out of bounds
+      # Stop if i is already largest or both child indices l and r are out of bounds
       break if ma == i
 
       # Swap the two nodes
@@ -109,7 +109,7 @@ class MaxHeap
     end
   end
 
-  ### Print the heap (binary tree)###
+  ### Print the heap as a binary tree###
   def __print__
     print_heap(@max_heap)
   end
@@ -117,24 +117,24 @@ end
 
 ### Driver code ###
 if __FILE__ == $0
-  # Initialize a max heap
+  # Initialize a max-heap
   max_heap = MaxHeap.new([9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2])
-  puts "\nAfter building a heap from the input list:"
+  puts "\nHeap built from the input list:"
   max_heap.__print__
 
-  # Get the top element of the heap
+  # Get the root element
   peek = max_heap.peek
-  puts "\nHeap top: #{peek}"
+  puts "\nRoot element: #{peek}"
 
   # Push an element onto the heap
   val = 7
   max_heap.push(val)
-  puts "\nAfter pushing #{val} onto the heap"
+  puts "\nHeap after pushing #{val}:"
   max_heap.__print__
 
-  # Pop the top element from the heap
+  # Pop the root
   peek = max_heap.pop
-  puts "\nAfter popping heap top #{peek}"
+  puts "\nHeap after popping the root (#{peek}):"
   max_heap.__print__
 
   # Get the heap size

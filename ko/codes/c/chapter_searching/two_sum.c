@@ -6,7 +6,7 @@
 
 #include "../utils/common.h"
 
-/* 방법 1: 완전 열거 */
+/* 방법 1. 모든 조합 확인 */
 int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
     for (int i = 0; i < numsSize; ++i) {
         for (int j = i + 1; j < numsSize; ++j) {
@@ -26,7 +26,7 @@ int *twoSumBruteForce(int *nums, int numsSize, int target, int *returnSize) {
 typedef struct {
     int key;
     int val;
-    UT_hash_handle hh; // uthash.h를 기반으로 구현한다
+    UT_hash_handle hh; // uthash.h를 사용해 구현한다.
 } HashTable;
 
 /* 해시 테이블 조회 */
@@ -48,7 +48,7 @@ void insert(HashTable **h, int key, int val) {
     }
 }
 
-/* 방법 2: 보조 해시 테이블 */
+/* 방법 2. 보조 해시 테이블 사용 */
 int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     HashTable *hashtable = NULL;
     for (int i = 0; i < numsSize; i++) {
@@ -65,12 +65,12 @@ int *twoSumHashTable(int *nums, int numsSize, int target, int *returnSize) {
     return NULL;
 }
 
-/* 실행 코드 */
+/* 실행 예제 */
 int main() {
-    // ======= 테스트 사례 =======
+    // ======= 테스트 케이스 =======
     int nums[] = {2, 7, 11, 15};
     int target = 13;
-    // ====== 실행 코드 ======
+    // ====== 실행 예제 ======
     int returnSize;
     int *res = twoSumBruteForce(nums, sizeof(nums) / sizeof(int), target, &returnSize);
     // 방법 1

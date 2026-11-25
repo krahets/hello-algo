@@ -52,9 +52,9 @@ fn rot_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* Driver Code */
+/* 主程式 */
 fn main() {
-    let key = "Hello 演算法";
+    let key = "Hello 算法";
 
     let hash = add_hash(key);
     println!("加法雜湊值為 {hash}");

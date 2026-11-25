@@ -23,7 +23,7 @@ function Trunk(prev, str) {
 
 /**
  * 이진 트리 출력
- * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다
+ * 이 트리 출력 코드는 TECHIE DELIGHT에서 가져왔다.
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
 function printTree(root) {

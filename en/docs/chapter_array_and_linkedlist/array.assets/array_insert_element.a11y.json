@@ -1,74 +1,73 @@
 {
-  "schema_version": 2,
-  "title": "Inserting an element into an array",
-  "summary": "Insert element 3 at index 1: first copy existing elements one position to the right starting from the end, then write the new element.",
-  "context": [
-    "Array nums has 5 slots at indices 0 through 4. Its initial storage is [1, 2, 5, 4, 0], where only the first 4 elements [1, 2, 5, 4] are valid and the trailing 0 at index 4 is an unused placeholder. The goal is to insert 3 at index 1 while preserving the relative order of the existing valid elements."
-  ],
-  "description": [],
-  "result": "After insertion, all 5 slots hold valid elements; the caller updates the valid length to 5 accordingly, whereas the sample insert function itself only assigns slot values. When the text later notes that the last element of a fixed-length array is \"lost\", in this example only the placeholder 0 in the last slot is overwritten, so none of the four original valid elements are lost. Had all 5 slots originally held valid elements, overwriting would lose the final valid element, requiring array expansion beforehand or rejecting the insertion.",
-  "frames": [
-    {
-      "id": "source-48",
-      "book_path": "chapter_array_and_linkedlist/array.assets/array_insert_element.png",
-      "title": "Inserting an element into an array",
-      "explanation": "Copying backward from the end toward the insertion point ensures that every element about to be overwritten and still needed has already been copied to the adjacent slot on its right. Copying does not clear the source slot, so duplicate values appear in intermediate states. Inserting into the middle of an array shifts O(n) elements on average."
-    }
-  ],
   "animations": {
     "flow-array-insert": {
       "kind": "prose",
       "prose": {
-        "title": "Inserting an element into an array",
-        "summary": "Insert element 3 at index 1: first copy existing elements one position to the right starting from the end, then write the new element.",
         "context": [
-          "Array nums has 5 slots at indices 0 through 4. Its initial storage is [1, 2, 5, 4, 0], where only the first 4 elements [1, 2, 5, 4] are valid and the trailing 0 at index 4 is an unused placeholder. The goal is to insert 3 at index 1 while preserving the relative order of the existing valid elements."
+          "The array nums has five slots indexed from 0 to 4. It initially stores [1, 2, 5, 4, 0], but only the first four elements, [1, 2, 5, 4], are valid. The 0 at index 4 is a placeholder. The goal is to insert 3 at index 1 while preserving the relative order of the existing valid elements."
         ],
         "description": [],
-        "result": "After insertion, all 5 slots hold valid elements; the caller updates the valid length to 5 accordingly, whereas the sample insert function itself only assigns slot values. When the text later notes that the last element of a fixed-length array is \"lost\", in this example only the placeholder 0 in the last slot is overwritten, so none of the four original valid elements are lost. Had all 5 slots originally held valid elements, overwriting would lose the final valid element, requiring array expansion beforehand or rejecting the insertion.",
+        "result": "After insertion, all five slots hold valid elements, so the caller updates the logical length to 5. The example insert function only assigns values to slots. When the text says a fixed-length array “loses” its last element, what is overwritten here is the placeholder 0. All four original valid elements survive. If all five slots were already in use, the last valid element would be lost, so the array would need to grow first or the insertion would have to be rejected.",
         "steps": [
           {
+            "announcement": "The initial array is [1, 2, 5, 4, 0]. The existing elements will shift right before 3 is inserted at index 1.",
+            "explanation": "The array stores [1, 2, 5, 4, 0], with logical length 4 and a trailing placeholder 0. Writing 3 directly at index 1 would overwrite the valid element 2, so first copy the elements at indices 1 through 3 one place to the right.",
             "id": "step-1",
-            "title": "Prepare for insertion",
-            "explanation": "Current storage is [1, 2, 5, 4, 0] with valid length 4, and the trailing 0 is a placeholder. Index 1 holds the valid element 2, so writing 3 directly would overwrite and lose it; the elements at indices 1 through 3 must first be copied to the right.",
-            "key_state": "Ready to insert 3 at index 1; current storage is [1, 2, 5, 4, 0], the valid sequence is [1, 2, 5, 4], and the trailing 0 is a placeholder.",
-            "announcement": "Show initial array [1, 2, 5, 4, 0] and prepare to shift existing elements right before inserting 3 at index 1."
+            "key_state": "Prepare to insert 3 at index 1. The array stores [1, 2, 5, 4, 0], the valid sequence is [1, 2, 5, 4], and the trailing 0 is a placeholder.",
+            "title": "Prepare to insert"
           },
           {
+            "announcement": "Execute nums[4] = nums[3] to copy the 4 at index 3 to index 4, overwriting the placeholder 0.",
+            "explanation": "Execute nums[4] = nums[3] to copy 4 to index 4, overwriting the placeholder 0. The array now stores [1, 2, 5, 4, 4]. The original 4 at index 3 has been saved, so index 3 can safely be overwritten next. The 3 has not been written yet, and the recorded logical length is still 4.",
             "id": "step-2",
-            "title": "Copy the trailing 4",
-            "explanation": "Execute nums[4] = nums[3] to copy 4 to index 4, overwriting the placeholder 0. Current storage is [1, 2, 5, 4, 4]; since the 4 from index 3 is now preserved, index 3 can safely be overwritten in the next step. Because 3 has not been written yet, the valid length remains 4.",
-            "key_state": "Executed nums[4] = nums[3] to copy 4; current storage is [1, 2, 5, 4, 4].",
-            "announcement": "Execute nums[4] = nums[3] to copy 4 from index 3 to index 4, overwriting the placeholder 0."
+            "key_state": "After nums[4] = nums[3] copies 4, the array stores [1, 2, 5, 4, 4].",
+            "title": "Copy the last valid element, 4"
           },
           {
+            "announcement": "Execute nums[3] = nums[2] to copy the 5 at index 2 to index 3.",
+            "explanation": "Execute nums[3] = nums[2] to copy 5 to index 3. The array now stores [1, 2, 5, 5, 4]. The original 4 is safe in the last slot. Next, copy 2 and then write 3. The recorded logical length is still 4.",
             "id": "step-3",
-            "title": "Copy 5",
-            "explanation": "Execute nums[3] = nums[2] to copy 5 to index 3, making current storage [1, 2, 5, 5, 4]. The original 4 is already saved in the last slot and will not be lost; next, 2 must still be copied before writing 3. The valid length remains 4.",
-            "key_state": "Executed nums[3] = nums[2] to copy 5; current storage is [1, 2, 5, 5, 4], with only 4 and 5 copied so far and 3 not yet written.",
-            "announcement": "Execute nums[3] = nums[2] to copy 5 from index 2 to index 3."
+            "key_state": "After nums[3] = nums[2] copies 5, the array stores [1, 2, 5, 5, 4]. Only 4 and 5 have been copied. The 3 has not been written yet.",
+            "title": "Copy 5"
           },
           {
+            "announcement": "Execute nums[2] = nums[1] to copy the 2 at index 1 to index 2. Index 1 can now be overwritten safely.",
+            "explanation": "Execute nums[2] = nums[1] to copy 2 to index 2. The array now stores [1, 2, 2, 5, 4]. The original 2, 5, and 4 have shifted right. Index 1 still holds 2 but can safely be overwritten. The 3 has not been written yet, and the recorded logical length is still 4.",
             "id": "step-4",
-            "title": "Copy 2",
-            "explanation": "Execute nums[2] = nums[1] to copy 2 to index 2, making current storage [1, 2, 2, 5, 4]. The original elements 2, 5, and 4 have now shifted right; index 1 still holds 2, which can now be safely overwritten. Because 3 has not been written yet, the valid length remains 4.",
-            "key_state": "Executed nums[2] = nums[1] to copy 2; rightward shifting is complete, current storage is [1, 2, 2, 5, 4], and 3 is ready to be written.",
-            "announcement": "Execute nums[2] = nums[1] to copy 2 from index 1 to index 2; index 1 can now be safely overwritten."
+            "key_state": "After nums[2] = nums[1] copies 2, the shift is complete. The array stores [1, 2, 2, 5, 4] and is ready for 3.",
+            "title": "Copy 2"
           },
           {
+            "announcement": "Writing 3 at index 1 completes the insertion. The array is [1, 3, 2, 5, 4], and the caller updates the logical length to 5.",
+            "explanation": "Execute nums[1] = 3. The array now stores [1, 3, 2, 5, 4]. Writing the new element completes the insertion. The number of valid elements increases from 4 to 5, and the caller updates the logical length.",
             "id": "step-5",
-            "title": "Write 3",
-            "explanation": "Execute nums[1] = 3, making current storage [1, 3, 2, 5, 4]. The new element is written and insertion is complete; the number of valid elements increases from 4 to 5, and the caller updates the valid length.",
-            "key_state": "Executed nums[1] = 3, giving final storage [1, 3, 2, 5, 4]; the caller updates the valid length to 5.",
-            "announcement": "Write 3 at index 1 to complete insertion, giving array [1, 3, 2, 5, 4]; the caller updates the valid length to 5."
+            "key_state": "After nums[1] = 3, the final contents are [1, 3, 2, 5, 4]. The caller updates the logical length to 5.",
+            "title": "Write 3"
           }
-        ]
+        ],
+        "summary": "To insert 3 at index 1, start at the end, copy each existing element one position to the right, and then write the new element.",
+        "title": "Inserting an element into an array"
       }
     }
   },
+  "context": [
+    "The array nums has five slots indexed from 0 to 4. It initially stores [1, 2, 5, 4, 0], but only the first four elements, [1, 2, 5, 4], are valid. The 0 at index 4 is a placeholder. The goal is to insert 3 at index 1 while preserving the relative order of the existing valid elements."
+  ],
+  "description": [],
+  "frames": [
+    {
+      "book_path": "chapter_array_and_linkedlist/array.assets/array_insert_element.png",
+      "explanation": "Copying from the end back toward the insertion point saves each needed element in the slot to its right before overwriting it. Copying leaves the source slot intact, so duplicate values appear temporarily. Inserting in the middle of an array moves O(n) elements on average.",
+      "id": "source-48",
+      "title": "Inserting an element into an array"
+    }
+  ],
+  "result": "After insertion, all five slots hold valid elements, so the caller updates the logical length to 5. The example insert function only assigns values to slots. When the text says a fixed-length array “loses” its last element, what is overwritten here is the placeholder 0. All four original valid elements survive. If all five slots were already in use, the last valid element would be lost, so the array would need to grow first or the insertion would have to be rejected.",
+  "schema_version": 2,
+  "summary": "To insert 3 at index 1, start at the end, copy each existing element one position to the right, and then write the new element.",
   "tables": [
     {
-      "caption": "Five slots after each assignment",
+      "caption": "Contents of the five slots after each assignment",
       "headers": [
         "Operation",
         "Index 0",
@@ -77,6 +76,7 @@
         "Index 3",
         "Index 4"
       ],
+      "row_header": 0,
       "rows": [
         [
           "Initial state",
@@ -118,8 +118,8 @@
           "5",
           "4"
         ]
-      ],
-      "row_header": 0
+      ]
     }
-  ]
+  ],
+  "title": "Inserting an element into an array"
 }

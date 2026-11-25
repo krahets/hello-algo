@@ -17,7 +17,7 @@ func TestSpaceComplexity(t *testing.T) {
 	// 선형 차수
 	spaceLinear(n)
 	spaceLinearRecur(n)
-	// 제곱 차수
+	// 이차 차수
 	spaceQuadratic(n)
 	spaceQuadraticRecur(n)
 	// 지수 차수

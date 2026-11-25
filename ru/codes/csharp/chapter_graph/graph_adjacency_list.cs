@@ -6,15 +6,15 @@
 
 namespace hello_algo.chapter_graph;
 
-/* Класс неориентированного графа на основе списка смежности */
+/* Неориентированный граф на списках смежности */
 public class GraphAdjList {
-    // Список смежности, где key — вершина, а value — все смежные ей вершины
+    // Список смежности: ключ — вершина, значение — все её соседи
     public Dictionary<Vertex, List<Vertex>> adjList;
 
     /* Конструктор */
     public GraphAdjList(Vertex[][] edges) {
         adjList = [];
-        // Добавить все вершины и ребра
+        // Добавить все вершины и рёбра
         foreach (Vertex[] edge in edges) {
             AddVertex(edge[0]);
             AddVertex(edge[1]);
@@ -27,39 +27,39 @@ public class GraphAdjList {
         return adjList.Count;
     }
 
-    /* Добавление ребра */
+    /* Добавить ребро */
     public void AddEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
-        // Добавить ребро vet1 - vet2
+        // Добавить ребро vet1 — vet2
         adjList[vet1].Add(vet2);
         adjList[vet2].Add(vet1);
     }
 
-    /* Удаление ребра */
+    /* Удалить ребро */
     public void RemoveEdge(Vertex vet1, Vertex vet2) {
         if (!adjList.ContainsKey(vet1) || !adjList.ContainsKey(vet2) || vet1 == vet2)
             throw new InvalidOperationException();
-        // Удалить ребро vet1 - vet2
+        // Удалить ребро vet1 — vet2
         adjList[vet1].Remove(vet2);
         adjList[vet2].Remove(vet1);
     }
 
-    /* Добавление вершины */
+    /* Добавить вершину */
     public void AddVertex(Vertex vet) {
         if (adjList.ContainsKey(vet))
             return;
-        // Добавить новый список в список смежности
+        // Добавить новый связный список в список смежности
         adjList.Add(vet, []);
     }
 
-    /* Удаление вершины */
+    /* Удалить вершину */
     public void RemoveVertex(Vertex vet) {
         if (!adjList.ContainsKey(vet))
             throw new InvalidOperationException();
-        // Удалить из списка смежности список, соответствующий вершине vet
+        // Удалить из списка смежности список вершины vet
         adjList.Remove(vet);
-        // Обойти списки других вершин и удалить все ребра, содержащие vet
+        // Обойти списки остальных вершин и удалить все рёбра, инцидентные vet
         foreach (List<Vertex> list in adjList.Values) {
             list.Remove(vet);
         }
@@ -80,7 +80,7 @@ public class GraphAdjList {
 public class graph_adjacency_list {
     [Test]
     public void Test() {
-        /* Инициализация неориентированного графа */
+        /* Инициализировать неориентированный граф */
         Vertex[] v = Vertex.ValsToVets([1, 3, 2, 5, 4]);
         Vertex[][] edges =
         [
@@ -92,31 +92,31 @@ public class graph_adjacency_list {
             [v[3], v[4]] 
         ];
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\nГраф после инициализации");
+        Console.WriteLine("\nГраф после инициализации:");
         graph.Print();
 
-        /* Добавление ребра */
-        // Вершины 1 и 2 соответствуют v[0] и v[2]
+        /* Добавить ребро */
+        // Вершинам 1 и 2 соответствуют v[0] и v[2]
         graph.AddEdge(v[0], v[2]);
-        Console.WriteLine("\nГраф после добавления ребра 1-2");
+        Console.WriteLine("\nГраф после добавления ребра 1–2:");
         graph.Print();
 
-        /* Удаление ребра */
-        // Вершины 1 и 3 соответствуют v[0] и v[1]
+        /* Удалить ребро */
+        // Вершинам 1 и 3 соответствуют v[0] и v[1]
         graph.RemoveEdge(v[0], v[1]);
-        Console.WriteLine("\nГраф после удаления ребра 1-3");
+        Console.WriteLine("\nГраф после удаления ребра 1–3:");
         graph.Print();
 
-        /* Добавление вершины */
+        /* Добавить вершину */
         Vertex v5 = new(6);
         graph.AddVertex(v5);
-        Console.WriteLine("\nГраф после добавления вершины 6");
+        Console.WriteLine("\nГраф после добавления вершины 6:");
         graph.Print();
 
-        /* Удаление вершины */
-        // Вершина 3 соответствует v[1]
+        /* Удалить вершину */
+        // Вершине 3 соответствует v[1]
         graph.RemoveVertex(v[1]);
-        Console.WriteLine("\nГраф после удаления вершины 3");
+        Console.WriteLine("\nГраф после удаления вершины 3:");
         graph.Print();
     }
 }

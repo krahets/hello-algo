@@ -28,51 +28,51 @@
   },
   "context": [],
   "description": [
-    "每幀從左到右排列 a 到 z 共 26 個字母塊。綠色表示仍在查詢範圍內，青色突出目標 r，淺灰色表示已排除；第 2 至第 5 幀中，下方向上的“一半頁碼處”指標標出當前翻到的字母。"
+    "每個畫面都由左至右排列 a 到 z 共 26 個字母方塊。綠色表示仍在搜尋範圍內，青色標出目標 r，淺灰色表示已排除。第 2 到第 5 個畫面中，標示「頁數的一半處」的箭頭由下往上指向目前翻到的字母。"
   ],
   "frames": [
     {
-      "announcement": "明確查字典目標為找到拼音首字母為 r 的字，初始查詢範圍覆蓋按順序排列的 a 到 z 全部 26 個字母。",
+      "announcement": "我們要找的是拼音以 r 開頭的字。初始搜尋範圍涵蓋依序排列的 a 到 z 全部 26 個字母。",
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step1.png",
-      "explanation": "初始查詢範圍覆蓋 a 到 z 全部 26 個字母，尚未翻頁。目標 r 為青色，其餘 25 個字母為綠色。",
+      "explanation": "一開始還沒翻頁，搜尋範圍涵蓋 a 到 z 全部 26 個字母。目標字母 r 為青色，其餘 25 個字母為綠色。",
       "id": "source-10",
-      "key_state": "第 1 步初始狀態：待查詢範圍為全部字母 a 到 z，目標是找到首字母為 r 的字。",
-      "title": "第 1 步：明確查字典目標與初始範圍"
+      "key_state": "第 1 步的初始狀態：搜尋範圍是 a 到 z 的所有字母，目標是找出拼音以 r 開頭的字。",
+      "title": "第 1 步：確認查字目標與初始範圍"
     },
     {
-      "announcement": "翻開字典一半頁碼處看到首字母 m；因為 r 在 m 後邊，排除前半部分 a 到 m，查詢範圍縮小為 n 到 z。",
+      "announcement": "翻到字典頁數約一半處，看到拼音首字母 m。因為 r 排在 m 後面，便排除前半部的 a 到 m，搜尋範圍縮小為 n 到 z。",
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step2.png",
-      "explanation": "第一次翻到全書大約一半頁碼處，指標指向 m。因為 r 在 m 後面，排除 a 到 m，使它們變為淺灰色；剩餘 n 到 z 保持彩色，目標 r 為青色。",
+      "explanation": "第一次翻到全書頁數約一半處，箭頭指向 m。因為 r 排在 m 後面，便排除 a 到 m，這些字母變為淺灰色。剩下的 n 到 z 保持彩色，目標 r 為青色。",
       "id": "source-11",
-      "key_state": "第 2 步：一半頁碼處翻到 m，因 r 在 m 後邊，排除 a 到 m，剩餘範圍為 n 到 z。",
-      "title": "第 2 步：翻到中間字母 m，排除前半部分"
+      "key_state": "第 2 步：翻到頁數約一半處，看到 m。因為 r 排在 m 後面，排除 a 到 m，剩餘範圍是 n 到 z。",
+      "title": "第 2 步：翻到中間的字母 m，排除前半部"
     },
     {
-      "announcement": "翻開剩餘部分一半頁碼處看到首字母 t；因為 r 在 t 前邊，排除後半部分 t 到 z，查詢範圍縮小為 n 到 s。",
+      "announcement": "翻到剩餘頁數的一半處，看到拼音首字母 t。因為 r 排在 t 前面，排除後半部的 t 到 z，搜尋範圍縮小為 n 到 s。",
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step3.png",
-      "explanation": "在剩餘區間 n 到 z 內翻到中間位置，指標指向 t。因為 r 在 t 前面，排除 t 到 z。至此，左側 a 到 m、右側 t 到 z 都為淺灰色，只剩 n 到 s 保持彩色，其中 r 為青色。",
+      "explanation": "翻到剩餘範圍 n 到 z 的中間，箭頭指向 t。因為 r 排在 t 前面，排除 t 到 z。此時左側的 a 到 m、右側的 t 到 z 都為淺灰色，只有 n 到 s 保持彩色，其中 r 為青色。",
       "id": "source-12",
-      "key_state": "在剩餘區間 n 到 z 的一半頁碼處翻到 t；因 r 在 t 前面，排除 t 到 z。當前範圍為 n 到 s，左側 a 到 m 與右側 t 到 z 已排除。",
-      "title": "第 3 步：翻到剩餘部分中間字母 t，排除後半部分"
+      "key_state": "翻到剩餘範圍 n 到 z 的中間，看到 t。因為 r 排在 t 前面，排除 t 到 z。目前範圍是 n 到 s，左側的 a 到 m 和右側的 t 到 z 都已排除。",
+      "title": "第 3 步：翻到剩餘範圍中間的字母 t，排除後半部"
     },
     {
-      "announcement": "翻開剩餘部分一半頁碼處看到首字母 p；因為 r 在 p 後邊，排除前半部分 n 到 p，查詢範圍僅剩 q、r、s。",
+      "announcement": "翻到剩餘頁數的一半處，看到拼音首字母 p。因為 r 排在 p 後面，排除前半部的 n 到 p，搜尋範圍僅剩 q、r、s。",
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step4.png",
-      "explanation": "在剩餘區間 n 到 s 內翻到中間位置，指標指向 p。因為 r 在 p 後面，排除 n 到 p。至此，左側 a 到 p、右側 t 到 z 都為淺灰色，只剩 q、r、s 保持彩色：q、s 為綠色，r 為青色。",
+      "explanation": "翻到剩餘範圍 n 到 s 的中間，箭頭指向 p。因為 r 排在 p 後面，排除 n 到 p。此時左側的 a 到 p、右側的 t 到 z 都為淺灰色，只有 q、r、s 保持彩色：q、s 為綠色，r 為青色。",
       "id": "source-13",
-      "key_state": "在剩餘區間 n 到 s 的一半頁碼處翻到 p；因 r 在 p 後面，排除 n 到 p。當前僅剩 q、r、s，左側 a 到 p 與右側 t 到 z 已排除。",
-      "title": "第 4 步：翻到剩餘部分中間字母 p，再排除前半部分"
+      "key_state": "翻到剩餘範圍 n 到 s 的中間，看到 p。因為 r 排在 p 後面，排除 n 到 p。目前僅剩 q、r、s，左側的 a 到 p 和右側的 t 到 z 都已排除。",
+      "title": "第 4 步：翻到剩餘範圍中間的字母 p，再次排除前半部"
     },
     {
-      "announcement": "翻開剩餘區間 q、r、s 的一半頁碼處，直接命中目標首字母 r，查字典任務完成。",
+      "announcement": "翻到剩餘範圍 q、r、s 的中間，正好看到目標首字母 r，查字典的任務完成。",
       "book_path": "chapter_introduction/algorithms_are_everywhere.assets/binary_search_dictionary_step5.png",
-      "explanation": "在剩餘區間 q、r、s 內翻到中間位置，指標指向目標 r，找到首字母為 r 的字，任務完成。這是第 5 步，也是第 4 次翻頁。畫面仍保留綠色的 q、s 和青色的 r，表示本次翻頁前的範圍；a 到 p 與 t 到 z 仍為淺灰色。",
+      "explanation": "翻到剩下的 q、r、s 中間，箭頭指向目標 r。找到了拼音以 r 開頭的字，任務完成。這是第 5 步，也是第 4 次翻頁。畫面仍以綠色標示 q、s，以青色標示 r，表示這次翻頁前的範圍；a 到 p 和 t 到 z 仍為淺灰色。",
       "id": "source-14",
-      "key_state": "第 5 步完成查詢：在剩餘區間 q、r、s 的一半頁碼處翻到目標字母 r。",
-      "title": "第 5 步：翻到中間字母 r，完成查詢"
+      "key_state": "第 5 步完成搜尋：翻到剩餘範圍 q、r、s 的中間，找到目標字母 r。",
+      "title": "第 5 步：翻到中間的字母 r，完成搜尋"
     }
   ],
   "schema_version": 2,
-  "summary": "在按拼音字母表排序的字典中，查詢任意一個首字母為 r 的字。共 5 個畫面：第 1 步交代初始範圍，第 2 至第 5 步各翻頁一次。",
-  "title": "查字典的二分搜尋過程"
+  "summary": "在依拼音字母順序排列的字典中，找出任意一個拼音以 r 開頭的字。全圖共有 5 個畫面：第 1 步說明初始範圍，第 2 到第 5 步各翻一次頁。",
+  "title": "用二分搜尋法查字典"
 }

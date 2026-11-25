@@ -10,11 +10,11 @@ class ListNode:
 
     def __init__(self, val: int):
         self.val: int = val  # Значение узла
-        self.next: ListNode | None = None  # Ссылка на узел-преемник
+        self.next: ListNode | None = None  # Ссылка на следующий узел
 
 
 def list_to_linked_list(arr: list[int]) -> ListNode | None:
-    """Десериализовать список в связный список"""
+    """Восстановить связный список из списка значений"""
     dum = head = ListNode(0)
     for a in arr:
         node = ListNode(a)
@@ -24,7 +24,7 @@ def list_to_linked_list(arr: list[int]) -> ListNode | None:
 
 
 def linked_list_to_list(head: ListNode | None) -> list[int]:
-    """Сериализовать связный список в список"""
+    """Сериализовать связный список в список значений"""
     arr: list[int] = []
     while head:
         arr.append(head.val)

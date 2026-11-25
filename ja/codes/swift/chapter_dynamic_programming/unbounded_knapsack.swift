@@ -13,10 +13,10 @@ func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
     for i in 1 ... n {
         for c in 1 ... cap {
             if wgt[i - 1] > c {
-                // ナップサックの容量を超える場合、品物 i を選ばない
+                // 容量を超える場合は品物 i を選ばない
                 dp[i][c] = dp[i - 1][c]
             } else {
-                // 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+                // 品物 i を選ばない場合と選ぶ場合の大きい方を取る
                 dp[i][c] = max(dp[i - 1][c], dp[i][c - wgt[i - 1]] + val[i - 1])
             }
         }
@@ -24,7 +24,7 @@ func unboundedKnapsackDP(wgt: [Int], val: [Int], cap: Int) -> Int {
     return dp[n][cap]
 }
 
-/* 個数制限なしナップサック問題：空間を最適化した動的計画法 */
+/* 個数制限なしナップサック問題：使用メモリを削減した動的計画法 */
 func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
     let n = wgt.count
     // dp テーブルを初期化する
@@ -33,10 +33,10 @@ func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
     for i in 1 ... n {
         for c in 1 ... cap {
             if wgt[i - 1] > c {
-                // ナップサックの容量を超える場合、品物 i を選ばない
+                // 容量を超える場合は品物 i を選ばない
                 dp[c] = dp[c]
             } else {
-                // 品物 i を選ばない場合と選ぶ場合の大きいほうの値
+                // 品物 i を選ばない場合と選ぶ場合の大きい方を取る
                 dp[c] = max(dp[c], dp[c - wgt[i - 1]] + val[i - 1])
             }
         }
@@ -46,7 +46,7 @@ func unboundedKnapsackDPComp(wgt: [Int], val: [Int], cap: Int) -> Int {
 
 @main
 enum UnboundedKnapsack {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let wgt = [1, 2, 3]
         let val = [5, 11, 15]
@@ -54,10 +54,10 @@ enum UnboundedKnapsack {
 
         // 動的計画法
         var res = unboundedKnapsackDP(wgt: wgt, val: val, cap: cap)
-        print("ナップサックの容量を超えない品物の最大価値は \(res)")
+        print("容量内でナップサックに入る品物の最大価値は \(res)")
 
-        // 空間を最適化した動的計画法
+        // 使用メモリを削減した動的計画法
         res = unboundedKnapsackDPComp(wgt: wgt, val: val, cap: cap)
-        print("ナップサックの容量を超えない品物の最大価値は \(res)")
+        print("容量内でナップサックに入る品物の最大価値は \(res)")
     }
 }

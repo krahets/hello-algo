@@ -11,7 +11,7 @@
 
 using namespace std;
 
-/* 二元樹節點結構體 */
+/* 二元樹節點的結構體 */
 struct TreeNode {
     int val{};
     int height = 0;
@@ -23,11 +23,11 @@ struct TreeNode {
     }
 };
 
-// 序列化編碼規則請參考：
-// https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// 二元樹的陣列表示：
+// 序列化的編碼規則請參閱：
+// https://www.hello-algo.com/zh-hant/chapter_tree/array_representation_of_tree/
+// 二元樹的陣列表示法：
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// 二元樹的鏈結串列表示：
+// 二元樹的鏈結串列表示法：
 //             /——— 15
 //         /——— 7
 //     /——— 3
@@ -39,7 +39,7 @@ struct TreeNode {
 //         \——— 4
 //             \——— 8
 
-/* 將串列反序列化為二元樹：遞迴 */
+/* 以遞迴方式將向量反序列化為二元樹 */
 TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     if (i < 0 || i >= arr.size() || arr[i] == INT_MAX) {
         return nullptr;
@@ -50,12 +50,12 @@ TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     return root;
 }
 
-/* 將串列反序列化為二元樹 */
+/* 將向量反序列化為二元樹 */
 TreeNode *vectorToTree(vector<int> arr) {
     return vectorToTreeDFS(arr, 0);
 }
 
-/* 將二元樹序列化為串列：遞迴 */
+/* 以遞迴方式將二元樹序列化為向量 */
 void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     if (root == nullptr)
         return;
@@ -67,14 +67,14 @@ void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     treeToVecorDFS(root->right, 2 * i + 2, res);
 }
 
-/* 將二元樹序列化為串列 */
+/* 將二元樹序列化為向量 */
 vector<int> treeToVecor(TreeNode *root) {
     vector<int> res;
     treeToVecorDFS(root, 0, res);
     return res;
 }
 
-/* 釋放二元樹記憶體 */
+/* 釋放二元樹所占用的記憶體 */
 void freeMemoryTree(TreeNode *root) {
     if (root == nullptr)
         return;

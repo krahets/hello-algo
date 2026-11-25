@@ -9,7 +9,7 @@ package chapter_searching;
 import java.util.*;
 
 public class two_sum {
-    /* Метод 1: полный перебор */
+    /* Способ 1: полный перебор */
     static int[] twoSumBruteForce(int[] nums, int target) {
         int size = nums.length;
         // Два вложенных цикла, временная сложность O(n^2)
@@ -22,7 +22,7 @@ public class two_sum {
         return new int[0];
     }
 
-    /* Метод 2: вспомогательная хеш-таблица */
+    /* Способ 2: вспомогательная хеш-таблица */
     static int[] twoSumHashTable(int[] nums, int target) {
         int size = nums.length;
         // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -38,16 +38,16 @@ public class two_sum {
     }
 
     public static void main(String[] args) {
-        // ======= Test Case =======
+        // ======= Тестовый пример =======
         int[] nums = { 2, 7, 11, 15 };
         int target = 13;
 
-        // ====== Основной код ======
-        // Метод 1
+        // ====== Пример использования ======
+        // Способ 1
         int[] res = twoSumBruteForce(nums, target);
-        System.out.println("Результат метода 1 res = " + Arrays.toString(res));
-        // Метод 2
+        System.out.println("Способ 1, res = " + Arrays.toString(res));
+        // Способ 2
         res = twoSumHashTable(nums, target);
-        System.out.println("Результат метода 2 res = " + Arrays.toString(res));
+        System.out.println("Способ 2, res = " + Arrays.toString(res));
     }
 }

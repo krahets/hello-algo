@@ -1,20 +1,20 @@
 {
-  "schema_version": 2,
-  "title": "Example input for binary search",
-  "summary": "The bar chart above and the array of cells below show the same sorted array and highlight the search target.",
   "context": [
-    "Given the strictly increasing sorted array nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35], indexed from 0 to 9, find the target element target = 6."
+    "Given the strictly increasing array nums = [1, 3, 6, 8, 12, 15, 23, 26, 31, 35], with indices 0 through 9, find target = 6."
   ],
   "description": [
-    "The upper half of the figure, labeled “Represent the array as a bar chart,” arranges ten vertical bars of increasing height from left to right, with each element value shown above its bar and “Index” values from 0 to 9 labeled beneath the chart; the lower half shows the same array as ten contiguous horizontal cells. A double-headed arrow between the two halves indicates that the bar chart and the one-dimensional array are completely equivalent.",
-    "Element 6 at index 2 is highlighted in cyan in both the upper bar chart and the lower array cells: to its left are the smaller elements 1 and 3 at indices 0 and 1, and to its right are the larger elements 8, 12, 15, 23, 26, 31, and 35 at indices 3 through 9. This figure defines only the input data and search target without yet stepping through binary halving."
+    "The upper panel, “Represent the array as a bar chart,” shows ten vertical bars increasing in height from left to right. Each bar has its element value at the top. The indices 0 through 9 appear below the bars under the label “Index.” The lower panel shows the same array as ten adjacent cells in a row. A double-headed arrow connects the panels to show that the bar chart and the one-dimensional array represent exactly the same data.",
+    "Both the bar chart and the array cells highlight the value 6 at index 2 in teal. To its left, indices 0 and 1 hold the smaller values 1 and 3. To its right, indices 3 through 9 hold the larger values 8, 12, 15, 23, 26, 31, and 35, respectively. This figure introduces the input and target before binary search begins halving the interval."
   ],
   "frames": [
     {
-      "id": "source-213",
       "book_path": "chapter_searching/binary_search.assets/binary_search_example.png",
-      "title": "Example input for binary search",
-      "explanation": "A successful search should return index 2, where the target is located."
+      "explanation": "A successful search should return index 2, where the target appears.",
+      "id": "source-213",
+      "title": "Sample input for binary search"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "summary": "A bar chart and a row of array cells show the same sorted array and search target.",
+  "title": "Sample input for binary search"
 }

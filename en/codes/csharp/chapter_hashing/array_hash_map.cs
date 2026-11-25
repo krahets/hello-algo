@@ -12,11 +12,11 @@ class Pair(int key, string val) {
     public string val = val;
 }
 
-/* Hash table implemented with an array */
+/* Array-based hash table */
 class ArrayHashMap {
     List<Pair?> buckets;
     public ArrayHashMap() {
-        // Initialize an array containing 100 buckets
+        // Initialize an array with 100 buckets
         buckets = [];
         for (int i = 0; i < 100; i++) {
             buckets.Add(null);
@@ -29,7 +29,7 @@ class ArrayHashMap {
         return index;
     }
 
-    /* Lookup operation */
+    /* Look up a value */
     public string? Get(int key) {
         int index = HashFunc(key);
         Pair? pair = buckets[index];
@@ -37,17 +37,17 @@ class ArrayHashMap {
         return pair.val;
     }
 
-    /* Insert operation */
+    /* Insert a key-value pair */
     public void Put(int key, string val) {
         Pair pair = new(key, val);
         int index = HashFunc(key);
         buckets[index] = pair;
     }
 
-    /* Remove operation */
+    /* Remove a key-value pair */
     public void Remove(int key) {
         int index = HashFunc(key);
-        // Set the bucket to null to mark it as removed
+        // Set the slot to null to remove the entry
         buckets[index] = null;
     }
 
@@ -96,37 +96,37 @@ public class array_hash_map {
         /* Initialize the hash table */
         ArrayHashMap map = new();
 
-        /* Insert operation */
-        // Insert the key-value pair (key, value) into the hash table
-        map.Put(12836, "小哈");
-        map.Put(15937, "小啰");
-        map.Put(16750, "小算");
-        map.Put(13276, "小法");
-        map.Put(10583, "小鸭");
+        /* Insert a key-value pair */
+        // Insert the pair (key, value) into the hash table
+        map.Put(12836, "Xiao Ha");
+        map.Put(15937, "Xiao Luo");
+        map.Put(16750, "Xiao Suan");
+        map.Put(13276, "Xiao Fa");
+        map.Put(10583, "Xiao Ya");
         Console.WriteLine("\nHash table after insertion:\nKey -> Value");
         map.Print();
 
-        /* Lookup operation */
-        // Look up key in the hash table to obtain value
+        /* Look up a value */
+        // Look up key in the hash table to get value
         string? name = map.Get(15937);
-        Console.WriteLine("\nLook up student ID 15937 to obtain the name " + name);
+        Console.WriteLine("\nName for student ID 15937: " + name);
 
-        /* Remove operation */
-        // Remove the key-value pair (key, value) from the hash table
+        /* Remove a key-value pair */
+        // Remove the pair (key, value) from the hash table
         map.Remove(10583);
         Console.WriteLine("\nHash table after removing 10583:\nKey -> Value");
         map.Print();
 
-        /* Traverse the hash table */
-        Console.WriteLine("\nTraverse key-value pairs: Key->Value");
+        /* Iterate over the hash table */
+        Console.WriteLine("\nIterate over key-value pairs (Key->Value)");
         foreach (Pair kv in map.PairSet()) {
             Console.WriteLine(kv.key + " -> " + kv.val);
         }
-        Console.WriteLine("\nTraverse keys only: Key");
+        Console.WriteLine("\nIterate over keys only");
         foreach (int key in map.KeySet()) {
             Console.WriteLine(key);
         }
-        Console.WriteLine("\nTraverse values only: Value");
+        Console.WriteLine("\nIterate over values only");
         foreach (string val in map.ValueSet()) {
             Console.WriteLine(val);
         }

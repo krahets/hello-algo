@@ -4,7 +4,7 @@
  * Author: nuomi1 (nuomi1@qq.com)
  */
 
-/* Создать массив с элементами { 1, 2, ..., n } в случайном порядке */
+/* Создать массив из чисел { 1, 2, ..., n } в случайном порядке */
 func randomNumbers(n: Int) -> [Int] {
     // Создать массив nums = { 1, 2, 3, ..., n }
     var nums = Array(1 ... n)
@@ -16,8 +16,8 @@ func randomNumbers(n: Int) -> [Int] {
 /* Найти индекс числа 1 в массиве nums */
 func findOne(nums: [Int]) -> Int {
     for i in nums.indices {
-        // Когда элемент 1 находится в начале массива, достигается лучшая временная сложность O(1)
-        // Когда элемент 1 находится в конце массива, достигается худшая временная сложность O(n)
+        // Если 1 стоит в начале массива, сложность минимальна: O(1)
+        // Если 1 стоит в конце массива, сложность максимальна: O(n)
         if nums[i] == 1 {
             return i
         }
@@ -27,14 +27,14 @@ func findOne(nums: [Int]) -> Int {
 
 @main
 enum WorstBestTimeComplexity {
-    /* Driver Code */
+    /* Основная программа */
     static func main() {
         for _ in 0 ..< 10 {
             let n = 100
             let nums = randomNumbers(n: n)
             let index = findOne(nums: nums)
-            print("Массив [1, 2, ..., n] после перемешивания = \(nums)")
-            print("Индекс числа 1 = \(index)")
+            print("Массив [ 1, 2, ..., n ] после перемешивания = \(nums)")
+            print("Индекс числа 1: \(index)")
         }
     }
 }

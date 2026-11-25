@@ -28,7 +28,7 @@ fn mul_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* 排他的論理和ハッシュ */
+/* XOR ハッシュ */
 fn xor_hash(key: &str) -> i32 {
     let mut hash = 0_i64;
     const MODULUS: i64 = 1000000007;
@@ -52,7 +52,7 @@ fn rot_hash(key: &str) -> i32 {
     hash as i32
 }
 
-/* 実行用コード */
+/* 実行例 */
 fn main() {
     let key = "Hello 算法";
 
@@ -63,7 +63,7 @@ fn main() {
     println!("乗算ハッシュの値は {hash}");
 
     let hash = xor_hash(key);
-    println!("排他的論理和ハッシュの値は {hash}");
+    println!("XOR ハッシュの値は {hash}");
 
     let hash = rot_hash(key);
     println!("回転ハッシュの値は {hash}");

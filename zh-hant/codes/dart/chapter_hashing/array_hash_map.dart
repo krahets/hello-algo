@@ -11,12 +11,12 @@ class Pair {
   Pair(this.key, this.val);
 }
 
-/* 基於陣列實現的雜湊表 */
+/* 以陣列實作的雜湊表 */
 class ArrayHashMap {
   late List<Pair?> _buckets;
 
   ArrayHashMap() {
-    // 初始化陣列，包含 100 個桶
+    // 初始化包含 100 個桶的陣列
     _buckets = List.filled(100, null);
   }
 
@@ -49,7 +49,7 @@ class ArrayHashMap {
     _buckets[index] = null;
   }
 
-  /* 獲取所有鍵值對 */
+  /* 取得所有鍵值對 */
   List<Pair> pairSet() {
     List<Pair> pairSet = [];
     for (final Pair? pair in _buckets) {
@@ -60,7 +60,7 @@ class ArrayHashMap {
     return pairSet;
   }
 
-  /* 獲取所有鍵 */
+  /* 取得所有鍵 */
   List<int> keySet() {
     List<int> keySet = [];
     for (final Pair? pair in _buckets) {
@@ -71,7 +71,7 @@ class ArrayHashMap {
     return keySet;
   }
 
-  /* 獲取所有值 */
+  /* 取得所有值 */
   List<String> values() {
     List<String> valueSet = [];
     for (final Pair? pair in _buckets) {
@@ -82,7 +82,7 @@ class ArrayHashMap {
     return valueSet;
   }
 
-  /* 列印雜湊表 */
+  /* 印出雜湊表 */
   void printHashMap() {
     for (final Pair kv in pairSet()) {
       print("${kv.key} -> ${kv.val}");
@@ -90,7 +90,7 @@ class ArrayHashMap {
   }
 }
 
-/* Driver Code */
+/* 主程式 */
 void main() {
   /* 初始化雜湊表 */
   final ArrayHashMap map = ArrayHashMap();
@@ -102,25 +102,25 @@ void main() {
   map.put(16750, "小算");
   map.put(13276, "小法");
   map.put(10583, "小鴨");
-  print("\n新增完成後，雜湊表為\nKey -> Value");
+  print("\n新增後的雜湊表\nKey -> Value");
   map.printHashMap();
 
   /* 查詢操作 */
-  // 向雜湊表中輸入鍵 key ，得到值 value
+  // 輸入鍵 key，從雜湊表取得對應的值 value
   String? name = map.get(15937);
-  print("\n輸入學號 15937 ，查詢到姓名 $name");
+  print("\n輸入學號 15937，查得姓名 $name");
 
   /* 刪除操作 */
-  // 在雜湊表中刪除鍵值對 (key, value)
+  // 從雜湊表刪除鍵值對 (key, value)
   map.remove(10583);
-  print("\n刪除 10583 後，雜湊表為\nKey -> Value");
+  print("\n刪除 10583 後的雜湊表\nKey -> Value");
   map.printHashMap();
 
   /* 走訪雜湊表 */
   print("\n走訪鍵值對 Key->Value");
   map.pairSet().forEach((kv) => print("${kv.key} -> ${kv.val}"));
-  print("\n單獨走訪鍵 Key");
+  print("\n只走訪鍵 Key");
   map.keySet().forEach((key) => print("$key"));
-  print("\n單獨走訪值 Value");
+  print("\n只走訪值 Value");
   map.values().forEach((val) => print("$val"));
 }

@@ -6,7 +6,7 @@
 
 #include "../utils/common.hpp"
 
-/* Метод 1: полный перебор */
+/* Способ 1: полный перебор */
 vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     int size = nums.size();
     // Два вложенных цикла, временная сложность O(n^2)
@@ -19,7 +19,7 @@ vector<int> twoSumBruteForce(vector<int> &nums, int target) {
     return {};
 }
 
-/* Метод 2: вспомогательная хеш-таблица */
+/* Способ 2: вспомогательная хеш-таблица */
 vector<int> twoSumHashTable(vector<int> &nums, int target) {
     int size = nums.size();
     // Вспомогательная хеш-таблица, пространственная сложность O(n)
@@ -34,20 +34,20 @@ vector<int> twoSumHashTable(vector<int> &nums, int target) {
     return {};
 }
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    // ======= Test Case =======
+    // ======= Тестовый пример =======
     vector<int> nums = {2, 7, 11, 15};
     int target = 13;
 
-    // ====== Основной код ======
-    // Метод 1
+    // ====== Пример использования ======
+    // Способ 1
     vector<int> res = twoSumBruteForce(nums, target);
-    cout << "Результат метода 1 res = ";
+    cout << "Способ 1, res = ";
     printVector(res);
-    // Метод 2
+    // Способ 2
     res = twoSumHashTable(nums, target);
-    cout << "Результат метода 2 res = ";
+    cout << "Способ 2, res = ";
     printVector(res);
 
     return 0;

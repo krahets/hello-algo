@@ -6,10 +6,10 @@ package chapter_searching
 
 import . "github.com/krahets/hello-algo/pkg"
 
-/* Hash-based search (array) */
+/* Hash lookup in an array */
 func hashingSearchArray(m map[int]int, target int) int {
-	// Hash table key: target element; value: index
-	// Return -1 if the hash table does not contain this key
+	// Hash table key: target element, value: index
+	// Return -1 if the key is absent
 	if index, ok := m[target]; ok {
 		return index
 	} else {
@@ -17,10 +17,10 @@ func hashingSearchArray(m map[int]int, target int) int {
 	}
 }
 
-/* Hash-based search (linked list) */
+/* Hash lookup in a linked list */
 func hashingSearchLinkedList(m map[int]*ListNode, target int) *ListNode {
-	// Hash table key: target node value; value: node object
-	// Return nil if the hash table does not contain this key
+	// Hash table key: target node value, value: node object
+	// Return nil if the key is absent
 	if node, ok := m[target]; ok {
 		return node
 	} else {

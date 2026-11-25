@@ -9,33 +9,33 @@ import (
 )
 
 /* 廣度優先走訪 */
-// 使用鄰接表來表示圖，以便獲取指定頂點的所有鄰接頂點
+// 以鄰接串列表示圖，以便取得指定頂點的所有相鄰頂點
 func graphBFS(g *graphAdjList, startVet Vertex) []Vertex {
-	// 頂點走訪序列
+	// 頂點走訪順序
 	res := make([]Vertex, 0)
-	// 雜湊集合，用於記錄已被訪問過的頂點
+	// 用雜湊集合記錄已走訪的頂點
 	visited := make(map[Vertex]struct{})
 	visited[startVet] = struct{}{}
-	// 佇列用於實現 BFS, 使用切片模擬佇列
+	// 以切片模擬佇列，用來實作 BFS
 	queue := make([]Vertex, 0)
 	queue = append(queue, startVet)
-	// 以頂點 vet 為起點，迴圈直至訪問完所有頂點
+	// 從頂點 vet 出發，反覆執行，直到走訪完所有頂點
 	for len(queue) > 0 {
-		// 佇列首頂點出隊
+		// 取出佇列前端的頂點
 		vet := queue[0]
 		queue = queue[1:]
-		// 記錄訪問頂點
+		// 記錄走訪的頂點
 		res = append(res, vet)
-		// 走訪該頂點的所有鄰接頂點
+		// 走訪此頂點的所有相鄰頂點
 		for _, adjVet := range g.adjList[vet] {
 			_, isExist := visited[adjVet]
-			// 只入列未訪問的頂點
+			// 只將尚未走訪的頂點加入佇列
 			if !isExist {
 				queue = append(queue, adjVet)
 				visited[adjVet] = struct{}{}
 			}
 		}
 	}
-	// 返回頂點走訪序列
+	// 回傳頂點的走訪順序
 	return res
 }

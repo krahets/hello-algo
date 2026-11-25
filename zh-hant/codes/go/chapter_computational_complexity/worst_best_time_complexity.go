@@ -8,10 +8,10 @@ import (
 	"math/rand"
 )
 
-/* 生成一個陣列，元素為 { 1, 2, ..., n }，順序被打亂 */
+/* 建立含有 { 1, 2, ..., n } 的陣列，並打亂順序 */
 func randomNumbers(n int) []int {
 	nums := make([]int, n)
-	// 生成陣列 nums = { 1, 2, 3, ..., n }
+	// 建立陣列 nums = { 1, 2, 3, ..., n }
 	for i := 0; i < n; i++ {
 		nums[i] = i + 1
 	}
@@ -22,11 +22,11 @@ func randomNumbers(n int) []int {
 	return nums
 }
 
-/* 查詢陣列 nums 中數字 1 所在索引 */
+/* 在陣列 nums 中尋找數字 1 的索引 */
 func findOne(nums []int) int {
 	for i := 0; i < len(nums); i++ {
-		// 當元素 1 在陣列頭部時，達到最佳時間複雜度 O(1)
-		// 當元素 1 在陣列尾部時，達到最差時間複雜度 O(n)
+		// 若 1 在陣列開頭，最佳時間複雜度為 O(1)
+		// 若 1 在陣列末端，最差時間複雜度為 O(n)
 		if nums[i] == 1 {
 			return i
 		}

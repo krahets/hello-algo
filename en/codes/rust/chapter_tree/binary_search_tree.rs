@@ -31,45 +31,45 @@ impl BinarySearchTree {
         self.root.clone()
     }
 
-    /* Find a node */
+    /* Search for a node */
     pub fn search(&self, num: i32) -> OptionTreeNodeRc {
         let mut cur = self.root.clone();
-        // Search while cur refers to a node
+        // Stop the search after passing a leaf
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // The target node lies in the right subtree of cur
+                // The target is in the right subtree of cur
                 Ordering::Greater => cur = node.borrow().right.clone(),
-                // The target node lies in the left subtree of cur
+                // The target is in the left subtree of cur
                 Ordering::Less => cur = node.borrow().left.clone(),
-                // The target node was found; exit the loop
+                // The target was found, so exit the loop
                 Ordering::Equal => break,
             }
         }
 
-        // Return the matching node, or None if no match was found
+        // Return the target node
         cur
     }
 
     /* Insert a node */
     pub fn insert(&mut self, num: i32) {
-        // If the tree is empty, initialize the root node
+        // If the tree is empty, initialize the root
         if self.root.is_none() {
             self.root = Some(TreeNode::new(num));
             return;
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // Search while cur refers to a node
+        // Stop the search after passing a leaf
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // Return immediately if a duplicate node is found
+                // Return if a duplicate is found
                 Ordering::Equal => return,
-                // The insertion position lies in the right subtree of cur
+                // The insertion position is in the right subtree of cur
                 Ordering::Greater => {
                     pre = cur.clone();
                     cur = node.borrow().right.clone();
                 }
-                // The insertion position lies in the left subtree of cur
+                // The insertion position is in the left subtree of cur
                 Ordering::Less => {
                     pre = cur.clone();
                     cur = node.borrow().left.clone();
@@ -86,7 +86,7 @@ impl BinarySearchTree {
         }
     }
 
-    /* Remove a node */
+    /* Delete a node */
     pub fn remove(&mut self, num: i32) {
         // Return immediately if the tree is empty
         if self.root.is_none() {
@@ -94,24 +94,24 @@ impl BinarySearchTree {
         }
         let mut cur = self.root.clone();
         let mut pre = None;
-        // Search while cur refers to a node
+        // Stop the search after passing a leaf
         while let Some(node) = cur.clone() {
             match num.cmp(&node.borrow().val) {
-                // The node to remove was found; exit the loop
+                // The node to delete was found, so exit the loop
                 Ordering::Equal => break,
-                // The node to remove lies in the right subtree of cur
+                // The node to delete is in the right subtree of cur
                 Ordering::Greater => {
                     pre = cur.clone();
                     cur = node.borrow().right.clone();
                 }
-                // The node to remove lies in the left subtree of cur
+                // The node to delete is in the left subtree of cur
                 Ordering::Less => {
                     pre = cur.clone();
                     cur = node.borrow().left.clone();
                 }
             }
         }
-        // Return immediately if the node to remove does not exist
+        // Return if the node to delete does not exist
         if cur.is_none() {
             return;
         }
@@ -120,9 +120,9 @@ impl BinarySearchTree {
         match (left_child.clone(), right_child.clone()) {
             // Number of children = 0 or 1
             (None, None) | (Some(_), None) | (None, Some(_)) => {
-                // With 0 or 1 child, child is None or that child, respectively
+                // With no children, child = nullptr. With one child, child is that child.
                 let child = left_child.or(right_child);
-                // Remove node cur
+                // Delete node cur
                 if !Rc::ptr_eq(&cur, self.root.as_ref().unwrap()) {
                     let pre = pre.unwrap();
                     let left = pre.borrow().left.clone();
@@ -132,7 +132,7 @@ impl BinarySearchTree {
                         pre.borrow_mut().right = child;
                     }
                 } else {
-                    // If the removed node is the root, assign the new root
+                    // If deleting the root, assign a new root
                     self.root = child;
                 }
             }
@@ -148,9 +148,9 @@ impl BinarySearchTree {
                     }
                 }
                 let tmp_val = tmp.unwrap().borrow().val;
-                // Recursively remove node tmp
+                // Recursively delete node tmp
                 self.remove(tmp_val);
-                // Replace the value of cur with the value of tmp
+                // Replace the value of cur with that of tmp
                 cur.borrow_mut().val = tmp_val;
             }
         }
@@ -161,18 +161,18 @@ impl BinarySearchTree {
 fn main() {
     /* Initialize the binary search tree */
     let mut bst = BinarySearchTree::new();
-    // Different insertion orders produce different binary trees; this sequence produces a perfect binary tree
+    // Different insertion orders produce different tree shapes. This sequence produces a perfect binary tree.
     let nums = [8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15];
     for &num in &nums {
         bst.insert(num);
     }
-    println!("\nThe initialized binary tree is:\n");
+    println!("\nInitial binary tree:\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
-    /* Find a node */
+    /* Search for a node */
     let node = bst.search(7);
     println!(
-        "\nFound node: {:?}, node value = {}",
+        "\nNode found: {:?}, node value = {}",
         node.clone().unwrap(),
         node.clone().unwrap().borrow().val
     );
@@ -182,14 +182,14 @@ fn main() {
     println!("\nBinary tree after inserting node 16:\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 
-    /* Remove a node */
+    /* Delete a node */
     bst.remove(1);
-    println!("\nBinary tree after removing node 1:\n");
+    println!("\nBinary tree after deleting node 1:\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
     bst.remove(2);
-    println!("\nBinary tree after removing node 2:\n");
+    println!("\nBinary tree after deleting node 2:\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
     bst.remove(4);
-    println!("\nBinary tree after removing node 4:\n");
+    println!("\nBinary tree after deleting node 4:\n");
     print_util::print_tree(bst.get_root().as_ref().unwrap());
 }

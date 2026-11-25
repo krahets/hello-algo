@@ -8,10 +8,10 @@ pub use hello_algo_rust::include::{vals_to_vets, vets_to_vals, Vertex};
 
 use std::collections::HashMap;
 
-/* Undirected graph type implemented with an adjacency list */
+/* Undirected graph type represented by an adjacency list */
 pub struct GraphAdjList {
-    // Adjacency list: key is a vertex, value is the list of all its neighbors
-    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // A HashSet<Vertex> may be a better choice for the neighbor collection
+    // Adjacency list: each vertex maps to its neighbors
+    pub adj_list: HashMap<Vertex, Vec<Vertex>>, // Would HashSet<Vertex> be a better choice for the values?
 }
 
 impl GraphAdjList {
@@ -30,7 +30,7 @@ impl GraphAdjList {
         graph
     }
 
-    /* Get the number of vertices */
+    /* Get the vertex count */
     #[allow(unused)]
     pub fn size(&self) -> usize {
         self.adj_list.len()
@@ -39,9 +39,9 @@ impl GraphAdjList {
     /* Add an edge */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("Vertices must be distinct");
+            panic!("value error");
         }
-        // Add edge vet1 - vet2
+        // Add the edge vet1 - vet2
         self.adj_list.entry(vet1).or_default().push(vet2);
         self.adj_list.entry(vet2).or_default().push(vet1);
     }
@@ -50,9 +50,9 @@ impl GraphAdjList {
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("Vertices must be distinct");
+            panic!("value error");
         }
-        // Remove edge vet1 - vet2
+        // Remove the edge vet1 - vet2
         self.adj_list
             .entry(vet1)
             .and_modify(|v| v.retain(|&e| e != vet2));
@@ -66,16 +66,16 @@ impl GraphAdjList {
         if self.adj_list.contains_key(&vet) {
             return;
         }
-        // Add a new neighbor list to the adjacency list
+        // Add a new linked list to the adjacency list
         self.adj_list.insert(vet, vec![]);
     }
 
     /* Remove a vertex */
     #[allow(unused)]
     pub fn remove_vertex(&mut self, vet: Vertex) {
-        // Remove the neighbor list for vertex vet from the adjacency list
+        // Remove the linked list for vertex vet from the adjacency list
         self.adj_list.remove(&vet);
-        // Traverse the other neighbor lists and remove every edge incident to vet
+        // Traverse the other vertices' lists and remove every edge incident to vet
         for list in self.adj_list.values_mut() {
             list.retain(|&v| v != vet);
         }
@@ -94,7 +94,7 @@ impl GraphAdjList {
 /* Driver code */
 #[allow(unused)]
 fn main() {
-    /* Initialize the undirected graph */
+    /* Initialize an undirected graph */
     let v = vals_to_vets(vec![1, 3, 2, 5, 4]);
     let edges = vec![
         [v[0], v[1]],
@@ -110,13 +110,13 @@ fn main() {
     graph.print();
 
     /* Add an edge */
-    // Vertices 1 and 2 are v[0] and v[2]
+    // Vertices 1 and 2 are v[0] and v[2], respectively
     graph.add_edge(v[0], v[2]);
     println!("\nGraph after adding edge 1-2:");
     graph.print();
 
     /* Remove an edge */
-    // Vertices 1 and 3 are v[0] and v[1]
+    // Vertices 1 and 3 are v[0] and v[1], respectively
     graph.remove_edge(v[0], v[1]);
     println!("\nGraph after removing edge 1-3:");
     graph.print();

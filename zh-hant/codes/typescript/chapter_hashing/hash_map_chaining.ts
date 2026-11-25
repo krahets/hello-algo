@@ -14,15 +14,15 @@ class Pair {
     }
 }
 
-/* 鏈式位址雜湊表 */
+/* 鏈結法雜湊表 */
 class HashMapChaining {
     #size: number; // 鍵值對數量
     #capacity: number; // 雜湊表容量
-    #loadThres: number; // 觸發擴容的負載因子閾值
-    #extendRatio: number; // 擴容倍數
+    #loadThres: number; // 觸發容量擴充的負載因子門檻
+    #extendRatio: number; // 容量擴充倍數
     #buckets: Pair[][]; // 桶陣列
 
-    /* 建構子 */
+    /* 建構方法 */
     constructor() {
         this.#size = 0;
         this.#capacity = 4;
@@ -45,32 +45,32 @@ class HashMapChaining {
     get(key: number): string | null {
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // 走訪桶，若找到 key ，則返回對應 val
+        // 走訪桶中的元素，若找到 key，就回傳對應的 val
         for (const pair of bucket) {
             if (pair.key === key) {
                 return pair.val;
             }
         }
-        // 若未找到 key ，則返回 null
+        // 若找不到 key，回傳 null
         return null;
     }
 
     /* 新增操作 */
     put(key: number, val: string): void {
-        // 當負載因子超過閾值時，執行擴容
+        // 當負載因子超過門檻時，擴充容量
         if (this.#loadFactor() > this.#loadThres) {
             this.#extend();
         }
         const index = this.#hashFunc(key);
         const bucket = this.#buckets[index];
-        // 走訪桶，若遇到指定 key ，則更新對應 val 並返回
+        // 走訪桶中的元素，若遇到指定的 key，就更新對應的 val 並結束操作
         for (const pair of bucket) {
             if (pair.key === key) {
                 pair.val = val;
                 return;
             }
         }
-        // 若無該 key ，則將鍵值對新增至尾部
+        // 若沒有這個 key，就將鍵值對加到尾端
         const pair = new Pair(key, val);
         bucket.push(pair);
         this.#size++;
@@ -80,7 +80,7 @@ class HashMapChaining {
     remove(key: number): void {
         const index = this.#hashFunc(key);
         let bucket = this.#buckets[index];
-        // 走訪桶，從中刪除鍵值對
+        // 走訪桶中的元素，從中刪除鍵值對
         for (let i = 0; i < bucket.length; i++) {
             if (bucket[i].key === key) {
                 bucket.splice(i, 1);
@@ -90,15 +90,15 @@ class HashMapChaining {
         }
     }
 
-    /* 擴容雜湊表 */
+    /* 擴充雜湊表容量 */
     #extend(): void {
-        // 暫存原雜湊表
+        // 暫存原本的雜湊表
         const bucketsTmp = this.#buckets;
-        // 初始化擴容後的新雜湊表
+        // 初始化擴充後的新雜湊表
         this.#capacity *= this.#extendRatio;
         this.#buckets = new Array(this.#capacity).fill(null).map((x) => []);
         this.#size = 0;
-        // 將鍵值對從原雜湊表搬運至新雜湊表
+        // 將鍵值對從原本的雜湊表移到新表
         for (const bucket of bucketsTmp) {
             for (const pair of bucket) {
                 this.put(pair.key, pair.val);
@@ -106,7 +106,7 @@ class HashMapChaining {
         }
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     print(): void {
         for (const bucket of this.#buckets) {
             let res = [];
@@ -118,7 +118,7 @@ class HashMapChaining {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 /* 初始化雜湊表 */
 const map = new HashMapChaining();
 
@@ -129,18 +129,18 @@ map.put(15937, '小囉');
 map.put(16750, '小算');
 map.put(13276, '小法');
 map.put(10583, '小鴨');
-console.log('\n新增完成後，雜湊表為\nKey -> Value');
+console.log('\n新增後的雜湊表\nKey -> Value');
 map.print();
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 const name = map.get(13276);
-console.log('\n輸入學號 13276 ，查詢到姓名 ' + name);
+console.log('\n輸入學號 13276，查得姓名 ' + name);
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.remove(12836);
-console.log('\n刪除 12836 後，雜湊表為\nKey -> Value');
+console.log('\n刪除 12836 後的雜湊表\nKey -> Value');
 map.print();
 
 export {};

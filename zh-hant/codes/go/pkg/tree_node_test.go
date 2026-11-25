@@ -13,9 +13,9 @@ func TestTreeNode(t *testing.T) {
 	arr := []any{1, 2, 3, nil, 5, 6, nil}
 	node := SliceToTree(arr)
 
-	// print tree
+	// 印出二元樹
 	PrintTree(node)
 
-	// tree to arr
+	// 將二元樹轉為切片
 	fmt.Println(TreeToSlice(node))
 }

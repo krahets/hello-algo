@@ -9,7 +9,7 @@ class Vertex {
   int val;
   Vertex(this.val);
 
-  /* 값의 리스트 vals를 입력받아 정점 리스트 vets 반환 */
+  /* 값 리스트 vals를 받아 정점 리스트 vets를 반환한다. */
   static List<Vertex> valsToVets(List<int> vals) {
     List<Vertex> vets = [];
     for (int i in vals) {
@@ -18,7 +18,7 @@ class Vertex {
     return vets;
   }
 
-  /* 정점 리스트 vets를 입력받아 값의 리스트 vals 반환 */
+  /* 정점 리스트 vets를 받아 값 리스트 vals를 반환한다. */
   static List<int> vetsToVals(List<Vertex> vets) {
     List<int> vals = [];
     for (Vertex vet in vets) {

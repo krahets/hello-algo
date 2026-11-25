@@ -8,7 +8,7 @@
 void bubbleSort(List<int> nums) {
   // Outer loop: the unsorted range is [0, i]
   for (int i = nums.length - 1; i > 0; i--) {
-    // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+    // Inner loop: swap the largest element in [0, i] to the right end of the range
     for (int j = 0; j < i; j++) {
       if (nums[j] > nums[j + 1]) {
         // Swap nums[j] and nums[j + 1]
@@ -20,12 +20,12 @@ void bubbleSort(List<int> nums) {
   }
 }
 
-/* Bubble sort (flag optimization)*/
+/* Bubble sort with an early-exit flag*/
 void bubbleSortWithFlag(List<int> nums) {
   // Outer loop: the unsorted range is [0, i]
   for (int i = nums.length - 1; i > 0; i--) {
     bool flag = false; // Initialize the flag
-    // Inner loop: move the largest element in the unsorted range [0, i] to its right end through swaps
+    // Inner loop: swap the largest element in [0, i] to the right end of the range
     for (int j = 0; j < i; j++) {
       if (nums[j] > nums[j + 1]) {
         // Swap nums[j] and nums[j + 1]
@@ -35,11 +35,11 @@ void bubbleSortWithFlag(List<int> nums) {
         flag = true; // Record that a swap occurred
       }
     }
-    if (!flag) break; // Exit immediately if this pass made no swaps
+    if (!flag) break; // Stop if this pass made no swaps
   }
 }
 
-/* Driver code */
+/* Driver Code */
 void main() {
   List<int> nums = [4, 1, 3, 1, 5, 2];
   bubbleSort(nums);

@@ -12,11 +12,11 @@ icon: material/bookshelf
 
 [4] Weimin Yan. Data Structures (C Edition).
 
-[5] Junhui Deng. Data Structures (C++ Edition, 3rd Edition).
+[5] Junhui Deng. Data Structures in C++ (3rd Edition).
 
-[6] Mark Allen Weiss; translated by Yue Chen. Data Structures and Algorithm Analysis in Java (3rd Edition).
+[6] Mark Allen Weiss. Data Structures and Algorithm Analysis in Java (3rd Edition). Chinese translation by Yue Chen.
 
-[7] Jie Cheng. A Friendly Guide to Data Structures.
+[7] Jie Cheng. Data Structures in Plain Language.
 
 [8] Zheng Wang. The Beauty of Data Structures and Algorithms.
 

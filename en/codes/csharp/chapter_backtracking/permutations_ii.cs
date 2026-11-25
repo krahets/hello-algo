@@ -9,24 +9,24 @@ namespace hello_algo.chapter_backtracking;
 public class permutations_ii {
     /* Backtracking: permutations II */
     void Backtrack(List<int> state, int[] choices, bool[] selected, List<List<int>> res) {
-        // Record a solution when the state length equals the number of elements
+        // Record a solution when the state contains all the elements
         if (state.Count == choices.Length) {
             res.Add(new List<int>(state));
             return;
         }
-        // Iterate over all choices
+        // Try each choice
         HashSet<int> duplicated = [];
         for (int i = 0; i < choices.Length; i++) {
             int choice = choices[i];
-            // Prune: do not reuse an element or choose the same value again at this depth
+            // Skip elements already in use and values already tried at this level
             if (!selected[i] && !duplicated.Contains(choice)) {
-                // Try: make a choice and update the state
-                duplicated.Add(choice); // Record the chosen value
+                // Make a choice and update the state
+                duplicated.Add(choice); // Track values already tried
                 selected[i] = true;
                 state.Add(choice);
-                // Proceed to the next choice
+                // Make the next choice
                 Backtrack(state, choices, selected, res);
-                // Backtrack: undo the choice and restore the previous state
+                // Backtrack: undo the choice to restore the previous state
                 selected[i] = false;
                 state.RemoveAt(state.Count - 1);
             }
@@ -46,8 +46,8 @@ public class permutations_ii {
 
         List<List<int>> res = PermutationsII(nums);
 
-        Console.WriteLine("Input array nums = " + string.Join(", ", nums));
-        Console.WriteLine("All permutations: res = ");
+        Console.WriteLine("Input array nums =  " + string.Join(", ", nums));
+        Console.WriteLine("All permutations res =  ");
         foreach (List<int> permutation in res) {
             PrintUtil.PrintList(permutation);
         }

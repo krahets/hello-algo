@@ -17,16 +17,16 @@ int main() {
     queue.push(2);
     queue.push(5);
     queue.push(4);
-    cout << "Queue queue = ";
+    cout << "queue = ";
     printQueue(queue);
 
-    /* Access the front element */
+    /* Peek at the front element */
     int front = queue.front();
-    cout << "Front element front = " << front << endl;
+    cout << "Front element (front) = " << front << endl;
 
     /* Dequeue an element */
     queue.pop();
-    cout << "Dequeued element front = " << front << "; after dequeueing, queue = ";
+    cout << "Dequeued element (front) = " << front << ", queue after removal = ";
     printQueue(queue);
 
     /* Get the queue size */
@@ -35,7 +35,7 @@ int main() {
 
     /* Check whether the queue is empty */
     bool empty = queue.empty();
-    cout << "Is the queue empty = " << empty << endl;
+    cout << "Queue is empty = " << empty << endl;
 
     return 0;
 }

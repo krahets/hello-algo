@@ -19,15 +19,15 @@ fun main() {
     queue.offer(2)
     queue.offer(5)
     queue.offer(4)
-    println("Queue queue = $queue")
+    println("queue = $queue")
 
-    /* Access the front element */
+    /* Peek at the front element */
     val peek = queue.peek()
-    println("Front element: peek = $peek")
+    println("Front element (peek) = $peek")
 
     /* Dequeue an element */
     val pop = queue.poll()
-    println("Dequeued element: pop = $pop; queue after removal = $queue")
+    println("Dequeued element (pop) = $pop, queue after removal = $queue")
 
     /* Get the queue size */
     val size = queue.size
@@ -35,5 +35,5 @@ fun main() {
 
     /* Check whether the queue is empty */
     val isEmpty = queue.isEmpty()
-    println("Is the queue empty? $isEmpty")
+    println("Queue is empty = $isEmpty")
 }

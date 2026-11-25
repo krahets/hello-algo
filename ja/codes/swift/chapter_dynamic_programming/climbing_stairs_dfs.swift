@@ -6,7 +6,7 @@
 
 /* 探索 */
 func dfs(i: Int) -> Int {
-    // dp[1] と dp[2] は既知なので、その値を返す
+    // 既知の値 dp[1] と dp[2] のうち、該当する方を返す
     if i == 1 || i == 2 {
         return i
     }
@@ -15,18 +15,18 @@ func dfs(i: Int) -> Int {
     return count
 }
 
-/* 階段の上り方：探索 */
+/* 階段の登り方：探索 */
 func climbingStairsDFS(n: Int) -> Int {
     dfs(i: n)
 }
 
 @main
 enum ClimbingStairsDFS {
-    /* 実行用コード */
+    /* 実行例 */
     static func main() {
         let n = 9
 
         let res = climbingStairsDFS(n: n)
-        print("\(n) 段の階段を上る方法は全部で \(res) 通り")
+        print("全 \(n) 段の階段の登り方は \(res) 通り")
     }
 }

@@ -1,4 +1,4 @@
-# CSharp の書式設定規則
+# C# の書式設定規則
 [*.cs]
 csharp_new_line_before_open_brace = none
 csharp_new_line_before_else = false
@@ -20,13 +20,13 @@ csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
 
-# CS8981: 型名に小文字の ASCII 文字しか含まれていません。このような名前は将来、言語の予約語になる可能性があります。
+# CS8981: 型名が ASCII の英小文字のみで構成されています。このような名前は、今後この言語の予約語になる可能性があります。
 dotnet_diagnostic.CS8981.severity = silent
 
 # IDE1006: 命名スタイル
 dotnet_diagnostic.IDE1006.severity = silent
 
-# CA1822: メンバーを static にする
+# CA1822: メンバーに static を指定する
 dotnet_diagnostic.CA1822.severity = silent
 
 [*.{cs,vb}]

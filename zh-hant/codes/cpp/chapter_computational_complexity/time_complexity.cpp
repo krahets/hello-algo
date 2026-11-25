@@ -36,7 +36,7 @@ int arrayTraversal(vector<int> &nums) {
 /* 平方階 */
 int quadratic(int n) {
     int count = 0;
-    // 迴圈次數與資料大小 n 成平方關係
+    // 迴圈次數正比於資料大小 n 的平方
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             count++;
@@ -45,26 +45,26 @@ int quadratic(int n) {
     return count;
 }
 
-/* 平方階（泡沫排序） */
+/* 平方階（氣泡排序） */
 int bubbleSort(vector<int> &nums) {
     int count = 0; // 計數器
-    // 外迴圈：未排序區間為 [0, i]
+    // 外層迴圈：未排序區間為 [0, i]
     for (int i = nums.size() - 1; i > 0; i--) {
-        // 內迴圈：將未排序區間 [0, i] 中的最大元素交換至該區間的最右端
+        // 內層迴圈：藉由交換，將未排序區間 [0, i] 的最大元素移至最右端
         for (int j = 0; j < i; j++) {
             if (nums[j] > nums[j + 1]) {
                 // 交換 nums[j] 與 nums[j + 1]
                 int tmp = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = tmp;
-                count += 3; // 元素交換包含 3 個單元操作
+                count += 3; // 交換元素需 3 個基本操作
             }
         }
     }
     return count;
 }
 
-/* 指數階（迴圈實現） */
+/* 指數階（迴圈實作） */
 int exponential(int n) {
     int count = 0, base = 1;
     // 細胞每輪一分為二，形成數列 1, 2, 4, 8, ..., 2^(n-1)
@@ -78,14 +78,14 @@ int exponential(int n) {
     return count;
 }
 
-/* 指數階（遞迴實現） */
+/* 指數階（遞迴實作） */
 int expRecur(int n) {
     if (n == 1)
         return 1;
     return expRecur(n - 1) + expRecur(n - 1) + 1;
 }
 
-/* 對數階（迴圈實現） */
+/* 對數階（迴圈實作） */
 int logarithmic(int n) {
     int count = 0;
     while (n > 1) {
@@ -95,7 +95,7 @@ int logarithmic(int n) {
     return count;
 }
 
-/* 對數階（遞迴實現） */
+/* 對數階（遞迴實作） */
 int logRecur(int n) {
     if (n <= 1)
         return 0;
@@ -113,56 +113,56 @@ int linearLogRecur(int n) {
     return count;
 }
 
-/* 階乘階（遞迴實現） */
+/* 階乘階（遞迴實作） */
 int factorialRecur(int n) {
     if (n == 0)
         return 1;
     int count = 0;
-    // 從 1 個分裂出 n 個
+    // 1 個呼叫分為 n 個
     for (int i = 0; i < n; i++) {
         count += factorialRecur(n - 1);
     }
     return count;
 }
 
-/* Driver Code */
+/* 主程式 */
 int main() {
-    // 可以修改 n 執行，體會一下各種複雜度的操作數量變化趨勢
+    // 試著修改 n 再執行，觀察各種複雜度的操作次數如何變化
     int n = 8;
-    cout << "輸入資料大小 n = " << n << endl;
+    cout << "輸入規模 n = " << n << endl;
 
     int count = constant(n);
-    cout << "常數階的操作數量 = " << count << endl;
+    cout << "常數階的操作次數 = " << count << endl;
 
     count = linear(n);
-    cout << "線性階的操作數量 = " << count << endl;
+    cout << "線性階的操作次數 = " << count << endl;
     vector<int> arr(n);
     count = arrayTraversal(arr);
-    cout << "線性階（走訪陣列）的操作數量 = " << count << endl;
+    cout << "線性階（走訪陣列）的操作次數 = " << count << endl;
 
     count = quadratic(n);
-    cout << "平方階的操作數量 = " << count << endl;
+    cout << "平方階的操作次數 = " << count << endl;
     vector<int> nums(n);
     for (int i = 0; i < n; i++)
         nums[i] = n - i; // [n,n-1,...,2,1]
     count = bubbleSort(nums);
-    cout << "平方階（泡沫排序）的操作數量 = " << count << endl;
+    cout << "平方階（氣泡排序）的操作次數 = " << count << endl;
 
     count = exponential(n);
-    cout << "指數階（迴圈實現）的操作數量 = " << count << endl;
+    cout << "指數階（迴圈實作）的操作次數 = " << count << endl;
     count = expRecur(n);
-    cout << "指數階（遞迴實現）的操作數量 = " << count << endl;
+    cout << "指數階（遞迴實作）的操作次數 = " << count << endl;
 
     count = logarithmic(n);
-    cout << "對數階（迴圈實現）的操作數量 = " << count << endl;
+    cout << "對數階（迴圈實作）的操作次數 = " << count << endl;
     count = logRecur(n);
-    cout << "對數階（遞迴實現）的操作數量 = " << count << endl;
+    cout << "對數階（遞迴實作）的操作次數 = " << count << endl;
 
     count = linearLogRecur(n);
-    cout << "線性對數階（遞迴實現）的操作數量 = " << count << endl;
+    cout << "線性對數階（遞迴實作）的操作次數 = " << count << endl;
 
     count = factorialRecur(n);
-    cout << "階乘階（遞迴實現）的操作數量 = " << count << endl;
+    cout << "階乘階（遞迴實作）的操作次數 = " << count << endl;
 
     return 0;
 }

@@ -13,7 +13,7 @@ void insert(ListNode *n0, ListNode *P) {
     n0->next = P;
 }
 
-/* 連結リストのノード n0 の直後のノードを削除する */
+/* 連結リストのノード n0 の直後にあるノードを削除する */
 void remove(ListNode *n0) {
     if (n0->next == nullptr)
         return;
@@ -35,7 +35,7 @@ ListNode *access(ListNode *head, int index) {
     return head;
 }
 
-/* 連結リストから値が target である最初のノードを探索する */
+/* 連結リストから値が target の最初のノードを探す */
 int find(ListNode *head, int target) {
     int index = 0;
     while (head != nullptr) {
@@ -47,7 +47,7 @@ int find(ListNode *head, int target) {
     return -1;
 }
 
-/* 実行用コード */
+/* ドライバコード */
 int main() {
     /* 連結リストを初期化する */
     // 各ノードを初期化する
@@ -61,26 +61,26 @@ int main() {
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
-    cout << "初期化した連結リスト" << endl;
+    cout << "初期化した連結リスト：" << endl;
     printLinkedList(n0);
 
     /* ノードを挿入する */
     insert(n0, new ListNode(0));
-    cout << "ノードを挿入した後の連結リスト" << endl;
+    cout << "ノード挿入後の連結リスト：" << endl;
     printLinkedList(n0);
 
     /* ノードを削除する */
     remove(n0);
-    cout << "ノードを削除した後の連結リスト" << endl;
+    cout << "ノード削除後の連結リスト：" << endl;
     printLinkedList(n0);
 
     /* ノードにアクセスする */
     ListNode *node = access(n0, 3);
     cout << "連結リストのインデックス 3 にあるノードの値 = " << node->val << endl;
 
-    /* ノードを探索する */
+    /* ノードを探す */
     int index = find(n0, 2);
-    cout << "連結リスト内で値が 2 であるノードのインデックス = " << index << endl;
+    cout << "連結リストで値が 2 のノードのインデックス = " << index << endl;
 
     // メモリを解放する
     freeMemoryLinkedList(n0);

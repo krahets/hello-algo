@@ -40,7 +40,7 @@ void main() {
   List<List<TreeNode>> res = [];
   preOrder(root, path, res);
 
-  print("\n루트 노드에서 노드 7까지의 모든 경로 출력");
+  print("\n루트에서 값이 7인 노드까지의 모든 경로 출력");
   for (List<TreeNode> vals in res) {
     print(List.generate(vals.length, (i) => vals[i].val));
   }

@@ -7,8 +7,8 @@
 /* 이진 트리 노드 */
 class TreeNode {
     val; // 노드 값
-    left; // 왼쪽 자식 노드 포인터
-    right; // 오른쪽 자식 노드 포인터
+    left; // 왼쪽 자식 노드를 가리키는 포인터
+    right; // 오른쪽 자식 노드를 가리키는 포인터
     height; //노드 높이
     constructor(val, left, right, height) {
         this.val = val === undefined ? 0 : val;
@@ -18,7 +18,7 @@ class TreeNode {
     }
 }
 
-/* 배열을 역직렬화하여 이진 트리로 변환한다 */
+/* 배열을 이진 트리로 역직렬화 */
 function arrToTree(arr, i = 0) {
     if (i < 0 || i >= arr.length || arr[i] === null) {
         return null;

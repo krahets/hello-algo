@@ -15,12 +15,12 @@ class Pair {
     }
 }
 
-/* 基於陣列實現的雜湊表 */
+/* 以陣列實作的雜湊表 */
 class ArrayHashMap {
     private readonly buckets: (Pair | null)[];
 
     constructor() {
-        // 初始化陣列，包含 100 個桶
+        // 初始化包含 100 個桶的陣列
         this.buckets = new Array(100).fill(null);
     }
 
@@ -46,11 +46,11 @@ class ArrayHashMap {
     /* 刪除操作 */
     public delete(key: number) {
         let index = this.hashFunc(key);
-        // 置為 null ，代表刪除
+        // 設為 null，表示刪除
         this.buckets[index] = null;
     }
 
-    /* 獲取所有鍵值對 */
+    /* 取得所有鍵值對 */
     public entries(): (Pair | null)[] {
         let arr: (Pair | null)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -61,7 +61,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* 獲取所有鍵 */
+    /* 取得所有鍵 */
     public keys(): (number | undefined)[] {
         let arr: (number | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -72,7 +72,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* 獲取所有值 */
+    /* 取得所有值 */
     public values(): (string | undefined)[] {
         let arr: (string | undefined)[] = [];
         for (let i = 0; i < this.buckets.length; i++) {
@@ -83,7 +83,7 @@ class ArrayHashMap {
         return arr;
     }
 
-    /* 列印雜湊表 */
+    /* 印出雜湊表 */
     public print() {
         let pairSet = this.entries();
         for (const pair of pairSet) {
@@ -92,7 +92,7 @@ class ArrayHashMap {
     }
 }
 
-/* Driver Code */
+/* 主程式 */
 /* 初始化雜湊表 */
 const map = new ArrayHashMap();
 /* 新增操作 */
@@ -102,18 +102,18 @@ map.set(15937, '小囉');
 map.set(16750, '小算');
 map.set(13276, '小法');
 map.set(10583, '小鴨');
-console.info('\n新增完成後，雜湊表為\nKey -> Value');
+console.info('\n新增後的雜湊表\nKey -> Value');
 map.print();
 
 /* 查詢操作 */
-// 向雜湊表中輸入鍵 key ，得到值 value
+// 輸入鍵 key，從雜湊表取得對應的值 value
 let name = map.get(15937);
-console.info('\n輸入學號 15937 ，查詢到姓名 ' + name);
+console.info('\n輸入學號 15937，查得姓名 ' + name);
 
 /* 刪除操作 */
-// 在雜湊表中刪除鍵值對 (key, value)
+// 從雜湊表刪除鍵值對 (key, value)
 map.delete(10583);
-console.info('\n刪除 10583 後，雜湊表為\nKey -> Value');
+console.info('\n刪除 10583 後的雜湊表\nKey -> Value');
 map.print();
 
 /* 走訪雜湊表 */
@@ -122,11 +122,11 @@ for (const pair of map.entries()) {
     if (!pair) continue;
     console.info(pair.key + ' -> ' + pair.val);
 }
-console.info('\n單獨走訪鍵 Key');
+console.info('\n只走訪鍵 Key');
 for (const key of map.keys()) {
     console.info(key);
 }
-console.info('\n單獨走訪值 Value');
+console.info('\n只走訪值 Value');
 for (const val of map.values()) {
     console.info(val);
 }

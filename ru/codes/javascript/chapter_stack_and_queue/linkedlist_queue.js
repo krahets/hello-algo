@@ -8,8 +8,8 @@ const { ListNode } = require('../modules/ListNode');
 
 /* Очередь на основе связного списка */
 class LinkedListQueue {
-    #front; // Головной узел #front
-    #rear; // Хвостовой узел #rear
+    #front; // Первый узел #front
+    #rear; // Последний узел #rear
     #queSize = 0;
 
     constructor() {
@@ -17,25 +17,25 @@ class LinkedListQueue {
         this.#rear = null;
     }
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     get size() {
         return this.#queSize;
     }
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     isEmpty() {
         return this.size === 0;
     }
 
-    /* Поместить в очередь */
+    /* Добавить элемент в очередь */
     push(num) {
-        // Добавить num после хвостового узла
+        // Добавить узел со значением num после последнего узла
         const node = new ListNode(num);
-        // Если очередь пуста, сделать так, чтобы и head, и tail указывали на этот узел
+        // Если очередь пуста, установить ссылки на первый и последний узлы так, чтобы обе указывали на новый узел
         if (!this.#front) {
             this.#front = node;
             this.#rear = node;
-            // Если очередь не пуста, добавить этот узел после хвостового узла
+            // Если очередь непуста, добавить новый узел после последнего
         } else {
             this.#rear.next = node;
             this.#rear = node;
@@ -43,22 +43,22 @@ class LinkedListQueue {
         this.#queSize++;
     }
 
-    /* Извлечь из очереди */
+    /* Извлечь элемент из очереди */
     pop() {
         const num = this.peek();
-        // Удалить головной узел
+        // Удалить первый узел
         this.#front = this.#front.next;
         this.#queSize--;
         return num;
     }
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     peek() {
-        if (this.size === 0) throw new Error('очередь пуста');
+        if (this.size === 0) throw new Error('Очередь пуста');
         return this.#front.val;
     }
 
-    /* Преобразовать связный список в Array и вернуть */
+    /* Преобразовать связный список в массив и вернуть его */
     toArray() {
         let node = this.#front;
         const res = new Array(this.size);
@@ -70,11 +70,11 @@ class LinkedListQueue {
     }
 }
 
-/* Driver Code */
-/* Инициализация очереди */
+/* Пример использования */
+/* Инициализировать очередь */
 const queue = new LinkedListQueue();
 
-/* Добавление элемента в очередь */
+/* Добавить элементы в очередь */
 queue.push(1);
 queue.push(3);
 queue.push(2);
@@ -82,18 +82,18 @@ queue.push(5);
 queue.push(4);
 console.log('Очередь queue = ' + queue.toArray());
 
-/* Доступ к элементу в начале очереди */
+/* Посмотреть первый элемент очереди */
 const peek = queue.peek();
-console.log('Первый элемент peek = ' + peek);
+console.log('Первый элемент очереди peek = ' + peek);
 
-/* Извлечение элемента из очереди */
+/* Извлечь элемент из очереди */
 const pop = queue.pop();
-console.log('Извлеченный элемент pop = ' + pop + ', queue после извлечения = ' + queue.toArray());
+console.log('Извлечённый элемент pop = ' + pop + ', после извлечения queue = ' + queue.toArray());
 
-/* Получение длины очереди */
+/* Получить длину очереди */
 const size = queue.size;
 console.log('Длина очереди size = ' + size);
 
-/* Проверка, пуста ли очередь */
+/* Проверить, пуста ли очередь */
 const isEmpty = queue.isEmpty();
-console.log('Пуста ли очередь = ' + isEmpty);
+console.log('Очередь пуста = ' + isEmpty);

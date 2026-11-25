@@ -4,11 +4,11 @@
  * Author: liuyuxin (gvenusleo@gmail.com)
  */
 
-/* 基於環形陣列實現的雙向佇列 */
+/* 以環狀陣列實作雙端佇列 */
 class ArrayDeque {
-  late List<int> _nums; // 用於儲存雙向佇列元素的陣列
-  late int _front; // 佇列首指標，指向佇列首元素
-  late int _queSize; // 雙向佇列長度
+  late List<int> _nums; // 存放雙端佇列元素的陣列
+  late int _front; // 隊首索引，記錄隊首元素在陣列中的位置
+  late int _queSize; // 雙端佇列長度
 
   /* 建構子 */
   ArrayDeque(int capacity) {
@@ -16,91 +16,91 @@ class ArrayDeque {
     this._front = this._queSize = 0;
   }
 
-  /* 獲取雙向佇列的容量 */
+  /* 取得雙端佇列容量 */
   int capacity() {
     return _nums.length;
   }
 
-  /* 獲取雙向佇列的長度 */
+  /* 取得雙端佇列長度 */
   int size() {
     return _queSize;
   }
 
-  /* 判斷雙向佇列是否為空 */
+  /* 判斷雙端佇列是否為空 */
   bool isEmpty() {
     return _queSize == 0;
   }
 
-  /* 計算環形陣列索引 */
+  /* 計算環狀陣列的索引 */
   int index(int i) {
-    // 透過取餘操作實現陣列首尾相連
-    // 當 i 越過陣列尾部後，回到頭部
-    // 當 i 越過陣列頭部後，回到尾部
+    // 取餘數，讓陣列的首尾相接
+    // 當 i 超過陣列末端時，繞回開頭
+    // 當 i 越過陣列開頭時，繞回末端
     return (i + capacity()) % capacity();
   }
 
-  /* 佇列首入列 */
+  /* 從隊首加入元素 */
   void pushFirst(int _num) {
     if (_queSize == capacity()) {
-      throw Exception("雙向佇列已滿");
+      throw Exception("雙端佇列已滿");
     }
-    // 佇列首指標向左移動一位
-    // 透過取餘操作實現 _front 越過陣列頭部後回到尾部
+    // 將隊首索引往左移一格
+    // 取餘數，讓 _front 越過陣列開頭時繞回末端
     _front = index(_front - 1);
-    // 將 _num 新增至佇列首
+    // 將 _num 加到隊首
     _nums[_front] = _num;
     _queSize++;
   }
 
-  /* 佇列尾入列 */
+  /* 從隊尾加入元素 */
   void pushLast(int _num) {
     if (_queSize == capacity()) {
-      throw Exception("雙向佇列已滿");
+      throw Exception("雙端佇列已滿");
     }
-    // 計算佇列尾指標，指向佇列尾索引 + 1
+    // 計算下一次從隊尾寫入的位置 rear（隊尾索引 + 1）
     int rear = index(_front + _queSize);
-    // 將 _num 新增至佇列尾
+    // 將 _num 加到隊尾
     _nums[rear] = _num;
     _queSize++;
   }
 
-  /* 佇列首出列 */
+  /* 從隊首取出元素 */
   int popFirst() {
     int _num = peekFirst();
-    // 佇列首指標向右移動一位
+    // 將隊首索引往右移一格
     _front = index(_front + 1);
     _queSize--;
     return _num;
   }
 
-  /* 佇列尾出列 */
+  /* 從隊尾取出元素 */
   int popLast() {
     int _num = peekLast();
     _queSize--;
     return _num;
   }
 
-  /* 訪問佇列首元素 */
+  /* 讀取隊首元素 */
   int peekFirst() {
     if (isEmpty()) {
-      throw Exception("雙向佇列為空");
+      throw Exception("雙端佇列為空");
     }
     return _nums[_front];
   }
 
-  /* 訪問佇列尾元素 */
+  /* 讀取隊尾元素 */
   int peekLast() {
     if (isEmpty()) {
-      throw Exception("雙向佇列為空");
+      throw Exception("雙端佇列為空");
     }
-    // 計算尾元素索引
+    // 計算隊尾元素的索引
     int last = index(_front + _queSize - 1);
     return _nums[last];
   }
 
-  /* 返回陣列用於列印 */
+  /* 回傳 List 以便輸出 */
   List<int> toArray() {
-    // 僅轉換有效長度範圍內的串列元素
+    // 只轉換雙端佇列中實際存放的元素
     List<int> res = List.filled(_queSize, 0);
     for (int i = 0, j = _front; i < _queSize; i++, j++) {
       res[i] = _nums[index(j)];
@@ -109,38 +109,38 @@ class ArrayDeque {
   }
 }
 
-/* Driver Code */
+/* 範例程式 */
 void main() {
-  /* 初始化雙向佇列 */
+  /* 初始化雙端佇列 */
   final ArrayDeque deque = ArrayDeque(10);
   deque.pushLast(3);
   deque.pushLast(2);
   deque.pushLast(5);
-  print("雙向佇列 deque = ${deque.toArray()}");
+  print("雙端佇列 deque = ${deque.toArray()}");
 
-  /* 訪問元素 */
+  /* 讀取隊首與隊尾元素 */
   final int peekFirst = deque.peekFirst();
-  print("佇列首元素 peekFirst = $peekFirst");
+  print("隊首元素 peekFirst = $peekFirst");
   final int peekLast = deque.peekLast();
-  print("佇列尾元素 peekLast = $peekLast");
+  print("隊尾元素 peekLast = $peekLast");
 
-  /* 元素入列 */
+  /* 將元素加入雙端佇列 */
   deque.pushLast(4);
-  print("元素 4 佇列尾入列後 deque = ${deque.toArray()}");
+  print("將元素 4 加到隊尾後 deque = ${deque.toArray()}");
   deque.pushFirst(1);
-  print("元素 1 佇列首入列後 deque = ${deque.toArray()}");
+  print("將元素 1 加到隊首後 deque = ${deque.toArray()}");
 
-  /* 元素出列 */
+  /* 從雙端佇列取出元素 */
   final int popLast = deque.popLast();
-  print("佇列尾出列元素 = $popLast ，佇列尾出列後 deque = ${deque.toArray()}");
+  print("從隊尾取出的元素 = $popLast ，取出後 deque = ${deque.toArray()}");
   final int popFirst = deque.popFirst();
-  print("佇列首出列元素 = $popFirst ，佇列首出列後 deque = ${deque.toArray()}");
+  print("從隊首取出的元素 = $popFirst ，取出後 deque = ${deque.toArray()}");
 
-  /* 獲取雙向佇列的長度 */
+  /* 取得雙端佇列長度 */
   final int size = deque.size();
-  print("雙向佇列長度 size = $size");
+  print("雙端佇列長度 size = $size");
 
-  /* 判斷雙向佇列是否為空 */
+  /* 判斷雙端佇列是否為空 */
   final bool isEmpty = deque.isEmpty();
-  print("雙向佇列是否為空 = $isEmpty");
+  print("雙端佇列是否為空 = $isEmpty");
 }

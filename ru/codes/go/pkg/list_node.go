@@ -4,13 +4,13 @@
 
 package pkg
 
-// ListNode: узел связного списка
+// ListNode — узел связного списка
 type ListNode struct {
 	Next *ListNode
 	Val  int
 }
 
-// NewListNode: конструктор узла связного списка
+// NewListNode создаёт узел связного списка
 func NewListNode(v int) *ListNode {
 	return &ListNode{
 		Next: nil,
@@ -18,9 +18,9 @@ func NewListNode(v int) *ListNode {
 	}
 }
 
-// ArrayToLinkedList десериализует массив в связный список
+// ArrayToLinkedList восстанавливает связный список из массива
 func ArrayToLinkedList(arr []int) *ListNode {
-	// dummy header of linked list
+	// Фиктивный начальный узел связного списка
 	dummy := NewListNode(0)
 	node := dummy
 	for _, val := range arr {

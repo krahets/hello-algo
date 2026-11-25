@@ -5,7 +5,7 @@
 const std = @import("std");
 const utils = @import("utils");
 
-// Создать массив с элементами { 1, 2, ..., n } в случайном порядке
+// Создать массив из чисел { 1, 2, ..., n } в случайном порядке
 pub fn randomNumbers(comptime n: usize) [n]i32 {
     var nums: [n]i32 = undefined;
     // Создать массив nums = { 1, 2, 3, ..., n }
@@ -21,24 +21,24 @@ pub fn randomNumbers(comptime n: usize) [n]i32 {
 // Найти индекс числа 1 в массиве nums
 pub fn findOne(nums: []i32) i32 {
     for (nums, 0..) |num, i| {
-        // Когда элемент 1 находится в начале массива, достигается лучшая временная сложность O(1)
-        // Когда элемент 1 находится в конце массива, достигается худшая временная сложность O(n)
+        // Если 1 стоит в начале массива, сложность минимальна: O(1)
+        // Если 1 стоит в конце массива, сложность максимальна: O(n)
         if (num == 1) return @intCast(i);
     }
     return -1;
 }
 
-// Driver Code
+// Основная программа
 pub fn run() void {
     var i: i32 = 0;
     while (i < 10) : (i += 1) {
         const n: usize = 100;
         var nums = randomNumbers(n);
         const index = findOne(&nums);
-        std.debug.print("После перемешивания массива [ 1, 2, ..., n ] = ", .{});
+        std.debug.print("Массив [ 1, 2, ..., n ] после перемешивания = ", .{});
         std.debug.print("{}\n", .{utils.fmt.slice(nums)});
 
-        std.debug.print("Индекс числа 1 = {}\n", .{index});
+        std.debug.print("Индекс числа 1: {}\n", .{index});
     }
 
     std.debug.print("\n", .{});

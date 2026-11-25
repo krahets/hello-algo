@@ -12,9 +12,9 @@ import (
 func TestCountingSort(t *testing.T) {
 	nums := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSortNaive(nums)
-	fmt.Println("カウントソート（オブジェクトはソート不可）の完了後 nums = ", nums)
+	fmt.Println("カウントソート（オブジェクトは対象外）後の nums = ", nums)
 
 	nums1 := []int{1, 0, 1, 2, 0, 4, 0, 2, 2, 4}
 	countingSort(nums1)
-	fmt.Println("カウントソート完了後 nums1 = ", nums1)
+	fmt.Println("カウントソート後の nums1 = ", nums1)
 }

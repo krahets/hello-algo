@@ -8,29 +8,29 @@ namespace hello_algo.chapter_graph;
 
 public class graph_bfs {
     /* 너비 우선 순회 */
-    // 지정한 정점의 모든 인접 정점을 얻기 쉽도록 그래프를 인접 리스트로 표현한다
+    // 지정한 정점의 인접 정점을 모두 구할 수 있도록 인접 리스트로 그래프 표현
     List<Vertex> GraphBFS(GraphAdjList graph, Vertex startVet) {
-        // 정점 순회 순서
+        // 정점 방문 순서
         List<Vertex> res = [];
         // 방문한 정점을 기록하는 해시 집합
         HashSet<Vertex> visited = [startVet];
-        // 큐를 사용하여 BFS를 구현한다
+        // BFS 구현에 사용하는 큐
         Queue<Vertex> que = new();
         que.Enqueue(startVet);
-        // 정점 vet에서 시작하여 모든 정점을 방문할 때까지 반복한다
+        // 정점 vet에서 시작해 모든 정점을 방문할 때까지 반복
         while (que.Count > 0) {
-            Vertex vet = que.Dequeue(); // 큐 맨 앞의 정점을 꺼낸다
-            res.Add(vet);               // 방문한 정점을 기록한다
+            Vertex vet = que.Dequeue(); // 큐의 맨 앞 정점을 꺼냄
+            res.Add(vet);               // 방문한 정점 기록
             foreach (Vertex adjVet in graph.adjList[vet]) {
                 if (visited.Contains(adjVet)) {
-                    continue;          // 이미 방문한 정점은 건너뛴다
+                    continue;          // 이미 방문한 정점은 건너뜀
                 }
-                que.Enqueue(adjVet);   // 방문하지 않은 정점만 큐에 삽입한다
-                visited.Add(adjVet);   // 해당 정점을 방문했다고 표시한다
+                que.Enqueue(adjVet);   // 아직 방문하지 않은 정점만 큐에 삽입
+                visited.Add(adjVet);   // 이 정점을 방문한 것으로 표시
             }
         }
 
-        // 정점 순회 순서를 반환한다
+        // 정점 방문 순서 반환
         return res;
     }
 
@@ -47,12 +47,12 @@ public class graph_bfs {
         ];
 
         GraphAdjList graph = new(edges);
-        Console.WriteLine("\n초기화한 후의 그래프");
+        Console.WriteLine("\n초기화한 그래프:");
         graph.Print();
 
         /* 너비 우선 순회 */
         List<Vertex> res = GraphBFS(graph, v[0]);
-        Console.WriteLine("\n너비 우선 순회(BFS)의 정점 순서");
+        Console.WriteLine("\n너비 우선 순회(BFS)의 정점 방문 순서:");
         Console.WriteLine(string.Join(" ", Vertex.VetsToVals(res)));
     }
 }

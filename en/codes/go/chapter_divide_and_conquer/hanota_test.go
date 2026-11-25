@@ -13,7 +13,7 @@ import (
 )
 
 func TestHanota(t *testing.T) {
-	// The end of each list represents the top of the peg
+	// The end of the list is the top of the peg
 	A := list.New()
 	for i := 5; i > 0; i-- {
 		A.PushBack(i)

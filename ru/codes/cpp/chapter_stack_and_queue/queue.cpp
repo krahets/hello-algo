@@ -6,12 +6,12 @@
 
 #include "../utils/common.hpp"
 
-/* Driver Code */
+/* Пример использования */
 int main() {
-    /* Инициализация очереди */
+    /* Инициализировать очередь */
     queue<int> queue;
 
-    /* Добавление элемента в очередь */
+    /* Добавить элементы в очередь */
     queue.push(1);
     queue.push(3);
     queue.push(2);
@@ -20,22 +20,22 @@ int main() {
     cout << "Очередь queue = ";
     printQueue(queue);
 
-    /* Доступ к элементу в начале очереди */
+    /* Посмотреть первый элемент очереди */
     int front = queue.front();
-    cout << "Первый элемент front = " << front << endl;
+    cout << "Первый элемент очереди front = " << front << endl;
 
-    /* Извлечение элемента из очереди */
+    /* Извлечь элемент из очереди */
     queue.pop();
-    cout << "Извлеченный элемент front = " << front << ", queue после извлечения = ";
+    cout << "Извлечённый элемент front = " << front << ", после извлечения queue = ";
     printQueue(queue);
 
-    /* Получение длины очереди */
+    /* Получить длину очереди */
     int size = queue.size();
     cout << "Длина очереди size = " << size << endl;
 
-    /* Проверка, пуста ли очередь */
+    /* Проверить, пуста ли очередь */
     bool empty = queue.empty();
-    cout << "Пуста ли очередь = " << empty << endl;
+    cout << "Очередь пуста = " << empty << endl;
 
     return 0;
 }

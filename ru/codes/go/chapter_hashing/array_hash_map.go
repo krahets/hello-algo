@@ -6,7 +6,7 @@ package chapter_hashing
 
 import "fmt"
 
-/* Пара ключ-значение */
+/* Пара «ключ — значение» */
 type pair struct {
 	key int
 	val string
@@ -17,9 +17,9 @@ type arrayHashMap struct {
 	buckets []*pair
 }
 
-/* Инициализация хеш-таблицы */
+/* Создать хеш-таблицу */
 func newArrayHashMap() *arrayHashMap {
-	// Инициализировать массив, содержащий 100 корзин
+	// Создать массив из 100 корзин
 	buckets := make([]*pair, 100)
 	return &arrayHashMap{buckets: buckets}
 }
@@ -30,7 +30,7 @@ func (a *arrayHashMap) hashFunc(key int) int {
 	return index
 }
 
-/* Операция поиска */
+/* Поиск */
 func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
@@ -40,21 +40,21 @@ func (a *arrayHashMap) get(key int) string {
 	return pair.val
 }
 
-/* Операция добавления */
+/* Вставка */
 func (a *arrayHashMap) put(key int, val string) {
 	pair := &pair{key: key, val: val}
 	index := a.hashFunc(key)
 	a.buckets[index] = pair
 }
 
-/* Операция удаления */
+/* Удаление */
 func (a *arrayHashMap) remove(key int) {
 	index := a.hashFunc(key)
-	// Присвоить nil, что означает удаление
+	// Записать nil в знак удаления
 	a.buckets[index] = nil
 }
 
-/* Получить все ключи */
+/* Получить все пары «ключ — значение» */
 func (a *arrayHashMap) pairSet() []*pair {
 	var pairs []*pair
 	for _, pair := range a.buckets {
