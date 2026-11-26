@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="動畫圖解、一鍵執行的資料結構與演算法教程" name="description"/>
+<meta content="透過動畫圖解與一鍵執行的程式範例，學習資料結構與演算法。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/zh-hant/chapter_searching/replace_linear_by_hashing/" rel="canonical"/>
 <link href="../binary_search_edge/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_searching/replace_linear_by_hashing/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>10.4 雜湊最佳化策略 - Hello 演算法</title>
+<title>10.4 以雜湊搜尋提升效率 - Hello 演算法</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/58c823e0bec5e73f891637a1.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/21676f8f5d6e42cfec41d8e2.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,7 +64,7 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>紙質書（簡體中文版）已發行，詳情請見<a href="/chapter_paperbook/">這裡</a></span>
+<span>簡體中文版紙本書已出版。<a href="/chapter_paperbook/">瞭解詳情</a>。</span>
 </div>
 </div>
 </aside>
@@ -87,7 +87,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              10.4   雜湊最佳化策略
+              10.4   以雜湊搜尋提升效率
 
           </span>
 </div>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3   小結
+  0.3   本章小結
 
 
   </span>
@@ -308,7 +308,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   演算法無處不在
+  1.1   演算法無所不在
 
 
   </span>
@@ -319,7 +319,7 @@
 <span class="md-ellipsis">
 
 
-  1.2   演算法是什麼
+  1.2   什麼是演算法
 
 
   </span>
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3   小結
+  1.3   本章小結
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1   演算法效率評估
+  2.1   評估演算法效率
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5   小結
+  2.5   本章小結
 
 
   </span>
@@ -465,7 +465,7 @@
 <span class="md-ellipsis">
 
 
-  3.1   資料結構分類
+  3.1   資料結構的分類
 
 
   </span>
@@ -487,7 +487,7 @@
 <span class="md-ellipsis">
 
 
-  3.3   數字編碼 *
+  3.3   數值編碼 *
 
 
   </span>
@@ -582,7 +582,7 @@
 <span class="md-ellipsis">
 
 
-  4.3   串列
+  4.3   列表
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3   雙向佇列
+  5.3   雙端佇列
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2   雜湊衝突
+  6.2   雜湊碰撞
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4   小結
+  6.4   本章小結
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3   二元樹陣列表示
+  7.3   二元樹的陣列表示法
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5   AVL *
+  7.5   AVL 樹 *
 
 
   </span>
@@ -940,7 +940,7 @@
 <span class="md-ellipsis">
 
 
-  8.2   建堆積操作
+  8.2   建立堆積
 
 
   </span>
@@ -1024,7 +1024,7 @@
 <span class="md-ellipsis">
 
 
-  9.2   圖基礎操作
+  9.2   圖的基本操作
 
 
   </span>
@@ -1097,7 +1097,7 @@
 <span class="md-ellipsis">
 
 
-  10.1   二分搜尋
+  10.1   二分搜尋法
 
 
   </span>
@@ -1108,7 +1108,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分搜尋插入點
+  10.2   用二分搜尋法找出插入位置
 
 
   </span>
@@ -1119,7 +1119,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分搜尋邊界
+  10.3   用二分搜尋法找出邊界
 
 
   </span>
@@ -1130,7 +1130,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   雜湊最佳化策略
+  10.4   以雜湊搜尋提升效率
 
 
   </span>
@@ -1140,7 +1140,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   雜湊最佳化策略
+  10.4   以雜湊搜尋提升效率
 
 
   </span>
@@ -1155,7 +1155,7 @@
 <a class="md-nav__link" href="#1041">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.1   線性查詢：以時間換空間
+        10.4.1   循序搜尋：以時間換取空間
       </span>
 </span>
 </a>
@@ -1164,7 +1164,7 @@
 <a class="md-nav__link" href="#1042">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.2   雜湊查詢：以空間換時間
+        10.4.2   雜湊搜尋：以空間換取時間
       </span>
 </span>
 </a>
@@ -1177,7 +1177,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   重識搜尋演算法
+  10.5   重新認識搜尋演算法
 
 
   </span>
@@ -1261,7 +1261,7 @@
 <span class="md-ellipsis">
 
 
-  11.3   泡沫排序
+  11.3   氣泡排序
 
 
   </span>
@@ -1377,7 +1377,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分治
+  第 12 章   分治法
 
 
   </span>
@@ -1391,7 +1391,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分治
+  第 12 章   分治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1422,7 +1422,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   構建樹問題
+  12.3   建構二元樹問題
 
 
   </span>
@@ -1472,7 +1472,7 @@
 <span class="md-ellipsis">
 
 
-  第 13 章   回溯
+  第 13 章   回溯法
 
 
   </span>
@@ -1486,7 +1486,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 13 章   回溯
+  第 13 章   回溯法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1601,7 +1601,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   DP 問題特性
+  14.2   動態規劃問題的特性
 
 
   </span>
@@ -1612,7 +1612,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   DP 解題思路
+  14.3   動態規劃的解題思路
 
 
   </span>
@@ -1684,7 +1684,7 @@
 <span class="md-ellipsis">
 
 
-  第 15 章   貪婪
+  第 15 章   貪婪法
 
 
   </span>
@@ -1698,7 +1698,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 15 章   貪婪
+  第 15 章   貪婪法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1802,7 +1802,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   程式設計環境安裝
+  16.1   安裝程式開發環境
 
 
   </span>
@@ -1881,7 +1881,7 @@
 <a class="md-nav__link" href="#1041">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.1   線性查詢：以時間換空間
+        10.4.1   循序搜尋：以時間換取空間
       </span>
 </span>
 </a>
@@ -1890,7 +1890,7 @@
 <a class="md-nav__link" href="#1042">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.2   雜湊查詢：以空間換時間
+        10.4.2   雜湊搜尋：以空間換取時間
       </span>
 </span>
 </a>
@@ -1911,23 +1911,23 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="104">10.4   雜湊最佳化策略<a class="headerlink" href="#104" title="Permanent link">¶</a></h1>
-<p>在演算法題中，<strong>我們常透過將線性查詢替換為雜湊查詢來降低演算法的時間複雜度</strong>。我們藉助一個演算法題來加深理解。</p>
+<h1 id="104">10.4   以雜湊搜尋提升效率<a class="headerlink" href="#104" title="Permanent link">¶</a></h1>
+<p>解演算法題時，<strong>我們常以雜湊搜尋取代循序搜尋，藉此降低演算法的時間複雜度</strong>。以下用一道題目說明這個做法。</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>給定一個整數陣列 <code>nums</code> 和一個目標元素 <code>target</code> ，請在陣列中搜索“和”為 <code>target</code> 的兩個元素，並返回它們的陣列索引。返回任意一個解即可。</p>
+<p>給定整數陣列 <code>nums</code> 和目標值 <code>target</code>，請在陣列中找出兩個相加等於 <code>target</code> 的元素，並回傳它們的陣列索引。回傳任一組解即可。</p>
 </div>
-<h2 id="1041">10.4.1   線性查詢：以時間換空間<a class="headerlink" href="#1041" title="Permanent link">¶</a></h2>
-<p>考慮直接走訪所有可能的組合。如圖 10-9 所示，我們開啟一個兩層迴圈，在每輪中判斷兩個整數的和是否為 <code>target</code> ，若是，則返回它們的索引。</p>
-<p><ha-svg-figure aria-label="暴力列舉求兩數之和" class="animation-figure" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png" data-dark-src="/assets/figure-svg/figures/4e2bc7d5bc72fcb4ebbdb10a.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/6a69ccc3b6917aa9587d6a14.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">線性查詢求解兩數之和</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">線性查詢求解兩數之和</object></ha-svg-figure></p>
-<p align="center"> 圖 10-9   線性查詢求解兩數之和 </p><div class="ha-sr-only figure-description"><h3>圖解 10-9：暴力列舉求兩數之和</h3><p>用上三角表表示不同陣列位置的所有配對。</p><p>給定整數陣列 nums = [2, 7, 11, 15]（索引從 0 到 3）與目標和 target = 13。</p><p>題目要求找出和為 target 的兩個不同陣列位置並返回它們的索引（同一個位置的元素不能重複使用兩次）。暴力解法透過外層索引 i 與內層索引 j（j &gt; i）開啟兩層迴圈，逐對檢查兩數之和。</p><p>畫面下方的四行四列矩陣以行頭和列頭分別列出 2、7、11、15，僅在主對角線右上方的上三角區域填入六個候選和：既排除了主對角線上同一位置與自身相加的情況，也省去了左下角交換相加次序的重複配對。下表的元素和候選和來自圖中矩陣；索引對由元素在輸入中的位置按 0 起編號得到，配對算式由行列頭組合。</p><p>矩陣中第 0 行（元素 2）與第 2 列（元素 11）交叉處的單元格 13 用紫藍色文字標出。按照程式碼從左到右的列舉順序，外層固定 i = 0（元素 2）後，內層先算 2 + 7 = 9，緊接著算到 2 + 11 = 13 即命中目標並直接返回 [0, 2]；圖中將其餘候選和一併畫出僅用於展示完整的組合空間，並不代表命中後仍需繼續算完後續組合。</p><table><caption>圖中六組不同位置的配對</caption><thead><tr><th scope="col">索引對</th><th scope="col">元素配對</th><th scope="col">和</th></tr></thead><tbody><tr><th scope="row">0、1</th><td>2 + 7</td><td>9</td></tr><tr><th scope="row">0、2</th><td>2 + 11</td><td>13，命中目標</td></tr><tr><th scope="row">0、3</th><td>2 + 15</td><td>17</td></tr><tr><th scope="row">1、2</th><td>7 + 11</td><td>18</td></tr><tr><th scope="row">1、3</th><td>7 + 15</td><td>22</td></tr><tr><th scope="row">2、3</th><td>11 + 15</td><td>26</td></tr></tbody></table><p>兩層迴圈的時間複雜度為 O(n²)，輔助空間為 O(1)，體現以時間換空間。</p></div>
-<p>程式碼如下所示：</p>
+<h2 id="1041">10.4.1   循序搜尋：以時間換取空間<a class="headerlink" href="#1041" title="Permanent link">¶</a></h2>
+<p>可以直接檢查所有可能的組合。如圖 10-9 所示，使用兩層迴圈，每次判斷兩個整數的和是否等於 <code>target</code>。如果相等，就回傳它們的索引。</p>
+<p><ha-svg-figure aria-label="以窮舉法找出兩數之和" class="animation-figure" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png" data-dark-src="/assets/figure-svg/figures/8ceb6927f43c210b4cc78635.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/fa4e64d805291fbd715e8932.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">用循序搜尋求兩數之和</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">用循序搜尋求兩數之和</object></ha-svg-figure></p>
+<p align="center"> 圖 10-9   用循序搜尋求兩數之和 </p><div class="ha-sr-only figure-description"><h3>圖解 10-9：以窮舉法找出兩數之和</h3><p>用上三角表列出陣列中不同位置的所有配對。</p><p>給定整數陣列 nums = [2, 7, 11, 15]（索引從 0 到 3），目標和為 target = 13。</p><p>題目要求找出陣列中兩個不同的位置，使兩處的元素相加等於 target，並回傳這兩個位置的索引。同一個位置的元素不能使用兩次。窮舉法使用兩層迴圈，以 i 為外層索引，j 為內層索引（j &gt; i），逐對檢查兩數之和。</p><p>畫面下方是四列四欄的矩陣。各列和各欄的標頭都依序是 2、7、11、15。六個候選和只填在主對角線右上方的上三角區域，藉此排除主對角線上同一位置與自身相加的情形，也省去左下方交換順序後重複出現的配對。下表的元素與候選和取自圖中的矩陣。索引對依元素在輸入陣列中的位置從 0 開始編號，配對算式則由對應的列標頭與欄標頭組成。</p><p>以索引 0 起算，第 0 列（元素 2）和第 2 欄（元素 11）交會處的 13 以藍紫色標出。程式碼由左至右列舉：外層先固定 i = 0（元素 2），內層先算 2 + 7 = 9，再算 2 + 11 = 13，這時已符合目標，便直接回傳 [0, 2]。圖中列出其餘候選和，是為了呈現所有可能的組合；找到目標後就不必再算下去。</p><table><caption>圖中六組來自不同位置的配對</caption><thead><tr><th scope="col">索引對</th><th scope="col">元素配對</th><th scope="col">和</th></tr></thead><tbody><tr><th scope="row">0、1</th><td>2 + 7</td><td>9</td></tr><tr><th scope="row">0、2</th><td>2 + 11</td><td>13，符合目標</td></tr><tr><th scope="row">0、3</th><td>2 + 15</td><td>17</td></tr><tr><th scope="row">1、2</th><td>7 + 11</td><td>18</td></tr><tr><th scope="row">1、3</th><td>7 + 15</td><td>22</td></tr><tr><th scope="row">2、3</th><td>11 + 15</td><td>26</td></tr></tbody></table><p>兩層迴圈的時間複雜度為 O(n²)，輔助空間為 O(1)，是以時間換取空間的例子。</p></div>
+<p>程式碼如下：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">two_sum.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""方法一：暴力列舉"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""方法一：窮舉法"""</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
@@ -1936,10 +1936,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumBruteForce</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
@@ -1951,10 +1951,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
@@ -1966,10 +1966,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="nf">TwoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
@@ -1981,10 +1981,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nx">size</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">size</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">+</span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
@@ -1997,9 +1997,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropLast</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropFirst</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
@@ -2012,10 +2012,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2028,10 +2028,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2044,10 +2044,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 方法一： 暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumBruteForce</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">];</span>
@@ -2058,10 +2058,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">();</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">..</span><span class="n">size</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
@@ -2074,7 +2074,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numsSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">returnSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2092,10 +2092,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 方法一：暴力列舉 */</span>
+<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 方法一：窮舉法 */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="c1">// 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="c1">// 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">intArrayOf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
@@ -2106,9 +2106,9 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 方法一：暴力列舉 ###</span>
+<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 方法一：窮舉法 ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># 兩層迴圈，時間複雜度為 O(n^2)</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># 使用兩層迴圈，時間複雜度為 O(n^2)</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="o">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span>
@@ -2122,40 +2122,40 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>視覺化執行</summary>
-<p><div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E6%9A%B4%E5%8A%9B%E5%88%97%E8%88%89%22%22%22%0A%20%20%20%20%23%20%E5%85%A9%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi%2C%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums%2C%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="視覺化執行"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E6%9A%B4%E5%8A%9B%E5%88%97%E8%88%89%22%22%22%0A%20%20%20%20%23%20%E5%85%A9%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi%2C%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums%2C%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全螢幕觀看 &gt;</a></div></p>
+<summary>執行視覺化示範</summary>
+<p><div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%AA%AE%E8%88%89%E6%B3%95%22%22%22%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%85%A9%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="執行視覺化示範"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%AA%AE%E8%88%89%E6%B3%95%22%22%22%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%85%A9%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全螢幕觀看 &gt;</a></div></p>
 </details>
-<p>此方法的時間複雜度為 <span class="arithmatex">\(O(n^2)\)</span> ，空間複雜度為 <span class="arithmatex">\(O(1)\)</span> ，在大資料量下非常耗時。</p>
-<h2 id="1042">10.4.2   雜湊查詢：以空間換時間<a class="headerlink" href="#1042" title="Permanent link">¶</a></h2>
-<p>考慮藉助一個雜湊表，鍵值對分別為陣列元素和元素索引。迴圈走訪陣列，每輪執行圖 10-10 所示的步驟。</p>
+<p>這個方法的時間複雜度為 <span class="arithmatex">\(O(n^2)\)</span>，空間複雜度為 <span class="arithmatex">\(O(1)\)</span>。資料量大時，會相當耗時。</p>
+<h2 id="1042">10.4.2   雜湊搜尋：以空間換取時間<a class="headerlink" href="#1042" title="Permanent link">¶</a></h2>
+<p>可以利用雜湊表，以陣列元素為鍵，以元素的索引為值。用迴圈走訪陣列，每一輪執行圖 10-10 所示的步驟。</p>
 <ol>
-<li>判斷數字 <code>target - nums[i]</code> 是否在雜湊表中，若是，則直接返回這兩個元素的索引。</li>
-<li>將鍵值對 <code>nums[i]</code> 和索引 <code>i</code> 新增進雜湊表。</li>
+<li>檢查數字 <code>target - nums[i]</code> 是否在雜湊表中。如果在，就直接回傳這兩個元素的索引。</li>
+<li>將 <code>nums[i]</code> 和索引 <code>i</code> 作為一組鍵值對，加入雜湊表。</li>
 </ol>
-<div aria-label="雜湊表求兩數之和" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="2:3" role="group"><input aria-label="第 1 步：未找到補數 11，記錄 2" checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input aria-label="第 2 步：未找到補數 6，記錄 7" id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input aria-label="第 3 步：找到補數 2，返回索引" id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
+<div aria-label="用雜湊表求兩數之和" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="2:3" role="group"><input aria-label="第 1 步：找不到互補的 11，記下 2" checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input aria-label="第 2 步：找不到互補的 6，記下 7" id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input aria-label="第 3 步：找到互補的 2，回傳索引" id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="雜湊表求兩數之和，第 1 步，共 3 步：未找到補數 11，記錄 2" class="animation-figure" data-a11y-forward="訪問索引 0 的元素 2，補數 11 不在雜湊表中，將鍵值對 2: 0 存入 map。" data-a11y-state="i = 0（值 2）：補數 11 未命中，寫入後 map = {2: 0}。" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png" data-dark-src="/assets/figure-svg/figures/def9f4270c2c92b63ea99f93.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d9fca54fe9826fef9678ca83.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">輔助雜湊表求解兩數之和</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">輔助雜湊表求解兩數之和</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="用雜湊表求兩數之和，第 1 步，共 3 步：找不到互補的 11，記下 2" class="animation-figure" data-a11y-forward="讀取索引 0 的元素 2。互補的 11 不在雜湊表中，因此將鍵值對 2: 0 存入 map。" data-a11y-state="i = 0（值為 2）：找不到互補的 11，寫入後 map = {2: 0}。" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png" data-dark-src="/assets/figure-svg/figures/43d450a275489c86e4c856c7.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/2b46b411a728bd2f40be57ab.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">用輔助雜湊表求兩數之和</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">用輔助雜湊表求兩數之和</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="雜湊表求兩數之和，第 2 步，共 3 步：未找到補數 6，記錄 7" class="animation-figure" data-a11y-forward="訪問索引 1 的元素 7，補數 6 不在雜湊表中，將鍵值對 7: 1 存入 map。" data-a11y-state="i = 1（值 7）：補數 6 未命中，寫入後 map = {2: 0, 7: 1}。" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png" data-dark-src="/assets/figure-svg/figures/9bfdf8f97a423741edab4a50.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/3ce61b0bdf2ce7200abc5687.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="用雜湊表求兩數之和，第 2 步，共 3 步：找不到互補的 6，記下 7" class="animation-figure" data-a11y-forward="讀取索引 1 的元素 7。互補的 6 不在雜湊表中，因此將鍵值對 7: 1 存入 map。" data-a11y-state="i = 1（值為 7）：找不到互補的 6，寫入後 map = {2: 0, 7: 1}。" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png" data-dark-src="/assets/figure-svg/figures/4b69c90ecd4f4e164437b238.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/8d6b3e1dc52ab53296821d62.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="雜湊表求兩數之和，第 3 步，共 3 步：找到補數 2，返回索引" class="animation-figure" data-a11y-forward="訪問索引 2 的元素 11，在雜湊表中查到補數 2（索引 0），返回 [0, 2]。" data-a11y-state="i = 2（值 11）：補數 2 在 map 中命中索引 0，直接返回 [0, 2]。map 仍為 {2: 0, 7: 1}，11 未入表，15 不再處理。" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png" data-dark-src="/assets/figure-svg/figures/bebefb6dd9c5f933b360a24c.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/466267d976e7286f2bd25413.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="用雜湊表求兩數之和，第 3 步，共 3 步：找到互補的 2，回傳索引" class="animation-figure" data-a11y-forward="讀取索引 2 的元素 11，在雜湊表中查到互補的 2（索引 0），回傳 [0, 2]。" data-a11y-state="i = 2（值為 11）：在 map 中查到互補的 2 對應索引 0，直接回傳 [0, 2]。map 仍為 {2: 0, 7: 1}，未加入 11，也不再處理 15。" data-book-key="zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png" data-dark-src="/assets/figure-svg/figures/db81895289b104962ca2c7eb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/29c6bccceaef90c5f661dc56.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object><object aria-hidden="true" data="/zh-hant/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object></ha-svg-figure></p>
 </div>
 </div>
 </div>
-<p align="center"> 圖 10-10   輔助雜湊表求解兩數之和 </p><div class="ha-sr-only figure-description"><h3>圖解 10-10：雜湊表求兩數之和</h3><p>用雜湊表儲存已見元素及索引，先查補數，再決定是否存入當前元素。</p><p>給定整數陣列 nums = [2, 7, 11, 15]（索引從 0 到 3）與目標和 target = 13。</p><p>藉助輔助雜湊表 map 記錄已走訪過的元素：鍵（key，標有“元素”）存陣列元素值，值（value，標有“索引”）存該元素對應的陣列索引。單層迴圈每輪先查詢補數 target − nums[i] 是否已在 map 中：若存在則立即返回 [map[target − nums[i]], i]；若不存在才將當前鍵值對 nums[i]: i 寫入 map。</p><p>每輪“先查補數、後存當前元素”的順序保證了配對的另一個元素必定來自當前位置 i 之前的不同索引。三幅分步畫面依次展示 i = 0、1、2 時的判斷與雜湊表狀態（注意第 1 步畫面展示的是完成首次插入 2: 0 之後的狀態，而非空表）。</p><ol><li><p><strong>未找到補數 11，記錄 2</strong></p><p>i = 0 指向元素 2。圖右側說明：因為 13 − 2 = 11 不在初始空表中，所以寫入 2: 0；當前 map = {2: 0}。尚未返回答案，下一項是索引 1 的 7。</p></li><li><p><strong>未找到補數 6，記錄 7</strong></p><p>i = 1 指向元素 7。圖右側說明：因為 13 − 7 = 6 不在 map 中，所以寫入 7: 1。此前表中只有鍵 2，寫入後 map = {2: 0, 7: 1}；尚未返回答案，下一項是索引 2 的 11。</p></li><li><p><strong>找到補數 2，返回索引</strong></p><p>i = 2 指向元素 11。圖右側說明：因為 13 − 11 = 2 已在 map 中，且 map[2] = 0，所以返回索引 [0, 2]。map 仍為 {2: 0, 7: 1}；11 不再入表，索引 3 的 15 不再處理。</p></li></ol><p>在雜湊查詢平均為 O(1) 的前提下，總體平均時間為 O(n)，輔助空間為 O(n)，體現以空間換時間。</p></div>
-<p>實現程式碼如下所示，僅需單層迴圈即可：</p>
+<p align="center"> 圖 10-10   用輔助雜湊表求兩數之和 </p><div class="ha-sr-only figure-description"><h3>圖解 10-10：用雜湊表求兩數之和</h3><p>用雜湊表記錄看過的元素及其索引，先查詢互補的數，再決定是否存入目前的元素。</p><p>給定整數陣列 nums = [2, 7, 11, 15]（索引從 0 到 3），目標總和為 target = 13。</p><p>用輔助雜湊表 map 記錄已走訪的元素。鍵（key，圖中標為「元素」）是陣列中的元素值，值（value，圖中標為「索引」）則是該元素在陣列中的索引。這個方法只用一層迴圈，每一輪先查詢互補的數 target − nums[i] 是否已在 map 中。若在表中，立即回傳 [map[target − nums[i]], i]；若不在表中，才將目前的鍵值對 nums[i]: i 寫入 map。</p><p>每一輪都先查詢互補的數，再存入目前的元素。這個順序確保配對的另一個元素一定來自 i 之前的不同索引。三個畫面依序呈現 i = 0、1、2 時的判斷和雜湊表的狀態。請留意，第一步畫出的已是首次插入 2: 0 之後的狀態，並非空表。</p><ol><li><p><strong>找不到互補的 11，記下 2</strong></p><p>i = 0，指向元素 2。圖右側說明，因為 13 − 2 = 11 不在最初的空表中，所以寫入 2: 0。此時 map = {2: 0}，尚未回傳答案，下一個要檢查的是索引 1 的 7。</p></li><li><p><strong>找不到互補的 6，記下 7</strong></p><p>i = 1，指向元素 7。圖右側說明，因為 13 − 7 = 6 不在 map 中，所以寫入 7: 1。原本表中只有鍵 2，寫入後 map = {2: 0, 7: 1}。尚未回傳答案，下一個要檢查的是索引 2 的 11。</p></li><li><p><strong>找到互補的 2，回傳索引</strong></p><p>i = 2，指向元素 11。圖右側說明，因為 13 − 11 = 2 已在 map 中，且 map[2] = 0，所以回傳索引 [0, 2]。map 仍為 {2: 0, 7: 1}，不將 11 加入表中，也不再處理索引 3 的 15。</p></li></ol><p>若雜湊查詢的平均時間為 O(1)，整體平均時間就是 O(n)，輔助空間為 O(n)。這是以空間換取時間的做法。</p></div>
+<p>程式碼如下，只需使用一層迴圈：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><input id="__tabbed_3_5" name="__tabbed_3" type="radio"/><input id="__tabbed_3_6" name="__tabbed_3" type="radio"/><input id="__tabbed_3_7" name="__tabbed_3" type="radio"/><input id="__tabbed_3_8" name="__tabbed_3" type="radio"/><input id="__tabbed_3_9" name="__tabbed_3" type="radio"/><input id="__tabbed_3_10" name="__tabbed_3" type="radio"/><input id="__tabbed_3_11" name="__tabbed_3" type="radio"/><input id="__tabbed_3_12" name="__tabbed_3" type="radio"/><input id="__tabbed_3_13" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">two_sum.py</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""方法二：輔助雜湊表"""</span>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="c1"># 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""方法二：使用輔助雜湊表"""</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="c1"># 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>    <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
 <a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>        <span class="k">if</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
 <a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>            <span class="k">return</span> <span class="p">[</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">i</span><span class="p">]</span>
@@ -2164,12 +2164,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumHashTable</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="p">;</span>
-<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">dic</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">i</span><span class="p">};</span>
@@ -2181,12 +2181,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dic</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">};</span>
@@ -2198,12 +2198,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="nf">TwoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">i</span><span class="p">];</span>
@@ -2215,11 +2215,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="nx">hashTable</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">{}</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">idx</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">preIdx</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">hashTable</span><span class="p">[</span><span class="nx">target</span><span class="o">-</span><span class="nx">val</span><span class="p">];</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="nx">preIdx</span><span class="p">,</span><span class="w"> </span><span class="nx">idx</span><span class="p">}</span>
@@ -2231,11 +2231,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">dic</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[:]</span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span>
@@ -2247,11 +2247,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
-<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="p">[</span><span class="nx">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">m</span><span class="p">[</span><span class="nx">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]],</span><span class="w"> </span><span class="nx">i</span><span class="p">];</span>
@@ -2264,11 +2264,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">m</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span>
-<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2282,12 +2282,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 方法二： 輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumHashTable</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">  </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">  </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">  </span><span class="n">Map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">();</span>
-<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">  </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">  </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="n">containsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="n">dic</span><span class="p">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">!</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">];</span>
@@ -2299,11 +2299,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">enumerate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="n">dic</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="o">&amp;</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">num</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="w">            </span><span class="nb">Some</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="fm">vec!</span><span class="p">[</span><span class="o">*</span><span class="n">v</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">]),</span>
@@ -2319,17 +2319,17 @@
 <a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
 <a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
-<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="n">UT_hash_handle</span><span class="w"> </span><span class="n">hh</span><span class="p">;</span><span class="w"> </span><span class="c1">// 基於 uthash.h 實現</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="n">UT_hash_handle</span><span class="w"> </span><span class="n">hh</span><span class="p">;</span><span class="w"> </span><span class="c1">// 使用 uthash.h 實作</span>
 <a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="p">}</span><span class="w"> </span><span class="n">HashTable</span><span class="p">;</span>
 <a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a>
-<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="cm">/* 雜湊表查詢 */</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="cm">/* 查詢雜湊表 */</span>
 <a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="nf">find</span><span class="p">(</span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="w">    </span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">tmp</span><span class="p">;</span>
 <a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="w">    </span><span class="n">HASH_FIND_INT</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">);</span>
 <a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 <a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="p">}</span>
 <a href="#__codelineno-23-14" id="__codelineno-23-14" name="__codelineno-23-14"></a>
-<a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a><span class="cm">/* 雜湊表元素插入 */</span>
+<a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a><span class="cm">/* 將元素插入雜湊表 */</span>
 <a href="#__codelineno-23-16" id="__codelineno-23-16" name="__codelineno-23-16"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">HashTable</span><span class="w"> </span><span class="o">**</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-23-17" id="__codelineno-23-17" name="__codelineno-23-17"></a><span class="w">    </span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="o">*</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
 <a href="#__codelineno-23-18" id="__codelineno-23-18" name="__codelineno-23-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2341,7 +2341,7 @@
 <a href="#__codelineno-23-24" id="__codelineno-23-24" name="__codelineno-23-24"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-23-25" id="__codelineno-23-25" name="__codelineno-23-25"></a><span class="p">}</span>
 <a href="#__codelineno-23-26" id="__codelineno-23-26" name="__codelineno-23-26"></a>
-<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numsSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">returnSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-23-29" id="__codelineno-23-29" name="__codelineno-23-29"></a><span class="w">    </span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">hashtable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <a href="#__codelineno-23-30" id="__codelineno-23-30" name="__codelineno-23-30"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2360,12 +2360,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* 方法二：輔助雜湊表 */</span>
+<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* 方法二：使用輔助雜湊表 */</span>
 <a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
-<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="c1">// 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="c1">// 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
-<a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="w">    </span><span class="c1">// 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="w">    </span><span class="c1">// 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dic</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">intArrayOf</span><span class="p">(</span><span class="n">dic</span><span class="o">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]]!!</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
@@ -2377,11 +2377,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">### 方法二：輔助雜湊表 ###</span>
+<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">### 方法二：使用輔助雜湊表 ###</span>
 <a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">  </span><span class="c1"># 輔助雜湊表，空間複雜度為 O(n)</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">  </span><span class="c1"># 使用輔助雜湊表，空間複雜度為 O(n)</span>
 <a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">  </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
-<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="w">  </span><span class="c1"># 單層迴圈，時間複雜度為 O(n)</span>
+<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="w">  </span><span class="c1"># 使用單層迴圈，時間複雜度為 O(n)</span>
 <a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
 <a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">[</span><span class="n">dic</span><span class="o">[</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]]</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">dic</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">target</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a>
@@ -2395,18 +2395,18 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>視覺化執行</summary>
-<p><div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%23%20%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%EF%BC%8C%E7%A9%BA%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%E5%96%AE%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D%2C%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums%2C%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="視覺化執行"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%23%20%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%EF%BC%8C%E7%A9%BA%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%E5%96%AE%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D%2C%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums%2C%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全螢幕觀看 &gt;</a></div></p>
+<summary>執行視覺化示範</summary>
+<p><div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%EF%BC%8C%E7%A9%BA%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%96%AE%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="執行視覺化示範"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%22%22%22%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E8%BC%94%E5%8A%A9%E9%9B%9C%E6%B9%8A%E8%A1%A8%EF%BC%8C%E7%A9%BA%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%E4%BD%BF%E7%94%A8%E5%96%AE%E5%B1%A4%E8%BF%B4%E5%9C%88%EF%BC%8C%E6%99%82%E9%96%93%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%82%BA%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全螢幕觀看 &gt;</a></div></p>
 </details>
-<p>此方法透過雜湊查詢將時間複雜度從 <span class="arithmatex">\(O(n^2)\)</span> 降至 <span class="arithmatex">\(O(n)\)</span> ，大幅提升執行效率。</p>
-<p>由於需要維護一個額外的雜湊表，因此空間複雜度為 <span class="arithmatex">\(O(n)\)</span> 。<strong>儘管如此，該方法的整體時空效率更為均衡，因此它是本題的最優解法</strong>。</p>
+<p>這個方法透過雜湊搜尋，將時間複雜度從 <span class="arithmatex">\(O(n^2)\)</span> 降為 <span class="arithmatex">\(O(n)\)</span>，大幅提升執行效率。</p>
+<p>由於需要額外維護一個雜湊表，空間複雜度為 <span class="arithmatex">\(O(n)\)</span>。<strong>整體而言，這個方法在時間和空間效率之間取得較好的平衡，因此是本題的最佳解法</strong>。</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="頁脚" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="上一頁: 10.3 &amp;nbsp; 二分搜尋邊界" class="md-footer__link md-footer__link--prev" href="../binary_search_edge/" rel="prev">
+<a aria-label="上一頁: 10.3 &amp;nbsp; 用二分搜尋法找出邊界" class="md-footer__link md-footer__link--prev" href="../binary_search_edge/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -2415,18 +2415,18 @@
         上一頁
       </span>
 <div class="md-ellipsis">
-        10.3   二分搜尋邊界
+        10.3   用二分搜尋法找出邊界
       </div>
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="下一頁: 10.5 &amp;nbsp; 重識搜尋演算法" class="md-footer__link md-footer__link--next" href="../searching_algorithm_revisited/" rel="next">
+<a aria-label="下一頁: 10.5 &amp;nbsp; 重新認識搜尋演算法" class="md-footer__link md-footer__link--next" href="../searching_algorithm_revisited/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         下一頁
       </span>
 <div class="md-ellipsis">
-        10.5   重識搜尋演算法
+        10.5   重新認識搜尋演算法
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2436,7 +2436,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">歡迎在評論區留下你的見解、問題或建議</h5>
+<h5 align="center" id="__comments">歡迎留言分享你的看法、問題或建議</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="zh-TW" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2458,7 +2458,7 @@
       function labelCommentsFrame() {
         var frame = document.querySelector("iframe.giscus-frame")
         if (!frame) return false
-        frame.setAttribute("title", "評論")
+        frame.setAttribute("title", "留言")
         return true
       }
       if (labelCommentsFrame()) return
@@ -2518,9 +2518,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"已拷貝","clipboard.copy":"拷貝","search.result.more.one":"此頁尚有 1 個符合的項目","search.result.more.other":"此頁尚有 # 個符合的項目","search.result.none":"沒有找到符合條件的結果","search.result.one":"找到 1 个符合條件的結果","search.result.other":"找到 # 個符合條件的結果","search.result.placeholder":"鍵入以開始檢索","search.result.term.missing":"缺失","select.version":"選擇版本"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.d8fb2ea5e0f509d0b4f4d0f8a450bc3780c07b9dcd2ec26cdd40f43bc8806ce2.min.js"></script>
+<script src="../../assets/javascripts/bundle.796a08fbfda9ae7b0946ec06a0bc8fdc6da7c683bd423885faee5d4cbb391a7b.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

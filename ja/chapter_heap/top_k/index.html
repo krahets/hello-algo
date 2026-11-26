@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書" name="description"/>
+<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ja/chapter_heap/top_k/" rel="canonical"/>
 <link href="../build_heap/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_heap/top_k/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>8.3 Top-k 問題 - Hello Algo</title>
+<title>8.3 Top-k 問題 - Hello アルゴリズム</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5aac88ee1d4deb0dce936ce.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,8 +65,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="ヘッダー" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="ナビゲーション" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -75,7 +75,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Hello アルゴリズム
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -167,10 +167,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="ナビゲーション" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Hello アルゴリズム
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="リポジトリへ">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   アルゴリズムはどこにでもある
+  1.1   身の回りのアルゴリズム
 
 
   </span>
@@ -733,7 +733,7 @@
 <span class="md-ellipsis">
 
 
-  6.1   ハッシュテーブル
+  6.1   ハッシュ表
 
 
   </span>
@@ -967,28 +967,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#831">
+<a class="md-nav__link" href="#831-1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.1   方法一：走査して選ぶ
+        8.3.1   方法 1：走査して選ぶ
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#832">
+<a class="md-nav__link" href="#832-2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.2   方法二：ソートする
+        8.3.2   方法 2：ソート
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#833">
+<a class="md-nav__link" href="#833-3">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.3   方法三：ヒープを使う
+        8.3.3   方法 3：ヒープ
       </span>
 </span>
 </a>
@@ -1074,7 +1074,7 @@
 <span class="md-ellipsis">
 
 
-  9.3   グラフの走査
+  9.3   グラフの探索
 
 
   </span>
@@ -1147,7 +1147,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分探索で挿入位置を探す
+  10.2   二分探索で挿入位置を求める
 
 
   </span>
@@ -1158,7 +1158,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分探索で境界を探す
+  10.3   二分探索で境界を求める
 
 
   </span>
@@ -1169,7 +1169,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   ハッシュを使った最適化
+  10.4   ハッシュを用いた最適化
 
 
   </span>
@@ -1180,7 +1180,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   探索アルゴリズムを改めて考える
+  10.5   探索アルゴリズムを振り返る
 
 
   </span>
@@ -1380,7 +1380,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
 
   </span>
@@ -1394,7 +1394,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1403,7 +1403,7 @@
 <span class="md-ellipsis">
 
 
-  12.1   分割統治アルゴリズム
+  12.1   分割統治法のアルゴリズム
 
 
   </span>
@@ -1414,7 +1414,7 @@
 <span class="md-ellipsis">
 
 
-  12.2   分割統治による探索戦略
+  12.2   分割統治法による探索
 
 
   </span>
@@ -1425,7 +1425,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   二分木の構築問題
+  12.3   二分木を構築する問題
 
 
   </span>
@@ -1436,7 +1436,7 @@
 <span class="md-ellipsis">
 
 
-  12.4   ハノイの塔の問題
+  12.4   ハノイの塔
 
 
   </span>
@@ -1498,7 +1498,7 @@
 <span class="md-ellipsis">
 
 
-  13.1   バックトラッキングアルゴリズム
+  13.1   バックトラッキング
 
 
   </span>
@@ -1509,7 +1509,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   順列列挙問題
+  13.2   全順列問題
 
 
   </span>
@@ -1520,7 +1520,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   部分集合和問題
+  13.3   部分和問題
 
 
   </span>
@@ -1531,7 +1531,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n クイーン問題
+  13.4   N クイーン問題
 
 
   </span>
@@ -1593,7 +1593,7 @@
 <span class="md-ellipsis">
 
 
-  14.1   動的計画法への第一歩
+  14.1   動的計画法入門
 
 
   </span>
@@ -1604,7 +1604,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   動的計画法の問題の特徴
+  14.2   動的計画法で解ける問題の特徴
 
 
   </span>
@@ -1615,7 +1615,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   動的計画法の解き方
+  14.3   動的計画法で解くための考え方
 
 
   </span>
@@ -1710,7 +1710,7 @@
 <span class="md-ellipsis">
 
 
-  15.1   貪欲アルゴリズム
+  15.1   貪欲法
 
 
   </span>
@@ -1743,7 +1743,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   整数を分割して積を最大にする問題
+  15.4   整数分割の最大積問題
 
 
   </span>
@@ -1805,7 +1805,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   プログラミング環境のインストール
+  16.1   開発環境のセットアップ
 
 
   </span>
@@ -1816,7 +1816,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   一緒に本書を作りましょう
+  16.2   本書の執筆に参加する
 
 
   </span>
@@ -1881,28 +1881,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#831">
+<a class="md-nav__link" href="#831-1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.1   方法一：走査して選ぶ
+        8.3.1   方法 1：走査して選ぶ
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#832">
+<a class="md-nav__link" href="#832-2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.2   方法二：ソートする
+        8.3.2   方法 2：ソート
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#833">
+<a class="md-nav__link" href="#833-3">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.3   方法三：ヒープを使う
+        8.3.3   方法 3：ヒープ
       </span>
 </span>
 </a>
@@ -1926,77 +1926,77 @@
 <h1 id="83-top-k">8.3   Top-k 問題<a class="headerlink" href="#83-top-k" title="この見出しへのリンク">¶</a></h1>
 <div class="admonition question">
 <p class="admonition-title">問題</p>
-<p>長さ <span class="arithmatex">\(n\)</span> の未整列配列 <code>nums</code> が与えられます。大きいほうから <span class="arithmatex">\(k\)</span> 個の要素を返してください。</p>
+<p>長さ <span class="arithmatex">\(n\)</span> の未整列配列 <code>nums</code> が与えられます。配列の中で大きいほうから <span class="arithmatex">\(k\)</span> 個の要素を返してください。</p>
 </div>
-<p>まず、考え方が直接的な二つの解法を紹介し、続いて、より効率的なヒープを使う解法を紹介します。</p>
-<h2 id="831">8.3.1   方法一：走査して選ぶ<a class="headerlink" href="#831" title="この見出しへのリンク">¶</a></h2>
-<p>図 8-6 のように <span class="arithmatex">\(k\)</span> 回走査し、各回で <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(k\)</span> 番目に大きい要素を取り出せます。時間計算量は <span class="arithmatex">\(O(nk)\)</span> です。</p>
-<p>この方法は <span class="arithmatex">\(k \ll n\)</span> の場合にしか適していません。<span class="arithmatex">\(k\)</span> が <span class="arithmatex">\(n\)</span> に近づくと、時間計算量は <span class="arithmatex">\(O(n^2)\)</span> に近づき、非常に時間がかかるためです。</p>
-<p><ha-svg-figure aria-label="走査による選択で Top-k を探す" class="animation-figure" data-book-key="ja/chapter_heap/top_k.assets/top_k_traversal.png" data-dark-src="/assets/figure-svg/figures/d45ea8fb6c647558f9601b3b.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/757a440e8acada1caa6a7248.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_traversal.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">走査して大きいほうから k 個を探す</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_traversal.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">走査して大きいほうから k 個を探す</object></ha-svg-figure></p>
-<p align="center"> 図 8-6   走査して大きいほうから k 個を探す </p><div class="ha-sr-only figure-description"><h3>図解 8-6：走査による選択で Top-k を探す</h3><p>各回で未選択の要素から最大値を見つけ、選んだ要素は以降の回には含めません。</p><p>この例の入力は 5 個の要素で、k=3 です。図は上から下へ全 4 段あり、1 段目が初期配列、その下の 3 段は、各回の選択を終えた時点の状態で、左側が未選択の領域、右側の青い枠が選択済みの領域です。</p><p>新しく選んだ要素はその都度、右側の選択済み領域の左端に置くため、画面の左から右への並びは取り出した時系列と逆になります。これは置く位置によるものであり、改めてソートを行ったわけではありません。</p><p>下向きの灰色の太い矢印は回の進行を表し、曲線の細い矢印は各回で取り出す最大値を示しています。下の表の左側の未選択の候補と右側の選択済み領域の 2 列は図中の領域から取ったもので、「累積の取り出し順」は各回で選んだ値を時系列順にまとめたものであり、図中に別の配列として描かれているわけではありません。</p><p>各回では左側の未選択の要素の中だけで比較します。2 回目に選んだ 6 は 7 の左側に置き、3 回目に選んだ 3 はさらに 6 の左側に置いて、選択済みの要素を右側にまとめます。</p><table><caption>3 回の選択における候補、選択済み領域、および取り出し順</caption><thead><tr><th scope="col">段階</th><th scope="col">左側の未選択の候補</th><th scope="col">右側の選択済み領域（左から右）</th><th scope="col">累積の取り出し順</th></tr></thead><tbody><tr><th scope="row">初期状態</th><td>[1, 7, 6, 3, 2]</td><td>空</td><td>空</td></tr><tr><th scope="row">1 回目：1 番目に大きい要素 7 を発見</th><td>[1, 6, 3, 2]</td><td>[7]</td><td>[7]</td></tr><tr><th scope="row">2 回目：2 番目に大きい要素 6 を発見</th><td>[1, 3, 2]</td><td>[6, 7]</td><td>[7, 6]</td></tr><tr><th scope="row">3 回目：3 番目に大きい要素 3 を発見</th><td>[1, 2]</td><td>[3, 6, 7]</td><td>[7, 6, 3]</td></tr></tbody></table><p>k 回の線形走査で大きい方から k 個の要素をそろえられ、全体の時間計算量は O(nk) です。</p></div>
+<p>この問題について、まず考え方の分かりやすい 2 つの解法を紹介し、続いてヒープを使ったより効率的な解法を説明します。</p>
+<h2 id="831-1"><span aria-hidden="true" data-previous-heading="" id="831"></span>8.3.1   方法 1：走査して選ぶ<a class="headerlink" href="#831-1" title="この見出しへのリンク">¶</a></h2>
+<p>図 8-6 のように <span class="arithmatex">\(k\)</span> 回走査し、各回で <span class="arithmatex">\(1\)</span> 番目、<span class="arithmatex">\(2\)</span> 番目、<span class="arithmatex">\(\dots\)</span>、<span class="arithmatex">\(k\)</span> 番目に大きい要素を順に取り出せます。時間計算量は <span class="arithmatex">\(O(nk)\)</span> です。</p>
+<p>この方法が適しているのは <span class="arithmatex">\(k \ll n\)</span> の場合だけです。<span class="arithmatex">\(k\)</span> が <span class="arithmatex">\(n\)</span> に近づくと時間計算量が <span class="arithmatex">\(O(n^2)\)</span> に近づき、非常に時間がかかります。</p>
+<p><ha-svg-figure aria-label="走査で上位 k 個を選ぶ" class="animation-figure" data-book-key="ja/chapter_heap/top_k.assets/top_k_traversal.png" data-dark-src="/assets/figure-svg/figures/4d515646350ae21d3a6c26fd.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/96d3063ad14dce3315c82326.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_traversal.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">走査で上位 k 個の要素を求める</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_traversal.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">走査で上位 k 個の要素を求める</object></ha-svg-figure></p>
+<p align="center"> 図 8-6   走査で上位 k 個の要素を求める </p><div class="ha-sr-only figure-description"><h3>図解 8-6：走査で上位 k 個を選ぶ</h3><p>各回で未選択の要素から最大値を探し、選んだ要素は以降の回の対象から外します。</p><p>この例の入力は 5 要素で k=3 です。図は上から 4 行あり、1 行目は初期配列、その下は 3 回の選択後の状態です。左側が未選択領域、右の青枠が選択済み領域です。</p><p>新しく選んだ要素は毎回、右の選択済み領域の左端に置きます。このため画面での左から右への並びは、取り出した時間順と逆です。これは配置の結果で、もう一度ソートしたわけではありません。</p><p>太い灰色の下向き矢印は次の回へ進むことを表し、細い曲線矢印は各回で取り出す最大値を示します。下の表の未選択候補と選択済み領域の 2 列は、図の左と右の領域に対応します。「これまでに取り出した順」は各回で選んだ値を時間順にまとめたもので、図にもう 1 行の配列として描かれているわけではありません。</p><p>各回で比較するのは左側の未選択要素だけです。2 回目に選んだ 6 は 7 の左に、3 回目に選んだ 3 はさらに 6 の左に置きます。選択済みの要素は右に残ります。</p><table><caption>3 回の選択における候補、選択済み領域、取り出した順</caption><thead><tr><th scope="col">段階</th><th scope="col">左の未選択候補</th><th scope="col">右の選択済み領域（左から右）</th><th scope="col">これまでに取り出した順</th></tr></thead><tbody><tr><th scope="row">初期状態</th><td>[1, 7, 6, 3, 2]</td><td>空</td><td>空</td></tr><tr><th scope="row">1 回目：最大の要素 7 を発見</th><td>[1, 6, 3, 2]</td><td>[7]</td><td>[7]</td></tr><tr><th scope="row">2 回目：2 番目に大きい要素 6 を発見</th><td>[1, 3, 2]</td><td>[6, 7]</td><td>[7, 6]</td></tr><tr><th scope="row">3 回目：3 番目に大きい要素 3 を発見</th><td>[1, 2]</td><td>[3, 6, 7]</td><td>[7, 6, 3]</td></tr></tbody></table><p>線形走査を k 回行えば上位 k 個の要素がすべて見つかり、全体の時間計算量は O(nk) です。</p></div>
 <div class="admonition tip">
 <p class="admonition-title">ヒント</p>
-<p><span class="arithmatex">\(k = n\)</span> なら、完全に整列された列が得られ、この方法は「選択ソート」と同じになります。</p>
+<p><span class="arithmatex">\(k = n\)</span> のときには、要素全体が並んだ整列済みの列が得られます。これは「選択ソート」と同等です。</p>
 </div>
-<h2 id="832">8.3.2   方法二：ソートする<a class="headerlink" href="#832" title="この見出しへのリンク">¶</a></h2>
-<p>図 8-7 のように、配列 <code>nums</code> をソートして右端の <span class="arithmatex">\(k\)</span> 要素を返すことができます。時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> です。</p>
-<p>ただし、この方法は必要以上の処理をしています。大きいほうから <span class="arithmatex">\(k\)</span> 個を求めるだけでよく、ほかの要素のソートは不要だからです。</p>
-<p><ha-svg-figure aria-label="方法二（ソート）：昇順にソートしてから右端の k 個の要素を返す" class="animation-figure" data-book-key="ja/chapter_heap/top_k.assets/top_k_sorting.png" data-dark-src="/assets/figure-svg/figures/f15c6fe843149ceb5434e354.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0d5169164791ffb6afefb1e3.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_sorting.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ソートして大きいほうから k 個を探す</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_sorting.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ソートして大きいほうから k 個を探す</object></ha-svg-figure></p>
-<p align="center"> 図 8-7   ソートして大きいほうから k 個を探す </p><div class="ha-sr-only figure-description"><h3>図解 8-7：方法二（ソート）：昇順にソートしてから右端の k 個の要素を返す</h3><p>まず配列全体を昇順にソートし、次に末尾の k 個の要素を取り出します。</p><p>この例では k=3 で、図は上から下へ入力、ソート後の配列、取り出した結果の全 3 段からなります。1 段目は nums = [1, 7, 6, 3, 2] です。</p><p>1 つ目の下向き矢印には「配列をソート」と記され、2 段目は [1, 2, 3, 6, 7] になります。右端の 3 個の要素 3、6、7 が青い枠線と下側の波括弧で示されています。</p><p>2 つ目の下向き矢印には「右端の k 個の要素を返す」と記され、3 段目には [3, 6, 7] だけが残り、小さい 1 と 2 は除かれます。昇順の配列では右側ほど要素が大きいため、末尾の k 個を取れば十分です。</p><p>O(n log n) のソートアルゴリズムを使うと全体の時間計算量は O(n log n) になりますが、この方法では返す必要のない残りの要素までソートしています。</p></div>
-<h2 id="833">8.3.3   方法三：ヒープを使う<a class="headerlink" href="#833" title="この見出しへのリンク">¶</a></h2>
-<p>ヒープを使うと、Top-k 問題をより効率よく解けます。流れを図 8-8 に示します。</p>
+<h2 id="832-2"><span aria-hidden="true" data-previous-heading="" id="832"></span>8.3.2   方法 2：ソート<a class="headerlink" href="#832-2" title="この見出しへのリンク">¶</a></h2>
+<p>図 8-7 のように、まず配列 <code>nums</code> をソートしてから右端の <span class="arithmatex">\(k\)</span> 個の要素を返せます。時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> です。</p>
+<p>この方法では必要以上の仕事をしています。欲しいのは上位 <span class="arithmatex">\(k\)</span> 個の要素だけで、それ以外の要素をソートする必要はないからです。</p>
+<p><ha-svg-figure aria-label="方法 2（ソート）：昇順に並べて右端の k 要素を返す" class="animation-figure" data-book-key="ja/chapter_heap/top_k.assets/top_k_sorting.png" data-dark-src="/assets/figure-svg/figures/3e1fd8ba364e4a2a0e9d6135.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/851ed5bce54f8c383a37e43d.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_sorting.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ソートで上位 k 個の要素を求める</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_sorting.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ソートで上位 k 個の要素を求める</object></ha-svg-figure></p>
+<p align="center"> 図 8-7   ソートで上位 k 個の要素を求める </p><div class="ha-sr-only figure-description"><h3>図解 8-7：方法 2（ソート）：昇順に並べて右端の k 要素を返す</h3><p>まず配列全体を昇順に並べ、末尾の k 要素を取り出します。</p><p>この例では k=3 です。図は上から順に入力、ソート後の配列、取り出した結果の 3 行です。1 行目は nums = [1, 7, 6, 3, 2] です。</p><p>最初の下向き矢印には「配列をソート」とあり、2 行目は [1, 2, 3, 6, 7] になります。右端の 3 要素 3、6、7 は青い枠とその下の波括弧で示されています。</p><p>2 番目の下向き矢印には「右端の k 個の要素を返す」とあり、3 行目には [3, 6, 7] だけが残り、小さい 1 と 2 は除かれます。昇順の配列では右ほど値が大きいので、末尾の k 要素を取れば十分です。</p><p>O(n log n) のソートアルゴリズムを使えば、全体の時間計算量は O(n log n) です。この方法では返す必要のない他の要素もソートします。</p></div>
+<h2 id="833-3"><span aria-hidden="true" data-previous-heading="" id="833"></span>8.3.3   方法 3：ヒープ<a class="headerlink" href="#833-3" title="この見出しへのリンク">¶</a></h2>
+<p>ヒープを使うと、Top-k 問題をさらに効率よく解けます。手順を図 8-8 に示します。</p>
 <ol>
-<li>先頭要素が最小となる最小ヒープを初期化します。</li>
-<li>配列の最初の <span class="arithmatex">\(k\)</span> 個の要素を順に挿入します。</li>
-<li><span class="arithmatex">\(k + 1\)</span> 番目以降は、現在の要素がヒープの先頭より大きければ、先頭を取り出して現在の要素を挿入します。</li>
-<li>走査が終わると、ヒープには大きいほうから <span class="arithmatex">\(k\)</span> 個の要素が残ります。</li>
+<li>最小ヒープを初期化します。根の要素が最小値になります。</li>
+<li>まず配列の先頭 <span class="arithmatex">\(k\)</span> 個の要素を順にヒープに入れます。</li>
+<li><span class="arithmatex">\(k + 1\)</span> 番目の要素からは、現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を入れます。</li>
+<li>走査が終わると、ヒープに残っているのが上位 <span class="arithmatex">\(k\)</span> 個の要素です。</li>
 </ol>
-<div aria-label="最小ヒープで Top-k を探す" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="ステップ1：1 を空のヒープに追加" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="ステップ2：7 をヒープに追加" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="ステップ3：6 をヒープに追加し、初期候補がそろう" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="ステップ4：現在の 3 とヒープの先頭 1 を比較" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="ステップ5：前の先頭 1 を取り出す" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="ステップ6：3 をヒープに追加" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="ステップ7：現在の 2 とヒープの先頭 3 を比較" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="ステップ8：2 をスキップ" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="ステップ9：3 個の候補を返す" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
+<div aria-label="最小ヒープで上位 k 個を求める" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="ステップ 1：空のヒープに 1 を追加" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="ステップ 2：7 をヒープに挿入" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="ステップ 3：6 を挿入して初期候補がそろう" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="ステップ 4：現在の値 3 と根の値 1 を比較" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="ステップ 5：元の根の値 1 を取り出す" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="ステップ 6：3 をヒープに挿入" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="ステップ 7：現在の値 2 と根の値 3 を比較" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="ステップ 8：2 をスキップ" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="ステップ 9：3 候補を返す" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ1：1 を空のヒープに追加" class="animation-figure" data-a11y-forward="1 を空のヒープに追加し、現在のヒープは [1] です。" data-a11y-state="入力インデックス i=0 の 1 をヒープに追加済み。現在は 1 個 [1] で、ヒープの先頭は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step1.png" data-dark-src="/assets/figure-svg/figures/b85d921b6ce96a3302be3def.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/4255389c6f46485a4f76b8f0.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープで大きいほうから k 個を探す</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープで大きいほうから k 個を探す</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 1（全 9 ステップ）：空のヒープに 1 を追加" class="animation-figure" data-a11y-forward="空のヒープに 1 を入れ、現在のヒープは [1] です。" data-a11y-state="入力インデックス i=0 の 1 を挿入しました。現在は [1] の 1 要素で、根の値は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step1.png" data-dark-src="/assets/figure-svg/figures/3e6e22862d07fdaee14470cb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/c6a81febeb1721c01e5d325b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープで上位 k 個の要素を求める</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープで上位 k 個の要素を求める</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ2：7 をヒープに追加" class="animation-figure" data-a11y-forward="7 をヒープに追加します。上への移動は不要で、現在のヒープは [1, 7] です。" data-a11y-state="入力インデックス i=1 の 7 をヒープに追加済み。現在は 2 個 [1, 7] で、ヒープの先頭は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step2.png" data-dark-src="/assets/figure-svg/figures/f9497de8a39460e77ccb4eb7.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/becb771aec9cb89f018ea9cf.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 2</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 2</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 2（全 9 ステップ）：7 をヒープに挿入" class="animation-figure" data-a11y-forward="7 を挿入します。上げる必要はなく、現在のヒープは [1, 7] です。" data-a11y-state="入力インデックス i=1 の 7 を挿入しました。現在は [1, 7] の 2 要素で、根の値は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step2.png" data-dark-src="/assets/figure-svg/figures/7cf738feb4ca8ecebd741eb1.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/306d82c284903d503f7fefcf.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ3：6 をヒープに追加し、初期候補がそろう" class="animation-figure" data-a11y-forward="6 をヒープに追加し、初期の 3 個の候補 [1, 7, 6] がそろいました。ヒープの先頭は 1 です。" data-a11y-state="入力インデックス i=2 の 6 をヒープに追加済み。初期の 3 個 [1, 7, 6] がそろい、ヒープの先頭は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step3.png" data-dark-src="/assets/figure-svg/figures/5cc5a6f25ea41114bbf5004a.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/70fcea94d14588c6265eecf5.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 3</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 3</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 3（全 9 ステップ）：6 を挿入して初期候補がそろう" class="animation-figure" data-a11y-forward="6 を挿入すると最初の 3 候補 [1, 7, 6] がそろい、根の値は 1 です。" data-a11y-state="入力インデックス i=2 の 6 を挿入しました。最初の 3 要素 [1, 7, 6] がそろい、根の値は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step3.png" data-dark-src="/assets/figure-svg/figures/4ed02c4af365786511df5ce2.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/1332e6203df1fba4cb834eeb.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ4：現在の 3 とヒープの先頭 1 を比較" class="animation-figure" data-a11y-forward="現在の値 3 とヒープの先頭 1 を比較します。3 &gt; 1 なので、次に先頭の 1 を取り出して 3 を入れます。このステップではヒープはまだ変わりません。" data-a11y-state="現在の入力インデックスは i=3。現在の値 3 &gt; ヒープの先頭 1 のため置き換え準備中ですが、ヒープはまだ変更しておらず 3 個 [1, 7, 6] のままで、先頭は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step4.png" data-dark-src="/assets/figure-svg/figures/bfe9a13c677494f1e98a3ede.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/13a3f2373e57f36683fba4d4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 4</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 4</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 4（全 9 ステップ）：現在の値 3 と根の値 1 を比較" class="animation-figure" data-a11y-forward="現在の値 3 と根の値 1 を比べると 3 &gt; 1 なので入れ替える準備をします。ヒープはまだ変更しません。" data-a11y-state="入力インデックス i=3 で、現在の値 3 &gt; 根の値 1 なので入れ替える準備をします。まだヒープは変更しておらず、3 要素 [1, 7, 6] で根の値は 1 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step4.png" data-dark-src="/assets/figure-svg/figures/2ff7ac8c57d4c0cea1f77a25.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0bc5376d54a98279f2fb0295.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ5：前の先頭 1 を取り出す" class="animation-figure" data-a11y-forward="前の先頭 1 を取り出し、ヒープは一時的に 2 個 [6, 7] となり、3 の追加待ちです。" data-a11y-state="現在の入力インデックスは i=3。前の先頭 1 を取り出し、ヒープは一時的に k−1=2 個 [6, 7]、先頭は 6 で、現在の値 3 は追加待ちです。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step5.png" data-dark-src="/assets/figure-svg/figures/a6ed4794ad582079d34821be.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/c39ca78c24245f62dcfa40bb.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 5</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 5</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 5（全 9 ステップ）：元の根の値 1 を取り出す" class="animation-figure" data-a11y-forward="元の根の 1 を取り出し、一時的にヒープは 2 要素 [6, 7] になります。3 はまだ挿入していません。" data-a11y-state="入力インデックスは i=3 です。元の根の 1 を取り出し、ヒープは一時的に k−1=2 要素の [6, 7]、根は 6 になっています。現在の値 3 はこれから挿入します。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step5.png" data-dark-src="/assets/figure-svg/figures/636ef561797f60ab0b3ed7c6.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/625b9a7cd902107c18804958.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ6：3 をヒープに追加" class="animation-figure" data-a11y-forward="3 をヒープに追加して新しい先頭へ移動させ、3 個の候補 [3, 7, 6] に戻りました。" data-a11y-state="現在の入力インデックスは i=3。3 をヒープに追加して上へ移動させ、3 個 [3, 7, 6] に戻り、ヒープの先頭は 3 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step6.png" data-dark-src="/assets/figure-svg/figures/c0854c264059bc436a7396e6.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/8bdb25c3cc3c8ce48058e901.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 6</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 6</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 6（全 9 ステップ）：3 をヒープに挿入" class="animation-figure" data-a11y-forward="3 を挿入して新しい根まで上げ、候補が再び 3 個の [3, 7, 6] になります。" data-a11y-state="入力インデックスは i=3 です。3 を挿入して上げると再び 3 要素 [3, 7, 6] になり、根の値は 3 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step6.png" data-dark-src="/assets/figure-svg/figures/9aaca7f9ad6b781f141e1767.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/56130face7a13a74adc3dc79.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ7：現在の 2 とヒープの先頭 3 を比較" class="animation-figure" data-a11y-forward="現在の値 2 とヒープの先頭 3 を比較します。2 &lt; 3 のため置き換えません。" data-a11y-state="現在の入力インデックスは i=4。現在の値 2 &lt; ヒープの先頭 3 のため置き換えず、ヒープは 3 個 [3, 7, 6] のままで先頭は 3 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step7.png" data-dark-src="/assets/figure-svg/figures/130ec55cf937b7fe1d131643.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/c1969e7c93e8e720614d5008.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 7</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 7</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 7（全 9 ステップ）：現在の値 2 と根の値 3 を比較" class="animation-figure" data-a11y-forward="現在の値 2 と根の値 3 を比べると 2 &lt; 3 なので入れ替えません。" data-a11y-state="入力インデックス i=4 で、現在の値 2 &lt; 根の値 3 なので入れ替えません。ヒープは 3 要素 [3, 7, 6] のままで、根の値は 3 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step7.png" data-dark-src="/assets/figure-svg/figures/4fd01a6b39f0489b036a98fe.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/3623f096868d24f71420a82f.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ8：2 をスキップ" class="animation-figure" data-a11y-forward="2 をスキップし、3 個の候補 [3, 7, 6] は変わらず、すべての入力の処理が完了しました。" data-a11y-state="入力インデックス i=4 の 2 をスキップし、すべての入力の処理が完了しました。ヒープは 3 個 [3, 7, 6] のままで先頭は 3 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step8.png" data-dark-src="/assets/figure-svg/figures/7942e0f6372c223df0f9923f.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/ef78f25f6e75f546ff25d6de.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 8</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 8</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 8（全 9 ステップ）：2 をスキップ" class="animation-figure" data-a11y-forward="2 を飛ばすので 3 候補 [3, 7, 6] は変わりません。これですべての入力を処理しました。" data-a11y-state="入力インデックス i=4 の 2 を飛ばして全入力の処理を終えました。ヒープは 3 要素 [3, 7, 6] のままで、根の値は 3 です。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step8.png" data-dark-src="/assets/figure-svg/figures/2eb581a3bea8d07facdbffd2.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/da466027378a09c9280791eb.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="最小ヒープで Top-k を探す、全9ステップ中のステップ9：3 個の候補を返す" class="animation-figure" data-a11y-forward="最小ヒープ [3, 7, 6] を返します（結果は昇順には並んでいません）。" data-a11y-state="走査が終了し、現在のポインタはありません。最小ヒープ [3, 7, 6]（計 3 個、先頭は 3、昇順には未整列）を返します。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step9.png" data-dark-src="/assets/figure-svg/figures/3ca2f1452748e55ddef14082.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/f2875e669fdcc28df53dbc4e.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 9</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">ヒープを使った top-k 問題の解法の手順 9</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="最小ヒープで上位 k 個を求める、ステップ 9（全 9 ステップ）：3 候補を返す" class="animation-figure" data-a11y-forward="最小ヒープ [3, 7, 6] を返します。結果は昇順には並んでいません。" data-a11y-state="走査が終わり、現在の要素を指すポインタはありません。3 要素の最小ヒープ [3, 7, 6] を返します。根の値は 3 で、結果は昇順には並んでいません。" data-book-key="ja/chapter_heap/top_k.assets/top_k_heap_step9.png" data-dark-src="/assets/figure-svg/figures/c9fc22edf8a80de2156db24d.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b39434a8172023546774f8b1.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object><object aria-hidden="true" data="/ja/chapter_heap/top_k.assets/top_k_heap_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object></ha-svg-figure></p>
 </div>
 </div>
 </div>
-<p align="center"> 図 8-8   ヒープで大きいほうから k 個を探す </p><div class="ha-sr-only figure-description"><h3>図解 8-8：最小ヒープで Top-k を探す</h3><p>最大 k 個の候補を保持し、その中の最小値を後続の要素と比較して、大きい方から k 個の値を段階的に残します。</p><p>この例では k=3 で、入力配列とそのインデックスは下の表のとおりです。ポインタ i は入力のインデックスを表し、heap は最小ヒープのレベル順配列で、ヒープのインデックス 0 に最小の候補が入り、左右の子ノードはそれぞれヒープのインデックス 1、2 に置かれます（存在する場合）。入力のインデックスは要素の元の位置を表し、ヒープのインデックスは現在の格納位置を表します。</p><p>まず先頭の k 個の入力を順にヒープへ追加し、その後は 1 つずつ比較します。現在の値がヒープの先頭より大きければ、先にヒープの先頭を取り出してから現在の値を追加し、そうでなければスキップします。各表にはステップ番号を付けており、比較またはスキップでヒープが変わらないステップでは表題によって対応する候補と元のインデックスを参照します。</p><p>ヒープの先頭は候補の中で最小の値です。より大きい新しい値が現れたときにそれでヒープの先頭を置き換えれば、処理済みの入力の中で大きい方から k 個の値を保ち続けられます。ヒープの先頭の参照は O(1) 時間、挿入や取り出しに伴う調整は O(log k) 時間で行えます。</p><table><caption>入力配列とインデックス</caption><thead><tr><th scope="col">入力インデックス</th><th scope="col">値</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>7</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>3</td></tr><tr><th scope="row">4</th><td>2</td></tr></tbody></table><ol><li><p><strong>1 を空のヒープに追加</strong></p><p>ポインタ i=0 で値 1 を読み取り、空のヒープに追加します。現在の候補は [1] の 1 個だけで、ヒープの先頭は 1 です。</p><table><caption>第 1 ステップの候補：1 を追加した後</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr></tbody></table></li><li><p><strong>7 をヒープに追加</strong></p><p>ポインタ i=1 で値 7 を読み取ってヒープに追加し、ヒープのインデックス 1 に置きます。親ノードの 1 は 7 より小さいため上への移動は不要で、現在の 2 個の候補は [1, 7]、ヒープの先頭は 1 です。</p><table><caption>第 2 ステップの候補：7 を追加した後</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>6 をヒープに追加し、初期候補がそろう</strong></p><p>ポインタ i=2 で値 6 を読み取ってヒープに追加し、ヒープのインデックス 2 に置きます。現在の 3 個の候補は [1, 7, 6]、ヒープの先頭は 1 です。先頭の k=3 個の入力がすべてヒープに入ったため、次は後続の要素を比較します。</p><table><caption>第 3 ステップの候補：初期の 3 個がそろう</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>現在の 3 とヒープの先頭 1 を比較</strong></p><p>ポインタ i=3 で、現在の値 3 は最小の候補 1 より大きいため置き換えの準備をします。このステップは比較のみで、まだ要素の取り出しも追加も行っていません。3 個の候補は [1, 7, 6] のままで、ヒープの先頭は 1 です。候補と元のインデックスは表「第 3 ステップの候補：初期の 3 個がそろう」を参照してください。</p></li><li><p><strong>前の先頭 1 を取り出す</strong></p><p>ポインタは i=3 のまま、まず前の先頭 1 を取り出すと、残りの要素は [6, 7] に調整され、ヒープの先頭は一時的に 6 になります。現在は k−1=2 個の候補しかなく、値 3 はこれからヒープに追加するところです。これは置き換えの途中状態であり、結果を取りこぼしたわけでも、この回の処理が終わったわけでもありません。</p><table><caption>第 5 ステップの候補：1 を取り出した後の途中状態</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>6</td><td>2</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>3 をヒープに追加</strong></p><p>ポインタは i=3 のまま、値 3 をヒープに追加して根まで上へ移動させると、k=3 個の候補 [3, 7, 6] に戻り、新しいヒープの先頭は 3 になります。この 3 個の候補は最初の 4 個の入力の中で大きい方から 3 つの値です。</p><table><caption>第 6 ステップの候補：3 を追加した後</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>現在の 2 とヒープの先頭 3 を比較</strong></p><p>ポインタ i=4 で、現在の値 2 はヒープの先頭 3 より小さいため、置き換えの条件を満たしません。このステップは比較のみで、3 個の候補は [3, 7, 6] のままです。候補と元のインデックスは表「第 6 ステップの候補：3 を追加した後」を参照してください。</p></li><li><p><strong>2 をスキップ</strong></p><p>ポインタ i=4 で、2 はヒープの先頭 3 より小さいためスキップし、取り出しも追加も行いません。3 個の候補は [3, 7, 6] のままでヒープの先頭は 3 であり、すべての入力の処理が終わりました。候補と元のインデックスは表「第 6 ステップの候補：3 を追加した後」を参照してください。</p></li><li><p><strong>3 個の候補を返す</strong></p><p>走査が終了して現在のポインタはなくなり、最小ヒープ [3, 7, 6] をそのまま返します。3 個の候補の元の入力位置は下の表のとおりです。ヒープの先頭は 3 ですが、左右の子ノード 7 と 6 は昇順である必要はなく、ここでは追加のソートは行っていません。</p><table><caption>第 9 ステップで最終的に返す候補と元の位置</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li></ol><p>ヒープ内には最大でも k 個の候補しか保持しないため、空間計算量は O(k)、全体の時間計算量は O(n log k) です。</p></div>
+<p align="center"> 図 8-8   ヒープで上位 k 個の要素を求める </p><div class="ha-sr-only figure-description"><h3>図解 8-8：最小ヒープで上位 k 個を求める</h3><p>候補を最大 k 個保持し、その最小値と後続の要素を比べて、上位 k 個の値を残していきます。</p><p>この例では k=3 です。入力配列とそのインデックスは下の表のとおりです。ポインタ i は入力のインデックスを表します。heap は最小ヒープのレベル順の配列で、最小の候補はヒープのインデックス 0 に、左右の子があればそれぞれインデックス 1、2 にあります。入力のインデックスは要素の出所、ヒープのインデックスは現在の格納位置を表します。</p><p>最初の k 個を順にヒープに入れ、その後は 1 個ずつ比較します。現在の値が根より大きければ根の要素を取り出してから現在の値を入れ、それ以外なら飛ばします。各表の名前にはステップ番号があります。比較やスキップでヒープが変わらない場合は、対応する表名を参照して候補とその入力インデックスを確認できます。</p><p>根の値は候補の中で最小です。それより大きい新しい値が来たときに根と入れ替えれば、処理済みの入力の上位 k 個を保持し続けられます。根の参照には O(1) 時間、挿入や取り出しに伴う調整には O(log k) 時間かかります。</p><table><caption>入力配列とインデックス</caption><thead><tr><th scope="col">入力インデックス</th><th scope="col">値</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>7</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>3</td></tr><tr><th scope="row">4</th><td>2</td></tr></tbody></table><ol><li><p><strong>空のヒープに 1 を追加</strong></p><p>ポインタ i=0 で値 1 を読み、空のヒープに入れます。候補は [1] の 1 個で、根の値は 1 です。</p><table><caption>ステップ 1 の候補：1 の挿入後</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr></tbody></table></li><li><p><strong>7 をヒープに挿入</strong></p><p>ポインタ i=1 で値 7 を読み、ヒープのインデックス 1 に追加します。親の値 1 は 7 より小さいので、上げる必要はありません。候補は [1, 7] の 2 個で、根の値は 1 です。</p><table><caption>ステップ 2 の候補：7 の挿入後</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>6 を挿入して初期候補がそろう</strong></p><p>ポインタ i=2 で値 6 を読み、ヒープのインデックス 2 に追加します。現在の 3 候補は [1, 7, 6] で、根の値は 1 です。先頭の k=3 個がすべて入ったので、続く要素を比較していきます。</p><table><caption>ステップ 3 の候補：最初の 3 要素がそろった状態</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>現在の値 3 と根の値 1 を比較</strong></p><p>ポインタ i=3 で現在の値 3 が最小の候補 1 より大きいので、入れ替える準備をします。この段階では比較だけで、まだ要素を取り出したり追加したりしません。3 候補は [1, 7, 6] のままで、根の値は 1 です。候補とその入力インデックスは表「ステップ 3 の候補：最初の 3 要素がそろった状態」を参照してください。</p></li><li><p><strong>元の根の値 1 を取り出す</strong></p><p>ポインタは i=3 のままです。まず元の根の 1 を取り出すと、残りの要素は [6, 7] に調整され、一時的に根の値が 6 になります。現在の候補は k−1=2 個だけで、3 はまだ入っていません。これは入れ替えの途中の状態で、結果に漏れがあるわけではなく、この回の処理はまだ続きます。</p><table><caption>ステップ 5 の候補：1 を取り出した後の中間状態</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>6</td><td>2</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>3 をヒープに挿入</strong></p><p>ポインタは i=3 のままです。値 3 を挿入して根まで上げると、候補は再び k=3 個の [3, 7, 6] となり、新しい根の値は 3 です。この 3 候補は、先頭の 4 入力のうち大きいほうの 3 個です。</p><table><caption>ステップ 6 の候補：3 の挿入後</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>現在の値 2 と根の値 3 を比較</strong></p><p>ポインタ i=4 で現在の値 2 は根の値 3 より小さいので、入れ替えの条件を満たしません。この段階では比較だけで、3 候補は [3, 7, 6] のままです。候補とその入力インデックスは表「ステップ 6 の候補：3 の挿入後」を参照してください。</p></li><li><p><strong>2 をスキップ</strong></p><p>ポインタ i=4 で 2 は根の値 3 より小さいので飛ばし、取り出しも挿入もしません。3 候補は [3, 7, 6] のまま、根の値は 3 で、これですべての入力を処理しました。候補とその入力インデックスは表「ステップ 6 の候補：3 の挿入後」を参照してください。</p></li><li><p><strong>3 候補を返す</strong></p><p>走査が終わり、現在の要素を指すポインタはありません。最小ヒープ [3, 7, 6] をそのまま返します。3 候補の入力元は下の表に示します。根の値は 3 ですが、左右の子 7 と 6 は昇順である必要がなく、ここで改めてソートはしません。</p><table><caption>ステップ 9 で返す最終候補とその入力元</caption><thead><tr><th scope="col">ヒープ配列のインデックス</th><th scope="col">値</th><th scope="col">元の入力インデックス</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li></ol><p>ヒープに保持する候補は最大 k 個なので、空間計算量は O(k)、全体の時間計算量は O(n log k) です。</p></div>
 <p>コード例は次のとおりです。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""ヒープを使って配列内の大きいほうから k 個の要素を求める"""</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""ヒープを使って配列の上位 k 個の要素を求める"""</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># 最小ヒープを初期化する</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="c1"># 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="c1"># 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">heap</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>            <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -2004,17 +2004,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">topKHeap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">top</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2025,17 +2025,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
@@ -2046,17 +2046,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TopKHeap</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">Peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2067,18 +2067,18 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">minHeap</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">h</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">minHeap</span><span class="p">{}</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">h</span><span class="p">.</span><span class="nx">Top</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">            </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Pop</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span>
 <a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">            </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
@@ -2089,13 +2089,13 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化し、先頭 k 個の要素でヒープを構築する</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化し、先頭 k 個の要素からヒープを構築する</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">heap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="kr">prefix</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropFirst</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="bp">min</span><span class="p">()</span><span class="o">!</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">            </span><span class="kc">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">removeMin</span><span class="p">()</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -2106,42 +2106,42 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* ヒープに要素を挿入する */</span>
+<div class="highlight"><span class="filename">top_k.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 要素をヒープに挿入する */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="o">-</span><span class="nx">val</span><span class="p">);</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">}</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="cm">/* ヒープから要素を取り出す */</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="cm">/* 根の要素をヒープから取り出す */</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
 <a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="cm">/* ヒープの先頭要素にアクセスする */</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="cm">/* ヒープの根の要素を参照する */</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
 <a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="p">}</span>
 <a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>
-<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="cm">/* ヒープ内の要素を取り出す */</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="cm">/* ヒープから要素を取り出す */</span>
 <a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">getMaxHeap</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span><span class="p">);</span>
 <a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="p">}</span>
 <a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a>
-<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="kd">function</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
-<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="c1">// 注意：ヒープの全要素の符号を反転することで、最大ヒープを使って最小ヒープを再現する</span>
+<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="c1">// すべての要素の符号を反転し、最大ヒープで最小ヒープを模擬する</span>
 <a href="#__codelineno-6-29" id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MaxHeap</span><span class="p">([]);</span>
-<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="w">        </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-6-33" id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-6-35" id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-6-37" id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-38" id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="w">            </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-6-39" id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="w">            </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
@@ -2153,42 +2153,42 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* ヒープに要素を挿入する */</span>
+<div class="highlight"><span class="filename">top_k.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 要素をヒープに挿入する */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="o">-</span><span class="nx">val</span><span class="p">);</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="cm">/* ヒープから要素を取り出す */</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="cm">/* 根の要素をヒープから取り出す */</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">}</span>
 <a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a>
-<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="cm">/* ヒープの先頭要素にアクセスする */</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="cm">/* ヒープの根の要素を参照する */</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
 <a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="p">}</span>
 <a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>
-<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="cm">/* ヒープ内の要素を取り出す */</span>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="cm">/* ヒープから要素を取り出す */</span>
 <a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">getMaxHeap</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">num</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span><span class="p">);</span>
 <a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="p">}</span>
 <a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a>
-<a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-7-26" id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="kd">function</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">k</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-27" id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
-<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="c1">// 注意：ヒープの全要素の符号を反転することで、最大ヒープを使って最小ヒープを再現する</span>
+<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="c1">// すべての要素の符号を反転し、最大ヒープで最小ヒープを模擬する</span>
 <a href="#__codelineno-7-29" id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MaxHeap</span><span class="p">([]);</span>
-<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-7-31" id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-32" id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">        </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-7-33" id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-7-35" id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-7-37" id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-38" id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">            </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-7-39" id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="w">            </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
@@ -2200,13 +2200,13 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">MinHeap</span><span class="w"> </span><span class="n">topKHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// 最小ヒープを初期化し、配列の先頭 k 個の要素を挿入する</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="n">MinHeap</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MinHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">sublist</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">      </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">      </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2217,17 +2217,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">BinaryHeap</span><span class="o">&lt;</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// BinaryHeap は最大ヒープなので、Reverse で要素の順序を反転して最小ヒープを実装する</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// BinaryHeap は最大ヒープなので、Reverse で要素の大小関係を反転して最小ヒープを実現する</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span><span class="p">::</span><span class="o">&lt;</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">take</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">num</span><span class="p">));</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">skip</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">num</span><span class="p">));</span>
@@ -2238,27 +2238,27 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* ヒープに要素を挿入する */</span>
+<div class="highlight"><span class="filename">top_k.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 要素をヒープに挿入する */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">pushMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="n">push</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">val</span><span class="p">);</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">}</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="cm">/* ヒープから要素を取り出す */</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="cm">/* 根の要素をヒープから取り出す */</span>
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">popMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">pop</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">}</span>
 <a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="cm">/* ヒープの先頭要素にアクセスする */</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="cm">/* ヒープの根の要素を参照する */</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="kt">int</span><span class="w"> </span><span class="nf">peekMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="c1">// 要素の符号を反転する</span>
 <a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">peek</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="p">}</span>
 <a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>
-<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="cm">/* ヒープ内の要素を取り出す */</span>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="cm">/* ヒープから要素を取り出す */</span>
 <a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">getMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">    </span><span class="c1">// ヒープの全要素の符号を反転し、res 配列に格納する</span>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">    </span><span class="c1">// ヒープの全要素の符号を反転し、配列 res に格納する</span>
 <a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 <a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">        </span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -2266,19 +2266,19 @@
 <a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="p">}</span>
 <a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a>
-<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める関数 */</span>
+<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める関数 */</span>
 <a href="#__codelineno-10-30" id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">topKHeap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sizeNums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
-<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">    </span><span class="c1">// 注意：ヒープの全要素の符号を反転することで、最大ヒープを使って最小ヒープを再現する</span>
+<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">    </span><span class="c1">// すべての要素の符号を反転し、最大ヒープで最小ヒープを模擬する</span>
 <a href="#__codelineno-10-33" id="__codelineno-10-33" name="__codelineno-10-33"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a href="#__codelineno-10-34" id="__codelineno-10-34" name="__codelineno-10-34"></a><span class="w">    </span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newMaxHeap</span><span class="p">(</span><span class="n">empty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-10-36" id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-37" id="__codelineno-10-37" name="__codelineno-10-37"></a><span class="w">        </span><span class="n">pushMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-10-38" id="__codelineno-10-38" name="__codelineno-10-38"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-10-40" id="__codelineno-10-40" name="__codelineno-10-40"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sizeNums</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-10-42" id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peekMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-43" id="__codelineno-10-43" name="__codelineno-10-43"></a><span class="w">            </span><span class="n">popMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-44" id="__codelineno-10-44" name="__codelineno-10-44"></a><span class="w">            </span><span class="n">pushMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2292,17 +2292,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* ヒープを使って配列内の大きいほうから k 個の要素を求める */</span>
+<div class="highlight"><span class="filename">top_k.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* ヒープを使って配列の上位 k 個の要素を求める */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// 最小ヒープを初期化する</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">k</span><span class="p">..</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="na">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">poll</span><span class="p">()</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
@@ -2313,20 +2313,20 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### ヒープを使って配列内の大きいほうから k 個の要素を求める ###</span>
+<div class="highlight"><span class="filename">top_k.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### ヒープを使って配列の上位 k 個の要素を求める ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
 <a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># 最小ヒープを初期化する</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="c1"># 注意：ヒープの全要素の符号を反転することで、最大ヒープを使って最小ヒープを再現する</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="c1"># すべての要素の符号を反転し、最大ヒープで最小ヒープを模擬する</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="n">max_heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">MaxHeap</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 配列の先頭 k 個の要素をヒープに挿入する</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 配列の先頭 k 個の要素をヒープに入れる</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">k</span>
 <a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="n">push_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">  </span><span class="k">end</span>
 <a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="c1"># k+1 番目の要素から始め、ヒープの長さを k に保つ</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="c1"># k+1 番目の要素からはヒープのサイズを k に保つ</span>
 <a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">k</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
-<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="c1"># 現在の要素がヒープの先頭要素より大きい場合、先頭要素を取り出し、現在の要素を挿入する</span>
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="c1"># 現在の要素が根の要素より大きければ、根の要素を取り出して現在の要素を挿入する</span>
 <a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peek_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">)</span>
 <a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">      </span><span class="n">pop_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">)</span>
 <a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">      </span><span class="n">push_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
@@ -2340,12 +2340,12 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>実行の可視化</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E9%85%8D%E5%88%97%E5%86%85%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%84%E3%81%BB%E3%81%86%E3%81%8B%E3%82%89%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%20%E7%95%AA%E7%9B%AE%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%80%81%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%20k%20%E3%81%AB%E4%BF%9D%E3%81%A4%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%80%81%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の可視化"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E9%85%8D%E5%88%97%E5%86%85%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%84%E3%81%BB%E3%81%86%E3%81%8B%E3%82%89%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%20%E7%95%AA%E7%9B%AE%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%80%81%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E9%95%B7%E3%81%95%E3%82%92%20k%20%E3%81%AB%E4%BF%9D%E3%81%A4%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%84%E5%A0%B4%E5%90%88%E3%80%81%E5%85%88%E9%A0%AD%E8%A6%81%E7%B4%A0%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%80%81%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
+<summary>実行の様子を見る</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E9%85%8D%E5%88%97%E3%81%AE%E4%B8%8A%E4%BD%8D%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E5%85%A5%E3%82%8C%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%20%E7%95%AA%E7%9B%AE%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8B%E3%82%89%E3%81%AF%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%92%20k%20%E3%81%AB%E4%BF%9D%E3%81%A4%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E6%A0%B9%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%91%E3%82%8C%E3%81%B0%E3%80%81%E6%A0%B9%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%A6%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の様子を見る"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E9%85%8D%E5%88%97%E3%81%AE%E4%B8%8A%E4%BD%8D%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E5%B0%8F%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%E9%85%8D%E5%88%97%E3%81%AE%E5%85%88%E9%A0%AD%20k%20%E5%80%8B%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E5%85%A5%E3%82%8C%E3%82%8B%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%20%E7%95%AA%E7%9B%AE%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8B%E3%82%89%E3%81%AF%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%92%20k%20%E3%81%AB%E4%BF%9D%E3%81%A4%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E6%A0%B9%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%91%E3%82%8C%E3%81%B0%E3%80%81%E6%A0%B9%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E3%81%A6%E7%8F%BE%E5%9C%A8%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%BF%E5%85%A5%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
 </details>
-<p><span class="arithmatex">\(n\)</span> 回の反復で挿入と取り出しを行い、ヒープの最大長は <span class="arithmatex">\(k\)</span> なので、時間計算量は <span class="arithmatex">\(O(n \log k)\)</span> です。非常に効率的で、<span class="arithmatex">\(k\)</span> が小さいと <span class="arithmatex">\(O(n)\)</span> に近づき、<span class="arithmatex">\(k\)</span> が大きくても <span class="arithmatex">\(O(n \log n)\)</span> を超えません。</p>
-<p>さらに、この方法は動的なデータストリームにも適しています。データが追加され続けても、ヒープ内の要素を維持することで、大きいほうから <span class="arithmatex">\(k\)</span> 個を動的に更新できます。</p>
+<p>挿入と取り出しを扱う反復は合計 <span class="arithmatex">\(n\)</span> 回で、ヒープの長さは最大 <span class="arithmatex">\(k\)</span> なので、時間計算量は <span class="arithmatex">\(O(n \log k)\)</span> です。この方法は効率がよく、<span class="arithmatex">\(k\)</span> が小さいときは時間計算量が <span class="arithmatex">\(O(n)\)</span> に近づきます。<span class="arithmatex">\(k\)</span> が大きいときも <span class="arithmatex">\(O(n \log n)\)</span> を超えません。</p>
+<p>また、この方法はデータが次々に届くストリームにも適しています。新しいデータが加わるたびにヒープの中身を調整することで、上位 <span class="arithmatex">\(k\)</span> 個の要素を動的に更新できます。</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
@@ -2381,7 +2381,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">コメント欄で、考えや質問、ご提案をお寄せください。</h5>
+<h5 align="center" id="__comments">ご意見、ご質問、ご提案をコメント欄にお寄せください。</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ja" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2463,9 +2463,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.4b65e87068ac38235d9f2cf93ce9d63bc8183b8a230a27c7b45fcfe8aa24e133.min.js"></script>
+<script src="../../assets/javascripts/bundle.196948135a4269c18233e33e47fd4bec6b98a7ae38264d86305fc24707a64a8d.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом" name="description"/>
+<meta content="Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ru/chapter_searching/replace_linear_by_hashing/" rel="canonical"/>
 <link href="../binary_search_edge/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_searching/replace_linear_by_hashing/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>10.4 Стратегии оптимизации с помощью хеширования - Hello Algo</title>
+<title>10.4 Оптимизация поиска с помощью хеш-таблицы - Привет, алгоритмы!</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,13 +47,13 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label aria-label="Навигация" class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#104">
+<a class="md-skip" href="#104-">
           Перейти к содержанию
         </a>
 </div>
@@ -64,15 +64,15 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Приглашаем вас участвовать в развитии русской версии! Подробнее <a href="/ru/chapter_appendix/contribution/">здесь</a>.</span>
+<span>Помогите улучшить русское издание. <a href="/ru/chapter_appendix/contribution/">Узнать больше</a>.</span>
 </div>
 </div>
 </aside>
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="Навигация" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -81,13 +81,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Привет, алгоритмы!
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              10.4   Стратегии оптимизации с помощью хеширования
+              10.4   Оптимизация поиска с помощью хеш-таблицы
 
           </span>
 </div>
@@ -173,10 +173,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Привет, алгоритмы!
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="Перейти к репозиторию">
@@ -197,7 +197,7 @@
 <span class="md-ellipsis">
 
 
-  Перед началом
+  Вступительное слово
 
 
   </span>
@@ -208,7 +208,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Перед началом
+  Вступительное слово
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -246,7 +246,7 @@
 <span class="md-ellipsis">
 
 
-  0.1 Об этой книге
+  0.1 О книге
 
 
   </span>
@@ -257,7 +257,7 @@
 <span class="md-ellipsis">
 
 
-  0.2 Как пользоваться этой книгой
+  0.2 Как пользоваться книгой
 
 
   </span>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3 Резюме
+  0.3 Итоги
 
 
   </span>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3 Резюме
+  1.3 Итоги
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1 Оценка эффективности алгоритмов
+  2.1 Оценка эффективности алгоритма
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5 Резюме
+  2.5 Итоги
 
 
   </span>
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
 
 
-  3.5 Резюме
+  3.5 Итоги
 
 
   </span>
@@ -537,7 +537,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
 
   </span>
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -593,7 +593,7 @@
 <span class="md-ellipsis">
 
 
-  4.4 Оперативная память и кэш *
+  4.4 Оперативная память и кеш *
 
 
   </span>
@@ -604,7 +604,7 @@
 <span class="md-ellipsis">
 
 
-  4.5 Резюме
+  4.5 Итоги
 
 
   </span>
@@ -632,7 +632,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
 
   </span>
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -655,7 +655,7 @@
 <span class="md-ellipsis">
 
 
-  5.1 Стек
+  5.1   Стек
 
 
   </span>
@@ -666,7 +666,7 @@
 <span class="md-ellipsis">
 
 
-  5.2 Очередь
+  5.2   Очередь
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3 Двусторонняя очередь
+  5.3   Двусторонняя очередь
 
 
   </span>
@@ -688,7 +688,7 @@
 <span class="md-ellipsis">
 
 
-  5.4 Резюме
+  5.4   Итоги
 
 
   </span>
@@ -699,7 +699,7 @@
 <span class="md-ellipsis">
 
 
-  5.5 Упражнения
+  5.5   Упражнения
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2 Хеш-коллизии
+  6.2 Коллизии
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4 Резюме
+  6.4 Итоги
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3 Представление двоичного дерева массивом
+  7.3 Представление двоичного дерева в виде массива
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5 AVL-дерево *
+  7.5 АВЛ-дерево *
 
 
   </span>
@@ -878,7 +878,7 @@
 <span class="md-ellipsis">
 
 
-  7.6 Краткие итоги
+  7.6 Итоги
 
 
   </span>
@@ -906,7 +906,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
 
   </span>
@@ -920,7 +920,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -951,7 +951,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -962,7 +962,7 @@
 <span class="md-ellipsis">
 
 
-  8.4 Резюме
+  8.4 Итоги
 
 
   </span>
@@ -1024,7 +1024,7 @@
 <span class="md-ellipsis">
 
 
-  9.2 Базовые операции графа
+  9.2 Основные операции с графом
 
 
   </span>
@@ -1046,7 +1046,7 @@
 <span class="md-ellipsis">
 
 
-  9.4 Краткие итоги
+  9.4 Итоги
 
 
   </span>
@@ -1108,7 +1108,7 @@
 <span class="md-ellipsis">
 
 
-  10.2 Двоичный поиск точки вставки
+  10.2 Нахождение позиции вставки с помощью двоичного поиска
 
 
   </span>
@@ -1119,7 +1119,7 @@
 <span class="md-ellipsis">
 
 
-  10.3 Двоичный поиск границ
+  10.3 Нахождение границ с помощью двоичного поиска
 
 
   </span>
@@ -1130,7 +1130,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1140,7 +1140,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1155,7 +1155,7 @@
 <a class="md-nav__link" href="#1041">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.1   Линейный поиск: обмен времени на пространство
+        10.4.1   Линейный поиск: экономим память за счёт времени
       </span>
 </span>
 </a>
@@ -1164,7 +1164,7 @@
 <a class="md-nav__link" href="#1042-">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.2   Хеш-поиск: обмен пространства на время
+        10.4.2   Поиск по хеш-таблице: экономим время за счёт памяти
       </span>
 </span>
 </a>
@@ -1177,7 +1177,7 @@
 <span class="md-ellipsis">
 
 
-  10.5 Переосмысление алгоритмов поиска
+  10.5 Новый взгляд на алгоритмы поиска
 
 
   </span>
@@ -1188,7 +1188,7 @@
 <span class="md-ellipsis">
 
 
-  10.6 Резюме
+  10.6 Итоги
 
 
   </span>
@@ -1327,7 +1327,7 @@
 <span class="md-ellipsis">
 
 
-  11.9 Сортировка подсчетом
+  11.9 Сортировка подсчётом
 
 
   </span>
@@ -1349,7 +1349,7 @@
 <span class="md-ellipsis">
 
 
-  11.11 Резюме
+  11.11 Итоги
 
 
   </span>
@@ -1400,7 +1400,7 @@
 <span class="md-ellipsis">
 
 
-  12.1 Стратегия разделяй и властвуй
+  12.1 Метод «разделяй и властвуй»
 
 
   </span>
@@ -1411,7 +1411,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1422,7 +1422,7 @@
 <span class="md-ellipsis">
 
 
-  12.3 Задача построения двоичного дерева
+  12.3 Задача о построении двоичного дерева
 
 
   </span>
@@ -1433,7 +1433,7 @@
 <span class="md-ellipsis">
 
 
-  12.4 Задача о Ханойской башне
+  12.4 Задача о ханойских башнях
 
 
   </span>
@@ -1444,7 +1444,7 @@
 <span class="md-ellipsis">
 
 
-  12.5 Резюме
+  12.5 Итоги
 
 
   </span>
@@ -1495,7 +1495,7 @@
 <span class="md-ellipsis">
 
 
-  13.1 Алгоритм поиска с возвратом
+  13.1 Поиск с возвратом
 
 
   </span>
@@ -1517,7 +1517,7 @@
 <span class="md-ellipsis">
 
 
-  13.3 Задача о сумме подмножеств
+  13.3 Задача о сумме подмножества
 
 
   </span>
@@ -1528,7 +1528,7 @@
 <span class="md-ellipsis">
 
 
-  13.4 Задача о n ферзях
+  13.4 Задача о N ферзях
 
 
   </span>
@@ -1539,7 +1539,7 @@
 <span class="md-ellipsis">
 
 
-  13.5 Резюме
+  13.5 Итоги
 
 
   </span>
@@ -1590,7 +1590,7 @@
 <span class="md-ellipsis">
 
 
-  14.1 Первое знакомство с динамическим программированием
+  14.1 Знакомство с динамическим программированием
 
 
   </span>
@@ -1612,7 +1612,7 @@
 <span class="md-ellipsis">
 
 
-  14.3 Подход к решению задач динамического программирования
+  14.3 Как решать задачи динамического программирования
 
 
   </span>
@@ -1623,7 +1623,7 @@
 <span class="md-ellipsis">
 
 
-  14.4 Задача о рюкзаке 0-1
+  14.4 Задача о рюкзаке 0–1
 
 
   </span>
@@ -1634,7 +1634,7 @@
 <span class="md-ellipsis">
 
 
-  14.5 Задача о полном рюкзаке
+  14.5 Задача о неограниченном рюкзаке
 
 
   </span>
@@ -1645,7 +1645,7 @@
 <span class="md-ellipsis">
 
 
-  14.6 Задача о расстоянии редактирования
+  14.6 Задача о редакционном расстоянии
 
 
   </span>
@@ -1656,7 +1656,7 @@
 <span class="md-ellipsis">
 
 
-  14.7 Резюме
+  14.7 Итоги главы
 
 
   </span>
@@ -1684,7 +1684,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
 
   </span>
@@ -1698,7 +1698,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1740,7 +1740,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1751,7 +1751,7 @@
 <span class="md-ellipsis">
 
 
-  15.5 Резюме
+  15.5 Итоги
 
 
   </span>
@@ -1813,7 +1813,7 @@
 <span class="md-ellipsis">
 
 
-  16.2 Присоединяйтесь к созданию книги
+  16.2 Как принять участие в работе над книгой
 
 
   </span>
@@ -1824,7 +1824,7 @@
 <span class="md-ellipsis">
 
 
-  16.3 Глоссарий
+  16.3 Словарь терминов
 
 
   </span>
@@ -1881,7 +1881,7 @@
 <a class="md-nav__link" href="#1041">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.1   Линейный поиск: обмен времени на пространство
+        10.4.1   Линейный поиск: экономим память за счёт времени
       </span>
 </span>
 </a>
@@ -1890,7 +1890,7 @@
 <a class="md-nav__link" href="#1042-">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.4.2   Хеш-поиск: обмен пространства на время
+        10.4.2   Поиск по хеш-таблице: экономим время за счёт памяти
       </span>
 </span>
 </a>
@@ -1911,22 +1911,22 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="104">10.4   Стратегии оптимизации с помощью хеширования<a class="headerlink" href="#104" title="Permanent link">¶</a></h1>
-<p>В алгоритмических задачах <strong>мы часто заменяем линейный поиск на хеш-поиск, чтобы уменьшить временную сложность алгоритма</strong>. Разберем одну задачу, чтобы лучше понять этот прием.</p>
+<h1 id="104-"><span aria-hidden="true" data-previous-heading="" id="104"></span>10.4   Оптимизация поиска с помощью хеш-таблицы<a class="headerlink" href="#104-" title="Permanent link">¶</a></h1>
+<p>При решении алгоритмических задач <strong>часто удаётся уменьшить временную сложность, заменив линейный поиск поиском по хеш-таблице</strong>. Разберём это на примере.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Дан массив целых чисел <code>nums</code> и целевой элемент <code>target</code> . Найдите в массиве два элемента, сумма которых равна <code>target</code> , и верните их индексы. Подойдет любой корректный ответ.</p>
+<p>Даны целочисленный массив <code>nums</code> и целевое значение <code>target</code>. Найдите в массиве два элемента с суммой <code>target</code> и верните их индексы. Подойдёт любое решение.</p>
 </div>
-<h2 id="1041">10.4.1   Линейный поиск: обмен времени на пространство<a class="headerlink" href="#1041" title="Permanent link">¶</a></h2>
-<p>Рассмотрим прямой перебор всех возможных комбинаций. Как показано на рисунке 10-9, мы запускаем два вложенных цикла и на каждом шаге проверяем, равна ли сумма двух целых чисел <code>target</code>. Если да, то возвращаем их индексы.</p>
-<p><ha-svg-figure aria-label="Поиск двух чисел с заданной суммой полным перебором" class="animation-figure" data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png" data-dark-src="/assets/figure-svg/figures/34fa1d684d3d07e25ad5da36.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/8c09bd1cba49b270a606aedb.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению</object></ha-svg-figure></p>
-<p align="center"> Рисунок 10-9   Линейный поиск для нахождения двух чисел, сумма которых равна заданному значению </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 10-9: Поиск двух чисел с заданной суммой полным перебором</h3><p>Верхнетреугольная таблица представляет все пары различных позиций массива.</p><p>Дан массив целых чисел nums = [2, 7, 11, 15] (индексы от 0 до 3) и целевая сумма target = 13.</p><p>Требуется найти две различные позиции массива с суммой элементов target и вернуть их индексы (использовать элемент с одной и той же позиции дважды нельзя). Полный перебор запускает два вложенных цикла по внешнему индексу i и внутреннему индексу j (при j &gt; i), проверяя сумму каждой пары.</p><p>В матрице из 4 строк и 4 столбцов в нижней части рисунка заголовки строк и столбцов перечисляют 2, 7, 11, 15, а 6 сумм-кандидатов записаны только в верхнетреугольной области строго выше главной диагонали: тем самым исключены как сложение элемента с самим собой на главной диагонали, так и повторные пары с переставленным порядком слагаемых в левом нижнем углу. Элементы и суммы в таблице ниже взяты из матрицы на схеме; пары индексов получены по позициям во входном массиве начиная с 0, а выражения составлены по заголовкам строк и столбцов.</p><p>На пересечении строки 0 (элемент 2) и столбца 2 (элемент 11) значение ячейки 13 выделено сине-фиолетовым шрифтом. В порядке обхода кода слева направо при фиксированном внешнем индексе i = 0 (элемент 2) внутренний цикл сначала вычисляет 2 + 7 = 9, а сразу следом получает 2 + 11 = 13, находит цель и немедленно возвращает [0, 2]; остальные суммы показаны на рисунке лишь для полноты пространства всех пар и не означают, что перебор продолжается после совпадения.</p><table><caption>Шесть пар различных позиций на схеме</caption><thead><tr><th scope="col">Пара индексов</th><th scope="col">Пара элементов</th><th scope="col">Сумма</th></tr></thead><tbody><tr><th scope="row">0, 1</th><td>2 + 7</td><td>9</td></tr><tr><th scope="row">0, 2</th><td>2 + 11</td><td>13, совпадение с целью</td></tr><tr><th scope="row">0, 3</th><td>2 + 15</td><td>17</td></tr><tr><th scope="row">1, 2</th><td>7 + 11</td><td>18</td></tr><tr><th scope="row">1, 3</th><td>7 + 15</td><td>22</td></tr><tr><th scope="row">2, 3</th><td>11 + 15</td><td>26</td></tr></tbody></table><p>Два вложенных цикла работают за время O(n²) при дополнительной памяти O(1), то есть перебор экономит память ценой большего времени поиска.</p></div>
-<p>Код приведен ниже:</p>
+<h2 id="1041">10.4.1   Линейный поиск: экономим память за счёт времени<a class="headerlink" href="#1041" title="Permanent link">¶</a></h2>
+<p>Переберём все возможные пары. Как показано ниже, используем два вложенных цикла. Для каждой пары проверяем, равна ли сумма чисел <code>target</code>. Если равна, возвращаем их индексы.</p>
+<p><ha-svg-figure aria-label="Поиск двух чисел с заданной суммой полным перебором" class="animation-figure" data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.png" data-dark-src="/assets/figure-svg/figures/d85d092d8750e1b9507c37ee.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/dbcd879b2fed8ef2c76cac96.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Решение задачи о сумме двух чисел линейным поиском</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_brute_force.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Решение задачи о сумме двух чисел линейным поиском</object></ha-svg-figure></p>
+<p align="center"> Рисунок 10-9   Решение задачи о сумме двух чисел линейным поиском </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 10-9: Поиск двух чисел с заданной суммой полным перебором</h3><p>Верхняя треугольная часть таблицы представляет все пары различных позиций массива.</p><p>Даны целочисленный массив nums = [2, 7, 11, 15] с индексами от 0 до 3 и искомая сумма target = 13.</p><p>Требуется найти две разные позиции массива, сумма элементов в которых равна target, и вернуть их индексы. Элемент на одной позиции нельзя использовать дважды. При полном переборе внешний цикл задаёт индекс i, а внутренний — индекс j, где j &gt; i. Для каждой пары проверяется сумма её элементов.</p><p>В матрице внизу рисунка четыре строки и четыре столбца. И строки, и столбцы озаглавлены значениями 2, 7, 11, 15. Шесть возможных сумм записаны только выше главной диагонали. Диагональ исключена, чтобы не складывать элемент с самим собой, а нижний треугольник — чтобы не повторять пары с переставленными слагаемыми. Элементы и суммы в таблице взяты из матрицы на рисунке. Индексы в парах соответствуют позициям элементов во входном массиве при нумерации с нуля, а слагаемые взяты из заголовков строк и столбцов.</p><p>На пересечении строки 0 (элемент 2) и столбца 2 (элемент 11) сумма 13 выделена сине-фиолетовым цветом. В коде перебор идёт слева направо. При i = 0 (элемент 2) внутренний цикл сначала вычисляет 2 + 7 = 9, затем 2 + 11 = 13. Искомая сумма найдена, поэтому алгоритм сразу возвращает [0, 2]. Остальные суммы показаны на рисунке для полноты. После совпадения их вычислять не нужно.</p><table><caption>Шесть пар различных позиций на рисунке</caption><thead><tr><th scope="col">Пара индексов</th><th scope="col">Пара элементов</th><th scope="col">Сумма</th></tr></thead><tbody><tr><th scope="row">0, 1</th><td>2 + 7</td><td>9</td></tr><tr><th scope="row">0, 2</th><td>2 + 11</td><td>13, искомая сумма</td></tr><tr><th scope="row">0, 3</th><td>2 + 15</td><td>17</td></tr><tr><th scope="row">1, 2</th><td>7 + 11</td><td>18</td></tr><tr><th scope="row">1, 3</th><td>7 + 15</td><td>22</td></tr><tr><th scope="row">2, 3</th><td>11 + 15</td><td>26</td></tr></tbody></table><p>Время работы двух вложенных циклов — O(n²), дополнительная память — O(1). Экономия памяти достигается за счёт времени.</p></div>
+<p>Запишем это в коде:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">two_sum.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Метод 1: полный перебор"""</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Способ 1: полный перебор"""</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Два вложенных цикла, временная сложность O(n^2)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
@@ -1936,7 +1936,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumBruteForce</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -1951,7 +1951,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -1966,7 +1966,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="nf">TwoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -1981,7 +1981,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nx">size</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -1997,7 +1997,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropLast</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -2012,7 +2012,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -2028,7 +2028,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumBruteForce</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -2058,7 +2058,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">();</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -2074,7 +2074,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numsSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">returnSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2092,7 +2092,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Метод 1: полный перебор */</span>
+<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Способ 1: полный перебор */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">twoSumBruteForce</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="c1">// Два вложенных цикла, временная сложность O(n^2)</span>
@@ -2106,7 +2106,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Метод 1: полный перебор ###</span>
+<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Способ 1: полный перебор ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_brute_force</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
 <a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Два вложенных цикла, временная сложность O(n^2)</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="p">(</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
@@ -2122,37 +2122,37 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi%2C%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums%2C%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi%2C%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums%2C%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 441px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_brute_force%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%201%3A%20%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%22%22%22%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%B0%20%D0%B2%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B0,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%5E2%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%20-%201%29%3A%0A%20%20%20%20%20%20%20%20for%20j%20in%20range%28i%20%2B%201,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%2B%20nums%5Bj%5D%20%3D%3D%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bi,%20j%5D%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_brute_force%28nums,%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
-<p>Временная сложность этого метода равна <span class="arithmatex">\(O(n^2)\)</span> , а пространственная сложность равна <span class="arithmatex">\(O(1)\)</span> , поэтому на больших объемах данных он очень медленный.</p>
-<h2 id="1042-">10.4.2   Хеш-поиск: обмен пространства на время<a class="headerlink" href="#1042-" title="Permanent link">¶</a></h2>
-<p>Рассмотрим вариант с использованием хеш-таблицы, где ключами и значениями будут элементы массива и их индексы. При циклическом обходе массива на каждом шаге выполняются действия, показанные на рисунке 10-10.</p>
+<p>Временная сложность этого способа равна <span class="arithmatex">\(O(n^2)\)</span>, а пространственная — <span class="arithmatex">\(O(1)\)</span>. На больших объёмах данных перебор занимает много времени.</p>
+<h2 id="1042-">10.4.2   Поиск по хеш-таблице: экономим время за счёт памяти<a class="headerlink" href="#1042-" title="Permanent link">¶</a></h2>
+<p>Возьмём хеш-таблицу, в которой ключом служит элемент массива, а значением — его индекс. Обойдём массив в цикле, на каждой итерации выполняя шаги с рисунка.</p>
 <ol>
-<li>Проверить, находится ли число <code>target - nums[i]</code> в хеш-таблице. Если да, то сразу вернуть индексы этих двух элементов.</li>
-<li>Добавить в хеш-таблицу пару из ключа <code>nums[i]</code> и индекса <code>i</code> .</li>
+<li>Проверим, есть ли число <code>target - nums[i]</code> в хеш-таблице. Если есть, сразу вернём индексы обоих элементов.</li>
+<li>Добавим в хеш-таблицу запись с ключом <code>nums[i]</code> и значением — индексом <code>i</code>.</li>
 </ol>
-<div aria-label="Поиск двух чисел с заданной суммой через хеш-таблицу" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="2:3" role="group"><input aria-label="Шаг 1: Дополняющее число 11 не найдено: запись 2" checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input aria-label="Шаг 2: Дополняющее число 6 не найдено: запись 7" id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input aria-label="Шаг 3: Найдено дополняющее число 2: возврат индексов" id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
+<div aria-label="Задача о сумме двух чисел: хеш-таблица" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="2:3" role="group"><input aria-label="Шаг 1: Недостающее слагаемое 11 не найдено, записываем 2" checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input aria-label="Шаг 2: Недостающее слагаемое 6 не найдено, записываем 7" id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input aria-label="Шаг 3: Недостающее слагаемое 2 найдено, возвращаем индексы" id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">&lt;1&gt;</label><label for="__tabbed_2_2">&lt;2&gt;</label><label for="__tabbed_2_3">&lt;3&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск двух чисел с заданной суммой через хеш-таблицу, шаг 1 из 3: Дополняющее число 11 не найдено: запись 2" class="animation-figure" data-a11y-forward="Проверяем элемент 2 по индексу 0: числа 11 нет в хеш-таблице, сохраняем пару 2: 0 в map." data-a11y-state="i = 0 (значение 2): дополняющее число 11 не найдено, после записи map = {2: 0}." data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png" data-dark-src="/assets/figure-svg/figures/908ade6e797be661fe4ec6aa.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a2333f8ed51c3f11c6b6a338.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Задача о сумме двух чисел: хеш-таблица, шаг 1 из 3: Недостающее слагаемое 11 не найдено, записываем 2" class="animation-figure" data-a11y-forward="Проверяем элемент 2 по индексу 0. В хеш-таблице нет недостающего слагаемого 11, поэтому записываем в map пару 2: 0." data-a11y-state="i = 0, значение 2. Недостающее слагаемое 11 не найдено. После записи map = {2: 0}." data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.png" data-dark-src="/assets/figure-svg/figures/e88ae4234c37cf55f38bf7c6.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/cae22c563b2df586f251ca68.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Решение задачи о сумме двух чисел с помощью вспомогательной хеш-таблицы</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Решение задачи о сумме двух чисел с помощью вспомогательной хеш-таблицы</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск двух чисел с заданной суммой через хеш-таблицу, шаг 2 из 3: Дополняющее число 6 не найдено: запись 7" class="animation-figure" data-a11y-forward="Проверяем элемент 7 по индексу 1: числа 6 нет в хеш-таблице, сохраняем пару 7: 1 в map." data-a11y-state="i = 1 (значение 7): дополняющее число 6 не найдено, после записи map = {2: 0, 7: 1}." data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png" data-dark-src="/assets/figure-svg/figures/738151824898174b7b2cd575.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/9743b3f4f62583e4c90eefdf.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Задача о сумме двух чисел: хеш-таблица, шаг 2 из 3: Недостающее слагаемое 6 не найдено, записываем 7" class="animation-figure" data-a11y-forward="Проверяем элемент 7 по индексу 1. В хеш-таблице нет недостающего слагаемого 6, поэтому записываем в map пару 7: 1." data-a11y-state="i = 1, значение 7. Недостающее слагаемое 6 не найдено. После записи map = {2: 0, 7: 1}." data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.png" data-dark-src="/assets/figure-svg/figures/58ff900071db8eda5894a2ad.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0efde8c86b00ca048ea777df.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step2</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск двух чисел с заданной суммой через хеш-таблицу, шаг 3 из 3: Найдено дополняющее число 2: возврат индексов" class="animation-figure" data-a11y-forward="Проверяем элемент 11 по индексу 2: в хеш-таблице найдено дополняющее число 2 (индекс 0), возвращаем [0, 2]." data-a11y-state="i = 2 (значение 11): дополняющее число 2 найдено в map с индексом 0, сразу возвращается [0, 2]. Таблица map остаётся {2: 0, 7: 1}, 11 не добавляется, 15 не обрабатывается." data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png" data-dark-src="/assets/figure-svg/figures/f9117557721003a66688aa16.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/7f3338bd73b9fb6d02338f98.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Задача о сумме двух чисел: хеш-таблица, шаг 3 из 3: Недостающее слагаемое 2 найдено, возвращаем индексы" class="animation-figure" data-a11y-forward="Проверяем элемент 11 по индексу 2. Находим в хеш-таблице недостающее слагаемое 2 с индексом 0 и возвращаем [0, 2]." data-a11y-state="i = 2, значение 11. В map для недостающего слагаемого 2 найден индекс 0. Сразу возвращаем [0, 2]. Таблица map остаётся равной {2: 0, 7: 1}. Число 11 не записываем, число 15 уже не проверяем." data-book-key="ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.png" data-dark-src="/assets/figure-svg/figures/cd55afb40c5db5b7990c43de.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/973c623e50dfa7b4f50f7524.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object><object aria-hidden="true" data="/ru/chapter_searching/replace_linear_by_hashing.assets/two_sum_hashtable_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">two_sum_hashtable_step3</object></ha-svg-figure></p>
 </div>
 </div>
 </div>
-<p align="center"> Рисунок 10-10   Использование вспомогательной хеш-таблицы для нахождения двух чисел, сумма которых равна заданному значению </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 10-10: Поиск двух чисел с заданной суммой через хеш-таблицу</h3><p>Хеш-таблица хранит уже просмотренные элементы и их индексы: на каждом шаге сначала ищется дополняющее слагаемое, и лишь при его отсутствии записывается текущий элемент.</p><p>Дан массив целых чисел nums = [2, 7, 11, 15] (индексы от 0 до 3) и целевая сумма target = 13.</p><p>Вспомогательная хеш-таблица map хранит уже пройденные элементы: в ключе (key, подписано «Элемент») записано значение элемента массива, а в значении (value, подписано «Индекс») — его индекс в массиве. На каждой итерации одиночного цикла сначала проверяется, есть ли дополняющее число target − nums[i] в map: если оно найдено, сразу возвращается пара [map[target − nums[i]], i], а если нет — в map добавляется пара nums[i]: i.</p><p>Порядок «сначала проверить дополняющее число, затем сохранить текущий элемент» гарантирует, что парный элемент всегда берётся с более раннего, отличного от i индекса. Три пошаговых кадра последовательно показывают проверку и состояние хеш-таблицы при i = 0, 1, 2 (обратите внимание: на кадре шага 1 изображено состояние уже после первой вставки 2: 0, а не пустая таблица).</p><ol><li><p><strong>Дополняющее число 11 не найдено: запись 2</strong></p><p>Указатель i = 0 указывает на элемент 2. Пояснение справа на схеме: так как 13 − 2 = 11 отсутствует в изначально пустой таблице, записывается пара 2: 0, и таблица принимает вид map = {2: 0}. Ответ ещё не найден, следующий элемент — 7 по индексу 1.</p></li><li><p><strong>Дополняющее число 6 не найдено: запись 7</strong></p><p>Указатель i = 1 указывает на элемент 7. Пояснение справа на схеме: так как 13 − 7 = 6 отсутствует в map, записывается пара 7: 1. До этого в таблице был только ключ 2, после записи получаем map = {2: 0, 7: 1}; ответ ещё не найден, следующий элемент — 11 по индексу 2.</p></li><li><p><strong>Найдено дополняющее число 2: возврат индексов</strong></p><p>Указатель i = 2 указывает на элемент 11. Пояснение справа на схеме: так как 13 − 11 = 2 уже есть в map и map[2] = 0, возвращаются индексы [0, 2]. Таблица map остаётся равной {2: 0, 7: 1}: число 11 в неё не записывается, а элемент 15 по индексу 3 больше не проверяется.</p></li></ol><p>При среднем времени запроса к хеш-таблице O(1) общее среднее время работы составляет O(n) при дополнительной памяти O(n), то есть дополнительная память ускоряет поиск.</p></div>
-<p>Код реализации показан ниже, и для него достаточно одного цикла:</p>
+<p align="center"> Рисунок 10-10   Решение задачи о сумме двух чисел с помощью вспомогательной хеш-таблицы </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 10-10: Задача о сумме двух чисел: хеш-таблица</h3><p>Храним просмотренные элементы и их индексы в хеш-таблице. Сначала ищем недостающее слагаемое и лишь затем решаем, записывать ли текущий элемент.</p><p>Даны целочисленный массив nums = [2, 7, 11, 15] с индексами от 0 до 3 и искомая сумма target = 13.</p><p>Во вспомогательной хеш-таблице map храним просмотренные элементы. Ключ (key, подпись «Элемент») — значение элемента массива, значение записи (value, подпись «Индекс») — его индекс. На каждой итерации единственного цикла сначала проверяем, есть ли в map недостающее слагаемое target − nums[i]. Если оно найдено, сразу возвращаем [map[target − nums[i]], i]. Только если его нет, записываем в map пару nums[i]: i.</p><p>Поскольку недостающее слагаемое ищут до записи текущего элемента, второй элемент пары обязательно имеет другой индекс, меньший i. На трёх кадрах показаны проверки и состояние таблицы для i = 0, 1 и 2. На первом кадре таблица показана уже после вставки первой пары 2: 0.</p><ol><li><p><strong>Недостающее слагаемое 11 не найдено, записываем 2</strong></p><p>Указатель i = 0 стоит на элементе 2. Справа поясняется, что числа 13 − 2 = 11 в изначально пустой таблице нет. Записываем 2: 0 и получаем map = {2: 0}. Ответа пока нет. Следующий элемент — 7 по индексу 1.</p></li><li><p><strong>Недостающее слагаемое 6 не найдено, записываем 7</strong></p><p>Указатель i = 1 стоит на элементе 7. Справа поясняется, что числа 13 − 7 = 6 в map нет, поэтому записываем 7: 1. Раньше в таблице был только ключ 2, теперь map = {2: 0, 7: 1}. Ответа пока нет. Следующий элемент — 11 по индексу 2.</p></li><li><p><strong>Недостающее слагаемое 2 найдено, возвращаем индексы</strong></p><p>Указатель i = 2 стоит на элементе 11. Справа поясняется, что число 13 − 11 = 2 уже есть в map, причём map[2] = 0. Поэтому возвращаем индексы [0, 2]. Таблица по-прежнему имеет вид {2: 0, 7: 1}. Число 11 в неё не добавляем, а число 15 по индексу 3 уже не обрабатываем.</p></li></ol><p>Если поиск в хеш-таблице занимает в среднем O(1), то общее время в среднем равно O(n), а дополнительная память составляет O(n). Здесь дополнительная память позволяет выиграть время.</p></div>
+<p>Для реализации достаточно одного цикла:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><input id="__tabbed_3_5" name="__tabbed_3" type="radio"/><input id="__tabbed_3_6" name="__tabbed_3" type="radio"/><input id="__tabbed_3_7" name="__tabbed_3" type="radio"/><input id="__tabbed_3_8" name="__tabbed_3" type="radio"/><input id="__tabbed_3_9" name="__tabbed_3" type="radio"/><input id="__tabbed_3_10" name="__tabbed_3" type="radio"/><input id="__tabbed_3_11" name="__tabbed_3" type="radio"/><input id="__tabbed_3_12" name="__tabbed_3" type="radio"/><input id="__tabbed_3_13" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">two_sum.py</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Метод 2: вспомогательная хеш-таблица"""</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""Способ 2: вспомогательная хеш-таблица"""</span>
 <a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="c1"># Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
 <a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>    <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
 <a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># Один цикл, временная сложность O(n)</span>
@@ -2164,7 +2164,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">twoSumHashTable</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 <a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
@@ -2181,7 +2181,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
 <a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
@@ -2198,7 +2198,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="nf">TwoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
 <a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
@@ -2215,7 +2215,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
 <a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="nx">hashTable</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">{}</span>
@@ -2231,7 +2231,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
 <a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">dic</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[:]</span>
@@ -2247,7 +2247,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
 <a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
@@ -2264,7 +2264,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">twoSumHashTable</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
 <a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">m</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">();</span>
@@ -2299,7 +2299,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="k">pub</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
 <a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
@@ -2319,7 +2319,7 @@
 <a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
 <a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
-<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="n">UT_hash_handle</span><span class="w"> </span><span class="n">hh</span><span class="p">;</span><span class="w"> </span><span class="c1">// Реализовано на основе uthash.h</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="n">UT_hash_handle</span><span class="w"> </span><span class="n">hh</span><span class="p">;</span><span class="w"> </span><span class="c1">// Реализация на основе uthash.h</span>
 <a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="p">}</span><span class="w"> </span><span class="n">HashTable</span><span class="p">;</span>
 <a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a>
 <a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="cm">/* Поиск в хеш-таблице */</span>
@@ -2341,7 +2341,7 @@
 <a href="#__codelineno-23-24" id="__codelineno-23-24" name="__codelineno-23-24"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-23-25" id="__codelineno-23-25" name="__codelineno-23-25"></a><span class="p">}</span>
 <a href="#__codelineno-23-26" id="__codelineno-23-26" name="__codelineno-23-26"></a>
-<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numsSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">returnSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-23-29" id="__codelineno-23-29" name="__codelineno-23-29"></a><span class="w">    </span><span class="n">HashTable</span><span class="w"> </span><span class="o">*</span><span class="n">hashtable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <a href="#__codelineno-23-30" id="__codelineno-23-30" name="__codelineno-23-30"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2360,7 +2360,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* Метод 2: вспомогательная хеш-таблица */</span>
+<div class="highlight"><span class="filename">two_sum.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* Способ 2: вспомогательная хеш-таблица */</span>
 <a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">twoSumHashTable</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">IntArray</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
 <a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="c1">// Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
@@ -2377,7 +2377,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">### Метод 2: вспомогательная хеш-таблица ###</span>
+<div class="highlight"><span class="filename">two_sum.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">### Способ 2: вспомогательная хеш-таблица ###</span>
 <a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">two_sum_hash_table</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
 <a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">  </span><span class="c1"># Вспомогательная хеш-таблица, пространственная сложность O(n)</span>
 <a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">  </span><span class="n">dic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
@@ -2395,18 +2395,18 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D%2C%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums%2C%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B5%D1%82%D0%BE%D0%B4%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB%2C%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D%2C%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2%2C%207%2C%2011%2C%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums%2C%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 477px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0,%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20two_sum_hash_table%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%202%3A%20%D0%B2%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0%22%22%22%0A%20%20%20%20%23%20%D0%92%D1%81%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D1%85%D0%B5%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0,%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20dic%20%3D%20%7B%7D%0A%20%20%20%20%23%20%D0%9E%D0%B4%D0%B8%D0%BD%20%D1%86%D0%B8%D0%BA%D0%BB,%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C%20O%28n%29%0A%20%20%20%20for%20i%20in%20range%28len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20if%20target%20-%20nums%5Bi%5D%20in%20dic%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20%5Bdic%5Btarget%20-%20nums%5Bi%5D%5D,%20i%5D%0A%20%20%20%20%20%20%20%20dic%5Bnums%5Bi%5D%5D%20%3D%20i%0A%20%20%20%20return%20%5B%5D%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B2,%207,%2011,%2015%5D%0A%20%20%20%20target%20%3D%2013%0A%20%20%20%20res%20%3D%20two_sum_hash_table%28nums,%20target%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
-<p>Благодаря хеш-поиску этот метод снижает временную сложность с <span class="arithmatex">\(O(n^2)\)</span> до <span class="arithmatex">\(O(n)\)</span> , существенно повышая эффективность работы.</p>
-<p>Поскольку требуется поддерживать дополнительную хеш-таблицу, пространственная сложность составляет <span class="arithmatex">\(O(n)\)</span> . <strong>Несмотря на это, в целом данный метод лучше сбалансирован по времени и памяти, поэтому именно он является оптимальным решением этой задачи</strong>.</p>
+<p>Поиск по хеш-таблице снижает временную сложность с <span class="arithmatex">\(O(n^2)\)</span> до <span class="arithmatex">\(O(n)\)</span> и тем самым значительно ускоряет алгоритм.</p>
+<p>Для вспомогательной хеш-таблицы нужна память, поэтому пространственная сложность равна <span class="arithmatex">\(O(n)\)</span>. <strong>Тем не менее этот способ даёт лучшее соотношение затрат времени и памяти и является оптимальным решением задачи</strong>.</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="Нижний колонтитул" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="Назад: 10.3 Двоичный поиск границ" class="md-footer__link md-footer__link--prev" href="../binary_search_edge/" rel="prev">
+<a aria-label="Назад: 10.3 Нахождение границ с помощью двоичного поиска" class="md-footer__link md-footer__link--prev" href="../binary_search_edge/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -2415,18 +2415,18 @@
         Назад
       </span>
 <div class="md-ellipsis">
-        10.3 Двоичный поиск границ
+        10.3 Нахождение границ с помощью двоичного поиска
       </div>
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="Вперед: 10.5 Переосмысление алгоритмов поиска" class="md-footer__link md-footer__link--next" href="../searching_algorithm_revisited/" rel="next">
+<a aria-label="Вперед: 10.5 Новый взгляд на алгоритмы поиска" class="md-footer__link md-footer__link--next" href="../searching_algorithm_revisited/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         Вперед
       </span>
 <div class="md-ellipsis">
-        10.5 Переосмысление алгоритмов поиска
+        10.5 Новый взгляд на алгоритмы поиска
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2436,7 +2436,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Оставляйте свои идеи, вопросы и предложения в комментариях</h5>
+<h5 align="center" id="__comments">Поделитесь своим мнением, задайте вопрос или оставьте предложение в комментариях</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ru" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2518,9 +2518,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.0d441547851f63d0e6614369d827335a9b125feca310fe06e17e6b9e15f96fa1.min.js"></script>
+<script src="../../assets/javascripts/bundle.c14dfd00549a42415ad39f11698a44840394334ca6c2e5be8ce68b23dd434e70.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

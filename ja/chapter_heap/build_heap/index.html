@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書" name="description"/>
+<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ja/chapter_heap/build_heap/" rel="canonical"/>
 <link href="../heap/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_heap/build_heap/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>8.2 ヒープの構築 - Hello Algo</title>
+<title>8.2 ヒープの構築 - Hello アルゴリズム</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5aac88ee1d4deb0dce936ce.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,8 +65,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="ヘッダー" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="ナビゲーション" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -75,7 +75,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Hello アルゴリズム
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -167,10 +167,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="ナビゲーション" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Hello アルゴリズム
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="リポジトリへ">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   アルゴリズムはどこにでもある
+  1.1   身の回りのアルゴリズム
 
 
   </span>
@@ -733,7 +733,7 @@
 <span class="md-ellipsis">
 
 
-  6.1   ハッシュテーブル
+  6.1   ハッシュ表
 
 
   </span>
@@ -959,7 +959,7 @@
 <a class="md-nav__link" href="#821">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.1   挿入操作を使う方法
+        8.2.1   挿入を繰り返す方法
       </span>
 </span>
 </a>
@@ -968,7 +968,7 @@
 <a class="md-nav__link" href="#822">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.2   走査しながらヒープ化する方法
+        8.2.2   ノードを順にヒープ化する方法
       </span>
 </span>
 </a>
@@ -977,7 +977,7 @@
 <a class="md-nav__link" href="#823">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.3   計算量の解析
+        8.2.3   計算量の分析
       </span>
 </span>
 </a>
@@ -1074,7 +1074,7 @@
 <span class="md-ellipsis">
 
 
-  9.3   グラフの走査
+  9.3   グラフの探索
 
 
   </span>
@@ -1147,7 +1147,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分探索で挿入位置を探す
+  10.2   二分探索で挿入位置を求める
 
 
   </span>
@@ -1158,7 +1158,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分探索で境界を探す
+  10.3   二分探索で境界を求める
 
 
   </span>
@@ -1169,7 +1169,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   ハッシュを使った最適化
+  10.4   ハッシュを用いた最適化
 
 
   </span>
@@ -1180,7 +1180,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   探索アルゴリズムを改めて考える
+  10.5   探索アルゴリズムを振り返る
 
 
   </span>
@@ -1380,7 +1380,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
 
   </span>
@@ -1394,7 +1394,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1403,7 +1403,7 @@
 <span class="md-ellipsis">
 
 
-  12.1   分割統治アルゴリズム
+  12.1   分割統治法のアルゴリズム
 
 
   </span>
@@ -1414,7 +1414,7 @@
 <span class="md-ellipsis">
 
 
-  12.2   分割統治による探索戦略
+  12.2   分割統治法による探索
 
 
   </span>
@@ -1425,7 +1425,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   二分木の構築問題
+  12.3   二分木を構築する問題
 
 
   </span>
@@ -1436,7 +1436,7 @@
 <span class="md-ellipsis">
 
 
-  12.4   ハノイの塔の問題
+  12.4   ハノイの塔
 
 
   </span>
@@ -1498,7 +1498,7 @@
 <span class="md-ellipsis">
 
 
-  13.1   バックトラッキングアルゴリズム
+  13.1   バックトラッキング
 
 
   </span>
@@ -1509,7 +1509,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   順列列挙問題
+  13.2   全順列問題
 
 
   </span>
@@ -1520,7 +1520,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   部分集合和問題
+  13.3   部分和問題
 
 
   </span>
@@ -1531,7 +1531,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n クイーン問題
+  13.4   N クイーン問題
 
 
   </span>
@@ -1593,7 +1593,7 @@
 <span class="md-ellipsis">
 
 
-  14.1   動的計画法への第一歩
+  14.1   動的計画法入門
 
 
   </span>
@@ -1604,7 +1604,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   動的計画法の問題の特徴
+  14.2   動的計画法で解ける問題の特徴
 
 
   </span>
@@ -1615,7 +1615,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   動的計画法の解き方
+  14.3   動的計画法で解くための考え方
 
 
   </span>
@@ -1710,7 +1710,7 @@
 <span class="md-ellipsis">
 
 
-  15.1   貪欲アルゴリズム
+  15.1   貪欲法
 
 
   </span>
@@ -1743,7 +1743,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   整数を分割して積を最大にする問題
+  15.4   整数分割の最大積問題
 
 
   </span>
@@ -1805,7 +1805,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   プログラミング環境のインストール
+  16.1   開発環境のセットアップ
 
 
   </span>
@@ -1816,7 +1816,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   一緒に本書を作りましょう
+  16.2   本書の執筆に参加する
 
 
   </span>
@@ -1884,7 +1884,7 @@
 <a class="md-nav__link" href="#821">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.1   挿入操作を使う方法
+        8.2.1   挿入を繰り返す方法
       </span>
 </span>
 </a>
@@ -1893,7 +1893,7 @@
 <a class="md-nav__link" href="#822">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.2   走査しながらヒープ化する方法
+        8.2.2   ノードを順にヒープ化する方法
       </span>
 </span>
 </a>
@@ -1902,7 +1902,7 @@
 <a class="md-nav__link" href="#823">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.3   計算量の解析
+        8.2.3   計算量の分析
       </span>
 </span>
 </a>
@@ -1924,38 +1924,38 @@
 <!-- View button -->
 <!-- Page content -->
 <h1 id="82">8.2   ヒープの構築<a class="headerlink" href="#82" title="この見出しへのリンク">¶</a></h1>
-<p>リストのすべての要素を使ってヒープを作りたい場合があります。この過程を「ヒープの構築」と呼びます。</p>
-<h2 id="821">8.2.1   挿入操作を使う方法<a class="headerlink" href="#821" title="この見出しへのリンク">¶</a></h2>
-<p>まず空のヒープを作り、リストを走査して各要素を順に挿入します。つまり、要素をヒープの末尾に追加してから、その要素を下から上へヒープ化します。</p>
-<p>要素を一つ挿入するたびに、ヒープの長さは一つ増えます。ノードが二分木の上から下へ順に追加されるので、ヒープは「上から下へ」構築されます。</p>
-<p>要素数を <span class="arithmatex">\(n\)</span> とすると、一要素の挿入に <span class="arithmatex">\(O(\log{n})\)</span> 時間かかるため、この構築方法の時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> です。</p>
-<h2 id="822">8.2.2   走査しながらヒープ化する方法<a class="headerlink" href="#822" title="この見出しへのリンク">¶</a></h2>
-<p>実は、次の二つの手順で、より効率よくヒープを構築できます。</p>
+<p>リストの全要素を使ってヒープを作りたいことがあります。この操作を「ヒープの構築」といいます。</p>
+<h2 id="821">8.2.1   挿入を繰り返す方法<a class="headerlink" href="#821" title="この見出しへのリンク">¶</a></h2>
+<p>まず空のヒープを作り、リストを走査しながら各要素を順に挿入します。要素をヒープの末尾に追加し、その要素から上に向かってヒープ化します。</p>
+<p>要素を 1 個挿入するたびにヒープの長さが 1 増えます。ノードは二分木に上から下の順に追加されるので、ヒープは「上から下へ」構築されます。</p>
+<p>要素数を <span class="arithmatex">\(n\)</span> とすると、各要素の挿入には <span class="arithmatex">\(O(\log{n})\)</span> 時間かかるので、この方法でのヒープ構築の時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> です。</p>
+<h2 id="822">8.2.2   ノードを順にヒープ化する方法<a class="headerlink" href="#822" title="この見出しへのリンク">¶</a></h2>
+<p>実は、もっと効率よくヒープを構築できます。手順は次の 2 段階です。</p>
 <ol>
-<li>リストの全要素をそのままヒープへ追加します。この時点では、まだヒープの性質を満たしていません。</li>
-<li>ヒープを逆順、つまりレベル順走査の逆順に走査し、葉以外の各ノードを順に上から下へヒープ化します。</li>
+<li>リストの全要素を元の順序のままヒープに入れます。この段階ではヒープの条件はまだ保証されていません。</li>
+<li>ヒープをレベル順の逆順にたどり、葉以外の各ノードから順に下に向かってヒープ化します。</li>
 </ol>
-<p><strong>一つのノードをヒープ化するたびに、そのノードを根とする部分木が正しい部分ヒープになります</strong>。逆順に走査するため、ヒープは「下から上へ」構築されます。</p>
-<p>逆順に走査するのは、現在のノードの下にある部分木がすでに正しい部分ヒープであることを保証し、現在のノードのヒープ化を有効にするためです。</p>
-<p><strong>葉ノードには子がないため、それ自体が正しい部分ヒープであり、ヒープ化は不要です</strong>。次のコードのように、葉以外の最後のノードは最後のノードの親です。そこから逆順に走査してヒープ化します。</p>
+<p><strong>ノードを 1 つヒープ化するたびに、そのノードを根とする部分木がヒープの条件を満たします</strong>。逆順にたどるので、ヒープは「下から上へ」構築されます。</p>
+<p>逆順にたどるのは、現在のノードの下にある部分木がすでにヒープの条件を満たすことを保証するためです。この条件がそろって初めて、現在のノードのヒープ化が有効になります。</p>
+<p><strong>葉には子がないので、それだけですでにヒープの条件を満たし、ヒープ化する必要がありません</strong>。次のコードのように、葉でない最後のノードは、末尾のノードの親です。そこから逆順にたどってヒープ化します。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""コンストラクタ：入力リストからヒープを構築する"""</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""入力リストからヒープを構築するコンストラクタ"""</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_heap</span> <span class="o">=</span> <span class="n">nums</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sift_down</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* コンストラクタ：入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
@@ -1963,11 +1963,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* コンストラクタ：入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
@@ -1975,11 +1975,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* コンストラクタ：入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="n">SiftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -1988,12 +1988,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* コンストラクタ：スライスからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* スライスからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">newMaxHeap</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">maxHeap</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">h</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">maxHeap</span><span class="p">{</span><span class="nx">data</span><span class="p">:</span><span class="w"> </span><span class="nx">nums</span><span class="p">}</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">h</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="nx">h</span><span class="p">.</span><span class="nx">siftDown</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">h</span>
@@ -2001,11 +2001,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* コンストラクタ：入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">init</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)).</span><span class="n">reversed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2013,11 +2013,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* コンストラクタ：空のヒープを構築するか、入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 空のヒープを作るか、入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kr">constructor</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">#maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[...</span><span class="nx">nums</span><span class="p">];</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">#parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">#siftDown</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2025,11 +2025,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* コンストラクタ：空のヒープを構築するか、入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 空のヒープを作るか、入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kr">constructor</span><span class="p">(</span><span class="nx">nums?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[...</span><span class="nx">nums</span><span class="p">];</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">siftDown</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2037,11 +2037,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* コンストラクタ：入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="n">_maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="p">}</span>
@@ -2049,11 +2049,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* コンストラクタ：入力リストからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaxHeap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">max_heap</span><span class="p">:</span><span class="w"> </span><span class="nc">nums</span><span class="w"> </span><span class="p">};</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..=</span><span class="bp">Self</span><span class="p">::</span><span class="n">parent</span><span class="p">(</span><span class="n">heap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">sift_down</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2062,14 +2062,14 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* コンストラクタ：スライスからヒープを構築する */</span>
+<div class="highlight"><span class="filename">my_heap.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* スライスからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="nf">newMaxHeap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// すべての要素をヒープに挿入する</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// すべての要素をヒープに入れる</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">MaxHeap</span><span class="p">));</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 <a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maxHeap</span><span class="p">;</span>
@@ -2079,32 +2079,32 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 最大ヒープ */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MaxHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// 配列ではなくリストを使うため、容量の拡張を考慮する必要がない</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// 配列の代わりにリストを使えば、容量の拡張を自分で扱う必要がない</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="cm">/* コンストラクタ：入力リストからヒープを構築する */</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="cm">/* 入力リストからヒープを構築するコンストラクタ */</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">        </span><span class="c1">// リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">        </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums</span><span class="o">!!</span><span class="p">)</span>
-<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="c1">// 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="c1">// 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="n">downTo</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">            </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a>
-<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="cm">/* 左の子のインデックスを取得 */</span>
+<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="cm">/* 左の子のインデックスを取得する */</span>
 <a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">left</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
 <a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a>
-<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">    </span><span class="cm">/* 右の子のインデックスを取得 */</span>
+<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">    </span><span class="cm">/* 右の子のインデックスを取得する */</span>
 <a href="#__codelineno-11-22" id="__codelineno-11-22" name="__codelineno-11-22"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">right</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-23" id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-24" id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-25" id="__codelineno-11-25" name="__codelineno-11-25"></a>
-<a href="#__codelineno-11-26" id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="w">    </span><span class="cm">/* 親のインデックスを取得 */</span>
+<a href="#__codelineno-11-26" id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="w">    </span><span class="cm">/* 親のインデックスを取得する */</span>
 <a href="#__codelineno-11-27" id="__codelineno-11-27" name="__codelineno-11-27"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">parent</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-28" id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1">// 切り捨て除算</span>
+<a href="#__codelineno-11-28" id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1">// 商を 0 方向に丸める</span>
 <a href="#__codelineno-11-29" id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-30" id="__codelineno-11-30" name="__codelineno-11-30"></a>
 <a href="#__codelineno-11-31" id="__codelineno-11-31" name="__codelineno-11-31"></a><span class="w">    </span><span class="cm">/* 要素を交換する */</span>
@@ -2119,76 +2119,76 @@
 <a href="#__codelineno-11-40" id="__codelineno-11-40" name="__codelineno-11-40"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">size</span>
 <a href="#__codelineno-11-41" id="__codelineno-11-41" name="__codelineno-11-41"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-42" id="__codelineno-11-42" name="__codelineno-11-42"></a>
-<a href="#__codelineno-11-43" id="__codelineno-11-43" name="__codelineno-11-43"></a><span class="w">    </span><span class="cm">/* ヒープが空か判定 */</span>
+<a href="#__codelineno-11-43" id="__codelineno-11-43" name="__codelineno-11-43"></a><span class="w">    </span><span class="cm">/* ヒープが空か判定する */</span>
 <a href="#__codelineno-11-44" id="__codelineno-11-44" name="__codelineno-11-44"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">():</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-45" id="__codelineno-11-45" name="__codelineno-11-45"></a><span class="w">        </span><span class="cm">/* ヒープが空か判定 */</span>
+<a href="#__codelineno-11-45" id="__codelineno-11-45" name="__codelineno-11-45"></a><span class="w">        </span><span class="cm">/* ヒープが空か判定する */</span>
 <a href="#__codelineno-11-46" id="__codelineno-11-46" name="__codelineno-11-46"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span>
 <a href="#__codelineno-11-47" id="__codelineno-11-47" name="__codelineno-11-47"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-48" id="__codelineno-11-48" name="__codelineno-11-48"></a>
-<a href="#__codelineno-11-49" id="__codelineno-11-49" name="__codelineno-11-49"></a><span class="w">    </span><span class="cm">/* ヒープの先頭要素にアクセスする */</span>
+<a href="#__codelineno-11-49" id="__codelineno-11-49" name="__codelineno-11-49"></a><span class="w">    </span><span class="cm">/* ヒープの根の要素を参照する */</span>
 <a href="#__codelineno-11-50" id="__codelineno-11-50" name="__codelineno-11-50"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">peek</span><span class="p">():</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-51" id="__codelineno-11-51" name="__codelineno-11-51"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
 <a href="#__codelineno-11-52" id="__codelineno-11-52" name="__codelineno-11-52"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-53" id="__codelineno-11-53" name="__codelineno-11-53"></a>
-<a href="#__codelineno-11-54" id="__codelineno-11-54" name="__codelineno-11-54"></a><span class="w">    </span><span class="cm">/* ヒープに要素を挿入する */</span>
+<a href="#__codelineno-11-54" id="__codelineno-11-54" name="__codelineno-11-54"></a><span class="w">    </span><span class="cm">/* 要素をヒープに挿入する */</span>
 <a href="#__codelineno-11-55" id="__codelineno-11-55" name="__codelineno-11-55"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">_val</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-56" id="__codelineno-11-56" name="__codelineno-11-56"></a><span class="w">        </span><span class="c1">// ノードを追加する</span>
 <a href="#__codelineno-11-57" id="__codelineno-11-57" name="__codelineno-11-57"></a><span class="w">        </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">_val</span><span class="p">)</span>
-<a href="#__codelineno-11-58" id="__codelineno-11-58" name="__codelineno-11-58"></a><span class="w">        </span><span class="c1">// 下から上へヒープ化する</span>
+<a href="#__codelineno-11-58" id="__codelineno-11-58" name="__codelineno-11-58"></a><span class="w">        </span><span class="c1">// 上に向かってヒープ化する</span>
 <a href="#__codelineno-11-59" id="__codelineno-11-59" name="__codelineno-11-59"></a><span class="w">        </span><span class="n">siftUp</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a href="#__codelineno-11-60" id="__codelineno-11-60" name="__codelineno-11-60"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-61" id="__codelineno-11-61" name="__codelineno-11-61"></a>
-<a href="#__codelineno-11-62" id="__codelineno-11-62" name="__codelineno-11-62"></a><span class="w">    </span><span class="cm">/* ノード i から上向きにヒープ化する */</span>
+<a href="#__codelineno-11-62" id="__codelineno-11-62" name="__codelineno-11-62"></a><span class="w">    </span><span class="cm">/* ノード i から上に向かってヒープ化する */</span>
 <a href="#__codelineno-11-63" id="__codelineno-11-63" name="__codelineno-11-63"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">siftUp</span><span class="p">(</span><span class="nb">it</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-64" id="__codelineno-11-64" name="__codelineno-11-64"></a><span class="w">        </span><span class="c1">// Kotlin の関数の引数は変更できないため、一時変数を作成する</span>
+<a href="#__codelineno-11-64" id="__codelineno-11-64" name="__codelineno-11-64"></a><span class="w">        </span><span class="c1">// Kotlin の関数の引数には再代入できないため、一時変数を作る</span>
 <a href="#__codelineno-11-65" id="__codelineno-11-65" name="__codelineno-11-65"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span>
 <a href="#__codelineno-11-66" id="__codelineno-11-66" name="__codelineno-11-66"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-67" id="__codelineno-11-67" name="__codelineno-11-67"></a><span class="w">            </span><span class="c1">// ノード i の親ノードを取得する</span>
+<a href="#__codelineno-11-67" id="__codelineno-11-67" name="__codelineno-11-67"></a><span class="w">            </span><span class="c1">// ノード i の親を取得する</span>
 <a href="#__codelineno-11-68" id="__codelineno-11-68" name="__codelineno-11-68"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a href="#__codelineno-11-69" id="__codelineno-11-69" name="__codelineno-11-69"></a><span class="w">            </span><span class="c1">// 「根ノードを越えた」または「ノードの修復が不要」の場合、ヒープ化を終了する</span>
+<a href="#__codelineno-11-69" id="__codelineno-11-69" name="__codelineno-11-69"></a><span class="w">            </span><span class="c1">// 根を越えるか、ノードを調整する必要がなくなれば、ヒープ化を終える</span>
 <a href="#__codelineno-11-70" id="__codelineno-11-70" name="__codelineno-11-70"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
 <a href="#__codelineno-11-71" id="__codelineno-11-71" name="__codelineno-11-71"></a><span class="w">            </span><span class="c1">// 2 つのノードを交換する</span>
 <a href="#__codelineno-11-72" id="__codelineno-11-72" name="__codelineno-11-72"></a><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
-<a href="#__codelineno-11-73" id="__codelineno-11-73" name="__codelineno-11-73"></a><span class="w">            </span><span class="c1">// 上向きのヒープ化を繰り返す</span>
+<a href="#__codelineno-11-73" id="__codelineno-11-73" name="__codelineno-11-73"></a><span class="w">            </span><span class="c1">// 上へのヒープ化を繰り返す</span>
 <a href="#__codelineno-11-74" id="__codelineno-11-74" name="__codelineno-11-74"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span>
 <a href="#__codelineno-11-75" id="__codelineno-11-75" name="__codelineno-11-75"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-11-76" id="__codelineno-11-76" name="__codelineno-11-76"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-77" id="__codelineno-11-77" name="__codelineno-11-77"></a>
-<a href="#__codelineno-11-78" id="__codelineno-11-78" name="__codelineno-11-78"></a><span class="w">    </span><span class="cm">/* ヒープから要素を取り出す */</span>
+<a href="#__codelineno-11-78" id="__codelineno-11-78" name="__codelineno-11-78"></a><span class="w">    </span><span class="cm">/* 根の要素をヒープから取り出す */</span>
 <a href="#__codelineno-11-79" id="__codelineno-11-79" name="__codelineno-11-79"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">pop</span><span class="p">():</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-80" id="__codelineno-11-80" name="__codelineno-11-80"></a><span class="w">        </span><span class="c1">// 空かどうかを確認する</span>
+<a href="#__codelineno-11-80" id="__codelineno-11-80" name="__codelineno-11-80"></a><span class="w">        </span><span class="c1">// 空の場合の処理</span>
 <a href="#__codelineno-11-81" id="__codelineno-11-81" name="__codelineno-11-81"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">IndexOutOfBoundsException</span><span class="p">()</span>
-<a href="#__codelineno-11-82" id="__codelineno-11-82" name="__codelineno-11-82"></a><span class="w">        </span><span class="c1">// 根と最右の葉を交換（先頭要素と末尾要素を交換）</span>
+<a href="#__codelineno-11-82" id="__codelineno-11-82" name="__codelineno-11-82"></a><span class="w">        </span><span class="c1">// 根と最も右の葉（先頭要素と末尾要素）を交換する</span>
 <a href="#__codelineno-11-83" id="__codelineno-11-83" name="__codelineno-11-83"></a><span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a href="#__codelineno-11-84" id="__codelineno-11-84" name="__codelineno-11-84"></a><span class="w">        </span><span class="c1">// ノードを削除する</span>
 <a href="#__codelineno-11-85" id="__codelineno-11-85" name="__codelineno-11-85"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
-<a href="#__codelineno-11-86" id="__codelineno-11-86" name="__codelineno-11-86"></a><span class="w">        </span><span class="c1">// 上から下へヒープ化する</span>
+<a href="#__codelineno-11-86" id="__codelineno-11-86" name="__codelineno-11-86"></a><span class="w">        </span><span class="c1">// 下に向かってヒープ化する</span>
 <a href="#__codelineno-11-87" id="__codelineno-11-87" name="__codelineno-11-87"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<a href="#__codelineno-11-88" id="__codelineno-11-88" name="__codelineno-11-88"></a><span class="w">        </span><span class="c1">// ヒープの先頭要素を返す</span>
+<a href="#__codelineno-11-88" id="__codelineno-11-88" name="__codelineno-11-88"></a><span class="w">        </span><span class="c1">// 根の要素を返す</span>
 <a href="#__codelineno-11-89" id="__codelineno-11-89" name="__codelineno-11-89"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">_val</span>
 <a href="#__codelineno-11-90" id="__codelineno-11-90" name="__codelineno-11-90"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-91" id="__codelineno-11-91" name="__codelineno-11-91"></a>
-<a href="#__codelineno-11-92" id="__codelineno-11-92" name="__codelineno-11-92"></a><span class="w">    </span><span class="cm">/* ノード i から下向きにヒープ化する */</span>
+<a href="#__codelineno-11-92" id="__codelineno-11-92" name="__codelineno-11-92"></a><span class="w">    </span><span class="cm">/* ノード i から下に向かってヒープ化する */</span>
 <a href="#__codelineno-11-93" id="__codelineno-11-93" name="__codelineno-11-93"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">siftDown</span><span class="p">(</span><span class="nb">it</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-94" id="__codelineno-11-94" name="__codelineno-11-94"></a><span class="w">        </span><span class="c1">// Kotlin の関数の引数は変更できないため、一時変数を作成する</span>
+<a href="#__codelineno-11-94" id="__codelineno-11-94" name="__codelineno-11-94"></a><span class="w">        </span><span class="c1">// Kotlin の関数の引数には再代入できないため、一時変数を作る</span>
 <a href="#__codelineno-11-95" id="__codelineno-11-95" name="__codelineno-11-95"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span>
 <a href="#__codelineno-11-96" id="__codelineno-11-96" name="__codelineno-11-96"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-97" id="__codelineno-11-97" name="__codelineno-11-97"></a><span class="w">            </span><span class="c1">// ノード i, l, r のうち値が最大のノードを求め、ma とする</span>
+<a href="#__codelineno-11-97" id="__codelineno-11-97" name="__codelineno-11-97"></a><span class="w">            </span><span class="c1">// ノード i、l、r のうち値が最大のものを ma とする</span>
 <a href="#__codelineno-11-98" id="__codelineno-11-98" name="__codelineno-11-98"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-11-99" id="__codelineno-11-99" name="__codelineno-11-99"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-11-100" id="__codelineno-11-100" name="__codelineno-11-100"></a><span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nv">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
 <a href="#__codelineno-11-101" id="__codelineno-11-101" name="__codelineno-11-101"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">l</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">ma</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span>
 <a href="#__codelineno-11-102" id="__codelineno-11-102" name="__codelineno-11-102"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">r</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">ma</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span>
-<a href="#__codelineno-11-103" id="__codelineno-11-103" name="__codelineno-11-103"></a><span class="w">            </span><span class="c1">// ノード i が最大か添字 l, r が範囲外なら、ヒープ化は不要なので終了</span>
+<a href="#__codelineno-11-103" id="__codelineno-11-103" name="__codelineno-11-103"></a><span class="w">            </span><span class="c1">// ノード i が最大か、インデックス l と r がともに範囲外なら、ヒープ化を終えてループを抜ける</span>
 <a href="#__codelineno-11-104" id="__codelineno-11-104" name="__codelineno-11-104"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
 <a href="#__codelineno-11-105" id="__codelineno-11-105" name="__codelineno-11-105"></a><span class="w">            </span><span class="c1">// 2 つのノードを交換する</span>
 <a href="#__codelineno-11-106" id="__codelineno-11-106" name="__codelineno-11-106"></a><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">ma</span><span class="p">)</span>
-<a href="#__codelineno-11-107" id="__codelineno-11-107" name="__codelineno-11-107"></a><span class="w">            </span><span class="c1">// 下向きのヒープ化を繰り返す</span>
+<a href="#__codelineno-11-107" id="__codelineno-11-107" name="__codelineno-11-107"></a><span class="w">            </span><span class="c1">// 下へのヒープ化を繰り返す</span>
 <a href="#__codelineno-11-108" id="__codelineno-11-108" name="__codelineno-11-108"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ma</span>
 <a href="#__codelineno-11-109" id="__codelineno-11-109" name="__codelineno-11-109"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-11-110" id="__codelineno-11-110" name="__codelineno-11-110"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-111" id="__codelineno-11-111" name="__codelineno-11-111"></a>
-<a href="#__codelineno-11-112" id="__codelineno-11-112" name="__codelineno-11-112"></a><span class="w">    </span><span class="cm">/* ヒープ（二分木）を表示する */</span>
+<a href="#__codelineno-11-112" id="__codelineno-11-112" name="__codelineno-11-112"></a><span class="w">    </span><span class="cm">/* ヒープを二分木として表示する */</span>
 <a href="#__codelineno-11-113" id="__codelineno-11-113" name="__codelineno-11-113"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-114" id="__codelineno-11-114" name="__codelineno-11-114"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">}</span>
 <a href="#__codelineno-11-115" id="__codelineno-11-115" name="__codelineno-11-115"></a><span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">)</span>
@@ -2198,11 +2198,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### コンストラクタ：入力リストからヒープを構築する ###</span>
+<div class="highlight"><span class="filename">my_heap.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 入力リストからヒープを構築するコンストラクタ ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
 <a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># リストの要素をそのままヒープに追加する</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="vi">@max_heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># 葉ノード以外の全ノードをヒープ化する</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># 葉以外のすべてのノードをヒープ化する</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">downto</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">    </span><span class="n">sift_down</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">end</span>
@@ -2212,36 +2212,36 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>実行の可視化</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%EF%BC%9A%E5%85%A5%E5%8A%9B%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self.max_heap%20%3D%20nums%0A%20%20%20%20%20%20%20%20%23%20%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E4%BB%A5%E5%A4%96%E3%81%AE%E5%85%A8%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.parent%28self.size%28%29%20-%201%29,%20-1,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.sift_down%28i%29%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%20%20%23%20%E5%88%87%E3%82%8A%E6%8D%A8%E3%81%A6%E9%99%A4%E7%AE%97%0A%0A%20%20%20%20def%20swap%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20self.max_heap%5Bi%5D,%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D,%20self.max_heap%5Bi%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.max_heap%29%0A%0A%20%20%20%20def%20sift_down%28self,%20i%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%20i%20%E3%81%8B%E3%82%89%E4%B8%8B%E5%90%91%E3%81%8D%E3%81%AB%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20i,%20l,%20r%20%E3%81%AE%E3%81%86%E3%81%A1%E5%80%A4%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%B1%82%E3%82%81%E3%80%81ma%20%E3%81%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20l,%20r,%20ma%20%3D%20self.left%28i%29,%20self.right%28i%29,%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20l%20%3C%20self.size%28%29%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20l%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20r%20%3C%20self.size%28%29%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20r%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20i%20%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%8B%E6%B7%BB%E5%AD%97%20l,%20r%20%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%AA%E3%82%89%E3%80%81%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%AF%E4%B8%8D%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%A7%E7%B5%82%E4%BA%86%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20self.swap%28i,%20ma%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%B8%8B%E5%90%91%E3%81%8D%E3%81%AE%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%82%92%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20max_heap%20%3D%20MaxHeap%28%5B1,%202,%203,%204,%205%5D%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の可視化"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%EF%BC%9A%E5%85%A5%E5%8A%9B%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self.max_heap%20%3D%20nums%0A%20%20%20%20%20%20%20%20%23%20%E8%91%89%E3%83%8E%E3%83%BC%E3%83%89%E4%BB%A5%E5%A4%96%E3%81%AE%E5%85%A8%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.parent%28self.size%28%29%20-%201%29,%20-1,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.sift_down%28i%29%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%20%20%23%20%E5%88%87%E3%82%8A%E6%8D%A8%E3%81%A6%E9%99%A4%E7%AE%97%0A%0A%20%20%20%20def%20swap%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20self.max_heap%5Bi%5D,%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D,%20self.max_heap%5Bi%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.max_heap%29%0A%0A%20%20%20%20def%20sift_down%28self,%20i%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%20i%20%E3%81%8B%E3%82%89%E4%B8%8B%E5%90%91%E3%81%8D%E3%81%AB%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20i,%20l,%20r%20%E3%81%AE%E3%81%86%E3%81%A1%E5%80%A4%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E6%B1%82%E3%82%81%E3%80%81ma%20%E3%81%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20l,%20r,%20ma%20%3D%20self.left%28i%29,%20self.right%28i%29,%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20l%20%3C%20self.size%28%29%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20l%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20r%20%3C%20self.size%28%29%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20r%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20i%20%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%8B%E6%B7%BB%E5%AD%97%20l,%20r%20%E3%81%8C%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%AA%E3%82%89%E3%80%81%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%AF%E4%B8%8D%E8%A6%81%E3%81%AA%E3%81%AE%E3%81%A7%E7%B5%82%E4%BA%86%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20self.swap%28i,%20ma%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%B8%8B%E5%90%91%E3%81%8D%E3%81%AE%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%82%92%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20max_heap%20%3D%20MaxHeap%28%5B1,%202,%203,%204,%205%5D%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
+<summary>実行の様子を見る</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%85%A5%E5%8A%9B%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self.max_heap%20%3D%20nums%0A%20%20%20%20%20%20%20%20%23%20%E8%91%89%E4%BB%A5%E5%A4%96%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.parent%28self.size%28%29%20-%201%29,%20-1,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.sift_down%28i%29%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%20%20%23%20%E5%95%86%E3%82%92%E8%B2%A0%E3%81%AE%E7%84%A1%E9%99%90%E5%A4%A7%E6%96%B9%E5%90%91%E3%81%AB%E5%88%87%E3%82%8A%E6%8D%A8%E3%81%A6%E3%82%8B%0A%0A%20%20%20%20def%20swap%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20self.max_heap%5Bi%5D,%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D,%20self.max_heap%5Bi%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.max_heap%29%0A%0A%20%20%20%20def%20sift_down%28self,%20i%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%20i%20%E3%81%8B%E3%82%89%E4%B8%8B%E3%81%AB%E5%90%91%E3%81%8B%E3%81%A3%E3%81%A6%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20i%E3%80%81l%E3%80%81r%20%E3%81%AE%E3%81%86%E3%81%A1%E5%80%A4%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%AE%E3%82%82%E3%81%AE%E3%82%92%20ma%20%E3%81%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20l,%20r,%20ma%20%3D%20self.left%28i%29,%20self.right%28i%29,%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20l%20%3C%20self.size%28%29%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20l%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20r%20%3C%20self.size%28%29%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20r%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20i%20%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%8B%20l,%20r%20%E3%81%8C%E3%81%A8%E3%82%82%E3%81%AB%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%AA%E3%82%89%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%82%92%E7%B5%82%E4%BA%86%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20self.swap%28i,%20ma%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%B8%8B%E3%81%B8%E3%81%AE%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%82%92%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20max_heap%20%3D%20MaxHeap%28%5B1,%202,%203,%204,%205%5D%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の様子を見る"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%85%A5%E5%8A%9B%E3%83%AA%E3%82%B9%E3%83%88%E3%81%8B%E3%82%89%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B%E3%82%B3%E3%83%B3%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%82%BF%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%83%92%E3%83%BC%E3%83%97%E3%81%AB%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20self.max_heap%20%3D%20nums%0A%20%20%20%20%20%20%20%20%23%20%E8%91%89%E4%BB%A5%E5%A4%96%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.parent%28self.size%28%29%20-%201%29,%20-1,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.sift_down%28i%29%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%B7%A6%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E5%8F%B3%E3%81%AE%E5%AD%90%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%20%20%23%20%E5%95%86%E3%82%92%E8%B2%A0%E3%81%AE%E7%84%A1%E9%99%90%E5%A4%A7%E6%96%B9%E5%90%91%E3%81%AB%E5%88%87%E3%82%8A%E6%8D%A8%E3%81%A6%E3%82%8B%0A%0A%20%20%20%20def%20swap%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E8%A6%81%E7%B4%A0%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20self.max_heap%5Bi%5D,%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D,%20self.max_heap%5Bi%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%92%E3%83%BC%E3%83%97%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.max_heap%29%0A%0A%20%20%20%20def%20sift_down%28self,%20i%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%E3%83%8E%E3%83%BC%E3%83%89%20i%20%E3%81%8B%E3%82%89%E4%B8%8B%E3%81%AB%E5%90%91%E3%81%8B%E3%81%A3%E3%81%A6%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%81%99%E3%82%8B%22%22%22%0A%20%20%20%20%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E3%83%8E%E3%83%BC%E3%83%89%20i%E3%80%81l%E3%80%81r%20%E3%81%AE%E3%81%86%E3%81%A1%E5%80%A4%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%AE%E3%82%82%E3%81%AE%E3%82%92%20ma%20%E3%81%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20l,%20r,%20ma%20%3D%20self.left%28i%29,%20self.right%28i%29,%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20l%20%3C%20self.size%28%29%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20l%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20r%20%3C%20self.size%28%29%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20r%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20i%20%E3%81%8C%E6%9C%80%E5%A4%A7%E3%81%8B%20l,%20r%20%E3%81%8C%E3%81%A8%E3%82%82%E3%81%AB%E7%AF%84%E5%9B%B2%E5%A4%96%E3%81%AA%E3%82%89%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%82%92%E7%B5%82%E4%BA%86%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%202%20%E3%81%A4%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20%20%20%20%20self.swap%28i,%20ma%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%E4%B8%8B%E3%81%B8%E3%81%AE%E3%83%92%E3%83%BC%E3%83%97%E5%8C%96%E3%82%92%E7%B9%B0%E3%82%8A%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E6%9C%80%E5%A4%A7%E3%83%92%E3%83%BC%E3%83%97%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20max_heap%20%3D%20MaxHeap%28%5B1,%202,%203,%204,%205%5D%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
 </details>
-<h2 id="823">8.2.3   計算量の解析<a class="headerlink" href="#823" title="この見出しへのリンク">¶</a></h2>
-<p>二つ目の構築方法の時間計算量を求めてみましょう。</p>
+<h2 id="823">8.2.3   計算量の分析<a class="headerlink" href="#823" title="この見出しへのリンク">¶</a></h2>
+<p>ここで、2 番目の構築方法の時間計算量を求めてみましょう。</p>
 <ul>
-<li>完全二分木のノード数を <span class="arithmatex">\(n\)</span> とすると、葉ノード数は <span class="arithmatex">\((n + 1) / 2\)</span> です。ここで <span class="arithmatex">\(/\)</span> は切り捨ての整数除算です。したがって、ヒープ化が必要なノード数は <span class="arithmatex">\(n / 2\)</span> です。</li>
-<li>上から下へのヒープ化では、各ノードは最大でも葉まで移動するため、反復回数の最大値は木の高さ <span class="arithmatex">\(\log n\)</span> です。</li>
+<li>完全二分木のノード数を <span class="arithmatex">\(n\)</span> とすると、葉の数は <span class="arithmatex">\((n + 1) / 2\)</span> です。ここで <span class="arithmatex">\(/\)</span> は商の小数点以下を切り捨てる除算です。したがって、ヒープ化が必要なノード数は <span class="arithmatex">\(n / 2\)</span> です。</li>
+<li>下向きのヒープ化で各ノードが下がれるのは葉までなので、反復回数の最大値は二分木の高さ <span class="arithmatex">\(\log n\)</span> です。</li>
 </ul>
-<p>両者を掛けると、構築の時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> となります。<strong>ただし、この見積もりは正確ではありません。木の下の層には上の層よりはるかに多くのノードがあることを考慮していないためです</strong>。</p>
-<p>より正確に計算しましょう。計算を簡単にするため、ノード数 <span class="arithmatex">\(n\)</span>、高さ <span class="arithmatex">\(h\)</span> のパーフェクト二分木を仮定します。この仮定は結果の正しさに影響しません。</p>
-<p><ha-svg-figure aria-label="ヒープ構築における層ごとの処理量" class="animation-figure" data-book-key="ja/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/cb203ad3f7bc8339dcfe4f1c.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/3d85985484d7013e272d9282.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">パーフェクト二分木の各層のノード数</object><object aria-hidden="true" data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">パーフェクト二分木の各層のノード数</object></ha-svg-figure></p>
-<p align="center"> 図 8-5   パーフェクト二分木の各層のノード数 </p><div class="ha-sr-only figure-description"><h3>図解 8-5：ヒープ構築における層ごとの処理量</h3><p>ヒープを構築するとき、下の層ほどノード数は多いものの、各ノードが下へ移動できる段数は少なくなります。層ごとに集計すると線形時間の上界が得られます。</p><p>図では高さ h のパーフェクト二分木を用いてヒープの構築を解析します。下の層から上の層へノードを 1 つずつ選び、それぞれ上から下へヒープ化（下方向への移動）を行います。ここで「下から上へ」とは処理するノードを選ぶ順序のことであり、各回の修復自体は子ノードの方向へ進みます。</p><p>左側に木が描かれ、右側の 2 列はそれぞれ「ノードの高さ（ヒープ化の最大反復回数）」と「各レベルのノード数」で、水平の破線が各層に対応しています。葉ノードの高さは 0、根ノードの高さは h で、高さは最も深い葉ノードまでの辺の数で測ります。図中の回数は下方向へ交換できる最大段数を指し、コードの最後で条件を満たして停止するときの判定は含みません。</p><p>根の層の深さを 0、葉の層の深さを h とします。深さ d の層には 2 の d 乗個のノードがあり、各ノードは最大でも h−d 段しか下へ移動しないため、両者を掛けるとこの層の上界が得られます。すべてのノードに根の高さ h を掛けると処理量を過大に見積もることになります。およそ半分のノードは下へ移動する必要のない葉ノードだからです。</p><p>図には上から 4 層と最後の 2 層が示され、途中は縦方向の省略記号で表されています。下の表では深さ、一般式、積の列を補っています。h が小さい場合は実際に存在する層だけを取り、先頭側と末尾側の行が重なっても二重には数えません。</p><p>下の表のノード数と各ノードが下へ移動する最大段数は図中の 2 列から取ったもので、深さとその層の回数の上界は整理・計算して補ったものです。実際のヒープ化では、途中でヒープの順序条件を満たせば上界に達する前に終了できます。</p><table><caption>各層のノード数と下方向への最大移動回数</caption><thead><tr><th scope="col">深さまたは位置</th><th scope="col">ノード数</th><th scope="col">各ノードが下へ移動できる最大段数</th><th scope="col">その層で下へ移動する回数の合計の上限</th></tr></thead><tbody><tr><th scope="row">0（根の層）</th><td>2^0</td><td>h</td><td>2^0×h</td></tr><tr><th scope="row">1</th><td>2^1</td><td>h−1</td><td>2^1×(h−1)</td></tr><tr><th scope="row">2</th><td>2^2</td><td>h−2</td><td>2^2×(h−2)</td></tr><tr><th scope="row">3</th><td>2^3</td><td>h−3</td><td>2^3×(h−3)</td></tr><tr><th scope="row">d（一般式、0≤d≤h）</th><td>2^d</td><td>h−d</td><td>2^d×(h−d)</td></tr><tr><th scope="row">h−1（下から 2 番目の層）</th><td>2^(h−1)</td><td>1</td><td>2^(h−1)</td></tr><tr><th scope="row">h（葉の層）</th><td>2^h</td><td>0</td><td>0</td></tr></tbody></table><p>層ごとに和をとると T(h) = 2^0×h + 2^1×(h−1) + … + 2^(h−1)×1 + 2^h×0 となります。本文では項をずらして引き算することで T(h) = 2^(h+1) − h − 2 と整理します。ノード総数 n = 2^(h+1) − 1 から T(h) = n − h − 1 が得られ、各ノードでの判定などの線形時間の処理を加えても、ヒープ構築の時間計算量は O(n) です。</p></div>
-<p>図 8-5 のように、上から下へヒープ化するときの最大反復回数は、そのノードから葉までの距離、つまりノードの高さです。各層の「ノード数 <span class="arithmatex">\(\times\)</span> ノードの高さ」を足せば、<strong>すべてのノードのヒープ化の反復回数の合計</strong>が得られます。</p>
+<p>この 2 つを掛ければ、ヒープ構築の時間計算量は <span class="arithmatex">\(O(n \log n)\)</span> と見積もれます。<strong>しかし、この見積もりは正確ではありません。二分木では下のレベルほど上のレベルよりノードがはるかに多いことを考慮していないからです</strong>。</p>
+<p>そこで、より正確に計算してみましょう。計算を簡単にするため、ノード数 <span class="arithmatex">\(n\)</span>、高さ <span class="arithmatex">\(h\)</span> で完璧二分木を仮定します。この仮定は計算結果の正しさに影響しません。</p>
+<p><ha-svg-figure aria-label="ヒープ構築で各レベルが担う処理量" class="animation-figure" data-book-key="ja/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/abf36c24f40cd423ba4d545b.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/bd2fd3b013ab3a9c402cb488.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">完璧二分木の各レベルのノード数</object><object aria-hidden="true" data="/ja/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">完璧二分木の各レベルのノード数</object></ha-svg-figure></p>
+<p align="center"> 図 8-5   完璧二分木の各レベルのノード数 </p><div class="ha-sr-only figure-description"><h3>図解 8-5：ヒープ構築で各レベルが担う処理量</h3><p>ヒープ構築では、下のレベルほどノード数は多くても、各ノードが下がれる段数は少なくなります。レベルごとの処理量を足すと、時間の上限は線形になります。</p><p>図では高さ h の完璧二分木を使い、下のレベルからノードを順に選んで下向きにヒープ化（沈下）する方法を分析します。下から上というのはノードを選ぶ順序で、各ノードの調整は子の方向に進みます。</p><p>左に木、右に「ノードの高さ（ヒープ化の最大反復回数）」と「各レベルのノード数」の 2 列があり、水平の破線で各レベルを対応付けています。高さは最も深い葉までの辺の本数で、葉の高さは 0、根の高さは h です。図の回数は下向きに交換できる最大段数で、コードが最後に停止を判定する処理を含みません。</p><p>根の深さを 0、葉の深さを h とします。深さ d には 2 の d 乗個のノードがあり、それぞれが下がれるのは最大 h−d 段です。この積がそのレベルの上限になります。全ノードに根の高さ h を掛けると、約半数は下がる必要のない葉なので、処理量を過大に見積もります。</p><p>図には上から 4 レベルと下から 2 レベルを示し、途中を縦の省略記号で表しています。下の表には深さ、一般式、積の列も加えています。h が小さい場合は実在するレベルだけを取り、上と下が重なる行は二重に数えません。</p><p>下の表で、各レベルのノード数と各ノードが下がれる最大段数は図の 2 列から読み取れます。深さと各レベルの回数の上限は整理・計算して補ったものです。実際には途中でヒープの順序条件を満たせば、上限に達する前にヒープ化を終えられます。</p><table><caption>各レベルのノード数と下向きの交換回数の上限</caption><thead><tr><th scope="col">深さまたは位置</th><th scope="col">ノード数</th><th scope="col">各ノードが下がれる最大段数</th><th scope="col">そのレベルでの下向きの交換回数の上限</th></tr></thead><tbody><tr><th scope="row">0（根のレベル）</th><td>2^0</td><td>h</td><td>2^0×h</td></tr><tr><th scope="row">1</th><td>2^1</td><td>h−1</td><td>2^1×(h−1)</td></tr><tr><th scope="row">2</th><td>2^2</td><td>h−2</td><td>2^2×(h−2)</td></tr><tr><th scope="row">3</th><td>2^3</td><td>h−3</td><td>2^3×(h−3)</td></tr><tr><th scope="row">d（一般式、0≤d≤h）</th><td>2^d</td><td>h−d</td><td>2^d×(h−d)</td></tr><tr><th scope="row">h−1（下から 2 番目のレベル）</th><td>2^(h−1)</td><td>1</td><td>2^(h−1)</td></tr><tr><th scope="row">h（葉のレベル）</th><td>2^h</td><td>0</td><td>0</td></tr></tbody></table><p>各レベルの和は T(h) = 2^0×h + 2^1×(h−1) + … + 2^(h−1)×1 + 2^h×0 です。後で示すように、項をずらして差を取ると T(h) = 2^(h+1) − h − 2 となります。総ノード数 n = 2^(h+1) − 1 を使えば T(h) = n − h − 1 です。各ノードの判定などの線形の処理を加えても、ヒープ構築の時間計算量は O(n) です。</p></div>
+<p>図 8-5 のように、ノードから下に向かってヒープ化するときの最大反復回数は葉までの距離、すなわち「ノードの高さ」に等しくなります。したがって、各レベルについて「ノード数 <span class="arithmatex">\(\times\)</span> ノードの高さ」を計算して足すと、<strong>全ノードのヒープ化における反復回数の合計が得られます</strong>。</p>
 <div class="arithmatex">\[
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
 \]</div>
-<p>この式の整理には、学校で学ぶ数列の知識を使います。まず <span class="arithmatex">\(T(h)\)</span> を <span class="arithmatex">\(2\)</span> 倍します。</p>
+<p>上式の整理には数列の知識を使います。まず <span class="arithmatex">\(T(h)\)</span> に <span class="arithmatex">\(2\)</span> を掛けると次の式になります。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(h) &amp; = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{h-1}\times1 \newline
 2 T(h) &amp; = 2^1h + 2^2(h-1) + 2^3(h-2) + \dots + 2^{h}\times1 \newline
 \end{aligned}
 \]</div>
-<p>項をずらして引き算し、下の式 <span class="arithmatex">\(2 T(h)\)</span> から上の式 <span class="arithmatex">\(T(h)\)</span> を引くと、次のようになります。</p>
+<p>項をずらして差を取ります。下の式 <span class="arithmatex">\(2 T(h)\)</span> から上の式 <span class="arithmatex">\(T(h)\)</span> を引くと、次のようになります。</p>
 <div class="arithmatex">\[
 2T(h) - T(h) = T(h) = -2^0h + 2^1 + 2^2 + \dots + 2^{h-1} + 2^h
 \]</div>
-<p>この式の <span class="arithmatex">\(T(h)\)</span> には等比数列が現れるので、和の公式を使うと時間計算量は次のようになります。</p>
+<p>上式を見ると、<span class="arithmatex">\(T(h)\)</span> は等比数列の和を使って計算できます。和の公式を適用すると、時間計算量は次のようになります。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
@@ -2249,7 +2249,7 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 &amp; = O(2^h)
 \end{aligned}
 \]</div>
-<p>さらに、高さ <span class="arithmatex">\(h\)</span> のパーフェクト二分木のノード数は <span class="arithmatex">\(n = 2^{h+1} - 1\)</span> なので、<span class="arithmatex">\(O(2^h) = O(n)\)</span> と分かります。したがって、<strong>リストを入力してヒープを構築する時間計算量は <span class="arithmatex">\(O(n)\)</span> で、非常に効率的です</strong>。</p>
+<p>さらに、高さ <span class="arithmatex">\(h\)</span> で完璧二分木のノード数は <span class="arithmatex">\(n = 2^{h+1} - 1\)</span> なので、計算量は <span class="arithmatex">\(O(2^h) = O(n)\)</span> となります。以上から、<strong>入力リストからのヒープ構築の時間計算量は <span class="arithmatex">\(O(n)\)</span> で、非常に効率的です</strong>。</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
@@ -2285,7 +2285,7 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">コメント欄で、考えや質問、ご提案をお寄せください。</h5>
+<h5 align="center" id="__comments">ご意見、ご質問、ご提案をコメント欄にお寄せください。</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ja" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2367,9 +2367,9 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.4b65e87068ac38235d9f2cf93ce9d63bc8183b8a230a27c7b45fcfe8aa24e133.min.js"></script>
+<script src="../../assets/javascripts/bundle.196948135a4269c18233e33e47fd4bec6b98a7ae38264d86305fc24707a64a8d.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

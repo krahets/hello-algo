@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом" name="description"/>
+<meta content="Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ru/chapter_greedy/max_capacity_problem/" rel="canonical"/>
 <link href="../fractional_knapsack_problem/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_greedy/max_capacity_problem/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>15.3 Задача о максимальной вместимости - Hello Algo</title>
+<title>15.3 Задача о максимальной вместимости - Привет, алгоритмы!</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,15 +64,15 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Приглашаем вас участвовать в развитии русской версии! Подробнее <a href="/ru/chapter_appendix/contribution/">здесь</a>.</span>
+<span>Помогите улучшить русское издание. <a href="/ru/chapter_appendix/contribution/">Узнать больше</a>.</span>
 </div>
 </div>
 </aside>
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="Навигация" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -81,7 +81,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Привет, алгоритмы!
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -173,10 +173,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Привет, алгоритмы!
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="Перейти к репозиторию">
@@ -197,7 +197,7 @@
 <span class="md-ellipsis">
 
 
-  Перед началом
+  Вступительное слово
 
 
   </span>
@@ -208,7 +208,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Перед началом
+  Вступительное слово
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -246,7 +246,7 @@
 <span class="md-ellipsis">
 
 
-  0.1 Об этой книге
+  0.1 О книге
 
 
   </span>
@@ -257,7 +257,7 @@
 <span class="md-ellipsis">
 
 
-  0.2 Как пользоваться этой книгой
+  0.2 Как пользоваться книгой
 
 
   </span>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3 Резюме
+  0.3 Итоги
 
 
   </span>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3 Резюме
+  1.3 Итоги
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1 Оценка эффективности алгоритмов
+  2.1 Оценка эффективности алгоритма
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5 Резюме
+  2.5 Итоги
 
 
   </span>
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
 
 
-  3.5 Резюме
+  3.5 Итоги
 
 
   </span>
@@ -537,7 +537,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
 
   </span>
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -593,7 +593,7 @@
 <span class="md-ellipsis">
 
 
-  4.4 Оперативная память и кэш *
+  4.4 Оперативная память и кеш *
 
 
   </span>
@@ -604,7 +604,7 @@
 <span class="md-ellipsis">
 
 
-  4.5 Резюме
+  4.5 Итоги
 
 
   </span>
@@ -632,7 +632,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
 
   </span>
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -655,7 +655,7 @@
 <span class="md-ellipsis">
 
 
-  5.1 Стек
+  5.1   Стек
 
 
   </span>
@@ -666,7 +666,7 @@
 <span class="md-ellipsis">
 
 
-  5.2 Очередь
+  5.2   Очередь
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3 Двусторонняя очередь
+  5.3   Двусторонняя очередь
 
 
   </span>
@@ -688,7 +688,7 @@
 <span class="md-ellipsis">
 
 
-  5.4 Резюме
+  5.4   Итоги
 
 
   </span>
@@ -699,7 +699,7 @@
 <span class="md-ellipsis">
 
 
-  5.5 Упражнения
+  5.5   Упражнения
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2 Хеш-коллизии
+  6.2 Коллизии
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4 Резюме
+  6.4 Итоги
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3 Представление двоичного дерева массивом
+  7.3 Представление двоичного дерева в виде массива
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5 AVL-дерево *
+  7.5 АВЛ-дерево *
 
 
   </span>
@@ -878,7 +878,7 @@
 <span class="md-ellipsis">
 
 
-  7.6 Краткие итоги
+  7.6 Итоги
 
 
   </span>
@@ -906,7 +906,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
 
   </span>
@@ -920,7 +920,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -951,7 +951,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -962,7 +962,7 @@
 <span class="md-ellipsis">
 
 
-  8.4 Резюме
+  8.4 Итоги
 
 
   </span>
@@ -1024,7 +1024,7 @@
 <span class="md-ellipsis">
 
 
-  9.2 Базовые операции графа
+  9.2 Основные операции с графом
 
 
   </span>
@@ -1046,7 +1046,7 @@
 <span class="md-ellipsis">
 
 
-  9.4 Краткие итоги
+  9.4 Итоги
 
 
   </span>
@@ -1108,7 +1108,7 @@
 <span class="md-ellipsis">
 
 
-  10.2 Двоичный поиск точки вставки
+  10.2 Нахождение позиции вставки с помощью двоичного поиска
 
 
   </span>
@@ -1119,7 +1119,7 @@
 <span class="md-ellipsis">
 
 
-  10.3 Двоичный поиск границ
+  10.3 Нахождение границ с помощью двоичного поиска
 
 
   </span>
@@ -1130,7 +1130,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1141,7 +1141,7 @@
 <span class="md-ellipsis">
 
 
-  10.5 Переосмысление алгоритмов поиска
+  10.5 Новый взгляд на алгоритмы поиска
 
 
   </span>
@@ -1152,7 +1152,7 @@
 <span class="md-ellipsis">
 
 
-  10.6 Резюме
+  10.6 Итоги
 
 
   </span>
@@ -1291,7 +1291,7 @@
 <span class="md-ellipsis">
 
 
-  11.9 Сортировка подсчетом
+  11.9 Сортировка подсчётом
 
 
   </span>
@@ -1313,7 +1313,7 @@
 <span class="md-ellipsis">
 
 
-  11.11 Резюме
+  11.11 Итоги
 
 
   </span>
@@ -1364,7 +1364,7 @@
 <span class="md-ellipsis">
 
 
-  12.1 Стратегия разделяй и властвуй
+  12.1 Метод «разделяй и властвуй»
 
 
   </span>
@@ -1375,7 +1375,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1386,7 +1386,7 @@
 <span class="md-ellipsis">
 
 
-  12.3 Задача построения двоичного дерева
+  12.3 Задача о построении двоичного дерева
 
 
   </span>
@@ -1397,7 +1397,7 @@
 <span class="md-ellipsis">
 
 
-  12.4 Задача о Ханойской башне
+  12.4 Задача о ханойских башнях
 
 
   </span>
@@ -1408,7 +1408,7 @@
 <span class="md-ellipsis">
 
 
-  12.5 Резюме
+  12.5 Итоги
 
 
   </span>
@@ -1459,7 +1459,7 @@
 <span class="md-ellipsis">
 
 
-  13.1 Алгоритм поиска с возвратом
+  13.1 Поиск с возвратом
 
 
   </span>
@@ -1481,7 +1481,7 @@
 <span class="md-ellipsis">
 
 
-  13.3 Задача о сумме подмножеств
+  13.3 Задача о сумме подмножества
 
 
   </span>
@@ -1492,7 +1492,7 @@
 <span class="md-ellipsis">
 
 
-  13.4 Задача о n ферзях
+  13.4 Задача о N ферзях
 
 
   </span>
@@ -1503,7 +1503,7 @@
 <span class="md-ellipsis">
 
 
-  13.5 Резюме
+  13.5 Итоги
 
 
   </span>
@@ -1554,7 +1554,7 @@
 <span class="md-ellipsis">
 
 
-  14.1 Первое знакомство с динамическим программированием
+  14.1 Знакомство с динамическим программированием
 
 
   </span>
@@ -1576,7 +1576,7 @@
 <span class="md-ellipsis">
 
 
-  14.3 Подход к решению задач динамического программирования
+  14.3 Как решать задачи динамического программирования
 
 
   </span>
@@ -1587,7 +1587,7 @@
 <span class="md-ellipsis">
 
 
-  14.4 Задача о рюкзаке 0-1
+  14.4 Задача о рюкзаке 0–1
 
 
   </span>
@@ -1598,7 +1598,7 @@
 <span class="md-ellipsis">
 
 
-  14.5 Задача о полном рюкзаке
+  14.5 Задача о неограниченном рюкзаке
 
 
   </span>
@@ -1609,7 +1609,7 @@
 <span class="md-ellipsis">
 
 
-  14.6 Задача о расстоянии редактирования
+  14.6 Задача о редакционном расстоянии
 
 
   </span>
@@ -1620,7 +1620,7 @@
 <span class="md-ellipsis">
 
 
-  14.7 Резюме
+  14.7 Итоги главы
 
 
   </span>
@@ -1648,7 +1648,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
 
   </span>
@@ -1662,7 +1662,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1718,7 +1718,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Определение жадной стратегии
+        1.   Выбор жадной стратегии
       </span>
 </span>
 </a>
@@ -1727,7 +1727,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Код реализации
+        2.   Реализация
       </span>
 </span>
 </a>
@@ -1749,7 +1749,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1760,7 +1760,7 @@
 <span class="md-ellipsis">
 
 
-  15.5 Резюме
+  15.5 Итоги
 
 
   </span>
@@ -1822,7 +1822,7 @@
 <span class="md-ellipsis">
 
 
-  16.2 Присоединяйтесь к созданию книги
+  16.2 Как принять участие в работе над книгой
 
 
   </span>
@@ -1833,7 +1833,7 @@
 <span class="md-ellipsis">
 
 
-  16.3 Глоссарий
+  16.3 Словарь терминов
 
 
   </span>
@@ -1890,7 +1890,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Определение жадной стратегии
+        1.   Выбор жадной стратегии
       </span>
 </span>
 </a>
@@ -1899,7 +1899,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Код реализации
+        2.   Реализация
       </span>
 </span>
 </a>
@@ -1932,87 +1932,87 @@
 <h1 id="153">15.3   Задача о максимальной вместимости<a class="headerlink" href="#153" title="Permanent link">¶</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Дан массив <span class="arithmatex">\(ht\)</span>, где каждый элемент обозначает высоту вертикальной перегородки. Любые две перегородки в массиве вместе с пространством между ними образуют контейнер.</p>
-<p>Вместимость контейнера равна произведению высоты и ширины (площади), где высота определяется более короткой перегородкой, а ширина - разностью индексов двух перегородок в массиве.</p>
-<p>Требуется выбрать две перегородки так, чтобы образованный ими контейнер имел максимальную вместимость. Пример показан на рисунке 15-7.</p>
+<p>Дан массив <span class="arithmatex">\(ht\)</span>, каждый элемент которого задаёт высоту вертикальной перегородки. Любые две перегородки вместе с пространством между ними образуют сосуд.</p>
+<p>Вместимость сосуда равна его площади — произведению высоты на ширину. Высоту определяет более низкая перегородка, а ширина равна разности индексов двух перегородок в массиве.</p>
+<p>Выберите в массиве две перегородки так, чтобы вместимость образованного ими сосуда была наибольшей. Верните эту вместимость. Пример приведён на рисунке 15-7.</p>
 </div>
-<p><ha-svg-figure aria-label="Максимальная вместимость контейнера из двух перегородок" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_example.png" data-dark-src="/assets/figure-svg/figures/e5bad1aba70d50989280bd01.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/2a7dbdc3127f4b0d3e2a4b2c.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_example.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Пример данных для задачи о максимальной вместимости</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_example.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Пример данных для задачи о максимальной вместимости</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-7   Пример данных для задачи о максимальной вместимости </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 15-7: Максимальная вместимость контейнера из двух перегородок</h3><p>Две выбранные перегородки образуют контейнер, вместимость которого равна произведению высоты более короткой перегородки на расстояние между ними; цель — найти пару с наибольшей вместимостью.</p><p>В задаче о максимальной вместимости задан массив высот вертикальных перегородок длины 8: ht = [3, 8, 5, 2, 7, 7, 3, 4] (индексы от 0 до 7). Для любой выбранной пары перегородок [i, j] ширина контейнера равна разности индексов j - i, а высота уровня воды определяется более короткой из двух перегородок, то есть min(ht[i], ht[j]) (промежуточные перегородки по условию задачи не перекрывают и не уменьшают эту площадь).</p><p>По вертикальной оси отложены высоты перегородок от 0 до 8, а по горизонтальной — индексы массива от 0 до 7, над каждым из которых возвышается столбик соответствующей высоты. Перегородки по индексу 1 (высота 8) и по индексу 5 (высота 7), а также отрезок между ними на нижней оси выделены тёмным цветом; прямоугольная область воды высотой 7 и шириной 4 между ними закрашена полупрозрачным голубым цветом, а слева у отметки 7 на вертикальной оси сине-фиолетовой подписью «Короткая перегородка» и горизонтальным пунктиром обозначен верхний предел уровня воды. Внизу указано: «Максимальная вместимость: (5 - 1) × 7 = 28».</p><p>Уровень воды ограничен правой, более короткой перегородкой высотой 7, а расстояние между перегородками равно 5 - 1 = 4, поэтому площадь составляет 4 × 7 = 28. Подпись «Короткая перегородка» расположена у отметки 7 на вертикальной оси и указывает на этот уровень воды, а не стоит прямо над индексом 5. На этом рисунке показаны только максимум и дающая его пара; отсечение остальных пар разбирается далее.</p></div>
-<p>Контейнер образуется произвольными двумя перегородками, <strong>поэтому состоянием задачи служит пара индексов этих перегородок, обозначим ее как <span class="arithmatex">\([i, j]\)</span></strong>.</p>
-<p>Согласно условию, вместимость равна произведению высоты на ширину, где высота определяется короткой перегородкой, а ширина - разностью индексов двух перегородок. Обозначим вместимость через <span class="arithmatex">\(cap[i, j]\)</span>, тогда формула принимает вид:</p>
+<p><ha-svg-figure aria-label="Максимальная вместимость между двумя перегородками" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_example.png" data-dark-src="/assets/figure-svg/figures/97e558b11ce51eff3d0f13ba.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/e1f1cdfae41b4bfe63edeea4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_example.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Исходные данные примера для задачи о максимальной вместимости</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_example.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Исходные данные примера для задачи о максимальной вместимости</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-7   Исходные данные примера для задачи о максимальной вместимости </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 15-7: Максимальная вместимость между двумя перегородками</h3><p>Две выбранные перегородки образуют сосуд. Его вместимость равна высоте более низкой перегородки, умноженной на расстояние между ними. Нужно найти пару с наибольшей вместимостью.</p><p>В задаче о максимальной вместимости высоты вертикальных перегородок заданы массивом длины 8: ht = [3, 8, 5, 2, 7, 7, 3, 4] (индексы от 0 до 7). Любые две перегородки [i, j] образуют сосуд шириной j - i, то есть ширина равна разности индексов. Высоту воды определяет более низкая перегородка: min(ht[i], ht[j]). По условию промежуточные перегородки не преграждают воду и не уменьшают занимаемую ею площадь.</p><p>На вертикальной оси отмечены высоты от 0 до 8, на горизонтальной — индексы от 0 до 7. В каждой позиции стоит перегородка соответствующей высоты. Тёмным выделены перегородки с индексами 1 (высота 8) и 5 (высота 7) и отрезок горизонтальной оси между ними. Прямоугольная область воды высотой 7 и шириной 4 залита полупрозрачным голубым цветом. У отметки 7 на левой оси сине-фиолетовая подпись «Низкая перегородка» и горизонтальный пунктир обозначают предельный уровень воды. Внизу указано: «Максимальная вместимость равна (5 - 1) × 7 = 28».</p><p>Уровень воды ограничивает правая, более низкая перегородка высотой 7. Расстояние между перегородками равно 5 - 1 = 4, поэтому площадь равна 4 × 7 = 28. Подпись «Низкая перегородка» стоит у отметки 7 на вертикальной оси и указывает на уровень воды, а не на позицию над индексом 5. Здесь показаны максимум и соответствующая пара. Почему можно исключить другие пары, разберём далее.</p></div>
+<p>Сосуд задаётся парой перегородок. <strong>Поэтому состояние задачи — пара их индексов <span class="arithmatex">\([i, j]\)</span></strong>.</p>
+<p>По условию вместимость равна произведению высоты на ширину. Высоту задаёт более низкая перегородка, а ширину — разность индексов. Обозначим вместимость через <span class="arithmatex">\(cap[i, j]\)</span>. Получим формулу:</p>
 <div class="arithmatex">\[
 cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 \]</div>
-<p>Пусть длина массива равна <span class="arithmatex">\(n\)</span>. Тогда число пар перегородок, то есть общее число состояний, равно <span class="arithmatex">\(C_n^2 = \frac{n(n - 1)}{2}\)</span>. Самый прямолинейный подход - <strong>перебрать все состояния</strong>, после чего найти максимальную вместимость. Его временная сложность равна <span class="arithmatex">\(O(n^2)\)</span>.</p>
-<h3 id="1">1.   Определение жадной стратегии<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
-<p>У этой задачи есть и более эффективное решение. Как показано на рисунке 15-8, рассмотрим состояние <span class="arithmatex">\([i, j]\)</span>, где индексы удовлетворяют <span class="arithmatex">\(i &lt; j\)</span>, а высоты - условию <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span>, то есть <span class="arithmatex">\(i\)</span> - короткая перегородка, а <span class="arithmatex">\(j\)</span> - длинная.</p>
-<p><ha-svg-figure aria-label="Начальное состояние двух указателей контейнера" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.png" data-dark-src="/assets/figure-svg/figures/0588b1dc58f3a4522213c4d8.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/75ff2f6058d6b29255d97ae9.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Начальное состояние</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Начальное состояние</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-8   Начальное состояние </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-8: Начальное состояние двух указателей контейнера</h4><p>Показан начальный контейнер по краям массива как отправная точка для сравнения сдвига длинной и короткой перегородок.</p><p>Чтобы выяснить направление сдвига в жадной стратегии двух указателей, на том же массиве высот ht = [3, 8, 5, 2, 7, 7, 3, 4] рассматривается начальное состояние [i, j] = [0, 7] с указателями на обоих концах массива; оно служит базой для сравнения сдвига внутрь длинной перегородки и короткой перегородки.</p><p>Над перегородкой с индексом 0 подписан левый указатель i при высоте ht[0] = 3, а над перегородкой с индексом 7 — правый указатель j при высоте ht[7] = 4. Обе крайние перегородки выделены цветом, светло-голубой прямоугольник от индекса 0 до 7 вровень с левой короткой перегородкой высотой 3 изображает текущую область воды, а внизу приведены подпись «i — короткая перегородка, j — длинная» и расчёт cap = min(3, 4) × (7 - 0) = 21.</p><p>Поскольку левая перегородка 3 короче правой 4, уровень воды не превышает 3; расстояние между ними равно 7, поэтому вместимость равна 21. Это лишь текущая вместимость в начальной точке поиска, а не максимум по всему массиву.</p></div>
-<p>Как показано на рисунке 15-9, <strong>если в этот момент сдвинуть длинную перегородку <span class="arithmatex">\(j\)</span> ближе к короткой перегородке <span class="arithmatex">\(i\)</span>, то вместимость обязательно уменьшится</strong>.</p>
-<p>Причина в том, что после смещения длинной перегородки <span class="arithmatex">\(j\)</span> ширина <span class="arithmatex">\(j-i\)</span> обязательно станет меньше, а высота определяется короткой перегородкой, поэтому высота либо останется прежней (если <span class="arithmatex">\(i\)</span> останется короткой перегородкой), либо уменьшится (если сдвинутая <span class="arithmatex">\(j\)</span> станет короткой перегородкой).</p>
-<p><ha-svg-figure aria-label="Сдвиг длинной перегородки контейнера внутрь" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board.png" data-dark-src="/assets/figure-svg/figures/66fce81dbc337c0c1848cc35.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/806831bec79127c81462ae45.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Состояние после перемещения длинной перегородки внутрь</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Состояние после перемещения длинной перегородки внутрь</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-9   Состояние после перемещения длинной перегородки внутрь </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-9: Сдвиг длинной перегородки контейнера внутрь</h4><p>Если оставить короткую перегородку на месте и сдвинуть внутрь другой край, ширина уменьшится, а предел уровня воды не вырастет, поэтому вместимость увеличиться не может.</p><p>Массив высот равен ht = [3, 8, 5, 2, 7, 7, 3, 4]. В начальном состоянии i = 0 (короткая перегородка высотой 3) и j = 7 (длинная перегородка высотой 4) вместимость равна 21. На этом рисунке левая короткая перегородка остаётся неподвижной, а правая длинная сдвигается на одну позицию внутрь, чтобы показать, почему такой шаг не способен улучшить текущую вместимость.</p><p>Левый указатель остаётся на i = 0 (высота 3), а правый смещается на одну позицию влево с индекса 7 на j = 6 (высота ht[6] = 3; прежняя перегородка по индексу 7 снова становится обычным серым столбиком). Светло-голубая область воды сужается до прямоугольника от индекса 0 до 6 высотой 3, а внизу подписаны вывод «При сдвиге длинной перегородки внутрь вместимость обязательно уменьшается» и формула cap = min(3, 3) × (6 - 0) = 18.</p><p>Справа высота меняется с 4 на 3, уровень воды остаётся min(3, 3) = 3, а ширина сокращается с 7 до 6, поэтому вместимость падает с 21 до 18. Значение 18 здесь приведено только для локального сравнения при сдвиге длинной перегородки.</p><p>По этому же свойству при фиксированной короткой перегородке i = 0 для любого положения j среди индексов от 1 до 6 уровень воды не превысит 3, а ширина станет ещё меньше, поэтому ни одна из таких пар не превзойдёт исходные 21. На схеме показан только случай j = 6, а остальные пары следуют из этого рассуждения; жадный поиск вправе отбросить все оставшиеся состояния с i = 0 и сдвинуть короткую перегородку i.</p></div>
-<p>Рассуждая в обратную сторону, <strong>только сдвигая короткую перегородку <span class="arithmatex">\(i\)</span> внутрь, мы можем получить шанс увеличить вместимость</strong>. Хотя ширина при этом обязательно уменьшится, <strong>высота может возрасти</strong> (если после перемещения короткая перегородка <span class="arithmatex">\(i\)</span> станет выше). Например, на рисунке 15-10 после перемещения короткой перегородки площадь увеличивается.</p>
-<p><ha-svg-figure aria-label="Сдвиг короткой перегородки контейнера внутрь" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.png" data-dark-src="/assets/figure-svg/figures/7105dcf3494b336bb587d123.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/00e7f5fc1221d08e06234ba2.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Состояние после перемещения короткой перегородки внутрь</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Состояние после перемещения короткой перегородки внутрь</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-10   Состояние после перемещения короткой перегородки внутрь </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-10: Сдвиг короткой перегородки контейнера внутрь</h4><p>Сдвиг короткой перегородки внутрь может увеличить высоту контейнера и тем самым повысить вместимость: в примере она возрастает с 21 до 24.</p><p>Для массива высот ht = [3, 8, 5, 2, 7, 7, 3, 4] (индексы от 0 до 7) вместимость контейнера определяется формулой cap[i, j] = min(ht[i], ht[j]) × (j - i).</p><p>В отличие от рисунка 15-9, где из начального состояния [0, 7] внутрь сдвигалась длинная перегородка, здесь из той же стартовой позиции вправо сдвигается указатель левой короткой перегородки. На старте высоты равны 3 и 4, а вместимость составляет 21.</p><p>Правый указатель остаётся в позиции j = 7 (высота 4), а левый смещается на одну позицию вправо с индекса 0 на i = 1 (высота ht[1] = 8; прежний столбик по индексу 0 снова становится серым). Теперь левая перегородка высотой 8 выше правой высотой 4, поэтому новой короткой перегородкой становится правая на j = 7; светло-голубой прямоугольник от индекса 1 до 7 высотой 4 отображает обновлённую область воды, а внизу приведены подпись «При сдвиге короткой перегородки внутрь вместимость может увеличиться» и формула текущей вместимости.</p><p>После сдвига ширина уменьшается с 7 до 6, а уровень воды поднимается с 3 до 4; на рисунке записано cap = min(8, 4) × (7 - 1) = 24. Это показывает, что сдвиг короткой перегородки внутрь способен увеличить вместимость, хотя и не обязан увеличивать её на каждом шаге. Значение 24 ещё не является максимумом по всему массиву: как показано на рисунке 15-7, оптимальная пара концов — [1, 5] с вместимостью 28.</p></div>
-<p>Отсюда и выводится жадная стратегия для этой задачи: инициализировать два указателя по краям контейнера и на каждом шаге сдвигать внутрь указатель, соответствующий короткой перегородке, пока указатели не встретятся.</p>
-<p>На рисунке 15-11 показан процесс выполнения этой жадной стратегии.</p>
+<p>Пусть длина массива равна <span class="arithmatex">\(n\)</span>. Тогда число пар перегородок, то есть общее число состояний, равно <span class="arithmatex">\(C_n^2 = \frac{n(n - 1)}{2}\)</span>. Самый прямой способ найти максимальную вместимость — <strong>перебрать все состояния</strong>. Его временная сложность составляет <span class="arithmatex">\(O(n^2)\)</span>.</p>
+<h3 id="1">1.   Выбор жадной стратегии<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
+<p>Задачу можно решить эффективнее. Выберем, как на рисунке 15-8, состояние <span class="arithmatex">\([i, j]\)</span>, в котором <span class="arithmatex">\(i &lt; j\)</span> и <span class="arithmatex">\(ht[i] &lt; ht[j]\)</span>. Тогда перегородка <span class="arithmatex">\(i\)</span> ниже, а <span class="arithmatex">\(j\)</span> выше.</p>
+<p><ha-svg-figure aria-label="Начальное положение двух указателей сосуда" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.png" data-dark-src="/assets/figure-svg/figures/0c484de118d26cade2219a14.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/4b626769c9fd1258a6a2339c.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Начальное состояние</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_initial_state.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Начальное состояние</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-8   Начальное состояние </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-8: Начальное положение двух указателей сосуда</h4><p>Сначала сосуд ограничен крайними перегородками. Это исходное состояние для сравнения двух вариантов: передвинуть указатель у высокой перегородки или у низкой.</p><p>Чтобы выбрать направление движения указателей в жадном алгоритме, рассмотрим тот же массив высот ht = [3, 8, 5, 2, 7, 7, 3, 4]. Сначала указатели находятся на концах массива: [i, j] = [0, 7]. Отсюда сравним два хода: сдвиг внутрь указателя у высокой перегородки и сдвиг внутрь указателя у низкой.</p><p>Над перегородкой с индексом 0 стоит метка левого указателя i, её высота ht[0] = 3. Над перегородкой с индексом 7 стоит метка правого указателя j, её высота ht[7] = 4. Крайние перегородки выделены цветом. Голубой прямоугольник от индекса 0 до индекса 7 достигает вершины низкой левой перегородки на высоте 3 и показывает область воды. Внизу указано: «i — низкая перегородка, j — высокая». Текущая вместимость cap = min(3, 4) × (7 - 0) = 21.</p><p>Левая перегородка высотой 3 ниже правой высотой 4, поэтому вода поднимается лишь до отметки 3. Расстояние между перегородками равно 7, значит, вместимость равна 21. Это вместимость в начальной точке поиска, а не максимум для всего массива.</p></div>
+<p>Как видно на рисунке 15-9, <strong>если сдвинуть указатель у высокой перегородки <span class="arithmatex">\(j\)</span> в сторону низкой <span class="arithmatex">\(i\)</span>, вместимость обязательно уменьшится</strong>.</p>
+<p>При сдвиге высокой перегородки <span class="arithmatex">\(j\)</span> ширина <span class="arithmatex">\(j-i\)</span> обязательно уменьшается. Высоту задаёт низкая перегородка, поэтому высота может лишь остаться прежней (если <span class="arithmatex">\(i\)</span> по-прежнему ниже) или уменьшиться (если новой низкой перегородкой станет <span class="arithmatex">\(j\)</span>).</p>
+<p><ha-svg-figure aria-label="Сдвиг внутрь указателя у высокой перегородки" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board.png" data-dark-src="/assets/figure-svg/figures/41815c33b6abc21c4f8b34c1.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/4f946d382f6ea985752a0275.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Состояние после сдвига высокой перегородки внутрь</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_long_board.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Состояние после сдвига высокой перегородки внутрь</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-9   Состояние после сдвига высокой перегородки внутрь </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-9: Сдвиг внутрь указателя у высокой перегородки</h4><p>Если низкая перегородка остаётся на месте, сдвиг другого края внутрь уменьшает ширину и не может поднять предельный уровень воды. Поэтому вместимость не увеличится.</p><p>Дан массив высот ht = [3, 8, 5, 2, 7, 7, 3, 4]. В начальном состоянии i = 0 (низкая перегородка высотой 3), j = 7 (высокая высотой 4), вместимость равна 21. На рисунке низкую левую перегородку оставляют на месте, а указатель у высокой правой сдвигают на одну позицию внутрь. Рассмотрим, почему такой ход не может увеличить текущую вместимость.</p><p>Левый указатель остаётся на i = 0 (высота 3), правый сдвигается на одну позицию влево с индекса 7 до j = 6 (высота ht[6] = 3). Столбец на прежней позиции 7 снова серый и не выделен. Голубая область воды сужается до прямоугольника от индекса 0 до индекса 6 высотой 3. Внизу указано: «Сдвиг высокой перегородки внутрь всегда уменьшает вместимость». Приведена формула cap = min(3, 3) × (6 - 0) = 18.</p><p>Высота правой перегородки уменьшилась с 4 до 3. Уровень воды по-прежнему равен min(3, 3) = 3, а ширина сократилась с 7 до 6. Поэтому вместимость упала с 21 до 18. Значение 18 служит только для сравнения с исходным состоянием после сдвига высокой перегородки.</p><p>Рассуждение можно продолжить. Пока низкая перегородка фиксирована на i = 0, при любом j от 1 до 6 высота воды не превысит 3, а ширина уменьшится. Ни одна из этих пар не даст больше исходных 21. На рисунке показан только пример с j = 6, остальные случаи следуют из того же рассуждения. Жадный алгоритм может пропустить эти состояния с i = 0 и сдвинуть указатель i у низкой перегородки.</p></div>
+<p>Отсюда следует, что <strong>вместимость может увеличиться только при сдвиге низкой перегородки <span class="arithmatex">\(i\)</span> внутрь</strong>. Ширина обязательно уменьшится, <strong>но высота может вырасти</strong>: на новой позиции <span class="arithmatex">\(i\)</span> перегородка может оказаться выше прежней. Например, на рисунке 15-10 площадь после сдвига низкой перегородки увеличилась.</p>
+<p><ha-svg-figure aria-label="Сдвиг внутрь указателя у низкой перегородки" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.png" data-dark-src="/assets/figure-svg/figures/5916274430703032cdc2fcb5.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d8316d8379df05b146e6a275.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Состояние после сдвига низкой перегородки внутрь</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_moving_short_board.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Состояние после сдвига низкой перегородки внутрь</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-10   Состояние после сдвига низкой перегородки внутрь </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-10: Сдвиг внутрь указателя у низкой перегородки</h4><p>Сдвиг низкой перегородки внутрь может увеличить высоту сосуда, а с ней и вместимость. В этом примере вместимость возрастает с 21 до 24.</p><p>Для массива высот ht = [3, 8, 5, 2, 7, 7, 3, 4] (индексы от 0 до 7) вместимость сосуда определяется формулой cap[i, j] = min(ht[i], ht[j]) × (j - i).</p><p>На рис. 15-9 из начального состояния [0, 7] внутрь сдвигали указатель у высокой перегородки. На этом рисунке из той же точки сдвигают вправо левый указатель у низкой перегородки. Вначале высоты равны 3 и 4, а вместимость — 21.</p><p>Правый указатель остаётся на j = 7 (высота 4). Левый сдвигается на одну позицию вправо с индекса 0 до i = 1 (высота ht[1] = 8). Столбец на прежней позиции 0 снова серый и не выделен. Теперь левая перегородка высотой 8 выше правой высотой 4, так что более низкая перегородка находится справа, на j = 7. Обновлённая область воды показана голубым прямоугольником от индекса 1 до индекса 7 на уровне вершины правой перегородки высотой 4. Внизу приведены подпись «Сдвиг низкой перегородки внутрь может увеличить вместимость» и расчёт текущей вместимости.</p><p>Ширина уменьшилась с 7 до 6, зато вода поднялась с 3 до 4. На рисунке приведён расчёт: cap = min(8, 4) × (7 - 1) = 24. Значит, сдвиг низкой перегородки внутрь может увеличить вместимость, хотя это происходит не на каждом шаге. Значение 24 ещё не максимум для всего массива. На рис. 15-7 оптимальная пара [1, 5] даёт вместимость 28.</p></div>
+<p>Теперь сформулируем жадную стратегию. Поставим два указателя на противоположные концы сосуда. На каждом шаге будем сдвигать внутрь указатель у более низкой перегородки, пока указатели не встретятся.</p>
+<p>На рисунке 15-11 показано, как работает эта стратегия.</p>
 <ol>
-<li>В начальном состоянии указатели <span class="arithmatex">\(i\)</span> и <span class="arithmatex">\(j\)</span> стоят на двух концах массива.</li>
-<li>Вычислить вместимость текущего состояния <span class="arithmatex">\(cap[i, j]\)</span> и обновить максимальную вместимость.</li>
-<li>Сравнить высоты перегородок <span class="arithmatex">\(i\)</span> и <span class="arithmatex">\(j\)</span>, после чего сдвинуть короткую перегородку на одну позицию внутрь.</li>
-<li>Повторять шаги <code>2.</code> и <code>3.</code> до тех пор, пока <span class="arithmatex">\(i\)</span> и <span class="arithmatex">\(j\)</span> не встретятся.</li>
+<li>В начальном состоянии указатели <span class="arithmatex">\(i\)</span> и <span class="arithmatex">\(j\)</span> находятся на противоположных концах массива.</li>
+<li>Вычисляем вместимость <span class="arithmatex">\(cap[i, j]\)</span> для текущего состояния и обновляем максимум.</li>
+<li>Сравниваем высоты перегородок <span class="arithmatex">\(i\)</span> и <span class="arithmatex">\(j\)</span> и сдвигаем указатель у более низкой на одну позицию внутрь.</li>
+<li>Повторяем шаги <code>2.</code> и <code>3.</code>, пока указатели <span class="arithmatex">\(i\)</span> и <span class="arithmatex">\(j\)</span> не встретятся.</li>
 </ol>
-<div aria-label="Максимальная вместимость: жадный метод двух указателей" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="Шаг 1: Инициализация указателей на концах массива" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="Шаг 2: Вычисление вместимости контейнера [0, 7]" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="Шаг 3: Сдвиг левого указателя вправо до i = 1" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="Шаг 4: Сдвиг правого указателя влево до j = 6" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="Шаг 5: Сдвиг правого указателя влево до j = 5" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="Шаг 6: Сдвиг правого указателя влево до j = 4" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="Шаг 7: Сдвиг правого указателя влево до j = 3" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="Шаг 8: Сдвиг правого указателя влево до j = 2" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="Шаг 9: Встреча указателей и возврат максимальной вместимости" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
+<div aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="Шаг 1: Начальное положение указателей на концах массива" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="Шаг 2: Вычисляем вместимость сосуда [0, 7]" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="Шаг 3: Сдвигаем указатель у низкой перегородки вправо до i = 1" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="Шаг 4: Сдвигаем указатель у низкой перегородки влево до j = 6" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="Шаг 5: Сдвигаем указатель у низкой перегородки влево до j = 5" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="Шаг 6: Сдвигаем указатель у низкой перегородки влево до j = 4" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="Шаг 7: Сдвигаем указатель у низкой перегородки влево до j = 3" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="Шаг 8: Сдвигаем указатель у низкой перегородки влево до j = 2" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="Шаг 9: Указатели встретились: возвращаем максимальную вместимость" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 1 из 9: Инициализация указателей на концах массива" class="animation-figure" data-a11y-forward="Указатели установлены на концах массива: i = 0, j = 7, максимальная вместимость res = 0." data-a11y-state="Инициализация: i = 0 (высота 3), j = 7 (высота 4), максимум res = 0, текущая вместимость ещё не вычислялась." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png" data-dark-src="/assets/figure-svg/figures/e2ab3fabc4652686c59a6397.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/29e7bd265f6ecd1247874fe4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Жадный процесс решения задачи о максимальной вместимости</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Жадный процесс решения задачи о максимальной вместимости</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 1 из 9: Начальное положение указателей на концах массива" class="animation-figure" data-a11y-forward="Ставим указатели на концы массива: i = 0 и j = 7. Максимальная вместимость res = 0." data-a11y-state="Инициализация: i = 0 (высота 3), j = 7 (высота 4), накопленный максимум res = 0. Текущая вместимость ещё не вычислена." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.png" data-dark-src="/assets/figure-svg/figures/0c0aeba076a6e13567198386.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/9694f374a6189a7839e68c3c.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Шаги жадного алгоритма поиска максимальной вместимости</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Шаги жадного алгоритма поиска максимальной вместимости</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 2 из 9: Вычисление вместимости контейнера [0, 7]" class="animation-figure" data-a11y-forward="Проверены края массива: слева высота 3, справа 4, левая короче; cap = 21, res обновлён до 21." data-a11y-state="i = 0 (высота 3), j = 7 (высота 4), левая перегородка короче; ширина 7, уровень воды 3, текущая вместимость cap = 21, максимум res = 21." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png" data-dark-src="/assets/figure-svg/figures/e0184f7f0d86ce02ce94b287.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b9066b0b7306f1945975c6ba.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step2</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step2</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 2 из 9: Вычисляем вместимость сосуда [0, 7]" class="animation-figure" data-a11y-forward="Берём крайние перегородки: левая высотой 3, правая высотой 4. Левая ниже. Получаем cap = 21 и обновляем res до 21." data-a11y-state="i = 0 (высота 3), j = 7 (высота 4). Левая перегородка ниже. Ширина 7, высота воды 3. Текущая вместимость cap = 21, накопленный максимум res = 21." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.png" data-dark-src="/assets/figure-svg/figures/d7bd575e69e22c2216b9addb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a839bea00356434fcf535f00.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step2</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step2</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 3 из 9: Сдвиг левого указателя вправо до i = 1" class="animation-figure" data-a11y-forward="Левый указатель сдвинут с 0 на 1: слева высота 8, справа 4, правая короче; cap = 24, res обновлён до 24." data-a11y-state="i = 1 (высота 8), j = 7 (высота 4), правая перегородка короче; ширина 6, уровень воды 4, текущая вместимость cap = 24, максимум res = 24." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png" data-dark-src="/assets/figure-svg/figures/eb82b0006043122f4600b1a8.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/9136c8d160f4ba5a330edf98.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step3</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step3</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 3 из 9: Сдвигаем указатель у низкой перегородки вправо до i = 1" class="animation-figure" data-a11y-forward="Левый указатель сдвигается вправо с 0 до 1. Левая перегородка высотой 8, правая высотой 4. Правая ниже. Получаем cap = 24 и обновляем res до 24." data-a11y-state="i = 1 (высота 8), j = 7 (высота 4). Правая перегородка ниже. Ширина 6, высота воды 4. Текущая вместимость cap = 24, накопленный максимум res = 24." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.png" data-dark-src="/assets/figure-svg/figures/b25d661813362e1f28614847.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/692b1fb034c8202deb99a70c.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step3</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step3</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 4 из 9: Сдвиг правого указателя влево до j = 6" class="animation-figure" data-a11y-forward="Правый указатель сдвинут с 7 на 6: слева высота 8, справа 3, правая короче; cap = 15, res остаётся 24." data-a11y-state="i = 1 (высота 8), j = 6 (высота 3), правая перегородка короче; ширина 5, уровень воды 3, текущая вместимость cap = 15, максимум res = 24." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png" data-dark-src="/assets/figure-svg/figures/6009572971704c1c032a4502.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/12de3dfad70fd8c0498aa328.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step4</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step4</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 4 из 9: Сдвигаем указатель у низкой перегородки влево до j = 6" class="animation-figure" data-a11y-forward="Правый указатель сдвигается влево с 7 до 6. Левая перегородка высотой 8, правая высотой 3. Правая ниже. Получаем cap = 15, а res остаётся равным 24." data-a11y-state="i = 1 (высота 8), j = 6 (высота 3). Правая перегородка ниже. Ширина 5, высота воды 3. Текущая вместимость cap = 15, накопленный максимум res = 24." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.png" data-dark-src="/assets/figure-svg/figures/60b825dbd8af4f9f73b39761.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/e538a412360370146e782e10.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step4</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step4</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 5 из 9: Сдвиг правого указателя влево до j = 5" class="animation-figure" data-a11y-forward="Правый указатель сдвинут с 6 на 5: слева высота 8, справа 7, правая короче; cap = 28, res обновлён до 28." data-a11y-state="i = 1 (высота 8), j = 5 (высота 7), правая перегородка короче; ширина 4, уровень воды 7, текущая вместимость cap = 28, максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png" data-dark-src="/assets/figure-svg/figures/6d38069f414a346a3243c4d0.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d5852eebbc4027c0ff796b88.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step5</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step5</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 5 из 9: Сдвигаем указатель у низкой перегородки влево до j = 5" class="animation-figure" data-a11y-forward="Правый указатель сдвигается влево с 6 до 5. Левая перегородка высотой 8, правая высотой 7. Правая ниже. Получаем cap = 28 и обновляем res до 28." data-a11y-state="i = 1 (высота 8), j = 5 (высота 7). Правая перегородка ниже. Ширина 4, высота воды 7. Текущая вместимость cap = 28, накопленный максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.png" data-dark-src="/assets/figure-svg/figures/16542e71b47dab6d2ed1a805.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/2c2ebea48d49b4d8915df0d5.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step5</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step5</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 6 из 9: Сдвиг правого указателя влево до j = 4" class="animation-figure" data-a11y-forward="Правый указатель сдвинут с 5 на 4: слева высота 8, справа 7, правая короче; cap = 21, res остаётся 28." data-a11y-state="i = 1 (высота 8), j = 4 (высота 7), правая перегородка короче; ширина 3, уровень воды 7, текущая вместимость cap = 21, максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png" data-dark-src="/assets/figure-svg/figures/96c5596d5df07f17a647fe87.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/14a067377a3caa21dcc8bbcd.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step6</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step6</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 6 из 9: Сдвигаем указатель у низкой перегородки влево до j = 4" class="animation-figure" data-a11y-forward="Правый указатель сдвигается влево с 5 до 4. Левая перегородка высотой 8, правая высотой 7. Правая ниже. Получаем cap = 21, а res остаётся равным 28." data-a11y-state="i = 1 (высота 8), j = 4 (высота 7). Правая перегородка ниже. Ширина 3, высота воды 7. Текущая вместимость cap = 21, накопленный максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.png" data-dark-src="/assets/figure-svg/figures/79f3c6233ed34ad8b121b4f6.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0d3b4016dabc74870eaf67be.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step6</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step6</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 7 из 9: Сдвиг правого указателя влево до j = 3" class="animation-figure" data-a11y-forward="Правый указатель сдвинут с 4 на 3: слева высота 8, справа 2, правая короче; cap = 4, res остаётся 28." data-a11y-state="i = 1 (высота 8), j = 3 (высота 2), правая перегородка короче; ширина 2, уровень воды 2, текущая вместимость cap = 4, максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png" data-dark-src="/assets/figure-svg/figures/dba6e89f58d1237d2be9b137.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/88ab3fe881ba7e972422b0d3.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step7</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step7</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 7 из 9: Сдвигаем указатель у низкой перегородки влево до j = 3" class="animation-figure" data-a11y-forward="Правый указатель сдвигается влево с 4 до 3. Левая перегородка высотой 8, правая высотой 2. Правая ниже. Получаем cap = 4, а res остаётся равным 28." data-a11y-state="i = 1 (высота 8), j = 3 (высота 2). Правая перегородка ниже. Ширина 2, высота воды 2. Текущая вместимость cap = 4, накопленный максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.png" data-dark-src="/assets/figure-svg/figures/7dabca8aa5bed147755d87e8.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/8b14d6c875c72860c880174b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step7</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step7</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 8 из 9: Сдвиг правого указателя влево до j = 2" class="animation-figure" data-a11y-forward="Правый указатель сдвинут с 3 на 2: слева высота 8, справа 5, правая короче; cap = 5, res остаётся 28." data-a11y-state="i = 1 (высота 8), j = 2 (высота 5), правая перегородка короче; ширина 1, уровень воды 5, текущая вместимость cap = 5, максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png" data-dark-src="/assets/figure-svg/figures/94ecdaf95dea370c5b0bc4b4.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/f61f199c1e3cf1af7476b14f.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step8</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step8</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 8 из 9: Сдвигаем указатель у низкой перегородки влево до j = 2" class="animation-figure" data-a11y-forward="Правый указатель сдвигается влево с 3 до 2. Левая перегородка высотой 8, правая высотой 5. Правая ниже. Получаем cap = 5, а res остаётся равным 28." data-a11y-state="i = 1 (высота 8), j = 2 (высота 5). Правая перегородка ниже. Ширина 1, высота воды 5. Текущая вместимость cap = 5, накопленный максимум res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.png" data-dark-src="/assets/figure-svg/figures/6c1ea51b8761c6fa020034fb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d650a14ddc3459a92c37b8b7.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step8</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step8</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Максимальная вместимость: жадный метод двух указателей, шаг 9 из 9: Встреча указателей и возврат максимальной вместимости" class="animation-figure" data-a11y-forward="Правый указатель сместился на индекс 1 и встретился с левым; цикл завершён, возвращена максимальная вместимость 28." data-a11y-state="i = j = 1: указатели встретились, выход из жадного цикла, возвращается максимальная вместимость res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png" data-dark-src="/assets/figure-svg/figures/5dedf81cc5ac3bfb7abee28f.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/f09e6f6b97c2c68a7537454d.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step9</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step9</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Максимальная вместимость: жадный алгоритм с двумя указателями, шаг 9 из 9: Указатели встретились: возвращаем максимальную вместимость" class="animation-figure" data-a11y-forward="Правый указатель сдвигается влево до индекса 1 и встречается с левым. Выходим из цикла и возвращаем максимальную вместимость 28." data-a11y-state="При i = j = 1 указатели встретились. Завершаем цикл жадного выбора и возвращаем максимальную вместимость res = 28." data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.png" data-dark-src="/assets/figure-svg/figures/2911f20b8106bb450f19057c.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/28c0f012bfce45ca948df64b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step9</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_greedy_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">max_capacity_greedy_step9</object></ha-svg-figure></p>
 </div>
 </div>
 </div>
-<p align="center"> Рисунок 15-11   Жадный процесс решения задачи о максимальной вместимости </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-11: Максимальная вместимость: жадный метод двух указателей</h4><p>Вначале два указателя стоят на концах массива. Алгоритм вычисляет вместимость, сохраняет наибольшее найденное значение и сдвигает внутрь указатель у более короткой перегородки. В итоге он возвращает 28.</p><p>Дан массив высот ht = [3, 8, 5, 2, 7, 7, 3, 4] (индексы от 0 до 7); вместимость контейнера равна cap[i, j] = min(ht[i], ht[j]) × (j - i).</p><p>Жадный алгоритм двух указателей инициализирует левый указатель i = 0, правый указатель j = 7 и рекорд вместимости res = 0. Пока выполняется i &lt; j, в цикле вычисляется текущая вместимость cap, обновляется максимум res = max(res, cap), затем сравниваются высоты обеих перегородок и указатель у более короткой перегородки сдвигается на одну позицию внутрь; при встрече i и j цикл завершается.</p><p>Серия состоит из 9 шагов: над выбранными перегородками показаны бирюзовая метка i и синяя метка j, а сами перегородки выделены соответствующими цветами; на шагах со 2 по 8 текущий контейнер между ними закрашен светло-голубым цветом, а внизу приведены формулы вычисления cap и обновления известного максимума res.</p><p>Шаг 1 выполняет только инициализацию, на шагах со 2 по 8 вместимость вычисляется 7 раз, а на шаге 9 указатели встречаются и цикл завершается; номер шага анимации не совпадает с числом вычислений вместимости. В таблице «Максимальная вместимость, шаги со 2 по 8: расчёт и накопленный максимум» собраны значения по шагам: позиции указателей, cap и res подписаны на схеме, а высоты перегородок считываются по оси.</p><ol><li><p><strong>Инициализация указателей на концах массива</strong></p><p>Левый указатель устанавливается в i = 0 (крайняя левая перегородка высотой 3), правый указатель — в j = 7 (крайняя правая перегородка высотой 4), а максимальная вместимость инициализируется как res = 0. Первое вычисление вместимости ещё не началось, поэтому область воды на рисунке пока не закрашена.</p></li><li><p><strong>Вычисление вместимости контейнера [0, 7]</strong></p><p>Первое вычисление для крайних перегородок [0, 7]: высота слева ht[0] = 3, справа ht[7] = 4, ширина равна 7 - 0 = 7, текущая вместимость cap = min(3, 4) × 7 = 21; максимум обновляется до res = max(0, 21) = 21. Поскольку левая перегородка 3 короче правой 4, на следующем шаге вправо сдвигается левый указатель i.</p></li><li><p><strong>Сдвиг левого указателя вправо до i = 1</strong></p><p>Так как на предыдущем шаге левая перегородка была короче, левый указатель i сдвигается с 0 на 1, образуя состояние [1, 7]: высота слева ht[1] = 8, справа ht[7] = 4, ширина равна 7 - 1 = 6, текущая вместимость cap = min(8, 4) × 6 = 24; максимум обновляется до res = max(21, 24) = 24. Теперь правая перегородка 4 короче левой 8, поэтому далее влево сдвигается правый указатель j.</p></li><li><p><strong>Сдвиг правого указателя влево до j = 6</strong></p><p>Поскольку на предыдущем шаге правая перегородка высотой 4 была короче левой высотой 8, правый указатель j сдвигается с 7 на 6, образуя состояние [1, 6]: слева высота 8, справа ht[6] = 3, ширина равна 6 - 1 = 5, текущая вместимость cap = min(8, 3) × 5 = 15; при сравнении с рекордом res = max(24, 15) = 24 остаётся прежним.</p></li><li><p><strong>Сдвиг правого указателя влево до j = 5</strong></p><p>Так как правая перегородка высотой 3 была короче левой высотой 8, правый указатель j сдвигается с 6 на 5, образуя состояние [1, 5]: слева высота 8, справа ht[5] = 7, ширина равна 5 - 1 = 4, текущая вместимость cap = min(8, 7) × 4 = 28; максимум обновляется до res = max(24, 28) = 28.</p></li><li><p><strong>Сдвиг правого указателя влево до j = 4</strong></p><p>Поскольку правая перегородка высотой 7 была короче левой высотой 8, правый указатель j сдвигается с 5 на 4, образуя состояние [1, 4]: слева высота 8, справа ht[4] = 7, ширина равна 4 - 1 = 3, текущая вместимость cap = min(8, 7) × 3 = 21; максимум res = max(28, 21) = 28 не меняется.</p></li><li><p><strong>Сдвиг правого указателя влево до j = 3</strong></p><p>Так как правая перегородка высотой 7 снова короче левой высотой 8, правый указатель j сдвигается с 4 на 3, образуя состояние [1, 3]: слева высота 8, справа ht[3] = 2, ширина равна 3 - 1 = 2, текущая вместимость cap = min(8, 2) × 2 = 4; максимум res = max(28, 4) = 28 не меняется.</p></li><li><p><strong>Сдвиг правого указателя влево до j = 2</strong></p><p>Поскольку правая перегородка высотой 2 короче левой высотой 8, правый указатель j сдвигается с 3 на 2, образуя состояние [1, 2]: слева высота 8, справа ht[2] = 5, ширина равна 2 - 1 = 1, текущая вместимость cap = min(8, 5) × 1 = 5; максимум res = max(28, 5) = 28 остаётся прежним.</p></li><li><p><strong>Встреча указателей и возврат максимальной вместимости</strong></p><p>Правая перегородка высотой 5 всё ещё короче левой высотой 8, поэтому правый указатель j сдвигается с 2 на 1 и встречается с i. На схеме двухцветная метка i, j объединена над перегородкой с индексом 1; цифра 2 на горизонтальной оси остаётся синей, но текущим положением указателя уже не является. Условие i &lt; j нарушено, новая вместимость не вычисляется, цикл завершается и возвращается res = 28.</p></li></ol><table><caption>Максимальная вместимость, шаги со 2 по 8: расчёт и накопленный максимум</caption><thead><tr><th scope="col">Шаг на схеме</th><th scope="col">i</th><th scope="col">j</th><th scope="col">Высота слева</th><th scope="col">Высота справа</th><th scope="col">Текущая вместимость cap</th><th scope="col">Известный максимум res</th></tr></thead><tbody><tr><th scope="row">Шаг 2</th><td>0</td><td>7</td><td>3</td><td>4</td><td>21</td><td>21</td></tr><tr><th scope="row">Шаг 3</th><td>1</td><td>7</td><td>8</td><td>4</td><td>24</td><td>24</td></tr><tr><th scope="row">Шаг 4</th><td>1</td><td>6</td><td>8</td><td>3</td><td>15</td><td>24</td></tr><tr><th scope="row">Шаг 5</th><td>1</td><td>5</td><td>8</td><td>7</td><td>28</td><td>28</td></tr><tr><th scope="row">Шаг 6</th><td>1</td><td>4</td><td>8</td><td>7</td><td>21</td><td>28</td></tr><tr><th scope="row">Шаг 7</th><td>1</td><td>3</td><td>8</td><td>2</td><td>4</td><td>28</td></tr><tr><th scope="row">Шаг 8</th><td>1</td><td>2</td><td>8</td><td>5</td><td>5</td><td>28</td></tr></tbody></table></div>
-<h3 id="2">2.   Код реализации<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
-<p>Цикл в коде выполняется не более <span class="arithmatex">\(n\)</span> раз, <strong>поэтому временная сложность равна <span class="arithmatex">\(O(n)\)</span></strong>.</p>
-<p>Переменные <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(j\)</span>, <span class="arithmatex">\(res\)</span> используют дополнительную память постоянного размера, <strong>поэтому пространственная сложность равна <span class="arithmatex">\(O(1)\)</span></strong>.</p>
+<p align="center"> Рисунок 15-11   Шаги жадного алгоритма поиска максимальной вместимости </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-11: Максимальная вместимость: жадный алгоритм с двумя указателями</h4><p>Два указателя начинают с концов массива. На каждом шаге вычисляем вместимость, сохраняем наибольшее найденное значение и передвигаем внутрь указатель у более низкой перегородки. В итоге возвращаем 28.</p><p>Дан массив высот ht = [3, 8, 5, 2, 7, 7, 3, 4] (индексы от 0 до 7). Вместимость сосуда равна cap[i, j] = min(ht[i], ht[j]) × (j - i).</p><p>В начале жадного алгоритма левый указатель i = 0, правый j = 7, а наибольшая найденная вместимость res = 0. Пока i &lt; j, вычисляем текущую вместимость cap и обновляем общий максимум по формуле res = max(res, cap). Затем сравниваем высоты перегородок и сдвигаем указатель у более низкой на одну позицию внутрь. Когда i и j встречаются, цикл завершается.</p><p>В последовательности 9 кадров. Бирюзовая метка i и синяя метка j над выбранными перегородками обозначают левый и правый указатели. Перегородки выделены соответствующими цветами. В кадрах со 2-го по 8-й вода между ними показана голубой заливкой. Под рисунком приведены формулы для текущей вместимости cap и обновления наибольшего найденного значения res.</p><p>В кадре 1 показана только инициализация. В кадрах 2–8 вместимость вычисляют 7 раз, а в кадре 9 указатели встречаются и цикл завершается. Номер кадра в проигрывателе отличается от номера вычисления. После списка приведена таблица «Максимальная вместимость, шаги 2–8: вычисления и накопленный максимум». В ней собраны значения по шагам. Позиции указателей, cap и res подписаны на рисунке, а высоты перегородок считываются по оси.</p><ol><li><p><strong>Начальное положение указателей на концах массива</strong></p><p>Ставим левый указатель i = 0 на крайнюю левую перегородку высотой 3, правый указатель j = 7 — на крайнюю правую высотой 4. Начальное значение максимальной вместимости res = 0. Первое вычисление ещё не началось. Область воды пока не показана.</p></li><li><p><strong>Вычисляем вместимость сосуда [0, 7]</strong></p><p>Для первого вычисления берём крайние перегородки [0, 7]. Высота левой ht[0] = 3, правой ht[7] = 4. Ширина равна 7 - 0 = 7, текущая вместимость cap = min(3, 4) × 7 = 21. Обновляем максимум: res = max(0, 21) = 21. Левая перегородка высотой 3 ниже правой высотой 4, поэтому дальше сдвинем левый указатель i вправо.</p></li><li><p><strong>Сдвигаем указатель у низкой перегородки вправо до i = 1</strong></p><p>На предыдущем шаге левая перегородка была ниже, поэтому сдвигаем i вправо с 0 до 1. В состоянии [1, 7] высота левой перегородки ht[1] = 8, правой ht[7] = 4. Ширина равна 7 - 1 = 6, текущая вместимость cap = min(8, 4) × 6 = 24. Обновляем максимум: res = max(21, 24) = 24. Теперь правая перегородка высотой 4 ниже левой высотой 8, поэтому следующим передвинем правый указатель j влево.</p></li><li><p><strong>Сдвигаем указатель у низкой перегородки влево до j = 6</strong></p><p>На предыдущем шаге правая перегородка высотой 4 была ниже левой высотой 8. Сдвигаем j влево с 7 до 6. В состоянии [1, 6] левая перегородка имеет высоту 8, правая — ht[6] = 3. Ширина равна 6 - 1 = 5, текущая вместимость cap = min(8, 3) × 5 = 15. Накопленный максимум не меняется: res = max(24, 15) = 24.</p></li><li><p><strong>Сдвигаем указатель у низкой перегородки влево до j = 5</strong></p><p>На предыдущем шаге правая перегородка высотой 3 была ниже левой высотой 8. Сдвигаем j влево с 6 до 5. В состоянии [1, 5] левая перегородка имеет высоту 8, правая — ht[5] = 7. Ширина равна 5 - 1 = 4, текущая вместимость cap = min(8, 7) × 4 = 28. Обновляем накопленный максимум: res = max(24, 28) = 28.</p></li><li><p><strong>Сдвигаем указатель у низкой перегородки влево до j = 4</strong></p><p>На предыдущем шаге правая перегородка высотой 7 была ниже левой высотой 8. Сдвигаем j влево с 5 до 4. В состоянии [1, 4] левая перегородка имеет высоту 8, правая — ht[4] = 7. Ширина равна 4 - 1 = 3, текущая вместимость cap = min(8, 7) × 3 = 21. Накопленный максимум не меняется: res = max(28, 21) = 28.</p></li><li><p><strong>Сдвигаем указатель у низкой перегородки влево до j = 3</strong></p><p>На предыдущем шаге правая перегородка высотой 7 была ниже левой высотой 8. Сдвигаем j влево с 4 до 3. В состоянии [1, 3] левая перегородка имеет высоту 8, правая — ht[3] = 2. Ширина равна 3 - 1 = 2, текущая вместимость cap = min(8, 2) × 2 = 4. Накопленный максимум не меняется: res = max(28, 4) = 28.</p></li><li><p><strong>Сдвигаем указатель у низкой перегородки влево до j = 2</strong></p><p>На предыдущем шаге правая перегородка высотой 2 была ниже левой высотой 8. Сдвигаем j влево с 3 до 2. В состоянии [1, 2] левая перегородка имеет высоту 8, правая — ht[2] = 5. Ширина равна 2 - 1 = 1, текущая вместимость cap = min(8, 5) × 1 = 5. Накопленный максимум не меняется: res = max(28, 5) = 28.</p></li><li><p><strong>Указатели встретились: возвращаем максимальную вместимость</strong></p><p>На предыдущем шаге правая перегородка высотой 5 была ниже левой высотой 8. Поэтому сдвигаем правый указатель j влево с индекса 2 на индекс 1, где он встречается с i. Над перегородкой с индексом 1 видна общая метка с бирюзовой буквой i и синей буквой j. Цифра 2 на горизонтальной оси снова тёмно-серая. Условие i &lt; j больше не выполняется. Выходим из цикла без нового вычисления вместимости и возвращаем res = 28.</p></li></ol><table><caption>Максимальная вместимость, шаги 2–8: вычисления и накопленный максимум</caption><thead><tr><th scope="col">Шаг на рисунке</th><th scope="col">i</th><th scope="col">j</th><th scope="col">Высота левой перегородки</th><th scope="col">Высота правой перегородки</th><th scope="col">Текущая вместимость cap</th><th scope="col">Накопленный максимум res</th></tr></thead><tbody><tr><th scope="row">Шаг 2</th><td>0</td><td>7</td><td>3</td><td>4</td><td>21</td><td>21</td></tr><tr><th scope="row">Шаг 3</th><td>1</td><td>7</td><td>8</td><td>4</td><td>24</td><td>24</td></tr><tr><th scope="row">Шаг 4</th><td>1</td><td>6</td><td>8</td><td>3</td><td>15</td><td>24</td></tr><tr><th scope="row">Шаг 5</th><td>1</td><td>5</td><td>8</td><td>7</td><td>28</td><td>28</td></tr><tr><th scope="row">Шаг 6</th><td>1</td><td>4</td><td>8</td><td>7</td><td>21</td><td>28</td></tr><tr><th scope="row">Шаг 7</th><td>1</td><td>3</td><td>8</td><td>2</td><td>4</td><td>28</td></tr><tr><th scope="row">Шаг 8</th><td>1</td><td>2</td><td>8</td><td>5</td><td>5</td><td>28</td></tr></tbody></table></div>
+<h3 id="2">2.   Реализация<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
+<p>Цикл выполняется не более <span class="arithmatex">\(n\)</span> раз, <strong>поэтому временная сложность составляет <span class="arithmatex">\(O(n)\)</span></strong>.</p>
+<p>Переменные <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(j\)</span> и <span class="arithmatex">\(res\)</span> занимают постоянный объём дополнительной памяти, <strong>поэтому пространственная сложность составляет <span class="arithmatex">\(O(1)\)</span></strong>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_capacity</span><span class="p">(</span><span class="n">ht</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Максимальная вместимость: жадный алгоритм"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ht</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="c1"># Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="c1"># Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">:</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># Обновить максимальную вместимость</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># Обновляем максимальную вместимость</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="n">cap</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">cap</span><span class="p">)</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="k">if</span> <span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
 <a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="k">else</span><span class="p">:</span>
@@ -2023,16 +2023,16 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxCapacity</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ht</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="p">);</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2046,16 +2046,16 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxCapacity</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">ht</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">ht</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">ht</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="p">);</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ht</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2069,16 +2069,16 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">MaxCapacity</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">ht</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="p">);</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2092,16 +2092,16 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">maxCapacity</span><span class="p">(</span><span class="nx">ht</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">ht</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">        </span><span class="nx">capacity</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Min</span><span class="p">(</span><span class="kt">float64</span><span class="p">(</span><span class="nx">ht</span><span class="p">[</span><span class="nx">i</span><span class="p">]),</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">ht</span><span class="p">[</span><span class="nx">j</span><span class="p">])))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span>
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Max</span><span class="p">(</span><span class="kt">float64</span><span class="p">(</span><span class="nx">res</span><span class="p">),</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">capacity</span><span class="p">)))</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">ht</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">ht</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">            </span><span class="nx">i</span><span class="o">++</span>
 <a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2115,16 +2115,16 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">maxCapacity</span><span class="p">(</span><span class="n">ht</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="n">endIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">cap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="bp">min</span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="bp">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2138,17 +2138,17 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">maxCapacity</span><span class="p">(</span><span class="nx">ht</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ht</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">ht</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">ht</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
 <a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">cap</span><span class="p">);</span>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ht</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">ht</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">            </span><span class="nx">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2162,17 +2162,17 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">maxCapacity</span><span class="p">(</span><span class="nx">ht</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ht</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">cap</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">ht</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">ht</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
 <a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">cap</span><span class="p">);</span>
-<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ht</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">ht</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">            </span><span class="nx">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2186,16 +2186,16 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">maxCapacity</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ht</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="p">);</span>
-<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">      </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2209,17 +2209,17 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">max_capacity</span><span class="p">(</span><span class="n">ht</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">])</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">cmp</span><span class="p">::</span><span class="n">min</span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span>
 <a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">cmp</span><span class="p">::</span><span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="p">);</span>
-<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2233,17 +2233,17 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxCapacity</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ht</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">htLength</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">htLength</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myMin</span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myMax</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">capacity</span><span class="p">);</span>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ht</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2257,17 +2257,17 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Максимальная вместимость: жадный алгоритм */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">maxCapacity</span><span class="p">(</span><span class="n">ht</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ht</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="c1">// Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="c1">// Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="c1">// Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="c1">// Обновить максимальную вместимость</span>
+<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="c1">// Обновляем максимальную вместимость</span>
 <a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">ht</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">ht</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span>
-<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="c1">// Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="c1">// Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ht</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">            </span><span class="n">i</span><span class="o">++</span>
 <a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2281,17 +2281,17 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_capacity.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Максимальная вместимость: жадный алгоритм ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_capacity</span><span class="p">(</span><span class="n">ht</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Инициализировать i и j так, чтобы они располагались по двум концам массива</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Ставим i и j на противоположные концы массива</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ht</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># Начальная максимальная вместимость равна 0</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># Изначально максимальная вместимость равна 0</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>
-<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="c1"># Выполнять жадный выбор в цикле, пока две доски не встретятся</span>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="c1"># Повторяем жадный выбор, пока перегородки не встретятся</span>
 <a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">    </span><span class="c1"># Обновить максимальную вместимость</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">    </span><span class="c1"># Обновляем максимальную вместимость</span>
 <a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">    </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">ht</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">ht</span><span class="o">[</span><span class="n">j</span><span class="o">]].</span><span class="n">min</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">cap</span><span class="o">].</span><span class="n">max</span>
-<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">    </span><span class="c1"># Сдвигать внутрь более короткую сторону</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">    </span><span class="c1"># Сдвигаем указатель у более низкой перегородки к центру</span>
 <a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">ht</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ht</span><span class="o">[</span><span class="n">j</span><span class="o">]</span>
 <a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">      </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">    </span><span class="k">else</span>
@@ -2306,20 +2306,20 @@ cap[i, j] = \min(ht[i], ht[j]) \times (j - i)
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20max_capacity%28ht%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20i%20%D0%B8%20j%20%D1%82%D0%B0%D0%BA%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BD%D0%B8%20%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D0%BB%D0%B8%D1%81%D1%8C%20%D0%BF%D0%BE%20%D0%B4%D0%B2%D1%83%D0%BC%20%D0%BA%D0%BE%D0%BD%D1%86%D0%B0%D0%BC%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%0A%20%20%20%20i%2C%20j%20%3D%200%2C%20len%28ht%29%20-%201%0A%20%20%20%20%23%20%D0%9D%D0%B0%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B2%D0%BD%D0%B0%200%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D1%82%D1%8C%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B2%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B5%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%B4%D0%B2%D0%B5%20%D0%B4%D0%BE%D1%81%D0%BA%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%82%D1%8F%D1%82%D1%81%D1%8F%0A%20%20%20%20while%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%83%D1%8E%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%0A%20%20%20%20%20%20%20%20cap%20%3D%20min%28ht%5Bi%5D%2C%20ht%5Bj%5D%29%20%2A%20%28j%20-%20i%29%0A%20%20%20%20%20%20%20%20res%20%3D%20max%28res%2C%20cap%29%0A%20%20%20%20%20%20%20%20%23%20%D0%A1%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D1%82%D1%8C%20%D0%B2%D0%BD%D1%83%D1%82%D1%80%D1%8C%20%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5%20%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D1%83%D1%8E%20%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D1%83%0A%20%20%20%20%20%20%20%20if%20ht%5Bi%5D%20%3C%20ht%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20ht%20%3D%20%5B3%2C%208%2C%205%2C%202%2C%207%2C%207%2C%203%2C%204%5D%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_capacity%28ht%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%3D%20%7Bres%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20max_capacity%28ht%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20i%20%D0%B8%20j%20%D1%82%D0%B0%D0%BA%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D0%BE%D0%BD%D0%B8%20%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D0%BB%D0%B8%D1%81%D1%8C%20%D0%BF%D0%BE%20%D0%B4%D0%B2%D1%83%D0%BC%20%D0%BA%D0%BE%D0%BD%D1%86%D0%B0%D0%BC%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%0A%20%20%20%20i%2C%20j%20%3D%200%2C%20len%28ht%29%20-%201%0A%20%20%20%20%23%20%D0%9D%D0%B0%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B2%D0%BD%D0%B0%200%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D1%82%D1%8C%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%20%D0%B2%20%D1%86%D0%B8%D0%BA%D0%BB%D0%B5%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%B4%D0%B2%D0%B5%20%D0%B4%D0%BE%D1%81%D0%BA%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%82%D1%8F%D1%82%D1%81%D1%8F%0A%20%20%20%20while%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%83%D1%8E%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%0A%20%20%20%20%20%20%20%20cap%20%3D%20min%28ht%5Bi%5D%2C%20ht%5Bj%5D%29%20%2A%20%28j%20-%20i%29%0A%20%20%20%20%20%20%20%20res%20%3D%20max%28res%2C%20cap%29%0A%20%20%20%20%20%20%20%20%23%20%D0%A1%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D1%82%D1%8C%20%D0%B2%D0%BD%D1%83%D1%82%D1%80%D1%8C%20%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5%20%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D0%BA%D1%83%D1%8E%20%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D1%83%0A%20%20%20%20%20%20%20%20if%20ht%5Bi%5D%20%3C%20ht%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20ht%20%3D%20%5B3%2C%208%2C%205%2C%202%2C%207%2C%207%2C%203%2C%204%5D%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_capacity%28ht%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%3D%20%7Bres%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20max_capacity%28ht%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%A1%D1%82%D0%B0%D0%B2%D0%B8%D0%BC%20i%20%D0%B8%20j%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%86%D1%8B%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%0A%20%20%20%20i,%20j%20%3D%200,%20len%28ht%29%20-%201%0A%20%20%20%20%23%20%D0%98%D0%B7%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B2%D0%BD%D0%B0%200%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D1%8F%D0%B5%D0%BC%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80,%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%82%D1%8F%D1%82%D1%81%D1%8F%0A%20%20%20%20while%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%83%D1%8E%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%0A%20%20%20%20%20%20%20%20cap%20%3D%20min%28ht%5Bi%5D,%20ht%5Bj%5D%29%20%2A%20%28j%20-%20i%29%0A%20%20%20%20%20%20%20%20res%20%3D%20max%28res,%20cap%29%0A%20%20%20%20%20%20%20%20%23%20%D0%A1%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D0%B5%D0%BC%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%20%D1%83%20%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5%20%D0%BD%D0%B8%D0%B7%D0%BA%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8%20%D0%BA%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%D1%83%0A%20%20%20%20%20%20%20%20if%20ht%5Bi%5D%20%3C%20ht%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20ht%20%3D%20%5B3,%208,%205,%202,%207,%207,%203,%204%5D%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_capacity%28ht%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%3A%20%7Bres%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20max_capacity%28ht%3A%20list%5Bint%5D%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%A1%D1%82%D0%B0%D0%B2%D0%B8%D0%BC%20i%20%D0%B8%20j%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%86%D1%8B%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%0A%20%20%20%20i,%20j%20%3D%200,%20len%28ht%29%20-%201%0A%20%20%20%20%23%20%D0%98%D0%B7%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B2%D0%BD%D0%B0%200%0A%20%20%20%20res%20%3D%200%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D1%8F%D0%B5%D0%BC%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80,%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8%20%D0%BD%D0%B5%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%82%D1%8F%D1%82%D1%81%D1%8F%0A%20%20%20%20while%20i%20%3C%20j%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D1%8F%D0%B5%D0%BC%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%83%D1%8E%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%0A%20%20%20%20%20%20%20%20cap%20%3D%20min%28ht%5Bi%5D,%20ht%5Bj%5D%29%20%2A%20%28j%20-%20i%29%0A%20%20%20%20%20%20%20%20res%20%3D%20max%28res,%20cap%29%0A%20%20%20%20%20%20%20%20%23%20%D0%A1%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0%D0%B5%D0%BC%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%20%D1%83%20%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5%20%D0%BD%D0%B8%D0%B7%D0%BA%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BA%D0%B8%20%D0%BA%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%D1%83%0A%20%20%20%20%20%20%20%20if%20ht%5Bi%5D%20%3C%20ht%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20-%3D%201%0A%20%20%20%20return%20res%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20ht%20%3D%20%5B3,%208,%205,%202,%207,%207,%203,%204%5D%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_capacity%28ht%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%3A%20%7Bres%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
 <h3 id="3">3.   Доказательство корректности<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
-<p>Жадный алгоритм быстрее полного перебора именно потому, что каждый жадный шаг «пропускает» часть состояний.</p>
-<p>Например, в состоянии <span class="arithmatex">\(cap[i, j]\)</span> перегородка <span class="arithmatex">\(i\)</span> является короткой, а <span class="arithmatex">\(j\)</span> - длинной. Если жадно сдвинуть короткую перегородку <span class="arithmatex">\(i\)</span> на одну позицию внутрь, то состояния, показанные на рисунке 15-12, будут «пропущены». <strong>Это означает, что позже мы уже не сможем проверить вместимость этих состояний</strong>.</p>
+<p>Жадный алгоритм быстрее полного перебора, потому что при каждом выборе он пропускает часть состояний.</p>
+<p>Например, пусть в состоянии <span class="arithmatex">\(cap[i, j]\)</span> перегородка <span class="arithmatex">\(i\)</span> ниже, а <span class="arithmatex">\(j\)</span> выше. Если по жадному правилу сдвинуть указатель у низкой перегородки <span class="arithmatex">\(i\)</span> на одну позицию внутрь, алгоритм пропустит состояния, показанные ниже. <strong>В дальнейшем он уже не сможет проверить вместимость этих сосудов</strong>.</p>
 <div class="arithmatex">\[
 cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 \]</div>
-<p><ha-svg-figure aria-label="Состояния, пропущенные при сдвиге короткой перегородки: У всех шести более узких контейнеров с фиксированной левой перегородкой i = 0 вместимость меньше 21" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.png" data-dark-src="/assets/figure-svg/figures/82b86b572ae0373993822bd0.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d55c1098b9774ad84f3b5ba6.json" role="img" style=";--figure-ratio:960.0/570.78125"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Состояния, пропущенные из-за смещения короткой перегородки</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Состояния, пропущенные из-за смещения короткой перегородки</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-12   Состояния, пропущенные из-за смещения короткой перегородки </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-12: Состояния, пропущенные при сдвиге короткой перегородки</h4><p>Сдвигая левую короткую перегородку из cap[0, 7] внутрь к cap[1, 7], алгоритм сразу пропускает шесть более узких состояний с прежней левой границей 0 и правой границей от 6 до 1.</p><p>Массив высот этого примера приведён в таблице «Входные высоты перегородок» ниже, индексация начинается с 0. В начальной паре [0, 7] высоты равны 3 и 4, левая перегородка короче, а вместимость составляет min(3, 4) × 7 = 21.</p><p>Вместимость контейнера равна cap[i, j] = min(ht[i], ht[j]) × (j - i): уровень воды равен меньшей высоте, а ширина — разности индексов.</p><p>В верхнем ряду стрелка вправо с подписью «Сдвинуть короткую перегородку» ведёт от cap[0, 7] к cap[1, 7]. Ниже фигурная скобка «Пропущенные состояния» объединяет шесть мини-схем в две строки и три столбца, где при фиксированном i = 0 индекс j построчно слева направо принимает значения 6, 5, 4, 3, 2 и 1.</p><p>В двух таблицах ниже приведены входные данные примера и все шесть пропущенных состояний. На самом рисунке подписаны только обозначения cap[i, j], а высоты перегородок, уровень воды, ширина и вместимость в таблице вычислены по массиву высот и формуле.</p><table><caption>Входные высоты перегородок; индексация с 0</caption><thead><tr><th scope="col">Индекс</th><th scope="col">Высота</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td></tr><tr><th scope="row">1</th><td>8</td></tr><tr><th scope="row">2</th><td>5</td></tr><tr><th scope="row">3</th><td>2</td></tr><tr><th scope="row">4</th><td>7</td></tr><tr><th scope="row">5</th><td>7</td></tr><tr><th scope="row">6</th><td>3</td></tr><tr><th scope="row">7</th><td>4</td></tr></tbody></table><table><caption>Шесть пропущенных состояний; вместимость вычислена по массиву высот</caption><thead><tr><th scope="col">Границы [i,j]</th><th scope="col">Уровень воды min(ht[i],ht[j])</th><th scope="col">Ширина j-i</th><th scope="col">Вместимость</th></tr></thead><tbody><tr><th scope="row">[0,6]</th><td>3</td><td>6</td><td>18</td></tr><tr><th scope="row">[0,5]</th><td>3</td><td>5</td><td>15</td></tr><tr><th scope="row">[0,4]</th><td>3</td><td>4</td><td>12</td></tr><tr><th scope="row">[0,3]</th><td>2</td><td>3</td><td>6</td></tr><tr><th scope="row">[0,2]</th><td>3</td><td>2</td><td>6</td></tr><tr><th scope="row">[0,1]</th><td>3</td><td>1</td><td>3</td></tr></tbody></table><p>Ширина каждого из шести состояний меньше 7, а уровень воды не превышает высоты исходной левой перегородки 3, поэтому их вместимость строго меньше уже найденного значения 21, и их пропуск не ведёт к потере оптимума. В частности, в состоянии [0, 3] правая перегородка имеет высоту 2 — ниже левой, поэтому уровень воды снижается до 2 при ширине 3 и вместимости 6; в остальных пяти состояниях уровень воды равен 3.</p></div>
-<p>Нетрудно заметить, что <strong>эти пропущенные состояния на самом деле и есть все состояния, в которых длинная перегородка <span class="arithmatex">\(j\)</span> сдвигается внутрь</strong>. Ранее мы уже доказали, что перемещение длинной перегородки внутрь обязательно уменьшает вместимость. Иными словами, пропущенные состояния не могут быть оптимальным решением, <strong>поэтому их пропуск не приводит к потере оптимума</strong>.</p>
-<p>Приведенный анализ показывает, что операция перемещения короткой перегородки является «безопасной», а жадная стратегия действительно корректна.</p>
+<p><ha-svg-figure aria-label="Состояния, пропущенные при сдвиге низкой перегородки: Все шесть более узких сосудов с левой перегородкой на i = 0 имеют вместимость меньше 21" class="animation-figure" data-book-key="ru/chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.png" data-dark-src="/assets/figure-svg/figures/911967e71910117ddc24572f.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/1714e89dcd76230282700f84.json" role="img" style=";--figure-ratio:960.0/571.5"><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Состояния, пропущенные при сдвиге низкой перегородки</object><object aria-hidden="true" data="/ru/chapter_greedy/max_capacity_problem.assets/max_capacity_skipped_states.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Состояния, пропущенные при сдвиге низкой перегородки</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-12   Состояния, пропущенные при сдвиге низкой перегородки </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-12: Состояния, пропущенные при сдвиге низкой перегородки</h4><p>Когда левый указатель у низкой перегородки сдвигается внутрь и алгоритм переходит от cap[0, 7] к cap[1, 7], он сразу пропускает шесть более узких сосудов. У всех левая перегородка остаётся на индексе 0, а правая занимает позиции от 6 до 1.</p><p>Массив высот приведён ниже в таблице «Исходные высоты перегородок». Индексы начинаются с 0. Для начальной пары [0, 7] высоты равны 3 и 4. Левая перегородка ниже, а вместимость равна min(3, 4) × 7 = 21.</p><p>Вместимость сосуда cap[i, j] = min(ht[i], ht[j]) × (j - i). Высота воды равна меньшей из высот перегородок, а ширина — разности индексов.</p><p>Вверху переход cap[0, 7] → cap[1, 7] обозначен стрелкой вправо с подписью «Сдвиг низкой перегородки». Внизу скобка с подписью «Пропущенные состояния» объединяет шесть миниатюр в два ряда по три. Во всех i = 0, а j при чтении строк слева направо принимает значения 6, 5, 4, 3, 2 и 1.</p><p>В двух таблицах ниже приведены входные данные примера и шесть пропущенных состояний. На рисунке указаны лишь обозначения состояний cap[i, j]. Высоты перегородок, высота воды, ширина и вместимость в таблице получены из исходных высот перегородок по формуле.</p><table><caption>Исходные высоты перегородок. Индексы начинаются с 0</caption><thead><tr><th scope="col">Индекс</th><th scope="col">Высота</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td></tr><tr><th scope="row">1</th><td>8</td></tr><tr><th scope="row">2</th><td>5</td></tr><tr><th scope="row">3</th><td>2</td></tr><tr><th scope="row">4</th><td>7</td></tr><tr><th scope="row">5</th><td>7</td></tr><tr><th scope="row">6</th><td>3</td></tr><tr><th scope="row">7</th><td>4</td></tr></tbody></table><table><caption>Шесть пропущенных состояний. Вместимость вычислена по формуле из массива высот</caption><thead><tr><th scope="col">Индексы концов [i,j]</th><th scope="col">Высота воды min(ht[i],ht[j])</th><th scope="col">Ширина j-i</th><th scope="col">Вместимость</th></tr></thead><tbody><tr><th scope="row">[0,6]</th><td>3</td><td>6</td><td>18</td></tr><tr><th scope="row">[0,5]</th><td>3</td><td>5</td><td>15</td></tr><tr><th scope="row">[0,4]</th><td>3</td><td>4</td><td>12</td></tr><tr><th scope="row">[0,3]</th><td>2</td><td>3</td><td>6</td></tr><tr><th scope="row">[0,2]</th><td>3</td><td>2</td><td>6</td></tr><tr><th scope="row">[0,1]</th><td>3</td><td>1</td><td>3</td></tr></tbody></table><p>У всех шести состояний ширина меньше 7, а высота воды не превышает высоту исходной левой перегородки, равную 3. Поэтому их вместимость меньше уже найденных 21, и их можно пропустить без потери оптимального решения. У пары [0, 3] правая перегородка высотой 2 ниже левой. Высота воды снижается до 2, ширина равна 3, а вместимость — 6. В остальных пяти состояниях высота воды равна 3.</p></div>
+<p>Заметим, что <strong>пропущены именно те состояния, в которых указатель у высокой перегородки <span class="arithmatex">\(j\)</span> сдвигается внутрь, а другой остаётся на месте</strong>. Мы уже доказали, что при таком сдвиге вместимость обязательно уменьшается. Значит, ни одно пропущенное состояние не может быть оптимальным, и <strong>мы не упустим оптимальное решение</strong>.</p>
+<p>Таким образом, сдвиг низкой перегородки безопасен, а жадная стратегия корректна.</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
@@ -2339,13 +2339,13 @@ cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="Вперед: 15.4 Задача о максимальном произведении разбиения" class="md-footer__link md-footer__link--next" href="../max_product_cutting_problem/" rel="next">
+<a aria-label="Вперед: 15.4 Задача о максимальном произведении при разбиении" class="md-footer__link md-footer__link--next" href="../max_product_cutting_problem/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         Вперед
       </span>
 <div class="md-ellipsis">
-        15.4 Задача о максимальном произведении разбиения
+        15.4 Задача о максимальном произведении при разбиении
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2355,7 +2355,7 @@ cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Оставляйте свои идеи, вопросы и предложения в комментариях</h5>
+<h5 align="center" id="__comments">Поделитесь своим мнением, задайте вопрос или оставьте предложение в комментариях</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ru" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2437,9 +2437,9 @@ cap[i, i+1], cap[i, i+2], \dots, cap[i, j-2], cap[i, j-1]
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.0d441547851f63d0e6614369d827335a9b125feca310fe06e17e6b9e15f96fa1.min.js"></script>
+<script src="../../assets/javascripts/bundle.c14dfd00549a42415ad39f11698a44840394334ca6c2e5be8ce68b23dd434e70.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

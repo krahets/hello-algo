@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом" name="description"/>
+<meta content="Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ru/chapter_greedy/max_product_cutting_problem/" rel="canonical"/>
 <link href="../max_capacity_problem/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_greedy/max_product_cutting_problem/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>15.4 Задача о максимальном произведении разбиения - Hello Algo</title>
+<title>15.4 Задача о максимальном произведении при разбиении - Привет, алгоритмы!</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,15 +64,15 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Приглашаем вас участвовать в развитии русской версии! Подробнее <a href="/ru/chapter_appendix/contribution/">здесь</a>.</span>
+<span>Помогите улучшить русское издание. <a href="/ru/chapter_appendix/contribution/">Узнать больше</a>.</span>
 </div>
 </div>
 </aside>
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="Навигация" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -81,13 +81,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Привет, алгоритмы!
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              15.4   Задача о максимальном произведении разбиения
+              15.4   Задача о максимальном произведении при разбиении
 
           </span>
 </div>
@@ -173,10 +173,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Привет, алгоритмы!
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="Перейти к репозиторию">
@@ -197,7 +197,7 @@
 <span class="md-ellipsis">
 
 
-  Перед началом
+  Вступительное слово
 
 
   </span>
@@ -208,7 +208,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Перед началом
+  Вступительное слово
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -246,7 +246,7 @@
 <span class="md-ellipsis">
 
 
-  0.1 Об этой книге
+  0.1 О книге
 
 
   </span>
@@ -257,7 +257,7 @@
 <span class="md-ellipsis">
 
 
-  0.2 Как пользоваться этой книгой
+  0.2 Как пользоваться книгой
 
 
   </span>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3 Резюме
+  0.3 Итоги
 
 
   </span>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3 Резюме
+  1.3 Итоги
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1 Оценка эффективности алгоритмов
+  2.1 Оценка эффективности алгоритма
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5 Резюме
+  2.5 Итоги
 
 
   </span>
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
 
 
-  3.5 Резюме
+  3.5 Итоги
 
 
   </span>
@@ -537,7 +537,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
 
   </span>
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -593,7 +593,7 @@
 <span class="md-ellipsis">
 
 
-  4.4 Оперативная память и кэш *
+  4.4 Оперативная память и кеш *
 
 
   </span>
@@ -604,7 +604,7 @@
 <span class="md-ellipsis">
 
 
-  4.5 Резюме
+  4.5 Итоги
 
 
   </span>
@@ -632,7 +632,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
 
   </span>
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -655,7 +655,7 @@
 <span class="md-ellipsis">
 
 
-  5.1 Стек
+  5.1   Стек
 
 
   </span>
@@ -666,7 +666,7 @@
 <span class="md-ellipsis">
 
 
-  5.2 Очередь
+  5.2   Очередь
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3 Двусторонняя очередь
+  5.3   Двусторонняя очередь
 
 
   </span>
@@ -688,7 +688,7 @@
 <span class="md-ellipsis">
 
 
-  5.4 Резюме
+  5.4   Итоги
 
 
   </span>
@@ -699,7 +699,7 @@
 <span class="md-ellipsis">
 
 
-  5.5 Упражнения
+  5.5   Упражнения
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2 Хеш-коллизии
+  6.2 Коллизии
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4 Резюме
+  6.4 Итоги
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3 Представление двоичного дерева массивом
+  7.3 Представление двоичного дерева в виде массива
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5 AVL-дерево *
+  7.5 АВЛ-дерево *
 
 
   </span>
@@ -878,7 +878,7 @@
 <span class="md-ellipsis">
 
 
-  7.6 Краткие итоги
+  7.6 Итоги
 
 
   </span>
@@ -906,7 +906,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
 
   </span>
@@ -920,7 +920,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -951,7 +951,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -962,7 +962,7 @@
 <span class="md-ellipsis">
 
 
-  8.4 Резюме
+  8.4 Итоги
 
 
   </span>
@@ -1024,7 +1024,7 @@
 <span class="md-ellipsis">
 
 
-  9.2 Базовые операции графа
+  9.2 Основные операции с графом
 
 
   </span>
@@ -1046,7 +1046,7 @@
 <span class="md-ellipsis">
 
 
-  9.4 Краткие итоги
+  9.4 Итоги
 
 
   </span>
@@ -1108,7 +1108,7 @@
 <span class="md-ellipsis">
 
 
-  10.2 Двоичный поиск точки вставки
+  10.2 Нахождение позиции вставки с помощью двоичного поиска
 
 
   </span>
@@ -1119,7 +1119,7 @@
 <span class="md-ellipsis">
 
 
-  10.3 Двоичный поиск границ
+  10.3 Нахождение границ с помощью двоичного поиска
 
 
   </span>
@@ -1130,7 +1130,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1141,7 +1141,7 @@
 <span class="md-ellipsis">
 
 
-  10.5 Переосмысление алгоритмов поиска
+  10.5 Новый взгляд на алгоритмы поиска
 
 
   </span>
@@ -1152,7 +1152,7 @@
 <span class="md-ellipsis">
 
 
-  10.6 Резюме
+  10.6 Итоги
 
 
   </span>
@@ -1291,7 +1291,7 @@
 <span class="md-ellipsis">
 
 
-  11.9 Сортировка подсчетом
+  11.9 Сортировка подсчётом
 
 
   </span>
@@ -1313,7 +1313,7 @@
 <span class="md-ellipsis">
 
 
-  11.11 Резюме
+  11.11 Итоги
 
 
   </span>
@@ -1364,7 +1364,7 @@
 <span class="md-ellipsis">
 
 
-  12.1 Стратегия разделяй и властвуй
+  12.1 Метод «разделяй и властвуй»
 
 
   </span>
@@ -1375,7 +1375,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1386,7 +1386,7 @@
 <span class="md-ellipsis">
 
 
-  12.3 Задача построения двоичного дерева
+  12.3 Задача о построении двоичного дерева
 
 
   </span>
@@ -1397,7 +1397,7 @@
 <span class="md-ellipsis">
 
 
-  12.4 Задача о Ханойской башне
+  12.4 Задача о ханойских башнях
 
 
   </span>
@@ -1408,7 +1408,7 @@
 <span class="md-ellipsis">
 
 
-  12.5 Резюме
+  12.5 Итоги
 
 
   </span>
@@ -1459,7 +1459,7 @@
 <span class="md-ellipsis">
 
 
-  13.1 Алгоритм поиска с возвратом
+  13.1 Поиск с возвратом
 
 
   </span>
@@ -1481,7 +1481,7 @@
 <span class="md-ellipsis">
 
 
-  13.3 Задача о сумме подмножеств
+  13.3 Задача о сумме подмножества
 
 
   </span>
@@ -1492,7 +1492,7 @@
 <span class="md-ellipsis">
 
 
-  13.4 Задача о n ферзях
+  13.4 Задача о N ферзях
 
 
   </span>
@@ -1503,7 +1503,7 @@
 <span class="md-ellipsis">
 
 
-  13.5 Резюме
+  13.5 Итоги
 
 
   </span>
@@ -1554,7 +1554,7 @@
 <span class="md-ellipsis">
 
 
-  14.1 Первое знакомство с динамическим программированием
+  14.1 Знакомство с динамическим программированием
 
 
   </span>
@@ -1576,7 +1576,7 @@
 <span class="md-ellipsis">
 
 
-  14.3 Подход к решению задач динамического программирования
+  14.3 Как решать задачи динамического программирования
 
 
   </span>
@@ -1587,7 +1587,7 @@
 <span class="md-ellipsis">
 
 
-  14.4 Задача о рюкзаке 0-1
+  14.4 Задача о рюкзаке 0–1
 
 
   </span>
@@ -1598,7 +1598,7 @@
 <span class="md-ellipsis">
 
 
-  14.5 Задача о полном рюкзаке
+  14.5 Задача о неограниченном рюкзаке
 
 
   </span>
@@ -1609,7 +1609,7 @@
 <span class="md-ellipsis">
 
 
-  14.6 Задача о расстоянии редактирования
+  14.6 Задача о редакционном расстоянии
 
 
   </span>
@@ -1620,7 +1620,7 @@
 <span class="md-ellipsis">
 
 
-  14.7 Резюме
+  14.7 Итоги главы
 
 
   </span>
@@ -1648,7 +1648,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
 
   </span>
@@ -1662,7 +1662,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1704,7 +1704,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1714,7 +1714,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1729,7 +1729,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Определение жадной стратегии
+        1.   Выбор жадной стратегии
       </span>
 </span>
 </a>
@@ -1738,7 +1738,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Код реализации
+        2.   Реализация
       </span>
 </span>
 </a>
@@ -1760,7 +1760,7 @@
 <span class="md-ellipsis">
 
 
-  15.5 Резюме
+  15.5 Итоги
 
 
   </span>
@@ -1822,7 +1822,7 @@
 <span class="md-ellipsis">
 
 
-  16.2 Присоединяйтесь к созданию книги
+  16.2 Как принять участие в работе над книгой
 
 
   </span>
@@ -1833,7 +1833,7 @@
 <span class="md-ellipsis">
 
 
-  16.3 Глоссарий
+  16.3 Словарь терминов
 
 
   </span>
@@ -1890,7 +1890,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Определение жадной стратегии
+        1.   Выбор жадной стратегии
       </span>
 </span>
 </a>
@@ -1899,7 +1899,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Код реализации
+        2.   Реализация
       </span>
 </span>
 </a>
@@ -1929,24 +1929,24 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="154">15.4   Задача о максимальном произведении разбиения<a class="headerlink" href="#154" title="Permanent link">¶</a></h1>
+<h1 id="154">15.4   Задача о максимальном произведении при разбиении<a class="headerlink" href="#154" title="Permanent link">¶</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Дан положительный целый <span class="arithmatex">\(n\)</span>. Требуется разложить его в сумму как минимум двух положительных целых чисел и найти максимально возможное произведение всех полученных чисел, как показано на рисунке 15-13.</p>
+<p>Дано положительное целое число <span class="arithmatex">\(n\)</span>. Разбейте его на сумму как минимум двух положительных целых чисел. Какое наибольшее произведение можно получить, перемножив все части? Задача показана на рисунке 15-13.</p>
 </div>
-<p><ha-svg-figure aria-label="Определение задачи о максимальном произведении разбиения" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png" data-dark-src="/assets/figure-svg/figures/5867c66990ea3f05667a68be.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d190e7c5349882883323e00c.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Определение задачи о максимальном произведении разбиения</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Определение задачи о максимальном произведении разбиения</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-13   Определение задачи о максимальном произведении разбиения </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 15-13: Определение задачи о максимальном произведении разбиения</h3><p>При фиксированной сумме требуется выбрать число частей и их величины так, чтобы максимизировать произведение.</p><p>В задаче о максимальном произведении разбиения дано положительное целое число n (n ≥ 2), которое нужно представить в виде суммы m (m ≥ 2) положительных целых слагаемых n = n₁ + n₂ + … + nₘ так, чтобы произведение этих m множителей n₁ × n₂ × … × nₘ было максимальным.</p><p>На символической полосовой схеме вверху изображена сплошная серая полоса общей длины n, а под ней — полоса той же длины, разделённая вертикальными пунктирными линиями на цветные отрезки, подписанные слева направо как n₁, n₂, n₃, …, nₘ₋₂, nₘ₋₁, nₘ; пунктир по краям показывает, что сумма длин отрезков равна n. Внизу записана цель: «Дано целое число n; найти max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ)».</p><p>Эти обозначения с многоточием задают общий вид для произвольного числа частей m и не означают, что частей обязательно не меньше шести: наименьшее допустимое значение m равно 2. Конкретные значения n, m и величин отрезков на рисунке не заданы, поэтому судить о размере слагаемых по визуальной ширине полосок нельзя.</p></div>
-<p>Предположим, что мы разбили <span class="arithmatex">\(n\)</span> на <span class="arithmatex">\(m\)</span> целочисленных множителей, где <span class="arithmatex">\(i\)</span>-й множитель обозначим через <span class="arithmatex">\(n_i\)</span>, то есть</p>
+<p><ha-svg-figure aria-label="Постановка задачи о максимальном произведении при разбиении" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png" data-dark-src="/assets/figure-svg/figures/96a9c737126a5ab3c3d86769.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0fe10fd820a8fb73687a13ef.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Постановка задачи о максимальном произведении при разбиении</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Постановка задачи о максимальном произведении при разбиении</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-13   Постановка задачи о максимальном произведении при разбиении </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 15-13: Постановка задачи о максимальном произведении при разбиении</h3><p>При фиксированной сумме нужно выбрать число и величину слагаемых так, чтобы их произведение было наибольшим.</p><p>Дано положительное целое число n (n ≥ 2). Требуется разбить его на m положительных целых слагаемых (m ≥ 2), так что n = n₁ + n₂ + … + nₘ, и получить наибольшее произведение этих m чисел n₁ × n₂ × … × nₘ.</p><p>На схеме сверху показана цельная серая полоска с подписью n — её полная длина. Ниже полоска той же длины разделена вертикальными пунктирами на цветные отрезки. Слева направо они обозначены n₁, n₂, n₃, …, nₘ₋₂, nₘ₋₁, nₘ. Совпадающие пунктирные границы по краям показывают, что сумма длин по-прежнему равна n. Внизу записана цель: «Дано целое n. Найти max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ)».</p><p>Метки и многоточие обозначают произвольное число m частей. Из схемы не следует, что частей как минимум шесть: m может быть равно 2. Конкретные значения n, m и длин частей не заданы, и определять их по ширине полосок нельзя.</p></div>
+<p>Пусть число <span class="arithmatex">\(n\)</span> разбито на <span class="arithmatex">\(m\)</span> целых слагаемых, которые станут множителями. Обозначим множитель с номером <span class="arithmatex">\(i\)</span> через <span class="arithmatex">\(n_i\)</span>. Тогда</p>
 <div class="arithmatex">\[
 n = \sum_{i=1}^{m}n_i
 \]</div>
-<p>Цель задачи - найти максимальное произведение всех целочисленных множителей, то есть</p>
+<p>Нужно найти наибольшее произведение всех целых множителей, то есть</p>
 <div class="arithmatex">\[
 \max(\prod_{i=1}^{m}n_i)
 \]</div>
-<p>Нужно понять: каким должно быть число частей <span class="arithmatex">\(m\)</span> и какими должны быть значения каждого <span class="arithmatex">\(n_i\)</span>?</p>
-<h3 id="1">1.   Определение жадной стратегии<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
-<p>Из опыта известно, что произведение двух целых чисел часто больше их суммы. Предположим, что мы выделяем из <span class="arithmatex">\(n\)</span> множитель <span class="arithmatex">\(2\)</span>, тогда произведение равно <span class="arithmatex">\(2(n-2)\)</span>. Сравним это выражение с <span class="arithmatex">\(n\)</span>:</p>
+<p>Сколько должно быть частей (величина <span class="arithmatex">\(m\)</span>) и чему должна равняться каждая из них (величина <span class="arithmatex">\(n_i\)</span>)?</p>
+<h3 id="1">1.   Выбор жадной стратегии<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
+<p>Произведение двух целых чисел часто бывает больше их суммы. Если отделить от <span class="arithmatex">\(n\)</span> слагаемое <span class="arithmatex">\(2\)</span>, произведение двух частей будет равно <span class="arithmatex">\(2(n-2)\)</span>. Сравним его с <span class="arithmatex">\(n\)</span>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
 2(n-2) &amp; \geq n \newline
@@ -1954,313 +1954,313 @@ n = \sum_{i=1}^{m}n_i
 n &amp; \geq 4
 \end{aligned}
 \]</div>
-<p>Как показано на рисунке 15-14, когда <span class="arithmatex">\(n \geq 4\)</span>, выделение множителя <span class="arithmatex">\(2\)</span> увеличивает произведение. <strong>Это означает, что все целые числа, большие либо равные <span class="arithmatex">\(4\)</span>, следует продолжать разбивать</strong>.</p>
-<p><strong>Жадная стратегия 1</strong>: если в схеме разбиения присутствует множитель <span class="arithmatex">\(\geq 4\)</span>, то его нужно дальше разбивать. В конечной схеме разбиения должны остаться только множители <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(3\)</span>.</p>
-<p><ha-svg-figure aria-label="Разбиение не уменьшает произведение" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" data-dark-src="/assets/figure-svg/figures/d1091fb40837c9686a4f06c4.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/f44bae011804cf4223ca8eb2.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Разбиение увеличивает произведение</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Разбиение увеличивает произведение</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-14   Разбиение увеличивает произведение </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-14: Разбиение не уменьшает произведение</h4><p>Крупный целый множитель можно разбить дальше без уменьшения произведения.</p><p>В задаче о максимальном произведении разбиения проверяется, стоит ли дальше делить целый множитель n: сравниваются само число n и произведение после его разбиения на 2 и n - 2.</p><p>Вверху изображена серая полоса длины n; на нижней полосе той же длины слева отделён короткий зелёный отрезок «2», а оставшаяся справа синяя часть подписана как «n - 2» с вертикальным пунктиром на границе разреза. Внизу приведён вывод: «При n ≥ 4 всегда выполняется 2(n - 2) ≥ n, поэтому итоговое разбиение должно содержать только множители 1, 2, 3».</p><p>Поскольку 2(n - 2) - n = n - 4, при n = 4 значения равны, а при n &gt; 4 произведение строго возрастает. Многократное разбиение любого множителя не меньше 4 не уменьшает произведение, поэтому существует оптимальное разбиение только из множителей 1, 2 и 3 (при этом в другом оптимальном разбиении может остаться множитель 4).</p></div>
-<p>Теперь подумаем, какой множитель является наилучшим. Среди <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(3\)</span> очевидно худшим является <span class="arithmatex">\(1\)</span>, потому что всегда выполняется <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span>, то есть выделение <span class="arithmatex">\(1\)</span> уменьшает произведение.</p>
-<p>Как показано на рисунке 15-15, при <span class="arithmatex">\(n = 6\)</span> имеем <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span>. <strong>Это означает, что выделять <span class="arithmatex">\(3\)</span> выгоднее, чем выделять <span class="arithmatex">\(2\)</span></strong>.</p>
-<p><strong>Жадная стратегия 2</strong>: в схеме разбиения должно быть не более двух множителей <span class="arithmatex">\(2\)</span>. Потому что три двойки всегда можно заменить двумя тройками и получить большее произведение.</p>
-<p><ha-svg-figure aria-label="Замена трех множителей 2 двумя множителями 3" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" data-dark-src="/assets/figure-svg/figures/5aecc1110cec9852dd09c22a.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/50b269720074e8a2219a0bcc.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Оптимальные множители разбиения</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Оптимальные множители разбиения</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-15   Оптимальные множители разбиения </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-15: Замена трех множителей 2 двумя множителями 3</h4><p>Сравнение двух локальных разбиений с одинаковой суммой 6: три множителя 2 и два множителя 3.</p><p>Достаточно рассматривать оптимальные разбиения на множители 1, 2 и 3. Здесь показан случай, когда среди множителей уже есть три двойки. Остальные множители остаются прежними.</p><p>В верхнем ряду изображена цельная серая полоса общей длины n; в среднем ряду слева подряд расположены три синих блока «2» (общей длиной 6), а справа к ним примыкает серый остаточный участок; в нижнем ряду показан только левый участок той же длины 6, замененный двумя фиолетовыми блоками «3»; правый серый остаток нарисован лишь в среднем ряду и в преобразовании не участвует. Посередине сплошная серая стрелка вниз указывает переход от «трех 2» к «двум 3», а под рисунком приведена подпись: «Если есть три множителя 2, жадно заменяем их двумя множителями 3».</p><p>Произведение трех множителей 2 равно 8, а произведение двух множителей 3 равно 9, при этом сумма в обоих случаях равна 6. Пусть произведение остальных положительных целых множителей равно P; если других множителей нет, положим P = 1. Локальная замена увеличивает общее произведение с 8P до 9P, поэтому в оптимальной схеме разбиения остается не более двух множителей 2. Это вывод показанного на рисунке локального преобразования.</p></div>
-<p>Итак, получаем следующую жадную стратегию.</p>
+<p>Как показано ниже, при <span class="arithmatex">\(n \geq 4\)</span> выделение множителя <span class="arithmatex">\(2\)</span> увеличивает произведение. <strong>Отсюда следует, что все целые числа, большие или равные <span class="arithmatex">\(4\)</span>, следует разбивать дальше</strong>.</p>
+<p><strong>Первая жадная стратегия</strong>. Если в разбиении есть множитель <span class="arithmatex">\(\geq 4\)</span>, его следует разбить дальше. В итоге должны остаться лишь множители трёх видов: <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span> и <span class="arithmatex">\(3\)</span>.</p>
+<p><ha-svg-figure aria-label="Разбиение может сохранить или увеличить произведение" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" data-dark-src="/assets/figure-svg/figures/87eaac08aa47c5f8b5a0a762.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/3edfe2e9fc5eb3e5bcf2dbbd.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Разбиение увеличивает произведение</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Разбиение увеличивает произведение</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-14   Разбиение увеличивает произведение </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-14: Разбиение может сохранить или увеличить произведение</h4><p>Большой целый множитель можно разбить дальше так, чтобы произведение не уменьшилось.</p><p>В задаче о максимальном произведении проверим, стоит ли дальше делить целый множитель n. Сравним его с произведением двух частей после разбиения на 2 и n - 2.</p><p>Вверху серая полоска показывает длину n. Ниже от полоски той же длины слева отделён короткий зелёный отрезок «2», а оставшийся справа длинный синий отрезок подписан «n - 2». Граница отмечена вертикальным пунктиром. Под рисунком приведён вывод: «При n ≥ 4 всегда выполняется 2(n - 2) ≥ n, поэтому в итоговом разбиении достаточно множителей 1, 2 и 3».</p><p>Разность 2(n - 2) - n равна n - 4, поэтому при n = 4 произведение сохраняется, а при n &gt; 4 строго возрастает. Если последовательно делить множители не меньше 4, произведение не уменьшится. Значит, существует оптимальное разбиение, содержащее только 1, 2 и 3. При этом возможны и оптимальные разбиения, в которых остаётся 4.</p></div>
+<p>Рассмотрим, какой множитель выгоднее. Из <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span> и <span class="arithmatex">\(3\)</span> хуже всего <span class="arithmatex">\(1\)</span>: всегда выполняется <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span>. Значит, выделив <span class="arithmatex">\(1\)</span>, мы только уменьшим произведение.</p>
+<p>Как показано ниже, при <span class="arithmatex">\(n = 6\)</span> выполняется <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span>. <strong>Следовательно, выделять множители <span class="arithmatex">\(3\)</span> выгоднее, чем <span class="arithmatex">\(2\)</span></strong>.</p>
+<p><strong>Вторая жадная стратегия</strong>. В разбиении должно быть не более двух множителей <span class="arithmatex">\(2\)</span>. Три множителя <span class="arithmatex">\(2\)</span> всегда можно заменить двумя множителями <span class="arithmatex">\(3\)</span> и получить большее произведение.</p>
+<p><ha-svg-figure aria-label="Замена трёх двоек двумя тройками" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" data-dark-src="/assets/figure-svg/figures/8dc1f763f44ce10c9db1576a.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/23996d3bcce0a634b995534f.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Оптимальные множители разбиения</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Оптимальные множители разбиения</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-15   Оптимальные множители разбиения </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-15: Замена трёх двоек двумя тройками</h4><p>Сравним два способа разбить часть с суммой 6: на три двойки или на две тройки.</p><p>Мы установили, что для оптимального разбиения достаточно рассматривать множители 1, 2 и 3. На рисунке взято разбиение, в котором уже есть три двойки. Остальные множители остаются прежними.</p><p>Вверху показана серая полоска полной длины n. В среднем ряду слева стоят подряд три синих отрезка «2» общей длины 6, справа к ним примыкает серый остаток. В нижнем ряду изображён только левый участок той же длины 6, теперь разбитый на два фиолетовых отрезка «3». Серый остаток справа показан только в среднем ряду и в замене не участвует. Сплошная серая стрелка вниз показывает замену трёх двоек двумя тройками. Подпись внизу гласит: «Если есть три двойки, по жадному правилу следует заменить их двумя тройками».</p><p>Произведение трёх двоек равно 8, двух троек — 9, а сумма в обоих случаях равна 6. Обозначим произведение остальных положительных целых множителей через P. Если других множителей нет, положим P = 1. После замены общее произведение возрастает с 8P до 9P. Поэтому в оптимальном разбиении остаётся не более двух двоек. Таков вывод из показанной на рисунке замены.</p></div>
+<p>Из этих наблюдений следует жадная стратегия.</p>
 <ol>
-<li>Для заданного целого <span class="arithmatex">\(n\)</span> непрерывно выделять из него множитель <span class="arithmatex">\(3\)</span>, пока остаток не станет равным <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(1\)</span> или <span class="arithmatex">\(2\)</span>.</li>
-<li>Если остаток равен <span class="arithmatex">\(0\)</span>, это означает, что <span class="arithmatex">\(n\)</span> кратно <span class="arithmatex">\(3\)</span>, и больше ничего делать не нужно.</li>
-<li>Если остаток равен <span class="arithmatex">\(2\)</span>, дальнейшее разбиение не требуется, его нужно сохранить.</li>
-<li>Если остаток равен <span class="arithmatex">\(1\)</span>, то поскольку <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span>, последний множитель <span class="arithmatex">\(3\)</span> и оставшуюся единицу следует заменить двумя множителями <span class="arithmatex">\(2\)</span>.</li>
+<li>Для входного целого числа <span class="arithmatex">\(n\)</span> последовательно выделяем множители <span class="arithmatex">\(3\)</span>, пока остаток не станет равен <span class="arithmatex">\(0\)</span>, <span class="arithmatex">\(1\)</span> или <span class="arithmatex">\(2\)</span>.</li>
+<li>Если остаток равен <span class="arithmatex">\(0\)</span>, число <span class="arithmatex">\(n\)</span> кратно <span class="arithmatex">\(3\)</span>, поэтому ничего менять не нужно.</li>
+<li>Если остаток равен <span class="arithmatex">\(2\)</span>, оставляем его целиком.</li>
+<li>Если остаток равен <span class="arithmatex">\(1\)</span>, то в силу неравенства <span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> заменяем последний множитель <span class="arithmatex">\(3\)</span> и остаток <span class="arithmatex">\(1\)</span> двумя множителями <span class="arithmatex">\(2\)</span>.</li>
 </ol>
-<h3 id="2">2.   Код реализации<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
-<p>Как показано на рисунке 15-16, нам не нужен цикл, чтобы выполнять разбиение числа. Можно использовать целочисленное деление, чтобы получить число троек <span class="arithmatex">\(a\)</span>, и операцию взятия остатка, чтобы получить остаток <span class="arithmatex">\(b\)</span>. Тогда имеем:</p>
+<h3 id="2">2.   Реализация<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
+<p>Как показано ниже, разбивать число в цикле необязательно. Целочисленное деление с округлением вниз сразу даёт число множителей <span class="arithmatex">\(3\)</span>, равное <span class="arithmatex">\(a\)</span>, а операция взятия остатка даёт <span class="arithmatex">\(b\)</span>. При этом:</p>
 <div class="arithmatex">\[
 n = 3 a + b
 \]</div>
-<p>Обратите внимание, что для граничного случая <span class="arithmatex">\(n \leq 3\)</span> необходимо выделить множитель <span class="arithmatex">\(1\)</span>, и тогда произведение равно <span class="arithmatex">\(1 \times (n - 1)\)</span>.</p>
+<p>В граничных случаях <span class="arithmatex">\(n \leq 3\)</span> обязательно выделяем множитель <span class="arithmatex">\(1\)</span>. Произведение равно <span class="arithmatex">\(1 \times (n - 1)\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_product_cutting.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_product_cutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Максимальное произведение разрезания: жадный алгоритм"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Максимальное произведение при разбиении: жадный алгоритм"""</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">return</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">MaxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">maxProductCutting</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="nx">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">a</span><span class="p">)))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">a</span><span class="p">)))</span>
 <a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">maxProductCutting</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">);</span>
 <a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">maxProductCutting</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">);</span>
 <a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">~/</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
 <a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">  </span><span class="p">}</span>
 <a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
 <a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">  </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">  </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
 <a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">max_product_cutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="mi">3_</span><span class="k">i32</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">        </span><span class="mi">3_</span><span class="k">i32</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">        </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">        </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="w">        </span><span class="mi">3_</span><span class="k">i32</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span>
 <a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-9-20" id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Максимальное произведение разрезания: жадный алгоритм */</span>
+<div class="highlight"><span class="filename">max_product_cutting.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Максимальное произведение при разбиении: жадный алгоритм */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">3</span>
 <a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">((</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)).</span><span class="na">toInt</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="c1">// Если остаток равен 2, ничего не делать</span>
-<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span>
+<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="c1">// При остатке 2 ничего не меняем</span>
+<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">    </span><span class="c1">// Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">    </span><span class="c1">// При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
 <a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Максимальное произведение разрезания: жадный алгоритм ###</span>
+<div class="highlight"><span class="filename">max_product_cutting.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Максимальное произведение при разбиении: жадный алгоритм ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_product_cutting</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Когда n &lt;= 3, обязательно нужно выделить одну 1</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># При n &lt;= 3 одно из слагаемых обязательно равно 1</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># Жадно выделить множители 3, где a — число троек, а b — остаток</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># Выделяем тройки жадно: a — число троек, b — остаток</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># Если остаток равен 1, преобразовать одну пару 1 * 3 в 2 * 2</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># При остатке 1 заменяем пару множителей 1 * 3 на 2 * 2</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="c1"># Если остаток равен 2, ничего не делать</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="c1"># При остатке 2 ничего не меняем</span>
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span>
-<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">  </span><span class="c1"># Если остаток равен 0, ничего не делать</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">  </span><span class="c1"># При остатке 0 ничего не меняем</span>
 <a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="mi">3</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span>
 <a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="k">end</span>
 </code></pre></div>
@@ -2268,24 +2268,24 @@ n = 3 a + b
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0%20n%20%3C%3D%203%2C%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%20%D0%B2%D1%8B%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BE%D0%B4%D0%BD%D1%83%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D0%BE%20%D0%B2%D1%8B%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D1%82%D0%B5%D0%BB%D0%B8%203%2C%20%D0%B3%D0%B4%D0%B5%20a%20%E2%80%94%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D1%82%D1%80%D0%BE%D0%B5%D0%BA%2C%20%D0%B0%20b%20%E2%80%94%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%0A%20%20%20%20a%2C%20b%20%3D%20n%20%2F%2F%203%2C%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%201%2C%20%D0%BF%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BE%D0%B4%D0%BD%D1%83%20%D0%BF%D0%B0%D1%80%D1%83%201%20%2A%203%20%D0%B2%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%202%2C%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%200%2C%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%0A%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F%20%3D%20%7Bres%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0%20n%20%3C%3D%203%2C%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%20%D0%B2%D1%8B%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BE%D0%B4%D0%BD%D1%83%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D0%BE%20%D0%B2%D1%8B%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C%20%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D1%82%D0%B5%D0%BB%D0%B8%203%2C%20%D0%B3%D0%B4%D0%B5%20a%20%E2%80%94%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D1%82%D1%80%D0%BE%D0%B5%D0%BA%2C%20%D0%B0%20b%20%E2%80%94%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%0A%20%20%20%20a%2C%20b%20%3D%20n%20%2F%2F%203%2C%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%201%2C%20%D0%BF%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BE%D0%B4%D0%BD%D1%83%20%D0%BF%D0%B0%D1%80%D1%83%201%20%2A%203%20%D0%B2%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%202%2C%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%200%2C%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%0A%20%20%20%20return%20int%28math.pow%283%2C%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D0%B7%D0%B0%D0%BD%D0%B8%D1%8F%20%3D%20%7Bres%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D0%B5%D0%BD%D0%B8%D0%B8%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20n%20%3C%3D%203%20%D0%BE%D0%B4%D0%BD%D0%BE%20%D0%B8%D0%B7%20%D1%81%D0%BB%D0%B0%D0%B3%D0%B0%D0%B5%D0%BC%D1%8B%D1%85%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D1%80%D0%B0%D0%B2%D0%BD%D0%BE%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%D0%92%D1%8B%D0%B4%D0%B5%D0%BB%D1%8F%D0%B5%D0%BC%20%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8%20%D0%B6%D0%B0%D0%B4%D0%BD%D0%BE%3A%20a%20%E2%80%94%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D1%82%D1%80%D0%BE%D0%B5%D0%BA,%20b%20%E2%80%94%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B5%201%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%20%D0%BF%D0%B0%D1%80%D1%83%20%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%201%20%2A%203%20%D0%BD%D0%B0%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B5%202%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B5%200%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D0%B5%D0%BD%D0%B8%D0%B8%3A%20%7Bres%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D0%B5%D0%BD%D0%B8%D0%B8%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20n%20%3C%3D%203%20%D0%BE%D0%B4%D0%BD%D0%BE%20%D0%B8%D0%B7%20%D1%81%D0%BB%D0%B0%D0%B3%D0%B0%D0%B5%D0%BC%D1%8B%D1%85%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D1%80%D0%B0%D0%B2%D0%BD%D0%BE%201%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%D0%92%D1%8B%D0%B4%D0%B5%D0%BB%D1%8F%D0%B5%D0%BC%20%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8%20%D0%B6%D0%B0%D0%B4%D0%BD%D0%BE%3A%20a%20%E2%80%94%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D1%82%D1%80%D0%BE%D0%B5%D0%BA,%20b%20%E2%80%94%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B5%201%20%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%20%D0%BF%D0%B0%D1%80%D1%83%20%D0%BC%D0%BD%D0%BE%D0%B6%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%201%20%2A%203%20%D0%BD%D0%B0%202%20%2A%202%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B5%202%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B8%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B5%200%20%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE%20%D0%BD%D0%B5%20%D0%BC%D0%B5%D0%BD%D1%8F%D0%B5%D0%BC%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%B8%20%D1%80%D0%B0%D0%B7%D0%B1%D0%B8%D0%B5%D0%BD%D0%B8%D0%B8%3A%20%7Bres%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
-<p><ha-svg-figure aria-label="Метод вычисления максимального произведения разбиения: Прямое вычисление максимального произведения разбиения по частному a и остатку b" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" data-dark-src="/assets/figure-svg/figures/d112ee108140f225ac8050af.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d51703d9e627a0978ea6ab63.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Метод вычисления максимального произведения разбиения</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Метод вычисления максимального произведения разбиения</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-16   Метод вычисления максимального произведения разбиения </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 15-16: Метод вычисления максимального произведения разбиения</h4><p>Целочисленное деление и остаток представляют n в виде 3×a+b для выбора схемы по остатку, а граничные случаи n=2 и n=3 обрабатываются отдельно из-за требования минимум двух частей.</p><p>Дано целое число n ≥ 2, которое требуется разбить как минимум на два положительных целых слагаемых с суммой n так, чтобы произведение всех частей было максимальным.</p><p>Поскольку оптимальная жадная стратегия стремится выделить как можно больше множителей 3, в коде не нужен цикл пошагового отрезания: достаточно одним целочисленным делением a = n // 3 и взятием остатка b = n % 3 сразу найти число троек (множителей 3) a и остаток b.</p><p>На схеме полоса длины n разделена на a отрезков длины 3 и участок «Остаток b», а внизу приведено тождество n = 3 × a + b (где a = n // 3, b = n % 3, так что остаток b может принимать только значения 0, 1 или 2). Участок «Остаток b» нарисован слева лишь как символическая иллюстрация разложения без конкретных численных значений n и b и без требования резать число именно слева направо. Многоточие между синими отрезками длины 3 обозначает остальные такие же части.</p><p>Таблица ниже составлена по тексту раздела и коду: на самом рисунке эти пять вариантов не выписаны. В граничных случаях n = 2 и n = 3 число обязательно нужно разбить минимум на две части, оставлять само n без разбиения нельзя.</p><p>При n ≥ 4 и b = 1 выполняется a ≥ 1, поэтому найдётся хотя бы одна тройка (3), которую можно перегруппировать с остатком 1. Замена 3 и 1 на 2 + 2 сохраняет сумму 4 и увеличивает локальное произведение с 3 до 4; число троек уменьшается с a до a−1, давая итоговое произведение 3^(a−1) × 2 × 2.</p><table><caption>Правила вычисления по случаям из текста и кода</caption><thead><tr><th scope="col">Условие</th><th scope="col">Разбиение или перегруппировка</th><th scope="col">Максимальное произведение</th></tr></thead><tbody><tr><th scope="row">n=2</th><td>1+1</td><td>1</td></tr><tr><th scope="row">n=3</th><td>1+2</td><td>2</td></tr><tr><th scope="row">n≥4, b=0</th><td>a множителей 3</td><td>3^a</td></tr><tr><th scope="row">n≥4, b=1</th><td>a−1 множителей 3 и две двойки (2); одна 3 и остаток 1 заменяются на 2+2</td><td>3^(a−1)×2×2</td></tr><tr><th scope="row">n≥4, b=2</th><td>a множителей 3 и одна двойка (2)</td><td>3^a×2</td></tr></tbody></table><p>Подпись «Остаток b» на схеме отражает только деление с остатком: при b = 0 дополнительного отрезка нет, при b = 2 остаток сохраняется как отдельный множитель, а при b = 1 перегруппировывается по правилу из таблицы — подставлять 0 в качестве множителя разбиения нельзя.</p></div>
-<p><strong>Временная сложность зависит от того, как в языке программирования реализовано возведение в степень</strong>. Если взять Python, то обычно используются три распространенные функции для вычисления степени.</p>
+<p><ha-svg-figure aria-label="Вычисление максимального произведения при разбиении числа: Вычисление максимального произведения по частному a и остатку b" class="animation-figure" data-book-key="ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" data-dark-src="/assets/figure-svg/figures/75dde4bc534242247b356bf8.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a955de9fb0f6f38a9e62f3d3.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Вычисление максимального произведения при разбиении</object><object aria-hidden="true" data="/ru/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Вычисление максимального произведения при разбиении</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-16   Вычисление максимального произведения при разбиении </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 15-16: Вычисление максимального произведения при разбиении числа</h4><p>Целочисленное деление и взятие остатка позволяют представить n в виде 3×a+b и выбрать разбиение по остатку. Для граничных случаев n=2 и n=3 отдельно учитываем требование разбиения хотя бы на две части.</p><p>Дано целое число n ≥ 2. Требуется представить его в виде суммы хотя бы двух положительных целых чисел так, чтобы при фиксированной сумме n произведение слагаемых было наибольшим.</p><p>Согласно оптимальной жадной стратегии нужно выделить как можно больше множителей 3. Поэтому в коде не нужен цикл для последовательного отделения частей. Деление с округлением вниз a = n // 3 и взятие остатка b = n % 3 сразу дают число троек a и остаток b.</p><p>На рисунке полоса общей длины n разделена на a отрезков длины 3 и часть с подписью «остаток b». Ниже приведено тождество n = 3 × a + b, где a = n // 3, b = n % 3, а b может равняться только 0, 1 или 2. Расположение остатка b слева лишь иллюстрирует разложение. Конкретные n и b не заданы, и оно не означает, что разрезы выполняются слева направо. Многоточие между синими отрезками длины 3 заменяет другие такие же отрезки.</p><p>Таблица дополняет рисунок сведениями из текста и кода. Результаты для этих пяти случаев на рисунке не показаны. При n = 2 и n = 3 число всё равно нужно разбить хотя бы на две части: оставлять целое n нельзя.</p><p>Если n ≥ 4 и b = 1, то a ≥ 1: есть хотя бы одна тройка, которую можно объединить с остатком 1. Заменяем эти части на 2 + 2. Суммарная длина остаётся равной 4, а произведение двух частей увеличивается с 3 до 4. Вместо a троек остаётся a−1, и получается 3^(a−1) × 2 × 2.</p><table><caption>Правила для отдельных случаев по тексту и коду</caption><thead><tr><th scope="col">Условие</th><th scope="col">Разбиение или перегруппировка</th><th scope="col">Максимальное произведение</th></tr></thead><tbody><tr><th scope="row">n=2</th><td>1+1</td><td>1</td></tr><tr><th scope="row">n=3</th><td>1+2</td><td>2</td></tr><tr><th scope="row">n≥4, b=0</th><td>Множитель 3 берётся a раз</td><td>3^a</td></tr><tr><th scope="row">n≥4, b=1</th><td>Множитель 3 берётся a−1 раз, множитель 2 — дважды. Одна часть длины 3 и остаток 1 заменяются на 2+2</td><td>3^(a−1)×2×2</td></tr><tr><th scope="row">n≥4, b=2</th><td>Множитель 3 берётся a раз, множитель 2 — один раз</td><td>3^a×2</td></tr></tbody></table><p>Подпись «остаток b» показывает лишь результат деления с остатком. При b = 0 остаточной части нет, при b = 2 её можно оставить множителем, а при b = 1 части нужно перегруппировать по правилу из таблицы. Ноль не может служить множителем разбиения.</p></div>
+<p><strong>Временная сложность зависит от реализации возведения в степень в конкретном языке программирования</strong>. Например, в Python распространены три способа возведения в степень.</p>
 <ul>
 <li>Оператор <code>**</code> и функция <code>pow()</code> имеют временную сложность <span class="arithmatex">\(O(\log⁡ a)\)</span>.</li>
-<li>Функция <code>math.pow()</code> внутри вызывает функцию <code>pow()</code> из библиотеки C, выполняющую возведение в степень с плавающей точкой, и ее временная сложность равна <span class="arithmatex">\(O(1)\)</span>.</li>
+<li>Функция <code>math.pow()</code> вызывает функцию <code>pow()</code> из библиотеки C, которая возводит числа с плавающей точкой в степень за время <span class="arithmatex">\(O(1)\)</span>.</li>
 </ul>
-<p>Переменные <span class="arithmatex">\(a\)</span> и <span class="arithmatex">\(b\)</span> занимают дополнительную память постоянного размера, <strong>поэтому пространственная сложность равна <span class="arithmatex">\(O(1)\)</span></strong>.</p>
+<p>Переменным <span class="arithmatex">\(a\)</span> и <span class="arithmatex">\(b\)</span> нужен постоянный объём дополнительной памяти, <strong>поэтому пространственная сложность составляет <span class="arithmatex">\(O(1)\)</span></strong>.</p>
 <h3 id="3">3.   Доказательство корректности<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
-<p>Используем доказательство от противного и рассмотрим только случай <span class="arithmatex">\(n \geq 4\)</span>.</p>
+<p>Докажем корректность от противного, рассматривая только случай <span class="arithmatex">\(n \geq 4\)</span>.</p>
 <ol>
-<li><strong>Все множители <span class="arithmatex">\(\leq 3\)</span></strong>: предположим, что в оптимальной схеме разбиения существует множитель <span class="arithmatex">\(x \geq 4\)</span>. Тогда его можно дальше разложить в <span class="arithmatex">\(2(x-2)\)</span> и получить большее или равное произведение. Это противоречит предположению.</li>
-<li><strong>Схема разбиения не содержит <span class="arithmatex">\(1\)</span></strong>: предположим, что в оптимальной схеме присутствует множитель <span class="arithmatex">\(1\)</span>. Тогда его можно объединить с другим множителем и получить большее произведение. Это противоречит предположению.</li>
-<li><strong>Схема разбиения содержит не более двух <span class="arithmatex">\(2\)</span></strong>: предположим, что в оптимальной схеме присутствуют три двойки. Тогда их можно заменить двумя тройками и получить большее произведение. Это противоречит предположению.</li>
+<li><strong>Все множители <span class="arithmatex">\(\leq 3\)</span></strong>. Предположим, что в оптимальном разбиении есть множитель <span class="arithmatex">\(x\)</span> величиной <span class="arithmatex">\(\geq 4\)</span>. Тогда его всегда можно разбить дальше и получить произведение <span class="arithmatex">\(2(x-2)\)</span>, большее прежнего или равное ему. Это противоречит предположению.</li>
+<li><strong>В разбиении нет множителя <span class="arithmatex">\(1\)</span></strong>. Предположим, что оптимальное разбиение содержит множитель <span class="arithmatex">\(1\)</span>. Тогда его можно прибавить к другому слагаемому и получить большее произведение. Это противоречит предположению.</li>
+<li><strong>В разбиении не более двух множителей <span class="arithmatex">\(2\)</span></strong>. Предположим, что оптимальное разбиение содержит три множителя <span class="arithmatex">\(2\)</span>. Их можно заменить двумя множителями <span class="arithmatex">\(3\)</span>, увеличив произведение. Это противоречит предположению.</li>
 </ol>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -2306,13 +2306,13 @@ n = 3 a + b
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="Вперед: 15.5 Резюме" class="md-footer__link md-footer__link--next" href="../summary/" rel="next">
+<a aria-label="Вперед: 15.5 Итоги" class="md-footer__link md-footer__link--next" href="../summary/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         Вперед
       </span>
 <div class="md-ellipsis">
-        15.5 Резюме
+        15.5 Итоги
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2322,7 +2322,7 @@ n = 3 a + b
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Оставляйте свои идеи, вопросы и предложения в комментариях</h5>
+<h5 align="center" id="__comments">Поделитесь своим мнением, задайте вопрос или оставьте предложение в комментариях</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ru" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2404,9 +2404,9 @@ n = 3 a + b
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.0d441547851f63d0e6614369d827335a9b125feca310fe06e17e6b9e15f96fa1.min.js"></script>
+<script src="../../assets/javascripts/bundle.c14dfd00549a42415ad39f11698a44840394334ca6c2e5be8ce68b23dd434e70.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

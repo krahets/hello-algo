@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="애니메이션으로 설명하고 클릭 한 번으로 실행하는 자료 구조와 알고리즘 입문서" name="description"/>
+<meta content="애니메이션 도해와 클릭 한 번으로 실행할 수 있는 코드로 배우는 자료 구조와 알고리즘 입문서" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ko/chapter_heap/top_k/" rel="canonical"/>
 <link href="../build_heap/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_heap/top_k/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>8.3 Top-k 문제 - Hello 알고리즘</title>
+<title>8.3 상위 k개 찾기 문제 - Hello 알고리즘</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,13 +47,13 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/864e54ce411d71bab123d983.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/0a24d2cb3f6b75d285a73597.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label aria-label="네비게이션" class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#83-top-k">
+<a class="md-skip" href="#83-k">
           콘텐츠로 이동
         </a>
 </div>
@@ -81,7 +81,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              8.3   Top-k 문제
+              8.3   상위 k개 찾기 문제
 
           </span>
 </div>
@@ -191,7 +191,7 @@
 <span class="md-ellipsis">
 
 
-  머리말
+  서문
 
 
   </span>
@@ -202,7 +202,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  머리말
+  서문
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -217,7 +217,7 @@
 <span class="md-ellipsis">
 
 
-  제 0 장   들어가며
+  제 0 장   머리말
 
 
   </span>
@@ -231,7 +231,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 0 장   들어가며
+  제 0 장   머리말
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  제 1 장   알고리즘과의 첫 만남
+  제 1 장   알고리즘 입문
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 1 장   알고리즘과의 첫 만남
+  제 1 장   알고리즘 입문
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   어디에나 있는 알고리즘
+  1.1   알고리즘은 어디에나 있다
 
 
   </span>
@@ -945,7 +945,7 @@
 <span class="md-ellipsis">
 
 
-  8.3   Top-k 문제
+  8.3   상위 k개 찾기 문제
 
 
   </span>
@@ -955,7 +955,7 @@
 <span class="md-ellipsis">
 
 
-  8.3   Top-k 문제
+  8.3   상위 k개 찾기 문제
 
 
   </span>
@@ -970,7 +970,7 @@
 <a class="md-nav__link" href="#831-1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.1   방법 1: 순회하며 선택
+        8.3.1   방법 1: 순회하며 선택하기
       </span>
 </span>
 </a>
@@ -1509,7 +1509,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   모든 순열 문제
+  13.2   순열 문제
 
 
   </span>
@@ -1520,7 +1520,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   부분 집합 합 문제
+  13.3   부분집합의 합 문제
 
 
   </span>
@@ -1531,7 +1531,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n-퀸 문제
+  13.4   N-퀸 문제
 
 
   </span>
@@ -1615,7 +1615,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   동적 계획법 문제 풀이 방법
+  14.3   동적 계획법 문제 풀이
 
 
   </span>
@@ -1687,7 +1687,7 @@
 <span class="md-ellipsis">
 
 
-  제 15 장   탐욕
+  제 15 장   탐욕적 접근법
 
 
   </span>
@@ -1701,7 +1701,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 15 장   탐욕
+  제 15 장   탐욕적 접근법
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1721,7 +1721,7 @@
 <span class="md-ellipsis">
 
 
-  15.2   분할 가능한 배낭 문제
+  15.2   분할 가능 배낭 문제
 
 
   </span>
@@ -1805,7 +1805,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   프로그래밍 환경 설치
+  16.1   프로그래밍 환경 설정
 
 
   </span>
@@ -1816,7 +1816,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   함께 만드는 책
+  16.2   책 집필에 참여하기
 
 
   </span>
@@ -1884,7 +1884,7 @@
 <a class="md-nav__link" href="#831-1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.1   방법 1: 순회하며 선택
+        8.3.1   방법 1: 순회하며 선택하기
       </span>
 </span>
 </a>
@@ -1923,80 +1923,80 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="83-top-k">8.3   Top-k 문제<a class="headerlink" href="#83-top-k" title="고유 링크">¶</a></h1>
+<h1 id="83-k"><span aria-hidden="true" data-previous-heading="" id="83-top-k"></span>8.3   상위 k개 찾기 문제<a class="headerlink" href="#83-k" title="고유 링크">¶</a></h1>
 <div class="admonition question">
-<p class="admonition-title">문제</p>
-<p>길이가 <span class="arithmatex">\(n\)</span>인 정렬되지 않은 배열 <code>nums</code>가 주어졌을 때, 배열에서 가장 큰 <span class="arithmatex">\(k\)</span> 개의 원소를 반환하라.</p>
+<p class="admonition-title">Question</p>
+<p>정렬되지 않은 배열 <code>nums</code>의 길이가 <span class="arithmatex">\(n\)</span>일 때, 배열에서 가장 큰 원소 <span class="arithmatex">\(k\)</span>개를 반환하라.</p>
 </div>
-<p>이 문제에 대해 먼저 발상이 비교적 직접적인 두 가지 풀이를 살펴보고, 이어서 더 효율적인 힙 기반 풀이를 소개한다.</p>
-<h2 id="831-1">8.3.1   방법 1: 순회하며 선택<a class="headerlink" href="#831-1" title="고유 링크">¶</a></h2>
-<p>아래 그림(8-6)과 같이 <span class="arithmatex">\(k\)</span> 번 순회하면서 매 순회에서 각각 <span class="arithmatex">\(1\)</span>, <span class="arithmatex">\(2\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(k\)</span> 번째로 큰 원소를 뽑을 수 있다. 시간 복잡도는 <span class="arithmatex">\(O(nk)\)</span>이다.</p>
-<p>이 방법은 <span class="arithmatex">\(k \ll n\)</span>인 경우에만 적합하다. <span class="arithmatex">\(k\)</span>가 <span class="arithmatex">\(n\)</span>에 가까워지면 시간 복잡도가 <span class="arithmatex">\(O(n^2)\)</span>에 가까워져 매우 오래 걸리기 때문이다.</p>
-<p><ha-svg-figure aria-label="순회 선택으로 Top-k 찾기" class="animation-figure" data-book-key="ko/chapter_heap/top_k.assets/top_k_traversal.png" data-dark-src="/assets/figure-svg/figures/db796d6d3d717ade2c263386.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/ce4813e26e30d6ce596433fb.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_traversal.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">순회로 가장 큰 k개의 원소 찾기</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_traversal.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">순회로 가장 큰 k개의 원소 찾기</object></ha-svg-figure></p>
-<p align="center"> 그림 8-6   순회로 가장 큰 k개의 원소 찾기 </p><div class="ha-sr-only figure-description"><h3>그림 8-6 설명: 순회 선택으로 Top-k 찾기</h3><p>매 순회에서 아직 선택되지 않은 원소 중 최댓값을 찾아 뽑으며, 선택된 원소는 이후 순회에 참여하지 않는다.</p><p>이 예시의 입력 원소는 5개이고 k=3이다. 그림은 위에서 아래로 총 네 줄로 이루어져 있으며 첫째 줄은 초기 배열, 그 아래 세 줄은 세 차례 선택 후의 상태이고 왼쪽은 미선택 영역, 오른쪽 파란색 상자는 선택 완료 영역이다.</p><p>새로 뽑은 원소를 매번 오른쪽 선택 완료 영역의 왼쪽 끝에 놓으므로 화면의 왼쪽에서 오른쪽 배열 순서는 추출된 시간 순서와 반대다. 이는 놓는 위치일 뿐 별도로 다시 정렬했다는 뜻이 아니다.</p><p>아래쪽을 향하는 굵은 회색 화살표는 순회의 진행을 나타내고 가는 곡선 화살표는 각 순회에서 뽑아낸 최댓값을 가리킨다. 아래 표의 왼쪽 미선택 후보와 오른쪽 선택 완료 영역 두 열은 그림의 영역에서 가져온 것이며, ‘누적 추출 순서’는 각 순회에서 뽑힌 값을 시간 순서대로 모은 것으로 그림에 따로 한 줄 더 그려진 배열은 아니다.</p><p>매 순회에서는 왼쪽의 미선택 원소들 사이에서만 비교한다. 2차 순회에서 뽑힌 6은 7의 왼쪽에 놓이고 3차 순회에서 뽑힌 3은 다시 6의 왼쪽에 놓이며, 선택된 원소들은 오른쪽에 모여 유지된다.</p><table><caption>세 차례 선택의 후보, 선택 완료 영역 및 추출 순서</caption><thead><tr><th scope="col">단계</th><th scope="col">왼쪽 미선택 후보</th><th scope="col">오른쪽 선택 완료 영역(왼쪽에서 오른쪽)</th><th scope="col">누적 추출 순서</th></tr></thead><tbody><tr><th scope="row">초기</th><td>[1, 7, 6, 3, 2]</td><td>비어 있음</td><td>비어 있음</td></tr><tr><th scope="row">1차 순회: 가장 큰 원소 7 찾기</th><td>[1, 6, 3, 2]</td><td>[7]</td><td>[7]</td></tr><tr><th scope="row">2차 순회: 두 번째로 큰 원소 6 찾기</th><td>[1, 3, 2]</td><td>[6, 7]</td><td>[7, 6]</td></tr><tr><th scope="row">3차 순회: 세 번째로 큰 원소 3 찾기</th><td>[1, 2]</td><td>[3, 6, 7]</td><td>[7, 6, 3]</td></tr></tbody></table><p>선형 탐색을 k번 수행하면 가장 큰 k개의 원소를 모두 찾을 수 있으며 전체 시간 복잡도는 O(nk)다.</p></div>
+<p>먼저 생각하기 쉬운 두 가지 풀이를 살펴본 뒤 더 효율적인 힙 풀이를 소개한다.</p>
+<h2 id="831-1">8.3.1   방법 1: 순회하며 선택하기<a class="headerlink" href="#831-1" title="고유 링크">¶</a></h2>
+<p>아래 그림(8-6)처럼 <span class="arithmatex">\(k\)</span>번 순회한다. 순회할 때마다 큰 순서대로 <span class="arithmatex">\(1\)</span>번째, <span class="arithmatex">\(2\)</span>번째, <span class="arithmatex">\(\dots\)</span>, 마지막으로 <span class="arithmatex">\(k\)</span>번째 원소를 뽑는다. 시간 복잡도는 <span class="arithmatex">\(O(nk)\)</span>이다.</p>
+<p>이 방법은 <span class="arithmatex">\(k \ll n\)</span>일 때만 적합하다. <span class="arithmatex">\(k\)</span>가 <span class="arithmatex">\(n\)</span>에 가까우면 시간 복잡도가 <span class="arithmatex">\(O(n^2)\)</span>에 가까워져 시간이 매우 오래 걸린다.</p>
+<p><ha-svg-figure aria-label="순회하며 상위 k개 선택하기" class="animation-figure" data-book-key="ko/chapter_heap/top_k.assets/top_k_traversal.png" data-dark-src="/assets/figure-svg/figures/c0b5912bb81bfeb519eb8649.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0eafacf88b41bebe859acf53.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_traversal.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">순회로 가장 큰 원소 k개 찾기</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_traversal.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">순회로 가장 큰 원소 k개 찾기</object></ha-svg-figure></p>
+<p align="center"> 그림 8-6   순회로 가장 큰 원소 k개 찾기 </p><div class="ha-sr-only figure-description"><h3>그림 8-6 설명: 순회하며 상위 k개 선택하기</h3><p>매번 아직 선택하지 않은 원소 중 최댓값을 찾는다. 선택한 원소는 이후 순회에서 제외한다.</p><p>이 예제에서 입력은 원소 5개이고 k=3이다. 그림은 위에서부터 네 줄이며 첫 줄은 초기 배열, 그 아래 세 줄은 세 번의 선택을 각각 마친 상태다. 왼쪽은 후보 영역이고 오른쪽 파란 테두리는 선택된 영역이다.</p><p>새로 선택한 원소를 오른쪽 선택 영역의 맨 왼쪽에 놓으므로 그림에서 왼쪽부터 읽는 순서는 실제로 뽑은 순서의 역순이다. 배치 위치만 정했을 뿐 다시 정렬한 것은 아니다.</p><p>아래로 향하는 굵은 회색 화살표는 다음 순회로 넘어가는 것을 나타내고 얇은 곡선 화살표는 각 순회에서 뽑은 최댓값을 가리킨다. 아래 표의 ‘왼쪽 미선택 후보’와 ‘오른쪽 선택 영역’은 그림의 두 영역에 해당한다. ‘지금까지 뽑은 순서’는 각 순회에서 선택한 값을 시간순으로 정리한 것이며 그림에 별도의 배열로 그려져 있지는 않다.</p><p>매번 왼쪽의 미선택 원소만 비교한다. 두 번째로 뽑은 6은 7 왼쪽에 놓고 세 번째로 뽑은 3은 다시 6 왼쪽에 놓는다. 이미 선택한 원소는 오른쪽에 남는다.</p><table><caption>세 차례 선택의 후보와 선택 영역 및 추출 순서</caption><thead><tr><th scope="col">단계</th><th scope="col">왼쪽 미선택 후보</th><th scope="col">오른쪽 선택 영역(왼쪽에서 오른쪽 순)</th><th scope="col">지금까지 뽑은 순서</th></tr></thead><tbody><tr><th scope="row">초기 상태</th><td>[1, 7, 6, 3, 2]</td><td>비어 있음</td><td>비어 있음</td></tr><tr><th scope="row">첫 번째 순회: 가장 큰 원소 7 선택</th><td>[1, 6, 3, 2]</td><td>[7]</td><td>[7]</td></tr><tr><th scope="row">두 번째 순회: 두 번째로 큰 원소 6 선택</th><td>[1, 3, 2]</td><td>[6, 7]</td><td>[7, 6]</td></tr><tr><th scope="row">세 번째 순회: 세 번째로 큰 원소 3 선택</th><td>[1, 2]</td><td>[3, 6, 7]</td><td>[7, 6, 3]</td></tr></tbody></table><p>선형 탐색을 k번 수행하면 가장 큰 원소 k개를 모두 찾는다. 전체 시간 복잡도는 O(nk)다.</p></div>
 <div class="admonition tip">
-<p class="admonition-title">참고</p>
-<p><span class="arithmatex">\(k = n\)</span>이면 전체가 정렬된 수열을 얻을 수 있으며, 이는 '선택 정렬' 알고리즘과 같다.</p>
+<p class="admonition-title">Tip</p>
+<p><span class="arithmatex">\(k = n\)</span>이면 정렬된 전체 수열을 얻게 되며, 이때는 선택 정렬 알고리즘과 같다.</p>
 </div>
 <h2 id="832-2">8.3.2   방법 2: 정렬<a class="headerlink" href="#832-2" title="고유 링크">¶</a></h2>
-<p>아래 그림(8-7)과 같이 배열 <code>nums</code>를 먼저 정렬한 뒤 맨 오른쪽의 <span class="arithmatex">\(k\)</span> 개 원소를 반환할 수 있다. 시간 복잡도는 <span class="arithmatex">\(O(n \log n)\)</span>이다.</p>
-<p>이 방법은 필요한 것보다 더 많은 일을 한다. 가장 큰 <span class="arithmatex">\(k\)</span> 개 원소만 찾으면 되며, 나머지 원소를 정렬할 필요는 없기 때문이다.</p>
-<p><ha-svg-figure aria-label="방법 2(정렬): 오름차순 정렬 후 맨 오른쪽 k개 원소 반환" class="animation-figure" data-book-key="ko/chapter_heap/top_k.assets/top_k_sorting.png" data-dark-src="/assets/figure-svg/figures/88ad4af16a1ae5a71645c79b.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/339350e5420332c6774f7644.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_sorting.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">정렬로 가장 큰 k개의 원소 찾기</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_sorting.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">정렬로 가장 큰 k개의 원소 찾기</object></ha-svg-figure></p>
-<p align="center"> 그림 8-7   정렬로 가장 큰 k개의 원소 찾기 </p><div class="ha-sr-only figure-description"><h3>그림 8-7 설명: 방법 2(정렬): 오름차순 정렬 후 맨 오른쪽 k개 원소 반환</h3><p>배열 전체를 먼저 오름차순으로 정렬한 뒤 끝의 k개 원소를 잘라 반환한다.</p><p>이 예시에서는 k=3이며 그림은 위에서 아래로 입력, 정렬된 배열, 추출 결과의 세 줄로 이루어져 있다. 첫째 줄은 nums = [1, 7, 6, 3, 2]다.</p><p>첫 번째 아래쪽 화살표에는 ‘배열을 정렬한다’라고 적혀 있으며 둘째 줄은 [1, 2, 3, 6, 7]이 되고 맨 오른쪽 세 원소 3, 6, 7이 파란색 테두리와 아래쪽 중괄호로 표시된다.</p><p>두 번째 아래쪽 화살표에는 ‘맨 오른쪽 k개 원소를 반환한다’라고 적혀 있으며 셋째 줄에는 [3, 6, 7]만 남고 더 작은 1과 2는 버려진다. 오름차순 배열에서는 오른쪽 원소일수록 크므로 끝의 k개 항목만 취하면 된다.</p><p>O(n log n) 정렬 알고리즘을 쓰면 전체 시간은 O(n log n)이 되지만, 이 방법은 반환할 필요가 없는 나머지 원소까지 함께 정렬한다.</p></div>
+<p>아래 그림(8-7)처럼 먼저 배열 <code>nums</code>를 정렬한 뒤 맨 오른쪽 원소 <span class="arithmatex">\(k\)</span>개를 반환한다. 시간 복잡도는 <span class="arithmatex">\(O(n \log n)\)</span>이다.</p>
+<p>이 방법은 필요한 것보다 더 많은 일을 한다. 가장 큰 원소 <span class="arithmatex">\(k\)</span>개만 찾으면 되므로 나머지 원소까지 정렬할 필요는 없다.</p>
+<p><ha-svg-figure aria-label="방법 2(정렬): 오름차순 정렬 후 맨 오른쪽 원소 k개 반환" class="animation-figure" data-book-key="ko/chapter_heap/top_k.assets/top_k_sorting.png" data-dark-src="/assets/figure-svg/figures/ed889d6e6d3291e0d92e8b02.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/dc005f7169df0ccdb10a37f3.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_sorting.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">정렬로 가장 큰 원소 k개 찾기</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_sorting.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">정렬로 가장 큰 원소 k개 찾기</object></ha-svg-figure></p>
+<p align="center"> 그림 8-7   정렬로 가장 큰 원소 k개 찾기 </p><div class="ha-sr-only figure-description"><h3>그림 8-7 설명: 방법 2(정렬): 오름차순 정렬 후 맨 오른쪽 원소 k개 반환</h3><p>먼저 전체 배열을 오름차순으로 정렬한 뒤 마지막 k개 원소를 잘라 낸다.</p><p>이 예제는 k=3이다. 그림은 위에서부터 입력, 정렬한 배열, 잘라 낸 결과의 세 줄이다. 첫 줄은 nums = [1, 7, 6, 3, 2]다.</p><p>첫 번째 아래쪽 화살표에는 ‘배열 정렬’이라고 적혀 있다. 둘째 줄은 [1, 2, 3, 6, 7]이 되고, 맨 오른쪽 세 원소 3, 6, 7을 파란 테두리와 그 아래 중괄호로 표시한다.</p><p>두 번째 아래쪽 화살표에는 ‘맨 오른쪽 원소 k개 반환’이라고 적혀 있다. 셋째 줄에는 [3, 6, 7]만 남고 더 작은 1과 2는 제외한다. 오름차순 배열에서는 오른쪽 원소가 더 크므로 마지막 k개만 가져오면 된다.</p><p>O(n log n) 정렬 알고리즘을 사용하면 전체 시간은 O(n log n)이다. 이 방법은 반환할 필요가 없는 나머지 원소도 정렬한다.</p></div>
 <h2 id="833-3">8.3.3   방법 3: 힙<a class="headerlink" href="#833-3" title="고유 링크">¶</a></h2>
-<p>힙을 이용하면 Top-k 문제를 더 효율적으로 해결할 수 있다. 과정은 아래 그림(8-8)과 같다.</p>
+<p>힙을 사용하면 상위 k개 찾기 문제를 더 효율적으로 풀 수 있다. 과정은 아래 그림(8-8)과 같다.</p>
 <ol>
-<li>루트 원소가 가장 작은 최소 힙을 초기화한다.</li>
-<li>먼저 배열의 앞 <span class="arithmatex">\(k\)</span> 개 원소를 차례로 힙에 삽입한다.</li>
-<li><span class="arithmatex">\(k + 1\)</span> 번째 원소부터 시작하여, 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 삽입한다.</li>
-<li>순회를 마치면 힙에 남은 원소가 가장 큰 <span class="arithmatex">\(k\)</span> 개 원소다.</li>
+<li>루트 원소가 최솟값인 최소 힙을 초기화한다.</li>
+<li>먼저 배열의 처음 <span class="arithmatex">\(k\)</span>개 원소를 차례로 힙에 삽입한다.</li>
+<li><span class="arithmatex">\(k + 1\)</span>번째 원소부터는 현재 원소가 루트 원소보다 클 때 루트 원소를 꺼내고 현재 원소를 삽입한다.</li>
+<li>순회를 마치면 힙에 남은 원소가 바로 가장 큰 원소 <span class="arithmatex">\(k\)</span>개다.</li>
 </ol>
-<div aria-label="최소 힙으로 Top-k 찾기" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="1단계: 빈 힙에 1 추가" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="2단계: 7을 힙에 삽입" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="3단계: 6을 힙에 삽입해 초기 후보 준비 완료" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="4단계: 현재 값 3과 최상단 원소 1 비교" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="5단계: 기존 최상단 원소 1 꺼내기" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="6단계: 3을 힙에 삽입" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="7단계: 현재 값 2와 최상단 원소 3 비교" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="8단계: 2 건너뛰기" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="9단계: 세 후보 반환" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
+<div aria-label="최소 힙으로 상위 k개 찾기" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="1단계: 빈 힙에 1 추가" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="2단계: 힙에 7 삽입" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="3단계: 힙에 6을 넣어 초기 후보 완성" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="4단계: 현재 값 3과 루트 1 비교" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="5단계: 기존 루트 1 꺼내기" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="6단계: 힙에 3 삽입" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="7단계: 현재 값 2와 루트 3 비교" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="8단계: 2 건너뛰기" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="9단계: 후보 세 개 반환" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 1단계: 빈 힙에 1 추가" class="animation-figure" data-a11y-forward="빈 힙에 1을 넣어 현재 힙은 [1]이다." data-a11y-state="입력 인덱스 i=0의 1이 힙에 들어갔으며 현재 1개 항목 [1], 최상단 원소는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step1.png" data-dark-src="/assets/figure-svg/figures/dd35c2b8c840e3da46f971c5.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/eb14cf2a48236cc9a68cc84b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 가장 큰 k개의 원소 찾기</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 가장 큰 k개의 원소 찾기</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 1단계: 빈 힙에 1 추가" class="animation-figure" data-a11y-forward="빈 힙에 1을 넣으면 현재 힙은 [1]이다." data-a11y-state="입력 인덱스 i=0의 1을 힙에 넣었다. 현재 원소는 [1] 하나이고 루트는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step1.png" data-dark-src="/assets/figure-svg/figures/40bb6f5bc0bc3f521c9431ee.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/bb5691272e43a1e4bef4d74e.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 가장 큰 원소 k개 찾기</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 가장 큰 원소 k개 찾기</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 2단계: 7을 힙에 삽입" class="animation-figure" data-a11y-forward="7을 힙에 넣었으며 위로 올릴 필요 없이 현재 힙은 [1, 7]이다." data-a11y-state="입력 인덱스 i=1의 7이 힙에 들어갔으며 현재 2개 항목 [1, 7], 최상단 원소는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step2.png" data-dark-src="/assets/figure-svg/figures/256e32af95822cfa4bb5cde5.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/cd8485df927fb38c37eefcf0.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 2단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 2단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 2단계: 힙에 7 삽입" class="animation-figure" data-a11y-forward="7을 힙에 넣는다. 위로 올릴 필요가 없으며 현재 힙은 [1, 7]이다." data-a11y-state="입력 인덱스 i=1의 7을 힙에 넣었다. 현재 원소는 [1, 7] 두 개이고 루트는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step2.png" data-dark-src="/assets/figure-svg/figures/9dde5cee2f4bd1b1f4662657.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/c9667beea83f4fcd4e008a02.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 3단계: 6을 힙에 삽입해 초기 후보 준비 완료" class="animation-figure" data-a11y-forward="6을 힙에 넣어 초기 세 후보 [1, 7, 6]이 갖추어졌으며 최상단 원소는 1이다." data-a11y-state="입력 인덱스 i=2의 6이 힙에 들어가 초기 3개 항목 [1, 7, 6]이 모두 갖추어졌으며 최상단 원소는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step3.png" data-dark-src="/assets/figure-svg/figures/3b89dda2a902db301a85b014.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/cc6864a928b15131ebfbf0dd.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 3단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 3단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 3단계: 힙에 6을 넣어 초기 후보 완성" class="animation-figure" data-a11y-forward="6을 힙에 넣어 초기 후보 세 개 [1, 7, 6]이 모였다. 루트는 1이다." data-a11y-state="입력 인덱스 i=2의 6을 힙에 넣어 초기 후보 세 개 [1, 7, 6]이 모였다. 루트는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step3.png" data-dark-src="/assets/figure-svg/figures/0237c5a00c9d1250493635d2.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/69726fc14f7d864377a6a1d5.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 4단계: 현재 값 3과 최상단 원소 1 비교" class="animation-figure" data-a11y-forward="현재 값 3과 최상단 원소 1 비교: 3 &gt; 1이므로 교체할 준비를 하며 아직 힙은 수정하지 않았다." data-a11y-state="현재 입력 인덱스 i=3, 현재 값 3 &gt; 최상단 원소 1이므로 교체 준비 상태다. 아직 힙은 수정되지 않아 3개 항목 [1, 7, 6] 그대로이며 최상단 원소는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step4.png" data-dark-src="/assets/figure-svg/figures/feb1ca164f281d7e3f43319e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/abe4af2d58c7a1153f243c2e.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 4단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 4단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 4단계: 현재 값 3과 루트 1 비교" class="animation-figure" data-a11y-forward="현재 값 3과 루트 1을 비교한다. 3 &gt; 1이므로 교체할 차례이며 아직 힙은 수정하지 않았다." data-a11y-state="현재 입력 인덱스 i=3에서 현재 값 3 &gt; 루트 1이므로 교체할 차례다. 힙은 아직 수정하지 않아 원소 세 개 [1, 7, 6]이고 루트는 1이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step4.png" data-dark-src="/assets/figure-svg/figures/9d53d002baf8c9b73c1f4004.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a1718fa927018ea0ca92f5aa.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 5단계: 기존 최상단 원소 1 꺼내기" class="animation-figure" data-a11y-forward="기존 최상단 원소 1을 꺼내 힙은 일시적으로 2개 항목 [6, 7]이 되었고 3은 아직 넣기 전이다." data-a11y-state="현재 입력 인덱스 i=3, 기존 최상단 원소 1을 꺼내 힙은 일시적으로 k−1=2개 항목 [6, 7], 최상단 원소는 6이며 현재 값 3은 아직 넣기 전이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step5.png" data-dark-src="/assets/figure-svg/figures/4e159244309bc27a9769603e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/758fc77b09338821acabe46e.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 5단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 5단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 5단계: 기존 루트 1 꺼내기" class="animation-figure" data-a11y-forward="기존 루트 1을 꺼내 힙에는 잠시 두 원소 [6, 7]이 남고 3은 아직 넣지 않았다." data-a11y-state="현재 입력 인덱스는 i=3이다. 기존 루트 1을 꺼내 힙에는 잠시 k−1=2개 원소 [6, 7]이 남고 루트는 6이다. 현재 값 3은 아직 넣지 않았다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step5.png" data-dark-src="/assets/figure-svg/figures/34838943fdcf30f256598888.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/06defd26eb80db9ceed5e2e9.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 6단계: 3을 힙에 삽입" class="animation-figure" data-a11y-forward="3을 힙에 넣고 새 최상단 원소로 올려 세 후보 [3, 7, 6]을 회복한다." data-a11y-state="현재 입력 인덱스 i=3, 3을 힙에 넣고 위로 올려 3개 항목 [3, 7, 6]을 회복했으며 최상단 원소는 3이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step6.png" data-dark-src="/assets/figure-svg/figures/bb80a65c160bb2bd57130b27.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/48e4cf4c4480a5b97eaf0cdf.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 6단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 6단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 6단계: 힙에 3 삽입" class="animation-figure" data-a11y-forward="3을 힙에 넣어 새 루트로 올리면 후보 세 개 [3, 7, 6]이 다시 모인다." data-a11y-state="현재 입력 인덱스는 i=3이다. 3을 힙에 넣어 위로 올리면 후보가 다시 세 개 [3, 7, 6]이 되고 루트는 3이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step6.png" data-dark-src="/assets/figure-svg/figures/472d6666fc9c9a0ad58d2960.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d5ff0f3b5fb47249c5401139.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 7단계: 현재 값 2와 최상단 원소 3 비교" class="animation-figure" data-a11y-forward="현재 값 2와 최상단 원소 3 비교: 2 &lt; 3이므로 교체하지 않는다." data-a11y-state="현재 입력 인덱스 i=4, 현재 값 2 &lt; 최상단 원소 3이므로 교체하지 않는다. 힙은 여전히 3개 항목 [3, 7, 6]이고 최상단 원소는 3이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step7.png" data-dark-src="/assets/figure-svg/figures/77b5126b2744623aa66e45fa.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d16548c825ada74c9a86a83d.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 7단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 7단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 7단계: 현재 값 2와 루트 3 비교" class="animation-figure" data-a11y-forward="현재 값 2와 루트 3을 비교한다. 2 &lt; 3이므로 교체하지 않는다." data-a11y-state="현재 입력 인덱스 i=4에서 현재 값 2 &lt; 루트 3이므로 교체하지 않는다. 힙에는 여전히 원소 세 개 [3, 7, 6]이 있고 루트는 3이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step7.png" data-dark-src="/assets/figure-svg/figures/aadf0485aa889ef598e8662b.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b3c0e688a1198a72e071f988.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 8단계: 2 건너뛰기" class="animation-figure" data-a11y-forward="2를 건너뛰어 세 후보 [3, 7, 6]이 그대로 유지되며 모든 입력 처리를 마쳤다." data-a11y-state="입력 인덱스 i=4의 2를 건너뛰어 모든 입력 처리를 마쳤으며 힙은 여전히 3개 항목 [3, 7, 6], 최상단 원소는 3이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step8.png" data-dark-src="/assets/figure-svg/figures/1ec533a525a3a1babddd2931.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/9112ee31fab1da296dfeb8ee.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 8단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 8단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 8단계: 2 건너뛰기" class="animation-figure" data-a11y-forward="2를 건너뛴다. 후보 세 개 [3, 7, 6]은 그대로이며 모든 입력을 처리했다." data-a11y-state="입력 인덱스 i=4의 2를 건너뛰어 모든 입력을 처리했다. 힙에는 여전히 원소 세 개 [3, 7, 6]이 있고 루트는 3이다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step8.png" data-dark-src="/assets/figure-svg/figures/9583e5c901a79016353ed4bf.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/48eb2f0b025fb7ee4db37f8a.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="최소 힙으로 Top-k 찾기, 전체 9단계 중 9단계: 세 후보 반환" class="animation-figure" data-a11y-forward="최소 힙 [3, 7, 6]을 반환하며 결과는 오름차순으로 정렬되어 있지 않다." data-a11y-state="순회가 끝나 현재 포인터는 없으며 최소 힙 [3, 7, 6](총 3개 항목, 최상단 원소 3)을 반환하고 결과는 오름차순으로 정렬되어 있지 않다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step9.png" data-dark-src="/assets/figure-svg/figures/67e1ca37101608e3a6281b43.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/23cf0b18b555d479614cd8a3.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 9단계</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">힙으로 Top-k 찾기 9단계</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="최소 힙으로 상위 k개 찾기, 전체 9단계 중 9단계: 후보 세 개 반환" class="animation-figure" data-a11y-forward="최소 힙 [3, 7, 6]을 반환한다. 결과는 오름차순으로 정렬되어 있지 않다." data-a11y-state="순회가 끝나 현재 포인터는 없다. 최소 힙 [3, 7, 6]을 반환한다. 원소는 총 3개이고 루트는 3이며 결과는 오름차순으로 정렬되어 있지 않다." data-book-key="ko/chapter_heap/top_k.assets/top_k_heap_step9.png" data-dark-src="/assets/figure-svg/figures/57e93aca43551ba382b8fca7.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/6662be93656339bdb1b646fd.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object><object aria-hidden="true" data="/ko/chapter_heap/top_k.assets/top_k_heap_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object></ha-svg-figure></p>
 </div>
 </div>
 </div>
-<p align="center"> 그림 8-8   힙으로 가장 큰 k개의 원소 찾기 </p><div class="ha-sr-only figure-description"><h3>그림 8-8 설명: 최소 힙으로 Top-k 찾기</h3><p>최대 k개의 후보를 유지하면서 그중 최솟값을 뒤따르는 원소와 비교해 가장 큰 k개의 값을 단계적으로 남긴다.</p><p>이 예시에서는 k=3이며 입력 배열과 인덱스는 아래 표와 같다. 포인터 i는 입력 인덱스를 나타내고, heap은 최소 힙의 레벨 순서 배열로 힙 인덱스 0에 가장 작은 후보가 저장되며 왼쪽·오른쪽 자식 노드는(존재할 경우) 각각 힙 인덱스 1, 2에 놓인다. 입력 인덱스는 원소의 출처를, 힙 인덱스는 현재 저장 위치를 뜻한다.</p><p>먼저 입력의 앞 k개 원소를 차례로 힙에 넣는다. 이후 각 원소를 힙의 최상단 원소와 비교한다. 현재 값이 힙의 최상단 원소보다 크면 최상단 원소를 먼저 꺼내고 현재 값을 넣으며, 그렇지 않으면 건너뛴다. 표에는 단계 번호가 붙어 있으며 비교만 하거나 건너뛰어 힙이 바뀌지 않는 단계에서는 표 이름으로 해당 후보와 출처 인덱스를 참조한다.</p><p>힙의 최상단 원소는 후보들 가운데 가장 작은 값이다. 더 큰 새 값을 만났을 때 최상단 원소를 새 값으로 교체하면 지금까지 처리한 입력 중 가장 큰 k개의 값을 계속 유지할 수 있다. 최상단 원소 확인에는 O(1) 시간, 삽입하거나 꺼낸 뒤 힙 조건을 복구하는 데는 O(log k) 시간이 걸린다.</p><table><caption>입력 배열과 인덱스</caption><thead><tr><th scope="col">입력 인덱스</th><th scope="col">값</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>7</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>3</td></tr><tr><th scope="row">4</th><td>2</td></tr></tbody></table><ol><li><p><strong>빈 힙에 1 추가</strong></p><p>포인터 i=0에서 값 1을 읽어 빈 힙에 넣는다. 현재 후보는 [1] 1개뿐이며 최상단 원소는 1이다.</p><table><caption>1단계 후보: 1 추가 후</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">출처 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr></tbody></table></li><li><p><strong>7을 힙에 삽입</strong></p><p>포인터 i=1에서 값 7을 읽어 힙에 넣으면 힙 인덱스 1에 연결된다. 부모 노드 1이 7보다 작으므로 위로 올릴 필요가 없으며, 현재 후보 2개는 [1, 7]이고 최상단 원소는 1이다.</p><table><caption>2단계 후보: 7 추가 후</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">출처 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>6을 힙에 삽입해 초기 후보 준비 완료</strong></p><p>포인터 i=2에서 값 6을 읽어 힙에 넣으면 힙 인덱스 2에 연결된다. 현재 후보 3개는 [1, 7, 6]이고 최상단 원소는 1이며, 앞의 k=3개 입력이 모두 힙에 들어갔으므로 이제 뒤따르는 원소들을 비교한다.</p><table><caption>3단계 후보: 초기 세 항목 준비 완료</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">출처 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>현재 값 3과 최상단 원소 1 비교</strong></p><p>포인터 i=3에서 현재 값 3은 최소 후보 1보다 크므로 교체할 준비를 한다. 이번 단계에서는 비교만 하고 아직 원소를 꺼내거나 넣지 않았으므로 후보 3개는 여전히 [1, 7, 6]이고 최상단 원소는 1이다. 후보와 출처 인덱스는 ‘3단계 후보: 초기 세 항목 준비 완료’ 표를 참고한다.</p></li><li><p><strong>기존 최상단 원소 1 꺼내기</strong></p><p>포인터는 여전히 i=3이며 먼저 기존 최상단 원소 1을 꺼내면 남은 원소가 [6, 7]로 조정되어 최상단 원소가 일시적으로 6이 된다. 현재 후보는 k−1=2개뿐이고 값 3은 아직 힙에 넣기 전인데, 이는 교체 과정의 중간 상태일 뿐 결과를 빠뜨린 것이 아니며 이번 회차도 아직 끝나지 않았다.</p><table><caption>5단계 후보: 1 꺼낸 뒤의 중간 상태</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">출처 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>6</td><td>2</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>3을 힙에 삽입</strong></p><p>포인터는 여전히 i=3이며 값 3을 힙에 넣고 루트까지 올려보내 k=3개의 후보 [3, 7, 6]을 회복하고 새 최상단 원소는 3이 된다. 이 세 후보는 앞의 입력 4개 가운데 가장 큰 세 값이다.</p><table><caption>6단계 후보: 3 추가 후</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">출처 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>현재 값 2와 최상단 원소 3 비교</strong></p><p>포인터 i=4에서 현재 값 2는 최상단 원소 3보다 작으므로 교체 조건을 만족하지 않는다. 이번 단계에서는 비교만 하며 후보 3개는 여전히 [3, 7, 6]이다. 후보와 출처 인덱스는 ‘6단계 후보: 3 추가 후’ 표를 참고한다.</p></li><li><p><strong>2 건너뛰기</strong></p><p>포인터 i=4에서 2가 최상단 원소 3보다 작으므로 꺼내기나 삽입 없이 건너뛴다. 후보 3개는 여전히 [3, 7, 6]이고 최상단 원소는 3이며 모든 입력 처리를 마쳤다. 후보와 출처 인덱스는 ‘6단계 후보: 3 추가 후’ 표를 참고한다.</p></li><li><p><strong>세 후보 반환</strong></p><p>순회가 끝나 현재 포인터는 없으며 최소 힙 [3, 7, 6]을 그대로 반환한다. 세 후보의 입력 출처는 아래 표와 같고 최상단 원소는 3이지만 왼쪽·오른쪽 자식 노드 7과 6은 오름차순일 필요가 없으며 별도의 추가 정렬은 하지 않는다.</p><table><caption>9단계에서 최종 반환하는 후보와 출처</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">출처 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li></ol><p>힙 안에 최대 k개의 후보만 유지하므로 공간 복잡도는 O(k), 전체 시간 복잡도는 O(n log k)다.</p></div>
-<p>예시 코드는 다음과 같다.</p>
+<p align="center"> 그림 8-8   힙으로 가장 큰 원소 k개 찾기 </p><div class="ha-sr-only figure-description"><h3>그림 8-8 설명: 최소 힙으로 상위 k개 찾기</h3><p>후보를 최대 k개 유지하고 그중 최솟값을 이후 원소와 비교해 가장 큰 값 k개를 차례로 남긴다.</p><p>이 예제에서 k=3이며 입력 배열과 인덱스는 아래 표와 같다. 포인터 i는 입력 인덱스다. heap은 최소 힙을 레벨 순서대로 저장한 배열로, 힙 인덱스 0에는 가장 작은 후보가 있고 왼쪽과 오른쪽 자식이 있으면 각각 힙 인덱스 1과 2에 있다. 입력 인덱스는 원소의 출처를, 힙 인덱스는 현재 저장 위치를 나타낸다.</p><p>먼저 처음 k개 입력을 차례로 힙에 넣은 뒤 나머지를 하나씩 비교한다. 현재 값이 루트보다 크면 루트를 먼저 꺼내고 현재 값을 넣으며, 그렇지 않으면 건너뛴다. 각 표의 이름에는 단계 번호가 있다. 비교하거나 건너뛸 때는 힙이 그대로이므로 표 이름을 참조해 해당 후보와 원래 입력 인덱스를 확인한다.</p><p>루트는 후보 중 최솟값이다. 더 큰 새 값이 들어올 때 그 값으로 루트를 교체하면 지금까지 처리한 입력 중 가장 큰 값 k개를 계속 유지할 수 있다. 루트 조회에는 O(1), 삽입이나 삭제에 따른 힙 조정에는 O(log k) 시간이 걸린다.</p><table><caption>입력 배열과 인덱스</caption><thead><tr><th scope="col">입력 인덱스</th><th scope="col">값</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>7</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>3</td></tr><tr><th scope="row">4</th><td>2</td></tr></tbody></table><ol><li><p><strong>빈 힙에 1 추가</strong></p><p>포인터 i=0에서 값 1을 읽어 빈 힙에 넣는다. 현재 후보는 [1] 하나이고 루트는 1이다.</p><table><caption>1단계 후보: 1을 넣은 뒤</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">원래 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr></tbody></table></li><li><p><strong>힙에 7 삽입</strong></p><p>포인터 i=1에서 값 7을 읽어 힙 인덱스 1에 넣는다. 부모 1이 7보다 작으므로 위로 올릴 필요가 없다. 현재 후보는 [1, 7] 두 개이고 루트는 1이다.</p><table><caption>2단계 후보: 7을 넣은 뒤</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">원래 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>힙에 6을 넣어 초기 후보 완성</strong></p><p>포인터 i=2에서 값 6을 읽어 힙 인덱스 2에 넣는다. 현재 후보는 [1, 7, 6] 세 개이고 루트는 1이다. 처음 k=3개 입력을 모두 넣었으므로 이제 뒤의 원소와 비교한다.</p><table><caption>3단계 후보: 초기 후보 세 개 완성</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">원래 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>현재 값 3과 루트 1 비교</strong></p><p>포인터 i=3에서 현재 값 3이 가장 작은 후보 1보다 크므로 교체할 차례다. 이번에는 비교만 하고 아직 원소를 꺼내거나 넣지 않는다. 후보 세 개는 [1, 7, 6] 그대로이고 루트는 1이다. 후보와 원래 입력 인덱스는 ‘3단계 후보: 초기 후보 세 개 완성’ 표를 보자.</p></li><li><p><strong>기존 루트 1 꺼내기</strong></p><p>포인터는 여전히 i=3이다. 먼저 기존 루트 1을 꺼내면 남은 원소가 [6, 7]로 조정되어 루트가 잠시 6이 된다. 현재 후보는 k−1=2개뿐이고 값 3은 아직 넣지 않았다. 교체 도중의 상태이므로 결과가 누락된 것이 아니며 이번 처리도 아직 끝나지 않았다.</p><table><caption>5단계 후보: 1을 꺼낸 뒤의 중간 상태</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">원래 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>6</td><td>2</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>힙에 3 삽입</strong></p><p>포인터는 여전히 i=3이다. 값 3을 삽입해 루트로 올리면 후보는 다시 k=3개인 [3, 7, 6]이 되고 새 루트는 3이다. 이 후보들이 처음 네 입력 중 가장 큰 세 값이다.</p><table><caption>6단계 후보: 3을 넣은 뒤</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">원래 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>현재 값 2와 루트 3 비교</strong></p><p>포인터 i=4에서 현재 값 2가 루트 3보다 작으므로 교체 조건을 만족하지 않는다. 이번에는 비교만 하며 후보 세 개는 [3, 7, 6] 그대로다. 후보와 원래 입력 인덱스는 ‘6단계 후보: 3을 넣은 뒤’ 표를 보자.</p></li><li><p><strong>2 건너뛰기</strong></p><p>포인터 i=4에서 2가 루트 3보다 작으므로 건너뛴다. 힙에서 원소를 꺼내거나 넣지 않는다. 후보 세 개는 [3, 7, 6] 그대로이고 루트는 3이다. 모든 입력을 처리했다. 후보와 원래 입력 인덱스는 ‘6단계 후보: 3을 넣은 뒤’ 표를 보자.</p></li><li><p><strong>후보 세 개 반환</strong></p><p>순회가 끝나 현재 포인터는 없으며 최소 힙 [3, 7, 6]을 그대로 반환한다. 세 후보의 원래 입력 위치는 아래 표와 같다. 루트는 3이지만 왼쪽과 오른쪽 자식 7과 6이 오름차순일 필요는 없다. 여기서는 따로 정렬하지 않았다.</p><table><caption>9단계에서 최종 반환하는 후보와 원래 입력 위치</caption><thead><tr><th scope="col">힙 배열 인덱스</th><th scope="col">값</th><th scope="col">원래 입력 인덱스</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li></ol><p>힙에 후보를 최대 k개만 저장하므로 공간 복잡도는 O(k)이고 전체 시간 복잡도는 O(n log k)이다.</p></div>
+<p>예제 코드는 다음과 같다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""힙을 이용하여 배열에서 가장 큰 k개 원소 탐색"""</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""힙을 이용해 배열에서 가장 큰 원소 k개 찾기"""</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># 최소 힙 초기화</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="c1"># 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="c1"># 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">heap</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>            <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -2004,17 +2004,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">topKHeap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">top</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2025,17 +2025,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
@@ -2046,17 +2046,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TopKHeap</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">Peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2067,18 +2067,18 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">minHeap</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">h</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">minHeap</span><span class="p">{}</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">h</span><span class="p">.</span><span class="nx">Top</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">            </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Pop</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span>
 <a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">            </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
@@ -2089,13 +2089,13 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 최소 힙을 초기화하여 앞쪽 k개 원소로 힙을 구성한다</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 최소 힙을 초기화하고 처음 k개 원소로 힙 구성</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">heap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="kr">prefix</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropFirst</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="bp">min</span><span class="p">()</span><span class="o">!</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">            </span><span class="kc">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">removeMin</span><span class="p">()</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -2108,46 +2108,46 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 힙에 원소 삽입 */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="o">-</span><span class="nx">val</span><span class="p">);</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">}</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="cm">/* 힙에서 원소 꺼내기 */</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
 <a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="cm">/* 힙의 루트 원소 접근 */</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="cm">/* 힙의 루트 원소 조회 */</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
 <a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="p">}</span>
 <a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>
-<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="cm">/* 힙의 원소를 반환한다 */</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="cm">/* 최소 힙의 모든 원소를 배열로 반환 */</span>
 <a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">getMaxHeap</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span><span class="p">);</span>
 <a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="p">}</span>
 <a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a>
-<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="kd">function</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
-<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="c1">// 힙의 모든 원소의 부호를 반전하여 최대 힙으로 최소 힙을 구현한다는 점에 유의한다</span>
+<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="c1">// 모든 원소의 부호를 바꾸면 최대 힙을 최소 힙처럼 사용할 수 있음</span>
 <a href="#__codelineno-6-29" id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MaxHeap</span><span class="p">([]);</span>
-<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="w">        </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-6-33" id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-6-35" id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-6-37" id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-38" id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="w">            </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-6-39" id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="w">            </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-6-40" id="__codelineno-6-40" name="__codelineno-6-40"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-6-41" id="__codelineno-6-41" name="__codelineno-6-41"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-42" id="__codelineno-6-42" name="__codelineno-6-42"></a><span class="w">    </span><span class="c1">// 힙의 원소를 반환한다</span>
+<a href="#__codelineno-6-42" id="__codelineno-6-42" name="__codelineno-6-42"></a><span class="w">    </span><span class="c1">// 힙에 있는 원소 반환</span>
 <a href="#__codelineno-6-43" id="__codelineno-6-43" name="__codelineno-6-43"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-6-44" id="__codelineno-6-44" name="__codelineno-6-44"></a><span class="p">}</span>
 </code></pre></div>
@@ -2155,58 +2155,58 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 힙에 원소 삽입 */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="o">-</span><span class="nx">val</span><span class="p">);</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
 <a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="cm">/* 힙에서 원소 꺼내기 */</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">}</span>
 <a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a>
-<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="cm">/* 힙의 루트 원소 접근 */</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="cm">/* 힙의 루트 원소 조회 */</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
 <a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="p">}</span>
 <a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>
-<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="cm">/* 힙의 원소를 반환한다 */</span>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="cm">/* 최소 힙의 모든 원소를 배열로 반환 */</span>
 <a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">getMaxHeap</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">num</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span><span class="p">);</span>
 <a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="p">}</span>
 <a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a>
-<a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-7-26" id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="kd">function</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">k</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-27" id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
-<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="c1">// 힙의 모든 원소의 부호를 반전하여 최대 힙으로 최소 힙을 구현한다는 점에 유의한다</span>
+<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="c1">// 모든 원소의 부호를 바꾸면 최대 힙을 최소 힙처럼 사용할 수 있음</span>
 <a href="#__codelineno-7-29" id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MaxHeap</span><span class="p">([]);</span>
-<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-7-31" id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-32" id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">        </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-7-33" id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-7-35" id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-7-37" id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-38" id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">            </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-7-39" id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="w">            </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-7-40" id="__codelineno-7-40" name="__codelineno-7-40"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-7-41" id="__codelineno-7-41" name="__codelineno-7-41"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-42" id="__codelineno-7-42" name="__codelineno-7-42"></a><span class="w">    </span><span class="c1">// 힙의 원소를 반환한다</span>
+<a href="#__codelineno-7-42" id="__codelineno-7-42" name="__codelineno-7-42"></a><span class="w">    </span><span class="c1">// 힙에 있는 원소 반환</span>
 <a href="#__codelineno-7-43" id="__codelineno-7-43" name="__codelineno-7-43"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-7-44" id="__codelineno-7-44" name="__codelineno-7-44"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">MinHeap</span><span class="w"> </span><span class="n">topKHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// 최소 힙을 초기화하고 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// 최소 힙을 초기화하고 배열의 처음 k개 원소 삽입</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="n">MinHeap</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MinHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">sublist</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">      </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">      </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2217,17 +2217,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">BinaryHeap</span><span class="o">&lt;</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// BinaryHeap은 최대 힙이므로 Reverse로 원소의 순서를 뒤집어 최소 힙을 구현한다</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// BinaryHeap은 최대 힙이므로 Reverse로 원소의 비교 순서를 뒤집어 최소 힙 구현</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span><span class="p">::</span><span class="o">&lt;</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">take</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">num</span><span class="p">));</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">skip</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">num</span><span class="p">));</span>
@@ -2240,25 +2240,25 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 힙에 원소 삽입 */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">pushMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="n">push</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">val</span><span class="p">);</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">}</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>
 <a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="cm">/* 힙에서 원소 꺼내기 */</span>
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">popMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">pop</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">}</span>
 <a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="cm">/* 힙의 루트 원소 접근 */</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="cm">/* 힙의 루트 원소 조회 */</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="kt">int</span><span class="w"> </span><span class="nf">peekMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="c1">// 원소의 부호를 반전한다</span>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="c1">// 원소의 부호 반전</span>
 <a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">peek</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="p">}</span>
 <a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>
-<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="cm">/* 힙의 원소를 반환한다 */</span>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="cm">/* 최소 힙의 모든 원소를 배열로 반환 */</span>
 <a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">getMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">    </span><span class="c1">// 힙의 모든 원소의 부호를 반전하여 res 배열에 저장한다</span>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">    </span><span class="c1">// 힙의 모든 원소의 부호를 바꿔 배열 res에 저장</span>
 <a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 <a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">        </span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -2266,19 +2266,19 @@
 <a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="p">}</span>
 <a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a>
-<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="cm">/* 힙으로 배열에서 가장 큰 k개 원소를 찾는 함수 */</span>
+<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개를 찾는 함수 */</span>
 <a href="#__codelineno-10-30" id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">topKHeap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sizeNums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
-<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">    </span><span class="c1">// 힙의 모든 원소의 부호를 반전하여 최대 힙으로 최소 힙을 구현한다는 점에 유의한다</span>
+<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">    </span><span class="c1">// 모든 원소의 부호를 바꾸면 최대 힙을 최소 힙처럼 사용할 수 있음</span>
 <a href="#__codelineno-10-33" id="__codelineno-10-33" name="__codelineno-10-33"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a href="#__codelineno-10-34" id="__codelineno-10-34" name="__codelineno-10-34"></a><span class="w">    </span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newMaxHeap</span><span class="p">(</span><span class="n">empty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-10-36" id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-37" id="__codelineno-10-37" name="__codelineno-10-37"></a><span class="w">        </span><span class="n">pushMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-10-38" id="__codelineno-10-38" name="__codelineno-10-38"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-10-40" id="__codelineno-10-40" name="__codelineno-10-40"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sizeNums</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-10-42" id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peekMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-43" id="__codelineno-10-43" name="__codelineno-10-43"></a><span class="w">            </span><span class="n">popMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-44" id="__codelineno-10-44" name="__codelineno-10-44"></a><span class="w">            </span><span class="n">pushMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2292,17 +2292,17 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 */</span>
+<div class="highlight"><span class="filename">top_k.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// 최소 힙 초기화</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">k</span><span class="p">..</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="na">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">poll</span><span class="p">()</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
@@ -2313,20 +2313,20 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 힙을 이용하여 배열에서 가장 큰 k개 원소 탐색 ###</span>
+<div class="highlight"><span class="filename">top_k.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 힙을 이용해 배열에서 가장 큰 원소 k개 찾기 ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
 <a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># 최소 힙 초기화</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="c1"># 힙의 모든 원소의 부호를 반전하여 최대 힙으로 최소 힙을 구현한다는 점에 유의한다</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="c1"># 모든 원소의 부호를 바꾸면 최대 힙을 최소 힙처럼 사용할 수 있음</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="n">max_heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">MaxHeap</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 배열의 앞쪽 k개 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 배열의 처음 k개 원소를 힙에 삽입</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">k</span>
 <a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="n">push_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">  </span><span class="k">end</span>
 <a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="c1"># k+1번째 원소부터 힙의 길이를 k로 유지한다</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="c1"># k+1번째 원소부터 힙의 크기를 k로 유지</span>
 <a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">k</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
-<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="c1"># 현재 원소가 힙의 루트 원소보다 크면 루트 원소를 꺼내고 현재 원소를 힙에 삽입한다</span>
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="c1"># 현재 원소가 루트보다 크면 루트를 꺼내고 현재 원소를 삽입</span>
 <a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peek_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">)</span>
 <a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">      </span><span class="n">pop_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">)</span>
 <a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">      </span><span class="n">push_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
@@ -2340,12 +2340,12 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>코드 시각화</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%ED%9E%99%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC%20%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C%20%EA%B0%80%EC%9E%A5%20%ED%81%B0%20k%EA%B0%9C%20%EC%9B%90%EC%86%8C%20%ED%83%90%EC%83%89%22%22%22%0A%20%20%20%20%23%20%EC%B5%9C%EC%86%8C%20%ED%9E%99%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%95%9E%EC%AA%BD%20k%EA%B0%9C%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%ED%9E%99%EC%97%90%20%EC%82%BD%EC%9E%85%ED%95%9C%EB%8B%A4%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%EB%B2%88%EC%A7%B8%20%EC%9B%90%EC%86%8C%EB%B6%80%ED%84%B0%20%ED%9E%99%EC%9D%98%20%EA%B8%B8%EC%9D%B4%EB%A5%BC%20k%EB%A1%9C%20%EC%9C%A0%EC%A7%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EA%B0%80%20%ED%9E%99%EC%9D%98%20%EB%A3%A8%ED%8A%B8%20%EC%9B%90%EC%86%8C%EB%B3%B4%EB%8B%A4%20%ED%81%AC%EB%A9%B4%20%EB%A3%A8%ED%8A%B8%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EA%BA%BC%EB%82%B4%EA%B3%A0%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%ED%9E%99%EC%97%90%20%EC%82%BD%EC%9E%85%ED%95%9C%EB%8B%A4%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="코드 시각화"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%ED%9E%99%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC%20%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C%20%EA%B0%80%EC%9E%A5%20%ED%81%B0%20k%EA%B0%9C%20%EC%9B%90%EC%86%8C%20%ED%83%90%EC%83%89%22%22%22%0A%20%20%20%20%23%20%EC%B5%9C%EC%86%8C%20%ED%9E%99%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%95%9E%EC%AA%BD%20k%EA%B0%9C%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%ED%9E%99%EC%97%90%20%EC%82%BD%EC%9E%85%ED%95%9C%EB%8B%A4%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%EB%B2%88%EC%A7%B8%20%EC%9B%90%EC%86%8C%EB%B6%80%ED%84%B0%20%ED%9E%99%EC%9D%98%20%EA%B8%B8%EC%9D%B4%EB%A5%BC%20k%EB%A1%9C%20%EC%9C%A0%EC%A7%80%ED%95%9C%EB%8B%A4%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EA%B0%80%20%ED%9E%99%EC%9D%98%20%EB%A3%A8%ED%8A%B8%20%EC%9B%90%EC%86%8C%EB%B3%B4%EB%8B%A4%20%ED%81%AC%EB%A9%B4%20%EB%A3%A8%ED%8A%B8%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EA%BA%BC%EB%82%B4%EA%B3%A0%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%ED%9E%99%EC%97%90%20%EC%82%BD%EC%9E%85%ED%95%9C%EB%8B%A4%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22%EC%8B%A4%ED%96%89%20%EC%BD%94%EB%93%9C%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">전체 화면 &gt;</a></div></p>
+<summary>실행 과정 시각화</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%ED%9E%99%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%B4%20%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C%20%EA%B0%80%EC%9E%A5%20%ED%81%B0%20%EC%9B%90%EC%86%8C%20k%EA%B0%9C%20%EC%B0%BE%EA%B8%B0%22%22%22%0A%20%20%20%20%23%20%EC%B5%9C%EC%86%8C%20%ED%9E%99%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%B2%98%EC%9D%8C%20k%EA%B0%9C%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%ED%9E%99%EC%97%90%20%EC%82%BD%EC%9E%85%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%EB%B2%88%EC%A7%B8%20%EC%9B%90%EC%86%8C%EB%B6%80%ED%84%B0%20%ED%9E%99%EC%9D%98%20%ED%81%AC%EA%B8%B0%EB%A5%BC%20k%EB%A1%9C%20%EC%9C%A0%EC%A7%80%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EA%B0%80%20%EB%A3%A8%ED%8A%B8%EB%B3%B4%EB%8B%A4%20%ED%81%AC%EB%A9%B4%20%EB%A3%A8%ED%8A%B8%EB%A5%BC%20%EA%BA%BC%EB%82%B4%EA%B3%A0%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EC%82%BD%EC%9E%85%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="실행 과정 시각화"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%ED%9E%99%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%B4%20%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C%20%EA%B0%80%EC%9E%A5%20%ED%81%B0%20%EC%9B%90%EC%86%8C%20k%EA%B0%9C%20%EC%B0%BE%EA%B8%B0%22%22%22%0A%20%20%20%20%23%20%EC%B5%9C%EC%86%8C%20%ED%9E%99%20%EC%B4%88%EA%B8%B0%ED%99%94%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%EB%B0%B0%EC%97%B4%EC%9D%98%20%EC%B2%98%EC%9D%8C%20k%EA%B0%9C%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%ED%9E%99%EC%97%90%20%EC%82%BD%EC%9E%85%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20k%2B1%EB%B2%88%EC%A7%B8%20%EC%9B%90%EC%86%8C%EB%B6%80%ED%84%B0%20%ED%9E%99%EC%9D%98%20%ED%81%AC%EA%B8%B0%EB%A5%BC%20k%EB%A1%9C%20%EC%9C%A0%EC%A7%80%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EA%B0%80%20%EB%A3%A8%ED%8A%B8%EB%B3%B4%EB%8B%A4%20%ED%81%AC%EB%A9%B4%20%EB%A3%A8%ED%8A%B8%EB%A5%BC%20%EA%BA%BC%EB%82%B4%EA%B3%A0%20%ED%98%84%EC%9E%AC%20%EC%9B%90%EC%86%8C%EB%A5%BC%20%EC%82%BD%EC%9E%85%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">전체 화면으로 보기 &gt;</a></div></p>
 </details>
-<p>삽입과 꺼내기를 총 <span class="arithmatex">\(n\)</span> 차례 수행하고 힙의 최대 길이는 <span class="arithmatex">\(k\)</span>이므로, 시간 복잡도는 <span class="arithmatex">\(O(n \log k)\)</span>이다. 이 방법은 매우 효율적이다. <span class="arithmatex">\(k\)</span>가 작으면 시간 복잡도가 <span class="arithmatex">\(O(n)\)</span>에 가까워지고, <span class="arithmatex">\(k\)</span>가 커도 <span class="arithmatex">\(O(n \log n)\)</span>을 넘지 않는다.</p>
-<p>또한 이 방법은 동적으로 들어오는 데이터 스트림에도 적합하다. 데이터가 계속 추가될 때 힙 안의 원소를 지속적으로 관리하면 가장 큰 <span class="arithmatex">\(k\)</span> 개 원소를 동적으로 갱신할 수 있다.</p>
+<p>삽입과 삭제를 처리하는 횟수는 총 <span class="arithmatex">\(n\)</span>회이고 힙의 최대 길이는 <span class="arithmatex">\(k\)</span>이므로 시간 복잡도는 <span class="arithmatex">\(O(n \log k)\)</span>이다. 이 방법은 매우 효율적이다. <span class="arithmatex">\(k\)</span>가 작으면 시간 복잡도가 <span class="arithmatex">\(O(n)\)</span>에 가까워지고, <span class="arithmatex">\(k\)</span>가 커도 <span class="arithmatex">\(O(n \log n)\)</span>을 넘지 않는다.</p>
+<p>이 방법은 데이터가 계속 들어오는 스트림에도 적합하다. 새 데이터가 추가될 때마다 힙 안의 원소를 관리하면 가장 큰 원소 <span class="arithmatex">\(k\)</span>개를 계속 갱신할 수 있다.</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
@@ -2381,7 +2381,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">댓글로 의견이나 질문, 제안을 남겨 주세요</h5>
+<h5 align="center" id="__comments">의견이나 질문, 제안을 댓글로 남겨 주세요.</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ko" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2463,9 +2463,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"클립보드에 복사됨","clipboard.copy":"클립보드로 복사","search.result.more.one":"이 문서에서 1개의 검색 결과 더 보기","search.result.more.other":"이 문서에서 #개의 검색 결과 더 보기","search.result.none":"검색어와 일치하는 문서가 없습니다","search.result.one":"1개의 일치하는 문서","search.result.other":"#개의 일치하는 문서","search.result.placeholder":"검색어를 입력하세요","search.result.term.missing":"포함되지 않은 검색어","select.version":"버전 선택"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.9da20b33253961ce280a4a32ba173a4ae6a1344b3b104ddf2f5f2caf9b8f6ec8.min.js"></script>
+<script src="../../assets/javascripts/bundle.a67f0250649a59050bd5d66f11a1783293b444a53f0ff67bd98520ace3a72466.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

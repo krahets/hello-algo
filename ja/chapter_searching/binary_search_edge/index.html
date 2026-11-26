@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書" name="description"/>
+<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ja/chapter_searching/binary_search_edge/" rel="canonical"/>
 <link href="../binary_search_insertion/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_searching/binary_search_edge/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>10.3 二分探索で境界を探す - Hello Algo</title>
+<title>10.3 二分探索による境界の特定 - Hello アルゴリズム</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5aac88ee1d4deb0dce936ce.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,8 +65,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="ヘッダー" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="ナビゲーション" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -75,13 +75,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Hello アルゴリズム
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              10.3   二分探索で境界を探す
+              10.3   二分探索による境界の特定
 
           </span>
 </div>
@@ -167,10 +167,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="ナビゲーション" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Hello アルゴリズム
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="リポジトリへ">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   アルゴリズムはどこにでもある
+  1.1   身の回りのアルゴリズム
 
 
   </span>
@@ -733,7 +733,7 @@
 <span class="md-ellipsis">
 
 
-  6.1   ハッシュテーブル
+  6.1   ハッシュ表
 
 
   </span>
@@ -1029,7 +1029,7 @@
 <span class="md-ellipsis">
 
 
-  9.3   グラフの走査
+  9.3   グラフの探索
 
 
   </span>
@@ -1102,7 +1102,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分探索で挿入位置を探す
+  10.2   二分探索で挿入位置を求める
 
 
   </span>
@@ -1113,7 +1113,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分探索で境界を探す
+  10.3   二分探索で境界を求める
 
 
   </span>
@@ -1123,7 +1123,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分探索で境界を探す
+  10.3   二分探索で境界を求める
 
 
   </span>
@@ -1138,7 +1138,7 @@
 <a class="md-nav__link" href="#1031">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.3.1   左の境界を探す
+        10.3.1   左端を探す
       </span>
 </span>
 </a>
@@ -1147,17 +1147,17 @@
 <a class="md-nav__link" href="#1032">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.3.2   右の境界を探す
+        10.3.2   右端を探す
       </span>
 </span>
 </a>
-<nav aria-label="10.3.2 右の境界を探す" class="md-nav">
+<nav aria-label="10.3.2 右端を探す" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   左の境界を探す処理の再利用
+        1.   左端を探す方法の再利用
       </span>
 </span>
 </a>
@@ -1166,7 +1166,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   要素の探索への置き換え
+        2.   要素の探索に置き換える
       </span>
 </span>
 </a>
@@ -1182,7 +1182,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   ハッシュを使った最適化
+  10.4   ハッシュを用いた最適化
 
 
   </span>
@@ -1193,7 +1193,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   探索アルゴリズムを改めて考える
+  10.5   探索アルゴリズムを振り返る
 
 
   </span>
@@ -1393,7 +1393,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
 
   </span>
@@ -1407,7 +1407,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1416,7 +1416,7 @@
 <span class="md-ellipsis">
 
 
-  12.1   分割統治アルゴリズム
+  12.1   分割統治法のアルゴリズム
 
 
   </span>
@@ -1427,7 +1427,7 @@
 <span class="md-ellipsis">
 
 
-  12.2   分割統治による探索戦略
+  12.2   分割統治法による探索
 
 
   </span>
@@ -1438,7 +1438,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   二分木の構築問題
+  12.3   二分木を構築する問題
 
 
   </span>
@@ -1449,7 +1449,7 @@
 <span class="md-ellipsis">
 
 
-  12.4   ハノイの塔の問題
+  12.4   ハノイの塔
 
 
   </span>
@@ -1511,7 +1511,7 @@
 <span class="md-ellipsis">
 
 
-  13.1   バックトラッキングアルゴリズム
+  13.1   バックトラッキング
 
 
   </span>
@@ -1522,7 +1522,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   順列列挙問題
+  13.2   全順列問題
 
 
   </span>
@@ -1533,7 +1533,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   部分集合和問題
+  13.3   部分和問題
 
 
   </span>
@@ -1544,7 +1544,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n クイーン問題
+  13.4   N クイーン問題
 
 
   </span>
@@ -1606,7 +1606,7 @@
 <span class="md-ellipsis">
 
 
-  14.1   動的計画法への第一歩
+  14.1   動的計画法入門
 
 
   </span>
@@ -1617,7 +1617,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   動的計画法の問題の特徴
+  14.2   動的計画法で解ける問題の特徴
 
 
   </span>
@@ -1628,7 +1628,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   動的計画法の解き方
+  14.3   動的計画法で解くための考え方
 
 
   </span>
@@ -1723,7 +1723,7 @@
 <span class="md-ellipsis">
 
 
-  15.1   貪欲アルゴリズム
+  15.1   貪欲法
 
 
   </span>
@@ -1756,7 +1756,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   整数を分割して積を最大にする問題
+  15.4   整数分割の最大積問題
 
 
   </span>
@@ -1818,7 +1818,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   プログラミング環境のインストール
+  16.1   開発環境のセットアップ
 
 
   </span>
@@ -1829,7 +1829,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   一緒に本書を作りましょう
+  16.2   本書の執筆に参加する
 
 
   </span>
@@ -1897,7 +1897,7 @@
 <a class="md-nav__link" href="#1031">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.3.1   左の境界を探す
+        10.3.1   左端を探す
       </span>
 </span>
 </a>
@@ -1906,17 +1906,17 @@
 <a class="md-nav__link" href="#1032">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.3.2   右の境界を探す
+        10.3.2   右端を探す
       </span>
 </span>
 </a>
-<nav aria-label="10.3.2 右の境界を探す" class="md-nav">
+<nav aria-label="10.3.2 右端を探す" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   左の境界を探す処理の再利用
+        1.   左端を探す方法の再利用
       </span>
 </span>
 </a>
@@ -1925,7 +1925,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   要素の探索への置き換え
+        2.   要素の探索に置き換える
       </span>
 </span>
 </a>
@@ -1949,451 +1949,451 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="103">10.3   二分探索で境界を探す<a class="headerlink" href="#103" title="この見出しへのリンク">¶</a></h1>
-<h2 id="1031">10.3.1   左の境界を探す<a class="headerlink" href="#1031" title="この見出しへのリンク">¶</a></h2>
+<h1 id="103">10.3   二分探索による境界の特定<a class="headerlink" href="#103" title="この見出しへのリンク">¶</a></h1>
+<h2 id="1031">10.3.1   左端を探す<a class="headerlink" href="#1031" title="この見出しへのリンク">¶</a></h2>
 <div class="admonition question">
 <p class="admonition-title">問題</p>
-<p>重複する要素を含む可能性がある、長さ <span class="arithmatex">\(n\)</span> の整列済み配列 <code>nums</code> が与えられます。配列内で最も左にある要素 <code>target</code> のインデックスを返してください。含まれない場合は <span class="arithmatex">\(-1\)</span> を返します。</p>
+<p>重複する要素を含む可能性がある、長さ <span class="arithmatex">\(n\)</span> の整列済み配列 <code>nums</code> が与えられます。配列内で最も左にある <code>target</code> のインデックスを返してください。その要素がなければ <span class="arithmatex">\(-1\)</span> を返してください。</p>
 </div>
-<p>二分探索で挿入位置を探す方法を思い出してください。探索後、<span class="arithmatex">\(i\)</span> は最も左の <code>target</code> を指します。<strong>つまり、挿入位置の探索は、本質的には最も左の <code>target</code> のインデックスを探しています</strong>。</p>
-<p>挿入位置を探す関数を使って、左の境界を探すことを考えます。ただし、配列に <code>target</code> が含まれない場合、次の二つの結果になる可能性があります。</p>
+<p>挿入位置を二分探索したときのことを思い出してください。探索が終わると <span class="arithmatex">\(i\)</span> は最も左にある <code>target</code> を指します。<strong>つまり、挿入位置を探すことは、最も左にある <code>target</code> のインデックスを探すことにほかなりません</strong>。</p>
+<p>挿入位置を求める関数を使って左端を探してみましょう。配列に <code>target</code> が含まれていないこともあります。その場合、結果は次のいずれかになります。</p>
 <ul>
-<li>挿入位置のインデックス <span class="arithmatex">\(i\)</span> が範囲外になります。</li>
-<li>要素 <code>nums[i]</code> が <code>target</code> と等しくありません。</li>
+<li>挿入位置のインデックス <span class="arithmatex">\(i\)</span> が配列の範囲外です。</li>
+<li>要素 <code>nums[i]</code> と <code>target</code> が等しくありません。</li>
 </ul>
-<p>このどちらかに当てはまれば、そのまま <span class="arithmatex">\(-1\)</span> を返します。コードは次のとおりです。</p>
+<p>これらのいずれかに当てはまれば、その場で <span class="arithmatex">\(-1\)</span> を返せばよいのです。コードを以下に示します。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_edge.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_left_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""二分探索で最も左にある target を探す"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""最も左にある target の二分探索"""</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">i</span> <span class="o">=</span> <span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="ow">or</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="k">return</span> <span class="n">i</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchLeftEdge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchLeftEdge</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">.</span><span class="na">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">BinarySearchLeftEdge</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">.</span><span class="n">BinarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">binarySearchLeftEdge</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">binarySearchInsertion</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">i</span>
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">binarySearchLeftEdge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">endIndex</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span>
 <a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">binarySearchLeftEdge</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">binarySearchInsertion</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">);</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
 <a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">binarySearchLeftEdge</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">binarySearchInsertion</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">);</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
 <a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">binarySearchLeftEdge</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">binary_search_left_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="n">i</span>
 <a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchLeftEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">numSize</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">);</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">numSize</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 二分探索で最も左にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 最も左にある target の二分探索 */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">binarySearchLeftEdge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span>
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span>
 <a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 二分探索で最も左にある target を探す ###</span>
+<div class="highlight"><span class="filename">binary_search_edge.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 最も左にある target の二分探索 ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_left_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># target の挿入位置を探すことに等しい</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># target の挿入位置を探すことと同じ</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nums</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="c1"># target が見つかったので、インデックス i を返す</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="c1"># target が見つかったのでインデックス i を返す</span>
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <details class="pythontutor">
-<summary>実行の可視化</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%AB%E3%82%88%E3%82%8B%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bm%2B1,%20j%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%82%88%E3%82%8A%E5%B0%8F%E3%81%95%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AF%E3%80%81%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20%23%20target%20%E3%81%AE%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%82%92%E6%8E%A2%E3%81%99%E3%81%93%E3%81%A8%E3%81%AB%E7%AD%89%E3%81%97%E3%81%84%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E5%90%AB%E3%82%80%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E5%B7%A6%E5%A2%83%E7%95%8C%E3%81%A8%E5%8F%B3%E5%A2%83%E7%95%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%E8%A6%81%E7%B4%A0%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の可視化"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%AB%E3%82%88%E3%82%8B%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bm%2B1,%20j%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%82%88%E3%82%8A%E5%B0%8F%E3%81%95%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AF%E3%80%81%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20%23%20target%20%E3%81%AE%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%82%92%E6%8E%A2%E3%81%99%E3%81%93%E3%81%A8%E3%81%AB%E7%AD%89%E3%81%97%E3%81%84%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E5%90%AB%E3%82%80%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E5%B7%A6%E5%A2%83%E7%95%8C%E3%81%A8%E5%8F%B3%E5%A2%83%E7%95%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%E8%A6%81%E7%B4%A0%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
+<summary>実行の様子を見る</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%81%A7%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E6%9C%AA%E6%BA%80%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%20%5Bi,%20m-1%5D%20%E3%81%A7%E6%8E%A2%E3%81%99%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20%23%20target%20%E3%81%AE%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%82%92%E6%8E%A2%E3%81%99%E3%81%93%E3%81%A8%E3%81%A8%E5%90%8C%E3%81%98%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%20-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E5%B7%A6%E7%AB%AF%E3%81%A8%E5%8F%B3%E7%AB%AF%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の様子を見る"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%81%A7%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E6%9C%AA%E6%BA%80%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%20%5Bi,%20m-1%5D%20%E3%81%A7%E6%8E%A2%E3%81%99%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_left_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20%23%20target%20%E3%81%AE%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%82%92%E6%8E%A2%E3%81%99%E3%81%93%E3%81%A8%E3%81%A8%E5%90%8C%E3%81%98%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%29%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%20-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3D%3D%20len%28nums%29%20or%20nums%5Bi%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E5%B7%A6%E7%AB%AF%E3%81%A8%E5%8F%B3%E7%AB%AF%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_left_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
 </details>
-<h2 id="1032">10.3.2   右の境界を探す<a class="headerlink" href="#1032" title="この見出しへのリンク">¶</a></h2>
-<p>では、最も右の <code>target</code> はどう探せばよいでしょうか。最も直接的な方法は、<code>nums[m] == target</code> の場合にポインタで区間を縮める操作を書き換えることです。コードは省略するので、興味があれば実装してみてください。</p>
-<p>ここでは、さらに工夫した二つの方法を紹介します。</p>
-<h3 id="1">1.   左の境界を探す処理の再利用<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
-<p>実は、最も左の要素を探す関数を使って、最も右の要素を探すこともできます。具体的には、<strong>最も右の <code>target</code> を探す問題を、最も左の <code>target + 1</code> を探す問題に置き換えます</strong>。</p>
-<p>図 10-7 のように、探索後のポインタ <span class="arithmatex">\(i\)</span> は最も左の <code>target + 1</code>（存在する場合）を指し、<span class="arithmatex">\(j\)</span> は最も右の <code>target</code> を指します。<strong>そのため、<span class="arithmatex">\(j\)</span> を返せばよいのです</strong>。</p>
-<p><ha-svg-figure aria-label="挿入位置を用いた右境界の探索" class="animation-figure" data-book-key="ja/chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-dark-src="/assets/figure-svg/figures/50a25c41a71c4639cc69d0a3.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/418d796a68f56eb821a98673.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">右の境界の探索を左の境界の探索に置き換える</object><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">右の境界の探索を左の境界の探索に置き換える</object></ha-svg-figure></p>
-<p align="center"> 図 10-7   右の境界の探索を左の境界の探索に置き換える </p><div class="ha-sr-only figure-description"><h4>図解 10-7：挿入位置を用いた右境界の探索</h4><p>整列済み整数配列において、target + 1 の挿入位置から 1 を引いて右境界の候補インデックスを求めます。返す前にインデックスが有効であり、対応する要素が target と等しいことを確認する必要があります。</p><p>整列済み整数配列は nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15] で、対象要素は target = 6 です。インデックス 2 から 6 には五つの 6 が連続しています。図には左境界の探索終了時と右境界の探索終了時における二組のポインタ状態が同時に示されています。</p><p>左側では「最も左の target を探す」処理を直接行います。二分探索による挿入位置の探索が終わると、ポインタ i はインデックス 2（最初の 6、水色のマス）で止まり、ポインタ j はインデックス 1（値は 3）で止まるため、6 の左境界は i = 2 です。</p><p>右側では「最も右の target を探す」ことと「最も左の target + 1 を探す」ことの双方向の「同等」な置き換えを示しています。target + 1 = 7 に対して二分探索で挿入位置を求めると、探索終了時にポインタ i は 7 以上の最初の要素（インデックス 7 の値 10）を指し、ポインタ j = i − 1 はちょうどインデックス 6 にある最後の 6（水色のマス）を指します。配列に要素 7 は存在しないことに注意してください。図の「最も左の target + 1 を探す」とは、二分探索の挿入位置関数を呼び出して 7 の左端の挿入位置 i = 7 を求めるという意味であり、要素 7 そのものに一致させることではありません。</p><p>この同等な置き換えは、配列の要素がすべて整数である性質を利用しています。配列内で 6 より大きい要素はすべて 7 以上になるため、7 以上の最初の位置は 6 より大きい最初の位置と一致します。実際のコードでは j = i − 1 を求めた後、j が範囲外でなく nums[j] == target を満たすかを確認し、満たさなければ配列に target が存在しないため −1 を返します。</p></div>
-<p>返される挿入位置は <span class="arithmatex">\(i\)</span> なので、そこから <span class="arithmatex">\(1\)</span> を引いて <span class="arithmatex">\(j\)</span> を得る必要があります。</p>
+<h2 id="1032">10.3.2   右端を探す<a class="headerlink" href="#1032" title="この見出しへのリンク">¶</a></h2>
+<p>では、最も右にある <code>target</code> はどう探せばよいでしょうか。いちばん直接的な方法は、<code>nums[m] == target</code> のときにどちらのポインタで区間を狭めるかをコード上で入れ替えることです。ここではコードを省きます。興味があれば実装してみてください。</p>
+<p>ここからは、少し工夫した二つの方法を紹介します。</p>
+<h3 id="1">1.   左端を探す方法の再利用<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
+<p>実は、最も左の要素を探す関数を使って、最も右の要素も探せます。<strong>最も右の <code>target</code> を探す問題を、最も左の <code>target + 1</code> を探す問題に置き換えます</strong>。</p>
+<p>図 10-7 のように、探索が終わると、<code>target + 1</code> が存在する場合、ポインタ <span class="arithmatex">\(i\)</span> はそのうち最も左のものを指します。一方、<span class="arithmatex">\(j\)</span> は最も右の <code>target</code> を指すので、<strong><span class="arithmatex">\(j\)</span> を返せばよいのです</strong>。</p>
+<p><ha-svg-figure aria-label="挿入位置を使った右端の探索" class="animation-figure" data-book-key="ja/chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.png" data-dark-src="/assets/figure-svg/figures/3e8eff5d35ea4d6f57bbfb09.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/8f294b671b09f04a30a2f40f.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">右端の探索を左端の探索に置き換える</object><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_right_edge_by_left_edge.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">右端の探索を左端の探索に置き換える</object></ha-svg-figure></p>
+<p align="center"> 図 10-7   右端の探索を左端の探索に置き換える </p><div class="ha-sr-only figure-description"><h4>図解 10-7：挿入位置を使った右端の探索</h4><p>整列済みの整数配列では、target + 1 の挿入位置から 1 を引くと右端のインデックスの候補が得られます。返す前に、そのインデックスが有効で、対応する要素が target と等しいことを確かめます。</p><p>整列済みの整数配列は nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]、目標の要素は target = 6 です。インデックス 2 から 6 には五つの 6 が連続しています。図には左端の探索が終わったときと右端の探索が終わったときの二つのポインタの位置をそれぞれ示しています。</p><p>図の左側では「最も左の target を探す」操作をそのまま行います。挿入位置の二分探索が終わると、i はインデックス 2（最初の 6、青緑色のマス）、j はインデックス 1（値 3）で止まります。したがって 6 の左端は i = 2 です。</p><p>右側では、「最も右の target を探す」操作と「最も左の target + 1 を探す」操作を、双方向の矢印と「同値」の表示で結んでいます。target + 1 = 7 の挿入位置を二分探索すると、終了時に i は 7 以上の最初の要素（インデックス 7 の値 10）を指し、j = i − 1 はちょうど最後の 6（インデックス 6、青緑色のマス）を指します。配列に 7 はありません。図の「最も左の target + 1 を探す」とは、7 そのものを見つけるのではなく、二分探索で挿入位置を求める関数を呼び、7 の左端にあたる挿入位置 i = 7 を得ることです。</p><p>この置き換えには、配列の全要素が整数であることを利用しています。6 より大きい要素はすべて 7 以上なので、7 以上の最初の位置は 6 より大きい最初の位置と一致します。実際のコードでは、j = i − 1 を求めたあと、j が配列内に収まり、かつ nums[j] == target であることを確かめます。条件を満たさなければ配列に target はないので、−1 を返します。</p></div>
+<p>返される挿入位置は <span class="arithmatex">\(i\)</span> です。そこから <span class="arithmatex">\(1\)</span> を引いて <span class="arithmatex">\(j\)</span> を求めます。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_edge.py</span><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_right_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""二分探索で最も右にある target を探す"""</span>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="c1"># 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="sd">"""最も右にある target の二分探索"""</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="c1"># 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>    <span class="n">i</span> <span class="o">=</span> <span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="c1"># target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="c1"># target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
 <a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>    <span class="c1"># target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>    <span class="c1"># target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>    <span class="k">return</span> <span class="n">j</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.cpp</span><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchRightEdge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
 <a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.java</span><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchRightEdge</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">.</span><span class="na">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
 <a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.cs</span><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">BinarySearchRightEdge</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">.</span><span class="n">BinarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
 <a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.go</span><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">binarySearchRightEdge</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">binarySearchInsertion</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">j</span>
 <a href="#__codelineno-17-13" id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.swift</span><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">binarySearchRightEdge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span>
 <a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.js</span><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">binarySearchRightEdge</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">binarySearchInsertion</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
-<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">j</span><span class="p">;</span>
 <a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.ts</span><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">binarySearchRightEdge</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">binarySearchInsertion</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
-<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">j</span><span class="p">;</span>
 <a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.dart</span><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">binarySearchRightEdge</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">  </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">  </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
-<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">  </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">  </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
-<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">  </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">  </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
 <a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">  </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">  </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
 <a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.rs</span><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">binary_search_right_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="w">    </span><span class="n">j</span>
 <a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.c</span><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.c</span><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearchRightEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numSize</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">numSize</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
 <a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* 二分探索で最も右にある target を探す */</span>
+<div class="highlight"><span class="filename">binary_search_edge.kt</span><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cm">/* 最も右にある target の二分探索 */</span>
 <a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">binarySearchRightEdge</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="c1">// 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binarySearchInsertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
-<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">    </span><span class="c1">// j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">    </span><span class="c1">// j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span>
-<a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="w">    </span><span class="c1">// target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span>
 <a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="w">    </span><span class="c1">// target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="w">    </span><span class="c1">// target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-24-12" id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">j</span>
 <a href="#__codelineno-24-13" id="__codelineno-24-13" name="__codelineno-24-13"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_search_edge.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">### 二分探索で最も右にある target を探す ###</span>
+<div class="highlight"><span class="filename">binary_search_edge.rb</span><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">### 最も右にある target の二分探索 ###</span>
 <a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search_right_edge</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
-<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">  </span><span class="c1"># 最も左にある target + 1 を探す問題に変換する</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">  </span><span class="c1"># 最も左にある target + 1 の探索に置き換える</span>
 <a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search_insertion</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a>
-<a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="w">  </span><span class="c1"># j は最も右にある target を指し、i は target より大きい最初の要素を指す</span>
+<a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="w">  </span><span class="c1"># j は最も右の target を、i は target より大きい最初の要素を指す</span>
 <a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="w">  </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a>
-<a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="w">  </span><span class="c1"># target が見つからなかったので、-1 を返す</span>
+<a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="w">  </span><span class="c1"># target が見つからなかったので -1 を返す</span>
 <a href="#__codelineno-25-10" id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">target</span>
 <a href="#__codelineno-25-11" id="__codelineno-25-11" name="__codelineno-25-11"></a>
-<a href="#__codelineno-25-12" id="__codelineno-25-12" name="__codelineno-25-12"></a><span class="w">  </span><span class="n">j</span><span class="w"> </span><span class="c1"># target が見つかったので、インデックス j を返す</span>
+<a href="#__codelineno-25-12" id="__codelineno-25-12" name="__codelineno-25-12"></a><span class="w">  </span><span class="n">j</span><span class="w"> </span><span class="c1"># target が見つかったのでインデックス j を返す</span>
 <a href="#__codelineno-25-13" id="__codelineno-25-13" name="__codelineno-25-13"></a><span class="k">end</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <details class="pythontutor">
-<summary>実行の可視化</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%AB%E3%82%88%E3%82%8B%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bm%2B1,%20j%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%82%88%E3%82%8A%E5%B0%8F%E3%81%95%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AF%E3%80%81%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%2B%201%20%E3%82%92%E6%8E%A2%E3%81%99%E5%95%8F%E9%A1%8C%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20%E3%81%AF%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%82%92%E6%8C%87%E3%81%97%E3%80%81i%20%E3%81%AF%20target%20%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E3%81%99%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20j%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20j%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E5%90%AB%E3%82%80%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E5%B7%A6%E5%A2%83%E7%95%8C%E3%81%A8%E5%8F%B3%E5%A2%83%E7%95%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%E8%A6%81%E7%B4%A0%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の可視化"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%AB%E3%82%88%E3%82%8B%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bm%2B1,%20j%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AF%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%82%88%E3%82%8A%E5%B0%8F%E3%81%95%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AF%E3%80%81%E5%8C%BA%E9%96%93%20%5Bi,%20m-1%5D%20%E3%81%AB%E5%AD%98%E5%9C%A8%E3%81%99%E3%82%8B%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%82%92%E6%8E%A2%E3%81%99%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%2B%201%20%E3%82%92%E6%8E%A2%E3%81%99%E5%95%8F%E9%A1%8C%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20%E3%81%AF%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%82%92%E6%8C%87%E3%81%97%E3%80%81i%20%E3%81%AF%20target%20%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E3%81%99%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20j%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20j%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E8%A6%81%E7%B4%A0%E3%82%92%E5%90%AB%E3%82%80%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E3%81%A7%E5%B7%A6%E5%A2%83%E7%95%8C%E3%81%A8%E5%8F%B3%E5%A2%83%E7%95%8C%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%E8%A6%81%E7%B4%A0%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
+<summary>実行の様子を見る</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%81%A7%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E6%9C%AA%E6%BA%80%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%20%5Bi,%20m-1%5D%20%E3%81%A7%E6%8E%A2%E3%81%99%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%2B%201%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E3%81%AB%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20%E3%81%AF%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AE%20target%20%E3%82%92%E3%80%81i%20%E3%81%AF%20target%20%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E3%81%99%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%20-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20j%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20j%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E5%B7%A6%E7%AB%AF%E3%81%A8%E5%8F%B3%E7%AB%AF%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の様子を見る"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20binary_search_insertion%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E5%A0%B4%E5%90%88%EF%BC%89%22%22%22%0A%20%20%20%20i,%20j%20%3D%200,%20len%28nums%29%20-%201%20%20%23%20%E9%96%89%E5%8C%BA%E9%96%93%20%5B0,%20n-1%5D%20%E3%81%A7%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%0A%20%20%20%20while%20i%20%3C%3D%20j%3A%0A%20%20%20%20%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20m%20%2B%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bm%2B1,%20j%5D%0A%20%20%20%20%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E7%AF%84%E5%9B%B2%E3%81%AF%20%5Bi,%20m-1%5D%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20m%20-%201%20%20%23%20target%20%E6%9C%AA%E6%BA%80%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%20%5Bi,%20m-1%5D%20%E3%81%A7%E6%8E%A2%E3%81%99%0A%20%20%20%20%23%20%E6%8C%BF%E5%85%A5%E4%BD%8D%E7%BD%AE%20i%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20i%0A%0Adef%20binary_search_right_edge%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20target%20%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20%23%20%E6%9C%80%E3%82%82%E5%B7%A6%E3%81%AB%E3%81%82%E3%82%8B%20target%20%2B%201%20%E3%81%AE%E6%8E%A2%E7%B4%A2%E3%81%AB%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B%0A%20%20%20%20i%20%3D%20binary_search_insertion%28nums,%20target%20%2B%201%29%0A%20%20%20%20%23%20j%20%E3%81%AF%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AE%20target%20%E3%82%92%E3%80%81i%20%E3%81%AF%20target%20%E3%82%88%E3%82%8A%E5%A4%A7%E3%81%8D%E3%81%84%E6%9C%80%E5%88%9D%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E6%8C%87%E3%81%99%0A%20%20%20%20j%20%3D%20i%20-%201%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%89%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%20-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20j%20%3D%3D%20-1%20or%20nums%5Bj%5D%20%21%3D%20target%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20target%20%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20j%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20return%20j%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%E9%87%8D%E8%A4%87%E3%81%99%E3%82%8B%E8%A6%81%E7%B4%A0%E3%81%8C%E3%81%82%E3%82%8B%E9%85%8D%E5%88%97%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%206,%206,%206,%206,%2010,%2012,%2015%5D%0A%20%20%20%20%23%20%E5%B7%A6%E7%AB%AF%E3%81%A8%E5%8F%B3%E7%AB%AF%E3%81%AE%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20index%20%3D%20binary_search_right_edge%28nums,%20target%29%0A%20%20%20%20print%28f%22%E6%9C%80%E3%82%82%E5%8F%B3%E3%81%AB%E3%81%82%E3%82%8B%20%7Btarget%7D%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%AF%20%7Bindex%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
 </details>
-<h3 id="2">2.   要素の探索への置き換え<a class="headerlink" href="#2" title="この見出しへのリンク">¶</a></h3>
-<p>配列に <code>target</code> が含まれない場合、最終的に <span class="arithmatex">\(i\)</span> は <code>target</code> より大きい最初の要素を、<span class="arithmatex">\(j\)</span> は <code>target</code> より小さい最も右の要素を指します。</p>
-<p>したがって、図 10-8 のように、配列に存在しない要素を用意して左右の境界を探すことができます。</p>
+<h3 id="2">2.   要素の探索に置き換える<a class="headerlink" href="#2" title="この見出しへのリンク">¶</a></h3>
+<p>配列に <code>target</code> がない場合、探索の最後に <span class="arithmatex">\(i\)</span> は <code>target</code> より大きい最初の要素を、<span class="arithmatex">\(j\)</span> は <code>target</code> より小さい最も右の要素を指します。</p>
+<p>そこで図 10-8 のように、配列に存在しない値を作り、それを使って左端と右端を探せます。</p>
 <ul>
-<li>最も左の <code>target</code> を探す場合：<code>target - 0.5</code> の探索に置き換え、ポインタ <span class="arithmatex">\(i\)</span> を返します。</li>
-<li>最も右の <code>target</code> を探す場合：<code>target + 0.5</code> の探索に置き換え、ポインタ <span class="arithmatex">\(j\)</span> を返します。</li>
+<li>最も左の <code>target</code> を探すには、代わりに <code>target - 0.5</code> を探し、ポインタ <span class="arithmatex">\(i\)</span> を返します。</li>
+<li>最も右の <code>target</code> を探すには、代わりに <code>target + 0.5</code> を探し、ポインタ <span class="arithmatex">\(j\)</span> を返します。</li>
 </ul>
-<p><ha-svg-figure aria-label="半整数を用いた左右境界の探索" class="animation-figure" data-book-key="ja/chapter_searching/binary_search_edge.assets/binary_search_edge_by_element.png" data-dark-src="/assets/figure-svg/figures/961e089a157e2611fe3ce2a6.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/7fc2394a089541c3096afec6.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_edge_by_element.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">境界の探索を要素の探索に置き換える</object><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_edge_by_element.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">境界の探索を要素の探索に置き換える</object></ha-svg-figure></p>
-<p align="center"> 図 10-8   境界の探索を要素の探索に置き換える </p><div class="ha-sr-only figure-description"><h4>図解 10-8：半整数を用いた左右境界の探索</h4><p>整数配列において、配列に存在しない二つの半整数を利用して重複する値の左右の境界を特定します。</p><p>整列済み整数配列は nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15] で、対象要素は target = 6（インデックス 2 から 6 を占める）です。配列の要素はすべて整数なので、構成した半整数 target - 0.5 = 5.5 と target + 0.5 = 6.5 は必ず配列に含まれません。</p><p>両端を含む閉区間の二分探索で配列に存在しない目標値を探す場合、ループ内で等しい場合の分岐を扱う必要はなく、最終的に探索区間が空になったとき、ポインタ i はその目標より大きい最初の要素を必ず指し、ポインタ j はその目標より小さい最も右の要素を必ず指します。より大きい要素が存在しなければ i = n、より小さい要素が存在しなければ j = −1 となり、対応するポインタは配列の外に出ます。</p><p>図の左側は「最も左の target を探す」ことが「target - 0.5 を探す」（すなわち 5.5）ことと同等である様子を示しています。探索終了時には j = 1（3 を指す）、i = 2（5.5 より大きい最初の要素、すなわち最も左の 6 を指す）となり、i = 2 を返せば左の境界が得られます。図の右側は「最も右の target を探す」ことが「target + 0.5 を探す」（すなわち 6.5）ことと同等である様子を示しています。探索終了時には j = 6（6.5 より小さい最も右の要素、すなわち最も右の 6 を指す）、i = 7（10 を指す）となり、j = 6 を返せば右の境界が得られます。</p><p>この方法は入力配列が整数のみを含むという前提に依拠しています（元の配列自体に小数が含まれると、±0.5 が既存の要素と衝突して成り立たなくなる可能性があります）。汎用的な実装で元の配列に target が含まれない可能性がある場合は、返す前にインデックスが範囲内であり、かつ対応する要素の値が target と等しいことを確認する必要があります。</p></div>
-<p>コードは省略しますが、次の二点に注意してください。</p>
+<p><ha-svg-figure aria-label="半整数を使った左端と右端の探索" class="animation-figure" data-book-key="ja/chapter_searching/binary_search_edge.assets/binary_search_edge_by_element.png" data-dark-src="/assets/figure-svg/figures/a6395f5beebf30ad226e9ae5.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/9c78034186edb297e7994de7.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_edge_by_element.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">境界の探索を要素の探索に置き換える</object><object aria-hidden="true" data="/ja/chapter_searching/binary_search_edge.assets/binary_search_edge_by_element.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">境界の探索を要素の探索に置き換える</object></ha-svg-figure></p>
+<p align="center"> 図 10-8   境界の探索を要素の探索に置き換える </p><div class="ha-sr-only figure-description"><h4>図解 10-8：半整数を使った左端と右端の探索</h4><p>整数配列に存在し得ない二つの半整数を使って、重複する値の左端と右端を求めます。</p><p>整列済みの整数配列は nums = [1, 3, 6, 6, 6, 6, 6, 10, 12, 15]、目標の要素は target = 6（インデックス 2 から 6）です。配列には整数しかないので、ここで作る半整数 target - 0.5 = 5.5 と target + 0.5 = 6.5 は、どちらも配列に存在しません。</p><p>配列に存在しない値を閉区間の二分探索で探すとき、ループでは値が等しい場合を処理する必要がありません。最後に探索区間が空になると、i は目標値より大きい最初の要素を、j は目標値より小さい最も右の要素を指します。より大きい要素がなければ i = n、より小さい要素がなければ j = −1 となり、それぞれのポインタは配列の外にあります。</p><p>図の左側では、「最も左の target を探す」ことを「target - 0.5（5.5）を探す」ことに置き換えます。探索終了時には j = 1（値 3）、i = 2（5.5 より大きい最初の要素、つまり最も左の 6）となり、i = 2 を返すと左端が得られます。右側では、「最も右の target を探す」ことを「target + 0.5（6.5）を探す」ことに置き換えます。探索終了時には j = 6（6.5 より小さい最も右の要素、つまり最も右の 6）、i = 7（値 10）となり、j = 6 を返すと右端が得られます。</p><p>この方法は入力配列の全要素が整数であることを前提とします。小数を含む配列では、±0.5 だけずらした値が既存の要素と一致してうまくいかないことがあります。また、target を含まない配列も扱う実装では、返す前にインデックスが配列内に収まり、その位置の要素が target と等しいことを確かめる必要があります。</p></div>
+<p>コードは省きますが、次の二点に注意してください。</p>
 <ul>
-<li>与えられた配列には小数が含まれないため、等しい場合の処理を考える必要はありません。</li>
-<li>この方法では小数を使うため、関数内の変数 <code>target</code> を浮動小数点数型に変更する必要があります（Python では変更不要です）。</li>
+<li>与えられた配列には小数がないため、値が等しい場合の扱いを考える必要はありません。</li>
+<li>この方法では小数を使うので、関数内の変数 <code>target</code> を浮動小数点数型に変更します（Python では変更は不要です）。</li>
 </ul>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="フッター" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="前: 10.2   二分探索で挿入位置を探す" class="md-footer__link md-footer__link--prev" href="../binary_search_insertion/" rel="prev">
+<a aria-label="前: 10.2   二分探索で挿入位置を求める" class="md-footer__link md-footer__link--prev" href="../binary_search_insertion/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -2402,18 +2402,18 @@
         前
       </span>
 <div class="md-ellipsis">
-        10.2   二分探索で挿入位置を探す
+        10.2   二分探索で挿入位置を求める
       </div>
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="次: 10.4   ハッシュを使った最適化" class="md-footer__link md-footer__link--next" href="../replace_linear_by_hashing/" rel="next">
+<a aria-label="次: 10.4   ハッシュを用いた最適化" class="md-footer__link md-footer__link--next" href="../replace_linear_by_hashing/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         次
       </span>
 <div class="md-ellipsis">
-        10.4   ハッシュを使った最適化
+        10.4   ハッシュを用いた最適化
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2423,7 +2423,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">コメント欄で、考えや質問、ご提案をお寄せください。</h5>
+<h5 align="center" id="__comments">ご意見、ご質問、ご提案をコメント欄にお寄せください。</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ja" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2505,9 +2505,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.4b65e87068ac38235d9f2cf93ce9d63bc8183b8a230a27c7b45fcfe8aa24e133.min.js"></script>
+<script src="../../assets/javascripts/bundle.196948135a4269c18233e33e47fd4bec6b98a7ae38264d86305fc24707a64a8d.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

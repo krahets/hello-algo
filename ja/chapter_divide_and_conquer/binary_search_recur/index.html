@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書" name="description"/>
+<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ja/chapter_divide_and_conquer/binary_search_recur/" rel="canonical"/>
 <link href="../divide_and_conquer/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_divide_and_conquer/binary_search_recur/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>12.2 分割統治による探索戦略 - Hello Algo</title>
+<title>12.2 分割統治法による探索 - Hello アルゴリズム</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5aac88ee1d4deb0dce936ce.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,8 +65,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="ヘッダー" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="ナビゲーション" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -75,13 +75,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Hello アルゴリズム
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              12.2   分割統治による探索戦略
+              12.2   分割統治法による探索
 
           </span>
 </div>
@@ -167,10 +167,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="ナビゲーション" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Hello アルゴリズム
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="リポジトリへ">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   アルゴリズムはどこにでもある
+  1.1   身の回りのアルゴリズム
 
 
   </span>
@@ -733,7 +733,7 @@
 <span class="md-ellipsis">
 
 
-  6.1   ハッシュテーブル
+  6.1   ハッシュ表
 
 
   </span>
@@ -1029,7 +1029,7 @@
 <span class="md-ellipsis">
 
 
-  9.3   グラフの走査
+  9.3   グラフの探索
 
 
   </span>
@@ -1102,7 +1102,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分探索で挿入位置を探す
+  10.2   二分探索で挿入位置を求める
 
 
   </span>
@@ -1113,7 +1113,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分探索で境界を探す
+  10.3   二分探索で境界を求める
 
 
   </span>
@@ -1124,7 +1124,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   ハッシュを使った最適化
+  10.4   ハッシュを用いた最適化
 
 
   </span>
@@ -1135,7 +1135,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   探索アルゴリズムを改めて考える
+  10.5   探索アルゴリズムを振り返る
 
 
   </span>
@@ -1335,7 +1335,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
 
   </span>
@@ -1349,7 +1349,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1358,7 +1358,7 @@
 <span class="md-ellipsis">
 
 
-  12.1   分割統治アルゴリズム
+  12.1   分割統治法のアルゴリズム
 
 
   </span>
@@ -1369,7 +1369,7 @@
 <span class="md-ellipsis">
 
 
-  12.2   分割統治による探索戦略
+  12.2   分割統治法による探索
 
 
   </span>
@@ -1379,7 +1379,7 @@
 <span class="md-ellipsis">
 
 
-  12.2   分割統治による探索戦略
+  12.2   分割統治法による探索
 
 
   </span>
@@ -1394,7 +1394,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   分割統治による二分探索の実装
+        1.   分割統治法による二分探索の実装
       </span>
 </span>
 </a>
@@ -1407,7 +1407,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   二分木の構築問題
+  12.3   二分木を構築する問題
 
 
   </span>
@@ -1418,7 +1418,7 @@
 <span class="md-ellipsis">
 
 
-  12.4   ハノイの塔の問題
+  12.4   ハノイの塔
 
 
   </span>
@@ -1480,7 +1480,7 @@
 <span class="md-ellipsis">
 
 
-  13.1   バックトラッキングアルゴリズム
+  13.1   バックトラッキング
 
 
   </span>
@@ -1491,7 +1491,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   順列列挙問題
+  13.2   全順列問題
 
 
   </span>
@@ -1502,7 +1502,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   部分集合和問題
+  13.3   部分和問題
 
 
   </span>
@@ -1513,7 +1513,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n クイーン問題
+  13.4   N クイーン問題
 
 
   </span>
@@ -1575,7 +1575,7 @@
 <span class="md-ellipsis">
 
 
-  14.1   動的計画法への第一歩
+  14.1   動的計画法入門
 
 
   </span>
@@ -1586,7 +1586,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   動的計画法の問題の特徴
+  14.2   動的計画法で解ける問題の特徴
 
 
   </span>
@@ -1597,7 +1597,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   動的計画法の解き方
+  14.3   動的計画法で解くための考え方
 
 
   </span>
@@ -1692,7 +1692,7 @@
 <span class="md-ellipsis">
 
 
-  15.1   貪欲アルゴリズム
+  15.1   貪欲法
 
 
   </span>
@@ -1725,7 +1725,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   整数を分割して積を最大にする問題
+  15.4   整数分割の最大積問題
 
 
   </span>
@@ -1787,7 +1787,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   プログラミング環境のインストール
+  16.1   開発環境のセットアップ
 
 
   </span>
@@ -1798,7 +1798,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   一緒に本書を作りましょう
+  16.2   本書の執筆に参加する
 
 
   </span>
@@ -1866,7 +1866,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   分割統治による二分探索の実装
+        1.   分割統治法による二分探索の実装
       </span>
 </span>
 </a>
@@ -1887,50 +1887,50 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="122">12.2   分割統治による探索戦略<a class="headerlink" href="#122" title="この見出しへのリンク">¶</a></h1>
-<p>すでに学んだように、探索アルゴリズムは大きく二つに分類できます。</p>
+<h1 id="122">12.2   分割統治法による探索<a class="headerlink" href="#122" title="この見出しへのリンク">¶</a></h1>
+<p>これまでに学んだ探索アルゴリズムは、大きく二つに分類できます。</p>
 <ul>
-<li><strong>全探索</strong>：データ構造を走査して探索し、時間計算量は <span class="arithmatex">\(O(n)\)</span> です。</li>
-<li><strong>適応的探索</strong>：データの特有の編成方法や事前情報を利用し、時間計算量を <span class="arithmatex">\(O(\log n)\)</span>、さらには <span class="arithmatex">\(O(1)\)</span> にできます。</li>
+<li><strong>総当たり探索</strong>：データ構造全体をたどる方法で、時間計算量は <span class="arithmatex">\(O(n)\)</span> です。</li>
+<li><strong>適応的探索</strong>：データの特有の構造や事前に分かっている情報を利用し、時間計算量を <span class="arithmatex">\(O(\log n)\)</span> や、場合によっては <span class="arithmatex">\(O(1)\)</span> にまで減らせます。</li>
 </ul>
-<p>実際、<strong>時間計算量が <span class="arithmatex">\(O(\log n)\)</span> の探索アルゴリズムは、通常、分割統治戦略に基づいています</strong>。二分探索や木がその例です。</p>
+<p>実際、<strong>時間計算量が <span class="arithmatex">\(O(\log n)\)</span> の探索アルゴリズムには、分割統治の考え方を使うものが多くあります</strong>。二分探索や木を使った探索がその例です。</p>
 <ul>
-<li>二分探索は各ステップで、問題（配列内で目的の要素を探すこと）を小さな問題（配列の半分で目的の要素を探すこと）に分解します。配列が空になるか、目的の要素が見つかるまで続けます。</li>
-<li>木は分割統治の代表例です。二分探索木、AVL 木、ヒープなどのデータ構造では、各種操作の時間計算量が <span class="arithmatex">\(O(\log n)\)</span> になります。</li>
+<li>二分探索では、各段階で「配列内の目的の要素を探す」という問題を「配列の半分で目的の要素を探す」という小さな問題に分けます。配列が空になるか、目的の要素が見つかるまでこれを繰り返します。</li>
+<li>木は分割統治の考え方をよく表しています。二分探索木、AVL 木、ヒープなどでは、さまざまな操作を <span class="arithmatex">\(O(\log n)\)</span> の時間で実行できます。</li>
 </ul>
-<p>二分探索の分割統治戦略は、次のように整理できます。</p>
+<p>二分探索における分割統治の考え方を整理します。</p>
 <ul>
-<li><strong>問題を分解できる</strong>：中央の要素と目的の要素を比較することで、元の問題（配列内での探索）を部分問題（配列の半分での探索）に再帰的に分解します。</li>
-<li><strong>部分問題が独立している</strong>：二分探索では各回に一つの部分問題だけを扱い、ほかの部分問題の影響を受けません。</li>
-<li><strong>部分問題の解を統合する必要がない</strong>：二分探索の目的は特定の要素を見つけることなので、部分問題の解を統合する必要はありません。部分問題が解けると、元の問題も同時に解けます。</li>
+<li><strong>問題を分割できる</strong>：中央の要素と目的の要素を比較し、配列での探索という元の問題を、その半分での探索という部分問題に再帰的に分けます。</li>
+<li><strong>部分問題が独立している</strong>：各段階で扱う部分問題は一つだけで、ほかの部分問題の影響を受けません。</li>
+<li><strong>部分問題の解をまとめる必要がない</strong>：二分探索の目的は特定の要素を見つけることなので、解をまとめる必要はありません。部分問題が解けた時点で、元の問題も解けています。</li>
 </ul>
-<p>分割統治によって探索効率が上がる本質的な理由は、全探索では 1 回に一つの候補しか除外できないのに対し、<strong>分割統治による探索では 1 回に候補の半分を除外できること</strong>です。</p>
-<h3 id="1">1.   分割統治による二分探索の実装<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
-<p>前の章では、二分探索を反復処理（イテレーション）で実装しました。ここでは、分割統治（再帰）で実装します。</p>
+<p>総当たり探索では一度に一つの候補しか除けませんが、<strong>分割統治による探索では一度に候補の半分を除けます</strong>。これが探索効率が上がる理由です。</p>
+<h3 id="1">1.   分割統治法による二分探索の実装<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
+<p>以前の章では二分探索を反復で実装しました。ここでは分割統治法を使い、再帰で実装します。</p>
 <div class="admonition question">
 <p class="admonition-title">問題</p>
-<p>長さ <span class="arithmatex">\(n\)</span> のソート済み配列 <code>nums</code> が与えられます。すべての要素は互いに異なります。要素 <code>target</code> を探してください。</p>
+<p>長さ <span class="arithmatex">\(n\)</span> のソート済み配列 <code>nums</code> が与えられ、すべての値は異なります。要素 <code>target</code> を探してください。</p>
 </div>
 <p>分割統治の観点から、探索区間 <span class="arithmatex">\([i, j]\)</span> に対応する部分問題を <span class="arithmatex">\(f(i, j)\)</span> と表します。</p>
-<p>元の問題 <span class="arithmatex">\(f(0, n-1)\)</span> から始め、次の手順で二分探索を行います。</p>
+<p>元の問題 <span class="arithmatex">\(f(0, n-1)\)</span> を出発点として、次の手順で二分探索を行います。</p>
 <ol>
-<li>探索区間 <span class="arithmatex">\([i, j]\)</span> の中央 <span class="arithmatex">\(m\)</span> を求め、それを使って探索区間の半分を除外します。</li>
-<li>大きさが半分になった部分問題 <span class="arithmatex">\(f(i, m-1)\)</span> または <span class="arithmatex">\(f(m+1, j)\)</span> を再帰的に解きます。</li>
-<li>手順 <code>1.</code> と <code>2.</code> を繰り返し、<code>target</code> が見つかるか、区間が空になったら戻ります。</li>
+<li>探索区間 <span class="arithmatex">\([i, j]\)</span> の中央 <span class="arithmatex">\(m\)</span> を求め、これを使って探索区間の半分を除外します。</li>
+<li>規模が半分になった部分問題を再帰的に解きます。対象は <span class="arithmatex">\(f(i, m-1)\)</span> または <span class="arithmatex">\(f(m+1, j)\)</span> です。</li>
+<li>手順 <code>1.</code> と手順 <code>2.</code> を繰り返し、<code>target</code> が見つかるか区間が空になったら戻ります。</li>
 </ol>
-<p>図 12-4 に、配列内の要素 <span class="arithmatex">\(6\)</span> を二分探索する際の分割統治の流れを示します。</p>
-<p><ha-svg-figure aria-label="再帰による二分探索" class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png" data-dark-src="/assets/figure-svg/figures/0bac5489f1ad150440a46ced.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/f4853c5667d6b4cadd60f165.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">二分探索における分割統治の流れ</object><object aria-hidden="true" data="/ja/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">二分探索における分割統治の流れ</object></ha-svg-figure></p>
-<p align="center"> 図 12-4   二分探索における分割統治の流れ </p><div class="ha-sr-only figure-description"><h4>図解 12-4：再帰による二分探索</h4><p>昇順に並ぶ 10 個の要素から再帰的に 6 を探し、探索区間を [0, 9] から [0, 3]、[2, 3] へと狭めて、最終的にインデックス 2 を返します。</p><p>入力は昇順に並ぶ 10 個の要素で、インデックスは 0～9、探索対象は 6 です。配列全体は「固定のソート済み入力」の表に示します。f(i, j) は閉区間 [i, j] での探索を表し、中央のインデックス m は (i + j) / 2 の切り捨てで求めます。</p><p>中央の値と目的の値を比較するたびに、目的の値を含み得る一方の部分区間だけに再帰的に進みます。除外された位置も元の配列に残っており、見つかった時点でそのままインデックスを返すため、結果の統合は不要です。下の 2 つの表に、入力全体と 3 回の再帰呼び出しを示します。</p><table><caption>固定のソート済み入力</caption><thead><tr><th scope="col">インデックス</th><th scope="col">値</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>3</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>8</td></tr><tr><th scope="row">4</th><td>12</td></tr><tr><th scope="row">5</th><td>15</td></tr><tr><th scope="row">6</th><td>23</td></tr><tr><th scope="row">7</th><td>26</td></tr><tr><th scope="row">8</th><td>31</td></tr><tr><th scope="row">9</th><td>35</td></tr></tbody></table><table><caption>3 回の再帰呼び出し</caption><thead><tr><th scope="col">呼び出し（閉区間）</th><th scope="col">中央のインデックス m</th><th scope="col">中央の値</th><th scope="col">比較</th><th scope="col">次の処理</th></tr></thead><tbody><tr><th scope="row">f(0, 9)</th><td>4</td><td>12</td><td>12 &gt; 6</td><td>f(0, 3) を再帰呼び出し</td></tr><tr><th scope="row">f(0, 3)</th><td>1</td><td>3</td><td>3 &lt; 6</td><td>f(2, 3) を再帰呼び出し</td></tr><tr><th scope="row">f(2, 3)</th><td>2</td><td>6</td><td>6 = 6</td><td>インデックス 2 を返す</td></tr></tbody></table><p>図の下部には「最終的に要素 6 のインデックスは 2 と求まる」と記されています。表の閉区間で数えると候補数は 10、4、2 と減り、3 回目の呼び出しで見つかってそのまま返ります。</p></div>
+<p>図 12-4 は、配列内の要素 <span class="arithmatex">\(6\)</span> を二分探索する際の分割統治の過程です。</p>
+<p><ha-svg-figure aria-label="再帰による二分探索" class="animation-figure" data-book-key="ja/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png" data-dark-src="/assets/figure-svg/figures/a338f030d20a89a63b97751e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/2cfcd128b213629a380aa2f8.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">二分探索における分割統治の過程</object><object aria-hidden="true" data="/ja/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">二分探索における分割統治の過程</object></ha-svg-figure></p>
+<p align="center"> 図 12-4   二分探索における分割統治の過程 </p><div class="ha-sr-only figure-description"><h4>図解 12-4：再帰による二分探索</h4><p>昇順の 10 要素から 6 を再帰的に探します。探索区間を [0, 9] から [0, 3]、[2, 3] と絞り、最後にインデックス 2 を返します。</p><p>入力は値が順に大きくなる 10 個の要素で、インデックスは 0～9、目標値は 6 です。配列全体は「使用するソート済み入力」表に示します。f(i, j) は両端を含む区間 [i, j] での探索を表し、中央のインデックス m は (i + j) / 2 の小数点以下を切り捨てた値です。</p><p>中央の値と目標値を比較するたびに、目標があり得る片方の部分区間だけを再帰的に探索します。対象から除いた位置も元の配列には残ります。一致したらインデックスを返し、結果をまとめる操作は不要です。下の二つの表に入力全体と 3 回の呼び出しを示します。</p><table><caption>使用するソート済み入力</caption><thead><tr><th scope="col">インデックス</th><th scope="col">値</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>3</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>8</td></tr><tr><th scope="row">4</th><td>12</td></tr><tr><th scope="row">5</th><td>15</td></tr><tr><th scope="row">6</th><td>23</td></tr><tr><th scope="row">7</th><td>26</td></tr><tr><th scope="row">8</th><td>31</td></tr><tr><th scope="row">9</th><td>35</td></tr></tbody></table><table><caption>3 回の再帰呼び出し</caption><thead><tr><th scope="col">呼び出し（閉区間）</th><th scope="col">中央のインデックス m</th><th scope="col">中央の値</th><th scope="col">比較</th><th scope="col">次の処理</th></tr></thead><tbody><tr><th scope="row">f(0, 9)</th><td>4</td><td>12</td><td>12 &gt; 6</td><td>f(0, 3) を再帰的に呼び出す</td></tr><tr><th scope="row">f(0, 3)</th><td>1</td><td>3</td><td>3 &lt; 6</td><td>f(2, 3) を再帰的に呼び出す</td></tr><tr><th scope="row">f(2, 3)</th><td>2</td><td>6</td><td>6 = 6</td><td>インデックス 2 を返す</td></tr></tbody></table><p>下部には「要素 6 のインデックスは 2 と判明」とあります。表の閉区間から数えると、候補数は順に 10、4、2 です。3 回目の呼び出しで見つかり、そのまま戻ります。</p></div>
 <p>実装では、問題 <span class="arithmatex">\(f(i, j)\)</span> を解く再帰関数 <code>dfs()</code> を定義します。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""二分探索：問題 f(i, j)"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># 中央のインデックス m を計算する</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># 中央のインデックス m を求める</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -1952,11 +1952,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -1981,11 +1981,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2010,11 +2010,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">DFS</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2039,19 +2039,19 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">//    中央のインデックスを計算する</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">//    中央のインデックスを求める</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">//中央の要素と目的の要素の大小を判定する</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">//中央の要素と目的の要素の大小を比べる</span>
 <a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// 小さい場合、配列の右半分を再帰的に探索する</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// 中央の要素が小さければ右半分を再帰的に探索する</span>
 <a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// 大きい場合、配列の左半分を再帰的に探索する</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// 中央の要素が大きければ左半分を再帰的に探索する</span>
 <a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="c1">// 部分問題 f(i, m-1) を再帰的に解く</span>
 <a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2070,11 +2070,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2098,11 +2098,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2127,11 +2127,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2156,11 +2156,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">~/</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2185,7 +2185,7 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2213,11 +2213,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 二分探索：問題 f(i, j) */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2247,11 +2247,11 @@
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="c1">// 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span>
 <a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を計算する</span>
+<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="c1">// 中央のインデックス m を求める</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="c1">// 部分問題 f(m+1, j) を再帰的に解く</span>
@@ -2276,10 +2276,10 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 二分探索：問題 f(i, j) ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># 区間が空なら目的の要素が存在しないため、-1 を返す</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># 区間が空なら目的の要素はないので -1 を返す</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># 中央のインデックス m を計算する</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># 中央のインデックス m を求める</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
 <a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span>
@@ -2305,16 +2305,16 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>実行の可視化</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D,%20target%3A%20int,%20i%3A%20int,%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%9A%E5%95%8F%E9%A1%8C%20f%28i,%20j%29%22%22%22%0A%20%20%20%20%23%20%E5%8C%BA%E9%96%93%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%80%81-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28m%2B1,%20j%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20m%20%2B%201,%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28i,%20m-1%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20i,%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%E5%95%8F%E9%A1%8C%20f%280,%20n-1%29%20%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20return%20dfs%28nums,%20target,%200,%20n%20-%201%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%96%89%E5%8C%BA%E9%96%93%EF%BC%89%0A%20%20%20%20index%20%3D%20binary_search%28nums,%20target%29%0A%20%20%20%20print%28%22%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%206%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%22,%20index%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の可視化"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D,%20target%3A%20int,%20i%3A%20int,%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%9A%E5%95%8F%E9%A1%8C%20f%28i,%20j%29%22%22%22%0A%20%20%20%20%23%20%E5%8C%BA%E9%96%93%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%80%81-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28m%2B1,%20j%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20m%20%2B%201,%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28i,%20m-1%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20i,%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%E5%95%8F%E9%A1%8C%20f%280,%20n-1%29%20%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20return%20dfs%28nums,%20target,%200,%20n%20-%201%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E9%96%89%E5%8C%BA%E9%96%93%EF%BC%89%0A%20%20%20%20index%20%3D%20binary_search%28nums,%20target%29%0A%20%20%20%20print%28%22%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%206%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%22,%20index%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
+<summary>実行の様子を見る</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D,%20target%3A%20int,%20i%3A%20int,%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%9A%E5%95%8F%E9%A1%8C%20f%28i,%20j%29%22%22%22%0A%20%20%20%20%23%20%E5%8C%BA%E9%96%93%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AF%E3%81%AA%E3%81%84%E3%81%AE%E3%81%A7%20-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28m%2B1,%20j%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20m%20%2B%201,%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28i,%20m-1%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20i,%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%E5%95%8F%E9%A1%8C%20f%280,%20n-1%29%20%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20return%20dfs%28nums,%20target,%200,%20n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E4%B8%A1%E7%AB%AF%E3%82%92%E5%90%AB%E3%82%80%E5%8C%BA%E9%96%93%EF%BC%89%0A%20%20%20%20index%20%3D%20binary_search%28nums,%20target%29%0A%20%20%20%20print%28%22%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%206%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%22,%20index%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の様子を見る"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D,%20target%3A%20int,%20i%3A%20int,%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%9A%E5%95%8F%E9%A1%8C%20f%28i,%20j%29%22%22%22%0A%20%20%20%20%23%20%E5%8C%BA%E9%96%93%E3%81%8C%E7%A9%BA%E3%81%AA%E3%82%89%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%AF%E3%81%AA%E3%81%84%E3%81%AE%E3%81%A7%20-1%20%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%E4%B8%AD%E5%A4%AE%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20m%20%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28m%2B1,%20j%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20m%20%2B%201,%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%E9%83%A8%E5%88%86%E5%95%8F%E9%A1%8C%20f%28i,%20m-1%29%20%E3%82%92%E5%86%8D%E5%B8%B0%E7%9A%84%E3%81%AB%E8%A7%A3%E3%81%8F%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20i,%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%E3%81%8C%E8%A6%8B%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%82%92%E8%BF%94%E3%81%99%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%E5%95%8F%E9%A1%8C%20f%280,%20n-1%29%20%E3%82%92%E8%A7%A3%E3%81%8F%0A%20%20%20%20return%20dfs%28nums,%20target,%200,%20n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%0A%20%20%20%20%23%20%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%EF%BC%88%E4%B8%A1%E7%AB%AF%E3%82%92%E5%90%AB%E3%82%80%E5%8C%BA%E9%96%93%EF%BC%89%0A%20%20%20%20index%20%3D%20binary_search%28nums,%20target%29%0A%20%20%20%20print%28%22%E7%9B%AE%E7%9A%84%E3%81%AE%E8%A6%81%E7%B4%A0%206%20%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%20%3D%20%22,%20index%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
 </details>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="フッター" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="前: 12.1   分割統治アルゴリズム" class="md-footer__link md-footer__link--prev" href="../divide_and_conquer/" rel="prev">
+<a aria-label="前: 12.1   分割統治法のアルゴリズム" class="md-footer__link md-footer__link--prev" href="../divide_and_conquer/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -2323,18 +2323,18 @@
         前
       </span>
 <div class="md-ellipsis">
-        12.1   分割統治アルゴリズム
+        12.1   分割統治法のアルゴリズム
       </div>
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="次: 12.3   二分木の構築問題" class="md-footer__link md-footer__link--next" href="../build_binary_tree_problem/" rel="next">
+<a aria-label="次: 12.3   二分木を構築する問題" class="md-footer__link md-footer__link--next" href="../build_binary_tree_problem/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         次
       </span>
 <div class="md-ellipsis">
-        12.3   二分木の構築問題
+        12.3   二分木を構築する問題
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2344,7 +2344,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">コメント欄で、考えや質問、ご提案をお寄せください。</h5>
+<h5 align="center" id="__comments">ご意見、ご質問、ご提案をコメント欄にお寄せください。</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ja" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2426,9 +2426,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.4b65e87068ac38235d9f2cf93ce9d63bc8183b8a230a27c7b45fcfe8aa24e133.min.js"></script>
+<script src="../../assets/javascripts/bundle.196948135a4269c18233e33e47fd4bec6b98a7ae38264d86305fc24707a64a8d.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

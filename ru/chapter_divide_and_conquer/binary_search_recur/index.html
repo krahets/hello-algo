@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом" name="description"/>
+<meta content="Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ru/chapter_divide_and_conquer/binary_search_recur/" rel="canonical"/>
 <link href="../divide_and_conquer/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_divide_and_conquer/binary_search_recur/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>12.2 Поисковая стратегия разделяй и властвуй - Hello Algo</title>
+<title>12.2 Поиск методом «разделяй и властвуй» - Привет, алгоритмы!</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,15 +64,15 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Приглашаем вас участвовать в развитии русской версии! Подробнее <a href="/ru/chapter_appendix/contribution/">здесь</a>.</span>
+<span>Помогите улучшить русское издание. <a href="/ru/chapter_appendix/contribution/">Узнать больше</a>.</span>
 </div>
 </div>
 </aside>
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="Навигация" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -81,13 +81,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Привет, алгоритмы!
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              12.2   Поисковая стратегия разделяй и властвуй
+              12.2   Поиск методом «разделяй и властвуй»
 
           </span>
 </div>
@@ -173,10 +173,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Привет, алгоритмы!
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="Перейти к репозиторию">
@@ -197,7 +197,7 @@
 <span class="md-ellipsis">
 
 
-  Перед началом
+  Вступительное слово
 
 
   </span>
@@ -208,7 +208,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Перед началом
+  Вступительное слово
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -246,7 +246,7 @@
 <span class="md-ellipsis">
 
 
-  0.1 Об этой книге
+  0.1 О книге
 
 
   </span>
@@ -257,7 +257,7 @@
 <span class="md-ellipsis">
 
 
-  0.2 Как пользоваться этой книгой
+  0.2 Как пользоваться книгой
 
 
   </span>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3 Резюме
+  0.3 Итоги
 
 
   </span>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3 Резюме
+  1.3 Итоги
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1 Оценка эффективности алгоритмов
+  2.1 Оценка эффективности алгоритма
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5 Резюме
+  2.5 Итоги
 
 
   </span>
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
 
 
-  3.5 Резюме
+  3.5 Итоги
 
 
   </span>
@@ -537,7 +537,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
 
   </span>
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -593,7 +593,7 @@
 <span class="md-ellipsis">
 
 
-  4.4 Оперативная память и кэш *
+  4.4 Оперативная память и кеш *
 
 
   </span>
@@ -604,7 +604,7 @@
 <span class="md-ellipsis">
 
 
-  4.5 Резюме
+  4.5 Итоги
 
 
   </span>
@@ -632,7 +632,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
 
   </span>
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -655,7 +655,7 @@
 <span class="md-ellipsis">
 
 
-  5.1 Стек
+  5.1   Стек
 
 
   </span>
@@ -666,7 +666,7 @@
 <span class="md-ellipsis">
 
 
-  5.2 Очередь
+  5.2   Очередь
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3 Двусторонняя очередь
+  5.3   Двусторонняя очередь
 
 
   </span>
@@ -688,7 +688,7 @@
 <span class="md-ellipsis">
 
 
-  5.4 Резюме
+  5.4   Итоги
 
 
   </span>
@@ -699,7 +699,7 @@
 <span class="md-ellipsis">
 
 
-  5.5 Упражнения
+  5.5   Упражнения
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2 Хеш-коллизии
+  6.2 Коллизии
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4 Резюме
+  6.4 Итоги
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3 Представление двоичного дерева массивом
+  7.3 Представление двоичного дерева в виде массива
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5 AVL-дерево *
+  7.5 АВЛ-дерево *
 
 
   </span>
@@ -878,7 +878,7 @@
 <span class="md-ellipsis">
 
 
-  7.6 Краткие итоги
+  7.6 Итоги
 
 
   </span>
@@ -906,7 +906,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
 
   </span>
@@ -920,7 +920,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -951,7 +951,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -962,7 +962,7 @@
 <span class="md-ellipsis">
 
 
-  8.4 Резюме
+  8.4 Итоги
 
 
   </span>
@@ -1024,7 +1024,7 @@
 <span class="md-ellipsis">
 
 
-  9.2 Базовые операции графа
+  9.2 Основные операции с графом
 
 
   </span>
@@ -1046,7 +1046,7 @@
 <span class="md-ellipsis">
 
 
-  9.4 Краткие итоги
+  9.4 Итоги
 
 
   </span>
@@ -1108,7 +1108,7 @@
 <span class="md-ellipsis">
 
 
-  10.2 Двоичный поиск точки вставки
+  10.2 Нахождение позиции вставки с помощью двоичного поиска
 
 
   </span>
@@ -1119,7 +1119,7 @@
 <span class="md-ellipsis">
 
 
-  10.3 Двоичный поиск границ
+  10.3 Нахождение границ с помощью двоичного поиска
 
 
   </span>
@@ -1130,7 +1130,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1141,7 +1141,7 @@
 <span class="md-ellipsis">
 
 
-  10.5 Переосмысление алгоритмов поиска
+  10.5 Новый взгляд на алгоритмы поиска
 
 
   </span>
@@ -1152,7 +1152,7 @@
 <span class="md-ellipsis">
 
 
-  10.6 Резюме
+  10.6 Итоги
 
 
   </span>
@@ -1291,7 +1291,7 @@
 <span class="md-ellipsis">
 
 
-  11.9 Сортировка подсчетом
+  11.9 Сортировка подсчётом
 
 
   </span>
@@ -1313,7 +1313,7 @@
 <span class="md-ellipsis">
 
 
-  11.11 Резюме
+  11.11 Итоги
 
 
   </span>
@@ -1364,7 +1364,7 @@
 <span class="md-ellipsis">
 
 
-  12.1 Стратегия разделяй и властвуй
+  12.1 Метод «разделяй и властвуй»
 
 
   </span>
@@ -1375,7 +1375,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1385,7 +1385,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1400,7 +1400,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Реализация двоичного поиска на основе «разделяй и властвуй»
+        1.   Двоичный поиск методом «разделяй и властвуй»
       </span>
 </span>
 </a>
@@ -1413,7 +1413,7 @@
 <span class="md-ellipsis">
 
 
-  12.3 Задача построения двоичного дерева
+  12.3 Задача о построении двоичного дерева
 
 
   </span>
@@ -1424,7 +1424,7 @@
 <span class="md-ellipsis">
 
 
-  12.4 Задача о Ханойской башне
+  12.4 Задача о ханойских башнях
 
 
   </span>
@@ -1435,7 +1435,7 @@
 <span class="md-ellipsis">
 
 
-  12.5 Резюме
+  12.5 Итоги
 
 
   </span>
@@ -1486,7 +1486,7 @@
 <span class="md-ellipsis">
 
 
-  13.1 Алгоритм поиска с возвратом
+  13.1 Поиск с возвратом
 
 
   </span>
@@ -1508,7 +1508,7 @@
 <span class="md-ellipsis">
 
 
-  13.3 Задача о сумме подмножеств
+  13.3 Задача о сумме подмножества
 
 
   </span>
@@ -1519,7 +1519,7 @@
 <span class="md-ellipsis">
 
 
-  13.4 Задача о n ферзях
+  13.4 Задача о N ферзях
 
 
   </span>
@@ -1530,7 +1530,7 @@
 <span class="md-ellipsis">
 
 
-  13.5 Резюме
+  13.5 Итоги
 
 
   </span>
@@ -1581,7 +1581,7 @@
 <span class="md-ellipsis">
 
 
-  14.1 Первое знакомство с динамическим программированием
+  14.1 Знакомство с динамическим программированием
 
 
   </span>
@@ -1603,7 +1603,7 @@
 <span class="md-ellipsis">
 
 
-  14.3 Подход к решению задач динамического программирования
+  14.3 Как решать задачи динамического программирования
 
 
   </span>
@@ -1614,7 +1614,7 @@
 <span class="md-ellipsis">
 
 
-  14.4 Задача о рюкзаке 0-1
+  14.4 Задача о рюкзаке 0–1
 
 
   </span>
@@ -1625,7 +1625,7 @@
 <span class="md-ellipsis">
 
 
-  14.5 Задача о полном рюкзаке
+  14.5 Задача о неограниченном рюкзаке
 
 
   </span>
@@ -1636,7 +1636,7 @@
 <span class="md-ellipsis">
 
 
-  14.6 Задача о расстоянии редактирования
+  14.6 Задача о редакционном расстоянии
 
 
   </span>
@@ -1647,7 +1647,7 @@
 <span class="md-ellipsis">
 
 
-  14.7 Резюме
+  14.7 Итоги главы
 
 
   </span>
@@ -1675,7 +1675,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
 
   </span>
@@ -1689,7 +1689,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1731,7 +1731,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1742,7 +1742,7 @@
 <span class="md-ellipsis">
 
 
-  15.5 Резюме
+  15.5 Итоги
 
 
   </span>
@@ -1804,7 +1804,7 @@
 <span class="md-ellipsis">
 
 
-  16.2 Присоединяйтесь к созданию книги
+  16.2 Как принять участие в работе над книгой
 
 
   </span>
@@ -1815,7 +1815,7 @@
 <span class="md-ellipsis">
 
 
-  16.3 Глоссарий
+  16.3 Словарь терминов
 
 
   </span>
@@ -1872,7 +1872,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Реализация двоичного поиска на основе «разделяй и властвуй»
+        1.   Двоичный поиск методом «разделяй и властвуй»
       </span>
 </span>
 </a>
@@ -1893,85 +1893,85 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="122">12.2   Поисковая стратегия разделяй и властвуй<a class="headerlink" href="#122" title="Permanent link">¶</a></h1>
-<p>Мы уже знаем, что алгоритмы поиска делятся на две большие категории.</p>
+<h1 id="122">12.2   Поиск методом «разделяй и властвуй»<a class="headerlink" href="#122" title="Permanent link">¶</a></h1>
+<p>Как мы уже видели, алгоритмы поиска можно разделить на две большие группы.</p>
 <ul>
-<li><strong>Полный перебор</strong>: реализуется через обход структуры данных, временная сложность равна <span class="arithmatex">\(O(n)\)</span> .</li>
-<li><strong>Адаптивный поиск</strong>: использует особую организацию данных или априорную информацию, временная сложность может достигать <span class="arithmatex">\(O(\log n)\)</span> и даже <span class="arithmatex">\(O(1)\)</span> .</li>
+<li><strong>Поиск перебором</strong> обходит структуру данных и занимает <span class="arithmatex">\(O(n)\)</span> времени.</li>
+<li><strong>Адаптивный поиск</strong> использует особенности организации данных или заранее известные сведения о них. Время поиска может составлять <span class="arithmatex">\(O(\log n)\)</span> или даже <span class="arithmatex">\(O(1)\)</span>.</li>
 </ul>
-<p>На практике <strong>алгоритмы поиска с временной сложностью <span class="arithmatex">\(O(\log n)\)</span> обычно реализуются на основе стратегии «разделяй и властвуй»</strong>, например двоичный поиск и деревья.</p>
+<p>На практике <strong>алгоритмы поиска со временем <span class="arithmatex">\(O(\log n)\)</span> часто опираются на метод «разделяй и властвуй»</strong>. Примеры — двоичный поиск и поиск в деревьях.</p>
 <ul>
-<li>На каждом шаге двоичный поиск раскладывает задачу (поиск целевого элемента в массиве) на более мелкую задачу (поиск целевого элемента в одной половине массива), и этот процесс продолжается, пока массив не станет пустым или пока не будет найден целевой элемент.</li>
-<li>Деревья являются типичными представителями идей «разделяй и властвуй». В таких структурах данных, как двоичное дерево поиска, AVL-дерево и куча, временная сложность различных операций равна <span class="arithmatex">\(O(\log n)\)</span> .</li>
+<li>На каждом шаге двоичного поиска исходная задача (найти элемент в массиве) сводится к меньшей (найти его в одной половине массива). Так продолжается, пока массив не опустеет или элемент не будет найден.</li>
+<li>Деревья наглядно воплощают идею «разделяй и властвуй». В двоичном дереве поиска, АВЛ-дереве и куче различные операции имеют временную сложность <span class="arithmatex">\(O(\log n)\)</span>.</li>
 </ul>
-<p>Стратегия «разделяй и властвуй» для двоичного поиска выглядит следующим образом.</p>
+<p>Рассмотрим, как двоичный поиск использует эту стратегию.</p>
 <ul>
-<li><strong>Задача раскладывается на части</strong>: двоичный поиск рекурсивно разбивает исходную задачу (поиск в массиве) на подзадачу (поиск в одной половине массива), и это достигается сравнением среднего элемента с целевым значением.</li>
-<li><strong>Подзадачи независимы</strong>: в двоичном поиске на каждом шаге обрабатывается только одна подзадача, и она не зависит от других подзадач.</li>
-<li><strong>Решения подзадач не нужно объединять</strong>: двоичный поиск нацелен на поиск конкретного элемента, поэтому объединять решения подзадач не требуется. Как только подзадача решена, одновременно считается решенной и исходная задача.</li>
+<li><strong>Задача допускает разбиение</strong>. Сравнивая средний элемент с искомым, мы рекурсивно сводим исходную задачу поиска в массиве к подзадаче поиска в одной его половине.</li>
+<li><strong>Подзадачи независимы</strong>. На каждом шаге двоичного поиска обрабатывается лишь одна подзадача. Остальные не влияют на её решение.</li>
+<li><strong>Объединять решения подзадач не требуется</strong>. Мы ищем конкретный элемент, поэтому, как только решена подзадача, решена и исходная задача.</li>
 </ul>
-<p>Иными словами, стратегия «разделяй и властвуй» повышает эффективность поиска потому, что при полном переборе за один шаг удается исключить только один вариант, <strong>тогда как при поиске на основе «разделяй и властвуй» за один шаг можно исключить половину вариантов</strong>.</p>
-<h3 id="1">1.   Реализация двоичного поиска на основе «разделяй и властвуй»<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
-<p>В предыдущих главах двоичный поиск реализовывался через итерацию. Теперь реализуем его с помощью стратегии «разделяй и властвуй», то есть через рекурсию.</p>
+<p>Преимущество в скорости объясняется тем, что поиск перебором за один шаг исключает лишь один вариант, <strong>а метод «разделяй и властвуй» позволяет исключить сразу половину</strong>.</p>
+<h3 id="1">1.   Двоичный поиск методом «разделяй и властвуй»<a class="headerlink" href="#1" title="Permanent link">¶</a></h3>
+<p>В предыдущих главах мы реализовали двоичный поиск итеративно. Теперь воспользуемся рекурсией и методом «разделяй и властвуй».</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Дан отсортированный массив <code>nums</code> длины <span class="arithmatex">\(n\)</span> , в котором все элементы уникальны. Найдите элемент <code>target</code> .</p>
+<p>Дан отсортированный массив <code>nums</code> длины <span class="arithmatex">\(n\)</span>, все элементы которого различны. Найдите элемент <code>target</code>.</p>
 </div>
-<p>С точки зрения стратегии «разделяй и властвуй» обозначим подзадачу, соответствующую интервалу поиска <span class="arithmatex">\([i, j]\)</span> , через <span class="arithmatex">\(f(i, j)\)</span> .</p>
-<p>Начиная с исходной задачи <span class="arithmatex">\(f(0, n-1)\)</span> , выполняем двоичный поиск по следующим шагам.</p>
+<p>Обозначим подзадачу поиска в интервале <span class="arithmatex">\([i, j]\)</span> через <span class="arithmatex">\(f(i, j)\)</span>.</p>
+<p>Начнём с исходной задачи <span class="arithmatex">\(f(0, n-1)\)</span> и выполним следующие шаги двоичного поиска.</p>
 <ol>
-<li>Вычислить середину <span class="arithmatex">\(m\)</span> интервала поиска <span class="arithmatex">\([i, j]\)</span> и с ее помощью исключить половину интервала.</li>
-<li>Рекурсивно решить подзадачу вдвое меньшего размера. Это может быть либо <span class="arithmatex">\(f(i, m-1)\)</span> , либо <span class="arithmatex">\(f(m+1, j)\)</span> .</li>
-<li>Повторять шаг <code>1.</code> и шаг <code>2.</code> , пока не будет найден <code>target</code> или пока интервал не станет пустым.</li>
+<li>Найдём середину <span class="arithmatex">\(m\)</span> интервала <span class="arithmatex">\([i, j]\)</span> и по значению в этой позиции исключим половину интервала.</li>
+<li>Рекурсивно решим подзадачу вдвое меньшего размера: <span class="arithmatex">\(f(i, m-1)\)</span> или <span class="arithmatex">\(f(m+1, j)\)</span>.</li>
+<li>Повторяем шаги <code>1.</code> и <code>2.</code>, пока не найдём <code>target</code> или интервал не опустеет. Тогда возвращаем результат.</li>
 </ol>
-<p>На рисунке 12-4 показан процесс применения стратегии «разделяй и властвуй» для поиска элемента <span class="arithmatex">\(6\)</span> в массиве.</p>
-<p><ha-svg-figure aria-label="Рекурсивный двоичный поиск" class="animation-figure" data-book-key="ru/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png" data-dark-src="/assets/figure-svg/figures/17abe1ab73bfa7d57fa0e6bb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/94df280c0bd2edc74d4e7466.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Процесс двоичного поиска в стиле разделяй и властвуй</object><object aria-hidden="true" data="/ru/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Процесс двоичного поиска в стиле разделяй и властвуй</object></ha-svg-figure></p>
-<p align="center"> Рисунок 12-4   Процесс двоичного поиска в стиле разделяй и властвуй </p><div class="ha-sr-only figure-description"><h4>Описание рисунка 12-4: Рекурсивный двоичный поиск</h4><p>Рекурсивный поиск значения 6 среди десяти возрастающих элементов: интервал поиска последовательно сужается с [0, 9] до [0, 3] и [2, 3], после чего возвращается индекс 2.</p><p>На вход подаются десять возрастающих элементов с индексами от 0 до 9, целевое значение равно 6; полный массив приведён в таблице «Фиксированный упорядоченный вход». Вызов f(i, j) означает поиск на замкнутом интервале [i, j], где индекс середины m равен округлённому вниз значению (i + j) / 2.</p><p>После каждого сравнения среднего элемента с целью рекурсия переходит только в один подинтервал, который ещё может содержать искомое значение. Исключённые позиции остаются в исходном массиве; при совпадении индекс возвращается сразу, без этапа объединения. Две таблицы ниже содержат полный входной массив и три рекурсивных вызова.</p><table><caption>Фиксированный упорядоченный вход</caption><thead><tr><th scope="col">Индекс</th><th scope="col">Значение</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>3</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>8</td></tr><tr><th scope="row">4</th><td>12</td></tr><tr><th scope="row">5</th><td>15</td></tr><tr><th scope="row">6</th><td>23</td></tr><tr><th scope="row">7</th><td>26</td></tr><tr><th scope="row">8</th><td>31</td></tr><tr><th scope="row">9</th><td>35</td></tr></tbody></table><table><caption>Три рекурсивных вызова</caption><thead><tr><th scope="col">Вызов (замкнутый интервал)</th><th scope="col">Индекс середины m</th><th scope="col">Значение в середине</th><th scope="col">Сравнение</th><th scope="col">Дальнейший шаг</th></tr></thead><tbody><tr><th scope="row">f(0, 9)</th><td>4</td><td>12</td><td>12 &gt; 6</td><td>Рекурсивный вызов f(0, 3)</td></tr><tr><th scope="row">f(0, 3)</th><td>1</td><td>3</td><td>3 &lt; 6</td><td>Рекурсивный вызов f(2, 3)</td></tr><tr><th scope="row">f(2, 3)</th><td>2</td><td>6</td><td>6 = 6</td><td>Возврат индекса 2</td></tr></tbody></table><p>Внизу рисунка дана подпись «В итоге найден индекс элемента 6: 2». По замкнутым интервалам из таблицы число кандидатов последовательно составляет 10, 4 и 2; третий вызов находит цель и сразу возвращает ответ.</p></div>
-<p>В реализации кода мы объявляем рекурсивную функцию <code>dfs()</code> для решения задачи <span class="arithmatex">\(f(i, j)\)</span> :</p>
+<p>На рисунке показано, как двоичный поиск находит элемент <span class="arithmatex">\(6\)</span> в массиве методом «разделяй и властвуй».</p>
+<p><ha-svg-figure aria-label="Рекурсивный двоичный поиск" class="animation-figure" data-book-key="ru/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.png" data-dark-src="/assets/figure-svg/figures/960e5c650ea3ba3ffbc1629c.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/ebdc309da8ab2e85130c0d15.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Двоичный поиск методом «разделяй и властвуй»</object><object aria-hidden="true" data="/ru/chapter_divide_and_conquer/binary_search_recur.assets/binary_search_recur.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Двоичный поиск методом «разделяй и властвуй»</object></ha-svg-figure></p>
+<p align="center"> Рисунок 12-4   Двоичный поиск методом «разделяй и властвуй» </p><div class="ha-sr-only figure-description"><h4>Иллюстрация 12-4: Рекурсивный двоичный поиск</h4><p>Рекурсивно ищем 6 среди десяти возрастающих элементов. Интервал поиска сужается с [0, 9] до [0, 3], затем до [2, 3]. Возвращаем индекс 2.</p><p>Даны десять возрастающих элементов с индексами от 0 до 9, искомое значение — 6. Полный массив приведён в таблице «Исходный отсортированный массив». Вызов f(i, j) ищет в замкнутом интервале [i, j]. Индекс середины m равен (i + j) / 2 с округлением вниз.</p><p>После сравнения среднего элемента с искомым рекурсия входит только в тот подынтервал, где ещё возможно совпадение. Исключённые позиции остаются в исходном массиве. При совпадении индекс возвращается сразу, без объединения результатов. Две таблицы ниже показывают все входные данные и три вызова.</p><table><caption>Исходный отсортированный массив</caption><thead><tr><th scope="col">Индекс</th><th scope="col">Значение</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>3</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>8</td></tr><tr><th scope="row">4</th><td>12</td></tr><tr><th scope="row">5</th><td>15</td></tr><tr><th scope="row">6</th><td>23</td></tr><tr><th scope="row">7</th><td>26</td></tr><tr><th scope="row">8</th><td>31</td></tr><tr><th scope="row">9</th><td>35</td></tr></tbody></table><table><caption>Три рекурсивных вызова</caption><thead><tr><th scope="col">Вызов (замкнутый интервал)</th><th scope="col">Индекс середины m</th><th scope="col">Значение в середине</th><th scope="col">Сравнение</th><th scope="col">Следующее действие</th></tr></thead><tbody><tr><th scope="row">f(0, 9)</th><td>4</td><td>12</td><td>12 &gt; 6</td><td>Рекурсивный вызов f(0, 3)</td></tr><tr><th scope="row">f(0, 3)</th><td>1</td><td>3</td><td>3 &lt; 6</td><td>Рекурсивный вызов f(2, 3)</td></tr><tr><th scope="row">f(2, 3)</th><td>2</td><td>6</td><td>6 = 6</td><td>Возврат индекса 2</td></tr></tbody></table><p>Внизу подпись: «Найден индекс элемента 6: это 2». В замкнутых интервалах из таблицы остаются последовательно 10, 4 и 2 кандидата. Третий вызов находит элемент и сразу возвращает результат.</p></div>
+<p>Для решения задачи <span class="arithmatex">\(f(i, j)\)</span> объявим рекурсивную функцию <code>dfs()</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Двоичный поиск: задача f(i, j)"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">:</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># Вычислить индекс середины m</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># Вычисляем индекс середины m</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">elif</span> <span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="c1"># Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="c1"># Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">return</span> <span class="n">m</span>
 <a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
 <a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="sd">"""Двоичный поиск"""</span>
 <a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="c1"># Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="c1"># Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 <a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="p">}</span>
@@ -1979,7 +1979,7 @@
 <a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="p">}</span>
 </code></pre></div>
@@ -1987,20 +1987,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 <a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="p">}</span>
@@ -2008,7 +2008,7 @@
 <a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="p">}</span>
 </code></pre></div>
@@ -2016,20 +2016,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">DFS</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">DFS</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">DFS</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 <a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="p">}</span>
@@ -2037,7 +2037,7 @@
 <a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">BinarySearch</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
-<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nf">DFS</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="p">}</span>
 </code></pre></div>
@@ -2045,23 +2045,23 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, это означает отсутствие целевого элемента, вернуть -1</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">// Вычислить средний индекс</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1">//    Вычисляем индекс середины</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">// Сравнить середину и целевой элемент</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">//Сравниваем средний элемент с искомым</span>
 <a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// Если меньше, рекурсивно обрабатывать правую половину массива</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// Если он меньше, продолжаем поиск в правой половине</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// Если больше, рекурсивно обработать левую половину массива</span>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// Если он больше, продолжаем поиск в левой половине</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">m</span>
 <a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="p">}</span>
@@ -2076,27 +2076,27 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
 <a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span>
 <a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="p">}</span>
 <a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>
 <a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="kd">func</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">endIndex</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="p">}</span>
 </code></pre></div>
@@ -2104,20 +2104,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">);</span>
 <a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">m</span><span class="p">;</span>
 <a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="p">}</span>
@@ -2125,7 +2125,7 @@
 <a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="kd">function</span><span class="w"> </span><span class="nx">binarySearch</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="p">}</span>
 </code></pre></div>
@@ -2133,20 +2133,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">((</span><span class="nx">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">);</span>
 <a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">m</span><span class="p">;</span>
 <a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="p">}</span>
@@ -2154,7 +2154,7 @@
 <a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="kd">function</span><span class="w"> </span><span class="nx">binarySearch</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-<a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-7-26" id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="p">}</span>
 </code></pre></div>
@@ -2162,20 +2162,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">~/</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 <a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
 <a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">    </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">    </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 <a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">  </span><span class="p">}</span>
 <a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="p">}</span>
@@ -2183,7 +2183,7 @@
 <a href="#__codelineno-8-21" id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-8-22" id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">binarySearch</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-23" id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
-<a href="#__codelineno-8-24" id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="w">  </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-8-24" id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="w">  </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-8-25" id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
 <a href="#__codelineno-8-26" id="__codelineno-8-26" name="__codelineno-8-26"></a><span class="p">}</span>
 </code></pre></div>
@@ -2191,19 +2191,19 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">m</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 <a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 <a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="p">}</span>
@@ -2211,7 +2211,7 @@
 <a href="#__codelineno-9-20" id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-9-21" id="__codelineno-9-21" name="__codelineno-9-21"></a><span class="k">fn</span><span class="w"> </span><span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-22" id="__codelineno-9-22" name="__codelineno-9-22"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">;</span>
-<a href="#__codelineno-9-23" id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-9-23" id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-9-24" id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-9-25" id="__codelineno-9-25" name="__codelineno-9-25"></a><span class="p">}</span>
 </code></pre></div>
@@ -2219,20 +2219,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Двоичный поиск: задача f(i, j) */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
 <a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
 <a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="p">}</span>
@@ -2240,7 +2240,7 @@
 <a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numsSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numsSize</span><span class="p">;</span>
-<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-10-25" id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="p">}</span>
 </code></pre></div>
@@ -2253,20 +2253,20 @@
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="n">j</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="c1">// Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="c1">// Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span>
 <a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="c1">// Вычислить индекс середины m</span>
+<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="c1">// Вычисляем индекс середины m</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
 <a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">        </span><span class="c1">// Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">        </span><span class="c1">// Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">        </span><span class="c1">// Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">        </span><span class="c1">// Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-11-22" id="__codelineno-11-22" name="__codelineno-11-22"></a><span class="w">        </span><span class="n">m</span>
 <a href="#__codelineno-11-23" id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-24" id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="p">}</span>
@@ -2274,7 +2274,7 @@
 <a href="#__codelineno-11-26" id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="cm">/* Двоичный поиск */</span>
 <a href="#__codelineno-11-27" id="__codelineno-11-27" name="__codelineno-11-27"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">binarySearch</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-28" id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">size</span>
-<a href="#__codelineno-11-29" id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="w">    </span><span class="c1">// Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-11-29" id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="w">    </span><span class="c1">// Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-11-30" id="__codelineno-11-30" name="__codelineno-11-30"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a href="#__codelineno-11-31" id="__codelineno-11-31" name="__codelineno-11-31"></a><span class="p">}</span>
 </code></pre></div>
@@ -2282,20 +2282,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">binary_search_recur.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Двоичный поиск: задача f(i, j) ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Если интервал пуст, целевой элемент отсутствует, вернуть -1</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Если интервал пуст, искомого элемента нет. Возвращаем -1</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># Вычислить индекс середины m</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># Вычисляем индекс середины m</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
 <a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">    </span><span class="c1"># Рекурсивная подзадача f(m+1, j)</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">    </span><span class="c1"># Рекурсивно решаем подзадачу f(m+1, j)</span>
 <a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
 <a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="k">elsif</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">m</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">target</span>
-<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">    </span><span class="c1"># Рекурсивная подзадача f(i, m-1)</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">    </span><span class="c1"># Рекурсивно решаем подзадачу f(i, m-1)</span>
 <a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">  </span><span class="k">else</span>
-<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">    </span><span class="c1"># Целевой элемент найден, вернуть его индекс</span>
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">    </span><span class="c1"># Искомый элемент найден. Возвращаем его индекс</span>
 <a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m</span>
 <a href="#__codelineno-12-18" id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="w">  </span><span class="k">end</span>
 <a href="#__codelineno-12-19" id="__codelineno-12-19" name="__codelineno-12-19"></a><span class="k">end</span>
@@ -2303,7 +2303,7 @@
 <a href="#__codelineno-12-21" id="__codelineno-12-21" name="__codelineno-12-21"></a><span class="c1">### Двоичный поиск ###</span>
 <a href="#__codelineno-12-22" id="__codelineno-12-22" name="__codelineno-12-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
 <a href="#__codelineno-12-23" id="__codelineno-12-23" name="__codelineno-12-23"></a><span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
-<a href="#__codelineno-12-24" id="__codelineno-12-24" name="__codelineno-12-24"></a><span class="w">  </span><span class="c1"># Решить задачу f(0, n-1)</span>
+<a href="#__codelineno-12-24" id="__codelineno-12-24" name="__codelineno-12-24"></a><span class="w">  </span><span class="c1"># Решаем задачу f(0, n-1)</span>
 <a href="#__codelineno-12-25" id="__codelineno-12-25" name="__codelineno-12-25"></a><span class="w">  </span><span class="n">dfs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-12-26" id="__codelineno-12-26" name="__codelineno-12-26"></a><span class="k">end</span>
 </code></pre></div>
@@ -2311,16 +2311,16 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%2C%20i%3A%20int%2C%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%3A%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28i%2C%20j%29%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%20%D0%BF%D1%83%D1%81%D1%82%2C%20%D1%86%D0%B5%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BE%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20-1%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B%20m%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20%2F%2F%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28m%2B1%2C%20j%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums%2C%20target%2C%20m%20%2B%201%2C%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28i%2C%20m-1%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums%2C%20target%2C%20i%2C%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A6%D0%B5%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20%D0%B5%D0%B3%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D1%88%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%280%2C%20n-1%29%0A%20%20%20%20return%20dfs%28nums%2C%20target%2C%200%2C%20n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%206%2C%208%2C%2012%2C%2015%2C%2023%2C%2026%2C%2031%2C%2035%5D%0A%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%20%28%D0%B7%D0%B0%D0%BC%D0%BA%D0%BD%D1%83%D1%82%D1%8B%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%29%0A%20%20%20%20index%20%3D%20binary_search%28nums%2C%20target%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%86%D0%B5%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%206%20%3D%20%22%2C%20index%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%2C%20i%3A%20int%2C%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%3A%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28i%2C%20j%29%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%20%D0%BF%D1%83%D1%81%D1%82%2C%20%D1%86%D0%B5%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BE%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20-1%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B%20m%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20%2F%2F%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28m%2B1%2C%20j%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums%2C%20target%2C%20m%20%2B%201%2C%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28i%2C%20m-1%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums%2C%20target%2C%20i%2C%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A6%D0%B5%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20%D0%B5%D0%B3%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D%2C%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D1%88%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%280%2C%20n-1%29%0A%20%20%20%20return%20dfs%28nums%2C%20target%2C%200%2C%20n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1%2C%203%2C%206%2C%208%2C%2012%2C%2015%2C%2023%2C%2026%2C%2031%2C%2035%5D%0A%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%20%28%D0%B7%D0%B0%D0%BC%D0%BA%D0%BD%D1%83%D1%82%D1%8B%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%29%0A%20%20%20%20index%20%3D%20binary_search%28nums%2C%20target%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%86%D0%B5%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%206%20%3D%20%22%2C%20index%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D,%20target%3A%20int,%20i%3A%20int,%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%3A%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28i,%20j%29%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%20%D0%BF%D1%83%D1%81%D1%82,%20%D0%B8%D1%81%D0%BA%D0%BE%D0%BC%D0%BE%D0%B3%D0%BE%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BD%D0%B5%D1%82.%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20-1%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D1%8F%D0%B5%D0%BC%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B%20m%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%80%D0%B5%D1%88%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%28m%2B1,%20j%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20m%20%2B%201,%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%80%D0%B5%D1%88%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%28i,%20m-1%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20i,%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%98%D1%81%D0%BA%D0%BE%D0%BC%D1%8B%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD.%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20%D0%B5%D0%B3%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D1%88%D0%B0%D0%B5%D0%BC%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%280,%20n-1%29%0A%20%20%20%20return%20dfs%28nums,%20target,%200,%20n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%20%28%D0%B7%D0%B0%D0%BC%D0%BA%D0%BD%D1%83%D1%82%D1%8B%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%29%0A%20%20%20%20index%20%3D%20binary_search%28nums,%20target%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%206%20%3D%20%22,%20index%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20dfs%28nums%3A%20list%5Bint%5D,%20target%3A%20int,%20i%3A%20int,%20j%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%3A%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20f%28i,%20j%29%22%22%22%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%20%D0%BF%D1%83%D1%81%D1%82,%20%D0%B8%D1%81%D0%BA%D0%BE%D0%BC%D0%BE%D0%B3%D0%BE%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BD%D0%B5%D1%82.%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20-1%0A%20%20%20%20if%20i%20%3E%20j%3A%0A%20%20%20%20%20%20%20%20return%20-1%0A%20%20%20%20%23%20%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D1%8F%D0%B5%D0%BC%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%B8%D0%BD%D1%8B%20m%0A%20%20%20%20m%20%3D%20%28i%20%2B%20j%29%20//%202%0A%20%20%20%20if%20nums%5Bm%5D%20%3C%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%80%D0%B5%D1%88%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%28m%2B1,%20j%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20m%20%2B%201,%20j%29%0A%20%20%20%20elif%20nums%5Bm%5D%20%3E%20target%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D0%B2%D0%BD%D0%BE%20%D1%80%D0%B5%D1%88%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BE%D0%B4%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%28i,%20m-1%29%0A%20%20%20%20%20%20%20%20return%20dfs%28nums,%20target,%20i,%20m%20-%201%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%98%D1%81%D0%BA%D0%BE%D0%BC%D1%8B%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD.%20%D0%92%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20%D0%B5%D0%B3%D0%BE%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%0A%20%20%20%20%20%20%20%20return%20m%0A%0Adef%20binary_search%28nums%3A%20list%5Bint%5D,%20target%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%22%22%22%0A%20%20%20%20n%20%3D%20len%28nums%29%0A%20%20%20%20%23%20%D0%A0%D0%B5%D1%88%D0%B0%D0%B5%D0%BC%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20f%280,%20n-1%29%0A%20%20%20%20return%20dfs%28nums,%20target,%200,%20n%20-%201%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20target%20%3D%206%0A%20%20%20%20nums%20%3D%20%5B1,%203,%206,%208,%2012,%2015,%2023,%2026,%2031,%2035%5D%0A%0A%20%20%20%20%23%20%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%20%28%D0%B7%D0%B0%D0%BC%D0%BA%D0%BD%D1%83%D1%82%D1%8B%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%29%0A%20%20%20%20index%20%3D%20binary_search%28nums,%20target%29%0A%20%20%20%20print%28%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%206%20%3D%20%22,%20index%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="Нижний колонтитул" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="Назад: 12.1 Стратегия разделяй и властвуй" class="md-footer__link md-footer__link--prev" href="../divide_and_conquer/" rel="prev">
+<a aria-label="Назад: 12.1 Метод «разделяй и властвуй»" class="md-footer__link md-footer__link--prev" href="../divide_and_conquer/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -2329,18 +2329,18 @@
         Назад
       </span>
 <div class="md-ellipsis">
-        12.1 Стратегия разделяй и властвуй
+        12.1 Метод «разделяй и властвуй»
       </div>
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="Вперед: 12.3 Задача построения двоичного дерева" class="md-footer__link md-footer__link--next" href="../build_binary_tree_problem/" rel="next">
+<a aria-label="Вперед: 12.3 Задача о построении двоичного дерева" class="md-footer__link md-footer__link--next" href="../build_binary_tree_problem/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         Вперед
       </span>
 <div class="md-ellipsis">
-        12.3 Задача построения двоичного дерева
+        12.3 Задача о построении двоичного дерева
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2350,7 +2350,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Оставляйте свои идеи, вопросы и предложения в комментариях</h5>
+<h5 align="center" id="__comments">Поделитесь своим мнением, задайте вопрос или оставьте предложение в комментариях</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ru" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2432,9 +2432,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.0d441547851f63d0e6614369d827335a9b125feca310fe06e17e6b9e15f96fa1.min.js"></script>
+<script src="../../assets/javascripts/bundle.c14dfd00549a42415ad39f11698a44840394334ca6c2e5be8ce68b23dd434e70.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

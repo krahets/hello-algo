@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом" name="description"/>
+<meta content="Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ru/chapter_heap/build_heap/" rel="canonical"/>
 <link href="../heap/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_heap/build_heap/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>8.2 Построение кучи - Hello Algo</title>
+<title>8.2 Построение кучи - Привет, алгоритмы!</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,15 +64,15 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Приглашаем вас участвовать в развитии русской версии! Подробнее <a href="/ru/chapter_appendix/contribution/">здесь</a>.</span>
+<span>Помогите улучшить русское издание. <a href="/ru/chapter_appendix/contribution/">Узнать больше</a>.</span>
 </div>
 </div>
 </aside>
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="Навигация" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -81,7 +81,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Привет, алгоритмы!
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -173,10 +173,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Привет, алгоритмы!
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="Перейти к репозиторию">
@@ -197,7 +197,7 @@
 <span class="md-ellipsis">
 
 
-  Перед началом
+  Вступительное слово
 
 
   </span>
@@ -208,7 +208,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Перед началом
+  Вступительное слово
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -246,7 +246,7 @@
 <span class="md-ellipsis">
 
 
-  0.1 Об этой книге
+  0.1 О книге
 
 
   </span>
@@ -257,7 +257,7 @@
 <span class="md-ellipsis">
 
 
-  0.2 Как пользоваться этой книгой
+  0.2 Как пользоваться книгой
 
 
   </span>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3 Резюме
+  0.3 Итоги
 
 
   </span>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3 Резюме
+  1.3 Итоги
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1 Оценка эффективности алгоритмов
+  2.1 Оценка эффективности алгоритма
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5 Резюме
+  2.5 Итоги
 
 
   </span>
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
 
 
-  3.5 Резюме
+  3.5 Итоги
 
 
   </span>
@@ -537,7 +537,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
 
   </span>
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -593,7 +593,7 @@
 <span class="md-ellipsis">
 
 
-  4.4 Оперативная память и кэш *
+  4.4 Оперативная память и кеш *
 
 
   </span>
@@ -604,7 +604,7 @@
 <span class="md-ellipsis">
 
 
-  4.5 Резюме
+  4.5 Итоги
 
 
   </span>
@@ -632,7 +632,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
 
   </span>
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -655,7 +655,7 @@
 <span class="md-ellipsis">
 
 
-  5.1 Стек
+  5.1   Стек
 
 
   </span>
@@ -666,7 +666,7 @@
 <span class="md-ellipsis">
 
 
-  5.2 Очередь
+  5.2   Очередь
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3 Двусторонняя очередь
+  5.3   Двусторонняя очередь
 
 
   </span>
@@ -688,7 +688,7 @@
 <span class="md-ellipsis">
 
 
-  5.4 Резюме
+  5.4   Итоги
 
 
   </span>
@@ -699,7 +699,7 @@
 <span class="md-ellipsis">
 
 
-  5.5 Упражнения
+  5.5   Упражнения
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2 Хеш-коллизии
+  6.2 Коллизии
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4 Резюме
+  6.4 Итоги
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3 Представление двоичного дерева массивом
+  7.3 Представление двоичного дерева в виде массива
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5 AVL-дерево *
+  7.5 АВЛ-дерево *
 
 
   </span>
@@ -878,7 +878,7 @@
 <span class="md-ellipsis">
 
 
-  7.6 Краткие итоги
+  7.6 Итоги
 
 
   </span>
@@ -906,7 +906,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
 
   </span>
@@ -920,7 +920,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -965,7 +965,7 @@
 <a class="md-nav__link" href="#821">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.1   Реализация через операцию добавления в кучу
+        8.2.1   Построение последовательными вставками
       </span>
 </span>
 </a>
@@ -974,7 +974,7 @@
 <a class="md-nav__link" href="#822">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.2   Реализация через обход и упорядочивание
+        8.2.2   Построение просеиванием при обходе массива
       </span>
 </span>
 </a>
@@ -996,7 +996,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -1007,7 +1007,7 @@
 <span class="md-ellipsis">
 
 
-  8.4 Резюме
+  8.4 Итоги
 
 
   </span>
@@ -1069,7 +1069,7 @@
 <span class="md-ellipsis">
 
 
-  9.2 Базовые операции графа
+  9.2 Основные операции с графом
 
 
   </span>
@@ -1091,7 +1091,7 @@
 <span class="md-ellipsis">
 
 
-  9.4 Краткие итоги
+  9.4 Итоги
 
 
   </span>
@@ -1153,7 +1153,7 @@
 <span class="md-ellipsis">
 
 
-  10.2 Двоичный поиск точки вставки
+  10.2 Нахождение позиции вставки с помощью двоичного поиска
 
 
   </span>
@@ -1164,7 +1164,7 @@
 <span class="md-ellipsis">
 
 
-  10.3 Двоичный поиск границ
+  10.3 Нахождение границ с помощью двоичного поиска
 
 
   </span>
@@ -1175,7 +1175,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1186,7 +1186,7 @@
 <span class="md-ellipsis">
 
 
-  10.5 Переосмысление алгоритмов поиска
+  10.5 Новый взгляд на алгоритмы поиска
 
 
   </span>
@@ -1197,7 +1197,7 @@
 <span class="md-ellipsis">
 
 
-  10.6 Резюме
+  10.6 Итоги
 
 
   </span>
@@ -1336,7 +1336,7 @@
 <span class="md-ellipsis">
 
 
-  11.9 Сортировка подсчетом
+  11.9 Сортировка подсчётом
 
 
   </span>
@@ -1358,7 +1358,7 @@
 <span class="md-ellipsis">
 
 
-  11.11 Резюме
+  11.11 Итоги
 
 
   </span>
@@ -1409,7 +1409,7 @@
 <span class="md-ellipsis">
 
 
-  12.1 Стратегия разделяй и властвуй
+  12.1 Метод «разделяй и властвуй»
 
 
   </span>
@@ -1420,7 +1420,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1431,7 +1431,7 @@
 <span class="md-ellipsis">
 
 
-  12.3 Задача построения двоичного дерева
+  12.3 Задача о построении двоичного дерева
 
 
   </span>
@@ -1442,7 +1442,7 @@
 <span class="md-ellipsis">
 
 
-  12.4 Задача о Ханойской башне
+  12.4 Задача о ханойских башнях
 
 
   </span>
@@ -1453,7 +1453,7 @@
 <span class="md-ellipsis">
 
 
-  12.5 Резюме
+  12.5 Итоги
 
 
   </span>
@@ -1504,7 +1504,7 @@
 <span class="md-ellipsis">
 
 
-  13.1 Алгоритм поиска с возвратом
+  13.1 Поиск с возвратом
 
 
   </span>
@@ -1526,7 +1526,7 @@
 <span class="md-ellipsis">
 
 
-  13.3 Задача о сумме подмножеств
+  13.3 Задача о сумме подмножества
 
 
   </span>
@@ -1537,7 +1537,7 @@
 <span class="md-ellipsis">
 
 
-  13.4 Задача о n ферзях
+  13.4 Задача о N ферзях
 
 
   </span>
@@ -1548,7 +1548,7 @@
 <span class="md-ellipsis">
 
 
-  13.5 Резюме
+  13.5 Итоги
 
 
   </span>
@@ -1599,7 +1599,7 @@
 <span class="md-ellipsis">
 
 
-  14.1 Первое знакомство с динамическим программированием
+  14.1 Знакомство с динамическим программированием
 
 
   </span>
@@ -1621,7 +1621,7 @@
 <span class="md-ellipsis">
 
 
-  14.3 Подход к решению задач динамического программирования
+  14.3 Как решать задачи динамического программирования
 
 
   </span>
@@ -1632,7 +1632,7 @@
 <span class="md-ellipsis">
 
 
-  14.4 Задача о рюкзаке 0-1
+  14.4 Задача о рюкзаке 0–1
 
 
   </span>
@@ -1643,7 +1643,7 @@
 <span class="md-ellipsis">
 
 
-  14.5 Задача о полном рюкзаке
+  14.5 Задача о неограниченном рюкзаке
 
 
   </span>
@@ -1654,7 +1654,7 @@
 <span class="md-ellipsis">
 
 
-  14.6 Задача о расстоянии редактирования
+  14.6 Задача о редакционном расстоянии
 
 
   </span>
@@ -1665,7 +1665,7 @@
 <span class="md-ellipsis">
 
 
-  14.7 Резюме
+  14.7 Итоги главы
 
 
   </span>
@@ -1693,7 +1693,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
 
   </span>
@@ -1707,7 +1707,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1749,7 +1749,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1760,7 +1760,7 @@
 <span class="md-ellipsis">
 
 
-  15.5 Резюме
+  15.5 Итоги
 
 
   </span>
@@ -1822,7 +1822,7 @@
 <span class="md-ellipsis">
 
 
-  16.2 Присоединяйтесь к созданию книги
+  16.2 Как принять участие в работе над книгой
 
 
   </span>
@@ -1833,7 +1833,7 @@
 <span class="md-ellipsis">
 
 
-  16.3 Глоссарий
+  16.3 Словарь терминов
 
 
   </span>
@@ -1890,7 +1890,7 @@
 <a class="md-nav__link" href="#821">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.1   Реализация через операцию добавления в кучу
+        8.2.1   Построение последовательными вставками
       </span>
 </span>
 </a>
@@ -1899,7 +1899,7 @@
 <a class="md-nav__link" href="#822">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.2.2   Реализация через обход и упорядочивание
+        8.2.2   Построение просеиванием при обходе массива
       </span>
 </span>
 </a>
@@ -1930,38 +1930,38 @@
 <!-- View button -->
 <!-- Page content -->
 <h1 id="82">8.2   Построение кучи<a class="headerlink" href="#82" title="Permanent link">¶</a></h1>
-<p>В некоторых случаях требуется построить кучу, используя сразу все элементы списка. Этот процесс называется построением кучи.</p>
-<h2 id="821">8.2.1   Реализация через операцию добавления в кучу<a class="headerlink" href="#821" title="Permanent link">¶</a></h2>
-<p>Сначала мы создаем пустую кучу, затем обходим список и для каждого элемента по очереди выполняем операцию добавления в кучу: сначала помещаем элемент в хвост кучи, а затем выполняем для него упорядочивание снизу вверх.</p>
-<p>Каждый раз, когда элемент добавляется в кучу, ее длина увеличивается на единицу. Поскольку узлы последовательно добавляются в двоичное дерево сверху вниз, куча строится сверху вниз.</p>
-<p>Пусть число элементов равно <span class="arithmatex">\(n\)</span>. Так как каждая операция добавления требует <span class="arithmatex">\(O(\log{n})\)</span> времени, временная сложность такого построения кучи составляет <span class="arithmatex">\(O(n \log n)\)</span> .</p>
-<h2 id="822">8.2.2   Реализация через обход и упорядочивание<a class="headerlink" href="#822" title="Permanent link">¶</a></h2>
-<p>На самом деле можно реализовать и более эффективный способ построения кучи, который состоит из двух шагов.</p>
+<p>Иногда нужно построить кучу из всех элементов списка. Эту операцию называют построением кучи.</p>
+<h2 id="821">8.2.1   Построение последовательными вставками<a class="headerlink" href="#821" title="Permanent link">¶</a></h2>
+<p>Сначала создаём пустую кучу, затем перебираем список и по очереди вставляем каждый элемент: добавляем его в конец кучи и просеиваем снизу вверх.</p>
+<p>С каждой вставкой длина кучи увеличивается на единицу. Узлы добавляются в бинарное дерево в порядке от верхних уровней к нижним, поэтому сама куча строится сверху вниз.</p>
+<p>Пусть элементов <span class="arithmatex">\(n\)</span>. Вставка одного элемента занимает время <span class="arithmatex">\(O(\log{n})\)</span>, поэтому временная сложность такого построения равна <span class="arithmatex">\(O(n \log n)\)</span>.</p>
+<h2 id="822">8.2.2   Построение просеиванием при обходе массива<a class="headerlink" href="#822" title="Permanent link">¶</a></h2>
+<p>Кучу можно построить эффективнее, всего за два шага.</p>
 <ol>
-<li>Без изменений добавить все элементы списка в кучу. В этот момент свойства кучи еще не выполняются.</li>
-<li>Обойти кучу в обратном порядке, то есть в порядке, обратном обходу по уровням, и по очереди выполнить упорядочивание сверху вниз для каждого нелистового узла.</li>
+<li>Поместите все элементы списка в массив кучи в исходном порядке. Свойство кучи пока не обеспечено.</li>
+<li>Обойдите массив в обратном порядке (обратном обходу дерева по уровням). Для каждого узла, кроме листьев, выполните просеивание сверху вниз.</li>
 </ol>
-<p><strong>После того как некоторый узел был упорядочен, поддерево с этим узлом в качестве корня становится корректной подкучей</strong>. А поскольку обход выполняется в обратном порядке, куча строится снизу вверх.</p>
-<p>Причина выбора обратного обхода в том, что он гарантирует: поддеревья ниже текущего узла уже являются корректными подкучами, а значит, упорядочивание текущего узла действительно будет эффективным.</p>
-<p>Стоит отметить, что <strong>листовые узлы не имеют дочерних узлов, поэтому они естественным образом являются корректными подкучами и не требуют упорядочивания</strong>. Как показано в коде ниже, последний нелистовой узел является родителем последнего узла, и именно с него мы начинаем обратный обход и упорядочивание:</p>
+<p><strong>После просеивания узла поддерево с корнем в этом узле удовлетворяет свойству кучи</strong>. Поскольку узлы перебираются в обратном порядке, куча строится снизу вверх.</p>
+<p>Обратный порядок гарантирует, что поддеревья детей текущего узла уже являются кучами. Именно при этом условии просеивание корректно восстанавливает кучу с корнем в текущем узле.</p>
+<p><strong>У листьев нет детей, поэтому каждый лист сам по себе уже образует кучу и не нуждается в просеивании</strong>. Последний внутренний узел — родитель последнего узла дерева. Как видно в коде ниже, с него и начинают обратный обход с просеиванием:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">my_heap.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Конструктор, строящий кучу по входному списку"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Конструктор кучи по входному списку"""</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_heap</span> <span class="o">=</span> <span class="n">nums</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sift_down</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Конструктор, строящий кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Конструктор кучи по входному списку */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
@@ -1969,11 +1969,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Конструктор, строящий кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Конструктор кучи по входному списку */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
@@ -1981,11 +1981,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Конструктор: построить кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Конструктор кучи по входному списку */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">);</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="n">SiftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -1994,12 +1994,12 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Конструктор, строящий кучу по срезу */</span>
+<div class="highlight"><span class="filename">my_heap.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Конструктор кучи по срезу */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">newMaxHeap</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">maxHeap</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">h</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">maxHeap</span><span class="p">{</span><span class="nx">data</span><span class="p">:</span><span class="w"> </span><span class="nx">nums</span><span class="p">}</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">h</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">h</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="nx">h</span><span class="p">.</span><span class="nx">siftDown</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">h</span>
@@ -2007,11 +2007,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Конструктор, строящий кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Конструктор кучи по входному списку */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">init</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">maxHeap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">nums</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)).</span><span class="n">reversed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2019,11 +2019,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Конструктор, создающий пустую кучу или строящий кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Конструктор пустой кучи или кучи по входному списку */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kr">constructor</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">#maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[...</span><span class="nx">nums</span><span class="p">];</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">#parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">#siftDown</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2031,11 +2031,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Конструктор, создающий пустую кучу или строящий кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Конструктор пустой кучи или кучи по входному списку */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kr">constructor</span><span class="p">(</span><span class="nx">nums?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[...</span><span class="nx">nums</span><span class="p">];</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">siftDown</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2043,11 +2043,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Конструктор, строящий кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Конструктор кучи по входному списку */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">MaxHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="n">_maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="p">}</span>
@@ -2055,11 +2055,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Конструктор, строящий кучу по входному списку */</span>
+<div class="highlight"><span class="filename">my_heap.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Конструктор кучи по входному списку */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaxHeap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">max_heap</span><span class="p">:</span><span class="w"> </span><span class="nc">nums</span><span class="w"> </span><span class="p">};</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..=</span><span class="bp">Self</span><span class="p">::</span><span class="n">parent</span><span class="p">(</span><span class="n">heap</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">sift_down</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
@@ -2068,14 +2068,14 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Конструктор, строящий кучу по срезу */</span>
+<div class="highlight"><span class="filename">my_heap.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Конструктор кучи по срезу */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="nf">newMaxHeap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nums</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Поместить все элементы в кучу</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Добавить все элементы в кучу</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">MaxHeap</span><span class="p">));</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 <a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maxHeap</span><span class="p">;</span>
@@ -2083,34 +2083,34 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Максимальная куча */</span>
+<div class="highlight"><span class="filename">my_heap.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Макс-куча */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MaxHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">MutableList</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;?</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Использовать список вместо массива, чтобы не учитывать проблему расширения</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Список, в отличие от массива, расширяется автоматически</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mutableListOf</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="cm">/* Конструктор, строящий кучу по входному списку */</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="cm">/* Конструктор кучи по входному списку */</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="k">init</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">        </span><span class="c1">// Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">        </span><span class="c1">// Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">        </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">nums</span><span class="o">!!</span><span class="p">)</span>
-<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="c1">// Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="c1">// Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="n">downTo</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">            </span><span class="n">siftDown</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a>
-<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="cm">/* Получить индекс левого дочернего узла */</span>
+<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="cm">/* Индекс левого ребёнка */</span>
 <a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">left</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
 <a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a>
-<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">    </span><span class="cm">/* Получить индекс правого дочернего узла */</span>
+<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">    </span><span class="cm">/* Индекс правого ребёнка */</span>
 <a href="#__codelineno-11-22" id="__codelineno-11-22" name="__codelineno-11-22"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">right</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-23" id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-24" id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-25" id="__codelineno-11-25" name="__codelineno-11-25"></a>
-<a href="#__codelineno-11-26" id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="w">    </span><span class="cm">/* Получить индекс родительского узла */</span>
+<a href="#__codelineno-11-26" id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="w">    </span><span class="cm">/* Индекс родителя */</span>
 <a href="#__codelineno-11-27" id="__codelineno-11-27" name="__codelineno-11-27"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">parent</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-28" id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1">// Округление вниз при делении</span>
+<a href="#__codelineno-11-28" id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1">// Целочисленное деление с округлением вниз</span>
 <a href="#__codelineno-11-29" id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-30" id="__codelineno-11-30" name="__codelineno-11-30"></a>
 <a href="#__codelineno-11-31" id="__codelineno-11-31" name="__codelineno-11-31"></a><span class="w">    </span><span class="cm">/* Поменять элементы местами */</span>
@@ -2120,81 +2120,81 @@
 <a href="#__codelineno-11-35" id="__codelineno-11-35" name="__codelineno-11-35"></a><span class="w">        </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span>
 <a href="#__codelineno-11-36" id="__codelineno-11-36" name="__codelineno-11-36"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-37" id="__codelineno-11-37" name="__codelineno-11-37"></a>
-<a href="#__codelineno-11-38" id="__codelineno-11-38" name="__codelineno-11-38"></a><span class="w">    </span><span class="cm">/* Получение размера кучи */</span>
+<a href="#__codelineno-11-38" id="__codelineno-11-38" name="__codelineno-11-38"></a><span class="w">    </span><span class="cm">/* Размер кучи */</span>
 <a href="#__codelineno-11-39" id="__codelineno-11-39" name="__codelineno-11-39"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">size</span><span class="p">():</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-40" id="__codelineno-11-40" name="__codelineno-11-40"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">size</span>
 <a href="#__codelineno-11-41" id="__codelineno-11-41" name="__codelineno-11-41"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-42" id="__codelineno-11-42" name="__codelineno-11-42"></a>
-<a href="#__codelineno-11-43" id="__codelineno-11-43" name="__codelineno-11-43"></a><span class="w">    </span><span class="cm">/* Проверка, пуста ли куча */</span>
+<a href="#__codelineno-11-43" id="__codelineno-11-43" name="__codelineno-11-43"></a><span class="w">    </span><span class="cm">/* Проверить, пуста ли куча */</span>
 <a href="#__codelineno-11-44" id="__codelineno-11-44" name="__codelineno-11-44"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">():</span><span class="w"> </span><span class="kt">Boolean</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-45" id="__codelineno-11-45" name="__codelineno-11-45"></a><span class="w">        </span><span class="cm">/* Проверка, пуста ли куча */</span>
+<a href="#__codelineno-11-45" id="__codelineno-11-45" name="__codelineno-11-45"></a><span class="w">        </span><span class="cm">/* Проверить, пуста ли куча */</span>
 <a href="#__codelineno-11-46" id="__codelineno-11-46" name="__codelineno-11-46"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span>
 <a href="#__codelineno-11-47" id="__codelineno-11-47" name="__codelineno-11-47"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-48" id="__codelineno-11-48" name="__codelineno-11-48"></a>
-<a href="#__codelineno-11-49" id="__codelineno-11-49" name="__codelineno-11-49"></a><span class="w">    </span><span class="cm">/* Доступ к элементу на вершине кучи */</span>
+<a href="#__codelineno-11-49" id="__codelineno-11-49" name="__codelineno-11-49"></a><span class="w">    </span><span class="cm">/* Посмотреть элемент в корне */</span>
 <a href="#__codelineno-11-50" id="__codelineno-11-50" name="__codelineno-11-50"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">peek</span><span class="p">():</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-51" id="__codelineno-11-51" name="__codelineno-11-51"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="m">0</span><span class="o">]</span>
 <a href="#__codelineno-11-52" id="__codelineno-11-52" name="__codelineno-11-52"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-53" id="__codelineno-11-53" name="__codelineno-11-53"></a>
-<a href="#__codelineno-11-54" id="__codelineno-11-54" name="__codelineno-11-54"></a><span class="w">    </span><span class="cm">/* Добавление элемента в кучу */</span>
+<a href="#__codelineno-11-54" id="__codelineno-11-54" name="__codelineno-11-54"></a><span class="w">    </span><span class="cm">/* Вставить элемент в кучу */</span>
 <a href="#__codelineno-11-55" id="__codelineno-11-55" name="__codelineno-11-55"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">_val</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-56" id="__codelineno-11-56" name="__codelineno-11-56"></a><span class="w">        </span><span class="c1">// Добавление узла</span>
+<a href="#__codelineno-11-56" id="__codelineno-11-56" name="__codelineno-11-56"></a><span class="w">        </span><span class="c1">// Добавить узел</span>
 <a href="#__codelineno-11-57" id="__codelineno-11-57" name="__codelineno-11-57"></a><span class="w">        </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">_val</span><span class="p">)</span>
-<a href="#__codelineno-11-58" id="__codelineno-11-58" name="__codelineno-11-58"></a><span class="w">        </span><span class="c1">// Просеивание снизу вверх</span>
+<a href="#__codelineno-11-58" id="__codelineno-11-58" name="__codelineno-11-58"></a><span class="w">        </span><span class="c1">// Просеивание вверх</span>
 <a href="#__codelineno-11-59" id="__codelineno-11-59" name="__codelineno-11-59"></a><span class="w">        </span><span class="n">siftUp</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a href="#__codelineno-11-60" id="__codelineno-11-60" name="__codelineno-11-60"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-61" id="__codelineno-11-61" name="__codelineno-11-61"></a>
-<a href="#__codelineno-11-62" id="__codelineno-11-62" name="__codelineno-11-62"></a><span class="w">    </span><span class="cm">/* Начиная с узла i, выполнить просеивание снизу вверх */</span>
+<a href="#__codelineno-11-62" id="__codelineno-11-62" name="__codelineno-11-62"></a><span class="w">    </span><span class="cm">/* Просеивать вверх от узла i */</span>
 <a href="#__codelineno-11-63" id="__codelineno-11-63" name="__codelineno-11-63"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">siftUp</span><span class="p">(</span><span class="nb">it</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-64" id="__codelineno-11-64" name="__codelineno-11-64"></a><span class="w">        </span><span class="c1">// Параметры функций в Kotlin неизменяемы, поэтому создается временная переменная</span>
+<a href="#__codelineno-11-64" id="__codelineno-11-64" name="__codelineno-11-64"></a><span class="w">        </span><span class="c1">// Параметры функции в Kotlin неизменяемы, поэтому создаём временную переменную</span>
 <a href="#__codelineno-11-65" id="__codelineno-11-65" name="__codelineno-11-65"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span>
 <a href="#__codelineno-11-66" id="__codelineno-11-66" name="__codelineno-11-66"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-67" id="__codelineno-11-67" name="__codelineno-11-67"></a><span class="w">            </span><span class="c1">// Получение родительского узла для узла i</span>
+<a href="#__codelineno-11-67" id="__codelineno-11-67" name="__codelineno-11-67"></a><span class="w">            </span><span class="c1">// Найти родителя узла i</span>
 <a href="#__codelineno-11-68" id="__codelineno-11-68" name="__codelineno-11-68"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a href="#__codelineno-11-69" id="__codelineno-11-69" name="__codelineno-11-69"></a><span class="w">            </span><span class="c1">// Завершить heapify, когда «корневой узел уже пройден» или «узел не требует исправления»</span>
+<a href="#__codelineno-11-69" id="__codelineno-11-69" name="__codelineno-11-69"></a><span class="w">            </span><span class="c1">// Если вышли за корень или узел уже на своём месте, завершить просеивание</span>
 <a href="#__codelineno-11-70" id="__codelineno-11-70" name="__codelineno-11-70"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">p</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
 <a href="#__codelineno-11-71" id="__codelineno-11-71" name="__codelineno-11-71"></a><span class="w">            </span><span class="c1">// Поменять два узла местами</span>
 <a href="#__codelineno-11-72" id="__codelineno-11-72" name="__codelineno-11-72"></a><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
-<a href="#__codelineno-11-73" id="__codelineno-11-73" name="__codelineno-11-73"></a><span class="w">            </span><span class="c1">// Циклическое просеивание вверх</span>
+<a href="#__codelineno-11-73" id="__codelineno-11-73" name="__codelineno-11-73"></a><span class="w">            </span><span class="c1">// Продолжить просеивание вверх</span>
 <a href="#__codelineno-11-74" id="__codelineno-11-74" name="__codelineno-11-74"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span>
 <a href="#__codelineno-11-75" id="__codelineno-11-75" name="__codelineno-11-75"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-11-76" id="__codelineno-11-76" name="__codelineno-11-76"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-77" id="__codelineno-11-77" name="__codelineno-11-77"></a>
-<a href="#__codelineno-11-78" id="__codelineno-11-78" name="__codelineno-11-78"></a><span class="w">    </span><span class="cm">/* Извлечение элемента из кучи */</span>
+<a href="#__codelineno-11-78" id="__codelineno-11-78" name="__codelineno-11-78"></a><span class="w">    </span><span class="cm">/* Извлечь элемент из кучи */</span>
 <a href="#__codelineno-11-79" id="__codelineno-11-79" name="__codelineno-11-79"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">pop</span><span class="p">():</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-80" id="__codelineno-11-80" name="__codelineno-11-80"></a><span class="w">        </span><span class="c1">// Обработка пустого случая</span>
+<a href="#__codelineno-11-80" id="__codelineno-11-80" name="__codelineno-11-80"></a><span class="w">        </span><span class="c1">// Проверить, пуста ли куча</span>
 <a href="#__codelineno-11-81" id="__codelineno-11-81" name="__codelineno-11-81"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">IndexOutOfBoundsException</span><span class="p">()</span>
-<a href="#__codelineno-11-82" id="__codelineno-11-82" name="__codelineno-11-82"></a><span class="w">        </span><span class="c1">// Поменять корневой узел с самым правым листом местами (поменять первый и последний элементы)</span>
+<a href="#__codelineno-11-82" id="__codelineno-11-82" name="__codelineno-11-82"></a><span class="w">        </span><span class="c1">// Поменять местами корень и крайний правый лист (первый и последний элементы)</span>
 <a href="#__codelineno-11-83" id="__codelineno-11-83" name="__codelineno-11-83"></a><span class="w">        </span><span class="n">swap</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
-<a href="#__codelineno-11-84" id="__codelineno-11-84" name="__codelineno-11-84"></a><span class="w">        </span><span class="c1">// Удаление узла</span>
+<a href="#__codelineno-11-84" id="__codelineno-11-84" name="__codelineno-11-84"></a><span class="w">        </span><span class="c1">// Удалить узел</span>
 <a href="#__codelineno-11-85" id="__codelineno-11-85" name="__codelineno-11-85"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxHeap</span><span class="p">.</span><span class="na">removeAt</span><span class="p">(</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
-<a href="#__codelineno-11-86" id="__codelineno-11-86" name="__codelineno-11-86"></a><span class="w">        </span><span class="c1">// Просеивание сверху вниз</span>
+<a href="#__codelineno-11-86" id="__codelineno-11-86" name="__codelineno-11-86"></a><span class="w">        </span><span class="c1">// Просеивание вниз</span>
 <a href="#__codelineno-11-87" id="__codelineno-11-87" name="__codelineno-11-87"></a><span class="w">        </span><span class="n">siftDown</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<a href="#__codelineno-11-88" id="__codelineno-11-88" name="__codelineno-11-88"></a><span class="w">        </span><span class="c1">// Вернуть элемент с вершины кучи</span>
+<a href="#__codelineno-11-88" id="__codelineno-11-88" name="__codelineno-11-88"></a><span class="w">        </span><span class="c1">// Вернуть элемент из корня</span>
 <a href="#__codelineno-11-89" id="__codelineno-11-89" name="__codelineno-11-89"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">_val</span>
 <a href="#__codelineno-11-90" id="__codelineno-11-90" name="__codelineno-11-90"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-91" id="__codelineno-11-91" name="__codelineno-11-91"></a>
-<a href="#__codelineno-11-92" id="__codelineno-11-92" name="__codelineno-11-92"></a><span class="w">    </span><span class="cm">/* Начиная с узла i, выполнить просеивание сверху вниз */</span>
+<a href="#__codelineno-11-92" id="__codelineno-11-92" name="__codelineno-11-92"></a><span class="w">    </span><span class="cm">/* Просеивать вниз от узла i */</span>
 <a href="#__codelineno-11-93" id="__codelineno-11-93" name="__codelineno-11-93"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">siftDown</span><span class="p">(</span><span class="nb">it</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-94" id="__codelineno-11-94" name="__codelineno-11-94"></a><span class="w">        </span><span class="c1">// Параметры функций в Kotlin неизменяемы, поэтому создается временная переменная</span>
+<a href="#__codelineno-11-94" id="__codelineno-11-94" name="__codelineno-11-94"></a><span class="w">        </span><span class="c1">// Параметры функции в Kotlin неизменяемы, поэтому создаём временную переменную</span>
 <a href="#__codelineno-11-95" id="__codelineno-11-95" name="__codelineno-11-95"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">it</span>
 <a href="#__codelineno-11-96" id="__codelineno-11-96" name="__codelineno-11-96"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-97" id="__codelineno-11-97" name="__codelineno-11-97"></a><span class="w">            </span><span class="c1">// Определить узел с максимальным значением среди i, l и r и обозначить его как ma</span>
+<a href="#__codelineno-11-97" id="__codelineno-11-97" name="__codelineno-11-97"></a><span class="w">            </span><span class="c1">// Сохранить в ma индекс наибольшего из узлов i, l и r</span>
 <a href="#__codelineno-11-98" id="__codelineno-11-98" name="__codelineno-11-98"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-11-99" id="__codelineno-11-99" name="__codelineno-11-99"></a><span class="w">            </span><span class="kd">val</span><span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-11-100" id="__codelineno-11-100" name="__codelineno-11-100"></a><span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nv">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
 <a href="#__codelineno-11-101" id="__codelineno-11-101" name="__codelineno-11-101"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">l</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">ma</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span>
 <a href="#__codelineno-11-102" id="__codelineno-11-102" name="__codelineno-11-102"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">r</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">[</span><span class="n">ma</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="n">ma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span>
-<a href="#__codelineno-11-103" id="__codelineno-11-103" name="__codelineno-11-103"></a><span class="w">            </span><span class="c1">// Если узел i уже максимален или индексы l и r вне границ, дальнейшее просеивание не требуется, выйти</span>
+<a href="#__codelineno-11-103" id="__codelineno-11-103" name="__codelineno-11-103"></a><span class="w">            </span><span class="c1">// Если ни у одного потомка значение не больше, чем у родителя, завершить просеивание</span>
 <a href="#__codelineno-11-104" id="__codelineno-11-104" name="__codelineno-11-104"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">break</span>
 <a href="#__codelineno-11-105" id="__codelineno-11-105" name="__codelineno-11-105"></a><span class="w">            </span><span class="c1">// Поменять два узла местами</span>
 <a href="#__codelineno-11-106" id="__codelineno-11-106" name="__codelineno-11-106"></a><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">ma</span><span class="p">)</span>
-<a href="#__codelineno-11-107" id="__codelineno-11-107" name="__codelineno-11-107"></a><span class="w">            </span><span class="c1">// Циклическое просеивание вниз</span>
+<a href="#__codelineno-11-107" id="__codelineno-11-107" name="__codelineno-11-107"></a><span class="w">            </span><span class="c1">// Продолжить просеивание вниз</span>
 <a href="#__codelineno-11-108" id="__codelineno-11-108" name="__codelineno-11-108"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ma</span>
 <a href="#__codelineno-11-109" id="__codelineno-11-109" name="__codelineno-11-109"></a><span class="w">        </span><span class="p">}</span>
 <a href="#__codelineno-11-110" id="__codelineno-11-110" name="__codelineno-11-110"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-111" id="__codelineno-11-111" name="__codelineno-11-111"></a>
-<a href="#__codelineno-11-112" id="__codelineno-11-112" name="__codelineno-11-112"></a><span class="w">    </span><span class="cm">/* Вывести кучу (двоичное дерево) */</span>
+<a href="#__codelineno-11-112" id="__codelineno-11-112" name="__codelineno-11-112"></a><span class="w">    </span><span class="cm">/* Вывести кучу в виде бинарного дерева */</span>
 <a href="#__codelineno-11-113" id="__codelineno-11-113" name="__codelineno-11-113"></a><span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-114" id="__codelineno-11-114" name="__codelineno-11-114"></a><span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">}</span>
 <a href="#__codelineno-11-115" id="__codelineno-11-115" name="__codelineno-11-115"></a><span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">)</span>
@@ -2204,11 +2204,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">my_heap.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Конструктор, строящий кучу по входному списку ###</span>
+<div class="highlight"><span class="filename">my_heap.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Конструктор кучи по входному списку ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Добавить элементы списка в кучу без изменений</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Поместить элементы списка в кучу в прежнем порядке</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="vi">@max_heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># Выполнить heapify для всех узлов, кроме листовых</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># Выполнить просеивание для всех узлов, кроме листьев</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="n">parent</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">downto</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">    </span><span class="n">sift_down</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">end</span>
@@ -2218,36 +2218,36 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BA%D1%83%D1%87%D0%B0%22%22%22%0A%0A%20def%20__init__(self%2C%20nums%3A%20list%5Bint%5D)%3A%0A%20%20%22%22%22%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%2C%20%D1%81%D1%82%D1%80%D0%BE%D1%8F%D1%89%D0%B8%D0%B9%20%D0%BA%D1%83%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%B2%D1%85%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%D1%83%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D1%83%22%22%22%0A%0A%20%20self.max_heap%20%3D%20nums%0A%0A%20%20for%20i%20in%20range(self.parent(self.size()%20-%201)%2C%20-1%2C%20-1)%3A%0A%20%20%20self.sift_down(i)%0A%0A%20def%20left(self%2C%20i%3A%20int)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%22%22%22%0A%20%20return%202%20*%20i%20%2B%201%0A%0A%20def%20right(self%2C%20i%3A%20int)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%22%22%22%0A%20%20return%202%20*%20i%20%2B%202%0A%0A%20def%20parent(self%2C%20i%3A%20int)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%80%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%22%22%22%0A%20%20return%20(i%20-%201)%20%2F%2F%202%0A%0A%20def%20swap(self%2C%20i%3A%20int%2C%20j%3A%20int)%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BC%D0%B5%D0%BD%D1%8F%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0%D0%BC%D0%B8%22%22%22%0A%20%20self.max_heap%5Bi%5D%2C%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D%2C%20self.max_heap%5Bi%5D%0A%0A%20def%20size(self)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20return%20len(self.max_heap)%0A%0A%20def%20sift_down(self%2C%20i%3A%20int)%3A%0A%20%20%22%22%22%D0%9D%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20i%2C%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D1%81%D0%B5%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83%20%D0%B2%D0%BD%D0%B8%D0%B7%22%22%22%0A%20%20while%20True%3A%0A%0A%20%20%20l%2C%20r%2C%20ma%20%3D%20self.left(i)%2C%20self.right(i)%2C%20i%0A%20%20%20if%20l%20%3C%20self.size()%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20ma%20%3D%20l%0A%20%20%20if%20r%20%3C%20self.size()%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20ma%20%3D%20r%0A%0A%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20break%0A%0A%20%20%20self.swap(i%2C%20ma)%0A%0A%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%0A%20max_heap%20%3D%20MaxHeap(%5B1%2C%202%2C%203%2C%204%2C%205%5D)&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BA%D1%83%D1%87%D0%B0%22%22%22%0A%0A%20def%20__init__(self%2C%20nums%3A%20list%5Bint%5D)%3A%0A%20%20%22%22%22%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%2C%20%D1%81%D1%82%D1%80%D0%BE%D1%8F%D1%89%D0%B8%D0%B9%20%D0%BA%D1%83%D1%87%D1%83%20%D0%BF%D0%BE%20%D0%B2%D1%85%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%D1%83%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D1%83%22%22%22%0A%0A%20%20self.max_heap%20%3D%20nums%0A%0A%20%20for%20i%20in%20range(self.parent(self.size()%20-%201)%2C%20-1%2C%20-1)%3A%0A%20%20%20self.sift_down(i)%0A%0A%20def%20left(self%2C%20i%3A%20int)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%22%22%22%0A%20%20return%202%20*%20i%20%2B%201%0A%0A%20def%20right(self%2C%20i%3A%20int)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%B4%D0%BE%D1%87%D0%B5%D1%80%D0%BD%D0%B5%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%22%22%22%0A%20%20return%202%20*%20i%20%2B%202%0A%0A%20def%20parent(self%2C%20i%3A%20int)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%80%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D1%83%D0%B7%D0%BB%D0%B0%22%22%22%0A%20%20return%20(i%20-%201)%20%2F%2F%202%0A%0A%20def%20swap(self%2C%20i%3A%20int%2C%20j%3A%20int)%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BC%D0%B5%D0%BD%D1%8F%D1%82%D1%8C%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0%D0%BC%D0%B8%22%22%22%0A%20%20self.max_heap%5Bi%5D%2C%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D%2C%20self.max_heap%5Bi%5D%0A%0A%20def%20size(self)%20-%3E%20int%3A%0A%20%20%22%22%22%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20return%20len(self.max_heap)%0A%0A%20def%20sift_down(self%2C%20i%3A%20int)%3A%0A%20%20%22%22%22%D0%9D%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20i%2C%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D1%81%D0%B5%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83%20%D0%B2%D0%BD%D0%B8%D0%B7%22%22%22%0A%20%20while%20True%3A%0A%0A%20%20%20l%2C%20r%2C%20ma%20%3D%20self.left(i)%2C%20self.right(i)%2C%20i%0A%20%20%20if%20l%20%3C%20self.size()%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20ma%20%3D%20l%0A%20%20%20if%20r%20%3C%20self.size()%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20ma%20%3D%20r%0A%0A%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20break%0A%0A%20%20%20self.swap(i%2C%20ma)%0A%0A%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%0A%20max_heap%20%3D%20MaxHeap(%5B1%2C%202%2C%203%2C%204%2C%205%5D)&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81-%D0%BA%D1%83%D1%87%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%20%D0%BA%D1%83%D1%87%D0%B8%20%D0%BF%D0%BE%20%D0%B2%D1%85%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%D1%83%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D1%83%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D0%B5%D1%80%D0%B5%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE%D0%BA%0A%20%20%20%20%20%20%20%20self.max_heap%20%3D%20nums%0A%20%20%20%20%20%20%20%20%23%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D1%81%D0%B5%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2,%20%D0%BA%D1%80%D0%BE%D0%BC%D0%B5%20%D0%BB%D0%B8%D1%81%D1%82%D1%8C%D0%B5%D0%B2%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.parent%28self.size%28%29%20-%201%29,%20-1,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.sift_down%28i%29%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BA%D0%B0%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BA%D0%B0%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%80%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%20%20%23%20%D0%94%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D0%BE%D0%BA%D1%80%D1%83%D0%B3%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20%D0%B2%D0%BD%D0%B8%D0%B7%0A%0A%20%20%20%20def%20swap%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%9E%D0%B1%D0%BC%D0%B5%D0%BD%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%22%22%22%0A%20%20%20%20%20%20%20%20self.max_heap%5Bi%5D,%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D,%20self.max_heap%5Bi%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.max_heap%29%0A%0A%20%20%20%20def%20sift_down%28self,%20i%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%9F%D1%80%D0%BE%D1%81%D0%B5%D1%8F%D1%82%D1%8C%20%D0%B2%D0%BD%D0%B8%D0%B7%20%D0%BE%D1%82%20i%22%22%22%0A%20%20%20%20%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20ma%20%E2%80%94%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%BC%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%0A%20%20%20%20%20%20%20%20%20%20%20%20l,%20r,%20ma%20%3D%20self.left%28i%29,%20self.right%28i%29,%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20l%20%3C%20self.size%28%29%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20l%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20r%20%3C%20self.size%28%29%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20r%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%A1%D1%82%D0%BE%D0%BF%3A%20%D0%B2%20%D1%83%D0%B7%D0%BB%D0%B5%20i%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D1%83%D0%BC%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%9E%D0%B1%D0%BC%D0%B5%D0%BD%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20%20%20%20%20%20%20%20%20self.swap%28i,%20ma%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%94%D0%B0%D0%BB%D0%B5%D0%B5%20%D0%B2%D0%BD%D0%B8%D0%B7%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C%20%D0%BC%D0%B0%D0%BA%D1%81-%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20max_heap%20%3D%20MaxHeap%28%5B1,%202,%203,%204,%205%5D%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20MaxHeap%3A%0A%20%20%20%20%22%22%22%D0%9C%D0%B0%D0%BA%D1%81-%D0%BA%D1%83%D1%87%D0%B0%22%22%22%0A%0A%20%20%20%20def%20__init__%28self,%20nums%3A%20list%5Bint%5D%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80%20%D0%BA%D1%83%D1%87%D0%B8%20%D0%BF%D0%BE%20%D0%B2%D1%85%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%D1%83%20%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D1%83%22%22%22%0A%20%20%20%20%20%20%20%20%23%20%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%20%D0%B1%D0%B5%D0%B7%20%D0%BF%D0%B5%D1%80%D0%B5%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE%D0%BA%0A%20%20%20%20%20%20%20%20self.max_heap%20%3D%20nums%0A%20%20%20%20%20%20%20%20%23%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D1%81%D0%B5%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2,%20%D0%BA%D1%80%D0%BE%D0%BC%D0%B5%20%D0%BB%D0%B8%D1%81%D1%82%D1%8C%D0%B5%D0%B2%0A%20%20%20%20%20%20%20%20for%20i%20in%20range%28self.parent%28self.size%28%29%20-%201%29,%20-1,%20-1%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20self.sift_down%28i%29%0A%0A%20%20%20%20def%20left%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BB%D0%B5%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BA%D0%B0%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%201%0A%0A%20%20%20%20def%20right%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BA%D0%B0%22%22%22%0A%20%20%20%20%20%20%20%20return%202%20%2A%20i%20%2B%202%0A%0A%20%20%20%20def%20parent%28self,%20i%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%98%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%80%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%22%22%22%0A%20%20%20%20%20%20%20%20return%20%28i%20-%201%29%20//%202%20%20%23%20%D0%94%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D0%BE%D0%BA%D1%80%D1%83%D0%B3%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20%D0%B2%D0%BD%D0%B8%D0%B7%0A%0A%20%20%20%20def%20swap%28self,%20i%3A%20int,%20j%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%9E%D0%B1%D0%BC%D0%B5%D0%BD%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%22%22%22%0A%20%20%20%20%20%20%20%20self.max_heap%5Bi%5D,%20self.max_heap%5Bj%5D%20%3D%20self.max_heap%5Bj%5D,%20self.max_heap%5Bi%5D%0A%0A%20%20%20%20def%20size%28self%29%20-%3E%20int%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20%20%20%20%20%20%20return%20len%28self.max_heap%29%0A%0A%20%20%20%20def%20sift_down%28self,%20i%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20%22%22%22%D0%9F%D1%80%D0%BE%D1%81%D0%B5%D1%8F%D1%82%D1%8C%20%D0%B2%D0%BD%D0%B8%D0%B7%20%D0%BE%D1%82%20i%22%22%22%0A%20%20%20%20%20%20%20%20while%20True%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20ma%20%E2%80%94%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D1%83%D0%B7%D0%BB%D0%B0%20%D1%81%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%BC%20%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%0A%20%20%20%20%20%20%20%20%20%20%20%20l,%20r,%20ma%20%3D%20self.left%28i%29,%20self.right%28i%29,%20i%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20l%20%3C%20self.size%28%29%20and%20self.max_heap%5Bl%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20l%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20r%20%3C%20self.size%28%29%20and%20self.max_heap%5Br%5D%20%3E%20self.max_heap%5Bma%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ma%20%3D%20r%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%A1%D1%82%D0%BE%D0%BF%3A%20%D0%B2%20%D1%83%D0%B7%D0%BB%D0%B5%20i%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D1%83%D0%BC%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20ma%20%3D%3D%20i%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%9E%D0%B1%D0%BC%D0%B5%D0%BD%20%D1%83%D0%B7%D0%BB%D0%BE%D0%B2%0A%20%20%20%20%20%20%20%20%20%20%20%20self.swap%28i,%20ma%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20%D0%94%D0%B0%D0%BB%D0%B5%D0%B5%20%D0%B2%D0%BD%D0%B8%D0%B7%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20ma%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C%20%D0%BC%D0%B0%D0%BA%D1%81-%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20max_heap%20%3D%20MaxHeap%28%5B1,%202,%203,%204,%205%5D%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=4&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
 <h2 id="823">8.2.3   Анализ сложности<a class="headerlink" href="#823" title="Permanent link">¶</a></h2>
-<p>Теперь попробуем оценить временную сложность второго способа построения кучи.</p>
+<p>Определим временную сложность второго способа построения кучи.</p>
 <ul>
-<li>Пусть число узлов полного двоичного дерева равно <span class="arithmatex">\(n\)</span> , тогда число листовых узлов равно <span class="arithmatex">\((n + 1) / 2\)</span> , где <span class="arithmatex">\(/\)</span> означает целочисленное деление вниз. Следовательно, число узлов, которые нужно упорядочивать, равно <span class="arithmatex">\(n / 2\)</span> .</li>
-<li>В процессе упорядочивания сверху вниз каждый узел в худшем случае может просеяться до листа, поэтому максимальное число итераций равно высоте двоичного дерева <span class="arithmatex">\(\log n\)</span> .</li>
+<li>Пусть в полном бинарном дереве <span class="arithmatex">\(n\)</span> узлов. Тогда листьев <span class="arithmatex">\((n + 1) / 2\)</span>, где <span class="arithmatex">\(/\)</span> означает целочисленное деление с округлением вниз. Следовательно, просеять нужно <span class="arithmatex">\(n / 2\)</span> узлов.</li>
+<li>При просеивании вниз узел может опуститься самое большее до листа, поэтому число итераций ограничено высотой бинарного дерева <span class="arithmatex">\(\log n\)</span>.</li>
 </ul>
-<p>Перемножив эти два значения, можно получить временную сложность построения кучи <span class="arithmatex">\(O(n \log n)\)</span> . <strong>Но эта оценка неточна, потому что мы не учли свойство двоичного дерева: на нижних уровнях узлов гораздо больше, чем на верхних</strong>.</p>
-<p>Далее выполним более точный расчет. Чтобы упростить вычисления, предположим, что дано «идеальное двоичное дерево» высоты <span class="arithmatex">\(h\)</span> с числом узлов <span class="arithmatex">\(n\)</span>. Это предположение не повлияет на корректность результата.</p>
-<p><ha-svg-figure aria-label="Поуровневый объём работы при построении кучи" class="animation-figure" data-book-key="ru/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/c3a060147bb9dcd31cc9333c.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/cdf08d70854575111740806b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне идеального двоичного дерева</object><object aria-hidden="true" data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне идеального двоичного дерева</object></ha-svg-figure></p>
-<p align="center"> Рисунок 8-5   Число узлов на каждом уровне идеального двоичного дерева </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 8-5: Поуровневый объём работы при построении кучи</h3><p>При построении кучи на нижних уровнях узлов много, но каждый из них может просеяться лишь на малое число уровней; подсчёт по уровням даёт линейную верхнюю оценку времени.</p><p>На схеме построение кучи анализируется на примере идеального двоичного дерева высоты h: узлы перебираются снизу вверх, и для каждого выполняется упорядочивание сверху вниз (просеивание вниз). Здесь «снизу вверх» относится к порядку выбора узлов, а само восстановление на каждом шаге идёт в сторону дочерних узлов.</p><p>Слева изображено дерево, а справа в двух столбцах указаны «Высота узла (максимальное число итераций восстановления свойств кучи)» и «Число узлов на уровне»; горизонтальные пунктирные линии сопоставляют значения каждому уровню. Высота листового узла равна 0, высота корня равна h и измеряется числом рёбер до самого глубокого листа. Число итераций на схеме означает наибольшее число обменов при спуске на уровень ниже, без учёта заключительной проверки условия остановки в коде.</p><p>Пусть глубина корневого уровня равна 0, а уровня листьев — h. На уровне глубины d находится 2 в степени d узлов, и каждый из них просеивается не более чем на h−d уровней; произведение этих величин даёт верхнюю оценку для данного уровня. Если умножить число всех узлов на высоту корня h, объём работы будет завышен, поскольку около половины узлов составляют листья, которые вообще не требуют просеивания вниз.</p><p>На рисунке выписаны первые четыре и последние два уровня, а пропуск между ними обозначен вертикальными многоточиями; таблица ниже дополняет их глубиной, общей формулой и столбцом произведений. При малых h берутся только реально существующие уровни: начальные и конечные строки могут совпадать и повторно не учитываются.</p><p>Число узлов и наибольшее число уровней просеивания на узел в таблице ниже взяты из двух столбцов на рисунке, а глубина и верхняя оценка числа шагов на уровне добавлены при систематизации и расчёте. Если порядок кучи восстанавливается раньше, фактическое просеивание останавливается до достижения верхней оценки.</p><table><caption>Число узлов на каждом уровне и наибольшее число шагов просеивания вниз</caption><thead><tr><th scope="col">Глубина или положение</th><th scope="col">Число узлов</th><th scope="col">Наибольшее число уровней просеивания на узел</th><th scope="col">Верхняя оценка шагов просеивания на уровне</th></tr></thead><tbody><tr><th scope="row">0 (корневой уровень)</th><td>2^0</td><td>h</td><td>2^0×h</td></tr><tr><th scope="row">1</th><td>2^1</td><td>h−1</td><td>2^1×(h−1)</td></tr><tr><th scope="row">2</th><td>2^2</td><td>h−2</td><td>2^2×(h−2)</td></tr><tr><th scope="row">3</th><td>2^3</td><td>h−3</td><td>2^3×(h−3)</td></tr><tr><th scope="row">d (общая формула, 0≤d≤h)</th><td>2^d</td><td>h−d</td><td>2^d×(h−d)</td></tr><tr><th scope="row">h−1 (предпоследний уровень)</th><td>2^(h−1)</td><td>1</td><td>2^(h−1)</td></tr><tr><th scope="row">h (уровень листьев)</th><td>2^h</td><td>0</td><td>0</td></tr></tbody></table><p>Суммируя по уровням, получаем: T(h) = 2^0×h + 2^1×(h−1) + … + 2^(h−1)×1 + 2^h×0. Далее методом вычитания со сдвигом выражение упрощается до T(h) = 2^(h+1) − h − 2. Поскольку общее число узлов равно n = 2^(h+1) − 1, имеем T(h) = n − h − 1; с учётом линейных затрат на проверки в каждом узле время построения кучи составляет O(n).</p></div>
-<p>Как показано на рисунке 8-5, максимальное число итераций упорядочивания сверху вниз для некоторого узла равно расстоянию от этого узла до листового узла, а это расстояние как раз и есть высота узла. Поэтому мы можем просуммировать для каждого уровня выражение «число узлов <span class="arithmatex">\(\times\)</span> высота узла» и <strong>получить суммарное число итераций упорядочивания для всех узлов</strong>.</p>
+<p>Перемножив эти величины, получим оценку времени построения <span class="arithmatex">\(O(n \log n)\)</span>. <strong>Однако она завышена: мы не учли, что на нижних уровнях бинарного дерева гораздо больше узлов, чем на верхних</strong>.</p>
+<p>Проведём более точный расчёт. Для простоты возьмём совершенное бинарное дерево с <span class="arithmatex">\(n\)</span> узлами и высотой <span class="arithmatex">\(h\)</span>. Это допущение не изменит итоговую оценку сложности.</p>
+<p><ha-svg-figure aria-label="Объём работы по уровням при построении кучи" class="animation-figure" data-book-key="ru/chapter_heap/build_heap.assets/heapify_operations_count.png" data-dark-src="/assets/figure-svg/figures/df4a009fd340e1bc334eb5fc.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/ca25fa712cd03addc209df24.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне совершенного бинарного дерева</object><object aria-hidden="true" data="/ru/chapter_heap/build_heap.assets/heapify_operations_count.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Число узлов на каждом уровне совершенного бинарного дерева</object></ha-svg-figure></p>
+<p align="center"> Рисунок 8-5   Число узлов на каждом уровне совершенного бинарного дерева </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 8-5: Объём работы по уровням при построении кучи</h3><p>Чем ниже уровень, тем больше на нём узлов, но тем меньше уровней может пройти вниз каждый из них. Подсчёт по уровням даёт линейную верхнюю границу времени.</p><p>На рисунке построение кучи разбирается на совершенном бинарном дереве высоты h. Узлы выбирают по очереди снизу вверх, а каждый выбранный узел просеивают сверху вниз. Порядок выбора узлов и направление их перемещения различны: просеивание всегда идёт к детям.</p><p>Слева дерево, справа два столбца: «Высота узла (максимальное число итераций просеивания)» и «Число узлов на уровне». Горизонтальные пунктирные линии соединяют соответствующие уровни. Высота листа равна 0, высота корня — h. Высоту измеряют числом рёбер до самого глубокого листа под узлом. На рисунке подсчитывается максимальное число переходов на уровень вниз с обменом. Последняя проверка условия остановки в коде не включена.</p><p>Глубина корня равна 0, глубина листьев — h. На глубине d находится 2 в степени d узлов, каждый из которых опускается не более чем на h−d уровней. Произведение этих чисел даёт верхнюю границу для уровня. Если для каждого узла взять высоту корня h, оценка получится завышенной: около половины узлов — листья, которым некуда опускаться.</p><p>Показаны первые четыре уровня и последние два, между ними стоит вертикальное многоточие. В таблице ниже добавлены глубина, общая формула и произведение. При малых h учитываются только существующие уровни. Если начальные и конечные строки совпадают, их считают лишь раз.</p><p>Число узлов и максимальное число уровней спуска для одного узла взяты из двух столбцов рисунка. Глубина и верхняя граница общего числа спусков на каждом уровне добавлены для расчёта. При просеивании свойство кучи может восстановиться раньше, чем будет достигнута эта граница.</p><table><caption>Число узлов и максимальное число спусков по уровням</caption><thead><tr><th scope="col">Глубина или положение</th><th scope="col">Число узлов</th><th scope="col">Максимальное число уровней спуска одного узла</th><th scope="col">Верхняя граница общего числа спусков на уровне</th></tr></thead><tbody><tr><th scope="row">0 (уровень корня)</th><td>2^0</td><td>h</td><td>2^0×h</td></tr><tr><th scope="row">1</th><td>2^1</td><td>h−1</td><td>2^1×(h−1)</td></tr><tr><th scope="row">2</th><td>2^2</td><td>h−2</td><td>2^2×(h−2)</td></tr><tr><th scope="row">3</th><td>2^3</td><td>h−3</td><td>2^3×(h−3)</td></tr><tr><th scope="row">d (общая формула, 0≤d≤h)</th><td>2^d</td><td>h−d</td><td>2^d×(h−d)</td></tr><tr><th scope="row">h−1 (предпоследний уровень)</th><td>2^(h−1)</td><td>1</td><td>2^(h−1)</td></tr><tr><th scope="row">h (уровень листьев)</th><td>2^h</td><td>0</td><td>0</td></tr></tbody></table><p>Суммируем по уровням: T(h) = 2^0×h + 2^1×(h−1) + … + 2^(h−1)×1 + 2^h×0. Далее вычитанием со сдвигом получим T(h) = 2^(h+1) − h − 2. Всего узлов n = 2^(h+1) − 1, поэтому T(h) = n − h − 1. С учётом линейных затрат на проверки узлов и другие операции построение кучи занимает O(n) времени.</p></div>
+<p>Как видно на рисунке, максимальное число итераций просеивания вниз равно расстоянию от узла до листа, то есть высоте узла. Поэтому, сложив по всем уровням произведения «число узлов <span class="arithmatex">\(\times\)</span> высота узла», <strong>получим суммарное число итераций просеивания всех узлов в худшем случае</strong>.</p>
 <div class="arithmatex">\[
 T(h) = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{(h-1)}\times1
 \]</div>
-<p>Чтобы упростить это выражение, воспользуемся школьными знаниями о последовательностях и сначала умножим <span class="arithmatex">\(T(h)\)</span> на <span class="arithmatex">\(2\)</span> :</p>
+<p>Упростим выражение с помощью знакомых из школы свойств последовательностей. Для начала умножим <span class="arithmatex">\(T(h)\)</span> на <span class="arithmatex">\(2\)</span>:</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(h) &amp; = 2^0h + 2^1(h-1) + 2^2(h-2) + \dots + 2^{h-1}\times1 \newline
 2 T(h) &amp; = 2^1h + 2^2(h-1) + 2^3(h-2) + \dots + 2^{h}\times1 \newline
 \end{aligned}
 \]</div>
-<p>Используя метод вычитания со сдвигом, вычтем из нижней строки <span class="arithmatex">\(2 T(h)\)</span> верхнюю строку <span class="arithmatex">\(T(h)\)</span> , тогда получим:</p>
+<p>Вычтем со сдвигом предыдущее выражение <span class="arithmatex">\(T(h)\)</span> из полученного выражения <span class="arithmatex">\(2 T(h)\)</span>:</p>
 <div class="arithmatex">\[
 2T(h) - T(h) = T(h) = -2^0h + 2^1 + 2^2 + \dots + 2^{h-1} + 2^h
 \]</div>
-<p>Из этого выражения видно, что <span class="arithmatex">\(T(h)\)</span> представляет собой геометрическую прогрессию, поэтому можно напрямую применить формулу суммы и получить временную сложность:</p>
+<p>Видим, что <span class="arithmatex">\(T(h)\)</span> представляет собой геометрическую прогрессию. Применив формулу её суммы, получаем оценку времени:</p>
 <div class="arithmatex">\[
 \begin{aligned}
 T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
@@ -2255,7 +2255,7 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 &amp; = O(2^h)
 \end{aligned}
 \]</div>
-<p>Далее, число узлов идеального двоичного дерева высоты <span class="arithmatex">\(h\)</span> равно <span class="arithmatex">\(n = 2^{h+1} - 1\)</span> , поэтому несложно получить сложность <span class="arithmatex">\(O(2^h) = O(n)\)</span> . Из этого вывода следует, что <strong>построение кучи из входного списка имеет временную сложность <span class="arithmatex">\(O(n)\)</span> , то есть выполняется очень эффективно</strong>.</p>
+<p>В совершенном бинарном дереве высоты <span class="arithmatex">\(h\)</span> число узлов равно <span class="arithmatex">\(n = 2^{h+1} - 1\)</span>. Следовательно, сложность составляет <span class="arithmatex">\(O(2^h) = O(n)\)</span>. Итак, <strong>по готовому списку кучу можно построить очень эффективно, за время <span class="arithmatex">\(O(n)\)</span></strong>.</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
@@ -2275,13 +2275,13 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="Вперед: 8.3 Задача Top-k" class="md-footer__link md-footer__link--next" href="../top_k/" rel="next">
+<a aria-label="Вперед: 8.3 Задача о k наибольших элементах" class="md-footer__link md-footer__link--next" href="../top_k/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         Вперед
       </span>
 <div class="md-ellipsis">
-        8.3 Задача Top-k
+        8.3 Задача о k наибольших элементах
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2291,7 +2291,7 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Оставляйте свои идеи, вопросы и предложения в комментариях</h5>
+<h5 align="center" id="__comments">Поделитесь своим мнением, задайте вопрос или оставьте предложение в комментариях</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ru" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2373,9 +2373,9 @@ T(h) &amp; = 2 \frac{1 - 2^h}{1 - 2} - h \newline
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.0d441547851f63d0e6614369d827335a9b125feca310fe06e17e6b9e15f96fa1.min.js"></script>
+<script src="../../assets/javascripts/bundle.c14dfd00549a42415ad39f11698a44840394334ca6c2e5be8ce68b23dd434e70.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

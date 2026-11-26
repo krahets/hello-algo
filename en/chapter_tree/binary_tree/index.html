@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="A data structures and algorithms tutorial with animated illustrations and code you can run with one click" name="description"/>
+<meta content="Learn data structures and algorithms with animated diagrams and code you can run with one click." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/en/chapter_tree/binary_tree/" rel="canonical"/>
 <link href="../" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_tree/binary_tree/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>7.1 Binary trees - Hello Algo</title>
+<title>7.1 Binary tree - Hello Algo</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,13 +47,13 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label aria-label="Navigation" class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#71-binary-trees">
+<a class="md-skip" href="#71-binary-tree">
           Skip to content
         </a>
 </div>
@@ -64,7 +64,7 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Help improve the English edition. See our <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contribution guidelines</a>.</span>
+<span>Help improve the English edition. See the <a href="https://github.com/krahets/hello-algo/blob/main/en/CONTRIBUTING.md">contributing guidelines</a>.</span>
 </div>
 </div>
 </aside>
@@ -87,7 +87,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              7.1   Binary trees
+              7.1   Binary tree
 
           </span>
 </div>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Chapter 1.   Getting to know algorithms
+  Chapter 1.   Introduction to algorithms
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 1.   Getting to know algorithms
+  Chapter 1.   Introduction to algorithms
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -487,7 +487,7 @@
 <span class="md-ellipsis">
 
 
-  3.3   Number encoding *
+  3.3   Number representations *
 
 
   </span>
@@ -739,7 +739,7 @@
 <span class="md-ellipsis">
 
 
-  6.1   Hash tables
+  6.1   Hash table
 
 
   </span>
@@ -823,7 +823,7 @@
 <span class="md-ellipsis">
 
 
-  7.1   Binary trees
+  7.1   Binary tree
 
 
   </span>
@@ -833,7 +833,7 @@
 <span class="md-ellipsis">
 
 
-  7.1   Binary trees
+  7.1   Binary tree
 
 
   </span>
@@ -845,38 +845,38 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#711-common-terminology">
+<a class="md-nav__link" href="#711-binary-tree-terminology">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        7.1.1   Common terminology
+        7.1.1   Binary tree terminology
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#712-basic-operations">
+<a class="md-nav__link" href="#712-basic-binary-tree-operations">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        7.1.2   Basic operations
+        7.1.2   Basic binary tree operations
       </span>
 </span>
 </a>
-<nav aria-label="7.1.2 Basic operations" class="md-nav">
+<nav aria-label="7.1.2 Basic binary tree operations" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-initializing-a-binary-tree">
+<a class="md-nav__link" href="#1-initialize-the-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Initializing a binary tree
+        1.   Initialize the binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-inserting-and-deleting-nodes">
+<a class="md-nav__link" href="#2-insert-and-delete-nodes">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Inserting and deleting nodes
+        2.   Insert and delete nodes
       </span>
 </span>
 </a>
@@ -895,37 +895,37 @@
 <nav aria-label="7.1.3 Common types of binary trees" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-perfect-binary-trees">
+<a class="md-nav__link" href="#1-perfect-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Perfect binary trees
+        1.   Perfect binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-complete-binary-trees">
+<a class="md-nav__link" href="#2-complete-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Complete binary trees
+        2.   Complete binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-full-binary-trees">
+<a class="md-nav__link" href="#3-full-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        3.   Full binary trees
+        3.   Full binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-balanced-binary-trees">
+<a class="md-nav__link" href="#4-balanced-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        4.   Balanced binary trees
+        4.   Balanced binary tree
       </span>
 </span>
 </a>
@@ -934,10 +934,10 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#714-degeneration-of-a-binary-tree">
+<a class="md-nav__link" href="#714-how-a-binary-tree-degenerates">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        7.1.4   Degeneration of a binary tree
+        7.1.4   How a binary tree degenerates
       </span>
 </span>
 </a>
@@ -950,7 +950,7 @@
 <span class="md-ellipsis">
 
 
-  7.2   Traversing a binary tree
+  7.2   Binary tree traversal
 
 
   </span>
@@ -961,7 +961,7 @@
 <span class="md-ellipsis">
 
 
-  7.3   Array representation of a binary tree
+  7.3   Representing binary trees with arrays
 
 
   </span>
@@ -972,7 +972,7 @@
 <span class="md-ellipsis">
 
 
-  7.4   Binary search trees
+  7.4   Binary search tree
 
 
   </span>
@@ -1045,7 +1045,7 @@
 <span class="md-ellipsis">
 
 
-  8.1   Heaps
+  8.1   Heap
 
 
   </span>
@@ -1129,7 +1129,7 @@
 <span class="md-ellipsis">
 
 
-  9.1   Graphs
+  9.1   Graph
 
 
   </span>
@@ -1246,7 +1246,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   Optimizing with hashing
+  10.4   Using hashing to speed up a search
 
 
   </span>
@@ -1363,7 +1363,7 @@
 <span class="md-ellipsis">
 
 
-  11.5   Quick sort
+  11.5   Quicksort
 
 
   </span>
@@ -1480,7 +1480,7 @@
 <span class="md-ellipsis">
 
 
-  12.1   Divide and conquer
+  12.1   Divide-and-conquer algorithms
 
 
   </span>
@@ -1502,7 +1502,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   Building a binary tree
+  12.3   Reconstructing a binary tree
 
 
   </span>
@@ -1513,7 +1513,7 @@
 <span class="md-ellipsis">
 
 
-  12.4   Tower of Hanoi
+  12.4   The Tower of Hanoi
 
 
   </span>
@@ -1575,7 +1575,7 @@
 <span class="md-ellipsis">
 
 
-  13.1   Backtracking algorithms
+  13.1   Backtracking
 
 
   </span>
@@ -1586,7 +1586,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   Permutations problem
+  13.2   The permutations problem
 
 
   </span>
@@ -1597,7 +1597,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   Subset sum problem
+  13.3   The subset sum problem
 
 
   </span>
@@ -1608,7 +1608,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   N-queens problem
+  13.4   The N-queens problem
 
 
   </span>
@@ -1692,7 +1692,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   Solving dynamic programming problems
+  14.3   Solving problems with dynamic programming
 
 
   </span>
@@ -1703,7 +1703,7 @@
 <span class="md-ellipsis">
 
 
-  14.4   0-1 knapsack problem
+  14.4   The 0-1 knapsack problem
 
 
   </span>
@@ -1714,7 +1714,7 @@
 <span class="md-ellipsis">
 
 
-  14.5   Unbounded knapsack problem
+  14.5   The unbounded knapsack problem
 
 
   </span>
@@ -1725,7 +1725,7 @@
 <span class="md-ellipsis">
 
 
-  14.6   Edit distance problem
+  14.6   The edit distance problem
 
 
   </span>
@@ -1764,7 +1764,7 @@
 <span class="md-ellipsis">
 
 
-  Chapter 15.   Greedy algorithms
+  Chapter 15.   The greedy approach
 
 
   </span>
@@ -1778,7 +1778,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Chapter 15.   Greedy algorithms
+  Chapter 15.   The greedy approach
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1820,7 +1820,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   Maximum product cutting problem
+  15.4   Maximum product after cutting
 
 
   </span>
@@ -1893,7 +1893,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   Contribute to the book
+  16.2   Contributing to the book
 
 
   </span>
@@ -1958,38 +1958,38 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#711-common-terminology">
+<a class="md-nav__link" href="#711-binary-tree-terminology">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        7.1.1   Common terminology
+        7.1.1   Binary tree terminology
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#712-basic-operations">
+<a class="md-nav__link" href="#712-basic-binary-tree-operations">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        7.1.2   Basic operations
+        7.1.2   Basic binary tree operations
       </span>
 </span>
 </a>
-<nav aria-label="7.1.2 Basic operations" class="md-nav">
+<nav aria-label="7.1.2 Basic binary tree operations" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-initializing-a-binary-tree">
+<a class="md-nav__link" href="#1-initialize-the-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Initializing a binary tree
+        1.   Initialize the binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-inserting-and-deleting-nodes">
+<a class="md-nav__link" href="#2-insert-and-delete-nodes">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Inserting and deleting nodes
+        2.   Insert and delete nodes
       </span>
 </span>
 </a>
@@ -2008,37 +2008,37 @@
 <nav aria-label="7.1.3 Common types of binary trees" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-perfect-binary-trees">
+<a class="md-nav__link" href="#1-perfect-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   Perfect binary trees
+        1.   Perfect binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-complete-binary-trees">
+<a class="md-nav__link" href="#2-complete-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   Complete binary trees
+        2.   Complete binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-full-binary-trees">
+<a class="md-nav__link" href="#3-full-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        3.   Full binary trees
+        3.   Full binary tree
       </span>
 </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-balanced-binary-trees">
+<a class="md-nav__link" href="#4-balanced-binary-tree">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        4.   Balanced binary trees
+        4.   Balanced binary tree
       </span>
 </span>
 </a>
@@ -2047,10 +2047,10 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#714-degeneration-of-a-binary-tree">
+<a class="md-nav__link" href="#714-how-a-binary-tree-degenerates">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        7.1.4   Degeneration of a binary tree
+        7.1.4   How a binary tree degenerates
       </span>
 </span>
 </a>
@@ -2071,8 +2071,8 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="71-binary-trees">7.1   Binary trees<a class="headerlink" href="#71-binary-trees" title="Permanent link">¶</a></h1>
-<p>A <u>binary tree</u> is a nonlinear data structure representing relationships between ancestors and descendants. It embodies the divide-and-conquer idea of splitting in two. Like a linked list, it is built from nodes, each containing a value and references to its left and right children.</p>
+<h1 id="71-binary-tree"><span aria-hidden="true" data-previous-heading="" id="71-binary-trees"></span>7.1   Binary tree<a class="headerlink" href="#71-binary-tree" title="Permanent link">¶</a></h1>
+<p>A <u>binary tree</u> is a nonlinear data structure that represents relationships between ancestors and descendants. Its two branches reflect the divide-and-conquer idea of splitting a problem in two. As with a linked list, the basic unit is a node. Each node contains a value and references to its left and right children.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2085,7 +2085,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Binary tree node struct */</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Binary tree node structure */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">          </span><span class="c1">// Node value</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">left</span><span class="p">;</span><span class="w">   </span><span class="c1">// Left child pointer</span>
@@ -2114,7 +2114,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Binary tree node struct */</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Binary tree node structure */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">type</span><span class="w"> </span><span class="nx">TreeNode</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="nx">Val</span><span class="w">   </span><span class="kt">int</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">Left</span><span class="w">  </span><span class="o">*</span><span class="nx">TreeNode</span>
@@ -2186,7 +2186,7 @@
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">rc</span><span class="p">::</span><span class="n">Rc</span><span class="p">;</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">cell</span><span class="p">::</span><span class="n">RefCell</span><span class="p">;</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="cm">/* Binary tree node struct */</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="cm">/* Binary tree node structure */</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="n">val</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w">                               </span><span class="c1">// Node value</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="n">left</span><span class="p">:</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;&gt;&gt;</span><span class="p">,</span><span class="w">    </span><span class="c1">// Left child reference</span>
@@ -2206,7 +2206,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Binary tree node struct */</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Binary tree node structure */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w">                </span><span class="c1">// Node value</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">left</span><span class="p">;</span><span class="w">  </span><span class="c1">// Left child pointer</span>
@@ -2248,31 +2248,31 @@
 </div>
 </div>
 </div>
-<p>Each node has two references or pointers, one to its <u>left child</u> and one to its <u>right child</u>. The node is their <u>parent</u>. Its left child and all nodes below that child form its <u>left subtree</u>; the <u>right subtree</u> is defined similarly.</p>
-<p><strong>Every non-leaf node has children and at least one nonempty subtree</strong>. In Figure 7-1, if node 2 is the parent, its left and right children are nodes 4 and 5. Its left subtree consists of node 4 and everything below it, and its right subtree consists of node 5 and everything below it.</p>
-<p><ha-svg-figure aria-label="Nodes and subtrees of a binary tree" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_definition.png" data-dark-src="/assets/figure-svg/figures/8a2d19573dc3861f10a3ee0d.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/7109a58128a332126315e9cc.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_definition.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Parents, children, and subtrees</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_definition.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Parents, children, and subtrees</object></ha-svg-figure></p>
-<p align="center"> Figure 7-1   Parents, children, and subtrees </p><div class="ha-sr-only figure-description"><h2>Description of Figure 7-1: Nodes and subtrees of a binary tree</h2><p>The root and its branches illustrate the difference between a direct child node and a whole subtree containing that node and all its descendants.</p><p>This perfect binary tree has 4 levels and 15 nodes, rooted at 1. Values run from 1 to 15 level by level, left to right. Nodes 8 through 15 are leaves with no children. The table lists left and right children for the 7 non-leaf nodes, 1 through 7.</p><p>An orange area encloses the left subtree of root 1 and a blue area its right subtree. Each area includes the corresponding subtree root and all its descendants.</p><table><caption>Left and right children of every non-leaf node in the figure</caption><thead><tr><th scope="col">Parent node</th><th scope="col">Left child</th><th scope="col">Right child</th></tr></thead><tbody><tr><th scope="row">1</th><td>2</td><td>3</td></tr><tr><th scope="row">2</th><td>4</td><td>5</td></tr><tr><th scope="row">3</th><td>6</td><td>7</td></tr><tr><th scope="row">4</th><td>8</td><td>9</td></tr><tr><th scope="row">5</th><td>10</td><td>11</td></tr><tr><th scope="row">6</th><td>12</td><td>13</td></tr><tr><th scope="row">7</th><td>14</td><td>15</td></tr></tbody></table><p>For root 1 the left child is the single node 2 and the right child the single node 3. The left subtree rooted at 2 contains 7 nodes: 2, 4, 5, 8, 9, 10, and 11. The right subtree rooted at 3 also contains 7: 3, 6, 7, 12, 13, 14, and 15. A subtree includes its root and all descendants, extending beyond the direct child in this example.</p><p>Parent, child, and subtree are relative to the node being considered. Node 1 is the parent of 2 and 3, and 2 is the parent of 4 and 5. The figure labels root 1 “Parent node” because it is the parent of 2 and 3. The root itself has no parent.</p></div>
-<h2 id="711-common-terminology">7.1.1   Common terminology<a class="headerlink" href="#711-common-terminology" title="Permanent link">¶</a></h2>
-<p>Figure 7-2 illustrates common binary-tree terminology.</p>
+<p>Each node has two references (pointers), one to its <u>left child</u> and one to its <u>right child</u>. The node is the <u>parent</u> of these children. For a given node, the tree consisting of its left child and all that child's descendants is its <u>left subtree</u>. Its <u>right subtree</u> is defined in the same way.</p>
+<p><strong>Every node in a binary tree except a leaf has at least one child and a nonempty subtree</strong>. For example, take node 2 as the parent in Figure 7-1. Its left and right children are nodes 4 and 5. Its left subtree consists of node 4 and all its descendants, and its right subtree consists of node 5 and all its descendants.</p>
+<p><ha-svg-figure aria-label="Nodes and subtrees of a binary tree" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_definition.png" data-dark-src="/assets/figure-svg/figures/955f34c64bf97e54d2fc5caf.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b292d2c61f79e8e97c01463b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_definition.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Parent, children, and subtrees</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_definition.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Parent, children, and subtrees</object></ha-svg-figure></p>
+<p align="center"> Figure 7-1   Parent, children, and subtrees </p><div class="ha-sr-only figure-description"><h2>Description of Figure 7-1: Nodes and subtrees of a binary tree</h2><p>The root and its left and right branches illustrate the difference between one directly connected child and the subtree containing that child and all its descendants.</p><p>This four-level perfect binary tree has 15 nodes. The root is 1, and the values run from 1 through 15 level by level, left to right. Nodes 8 through 15 on the bottom level are leaves with no children. The table lists the left and right child links for the seven non-leaf nodes, 1 through 7.</p><p>The orange region encloses the left subtree of root 1, and the blue region encloses its right subtree. Each region includes its own root and all its descendants.</p><table><caption>Left and right children of every non-leaf node in the figure</caption><thead><tr><th scope="col">Parent</th><th scope="col">Left child</th><th scope="col">Right child</th></tr></thead><tbody><tr><th scope="row">1</th><td>2</td><td>3</td></tr><tr><th scope="row">2</th><td>4</td><td>5</td></tr><tr><th scope="row">3</th><td>6</td><td>7</td></tr><tr><th scope="row">4</th><td>8</td><td>9</td></tr><tr><th scope="row">5</th><td>10</td><td>11</td></tr><tr><th scope="row">6</th><td>12</td><td>13</td></tr><tr><th scope="row">7</th><td>14</td><td>15</td></tr></tbody></table><p>Relative to root 1, the directly connected left child is the single node 2, and the right child is the single node 3. The left subtree is the entire tree rooted at 2, with 7 nodes: 2, 4, 5, 8, 9, 10, and 11. The right subtree is rooted at 3 and also has 7 nodes: 3, 6, 7, 12, 13, 14, and 15. Each subtree includes its root and all its descendants, extending beyond the child alone in this example.</p><p>Parent-child and subtree relationships depend on the reference node. Node 1 is the parent of 2 and 3, and 2 is the parent of 4 and 5. The “Parent” label on root 1 describes its relationship to 2 and 3. The root itself has no parent.</p></div>
+<h2 id="711-binary-tree-terminology"><span aria-hidden="true" data-previous-heading="" id="711-common-terminology"></span>7.1.1   Binary tree terminology<a class="headerlink" href="#711-binary-tree-terminology" title="Permanent link">¶</a></h2>
+<p>Figure 7-2 illustrates common binary tree terms.</p>
 <ul>
-<li><u>Root</u>: the topmost node, which has no parent.</li>
-<li><u>Leaf</u>: a node with no children; both of its child references point to <code>None</code>.</li>
-<li><u>Edge</u>: a connection between two nodes, represented by a reference or pointer.</li>
-<li>A node's <u>level</u>: levels increase from top to bottom, with the root at level 1.</li>
-<li>A node's <u>degree</u>: its number of children, which is 0, 1, or 2 in a binary tree.</li>
-<li>A tree's <u>height</u>: the number of edges from the root to its farthest leaf.</li>
-<li>A node's <u>depth</u>: the number of edges from the root to that node.</li>
-<li>A node's <u>height</u>: the number of edges from that node to its farthest leaf.</li>
+<li>The <u>root</u> is the node at the top of a binary tree. It has no parent.</li>
+<li>A <u>leaf</u> has no children. Both its pointers refer to <code>None</code>.</li>
+<li>An <u>edge</u> is a line connecting two nodes. It represents a node reference (pointer).</li>
+<li>A node's <u>level</u> increases from top to bottom. The root is at level 1.</li>
+<li>A node's <u>degree</u> is its number of children. In a binary tree, the possible degrees are 0, 1, and 2.</li>
+<li>The <u>height</u> of a binary tree is the number of edges from the root to the farthest leaf.</li>
+<li>A node's <u>depth</u> is the number of edges from the root to that node.</li>
+<li>A node's <u>height</u> is the number of edges between it and its farthest descendant leaf.</li>
 </ul>
-<p><ha-svg-figure aria-label="Binary tree roots, leaves, depth, and height" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_terminology.png" data-dark-src="/assets/figure-svg/figures/cb9104469612f11990ce8891.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/84b2c13cef9bcebaea095565.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_terminology.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Common binary-tree terminology</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_terminology.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Common binary-tree terminology</object></ha-svg-figure></p>
-<p align="center"> Figure 7-2   Common binary-tree terminology </p><div class="ha-sr-only figure-description"><h3>Description of Figure 7-2: Binary tree roots, leaves, depth, and height</h3><p>Root and leaf labels identify node positions. Scales on either side show depth and height.</p><p>This four-level binary tree has node values inside green circles. Gray arrows lead from parents to their left and right children. Root 1 has children 2 and 3, node 2 has 4 and 5, node 3 has 6 and 7, and node 4 has 8 and 9, each listed left to right. Node 6 has only left child 12; node 7 has left child 14 and right child 15.</p><p>Each directed line represents one edge. “Root node” points to the topmost node 1, which has no parent. Six lines from “Leaf node” point to 8, 9, 5, 12, 14, and 15. All six lack children. Leaf 5 is on level 3 and the other five are on level 4, showing that leaves need not share a level.</p><p>Horizontal dashed lines align the scales with the tree levels. Both depth and height count edges. At upper left the path from root 1 to node 2 has 1 edge, so node 2 has depth 1. At lower left the paths from node 2 to its farthest leaves 8 and 9 have 2 edges, so node 2 has height 2. The long scale on the right counts 3 edges from root 1 to a deepest leaf: the binary tree has height 3.</p><p>From node 2 there is 1 edge to leaf 5 but 2 edges to leaves 8 and 9. Height takes the farthest distance, 2. This four-level tree has height 3 because a path has 1 fewer edge than levels.</p></div>
+<p><ha-svg-figure aria-label="Root, leaves, depth, and height in a binary tree" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_terminology.png" data-dark-src="/assets/figure-svg/figures/e80c0a5138bee8e66a9c99d6.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/99ac6a7cb80137c9aec4270f.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_terminology.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Common binary tree terms</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_terminology.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Common binary tree terms</object></ha-svg-figure></p>
+<p align="center"> Figure 7-2   Common binary tree terms </p><div class="ha-sr-only figure-description"><h3>Description of Figure 7-2: Root, leaves, depth, and height in a binary tree</h3><p>Root and leaf labels identify node positions, while scales on either side show depth and height.</p><p>The four-level binary tree has node values inside green circles and gray arrows from parents to their left and right children. Node 1 at the top is the root. The left and right children of 1 are 2 and 3, those of 2 are 4 and 5, those of 3 are 6 and 7, and those of 4 are 8 and 9. Node 6 has only left child 12. Node 7 has left child 14 and right child 15.</p><p>Each directed link represents one edge. The “Root” label at the top points to node 1, which has no parent. Six leader lines from “Leaves” at the bottom point to 8, 9, 5, 12, 14, and 15. None of these six nodes has a child. Node 5 is on level 3, and the other five are on level 4, showing that leaves can be on different levels.</p><p>Horizontal dashed lines align the scales with the levels. Both scales measure depth and height by counting edges. The upper left scale spans 1 edge from root 1 to node 2 and reads “Depth of node 2 = 1.” The lower left scale spans 2 edges from node 2 to its farthest leaves, 8 and 9, and reads “Height of node 2 = 2.” The long scale on the right spans 3 edges from root 1 to the farthest leaves at the bottom and reads “Binary tree height = 3.”</p><p>The path from node 2 to leaf 5 has just 1 edge, while the paths to leaves 8 and 9 each have 2. Height uses the farthest leaf, giving 2. A tree with four levels has height 3 because the edge count is one less than the level count.</p></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Height and depth are usually measured in edges, but some problems or textbooks count nodes instead. Under that convention, add 1 to both height and depth.</p>
+<p>We usually define height and depth by counting edges. Some problems and textbooks count nodes instead. Under that convention, add 1 to both height and depth.</p>
 </div>
-<h2 id="712-basic-operations">7.1.2   Basic operations<a class="headerlink" href="#712-basic-operations" title="Permanent link">¶</a></h2>
-<h3 id="1-initializing-a-binary-tree">1.   Initializing a binary tree<a class="headerlink" href="#1-initializing-a-binary-tree" title="Permanent link">¶</a></h3>
-<p>As with a linked list, first create the nodes, then connect them with references or pointers.</p>
+<h2 id="712-basic-binary-tree-operations"><span aria-hidden="true" data-previous-heading="" id="712-basic-operations"></span>7.1.2   Basic binary tree operations<a class="headerlink" href="#712-basic-binary-tree-operations" title="Permanent link">¶</a></h2>
+<h3 id="1-initialize-the-binary-tree"><span aria-hidden="true" data-previous-heading="" id="1-initializing-a-binary-tree"></span>1.   Initialize the binary tree<a class="headerlink" href="#1-initialize-the-binary-tree" title="Permanent link">¶</a></h3>
+<p>As with a linked list, first initialize the nodes, then connect them with references (pointers).</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2283,7 +2283,7 @@
 <a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">n3</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">n4</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">n5</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">val</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="c1"># Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="c1"># Link the nodes with references (pointers)</span>
 <a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
 <a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">n1</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">n3</span>
 <a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="n">n2</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n4</span>
@@ -2298,7 +2298,7 @@
 <a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span><span class="p">;</span>
 <a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="n">n2</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span><span class="p">;</span>
@@ -2313,7 +2313,7 @@
 <a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="n">n1</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span><span class="p">;</span>
 <a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="n">n2</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span><span class="p">;</span>
@@ -2328,7 +2328,7 @@
 <a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="n">n1</span><span class="p">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span><span class="p">;</span>
 <a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="n">n2</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span><span class="p">;</span>
@@ -2343,7 +2343,7 @@
 <a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nx">n3</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewTreeNode</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="nx">n4</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewTreeNode</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="nx">n5</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewTreeNode</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span>
 <a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n3</span>
 <a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="nx">n2</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n4</span>
@@ -2358,7 +2358,7 @@
 <a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="kd">let</span><span class="w"> </span><span class="nv">n3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="kd">let</span><span class="w"> </span><span class="nv">n4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="kd">let</span><span class="w"> </span><span class="nv">n5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
 <a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="n">n1</span><span class="p">.</span><span class="kr">right</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n3</span>
 <a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="n">n2</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n4</span>
@@ -2373,7 +2373,7 @@
 <a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span><span class="nx">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">3</span><span class="p">),</span>
 <a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">    </span><span class="nx">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span>
 <a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">    </span><span class="nx">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
-<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
 <a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n3</span><span class="p">;</span>
 <a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="nx">n2</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n4</span><span class="p">;</span>
@@ -2388,7 +2388,7 @@
 <a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="nx">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">3</span><span class="p">),</span>
 <a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="nx">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">4</span><span class="p">),</span>
 <a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="nx">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
-<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
 <a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n3</span><span class="p">;</span>
 <a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="nx">n2</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n4</span><span class="p">;</span>
@@ -2403,7 +2403,7 @@
 <a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
 <a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
 <a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
-<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="n">n1</span><span class="p">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span><span class="p">;</span>
 <a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="n">n2</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span><span class="p">;</span>
@@ -2418,7 +2418,7 @@
 <a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="kd">let</span><span class="w"> </span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="kd">let</span><span class="w"> </span><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="kd">let</span><span class="w"> </span><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">));</span>
 <a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n3</span><span class="p">));</span>
 <a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="n">n2</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n4</span><span class="p">));</span>
@@ -2433,7 +2433,7 @@
 <a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newTreeNode</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newTreeNode</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newTreeNode</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span><span class="p">;</span>
 <a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="n">n2</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span><span class="p">;</span>
@@ -2448,7 +2448,7 @@
 <a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="kd">val</span><span class="w"> </span><span class="nv">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">3</span><span class="p">)</span>
 <a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="kd">val</span><span class="w"> </span><span class="nv">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>
 <a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="kd">val</span><span class="w"> </span><span class="nv">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
-<a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="c1">// Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="c1">// Link the nodes with references (pointers)</span>
 <a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
 <a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="n">n1</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span>
 <a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="n">n2</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span>
@@ -2463,7 +2463,7 @@
 <a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="n">n3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="n">n4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="n">n5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="c1"># Set up references (pointers) between the nodes</span>
+<a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="c1"># Link the nodes with references (pointers)</span>
 <a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
 <a href="#__codelineno-25-10" id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="n">n1</span><span class="o">.</span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n3</span>
 <a href="#__codelineno-25-11" id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="n">n2</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n4</span>
@@ -2474,146 +2474,146 @@
 </div>
 <details class="pythontutor">
 <summary>Visualize execution</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Right%20child%20reference%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20binary%20tree%0A%20%20%20%20%23%20Initialize%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Connect%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Visualize execution"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Right%20child%20reference%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20binary%20tree%0A%20%20%20%20%23%20Initialize%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Connect%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">View full screen &gt;</a></div></p>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Reference%20to%20the%20right%20child%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20binary%20tree%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Link%20the%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Visualize execution"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Reference%20to%20the%20right%20child%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20binary%20tree%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Link%20the%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=3&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">View full screen &gt;</a></div></p>
 </details>
-<h3 id="2-inserting-and-deleting-nodes">2.   Inserting and deleting nodes<a class="headerlink" href="#2-inserting-and-deleting-nodes" title="Permanent link">¶</a></h3>
-<p>As with linked lists, insertion and deletion can be implemented by changing pointers. An example is shown below.</p>
-<p><ha-svg-figure aria-label="Inserting and detaching a binary tree node" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_add_remove.png" data-dark-src="/assets/figure-svg/figures/e2b38b37f629fb35a352a5c7.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b50b5498541910fb3f1c9208.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_add_remove.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Inserting and deleting a binary-tree node</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_add_remove.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Inserting and deleting a binary-tree node</object></ha-svg-figure></p>
-<p align="center"> Figure 7-3   Inserting and deleting a binary-tree node </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-3: Inserting and detaching a binary tree node</h4><p>Change left-child links to insert or detach an intermediate node P while retaining the entire subtree rooted at 2.</p><p>Root 1 (n1) initially has left child 2 (n2) and right leaf 3. Node 2 has left leaf 4 and right leaf 5. The node P to insert holds 0 and both child links are empty. Three panels show preparation, completed insertion, and completed removal, from left to right.</p><p>First save the reference to node 2 in n2. In the left panel P is separate from the tree. The middle panel executes n1.left = P and P.left = n2, making the left branch 1→P (0)→2. Node 2 keeps children 4 and 5, while P has no right child. The right panel executes n1.left = n2 to bypass P and restore the original tree. Root 1 keeps right child 3 throughout.</p><p>Detaching P restores the original links and makes P unreachable from the root. That does not establish that the object’s memory was freed. The entire original left subtree is still present.</p></div>
+<h3 id="2-insert-and-delete-nodes"><span aria-hidden="true" data-previous-heading="" id="2-inserting-and-deleting-nodes"></span>2.   Insert and delete nodes<a class="headerlink" href="#2-insert-and-delete-nodes" title="Permanent link">¶</a></h3>
+<p>As with a linked list, we can insert and delete nodes in a binary tree by changing pointers. Figure 7-3 gives an example.</p>
+<p><ha-svg-figure aria-label="Inserting and detaching a node in a binary tree" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_add_remove.png" data-dark-src="/assets/figure-svg/figures/d86148ee427da08c8f7f4532.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/bdd85aed6480d517a42acc18.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_add_remove.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Inserting and deleting a node in a binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_add_remove.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Inserting and deleting a node in a binary tree</object></ha-svg-figure></p>
+<p align="center"> Figure 7-3   Inserting and deleting a node in a binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-3: Inserting and detaching a node in a binary tree</h4><p>Redirect left child references to insert or detach an intermediate node P while keeping the entire subtree rooted at node 2.</p><p>Initially, root 1 (n1) has left child 2 (n2) and right leaf 3. Node 2 has left leaf 4 and right leaf 5. The node to insert, P, holds 0 and has no children. From left to right, the three panels show preparation for insertion, the completed insertion, and the completed removal.</p><p>First save a reference to node 2 in n2. In the left panel, P is separate from the tree. In the middle panel, setting n1.left = P and P.left = n2 forms the left branch 1→P (0)→2. Node 2 keeps its children 4 and 5, and P has no right child. In the right panel, setting n1.left = n2 bypasses P and restores the original tree. Node 3 stays the right child of root 1 throughout.</p><p>Detaching P restores the original connections. We can conclude only that P is no longer reachable from the root. This neither establishes that its memory has been freed nor means that the whole left subtree was removed.</p></div>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:13"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"/><input id="__tabbed_3_4" name="__tabbed_3" type="radio"/><input id="__tabbed_3_5" name="__tabbed_3" type="radio"/><input id="__tabbed_3_6" name="__tabbed_3" type="radio"/><input id="__tabbed_3_7" name="__tabbed_3" type="radio"/><input id="__tabbed_3_8" name="__tabbed_3" type="radio"/><input id="__tabbed_3_9" name="__tabbed_3" type="radio"/><input id="__tabbed_3_10" name="__tabbed_3" type="radio"/><input id="__tabbed_3_11" name="__tabbed_3" type="radio"/><input id="__tabbed_3_12" name="__tabbed_3" type="radio"/><input id="__tabbed_3_13" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">C++</label><label for="__tabbed_3_3">Java</label><label for="__tabbed_3_4">C#</label><label for="__tabbed_3_5">Go</label><label for="__tabbed_3_6">Swift</label><label for="__tabbed_3_7">JS</label><label for="__tabbed_3_8">TS</label><label for="__tabbed_3_9">Dart</label><label for="__tabbed_3_10">Rust</label><label for="__tabbed_3_11">C</label><label for="__tabbed_3_12">Kotlin</label><label for="__tabbed_3_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.py</span><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1"># Insert and remove nodes</span>
+<div class="highlight"><span class="filename">binary_tree.py</span><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="c1"># Insert and delete nodes</span>
 <a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">P</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="c1"># Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="c1"># Insert node P between n1 and n2</span>
 <a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">P</span>
 <a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">P</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
-<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="c1"># Remove node P</span>
+<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="c1"># Delete node P</span>
 <a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.cpp</span><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.cpp</span><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="n">P</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="k">delete</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"> </span><span class="c1">// Free memory</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.java</span><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.cs</span><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.cs</span><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="n">P</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-29-6" id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-29-7" id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.go</span><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="cm">/* Insert and remove nodes */</span>
-<a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<div class="highlight"><span class="filename">binary_tree.go</span><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="cm">/* Insert and delete nodes */</span>
+<a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="nx">p</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">NewTreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">p</span>
 <a href="#__codelineno-30-5" id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="nx">p</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span>
-<a href="#__codelineno-30-6" id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-30-6" id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-30-7" id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.swift</span><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="kd">let</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P</span>
 <a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="n">P</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-31-7" id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="n">n1</span><span class="p">.</span><span class="kr">left</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.js</span><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.js</span><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-32-3" id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-32-4" id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">P</span><span class="p">;</span>
 <a href="#__codelineno-32-5" id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="nx">P</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
-<a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-32-6" id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-32-7" id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.ts</span><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.ts</span><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">TreeNode</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">P</span><span class="p">;</span>
 <a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="nx">P</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
-<a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="nx">n1</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.dart</span><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.dart</span><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
-<a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">p</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="n">n1</span><span class="p">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.rs</span><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">p</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">));</span>
 <a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">));</span>
-<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="nb">drop</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
 <a href="#__codelineno-35-8" id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="n">n1</span><span class="p">.</span><span class="n">borrow_mut</span><span class="p">().</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">Rc</span><span class="p">::</span><span class="n">clone</span><span class="p">(</span><span class="o">&amp;</span><span class="n">n2</span><span class="p">));</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.c</span><pre><span></span><code><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.c</span><pre><span></span><code><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-36-2" id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="n">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newTreeNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-36-3" id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-36-4" id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
 <a href="#__codelineno-36-5" id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="n">P</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
-<a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-36-6" id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-36-7" id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="n">n1</span><span class="o">-&gt;</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span>
 <a href="#__codelineno-36-8" id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="c1">// Free memory</span>
 <a href="#__codelineno-36-9" id="__codelineno-36-9" name="__codelineno-36-9"></a><span class="n">free</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="cm">/* Insert and remove nodes */</span>
+<div class="highlight"><span class="filename">binary_tree.kt</span><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="cm">/* Insert and delete nodes */</span>
 <a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a><span class="kd">val</span><span class="w"> </span><span class="nv">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TreeNode</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="c1">// Insert node P between n1 and n2 in n1 -&gt; n2</span>
+<a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="c1">// Insert node P between n1 and n2</span>
 <a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span>
 <a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a><span class="n">P</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="c1">// Remove node P</span>
+<a href="#__codelineno-37-6" id="__codelineno-37-6" name="__codelineno-37-6"></a><span class="c1">// Delete node P</span>
 <a href="#__codelineno-37-7" id="__codelineno-37-7" name="__codelineno-37-7"></a><span class="n">n1</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">binary_tree.rb</span><pre><span></span><code><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="c1"># Insert and remove nodes</span>
+<div class="highlight"><span class="filename">binary_tree.rb</span><pre><span></span><code><a href="#__codelineno-38-1" id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="c1"># Insert and delete nodes</span>
 <a href="#__codelineno-38-2" id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="n">_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">TreeNode</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a href="#__codelineno-38-3" id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="c1"># Insert node _p between n1 and n2</span>
 <a href="#__codelineno-38-4" id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_p</span>
 <a href="#__codelineno-38-5" id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="n">_p</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
-<a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="c1"># Remove a node</span>
+<a href="#__codelineno-38-6" id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="c1"># Delete a node</span>
 <a href="#__codelineno-38-7" id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="n">n1</span><span class="o">.</span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n2</span>
 </code></pre></div>
 </div>
@@ -2621,44 +2621,44 @@
 </div>
 <details class="pythontutor">
 <summary>Visualize execution</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Right%20child%20reference%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20binary%20tree%0A%20%20%20%20%23%20Initialize%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Connect%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20Insert%20and%20delete%20a%20node%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20Insert%20node%20P%20between%20n1%20and%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20Delete%20node%20P%0A%20%20%20%20n1.left%20%3D%20n2&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=37&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Visualize execution"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self%2C%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Left%20child%20reference%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Right%20child%20reference%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20a%20binary%20tree%0A%20%20%20%20%23%20Initialize%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Connect%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20Insert%20and%20delete%20a%20node%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20Insert%20node%20P%20between%20n1%20and%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20Delete%20node%20P%0A%20%20%20%20n1.left%20%3D%20n2&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=37&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">View full screen &gt;</a></div></p>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Reference%20to%20the%20right%20child%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20binary%20tree%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Link%20the%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20Insert%20and%20remove%20a%20node%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20Insert%20node%20P%20into%20the%20link%20n1%20-%3E%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20Remove%20node%20P%0A%20%20%20%20n1.left%20%3D%20n2&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=37&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Visualize execution"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=class%20TreeNode%3A%0A%20%20%20%20%22%22%22Binary%20tree%20node%20class%22%22%22%0A%20%20%20%20def%20__init__%28self,%20val%3A%20int%29%3A%0A%20%20%20%20%20%20%20%20self.val%3A%20int%20%3D%20val%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Node%20value%0A%20%20%20%20%20%20%20%20self.left%3A%20TreeNode%20%7C%20None%20%3D%20None%20%20%23%20Reference%20to%20the%20left%20child%0A%20%20%20%20%20%20%20%20self.right%3A%20TreeNode%20%7C%20None%20%3D%20None%20%23%20Reference%20to%20the%20right%20child%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20Initialize%20the%20binary%20tree%0A%20%20%20%20%23%20Initialize%20the%20nodes%0A%20%20%20%20n1%20%3D%20TreeNode%28val%3D1%29%0A%20%20%20%20n2%20%3D%20TreeNode%28val%3D2%29%0A%20%20%20%20n3%20%3D%20TreeNode%28val%3D3%29%0A%20%20%20%20n4%20%3D%20TreeNode%28val%3D4%29%0A%20%20%20%20n5%20%3D%20TreeNode%28val%3D5%29%0A%20%20%20%20%23%20Link%20the%20nodes%20with%20references%20%28pointers%29%0A%20%20%20%20n1.left%20%3D%20n2%0A%20%20%20%20n1.right%20%3D%20n3%0A%20%20%20%20n2.left%20%3D%20n4%0A%20%20%20%20n2.right%20%3D%20n5%0A%0A%20%20%20%20%23%20Insert%20and%20remove%20a%20node%0A%20%20%20%20P%20%3D%20TreeNode%280%29%0A%20%20%20%20%23%20Insert%20node%20P%20into%20the%20link%20n1%20-%3E%20n2%0A%20%20%20%20n1.left%20%3D%20P%0A%20%20%20%20P.left%20%3D%20n2%0A%20%20%20%20%23%20Remove%20node%20P%0A%20%20%20%20n1.left%20%3D%20n2&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=37&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">View full screen &gt;</a></div></p>
 </details>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Inserting a node may change the tree's logical structure, while deleting a node generally means deleting it and all its subtrees. Meaningful insertion and deletion operations therefore usually require several coordinated steps.</p>
+<p>Inserting a node can change the logical structure of a binary tree, and deleting a node usually means removing it along with all its subtrees. In practice, insertion and deletion in a binary tree therefore involve coordinating several operations to achieve the intended result.</p>
 </div>
 <h2 id="713-common-types-of-binary-trees">7.1.3   Common types of binary trees<a class="headerlink" href="#713-common-types-of-binary-trees" title="Permanent link">¶</a></h2>
-<h3 id="1-perfect-binary-trees">1.   Perfect binary trees<a class="headerlink" href="#1-perfect-binary-trees" title="Permanent link">¶</a></h3>
-<p>In a <u>perfect binary tree</u>, every level is completely filled, as shown below. Leaves have degree <span class="arithmatex">\(0\)</span>, and all other nodes have degree <span class="arithmatex">\(2\)</span>. A tree of height <span class="arithmatex">\(h\)</span> has <span class="arithmatex">\(2^{h+1} - 1\)</span> nodes, an exponential relationship reminiscent of cell division in nature.</p>
+<h3 id="1-perfect-binary-tree"><span aria-hidden="true" data-previous-heading="" id="1-perfect-binary-trees"></span>1.   Perfect binary tree<a class="headerlink" href="#1-perfect-binary-tree" title="Permanent link">¶</a></h3>
+<p>In a <u>perfect binary tree</u>, every level is completely filled, as shown below. Leaves have degree <span class="arithmatex">\(0\)</span>, and every other node has degree <span class="arithmatex">\(2\)</span>. A tree of height <span class="arithmatex">\(h\)</span> has <span class="arithmatex">\(2^{h+1} - 1\)</span> nodes. This exponential relationship mirrors the familiar pattern of cell division in nature.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>In Chinese-language resources, a perfect binary tree is often called <u>满二叉树</u>.</p>
+<p>In Chinese usage, a perfect binary tree is often called a <u>mǎn èrchāshù</u>.</p>
 </div>
-<p><ha-svg-figure aria-label="Perfect binary tree: every level is completely filled" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/perfect_binary_tree.png" data-dark-src="/assets/figure-svg/figures/b40c3097d0cdc56c6f7a3e45.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/6f4db68c4857e3a1d0f7d613.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/perfect_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">A perfect binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/perfect_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">A perfect binary tree</object></ha-svg-figure></p>
-<p align="center"> Figure 7-4   A perfect binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-4: Perfect binary tree: every level is completely filled</h4><p>In a perfect binary tree every level is full and all leaves are on the bottom level.</p><p>The nodes in the four-level tree on the left have no value labels. Their number doubles each level: 1 root on the first level, 2 nodes on the second, 4 on the third, and 8 leaves on the fourth. The gray note below reads “Every level is completely filled.”</p><p>Every internal node has both a left and a right child. All 8 leaves line up on the bottom, fourth level. The title on the right reads “Perfect binary tree.”</p><p>Counting gives four levels, 15 nodes, and a height of 3 edges. In general a perfect binary tree of height h has 2 to the power (h+1), minus 1, nodes.</p></div>
-<h3 id="2-complete-binary-trees">2.   Complete binary trees<a class="headerlink" href="#2-complete-binary-trees" title="Permanent link">¶</a></h3>
-<p>Only the lowest level of a <u>complete binary tree</u> may be incomplete, and its nodes must fill that level consecutively from left to right, as shown below. Every perfect binary tree is also complete.</p>
-<p><ha-svg-figure aria-label="Complete binary tree: the last level fills from left to right without gaps" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/complete_binary_tree.png" data-dark-src="/assets/figure-svg/figures/8abd267f358dc22d8143be6b.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/be648d475b414ad7e8d828a7.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/complete_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">A complete binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/complete_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">A complete binary tree</object></ha-svg-figure></p>
-<p align="center"> Figure 7-5   A complete binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-5: Complete binary tree: the last level fills from left to right without gaps</h4><p>The first three levels are full. The fourth level occupies its five leftmost positions, leaving only the three rightmost positions empty.</p><p>The tree on the left has four levels and no node values. The first three levels contain 1, 2, and 4 nodes. From left to right on level three, each of the first two nodes has both children, the third has only a left child, and the fourth has no children. Thus the five leaves on level four occupy its five leftmost positions.</p><p>The right-hand title reads “Complete binary tree.” A long arrow points left beneath the tree. The gray note says, “The lowest level is filled from the left; all other levels are full.” There can be no gaps between nodes on the last level.</p><p>Counting gives height 3 and 12 nodes, satisfying the definition of a complete binary tree. Three positions on the right of level four are empty, so the tree is not perfect.</p></div>
-<h3 id="3-full-binary-trees">3.   Full binary trees<a class="headerlink" href="#3-full-binary-trees" title="Permanent link">¶</a></h3>
-<p>In a <u>full binary tree</u>, every node other than a leaf has exactly two children, as shown below.</p>
-<p><ha-svg-figure aria-label="Full binary tree: every node has degree 0 or 2" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/full_binary_tree.png" data-dark-src="/assets/figure-svg/figures/b2511ef0840cbf45f0115764.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/8eba06f4280c9a1d9f4a0dcd.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/full_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">A full binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/full_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">A full binary tree</object></ha-svg-figure></p>
-<p align="center"> Figure 7-6   A full binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-6: Full binary tree: every node has degree 0 or 2</h4><p>A full binary tree constrains each node’s number of children. It does not require every level to be full.</p><p>The tree on the left has four levels and 7 unlabeled nodes. The root’s right child is a leaf. Its left child has two children: the left one is a leaf and the right one branches into two more leaves.</p><p>A node’s degree is its number of children. The title reads “Full binary tree,” and the gray box says “Every node has 0 or 2 children.” Three internal nodes all have degree 2 and 4 leaves have degree 0. No node has degree 1. The 4 leaves occur on levels two, three, and four.</p><p>A full binary tree requires each node to have 0 or 2 children. Levels may be partially filled and leaves may occur at different levels.</p></div>
-<h3 id="4-balanced-binary-trees">4.   Balanced binary trees<a class="headerlink" href="#4-balanced-binary-trees" title="Permanent link">¶</a></h3>
-<p>In a <u>balanced binary tree</u>, the heights of the left and right subtrees of every node differ by at most 1, as shown below.</p>
-<p><ha-svg-figure aria-label="Balanced binary tree: subtree heights differ by at most 1 at every node" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/balanced_binary_tree.png" data-dark-src="/assets/figure-svg/figures/1389a3f3393995fe118fefc3.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/0a50c992011d98097de32d04.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/balanced_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">A balanced binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/balanced_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">A balanced binary tree</object></ha-svg-figure></p>
-<p align="center"> Figure 7-7   A balanced binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-7: Balanced binary tree: subtree heights differ by at most 1 at every node</h4><p>The tree is asymmetric but meets the balance condition at every node.</p><p>The box on the right defines d as left subtree height minus right subtree height. Every node must satisfy |d| ≤ 1. Here d measures height difference, not node degree. Heights count edges, with 0 for a leaf and −1 for an empty subtree.</p><p>The tree on the left has four levels and 8 nodes with no value labels. The root’s left child has a left leaf and no right subtree. Its label is d = 1.</p><p>The root’s right child has two children. Its left child is internal and has two leaves, while its right child is itself a leaf. The root’s right child is labeled d = 1 and its left child d = 0. All four leaves have two empty subtrees and are labeled d = 0.</p><p>The root’s left subtree has height 1 and its right subtree height 2, so the root is labeled d = −1. Every other node’s height difference is also at most 1 in absolute value, so the tree is balanced.</p><p>To determine balance, check every node. Checking only the root’s height difference is insufficient.</p></div>
-<h2 id="714-degeneration-of-a-binary-tree">7.1.4   Degeneration of a binary tree<a class="headerlink" href="#714-degeneration-of-a-binary-tree" title="Permanent link">¶</a></h2>
-<p>Figure 7-8 shows ideal and degenerate tree structures. When every level is full, the tree is perfect. When every node lies along one side, the tree degenerates into a linked list.</p>
+<p><ha-svg-figure aria-label="Perfect binary tree: every level is full" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/perfect_binary_tree.png" data-dark-src="/assets/figure-svg/figures/b55cc0211a11fabf7ad5d116.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b891a9751b474cc36b63d055.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/perfect_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Perfect binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/perfect_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Perfect binary tree</object></ha-svg-figure></p>
+<p align="center"> Figure 7-4   Perfect binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-4: Perfect binary tree: every level is full</h4><p>In a perfect binary tree, every level is full and all leaves are on the bottom level.</p><p>The nodes of the four-level tree on the left have no value labels. The node count doubles at each level: 1 root at level 1, 2 nodes at level 2, 4 at level 3, and 8 leaves at level 4. A gray note beneath the tree reads “Every level is full.”</p><p>Every non-leaf node has both a left and a right child. All 8 leaves line up on the fourth level, at the bottom of the tree. The heading on the right reads “Perfect binary tree.” A note in parentheses below it gives the alternative Chinese name in pinyin, mǎn èrchāshù.</p><p>The figure has four levels and 15 nodes, and its height in edges is 3. In general, a perfect binary tree of height h has 2 to the power of (h+1) minus 1 nodes.</p></div>
+<h3 id="2-complete-binary-tree"><span aria-hidden="true" data-previous-heading="" id="2-complete-binary-trees"></span>2.   Complete binary tree<a class="headerlink" href="#2-complete-binary-tree" title="Permanent link">¶</a></h3>
+<p>In a <u>complete binary tree</u>, only the bottom level may be partially filled, and its nodes must occupy consecutive positions from left to right, as shown below. Every perfect binary tree is also complete.</p>
+<p><ha-svg-figure aria-label="Complete binary tree: the last level fills consecutively from the left" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/complete_binary_tree.png" data-dark-src="/assets/figure-svg/figures/ecb439009e3980cee84ff844.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/dd8f98757b24ce91a90da13b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/complete_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Complete binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/complete_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Complete binary tree</object></ha-svg-figure></p>
+<p align="center"> Figure 7-5   Complete binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-5: Complete binary tree: the last level fills consecutively from the left</h4><p>The first three levels are full. The fourth level occupies five consecutive positions starting at the left, leaving only its three rightmost positions empty.</p><p>The four-level tree on the left has no value labels. Its first three levels are full, with 1, 2, and 4 nodes. From left to right on the third level, the first two nodes each have both a left and a right child, the third has only a left child, and the fourth has no children. The five leaves on the fourth level therefore occupy the five leftmost positions consecutively.</p><p>The heading on the right reads “Complete binary tree.” Beneath the tree, a long arrow points left. A gray note below the arrow reads “The bottom level fills from the left. All other levels are full.” Nodes on the bottom level must occupy consecutive positions starting at the far left, with no gaps.</p><p>The tree has height 3 and 12 nodes and satisfies the definition of a complete binary tree. It is not perfect because three positions on the right of the fourth level are empty.</p></div>
+<h3 id="3-full-binary-tree"><span aria-hidden="true" data-previous-heading="" id="3-full-binary-trees"></span>3.   Full binary tree<a class="headerlink" href="#3-full-binary-tree" title="Permanent link">¶</a></h3>
+<p>In a <u>full binary tree</u>, every node except a leaf has two children, as shown below.</p>
+<p><ha-svg-figure aria-label="Full binary tree: every node has degree 0 or 2" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/full_binary_tree.png" data-dark-src="/assets/figure-svg/figures/469b8e5106965bddb0da6790.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/586854c0ec3c8026ba6ca4d2.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/full_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Full binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/full_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Full binary tree</object></ha-svg-figure></p>
+<p align="center"> Figure 7-6   Full binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-6: Full binary tree: every node has degree 0 or 2</h4><p>A full binary tree restricts the number of children per node without requiring every level to be filled.</p><p>The four-level tree on the left has 7 nodes without value labels. The root's right child is a leaf. Its left child has two children: the one on the left is a leaf, and the one on the right branches into two more leaves.</p><p>A node's degree is its number of children. The right side labels this a “Full binary tree,” and a gray note below reads “Every node has degree 0 or 2.” All three non-leaf nodes have degree 2, and all four leaves have degree 0. No node has degree 1. The four leaves are spread across the second, third, and fourth levels.</p><p>A full binary tree requires only that every node have zero or two children. The levels need not be full, and the leaves need not be at the same level.</p></div>
+<h3 id="4-balanced-binary-tree"><span aria-hidden="true" data-previous-heading="" id="4-balanced-binary-trees"></span>4.   Balanced binary tree<a class="headerlink" href="#4-balanced-binary-tree" title="Permanent link">¶</a></h3>
+<p>In a <u>balanced binary tree</u>, the absolute difference between the heights of the left and right subtrees at every node is at most 1, as shown below.</p>
+<p><ha-svg-figure aria-label="Balanced binary tree: subtree heights differ by at most 1 at every node" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/balanced_binary_tree.png" data-dark-src="/assets/figure-svg/figures/2c79383a20ecb068c94d9347.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b6823c303be31f93cb52f8fb.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/balanced_binary_tree.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Balanced binary tree</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/balanced_binary_tree.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Balanced binary tree</object></ha-svg-figure></p>
+<p align="center"> Figure 7-7   Balanced binary tree </p><div class="ha-sr-only figure-description"><h4>Description of Figure 7-7: Balanced binary tree: subtree heights differ by at most 1 at every node</h4><p>Although this tree is asymmetric, every node satisfies the balance condition.</p><p>The box on the right defines d as the left subtree height minus the right subtree height and requires |d| ≤ 1 at every node. Here d is a height difference, distinct from node degree. With height measured in edges, a leaf has height 0 and an empty subtree has height −1.</p><p>The tree on the left has four levels and 8 nodes without value labels. The root's left child has just one left leaf and an empty right subtree. It is labeled d = 1.</p><p>The root's right child has two children. Its left child is an internal node with two leaves, and its right child is itself a leaf. Thus the root's right child is labeled d = 1, and its left child is labeled d = 0. All four leaves have empty left and right subtrees and are labeled d = 0.</p><p>The root's left subtree has height 1 and its right subtree has height 2, so the root is labeled d = −1. The subtree heights at every other node also differ by at most 1, so the entire tree is balanced.</p><p>Check every node for balance. The height difference at the root alone is insufficient.</p></div>
+<h2 id="714-how-a-binary-tree-degenerates"><span aria-hidden="true" data-previous-heading="" id="714-degeneration-of-a-binary-tree"></span>7.1.4   How a binary tree degenerates<a class="headerlink" href="#714-how-a-binary-tree-degenerates" title="Permanent link">¶</a></h2>
+<p>Figure 7-8 shows the ideal and degenerate forms of a binary tree. When every level is full, the tree is perfect. When all nodes lean to one side, the tree degenerates into a linked list.</p>
 <ul>
-<li>A perfect binary tree is the ideal case, making full use of divide and conquer.</li>
-<li>A linked list is the opposite extreme: operations become linear, with time complexity degrading to <span class="arithmatex">\(O(n)\)</span>.</li>
+<li>A perfect binary tree is the ideal case. It takes full advantage of a binary tree's divide-and-conquer structure.</li>
+<li>A linked list is the other extreme. Operations become linear, with time complexity <span class="arithmatex">\(O(n)\)</span>.</li>
 </ul>
-<p><ha-svg-figure aria-label="An ideal binary tree and a tree reduced to a chain" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.png" data-dark-src="/assets/figure-svg/figures/7bbcebe458c784cd42c1f4d5.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/ce1b17ac2b758e97c0001b76.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Best and worst binary-tree structures</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Best and worst binary-tree structures</object></ha-svg-figure></p>
-<p align="center"> Figure 7-8   Best and worst binary-tree structures </p><div class="ha-sr-only figure-description"><h3>Description of Figure 7-8: An ideal binary tree and a tree reduced to a chain</h3><p>The same seven nodes produce different heights depending on whether they branch or connect in a single chain.</p><p>The left panel is labeled “Ideal structure” and “Perfect binary tree.” Root 1 has left and right children 2 and 3, node 2 has children 4 and 5, and node 3 has children 6 and 7. All 4 bottom nodes, 4, 5, 6, and 7, are leaves. The tree has 3 levels. From root 1 to any leaf there are 2 edges, so its height is 2.</p><p>The right panel is labeled “Degenerate structure” and “Linked list.” All 7 nodes lean left in the chain 1 → 2 → 3 → 4 → 5 → 6 → 7. Every right link is empty. There are 7 levels and 6 edges from root 1 to the only leaf 7, giving height 6.</p><p>When all levels are full, a perfect binary tree has minimum height and can exploit divide and conquer. A tree that degenerates into a one-sided linked list reaches maximum height and operations along a path can take linear time.</p></div>
-<p>As Table 7-1 shows, quantities such as leaf count, total node count, and height reach their maximum or minimum values in these best and worst structures.</p>
-<p align="center"> Table 7-1   Best and worst binary-tree structures </p>
+<p><ha-svg-figure aria-label="Ideal and chain-shaped binary trees" class="animation-figure" data-book-key="en/chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.png" data-dark-src="/assets/figure-svg/figures/87b4c7d4b2c54f44dabbdc43.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d33ab318aa22e36e437e9e91.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Best- and worst-case binary tree shapes</object><object aria-hidden="true" data="/en/chapter_tree/binary_tree.assets/binary_tree_best_worst_cases.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Best- and worst-case binary tree shapes</object></ha-svg-figure></p>
+<p align="center"> Figure 7-8   Best- and worst-case binary tree shapes </p><div class="ha-sr-only figure-description"><h3>Description of Figure 7-8: Ideal and chain-shaped binary trees</h3><p>The same seven nodes can form trees of different heights depending on whether they branch or all connect on one side.</p><p>The left diagram is labeled “Ideal structure: perfect binary tree.” Root 1 has left child 2 and right child 3. Node 2 has left child 4 and right child 5, and 3 has left child 6 and right child 7. All four bottom nodes, 4, 5, 6, and 7, are leaves. There are 3 levels, and the path from root 1 to any leaf crosses just 2 edges, so the height is 2.</p><p>The right diagram is labeled “Degenerate structure: linked list.” All 7 nodes lean left, with left child pointers forming the chain 1 → 2 → 3 → 4 → 5 → 6 → 7. Every right child is empty. There are 7 levels, and the path from root 1 to the only leaf, 7, crosses 6 edges, giving a height of 6.</p><p>When every level is full, the perfect binary tree has minimum height and can take advantage of divide and conquer. When all nodes lean to one side and form a linked list, the tree reaches maximum height and operations along a path take linear time.</p></div>
+<p>As Table 7-1 shows, quantities such as the number of leaves, total node count, and height reach their maximum or minimum values in the best- and worst-case shapes.</p>
+<p align="center"> Table 7-1   Best- and worst-case binary tree shapes </p>
 <div class="center-table">
 <table>
 <thead>
@@ -2670,17 +2670,17 @@
 </thead>
 <tbody>
 <tr>
-<td>Nodes at level <span class="arithmatex">\(i\)</span></td>
+<td>Number of nodes at level <span class="arithmatex">\(i\)</span></td>
 <td><span class="arithmatex">\(2^{i-1}\)</span></td>
 <td><span class="arithmatex">\(1\)</span></td>
 </tr>
 <tr>
-<td>Leaves in a tree of height <span class="arithmatex">\(h\)</span></td>
+<td>Number of leaves in a tree of height <span class="arithmatex">\(h\)</span></td>
 <td><span class="arithmatex">\(2^h\)</span></td>
 <td><span class="arithmatex">\(1\)</span></td>
 </tr>
 <tr>
-<td>Total nodes in a tree of height <span class="arithmatex">\(h\)</span></td>
+<td>Total number of nodes in a tree of height <span class="arithmatex">\(h\)</span></td>
 <td><span class="arithmatex">\(2^{h+1} - 1\)</span></td>
 <td><span class="arithmatex">\(h + 1\)</span></td>
 </tr>
@@ -2711,13 +2711,13 @@
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="Next: 7.2   Traversing a binary tree" class="md-footer__link md-footer__link--next" href="../binary_tree_traversal/" rel="next">
+<a aria-label="Next: 7.2   Binary tree traversal" class="md-footer__link md-footer__link--next" href="../binary_tree_traversal/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         Next
       </span>
 <div class="md-ellipsis">
-        7.2   Traversing a binary tree
+        7.2   Binary tree traversal
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2727,7 +2727,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Share your insights, questions, or suggestions in the comments</h5>
+<h5 align="center" id="__comments">Share your thoughts, questions, or suggestions in the comments.</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2809,9 +2809,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.bec5663cf94a73136e878fe1811cbb94591ea317ea949953d97f804d2e051825.min.js"></script>
+<script src="../../assets/javascripts/bundle.18904a2707b75f4803b5f399ec04efddc26d2905c9a76bf403f1ac609a779475.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

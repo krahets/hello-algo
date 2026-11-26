@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書" name="description"/>
+<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ja/chapter_greedy/max_product_cutting_problem/" rel="canonical"/>
 <link href="../max_capacity_problem/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_greedy/max_product_cutting_problem/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>15.4 整数を分割して積を最大にする問題 - Hello Algo</title>
+<title>15.4 整数分割の最大積問題 - Hello アルゴリズム</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5aac88ee1d4deb0dce936ce.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,8 +65,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="ヘッダー" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="ナビゲーション" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -75,13 +75,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Hello アルゴリズム
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              15.4   整数を分割して積を最大にする問題
+              15.4   整数分割の最大積問題
 
           </span>
 </div>
@@ -167,10 +167,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="ナビゲーション" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Hello アルゴリズム
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="リポジトリへ">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   アルゴリズムはどこにでもある
+  1.1   身の回りのアルゴリズム
 
 
   </span>
@@ -733,7 +733,7 @@
 <span class="md-ellipsis">
 
 
-  6.1   ハッシュテーブル
+  6.1   ハッシュ表
 
 
   </span>
@@ -1029,7 +1029,7 @@
 <span class="md-ellipsis">
 
 
-  9.3   グラフの走査
+  9.3   グラフの探索
 
 
   </span>
@@ -1102,7 +1102,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分探索で挿入位置を探す
+  10.2   二分探索で挿入位置を求める
 
 
   </span>
@@ -1113,7 +1113,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分探索で境界を探す
+  10.3   二分探索で境界を求める
 
 
   </span>
@@ -1124,7 +1124,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   ハッシュを使った最適化
+  10.4   ハッシュを用いた最適化
 
 
   </span>
@@ -1135,7 +1135,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   探索アルゴリズムを改めて考える
+  10.5   探索アルゴリズムを振り返る
 
 
   </span>
@@ -1335,7 +1335,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
 
   </span>
@@ -1349,7 +1349,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1358,7 +1358,7 @@
 <span class="md-ellipsis">
 
 
-  12.1   分割統治アルゴリズム
+  12.1   分割統治法のアルゴリズム
 
 
   </span>
@@ -1369,7 +1369,7 @@
 <span class="md-ellipsis">
 
 
-  12.2   分割統治による探索戦略
+  12.2   分割統治法による探索
 
 
   </span>
@@ -1380,7 +1380,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   二分木の構築問題
+  12.3   二分木を構築する問題
 
 
   </span>
@@ -1391,7 +1391,7 @@
 <span class="md-ellipsis">
 
 
-  12.4   ハノイの塔の問題
+  12.4   ハノイの塔
 
 
   </span>
@@ -1453,7 +1453,7 @@
 <span class="md-ellipsis">
 
 
-  13.1   バックトラッキングアルゴリズム
+  13.1   バックトラッキング
 
 
   </span>
@@ -1464,7 +1464,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   順列列挙問題
+  13.2   全順列問題
 
 
   </span>
@@ -1475,7 +1475,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   部分集合和問題
+  13.3   部分和問題
 
 
   </span>
@@ -1486,7 +1486,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n クイーン問題
+  13.4   N クイーン問題
 
 
   </span>
@@ -1548,7 +1548,7 @@
 <span class="md-ellipsis">
 
 
-  14.1   動的計画法への第一歩
+  14.1   動的計画法入門
 
 
   </span>
@@ -1559,7 +1559,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   動的計画法の問題の特徴
+  14.2   動的計画法で解ける問題の特徴
 
 
   </span>
@@ -1570,7 +1570,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   動的計画法の解き方
+  14.3   動的計画法で解くための考え方
 
 
   </span>
@@ -1665,7 +1665,7 @@
 <span class="md-ellipsis">
 
 
-  15.1   貪欲アルゴリズム
+  15.1   貪欲法
 
 
   </span>
@@ -1698,7 +1698,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   整数を分割して積を最大にする問題
+  15.4   整数分割の最大積問題
 
 
   </span>
@@ -1708,7 +1708,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   整数を分割して積を最大にする問題
+  15.4   整数分割の最大積問題
 
 
   </span>
@@ -1723,7 +1723,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   貪欲戦略を決める
+        1.   貪欲戦略の決め方
       </span>
 </span>
 </a>
@@ -1732,7 +1732,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   コードの実装
+        2.   コードによる実装
       </span>
 </span>
 </a>
@@ -1805,7 +1805,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   プログラミング環境のインストール
+  16.1   開発環境のセットアップ
 
 
   </span>
@@ -1816,7 +1816,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   一緒に本書を作りましょう
+  16.2   本書の執筆に参加する
 
 
   </span>
@@ -1884,7 +1884,7 @@
 <a class="md-nav__link" href="#1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        1.   貪欲戦略を決める
+        1.   貪欲戦略の決め方
       </span>
 </span>
 </a>
@@ -1893,7 +1893,7 @@
 <a class="md-nav__link" href="#2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        2.   コードの実装
+        2.   コードによる実装
       </span>
 </span>
 </a>
@@ -1923,24 +1923,24 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="154">15.4   整数を分割して積を最大にする問題<a class="headerlink" href="#154" title="この見出しへのリンク">¶</a></h1>
+<h1 id="154">15.4   整数分割の最大積問題<a class="headerlink" href="#154" title="この見出しへのリンク">¶</a></h1>
 <div class="admonition question">
 <p class="admonition-title">問題</p>
-<p>正の整数 <span class="arithmatex">\(n\)</span> を、少なくとも二つの正の整数の和に分けます。分割後のすべての整数の積の最大値を求めてください。図 15-13 に例を示します。</p>
+<p>正の整数 <span class="arithmatex">\(n\)</span> が与えられます。図 15-13 のように、これを少なくとも 2 つの正の整数の和に分けたとき、それらすべての積が最大でいくつになるかを求めてください。</p>
 </div>
-<p><ha-svg-figure aria-label="整数を分割して積を最大にする問題の定義" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png" data-dark-src="/assets/figure-svg/figures/5e68c3b17b7a75474646656e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/443f4c570bdf1d1fef6423a7.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">整数を分割して積を最大にする問題の定義</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">整数を分割して積を最大にする問題の定義</object></ha-svg-figure></p>
-<p align="center"> 図 15-13   整数を分割して積を最大にする問題の定義 </p><div class="ha-sr-only figure-description"><h3>図解 15-13：整数を分割して積を最大にする問題の定義</h3><p>合計が一定の条件の下で、分割する個数と各部分の大きさを選び、積を最大にします。</p><p>整数を分割して積を最大にする問題では、正の整数 n（n ≥ 2）が与えられたとき、それを m 個（m ≥ 2）の正の整数の和 n = n₁ + n₂ + … + nₘ に分け、これら m 個の因数の積 n₁ × n₂ × … × nₘ を最大にします。</p><p>図は、整数の分割を棒と記号で表した模式図です。上段の 1 本の灰色の長い棒には全長 n と記されています。下段の同じ長さの色付きの棒は垂直の破線で複数に区切られ、左から右へ順に n₁、n₂、n₃、…、nₘ₋₂、nₘ₋₁、nₘ と記されており、左右両端をそろえる破線が各部分の長さの和が n に等しいことを示しています。図の下部には目標の式「整数 n を入力し、max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ) を求める」が示されています。</p><p>これらのラベルと省略記号は任意の m 個への分割を表す一般的な書き方であり、少なくとも 6 個に分けるという意味ではありません（m の最小値は 2 です）。この図では n、m や各部分の具体的な数値は指定されておらず、模式図の幅から各部分の大きさを推し量ることはできません。</p></div>
-<p><span class="arithmatex">\(n\)</span> を <span class="arithmatex">\(m\)</span> 個の整数に分け、それぞれを積の因数とします。<span class="arithmatex">\(i\)</span> 番目の因数を <span class="arithmatex">\(n_i\)</span> とすると、次の式が成り立ちます。</p>
+<p><ha-svg-figure aria-label="整数分割の積を最大にする問題の定義" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.png" data-dark-src="/assets/figure-svg/figures/406de7dbe94927186b449f95.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/04a71be90168e2e4c90f72a4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">整数分割の積を最大にする問題の定義</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_definition.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">整数分割の積を最大にする問題の定義</object></ha-svg-figure></p>
+<p align="center"> 図 15-13   整数分割の積を最大にする問題の定義 </p><div class="ha-sr-only figure-description"><h3>図解 15-13：整数分割の積を最大にする問題の定義</h3><p>合計を固定したまま、分ける個数と各部分の大きさを選び、積を最大にします。</p><p>正の整数 n（n ≥ 2）が与えられます。これを m 個（m ≥ 2）の正の整数の和 n = n₁ + n₂ + … + nₘ に分け、m 個の因子の積 n₁ × n₂ × … × nₘ を最大にするのがこの問題です。</p><p>図は記号で表した帯図です。上の灰色の帯は全長 n を表します。下の同じ長さの色付きの帯は縦の破線で区切られ、左から n₁、n₂、n₃、…、nₘ₋₂、nₘ₋₁、nₘ と書かれています。左右それぞれの端をそろえる破線は、各部分の長さの和が元と同じ n であることを示します。図の下には目標を表す式「整数 n を入力し、max(n₁ × n₂ × n₃ × … × nₘ₋₂ × nₘ₋₁ × nₘ) を求める」があります。</p><p>ラベルと省略記号は任意の m 個の部分を表す一般的な書き方です。6 個以上という制限はなく、m の最小値は 2 です。図では n、m、各部分の具体的な値は指定されておらず、描かれた幅から各部分の大きさを求めることはできません。</p></div>
+<p><span class="arithmatex">\(n\)</span> を <span class="arithmatex">\(m\)</span> 個の整数の因子に分け、<span class="arithmatex">\(i\)</span> 番目の因子を <span class="arithmatex">\(n_i\)</span> と書くと、次の式が成り立ちます。</p>
 <div class="arithmatex">\[
 n = \sum_{i=1}^{m}n_i
 \]</div>
-<p>この問題の目標は、すべての整数の因数の積を最大にすることです。すなわち、</p>
+<p>この問題の目標は、すべての整数の因子の積を最大にすることです。式で表すと次のようになります。</p>
 <div class="arithmatex">\[
 \max(\prod_{i=1}^{m}n_i)
 \]</div>
-<p>考えるべきことは、分割数 <span class="arithmatex">\(m\)</span> をいくつにし、それぞれの <span class="arithmatex">\(n_i\)</span> をいくつにするかです。</p>
-<h3 id="1">1.   貪欲戦略を決める<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
-<p>経験上、二つの整数の積は、その和より大きくなることがよくあります。<span class="arithmatex">\(n\)</span> から因数 <span class="arithmatex">\(2\)</span> を切り出すと、積は <span class="arithmatex">\(2(n-2)\)</span> です。これを <span class="arithmatex">\(n\)</span> と比較します。</p>
+<p>考えるべきことは、分割する個数 <span class="arithmatex">\(m\)</span> と、それぞれの <span class="arithmatex">\(n_i\)</span> の値をいくつにすればよいかです。</p>
+<h3 id="1">1.   貪欲戦略の決め方<a class="headerlink" href="#1" title="この見出しへのリンク">¶</a></h3>
+<p>経験上、2 つの整数を掛けると、足したときより大きくなることがよくあります。<span class="arithmatex">\(n\)</span> から因子 <span class="arithmatex">\(2\)</span> を切り出すと、積は <span class="arithmatex">\(2(n-2)\)</span> です。この積を <span class="arithmatex">\(n\)</span> と比べてみましょう。</p>
 <div class="arithmatex">\[
 \begin{aligned}
 2(n-2) &amp; \geq n \newline
@@ -1948,52 +1948,52 @@ n = \sum_{i=1}^{m}n_i
 n &amp; \geq 4
 \end{aligned}
 \]</div>
-<p>図 15-14 のように、<span class="arithmatex">\(n \geq 4\)</span> なら <span class="arithmatex">\(2\)</span> を切り出すことで積が大きくなります。<strong>つまり、<span class="arithmatex">\(4\)</span> 以上の整数は分割すべきだとわかります</strong>。</p>
-<p><strong>貪欲戦略 1</strong>：分割結果に <span class="arithmatex">\(\geq 4\)</span> の因数が含まれるなら、それをさらに分割します。最終的に残る因数は、<span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> の 3 種類だけにします。</p>
-<p><ha-svg-figure aria-label="積を減らさずに分割する方法" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" data-dark-src="/assets/figure-svg/figures/1b988051e6a7d9e8cd0623d3.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/80f0d7b3658906a83f7e040b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">分割によって積が大きくなる</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">分割によって積が大きくなる</object></ha-svg-figure></p>
-<p align="center"> 図 15-14   分割によって積が大きくなる </p><div class="ha-sr-only figure-description"><h4>図解 15-14：積を減らさずに分割する方法</h4><p>大きい整数の因数はさらに分割でき、その積が減ることはありません。</p><p>整数を分割して積を最大にする問題において、整数の因数 n をさらに分けるべきかを調べるため、元の因数 n と、2 および n - 2 に分けた後の積を比較します。</p><p>画面の上段は長さ n を表す灰色の長い棒です。下段の同じ長さの棒では左側から緑色の短い棒「2」が切り出され、右側の残りの青い長い棒に「n - 2」と記されており、境界は垂直の破線でそろえられています。図の下部には導出結果「n ≥ 4 なら、常に 2(n - 2) ≥ n。したがって最終的な分割に含まれる因数は 1, 2, 3 のみ」が示されています。</p><p>2(n - 2) - n = n - 4 なので、n = 4 のときは等しく、n &gt; 4 のときは真に大きくなります。4 以上の因数を繰り返し分割しても積は損なわれないため、1、2、3 だけからなる最適な分割が存在します（ただし、すべての最適な分割で 4 を残せないという意味ではありません）。</p></div>
-<p>次に、どの因数が最もよいかを考えます。<span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> の中では、明らかに <span class="arithmatex">\(1\)</span> が最も不利です。常に <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> なので、<span class="arithmatex">\(1\)</span> を切り出すと、かえって積が小さくなるためです。</p>
-<p>図 15-15 のように、<span class="arithmatex">\(n = 6\)</span> では <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span> です。<strong>つまり、<span class="arithmatex">\(2\)</span> より <span class="arithmatex">\(3\)</span> に分ける方が有利です</strong>。</p>
-<p><strong>貪欲戦略 2</strong>：分割結果の <span class="arithmatex">\(2\)</span> は、多くても二つにします。三つの <span class="arithmatex">\(2\)</span> は常に二つの <span class="arithmatex">\(3\)</span> に置き換えられ、その方が積が大きくなるためです。</p>
-<p><ha-svg-figure aria-label="三つの 2 を二つの 3 に置き換える" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" data-dark-src="/assets/figure-svg/figures/462e0cc10cc2b37bcdaf1593.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/85dfb6d928bf86b672546a26.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">最適な分割の因数</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">最適な分割の因数</object></ha-svg-figure></p>
-<p align="center"> 図 15-15   最適な分割の因数 </p><div class="ha-sr-only figure-description"><h4>図解 15-15：三つの 2 を二つの 3 に置き換える</h4><p>和がともに 6 となる二通りの局所的な分割として、三つの 2 と二つの 3 を比較します。</p><p>最適な分割では因数 1、2、3 だけを考えればよいことを踏まえ、この図ではすでに三つの 2 を含む分割方法を扱い、残りの因数はそのまま保ちます。</p><p>図の上段には全長 n の灰色の棒全体が描かれています。中段の左側には青い「2」が三つ連続して並び（合計の長さ 6）、その右側に灰色の残り部分が続きます。下段には左側と同じ長さ 6 の区間だけが描かれ、二つの紫色の「3」に置き換えられています。右側の灰色の残り部分は中段にのみ描かれ、この変換には関わりません。中央の下向きで灰色の塗りつぶし矢印が「三つの 2」から「二つの 3」への変換を示し、図の下部には「三つの 2 は、貪欲に二つの 3 に置き換える」と記されています。</p><p>三つの 2 の積は 8、二つの 3 の積は 9 であり、どちらも和は 6 です。残りの正の整数の因数の積を P とし、残りの因数がない場合は P = 1 とします。この局所的な置き換えによって全体の積は 8P から 9P へと増えるため、最適な分割では 2 は多くても二つしか残りません。これが図に示された局所変換の導出です。</p></div>
-<p>以上から、次の貪欲戦略が導けます。</p>
+<p>図 15-14 のように、<span class="arithmatex">\(n \geq 4\)</span> のとき、<span class="arithmatex">\(2\)</span> を 1 つ切り出すと積が大きくなります。<strong>したがって、<span class="arithmatex">\(4\)</span> 以上の整数はすべて分割すべきです</strong>。</p>
+<p><strong>貪欲戦略 1</strong>。分割した中に <span class="arithmatex">\(\geq 4\)</span> の因子があれば、さらに分割します。最終的に残す因子は <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> の 3 種類だけで十分です。</p>
+<p><ha-svg-figure aria-label="積を減らさずに分割できる" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.png" data-dark-src="/assets/figure-svg/figures/4df909ea1e2f4c08949eeaf2.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/f2316f3cf2300ffc8e8c90e9.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">分割すると積が大きくなる</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">分割すると積が大きくなる</object></ha-svg-figure></p>
+<p align="center"> 図 15-14   分割すると積が大きくなる </p><div class="ha-sr-only figure-description"><h4>図解 15-14：積を減らさずに分割できる</h4><p>大きな整数の因子は、積を減らさずにさらに分けることができます。</p><p>整数分割の積を最大にする問題で、整数の因子 n をさらに分けるべきかを考えます。元の因子 n と、2 と n - 2 に分けたときの積を比較します。</p><p>上の灰色の帯は長さ n を表します。下の同じ長さの帯は左側に短い緑の部分「2」があり、右に残った長い青の部分に「n - 2」とあります。境目は縦の破線で示されています。図の下には「n ≥ 4 のとき、常に 2(n - 2) ≥ n である。したがって最終的な分割には 1, 2, 3 の因子だけを残せばよい」と結論が記されています。</p><p>2(n - 2) - n = n - 4 なので、n = 4 なら積は元の値に等しく、n &gt; 4 なら元の値より大きくなります。4 以上の因子を繰り返し分けても積は減らないため、1、2、3 だけを含む最適な分け方が存在します。4 を残す分け方がすべて最適解から外れるという意味ではありません。</p></div>
+<p>次に、どの因子が最も有利かを考えます。<span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> の中で、最も不利なのは明らかに <span class="arithmatex">\(1\)</span> です。常に <span class="arithmatex">\(1 \times (n-1) &lt; n\)</span> が成り立つので、<span class="arithmatex">\(1\)</span> を切り出すとかえって積が小さくなるからです。</p>
+<p>図 15-15 のように、<span class="arithmatex">\(n = 6\)</span> のとき <span class="arithmatex">\(3 \times 3 &gt; 2 \times 2 \times 2\)</span> です。<strong>つまり、<span class="arithmatex">\(2\)</span> を切り出すより <span class="arithmatex">\(3\)</span> を切り出すほうが有利です</strong>。</p>
+<p><strong>貪欲戦略 2</strong>。分割後に残す <span class="arithmatex">\(2\)</span> は高々 2 個です。<span class="arithmatex">\(2\)</span> が 3 個あれば、必ず 2 個の <span class="arithmatex">\(3\)</span> に置き換えて、積をより大きくできるからです。</p>
+<p><ha-svg-figure aria-label="3 個の 2 を 2 個の 3 に置き換える" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.png" data-dark-src="/assets/figure-svg/figures/822d2b1c13f05dbbdb5ce07d.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/6c003ac3ef233d8abb85f123.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">最適な分割に使う因子</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_infer2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">最適な分割に使う因子</object></ha-svg-figure></p>
+<p align="center"> 図 15-15   最適な分割に使う因子 </p><div class="ha-sr-only figure-description"><h4>図解 15-15：3 個の 2 を 2 個の 3 に置き換える</h4><p>和がともに 6 になる 2 つの部分的な分け方、すなわち 3 個の 2 と 2 個の 3 を比較します。</p><p>最適な分割では因子 1、2、3 だけを考えれば十分です。ここではすでに 2 を 3 個含む分け方を取り上げ、ほかの因子は変えずに考えます。</p><p>一番上に全長 n の灰色の帯があります。中段は左から青い「2」が 3 個連続して並び（合計の長さは 6）、その右に残りの灰色の部分が続きます。下段は同じ長さ 6 の左側の区間だけを描き、紫色の「3」2 個に置き換えています。右の灰色の部分は中段だけに描かれ、組み替えには関わりません。中央の灰色の下向きの塗りつぶした矢印が「3 個の 2」から「2 個の 3」への変換を示し、図の下には「2 が 3 個あれば、貪欲に 2 個の 3 に置き換える」とあります。</p><p>3 個の 2 の積は 8、2 個の 3 の積は 9 で、和はいずれも 6 です。ほかの正の整数の因子の積を P とし、ほかに因子がなければ P = 1 とします。この部分の置き換えで全体の積は 8P から 9P に増えます。したがって、最適な分け方で残す 2 は高々 2 個です。これは図の局所的な変換から導いた結果です。</p></div>
+<p>以上をまとめると、次の貪欲戦略が得られます。</p>
 <ol>
-<li>入力された整数 <span class="arithmatex">\(n\)</span> から因数 <span class="arithmatex">\(3\)</span> を繰り返し切り出し、余りが <span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span> のいずれかになるまで続けます。</li>
-<li>余りが <span class="arithmatex">\(0\)</span> なら、<span class="arithmatex">\(n\)</span> は <span class="arithmatex">\(3\)</span> の倍数なので、何もしません。</li>
-<li>余りが <span class="arithmatex">\(2\)</span> なら、それ以上分割せずに残します。</li>
-<li>余りが <span class="arithmatex">\(1\)</span> なら、<span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> なので、最後の <span class="arithmatex">\(3\)</span> と余りの <span class="arithmatex">\(1\)</span> を、二つの <span class="arithmatex">\(2\)</span> に置き換えます。</li>
+<li>入力の整数 <span class="arithmatex">\(n\)</span> から因子 <span class="arithmatex">\(3\)</span> を繰り返し切り出し、余りが <span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span> のいずれかになるまで続けます。</li>
+<li>余りが <span class="arithmatex">\(0\)</span> なら、<span class="arithmatex">\(n\)</span> は <span class="arithmatex">\(3\)</span> の倍数なので、そのままにします。</li>
+<li>余りが <span class="arithmatex">\(2\)</span> なら、それ以上分けずにそのまま残します。</li>
+<li>余りが <span class="arithmatex">\(1\)</span> なら、<span class="arithmatex">\(2 \times 2 &gt; 1 \times 3\)</span> が成り立つので、最後の <span class="arithmatex">\(3\)</span> と余りの <span class="arithmatex">\(1\)</span> を 2 個の <span class="arithmatex">\(2\)</span> に置き換えます。</li>
 </ol>
-<h3 id="2">2.   コードの実装<a class="headerlink" href="#2" title="この見出しへのリンク">¶</a></h3>
-<p>図 15-16 のように、ループで整数を分割する必要はありません。切り捨ての整数除算で <span class="arithmatex">\(3\)</span> の個数 <span class="arithmatex">\(a\)</span> を求め、剰余演算で余り <span class="arithmatex">\(b\)</span> を求めると、次の関係が成り立ちます。</p>
+<h3 id="2">2.   コードによる実装<a class="headerlink" href="#2" title="この見出しへのリンク">¶</a></h3>
+<p>図 15-16 のように、整数をループで分割する必要はありません。切り捨て除算で <span class="arithmatex">\(3\)</span> の個数 <span class="arithmatex">\(a\)</span> を、剰余演算で余り <span class="arithmatex">\(b\)</span> を求めると、次の関係が成り立ちます。</p>
 <div class="arithmatex">\[
 n = 3 a + b
 \]</div>
-<p>境界の場合 <span class="arithmatex">\(n \leq 3\)</span> では、必ず <span class="arithmatex">\(1\)</span> を一つ切り出す必要があり、積は <span class="arithmatex">\(1 \times (n - 1)\)</span> になります。</p>
+<p>境界条件 <span class="arithmatex">\(n \leq 3\)</span> の場合は、必ず <span class="arithmatex">\(1\)</span> を 1 つ切り出す必要があることに注意してください。積は <span class="arithmatex">\(1 \times (n - 1)\)</span> です。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">max_product_cutting.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_product_cutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""分割後の積の最大化：貪欲法"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""整数分割の最大積（貪欲法）"""</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="k">return</span> <span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># 貪欲に 3 を切り出す。a は 3 の個数、b は余り</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="c1"># 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2001,22 +2001,22 @@ n = 3 a + b
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2024,22 +2024,22 @@ n = 3 a + b
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">MaxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2047,22 +2047,22 @@ n = 3 a + b
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">maxProductCutting</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2070,22 +2070,22 @@ n = 3 a + b
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="nx">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">a</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">a</span><span class="p">)))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">float64</span><span class="p">(</span><span class="nx">a</span><span class="p">)))</span>
 <a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2093,22 +2093,22 @@ n = 3 a + b
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span>
 <a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">maxProductCutting</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2116,22 +2116,22 @@ n = 3 a + b
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">);</span>
 <a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">maxProductCutting</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2139,22 +2139,22 @@ n = 3 a + b
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
 <a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">);</span>
 <a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="p">}</span>
@@ -2162,22 +2162,22 @@ n = 3 a + b
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">~/</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
 <a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">  </span><span class="p">}</span>
 <a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
 <a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">  </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">  </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">).</span><span class="n">toInt</span><span class="p">();</span>
 <a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">max_product_cutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2185,22 +2185,22 @@ n = 3 a + b
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="mi">3_</span><span class="k">i32</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">        </span><span class="mi">3_</span><span class="k">i32</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
 <a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">        </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">        </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="w">        </span><span class="mi">3_</span><span class="k">i32</span><span class="p">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span>
 <a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-9-20" id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2208,22 +2208,22 @@ n = 3 a + b
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 分割後の積の最大化：貪欲法 */</span>
+<div class="highlight"><span class="filename">max_product_cutting.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* 整数分割の最大積（貪欲法） */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">maxProductCutting</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="p">}</span>
@@ -2231,30 +2231,30 @@ n = 3 a + b
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">3</span>
 <a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">((</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">)).</span><span class="na">toInt</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="c1">// 余りが 2 の場合、何もしない</span>
-<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span>
+<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="c1">// 余りが 2 なら、そのままにする</span>
+<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span>
 <a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">    </span><span class="c1">// 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">    </span><span class="c1">// 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">3.0</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">a</span><span class="p">).</span><span class="na">toInt</span><span class="p">()</span>
 <a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">max_product_cutting.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 分割後の積の最大化：貪欲法 ###</span>
+<div class="highlight"><span class="filename">max_product_cutting.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### 整数分割の最大積（貪欲法） ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">max_product_cutting</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># n &lt;= 3 の場合、必ず 1 を 1 つ切り出す必要がある</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># n &lt;= 3 の場合は必ず 1 を切り出す</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1"># 貪欲に 3 を切り出す。a は 3 の個数、b は余り</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 余りが 1 の場合、1 * 3 の組を 2 * 2 に変換する</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># 余りが 1 なら、1 * 3 の組を 2 * 2 に置き換える</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="c1"># 余りが 2 の場合、何もしない</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="c1"># 余りが 2 なら、そのままにする</span>
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span>
-<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">  </span><span class="c1"># 余りが 0 の場合、何もしない</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">  </span><span class="c1"># 余りが 0 なら、そのままにする</span>
 <a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="mi">3</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span>
 <a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="k">end</span>
 </code></pre></div>
@@ -2262,24 +2262,24 @@ n = 3 a + b
 </div>
 </div>
 <details class="pythontutor">
-<summary>実行の可視化</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96%EF%BC%9A%E8%B2%AA%E6%AC%B2%E6%B3%95%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E5%BF%85%E3%81%9A%201%20%E3%82%92%201%20%E3%81%A4%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8B%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%81%AB%203%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E3%80%82a%20%E3%81%AF%203%20%E3%81%AE%E5%80%8B%E6%95%B0%E3%80%81b%20%E3%81%AF%E4%BD%99%E3%82%8A%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%201%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%811%20%2A%203%20%E3%81%AE%E7%B5%84%E3%82%92%202%20%2A%202%20%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%202%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%200%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%80%A4%E3%81%AF%20%7Bres%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の可視化"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%8C%96%EF%BC%9A%E8%B2%AA%E6%AC%B2%E6%B3%95%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E5%BF%85%E3%81%9A%201%20%E3%82%92%201%20%E3%81%A4%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E5%BF%85%E8%A6%81%E3%81%8C%E3%81%82%E3%82%8B%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%81%AB%203%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E3%80%82a%20%E3%81%AF%203%20%E3%81%AE%E5%80%8B%E6%95%B0%E3%80%81b%20%E3%81%AF%E4%BD%99%E3%82%8A%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%201%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%811%20%2A%203%20%E3%81%AE%E7%B5%84%E3%82%92%202%20%2A%202%20%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%202%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%200%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%80%81%E4%BD%95%E3%82%82%E3%81%97%E3%81%AA%E3%81%84%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22%E5%AE%9F%E8%A1%8C%E7%94%A8%E3%82%B3%E3%83%BC%E3%83%89%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%80%A4%E3%81%AF%20%7Bres%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
+<summary>実行の様子を見る</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%95%B4%E6%95%B0%E5%88%86%E5%89%B2%E3%81%AE%E6%9C%80%E5%A4%A7%E7%A9%8D%EF%BC%88%E8%B2%AA%E6%AC%B2%E6%B3%95%EF%BC%89%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%81%AF%E5%BF%85%E3%81%9A%201%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%81%AB%203%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E3%80%82a%20%E3%81%AF%203%20%E3%81%AE%E5%80%8B%E6%95%B0%E3%80%81b%20%E3%81%AF%E4%BD%99%E3%82%8A%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%201%20%E3%81%AA%E3%82%89%E3%80%811%20%2A%203%20%E3%81%AE%E7%B5%84%E3%82%92%202%20%2A%202%20%E3%81%AB%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%202%20%E3%81%AA%E3%82%89%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%200%20%E3%81%AA%E3%82%89%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E6%B3%95%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%80%A4%E3%81%AF%20%7Bres%7D%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="実行の様子を見る"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20math%0A%0Adef%20max_product_cutting%28n%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%E6%95%B4%E6%95%B0%E5%88%86%E5%89%B2%E3%81%AE%E6%9C%80%E5%A4%A7%E7%A9%8D%EF%BC%88%E8%B2%AA%E6%AC%B2%E6%B3%95%EF%BC%89%22%22%22%0A%20%20%20%20%23%20n%20%3C%3D%203%20%E3%81%AE%E5%A0%B4%E5%90%88%E3%81%AF%E5%BF%85%E3%81%9A%201%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%0A%20%20%20%20if%20n%20%3C%3D%203%3A%0A%20%20%20%20%20%20%20%20return%201%20%2A%20%28n%20-%201%29%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E3%81%AB%203%20%E3%82%92%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E3%80%82a%20%E3%81%AF%203%20%E3%81%AE%E5%80%8B%E6%95%B0%E3%80%81b%20%E3%81%AF%E4%BD%99%E3%82%8A%0A%20%20%20%20a,%20b%20%3D%20n%20//%203,%20n%20%25%203%0A%20%20%20%20if%20b%20%3D%3D%201%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%201%20%E3%81%AA%E3%82%89%E3%80%811%20%2A%203%20%E3%81%AE%E7%B5%84%E3%82%92%202%20%2A%202%20%E3%81%AB%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%20-%201%29%29%20%2A%202%20%2A%202%0A%20%20%20%20if%20b%20%3D%3D%202%3A%0A%20%20%20%20%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%202%20%E3%81%AA%E3%82%89%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20%20%20%20%20return%20int%28math.pow%283,%20a%29%29%20%2A%202%0A%20%20%20%20%23%20%E4%BD%99%E3%82%8A%E3%81%8C%200%20%E3%81%AA%E3%82%89%E3%80%81%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E3%81%AB%E3%81%99%E3%82%8B%0A%20%20%20%20return%20int%28math.pow%283,%20a%29%29%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20n%20%3D%2058%0A%0A%20%20%20%20%23%20%E8%B2%AA%E6%AC%B2%E6%B3%95%0A%20%20%20%20res%20%3D%20max_product_cutting%28n%29%0A%20%20%20%20print%28f%22%E5%88%86%E5%89%B2%E5%BE%8C%E3%81%AE%E7%A9%8D%E3%81%AE%E6%9C%80%E5%A4%A7%E5%80%A4%E3%81%AF%20%7Bres%7D%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">全画面で表示 &gt;</a></div></p>
 </details>
-<p><ha-svg-figure aria-label="分割後の最大の積の計算方法：商 a と余り b から場合分けで分割後の最大の積を直接計算する" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" data-dark-src="/assets/figure-svg/figures/9910ba314f4c548d8f49eee5.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/9e9185b57f32aa65388e8f47.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">分割後の最大の積の計算方法</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">分割後の最大の積の計算方法</object></ha-svg-figure></p>
-<p align="center"> 図 15-16   分割後の最大の積の計算方法 </p><div class="ha-sr-only figure-description"><h4>図解 15-16：分割後の最大の積の計算方法</h4><p>切り捨て除算と剰余演算で n を 3×a+b と表し、余りに応じて場合分けして分割を調整します。境界である n=2、3 は少なくとも 2 つに分ける条件を個別に満たす必要があります。</p><p>整数 n ≥ 2 が与えられたとき、少なくとも 2 つの正の整数の和に分割し、合計が n で一定の条件の下で各部分の積を最大にします。</p><p>貪欲法の最適戦略は因数 3 をできるだけ多く切り出すことなので、コードの実装ではループで 1 つずつ切り分ける必要はなく、切り捨ての整数除算 a = n // 3 と剰余演算 b = n % 3 を使って、切り出せる 3 の個数 a と余り b を一度に求められます。</p><p>図では全長 n の棒を長さ 3 の a 個の部分と 1 つの「余り b」に分解し、下部に恒等式 n = 3 × a + b（ここで a = n // 3、b = n % 3 で、余り b は 0、1、2 のいずれか）を示しています。図中で「余り b」が左側に描かれているのは記号的な分解の模式図にすぎず、具体的な n や b の値を指定するものでも、左から右の順に分割を行うことを表すものでもありません。青い 3 の部分の間にある省略記号は、個別に描かれていない同じ長さの部分を表します。</p><p>下の表は本文とコードから補ったもので、図中にはこれら 5 通りの場合分けの結果は描かれていません。境界の n = 2、3 では少なくとも 2 つに分割しなければならず、n をそのまま残すことはできません。</p><p>n ≥ 4 かつ b = 1 のときは a ≥ 1 なので、余りの 1 と組み替えられる 3 が少なくとも 1 つあります。この 2 つを 2 + 2 に置き換えると、合計の長さは 4 のまま局所的な積が 3 から 4 に増え、因数 3 の個数は a 個から a−1 個に減って 3^(a−1) × 2 × 2 が得られます。</p><table><caption>本文とコードに基づく場合分けの計算規則</caption><thead><tr><th scope="col">適用条件</th><th scope="col">分割または組み替え</th><th scope="col">最大の積</th></tr></thead><tbody><tr><th scope="row">n=2</th><td>1+1</td><td>1</td></tr><tr><th scope="row">n=3</th><td>1+2</td><td>2</td></tr><tr><th scope="row">n≥4、b=0</th><td>a 個の 3</td><td>3^a</td></tr><tr><th scope="row">n≥4、b=1</th><td>a−1 個の 3 と 2 個の 2（1 個の 3 と余り 1 を 2+2 に変更）</td><td>3^(a−1)×2×2</td></tr><tr><th scope="row">n≥4、b=2</th><td>a 個の 3 と 1 個の 2</td><td>3^a×2</td></tr></tbody></table><p>図中の「余り b」は商と余りによる分解を表すだけです。b = 0 のときは余りの部分がなく、b = 2 のときは 1 つの因数としてそのまま残せ、b = 1 のときは表の規則に従って組み替えます。0 を分割の因数として扱うことはできません。</p></div>
-<p><strong>時間計算量は、プログラミング言語の累乗演算の実装によって決まります</strong>。Python を例にすると、よく使われる累乗の計算方法には三つあります。</p>
+<p><ha-svg-figure aria-label="整数を分割したときの最大積の計算方法：商 a と余り b で場合分けして最大積を直接求める" class="animation-figure" data-book-key="ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.png" data-dark-src="/assets/figure-svg/figures/5640d626c9eaac7687ca301e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/38b9553732a806e0297b901f.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">整数分割の最大積の計算方法</object><object aria-hidden="true" data="/ja/chapter_greedy/max_product_cutting_problem.assets/max_product_cutting_greedy_calculation.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">整数分割の最大積の計算方法</object></ha-svg-figure></p>
+<p align="center"> 図 15-16   整数分割の最大積の計算方法 </p><div class="ha-sr-only figure-description"><h4>図解 15-16：整数を分割したときの最大積の計算方法</h4><p>n を整数除算と剰余で 3×a+b と表し、余りに応じて分割を調整します。境界の n=2、3 は、少なくとも 2 つに分ける条件を満たすよう別に扱います。</p><p>整数 n ≥ 2 を少なくとも 2 つの正の整数の和に分けます。合計を n に保ったまま、それらの積を最大にする問題です。</p><p>貪欲法で最適なのは因数 3 をできるだけ多く取ることなので、コードで一つずつ切り分けるループは不要です。切り捨ての整数除算 a = n // 3 と剰余 b = n % 3 を使って、取れる 3 の個数 a と余り b を直接求めます。</p><p>図では長さ n の帯を、長さ 3 の部分 a 個と「余り b」の部分に分けています。下には恒等式 n = 3 × a + b があり、a = n // 3、b = n % 3 で、余り b は 0、1、2 のいずれかです。「余り b」を左に描いているのは式の分解を示すためです。具体的な n や b の値、あるいは左から右に切る手順を表すものではありません。長さ 3 の青い部分の間の省略記号は、一つずつ描いていない同じ長さの部分を表します。</p><p>下の表は本文とコードから補ったものです。図自体にはこの 5 通りの結果は描かれていません。境界の n = 2、3 も少なくとも 2 つに分ける必要があり、n を丸ごと残すことはできません。</p><p>n ≥ 4 で b = 1 なら a ≥ 1 なので、余りの 1 と組み直せる 3 が少なくとも 1 個あります。この 2 つを 2 + 2 に置き換えると長さの合計は 4 のままで、この部分の積は 3 から 4 に増えます。因数 3 は a 個から a−1 個に減り、積は 3^(a−1) × 2 × 2 になります。</p><table><caption>本文とコードに基づく場合ごとの計算規則</caption><thead><tr><th scope="col">適用条件</th><th scope="col">分割または組み直し</th><th scope="col">最大積</th></tr></thead><tbody><tr><th scope="row">n=2</th><td>1+1</td><td>1</td></tr><tr><th scope="row">n=3</th><td>1+2</td><td>2</td></tr><tr><th scope="row">n≥4、b=0</th><td>3 が a 個</td><td>3^a</td></tr><tr><th scope="row">n≥4、b=1</th><td>3 が a−1 個と 2 が 2 個（3 を 1 個と余りの 1 を 2+2 に組み直す）</td><td>3^(a−1)×2×2</td></tr><tr><th scope="row">n≥4、b=2</th><td>3 が a 個と 2 が 1 個</td><td>3^a×2</td></tr></tbody></table><p>図の「余り b」は、商と余りによる分解を表すだけです。b = 0 なら余りの部分はなく、b = 2 ならそのまま因数にでき、b = 1 なら表の規則で組み直します。0 を分割後の因数に含めることはできません。</p></div>
+<p><strong>時間計算量は、使用する言語がべき乗をどう実装しているかによって決まります</strong>。例えば Python には、よく使われるべき乗の計算方法が 3 つあります。</p>
 <ul>
-<li>演算子 <code>**</code> と関数 <code>pow()</code> の時間計算量は、どちらも <span class="arithmatex">\(O(\log⁡ a)\)</span> です。</li>
-<li>関数 <code>math.pow()</code> は内部で C 標準ライブラリの <code>pow()</code> を呼び出します。浮動小数点の累乗を計算し、時間計算量は <span class="arithmatex">\(O(1)\)</span> です。</li>
+<li>演算子 <code>**</code> と関数 <code>pow()</code> の時間計算量は、いずれも <span class="arithmatex">\(O(\log⁡ a)\)</span> です。</li>
+<li>関数 <code>math.pow()</code> は内部で C 言語のライブラリ関数 <code>pow()</code> を呼び出し、浮動小数点数のべき乗を計算します。時間計算量は <span class="arithmatex">\(O(1)\)</span> です。</li>
 </ul>
-<p>変数 <span class="arithmatex">\(a\)</span> と <span class="arithmatex">\(b\)</span> が使う追加の空間は一定なので、<strong>空間計算量は <span class="arithmatex">\(O(1)\)</span> です</strong>。</p>
+<p>変数 <span class="arithmatex">\(a\)</span> と <span class="arithmatex">\(b\)</span> が使う追加領域は一定なので、<strong>空間計算量は <span class="arithmatex">\(O(1)\)</span> です</strong>。</p>
 <h3 id="3">3.   正しさの証明<a class="headerlink" href="#3" title="この見出しへのリンク">¶</a></h3>
 <p>背理法を使い、<span class="arithmatex">\(n \geq 4\)</span> の場合だけを考えます。</p>
 <ol>
-<li><strong>すべての因数は <span class="arithmatex">\(\leq 3\)</span></strong>：最適な分割に <span class="arithmatex">\(\geq 4\)</span> の因数 <span class="arithmatex">\(x\)</span> が含まれると仮定します。これをさらに <span class="arithmatex">\(2(x-2)\)</span> に分けると、積を大きくする（または等しく保つ）ことができます。これは仮定に矛盾します。</li>
-<li><strong>分割結果に <span class="arithmatex">\(1\)</span> は含まれない</strong>：最適な分割に因数 <span class="arithmatex">\(1\)</span> が含まれると仮定します。それを別の因数に足してまとめれば、積を大きくできます。これは仮定に矛盾します。</li>
-<li><strong>分割結果の <span class="arithmatex">\(2\)</span> は多くても二つ</strong>：最適な分割に三つの <span class="arithmatex">\(2\)</span> が含まれると仮定します。これを二つの <span class="arithmatex">\(3\)</span> に置き換えると、積が大きくなります。これは仮定に矛盾します。</li>
+<li><strong>すべての因子が <span class="arithmatex">\(\leq 3\)</span> を満たす</strong>。最適な分け方に <span class="arithmatex">\(\geq 4\)</span> の因子 <span class="arithmatex">\(x\)</span> があると仮定します。これをさらに分けて積を <span class="arithmatex">\(2(x-2)\)</span> とすれば、元より大きい（または等しい）積が得られます。これは仮定に矛盾します。</li>
+<li><strong>分割後の因子に <span class="arithmatex">\(1\)</span> を含まない</strong>。最適な分け方に因子 <span class="arithmatex">\(1\)</span> があると仮定します。それをほかの因子の一つに足してまとめると、必ずより大きな積が得られます。これは仮定に矛盾します。</li>
+<li><strong>分割後に含まれる <span class="arithmatex">\(2\)</span> は高々 2 個</strong>。最適な分け方に <span class="arithmatex">\(2\)</span> が 3 個含まれると仮定します。これらは必ず 2 個の <span class="arithmatex">\(3\)</span> に置き換えられ、積が大きくなります。これは仮定に矛盾します。</li>
 </ol>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
@@ -2316,7 +2316,7 @@ n = 3 a + b
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">コメント欄で、考えや質問、ご提案をお寄せください。</h5>
+<h5 align="center" id="__comments">ご意見、ご質問、ご提案をコメント欄にお寄せください。</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ja" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2398,9 +2398,9 @@ n = 3 a + b
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.4b65e87068ac38235d9f2cf93ce9d63bc8183b8a230a27c7b45fcfe8aa24e133.min.js"></script>
+<script src="../../assets/javascripts/bundle.196948135a4269c18233e33e47fd4bec6b98a7ae38264d86305fc24707a64a8d.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

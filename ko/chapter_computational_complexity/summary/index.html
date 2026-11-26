@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="애니메이션으로 설명하고 클릭 한 번으로 실행하는 자료 구조와 알고리즘 입문서" name="description"/>
+<meta content="애니메이션 도해와 클릭 한 번으로 실행할 수 있는 코드로 배우는 자료 구조와 알고리즘 입문서" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ko/chapter_computational_complexity/summary/" rel="canonical"/>
 <link href="../space_complexity/" rel="prev"/>
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/864e54ce411d71bab123d983.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/0a24d2cb3f6b75d285a73597.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -191,7 +191,7 @@
 <span class="md-ellipsis">
 
 
-  머리말
+  서문
 
 
   </span>
@@ -202,7 +202,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  머리말
+  서문
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -217,7 +217,7 @@
 <span class="md-ellipsis">
 
 
-  제 0 장   들어가며
+  제 0 장   머리말
 
 
   </span>
@@ -231,7 +231,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 0 장   들어가며
+  제 0 장   머리말
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  제 1 장   알고리즘과의 첫 만남
+  제 1 장   알고리즘 입문
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 1 장   알고리즘과의 첫 만남
+  제 1 장   알고리즘 입문
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   어디에나 있는 알고리즘
+  1.1   알고리즘은 어디에나 있다
 
 
   </span>
@@ -981,7 +981,7 @@
 <span class="md-ellipsis">
 
 
-  8.3   Top-k 문제
+  8.3   상위 k개 찾기 문제
 
 
   </span>
@@ -1500,7 +1500,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   모든 순열 문제
+  13.2   순열 문제
 
 
   </span>
@@ -1511,7 +1511,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   부분 집합 합 문제
+  13.3   부분집합의 합 문제
 
 
   </span>
@@ -1522,7 +1522,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n-퀸 문제
+  13.4   N-퀸 문제
 
 
   </span>
@@ -1606,7 +1606,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   동적 계획법 문제 풀이 방법
+  14.3   동적 계획법 문제 풀이
 
 
   </span>
@@ -1678,7 +1678,7 @@
 <span class="md-ellipsis">
 
 
-  제 15 장   탐욕
+  제 15 장   탐욕적 접근법
 
 
   </span>
@@ -1692,7 +1692,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 15 장   탐욕
+  제 15 장   탐욕적 접근법
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1712,7 +1712,7 @@
 <span class="md-ellipsis">
 
 
-  15.2   분할 가능한 배낭 문제
+  15.2   분할 가능 배낭 문제
 
 
   </span>
@@ -1796,7 +1796,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   프로그래밍 환경 설치
+  16.1   프로그래밍 환경 설정
 
 
   </span>
@@ -1807,7 +1807,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   함께 만드는 책
+  16.2   책 집필에 참여하기
 
 
   </span>
@@ -1909,44 +1909,44 @@
 <h3 id="1">1.   핵심 정리<a class="headerlink" href="#1" title="고유 링크">¶</a></h3>
 <p><strong>알고리즘 효율 평가</strong></p>
 <ul>
-<li>시간 효율과 공간 효율은 알고리즘의 우수성을 평가하는 두 가지 주요 지표다.</li>
-<li>실제 측정으로 알고리즘 효율을 평가할 수 있지만, 측정 환경의 영향을 없애기 어렵고 많은 컴퓨팅 자원이 든다.</li>
-<li>복잡도 분석은 실제 측정의 단점을 극복한다. 분석 결과는 모든 실행 플랫폼에 적용할 수 있으며, 데이터 크기에 따른 알고리즘 효율을 보여 준다.</li>
+<li>시간 효율과 공간 효율은 알고리즘을 평가하는 두 가지 주요 지표다.</li>
+<li>실측으로 알고리즘의 효율을 평가할 수 있지만, 측정 환경의 영향을 없애기 어렵고 많은 컴퓨팅 자원이 든다.</li>
+<li>복잡도 분석은 실측의 한계를 극복한다. 분석 결과를 모든 실행 플랫폼에 적용할 수 있고, 입력 크기가 달라질 때의 효율도 파악할 수 있다.</li>
 </ul>
 <p><strong>시간 복잡도</strong></p>
 <ul>
-<li>시간 복잡도는 데이터 양이 증가할 때 알고리즘 실행 시간이 증가하는 추세를 측정하여 효율을 효과적으로 평가한다. 다만 입력 데이터가 적거나 시간 복잡도가 같은 경우처럼, 알고리즘 효율의 우열을 정확히 비교할 수 없는 상황도 있다.</li>
-<li>최악 시간 복잡도는 빅 <span class="arithmatex">\(O\)</span> 표기법으로 나타내며 함수의 점근적 상한에 해당한다. <span class="arithmatex">\(n\)</span>이 양의 무한대로 향할 때 연산 횟수 <span class="arithmatex">\(T(n)\)</span>의 증가 차수를 반영한다.</li>
-<li>시간 복잡도를 구하는 과정은 두 단계다. 먼저 연산 횟수를 세고, 그다음 점근적 상한을 판단한다.</li>
-<li>대표적인 시간 복잡도를 낮은 순서대로 나열하면 <span class="arithmatex">\(O(1)\)</span>, <span class="arithmatex">\(O(\log n)\)</span>, <span class="arithmatex">\(O(n)\)</span>, <span class="arithmatex">\(O(n \log n)\)</span>, <span class="arithmatex">\(O(n^2)\)</span>, <span class="arithmatex">\(O(2^n)\)</span>, <span class="arithmatex">\(O(n!)\)</span> 등이 있다.</li>
-<li>일부 알고리즘의 시간 복잡도는 고정되어 있지 않고 입력 데이터의 분포에 따라 달라진다. 시간 복잡도는 최악, 최선, 평균 시간 복잡도로 나뉜다. 최선의 경우에 도달하려면 대개 입력 데이터가 엄격한 조건을 만족해야 하므로 최선 시간 복잡도는 거의 쓰지 않는다.</li>
-<li>평균 시간 복잡도는 무작위 입력 데이터에서의 실행 효율을 반영하므로 실제 응용에서의 알고리즘 성능에 가장 가깝다. 이를 계산하려면 입력 데이터의 분포와 이를 종합한 기댓값을 구해야 한다.</li>
+<li>시간 복잡도는 입력 크기가 커질 때 실행 시간이 증가하는 추세를 나타내므로 알고리즘의 효율을 평가하는 데 유용하다. 다만 입력이 작거나 두 알고리즘의 시간 복잡도가 같으면 어느 쪽이 더 효율적인지 정확히 가리기 어렵다.</li>
+<li>최악 시간 복잡도는 함수의 점근적 상한을 나타내는 빅 <span class="arithmatex">\(O\)</span> 표기법으로 표현한다. 이는 <span class="arithmatex">\(n\)</span>이 양의 무한대로 갈 때 연산 횟수 <span class="arithmatex">\(T(n)\)</span>의 증가 차수를 나타낸다.</li>
+<li>시간 복잡도는 먼저 연산 횟수를 세고 그다음 점근적 상한을 구하는 두 단계로 추정한다.</li>
+<li>대표적인 시간 복잡도를 낮은 것부터 나열하면 <span class="arithmatex">\(O(1)\)</span>, <span class="arithmatex">\(O(\log n)\)</span>, <span class="arithmatex">\(O(n)\)</span>, <span class="arithmatex">\(O(n \log n)\)</span>, <span class="arithmatex">\(O(n^2)\)</span>, <span class="arithmatex">\(O(2^n)\)</span>, <span class="arithmatex">\(O(n!)\)</span> 등이 있다.</li>
+<li>어떤 알고리즘은 입력 데이터의 분포에 따라 시간 복잡도가 달라진다. 시간 복잡도는 최악, 최선, 평균 시간 복잡도로 나뉜다. 최선의 경우는 대개 입력이 엄격한 조건을 만족해야 하므로 최선 시간 복잡도는 거의 쓰지 않는다.</li>
+<li>평균 시간 복잡도는 무작위 입력에서의 실행 효율을 나타내며 실제 응용에서의 성능에 가장 가깝다. 이를 구하려면 입력 데이터의 분포를 파악하고 각 경우를 종합해 기댓값을 계산해야 한다.</li>
 </ul>
 <p><strong>공간 복잡도</strong></p>
 <ul>
-<li>공간 복잡도는 시간 복잡도와 비슷하게, 데이터 양이 증가할 때 알고리즘이 차지하는 메모리 공간이 증가하는 추세를 측정한다.</li>
-<li>알고리즘 실행에 쓰이는 메모리 공간은 입력 공간, 임시 공간, 출력 공간으로 나뉜다. 보통 입력 공간은 공간 복잡도 계산에 포함하지 않는다. 임시 공간은 임시 데이터, 스택 프레임 공간, 명령어 공간으로 나뉘며, 스택 프레임 공간은 보통 재귀 함수에서만 공간 복잡도에 영향을 준다.</li>
-<li>보통 최악 공간 복잡도에만 관심을 둔다. 즉, 가장 불리한 입력 데이터와 실행 시점을 기준으로 공간 복잡도를 계산한다.</li>
-<li>대표적인 공간 복잡도를 낮은 순서대로 나열하면 <span class="arithmatex">\(O(1)\)</span>, <span class="arithmatex">\(O(\log n)\)</span>, <span class="arithmatex">\(O(n)\)</span>, <span class="arithmatex">\(O(n^2)\)</span>, <span class="arithmatex">\(O(2^n)\)</span> 등이 있다.</li>
+<li>공간 복잡도는 시간 복잡도와 비슷하게 입력 크기가 커질 때 메모리 사용량이 증가하는 추세를 나타낸다.</li>
+<li>실행에 관련된 메모리 공간은 입력 공간, 임시 공간, 출력 공간으로 나뉜다. 보통 입력 공간은 공간 복잡도 계산에서 제외한다. 임시 공간은 임시 데이터, 스택 프레임 공간, 명령어 공간으로 나뉘며, 이 중 스택 프레임 공간은 일반적으로 재귀 함수에서만 공간 복잡도에 영향을 준다.</li>
+<li>일반적으로 최악 공간 복잡도만 고려한다. 즉, 공간을 가장 많이 쓰는 입력에서 실행 중 메모리 사용량이 가장 큰 시점을 기준으로 계산한다.</li>
+<li>대표적인 공간 복잡도를 낮은 것부터 나열하면 <span class="arithmatex">\(O(1)\)</span>, <span class="arithmatex">\(O(\log n)\)</span>, <span class="arithmatex">\(O(n)\)</span>, <span class="arithmatex">\(O(n^2)\)</span>, <span class="arithmatex">\(O(2^n)\)</span> 등이 있다.</li>
 </ul>
 <h3 id="2-q-a">2.   Q &amp; A<a class="headerlink" href="#2-q-a" title="고유 링크">¶</a></h3>
-<p><strong>Q</strong>: 꼬리 재귀의 공간 복잡도는 <span class="arithmatex">\(O(1)\)</span>인가?</p>
-<p>이론적으로 꼬리 재귀 함수의 공간 복잡도는 <span class="arithmatex">\(O(1)\)</span>로 최적화할 수 있다. 그러나 Java, Python, C++, Go, C# 등 대다수 프로그래밍 언어는 자동 꼬리 재귀 최적화를 지원하지 않으므로, 보통 공간 복잡도를 <span class="arithmatex">\(O(n)\)</span>으로 본다.</p>
-<p><strong>Q</strong>: 함수와 메서드라는 두 용어는 어떻게 다른가?</p>
-<p><u>함수(function)</u>는 독립적으로 실행할 수 있으며, 모든 인수가 명시적으로 전달된다. <u>메서드(method)</u>는 객체와 연결되어 있고, 자신을 호출하는 객체에 암묵적으로 전달되며, 클래스 인스턴스에 포함된 데이터를 조작할 수 있다.</p>
-<p>몇 가지 흔히 쓰는 프로그래밍 언어를 예로 살펴보자.</p>
+<p><strong>질문</strong>: 꼬리 재귀의 공간 복잡도는 <span class="arithmatex">\(O(1)\)</span>인가?</p>
+<p>이론상 꼬리 재귀 함수의 공간 복잡도는 <span class="arithmatex">\(O(1)\)</span>로 최적화할 수 있다. 하지만 대부분의 프로그래밍 언어(예를 들어 자바, 파이썬, C++, Go, C# 등)는 꼬리 재귀 자동 최적화를 지원하지 않으므로 보통 공간 복잡도를 <span class="arithmatex">\(O(n)\)</span>으로 본다.</p>
+<p><strong>질문</strong>: 함수와 메서드라는 용어에는 어떤 차이가 있는가?</p>
+<p><u>함수(function)</u>는 독립적으로 실행할 수 있으며 모든 인수를 명시적으로 전달한다. <u>메서드(method)</u>는 객체에 연결되어 있다. 호출한 객체가 암묵적으로 전달되므로 해당 인스턴스의 데이터를 다룰 수 있다.</p>
+<p>몇 가지 대표적인 프로그래밍 언어를 예로 살펴보자.</p>
 <ul>
-<li>C는 절차적 프로그래밍 언어로 객체 지향 개념이 없으므로 함수만 있다. 다만 구조체(struct)를 만들어 객체 지향 프로그래밍을 흉내 낼 수 있으며, 구조체에 연결된 함수는 다른 언어의 메서드에 해당한다.</li>
-<li>Java와 C#은 객체 지향 프로그래밍 언어로, 코드 블록(메서드)은 보통 클래스의 일부다. 정적 메서드는 클래스에 묶여 있고 특정 인스턴스 변수에 접근할 수 없으므로 함수와 비슷하게 동작한다.</li>
-<li>C++와 Python은 절차적 프로그래밍(함수)과 객체 지향 프로그래밍(메서드)을 모두 지원한다.</li>
+<li>C는 절차적 프로그래밍 언어로 객체 지향 개념을 내장하지 않아 함수만 있다. 다만 구조체(struct)를 만들어 객체 지향 프로그래밍을 흉내 낼 수 있다. 이때 구조체와 연결된 함수는 다른 언어의 메서드에 해당한다.</li>
+<li>자바와 C#은 객체 지향 언어로, 코드 블록인 메서드는 보통 클래스에 속한다. 정적 메서드는 클래스에 연결되어 특정 인스턴스의 변수에 직접 접근할 수 없으므로 함수처럼 동작한다.</li>
+<li>C++와 파이썬은 절차적 프로그래밍(함수)과 객체 지향 프로그래밍(메서드)을 모두 지원한다.</li>
 </ul>
-<p><strong>Q</strong>: ‘대표적인 공간 복잡도 유형’ 그림은 사용 공간의 절대적인 크기를 나타내는가?</p>
-<p>아니다. 이 그림은 공간 복잡도를 보여 주므로, 사용 공간의 절대적인 크기가 아니라 증가 추세를 나타낸다.</p>
-<p><span class="arithmatex">\(n = 8\)</span>이라고 놓으면 각 곡선의 값이 해당 함수와 일치하지 않을 수 있다. 이는 각 곡선에 상수항을 넣어 값의 범위를 보기 편한 크기로 줄였기 때문이다.</p>
-<p>실제로는 각 방법의 ‘상수항’에 해당하는 비용을 보통 알 수 없으므로, <span class="arithmatex">\(n = 8\)</span>일 때는 복잡도만으로 최적의 해법을 고르기 어렵다. 반면 <span class="arithmatex">\(n = 8^5\)</span>일 때는 증가 추세가 지배적인 영향을 주므로 훨씬 쉽게 선택할 수 있다.</p>
-<p><strong>Q</strong> 실제 사용 상황에 따라 시간이나 공간을 희생하도록 알고리즘을 설계하기도 하는가?</p>
-<p>실제 응용에서는 대부분 공간을 더 사용하여 시간을 줄이는 쪽을 선택한다. 예를 들어 데이터베이스 인덱스에서는 보통 B+ 트리나 해시 인덱스를 구축한다. 메모리 공간을 많이 사용하는 대신 <span class="arithmatex">\(O(\log n)\)</span>, 나아가 <span class="arithmatex">\(O(1)\)</span>의 효율적인 조회가 가능하다.</p>
-<p>공간 자원이 귀한 상황에서는 시간을 더 들여 공간을 절약하기도 한다. 예를 들어 임베디드 개발에서는 장치 메모리가 귀하므로, 해시 테이블 대신 배열에서 순차 탐색을 수행할 수 있다. 메모리 사용량을 줄이는 대가로 탐색 속도가 느려진다.</p>
+<p><strong>질문</strong>: ‘대표적인 공간 복잡도 유형’ 그림은 실제 공간 사용량의 절댓값을 보여 주는가?</p>
+<p>아니다. 이 그림은 공간 복잡도, 즉 실제 사용량의 절댓값이 아닌 증가 추세를 보여 준다.</p>
+<p><span class="arithmatex">\(n = 8\)</span>일 때를 보면 각 곡선의 값이 해당 함수의 값과 맞지 않을 수 있다. 각 곡선에 상수항을 넣어 값의 범위를 보기 좋게 압축했기 때문이다.</p>
+<p>실제로는 각 방법의 복잡도에 포함된 ‘상수항’을 모르는 경우가 많아 <span class="arithmatex">\(n = 8\)</span>일 때 복잡도만으로 최적의 해법을 고르기는 어렵다. 하지만 <span class="arithmatex">\(n = 8^5\)</span>일 때는 증가 추세의 영향이 지배적이므로 선택하기가 훨씬 쉽다.</p>
+<p><strong>질문</strong>: 실제 사용 환경에 따라 시간이나 공간을 양보하는 방식으로 알고리즘을 설계하기도 하는가?</p>
+<p>실제로는 대개 공간을 더 써서 시간을 줄인다. 예를 들어 데이터베이스에 B+ 트리 인덱스나 해시 인덱스를 만들면 메모리를 많이 쓰는 대신 <span class="arithmatex">\(O(\log n)\)</span>, 심지어 <span class="arithmatex">\(O(1)\)</span>의 시간에 효율적으로 조회할 수 있다.</p>
+<p>공간이 귀한 환경에서는 시간을 더 들여 공간을 아끼기도 한다. 예를 들어 임베디드 개발에서는 기기의 메모리가 귀하므로 해시 테이블 대신 배열을 순차 탐색하는 방법을 택할 수 있다. 메모리 사용량은 줄지만 탐색은 느려진다.</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
@@ -1982,7 +1982,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">댓글로 의견이나 질문, 제안을 남겨 주세요</h5>
+<h5 align="center" id="__comments">의견이나 질문, 제안을 댓글로 남겨 주세요.</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ko" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2064,7 +2064,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"클립보드에 복사됨","clipboard.copy":"클립보드로 복사","search.result.more.one":"이 문서에서 1개의 검색 결과 더 보기","search.result.more.other":"이 문서에서 #개의 검색 결과 더 보기","search.result.none":"검색어와 일치하는 문서가 없습니다","search.result.one":"1개의 일치하는 문서","search.result.other":"#개의 일치하는 문서","search.result.placeholder":"검색어를 입력하세요","search.result.term.missing":"포함되지 않은 검색어","select.version":"버전 선택"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.9da20b33253961ce280a4a32ba173a4ae6a1344b3b104ddf2f5f2caf9b8f6ec8.min.js"></script>
+<script src="../../assets/javascripts/bundle.a67f0250649a59050bd5d66f11a1783293b444a53f0ff67bd98520ace3a72466.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>

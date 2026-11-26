@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="動畫圖解、一鍵執行的資料結構與演算法教程" name="description"/>
+<meta content="透過動畫圖解與一鍵執行的程式範例，學習資料結構與演算法。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/zh-hant/chapter_greedy/" rel="canonical"/>
 <link href="../chapter_dynamic_programming/exercises/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_greedy/" hreflang="ko" rel="alternate"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>第 15 章 貪婪 - Hello 演算法</title>
+<title>第 15 章 貪婪法 - Hello 演算法</title>
 <link href="../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/58c823e0bec5e73f891637a1.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/21676f8f5d6e42cfec41d8e2.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,7 +64,7 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>紙質書（簡體中文版）已發行，詳情請見<a href="/chapter_paperbook/">這裡</a></span>
+<span>簡體中文版紙本書已出版。<a href="/chapter_paperbook/">瞭解詳情</a>。</span>
 </div>
 </div>
 </aside>
@@ -87,7 +87,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              第 15 章   貪婪
+              第 15 章   貪婪法
 
           </span>
 </div>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3   小結
+  0.3   本章小結
 
 
   </span>
@@ -308,7 +308,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   演算法無處不在
+  1.1   演算法無所不在
 
 
   </span>
@@ -319,7 +319,7 @@
 <span class="md-ellipsis">
 
 
-  1.2   演算法是什麼
+  1.2   什麼是演算法
 
 
   </span>
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3   小結
+  1.3   本章小結
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1   演算法效率評估
+  2.1   評估演算法效率
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5   小結
+  2.5   本章小結
 
 
   </span>
@@ -465,7 +465,7 @@
 <span class="md-ellipsis">
 
 
-  3.1   資料結構分類
+  3.1   資料結構的分類
 
 
   </span>
@@ -487,7 +487,7 @@
 <span class="md-ellipsis">
 
 
-  3.3   數字編碼 *
+  3.3   數值編碼 *
 
 
   </span>
@@ -582,7 +582,7 @@
 <span class="md-ellipsis">
 
 
-  4.3   串列
+  4.3   列表
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3   雙向佇列
+  5.3   雙端佇列
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2   雜湊衝突
+  6.2   雜湊碰撞
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4   小結
+  6.4   本章小結
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3   二元樹陣列表示
+  7.3   二元樹的陣列表示法
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5   AVL *
+  7.5   AVL 樹 *
 
 
   </span>
@@ -940,7 +940,7 @@
 <span class="md-ellipsis">
 
 
-  8.2   建堆積操作
+  8.2   建立堆積
 
 
   </span>
@@ -1024,7 +1024,7 @@
 <span class="md-ellipsis">
 
 
-  9.2   圖基礎操作
+  9.2   圖的基本操作
 
 
   </span>
@@ -1097,7 +1097,7 @@
 <span class="md-ellipsis">
 
 
-  10.1   二分搜尋
+  10.1   二分搜尋法
 
 
   </span>
@@ -1108,7 +1108,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分搜尋插入點
+  10.2   用二分搜尋法找出插入位置
 
 
   </span>
@@ -1119,7 +1119,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分搜尋邊界
+  10.3   用二分搜尋法找出邊界
 
 
   </span>
@@ -1130,7 +1130,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   雜湊最佳化策略
+  10.4   以雜湊搜尋提升效率
 
 
   </span>
@@ -1141,7 +1141,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   重識搜尋演算法
+  10.5   重新認識搜尋演算法
 
 
   </span>
@@ -1225,7 +1225,7 @@
 <span class="md-ellipsis">
 
 
-  11.3   泡沫排序
+  11.3   氣泡排序
 
 
   </span>
@@ -1341,7 +1341,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分治
+  第 12 章   分治法
 
 
   </span>
@@ -1355,7 +1355,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分治
+  第 12 章   分治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1386,7 +1386,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   構建樹問題
+  12.3   建構二元樹問題
 
 
   </span>
@@ -1436,7 +1436,7 @@
 <span class="md-ellipsis">
 
 
-  第 13 章   回溯
+  第 13 章   回溯法
 
 
   </span>
@@ -1450,7 +1450,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 13 章   回溯
+  第 13 章   回溯法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1565,7 +1565,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   DP 問題特性
+  14.2   動態規劃問題的特性
 
 
   </span>
@@ -1576,7 +1576,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   DP 解題思路
+  14.3   動態規劃的解題思路
 
 
   </span>
@@ -1648,7 +1648,7 @@
 <span class="md-ellipsis">
 
 
-  第 15 章   貪婪
+  第 15 章   貪婪法
 
 
   </span>
@@ -1662,7 +1662,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 15 章   貪婪
+  第 15 章   貪婪法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1766,7 +1766,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   程式設計環境安裝
+  16.1   安裝程式開發環境
 
 
   </span>
@@ -1866,12 +1866,12 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="15">第 15 章   貪婪<a class="headerlink" href="#15" title="Permanent link">¶</a></h1>
-<p><img alt="貪婪" class="cover-image" src="../assets/covers/chapter_greedy.svg"/></p>
+<h1 id="15">第 15 章   貪婪法<a class="headerlink" href="#15" title="Permanent link">¶</a></h1>
+<p><img alt="貪婪法" class="cover-image" src="../assets/covers/chapter_greedy.svg"/></p>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>向日葵朝著太陽轉動，時刻追求自身成長的最大可能。</p>
-<p>貪婪策略在一輪輪的簡單選擇中，逐步導向最佳答案。</p>
+<p>向日葵隨著太陽轉動，時時爭取最有利於自己生長的機會。</p>
+<p>貪婪策略一輪又一輪地做出簡單選擇，逐步走向最佳答案。</p>
 </div>
 <h2 id="_1">本章內容<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
@@ -1917,7 +1917,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">歡迎在評論區留下你的見解、問題或建議</h5>
+<h5 align="center" id="__comments">歡迎留言分享你的看法、問題或建議</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="zh-TW" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -1939,7 +1939,7 @@
       function labelCommentsFrame() {
         var frame = document.querySelector("iframe.giscus-frame")
         if (!frame) return false
-        frame.setAttribute("title", "評論")
+        frame.setAttribute("title", "留言")
         return true
       }
       if (labelCommentsFrame()) return
@@ -1999,7 +1999,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"已拷貝","clipboard.copy":"拷貝","search.result.more.one":"此頁尚有 1 個符合的項目","search.result.more.other":"此頁尚有 # 個符合的項目","search.result.none":"沒有找到符合條件的結果","search.result.one":"找到 1 个符合條件的結果","search.result.other":"找到 # 個符合條件的結果","search.result.placeholder":"鍵入以開始檢索","search.result.term.missing":"缺失","select.version":"選擇版本"},"version":null}</script>
-<script src="../assets/javascripts/bundle.d8fb2ea5e0f509d0b4f4d0f8a450bc3780c07b9dcd2ec26cdd40f43bc8806ce2.min.js"></script>
+<script src="../assets/javascripts/bundle.796a08fbfda9ae7b0946ec06a0bc8fdc6da7c683bd423885faee5d4cbb391a7b.min.js"></script>
 <script src="../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../javascripts/animation_player.js"></script>

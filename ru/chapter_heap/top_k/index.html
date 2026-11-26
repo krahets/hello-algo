@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом" name="description"/>
+<meta content="Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ru/chapter_heap/top_k/" rel="canonical"/>
 <link href="../build_heap/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_heap/top_k/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>8.3 Задача Top-k - Hello Algo</title>
+<title>8.3 Задача о k наибольших элементах - Привет, алгоритмы!</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,13 +47,13 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label aria-label="Навигация" class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#83-top-k">
+<a class="md-skip" href="#83-k">
           Перейти к содержанию
         </a>
 </div>
@@ -64,15 +64,15 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Приглашаем вас участвовать в развитии русской версии! Подробнее <a href="/ru/chapter_appendix/contribution/">здесь</a>.</span>
+<span>Помогите улучшить русское издание. <a href="/ru/chapter_appendix/contribution/">Узнать больше</a>.</span>
 </div>
 </div>
 </aside>
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="Навигация" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -81,13 +81,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Привет, алгоритмы!
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              8.3   Задача Top-k
+              8.3   Задача о k наибольших элементах
 
           </span>
 </div>
@@ -173,10 +173,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Привет, алгоритмы!
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="Перейти к репозиторию">
@@ -197,7 +197,7 @@
 <span class="md-ellipsis">
 
 
-  Перед началом
+  Вступительное слово
 
 
   </span>
@@ -208,7 +208,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Перед началом
+  Вступительное слово
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -246,7 +246,7 @@
 <span class="md-ellipsis">
 
 
-  0.1 Об этой книге
+  0.1 О книге
 
 
   </span>
@@ -257,7 +257,7 @@
 <span class="md-ellipsis">
 
 
-  0.2 Как пользоваться этой книгой
+  0.2 Как пользоваться книгой
 
 
   </span>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3 Резюме
+  0.3 Итоги
 
 
   </span>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3 Резюме
+  1.3 Итоги
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1 Оценка эффективности алгоритмов
+  2.1 Оценка эффективности алгоритма
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5 Резюме
+  2.5 Итоги
 
 
   </span>
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
 
 
-  3.5 Резюме
+  3.5 Итоги
 
 
   </span>
@@ -537,7 +537,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
 
   </span>
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -593,7 +593,7 @@
 <span class="md-ellipsis">
 
 
-  4.4 Оперативная память и кэш *
+  4.4 Оперативная память и кеш *
 
 
   </span>
@@ -604,7 +604,7 @@
 <span class="md-ellipsis">
 
 
-  4.5 Резюме
+  4.5 Итоги
 
 
   </span>
@@ -632,7 +632,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
 
   </span>
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -655,7 +655,7 @@
 <span class="md-ellipsis">
 
 
-  5.1 Стек
+  5.1   Стек
 
 
   </span>
@@ -666,7 +666,7 @@
 <span class="md-ellipsis">
 
 
-  5.2 Очередь
+  5.2   Очередь
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3 Двусторонняя очередь
+  5.3   Двусторонняя очередь
 
 
   </span>
@@ -688,7 +688,7 @@
 <span class="md-ellipsis">
 
 
-  5.4 Резюме
+  5.4   Итоги
 
 
   </span>
@@ -699,7 +699,7 @@
 <span class="md-ellipsis">
 
 
-  5.5 Упражнения
+  5.5   Упражнения
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2 Хеш-коллизии
+  6.2 Коллизии
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4 Резюме
+  6.4 Итоги
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3 Представление двоичного дерева массивом
+  7.3 Представление двоичного дерева в виде массива
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5 AVL-дерево *
+  7.5 АВЛ-дерево *
 
 
   </span>
@@ -878,7 +878,7 @@
 <span class="md-ellipsis">
 
 
-  7.6 Краткие итоги
+  7.6 Итоги
 
 
   </span>
@@ -906,7 +906,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
 
   </span>
@@ -920,7 +920,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -951,7 +951,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -961,7 +961,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -976,7 +976,7 @@
 <a class="md-nav__link" href="#831-1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.1   Метод 1: выбор через обход
+        8.3.1   Способ 1. Последовательный отбор
       </span>
 </span>
 </a>
@@ -985,7 +985,7 @@
 <a class="md-nav__link" href="#832-2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.2   Метод 2: сортировка
+        8.3.2   Способ 2. Сортировка
       </span>
 </span>
 </a>
@@ -994,7 +994,7 @@
 <a class="md-nav__link" href="#833-3">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.3   Метод 3: куча
+        8.3.3   Способ 3. Куча
       </span>
 </span>
 </a>
@@ -1007,7 +1007,7 @@
 <span class="md-ellipsis">
 
 
-  8.4 Резюме
+  8.4 Итоги
 
 
   </span>
@@ -1069,7 +1069,7 @@
 <span class="md-ellipsis">
 
 
-  9.2 Базовые операции графа
+  9.2 Основные операции с графом
 
 
   </span>
@@ -1091,7 +1091,7 @@
 <span class="md-ellipsis">
 
 
-  9.4 Краткие итоги
+  9.4 Итоги
 
 
   </span>
@@ -1153,7 +1153,7 @@
 <span class="md-ellipsis">
 
 
-  10.2 Двоичный поиск точки вставки
+  10.2 Нахождение позиции вставки с помощью двоичного поиска
 
 
   </span>
@@ -1164,7 +1164,7 @@
 <span class="md-ellipsis">
 
 
-  10.3 Двоичный поиск границ
+  10.3 Нахождение границ с помощью двоичного поиска
 
 
   </span>
@@ -1175,7 +1175,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1186,7 +1186,7 @@
 <span class="md-ellipsis">
 
 
-  10.5 Переосмысление алгоритмов поиска
+  10.5 Новый взгляд на алгоритмы поиска
 
 
   </span>
@@ -1197,7 +1197,7 @@
 <span class="md-ellipsis">
 
 
-  10.6 Резюме
+  10.6 Итоги
 
 
   </span>
@@ -1336,7 +1336,7 @@
 <span class="md-ellipsis">
 
 
-  11.9 Сортировка подсчетом
+  11.9 Сортировка подсчётом
 
 
   </span>
@@ -1358,7 +1358,7 @@
 <span class="md-ellipsis">
 
 
-  11.11 Резюме
+  11.11 Итоги
 
 
   </span>
@@ -1409,7 +1409,7 @@
 <span class="md-ellipsis">
 
 
-  12.1 Стратегия разделяй и властвуй
+  12.1 Метод «разделяй и властвуй»
 
 
   </span>
@@ -1420,7 +1420,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1431,7 +1431,7 @@
 <span class="md-ellipsis">
 
 
-  12.3 Задача построения двоичного дерева
+  12.3 Задача о построении двоичного дерева
 
 
   </span>
@@ -1442,7 +1442,7 @@
 <span class="md-ellipsis">
 
 
-  12.4 Задача о Ханойской башне
+  12.4 Задача о ханойских башнях
 
 
   </span>
@@ -1453,7 +1453,7 @@
 <span class="md-ellipsis">
 
 
-  12.5 Резюме
+  12.5 Итоги
 
 
   </span>
@@ -1504,7 +1504,7 @@
 <span class="md-ellipsis">
 
 
-  13.1 Алгоритм поиска с возвратом
+  13.1 Поиск с возвратом
 
 
   </span>
@@ -1526,7 +1526,7 @@
 <span class="md-ellipsis">
 
 
-  13.3 Задача о сумме подмножеств
+  13.3 Задача о сумме подмножества
 
 
   </span>
@@ -1537,7 +1537,7 @@
 <span class="md-ellipsis">
 
 
-  13.4 Задача о n ферзях
+  13.4 Задача о N ферзях
 
 
   </span>
@@ -1548,7 +1548,7 @@
 <span class="md-ellipsis">
 
 
-  13.5 Резюме
+  13.5 Итоги
 
 
   </span>
@@ -1599,7 +1599,7 @@
 <span class="md-ellipsis">
 
 
-  14.1 Первое знакомство с динамическим программированием
+  14.1 Знакомство с динамическим программированием
 
 
   </span>
@@ -1621,7 +1621,7 @@
 <span class="md-ellipsis">
 
 
-  14.3 Подход к решению задач динамического программирования
+  14.3 Как решать задачи динамического программирования
 
 
   </span>
@@ -1632,7 +1632,7 @@
 <span class="md-ellipsis">
 
 
-  14.4 Задача о рюкзаке 0-1
+  14.4 Задача о рюкзаке 0–1
 
 
   </span>
@@ -1643,7 +1643,7 @@
 <span class="md-ellipsis">
 
 
-  14.5 Задача о полном рюкзаке
+  14.5 Задача о неограниченном рюкзаке
 
 
   </span>
@@ -1654,7 +1654,7 @@
 <span class="md-ellipsis">
 
 
-  14.6 Задача о расстоянии редактирования
+  14.6 Задача о редакционном расстоянии
 
 
   </span>
@@ -1665,7 +1665,7 @@
 <span class="md-ellipsis">
 
 
-  14.7 Резюме
+  14.7 Итоги главы
 
 
   </span>
@@ -1693,7 +1693,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
 
   </span>
@@ -1707,7 +1707,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1749,7 +1749,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1760,7 +1760,7 @@
 <span class="md-ellipsis">
 
 
-  15.5 Резюме
+  15.5 Итоги
 
 
   </span>
@@ -1822,7 +1822,7 @@
 <span class="md-ellipsis">
 
 
-  16.2 Присоединяйтесь к созданию книги
+  16.2 Как принять участие в работе над книгой
 
 
   </span>
@@ -1833,7 +1833,7 @@
 <span class="md-ellipsis">
 
 
-  16.3 Глоссарий
+  16.3 Словарь терминов
 
 
   </span>
@@ -1890,7 +1890,7 @@
 <a class="md-nav__link" href="#831-1">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.1   Метод 1: выбор через обход
+        8.3.1   Способ 1. Последовательный отбор
       </span>
 </span>
 </a>
@@ -1899,7 +1899,7 @@
 <a class="md-nav__link" href="#832-2">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.2   Метод 2: сортировка
+        8.3.2   Способ 2. Сортировка
       </span>
 </span>
 </a>
@@ -1908,7 +1908,7 @@
 <a class="md-nav__link" href="#833-3">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        8.3.3   Метод 3: куча
+        8.3.3   Способ 3. Куча
       </span>
 </span>
 </a>
@@ -1929,80 +1929,80 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="83-top-k">8.3   Задача Top-k<a class="headerlink" href="#83-top-k" title="Permanent link">¶</a></h1>
+<h1 id="83-k"><span aria-hidden="true" data-previous-heading="" id="83-top-k"></span>8.3   Задача о k наибольших элементах<a class="headerlink" href="#83-k" title="Permanent link">¶</a></h1>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Дан неупорядоченный массив <code>nums</code> длины <span class="arithmatex">\(n\)</span> . Требуется вернуть наибольшие <span class="arithmatex">\(k\)</span> элементов массива.</p>
+<p>Дан неупорядоченный массив <code>nums</code> длины <span class="arithmatex">\(n\)</span>. Верните <span class="arithmatex">\(k\)</span> наибольших элементов массива.</p>
 </div>
-<p>Для этой задачи мы сначала покажем два относительно прямолинейных способа решения, а затем более эффективный способ на основе кучи.</p>
-<h2 id="831-1">8.3.1   Метод 1: выбор через обход<a class="headerlink" href="#831-1" title="Permanent link">¶</a></h2>
-<p>Как показано на рисунке 8-6, можно выполнить <span class="arithmatex">\(k\)</span> проходов по массиву и на каждом проходе извлекать соответственно <span class="arithmatex">\(1\)</span>-й, <span class="arithmatex">\(2\)</span>-й, <span class="arithmatex">\(\dots\)</span> , <span class="arithmatex">\(k\)</span>-й по величине элемент. Временная сложность такого подхода равна <span class="arithmatex">\(O(nk)\)</span> .</p>
-<p>Этот метод подходит только для случая <span class="arithmatex">\(k \ll n\)</span> , потому что когда <span class="arithmatex">\(k\)</span> приближается к <span class="arithmatex">\(n\)</span> , его временная сложность стремится к <span class="arithmatex">\(O(n^2)\)</span> , а это уже очень затратно.</p>
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов перебором" class="animation-figure" data-book-key="ru/chapter_heap/top_k.assets/top_k_traversal.png" data-dark-src="/assets/figure-svg/figures/5a8c191e2f4487e5b897b424.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/afcdd459248db8aab0227db4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_traversal.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Поиск наибольших k элементов через обход</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_traversal.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Поиск наибольших k элементов через обход</object></ha-svg-figure></p>
-<p align="center"> Рисунок 8-6   Поиск наибольших k элементов через обход </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 8-6: Поиск наибольших k элементов перебором</h3><p>На каждом проходе среди ещё не выбранных элементов находится максимум, который больше не участвует в следующих проходах.</p><p>Во входном массиве 5 элементов, k=3. На рисунке сверху вниз показаны четыре строки: в первой — начальный массив, ниже — состояния после трёх проходов выбора; слева находится область невыбранных кандидатов, а справа в синих ячейках — область уже выбранных элементов.</p><p>Каждый вновь выбранный элемент помещается слева от уже выбранных элементов в правой части рисунка, поэтому порядок элементов слева направо на рисунке противоположен хронологическому порядку их извлечения; это лишь способ размещения, а не дополнительная сортировка.</p><p>Толстые серые стрелки вниз обозначают переход от прохода к проходу, а тонкие изогнутые стрелки указывают максимум, извлекаемый на очередном проходе. Два столбца в таблице ниже — оставшиеся слева кандидаты и выбранная область справа — взяты прямо со схемы, а столбец «Накопленный порядок извлечения» сводит выбранные значения в хронологическом порядке и не является отдельным массивом на рисунке.</p><p>На каждом проходе сравниваются только невыбранные элементы слева. Найденное на втором проходе число 6 ставится слева от 7, а выбранное на третьем проходе число 3 — слева от 6; уже выбранные элементы остаются в правой части.</p><table><caption>Кандидаты, выбранная область и порядок извлечения за три прохода</caption><thead><tr><th scope="col">Этап</th><th scope="col">Невыбранные кандидаты слева</th><th scope="col">Выбранная область справа, слева направо</th><th scope="col">Накопленный порядок извлечения</th></tr></thead><tbody><tr><th scope="row">Начало</th><td>[1, 7, 6, 3, 2]</td><td>Пусто</td><td>Пусто</td></tr><tr><th scope="row">Первый проход: найден 1-й по величине элемент 7</th><td>[1, 6, 3, 2]</td><td>[7]</td><td>[7]</td></tr><tr><th scope="row">Второй проход: найден 2-й по величине элемент 6</th><td>[1, 3, 2]</td><td>[6, 7]</td><td>[7, 6]</td></tr><tr><th scope="row">Третий проход: найден 3-й по величине элемент 3</th><td>[1, 2]</td><td>[3, 6, 7]</td><td>[7, 6, 3]</td></tr></tbody></table><p>Выполнив k линейных проходов, алгоритм находит все k наибольших элементов за общее время O(nk).</p></div>
+<p>Сначала рассмотрим два прямых способа решения, а затем — более эффективный алгоритм с кучей.</p>
+<h2 id="831-1">8.3.1   Способ 1. Последовательный отбор<a class="headerlink" href="#831-1" title="Permanent link">¶</a></h2>
+<p>Выполним <span class="arithmatex">\(k\)</span> проходов, как на рисунке 8-6. На каждом извлекаем очередной по величине элемент: <span class="arithmatex">\(1\)</span>-й, <span class="arithmatex">\(2\)</span>-й, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(k\)</span>-й. Временная сложность равна <span class="arithmatex">\(O(nk)\)</span>.</p>
+<p>Этот способ подходит лишь при <span class="arithmatex">\(k \ll n\)</span>. Когда <span class="arithmatex">\(k\)</span> близко к <span class="arithmatex">\(n\)</span>, затраты времени приближаются к <span class="arithmatex">\(O(n^2)\)</span> и вычисления становятся очень долгими.</p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов последовательным отбором" class="animation-figure" data-book-key="ru/chapter_heap/top_k.assets/top_k_traversal.png" data-dark-src="/assets/figure-svg/figures/30d8e07abe671d205bb23f62.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d3e0e375913069bf381a5c29.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_traversal.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Поиск k наибольших элементов последовательным отбором</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_traversal.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Поиск k наибольших элементов последовательным отбором</object></ha-svg-figure></p>
+<p align="center"> Рисунок 8-6   Поиск k наибольших элементов последовательным отбором </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 8-6: Поиск k наибольших элементов последовательным отбором</h3><p>На каждом проходе находим максимум среди невыбранных элементов. Выбранные элементы в следующих проходах не участвуют.</p><p>В этом примере пять входных элементов и k=3. На рисунке четыре строки: сверху исходный массив, ниже состояния после каждого из трёх проходов. Слева расположена область кандидатов, справа в синей рамке — выбранные элементы.</p><p>Каждый новый выбранный элемент помещают слева от остальных в правой области. Поэтому слева направо элементы в ней идут в порядке, обратном времени извлечения. Это результат размещения, дополнительной сортировки не выполнялось.</p><p>Толстые серые стрелки вниз показывают переход к следующему проходу, тонкие изогнутые — извлечённый на каждом проходе максимум. В таблице столбцы невыбранных кандидатов слева и выбранных элементов справа соответствуют областям рисунка. Столбец «Порядок извлечения» перечисляет выбранные значения в хронологическом порядке. Отдельного массива с таким порядком на рисунке нет.</p><p>На каждом проходе сравниваются только невыбранные элементы слева. На втором проходе 6 помещают слева от 7, на третьем 3 — слева от 6. Все выбранные элементы остаются в правой области.</p><table><caption>Кандидаты, выбранные элементы и порядок извлечения за три прохода</caption><thead><tr><th scope="col">Этап</th><th scope="col">Невыбранные кандидаты слева</th><th scope="col">Выбранные справа, слева направо</th><th scope="col">Порядок извлечения</th></tr></thead><tbody><tr><th scope="row">Начало</th><td>[1, 7, 6, 3, 2]</td><td>Пусто</td><td>Пусто</td></tr><tr><th scope="row">Первый проход: найден наибольший элемент 7</th><td>[1, 6, 3, 2]</td><td>[7]</td><td>[7]</td></tr><tr><th scope="row">Второй проход: найден второй по величине элемент 6</th><td>[1, 3, 2]</td><td>[6, 7]</td><td>[7, 6]</td></tr><tr><th scope="row">Третий проход: найден третий по величине элемент 3</th><td>[1, 2]</td><td>[3, 6, 7]</td><td>[7, 6, 3]</td></tr></tbody></table><p>За k линейных проходов можно найти все k наибольших элементов. Общая временная сложность — O(nk).</p></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Когда <span class="arithmatex">\(k = n\)</span> , мы получаем полную упорядоченную последовательность, и в этот момент задача становится эквивалентной алгоритму «сортировка выбором».</p>
+<p>При <span class="arithmatex">\(k = n\)</span> получается полностью упорядоченная последовательность. В этом случае алгоритм равносилен сортировке выбором.</p>
 </div>
-<h2 id="832-2">8.3.2   Метод 2: сортировка<a class="headerlink" href="#832-2" title="Permanent link">¶</a></h2>
-<p>Как показано на рисунке 8-7, можно сначала отсортировать массив <code>nums</code> , а затем вернуть его крайние правые <span class="arithmatex">\(k\)</span> элементов. Временная сложность такого метода равна <span class="arithmatex">\(O(n \log n)\)</span> .</p>
-<p>Очевидно, что этот способ делает слишком много, потому что нам нужно только найти наибольшие <span class="arithmatex">\(k\)</span> элементов, а сортировать остальные элементы совсем не обязательно.</p>
-<p><ha-svg-figure aria-label="Метод 2 (сортировка): отсортировать по возрастанию и вернуть k крайних справа элементов" class="animation-figure" data-book-key="ru/chapter_heap/top_k.assets/top_k_sorting.png" data-dark-src="/assets/figure-svg/figures/3d47f5390ac8bc97fa18c880.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/51e4559fa65f7aa4a6d33b93.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_sorting.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Поиск наибольших k элементов через сортировку</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_sorting.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Поиск наибольших k элементов через сортировку</object></ha-svg-figure></p>
-<p align="center"> Рисунок 8-7   Поиск наибольших k элементов через сортировку </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 8-7: Метод 2 (сортировка): отсортировать по возрастанию и вернуть k крайних справа элементов</h3><p>Сначала весь массив сортируется по возрастанию, а затем берутся последние k элементов.</p><p>В этом примере k=3; схема сверху вниз состоит из трёх строк: входного массива, отсортированного массива и выделенного результата. В первой строке записан массив nums = [1, 7, 6, 3, 2].</p><p>Первая стрелка вниз подписана «Сортировка массива», и во второй строке получается [1, 2, 3, 6, 7]; три крайних справа элемента — 3, 6 и 7 — обведены синей рамкой и отмечены снизу фигурной скобкой.</p><p>Вторая стрелка вниз подписана «Вернуть k крайних справа элементов», и в третьей строке остаётся только [3, 6, 7], а меньшие элементы 1 и 2 отбрасываются. В отсортированном по возрастанию массиве большие значения стоят справа, поэтому достаточно взять последние k элементов.</p><p>При использовании алгоритма сортировки сложности O(n log n) общее время работы составляет O(n log n); при этом такой подход попутно сортирует и остальные элементы, которые возвращать не нужно.</p></div>
-<h2 id="833-3">8.3.3   Метод 3: куча<a class="headerlink" href="#833-3" title="Permanent link">¶</a></h2>
-<p>Задачу Top-k можно решить гораздо эффективнее с помощью кучи, как показано на рисунке 8-8.</p>
+<h2 id="832-2">8.3.2   Способ 2. Сортировка<a class="headerlink" href="#832-2" title="Permanent link">¶</a></h2>
+<p>Как показано ниже, можно отсортировать массив <code>nums</code> и вернуть <span class="arithmatex">\(k\)</span> крайних правых элементов. Временная сложность равна <span class="arithmatex">\(O(n \log n)\)</span>.</p>
+<p>Так мы выполняем лишнюю работу: нужны только <span class="arithmatex">\(k\)</span> наибольших элементов, сортировать остальные не требуется.</p>
+<p><ha-svg-figure aria-label="Способ 2. Сортировка по возрастанию и возврат k крайних правых элементов" class="animation-figure" data-book-key="ru/chapter_heap/top_k.assets/top_k_sorting.png" data-dark-src="/assets/figure-svg/figures/738d1e41f4e67077a68e964e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/cac69d20ced264ee46a52109.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_sorting.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Поиск k наибольших элементов сортировкой</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_sorting.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Поиск k наибольших элементов сортировкой</object></ha-svg-figure></p>
+<p align="center"> Рисунок 8-7   Поиск k наибольших элементов сортировкой </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 8-7: Способ 2. Сортировка по возрастанию и возврат k крайних правых элементов</h3><p>Сначала сортируем весь массив по возрастанию, затем берём последние k элементов.</p><p>В этом примере k=3. Три строки рисунка сверху вниз — исходный массив, отсортированный массив и выбранная часть. В первой строке nums = [1, 7, 6, 3, 2].</p><p>Первая стрелка вниз подписана «Отсортировать массив». Во второй строке получается [1, 2, 3, 6, 7]. Три крайних правых элемента, 3, 6 и 7, выделены синей рамкой и фигурной скобкой снизу.</p><p>Вторая стрелка вниз подписана «Вернуть k крайних правых элементов». В третьей строке остаётся только [3, 6, 7], меньшие значения 1 и 2 отброшены. В массиве, отсортированном по возрастанию, наибольшие элементы стоят справа, поэтому достаточно взять последние k позиций.</p><p>При сортировке за O(n log n) общее время также составляет O(n log n). При таком подходе сортируются и те элементы, которые возвращать не требуется.</p></div>
+<h2 id="833-3">8.3.3   Способ 3. Куча<a class="headerlink" href="#833-3" title="Permanent link">¶</a></h2>
+<p>С помощью кучи задачу о k наибольших элементах можно решить эффективнее. Ход алгоритма показан ниже.</p>
 <ol>
-<li>Инициализировать минимальную кучу, у которой вершина содержит наименьший элемент.</li>
-<li>Сначала по очереди поместить в кучу первые <span class="arithmatex">\(k\)</span> элементов массива.</li>
-<li>Начиная с элемента номер <span class="arithmatex">\(k + 1\)</span> , если текущий элемент больше элемента на вершине кучи, то извлечь вершину кучи и поместить в кучу текущий элемент.</li>
-<li>После завершения обхода в куче будут храниться как раз наибольшие <span class="arithmatex">\(k\)</span> элементов.</li>
+<li>Создайте мин-кучу: в её корне находится минимальный элемент.</li>
+<li>По очереди вставьте в кучу первые <span class="arithmatex">\(k\)</span> элементов массива.</li>
+<li>Начиная с элемента с порядковым номером <span class="arithmatex">\(k + 1\)</span>, сравнивайте текущий элемент с корнем. Если он больше, извлеките корень и вставьте текущий элемент.</li>
+<li>После обхода в куче останутся <span class="arithmatex">\(k\)</span> наибольших элементов.</li>
 </ol>
-<div aria-label="Поиск наибольших k элементов с помощью минимальной кучи" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="Шаг 1: Добавление 1 в пустую кучу" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="Шаг 2: Добавление 7 в кучу" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="Шаг 3: Добавление 6 в кучу: начальные кандидаты собраны" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="Шаг 4: Сравнение текущего элемента 3 с вершиной 1" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="Шаг 5: Извлечение прежней вершины 1" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="Шаг 6: Добавление 3 в кучу" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="Шаг 7: Сравнение текущего элемента 2 с вершиной 3" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="Шаг 8: Пропуск элемента 2" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="Шаг 9: Возврат трёх кандидатов" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
+<div aria-label="Поиск k наибольших элементов с помощью мин-кучи" class="tabbed-set tabbed-alternate" data-figure-sequence="" data-tabs="1:9" role="group"><input aria-label="Шаг 1: Вставка 1 в пустую кучу" checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input aria-label="Шаг 2: Вставка 7 в кучу" id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input aria-label="Шаг 3: Вставка 6 завершает набор первых кандидатов" id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input aria-label="Шаг 4: Сравнение текущего значения 3 с корнем 1" id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input aria-label="Шаг 5: Извлечение прежнего корня 1" id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input aria-label="Шаг 6: Вставка 3 в кучу" id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input aria-label="Шаг 7: Сравнение текущего значения 2 с корнем 3" id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input aria-label="Шаг 8: Пропуск числа 2" id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input aria-label="Шаг 9: Возврат трёх кандидатов" id="__tabbed_1_9" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">&lt;1&gt;</label><label for="__tabbed_1_2">&lt;2&gt;</label><label for="__tabbed_1_3">&lt;3&gt;</label><label for="__tabbed_1_4">&lt;4&gt;</label><label for="__tabbed_1_5">&lt;5&gt;</label><label for="__tabbed_1_6">&lt;6&gt;</label><label for="__tabbed_1_7">&lt;7&gt;</label><label for="__tabbed_1_8">&lt;8&gt;</label><label for="__tabbed_1_9">&lt;9&gt;</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 1 из 9: Добавление 1 в пустую кучу" class="animation-figure" data-a11y-forward="Добавляем 1 в пустую кучу; текущая куча — [1]." data-a11y-state="Элемент 1 с входным индексом i=0 добавлен в кучу; сейчас 1 элемент [1], вершина кучи равна 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step1.png" data-dark-src="/assets/figure-svg/figures/5bf47bddff9a02edbed9c010.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a9a881f45d7cd8c32f5e4bb3.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Поиск наибольших k элементов с помощью кучи</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Поиск наибольших k элементов с помощью кучи</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 1 из 9: Вставка 1 в пустую кучу" class="animation-figure" data-a11y-forward="Добавили 1 в пустую кучу. Теперь куча имеет вид [1]." data-a11y-state="Элемент 1 с входным индексом i=0 добавлен в кучу. В ней один элемент [1], корень равен 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step1.png" data-dark-src="/assets/figure-svg/figures/fb011edc602cfc3a1f1c888e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/246b5e21c85f9bd1d88d1333.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step1.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Поиск k наибольших элементов с помощью кучи</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step1.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Поиск k наибольших элементов с помощью кучи</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 2 из 9: Добавление 7 в кучу" class="animation-figure" data-a11y-forward="Добавляем 7 в кучу без подъёма; текущая куча — [1, 7]." data-a11y-state="Элемент 7 с входным индексом i=1 добавлен в кучу; сейчас 2 элемента [1, 7], вершина кучи равна 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step2.png" data-dark-src="/assets/figure-svg/figures/4f05484a527a675b517c7bba.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/8a1d89df7ee7827e08bc1b44.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 2 из 9: Вставка 7 в кучу" class="animation-figure" data-a11y-forward="Добавили 7 в кучу. Подъём не нужен, куча имеет вид [1, 7]." data-a11y-state="Элемент 7 с входным индексом i=1 добавлен в кучу. В ней два элемента [1, 7], корень равен 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step2.png" data-dark-src="/assets/figure-svg/figures/95415c28bfec083881b201e8.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/99178eab2c7b276fe5a03535.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step2.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step2.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step2</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 3 из 9: Добавление 6 в кучу: начальные кандидаты собраны" class="animation-figure" data-a11y-forward="Добавляем 6 в кучу: начальная тройка кандидатов [1, 7, 6] собрана, вершина кучи равна 1." data-a11y-state="Элемент 6 с входным индексом i=2 добавлен в кучу; начальные 3 элемента [1, 7, 6] собраны, вершина кучи равна 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step3.png" data-dark-src="/assets/figure-svg/figures/34841eb5439fa7d3393af460.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/88f179c41f2a21f692d91138.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 3 из 9: Вставка 6 завершает набор первых кандидатов" class="animation-figure" data-a11y-forward="Добавили 6 в кучу. Набраны первые три кандидата [1, 7, 6], корень равен 1." data-a11y-state="Элемент 6 с входным индексом i=2 добавлен в кучу. Набраны первые три элемента [1, 7, 6], корень равен 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step3.png" data-dark-src="/assets/figure-svg/figures/69baeb614251c3dddeb462c7.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/7fd2f25340f3224082eac448.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step3.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step3.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step3</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 4 из 9: Сравнение текущего элемента 3 с вершиной 1" class="animation-figure" data-a11y-forward="Сравниваем текущее значение 3 с вершиной 1: 3 &gt; 1, готовится замена, куча пока без изменений." data-a11y-state="Текущий входной индекс i=3, значение 3 больше значения 1 на вершине кучи, готовится замена; куча ещё не изменена и содержит 3 элемента [1, 7, 6], вершина равна 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step4.png" data-dark-src="/assets/figure-svg/figures/93e7b5b62721ecc195a6dcdb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/1234c1a7a09e61e283273070.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 4 из 9: Сравнение текущего значения 3 с корнем 1" class="animation-figure" data-a11y-forward="Сравниваем текущее значение 3 с корнем 1. Так как 3 &gt; 1, готовимся к замене. Куча пока не изменилась." data-a11y-state="Входной индекс i=3. Текущее значение 3 &gt; 1 в корне, предстоит замена. Куча ещё не менялась: три элемента [1, 7, 6], корень равен 1." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step4.png" data-dark-src="/assets/figure-svg/figures/aad3f476726a3d3c877591cb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/c49f5c72a917cb17b25f5c8e.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step4.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step4.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step4</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 5 из 9: Извлечение прежней вершины 1" class="animation-figure" data-a11y-forward="Извлекаем прежнюю вершину 1: в куче временно 2 элемента [6, 7], 3 ожидает добавления." data-a11y-state="Текущий входной индекс i=3: прежняя вершина 1 извлечена, в куче временно k−1=2 элемента [6, 7], вершина равна 6, значение 3 ожидает добавления." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step5.png" data-dark-src="/assets/figure-svg/figures/4d5d9f660a79d722f37cc983.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a09dfbcad398d3e653305e95.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 5 из 9: Извлечение прежнего корня 1" class="animation-figure" data-a11y-forward="Извлекли прежний корень 1. Временно в куче два элемента [6, 7], число 3 ещё не вставлено." data-a11y-state="Входной индекс i=3. Прежний корень 1 извлечён. Временно в куче k−1=2 элемента [6, 7], корень равен 6. Текущее значение 3 ещё не вставлено." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step5.png" data-dark-src="/assets/figure-svg/figures/b73fb5d373e9940070e10bfb.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/c4cc8fedb7bb6fe901794ba6.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step5.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step5.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step5</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 6 из 9: Добавление 3 в кучу" class="animation-figure" data-a11y-forward="Добавляем 3 в кучу с подъёмом на вершину: восстановлены три кандидата [3, 7, 6]." data-a11y-state="Текущий входной индекс i=3: элемент 3 добавлен в кучу и поднялся наверх, восстановлены 3 элемента [3, 7, 6], вершина кучи равна 3." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step6.png" data-dark-src="/assets/figure-svg/figures/7869f60ebd1488032aeece92.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/1e6ac46bcbf33f542fbdc117.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 6 из 9: Вставка 3 в кучу" class="animation-figure" data-a11y-forward="Вставили 3 и подняли его в корень. В куче снова три кандидата [3, 7, 6]." data-a11y-state="Входной индекс i=3. Число 3 вставлено и поднялось в корень. В куче снова три элемента [3, 7, 6], корень равен 3." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step6.png" data-dark-src="/assets/figure-svg/figures/974db30f19cddcc3a807c44a.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/de97dbffeaf4b2d16d25761c.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step6.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step6.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step6</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 7 из 9: Сравнение текущего элемента 2 с вершиной 3" class="animation-figure" data-a11y-forward="Сравниваем текущее значение 2 с вершиной 3: 2 &lt; 3, замена не выполняется." data-a11y-state="Текущий входной индекс i=4, значение 2 меньше значения 3 на вершине кучи, замена не нужна; в куче по-прежнему 3 элемента [3, 7, 6], вершина равна 3." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step7.png" data-dark-src="/assets/figure-svg/figures/c93c89258864699de15e8680.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/80b2562e4edc521ae48bbfa4.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 7 из 9: Сравнение текущего значения 2 с корнем 3" class="animation-figure" data-a11y-forward="Сравниваем текущее значение 2 с корнем 3. Так как 2 &lt; 3, замена не нужна." data-a11y-state="Входной индекс i=4. Текущее значение 2 &lt; 3 в корне, замены не будет. В куче по-прежнему три элемента [3, 7, 6], корень равен 3." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step7.png" data-dark-src="/assets/figure-svg/figures/db643702d69aa9223898a100.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/3bc01a3af7286a55b59da127.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step7.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step7.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step7</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 8 из 9: Пропуск элемента 2" class="animation-figure" data-a11y-forward="Пропускаем 2: тройка кандидатов [3, 7, 6] не изменилась, весь вход обработан." data-a11y-state="Элемент 2 с входным индексом i=4 пропущен, весь вход обработан; в куче по-прежнему 3 элемента [3, 7, 6], вершина равна 3." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step8.png" data-dark-src="/assets/figure-svg/figures/a810205f1d96b8e2ce6a9131.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/9ef3f2052a0a9065c68108b2.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 8 из 9: Пропуск числа 2" class="animation-figure" data-a11y-forward="Пропустили 2. Три кандидата [3, 7, 6] не изменились. Все входные элементы обработаны." data-a11y-state="Число 2 с входным индексом i=4 пропущено. Весь массив обработан. В куче по-прежнему три элемента [3, 7, 6], корень равен 3." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step8.png" data-dark-src="/assets/figure-svg/figures/3dc652a096ebe1ce153c2f6f.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/eb272a03febb7010583c1c71.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step8.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step8.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step8</object></ha-svg-figure></p>
 </div>
 <div class="tabbed-block">
-<p><ha-svg-figure aria-label="Поиск наибольших k элементов с помощью минимальной кучи, шаг 9 из 9: Возврат трёх кандидатов" class="animation-figure" data-a11y-forward="Возвращается минимальная куча [3, 7, 6]; результат не отсортирован по возрастанию." data-a11y-state="Обход завершён, текущего указателя нет; возвращается минимальная куча [3, 7, 6] из 3 элементов с вершиной 3 без упорядочивания результата по возрастанию." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step9.png" data-dark-src="/assets/figure-svg/figures/55c6e07c5646c3f69cd18aab.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/63c2ee47d4a7d7d48044b449.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object></ha-svg-figure></p>
+<p><ha-svg-figure aria-label="Поиск k наибольших элементов с помощью мин-кучи, шаг 9 из 9: Возврат трёх кандидатов" class="animation-figure" data-a11y-forward="Возвращаем мин-кучу [3, 7, 6]. Результат не отсортирован по возрастанию." data-a11y-state="Обход окончен, текущего указателя нет. Возвращаем мин-кучу [3, 7, 6] из трёх элементов с корнем 3. Результат не отсортирован по возрастанию." data-book-key="ru/chapter_heap/top_k.assets/top_k_heap_step9.png" data-dark-src="/assets/figure-svg/figures/2548cdc69bde830b3d78005d.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/d7af0d185c3de1484cf5eee5.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step9.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object><object aria-hidden="true" data="/ru/chapter_heap/top_k.assets/top_k_heap_step9.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">top_k_heap_step9</object></ha-svg-figure></p>
 </div>
 </div>
 </div>
-<p align="center"> Рисунок 8-8   Поиск наибольших k элементов с помощью кучи </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 8-8: Поиск наибольших k элементов с помощью минимальной кучи</h3><p>В куче хранится не более k кандидатов; наименьший из них сравнивается со следующими элементами, что позволяет постепенно отобрать k наибольших значений.</p><p>В этом примере k=3; входной массив и его индексы приведены в таблице ниже. Указатель i задаёт индекс во входном массиве, а heap — массив поуровневого обхода минимальной кучи, где по индексу кучи 0 хранится наименьший кандидат, а левый и правый дочерние узлы располагаются по индексам кучи 1 и 2 (если они есть). Входной индекс указывает источник элемента, а индекс кучи — его текущее место в хранилище.</p><p>Сначала первые k входных элементов по очереди добавляются в кучу, а затем остальные проверяются по одному: если текущее значение больше вершины кучи, вершина извлекается и в кучу добавляется текущее значение, иначе элемент пропускается. Таблицы названы по номерам шагов; на шагах сравнения или пропуска куча не меняется, поэтому даётся ссылка по названию таблицы с актуальными кандидатами и их входными индексами.</p><p>На вершине кучи находится наименьший из текущих кандидатов. Когда встречается большее новое значение, оно заменяет вершину, и в куче по-прежнему сохраняются k наибольших значений среди уже просмотренных элементов. Чтение вершины занимает время O(1), а перестройка при добавлении или извлечении — время O(log k).</p><table><caption>Входной массив и индексы</caption><thead><tr><th scope="col">Входной индекс</th><th scope="col">Значение</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>7</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>3</td></tr><tr><th scope="row">4</th><td>2</td></tr></tbody></table><ol><li><p><strong>Добавление 1 в пустую кучу</strong></p><p>Указатель i=0: считывается значение 1 и добавляется в пустую кучу. Сейчас есть только 1 кандидат [1], вершина кучи равна 1.</p><table><caption>Кандидаты на шаге 1: после добавления 1</caption><thead><tr><th scope="col">Индекс массива кучи</th><th scope="col">Значение</th><th scope="col">Исходный входной индекс</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr></tbody></table></li><li><p><strong>Добавление 7 в кучу</strong></p><p>Указатель i=1: считывается значение 7 и помещается в кучу по индексу кучи 1. Родитель 1 меньше 7, поэтому подъём не требуется; сейчас 2 кандидата [1, 7], вершина кучи равна 1.</p><table><caption>Кандидаты на шаге 2: после добавления 7</caption><thead><tr><th scope="col">Индекс массива кучи</th><th scope="col">Значение</th><th scope="col">Исходный входной индекс</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>Добавление 6 в кучу: начальные кандидаты собраны</strong></p><p>Указатель i=2: считывается значение 6 и помещается в кучу по индексу кучи 2. Сейчас 3 кандидата [1, 7, 6], вершина кучи равна 1; все первые k=3 входных элемента добавлены в кучу, далее проверяются остальные элементы.</p><table><caption>Кандидаты на шаге 3: начальная тройка собрана</caption><thead><tr><th scope="col">Индекс массива кучи</th><th scope="col">Значение</th><th scope="col">Исходный входной индекс</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>Сравнение текущего элемента 3 с вершиной 1</strong></p><p>Указатель i=3: текущее значение 3 больше наименьшего кандидата 1, готовится замена. На этом шаге выполняется только сравнение, извлечение и добавление ещё не проведены; 3 кандидата по-прежнему равны [1, 7, 6], вершина кучи равна 1. Кандидаты и их исходные индексы см. в таблице «Кандидаты на шаге 3: начальная тройка собрана».</p></li><li><p><strong>Извлечение прежней вершины 1</strong></p><p>Указатель по-прежнему i=3: сначала извлекается прежняя вершина 1, оставшиеся элементы перестраиваются в [6, 7], и вершиной временно становится 6. Сейчас в куче только k−1=2 кандидата, а значение 3 ещё ждёт добавления; это промежуточное состояние замены — ни один итоговый элемент не потерян, но шаг для текущего элемента ещё не завершён.</p><table><caption>Кандидаты на шаге 5: промежуточное состояние после извлечения 1</caption><thead><tr><th scope="col">Индекс массива кучи</th><th scope="col">Значение</th><th scope="col">Исходный входной индекс</th></tr></thead><tbody><tr><th scope="row">0</th><td>6</td><td>2</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>Добавление 3 в кучу</strong></p><p>Указатель по-прежнему i=3: значение 3 добавляется в кучу и поднимается в корень, восстанавливая k=3 кандидата [3, 7, 6] с новой вершиной 3. Эти три кандидата представляют собой три наибольших числа среди первых 4 входных элементов.</p><table><caption>Кандидаты на шаге 6: после добавления 3</caption><thead><tr><th scope="col">Индекс массива кучи</th><th scope="col">Значение</th><th scope="col">Исходный входной индекс</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>Сравнение текущего элемента 2 с вершиной 3</strong></p><p>Указатель i=4: текущее значение 2 меньше вершины кучи 3 и не удовлетворяет условию замены. На этом шаге выполняется только сравнение, 3 кандидата остаются равными [3, 7, 6]. Кандидаты и их исходные индексы см. в таблице «Кандидаты на шаге 6: после добавления 3».</p></li><li><p><strong>Пропуск элемента 2</strong></p><p>Указатель i=4: поскольку 2 меньше вершины кучи 3, элемент пропускается без извлечения и добавления. Все 3 кандидата остаются равными [3, 7, 6], вершина кучи равна 3; все входные элементы обработаны. Кандидаты и их исходные индексы см. в таблице «Кандидаты на шаге 6: после добавления 3».</p></li><li><p><strong>Возврат трёх кандидатов</strong></p><p>Обход завершён, указателя текущего элемента больше нет, и функция напрямую возвращает минимальную кучу [3, 7, 6]. Исходные позиции трёх кандидатов приведены в таблице ниже; на вершине стоит 3, однако левый и правый дочерние узлы 7 и 6 не обязаны идти по возрастанию — дополнительная сортировка здесь не выполняется.</p><table><caption>Итоговые кандидаты и их источники на шаге 9</caption><thead><tr><th scope="col">Индекс массива кучи</th><th scope="col">Значение</th><th scope="col">Исходный входной индекс</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li></ol><p>В куче хранится не более k кандидатов, поэтому пространственная сложность равна O(k), а общая временная сложность составляет O(n log k).</p></div>
-<p>Пример кода приведен ниже:</p>
+<p align="center"> Рисунок 8-8   Поиск k наибольших элементов с помощью кучи </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 8-8: Поиск k наибольших элементов с помощью мин-кучи</h3><p>Храним не более k кандидатов и сравниваем их минимум с каждым следующим элементом. Так постепенно отбираются k наибольших значений.</p><p>В этом примере k=3. Входной массив и его индексы приведены ниже. Указатель i задаёт индекс во входном массиве. Массив heap хранит мин-кучу по уровням: по индексу 0 находится наименьший кандидат, а по индексам 1 и 2 — его левый и правый дети, если они есть. Входной индекс показывает, откуда взят элемент, индекс в куче — где он находится сейчас.</p><p>Сначала по очереди добавляем первые k элементов в кучу. Каждый следующий сравниваем с корнем: если он больше, извлекаем корень и вставляем новое значение, иначе пропускаем его. Таблицы названы по номерам шагов. При сравнении или пропуске куча не меняется, поэтому состав кандидатов и их исходные индексы указаны ссылкой на соответствующую таблицу.</p><p>В корне находится наименьший кандидат. Если новое значение больше, замена корня этим значением по-прежнему оставляет в куче k наибольших среди обработанных элементов. Просмотр корня занимает O(1) времени, а восстановление кучи при вставке или извлечении — O(log k).</p><table><caption>Входной массив и индексы</caption><thead><tr><th scope="col">Входной индекс</th><th scope="col">Значение</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td></tr><tr><th scope="row">1</th><td>7</td></tr><tr><th scope="row">2</th><td>6</td></tr><tr><th scope="row">3</th><td>3</td></tr><tr><th scope="row">4</th><td>2</td></tr></tbody></table><ol><li><p><strong>Вставка 1 в пустую кучу</strong></p><p>При i=0 читаем 1 и вставляем в пустую кучу. Теперь в ней один кандидат [1], корень равен 1.</p><table><caption>Кандидаты на шаге 1: после вставки 1</caption><thead><tr><th scope="col">Индекс в массиве кучи</th><th scope="col">Значение</th><th scope="col">Исходный индекс во входном массиве</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr></tbody></table></li><li><p><strong>Вставка 7 в кучу</strong></p><p>При i=1 читаем 7 и добавляем в кучу по индексу 1. Родитель 1 меньше 7, поэтому поднимать узел не нужно. В куче два кандидата [1, 7], корень равен 1.</p><table><caption>Кандидаты на шаге 2: после вставки 7</caption><thead><tr><th scope="col">Индекс в массиве кучи</th><th scope="col">Значение</th><th scope="col">Исходный индекс во входном массиве</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>Вставка 6 завершает набор первых кандидатов</strong></p><p>При i=2 читаем 6 и вставляем в кучу по индексу 2. В куче три кандидата [1, 7, 6], корень равен 1. Все первые k=3 элемента добавлены. Теперь сравниваем последующие элементы с корнем.</p><table><caption>Кандидаты на шаге 3: первые три элемента</caption><thead><tr><th scope="col">Индекс в массиве кучи</th><th scope="col">Значение</th><th scope="col">Исходный индекс во входном массиве</th></tr></thead><tbody><tr><th scope="row">0</th><td>1</td><td>0</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>Сравнение текущего значения 3 с корнем 1</strong></p><p>При i=3 текущее значение 3 больше наименьшего кандидата 1. Предстоит замена. На этом шаге только сравниваем, ничего не извлекаем и не вставляем. Три кандидата по-прежнему [1, 7, 6], корень равен 1. Их исходные индексы приведены в таблице «Кандидаты на шаге 3: первые три элемента».</p></li><li><p><strong>Извлечение прежнего корня 1</strong></p><p>Указатель по-прежнему i=3. Сначала извлекаем прежний корень 1. Оставшиеся элементы образуют кучу [6, 7] с временным корнем 6. Кандидатов пока k−1=2, число 3 ещё предстоит вставить. Это промежуточное состояние замены: ни один результат не потерян, текущий шаг обработки входного числа ещё не завершён.</p><table><caption>Кандидаты на шаге 5: промежуточное состояние после извлечения 1</caption><thead><tr><th scope="col">Индекс в массиве кучи</th><th scope="col">Значение</th><th scope="col">Исходный индекс во входном массиве</th></tr></thead><tbody><tr><th scope="row">0</th><td>6</td><td>2</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr></tbody></table></li><li><p><strong>Вставка 3 в кучу</strong></p><p>Указатель по-прежнему i=3. Вставляем 3, и оно поднимается в корень. Снова k=3 кандидата [3, 7, 6], новый корень равен 3. Это три наибольших значения среди первых четырёх входных элементов.</p><table><caption>Кандидаты на шаге 6: после вставки 3</caption><thead><tr><th scope="col">Индекс в массиве кучи</th><th scope="col">Значение</th><th scope="col">Исходный индекс во входном массиве</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li><li><p><strong>Сравнение текущего значения 2 с корнем 3</strong></p><p>При i=4 текущее значение 2 меньше корня 3. Условие замены не выполнено. На этом шаге только сравниваем. Три кандидата по-прежнему [3, 7, 6]. Их исходные индексы приведены в таблице «Кандидаты на шаге 6: после вставки 3».</p></li><li><p><strong>Пропуск числа 2</strong></p><p>При i=4 число 2 меньше корня 3. Пропускаем его, ничего не извлекая и не вставляя. Три кандидата по-прежнему [3, 7, 6], корень равен 3. Весь входной массив обработан. Исходные индексы кандидатов приведены в таблице «Кандидаты на шаге 6: после вставки 3».</p></li><li><p><strong>Возврат трёх кандидатов</strong></p><p>Обход окончен, текущего указателя больше нет. Сразу возвращаем мин-кучу [3, 7, 6]. Исходные индексы трёх кандидатов приведены ниже. В корне стоит 3, но левый и правый дети 7 и 6 не обязаны идти по возрастанию. Дополнительной сортировки здесь нет.</p><table><caption>Шаг 9: возвращаемые кандидаты и их исходные индексы</caption><thead><tr><th scope="col">Индекс в массиве кучи</th><th scope="col">Значение</th><th scope="col">Исходный индекс во входном массиве</th></tr></thead><tbody><tr><th scope="row">0</th><td>3</td><td>3</td></tr><tr><th scope="row">1</th><td>7</td><td>1</td></tr><tr><th scope="row">2</th><td>6</td><td>2</td></tr></tbody></table></li></ol><p>В куче не более k кандидатов. Пространственная сложность — O(k), общая временная сложность — O(n log k).</p></div>
+<p>Пример реализации:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Java</label><label for="__tabbed_2_4">C#</label><label for="__tabbed_2_5">Go</label><label for="__tabbed_2_6">Swift</label><label for="__tabbed_2_7">JS</label><label for="__tabbed_2_8">TS</label><label for="__tabbed_2_9">Dart</label><label for="__tabbed_2_10">Rust</label><label for="__tabbed_2_11">C</label><label for="__tabbed_2_12">Kotlin</label><label for="__tabbed_2_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Найти k наибольших элементов массива с помощью кучи"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Инициализация минимальной кучи</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Инициализировать мин-кучу</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="c1"># Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="c1"># Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="c1"># Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">heap</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>            <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>            <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -2012,15 +2012,15 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">topKHeap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">top</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2033,15 +2033,15 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
@@ -2054,15 +2054,15 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">TopKHeap</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">Peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2075,16 +2075,16 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">minHeap</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">h</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">minHeap</span><span class="p">{}</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">h</span><span class="p">.</span><span class="nx">Top</span><span class="p">().(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">            </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Pop</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span>
 <a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">            </span><span class="nx">heap</span><span class="p">.</span><span class="nx">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
@@ -2097,11 +2097,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Инициализировать минимальную кучу и построить ее по первым k элементам</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу, построив её из первых k элементов</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">heap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Heap</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="kr">prefix</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="bp">indices</span><span class="p">.</span><span class="bp">dropFirst</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="bp">min</span><span class="p">()</span><span class="o">!</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">            </span><span class="kc">_</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">removeMin</span><span class="p">()</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
@@ -2112,42 +2112,42 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Добавление элемента в кучу */</span>
+<div class="highlight"><span class="filename">top_k.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Вставить элемент в кучу */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="o">-</span><span class="nx">val</span><span class="p">);</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">}</span>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="cm">/* Извлечение элемента из кучи */</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="cm">/* Извлечь элемент из кучи */</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
 <a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="cm">/* Доступ к элементу на вершине кучи */</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="cm">/* Посмотреть элемент в корне */</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
 <a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="p">}</span>
 <a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>
-<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="cm">/* Извлечь элементы из кучи */</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="cm">/* Извлечь элементы кучи */</span>
 <a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">getMaxHeap</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span><span class="p">);</span>
 <a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="p">}</span>
 <a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a>
 <a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-6-26" id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="kd">function</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
-<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="c1">// Обратите внимание: мы инвертируем все элементы кучи, чтобы с помощью максимальной кучи имитировать минимальную</span>
+<a href="#__codelineno-6-27" id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
+<a href="#__codelineno-6-28" id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="w">    </span><span class="c1">// Меняем знак всех элементов, чтобы использовать макс-кучу как мин-кучу</span>
 <a href="#__codelineno-6-29" id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MaxHeap</span><span class="p">([]);</span>
-<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-6-30" id="__codelineno-6-30" name="__codelineno-6-30"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-6-31" id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-32" id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="w">        </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-6-33" id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-6-34" id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-6-35" id="__codelineno-6-35" name="__codelineno-6-35"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-6-36" id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-6-37" id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-38" id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="w">            </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-6-39" id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="w">            </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
@@ -2159,42 +2159,42 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Добавление элемента в кучу */</span>
+<div class="highlight"><span class="filename">top_k.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Вставить элемент в кучу */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="o">-</span><span class="nx">val</span><span class="p">);</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">}</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="cm">/* Извлечение элемента из кучи */</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="cm">/* Извлечь элемент из кучи */</span>
 <a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="kd">function</span><span class="w"> </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
 <a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">}</span>
 <a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a>
-<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="cm">/* Доступ к элементу на вершине кучи */</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="cm">/* Посмотреть элемент в корне */</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">peek</span><span class="p">();</span>
 <a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="p">}</span>
 <a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>
-<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="cm">/* Извлечь элементы из кучи */</span>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="cm">/* Извлечь элементы кучи */</span>
 <a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="kd">function</span><span class="w"> </span><span class="nx">getMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="o">:</span><span class="w"> </span><span class="kt">MaxHeap</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">maxHeap</span><span class="p">.</span><span class="nx">getMaxHeap</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">num</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span><span class="p">);</span>
 <a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="p">}</span>
 <a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a>
 <a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-7-26" id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="kd">function</span><span class="w"> </span><span class="nx">topKHeap</span><span class="p">(</span><span class="nx">nums</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">k</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-27" id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
-<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="c1">// Обратите внимание: мы инвертируем все элементы кучи, чтобы с помощью максимальной кучи имитировать минимальную</span>
+<a href="#__codelineno-7-27" id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
+<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="c1">// Меняем знак всех элементов, чтобы использовать макс-кучу как мин-кучу</span>
 <a href="#__codelineno-7-29" id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MaxHeap</span><span class="p">([]);</span>
-<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-7-31" id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-32" id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">        </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <a href="#__codelineno-7-33" id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-7-35" id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">k</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-7-37" id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">peekMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-38" id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">            </span><span class="nx">popMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-7-39" id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="w">            </span><span class="nx">pushMinHeap</span><span class="p">(</span><span class="nx">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
@@ -2208,11 +2208,11 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">MinHeap</span><span class="w"> </span><span class="n">topKHeap</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Инициализировать минимальную кучу, поместив в нее первые k элементов массива</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Инициализировать мин-кучу и добавить в неё первые k элементов массива</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="n">MinHeap</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MinHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">sublist</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">));</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">      </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">      </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2225,15 +2225,15 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">usize</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">BinaryHeap</span><span class="o">&lt;</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// BinaryHeap — это максимальная куча; с помощью Reverse элементы инвертируются, чтобы реализовать минимальную кучу</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// BinaryHeap — макс-куча. Обёртка Reverse меняет порядок сравнения элементов и даёт мин-кучу</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span><span class="p">::</span><span class="o">&lt;</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">take</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">num</span><span class="p">));</span>
 <a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">skip</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">Reverse</span><span class="p">(</span><span class="n">num</span><span class="p">));</span>
@@ -2244,27 +2244,27 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Добавление элемента в кучу */</span>
+<div class="highlight"><span class="filename">top_k.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Вставить элемент в кучу */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">pushMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="n">push</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">val</span><span class="p">);</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">}</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="cm">/* Извлечение элемента из кучи */</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="cm">/* Извлечь элемент из кучи */</span>
 <a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">popMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">pop</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">}</span>
 <a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="cm">/* Доступ к элементу на вершине кучи */</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="cm">/* Посмотреть элемент в корне */</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="kt">int</span><span class="w"> </span><span class="nf">peekMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="c1">// Инвертировать знак элемента</span>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="c1">// Сменить знак элемента</span>
 <a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">peek</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="p">}</span>
 <a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>
-<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="cm">/* Извлечь элементы из кучи */</span>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="cm">/* Извлечь элементы кучи */</span>
 <a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">getMinHeap</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">    </span><span class="c1">// Инвертировать все элементы кучи и записать их в массив res</span>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">    </span><span class="c1">// Сменить знак всех элементов кучи и записать их в массив res</span>
 <a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
 <a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">        </span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">maxHeap</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -2272,19 +2272,19 @@
 <a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="p">}</span>
 <a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a>
-<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="cm">/* Функция поиска k наибольших элементов массива на основе кучи */</span>
+<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="cm">/* Функция поиска k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-10-30" id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">topKHeap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sizeNums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
-<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">    </span><span class="c1">// Обратите внимание: мы инвертируем все элементы кучи, чтобы с помощью максимальной кучи имитировать минимальную</span>
+<a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
+<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="w">    </span><span class="c1">// Меняем знак всех элементов, чтобы использовать макс-кучу как мин-кучу</span>
 <a href="#__codelineno-10-33" id="__codelineno-10-33" name="__codelineno-10-33"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">empty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <a href="#__codelineno-10-34" id="__codelineno-10-34" name="__codelineno-10-34"></a><span class="w">    </span><span class="n">MaxHeap</span><span class="w"> </span><span class="o">*</span><span class="n">maxHeap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newMaxHeap</span><span class="p">(</span><span class="n">empty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-10-36" id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-37" id="__codelineno-10-37" name="__codelineno-10-37"></a><span class="w">        </span><span class="n">pushMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 <a href="#__codelineno-10-38" id="__codelineno-10-38" name="__codelineno-10-38"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-10-39" id="__codelineno-10-39" name="__codelineno-10-39"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-10-40" id="__codelineno-10-40" name="__codelineno-10-40"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sizeNums</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-10-41" id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-10-42" id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peekMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-43" id="__codelineno-10-43" name="__codelineno-10-43"></a><span class="w">            </span><span class="n">popMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">);</span>
 <a href="#__codelineno-10-44" id="__codelineno-10-44" name="__codelineno-10-44"></a><span class="w">            </span><span class="n">pushMinHeap</span><span class="p">(</span><span class="n">maxHeap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -2300,15 +2300,15 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">top_k.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Найти k наибольших элементов массива с помощью кучи */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">topKHeap</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Инициализация минимальной кучи</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Инициализировать мин-кучу</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">()</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="c1">// Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">        </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="c1">// Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">k</span><span class="p">..</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="na">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="c1">// Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="na">peek</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">poll</span><span class="p">()</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">            </span><span class="n">heap</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
@@ -2319,20 +2319,20 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">top_k.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Поиск k наибольших элементов массива с помощью кучи ###</span>
+<div class="highlight"><span class="filename">top_k.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Найти k наибольших элементов массива с помощью кучи ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">top_k_heap</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Инициализация минимальной кучи</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="c1"># Обратите внимание: мы инвертируем все элементы кучи, чтобы с помощью максимальной кучи имитировать минимальную</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Инициализировать мин-кучу</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="c1"># Меняем знак всех элементов, чтобы использовать макс-кучу как мин-кучу</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="n">max_heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">MaxHeap</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># Поместить первые k элементов массива в кучу</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="c1"># Добавить в кучу первые k элементов массива</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">...</span><span class="n">k</span>
 <a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="n">push_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">  </span><span class="k">end</span>
 <a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="c1"># Начиная с элемента k+1, поддерживать длину кучи равной k</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="c1"># Начиная с (k+1)-го элемента, поддерживать размер кучи равным k</span>
 <a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">k</span><span class="o">...</span><span class="n">nums</span><span class="o">.</span><span class="n">length</span>
-<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="c1"># Если текущий элемент больше элемента на вершине кучи, извлечь вершину кучи и добавить текущий элемент в кучу</span>
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="c1"># Если текущий элемент больше корня, извлечь корень и вставить текущий элемент</span>
 <a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peek_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">)</span>
 <a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">      </span><span class="n">pop_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">)</span>
 <a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">      </span><span class="n">push_min_heap</span><span class="p">(</span><span class="n">max_heap</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
@@ -2346,12 +2346,12 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D%2C%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20k%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BA%D1%83%D1%87%D0%B8%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5%20k%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap%2C%20nums%5Bi%5D%29%0A%20%20%20%20%23%20%D0%9D%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20k%2B1%2C%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BA%D1%83%D1%87%D0%B8%20%D1%80%D0%B0%D0%B2%D0%BD%D0%BE%D0%B9%20k%0A%20%20%20%20for%20i%20in%20range%28k%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D0%B5%20%D0%BA%D1%83%D1%87%D0%B8%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%83%20%D0%BA%D1%83%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap%2C%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1%2C%207%2C%206%2C%203%2C%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums%2C%20k%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D%2C%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20k%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BA%D1%83%D1%87%D0%B8%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5%20k%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap%2C%20nums%5Bi%5D%29%0A%20%20%20%20%23%20%D0%9D%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20k%2B1%2C%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BB%D0%B8%D0%BD%D1%83%20%D0%BA%D1%83%D1%87%D0%B8%20%D1%80%D0%B0%D0%B2%D0%BD%D0%BE%D0%B9%20k%0A%20%20%20%20for%20i%20in%20range%28k%2C%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D0%B5%20%D0%BA%D1%83%D1%87%D0%B8%2C%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D0%BD%D1%83%20%D0%BA%D1%83%D1%87%D0%B8%20%D0%B8%20%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap%2C%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1%2C%207%2C%206%2C%203%2C%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums%2C%20k%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20k%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD-%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5%20k%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20%D0%9D%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%28k%2B1%29-%D0%B3%D0%BE%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0,%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D0%BA%D1%83%D1%87%D0%B8%20%D1%80%D0%B0%D0%B2%D0%BD%D1%8B%D0%BC%20k%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F,%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D1%8C%20%D0%B8%20%D0%B2%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=import%20heapq%0A%0Adef%20top_k_heap%28nums%3A%20list%5Bint%5D,%20k%3A%20int%29%20-%3E%20list%5Bint%5D%3A%0A%20%20%20%20%22%22%22%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20k%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D1%85%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20%D0%BA%D1%83%D1%87%D0%B8%22%22%22%0A%20%20%20%20%23%20%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD-%D0%BA%D1%83%D1%87%D1%83%0A%20%20%20%20heap%20%3D%20%5B%5D%0A%20%20%20%20%23%20%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%BA%D1%83%D1%87%D1%83%20%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5%20k%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2%D0%B0%0A%20%20%20%20for%20i%20in%20range%28k%29%3A%0A%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20%23%20%D0%9D%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D1%8F%20%D1%81%20%28k%2B1%29-%D0%B3%D0%BE%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%B0,%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D0%BA%D1%83%D1%87%D0%B8%20%D1%80%D0%B0%D0%B2%D0%BD%D1%8B%D0%BC%20k%0A%20%20%20%20for%20i%20in%20range%28k,%20len%28nums%29%29%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B5%20%D0%BA%D0%BE%D1%80%D0%BD%D1%8F,%20%D0%B8%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D1%8C%20%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D1%8C%20%D0%B8%20%D0%B2%D1%81%D1%82%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%0A%20%20%20%20%20%20%20%20if%20nums%5Bi%5D%20%3E%20heap%5B0%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappop%28heap%29%0A%20%20%20%20%20%20%20%20%20%20%20%20heapq.heappush%28heap,%20nums%5Bi%5D%29%0A%20%20%20%20return%20heap%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20nums%20%3D%20%5B1,%207,%206,%203,%202%5D%0A%20%20%20%20k%20%3D%203%0A%0A%20%20%20%20res%20%3D%20top_k_heap%28nums,%20k%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=6&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
-<p>Всего выполняется <span class="arithmatex">\(n\)</span> операций добавления и извлечения из кучи, а максимальная длина кучи равна <span class="arithmatex">\(k\)</span> , поэтому временная сложность равна <span class="arithmatex">\(O(n \log k)\)</span> . Этот метод очень эффективен: когда <span class="arithmatex">\(k\)</span> мало, временная сложность стремится к <span class="arithmatex">\(O(n)\)</span>. Когда <span class="arithmatex">\(k\)</span> велико, она все равно не превышает <span class="arithmatex">\(O(n \log n)\)</span> .</p>
-<p>Кроме того, этот метод подходит и для сценариев с динамическим потоком данных. При непрерывном поступлении новых данных мы можем продолжать поддерживать содержимое кучи, тем самым динамически обновляя наибольшие <span class="arithmatex">\(k\)</span> элементов.</p>
+<p>Всего выполняется <span class="arithmatex">\(n\)</span> шагов с возможной вставкой и извлечением, а размер кучи не превышает <span class="arithmatex">\(k\)</span>. Поэтому временная сложность равна <span class="arithmatex">\(O(n \log k)\)</span>. Метод эффективен: при малом <span class="arithmatex">\(k\)</span> сложность приближается к <span class="arithmatex">\(O(n)\)</span>, а даже при большом <span class="arithmatex">\(k\)</span> не превышает <span class="arithmatex">\(O(n \log n)\)</span>.</p>
+<p>Этот метод подходит и для потока данных. По мере поступления новых элементов можно обновлять содержимое кучи и тем самым поддерживать набор из <span class="arithmatex">\(k\)</span> наибольших элементов.</p>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
@@ -2371,13 +2371,13 @@
 </div>
 </a>
 <!-- Link to next page -->
-<a aria-label="Вперед: 8.4 Резюме" class="md-footer__link md-footer__link--next" href="../summary/" rel="next">
+<a aria-label="Вперед: 8.4 Итоги" class="md-footer__link md-footer__link--next" href="../summary/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
         Вперед
       </span>
 <div class="md-ellipsis">
-        8.4 Резюме
+        8.4 Итоги
       </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2387,7 +2387,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Оставляйте свои идеи, вопросы и предложения в комментариях</h5>
+<h5 align="center" id="__comments">Поделитесь своим мнением, задайте вопрос или оставьте предложение в комментариях</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ru" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2469,9 +2469,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.0d441547851f63d0e6614369d827335a9b125feca310fe06e17e6b9e15f96fa1.min.js"></script>
+<script src="../../assets/javascripts/bundle.c14dfd00549a42415ad39f11698a44840394334ca6c2e5be8ce68b23dd434e70.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

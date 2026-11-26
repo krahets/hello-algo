@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書" name="description"/>
+<meta content="アニメーションによる図解とワンクリックで実行できるコードで学ぶ、データ構造とアルゴリズムの入門書。" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ja/chapter_searching/searching_algorithm_revisited/" rel="canonical"/>
 <link href="../replace_linear_by_hashing/" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_searching/searching_algorithm_revisited/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>10.5 探索アルゴリズムを改めて考える - Hello Algo</title>
+<title>10.5 探索アルゴリズムを振り返る - Hello アルゴリズム</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/426a9086b07ae9f0a3a57f94.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/e5aac88ee1d4deb0dce936ce.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,8 +65,8 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="ヘッダー" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="ナビゲーション" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -75,13 +75,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Hello アルゴリズム
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
 
-              10.5   探索アルゴリズムを改めて考える
+              10.5   探索アルゴリズムを振り返る
 
           </span>
 </div>
@@ -167,10 +167,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="ナビゲーション" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Hello アルゴリズム" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello アルゴリズム">
+<img alt="Hello アルゴリズム" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Hello アルゴリズム
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="リポジトリへ">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 1 章   アルゴリズムとの出会い
+  第 1 章   アルゴリズム入門
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   アルゴリズムはどこにでもある
+  1.1   身の回りのアルゴリズム
 
 
   </span>
@@ -733,7 +733,7 @@
 <span class="md-ellipsis">
 
 
-  6.1   ハッシュテーブル
+  6.1   ハッシュ表
 
 
   </span>
@@ -1029,7 +1029,7 @@
 <span class="md-ellipsis">
 
 
-  9.3   グラフの走査
+  9.3   グラフの探索
 
 
   </span>
@@ -1102,7 +1102,7 @@
 <span class="md-ellipsis">
 
 
-  10.2   二分探索で挿入位置を探す
+  10.2   二分探索で挿入位置を求める
 
 
   </span>
@@ -1113,7 +1113,7 @@
 <span class="md-ellipsis">
 
 
-  10.3   二分探索で境界を探す
+  10.3   二分探索で境界を求める
 
 
   </span>
@@ -1124,7 +1124,7 @@
 <span class="md-ellipsis">
 
 
-  10.4   ハッシュを使った最適化
+  10.4   ハッシュを用いた最適化
 
 
   </span>
@@ -1135,7 +1135,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   探索アルゴリズムを改めて考える
+  10.5   探索アルゴリズムを振り返る
 
 
   </span>
@@ -1145,7 +1145,7 @@
 <span class="md-ellipsis">
 
 
-  10.5   探索アルゴリズムを改めて考える
+  10.5   探索アルゴリズムを振り返る
 
 
   </span>
@@ -1160,7 +1160,7 @@
 <a class="md-nav__link" href="#1051">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.5.1   全探索
+        10.5.1   総当たり探索
       </span>
 </span>
 </a>
@@ -1169,7 +1169,7 @@
 <a class="md-nav__link" href="#1052">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.5.2   データの特性に応じた探索
+        10.5.2   適応型探索
       </span>
 </span>
 </a>
@@ -1178,7 +1178,7 @@
 <a class="md-nav__link" href="#1053">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.5.3   探索方法の選択
+        10.5.3   探索方法の選び方
       </span>
 </span>
 </a>
@@ -1380,7 +1380,7 @@
 <span class="md-ellipsis">
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
 
   </span>
@@ -1394,7 +1394,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  第 12 章   分割統治
+  第 12 章   分割統治法
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1403,7 +1403,7 @@
 <span class="md-ellipsis">
 
 
-  12.1   分割統治アルゴリズム
+  12.1   分割統治法のアルゴリズム
 
 
   </span>
@@ -1414,7 +1414,7 @@
 <span class="md-ellipsis">
 
 
-  12.2   分割統治による探索戦略
+  12.2   分割統治法による探索
 
 
   </span>
@@ -1425,7 +1425,7 @@
 <span class="md-ellipsis">
 
 
-  12.3   二分木の構築問題
+  12.3   二分木を構築する問題
 
 
   </span>
@@ -1436,7 +1436,7 @@
 <span class="md-ellipsis">
 
 
-  12.4   ハノイの塔の問題
+  12.4   ハノイの塔
 
 
   </span>
@@ -1498,7 +1498,7 @@
 <span class="md-ellipsis">
 
 
-  13.1   バックトラッキングアルゴリズム
+  13.1   バックトラッキング
 
 
   </span>
@@ -1509,7 +1509,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   順列列挙問題
+  13.2   全順列問題
 
 
   </span>
@@ -1520,7 +1520,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   部分集合和問題
+  13.3   部分和問題
 
 
   </span>
@@ -1531,7 +1531,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n クイーン問題
+  13.4   N クイーン問題
 
 
   </span>
@@ -1593,7 +1593,7 @@
 <span class="md-ellipsis">
 
 
-  14.1   動的計画法への第一歩
+  14.1   動的計画法入門
 
 
   </span>
@@ -1604,7 +1604,7 @@
 <span class="md-ellipsis">
 
 
-  14.2   動的計画法の問題の特徴
+  14.2   動的計画法で解ける問題の特徴
 
 
   </span>
@@ -1615,7 +1615,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   動的計画法の解き方
+  14.3   動的計画法で解くための考え方
 
 
   </span>
@@ -1710,7 +1710,7 @@
 <span class="md-ellipsis">
 
 
-  15.1   貪欲アルゴリズム
+  15.1   貪欲法
 
 
   </span>
@@ -1743,7 +1743,7 @@
 <span class="md-ellipsis">
 
 
-  15.4   整数を分割して積を最大にする問題
+  15.4   整数分割の最大積問題
 
 
   </span>
@@ -1805,7 +1805,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   プログラミング環境のインストール
+  16.1   開発環境のセットアップ
 
 
   </span>
@@ -1816,7 +1816,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   一緒に本書を作りましょう
+  16.2   本書の執筆に参加する
 
 
   </span>
@@ -1884,7 +1884,7 @@
 <a class="md-nav__link" href="#1051">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.5.1   全探索
+        10.5.1   総当たり探索
       </span>
 </span>
 </a>
@@ -1893,7 +1893,7 @@
 <a class="md-nav__link" href="#1052">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.5.2   データの特性に応じた探索
+        10.5.2   適応型探索
       </span>
 </span>
 </a>
@@ -1902,7 +1902,7 @@
 <a class="md-nav__link" href="#1053">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        10.5.3   探索方法の選択
+        10.5.3   探索方法の選び方
       </span>
 </span>
 </a>
@@ -1923,40 +1923,40 @@
 </a>
 <!-- View button -->
 <!-- Page content -->
-<h1 id="105">10.5   探索アルゴリズムを改めて考える<a class="headerlink" href="#105" title="この見出しへのリンク">¶</a></h1>
-<p><u>探索アルゴリズム（searching algorithm）</u>は、配列、連結リスト、木、グラフなどのデータ構造から、特定の条件を満たす一つまたは複数の要素を探すために使います。</p>
-<p>探索アルゴリズムは、実装の考え方によって次の二種類に分けられます。</p>
+<h1 id="105">10.5   探索アルゴリズムを振り返る<a class="headerlink" href="#105" title="この見出しへのリンク">¶</a></h1>
+<p><u>探索アルゴリズム（searching algorithm）</u>は、配列、連結リスト、木、グラフなどのデータ構造の中から、特定の条件を満たす要素を一つ、あるいはひとまとまりの要素を見つけるために使います。</p>
+<p>探索アルゴリズムは、実現のしかたによって次の二種類に分けられます。</p>
 <ul>
-<li><strong>データ構造を走査して目的の要素を見つける方法</strong>です。配列、連結リスト、木、グラフの走査などが該当します。</li>
-<li><strong>データの構造や既知の情報を利用して、効率よく要素を探す方法</strong>です。二分探索、ハッシュ探索、二分探索木による探索などが該当します。</li>
+<li><strong>データ構造を走査して目標の要素を見つける方法</strong>です。配列、連結リスト、木、グラフの走査などがあります。</li>
+<li><strong>データの構造や、データについてあらかじめわかっている情報を利用して効率よく要素を探す方法</strong>です。二分探索、ハッシュ探索、二分探索木を使った探索などがあります。</li>
 </ul>
-<p>これらはすでに前の章で紹介した内容なので、探索アルゴリズムは私たちにとってなじみのないものではありません。この節では、より体系的な視点から探索アルゴリズムを改めて考えます。</p>
-<h2 id="1051">10.5.1   全探索<a class="headerlink" href="#1051" title="この見出しへのリンク">¶</a></h2>
-<p>全探索は、データ構造の各要素を走査して目的の要素を見つけます。</p>
+<p>これらはいずれも前の章で取り上げた内容ですから、探索アルゴリズムはすでにおなじみのものです。この節では、これまでの知識を整理しながら探索アルゴリズムをあらためて見ていきます。</p>
+<h2 id="1051">10.5.1   総当たり探索<a class="headerlink" href="#1051" title="この見出しへのリンク">¶</a></h2>
+<p>総当たり探索は、データ構造の要素を一つずつ調べて目標の要素を見つけます。</p>
 <ul>
-<li>「線形探索」は、配列や連結リストなどの線形データ構造に適しています。一方の端から要素を順に訪問し、目的の要素を見つけるか、見つからないままもう一方の端に達するまで続けます。</li>
-<li>「幅優先探索」と「深さ優先探索」は、グラフや木を走査する二つの戦略です。幅優先探索は開始ノードから層ごとに探索し、近いノードから遠いノードへと訪問します。深さ優先探索は開始ノードから一本の経路を行き止まりまで進み、戻って別の経路を試し、データ構造全体を走査するまで続けます。</li>
+<li>「線形探索」は配列や連結リストなどの線形データ構造に適しています。一方の端から出発して要素を順に調べ、目標の要素が見つかるか、見つからないまま反対の端に達したところで終わります。</li>
+<li>「幅優先探索」と「深さ優先探索」は、グラフや木を走査する二つの方法です。幅優先探索は開始ノードから一層ずつ探索し、近くのノードから順に訪れます。深さ優先探索は開始ノードから一つの経路を行けるところまで進み、引き返して別の経路を試すことを、構造全体を走査するまで繰り返します。</li>
 </ul>
-<p>全探索の長所は単純で汎用性が高く、<strong>データの前処理や追加のデータ構造が不要なこと</strong>です。</p>
-<p>一方、<strong>時間計算量は <span class="arithmatex">\(O(n)\)</span></strong> です。<span class="arithmatex">\(n\)</span> は要素数なので、データが多い場合は性能が低くなります。</p>
-<h2 id="1052">10.5.2   データの特性に応じた探索<a class="headerlink" href="#1052" title="この見出しへのリンク">¶</a></h2>
-<p>データ固有の性質（整列済みであることなど）を利用して探索過程を最適化し、目的の要素をより効率よく見つける方法です。</p>
+<p>総当たり探索の利点は、単純で幅広く使え、<strong>データの前処理も追加のデータ構造も必要としない</strong>ことです。</p>
+<p>一方、<strong>この種のアルゴリズムの時間計算量は <span class="arithmatex">\(O(n)\)</span></strong> です。ここで <span class="arithmatex">\(n\)</span> は要素数なので、データ量が多い場合には効率がよくありません。</p>
+<h2 id="1052">10.5.2   適応型探索<a class="headerlink" href="#1052" title="この見出しへのリンク">¶</a></h2>
+<p>適応型探索では、整列順などデータ固有の性質を利用して探索の手順を工夫し、目標の要素をより効率よく見つけます。</p>
 <ul>
-<li>「二分探索」は、データが整列済みであることを利用して効率よく探索します。配列にのみ適用できます。</li>
-<li>「ハッシュ探索」は、ハッシュテーブルを利用し、検索するデータと目的のデータをキーと値のペアとして対応付けて照会します。</li>
-<li>「木探索」は、二分探索木などの特定の木構造でノードの値を比較し、候補となるノードを素早く除外して目的の要素を見つけます。</li>
+<li>「二分探索」はデータが整列済みであることを利用して効率よく探す方法で、配列にのみ適用できます。</li>
+<li>「ハッシュ探索」は、検索に使うデータと探したいデータをハッシュテーブルのキーと値として対応づけ、キーから値を引く方法です。</li>
+<li>「木による探索」は、二分探索木など特定の構造をもつ木で、ノードの値を比較して候補をすばやく除外し、目標の要素を見つける方法です。</li>
 </ul>
-<p>これらのアルゴリズムの長所は効率が高く、<strong>時間計算量が <span class="arithmatex">\(O(\log n)\)</span>、さらには <span class="arithmatex">\(O(1)\)</span> にもなること</strong>です。</p>
-<p>ただし、<strong>利用にはデータの前処理が必要となることが多いです</strong>。例えば、二分探索では配列をあらかじめソートする必要があり、ハッシュ探索と木探索では追加のデータ構造が必要です。それらの維持にも時間と領域が余分にかかります。</p>
+<p>この種のアルゴリズムは効率がよく、<strong>時間計算量が <span class="arithmatex">\(O(\log n)\)</span>、さらには <span class="arithmatex">\(O(1)\)</span> になることもあります</strong>。</p>
+<p>ただし、<strong>これらのアルゴリズムを使うには、データの前処理が必要になることがよくあります</strong>。たとえば二分探索では事前に配列をソートする必要があり、ハッシュ探索と木による探索では追加のデータ構造が必要です。その構造の維持にも時間と記憶領域がかかります。</p>
 <div class="admonition tip">
 <p class="admonition-title">ヒント</p>
-<p>データの特性に応じた探索アルゴリズムは、検索アルゴリズムとも呼ばれ、<strong>主に特定のデータ構造から目的の要素を素早く取得するために使います</strong>。</p>
+<p>適応型探索のアルゴリズムは検索アルゴリズムとも呼ばれ、<strong>主に特定のデータ構造から目標の要素をすばやく取り出すために使われます</strong>。</p>
 </div>
-<h2 id="1053">10.5.3   探索方法の選択<a class="headerlink" href="#1053" title="この見出しへのリンク">¶</a></h2>
-<p>大きさ <span class="arithmatex">\(n\)</span> のデータ集合から目的の要素を探すには、線形探索、二分探索、木探索、ハッシュ探索などの方法が使えます。それぞれの仕組みを図 10-11 に示します。</p>
-<p><ha-svg-figure aria-label="四つの探索戦略" class="animation-figure" data-book-key="ja/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png" data-dark-src="/assets/figure-svg/figures/681449de5f69a52a120c3a35.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/ab6c4ef64198c3d41a086d7b.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">さまざまな探索戦略</object><object aria-hidden="true" data="/ja/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">さまざまな探索戦略</object></ha-svg-figure></p>
-<p align="center"> 図 10-11   さまざまな探索戦略 </p><div class="ha-sr-only figure-description"><h3>図解 10-11：四つの探索戦略</h3><p>四つの部分図で、先頭からの順次走査、ソート済みの配列で範囲を半分ずつ絞る二分探索、キーによる照会、木の分岐をたどる探索を比較します。</p><p>四つの部分図はいずれも目標値 6（青色で強調）を見つける例を用い、データの編成方法の違いによる探索の仕組みを示しています。図中の n はデータ量を表し、各部分図の見出しの横に記された計算量は 1 回の探索段階に対するものです（二分探索に必要な事前のソート、ハッシュ探索のテーブル構築、木の探索における木の構築や平衡維持には別途前処理コストがかかります）。</p><p>左上「線形探索 O(n)」（配列を線形に走査）：未整列の配列 [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] をインデックス 0 から右へ順に一つずつ調べ、1、5、3、2、4、7 を経てインデックス 6 で目標 6 を見つけます。</p><p>左下「二分探索 O(log n)」（データの順序を利用して探索範囲を狭める）：昇順配列 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] において大小関係を利用して目標を含み得ない部分区間を半分ずつ除外し、インデックス 6 にある目標 6 を特定します（図の二本の青い弧線は探索範囲を段階的に絞るイメージを示すもので、完全な中点ポインタの列を展開してはいません）。</p><p>右上「ハッシュ探索 O(1)」（key を入力して value を調べる）：ハッシュテーブルには [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] の順で十組のキーと値のペア（各列の key とその下の value は同じ数値）が並んでおり、キー 6 から対応する値 6 を直接特定します。平均探索時間計算量は O(1) です。</p><p>右下「木の探索 O(log n)」（二分探索木で対象ノードを探す）：二分探索木の根ノードは 4 です。4 の左・右の子ノードは 1、7 で、1 の左・右の子ノードは 0、2、2 は右の子ノード 3 のみを持ちます。7 の左・右の子ノードは 5、8 で、5 は右の子ノード 6 のみ、8 は右の子ノード 9 のみを持ち、0、3、6、9 が葉ノードです。探索は根 4 から出発し、6 &gt; 4 なので右の子ノード 7 へ進み、6 &lt; 7 なので左の子ノード 5 へ進み、さらに 6 &gt; 5 なので右の子ノード 6 へ進んで、青く強調された経路 4 → 7 → 5 → 6 に沿って目標に到達します。</p><p>二分探索には整列済み配列が必要であり、ハッシュ探索と木の探索にはそれぞれ対応するデータ構造が必要です。ハッシュの図にある O(1) は平均効率であり、木の探索の O(log n) は平衡が保たれていることを前提とします。通常の二分探索木が一本鎖に偏ると、最悪計算量はやはり O(n) になります。</p></div>
-<p>これらの方法の操作効率と特徴を表 10-1 に示します。</p>
+<h2 id="1053">10.5.3   探索方法の選び方<a class="headerlink" href="#1053" title="この見出しへのリンク">¶</a></h2>
+<p>要素数 <span class="arithmatex">\(n\)</span> のデータ集合から目標の要素を探す方法には、線形探索、二分探索、木による探索、ハッシュ探索などがあります。図 10-11 にそれぞれの仕組みを示します。</p>
+<p><ha-svg-figure aria-label="四つの探索方法" class="animation-figure" data-book-key="ja/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.png" data-dark-src="/assets/figure-svg/figures/08ac599b6130601d79b6e4e2.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/31c69cdae7836acdd3e2e625.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ja/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">さまざまな探索方法</object><object aria-hidden="true" data="/ja/chapter_searching/searching_algorithm_revisited.assets/searching_algorithms.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">さまざまな探索方法</object></ha-svg-figure></p>
+<p align="center"> 図 10-11   さまざまな探索方法 </p><div class="ha-sr-only figure-description"><h3>図解 10-11：四つの探索方法</h3><p>四つの図で、順に走査する方法、順序を利用して区間を二分する方法、キーで値を引く方法、木の枝をたどる方法を比較します。</p><p>四つの図はすべて目標値 6（青色で強調）を見つける例で、データの整理の仕方によって探索の仕組みがどう変わるかを示します。n はデータ数を表し、各図の見出しの計算量は 1 回の探索にかかるものです。二分探索のための事前のソート、ハッシュ探索のための表の構築、木を使った探索のための木の構築と平衡の維持には、別にコストがかかります。</p><p>左上は「線形探索 O(n)」（配列を順に走査）です。未整列の配列 [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] をインデックス 0 から右へ一つずつ調べます。1、5、3、2、4、7 を経て、インデックス 6 で目標値 6 が見つかります。</p><p>左下は「二分探索 O(log n)」（整列順を利用して探索区間を狭める）です。昇順配列 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] で大小関係を利用して区間を二分し、目標値を含み得ない側を除きながら、インデックス 6 にある目標値 6 を見つけます。青い弧状の矢印 2 本は探索範囲が狭まる様子を示すもので、二分するたびのポインタの位置をすべて描いたものではありません。</p><p>右上は「ハッシュ探索 O(1)」（key を入力して value を調べる）です。ハッシュテーブルには [1, 5, 3, 2, 4, 7, 6, 9, 0, 8] の順にキーと値の組が 10 組並び、各列の key とその下の value は同じ数値です。キー 6 から対応する値 6 を直接見つけられ、探索の平均時間計算量は O(1) です。</p><p>右下は「木による探索 O(log n)」（二分探索木で目標ノードを探す）です。根は 4 です。4 の左右の子は 1 と 7、1 の左右の子は 0 と 2 で、2 の子は右の 3 だけです。7 の左右の子は 5 と 8、5 の子は右の 6 だけで、8 の子は右の 9 だけです。0、3、6、9 は葉です。根 4 から出発し、6 &gt; 4 なので右の子 7、6 &lt; 7 なので左の子 5、6 &gt; 5 なので右の子 6 へ進みます。青色で強調された経路 4 → 7 → 5 → 6 の先に目標値があります。</p><p>二分探索には整列済みの配列が、ハッシュ探索と木による探索にはそれぞれに対応する構造が必要です。ハッシュ探索の図の O(1) は平均の計算量で、木による探索の O(log n) は平衡が保たれていることが前提です。通常の二分探索木が鎖状になると、最悪の場合は O(n) かかります。</p></div>
+<p>これらの方法について、操作の効率と特徴を表 10-1 にまとめます。</p>
 <p align="center"> 表 10-1   探索アルゴリズムの効率の比較 </p>
 <div class="center-table">
 <table>
@@ -1965,7 +1965,7 @@
 <th></th>
 <th>線形探索</th>
 <th>二分探索</th>
-<th>木探索</th>
+<th>木による探索</th>
 <th>ハッシュ探索</th>
 </tr>
 </thead>
@@ -1992,7 +1992,7 @@
 <td><span class="arithmatex">\(O(1)\)</span></td>
 </tr>
 <tr>
-<td>追加領域</td>
+<td>追加の記憶領域</td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 <td><span class="arithmatex">\(O(1)\)</span></td>
 <td><span class="arithmatex">\(O(n)\)</span></td>
@@ -2006,48 +2006,48 @@
 <td>ハッシュテーブルの構築 <span class="arithmatex">\(O(n)\)</span></td>
 </tr>
 <tr>
-<td>データの整列状態</td>
-<td>未整列</td>
-<td>整列済み</td>
-<td>整列済み</td>
-<td>未整列</td>
+<td>データの順序</td>
+<td>順序なし</td>
+<td>順序あり</td>
+<td>順序あり</td>
+<td>順序なし</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>探索アルゴリズムの選択は、規模、必要な探索性能、データの照会と更新の頻度などにも左右されます。</p>
+<p>探索アルゴリズムの選択には、データの規模、探索に求める性能、データの照会や更新の頻度なども関わります。</p>
 <p><strong>線形探索</strong></p>
 <ul>
-<li>汎用性が高く、データの前処理が不要です。照会が一回だけなら、ほかの三つの方法では前処理の時間が線形探索の時間より長くなります。</li>
-<li>データが少ない場合に適しています。この場合、時間計算量が効率に与える影響は小さくなります。</li>
-<li>データを追加で管理する必要がないため、更新頻度が高い場合に適しています。</li>
+<li>幅広く使え、データの前処理は一切必要ありません。探索が一度だけなら、ほかの三つの方法では前処理だけで線形探索よりも長い時間がかかります。</li>
+<li>データ量が少ない場合に適しています。その場合は、時間計算量の違いが実際の効率にあまり影響しません。</li>
+<li>データの維持に特別な作業が必要ないので、更新頻度が高い場合に適しています。</li>
 </ul>
 <p><strong>二分探索</strong></p>
 <ul>
-<li>データが多い場合に適しており、効率が安定しています。最悪時間計算量は <span class="arithmatex">\(O(\log n)\)</span> です。</li>
-<li>配列の格納には連続したメモリ領域が必要なので、データが多すぎる場合には適しません。</li>
-<li>整列済み配列の維持にかかる負担が大きいため、データを頻繁に追加・削除する場合には適しません。</li>
+<li>データ量が多い場合に適しています。効率が安定しており、最悪時間計算量は <span class="arithmatex">\(O(\log n)\)</span> です。</li>
+<li>配列の格納には連続したメモリ領域が必要なので、扱えるデータ量には限りがあります。</li>
+<li>整列済み配列を維持する負担が大きいため、データを頻繁に追加・削除する場合には適していません。</li>
 </ul>
 <p><strong>ハッシュ探索</strong></p>
 <ul>
-<li>平均時間計算量が <span class="arithmatex">\(O(1)\)</span> なので、高い照会性能が求められる場合に適しています。</li>
-<li>ハッシュテーブルはデータの順序を維持できないため、整列済みデータや範囲検索が必要な場合には適しません。</li>
-<li>ハッシュ関数とハッシュ衝突への対処方法に大きく依存し、性能が悪化するリスクが比較的高くなります。</li>
-<li>衝突をできるだけ減らして照会性能を高く保つために追加領域が必要なので、データが多すぎる場合には適しません。</li>
+<li>平均時間計算量は <span class="arithmatex">\(O(1)\)</span> で、検索に非常に高い性能が求められる場合に適しています。</li>
+<li>ハッシュテーブルはデータの順序を保てないため、整列済みのデータや範囲探索が必要な場合には適していません。</li>
+<li>ハッシュ関数と衝突への対処方法に大きく左右され、性能が低下するリスクが比較的高くなります。</li>
+<li>衝突をできるだけ減らして検索性能を保つにはハッシュテーブルに追加の領域が必要なため、データ量が極端に多い場合には適していません。</li>
 </ul>
-<p><strong>木探索</strong></p>
+<p><strong>木による探索</strong></p>
 <ul>
-<li>木のノードはメモリ内に分散して格納されるため、膨大な量のデータにも適しています。</li>
-<li>データの順序の維持や範囲検索が必要な場合に適しています。</li>
-<li>ノードの追加・削除を続けるうちに二分探索木が偏り、時間計算量が <span class="arithmatex">\(O(n)\)</span> に悪化する可能性があります。</li>
-<li>AVL 木や赤黒木を使えば、各操作を安定して <span class="arithmatex">\(O(\log n)\)</span> で実行できますが、平衡を維持するための追加の処理が必要になります。</li>
+<li>木のノードはメモリ上に分散して格納されるため、膨大な量のデータを扱うのに適しています。</li>
+<li>データの順序を保つ必要がある場合や、範囲探索を行う場合に適しています。</li>
+<li>ノードの挿入と削除を繰り返すうちに、二分探索木が片側に偏り、時間計算量が <span class="arithmatex">\(O(n)\)</span> まで悪化することがあります。</li>
+<li>AVL 木や赤黒木を使えば各操作を安定して <span class="arithmatex">\(O(\log n)\)</span> の時間で実行できますが、木の平衡を保つ操作には追加のコストがかかります。</li>
 </ul>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="フッター" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="前: 10.4   ハッシュを使った最適化" class="md-footer__link md-footer__link--prev" href="../replace_linear_by_hashing/" rel="prev">
+<a aria-label="前: 10.4   ハッシュを用いた最適化" class="md-footer__link md-footer__link--prev" href="../replace_linear_by_hashing/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -2056,7 +2056,7 @@
         前
       </span>
 <div class="md-ellipsis">
-        10.4   ハッシュを使った最適化
+        10.4   ハッシュを用いた最適化
       </div>
 </div>
 </a>
@@ -2077,7 +2077,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">コメント欄で、考えや質問、ご提案をお寄せください。</h5>
+<h5 align="center" id="__comments">ご意見、ご質問、ご提案をコメント欄にお寄せください。</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ja" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2159,9 +2159,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"コピーしました","clipboard.copy":"クリップボードへコピー","search.result.more.one":"このページ内にもう1件見つかりました","search.result.more.other":"このページ内にあと#件見つかりました","search.result.none":"何も見つかりませんでした","search.result.one":"1件見つかりました","search.result.other":"#件見つかりました","search.result.placeholder":"検索キーワードを入力してください","search.result.term.missing":"検索に含まれない","select.version":"バージョン切り替え"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.4b65e87068ac38235d9f2cf93ce9d63bc8183b8a230a27c7b45fcfe8aa24e133.min.js"></script>
+<script src="../../assets/javascripts/bundle.196948135a4269c18233e33e47fd4bec6b98a7ae38264d86305fc24707a64a8d.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

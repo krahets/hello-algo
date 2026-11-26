@@ -15,7 +15,7 @@
       "play": "播放步驟",
       "pause": "暫停播放",
       "paused": "已暫停。",
-      "position": (n, total) => `第 ${n} 步，共 ${total} 步。`,
+      "position": (n, total) => "第 " + String(n) + " 步，共 " + String(total) + " 步。",
       "previous": "上一步",
       "next": "下一步"
     },
@@ -23,31 +23,31 @@
       "play": "Play steps",
       "pause": "Pause playback",
       "paused": "Paused. ",
-      "position": (n, total) => `Step ${n} of ${total}. `,
+      "position": (n, total) => "Step " + String(n) + " of " + String(total) + ". ",
       "previous": "Previous step",
       "next": "Next step"
     },
     "ru": {
       "play": "Воспроизвести шаги",
       "pause": "Приостановить воспроизведение",
-      "paused": "Приостановлено. ",
-      "position": (n, total) => `Шаг ${n} из ${total}. `,
+      "paused": "Воспроизведение приостановлено. ",
+      "position": (n, total) => "Шаг " + String(n) + " из " + String(total) + ". ",
       "previous": "Предыдущий шаг",
       "next": "Следующий шаг"
     },
     "ja": {
-      "play": "ステップを再生",
+      "play": "ステップを順に再生",
       "pause": "再生を一時停止",
-      "paused": "一時停止しました。",
-      "position": (n, total) => `全${total}ステップ中のステップ${n}。`,
+      "paused": "再生を一時停止しました。",
+      "position": (n, total) => "現在表示しているのはステップ " + String(n) + "（全 " + String(total) + " ステップ）です。",
       "previous": "前のステップ",
       "next": "次のステップ"
     },
     "ko": {
       "play": "단계 재생",
       "pause": "재생 일시 정지",
-      "paused": "일시 정지했습니다. ",
-      "position": (n, total) => `전체 ${total}단계 중 ${n}단계. `,
+      "paused": "재생이 일시 정지되었다. ",
+      "position": (n, total) => "전체 " + String(total) + "단계 중 " + String(n) + "단계다. ",
       "previous": "이전 단계",
       "next": "다음 단계"
     }
@@ -381,4 +381,4 @@
     initAutoSlide();
   }
 })();
-/*! update cache: 20261123171718 */
+/*! update cache: 20261126102529 */

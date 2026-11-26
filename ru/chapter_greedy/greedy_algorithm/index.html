@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Учебник по структурам данных и алгоритмам с анимированными иллюстрациями и готовым к запуску кодом" name="description"/>
+<meta content="Учебник по структурам данных и алгоритмам с анимированными схемами и примерами кода, которые можно запустить одним щелчком." name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ru/chapter_greedy/greedy_algorithm/" rel="canonical"/>
 <link href="../" rel="prev"/>
@@ -18,7 +18,7 @@
 <link href="/ko/chapter_greedy/greedy_algorithm/" hreflang="ko" rel="alternate"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="zensical-0.0.51" name="generator"/>
-<title>15.1 Жадный алгоритм - Hello Algo</title>
+<title>15.1 Жадный алгоритм - Привет, алгоритмы!</title>
 <link href="../../assets/stylesheets/modern/main.62c9b9cc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/modern/palette.dfe2e883.min.css" rel="stylesheet"/>
 
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/a6609e9d244300f969d24857.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/043ac48da2e8a4824106c669.css" rel="stylesheet"/><link href="/assets/figure-svg/css/f41655ef506ff5ce3cf0fd42.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,15 +64,15 @@
 <svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
 <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"></path>
 </svg>
-<span>Приглашаем вас участвовать в развитии русской версии! Подробнее <a href="/ru/chapter_appendix/contribution/">здесь</a>.</span>
+<span>Помогите улучшить русское издание. <a href="/ru/chapter_appendix/contribution/">Узнать больше</a>.</span>
 </div>
 </div>
 </aside>
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Верхний колонтитул" class="md-header__inner md-grid">
-<a aria-label="Hello Algo" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
 <label aria-label="Навигация" class="md-header__button md-icon" for="__drawer">
 <svg class="lucide lucide-menu" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 5h16M4 12h16M4 19h16"></path></svg>
@@ -81,7 +81,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Hello Algo
+            Привет, алгоритмы!
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -173,10 +173,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Навигация" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Hello Algo" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Hello Algo">
-<img alt="Hello Algo" src="../../assets/images/logo.svg"/>
+<a aria-label="Привет, алгоритмы!" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Привет, алгоритмы!">
+<img alt="Привет, алгоритмы!" src="../../assets/images/logo.svg"/>
 </a>
-    Hello Algo
+    Привет, алгоритмы!
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/krahets/hello-algo" title="Перейти к репозиторию">
@@ -197,7 +197,7 @@
 <span class="md-ellipsis">
 
 
-  Перед началом
+  Вступительное слово
 
 
   </span>
@@ -208,7 +208,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Перед началом
+  Вступительное слово
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -246,7 +246,7 @@
 <span class="md-ellipsis">
 
 
-  0.1 Об этой книге
+  0.1 О книге
 
 
   </span>
@@ -257,7 +257,7 @@
 <span class="md-ellipsis">
 
 
-  0.2 Как пользоваться этой книгой
+  0.2 Как пользоваться книгой
 
 
   </span>
@@ -268,7 +268,7 @@
 <span class="md-ellipsis">
 
 
-  0.3 Резюме
+  0.3 Итоги
 
 
   </span>
@@ -285,7 +285,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
 
   </span>
@@ -299,7 +299,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 1. Введение в алгоритмы
+  Глава 1. Знакомство с алгоритмами
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -330,7 +330,7 @@
 <span class="md-ellipsis">
 
 
-  1.3 Резюме
+  1.3 Итоги
 
 
   </span>
@@ -370,7 +370,7 @@
 <span class="md-ellipsis">
 
 
-  2.1 Оценка эффективности алгоритмов
+  2.1 Оценка эффективности алгоритма
 
 
   </span>
@@ -414,7 +414,7 @@
 <span class="md-ellipsis">
 
 
-  2.5 Резюме
+  2.5 Итоги
 
 
   </span>
@@ -509,7 +509,7 @@
 <span class="md-ellipsis">
 
 
-  3.5 Резюме
+  3.5 Итоги
 
 
   </span>
@@ -537,7 +537,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
 
   </span>
@@ -551,7 +551,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 4. Массивы и списки
+  Глава 4. Массивы и связные списки
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -593,7 +593,7 @@
 <span class="md-ellipsis">
 
 
-  4.4 Оперативная память и кэш *
+  4.4 Оперативная память и кеш *
 
 
   </span>
@@ -604,7 +604,7 @@
 <span class="md-ellipsis">
 
 
-  4.5 Резюме
+  4.5 Итоги
 
 
   </span>
@@ -632,7 +632,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
 
   </span>
@@ -646,7 +646,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 5. Стек и очередь
+  Глава 5. Стеки и очереди
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -655,7 +655,7 @@
 <span class="md-ellipsis">
 
 
-  5.1 Стек
+  5.1   Стек
 
 
   </span>
@@ -666,7 +666,7 @@
 <span class="md-ellipsis">
 
 
-  5.2 Очередь
+  5.2   Очередь
 
 
   </span>
@@ -677,7 +677,7 @@
 <span class="md-ellipsis">
 
 
-  5.3 Двусторонняя очередь
+  5.3   Двусторонняя очередь
 
 
   </span>
@@ -688,7 +688,7 @@
 <span class="md-ellipsis">
 
 
-  5.4 Резюме
+  5.4   Итоги
 
 
   </span>
@@ -699,7 +699,7 @@
 <span class="md-ellipsis">
 
 
-  5.5 Упражнения
+  5.5   Упражнения
 
 
   </span>
@@ -750,7 +750,7 @@
 <span class="md-ellipsis">
 
 
-  6.2 Хеш-коллизии
+  6.2 Коллизии
 
 
   </span>
@@ -772,7 +772,7 @@
 <span class="md-ellipsis">
 
 
-  6.4 Резюме
+  6.4 Итоги
 
 
   </span>
@@ -845,7 +845,7 @@
 <span class="md-ellipsis">
 
 
-  7.3 Представление двоичного дерева массивом
+  7.3 Представление двоичного дерева в виде массива
 
 
   </span>
@@ -867,7 +867,7 @@
 <span class="md-ellipsis">
 
 
-  7.5 AVL-дерево *
+  7.5 АВЛ-дерево *
 
 
   </span>
@@ -878,7 +878,7 @@
 <span class="md-ellipsis">
 
 
-  7.6 Краткие итоги
+  7.6 Итоги
 
 
   </span>
@@ -906,7 +906,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
 
   </span>
@@ -920,7 +920,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 8. Куча
+  Глава 8. Кучи
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -951,7 +951,7 @@
 <span class="md-ellipsis">
 
 
-  8.3 Задача Top-k
+  8.3 Задача о k наибольших элементах
 
 
   </span>
@@ -962,7 +962,7 @@
 <span class="md-ellipsis">
 
 
-  8.4 Резюме
+  8.4 Итоги
 
 
   </span>
@@ -1024,7 +1024,7 @@
 <span class="md-ellipsis">
 
 
-  9.2 Базовые операции графа
+  9.2 Основные операции с графом
 
 
   </span>
@@ -1046,7 +1046,7 @@
 <span class="md-ellipsis">
 
 
-  9.4 Краткие итоги
+  9.4 Итоги
 
 
   </span>
@@ -1108,7 +1108,7 @@
 <span class="md-ellipsis">
 
 
-  10.2 Двоичный поиск точки вставки
+  10.2 Нахождение позиции вставки с помощью двоичного поиска
 
 
   </span>
@@ -1119,7 +1119,7 @@
 <span class="md-ellipsis">
 
 
-  10.3 Двоичный поиск границ
+  10.3 Нахождение границ с помощью двоичного поиска
 
 
   </span>
@@ -1130,7 +1130,7 @@
 <span class="md-ellipsis">
 
 
-  10.4 Стратегии оптимизации с помощью хеширования
+  10.4 Оптимизация поиска с помощью хеш-таблицы
 
 
   </span>
@@ -1141,7 +1141,7 @@
 <span class="md-ellipsis">
 
 
-  10.5 Переосмысление алгоритмов поиска
+  10.5 Новый взгляд на алгоритмы поиска
 
 
   </span>
@@ -1152,7 +1152,7 @@
 <span class="md-ellipsis">
 
 
-  10.6 Резюме
+  10.6 Итоги
 
 
   </span>
@@ -1291,7 +1291,7 @@
 <span class="md-ellipsis">
 
 
-  11.9 Сортировка подсчетом
+  11.9 Сортировка подсчётом
 
 
   </span>
@@ -1313,7 +1313,7 @@
 <span class="md-ellipsis">
 
 
-  11.11 Резюме
+  11.11 Итоги
 
 
   </span>
@@ -1364,7 +1364,7 @@
 <span class="md-ellipsis">
 
 
-  12.1 Стратегия разделяй и властвуй
+  12.1 Метод «разделяй и властвуй»
 
 
   </span>
@@ -1375,7 +1375,7 @@
 <span class="md-ellipsis">
 
 
-  12.2 Поисковая стратегия разделяй и властвуй
+  12.2 Поиск методом «разделяй и властвуй»
 
 
   </span>
@@ -1386,7 +1386,7 @@
 <span class="md-ellipsis">
 
 
-  12.3 Задача построения двоичного дерева
+  12.3 Задача о построении двоичного дерева
 
 
   </span>
@@ -1397,7 +1397,7 @@
 <span class="md-ellipsis">
 
 
-  12.4 Задача о Ханойской башне
+  12.4 Задача о ханойских башнях
 
 
   </span>
@@ -1408,7 +1408,7 @@
 <span class="md-ellipsis">
 
 
-  12.5 Резюме
+  12.5 Итоги
 
 
   </span>
@@ -1459,7 +1459,7 @@
 <span class="md-ellipsis">
 
 
-  13.1 Алгоритм поиска с возвратом
+  13.1 Поиск с возвратом
 
 
   </span>
@@ -1481,7 +1481,7 @@
 <span class="md-ellipsis">
 
 
-  13.3 Задача о сумме подмножеств
+  13.3 Задача о сумме подмножества
 
 
   </span>
@@ -1492,7 +1492,7 @@
 <span class="md-ellipsis">
 
 
-  13.4 Задача о n ферзях
+  13.4 Задача о N ферзях
 
 
   </span>
@@ -1503,7 +1503,7 @@
 <span class="md-ellipsis">
 
 
-  13.5 Резюме
+  13.5 Итоги
 
 
   </span>
@@ -1554,7 +1554,7 @@
 <span class="md-ellipsis">
 
 
-  14.1 Первое знакомство с динамическим программированием
+  14.1 Знакомство с динамическим программированием
 
 
   </span>
@@ -1576,7 +1576,7 @@
 <span class="md-ellipsis">
 
 
-  14.3 Подход к решению задач динамического программирования
+  14.3 Как решать задачи динамического программирования
 
 
   </span>
@@ -1587,7 +1587,7 @@
 <span class="md-ellipsis">
 
 
-  14.4 Задача о рюкзаке 0-1
+  14.4 Задача о рюкзаке 0–1
 
 
   </span>
@@ -1598,7 +1598,7 @@
 <span class="md-ellipsis">
 
 
-  14.5 Задача о полном рюкзаке
+  14.5 Задача о неограниченном рюкзаке
 
 
   </span>
@@ -1609,7 +1609,7 @@
 <span class="md-ellipsis">
 
 
-  14.6 Задача о расстоянии редактирования
+  14.6 Задача о редакционном расстоянии
 
 
   </span>
@@ -1620,7 +1620,7 @@
 <span class="md-ellipsis">
 
 
-  14.7 Резюме
+  14.7 Итоги главы
 
 
   </span>
@@ -1648,7 +1648,7 @@
 <span class="md-ellipsis">
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
 
   </span>
@@ -1662,7 +1662,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  Глава 15. Жадность
+  Глава 15. Жадный подход
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1696,7 +1696,7 @@
 <a class="md-nav__link" href="#1511">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.1   Преимущества и ограничения жадного алгоритма
+        15.1.1   Достоинства и ограничения жадных алгоритмов
       </span>
 </span>
 </a>
@@ -1705,7 +1705,7 @@
 <a class="md-nav__link" href="#1512">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.2   Свойства жадного алгоритма
+        15.1.2   Свойства задач, решаемых жадным алгоритмом
       </span>
 </span>
 </a>
@@ -1714,7 +1714,7 @@
 <a class="md-nav__link" href="#1513">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.3   Этапы решения задач жадным алгоритмом
+        15.1.3   Как решить задачу жадным алгоритмом
       </span>
 </span>
 </a>
@@ -1723,7 +1723,7 @@
 <a class="md-nav__link" href="#1514">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.4   Типичные задачи для жадного алгоритма
+        15.1.4   Типичные задачи на жадные алгоритмы
       </span>
 </span>
 </a>
@@ -1758,7 +1758,7 @@
 <span class="md-ellipsis">
 
 
-  15.4 Задача о максимальном произведении разбиения
+  15.4 Задача о максимальном произведении при разбиении
 
 
   </span>
@@ -1769,7 +1769,7 @@
 <span class="md-ellipsis">
 
 
-  15.5 Резюме
+  15.5 Итоги
 
 
   </span>
@@ -1831,7 +1831,7 @@
 <span class="md-ellipsis">
 
 
-  16.2 Присоединяйтесь к созданию книги
+  16.2 Как принять участие в работе над книгой
 
 
   </span>
@@ -1842,7 +1842,7 @@
 <span class="md-ellipsis">
 
 
-  16.3 Глоссарий
+  16.3 Словарь терминов
 
 
   </span>
@@ -1899,7 +1899,7 @@
 <a class="md-nav__link" href="#1511">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.1   Преимущества и ограничения жадного алгоритма
+        15.1.1   Достоинства и ограничения жадных алгоритмов
       </span>
 </span>
 </a>
@@ -1908,7 +1908,7 @@
 <a class="md-nav__link" href="#1512">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.2   Свойства жадного алгоритма
+        15.1.2   Свойства задач, решаемых жадным алгоритмом
       </span>
 </span>
 </a>
@@ -1917,7 +1917,7 @@
 <a class="md-nav__link" href="#1513">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.3   Этапы решения задач жадным алгоритмом
+        15.1.3   Как решить задачу жадным алгоритмом
       </span>
 </span>
 </a>
@@ -1926,7 +1926,7 @@
 <a class="md-nav__link" href="#1514">
 <span class="md-ellipsis">
 <span class="md-typeset">
-        15.1.4   Типичные задачи для жадного алгоритма
+        15.1.4   Типичные задачи на жадные алгоритмы
       </span>
 </span>
 </a>
@@ -1948,58 +1948,58 @@
 <!-- View button -->
 <!-- Page content -->
 <h1 id="151">15.1   Жадный алгоритм<a class="headerlink" href="#151" title="Permanent link">¶</a></h1>
-<p><u>Жадный алгоритм (greedy algorithm)</u> - это распространенный метод решения задач оптимизации. Его основная идея состоит в том, чтобы на каждом этапе принятия решения выбирать вариант, который выглядит наилучшим прямо сейчас, то есть жадно принимать локально оптимальные решения в надежде получить глобально оптимальный результат. Жадные алгоритмы просты и эффективны, поэтому широко применяются во многих практических задачах.</p>
-<p>Жадные алгоритмы и динамическое программирование часто используются для решения задач оптимизации. У них есть некоторое сходство, например оба метода опираются на свойство оптимальной подструктуры, но принципы работы различаются.</p>
+<p><u>Жадный алгоритм (greedy algorithm)</u> — распространённый метод решения задач оптимизации. На каждом шаге он выбирает вариант, который выглядит наилучшим в данный момент. Так алгоритм принимает локально оптимальные решения в расчёте на глобальный оптимум. Жадные алгоритмы просты и эффективны, поэтому широко применяются на практике.</p>
+<p>Для решения задач оптимизации часто используют и жадные алгоритмы, и динамическое программирование. У них есть общие черты: например, оба подхода опираются на оптимальную подструктуру. Однако работают они по-разному.</p>
 <ul>
-<li>Динамическое программирование при получении текущего решения учитывает все предыдущие решения и использует ответы для прошлых подзадач, чтобы построить ответ для текущей подзадачи.</li>
-<li>Жадный алгоритм не учитывает предыдущие решения, а просто движется вперед, каждый раз делая жадный выбор и постепенно сужая область задачи, пока она не будет решена.</li>
+<li>В динамическом программировании выбор на текущем этапе учитывает все варианты решений на предыдущих этапах. Решение текущей подзадачи строится из решений предыдущих подзадач.</li>
+<li>Жадный алгоритм не пересматривает прошлые решения. На каждом шаге он делает очередной жадный выбор и уменьшает оставшуюся задачу, пока не решит её целиком.</li>
 </ul>
-<p>Чтобы лучше понять принцип работы жадного алгоритма, разберем его на примере задачи «размен монет». Эта задача уже встречалась в разделе «задача о полном рюкзаке», поэтому она наверняка вам знакома.</p>
+<p>Посмотрим, как работает жадный алгоритм, на примере задачи о размене монет. Мы уже встречались с ней в разделе «Задача о неограниченном рюкзаке».</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Дано <span class="arithmatex">\(n\)</span> видов монет. Номинал монеты <span class="arithmatex">\(i\)</span> равен <span class="arithmatex">\(coins[i - 1]\)</span>, целевая сумма равна <span class="arithmatex">\(amt\)</span>, причем каждую монету можно брать неограниченное число раз. Требуется найти минимальное число монет, которыми можно набрать целевую сумму. Если набрать сумму невозможно, верните <span class="arithmatex">\(-1\)</span>.</p>
+<p>Даны монеты <span class="arithmatex">\(n\)</span> номиналов. Номинал монеты вида <span class="arithmatex">\(i\)</span> равен <span class="arithmatex">\(coins[i - 1]\)</span>. Нужно набрать сумму <span class="arithmatex">\(amt\)</span> наименьшим числом монет. Монеты каждого вида можно брать многократно. Если набрать сумму невозможно, верните <span class="arithmatex">\(-1\)</span>.</p>
 </div>
-<p>Жадная стратегия для этой задачи показана на рисунке 15-1. Для заданной целевой суммы <strong>мы жадно выбираем монету, которая не превышает ее и находится к ней ближе всего</strong>, и повторяем этот шаг, пока не получим нужную сумму.</p>
-<p><ha-svg-figure aria-label="Размен монет: последовательный жадный выбор: Четыре шага жадного выбора монет уменьшают остаток со 131 до нуля" class="animation-figure" data-book-key="ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/bb931ae7512daa2da282a402.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/b496d637737afb5b4ab96950.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Жадная стратегия для задачи о размене монет</object><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Жадная стратегия для задачи о размене монет</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-1   Жадная стратегия для задачи о размене монет </p><div class="ha-sr-only figure-description"><h2>Описание рисунка 15-1: Размен монет: последовательный жадный выбор</h2><p>На каждом шаге выбирается наибольший номинал, не превышающий текущий остаток суммы: показано уменьшение суммы со 131 до нуля.</p><p>Нужная сумма равна 131, доступные номиналы монет — [1, 5, 10, 20, 50, 100], каждый номинал можно брать многократно. На рисунке подписано правило: «Жадная стратегия: всегда выбирать самую крупную монету, не превышающую остаток суммы».</p><p>Сверху вниз показаны остатки суммы 131, 31, 11, 1 и 0. В первых четырёх строках ряд номиналов одинаков: цветом последовательно выделены монеты 100, 20, 10 и 1, а остальные номиналы окрашены серым; пунктирные стрелки связывают выбор между соседними строками. В последней строке остаток равен нулю, и ряд монет больше не рисуется.</p><p>Остаток в каждой строке уже уменьшен на ранее выбранные монеты, а выделенная в этой же строке монета — следующая по счёту и ещё не вычтена из текущего остатка. Например, в строке с остатком 31 монета 100 уже вычтена, а выделенная монета 20 вычитается при переходе к строке с остатком 11. В таблице ниже для каждого остатка указаны уже взятые монеты, следующая монета и новый остаток после вычитания.</p><table><caption>Остаток суммы, ранее взятые монеты и следующий выбор</caption><thead><tr><th scope="col">Текущий остаток</th><th scope="col">Ранее взятые монеты</th><th scope="col">Следующая монета</th><th scope="col">Остаток после вычитания</th></tr></thead><tbody><tr><th scope="row">131</th><td>Нет</td><td>100</td><td>31</td></tr><tr><th scope="row">31</th><td>100</td><td>20</td><td>11</td></tr><tr><th scope="row">11</th><td>100, 20</td><td>10</td><td>1</td></tr><tr><th scope="row">1</th><td>100, 20, 10</td><td>1</td><td>0</td></tr><tr><th scope="row">0</th><td>100, 20, 10, 1</td><td>Стоп</td><td>Вычитание не требуется</td></tr></tbody></table><p>Всего использовано 4 монеты: 100 + 20 + 10 + 1 = 131, номиналы 5 и 50 не понадобились. Для данного набора номиналов 4 монеты действительно образуют минимум, однако при других наборах номиналов жадная стратегия не всегда даёт минимальное число монет.</p></div>
-<p>Ниже приведен код реализации.</p>
+<p>Жадная стратегия для этой задачи показана ниже. Чтобы набрать заданную сумму, <strong>выбираем монету с номиналом, ближайшим к оставшейся сумме и не превышающим её</strong>. Повторяем этот шаг, пока не наберём всю сумму.</p>
+<p><ha-svg-figure aria-label="Размен монет: последовательный жадный выбор: Четыре жадных выбора уменьшают остаток со 131 до нуля" class="animation-figure" data-book-key="ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.png" data-dark-src="/assets/figure-svg/figures/026302a6f39fcaef69559fe9.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/5221783e05f9b97a705ecc96.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Жадная стратегия размена монет</object><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_strategy.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Жадная стратегия размена монет</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-1   Жадная стратегия размена монет </p><div class="ha-sr-only figure-description"><h2>Иллюстрация 15-1: Размен монет: последовательный жадный выбор</h2><p>На каждом шаге выбираем наибольший номинал, не превышающий остаток. На рисунке показан весь процесс от суммы 131 до нулевого остатка.</p><p>Требуется набрать сумму 131. Монеты номиналов [1, 5, 10, 20, 50, 100] можно использовать многократно. Жадная стратегия на рисунке сформулирована так: «Всегда выбирайте монету, номинал которой не превышает остаток и наиболее близок к нему». То есть каждый раз берём наибольший номинал, не превышающий текущий остаток.</p><p>Сверху вниз показаны остатки 131, 31, 11, 1 и 0. В первых четырёх строках номиналы расположены одинаково, а выделены по очереди 100, 20, 10 и 1. Остальные монеты серые. Пунктирные стрелки связывают выборы в соседних строках. В последней строке остаток равен нулю, и монеты больше не показаны.</p><p>Из остатка в начале строки уже вычтены ранее взятые монеты. В этой же строке выделена следующая монета, ещё не вычтенная из остатка. Например, из суммы 31 уже вычтена монета 100, а выделенные 20 будут вычтены только при переходе к строке с остатком 11. В таблице для каждого остатка указаны уже взятые монеты, следующая монета и результат вычитания.</p><table><caption>Остаток, ранее взятые монеты и следующий выбор</caption><thead><tr><th scope="col">Текущий остаток</th><th scope="col">Ранее взятые монеты</th><th scope="col">Следующая монета</th><th scope="col">Остаток после вычитания</th></tr></thead><tbody><tr><th scope="row">131</th><td>Нет</td><td>100</td><td>31</td></tr><tr><th scope="row">31</th><td>100</td><td>20</td><td>11</td></tr><tr><th scope="row">11</th><td>100, 20</td><td>10</td><td>1</td></tr><tr><th scope="row">1</th><td>100, 20, 10</td><td>1</td><td>0</td></tr><tr><th scope="row">0</th><td>100, 20, 10, 1</td><td>Остановиться</td><td>Больше вычитать не нужно</td></tr></tbody></table><p>Всего использованы 4 монеты: 100 + 20 + 10 + 1 = 131. Номиналы 5 и 50 не выбраны. При данном наборе номиналов 4 — наименьшее возможное число монет. При других наборах жадная стратегия не всегда даёт минимум.</p></div>
+<p>Реализуем этот алгоритм:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:13"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><input id="__tabbed_1_7" name="__tabbed_1" type="radio"/><input id="__tabbed_1_8" name="__tabbed_1" type="radio"/><input id="__tabbed_1_9" name="__tabbed_1" type="radio"/><input id="__tabbed_1_10" name="__tabbed_1" type="radio"/><input id="__tabbed_1_11" name="__tabbed_1" type="radio"/><input id="__tabbed_1_12" name="__tabbed_1" type="radio"/><input id="__tabbed_1_13" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">C++</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C#</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">Swift</label><label for="__tabbed_1_7">JS</label><label for="__tabbed_1_8">TS</label><label for="__tabbed_1_9">Dart</label><label for="__tabbed_1_10">Rust</label><label for="__tabbed_1_11">C</label><label for="__tabbed_1_12">Kotlin</label><label for="__tabbed_1_13">Ruby</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.py</span><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">coin_change_greedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">amt</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="sd">"""Размен монет: жадный алгоритм"""</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># Список coins предполагается отсортированным</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="c1"># Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="k">while</span> <span class="n">amt</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="c1"># Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="c1"># Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">amt</span><span class="p">:</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="c1"># Выбрать coins[i]</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="c1"># Берём coins[i]</span>
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="n">amt</span> <span class="o">-=</span> <span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">return</span> <span class="n">count</span> <span class="k">if</span> <span class="n">amt</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.cpp</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -2007,20 +2007,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.java</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -2028,20 +2028,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.cs</span><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">CoinChangeGreedy</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -2049,20 +2049,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.go</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">coinChangeGreedy</span><span class="p">(</span><span class="nx">coins</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">coins</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">            </span><span class="nx">i</span><span class="o">--</span>
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="nx">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">        </span><span class="nx">count</span><span class="o">++</span>
 <a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">    </span><span class="p">}</span>
@@ -2073,21 +2073,21 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.swift</span><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">func</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="nb">Int</span><span class="p">],</span><span class="w"> </span><span class="n">amt</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">amt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">amt</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">        </span><span class="bp">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">?</span><span class="w"> </span><span class="bp">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="p">}</span>
 </code></pre></div>
@@ -2095,20 +2095,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.js</span><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeGreedy</span><span class="p">(</span><span class="nx">coins</span><span class="p">,</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Предположить, что массив coins упорядочен</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// Массив coins предполагается отсортированным</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">            </span><span class="nx">i</span><span class="o">--</span><span class="p">;</span>
 <a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="nx">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -2116,20 +2116,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.ts</span><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">function</span><span class="w"> </span><span class="nx">coinChangeGreedy</span><span class="p">(</span><span class="nx">coins</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[],</span><span class="w"> </span><span class="nx">amt</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Предположить, что массив coins упорядочен</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Массив coins предполагается отсортированным</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">coins</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">            </span><span class="nx">i</span><span class="o">--</span><span class="p">;</span>
 <a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="nx">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">coins</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 <a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">        </span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">amt</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -2137,20 +2137,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.dart</span><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">coinChangeGreedy</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">      </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">  </span><span class="p">}</span>
-<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">  </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">  </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
 <a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -2158,20 +2158,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.rs</span><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">coin_change_greedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="p">[</span><span class="kt">i32</span><span class="p">],</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">amt</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">        </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="w">        </span><span class="n">count</span>
 <a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -2183,20 +2183,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.c</span><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span><span class="p">;</span>
 <a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">        </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
 <a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="p">}</span>
 </code></pre></div>
@@ -2204,21 +2204,21 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.kt</span><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">/* Размен монет: жадный алгоритм */</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">coinChangeGreedy</span><span class="p">(</span><span class="n">coins</span><span class="p">:</span><span class="w"> </span><span class="n">IntArray</span><span class="p">,</span><span class="w"> </span><span class="n">amt</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Список coins предполагается отсортированным</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">am</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">amt</span>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="p">.</span><span class="na">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="c1">// Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">am</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">        </span><span class="c1">// Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">        </span><span class="c1">// Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">am</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">            </span><span class="n">i</span><span class="o">--</span>
 <a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="c1">// Выбрать coins[i]</span>
+<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="c1">// Берём coins[i]</span>
 <a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">        </span><span class="n">am</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="n">count</span><span class="o">++</span>
 <a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="c1">// Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="c1">// Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">am</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">-</span><span class="m">1</span>
 <a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="p">}</span>
 </code></pre></div>
@@ -2226,20 +2226,20 @@
 <div class="tabbed-block">
 <div class="highlight"><span class="filename">coin_change_greedy.rb</span><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1">### Размен монет: жадный алгоритм ###</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">coin_change_greedy</span><span class="p">(</span><span class="n">coins</span><span class="p">,</span><span class="w"> </span><span class="n">amt</span><span class="p">)</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Предположить, что список coins упорядочен</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="c1"># Список coins предполагается отсортированным</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coins</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># Циклически выполнять жадный выбор, пока не останется суммы</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span><span class="c1"># Повторяем жадный выбор, пока остаток суммы не обнулится</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="n">amt</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="c1"># Найти монету, которая меньше остатка суммы и наиболее к нему близка</span>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="c1"># Ищем наибольший номинал, не превышающий остаток</span>
 <a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">amt</span>
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">      </span><span class="n">i</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">    </span><span class="k">end</span>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">    </span><span class="c1"># Выбрать coins[i]</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">    </span><span class="c1"># Берём coins[i]</span>
 <a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">    </span><span class="n">amt</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">coins</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
 <a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 <a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">  </span><span class="k">end</span>
-<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">  </span><span class="c1"># Если допустимое решение не найдено, вернуть -1</span>
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">  </span><span class="c1"># Если решения не нашлось, возвращаем -1</span>
 <a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">  </span><span class="n">amt</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <a href="#__codelineno-12-18" id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="k">end</span>
 </code></pre></div>
@@ -2247,72 +2247,72 @@
 </div>
 </div>
 <details class="pythontutor">
-<summary>Визуализация кода</summary>
-<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D%2C%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D0%BD%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%B8%D1%82%D1%8C%2C%20%D1%87%D1%82%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20coins%20%D1%83%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D1%87%D0%B5%D0%BD%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%D0%A6%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D1%82%D1%8C%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%BD%D0%B5%20%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D1%82%D1%81%D1%8F%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%D1%83%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D1%8F%20%D0%BC%D0%B5%D0%BD%D1%8C%D1%88%D0%B5%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%D0%B8%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5%20%D0%BA%20%D0%BD%D0%B5%D0%BC%D1%83%20%D0%B1%D0%BB%D0%B8%D0%B7%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20%D0%92%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B5%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%BE%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20-1%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%3A%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20coins%20%3D%20%5B1%2C%205%2C%2010%2C%2020%2C%2050%2C%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins%2C%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D%2C%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%3D%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%3A%20%D0%BD%D0%B5%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20coins%20%3D%20%5B1%2C%2020%2C%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins%2C%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D%2C%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%3D%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22%D0%9D%D0%B0%20%D1%81%D0%B0%D0%BC%D0%BE%D0%BC%20%D0%B4%D0%B5%D0%BB%D0%B5%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D1%83%D0%BC%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%203%3A%2020%20%2B%2020%20%2B%2020%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация кода"> </iframe></div>
-<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D%2C%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D0%BD%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D0%BB%D0%BE%D0%B6%D0%B8%D1%82%D1%8C%2C%20%D1%87%D1%82%D0%BE%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20coins%20%D1%83%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D1%87%D0%B5%D0%BD%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%D0%A6%D0%B8%D0%BA%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D1%8F%D1%82%D1%8C%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%BD%D0%B5%20%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D1%82%D1%81%D1%8F%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%9D%D0%B0%D0%B9%D1%82%D0%B8%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%D1%83%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D1%8F%20%D0%BC%D0%B5%D0%BD%D1%8C%D1%88%D0%B5%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BA%D0%B0%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%D0%B8%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5%20%D0%BA%20%D0%BD%D0%B5%D0%BC%D1%83%20%D0%B1%D0%BB%D0%B8%D0%B7%D0%BA%D0%B0%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20%D0%92%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%B4%D0%BE%D0%BF%D1%83%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D0%B5%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B5%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%BE%2C%20%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D1%8C%20-1%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%3A%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20coins%20%3D%20%5B1%2C%205%2C%2010%2C%2020%2C%2050%2C%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins%2C%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D%2C%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%3D%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20%D0%96%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%3A%20%D0%BD%D0%B5%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%BD%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%0A%20%20%20%20coins%20%3D%20%5B1%2C%2020%2C%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins%2C%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D%2C%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%9C%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%3D%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22%D0%9D%D0%B0%20%D1%81%D0%B0%D0%BC%D0%BE%D0%BC%20%D0%B4%D0%B5%D0%BB%D0%B5%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D1%83%D0%BC%20%D1%80%D0%B0%D0%B2%D0%B5%D0%BD%203%3A%2020%20%2B%2020%20%2B%2020%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
+<summary>Визуализация выполнения</summary>
+<p><div style="height: 549px; width: 100%;"><iframe class="pythontutor-iframe" src="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D0%BD%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20coins%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BE%D1%82%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D1%8F%D0%B5%D0%BC%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80,%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%D0%BD%D0%B5%20%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0%B8%D1%82%D1%81%D1%8F%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%98%D1%89%D0%B5%D0%BC%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%B9%20%D0%BD%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB,%20%D0%BD%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B2%D1%8B%D1%88%D0%B0%D1%8E%D1%89%D0%B8%D0%B9%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20%D0%91%D0%B5%D1%80%D1%91%D0%BC%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B5%20%D0%BD%D0%B0%D1%88%D0%BB%D0%BE%D1%81%D1%8C,%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20-1%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%94%D0%BB%D1%8F%20%D1%8D%D1%82%D0%B8%D1%85%20%D0%BD%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB%D0%BE%D0%B2%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D1%83%D0%BC%0A%20%20%20%20coins%20%3D%20%5B1,%205,%2010,%2020,%2050,%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%94%D0%BB%D1%8F%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20%D0%94%D0%BB%D1%8F%20%D1%8D%D1%82%D0%B8%D1%85%20%D0%BD%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB%D0%BE%D0%B2%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%BD%D0%B5%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D1%83%D0%BC%D0%B0%0A%20%20%20%20coins%20%3D%20%5B1,%2020,%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%94%D0%BB%D1%8F%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22%D0%9D%D0%B0%20%D1%81%D0%B0%D0%BC%D0%BE%D0%BC%20%D0%B4%D0%B5%D0%BB%D0%B5%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D1%83%D0%BC%20%E2%80%94%203%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%D1%8B%3A%2020%20%2B%2020%20%2B%2020%22%29&amp;codeDivHeight=472&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" title="Визуализация выполнения"> </iframe></div>
+<div style="margin-top: 5px;"><a href="https://pythontutor.com/iframe-embed.html#code=def%20coin_change_greedy%28coins%3A%20list%5Bint%5D,%20amt%3A%20int%29%20-%3E%20int%3A%0A%20%20%20%20%22%22%22%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D0%BD%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%22%22%22%0A%20%20%20%20%23%20%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20coins%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BF%D0%BE%D0%BB%D0%B0%D0%B3%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BE%D1%82%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%0A%20%20%20%20i%20%3D%20len%28coins%29%20-%201%0A%20%20%20%20count%20%3D%200%0A%20%20%20%20%23%20%D0%9F%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D1%8F%D0%B5%D0%BC%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B2%D1%8B%D0%B1%D0%BE%D1%80,%20%D0%BF%D0%BE%D0%BA%D0%B0%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%D0%BD%D0%B5%20%D0%BE%D0%B1%D0%BD%D1%83%D0%BB%D0%B8%D1%82%D1%81%D1%8F%0A%20%20%20%20while%20amt%20%3E%200%3A%0A%20%20%20%20%20%20%20%20%23%20%D0%98%D1%89%D0%B5%D0%BC%20%D0%BD%D0%B0%D0%B8%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%B9%20%D0%BD%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB,%20%D0%BD%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B2%D1%8B%D1%88%D0%B0%D1%8E%D1%89%D0%B8%D0%B9%20%D0%BE%D1%81%D1%82%D0%B0%D1%82%D0%BE%D0%BA%0A%20%20%20%20%20%20%20%20while%20i%20%3E%200%20and%20coins%5Bi%5D%20%3E%20amt%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20-%3D%201%0A%20%20%20%20%20%20%20%20%23%20%D0%91%D0%B5%D1%80%D1%91%D0%BC%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20amt%20-%3D%20coins%5Bi%5D%0A%20%20%20%20%20%20%20%20count%20%2B%3D%201%0A%20%20%20%20%23%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B5%20%D0%BD%D0%B0%D1%88%D0%BB%D0%BE%D1%81%D1%8C,%20%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%89%D0%B0%D0%B5%D0%BC%20-1%0A%20%20%20%20return%20count%20if%20amt%20%3D%3D%200%20else%20-1%0A%0A%0A%22%22%22Driver%20Code%22%22%22%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20%23%20%D0%94%D0%BB%D1%8F%20%D1%8D%D1%82%D0%B8%D1%85%20%D0%BD%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB%D0%BE%D0%B2%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D1%83%D0%BC%0A%20%20%20%20coins%20%3D%20%5B1,%205,%2010,%2020,%2050,%20100%5D%0A%20%20%20%20amt%20%3D%20186%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%94%D0%BB%D1%8F%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%7Bres%7D%22%29%0A%0A%20%20%20%20%23%20%D0%94%D0%BB%D1%8F%20%D1%8D%D1%82%D0%B8%D1%85%20%D0%BD%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BB%D0%BE%D0%B2%20%D0%B6%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%BD%D0%B5%20%D0%B3%D0%B0%D1%80%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D1%83%D0%BC%D0%B0%0A%20%20%20%20coins%20%3D%20%5B1,%2020,%2050%5D%0A%20%20%20%20amt%20%3D%2060%0A%20%20%20%20res%20%3D%20coin_change_greedy%28coins,%20amt%29%0A%20%20%20%20print%28f%22%5Cncoins%20%3D%20%7Bcoins%7D,%20amt%20%3D%20%7Bamt%7D%22%29%0A%20%20%20%20print%28f%22%D0%94%D0%BB%D1%8F%20%D1%81%D1%83%D0%BC%D0%BC%D1%8B%20%7Bamt%7D%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5%20%D1%87%D0%B8%D1%81%D0%BB%D0%BE%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%3A%20%7Bres%7D%22%29%0A%20%20%20%20print%28f%22%D0%9D%D0%B0%20%D1%81%D0%B0%D0%BC%D0%BE%D0%BC%20%D0%B4%D0%B5%D0%BB%D0%B5%20%D0%BC%D0%B8%D0%BD%D0%B8%D0%BC%D1%83%D0%BC%20%E2%80%94%203%20%D0%BC%D0%BE%D0%BD%D0%B5%D1%82%D1%8B%3A%2020%20%2B%2020%20%2B%2020%22%29&amp;codeDivHeight=800&amp;codeDivWidth=600&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false" rel="noopener noreferrer" target="_blank">Во весь экран &gt;</a></div></p>
 </details>
-<p>У вас может невольно вырваться: «Эврика!» Жадный алгоритм решает задачу размена монет всего примерно десятью строками кода.</p>
-<h2 id="1511">15.1.1   Преимущества и ограничения жадного алгоритма<a class="headerlink" href="#1511" title="Permanent link">¶</a></h2>
-<p><strong>Жадный алгоритм не только прост в реализации, но и обычно очень эффективен</strong>. В приведенном выше коде обозначим минимальный номинал монеты через <span class="arithmatex">\(\min(coins)\)</span>, тогда жадный выбор выполняется не более чем <span class="arithmatex">\(amt / \min(coins)\)</span> раз, а временная сложность равна <span class="arithmatex">\(O(amt / \min(coins))\)</span>. Это на порядок меньше, чем временная сложность решения через динамическое программирование <span class="arithmatex">\(O(n \times amt)\)</span>.</p>
-<p>Однако <strong>для некоторых наборов номиналов монет жадный алгоритм не может найти оптимальный ответ</strong>. На рисунке 15-2 показаны два примера.</p>
+<p>Как коротко получилось! Жадный алгоритм решает задачу о размене примерно за десять строк кода.</p>
+<h2 id="1511">15.1.1   Достоинства и ограничения жадных алгоритмов<a class="headerlink" href="#1511" title="Permanent link">¶</a></h2>
+<p><strong>Жадные алгоритмы понятны, просты в реализации и обычно весьма эффективны</strong>. Обозначим наименьший номинал через <span class="arithmatex">\(\min(coins)\)</span>. В приведённом коде жадный выбор повторяется не более <span class="arithmatex">\(amt / \min(coins)\)</span> раз, поэтому временная сложность равна <span class="arithmatex">\(O(amt / \min(coins))\)</span>. Это на порядок меньше, чем <span class="arithmatex">\(O(n \times amt)\)</span> у решения методом динамического программирования.</p>
+<p>Однако <strong>при некоторых наборах номиналов жадный алгоритм не находит оптимального решения</strong>. На рисунке 15-2 приведены два примера.</p>
 <ul>
-<li><strong>Положительный пример <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>: для такого набора монет при любом <span class="arithmatex">\(amt\)</span> жадный алгоритм находит оптимальное решение.</li>
-<li><strong>Отрицательный пример <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>: пусть <span class="arithmatex">\(amt = 60\)</span>. Жадный алгоритм найдет только комбинацию <span class="arithmatex">\(50 + 1 \times 10\)</span>, то есть всего <span class="arithmatex">\(11\)</span> монет, тогда как динамическое программирование находит оптимум <span class="arithmatex">\(20 + 20 + 20\)</span>, где требуется лишь <span class="arithmatex">\(3\)</span> монеты.</li>
-<li><strong>Отрицательный пример <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>: пусть <span class="arithmatex">\(amt = 98\)</span>. Жадный алгоритм найдет только комбинацию <span class="arithmatex">\(50 + 1 \times 48\)</span>, то есть всего <span class="arithmatex">\(49\)</span> монет, тогда как динамическое программирование находит оптимум <span class="arithmatex">\(49 + 49\)</span>, где требуется лишь <span class="arithmatex">\(2\)</span> монеты.</li>
+<li><strong>Положительный пример: <span class="arithmatex">\(coins = [1, 5, 10, 20, 50, 100]\)</span></strong>. Для этого набора монет жадный алгоритм находит оптимальное решение при любой сумме <span class="arithmatex">\(amt\)</span>.</li>
+<li><strong>Контрпример: <span class="arithmatex">\(coins = [1, 20, 50]\)</span></strong>. Пусть <span class="arithmatex">\(amt = 60\)</span>. Жадный алгоритм находит размен <span class="arithmatex">\(50 + 1 \times 10\)</span>. Число монет равно <span class="arithmatex">\(11\)</span>. Динамическое программирование находит оптимальный размен <span class="arithmatex">\(20 + 20 + 20\)</span> и сокращает число монет до <span class="arithmatex">\(3\)</span>.</li>
+<li><strong>Контрпример: <span class="arithmatex">\(coins = [1, 49, 50]\)</span></strong>. Пусть <span class="arithmatex">\(amt = 98\)</span>. Жадный алгоритм находит размен <span class="arithmatex">\(50 + 1 \times 48\)</span>. Число монет равно <span class="arithmatex">\(49\)</span>. Динамическое программирование находит оптимальный размен <span class="arithmatex">\(49 + 49\)</span> и сокращает число монет до <span class="arithmatex">\(2\)</span>.</li>
 </ul>
-<p><ha-svg-figure aria-label="Контрпримеры к жадной стратегии размена монет" class="animation-figure" data-book-key="ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.png" data-dark-src="/assets/figure-svg/figures/faad66a0110cd7275c1cab40.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/823066eda8e6508dcf04fe9e.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Примеры, где жадный алгоритм не находит оптимального решения</object><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Примеры, где жадный алгоритм не находит оптимального решения</object></ha-svg-figure></p>
-<p align="center"> Рисунок 15-2   Примеры, где жадный алгоритм не находит оптимального решения </p><div class="ha-sr-only figure-description"><h3>Описание рисунка 15-2: Контрпримеры к жадной стратегии размена монет</h3><p>Жадное правило выбора наибольшего доступного номинала не всегда даёт минимальное число монет: на двух контрпримерах сравниваются жадный вариант и глобально оптимальный размен.</p><p>В обоих контрпримерах выбор наибольшего номинала 50 на первом шаге вынуждает добирать оставшуюся сумму множеством монет номиналом 1, тогда как другой выбор обходится гораздо меньшим числом монет.</p><p>Рисунок разделён на две строки — верхнюю и нижнюю. В каждой строке слева направо показаны набор монет, нужная сумма, столбец «Лучший вариант жадного алгоритма (локальный оптимум)» и столбец «Оптимальный вариант динамического программирования (глобальный оптимум)». Оба варианта записаны с помощью значков монет, знаков сложения и множителей.</p><p>В таблице ниже приведены номиналы, целевая сумма и варианты со схемы; два столбца с количеством монет получены подсчётом всех монет с учётом множителей и на самом рисунке отдельно не выписаны. Подпись «Лучший вариант» над жадным столбцом означает лишь локальный выбор самого жадного алгоритма, а не глобально минимальное число монет.</p><table><caption>Сравнение вариантов размена</caption><thead><tr><th scope="col">Номиналы</th><th scope="col">Нужная сумма</th><th scope="col">Жадный вариант</th><th scope="col">Число монет (жадный)</th><th scope="col">Оптимальный вариант</th><th scope="col">Число монет (оптимум)</th></tr></thead><tbody><tr><th scope="row">1, 20, 50</th><td>60</td><td>50+1×10</td><td>11</td><td>20×3</td><td>3</td></tr><tr><th scope="row">1, 49, 50</th><td>98</td><td>50+1×48</td><td>49</td><td>49×2</td><td>2</td></tr></tbody></table><p>Жадный алгоритм сначала берёт монету 50, после чего в двух примерах остаются суммы 10 и 48 — обе меньше второго по величине номинала (20 и 49 соответственно), поэтому остаток приходится набирать единицами (номиналом 1). Правый вариант отказывается от 50 и тратит намного меньше монет; следовательно, полагаться на это жадное правило при произвольных номиналах нельзя.</p></div>
-<p>Иными словами, в задаче о размене монет жадный алгоритм не гарантирует нахождение глобально оптимального решения и иногда может приводить к очень плохому ответу. Для этой задачи больше подходит динамическое программирование.</p>
-<p>В общем случае жадный алгоритм применим в двух следующих ситуациях.</p>
+<p><ha-svg-figure aria-label="Контрпримеры для жадного алгоритма размена" class="animation-figure" data-book-key="ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.png" data-dark-src="/assets/figure-svg/figures/15de4d6ddd5b15ee391ed93e.json" data-figure-accessible="" data-src="/assets/figure-svg/figures/a2c3deebea599051a7b3ce45.json" role="img" style=";--figure-ratio:960.0/540.0"><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.svg" data-theme="light" inert="" tabindex="-1" type="image/svg+xml">Примеры, в которых жадный алгоритм не находит оптимального решения</object><object aria-hidden="true" data="/ru/chapter_greedy/greedy_algorithm.assets/coin_change_greedy_vs_dp.dark.svg" data-theme="dark" inert="" tabindex="-1" type="image/svg+xml">Примеры, в которых жадный алгоритм не находит оптимального решения</object></ha-svg-figure></p>
+<p align="center"> Рисунок 15-2   Примеры, в которых жадный алгоритм не находит оптимального решения </p><div class="ha-sr-only figure-description"><h3>Иллюстрация 15-2: Контрпримеры для жадного алгоритма размена</h3><p>Если на каждом шаге брать доступную монету наибольшего номинала, число монет не всегда будет минимальным. На рисунке два контрпримера сопоставляют жадный размен с более выгодным решением для всей суммы.</p><p>В обоих контрпримерах после выбора наибольшего номинала 50 остаток приходится набирать большим количеством монет номинала 1. При другом выборе для размена нужно меньше монет.</p><p>На рисунке две строки, одна над другой. В каждой слева направо показаны набор номиналов, целевая сумма, столбец «Лучшее решение жадного алгоритма (локальный оптимум)» и столбец «Лучшее решение динамического программирования (глобальный оптимум)». Оба решения записаны значками монет, знаками сложения и множителями.</p><p>В таблице приведены номиналы, цели и решения с рисунка. Два столбца с количеством монет получены подсчётом монет в каждом решении. На самом рисунке эти итоги отдельно не указаны. Слово «лучшее» в заголовке жадного решения не означает, что оно даёт глобальный минимум.</p><table><caption>Сравнение вариантов размена</caption><thead><tr><th scope="col">Номиналы</th><th scope="col">Целевая сумма</th><th scope="col">Жадное решение</th><th scope="col">Число монет в жадном решении</th><th scope="col">Оптимальное решение</th><th scope="col">Минимальное число монет</th></tr></thead><tbody><tr><th scope="row">1, 20, 50</th><td>60</td><td>50+1×10</td><td>11</td><td>20×3</td><td>3</td></tr><tr><th scope="row">1, 49, 50</th><td>98</td><td>50+1×48</td><td>49</td><td>49×2</td><td>2</td></tr></tbody></table><p>Сначала жадный алгоритм берёт 50. В двух примерах остаётся соответственно 10 и 48. Эти суммы меньше второго номинала в каждом примере — 20 и 49 соответственно, поэтому остаток можно набрать только монетами номинала 1. Справа номинал 50 пропускают и обходятся значительно меньшим числом монет. Значит, полагаться на это жадное правило при произвольном наборе номиналов нельзя.</p></div>
+<p>Таким образом, в задаче о размене жадный алгоритм не гарантирует глобального оптимума и иногда даёт результат, далёкий от него. Для этой задачи лучше подходит динамическое программирование.</p>
+<p>Обычно жадные алгоритмы применяют в двух случаях.</p>
 <ol>
-<li><strong>Можно гарантировать нахождение оптимального решения</strong>: в таком случае жадный алгоритм часто является лучшим выбором, поскольку обычно он эффективнее, чем поиск с возвратом и динамическое программирование.</li>
-<li><strong>Можно найти приближенно оптимальное решение</strong>: в таком случае жадный алгоритм тоже полезен. Для многих сложных задач поиск глобального оптимума очень труден, и возможность быстро найти субоптимальный ответ уже весьма ценна.</li>
+<li><strong>Оптимальное решение гарантировано</strong>. В этом случае жадный алгоритм часто оказывается лучшим выбором, поскольку обычно эффективнее поиска с возвратом и динамического программирования.</li>
+<li><strong>Можно найти решение, близкое к оптимальному</strong>. Здесь тоже пригоден жадный алгоритм. Во многих сложных задачах очень трудно найти глобальный оптимум, и возможность быстро получить достаточно хорошее решение уже ценна.</li>
 </ol>
-<h2 id="1512">15.1.2   Свойства жадного алгоритма<a class="headerlink" href="#1512" title="Permanent link">¶</a></h2>
-<p>Тогда возникает вопрос: какие задачи подходят для решения жадным алгоритмом? Или, другими словами, в каких случаях жадный алгоритм может гарантировать оптимальный ответ?</p>
-<p>По сравнению с динамическим программированием условия применения жадного алгоритма более строгие. В основном нас интересуют два свойства задачи.</p>
+<h2 id="1512">15.1.2   Свойства задач, решаемых жадным алгоритмом<a class="headerlink" href="#1512" title="Permanent link">¶</a></h2>
+<p>Для каких задач подходит жадный алгоритм? Иначе говоря, когда он гарантированно находит оптимальное решение?</p>
+<p>У жадных алгоритмов условия применимости строже, чем у динамического программирования. Особенно важны два свойства задачи.</p>
 <ul>
-<li><strong>Свойство жадного выбора</strong>: только когда локально оптимальный выбор всегда может привести к глобально оптимальному решению, жадный алгоритм способен гарантировать оптимум.</li>
-<li><strong>Оптимальная подструктура</strong>: оптимальное решение исходной задачи содержит оптимальные решения подзадач.</li>
+<li><strong>Свойство жадного выбора</strong>. Жадный алгоритм гарантирует оптимум только тогда, когда локально оптимальный выбор на каждом шаге позволяет прийти к глобально оптимальному решению.</li>
+<li><strong>Оптимальная подструктура</strong>. Оптимальное решение исходной задачи содержит оптимальные решения подзадач.</li>
 </ul>
-<p>Оптимальная подструктура уже обсуждалась в главе «Динамическое программирование», поэтому здесь не будем повторяться. Стоит отметить, что у некоторых задач оптимальная подструктура не столь очевидна, но их все равно можно решать жадным алгоритмом.</p>
-<p>Основное внимание мы уделяем тому, как определить свойство жадного выбора. Хотя формулировка выглядит довольно простой, <strong>на практике для многих задач доказать свойство жадного выбора совсем не легко</strong>.</p>
-<p>Например, в задаче о размене монет легко привести контрпример и опровергнуть свойство жадного выбора, но вот доказать его истинность намного сложнее. Если спросить: <strong>для каких наборов монет можно использовать жадный алгоритм</strong>? - обычно удается дать лишь интуитивный или примерный ответ, а не строгое математическое доказательство.</p>
+<p>Оптимальную подструктуру мы уже рассмотрели в главе о динамическом программировании. Заметим лишь, что в некоторых задачах она неочевидна, хотя их всё же можно решить жадным алгоритмом.</p>
+<p>Посмотрим, как установить свойство жадного выбора. Его легко сформулировать, <strong>однако для многих задач доказать это свойство непросто</strong>.</p>
+<p>Например, в задаче о размене легко привести контрпример и опровергнуть свойство жадного выбора для конкретного набора номиналов. Доказать его труднее. <strong>Каким условиям должен удовлетворять набор номиналов, чтобы задачу можно было решить жадным алгоритмом</strong>? Интуиция и примеры часто дают лишь расплывчатый ответ, а строгое математическое доказательство построить нелегко.</p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
-<p>Существует статья, в которой приводится алгоритм со временной сложностью <span class="arithmatex">\(O(n^3)\)</span> для определения того, можно ли с помощью жадного алгоритма находить оптимальный размен для любой суммы в заданной системе монет.</p>
+<p>В одной из научных работ предложен алгоритм с временной сложностью <span class="arithmatex">\(O(n^3)\)</span>. Он определяет, найдёт ли жадный алгоритм для данного набора номиналов оптимальный размен любой суммы.</p>
 <p>Pearson, D. A polynomial-time algorithm for the change-making problem[J]. Operations Research Letters, 2005, 33(3): 231-234.</p>
 </div>
-<h2 id="1513">15.1.3   Этапы решения задач жадным алгоритмом<a class="headerlink" href="#1513" title="Permanent link">¶</a></h2>
-<p>Процесс решения жадной задачи в общем виде можно разбить на три шага.</p>
+<h2 id="1513">15.1.3   Как решить задачу жадным алгоритмом<a class="headerlink" href="#1513" title="Permanent link">¶</a></h2>
+<p>Решение задачи жадным алгоритмом обычно состоит из трёх шагов.</p>
 <ol>
-<li><strong>Анализ задачи</strong>: разобраться в свойствах задачи, включая определение состояний, целевой функции и ограничений. Этот этап присутствует и в поиске с возвратом, и в динамическом программировании.</li>
-<li><strong>Определение жадной стратегии</strong>: определить, какой жадный выбор следует делать на каждом шаге. Эта стратегия должна уменьшать размер задачи на каждом этапе и в итоге привести к решению всей задачи.</li>
-<li><strong>Доказательство корректности</strong>: обычно требуется доказать, что задача обладает свойством жадного выбора и оптимальной подструктурой. На этом этапе может понадобиться математическое доказательство, например индукция или доказательство от противного.</li>
+<li><strong>Анализ задачи</strong>. Разберитесь в её особенностях: как задать состояние, что нужно оптимизировать и какие действуют ограничения. Этот шаг знаком нам по поиску с возвратом и динамическому программированию.</li>
+<li><strong>Выбор жадной стратегии</strong>. Определите, как делать жадный выбор на каждом шаге. Стратегия должна уменьшать задачу с каждым шагом и в итоге привести к её решению.</li>
+<li><strong>Доказательство корректности</strong>. Обычно нужно доказать, что задача обладает свойством жадного выбора и оптимальной подструктурой. Здесь могут пригодиться, например, математическая индукция или доказательство от противного.</li>
 </ol>
-<p>Определение жадной стратегии - это ключевой этап решения, но на практике он часто оказывается непростым по следующим причинам.</p>
+<p>Выбор жадной стратегии — центральный этап решения. На практике возникают две основные трудности.</p>
 <ul>
-<li><strong>Жадные стратегии для разных задач сильно различаются</strong>. Для многих задач стратегия довольно очевидна, и до нее можно дойти за счет общих рассуждений и нескольких проб. Но в более сложных задачах жадная стратегия может быть очень скрытой, и тут уже многое зависит от опыта решения задач и алгоритмической подготовки.</li>
-<li><strong>Некоторые жадные стратегии выглядят убедительно, но оказываются обманчивыми</strong>. Бывает, что мы с уверенностью придумали жадную стратегию, написали код и отправили его на проверку, а часть тестов не проходит. Причина в том, что спроектированная стратегия лишь «частично верна», и описанная выше задача о размене монет - типичный пример.</li>
+<li><strong>Для разных задач жадные стратегии могут существенно различаться</strong>. Во многих задачах стратегия лежит на поверхности: достаточно немного порассуждать и попробовать несколько вариантов. В сложной задаче удачная стратегия может быть совсем неочевидной. Тогда многое зависит от опыта решения задач и умения работать с алгоритмами.</li>
+<li><strong>Некоторые жадные стратегии обманчивы</strong>. Можно уверенно выбрать стратегию, написать и запустить программу, а затем обнаружить, что часть тестов не проходит. Такая стратегия верна лишь для некоторых входных данных. Задача о размене монет — характерный пример.</li>
 </ul>
-<p>Чтобы гарантировать корректность, нужно дать строгое математическое доказательство жадной стратегии, <strong>обычно с использованием доказательства от противного или математической индукции</strong>.</p>
-<p>Однако и доказательство корректности может оказаться непростой задачей. Если идей нет, мы обычно начинаем отлаживать код на тестовых примерах, постепенно меняя и проверяя жадную стратегию.</p>
-<h2 id="1514">15.1.4   Типичные задачи для жадного алгоритма<a class="headerlink" href="#1514" title="Permanent link">¶</a></h2>
-<p>Жадные алгоритмы часто применяются в задачах оптимизации, обладающих свойством жадного выбора и оптимальной подструктурой. Ниже приведены некоторые типичные задачи, решаемые жадным подходом.</p>
+<p>Чтобы убедиться в корректности жадной стратегии, нужно дать строгое математическое доказательство. <strong>Обычно для этого используют доказательство от противного или математическую индукцию</strong>.</p>
+<p>Само доказательство тоже бывает непростым. Если пока неясно, с чего начать, обычно отлаживают код на тестовых примерах, шаг за шагом уточняя и проверяя жадную стратегию.</p>
+<h2 id="1514">15.1.4   Типичные задачи на жадные алгоритмы<a class="headerlink" href="#1514" title="Permanent link">¶</a></h2>
+<p>Жадные алгоритмы часто применяют в задачах оптимизации со свойством жадного выбора и оптимальной подструктурой. Вот несколько типичных примеров.</p>
 <ul>
-<li><strong>Задача о размене монет</strong>: при некоторых системах монет жадный алгоритм всегда дает оптимальный ответ.</li>
-<li><strong>Задача о расписании интервалов</strong>: пусть есть несколько задач, каждая выполняется в некотором временном интервале, и требуется завершить как можно больше задач. Если каждый раз выбирать задачу с самым ранним временем окончания, то жадный алгоритм дает оптимальный ответ.</li>
-<li><strong>Задача о дробном рюкзаке</strong>: дана группа предметов и грузоподъемность. Требуется выбрать предметы так, чтобы их общий вес не превышал ограничение, а общая ценность была максимальной. Если каждый раз выбирать предмет с наилучшим отношением стоимости к весу, то в некоторых случаях жадный алгоритм дает оптимальный ответ.</li>
-<li><strong>Задача о покупке и продаже акций</strong>: дана история цен акции. Можно совершать несколько сделок, но если акция уже куплена, то до продажи покупать снова нельзя. Цель - получить максимальную прибыль.</li>
-<li><strong>Код Хаффмана</strong>: это жадный алгоритм для сжатия данных без потерь. Построив дерево Хаффмана и каждый раз объединяя два узла с наименьшей частотой, мы получаем дерево с минимальной взвешенной длиной пути, то есть минимальной длиной кодирования.</li>
-<li><strong>Алгоритм Дейкстры</strong>: для графов с неотрицательными весами ребер это жадный алгоритм решения задачи о кратчайших путях от заданной исходной вершины до всех остальных вершин.</li>
+<li><strong>Размен монет</strong>. При некоторых наборах номиналов жадный алгоритм всегда даёт оптимальный результат.</li>
+<li><strong>Выбор непересекающихся интервалов</strong>. Пусть для каждой работы задан интервал времени, а выполнить требуется как можно больше работ. Если каждый раз выбирать из доступных работу, которая заканчивается раньше всех, жадный алгоритм найдёт оптимальное расписание.</li>
+<li><strong>Дробный рюкзак</strong>. Даны предметы и предельный вес груза. Требуется выбрать груз наибольшей суммарной стоимости, не превышая этот вес. В ряде случаев жадный алгоритм находит оптимальное решение, если каждый раз выбирать предмет с наибольшим отношением стоимости к весу.</li>
+<li><strong>Покупка и продажа акций</strong>. Известны цены акции за некоторый период. Покупать и продавать её можно многократно, но после покупки нужно продать акцию, прежде чем покупать снова. Цель — получить максимальную прибыль.</li>
+<li><strong>Кодирование Хаффмана</strong>. Это жадный алгоритм сжатия данных без потерь. При построении дерева Хаффмана на каждом шаге объединяют два узла с наименьшими частотами. Полученное дерево имеет минимальную взвешенную длину путей, а значит, и минимальную длину закодированного сообщения.</li>
+<li><strong>Алгоритм Дейкстры</strong>. Этот жадный алгоритм находит кратчайшие пути от заданной начальной вершины до всех остальных вершин графа, если веса всех рёбер неотрицательны.</li>
 </ul>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="Нижний колонтитул" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="Назад: Глава 15. &amp;nbsp; Жадность" class="md-footer__link md-footer__link--prev" href="../" rel="prev">
+<a aria-label="Назад: Глава 15. &amp;nbsp; Жадный подход" class="md-footer__link md-footer__link--prev" href="../" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -2321,7 +2321,7 @@
         Назад
       </span>
 <div class="md-ellipsis">
-        Глава 15.   Жадность
+        Глава 15.   Жадный подход
       </div>
 </div>
 </a>
@@ -2342,7 +2342,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">Оставляйте свои идеи, вопросы и предложения в комментариях</h5>
+<h5 align="center" id="__comments">Поделитесь своим мнением, задайте вопрос или оставьте предложение в комментариях</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ru" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2424,9 +2424,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Скопировано в буфер","clipboard.copy":"Копировать в буфер","search.result.more.one":"Ещё 1 на этой странице","search.result.more.other":"Ещё # на этой странице","search.result.none":"Совпадений не найдено","search.result.one":"Найдено 1 совпадение","search.result.other":"Найдено совпадений: #","search.result.placeholder":"Начните печатать для поиска","search.result.term.missing":"Отсутствует","select.version":"Выберите версию"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.0d441547851f63d0e6614369d827335a9b125feca310fe06e17e6b9e15f96fa1.min.js"></script>
+<script src="../../assets/javascripts/bundle.c14dfd00549a42415ad39f11698a44840394334ca6c2e5be8ce68b23dd434e70.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
-<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/70ae82c6406c9bdbda8e8362.js"></script></body>
+<script defer="" src="/assets/figure-svg/js/00174ff861e190f5c1f09e34.js"></script><script defer="" src="/assets/figure-svg/js/e84f59519170c0f5ef238548.js"></script><script defer="" src="/assets/figure-svg/js/a704d8e80a80ddc71f2a03a7.js"></script><script defer="" src="/assets/figure-svg/js/b2d3f05c2ead5be144d2ca2d.js"></script></body>
 </html>

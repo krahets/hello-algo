@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="애니메이션으로 설명하고 클릭 한 번으로 실행하는 자료 구조와 알고리즘 입문서" name="description"/>
+<meta content="애니메이션 도해와 클릭 한 번으로 실행할 수 있는 코드로 배우는 자료 구조와 알고리즘 입문서" name="description"/>
 <meta content="krahets" name="author"/>
 <link href="https://www.hello-algo.com/ko/chapter_backtracking/summary/" rel="canonical"/>
 <link href="../n_queens_problem/" rel="prev"/>
@@ -47,7 +47,7 @@
     set(key, value, storage, key === "__palette" ? shared : scope);
 })();
 </script>
-<link href="/assets/figure-svg/css/864e54ce411d71bab123d983.css" rel="stylesheet"/></head>
+<link href="/assets/figure-svg/css/0a24d2cb3f6b75d285a73597.css" rel="stylesheet"/></head>
 <body data-md-color-accent="teal" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -191,7 +191,7 @@
 <span class="md-ellipsis">
 
 
-  머리말
+  서문
 
 
   </span>
@@ -202,7 +202,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  머리말
+  서문
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -217,7 +217,7 @@
 <span class="md-ellipsis">
 
 
-  제 0 장   들어가며
+  제 0 장   머리말
 
 
   </span>
@@ -231,7 +231,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 0 장   들어가며
+  제 0 장   머리말
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -279,7 +279,7 @@
 <span class="md-ellipsis">
 
 
-  제 1 장   알고리즘과의 첫 만남
+  제 1 장   알고리즘 입문
 
 
   </span>
@@ -293,7 +293,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 1 장   알고리즘과의 첫 만남
+  제 1 장   알고리즘 입문
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -302,7 +302,7 @@
 <span class="md-ellipsis">
 
 
-  1.1   어디에나 있는 알고리즘
+  1.1   알고리즘은 어디에나 있다
 
 
   </span>
@@ -945,7 +945,7 @@
 <span class="md-ellipsis">
 
 
-  8.3   Top-k 문제
+  8.3   상위 k개 찾기 문제
 
 
   </span>
@@ -1464,7 +1464,7 @@
 <span class="md-ellipsis">
 
 
-  13.2   모든 순열 문제
+  13.2   순열 문제
 
 
   </span>
@@ -1475,7 +1475,7 @@
 <span class="md-ellipsis">
 
 
-  13.3   부분 집합 합 문제
+  13.3   부분집합의 합 문제
 
 
   </span>
@@ -1486,7 +1486,7 @@
 <span class="md-ellipsis">
 
 
-  13.4   n-퀸 문제
+  13.4   N-퀸 문제
 
 
   </span>
@@ -1606,7 +1606,7 @@
 <span class="md-ellipsis">
 
 
-  14.3   동적 계획법 문제 풀이 방법
+  14.3   동적 계획법 문제 풀이
 
 
   </span>
@@ -1678,7 +1678,7 @@
 <span class="md-ellipsis">
 
 
-  제 15 장   탐욕
+  제 15 장   탐욕적 접근법
 
 
   </span>
@@ -1692,7 +1692,7 @@
 <span class="md-nav__icon md-icon"></span>
 
 
-  제 15 장   탐욕
+  제 15 장   탐욕적 접근법
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -1712,7 +1712,7 @@
 <span class="md-ellipsis">
 
 
-  15.2   분할 가능한 배낭 문제
+  15.2   분할 가능 배낭 문제
 
 
   </span>
@@ -1796,7 +1796,7 @@
 <span class="md-ellipsis">
 
 
-  16.1   프로그래밍 환경 설치
+  16.1   프로그래밍 환경 설정
 
 
   </span>
@@ -1807,7 +1807,7 @@
 <span class="md-ellipsis">
 
 
-  16.2   함께 만드는 책
+  16.2   책 집필에 참여하기
 
 
   </span>
@@ -1908,30 +1908,30 @@
 <h1 id="135">13.5   요약<a class="headerlink" href="#135" title="고유 링크">¶</a></h1>
 <h3 id="1">1.   핵심 정리<a class="headerlink" href="#1" title="고유 링크">¶</a></h3>
 <ul>
-<li>백트래킹은 본질적으로 모든 경우를 열거하는 방법이다. 해 공간을 깊이 우선으로 순회하여 조건에 맞는 해를 찾고 기록하며, 모든 해를 찾거나 순회가 끝나면 종료한다.</li>
-<li>백트래킹의 탐색 과정은 시도와 되돌리기로 이루어진다. 깊이 우선 탐색으로 여러 선택을 시도하고, 제약 조건을 만족하지 않으면 직전 선택을 취소하여 이전 상태로 돌아간 뒤 다른 선택을 계속 시도한다. 시도와 되돌리기는 서로 반대 방향의 연산이다.</li>
-<li>백트래킹 문제에는 보통 여러 제약 조건이 있고, 이를 가지치기에 사용할 수 있다. 가지치기는 불필요한 탐색 가지를 일찍 종료하여 효율을 크게 높인다.</li>
-<li>백트래킹은 주로 탐색 문제와 제약 만족 문제에 사용한다. 조합 최적화 문제도 해결할 수 있지만, 더 효율적이거나 더 좋은 결과를 내는 풀이가 있는 경우가 많다.</li>
-<li>모든 순열 문제는 주어진 집합 원소들의 가능한 모든 순열을 찾는 것이 목표다. 배열로 각 원소의 선택 여부를 기록하고 동일 원소를 중복 선택하는 가지를 잘라 내어 각 원소를 한 번만 선택하도록 한다.</li>
-<li>모든 순열 문제에서 집합에 중복 원소가 있으면 결과에 중복된 순열이 생긴다. 각 차례에서 같은 값의 원소를 한 번만 선택하도록 제한해야 하며, 보통 해시 집합으로 구현한다.</li>
-<li>부분 집합 합 문제는 주어진 집합에서 합이 목표 값인 모든 부분 집합을 찾는다. 집합은 원소 순서를 구분하지 않지만 탐색은 모든 순서의 결과를 출력하므로 중복이 생긴다. 백트래킹 전에 데이터를 정렬하고 각 차례의 순회 시작점을 변수로 지정하여 중복 부분 집합을 만드는 가지를 잘라 낸다.</li>
-<li>부분 집합 합 문제에서는 배열의 같은 값 원소가 중복 집합을 만들 수 있다. 배열이 정렬되어 있다는 전제를 이용해 인접 원소의 값이 같은지 확인하여 가지치기하고, 같은 값을 매 차례 한 번만 선택하도록 한다.</li>
-<li><span class="arithmatex">\(n\)</span>-퀸 문제는 <span class="arithmatex">\(n \times n\)</span> 체스판에 퀸 <span class="arithmatex">\(n\)</span> 개를 서로 공격하지 않게 배치하는 문제다. 행, 열, 주대각선 방향, 부대각선 방향의 제약이 있다. 행 제약을 만족하려고 행별 배치 전략을 사용하여 각 행에 퀸 하나를 놓는다.</li>
-<li>열 제약과 대각선 제약은 비슷하게 처리한다. 열 제약은 배열에 각 열의 퀸 존재 여부를 기록하여 선택한 칸이 유효한지 판단한다. 대각선 제약은 두 배열로 각 방향 대각선의 퀸 존재 여부를 기록한다. 핵심은 같은 주대각선(부대각선) 방향 대각선의 칸들이 만족하는 행과 열 인덱스의 규칙을 찾는 것이다.</li>
+<li>백트래킹은 해 공간을 깊이 우선으로 순회해 조건에 맞는 해를 찾는 완전 탐색 방법이다. 탐색 중 조건을 만족하는 해를 만나면 기록하고, 모든 해를 찾거나 순회를 마치면 종료한다.</li>
+<li>백트래킹 탐색은 시도와 되돌리기로 이루어진다. 깊이 우선 탐색으로 여러 선택을 시도하다가 제약 조건을 어기면 직전 선택을 취소하고 이전 상태로 돌아가 다른 선택을 시도한다. 시도와 되돌리기는 서로 반대 방향의 연산이다.</li>
+<li>백트래킹 문제에는 보통 여러 제약 조건이 있으며 이를 가지치기에 활용할 수 있다. 가지치기는 불필요한 가지의 탐색을 일찍 끝내 탐색 효율을 크게 높인다.</li>
+<li>백트래킹은 주로 탐색 문제와 제약 충족 문제를 푸는 데 쓰인다. 조합 최적화 문제도 풀 수 있지만 더 효율적이거나 더 좋은 결과를 내는 방법이 있는 경우가 많다.</li>
+<li>순열 문제에서는 주어진 집합의 원소로 만들 수 있는 모든 순열을 찾는다. 배열에 각 원소의 선택 여부를 기록하고 같은 원소를 다시 선택하는 가지를 잘라 내면 각 원소를 한 번씩만 선택하게 된다.</li>
+<li>순열 문제에서 집합에 중복 원소가 있으면 결과에 같은 순열이 여러 번 나타난다. 각 단계에서 값이 같은 원소 중 하나만 선택하도록 제한해야 하며, 보통 해시 집합을 사용한다.</li>
+<li>부분집합의 합 문제에서는 주어진 집합에서 원소의 합이 목표값과 같은 모든 부분집합을 찾는다. 집합은 원소의 순서를 구분하지 않지만 탐색은 가능한 순서를 모두 출력하므로 중복 부분집합이 생긴다. 백트래킹 전에 데이터를 정렬하고 각 단계의 순회 시작점을 변수로 지정하면 중복을 만드는 가지를 잘라 낼 수 있다.</li>
+<li>부분집합의 합 문제에서 배열에 값이 같은 원소가 있으면 중복 부분집합이 생긴다. 배열이 정렬되어 있다는 점을 이용해 이웃한 원소의 값이 같은지 확인하고 가지치기하면 각 단계에서 같은 값을 한 번만 고를 수 있다.</li>
+<li><span class="arithmatex">\(n\)</span>-퀸 문제는 퀸 <span class="arithmatex">\(n\)</span>개를 <span class="arithmatex">\(n \times n\)</span> 체스판에 서로 공격할 수 없도록 놓는 방법을 찾는 문제이다. 행, 열, 주대각선, 부대각선 제약을 지켜야 한다. 행 제약은 행마다 퀸을 하나씩 놓는 전략으로 만족시킨다.</li>
+<li>열 제약과 대각선 제약은 비슷하게 처리한다. 각 열에 퀸이 있는지 배열에 기록하면 선택한 칸에 놓아도 되는지 판단할 수 있다. 대각선은 배열 두 개에 각 주대각선과 부대각선에 퀸이 있는지 따로 기록한다. 어려운 점은 같은 주대각선 또는 부대각선에 속한 칸의 행과 열 인덱스 사이에서 규칙을 찾는 것이다.</li>
 </ul>
 <h3 id="2-q-a">2.   Q &amp; A<a class="headerlink" href="#2-q-a" title="고유 링크">¶</a></h3>
-<p><strong>Q</strong>: 백트래킹과 재귀의 관계는 어떻게 이해하면 되는가?</p>
-<p>백트래킹은 '알고리즘 전략'이고, 재귀는 '도구'에 더 가깝다.</p>
+<p><strong>Q</strong>: 백트래킹과 재귀는 어떤 관계인가?</p>
+<p>백트래킹이 ‘알고리즘 전략’이라면 재귀는 그 전략을 구현하는 ‘도구’에 가깝다.</p>
 <ul>
-<li>백트래킹은 보통 재귀로 구현한다. 백트래킹은 재귀의 활용 사례 중 하나이며, 탐색 문제에 재귀를 적용한 것이다.</li>
-<li>재귀의 구조는 '부분 문제로 분해'하는 풀이 패턴을 보여 주며, 분할 정복, 백트래킹, 동적 계획법(메모이제이션을 이용한 재귀) 등의 문제에 자주 사용한다.</li>
+<li>백트래킹은 보통 재귀로 구현한다. 백트래킹은 재귀의 여러 활용 사례 중 하나로, 탐색 문제에 재귀를 적용한다.</li>
+<li>재귀 구조는 문제를 부분 문제로 나누는 풀이 방식을 반영한다. 분할 정복, 백트래킹, 동적 계획법(메모이제이션을 이용한 재귀) 등에 널리 쓰인다.</li>
 </ul>
 <!-- Source file information -->
 <!-- Was this page helpful? -->
 <!-- Previous and next pages link -->
 <nav aria-label="하단/푸터" class="md-footer__inner md-grid">
 <!-- Link to previous page -->
-<a aria-label="이전: 13.4   n-퀸 문제" class="md-footer__link md-footer__link--prev" href="../n_queens_problem/" rel="prev">
+<a aria-label="이전: 13.4   N-퀸 문제" class="md-footer__link md-footer__link--prev" href="../n_queens_problem/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg class="lucide lucide-arrow-left" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 19-7-7 7-7M19 12H5"></path></svg>
 </div>
@@ -1940,7 +1940,7 @@
         이전
       </span>
 <div class="md-ellipsis">
-        13.4   n-퀸 문제
+        13.4   N-퀸 문제
       </div>
 </div>
 </a>
@@ -1961,7 +1961,7 @@
 </nav>
 <!-- Comment system -->
 <!-- Check-in button above comments -->
-<h5 align="center" id="__comments">댓글로 의견이나 질문, 제안을 남겨 주세요</h5>
+<h5 align="center" id="__comments">의견이나 질문, 제안을 댓글로 남겨 주세요.</h5>
 <!-- Insert generated snippet here -->
 <script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOIXtSq84CSZk_" data-emit-metadata="1" data-input-position="top" data-lang="ko" data-mapping="pathname" data-reactions-enabled="1" data-repo="krahets/hello-algo" data-repo-id="R_kgDOIXtSqw" data-strict="1" data-theme="light" src="https://giscus.app/client.js">
 </script>
@@ -2043,7 +2043,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"annotate":null,"base":"../../","features":["content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.indexes","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"search":"../../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"클립보드에 복사됨","clipboard.copy":"클립보드로 복사","search.result.more.one":"이 문서에서 1개의 검색 결과 더 보기","search.result.more.other":"이 문서에서 #개의 검색 결과 더 보기","search.result.none":"검색어와 일치하는 문서가 없습니다","search.result.one":"1개의 일치하는 문서","search.result.other":"#개의 일치하는 문서","search.result.placeholder":"검색어를 입력하세요","search.result.term.missing":"포함되지 않은 검색어","select.version":"버전 선택"},"version":null}</script>
-<script src="../../assets/javascripts/bundle.9da20b33253961ce280a4a32ba173a4ae6a1344b3b104ddf2f5f2caf9b8f6ec8.min.js"></script>
+<script src="../../assets/javascripts/bundle.a67f0250649a59050bd5d66f11a1783293b444a53f0ff67bd98520ace3a72466.min.js"></script>
 <script src="../../javascripts/mathjax.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <script src="../../javascripts/animation_player.js"></script>
