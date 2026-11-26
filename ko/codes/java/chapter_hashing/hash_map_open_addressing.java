@@ -36,7 +36,7 @@ class HashMapOpenAddressing {
         int index = hashFunc(key);
         int firstTombstone = -1;
         // 선형 탐사 중 빈 버킷을 만나면 반복 종료
-        while (buckets[index] != null) {
+        for (int i = 0; i < capacity && buckets[index] != null; i++) {
             // key를 만나면 해당 버킷 인덱스 반환
             if (buckets[index].key == key) {
                 // 앞서 삭제 표시를 만났으면 키-값 쌍을 그 위치로 이동

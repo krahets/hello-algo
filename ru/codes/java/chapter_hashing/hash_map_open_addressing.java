@@ -36,7 +36,7 @@ class HashMapOpenAddressing {
         int index = hashFunc(key);
         int firstTombstone = -1;
         // Линейное пробирование до первой пустой корзины
-        while (buckets[index] != null) {
+        for (int i = 0; i < capacity && buckets[index] != null; i++) {
             // При совпадении ключа key вернуть индекс его корзины
             if (buckets[index].key == key) {
                 // Если ранее встретилась метка удаления, переместить пару на её место
