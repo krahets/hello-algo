@@ -39,7 +39,7 @@ impl GraphAdjList {
     /* 간선 추가 */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            panic!("값 오류");
         }
         // 간선 vet1 - vet2 추가
         self.adj_list.entry(vet1).or_default().push(vet2);
@@ -50,7 +50,7 @@ impl GraphAdjList {
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            panic!("값 오류");
         }
         // 간선 vet1 - vet2 삭제
         self.adj_list

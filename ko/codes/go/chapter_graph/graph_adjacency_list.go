@@ -42,7 +42,7 @@ func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
-		panic("error")
+		panic("오류")
 	}
 	// 간선 vet1 - vet2 추가 시 익명 struct{} 추가
 	g.adjList[vet1] = append(g.adjList[vet1], vet2)
@@ -54,7 +54,7 @@ func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
-		panic("error")
+		panic("오류")
 	}
 	// 간선 vet1 - vet2 삭제
 	g.adjList[vet1] = DeleteSliceElms(g.adjList[vet1], vet2)
@@ -75,7 +75,7 @@ func (g *graphAdjList) addVertex(vet Vertex) {
 func (g *graphAdjList) removeVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if !ok {
-		panic("error")
+		panic("오류")
 	}
 	// 인접 리스트에서 정점 vet에 해당하는 연결 리스트 삭제
 	delete(g.adjList, vet)

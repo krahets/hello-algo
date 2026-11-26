@@ -97,7 +97,7 @@ func (h *maxHeap) siftUp(i int) {
 func (h *maxHeap) pop() any {
 	// 빈 힙 처리
 	if h.isEmpty() {
-		fmt.Println("error")
+		fmt.Println("오류")
 		return nil
 	}
 	// 루트와 맨 오른쪽 리프 교환(첫 원소와 마지막 원소 교환)

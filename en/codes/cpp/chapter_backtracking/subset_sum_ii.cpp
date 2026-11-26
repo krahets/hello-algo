@@ -55,7 +55,7 @@ int main() {
     cout << "Input array nums = ";
     printVector(nums);
     cout << "target = " << target << endl;
-    cout << "Subsets that sum to  " << target << " : res = " << endl;
+    cout << "Subsets that sum to " << target << " (res) = " << endl;
     printVectorMatrix(res);
 
     return 0;

@@ -97,7 +97,7 @@ func (h *maxHeap) siftUp(i int) {
 func (h *maxHeap) pop() any {
 	// 空の場合の処理
 	if h.isEmpty() {
-		fmt.Println("error")
+		fmt.Println("エラー")
 		return nil
 	}
 	// 根と最も右の葉（先頭要素と末尾要素）を交換する

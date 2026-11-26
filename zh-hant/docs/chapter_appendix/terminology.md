@@ -23,7 +23,7 @@
 | recursion tree                 | 遞迴樹         |
 | big-$O$ notation               | 大 $O$ 記號    |
 | asymptotic upper bound         | 漸近上界       |
-| sign-magnitude                 | 符號與大小表示法           |
+| sign-magnitude                 | 符號大小表示法           |
 | 1’s complement                 | 一補數           |
 | 2’s complement                 | 二補數           |
 | array                          | 陣列           |
@@ -52,7 +52,7 @@
 | hash function                  | 雜湊函式       |
 | hash collision                 | 雜湊碰撞       |
 | load factor                    | 負載因子       |
-| separate chaining              | 分離鏈結法       |
+| separate chaining              | 鏈結法（分離鏈結法）       |
 | open addressing                | 開放定址法       |
 | linear probing                 | 線性探測法       |
 | lazy deletion                  | 延遲刪除         |
@@ -72,7 +72,7 @@
 | depth                          | 深度           |
 | perfect binary tree            | 完美二元樹     |
 | complete binary tree           | 完全二元樹     |
-| full binary tree               | 嚴格二元樹     |
+| full binary tree               | 完滿二元樹（嚴格二元樹）     |
 | balanced binary tree           | 平衡二元樹     |
 | binary search tree             | 二元搜尋樹     |
 | AVL tree                       | AVL 樹         |

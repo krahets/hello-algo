@@ -42,7 +42,7 @@ func (g *graphAdjList) addEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
-		panic("error")
+		panic("エラー")
 	}
 	// 辺 vet1 - vet2 を追加し、無名の struct{} を追加する
 	g.adjList[vet1] = append(g.adjList[vet1], vet2)
@@ -54,7 +54,7 @@ func (g *graphAdjList) removeEdge(vet1 Vertex, vet2 Vertex) {
 	_, ok1 := g.adjList[vet1]
 	_, ok2 := g.adjList[vet2]
 	if !ok1 || !ok2 || vet1 == vet2 {
-		panic("error")
+		panic("エラー")
 	}
 	// 辺 vet1 - vet2 を削除する
 	g.adjList[vet1] = DeleteSliceElms(g.adjList[vet1], vet2)
@@ -75,7 +75,7 @@ func (g *graphAdjList) addVertex(vet Vertex) {
 func (g *graphAdjList) removeVertex(vet Vertex) {
 	_, ok := g.adjList[vet]
 	if !ok {
-		panic("error")
+		panic("エラー")
 	}
 	// 隣接リストから頂点 vet の連結リストを削除する
 	delete(g.adjList, vet)

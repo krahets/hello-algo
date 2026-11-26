@@ -65,8 +65,8 @@ public class n_queens {
         int n = 4;
         List<List<List<String>>> res = nQueens(n);
 
-        System.out.println("Board side length:  " + n);
-        System.out.println("Found  " + res.size() + "  queen arrangements");
+        System.out.println("Board side length: " + n);
+        System.out.println("Found " + res.size() + " queen arrangements");
         for (List<List<String>> state : res) {
             System.out.println("--------------------");
             for (List<String> row : state) {

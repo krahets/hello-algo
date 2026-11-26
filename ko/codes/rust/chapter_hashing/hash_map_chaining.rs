@@ -148,7 +148,7 @@ pub fn main() {
         "\n학번 13276으로 조회한 이름: {}",
         match map.get(13276) {
             Some(value) => value,
-            None => "Not a valid Key",
+            None => "유효하지 않은 키",
         }
     );
 

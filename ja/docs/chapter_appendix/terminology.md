@@ -90,7 +90,7 @@
 | min heap                       | 最小ヒープ         |
 | priority queue                 | 優先度付きキュー       |
 | heapify                        | ヒープ化           |
-| top-$k$ problem                | 上位 $k$ 個を求める問題   |
+| top-$k$ problem                | Top-k 問題   |
 | graph                          | グラフ             |
 | vertex                         | 頂点           |
 | undirected graph               | 無向グラフ         |

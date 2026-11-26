@@ -55,6 +55,6 @@ public class subset_sum_ii {
         List<List<Integer>> res = subsetSumII(nums, target);
 
         System.out.println("Input array nums = " + Arrays.toString(nums) + ", target = " + target);
-        System.out.println("Subsets that sum to  " + target + " : res = " + res);
+        System.out.println("Subsets that sum to " + target + " (res) = " + res);
     }
 }

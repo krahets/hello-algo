@@ -307,7 +307,7 @@
       "book_path": "chapter_divide_and_conquer/build_binary_tree_problem.assets/built_tree_step8.png",
       "explanation": "7을 만든 호출이 2로 반환하고 부모 호출이 2.right = 7을 실행한다. 현재 세 간선은 3.left = 9, 2.left = 1, 2.right = 7이다. 루트가 2인 서브트리가 완성되어 루트 3으로 반환할 준비가 되었다. 3과 2 사이에는 아직 간선이 없다.",
       "id": "source-324",
-      "key_state": "현재 3.left = 9가 연결되었다. 루트 2의 서브트리(왼쪽 1, 오른쪽 7)은 완성되었지만 2는 아직 3에 연결되지 않았다.",
+      "key_state": "현재 3.left = 9가 연결되었다. 루트 2의 서브트리(왼쪽 1, 오른쪽 7)는 완성되었지만 2는 아직 3에 연결되지 않았다.",
       "state_tables": [
         {
           "caption": "트리 구성 8단계: 노드 2의 오른쪽 서브트리를 연결한 뒤의 노드와 참조",

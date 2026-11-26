@@ -52,8 +52,8 @@ int main() {
     int n = 4;
     vector<vector<vector<string>>> res = nQueens(n);
 
-    cout << "Board side length:  " << n << endl;
-    cout << "Found  " << res.size() << "  queen arrangements" << endl;
+    cout << "Board side length: " << n << endl;
+    cout << "Found " << res.size() << " queen arrangements" << endl;
     for (const vector<vector<string>> &state : res) {
         cout << "--------------------" << endl;
         for (const vector<string> &row : state) {

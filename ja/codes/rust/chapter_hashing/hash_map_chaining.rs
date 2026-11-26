@@ -148,7 +148,7 @@ pub fn main() {
         "\n学籍番号 13276 に対応する名前は {}",
         match map.get(13276) {
             Some(value) => value,
-            None => "Not a valid Key",
+            None => "有効なキーではありません",
         }
     );
 

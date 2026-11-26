@@ -39,7 +39,7 @@ impl GraphAdjList {
     /* 辺を追加する */
     pub fn add_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            panic!("値のエラー");
         }
         // 辺 vet1 - vet2 を追加する
         self.adj_list.entry(vet1).or_default().push(vet2);
@@ -50,7 +50,7 @@ impl GraphAdjList {
     #[allow(unused)]
     pub fn remove_edge(&mut self, vet1: Vertex, vet2: Vertex) {
         if vet1 == vet2 {
-            panic!("value error");
+            panic!("値のエラー");
         }
         // 辺 vet1 - vet2 を削除する
         self.adj_list

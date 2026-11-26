@@ -35,7 +35,7 @@ func (a *arrayHashMap) get(key int) string {
 	index := a.hashFunc(key)
 	pair := a.buckets[index]
 	if pair == nil {
-		return "Not Found"
+		return "찾을 수 없음"
 	}
 	return pair.val
 }

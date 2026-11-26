@@ -64,8 +64,8 @@ public class n_queens {
         int n = 4;
         List<List<List<string>>> res = NQueens(n);
 
-        Console.WriteLine("Board side length:  " + n);
-        Console.WriteLine("Found  " + res.Count + "  queen arrangements");
+        Console.WriteLine("Board side length: " + n);
+        Console.WriteLine("Found " + res.Count + " queen arrangements");
         foreach (List<List<string>> state in res) {
             Console.WriteLine("--------------------");
             foreach (List<string> row in state) {

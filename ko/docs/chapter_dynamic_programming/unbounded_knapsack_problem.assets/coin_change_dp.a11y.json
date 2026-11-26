@@ -78,7 +78,7 @@
     {
       "announcement": "0으로 채운 4×5 초기 dp 테이블을 만든다. 다음에 첫 행의 도달 불가 경계 MAX를 설정한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step1.png",
-      "explanation": "세 종류의 동전(액면가 1, 2, 5)와 목표 금액 4에 맞춰 4×5 dp 테이블을 만든다(행 i = 0~3, 열 a = 0~4). 처음 할당할 때 모든 칸의 기본값은 0이다. 첫 열의 금액 0에는 동전 0개가 필요하므로 그 0은 이미 설정한 경곗값이다. 양의 금액 칸의 0은 계산 전 초깃값이며 다음 단계에서 첫 행에 도달 불가 경계 MAX를 설정한다.",
+      "explanation": "세 종류의 동전(액면가 1, 2, 5)과 목표 금액 4에 맞춰 4×5 dp 테이블을 만든다(행 i = 0~3, 열 a = 0~4). 처음 할당할 때 모든 칸의 기본값은 0이다. 첫 열의 금액 0에는 동전 0개가 필요하므로 그 0은 이미 설정한 경곗값이다. 양의 금액 칸의 0은 계산 전 초깃값이며 다음 단계에서 첫 행에 도달 불가 경계 MAX를 설정한다.",
       "id": "source-426",
       "key_state": "4×5 초기 표는 모두 0이다. 첫 열은 설정된 경곗값 0, 양의 금액 칸은 계산 전 초깃값 0이며 첫 행의 MAX 경계는 아직 설정 전이다.",
       "state_tables": [
@@ -246,7 +246,7 @@
     {
       "announcement": "dp[1, 2] 계산(액면가 1, 금액 2): 같은 행의 dp[1, 1]을 재사용해 1을 더하고 두 개를 기록한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step4.png",
-      "explanation": "첫 동전(액면가 1)로 a = 2의 dp[1, 2]를 구한다. 제외하면 바로 위 dp[0, 2] = MAX(도달 불가)이고, 하나 넣으면 같은 행에서 방금 계산한 왼쪽 값 dp[1, 1] = 1에 1을 더해 2이다(1위안 동전 두 개). min(MAX, 2) = 2를 골라 dp[1, 2] = 2를 기록한다.",
+      "explanation": "첫 동전(액면가 1)으로 a = 2의 dp[1, 2]를 구한다. 제외하면 바로 위 dp[0, 2] = MAX(도달 불가)이고, 하나 넣으면 같은 행에서 방금 계산한 왼쪽 값 dp[1, 1] = 1에 1을 더해 2이다(1위안 동전 두 개). min(MAX, 2) = 2를 골라 dp[1, 2] = 2를 기록한다.",
       "id": "source-429",
       "key_state": "dp[1, 2](액면가 1, 금액 2): min(MAX, dp[1, 1] + 1) = 2이므로 최소 2개다.",
       "state_tables": [
@@ -302,7 +302,7 @@
     {
       "announcement": "dp[1, 3] 계산(액면가 1, 금액 3): 같은 행의 dp[1, 2]에 1을 더해 세 개를 기록한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step5.png",
-      "explanation": "첫 동전(액면가 1)로 a = 3의 dp[1, 3]을 구한다. 제외하면 바로 위 dp[0, 3] = MAX(도달 불가)이고, 하나 넣으면 같은 행 왼쪽의 dp[1, 2] = 2에 1을 더해 3이다(1위안 동전 세 개). min(MAX, 3) = 3을 골라 dp[1, 3] = 3을 기록한다.",
+      "explanation": "첫 동전(액면가 1)으로 a = 3의 dp[1, 3]을 구한다. 제외하면 바로 위 dp[0, 3] = MAX(도달 불가)이고, 하나 넣으면 같은 행 왼쪽의 dp[1, 2] = 2에 1을 더해 3이다(1위안 동전 세 개). min(MAX, 3) = 3을 골라 dp[1, 3] = 3을 기록한다.",
       "id": "source-430",
       "key_state": "dp[1, 3](액면가 1, 금액 3): min(MAX, dp[1, 2] + 1) = 3이므로 최소 3개다.",
       "state_tables": [
@@ -358,7 +358,7 @@
     {
       "announcement": "dp[1, 4] 계산(액면가 1, 금액 4): 같은 행의 dp[1, 3]에 1을 더해 네 개를 얻고 1행을 완성한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step6.png",
-      "explanation": "첫 동전(액면가 1)로 a = 4의 dp[1, 4]를 구한다. 제외하면 바로 위 dp[0, 4] = MAX(도달 불가)이고, 하나 넣으면 같은 행 왼쪽의 dp[1, 3] = 3에 1을 더해 4이다(1위안 동전 네 개). min(MAX, 4) = 4를 dp[1, 4]에 기록하면 1행이 완성된다.",
+      "explanation": "첫 동전(액면가 1)으로 a = 4의 dp[1, 4]를 구한다. 제외하면 바로 위 dp[0, 4] = MAX(도달 불가)이고, 하나 넣으면 같은 행 왼쪽의 dp[1, 3] = 3에 1을 더해 4이다(1위안 동전 네 개). min(MAX, 4) = 4를 dp[1, 4]에 기록하면 1행이 완성된다.",
       "id": "source-431",
       "key_state": "dp[1, 4](액면가 1, 금액 4): min(MAX, dp[1, 3] + 1) = 4로 1행을 완성한다.",
       "state_tables": [
@@ -414,7 +414,7 @@
     {
       "announcement": "dp[2, 1] 계산(액면가 2, 금액 1): 액면가가 금액을 넘어 이전 행의 값 1을 그대로 이어받는다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step7.png",
-      "explanation": "2행에서 두 번째 동전(액면가 2)를 도입해 a = 1의 dp[2, 1]을 계산한다. 액면가 2가 금액 1보다 커서 2위안 동전을 넣을 수 없다. 바로 위 dp[1, 1] = 1을 이어받아 dp[2, 1] = 1을 기록한다.",
+      "explanation": "2행에서 두 번째 동전(액면가 2)을 도입해 a = 1의 dp[2, 1]을 계산한다. 액면가 2가 금액 1보다 커서 2위안 동전을 넣을 수 없다. 바로 위 dp[1, 1] = 1을 이어받아 dp[2, 1] = 1을 기록한다.",
       "id": "source-432",
       "key_state": "dp[2, 1](액면가 2, 금액 1): 액면가 2가 금액 1보다 커서 위쪽의 dp[1, 1] = 1을 이어받는다.",
       "state_tables": [
@@ -470,7 +470,7 @@
     {
       "announcement": "dp[2, 2] 계산(액면가 2, 금액 2): 2위안 동전 한 개가 제외할 때의 두 개보다 적으므로 1을 기록한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step8.png",
-      "explanation": "두 번째 동전(액면가 2)로 a = 2를 처리한다. 2위안을 제외하면 바로 위 dp[1, 2] = 2(1위안 동전 두 개)이다. 넣으면 같은 행 왼쪽 경곗값 dp[2, 0] = 0에 1을 더해 1(2위안 동전 한 개)이다. min(2, 1) = 1을 골라 dp[2, 2] = 1을 기록한다.",
+      "explanation": "두 번째 동전(액면가 2)으로 a = 2를 처리한다. 2위안을 제외하면 바로 위 dp[1, 2] = 2(1위안 동전 두 개)이다. 넣으면 같은 행 왼쪽 경곗값 dp[2, 0] = 0에 1을 더해 1(2위안 동전 한 개)이다. min(2, 1) = 1을 골라 dp[2, 2] = 1을 기록한다.",
       "id": "source-433",
       "key_state": "dp[2, 2](액면가 2, 금액 2): min(2, dp[2, 0] + 1) = 1이므로 2위안 동전 한 개를 고른다.",
       "state_tables": [
@@ -526,7 +526,7 @@
     {
       "announcement": "dp[2, 3] 계산(액면가 2, 금액 3): dp[2, 1] = 1에 2위안 동전 한 개를 더해 최소 개수 2를 기록한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step9.png",
-      "explanation": "두 번째 동전(액면가 2)로 a = 3을 처리한다. 2위안을 제외하면 바로 위 dp[1, 3] = 3(1위안 동전 세 개)이다. 넣으면 같은 행 왼쪽 dp[2, 1] = 1(1위안 한 개)에 1을 더해 2(1위안, 2위안 각 한 개)이다. min(3, 2) = 2를 골라 dp[2, 3] = 2를 기록한다.",
+      "explanation": "두 번째 동전(액면가 2)으로 a = 3을 처리한다. 2위안을 제외하면 바로 위 dp[1, 3] = 3(1위안 동전 세 개)이다. 넣으면 같은 행 왼쪽 dp[2, 1] = 1(1위안 한 개)에 1을 더해 2(1위안, 2위안 각 한 개)이다. min(3, 2) = 2를 골라 dp[2, 3] = 2를 기록한다.",
       "id": "source-434",
       "key_state": "dp[2, 3](액면가 2, 금액 3): min(3, dp[2, 1] + 1) = 2로 1위안과 2위안 동전이 총 두 개다.",
       "state_tables": [
@@ -582,7 +582,7 @@
     {
       "announcement": "dp[2, 4] 계산(액면가 2, 금액 4): 같은 행의 dp[2, 2] = 1을 재사용해 2위안 동전을 하나 더하고 두 개를 기록한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step10.png",
-      "explanation": "두 번째 동전(액면가 2)로 a = 4를 처리한다. 2위안을 제외하면 바로 위 dp[1, 4] = 4(1위안 동전 네 개)이다. 넣으면 같은 행에서 이미 갱신한 왼쪽 dp[2, 2] = 1(2위안 한 개 포함)에 1을 더해 2(2위안 동전 두 개)이다. min(4, 2) = 2를 dp[2, 4]에 기록해 2행을 완성한다. 같은 행의 왼쪽에서 전이하면 같은 종류의 동전을 다시 선택할 수 있음을 보여 준다.",
+      "explanation": "두 번째 동전(액면가 2)으로 a = 4를 처리한다. 2위안을 제외하면 바로 위 dp[1, 4] = 4(1위안 동전 네 개)이다. 넣으면 같은 행에서 이미 갱신한 왼쪽 dp[2, 2] = 1(2위안 한 개 포함)에 1을 더해 2(2위안 동전 두 개)이다. min(4, 2) = 2를 dp[2, 4]에 기록해 2행을 완성한다. 같은 행의 왼쪽에서 전이하면 같은 종류의 동전을 다시 선택할 수 있음을 보여 준다.",
       "id": "source-435",
       "key_state": "dp[2, 4](액면가 2, 금액 4): 같은 행의 dp[2, 2] + 1 = 2(2위안 동전 두 개)를 재사용하여 2행을 완성한다.",
       "state_tables": [
@@ -638,7 +638,7 @@
     {
       "announcement": "dp[3, 1] 계산(액면가 5, 금액 1): 액면가가 금액을 넘어 이전 행의 값 1을 그대로 이어받는다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step11.png",
-      "explanation": "3행에서 세 번째 동전(액면가 5)를 도입해 a = 1의 dp[3, 1]을 계산한다. 액면가 5가 금액 1보다 커서 5위안 동전을 넣을 수 없다. 바로 위 dp[2, 1] = 1을 이어받아 dp[3, 1] = 1을 기록한다.",
+      "explanation": "3행에서 세 번째 동전(액면가 5)을 도입해 a = 1의 dp[3, 1]을 계산한다. 액면가 5가 금액 1보다 커서 5위안 동전을 넣을 수 없다. 바로 위 dp[2, 1] = 1을 이어받아 dp[3, 1] = 1을 기록한다.",
       "id": "source-436",
       "key_state": "dp[3, 1](액면가 5, 금액 1): 액면가 5가 금액 1보다 커서 위쪽의 dp[2, 1] = 1을 이어받는다.",
       "state_tables": [
@@ -694,7 +694,7 @@
     {
       "announcement": "dp[3, 2] 계산(액면가 5, 금액 2): 액면가가 금액을 넘어 이전 행의 값 1을 그대로 이어받는다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step12.png",
-      "explanation": "세 번째 동전(액면가 5)로 a = 2를 처리한다. 액면가 5는 여전히 금액 2보다 커서 5위안 동전을 넣을 수 없다. 바로 위 dp[2, 2] = 1을 이어받아 dp[3, 2] = 1을 기록한다.",
+      "explanation": "세 번째 동전(액면가 5)으로 a = 2를 처리한다. 액면가 5는 여전히 금액 2보다 커서 5위안 동전을 넣을 수 없다. 바로 위 dp[2, 2] = 1을 이어받아 dp[3, 2] = 1을 기록한다.",
       "id": "source-437",
       "key_state": "dp[3, 2](액면가 5, 금액 2): 액면가 5가 금액 2보다 커서 위쪽의 dp[2, 2] = 1을 이어받는다.",
       "state_tables": [
@@ -750,7 +750,7 @@
     {
       "announcement": "dp[3, 3] 계산(액면가 5, 금액 3): 액면가가 금액을 넘어 이전 행의 값 2를 그대로 이어받는다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step13.png",
-      "explanation": "세 번째 동전(액면가 5)로 a = 3을 처리한다. 액면가 5가 금액 3보다 커서 5위안 동전을 넣을 수 없다. 바로 위 dp[2, 3] = 2를 이어받아 dp[3, 3] = 2를 기록한다.",
+      "explanation": "세 번째 동전(액면가 5)으로 a = 3을 처리한다. 액면가 5가 금액 3보다 커서 5위안 동전을 넣을 수 없다. 바로 위 dp[2, 3] = 2를 이어받아 dp[3, 3] = 2를 기록한다.",
       "id": "source-438",
       "key_state": "dp[3, 3](액면가 5, 금액 3): 액면가 5가 금액 3보다 커서 위쪽의 dp[2, 3] = 2를 이어받는다.",
       "state_tables": [
@@ -806,7 +806,7 @@
     {
       "announcement": "dp[3, 4] 계산(액면가 5, 금액 4): 액면가 5가 금액 4보다 커서 이전 행의 결과 2를 이어받고 표 전체를 완성한다.",
       "book_path": "chapter_dynamic_programming/unbounded_knapsack_problem.assets/coin_change_dp_step14.png",
-      "explanation": "세 번째 동전(액면가 5)로 오른쪽 아래 목표 금액 a = 4를 처리한다. 액면가가 금액 4보다 커서 5위안을 넣을 수 없다. 바로 위의 앞선 두 종류 동전으로 구한 dp[2, 4] = 2(2위안 두 개로 4위안)를 이어받아 dp[3, 4] = 2를 기록하면 표 전체가 완성된다.",
+      "explanation": "세 번째 동전(액면가 5)으로 오른쪽 아래 목표 금액 a = 4를 처리한다. 액면가가 금액 4보다 커서 5위안을 넣을 수 없다. 바로 위의 앞선 두 종류 동전으로 구한 dp[2, 4] = 2(2위안 두 개로 4위안)를 이어받아 dp[3, 4] = 2를 기록하면 표 전체가 완성된다.",
       "id": "source-439",
       "key_state": "dp[3, 4](액면가 5, 금액 4): 액면가가 금액보다 커서 위쪽 dp[2, 4] = 2를 이어받는다. 표 전체가 완성된다.",
       "state_tables": [

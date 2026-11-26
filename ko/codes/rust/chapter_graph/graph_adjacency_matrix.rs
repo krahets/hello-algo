@@ -53,7 +53,7 @@ impl GraphAdjMat {
     /* 정점 삭제 */
     pub fn remove_vertex(&mut self, index: usize) {
         if index >= self.size() {
-            panic!("index error")
+            panic!("인덱스 오류")
         }
         // 정점 리스트에서 인덱스가 index인 정점 삭제
         self.vertices.remove(index);
@@ -70,7 +70,7 @@ impl GraphAdjMat {
         // 매개변수 i, j는 vertices의 원소 인덱스
         // 인덱스가 범위를 벗어나거나 서로 같은 경우 처리
         if i >= self.size() || j >= self.size() || i == j {
-            panic!("index error")
+            panic!("인덱스 오류")
         }
         // 무방향 그래프의 인접 행렬은 주대각선을 기준으로 대칭이므로 (i, j) == (j, i)
         self.adj_mat[i][j] = 1;
@@ -83,7 +83,7 @@ impl GraphAdjMat {
         // 매개변수 i, j는 vertices의 원소 인덱스
         // 인덱스가 범위를 벗어나거나 서로 같은 경우 처리
         if i >= self.size() || j >= self.size() || i == j {
-            panic!("index error")
+            panic!("인덱스 오류")
         }
         self.adj_mat[i][j] = 0;
         self.adj_mat[j][i] = 0;

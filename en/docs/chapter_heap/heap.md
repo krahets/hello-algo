@@ -39,7 +39,7 @@ Much as a sort can be set to ascending or descending order, we can switch betwee
 heap_operations
 ```
 
-??? pythontutor "Run the visualization"
+??? pythontutor "Visualize execution"
 
     @tutor heap_operations_tutor
 

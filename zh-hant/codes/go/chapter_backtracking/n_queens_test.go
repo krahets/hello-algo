@@ -13,8 +13,8 @@ func TestNQueens(t *testing.T) {
 	n := 4
 	res := nQueens(n)
 
-	fmt.Println("輸入棋盤的邊長為 ", n)
-	fmt.Println("皇后擺法共有 ", len(res), " 種")
+	fmt.Println("輸入棋盤的邊長為", n)
+	fmt.Println("皇后擺法共有", len(res), "種")
 	for _, state := range res {
 		fmt.Println("--------------------")
 		for _, row := range state {

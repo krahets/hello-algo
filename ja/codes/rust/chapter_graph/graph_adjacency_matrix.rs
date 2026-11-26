@@ -53,7 +53,7 @@ impl GraphAdjMat {
     /* 頂点を削除する */
     pub fn remove_vertex(&mut self, index: usize) {
         if index >= self.size() {
-            panic!("index error")
+            panic!("インデックスのエラー")
         }
         // 頂点リストからインデックス index の頂点を削除する
         self.vertices.remove(index);
@@ -70,7 +70,7 @@ impl GraphAdjMat {
         // 引数 i と j は vertices の要素のインデックス
         // インデックスが範囲外または同じ値の場合の処理
         if i >= self.size() || j >= self.size() || i == j {
-            panic!("index error")
+            panic!("インデックスのエラー")
         }
         // 無向グラフの隣接行列は主対角線に関して対称で、(i, j) == (j, i) を満たす
         self.adj_mat[i][j] = 1;
@@ -83,7 +83,7 @@ impl GraphAdjMat {
         // 引数 i と j は vertices の要素のインデックス
         // インデックスが範囲外または同じ値の場合の処理
         if i >= self.size() || j >= self.size() || i == j {
-            panic!("index error")
+            panic!("インデックスのエラー")
         }
         self.adj_mat[i][j] = 0;
         self.adj_mat[j][i] = 0;
